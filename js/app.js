@@ -1780,7 +1780,7 @@
 
   /* ---------- 錯題本 ---------- */
 
-  var wb = { time: 'all', cat: 'all', edit: false, sel: {} };
+  var wb = { time: 'all', cat: 'all', lesson: 'all', diff: 'all', kw: '', edit: false, sel: {} };
 
   function wrongFiltered() {
     var cut = 0;
@@ -1790,7 +1790,24 @@
     else if (wb.time === '30d') cut = now - 30 * 86400000;
     return state.wrong.filter(function (w) {
       if (wb.cat !== 'all' && w.t !== wb.cat) return false;
-      return (w.lastWrong || w.added || 0) >= cut;
+      if ((w.lastWrong || w.added || 0) < cut) return false;
+      if (wb.lesson !== 'all') {
+        if (w.t !== 'custom') return false;
+        var itL = findItem(w.t, w.id);
+        if (!itL || ((itL.book || '未分類') + '|' + (itL.lesson || '未分類')) !== wb.lesson) return false;
+      }
+      if (wb.diff !== 'all') {
+        var itD = findItem(w.t, w.id);
+        if (!itD || itemDiff(itD) !== wb.diff) return false;
+      }
+      if (wb.kw) {
+        var it = findItem(w.t, w.id);
+        if (!it) return false;
+        var hay = [it.term, it.word, it.target, it.answer, it.sentence, it.meaning, it.note, it.q, it.title, it.tag]
+          .filter(Boolean).join(' ').toLowerCase();
+        if (hay.indexOf(wb.kw.toLowerCase()) < 0) return false;
+      }
+      return true;
     }).sort(function (a, b) { return (b.lastWrong || 0) - (a.lastWrong || 0); });
   }
 
@@ -1823,6 +1840,53 @@
       b.addEventListener('click', function () { wb.cat = t[0]; showWrongbook(); });
       f.appendChild(b);
     });
+    // 課別篩選（自創題庫的冊·課，有錯題才顯示）
+    var lessons = {};
+    state.wrong.forEach(function (w) {
+      if (w.t !== 'custom') return;
+      var it = findItem(w.t, w.id);
+      if (!it) return;
+      var key = (it.book || '未分類') + '|' + (it.lesson || '未分類');
+      lessons[key] = (it.book || '未分類') + '·' + (it.lesson || '未分類');
+    });
+    var lkeys = Object.keys(lessons).sort();
+    if (lkeys.length) {
+      if (wb.lesson !== 'all' && !lessons[wb.lesson]) wb.lesson = 'all';
+      var lrow = document.createElement('div');
+      lrow.className = 'gp-quick unit-grades';
+      [['all', '全部課別']].concat(lkeys.map(function (k) { return [k, lessons[k]]; })).forEach(function (t) {
+        var b = document.createElement('button');
+        b.className = 'chip' + (wb.lesson === t[0] ? ' active' : '');
+        b.textContent = t[1];
+        b.addEventListener('click', function () { wb.lesson = t[0]; showWrongbook(); });
+        lrow.appendChild(b);
+      });
+      f.appendChild(lrow);
+    } else wb.lesson = 'all';
+    // 難易度篩選（自創題庫用原標示，其他題庫依年級推）
+    var drow = document.createElement('div');
+    drow.className = 'gp-quick';
+    [['all', '全部難度'], ['易', '易'], ['中', '中'], ['難', '難']].forEach(function (t) {
+      var b = document.createElement('button');
+      b.className = 'chip' + (wb.diff === t[0] ? ' active' : '');
+      b.textContent = t[1];
+      b.addEventListener('click', function () { wb.diff = t[0]; showWrongbook(); });
+      drow.appendChild(b);
+    });
+    f.appendChild(drow);
+    // 關鍵字篩選（即時過濾，不重建輸入框以保留游標）
+    var kw = document.createElement('input');
+    kw.type = 'search';
+    kw.className = 'wb-kw';
+    kw.placeholder = '🔍 關鍵字篩選（詞語、題目、意思…）';
+    kw.value = wb.kw;
+    kw.addEventListener('input', function () { wb.kw = kw.value.trim(); renderWrongItems(); });
+    f.appendChild(kw);
+    renderWrongItems();
+  }
+
+  // 錯題本工具列＋清單（依 wb 篩選條件重繪；關鍵字輸入時只重繪這一段）
+  function renderWrongItems() {
     // 工具列
     var tools = $('wrongTools');
     tools.innerHTML = '';

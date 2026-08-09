@@ -301,6 +301,12 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
 .s-detail .q-img { margin-top: 0.5rem; }
 .s-actions { margin-top: 0.55rem; display: flex; gap: 0.5rem; }
 .s-more { color: var(--dim); font-size: 0.85rem; padding: 0.2rem 0.2rem 0.6rem; }
+.wb-kw {
+  width: 100%; padding: 0.45rem 0.8rem; margin: 0.35rem 0 0.2rem;
+  border-radius: 10px; border: 1px solid var(--border);
+  background: var(--panel); color: var(--text); font-size: 0.9rem;
+}
+.wb-kw:focus { outline: none; border-color: var(--accent); }
 .wrong-item {
   background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
   padding: 0.8rem; font-size: 0.95rem; line-height: 1.6;
