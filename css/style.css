@@ -23,17 +23,25 @@ body {
 
 .topbar {
   display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; row-gap: 0.4rem;
   padding: 0.8rem 1rem;
   background: var(--panel);
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0; z-index: 10;
 }
-.topbar h1 { font-size: 1.15rem; cursor: pointer; }
-.topbar-controls { display: flex; gap: 0.5rem; align-items: center; }
+.topbar h1 { font-size: 1.15rem; cursor: pointer; white-space: nowrap; }
+.topbar-controls { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
 .chip {
   background: var(--panel2); color: var(--text);
   border: 1px solid var(--border); border-radius: 999px;
   padding: 0.35rem 0.9rem; font-size: 0.9rem; cursor: pointer;
+  white-space: nowrap; line-height: 1.4;
+}
+@media (max-width: 480px) {
+  .topbar { padding: 0.55rem 0.7rem; }
+  .topbar h1 { font-size: 1rem; }
+  .topbar-controls { gap: 0.35rem; }
+  .topbar-controls .chip { padding: 0.28rem 0.6rem; font-size: 0.8rem; }
 }
 .chip.active { background: var(--accent); border-color: var(--accent); }
 
