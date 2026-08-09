@@ -1095,6 +1095,48 @@
 
   var SEARCH_CAP = 30;
   var searchTimer = null;
+  var searchFilter = { grade: 'all', diff: 'all' };
+
+  // 難易度：自創題庫有標的用原標示，其他題庫依年級推（國小=易、國中=中、高中=難）
+  function itemDiff(it) {
+    if (it.diff) return it.diff;
+    if (!it.grade) return null;
+    return it.grade <= 6 ? '易' : it.grade <= 9 ? '中' : '難';
+  }
+  function searchFilterOk(it) {
+    var g = searchFilter.grade;
+    if (g !== 'all' && it.grade) {
+      if (g === 'mine') { if (state.grades.indexOf(it.grade) < 0) return false; }
+      else if (g === 'elem') { if (it.grade > 6) return false; }
+      else if (g === 'jr') { if (it.grade < 7 || it.grade > 9) return false; }
+      else if (g === 'sr') { if (it.grade < 10) return false; }
+    }
+    if (searchFilter.diff !== 'all') {
+      var dv = itemDiff(it);
+      if (dv && dv !== searchFilter.diff) return false;
+    }
+    return true;
+  }
+  (function initSearchFilters() {
+    function buildRow(rowId, key, opts) {
+      var row = $(rowId);
+      opts.forEach(function (o) {
+        var b = document.createElement('button');
+        b.className = 'chip' + (searchFilter[key] === o[0] ? ' active' : '');
+        b.type = 'button';
+        b.textContent = o[1];
+        b.addEventListener('click', function () {
+          searchFilter[key] = o[0];
+          row.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('active'); });
+          b.classList.add('active');
+          doSearch();
+        });
+        row.appendChild(b);
+      });
+    }
+    buildRow('searchGradeRow', 'grade', [['all', '全部年級'], ['mine', '我的年級'], ['elem', '國小'], ['jr', '國中'], ['sr', '高中']]);
+    buildRow('searchDiffRow', 'diff', [['all', '全部難度'], ['易', '易'], ['中', '中'], ['難', '難']]);
+  })();
 
   function searchDefs() {
     var defs = [
@@ -1123,7 +1165,7 @@
     var total = 0;
     searchDefs().forEach(function (def) {
       var hits = (DATA[def.t] || []).filter(function (it) {
-        return def.fields(it).some(function (f) {
+        return searchFilterOk(it) && def.fields(it).some(function (f) {
           return f != null && String(f).toLowerCase().indexOf(low) >= 0;
         });
       });
@@ -1141,7 +1183,9 @@
         box.appendChild(more);
       }
     });
-    $('searchHint').textContent = total ? '共找到 ' + total + ' 筆' : '找不到「' + kw + '」，換個關鍵字試試（可以搜詞語、意思、例句或注音）';
+    var filtered = searchFilter.grade !== 'all' || searchFilter.diff !== 'all';
+    $('searchHint').textContent = total ? '共找到 ' + total + ' 筆' + (filtered ? '（已套用篩選）' : '')
+      : '找不到「' + kw + '」' + (filtered ? '，試著放寬年級／難度篩選' : '，換個關鍵字試試（可以搜詞語、意思、例句或注音）');
   }
 
   function searchItemEl(t, it, kw) {
@@ -1160,6 +1204,7 @@
       sub = meta;
     }
     var gradeTag = it.grade ? '<span class="s-grade">' + gradeLabel(it.grade) + '</span>' : '';
+    if (it.diff) gradeTag += '<span class="s-grade">' + escHtml(it.diff) + '</span>';
     d.innerHTML = '<div class="s-head"><span class="s-title">' + hiHtml(title, kw) + '</span>' +
       (zy ? '<span class="s-zy">' + escHtml(zy) + '</span>' : '') + gradeTag + '</div>' +
       (sub ? '<div class="s-sub">' + hiHtml(sub, kw) + '</div>' : '');
