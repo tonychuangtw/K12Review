@@ -307,6 +307,11 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
   background: var(--panel); color: var(--text); font-size: 0.9rem;
 }
 .wb-kw:focus { outline: none; border-color: var(--accent); }
+@keyframes syncFlash {
+  0%, 100% { box-shadow: none; transform: scale(1); }
+  50% { box-shadow: 0 0 0 6px rgba(91, 141, 239, 0.45); transform: scale(1.12); }
+}
+.sync-flash { animation: syncFlash 0.8s ease-in-out 3; border-radius: 999px; }
 .wrong-item {
   background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
   padding: 0.8rem; font-size: 0.95rem; line-height: 1.6;

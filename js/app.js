@@ -584,7 +584,7 @@
         var go = document.createElement('button');
         go.className = 'btn-primary';
         go.textContent = '開始練習';
-        go.addEventListener('click', function () { startSubjectQuiz(subj.key); });
+        go.addEventListener('click', function () { if (needLogin()) return; startSubjectQuiz(subj.key); });
         ph.appendChild(go);
       }
       renderGradeBtn();
@@ -722,9 +722,22 @@
   })();
   applyTheme();
 
+  // 強制登入（2026-08-09 Tony 要求）：未登入不能開始做題，先提示並觸發 Google 登入。
+  // 只擋「開始練習」的入口，不擋做到一半的人（token 一小時過期，重新整理會自動續登）。
+  function needLogin() {
+    if (!window.CloudSync) return false;            // sync.js 沒載入（本機開發）不擋
+    if (CloudSync.signedIn()) return false;
+    setStatusToast('要先登入才能開始練習！點右上角的「登入」，紀錄才會同步、家長週報才看得到 👆');
+    CloudSync.promptLogin();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return true;
+  }
+  var LOGIN_GATED = ['daily', 'review', 'idioms', 'slang', 'phonics', 'chars', 'drill', 'custom', 'units', 'reading', 'write', 'flash'];
+
   document.querySelectorAll('.card').forEach(function (c) {
     c.addEventListener('click', function () {
       var go = c.getAttribute('data-go');
+      if (LOGIN_GATED.indexOf(go) >= 0 && needLogin()) return;
       if (go === 'idioms' || go === 'slang' || go === 'phonics' || go === 'chars') startQuiz(go, null);
       else if (go === 'daily') startDaily();
       else if (go === 'reading') startReading();
@@ -1248,6 +1261,7 @@
       go.textContent = t === 'reading' ? '✏️ 做這篇的題目（' + it.questions.length + ' 題）' : '✏️ 做這題';
       go.addEventListener('click', function (e) {
         e.stopPropagation();
+        if (needLogin()) return;
         startSearchQuiz(t, it);
       });
       acts.appendChild(go);
@@ -1971,6 +1985,7 @@
     });
   }
   $('wrongRetry').addEventListener('click', function () {
+    if (needLogin()) return;
     var entries = wrongFiltered().map(function (w) { return { t: w.t, id: w.id }; });
     if (!entries.length) { setStatusToast('這個範圍沒有錯題'); return; }
     beginQuiz(shuffle(entries).slice(0, 20), 'retry', null);

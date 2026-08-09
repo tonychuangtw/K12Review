@@ -205,7 +205,18 @@
   }
 
   // 給家長儀表板用的最小介面（授權管理 grants API 走這裡拿 token）
-  window.CloudSync = { signedIn: signedIn, token: token, apiBase: API_BASE };
+  // 觸發 Google One Tap 登入提示（強制登入守門用，2026-08-09）
+  function promptLogin() {
+    try {
+      if (window.google && google.accounts && google.accounts.id) google.accounts.id.prompt();
+    } catch (e) {}
+    var pill = document.querySelector(".sync-login-wrap, .sync-ui");
+    if (pill) {
+      pill.classList.add("sync-flash");
+      setTimeout(function () { pill.classList.remove("sync-flash"); }, 2400);
+    }
+  }
+  window.CloudSync = { signedIn: signedIn, token: token, apiBase: API_BASE, promptLogin: promptLogin };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);
