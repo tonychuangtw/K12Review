@@ -1095,7 +1095,7 @@
 
   var SEARCH_CAP = 30;
   var searchTimer = null;
-  var searchFilter = { grade: 'all', diff: 'all' };
+  var searchFilter = { grade: 'all', diff: [] }; // diff 可複選；空陣列＝不限
 
   // 難易度：自創題庫有標的用原標示，其他題庫依年級推（國小=易、國中=中、高中=難）
   function itemDiff(it) {
@@ -1111,9 +1111,9 @@
       else if (g === 'jr') { if (it.grade < 7 || it.grade > 9) return false; }
       else if (g === 'sr') { if (it.grade < 10) return false; }
     }
-    if (searchFilter.diff !== 'all') {
+    if (searchFilter.diff.length) {
       var dv = itemDiff(it);
-      if (dv && dv !== searchFilter.diff) return false;
+      if (dv && searchFilter.diff.indexOf(dv) < 0) return false;
     }
     return true;
   }
@@ -1135,7 +1135,33 @@
       });
     }
     buildRow('searchGradeRow', 'grade', [['all', '全部年級'], ['mine', '我的年級'], ['elem', '國小'], ['jr', '國中'], ['sr', '高中']]);
-    buildRow('searchDiffRow', 'diff', [['all', '全部難度'], ['易', '易'], ['中', '中'], ['難', '難']]);
+    // 難易度可複選：點易/中/難切換勾選，「全部難度」清空
+    var diffRow = $('searchDiffRow');
+    var diffOpts = [['all', '全部難度'], ['易', '易'], ['中', '中'], ['難', '難']];
+    function paintDiff() {
+      diffRow.querySelectorAll('.chip').forEach(function (c) {
+        var v = c.getAttribute('data-v');
+        c.classList.toggle('active', v === 'all' ? !searchFilter.diff.length : searchFilter.diff.indexOf(v) >= 0);
+      });
+    }
+    diffOpts.forEach(function (o) {
+      var b = document.createElement('button');
+      b.className = 'chip';
+      b.type = 'button';
+      b.textContent = o[1];
+      b.setAttribute('data-v', o[0]);
+      b.addEventListener('click', function () {
+        if (o[0] === 'all') searchFilter.diff = [];
+        else {
+          var i = searchFilter.diff.indexOf(o[0]);
+          if (i >= 0) searchFilter.diff.splice(i, 1); else searchFilter.diff.push(o[0]);
+        }
+        paintDiff();
+        doSearch();
+      });
+      diffRow.appendChild(b);
+    });
+    paintDiff();
   })();
 
   function searchDefs() {
@@ -1183,7 +1209,7 @@
         box.appendChild(more);
       }
     });
-    var filtered = searchFilter.grade !== 'all' || searchFilter.diff !== 'all';
+    var filtered = searchFilter.grade !== 'all' || searchFilter.diff.length > 0;
     $('searchHint').textContent = total ? '共找到 ' + total + ' 筆' + (filtered ? '（已套用篩選）' : '')
       : '找不到「' + kw + '」' + (filtered ? '，試著放寬年級／難度篩選' : '，換個關鍵字試試（可以搜詞語、意思、例句或注音）');
   }
