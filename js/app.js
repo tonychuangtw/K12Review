@@ -528,7 +528,7 @@
 
   /* ---------- 視圖切換 ---------- */
 
-  var views = ['subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'drill', 'custom', 'review', 'help'];
+  var views = ['subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'drill', 'custom', 'review', 'help', 'search'];
   function show(name) {
     views.forEach(function (v) {
       document.getElementById('view-' + v).classList.toggle('hidden', v !== name);
@@ -1017,7 +1017,8 @@
       '<br><button class="btn-primary" id="quizAgain">再來一回合</button>';
     r.classList.remove('hidden');
     if (quiz.score === quiz.entries.length) confetti();
-    var cat = quiz.cat, retry = quiz.mode === 'retry', drill = quiz.mode === 'drill';
+    var cat = quiz.cat, retry = quiz.mode === 'retry', drill = quiz.mode === 'drill', search = quiz.mode === 'search';
+    if (search) $('quizAgain').textContent = '← 回搜尋結果';
     if (drill) {
       var done = Math.min(quiz.drillBase + quiz.entries.length, quiz.drillTotal);
       var finished = done >= quiz.drillTotal;
@@ -1031,6 +1032,7 @@
     }
     var dBook = quiz.drillBook, dLesson = quiz.drillLesson, dKey = quiz.drillKey;
     $('quizAgain').addEventListener('click', function () {
+      if (search) { show('search'); return; }
       if (retry) showWrongbook();
       else if (drill) {
         if ((state.drillPos[dKey] || 0) >= quiz.drillTotal) { if (cat === 'custom') showCustom(); else showDrill(); }
@@ -1060,7 +1062,178 @@
     if (quiz && quiz.mode === 'review' && quiz.i < quiz.entries.length) {
       if (!confirm('測驗還沒做完，確定要離開？（這次不會計分）')) return;
     }
+    if (quiz && quiz.mode === 'search') { show('search'); return; }
     show('home');
+  });
+
+  /* ---------- 搜尋題庫 ---------- */
+
+  function escHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  // 關鍵字反白（大小寫不分），輸出安全 HTML
+  function hiHtml(text, kw) {
+    text = String(text == null ? '' : text);
+    if (!kw) return escHtml(text);
+    var out = '', low = text.toLowerCase(), k = kw.toLowerCase(), i = 0, j;
+    while ((j = low.indexOf(k, i)) >= 0) {
+      out += escHtml(text.slice(i, j)) + '<mark>' + escHtml(text.slice(j, j + kw.length)) + '</mark>';
+      i = j + kw.length;
+    }
+    return out + escHtml(text.slice(i));
+  }
+  // 長文取關鍵字前後片段
+  function excerptAround(text, kw, before, after) {
+    text = String(text || '');
+    var j = text.toLowerCase().indexOf(kw.toLowerCase());
+    if (j < 0) return text.slice(0, before + after) + (text.length > before + after ? '…' : '');
+    var s = Math.max(0, j - before), e = Math.min(text.length, j + kw.length + after);
+    return (s > 0 ? '…' : '') + text.slice(s, e) + (e < text.length ? '…' : '');
+  }
+
+  var SEARCH_CAP = 30;
+  var searchTimer = null;
+
+  function searchDefs() {
+    var defs = [
+      { t: 'idioms', fields: function (it) { return [it.term, it.zhuyin, it.pinyin, it.meaning, it.example]; } },
+      { t: 'slang', fields: function (it) { return [it.term, it.meaning, it.example]; } },
+      { t: 'phonics', fields: function (it) { return [it.word, it.zhuyin, it.pinyin, it.note]; } },
+      { t: 'chars', fields: function (it) { return [it.answer, it.sentence, it.zhuyin, it.pinyin, it.note]; } },
+      { t: 'reading', fields: function (it) { return [it.title, it.passage]; } },
+      { t: 'custom', fields: function (it) { return [it.q, it.tag, it.lesson, it.book]; } }
+    ];
+    SUBJECT_CATS.forEach(function (k) {
+      if ((DATA[k] || []).length) defs.push({ t: k, fields: function (it) { return [it.q, it.tag, it.lesson, it.book]; } });
+    });
+    return defs;
+  }
+
+  function doSearch() {
+    var kw = $('searchInput').value.trim();
+    var box = $('searchResults');
+    box.innerHTML = '';
+    if (!kw) {
+      $('searchHint').textContent = '搜尋全部年級的成語、俚語諺語、字音、字形、閱讀與自創題庫。點結果先看解析，再按「做這題」。';
+      return;
+    }
+    var low = kw.toLowerCase();
+    var total = 0;
+    searchDefs().forEach(function (def) {
+      var hits = (DATA[def.t] || []).filter(function (it) {
+        return def.fields(it).some(function (f) {
+          return f != null && String(f).toLowerCase().indexOf(low) >= 0;
+        });
+      });
+      if (!hits.length) return;
+      total += hits.length;
+      var head = document.createElement('div');
+      head.className = 's-group';
+      head.textContent = CAT_NAME[def.t] + '（' + hits.length + '）';
+      box.appendChild(head);
+      hits.slice(0, SEARCH_CAP).forEach(function (it) { box.appendChild(searchItemEl(def.t, it, kw)); });
+      if (hits.length > SEARCH_CAP) {
+        var more = document.createElement('div');
+        more.className = 's-more';
+        more.textContent = '…還有 ' + (hits.length - SEARCH_CAP) + ' 筆，把關鍵字打長一點可以縮小範圍';
+        box.appendChild(more);
+      }
+    });
+    $('searchHint').textContent = total ? '共找到 ' + total + ' 筆' : '找不到「' + kw + '」，換個關鍵字試試（可以搜詞語、意思、例句或注音）';
+  }
+
+  function searchItemEl(t, it, kw) {
+    var d = document.createElement('div');
+    d.className = 's-item';
+    var z = state.phon === 'zhuyin';
+    var title = '', zy = '', sub = '';
+    if (t === 'idioms') { title = it.term; zy = z ? it.zhuyin : it.pinyin; sub = it.meaning; }
+    else if (t === 'slang') { title = it.term; zy = '（' + it.kind + '）'; sub = it.meaning; }
+    else if (t === 'phonics') { title = it.word; zy = '「' + it.target + '」讀 ' + (z ? it.zhuyin : it.pinyin); sub = it.note || ''; }
+    else if (t === 'chars') { title = it.answer; zy = z ? it.zhuyin : it.pinyin; sub = it.sentence; }
+    else if (t === 'reading') { title = it.title; zy = '（' + (it.genre || '閱讀') + ' · ' + it.questions.length + ' 題）'; sub = excerptAround(it.passage, kw, 20, 40); }
+    else { // custom 與其他科目
+      title = excerptAround(it.q || '', kw, 15, 25);
+      var meta = [it.book, it.lesson, it.tag, it.qtype, it.diff].filter(Boolean).join(' · ');
+      sub = meta;
+    }
+    var gradeTag = it.grade ? '<span class="s-grade">' + gradeLabel(it.grade) + '</span>' : '';
+    d.innerHTML = '<div class="s-head"><span class="s-title">' + hiHtml(title, kw) + '</span>' +
+      (zy ? '<span class="s-zy">' + escHtml(zy) + '</span>' : '') + gradeTag + '</div>' +
+      (sub ? '<div class="s-sub">' + hiHtml(sub, kw) + '</div>' : '');
+    var detail = null;
+    d.addEventListener('click', function () {
+      if (detail) { detail.classList.toggle('hidden'); return; }
+      detail = document.createElement('div');
+      detail.className = 's-detail';
+      detail.textContent = searchDetailText(t, it);
+      if (t === 'idioms') maybeImg(detail, 'idioms', it.id);
+      var acts = document.createElement('div');
+      acts.className = 's-actions';
+      var go = document.createElement('button');
+      go.className = 'btn-primary';
+      go.textContent = t === 'reading' ? '✏️ 做這篇的題目（' + it.questions.length + ' 題）' : '✏️ 做這題';
+      go.addEventListener('click', function (e) {
+        e.stopPropagation();
+        startSearchQuiz(t, it);
+      });
+      acts.appendChild(go);
+      detail.appendChild(acts);
+      d.appendChild(detail);
+    });
+    return d;
+  }
+
+  function searchDetailText(t, it) {
+    var z = state.phon === 'zhuyin';
+    var out = [];
+    if (t === 'idioms') {
+      out.push('💡 ' + it.meaning);
+      if (it.wordExp) out.push('🔍 逐字解析：' + it.wordExp);
+      out.push('例：' + it.example);
+      if (it.syn && it.syn.length) out.push('同義：' + it.syn.join('、'));
+      if (it.misuse) out.push('⚠️ ' + it.misuse);
+      var dx = deepExp(it);
+      if (dx) out.push(dx.replace(/^\n/, ''));
+    } else if (t === 'slang') {
+      out.push('💡 ' + it.meaning);
+      out.push('例：' + it.example);
+    } else if (t === 'phonics') {
+      if (it.note) out.push('💡 ' + it.note);
+      if (it.deep) out.push('📚 ' + it.deep);
+    } else if (t === 'chars') {
+      out.push('例：' + it.sentence.split('（　）').join(it.answer));
+      if (it.note) out.push('💡 ' + it.note);
+      if (it.deep) out.push('📚 ' + it.deep);
+    } else if (t === 'reading') {
+      out.push(it.passage);
+      if (it.src) out.push('（出處：' + it.src + '）');
+    } else {
+      out.push(it.q || '');
+      out.push('👉 按「做這題」看選項並作答，答完會有完整解析。');
+    }
+    return out.join('\n');
+  }
+
+  function startSearchQuiz(t, it) {
+    var entries;
+    if (t === 'reading') {
+      entries = [];
+      for (var qi = 0; qi < it.questions.length; qi++) entries.push({ t: 'reading', id: it.id, qi: qi });
+    } else entries = [{ t: t, id: it.id }];
+    beginQuiz(entries, 'search', t);
+  }
+
+  $('homeSearch').addEventListener('click', function () {
+    show('search');
+    setTimeout(function () { $('searchInput').focus(); }, 60);
+  });
+  $('searchExit').addEventListener('click', function () { show('home'); });
+  $('searchInput').addEventListener('input', function () {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(doSearch, 180);
   });
 
   /* ---------- 每日練習 ---------- */

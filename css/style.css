@@ -258,6 +258,41 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
 .flash-face small { display: block; color: var(--dim); font-size: 0.85rem; margin-top: 0.6rem; }
 
 .wrong-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+/* ===== 搜尋題庫 ===== */
+.search-entry {
+  display: block; width: 100%; text-align: left;
+  padding: 0.75rem 1rem; margin-bottom: 0.9rem;
+  border-radius: 12px; border: 1px solid var(--border);
+  background: var(--panel); color: var(--dim);
+  font-size: 1rem; cursor: pointer;
+}
+.search-entry:hover { border-color: var(--accent); }
+.search-row input {
+  width: 100%; padding: 0.7rem 1rem; font-size: 1.05rem;
+  border-radius: 12px; border: 1px solid var(--border);
+  background: var(--panel); color: var(--text);
+  margin-bottom: 0.6rem;
+}
+.search-row input:focus { outline: none; border-color: var(--accent); }
+.s-group { margin: 0.9rem 0 0.1rem; font-weight: 700; color: var(--dim); font-size: 0.9rem; }
+.s-item {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 12px; padding: 0.65rem 0.85rem; cursor: pointer;
+}
+.s-item mark { background: #f5c84c; color: #1a1a1a; border-radius: 3px; padding: 0 1px; }
+.s-head { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+.s-title { font-size: 1.05rem; font-weight: 700; }
+.s-zy { color: var(--accent); font-size: 0.9rem; }
+.s-grade { color: var(--dim); font-size: 0.78rem; border: 1px solid var(--border); border-radius: 999px; padding: 0.05rem 0.5rem; }
+.s-sub { color: var(--dim); font-size: 0.88rem; margin-top: 0.25rem; line-height: 1.5; }
+.s-detail {
+  margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px dashed var(--border);
+  font-size: 0.92rem; line-height: 1.65; white-space: pre-wrap; color: var(--text);
+}
+.s-detail .q-img { margin-top: 0.5rem; }
+.s-actions { margin-top: 0.55rem; display: flex; gap: 0.5rem; }
+.s-more { color: var(--dim); font-size: 0.85rem; padding: 0.2rem 0.2rem 0.6rem; }
 .wrong-item {
   background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
   padding: 0.8rem; font-size: 0.95rem; line-height: 1.6;
