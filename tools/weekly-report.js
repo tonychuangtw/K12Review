@@ -36,11 +36,11 @@ function lastNDays(n) {
 
 const CAT_NAME = { idioms: '成語', slang: '俚語諺語', phonics: '字音', chars: '字形', reading: '閱讀', write: '手寫' };
 
-function reportForUser(state, idx, total) {
+function reportForUser(state, label, total) {
   const days = lastNDays(7);
   const daily = state.daily || {};
   const lines = [];
-  if (total > 1) lines.push(`👤 帳號 ${idx + 1}`);
+  if (total > 1) lines.push(`👤 ${label}`);
 
   let doneN = 0;
   const dayLines = days.map((d) => {
@@ -100,6 +100,16 @@ function reportForUser(state, idx, total) {
 async function main() {
   const db = new Database(DB_PATH, { readonly: true });
   const rows = db.prepare("SELECT user_id, blob FROM progress WHERE app='chinese' AND level='main'").all();
+  // user_id(Google sub) → email：優先 users 表（同步時記錄），退而求其次用 grants 的 owner_email
+  const emails = {};
+  try {
+    db.prepare('SELECT user_id, email FROM users').all().forEach((u) => { emails[u.user_id] = u.email; });
+  } catch (e) { /* users 表尚未建立（後端還沒跑過新版）*/ }
+  try {
+    db.prepare('SELECT DISTINCT owner_id, owner_email FROM grants').all().forEach((g) => {
+      if (!emails[g.owner_id]) emails[g.owner_id] = g.owner_email;
+    });
+  } catch (e) { /* ignore */ }
   db.close();
 
   let body;
@@ -115,7 +125,8 @@ async function main() {
         state = JSON.parse(blob['chinese-review-v1'] || 'null');
       } catch (e) { /* 壞資料跳過 */ }
       if (!state) return;
-      const r = reportForUser(state, i, rows.length);
+      const label = emails[row.user_id] || `帳號 ${i + 1}（尚未取得 email，該裝置下次同步後自動補上）`;
+      const r = reportForUser(state, label, rows.length);
       anyDone += r.doneN;
       parts.push(r.text);
     });
