@@ -469,6 +469,26 @@
     save();
   }
 
+  // 一般學習（每日練習以外的刷題/單元/錯題重練/手寫等）逐日彙整（Tony 2026-08-12）：
+  // 家長檢視與週報顯示「當天有自主練習」，refs 供總結測驗出題檢驗精熟。
+  // 只留 30 天；不自行 save()，由呼叫端接續的 bumpStat 一併存檔。
+  function bumpGen(cat, ok, ref) {
+    var g = (state.gen = state.gen || {});
+    var t = today();
+    var rec = g[t] || (g[t] = { n: 0, ok: 0, cats: {}, refs: [] });
+    rec.n++;
+    if (ok) rec.ok++;
+    if (!rec.cats[cat]) rec.cats[cat] = { n: 0, ok: 0 };
+    rec.cats[cat].n++;
+    if (ok) rec.cats[cat].ok++;
+    if (ref && (rec.refs = rec.refs || []).length < 80 &&
+        !rec.refs.some(function (r) { return r.t === ref.t && r.id === ref.id && r.qi === ref.qi; })) {
+      rec.refs.push(ref);
+    }
+    var days = Object.keys(g).sort();
+    while (days.length > 30) delete g[days.shift()];
+  }
+
   function addWrong(type, id) {
     var hit = state.wrong.find(function (w) { return w.t === type && w.id === id; });
     if (hit) { hit.n++; hit.ok = 0; hit.lastWrong = Date.now(); hit.due = nextDueDays(today(), 1); }
@@ -944,6 +964,15 @@
       var firstEncounter = quiz.firstTry[k] === undefined;
       if (firstEncounter) quiz.firstTry[k] = ok;
       if (firstEncounter) logAnswer(q, idx, ok);
+      if (firstEncounter && quiz.mode !== 'daily') {
+        // 總結測驗（review）與錯題複習混入題（e.rev）照樣計入當日題數，但不進出題 refs
+        var gref = null;
+        if (quiz.mode !== 'review' && !e.rev) {
+          gref = { t: q.type, id: q.item.id };
+          if (e.qi != null) gref.qi = e.qi;
+        }
+        bumpGen(q.type, ok, gref);
+      }
       if (firstEncounter && quiz.mode === 'drill') {
         state.drillPos = state.drillPos || {};
         state.drillPos[quiz.drillKey] = quiz.drillBase + quiz.i + 1;
@@ -1437,34 +1466,44 @@
 
   /* ---------- 總結測驗：挑日期＋錯題本出 100 分考卷 ---------- */
 
-  // 取某天每日練習的題目清單：新紀錄有 refs 可精確重組；
-  // 舊紀錄沒存就用同日種子＋預設配額近似重組（年級設定與當時不同會有出入）
+  // 取某天可考的題目清單＝每日練習＋當日自主練習（state.gen 的 refs）。
+  // 每日練習新紀錄有 refs 可精確重組；舊紀錄沒存就用同日種子＋預設配額近似重組
+  // （年級設定與當時不同會有出入）；只做過自主練習的日子就只考自主練習內容。
   function reviewEntriesForDate(date) {
     var rec = (state.daily || {})[date] || {};
-    if (rec.refs && rec.refs.length) return rec.refs;
-    return composeDaily(DATA, state.grades, date + '|' + state.grades.join(','), null);
+    var out = [];
+    if (rec.refs && rec.refs.length) out = rec.refs.slice();
+    else if (rec.done) out = composeDaily(DATA, state.grades, date + '|' + state.grades.join(','), null);
+    var g = (state.gen || {})[date];
+    if (g && g.refs && g.refs.length) out = out.concat(g.refs);
+    return out;
   }
 
   function showReview() {
     var daily = state.daily || {};
+    var gen = state.gen || {};
     var box = $('rvDays');
     box.innerHTML = '';
     var days = [];
     for (var i = 0; i < 21; i++) {
       var d = new Date(); d.setDate(d.getDate() - i);
       var key = fmtDate(d);
-      if (daily[key] && (daily[key].done || (daily[key].refs || []).length)) days.push(key);
+      var hasDaily = daily[key] && (daily[key].done || (daily[key].refs || []).length);
+      var hasGen = gen[key] && (gen[key].refs || []).length;
+      if (hasDaily || hasGen) days.push(key);
     }
     if (!days.length) {
-      box.innerHTML = '<div class="prog-hint">還沒有每日練習紀錄——先完成幾天每日練習，再回來考總結測驗。</div>';
+      box.innerHTML = '<div class="prog-hint">還沒有練習紀錄——先做幾天每日練習或自主練習，再回來考總結測驗。</div>';
     } else {
       days.forEach(function (key) {
         var rec = daily[key];
+        var g = gen[key];
         var lab = document.createElement('label');
         lab.className = 'rv-day';
-        var status = rec.done
+        var status = rec && rec.done
           ? '✅ ' + rec.firstOk + '/' + rec.total + '（' + Math.round(100 * rec.firstOk / rec.total) + '%）'
-          : '開始過、未完成';
+          : rec && (rec.refs || []).length ? '開始過、未完成' : '';
+        if (g && (g.refs || []).length) status += (status ? ' · ' : '') + '📖 自主練 ' + g.n + ' 題';
         lab.innerHTML = '<input type="checkbox" value="' + key + '"> <span>' + key +
           '</span><span class="rv-day-sub">' + status + '</span>';
         box.appendChild(lab);
@@ -1666,6 +1705,7 @@
   function judgeWrite(ok) {
     var it = wr.items[wr.i];
     if (ok) { wr.score++; touchWrongOnCorrect('chars', it.id); }
+    bumpGen('write', ok, { t: 'chars', id: it.id });
     bumpStat('write', ok);
     if (!ok) addWrong('chars', it.id);
     wr.i++;
@@ -2046,7 +2086,7 @@
     if (!hist.length) {
       var hint = document.createElement('div');
       hint.className = 'prog-hint';
-      hint.textContent = '還沒考過。首頁「總結測驗」可挑幾天的每日練習內容出考卷（滿分 100），檢驗有沒有真的學會。';
+      hint.textContent = '還沒考過。首頁「總結測驗」可挑幾天的每日練習＋自主練習內容出考卷（滿分 100），檢驗有沒有真的精熟。';
       body.appendChild(hint);
       return;
     }
@@ -2059,12 +2099,13 @@
     });
   }
 
-  // 家長檢視：近 14 天每日練習完成狀況，點日期看細節；dailyOverride = 跨帳號檢視時傳入對方資料
-  function renderDailyCal(body, dailyOverride) {
+  // 家長檢視：近 14 天每日練習完成狀況，點日期看細節；dailyOverride/genOverride = 跨帳號檢視時傳入對方資料
+  function renderDailyCal(body, dailyOverride, genOverride) {
     var daily = dailyOverride || state.daily || {};
+    var gen = genOverride || state.gen || {};
     var head = document.createElement('h3');
     head.className = 'prog-h3';
-    head.textContent = '👨‍👩‍👧 家長檢視 — 每日練習紀錄';
+    head.textContent = '👨‍👩‍👧 家長檢視 — 每日學習紀錄';
     body.appendChild(head);
     var hint = document.createElement('div');
     hint.className = 'prog-hint';
@@ -2075,7 +2116,8 @@
       var k = fmtDate(d);
       if (daily[k] && daily[k].done) week++;
     }
-    hint.textContent = '連續完成 ' + ds + ' 天 · 最近 7 天完成 ' + week + ' 天。點日期看做了什麼、錯了什麼。';
+    hint.textContent = '連續完成 ' + ds + ' 天 · 最近 7 天完成 ' + week + ' 天。' +
+      '✅=每日練習完成、📖=當天有自主練習（刷題/單元/錯題重練/手寫）。點日期看做了什麼、錯了什麼。';
     body.appendChild(hint);
     var cal = document.createElement('div');
     cal.className = 'daily-cal';
@@ -2086,11 +2128,13 @@
         var d = new Date(); d.setDate(d.getDate() - offset);
         var key = fmtDate(d);
         var rec = daily[key];
+        var gRec = gen[key];
+        var studied = gRec && gRec.n > 0;
         var cell = document.createElement('button');
-        cell.className = 'cal-cell' + (rec && rec.done ? ' done' : offset === 0 ? ' today' : '');
+        cell.className = 'cal-cell' + (rec && rec.done ? ' done' : studied ? ' gen' : offset === 0 ? ' today' : '');
         cell.innerHTML = '<small>' + (d.getMonth() + 1) + '/' + d.getDate() + '</small>' +
-          (rec && rec.done ? '✅' : offset === 0 ? '⬜' : '❌');
-        cell.addEventListener('click', function () { showDayDetail(detail, key, rec); });
+          (rec && rec.done ? '✅' : studied ? '📖' : offset === 0 ? '⬜' : '❌');
+        cell.addEventListener('click', function () { showDayDetail(detail, key, rec, gRec); });
         cal.appendChild(cell);
       })(j);
     }
@@ -2098,10 +2142,20 @@
     body.appendChild(detail);
   }
 
-  function showDayDetail(box, key, rec) {
+  // 一般學習當日摘要文字：「自主練習 12 題，答對 10（成語 6、字音 4、手寫 2）」
+  function genDayText(gRec) {
+    if (!gRec || !gRec.n) return '';
+    var cats = Object.keys(gRec.cats || {}).map(function (c) {
+      return (CAT_NAME[c] || c) + ' ' + gRec.cats[c].n;
+    }).join('、');
+    return '📖 自主練習 ' + gRec.n + ' 題，答對 ' + gRec.ok + (cats ? '（' + cats + '）' : '');
+  }
+
+  function showDayDetail(box, key, rec, gRec) {
     box.classList.remove('hidden');
     if (!rec || !rec.done) {
-      box.innerHTML = '<b>' + key + '</b><br>這一天沒有完成每日練習。';
+      box.innerHTML = '<b>' + key + '</b><br>這一天沒有完成每日練習。' +
+        (gRec && gRec.n ? '<br>' + genDayText(gRec) : '');
       return;
     }
     var mins = Math.max(1, Math.round(rec.ms / 60000));
@@ -2111,6 +2165,7 @@
       '✅ 完成於 ' + ('0' + fin.getHours()).slice(-2) + ':' + ('0' + fin.getMinutes()).slice(-2) +
       ' · 用時約 ' + mins + ' 分鐘<br>' +
       '第一次答對 ' + rec.firstOk + ' / ' + rec.total + '（' + pct + '%）· 錯題重做 ' + (rec.rounds - 1) + ' 輪後全對';
+    if (gRec && gRec.n) html += '<br>' + genDayText(gRec);
     if (rec.wrong && rec.wrong.length) {
       html += '<br><br><b>當天答錯過的題目：</b>';
       rec.wrong.forEach(function (w) {
@@ -2171,10 +2226,13 @@
     head.className = 'pt-head';
     var b0 = document.createElement('b');
     b0.textContent = '🔥 每日練習連續完成 ' + dailyStreak(daily, today()) + ' 天';
+    var gen = st.gen || {};
+    var genToday = gen[today()];
     var s1 = document.createElement('span');
-    s1.textContent = todayRec && todayRec.done
+    s1.textContent = (todayRec && todayRec.done
       ? '✅ 今日已完成（第一次答對 ' + todayRec.firstOk + ' / ' + todayRec.total + '）'
-      : '⬜ 今日每日練習還沒完成';
+      : '⬜ 今日每日練習還沒完成') +
+      (genToday && genToday.n ? ' · 📖 今日自主練習 ' + genToday.n + ' 題' : '');
     var s2 = document.createElement('span');
     s2.textContent = '年級設定：' + gradesLabel(st.grades || []) +
       (ownerEmail ? ' · 檢視對象：' + ownerEmail : '');
@@ -2182,24 +2240,27 @@
     body.appendChild(head);
 
     // 三格數字
-    var ok7 = 0, tot7 = 0, done7 = 0;
+    var ok7 = 0, tot7 = 0, done7 = 0, gen7 = 0;
     for (var i = 0; i < 7; i++) {
       var d7 = new Date(); d7.setDate(d7.getDate() - i);
-      var r7 = daily[fmtDate(d7)];
+      var k7 = fmtDate(d7);
+      var r7 = daily[k7];
       if (r7 && r7.done) { done7++; ok7 += r7.firstOk || 0; tot7 += r7.total || 0; }
+      var g7 = gen[k7];
+      if (g7 && g7.n) { gen7 += g7.n; ok7 += g7.ok || 0; tot7 += g7.n; }
     }
     var wrongArr = st.wrong || [];
     var dueN = wrongArr.filter(function (w) { return (w.due || '') <= today(); }).length;
     var tiles = document.createElement('div');
     tiles.className = 'pt-tiles';
     tiles.innerHTML =
-      tile(tot7 ? Math.round(100 * ok7 / tot7) + '%' : '—', '近7天首次答對率') +
-      tile(done7 + '/7', '近7天完成天數') +
+      tile(tot7 ? Math.round(100 * ok7 / tot7) + '%' : '—', '近7天首次答對率（含自主練習）') +
+      tile(done7 + '/7' + (gen7 ? ' +📖' + gen7 : ''), '近7天每日練習完成' + (gen7 ? '＋自主練題數' : '')) +
       tile(String(wrongArr.length), '錯題本累積（' + dueN + ' 題到期）');
     body.appendChild(tiles);
 
     // 近 14 天完成格（沿用進度頁的月曆，可點日期看細節）
-    renderDailyCal(body, daily);
+    renderDailyCal(body, daily, gen);
 
     // 各類正確率（近 30 天，來自逐題作答紀錄）
     h3('📊 各類正確率（近 30 天）');

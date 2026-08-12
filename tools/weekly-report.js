@@ -39,21 +39,25 @@ const CAT_NAME = { idioms: '成語', slang: '俚語諺語', phonics: '字音', c
 function reportForUser(state, label, total) {
   const days = lastNDays(7);
   const daily = state.daily || {};
+  const gen = state.gen || {};   // 一般學習（自主練習）逐日彙整，2026-08-12 起記錄
   const lines = [];
   if (total > 1) lines.push(`👤 ${label}`);
 
-  let doneN = 0;
+  let doneN = 0, genN = 0;
   const dayLines = days.map((d) => {
     const r = daily[d];
+    const g = gen[d];
     const wd = '日一二三四五六'[new Date(d + 'T00:00:00').getDay()];
-    if (!r || !r.done) { return `  ${d.slice(5)}(${wd}) ❌ 未完成`; }
+    const genTxt = g && g.n ? `📖 自主練 ${g.n} 題（對 ${g.ok}）` : '';
+    if (g && g.n) genN += g.n;
+    if (!r || !r.done) { return `  ${d.slice(5)}(${wd}) ` + (genTxt || '❌ 未完成'); }
     doneN++;
     const pct = r.total ? Math.round(100 * r.firstOk / r.total) : 0;
     const mins = Math.max(1, Math.round((r.ms || 0) / 60000));
     return `  ${d.slice(5)}(${wd}) ✅ 首次答對 ${r.firstOk}/${r.total}（${pct}%）· ${mins}分` +
-      (r.rounds > 1 ? ` · 重做${r.rounds - 1}輪` : '');
+      (r.rounds > 1 ? ` · 重做${r.rounds - 1}輪` : '') + (genTxt ? ` · ${genTxt}` : '');
   });
-  lines.push(`本週每日練習完成 ${doneN}/7 天`);
+  lines.push(`本週每日練習完成 ${doneN}/7 天` + (genN ? ` · 自主練習共 ${genN} 題` : ''));
   lines.push(...dayLines);
 
   // 本週錯過的題目彙整（取每日紀錄裡的 wrong）
@@ -94,7 +98,7 @@ function reportForUser(state, label, total) {
   const wDays = days.filter((d) => wlog[d]);
   if (wDays.length) lines.push(`寫作仿寫：完成 ${wDays.length} 天`);
 
-  return { text: lines.join('\n'), doneN };
+  return { text: lines.join('\n'), doneN: doneN + genN };
 }
 
 async function main() {
@@ -131,7 +135,7 @@ async function main() {
       parts.push(r.text);
     });
     body = '📚 K12學霸養成週報（' + lastNDays(7)[0] + ' ~ ' + lastNDays(7)[6] + '）\n\n' + parts.join('\n\n──────────\n\n');
-    if (!anyDone) body += '\n\n⚠️ 本週完全沒有完成任何每日練習，提醒孩子每天做一回！';
+    if (!anyDone) body += '\n\n⚠️ 本週完全沒有任何練習紀錄（每日練習與自主練習皆無），提醒孩子每天做一回！';
   }
 
   const res = await fetch(`https://api.telegram.org/bot${tgToken()}/sendMessage`, {

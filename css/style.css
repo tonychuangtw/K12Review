@@ -68,6 +68,7 @@ body {
 }
 .cal-cell small { color: var(--dim); font-size: 0.65rem; }
 .cal-cell.done { border-color: var(--good); }
+.cal-cell.gen { border-color: var(--accent); border-style: dashed; }
 .cal-cell.today { border-color: var(--accent); }
 .daily-detail {
   margin-top: 0.8rem; background: var(--panel2); border: 1px solid var(--border);
