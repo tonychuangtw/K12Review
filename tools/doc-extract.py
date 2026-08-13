@@ -53,30 +53,38 @@ def cfb(path):
 def extract(path):
     read = cfb(path)
     wd = read('WordDocument')
-    try: tb = read('1Table')
-    except IndexError: tb = read('0Table')
-    # 掃描 1Table 找 Pcdt(0x02 + lcb + 遞增 CP 陣列)
-    for i in range(len(tb) - 9):
-        if tb[i] != 2: continue
-        lcb = struct.unpack('<I', tb[i + 1:i + 5])[0]
-        if lcb < 16 or i + 5 + lcb > len(tb) or (lcb - 4) % 12: continue
-        n = (lcb - 4) // 12
-        try: cps = struct.unpack('<%dI' % (n + 1), tb[i + 5:i + 5 + 4 * (n + 1)])
-        except struct.error: continue
-        if cps[0] != 0 or any(cps[k] >= cps[k + 1] for k in range(n)) or cps[-1] > 10_000_000: continue
-        plc = tb[i + 5:i + 5 + lcb]
-        text = []
-        for k in range(n):
-            pcd = plc[4 * (n + 1) + 8 * k:4 * (n + 1) + 8 * (k + 1)]
-            fc = struct.unpack('<I', pcd[2:6])[0]
-            ln = cps[k + 1] - cps[k]
-            if fc & 0x40000000:
-                fc = (fc & 0x3FFFFFFF) >> 1
-                text.append(wd[fc:fc + ln].decode('cp1252', 'ignore'))
-            else:
-                text.append(wd[fc:fc + 2 * ln].decode('utf-16-le', 'ignore'))
-        return ''.join(text)
-    raise SystemExit('piece table not found')
+    # FIB flags bit 9 (fWhichTblStm) 決定用 0Table 或 1Table；兩個都試，取中文字最多者
+    tbs = []
+    for nm in ('1Table', '0Table'):
+        try: tbs.append(read(nm))
+        except IndexError: pass
+    if not tbs: raise SystemExit('table stream not found')
+    # 掃描 table stream 找 Pcdt(0x02 + lcb + 遞增 CP 陣列)
+    cands = []
+    for tb in tbs:
+      for i in range(len(tb) - 9):
+          if tb[i] != 2: continue
+          lcb = struct.unpack('<I', tb[i + 1:i + 5])[0]
+          if lcb < 16 or i + 5 + lcb > len(tb) or (lcb - 4) % 12: continue
+          n = (lcb - 4) // 12
+          try: cps = struct.unpack('<%dI' % (n + 1), tb[i + 5:i + 5 + 4 * (n + 1)])
+          except struct.error: continue
+          if cps[0] != 0 or any(cps[k] >= cps[k + 1] for k in range(n)) or cps[-1] > 10_000_000: continue
+          plc = tb[i + 5:i + 5 + lcb]
+          text = []
+          for k in range(n):
+              pcd = plc[4 * (n + 1) + 8 * k:4 * (n + 1) + 8 * (k + 1)]
+              fc = struct.unpack('<I', pcd[2:6])[0]
+              ln = cps[k + 1] - cps[k]
+              if fc & 0x40000000:
+                  fc = (fc & 0x3FFFFFFF) >> 1
+                  text.append(wd[fc:fc + ln].decode('cp1252', 'ignore'))
+              else:
+                  text.append(wd[fc:fc + 2 * ln].decode('utf-16-le', 'ignore'))
+          cands.append(''.join(text))
+    # 有些檔在 1Table 中會有多個像 Pcdt 的候選（誤判），取中文字最多者
+    if not cands: raise SystemExit('piece table not found')
+    return max(cands, key=lambda s: len(re.findall(r'[一-鿿]', s)))
 
 if __name__ == '__main__':
     t = extract(sys.argv[1])
