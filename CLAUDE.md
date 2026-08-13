@@ -26,6 +26,7 @@
 
 - 改完必跑 `node test/test.js`（資料完整性 + 題目生成邏輯）和 `node test/zy-check.js`
 - 加題直接改 `js/data/*.js`，遵守檔頭既有 schema；id 連號不重複、grade 1-12、繁體台灣用字
+- ⚠️ **新增字形題（chars.js）後必跑 `node tools/fetch-strokes.js` 補筆順資料**，否則手寫練習顯示答案時沒有一筆一劃的動畫（2026-08-13 Tony 回報；test.js 已加守門，缺字會測試失敗）
 - 注音規則：一聲不標調號、輕聲 ˙ 前置、詞注音字間空格；拼音含聲調符號
 - 字音以教育部《國語一字多音審訂表》審訂音為準
 - push 到 main 即自動上 Pages，無需其他部署步驟

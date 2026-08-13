@@ -205,6 +205,19 @@ console.log('全科架構 / 自創分冊分課 / 解析強化');
   const noExp = D.custom.filter(c => !c.exp || c.exp.trim().length < 2).length;
   ok(noExp === 0, `自創題庫解析零缺漏（缺 ${noExp} 題）`);
   ok(D.custom.every(c => ['易', '中', '難'].includes(c.diff) && c.qtype), '自創題庫難易度/題型欄位完整');
+
+  // 手寫練習筆順資料覆蓋率:新增字形題後若忘了補 strokes/,這裡會擋下來
+  // 補字法見 memory/chinese-stroke-data.md（hanzi-writer-data CDN）
+  const fs = require('fs');
+  const path = require('path');
+  const strokeDir = path.join(__dirname, '..', 'strokes');
+  const KNOWN_NO_DATA = ['揹', '譁', '縝', '靄', '譟', '靨']; // 筆順資料庫查無此字,前端已改顯示標楷體靜態字
+  const lackStroke = D.chars
+    .map(c => c.answer)
+    .filter(ch => ch && KNOWN_NO_DATA.indexOf(ch) < 0)
+    .filter(ch => !fs.existsSync(path.join(strokeDir, 'u' + ch.codePointAt(0).toString(16) + '.json')));
+  ok(lackStroke.length === 0,
+    `手寫字筆順資料齊全（缺 ${lackStroke.length} 字${lackStroke.length ? '：' + lackStroke.join('') : ''}）`);
 }
 
 console.log(failed ? `\n${failed} 項失敗` : '\n全部通過');
