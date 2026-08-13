@@ -46,6 +46,11 @@ ok(D.custom.every(c => c.q && Array.isArray(c.options) && c.options.length >= 2 
     || new Set(c.options).size !== c.options.length);
   ok(badOpt.length === 0, '自創題庫選項無空白/控制字元/重複（壞題 ' + badOpt.length + ' 題'
     + (badOpt.length ? '：' + badOpt.slice(0, 5).map(c => c.id).join(',') : '') + '）');
+  // 注音的「ㄧ」必須用 U+3127，不可誤植成漢字「一」（畫面看似正確，但比對、搜尋都會失效）
+  const BAD_YI = /\u4e00(?=[\u02ca\u02c7\u02cb\u02d9\u311a-\u3125])|(?<=[\u3105-\u3119])\u4e00/;
+  const badYi = D.custom.filter(c => BAD_YI.test(c.q) || BAD_YI.test(c.exp || '') || c.options.some(o => BAD_YI.test(o)));
+  ok(badYi.length === 0, '自創題庫注音「ㄧ」未誤植成漢字「一」（壞題 ' + badYi.length + ' 題'
+    + (badYi.length ? '：' + badYi.slice(0, 5).map(c => c.id).join(',') : '') + '）');
   const CTRL_NL = /[\u0000-\u0009\u000b-\u001f]/; // 題幹/解析允許換行
   const badTxt = D.custom.filter(c => CTRL_NL.test(c.q) || CTRL_NL.test(c.exp || '')
     || /eq \\o\(/.test(c.q) || /eq \\o\(/.test(c.exp || ''));
