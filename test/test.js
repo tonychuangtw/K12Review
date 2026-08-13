@@ -37,6 +37,10 @@ ok(D.custom.every(c => c.q && Array.isArray(c.options) && c.options.length >= 2 
   '自創題庫欄位合法（目前 ' + D.custom.length + ' 題）');
 // 轉檔常見瑕疵：選項空白／殘留 Word 控制字元／選項重複（會變成無唯一解）
 {
+  // 陣列空洞（批次接檔時多打一個逗號會造成，filter/forEach 會跳過而測不出來）
+  let holes = 0;
+  for (let i = 0; i < D.custom.length; i++) if (!(i in D.custom)) holes++;
+  ok(holes === 0, '自創題庫陣列無空洞（空洞 ' + holes + ' 處）');
   const CTRL = /[\u0000-\u001f]/;
   const badOpt = D.custom.filter(c => c.options.some(o => typeof o !== 'string' || !o.trim() || CTRL.test(o))
     || new Set(c.options).size !== c.options.length);
