@@ -41,6 +41,17 @@ ok(D.custom.every(c => c.q && Array.isArray(c.options) && c.options.length >= 2 
   let holes = 0;
   for (let i = 0; i < D.custom.length; i++) if (!(i in D.custom)) holes++;
   ok(holes === 0, '自創題庫陣列無空洞（空洞 ' + holes + ' 處）');
+  // 完全重複題（題幹+選項+答案全同）。「承上題」子題會跨課共用題幹，不算重複
+  {
+    const seen = new Map(), dup = [];
+    D.custom.forEach(c => {
+      if (/承上題/.test(c.q)) return;
+      const k = c.q.trim() + '||' + c.options.join('|') + '||' + c.answer;
+      if (seen.has(k)) dup.push(c.id + '/' + seen.get(k)); else seen.set(k, c.id);
+    });
+    ok(dup.length === 0, '自創題庫無完全重複題（重複 ' + dup.length + ' 題'
+      + (dup.length ? '：' + dup.slice(0, 5).join(',') : '') + '）');
+  }
   const CTRL = /[\u0000-\u001f]/;
   const badOpt = D.custom.filter(c => c.options.some(o => typeof o !== 'string' || !o.trim() || CTRL.test(o))
     || new Set(c.options).size !== c.options.length);
