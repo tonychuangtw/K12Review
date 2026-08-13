@@ -82,12 +82,25 @@ def extract(path):
               else:
                   text.append(wd[fc:fc + 2 * ln].decode('utf-16-le', 'ignore'))
           cands.append(''.join(text))
-    # 有些檔在 1Table 中會有多個像 Pcdt 的候選（誤判），取中文字最多者
+    # 有些檔在 1Table 中會有多個像 Pcdt 的候選（誤判）：
+    # 先挑含題庫標記（編號：/答案：）的候選，都沒有才退回「中文字最多者」
     if not cands: raise SystemExit('piece table not found')
-    return max(cands, key=lambda s: len(re.findall(r'[一-鿿]', s)))
+    marked = [s for s in cands if '編號：' in s and '答案：' in s]
+    return max(marked or cands, key=lambda s: len(re.findall(r'[一-鿿]', s)))
+
+def raw_utf16(path):
+    """後備：有些 .doc 的 Pcdt 掃不到，但正文在 WordDocument stream 裡是一整段連續
+    UTF-16LE。直接整檔解碼，取含「編號：」且不含 NUL 的最長片段。"""
+    s = open(path, 'rb').read().decode('utf-16-le', 'ignore')
+    chunks = [c for c in s.split('\x00') if '編號：' in c and '答案：' in c]
+    if not chunks: return None
+    return max(chunks, key=len)
 
 if __name__ == '__main__':
     t = extract(sys.argv[1])
+    alt = raw_utf16(sys.argv[1])
+    if alt and alt.count('編號：') > t.count('編號：'):
+        t = alt
     open(sys.argv[2], 'w').write(t)
     cjk = len(re.findall(r'[一-鿿]', t))
     print(f'{sys.argv[2]}: {len(t)} chars, {cjk} cjk')
