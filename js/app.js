@@ -1722,16 +1722,19 @@
   $('writeWrong').addEventListener('click', function () { judgeWrite(false); });
   $('writeExit').addEventListener('click', function () { show('home'); });
 
-  // 筆順動畫:讀本地 strokes/uXXXX.json(hanzi-writer 資料),載不到就靜默隱藏
+  // 筆順動畫:讀本地 strokes/uXXXX.json(hanzi-writer 資料);
+  // 少數罕用字筆順資料庫沒有,改在同一位置顯示楷書靜態字並註明,不留空白
   var strokeWriter = null;
   function showStroke(ch) {
-    var wrap = $('strokeWrap'), panel = $('strokePanel');
+    var wrap = $('strokeWrap'), panel = $('strokePanel'), replay = $('strokeReplay');
     if (!window.HanziWriter || typeof fetch === 'undefined') return;
     panel.innerHTML = '';
+    strokeWriter = null;
     fetch('strokes/u' + ch.codePointAt(0).toString(16) + '.json')
       .then(function (r) { if (!r.ok) throw new Error('404'); return r.json(); })
       .then(function (data) {
         wrap.classList.remove('hidden');
+        replay.classList.remove('hidden');
         strokeWriter = HanziWriter.create(panel, ch, {
           width: 170, height: 170, padding: 10,
           showOutline: true,
@@ -1741,7 +1744,12 @@
         });
         strokeWriter.animateCharacter();
       })
-      .catch(function () { wrap.classList.add('hidden'); });
+      .catch(function () {
+        wrap.classList.remove('hidden');
+        replay.classList.add('hidden');
+        panel.innerHTML = '<div class="stroke-fallback">' + ch +
+          '<span>此字暫無筆順動畫資料</span></div>';
+      });
   }
   $('strokeReplay').addEventListener('click', function () {
     if (strokeWriter) strokeWriter.animateCharacter();
