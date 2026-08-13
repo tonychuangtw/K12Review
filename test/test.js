@@ -35,6 +35,19 @@ for (const [cat, items] of Object.entries(D)) {
 }
 ok(D.custom.every(c => c.q && Array.isArray(c.options) && c.options.length >= 2 && c.answer >= 0 && c.answer < c.options.length),
   '自創題庫欄位合法（目前 ' + D.custom.length + ' 題）');
+// 轉檔常見瑕疵：選項空白／殘留 Word 控制字元／選項重複（會變成無唯一解）
+{
+  const CTRL = /[\u0000-\u001f]/;
+  const badOpt = D.custom.filter(c => c.options.some(o => typeof o !== 'string' || !o.trim() || CTRL.test(o))
+    || new Set(c.options).size !== c.options.length);
+  ok(badOpt.length === 0, '自創題庫選項無空白/控制字元/重複（壞題 ' + badOpt.length + ' 題'
+    + (badOpt.length ? '：' + badOpt.slice(0, 5).map(c => c.id).join(',') : '') + '）');
+  const CTRL_NL = /[\u0000-\u0009\u000b-\u001f]/; // 題幹/解析允許換行
+  const badTxt = D.custom.filter(c => CTRL_NL.test(c.q) || CTRL_NL.test(c.exp || '')
+    || /eq \\o\(/.test(c.q) || /eq \\o\(/.test(c.exp || ''));
+  ok(badTxt.length === 0, '自創題庫題幹/解析無殘留 Word 功能變數碼（壞題 ' + badTxt.length + ' 題'
+    + (badTxt.length ? '：' + badTxt.slice(0, 5).map(c => c.id).join(',') : '') + '）');
+}
 ok(D.idioms.every(i => i.term && i.meaning && i.example && ZY_WORD.test(i.zhuyin) && i.pinyin),
   '成語欄位完整、注音格式正確');
 ok(D.slang.every(i => i.term && i.meaning && i.example && ['俚語', '諺語', '歇後語'].includes(i.kind)),
