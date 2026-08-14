@@ -66,6 +66,8 @@
     }
     return s + '</g>';
   }
+  var HAMMER = '<g class="st-hammer"><line x1="0" y1="0" x2="26" y2="-26" stroke="#a8734a" stroke-width="5" stroke-linecap="round"/>' +
+    '<rect x="16" y="-40" width="24" height="15" rx="4" fill="#8b93a3" transform="rotate(45 28 -32)"/></g>';
   var QIN = '<rect x="-44" y="-10" width="88" height="20" rx="8" fill="#a8734a" stroke="#8a5a33" stroke-width="2"/>' +
     '<g stroke="#f0e6d0" stroke-width="1.6"><line x1="-38" y1="-4" x2="38" y2="-4"/><line x1="-38" y1="0" x2="38" y2="0"/><line x1="-38" y1="4" x2="38" y2="4"/></g>';
   var JUG = '<path d="M-10 0 Q-16 -10 -10 -22 L10 -22 Q16 -10 10 0 Z" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2"/>' +
@@ -133,22 +135,34 @@
     },
     /* 亡羊補牢 */
     i032: function () {
+      var HOLE_MARK = '<circle cx="0" cy="-22" r="36" fill="none" stroke="#ff6b5c" stroke-width="4" stroke-dasharray="9 9" class="st-tw"/>';
       return [
-        { minDur: 5000, sub: '牧羊人的羊圈，破了一個大洞。',
-          html: scene(P(420, 300, fence(true)) + P(340, 296, A('goat'), '', 0, .8) +
-            P(500, 296, A('goat'), '', 0, .75) + P(150, 302, A('kid', 'happy'), 'st-inL')) },
-        { minDur: 5600, sub: '夜裡，野狼從破洞鑽進來，叼走了一隻羊！',
-          html: scene(P(420, 300, fence(true)) + P(340, 296, A('goat'), '', 0, .8) +
-            P(560, 298, A('fox') + qmark(0, -90), 'st-dashL') + bang(470, 240), 'night') },
-        { minDur: 6800, sub: '鄰人勸他快補羊圈，他卻說：「羊都丟了，補圈做什麼？」結果又丟了一隻！',
-          html: scene(P(420, 300, fence(true)) + P(180, 302, A('kid', 'angry')) +
-            P(300, 302, A('kid', 'sad'), '', 0, .9) + qmark(210, 200) + sweat(330, 220)) },
-        { minDur: 6800, sub: '他終於後悔了，趕緊把羊圈修得牢牢的。從此，再也沒有丟過羊。',
-          html: scene(P(420, 300, fence(false)) + P(340, 296, A('goat'), '', 0, .8) +
-            P(500, 296, A('goat'), '', 0, .75) +
-            P(200, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(300, 180)) },
+        { minDur: 5000, sub: '牧羊人養了兩隻羊。可是羊圈，破了一個大洞！',
+          html: scene(P(430, 300, fence(true) + HOLE_MARK) + P(340, 296, A('goat'), '', 0, .8) +
+            P(520, 296, A('goat'), '', 0, .75) + P(160, 302, A('kid', 'happy'), 'st-inL')) },
+        { minDur: 6200, sub: '夜裡，野狼從破洞鑽進來，叼走了第一隻羊！',
+          html: scene(P(430, 300, fence(true)) +
+            P(300, 296, A('goat') + sweat(-30, -70), '', 0, .8) +
+            P(520, 298, '<g class="st-fleeR">' + A('fox') + P(6, -54, A('goat'), '', 0, .42) + '</g>', 'st-dashL') +
+            bang(470, 236), 'night') },
+        { minDur: 6800, sub: '鄰人指著破洞勸他：「快補起來吧！」他卻擺擺手：「羊都丟了，還補圈做什麼？」',
+          html: scene(P(430, 300, fence(true) + HOLE_MARK) + P(300, 296, A('goat'), '', 0, .8) +
+            P(150, 302, A('kid', 'angry')) + P(270, 302, A('kid', 'wow'), '', 0, .9) +
+            qmark(180, 198) + sweat(300, 214)) },
+        { minDur: 6400, sub: '結果，野狼又從同一個破洞鑽進來，叼走了第二隻羊！羊圈空了……',
+          html: scene(P(430, 300, fence(true)) +
+            P(520, 298, '<g class="st-fleeR">' + A('fox') + P(6, -54, A('goat'), '', 0, .42) + '</g>', 'st-dashL') +
+            P(160, 302, A('kid', 'wow') + sweat(30, -84)) + bang(470, 236), 'night') },
+        { minDur: 6400, sub: '他終於後悔了，拿起鎚子，叮叮咚咚把破洞補得牢牢的。',
+          html: scene(P(430, 300, fence(false)) +
+            P(300, 302, A('kid', 'happy') + P(22, -40, HAMMER)) +
+            P(430, 252, '<g class="st-bang"><path d="M0-8 L2-2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2-2 Z" fill="#fff27a"/></g>')) },
+        { minDur: 6000, sub: '從此，羊兒們安安全全，再也沒有丟過一隻。',
+          html: scene(P(430, 300, fence(false)) + P(360, 296, A('goat'), '', 0, .8) +
+            P(520, 296, A('goat'), '', 0, .75) +
+            P(180, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(280, 180)) },
         { minDur: 6200, sub: '亡羊補牢：出了差錯及時補救，還不算晚。',
-          html: scene(P(420, 300, fence(false)) + P(200, 302, A('kid', 'happy')) +
+          html: scene(P(430, 300, fence(false)) + P(200, 302, A('kid', 'happy')) + P(360, 296, A('goat'), '', 0, .8) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">亡羊補牢</text>') }
       ];
     },

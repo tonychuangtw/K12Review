@@ -683,3 +683,5 @@ body.anim-lock { overflow: hidden; }
 @keyframes stGrowUp { from { transform: scaleY(0); } }
 .st-draw { animation: stDrawIn .8s 1.2s ease-out backwards; }
 @keyframes stDrawIn { from { opacity: 0; } }
+.st-hammer { animation: stHammer .7s ease-in-out infinite; transform-box: fill-box; transform-origin: 0% 100%; }
+@keyframes stHammer { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-38deg); } }
