@@ -15,7 +15,7 @@
   }
   if (TTS) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
 
-  var overlay = null, stage = null, sub = null, voiceBtn = null;
+  var overlay = null, stage = null, sub = null, voiceBtn = null, theatre = null;
   var gen = 0, voiceOn = true, playing = null; // playing = {item, scenes, idx}
 
   function buildDom() {
@@ -23,6 +23,7 @@
     overlay = document.createElement('div');
     overlay.id = 'animOverlay';
     overlay.innerHTML =
+      '<div id="animTheatre"></div>' +
       '<div id="animStage"></div>' +
       '<div id="animSub"></div>' +
       '<div id="animCtrl">' +
@@ -32,6 +33,7 @@
       '</div>';
     document.body.appendChild(overlay);
     stage = document.getElementById('animStage');
+    theatre = document.getElementById('animTheatre');
     sub = document.getElementById('animSub');
     voiceBtn = document.getElementById('animVoice');
     document.getElementById('animClose').addEventListener('click', close);
@@ -42,6 +44,34 @@
       voiceBtn.textContent = voiceOn ? '🔊 語音' : '🔇 語音';
       if (!voiceOn && TTS) speechSynthesis.cancel();
     });
+  }
+
+  /* 破音字修正：TTS 常唸錯的多音字，用「注音相同且無歧義的同音字」替換給語音唸
+     （只影響發音，畫面文字不變）。key=字，value={注音:同音字} */
+  var TONE_FIX = {
+    '為':{'ㄨㄟˊ':'維','ㄨㄟˋ':'衛'}, '行':{'ㄒㄧㄥˊ':'形','ㄏㄤˊ':'航','ㄒㄧㄥˋ':'性'},
+    '長':{'ㄔㄤˊ':'常','ㄓㄤˇ':'掌'}, '樂':{'ㄌㄜˋ':'肋','ㄩㄝˋ':'月','ㄧㄠˋ':'耀'},
+    '惡':{'ㄜˋ':'餓','ㄨˋ':'誤'}, '好':{'ㄏㄠˋ':'浩'}, '中':{'ㄓㄨㄥˋ':'眾'},
+    '重':{'ㄓㄨㄥˋ':'仲','ㄔㄨㄥˊ':'蟲'}, '傳':{'ㄓㄨㄢˋ':'撰'},
+    '數':{'ㄕㄨˋ':'樹','ㄕㄨˇ':'暑','ㄕㄨㄛˋ':'朔'}, '興':{'ㄒㄧㄥ':'星','ㄒㄧㄥˋ':'性'},
+    '應':{'ㄧㄥ':'英','ㄧㄥˋ':'硬'}, '相':{'ㄒㄧㄤˋ':'向'}, '降':{'ㄐㄧㄤˋ':'匠','ㄒㄧㄤˊ':'祥'},
+    '將':{'ㄐㄧㄤˋ':'匠'}, '強':{'ㄐㄧㄤˋ':'匠','ㄑㄧㄤˇ':'搶'}, '朝':{'ㄔㄠˊ':'潮','ㄓㄠ':'招'},
+    '曾':{'ㄗㄥ':'增'}, '還':{'ㄏㄨㄢˊ':'環'}, '間':{'ㄐㄧㄢˋ':'建'},
+    '種':{'ㄓㄨㄥˋ':'眾'}, '稱':{'ㄔㄣˋ':'趁'}, '彈':{'ㄊㄢˊ':'談','ㄉㄢˋ':'旦'},
+    '露':{'ㄌㄡˋ':'漏'}, '了':{'ㄌㄧㄠˇ':'瞭'}, '宿':{'ㄒㄧㄡˋ':'秀'},
+    '血':{'ㄒㄧㄝˇ':'寫','ㄒㄩㄝˋ':'穴'}, '說':{'ㄕㄨㄟˋ':'睡'}, '否':{'ㄆㄧˇ':'痞'},
+    '塞':{'ㄙㄜˋ':'澀','ㄙㄞˋ':'賽'}, '度':{'ㄉㄨㄛˋ':'惰'}, '角':{'ㄐㄩㄝˊ':'絕'},
+    '給':{'ㄐㄧˇ':'擠'}, '夫':{'ㄈㄨˊ':'浮'}, '泊':{'ㄆㄛˋ':'破'}, '薄':{'ㄅㄛˊ':'伯'},
+    '衰':{'ㄘㄨㄟ':'催'}, '創':{'ㄔㄨㄤ':'瘡'}, '喪':{'ㄙㄤ':'桑'}, '藉':{'ㄐㄧˊ':'及'},
+    '差':{'ㄘ':'疵','ㄔㄞ':'拆'}, '解':{'ㄒㄧㄝˋ':'謝'}
+  };
+  // 依逐字注音產生「給TTS唸的成語」；畫面顯示不受影響
+  function ttsTerm(chars, zyArr) {
+    if (!zyArr || zyArr.length !== chars.length) return chars.join('');
+    return chars.map(function (c, i) {
+      var f = TONE_FIX[c];
+      return (f && f[zyArr[i]]) ? f[zyArr[i]] : c;
+    }).join('');
   }
 
   function speakText(t) { // 給 TTS 唸的版本（把符號轉成口語）
@@ -59,6 +89,8 @@
     var chars = Array.from(it.term);
     var zy = (phon === 'pinyin' ? (it.pinyin || '') : (it.zhuyin || '')).trim().split(/\s+/);
     var zyOk = zy.length === chars.length;
+    var zySpk = (it.zhuyin || '').trim().split(/\s+/);
+    var speakTerm = ttsTerm(chars, zySpk.length === chars.length ? zySpk : null);
 
     // 1. 成語登場：逐字彈出 + 注音
     var h = '<div class="anim-zirow">';
@@ -69,7 +101,7 @@
            '</div>';
     });
     h += '</div>' + (zyOk ? '' : '<div class="anim-zy-line">' + esc(zy.join(' ')) + '</div>');
-    scenes.push({ html: h, text: it.term, speak: it.term, minDur: 2600 + chars.length * 350 });
+    scenes.push({ html: h, text: it.term, speak: speakTerm, minDur: 2600 + chars.length * 350 });
 
     // 2. 意思（配圖 Ken Burns）
     var img = 'img/idioms/' + it.id + '.webp';
@@ -78,7 +110,7 @@
             'onerror="this.parentNode.style.display=\'none\'"></div>' +
             '<div class="anim-title">' + esc(it.term) + '</div>' +
             '<div class="anim-text anim-fadeup">💡 ' + esc(it.meaning) + '</div>',
-      text: it.meaning, speak: it.term + '。意思是：' + it.meaning, minDur: 4200
+      text: it.meaning, speak: speakTerm + '。意思是：' + it.meaning, minDur: 4200
     });
 
     // 3. 逐字解析
@@ -128,7 +160,7 @@
               (0.3 + i * 0.09) + 's">' + esc(c) + '</span>';
       });
       h5 += '</div>';
-      scenes.push({ html: h5, text: '', speak: '例句：' + it.example, minDur: 2200 + exChars.length * 95 });
+      scenes.push({ html: h5, text: '', speak: '例句：' + it.example.split(it.term).join(speakTerm), minDur: 2200 + exChars.length * 95 });
     }
 
     // 6. 結尾
@@ -151,6 +183,7 @@
     P.idx = i;
     var s = P.scenes[i];
     stage.innerHTML = '<div class="anim-scene">' + s.html + '</div>';
+    if (theatre) { theatre.classList.remove('pulse'); void theatre.offsetWidth; theatre.classList.add('pulse'); }
     sub.textContent = s.text || '';
     sub.style.display = s.text ? '' : 'none';
     if (s.end) {
@@ -199,6 +232,7 @@
     buildDom();
     voiceBtn.textContent = voiceOn ? '🔊 語音' : '🔇 語音';
     playing = { item: item, scenes: buildScenes(item, (opts && opts.phon) || 'zhuyin'), idx: 0 };
+    if (theatre) theatre.innerHTML = (window.AnimStage ? AnimStage.build(item.term) : '');
     overlay.classList.add('show');
     document.body.classList.add('anim-lock');
     if (TTS) { var u = new SpeechSynthesisUtterance(''); speechSynthesis.speak(u); } // 解鎖行動裝置語音
