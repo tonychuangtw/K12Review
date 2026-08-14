@@ -440,6 +440,7 @@
         stats: {}, streak: { last: '', days: 0 }, wrong: [], leitner: {}
       };
     }
+    if (!s.strokeSpd) s.strokeSpd = 2;   // 筆順示範速度 1慢/2快/3極速（Tony 2026-08-14：預設加快、可調）
     // 舊版單選年級 → 多選遷移
     if (!Array.isArray(s.grades) || !s.grades.length) {
       var g = s.grade || 5;
@@ -1658,6 +1659,11 @@
   // 逐筆判定測驗（hanzi-writer quiz）：學生直接在格子裡寫，每一筆即時比對字形與筆順。
   // 錯了不能跳過——同一個字重寫到單次全對才進下一題；成績/錯題本一律以第一次書寫為準。
   var wqWriter = null;
+  var SPD_NAME = { 1: '慢', 2: '快', 3: '極速' };
+  function strokeOpts() {
+    var m = { 1: [1, 450], 2: [2.2, 160], 3: [4.5, 50] }[state.strokeSpd || 2];
+    return { speed: m[0], delay: m[1] };
+  }
   function wqCancel() {
     if (wqWriter) { try { wqWriter.cancelQuiz(); } catch (e) {} wqWriter = null; }
     $('writeQuizPanel').innerHTML = '';
@@ -1683,11 +1689,13 @@
     $('writeReveal').textContent = '▶ 看筆順示範（算答錯）';
     $('writeQuizWrap').classList.remove('hidden');
     wqCancel();
+    var spd = strokeOpts();
     wqWriter = HanziWriter.create($('writeQuizPanel'), it.answer, {
       width: 260, height: 260, padding: 14,
       showCharacter: false, showOutline: false, showHintAfterMisses: 3,
       strokeColor: '#1a1c22', drawingColor: '#2c66d9', drawingWidth: 10,
       highlightColor: '#e0b64b',
+      strokeAnimationSpeed: spd.speed, delayBetweenStrokes: spd.delay,
       charDataLoader: function (c, done) { done(data); }
     });
     wqWriter.quiz({
@@ -1752,6 +1760,7 @@
     $('writeProgress').textContent = (wr.i + 1) + ' / ' + wr.items.length;
     $('writeScore').textContent = '寫對 ' + wr.score;
     $('writeTag').textContent = '手寫 · ' + gradeLabel(it.grade);
+    renderSpdBtn();
     $('writePrompt').textContent = it.sentence + '\n括號中讀「' + reading + '」— 請在下方寫出這個字';
     $('writeAnswer').classList.add('hidden');
     $('writeAnswer').textContent = it.answer;
@@ -1801,6 +1810,14 @@
   function clearCanvas() { ctx.clearRect(0, 0, cv.width, cv.height); }
 
   $('writeClear').addEventListener('click', clearCanvas);
+  // 筆順示範速度三段切換（設定跟著帳號同步，下一次示範生效）
+  function renderSpdBtn() { $('writeSpd').textContent = '⚡ 示範速度：' + SPD_NAME[state.strokeSpd || 2]; }
+  $('writeSpd').addEventListener('click', function () {
+    state.strokeSpd = (state.strokeSpd || 2) % 3 + 1;
+    save();
+    renderSpdBtn();
+    setStatusToast('筆順示範速度：' + SPD_NAME[state.strokeSpd] + '（下一次示範生效）');
+  });
   $('writeReveal').addEventListener('click', function () {
     var it = wr.items[wr.i];
     if (!$('writeQuizWrap').classList.contains('hidden')) {
@@ -1859,7 +1876,7 @@
           width: 170, height: 170, padding: 10,
           showOutline: true,
           strokeColor: '#1a1c22', outlineColor: '#d5d8e0', radicalColor: '#2c66d9',
-          strokeAnimationSpeed: 1, delayBetweenStrokes: 220,
+          strokeAnimationSpeed: strokeOpts().speed, delayBetweenStrokes: strokeOpts().delay,
           charDataLoader: function (c, onComplete) { onComplete(data); }
         });
         strokeWriter.animateCharacter();
