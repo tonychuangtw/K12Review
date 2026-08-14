@@ -546,3 +546,60 @@ body {
   flex: 1; min-width: 0; background: var(--panel2); color: var(--text);
   border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.6rem; font-size: 0.9rem;
 }
+
+/* ===== 成語動畫卡播放器 ===== */
+body.anim-lock { overflow: hidden; }
+#animOverlay { position: fixed; inset: 0; z-index: 900; display: none; flex-direction: column;
+  background: linear-gradient(160deg, #22304c 0%, #2a3a5c 60%, #253550 100%); color: #fff; }
+#animOverlay.show { display: flex; }
+#animStage { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px 16px 8px;
+  overflow-y: auto; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.anim-scene { width: 100%; max-width: 640px; text-align: center; }
+#animSub { padding: 6px 18px 10px; text-align: center; color: #cfe0f5; font-size: .95rem; min-height: 1.6em; }
+#animCtrl { display: flex; gap: 10px; justify-content: center; padding: 8px 12px
+  calc(14px + env(safe-area-inset-bottom)); }
+#animCtrl button { border: none; border-radius: 20px; padding: 9px 18px; font-size: .95rem;
+  background: #31446a; color: #cfe0f5; cursor: pointer; }
+#animCtrl #animClose { background: #4a3b52; }
+
+.anim-zirow { display: flex; justify-content: center; gap: clamp(8px, 3vw, 22px); flex-wrap: wrap; }
+.anim-zib { opacity: 0; animation: animZiPop .55s ease-out forwards; }
+.anim-zi { font-size: clamp(3rem, 13vw, 5.5rem); font-weight: 800; color: #ffd97a;
+  text-shadow: 0 3px 10px rgba(0,0,0,.4); line-height: 1.15; }
+.anim-zy { font-size: clamp(.85rem, 3vw, 1.15rem); color: #a9c0e2; margin-top: 4px; }
+.anim-zy-line { margin-top: 10px; color: #a9c0e2; font-size: 1.05rem; }
+@keyframes animZiPop { 0% { opacity: 0; transform: scale(2.3) rotate(-8deg); }
+  70% { opacity: 1; transform: scale(.94); } 100% { opacity: 1; transform: scale(1); } }
+
+.anim-title { font-size: 1.25rem; color: #ffd97a; font-weight: 700; margin-bottom: 14px; }
+.anim-text { font-size: clamp(1.05rem, 4vw, 1.4rem); line-height: 1.7; }
+.anim-story { text-align: left; background: rgba(255,255,255,.06); border-radius: 14px; padding: 14px 16px;
+  font-size: clamp(.98rem, 3.6vw, 1.15rem); }
+.anim-fadeup { opacity: 0; animation: animFadeUp .8s .4s ease-out forwards; }
+@keyframes animFadeUp { from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); } }
+
+.anim-imgwrap { width: min(78vw, 340px); height: min(78vw, 340px); margin: 0 auto 14px; border-radius: 18px;
+  overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,.35); }
+.anim-img { width: 100%; height: 100%; object-fit: cover; animation: animKen 9s ease-in-out forwards; }
+@keyframes animKen { from { transform: scale(1); } to { transform: scale(1.14) translate(-8px, -6px); } }
+
+.anim-lines { text-align: left; max-width: 520px; margin: 0 auto; }
+.anim-line { opacity: 0; animation: animFadeUp .7s ease-out forwards; font-size: clamp(1rem, 3.8vw, 1.2rem);
+  line-height: 1.6; padding: 7px 12px; margin-bottom: 8px; background: rgba(255,255,255,.07);
+  border-left: 4px solid #ffd97a; border-radius: 8px; }
+
+.anim-karaoke { font-size: clamp(1.2rem, 5vw, 1.7rem); line-height: 1.9; text-align: left;
+  max-width: 520px; margin: 0 auto; }
+.anim-kchar { opacity: .12; animation: animKChar .35s ease-out forwards; }
+.anim-kchar.hl { color: #ffd97a; font-weight: 700; }
+@keyframes animKChar { to { opacity: 1; } }
+
+.anim-endbtns { margin-top: 26px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.anim-bigbtn { border: none; border-radius: 24px; padding: 13px 26px; font-size: 1.05rem; font-weight: 700;
+  background: #ffd97a; color: #4a3200; cursor: pointer; }
+.anim-bigbtn.alt { background: #7fc98b; color: #123c1c; }
+.anim-end .anim-zib { animation-delay: 0s !important; }
+
+.anim-launch { display: inline-block; border: none; border-radius: 16px; padding: 6px 14px; margin-top: 8px;
+  background: #ffd97a; color: #4a3200; font-size: .9rem; font-weight: 700; cursor: pointer; }

@@ -903,6 +903,7 @@
       fb.className = 'q-feedback ' + (snap.answered.ok || snap.answered.secondOk ? 'good' : 'bad');
       fb.classList.remove('hidden');
       maybeImg(fb, q.type, q.item.id);
+      if (q.type === 'idioms') maybeAnimBtn(fb, q.item);
       $('quizNext').textContent = latest ? '下一題' : '返回 →';
       $('quizNext').classList.remove('hidden');
     } else if (snap.retryFirst != null) {
@@ -937,6 +938,19 @@
     img.src = 'img/idioms/' + id + '.webp';
     img.onerror = function () { img.remove(); };
     container.appendChild(img);
+  }
+
+  // 成語動畫卡入口按鈕（js/anim.js 的 IdiomAnim）
+  function maybeAnimBtn(container, item) {
+    if (!item || !item.term || !W.IdiomAnim) return;
+    var b = document.createElement('button');
+    b.className = 'anim-launch';
+    b.textContent = '🎬 看動畫卡';
+    b.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      W.IdiomAnim.play(item, { phon: state.phon });
+    });
+    container.appendChild(b);
   }
 
   // 作答結果的回饋文字（answer 與 paintSnap 共用）
@@ -1026,6 +1040,7 @@
     fb.className = 'q-feedback ' + (snap.answered.ok || snap.answered.secondOk ? 'good' : 'bad');
     fb.classList.remove('hidden');
     maybeImg(fb, q.type, q.item.id);
+    if (q.type === 'idioms') maybeAnimBtn(fb, q.item);
     $('quizNext').textContent = '下一題';
     $('quizNext').classList.remove('hidden');
     if (quiz.mode !== 'daily') $('quizScore').textContent = '得分 ' + quiz.score;
@@ -1934,6 +1949,7 @@
     small.textContent = '例：' + it.example;
     $('flashBack').appendChild(small);
     maybeImg($('flashBack'), id.charAt(0) === 'i' ? 'idioms' : 'slang', id);
+    if (id.charAt(0) === 'i') maybeAnimBtn($('flashBack'), it);
     $('flashBack').classList.add('hidden');
     $('flashJudge').classList.add('hidden');
     $('flashFlip').classList.remove('hidden');
@@ -2895,6 +2911,7 @@
       if (it.syn && it.syn.length) line('lesson-extra', '同義：' + it.syn.join('、'));
       if (it.misuse) line('lesson-extra', '⚠️ ' + it.misuse);
       maybeImg(body, 'idioms', it.id);
+      maybeAnimBtn(body, it);
     } else if (e.t === 'slang') {
       line('lesson-term', it.term);
       line('lesson-extra', '（' + it.kind + '）');
