@@ -440,7 +440,6 @@
         stats: {}, streak: { last: '', days: 0 }, wrong: [], leitner: {}
       };
     }
-    if (!s.strokeSpd) s.strokeSpd = 2;   // 筆順示範速度 1慢/2快/3極速（Tony 2026-08-14：預設加快、可調）
     // 舊版單選年級 → 多選遷移
     if (!Array.isArray(s.grades) || !s.grades.length) {
       var g = s.grade || 5;
@@ -1659,11 +1658,8 @@
   // 逐筆判定測驗（hanzi-writer quiz）：學生直接在格子裡寫，每一筆即時比對字形與筆順。
   // 錯了不能跳過——同一個字重寫到單次全對才進下一題；成績/錯題本一律以第一次書寫為準。
   var wqWriter = null;
-  var SPD_NAME = { 1: '慢', 2: '快', 3: '極速' };
-  function strokeOpts() {
-    var m = { 1: [1, 450], 2: [2.2, 160], 3: [4.5, 50] }[state.strokeSpd || 2];
-    return { speed: m[0], delay: m[1] };
-  }
+  // 筆順示範速度固定用「快」（Tony 2026-08-14 定案，不做切換）
+  function strokeOpts() { return { speed: 2.2, delay: 160 }; }
   function wqCancel() {
     if (wqWriter) { try { wqWriter.cancelQuiz(); } catch (e) {} wqWriter = null; }
     $('writeQuizPanel').innerHTML = '';
@@ -1707,13 +1703,14 @@
       : '照剛剛的示範再寫一次，單次全對才能進下一題！', '');
   }
   function wqDemoThenRetry(it) {
-    // 示範一次正確筆順，然後重新測驗同一個字
+    // 示範一次正確筆順→整字停留 2 秒讓學生看清楚→才清空重寫
+    // （停留太短會讓最後幾筆看起來「消失」，Tony 2026-08-14 回報）
     if (!wqWriter) { wqStart(it, wr.curData); return; }
     try { wqWriter.cancelQuiz(); } catch (e) {}
     wqWriter.animateCharacter({ onComplete: function () {
       setTimeout(function () {
         if (wr && wr.items[wr.i] === it) wqStart(it, wr.curData);
-      }, 700);
+      }, 2000);
     } });
   }
   function wqDone(it, mistakes) {
@@ -1760,7 +1757,6 @@
     $('writeProgress').textContent = (wr.i + 1) + ' / ' + wr.items.length;
     $('writeScore').textContent = '寫對 ' + wr.score;
     $('writeTag').textContent = '手寫 · ' + gradeLabel(it.grade);
-    renderSpdBtn();
     $('writePrompt').textContent = it.sentence + '\n括號中讀「' + reading + '」— 請在下方寫出這個字';
     $('writeAnswer').classList.add('hidden');
     $('writeAnswer').textContent = it.answer;
@@ -1810,14 +1806,6 @@
   function clearCanvas() { ctx.clearRect(0, 0, cv.width, cv.height); }
 
   $('writeClear').addEventListener('click', clearCanvas);
-  // 筆順示範速度三段切換（設定跟著帳號同步，下一次示範生效）
-  function renderSpdBtn() { $('writeSpd').textContent = '⚡ 示範速度：' + SPD_NAME[state.strokeSpd || 2]; }
-  $('writeSpd').addEventListener('click', function () {
-    state.strokeSpd = (state.strokeSpd || 2) % 3 + 1;
-    save();
-    renderSpdBtn();
-    setStatusToast('筆順示範速度：' + SPD_NAME[state.strokeSpd] + '（下一次示範生效）');
-  });
   $('writeReveal').addEventListener('click', function () {
     var it = wr.items[wr.i];
     if (!$('writeQuizWrap').classList.contains('hidden')) {
