@@ -205,6 +205,61 @@
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">對牛彈琴</text>') }
       ];
     },
+    /* 拔苗助長 */
+    i1004: function () {
+      function seedlings(h, wilt) {
+        var s='', xs=[-90,-45,0,45,90];
+        xs.forEach(function(x,i){
+          s += '<g transform="translate('+x+',0)'+(wilt?' rotate('+(i%2?38:-42)+')':'')+'">'+
+               '<line x1="0" y1="0" x2="0" y2="'+(-h)+'" stroke="'+(wilt?'#b9a25a':'#5f8a46')+'" stroke-width="5" stroke-linecap="round"/>'+
+               '<path d="M0 '+(-h)+' q-8 -8 -4 -14 M0 '+(-h)+' q8 -8 4 -14" stroke="'+(wilt?'#b9a25a':'#7cc47f')+'" stroke-width="4" fill="none" stroke-linecap="round"/></g>';
+        });
+        return s;
+      }
+      return [
+        { minDur: 5600, sub: '宋國有個農夫，嫌田裡的秧苗長得太慢，天天煩惱。',
+          html: scene(P(500, 316, seedlings(26)) + P(180, 302, A('kid', 'sad') + qmark(34, -100), 'st-inL')) },
+        { minDur: 6400, sub: '他想出一個「好辦法」：把每一棵苗都往上拔高一截！忙了一整天，累得滿頭大汗。',
+          html: scene(P(500, 316, seedlings(46)) +
+            P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + sweat(400, 200) + sweat(320, 210)) },
+        { minDur: 6200, sub: '他得意地回家宣布：「今天幫苗長高了不少！」兒子急忙跑到田裡一看——',
+          html: scene(P(180, 302, A('kid', 'happy') + hearts(0, -110)) +
+            P(560, 302, A('kid', 'wow'), 'st-dashL', 0, .9), 'night') },
+        { minDur: 6000, sub: '秧苗全都枯萎了！拔起來的苗，根離了土，再也活不成。',
+          html: scene(P(500, 316, seedlings(46, true)) + P(300, 302, A('kid', 'wow') + sweat(-30, -84)) + bang(500, 210)) },
+        { minDur: 6000, sub: '拔苗助長：不顧規律硬求速成，反而把事情弄糟。',
+          html: scene(P(500, 316, seedlings(26)) + P(240, 302, A('kid', 'happy')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">拔苗助長</text>') }
+      ];
+    },
+    /* 鶴立雞群 */
+    i131: function () {
+      var CRANE = '<g class="st-bob">' +
+        '<ellipse cx="0" cy="-70" rx="20" ry="15" fill="#fff" stroke="#e3dcd4" stroke-width="2"/>' +
+        '<path d="M-14 -80 q-16 -14 -12 -34" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"/>' +
+        '<circle cx="-28" cy="-116" r="9" fill="#fff" stroke="#e3dcd4" stroke-width="2"/>' +
+        '<circle cx="-28" cy="-124" r="4" fill="#ff6b5c"/>' +
+        '<path d="M-36 -116 l-10 -3 l10 -3 z" fill="#f5a742"/>' +
+        '<circle cx="-31" cy="-118" r="2.4" fill="#3a2e26"/>' +
+        '<path d="M14 -76 q10 4 8 12" stroke="#4a4a4a" stroke-width="4" fill="none" stroke-linecap="round"/>' +
+        '<line x1="-5" y1="-56" x2="-5" y2="0" stroke="#f5a742" stroke-width="4"/>' +
+        '<line x1="7" y1="-56" x2="7" y2="0" stroke="#f5a742" stroke-width="4"/></g>';
+      return [
+        { minDur: 5400, sub: '雞群裡熱熱鬧鬧，大家長得都差不多。',
+          html: scene(P(250, 300, A('chicken'), '', 0, .9) + P(370, 300, A('chicken'), '', 0, .85, true) +
+            P(490, 300, A('chicken'), '', 0, .9) + P(610, 300, A('chicken'), '', 0, .85, true)) },
+        { minDur: 6200, sub: '忽然，一隻仙鶴走了進來——脖子長長、亭亭玉立，一下子就看出不一樣！',
+          html: scene(P(250, 300, A('chicken') + qmark(-20, -90), '', 0, .9) +
+            P(560, 300, A('chicken') + qmark(30, -86), '', 0, .85, true) +
+            P(400, 302, CRANE, 'st-inR') + P(430, 300, A('chicken'), '', 0, .8)) },
+        { minDur: 6200, sub: '大家都忍不住看牠：站在雞群中的鶴，實在太出眾了！',
+          html: scene(P(260, 300, A('chicken'), '', 0, .9) + P(540, 300, A('chicken'), '', 0, .85, true) +
+            P(400, 302, CRANE) + hearts(330, 160) + hearts(480, 150)) },
+        { minDur: 6000, sub: '鶴立雞群：比喻才能儀表出眾，超越眾人。',
+          html: scene(P(400, 302, CRANE) + P(260, 300, A('chicken'), '', 0, .85) + P(540, 300, A('chicken'), '', 0, .85, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鶴立雞群</text>') }
+      ];
+    },
     /* 狐假虎威 */
     i050: function () {
       return [
