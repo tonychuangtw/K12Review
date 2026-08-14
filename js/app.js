@@ -489,10 +489,10 @@
     while (days.length > 30) delete g[days.shift()];
   }
 
-  function addWrong(type, id) {
+  function addWrong(type, id, isWrite) {
     var hit = state.wrong.find(function (w) { return w.t === type && w.id === id; });
-    if (hit) { hit.n++; hit.ok = 0; hit.lastWrong = Date.now(); hit.due = nextDueDays(today(), 1); }
-    else state.wrong.push({ t: type, id: id, n: 1, ok: 0, added: Date.now(), lastWrong: Date.now(), due: nextDueDays(today(), 1) });
+    if (hit) { hit.n++; hit.ok = 0; hit.lastWrong = Date.now(); hit.due = nextDueDays(today(), 1); if (isWrite) hit.wr = 1; }
+    else state.wrong.push({ t: type, id: id, n: 1, ok: 0, added: Date.now(), lastWrong: Date.now(), due: nextDueDays(today(), 1), wr: isWrite ? 1 : 0 });
     if ((type === 'idioms' || type === 'slang') && !state.leitner[id]) {
       state.leitner[id] = { box: 1, due: today() };
     }
@@ -1643,10 +1643,12 @@
   /* ---------- 手寫練習（看注音寫國字） ---------- */
 
   var wr = null;
-  function startWrite() {
-    var items = shuffle(pool('chars')).slice(0, 10);
+  // startWrite()＝一般 10 題；startWrite(items,'wrongbook')＝錯題本手寫重練（練完可回錯題本）
+  function startWrite(itemsArg, backTo) {
+    var items = Array.isArray(itemsArg) ? itemsArg.slice() : shuffle(pool('chars')).slice(0, 10);
     if (!items.length) { alert('這個年級目前沒有題目。'); return; }
-    wr = { items: items, i: 0, score: 0, attempt: 1, judged: false, curData: null };
+    wr = { items: items, i: 0, score: 0, attempt: 1, judged: false, curData: null,
+           backTo: backTo || null };
     $('writeResult').classList.add('hidden');
     document.querySelector('#view-write .quiz-card').classList.remove('hidden');
     show('write');
@@ -1670,7 +1672,7 @@
     if (wr.judged) return;
     wr.judged = true;
     if (ok) { wr.score++; touchWrongOnCorrect('chars', it.id); $('writeScore').textContent = '寫對 ' + wr.score; }
-    else addWrong('chars', it.id);
+    else addWrong('chars', it.id, true);
     bumpGen('write', ok, { t: 'chars', id: it.id });
     bumpStat('write', ok);
   }
@@ -1730,10 +1732,16 @@
       wqCancel();
       document.querySelector('#view-write .quiz-card').classList.add('hidden');
       var r = $('writeResult');
+      var fromWb = wr.backTo === 'wrongbook';
+      var sameItems = wr.items;
       r.innerHTML = '手寫練習結束<br><b style="font-size:1.6rem">' + wr.score + ' / ' + wr.items.length +
-        '</b><br><button class="btn-primary" id="writeAgain">再來一回合</button>';
+        '</b><br><button class="btn-primary" id="writeAgain">' + (fromWb ? '再練一次這些字' : '再來一回合') + '</button>' +
+        (fromWb ? ' <button class="btn-ghost" id="writeBack">回錯題本</button>' : '');
       r.classList.remove('hidden');
-      $('writeAgain').addEventListener('click', startWrite);
+      $('writeAgain').addEventListener('click', function () {
+        if (fromWb) startWrite(sameItems, 'wrongbook'); else startWrite();
+      });
+      if (fromWb) $('writeBack').addEventListener('click', showWrongbook);
     } else renderWrite();
   }
 
@@ -1821,7 +1829,7 @@
       if (ok) { wr.score++; touchWrongOnCorrect('chars', it.id); }
       bumpGen('write', ok, { t: 'chars', id: it.id });
       bumpStat('write', ok);
-      if (!ok) addWrong('chars', it.id);
+      if (!ok) addWrong('chars', it.id, true);
     }
     if (ok) { writeNext(); return; }
     // 寫錯不跳過：清畫布照答案重寫，寫好按「✓ 我寫對了」才進下一題（成績以第一次為準）
@@ -2069,6 +2077,21 @@
     info.className = 'prog-hint';
     info.textContent = '共 ' + list.length + ' 題' + (list.length ? ' · 點任一題可單獨重練' : '');
     tools.appendChild(info);
+    // 手寫來源的錯題：整批用實際手寫重練（一次至多 10 字）
+    var writeOnes = list.filter(function (w) { return w.t === 'chars' && w.wr; });
+    if (writeOnes.length) {
+      var wBtn = document.createElement('button');
+      wBtn.className = 'chip';
+      wBtn.textContent = '🖌 手寫重練（' + writeOnes.length + '）';
+      wBtn.addEventListener('click', function () {
+        if (needLogin()) return;
+        var items = shuffle(writeOnes).slice(0, 10)
+          .map(function (w) { return findItem('chars', w.id); })
+          .filter(Boolean);
+        startWrite(items, 'wrongbook');
+      });
+      tools.appendChild(wBtn);
+    }
     var editBtn = document.createElement('button');
     editBtn.className = 'chip' + (wb.edit ? ' active' : '');
     editBtn.textContent = wb.edit ? '完成編輯' : '☑ 編輯／刪除';
@@ -2135,16 +2158,18 @@
       head.appendChild(del);
       div.appendChild(head);
       // 點整列：一般模式單獨重練這一題；編輯模式改為勾選（Tony 2026-08-14）
+      // 手寫來源的錯題（w.wr）重練時走實際手寫逐筆判定，不出選擇題
       div.classList.add('wb-click');
       div.addEventListener('click', function (ev) {
         if (ev.target.tagName === 'INPUT') return;   // 直接點 checkbox 交給它自己處理
         if (wb.edit) { wb.sel[key] = !wb.sel[key]; showWrongbook(); return; }
         if (needLogin()) return;
+        if (w.t === 'chars' && w.wr) { startWrite([it], 'wrongbook'); return; }
         beginQuiz([{ t: w.t, id: w.id }], 'retry', null);
       });
       var meta = document.createElement('small');
       var dueTxt = (w.due || '') <= today() ? '⏰今日複習' : '下次 ' + (w.due || '—');
-      meta.textContent = CAT_NAME[w.t] + ' · 錯 ' + w.n + ' 次 · 連對 ' + (w.ok || 0) + ' 次 · 最後錯 ' + fmtTs(w.lastWrong) + ' · ' + dueTxt;
+      meta.textContent = CAT_NAME[w.t] + (w.wr ? ' · 🖌手寫' : '') + ' · 錯 ' + w.n + ' 次 · 連對 ' + (w.ok || 0) + ' 次 · 最後錯 ' + fmtTs(w.lastWrong) + ' · ' + dueTxt;
       div.appendChild(meta);
       var sub = document.createElement('small');
       sub.className = 'wb-sub';
@@ -2155,8 +2180,14 @@
   }
   $('wrongRetry').addEventListener('click', function () {
     if (needLogin()) return;
-    var entries = wrongFiltered().map(function (w) { return { t: w.t, id: w.id }; });
-    if (!entries.length) { setStatusToast('這個範圍沒有錯題'); return; }
+    // 手寫來源的錯題不出選擇題（用清單上方的「手寫重練」或點該題單獨手寫）
+    var all = wrongFiltered();
+    var entries = all.filter(function (w) { return !(w.t === 'chars' && w.wr); })
+      .map(function (w) { return { t: w.t, id: w.id }; });
+    if (!entries.length) {
+      setStatusToast(all.length ? '這個範圍都是手寫錯題——請用「🖌 手寫重練」' : '這個範圍沒有錯題');
+      return;
+    }
     beginQuiz(shuffle(entries).slice(0, 20), 'retry', null);
   });
   $('wrongExit').addEventListener('click', function () { show('home'); });
