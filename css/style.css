@@ -325,6 +325,9 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
   padding: 0.8rem; font-size: 0.95rem; line-height: 1.6;
 }
 .wrong-item small { color: var(--dim); }
+.wrong-item.wb-click { cursor: pointer; }
+.wrong-item.wb-click:hover { border-color: var(--accent); }
+.wrong-item.wb-click .wb-row b::after { content: ' ▸'; color: var(--dim); font-weight: normal; }
 .empty { text-align: center; color: var(--dim); padding: 2rem 1rem; line-height: 2; }
 
 .prog-body { display: flex; flex-direction: column; gap: 0.8rem; }

@@ -1955,7 +1955,7 @@
     var list = wrongFiltered();
     var info = document.createElement('span');
     info.className = 'prog-hint';
-    info.textContent = '共 ' + list.length + ' 題';
+    info.textContent = '共 ' + list.length + ' 題' + (list.length ? ' · 點任一題可單獨重練' : '');
     tools.appendChild(info);
     var editBtn = document.createElement('button');
     editBtn.className = 'chip' + (wb.edit ? ' active' : '');
@@ -2016,11 +2016,20 @@
       del.className = 'wb-del';
       del.textContent = '✕';
       del.title = '確定記牢了，刪除這題';
-      del.addEventListener('click', function () {
+      del.addEventListener('click', function (ev) {
+        ev.stopPropagation();
         if (confirm('刪除「' + label + '」？')) { deleteWrong([key]); showWrongbook(); }
       });
       head.appendChild(del);
       div.appendChild(head);
+      // 點整列：一般模式單獨重練這一題；編輯模式改為勾選（Tony 2026-08-14）
+      div.classList.add('wb-click');
+      div.addEventListener('click', function (ev) {
+        if (ev.target.tagName === 'INPUT') return;   // 直接點 checkbox 交給它自己處理
+        if (wb.edit) { wb.sel[key] = !wb.sel[key]; showWrongbook(); return; }
+        if (needLogin()) return;
+        beginQuiz([{ t: w.t, id: w.id }], 'retry', null);
+      });
       var meta = document.createElement('small');
       var dueTxt = (w.due || '') <= today() ? '⏰今日複習' : '下次 ' + (w.due || '—');
       meta.textContent = CAT_NAME[w.t] + ' · 錯 ' + w.n + ' 次 · 連對 ' + (w.ok || 0) + ' 次 · 最後錯 ' + fmtTs(w.lastWrong) + ' · ' + dueTxt;
