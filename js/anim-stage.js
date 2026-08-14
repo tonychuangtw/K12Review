@@ -319,5 +319,5 @@
     return s;
   }
 
-  window.AnimStage = { build: build, pick: pick };
+  window.AnimStage = { build: build, pick: pick, actors: ACTORS };
 })();

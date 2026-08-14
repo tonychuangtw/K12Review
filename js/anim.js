@@ -103,6 +103,13 @@
     h += '</div>' + (zyOk ? '' : '<div class="anim-zy-line">' + esc(zy.join(' ')) + '</div>');
     scenes.push({ html: h, text: it.term, speak: speakTerm, minDur: 2600 + chars.length * 350 });
 
+    // 劇情分鏡（有劇本的成語，像動畫片一樣逐幕演）
+    if (window.AnimStory && AnimStory.has(it.id)) {
+      AnimStory.scenes(it.id).forEach(function (sc) {
+        scenes.push({ html: sc.html, text: sc.sub, speak: sc.sub, minDur: sc.minDur, story: true });
+      });
+    }
+
     // 2. 意思（配圖 Ken Burns）
     var img = 'img/idioms/' + it.id + '.webp';
     scenes.push({
@@ -183,6 +190,7 @@
     P.idx = i;
     var s = P.scenes[i];
     stage.innerHTML = '<div class="anim-scene">' + s.html + '</div>';
+    if (theatre) theatre.style.display = s.story ? 'none' : '';
     if (theatre) { theatre.classList.remove('pulse'); void theatre.offsetWidth; theatre.classList.add('pulse'); }
     sub.textContent = s.text || '';
     sub.style.display = s.text ? '' : 'none';
