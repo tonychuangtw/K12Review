@@ -2660,6 +2660,7 @@
 
   function showCustom() {
     if (!DATA.custom.length) {
+      if (!W.__customReady) { setStatusToast('📦 題庫還在背景載入中，請稍候幾秒再點一次'); return; }
       alert('自創題庫還沒有題目。請把 Word 題庫檔傳到 Telegram，轉檔後會自動分冊分課出現在這裡。');
       return;
     }
@@ -2996,6 +2997,25 @@
   $('writingExit').addEventListener('click', function () { show('home'); });
 
   /* ---------- 啟動 ---------- */
+  // 自創題庫檔已達 20MB+，改為背景載入：頁面先開先用，載完自動補上並更新畫面
+  //（2026-08-14 Tony 回報手機開站白屏——同步載入大檔在慢網路/低階機會卡死）
+  DATA.custom = DATA.custom || [];
+  W.__customReady = false;
+  (function loadCustomBank() {
+    var s = document.createElement('script');
+    s.src = 'js/data/custom.js';
+    s.async = true;
+    s.onload = function () {
+      W.__customReady = true;
+      renderHome();
+      var vc = $('view-custom'), vd = $('view-drill');
+      if (vc && !vc.classList.contains('hidden')) showCustom();
+      else if (vd && !vd.classList.contains('hidden')) showDrill();
+      setStatusToast('📦 自創題庫載入完成（' + (DATA.custom || []).length + ' 題）');
+    };
+    s.onerror = function () { setStatusToast('⚠️ 題庫載入失敗，請重新整理頁面'); };
+    document.body.appendChild(s);
+  })();
   renderHome();
   show('subject'); // 每次進站都先選科目（2026-08-04 Tony：一致性）
 })();
