@@ -1646,15 +1646,100 @@
   function startWrite() {
     var items = shuffle(pool('chars')).slice(0, 10);
     if (!items.length) { alert('這個年級目前沒有題目。'); return; }
-    wr = { items: items, i: 0, score: 0 };
+    wr = { items: items, i: 0, score: 0, attempt: 1, judged: false, curData: null };
     $('writeResult').classList.add('hidden');
     document.querySelector('#view-write .quiz-card').classList.remove('hidden');
     show('write');
     renderWrite();
   }
 
+  // 逐筆判定測驗（hanzi-writer quiz）：學生直接在格子裡寫，每一筆即時比對字形與筆順。
+  // 錯了不能跳過——同一個字重寫到單次全對才進下一題；成績/錯題本一律以第一次書寫為準。
+  var wqWriter = null;
+  function wqCancel() {
+    if (wqWriter) { try { wqWriter.cancelQuiz(); } catch (e) {} wqWriter = null; }
+    $('writeQuizPanel').innerHTML = '';
+  }
+  function wqStatus(msg, cls) {
+    var el = $('writeQuizStatus');
+    el.textContent = msg;
+    el.className = 'q-feedback' + (cls ? ' ' + cls : '');
+    el.classList.remove('hidden');
+  }
+  function wqRecordFirst(ok, it) {
+    if (wr.judged) return;
+    wr.judged = true;
+    if (ok) { wr.score++; touchWrongOnCorrect('chars', it.id); $('writeScore').textContent = '寫對 ' + wr.score; }
+    else addWrong('chars', it.id);
+    bumpGen('write', ok, { t: 'chars', id: it.id });
+    bumpStat('write', ok);
+  }
+  function wqStart(it, data) {
+    document.querySelector('#view-write .canvas-wrap').classList.add('hidden');
+    $('writeClear').classList.add('hidden');
+    $('writeReveal').classList.remove('hidden');
+    $('writeReveal').textContent = '▶ 看筆順示範（算答錯）';
+    $('writeQuizWrap').classList.remove('hidden');
+    wqCancel();
+    wqWriter = HanziWriter.create($('writeQuizPanel'), it.answer, {
+      width: 260, height: 260, padding: 14,
+      showCharacter: false, showOutline: false, showHintAfterMisses: 3,
+      strokeColor: '#1a1c22', drawingColor: '#2c66d9', drawingWidth: 10,
+      highlightColor: '#e0b64b',
+      charDataLoader: function (c, done) { done(data); }
+    });
+    wqWriter.quiz({
+      leniency: 1.4,
+      onComplete: function (summary) { wqDone(it, summary.totalMistakes); }
+    });
+    wqStatus(wr.attempt === 1
+      ? '直接在格子裡一筆一筆寫（連續寫錯 3 筆會出現提示筆畫）'
+      : '照剛剛的示範再寫一次，單次全對才能進下一題！', '');
+  }
+  function wqDemoThenRetry(it) {
+    // 示範一次正確筆順，然後重新測驗同一個字
+    if (!wqWriter) { wqStart(it, wr.curData); return; }
+    try { wqWriter.cancelQuiz(); } catch (e) {}
+    wqWriter.animateCharacter({ onComplete: function () {
+      setTimeout(function () {
+        if (wr && wr.items[wr.i] === it) wqStart(it, wr.curData);
+      }, 700);
+    } });
+  }
+  function wqDone(it, mistakes) {
+    if (it.note) {
+      $('writeNote').textContent = it.note;
+      $('writeNote').className = 'q-feedback';
+      $('writeNote').classList.remove('hidden');
+    }
+    if (mistakes === 0) {
+      var first = !wr.judged;
+      wqRecordFirst(true, it);
+      wqStatus(first ? '✓ 一次全對，太棒了！' : '✓ 這次全對了，進下一題！（此題成績以第一次為準）', 'good');
+      setTimeout(writeNext, 1200);
+    } else {
+      wqRecordFirst(false, it);
+      wr.attempt++;
+      wqStatus('✗ 有 ' + mistakes + ' 筆寫錯（已列入錯題本）。先看一次正確筆順，再重寫到全對才過關！', 'bad');
+      wqDemoThenRetry(it);
+    }
+  }
+  function writeNext() {
+    wr.i++;
+    if (wr.i >= wr.items.length) {
+      wqCancel();
+      document.querySelector('#view-write .quiz-card').classList.add('hidden');
+      var r = $('writeResult');
+      r.innerHTML = '手寫練習結束<br><b style="font-size:1.6rem">' + wr.score + ' / ' + wr.items.length +
+        '</b><br><button class="btn-primary" id="writeAgain">再來一回合</button>';
+      r.classList.remove('hidden');
+      $('writeAgain').addEventListener('click', startWrite);
+    } else renderWrite();
+  }
+
   function renderWrite() {
     var it = wr.items[wr.i];
+    wr.attempt = 1; wr.judged = false; wr.curData = null;
     var reading = state.phon === 'zhuyin' ? it.zhuyin : it.pinyin;
     $('writeProgress').textContent = (wr.i + 1) + ' / ' + wr.items.length;
     $('writeScore').textContent = '寫對 ' + wr.score;
@@ -1666,7 +1751,25 @@
     $('writeNote').classList.add('hidden');
     $('writeReveal').classList.remove('hidden');
     $('strokeWrap').classList.add('hidden');
+    $('writeQuizWrap').classList.add('hidden');
+    $('writeQuizStatus').classList.add('hidden');
+    wqCancel();
     clearCanvas();
+    // 有筆順資料 → 逐筆判定測驗；罕用字沒有資料 → 退回畫布自評
+    if (window.HanziWriter && typeof fetch !== 'undefined') {
+      fetch('strokes/u' + it.answer.codePointAt(0).toString(16) + '.json')
+        .then(function (r) { if (!r.ok) throw new Error('404'); return r.json(); })
+        .then(function (data) {
+          if (wr && wr.items[wr.i] === it) { wr.curData = data; wqStart(it, data); }
+        })
+        .catch(function () { if (wr && wr.items[wr.i] === it) wqFallbackUI(); });
+    } else wqFallbackUI();
+  }
+  function wqFallbackUI() {
+    $('writeQuizWrap').classList.add('hidden');
+    document.querySelector('#view-write .canvas-wrap').classList.remove('hidden');
+    $('writeClear').classList.remove('hidden');
+    $('writeReveal').textContent = '顯示答案';
   }
 
   // 畫布
@@ -1692,6 +1795,15 @@
   $('writeClear').addEventListener('click', clearCanvas);
   $('writeReveal').addEventListener('click', function () {
     var it = wr.items[wr.i];
+    if (!$('writeQuizWrap').classList.contains('hidden')) {
+      // 測驗模式：主動看示範＝這題算答錯（僅第一次記），看完仍要重寫到全對才過
+      wqRecordFirst(false, it);
+      wr.attempt++;
+      wqStatus('看完示範後照著重寫，單次全對才過關（成績以第一次為準）。', '');
+      wqDemoThenRetry(it);
+      return;
+    }
+    // 自評模式（罕用字）：翻答案自評
     $('writeAnswer').classList.remove('hidden');
     $('writeJudge').classList.remove('hidden');
     $('writeReveal').classList.add('hidden');
@@ -1704,23 +1816,23 @@
   });
   function judgeWrite(ok) {
     var it = wr.items[wr.i];
-    if (ok) { wr.score++; touchWrongOnCorrect('chars', it.id); }
-    bumpGen('write', ok, { t: 'chars', id: it.id });
-    bumpStat('write', ok);
-    if (!ok) addWrong('chars', it.id);
-    wr.i++;
-    if (wr.i >= wr.items.length) {
-      document.querySelector('#view-write .quiz-card').classList.add('hidden');
-      var r = $('writeResult');
-      r.innerHTML = '手寫練習結束<br><b style="font-size:1.6rem">' + wr.score + ' / ' + wr.items.length +
-        '</b><br><button class="btn-primary" id="writeAgain">再來一回合</button>';
-      r.classList.remove('hidden');
-      $('writeAgain').addEventListener('click', startWrite);
-    } else renderWrite();
+    if (!wr.judged) {
+      wr.judged = true;
+      if (ok) { wr.score++; touchWrongOnCorrect('chars', it.id); }
+      bumpGen('write', ok, { t: 'chars', id: it.id });
+      bumpStat('write', ok);
+      if (!ok) addWrong('chars', it.id);
+    }
+    if (ok) { writeNext(); return; }
+    // 寫錯不跳過：清畫布照答案重寫，寫好按「✓ 我寫對了」才進下一題（成績以第一次為準）
+    clearCanvas();
+    $('writeNote').textContent = '✗ 已列入錯題本。把正確的字照著多寫一次，寫好按「✓ 我寫對了」繼續（成績以第一次為準）。';
+    $('writeNote').className = 'q-feedback bad';
+    $('writeNote').classList.remove('hidden');
   }
   $('writeRight').addEventListener('click', function () { judgeWrite(true); });
   $('writeWrong').addEventListener('click', function () { judgeWrite(false); });
-  $('writeExit').addEventListener('click', function () { show('home'); });
+  $('writeExit').addEventListener('click', function () { wqCancel(); show('home'); });
 
   // 筆順動畫:讀本地 strokes/uXXXX.json(hanzi-writer 資料);
   // 少數罕用字筆順資料庫沒有,改在同一位置顯示楷書靜態字並註明,不留空白

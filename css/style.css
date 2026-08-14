@@ -325,6 +325,16 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
   padding: 0.8rem; font-size: 0.95rem; line-height: 1.6;
 }
 .wrong-item small { color: var(--dim); }
+/* 手寫逐筆判定測驗（hanzi-writer quiz）：田字格外框＋十字輔助線 */
+.wq-wrap { display: flex; justify-content: center; }
+.wq-panel {
+  width: 260px; height: 260px; border: 2px solid var(--border); border-radius: 12px;
+  background:
+    linear-gradient(to right, transparent calc(50% - 1px), var(--border) calc(50% - 1px), var(--border) calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to bottom, transparent calc(50% - 1px), var(--border) calc(50% - 1px), var(--border) calc(50% + 1px), transparent calc(50% + 1px)),
+    #fff;
+  touch-action: none;
+}
 .wrong-item.wb-click { cursor: pointer; }
 .wrong-item.wb-click:hover { border-color: var(--accent); }
 .wrong-item.wb-click .wb-row b::after { content: ' ▸'; color: var(--dim); font-weight: normal; }
