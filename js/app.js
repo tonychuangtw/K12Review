@@ -481,7 +481,7 @@
     if (!rec.cats[cat]) rec.cats[cat] = { n: 0, ok: 0 };
     rec.cats[cat].n++;
     if (ok) rec.cats[cat].ok++;
-    if (ref && (rec.refs = rec.refs || []).length < 80 &&
+    if (ref && (rec.refs = rec.refs || []).length < 200 &&
         !rec.refs.some(function (r) { return r.t === ref.t && r.id === ref.id && r.qi === ref.qi; })) {
       rec.refs.push(ref);
     }
