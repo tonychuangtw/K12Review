@@ -6932,6 +6932,142 @@
           html: scene(P(280, 302, A('kid', 'happy')) + P(420, 302, A('kid', 'happy'), '', .1, .95) + P(560, 302, A('kid', 'happy'), '', .2, .93) + hearts(420, 175) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">分工合作</text>') }
       ];
+    },
+    /* 揠苗助長（與拔苗助長同典） */
+    i057: function () {
+      var sc = STORIES.i1004();
+      var last = sc[sc.length - 1];
+      last.sub = '揠苗助長：急功近利硬求速成，反而壞事。';
+      last.html = last.html.replace('拔苗助長', '揠苗助長');
+      return sc;
+    },
+    /* 未雨綢繆 */
+    i056: function () {
+      var NEST = '<path d="M-24 0 q0 12 24 12 q24 0 24 -12 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>' +
+        '<g stroke="#a8734a" stroke-width="2"><line x1="-20" y1="-2" x2="-8" y2="4"/><line x1="4" y1="-3" x2="16" y2="3"/></g>';
+      var RAINFX3 = '<g stroke="#8fc6ff" stroke-width="3.4" stroke-linecap="round">' +
+        '<line class="st-rain" x1="180" y1="30" x2="174" y2="52"/><line class="st-rain" style="animation-delay:.4s" x1="360" y1="16" x2="354" y2="38"/>' +
+        '<line class="st-rain" style="animation-delay:.8s" x1="520" y1="30" x2="514" y2="52"/></g>';
+      return [
+        { minDur: 7000, sub: '《詩經》裡的小鳥最勤勞：天還沒下雨，就先啣來樹皮草莖，把窩修補得牢牢的！',
+          html: scene(P(150, 302, TREE, '', 0, 1.2) + P(240, 200, NEST) + P(230, 176, A('bird'), '', 0, .8) +
+            P(500, 302, A('kid', 'happy'), '', 0, .95) + hearts(400, 210)) },
+        { minDur: 6800, sub: '暴風雨真的來了——別的窩被吹散，牠的窩穩穩當當，一家平安！',
+          html: scene(RAINFX3 + P(150, 302, TREE, '', 0, 1.15) + P(240, 200, NEST) + P(230, 176, A('bird'), '', 0, .8) +
+            bang(560, 190), 'night') },
+        { minDur: 6800, sub: '「未雨綢繆」：趁還沒下雨先修門窗——凡事提前準備，才不會臨時慌張！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -46, '<rect x="-14" y="-16" width="28" height="20" rx="4" fill="#5c82ba" stroke="#46689a" stroke-width="2.4"/>', '', 0, 1)) + hearts(450, 190)) },
+        { minDur: 6400, sub: '未雨綢繆：提前預備，防患未然。',
+          html: scene(P(300, 220, NEST, '', 0, 1.2) + P(290, 194, A('bird'), '', 0, .85) + RAINFX3 +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">未雨綢繆</text>') }
+      ];
+    },
+    /* 大器晚成 */
+    i059: function () {
+      var SMALLPOT = '<path d="M-10 0 q-4 -10 2 -13 h16 q6 3 2 13 q-5 4 -10 4 q-5 0 -10 -4 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>';
+      var BIGDING = '<path d="M-34 -14 L-30 -52 Q-30 -60 -22 -60 L22 -60 Q30 -60 30 -52 L34 -14 Q34 -4 22 -4 L-22 -4 Q-34 -4 -34 -14 Z" fill="#8a7a5a" stroke="#6d6044" stroke-width="3"/>' +
+        '<path d="M-24 -60 q-2 -12 8 -14 M24 -60 q2 -12 -8 -14" stroke="#6d6044" stroke-width="5" fill="none" stroke-linecap="round"/>' +
+        '<g stroke="#6d6044" stroke-width="4"><line x1="-22" y1="-4" x2="-26" y2="14"/><line x1="22" y1="-4" x2="26" y2="14"/><line x1="0" y1="-4" x2="0" y2="14"/></g>';
+      return [
+        { minDur: 7000, sub: '老子說：「大器晚成」——小碗小杯一下就燒好，鑄一座大鼎，卻要花上好多好多年！',
+          html: scene(P(280, 296, SMALLPOT, '', 0, 1.2) + P(520, 300, BIGDING, '', 0, 1.3) +
+            P(150, 302, A('kid', 'happy'), '', 0, .92) + qmark(400, 200)) },
+        { minDur: 7000, sub: '漢朝的百里奚七十歲才當上宰相、畫家齊白石五十多歲畫風才大放異彩——成就來得晚，一樣了不起！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            hearts(460, 185) + bang(280, 195)) },
+        { minDur: 6800, sub: '「大器晚成」：大才的人成就來得較晚——別急，好好累積，你的時刻總會到來！',
+          html: scene(P(400, 300, BIGDING, '', 0, 1.4) + hearts(520, 220) +
+            P(220, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6400, sub: '大器晚成：大才的人成就來得較晚。',
+          html: scene(P(400, 300, BIGDING, '', 0, 1.5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大器晚成</text>') }
+      ];
+    },
+    /* 蛛絲馬跡 */
+    i060: function () {
+      var WEB = '<g stroke="#c9d6e8" stroke-width="1.6" fill="none"><path d="M0 0 L-30 -30 M0 0 L0 -42 M0 0 L30 -30 M0 0 L-38 6 M0 0 L38 6"/><path d="M-18 -18 Q0 -26 18 -18 M-26 -4 Q0 -12 26 -4 M-12 -10 Q0 -15 12 -10"/></g>';
+      var HOOFPRINTS = '<g fill="#a8734a" opacity=".75"><ellipse cx="0" cy="0" rx="8" ry="5"/><ellipse cx="50" cy="-6" rx="8" ry="5"/><ellipse cx="100" cy="0" rx="8" ry="5"/><ellipse cx="150" cy="-6" rx="8" ry="5"/></g>';
+      var GLASS2 = '<circle cx="0" cy="0" r="18" fill="none" stroke="#8b93a3" stroke-width="4"/><line x1="13" y1="13" x2="26" y2="26" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '小偵探辦案！屋角有細細的蜘蛛絲、地上有淡淡的馬蹄印——都是微小的線索！',
+          html: scene(P(200, 180, WEB, '', 0, 1.3) + P(340, 316, HOOFPRINTS) +
+            P(560, 302, A('kid', 'happy') + P(-36, -50, GLASS2, '', 0, .8)) + qmark(480, 190)) },
+        { minDur: 6800, sub: '順著蹄印一路追蹤——果然在馬廄找到了「偷吃紅蘿蔔的犯人」：一匹小馬！',
+          html: scene(P(300, 316, HOOFPRINTS) +
+            P(560, 302, A('horse')) + P(620, 260, '<path d="M0 0 L-5 14 L5 14 Z" fill="#e0764a"/><path d="M0 0 q-3 -7 -7 -8 M0 0 q3 -7 7 -8" stroke="#548a40" stroke-width="2.4" fill="none"/>', '', 0, 1.2) +
+            P(240, 302, A('kid', 'happy') + P(-36, -50, GLASS2, '', 0, .8)) + bang(430, 200)) },
+        { minDur: 6600, sub: '「蛛絲馬跡」：極微小的痕跡——細心觀察，再小的線索都能揭開真相！',
+          html: scene(P(300, 200, WEB, '', 0, 1.2) + P(430, 316, HOOFPRINTS) +
+            P(620, 302, A('kid', 'happy') + P(-36, -50, GLASS2, '', 0, .8), '', 0, .95)) },
+        { minDur: 6400, sub: '蛛絲馬跡：極微小的痕跡，可作為線索。',
+          html: scene(P(260, 190, WEB, '', 0, 1.3) + P(400, 316, HOOFPRINTS) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">蛛絲馬跡</text>') }
+      ];
+    },
+    /* 水落石出 */
+    i061: function () {
+      var STONES = '<path d="M-40 6 q-6 -18 8 -22 q16 -6 26 4 q10 8 2 18 z" fill="#b0b4bf" stroke="#8b93a3" stroke-width="2.4"/>' +
+        '<path d="M30 8 q-4 -14 8 -16 q12 -3 18 5 q6 8 0 11 z" fill="#c4c9d4" stroke="#8b93a3" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '夏天的溪水滿滿的，什麼都看不見；到了枯水期，水位一降——河床的大石頭全露了出來！',
+          html: scene('<rect y="252" width="800" height="88" fill="#7fb2e0" opacity=".6"/>' +
+            P(400, 322, STONES, '', 0, 1.3) +
+            P(180, 302, A('kid', 'wow'), '', 0, .92) + qmark(260, 200)) },
+        { minDur: 7000, sub: '蘇軾在〈後赤壁賦〉寫下「山高月小，水落石出」——後來用來比喻：真相總有大白的一天！',
+          html: scene(P(600, 90, '<path d="M14 -26 A30 30 0 1 0 26 16 A24 24 0 1 1 14 -26 Z" fill="#f4f1de"/>') +
+            P(400, 322, STONES, '', 0, 1.2) +
+            P(220, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95), 'night') },
+        { minDur: 6800, sub: '教室的失竊案查清楚了——原來是風把作業吹進了櫃子後面！水落石出，大家都鬆了口氣。',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .97, true) +
+            hearts(400, 180) + bang(560, 200)) },
+        { minDur: 6400, sub: '水落石出：事實真相終於顯露。',
+          html: scene(P(400, 322, STONES, '', 0, 1.4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">水落石出</text>') }
+      ];
+    },
+    /* 十年磨劍 */
+    i063: function () {
+      var SWORD3 = '<line x1="0" y1="0" x2="32" y2="-50" stroke="#c4cede" stroke-width="6" stroke-linecap="round"/>' +
+        '<line x1="5" y1="-14" x2="17" y2="-5" stroke="#c98f2a" stroke-width="4.6" stroke-linecap="round"/>';
+      var WHET = '<rect x="-26" y="-8" width="52" height="12" rx="4" fill="#8b93a3" stroke="#6d7585" stroke-width="2.4"/>';
+      return [
+        { minDur: 7000, sub: '唐朝賈島的詩說：「十年磨一劍，霜刃未曾試。」——鑄劍師十年只磨一把劍，劍刃亮如寒霜！',
+          html: scene(P(430, 312, WHET) + P(400, 302, A('kid', 'angry') + P(28, -40, SWORD3, 'st-hoe', 0, .8)) +
+            sweat(340, 195), 'night') },
+        { minDur: 6800, sub: '奧運選手也一樣：十年苦練基本功，只為賽場上發光的那幾分鐘！',
+          html: scene(P(360, 302, A('kid', 'angry'), 'st-dashL') + sweat(300, 190) +
+            P(560, 290, '<path d="M-14 -34 h28 v10 q0 14 -14 16 q-14 -2 -14 -16 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/><rect x="-12" y="0" width="24" height="6" rx="2.4" fill="#c98f2a"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「十年磨劍」：花費多年默默準備，一出手就驚人——深藏的功夫最鋒利！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(28, -40, SWORD3, '', 0, .9), '', 0, 1.05) + bang(520, 190) + hearts(300, 192)) },
+        { minDur: 6400, sub: '十年磨劍：多年準備，一鳴驚人。',
+          html: scene(P(400, 300, SWORD3, '', 0, 1.5) + P(340, 316, WHET, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">十年磨劍</text>') }
+      ];
+    },
+    /* 柳暗花明 */
+    i065: function () {
+      var WILLOW = '<rect x="-8" y="-50" width="16" height="50" rx="6" fill="#a8734a"/>' +
+        '<path d="M-4 -50 q-16 6 -20 30 M0 -52 q-4 12 -2 32 M4 -50 q14 8 16 30 M-8 -48 q-24 2 -30 20" stroke="#8fd08f" stroke-width="3.4" fill="none" stroke-linecap="round"/>';
+      function flower8(x, y, color, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<line x1="0" y1="0" x2="0" y2="-14" stroke="#5f8a46" stroke-width="3"/><circle cx="0" cy="-19" r="4.6" fill="' + color + '"/><circle cx="-5" cy="-15" r="4.6" fill="' + color + '"/><circle cx="5" cy="-15" r="4.6" fill="' + color + '"/><circle cx="0" cy="-15" r="3" fill="#ffe066"/></g>');
+      }
+      var HOUSE6 = '<path d="M-36 -30 L0 -54 L36 -30 Z" fill="#8a5a33"/><rect x="-28" y="-30" width="56" height="30" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-8" y="-22" width="16" height="22" rx="3" fill="#8a5a33"/>';
+      return [
+        { minDur: 7000, sub: '陸游走在山路上：山重重、水重重，前面好像沒路了……正想折返——',
+          html: scene(P(560, 302, '<path d="M-110 0 L0 -130 L110 0 Z" fill="#8fb0a0"/>') +
+            P(280, 302, A('kid', 'sad'), 'st-strut') + sweat(230, 195) + qmark(360, 185), 'night') },
+        { minDur: 7000, sub: '轉個彎——柳樹成蔭、繁花似錦，一座村莊出現在眼前！「柳暗花明又一村」！',
+          html: scene(P(200, 302, WILLOW, '', 0, 1.2) + flower8(320, 320, '#ff9eb5', 0) + flower8(400, 318, '#ffd97a', .3) +
+            P(560, 302, HOUSE6, '', 0, 1.1) +
+            P(300, 302, A('kid', 'wow'), '', 0, .95) + bang(450, 190) + hearts(500, 230)) },
+        { minDur: 6800, sub: '「柳暗花明」：山窮水盡時忽然出現轉機——絕處逢生，別輕易放棄！',
+          html: scene(P(220, 302, WILLOW, '', 0, 1.1) + flower8(350, 320, '#c9a8e0', 0) +
+            P(500, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(420, 190)) },
+        { minDur: 6400, sub: '柳暗花明：豁然開朗，絕處逢生。',
+          html: scene(P(220, 302, WILLOW, '', 0, 1.2) + flower8(360, 320, '#ff9eb5', 0) + flower8(460, 318, '#ffd97a', .3) + P(600, 302, HOUSE6, '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">柳暗花明</text>') }
+      ];
     }
   };
 
