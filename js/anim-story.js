@@ -3828,6 +3828,112 @@
           html: scene(TRACK + P(400, 296, A('kid', 'angry') + P(30, -50, BATON), 'st-dashL', 0, 1.1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">奮力直追</text>') }
       ];
+    },
+    /* 一舉兩得 */
+    i201: function () {
+      var BASKET2 = '<path d="M-16 0 q0 12 16 12 q16 0 16 -12 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>' +
+        '<path d="M-16 0 q16 -16 32 0" fill="none" stroke="#a8734a" stroke-width="3"/>' +
+        '<circle cx="-4" cy="-4" r="5" fill="#a5d47c"/><circle cx="8" cy="-6" r="5" fill="#e85a4f"/>';
+      var BROOM2 = '<line x1="0" y1="0" x2="20" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>' +
+        '<path d="M0 0 l-10 12 M0 0 l-2 14 M0 0 l6 13" stroke="#c9a06c" stroke-width="3.4" stroke-linecap="round"/>';
+      return [
+        { minDur: 6600, sub: '小安幫奶奶跑腿買菜——順便當作運動，一路小跑，跑得滿身大汗！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(34, -30, BASKET2), 'st-dashL') + sweat(290, 195)) },
+        { minDur: 6800, sub: '菜買回來了，奶奶好開心；身體也越跑越壯——做一件事，同時得到兩個好處！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(34, -30, BASKET2)) +
+            P(520, 302, A('kid', 'happy'), '', 0, 1.02, true) + hearts(410, 175) + hearts(560, 195)) },
+        { minDur: 6600, sub: '掃地也一樣：教室變乾淨了，還被老師稱讚愛勞動——又是一舉兩得！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(20, -34, BROOM2, 'st-hoe')) +
+            P(560, 302, A('kid', 'happy'), '', 0, 1.05, true) + hearts(440, 180)) },
+        { minDur: 6400, sub: '一舉兩得：做一件事，同時獲得兩種好處。',
+          html: scene(P(360, 302, A('kid', 'happy') + P(34, -30, BASKET2)) + hearts(260, 190) + hearts(500, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一舉兩得</text>') }
+      ];
+    },
+    /* 自言自語 */
+    i202: function () {
+      var PUZZLE = '<g stroke-width="2"><rect x="-26" y="-20" width="24" height="20" rx="3" fill="#a5c8ff" stroke="#5c82ba"/><rect x="2" y="-20" width="24" height="20" rx="3" fill="#a5d47c" stroke="#7cab6e"/><rect x="-26" y="4" width="24" height="20" rx="3" fill="#ffd97a" stroke="#e8b84a"/><rect x="2" y="4" width="24" height="20" rx="3" fill="#fff" stroke="#c9bfa8" stroke-dasharray="4 4"/></g>';
+      function bub(x, y, txt, sc) {
+        return P(x, y, '<path d="M-30 -18 a26 20 0 1 1 52 6 q-2 9 -12 10 l-13 12 l1 -12 q-24 -2 -28 -16 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>' +
+          '<text x="-3" y="-4" text-anchor="middle" font-size="13" fill="#4a3200">' + txt + '</text>', '', 0, sc || 1);
+      }
+      return [
+        { minDur: 6800, sub: '小美一邊拼拼圖，一邊小聲嘀咕：「這片放這裡……不對不對，應該在那邊才對……」',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(440, 290, PUZZLE, '', 0, 1.1) +
+            bub(360, 180, '嗯…這裡?', 1)) },
+        { minDur: 6600, sub: '弟弟湊過來，好奇地問：「姊姊，妳在跟誰說話呀？」「沒有呀——我在自己跟自己說話！」',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(440, 290, PUZZLE, '', 0, 1) +
+            P(600, 302, A('kid', 'wow'), '', 0, .8) + qmark(650, 200)) },
+        { minDur: 6600, sub: '自己對自己說話，就叫「自言自語」——專心想事情的時候，常常不知不覺就說出聲了。',
+          html: scene(P(360, 302, A('kid', 'happy')) + bub(440, 180, '自言自語', 1) + hearts(280, 190)) },
+        { minDur: 6400, sub: '自言自語：自己對自己說話。',
+          html: scene(P(360, 302, A('kid', 'happy')) + bub(450, 190, '……', 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">自言自語</text>') }
+      ];
+    },
+    /* 不知不覺 */
+    i203: function () {
+      var COMICBOOK = '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#a5c8ff" stroke="#5c82ba" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="14" fill="#2c4a75">漫</text>';
+      var CLOCK = '<circle cx="0" cy="0" r="18" fill="#fff" stroke="#8b93a3" stroke-width="3"/><line x1="0" y1="0" x2="0" y2="-11" stroke="#3a2e26" stroke-width="2.6"/><line x1="0" y1="0" x2="8" y2="4" stroke="#3a2e26" stroke-width="2.6"/>';
+      return [
+        { minDur: 6600, sub: '小凱打開一本好看的漫畫，才翻了幾頁，就完全入迷了。',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -54, COMICBOOK, '', 0, .95)) + hearts(280, 185)) },
+        { minDur: 6800, sub: '窗外的天色從亮變暗，肚子咕嚕咕嚕叫——他抬頭一看鐘：「什麼？已經晚上七點了！」',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-42, -54, COMICBOOK, '', 0, .95)) +
+            P(560, 200, CLOCK, '', 0, 1.2) + bang(640, 160) + sweat(300, 195), 'night') },
+        { minDur: 6600, sub: '沒有察覺、沒有留意，時間就悄悄溜走了——這就是「不知不覺」。',
+          html: scene(P(360, 302, A('kid', 'happy')) + P(540, 220, CLOCK, '', 0, 1) + qmark(440, 180), 'night') },
+        { minDur: 6400, sub: '不知不覺：沒有察覺、沒有意識到。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-42, -54, COMICBOOK, '', 0, .95)) + P(540, 230, CLOCK, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不知不覺</text>') }
+      ];
+    },
+    /* 東張西望 */
+    i204: function () {
+      var BUILDINGS = '<rect x="60" y="120" width="70" height="182" fill="#8fa8c9" stroke="#6d87ab" stroke-width="3"/>' +
+        '<rect x="150" y="80" width="80" height="222" fill="#a3a9b8" stroke="#84858f" stroke-width="3"/>' +
+        '<g fill="#ffe9a0"><rect x="72" y="140" width="14" height="14"/><rect x="98" y="140" width="14" height="14"/><rect x="72" y="170" width="14" height="14"/><rect x="165" y="100" width="14" height="14"/><rect x="195" y="100" width="14" height="14"/><rect x="165" y="132" width="14" height="14"/></g>' +
+        '<rect x="600" y="140" width="90" height="162" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+        '<rect x="616" y="160" width="58" height="18" rx="4" fill="#e85a4f"/>';
+      var POLE = '<line x1="0" y1="0" x2="0" y2="-150" stroke="#8b93a3" stroke-width="8"/><line x1="-18" y1="-140" x2="18" y2="-140" stroke="#8b93a3" stroke-width="5"/>';
+      return [
+        { minDur: 6800, sub: '第一次到大城市，小庭邊走邊東看看、西瞧瞧：高樓、招牌、車子，什麼都新鮮！',
+          html: scene(BUILDINGS + P(400, 302, A('kid', 'wow'), 'st-strut') +
+            hearts(320, 190) + qmark(480, 180)) },
+        { minDur: 6600, sub: '走著走著，一個不留神——咚！一頭撞上了電線桿！',
+          html: scene(BUILDINGS + P(520, 302, POLE) +
+            P(460, 306, '<g class="st-faint">' + A('kid', 'wow') + '</g>') + bang(500, 200)) },
+        { minDur: 6600, sub: '「東張西望」是四處張望的意思——走路的時候，可要看好前方呀！',
+          html: scene(P(400, 302, A('kid', 'sad') + '<circle cx="24" cy="-78" r="7" fill="#ffb3a3"/>') + sweat(350, 195) +
+            P(600, 302, A('kid', 'happy'), '', 0, .9, true)) },
+        { minDur: 6400, sub: '東張西望：四處張望，心神不定或好奇觀看。',
+          html: scene(BUILDINGS + P(400, 302, A('kid', 'wow')) + qmark(330, 190) + qmark(470, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">東張西望</text>') }
+      ];
+    },
+    /* 大吃一驚 */
+    i205: function () {
+      var SOFA = '<rect x="-60" y="-34" width="120" height="34" rx="10" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>' +
+        '<rect x="-66" y="-46" width="22" height="34" rx="8" fill="#a85a1e"/><rect x="44" y="-46" width="22" height="34" rx="8" fill="#a85a1e"/>';
+      var CAKE = '<rect x="-20" y="-16" width="40" height="16" rx="4" fill="#f7a8c4" stroke="#e07ba3" stroke-width="2.4"/>' +
+        '<path d="M-20 -16 q10 6 20 0 q10 6 20 0" stroke="#fff" stroke-width="3" fill="none"/>' +
+        '<line x1="0" y1="-16" x2="0" y2="-26" stroke="#e8b84a" stroke-width="2.6"/><circle cx="0" cy="-29" r="3" fill="#ff9c40"/>';
+      return [
+        { minDur: 6600, sub: '生日這天放學回家，屋裡黑漆漆、靜悄悄——奇怪，大家都去哪裡了？',
+          html: scene(P(430, 302, SOFA) + P(220, 302, A('kid', 'happy'), 'st-inL') + qmark(280, 185), 'night') },
+        { minDur: 6800, sub: '燈「啪」地亮起——「生日快樂！」全家人從沙發後面跳出來，小睿嚇了一大跳，眼睛瞪得圓圓的！',
+          html: scene(P(430, 302, SOFA) + bang(430, 200) +
+            P(380, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .85) +
+            P(500, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .82) +
+            P(220, 302, A('kid', 'wow')) + sweat(180, 195)) },
+        { minDur: 6600, sub: '從驚訝變成哈哈大笑——這真是最棒的生日驚喜！',
+          html: scene(P(400, 280, CAKE, '', 0, 1.3) +
+            P(240, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(560, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .9) + hearts(400, 190)) },
+        { minDur: 6400, sub: '大吃一驚：非常吃驚。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.1) + bang(490, 180) + sweat(330, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大吃一驚</text>') }
+      ];
     }
   };
 
