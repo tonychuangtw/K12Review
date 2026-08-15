@@ -8818,6 +8818,115 @@
           html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.08) + bang(490, 185) + qmark(310, 182) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">出乎意料</text>') }
       ];
+    },
+    /* 恰到好處 */
+    i483: function () {
+      return [
+        { minDur: 6800, sub: '煮麵的學問：鹽多一撮太鹹、少一撮沒味——大廚一撒，鹹淡剛剛好！',
+          html: scene(P(430, 290, '<path d="M-18 -6 q0 12 18 12 q18 0 18 -12 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-10 -6 q2 -10 -2 -16 M0 -6 q2 -12 -1 -18 M10 -6 q2 -8 0 -14" stroke="#ffe066" stroke-width="2.6" fill="none" stroke-linecap="round"/>', '', 0, 1.3) +
+            P(260, 302, A('kid', 'happy')) + hearts(350, 205)) },
+        { minDur: 6800, sub: '澆花的水量、開玩笑的分寸、練習的強度——不多也不少，正好落在最適當的位置！',
+          html: scene(P(400, 220, '<path d="M-60 0 h120" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M0 -10 L0 10" stroke="#548a40" stroke-width="6" stroke-linecap="round"/><text x="0" y="-22" text-anchor="middle" font-size="14" fill="#548a40">剛剛好</text>', '', 0, 1.3) +
+            P(260, 302, A('kid', 'happy'), '', 0, .95) + hearts(500, 250)) },
+        { minDur: 6600, sub: '「恰到好處」：正好達到最適當的程度——拿捏分寸，是門大學問！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(490, 188)) },
+        { minDur: 6400, sub: '恰到好處：正好達到最適當的程度。',
+          html: scene(P(400, 225, '<path d="M-60 0 h120" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M0 -10 L0 10" stroke="#548a40" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.4) +
+            '<text x="400" y="310" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">恰到好處</text>') }
+      ];
+    },
+    /* 一舉成名 */
+    i484: function () {
+      return [
+        { minDur: 7000, sub: '古代讀書人寒窗苦讀十年，沒沒無聞——直到金榜題名那天，全城都知道他的名字！',
+          html: scene(P(430, 302, '<rect x="-40" y="-120" width="80" height="120" rx="5" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><text x="0" y="-96" text-anchor="middle" font-size="15" font-weight="bold" fill="#c96a5a">榜</text><line x1="-24" y1="-80" x2="24" y2="-80" stroke="#e85a4f" stroke-width="3"/>' ) +
+            P(240, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + bang(560, 200) + hearts(320, 195)) },
+        { minDur: 6800, sub: '沒沒無聞的新人歌手，一首歌爆紅全網——一次表現就成就了名聲，「一舉成名」！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, A('kid', 'happy'), '', 0, 1.02) + notes(480, 165) +
+            P(200, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .88) + P(620, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .88) + hearts(400, 150)) },
+        { minDur: 6800, sub: '但別忘了：一舉成名的背後，往往是十年苦功——機會只留給準備好的人！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) + sweat(300, 192) + hearts(470, 190)) },
+        { minDur: 6400, sub: '一舉成名：一次行動就成就了名聲。',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + bang(490, 185) + notes(310, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一舉成名</text>') }
+      ];
+    },
+    /* 脫穎而出 */
+    i485: function () {
+      var BAG2 = '<path d="M-22 0 Q-28 -32 0 -38 Q28 -32 22 0 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><path d="M-9 -38 q9 -6 18 0" stroke="#a8734a" stroke-width="3" fill="none"/>' +
+        '<path d="M8 -42 l7 -14 l5 15 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 7000, sub: '還記得毛遂說的話嗎？錐子放進布袋，尖端一定會冒出來——真本事藏不住！',
+          html: scene(P(400, 250, '<circle cx="0" cy="-16" r="52" fill="#fff" opacity=".9"/>' + P(0, 6, BAG2)) +
+            P(220, 302, A('kid', 'happy'), '', 0, .95) + bang(520, 200)) },
+        { minDur: 6800, sub: '科展比賽上百件作品——小穎的環保發明構想獨特、實驗紮實，評審一眼相中！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-44, -56, '<rect x="-18" y="-14" width="36" height="28" rx="4" fill="#a5d47c" stroke="#7cab6e" stroke-width="2.4"/><circle cx="0" cy="0" r="6" fill="#fff"/>', '', 0, .95)) +
+            P(500, 302, A('kid', 'happy'), '', 0, .95) + hearts(410, 185) + bang(580, 200)) },
+        { minDur: 6600, sub: '「脫穎而出」：才能顯露、超越眾人——把自己磨利，機會來時就能冒出頭！',
+          html: scene(P(400, 250, BAG2, '', 0, 1.5) + bang(520, 190) + hearts(300, 220)) },
+        { minDur: 6400, sub: '脫穎而出：才能顯露，超越眾人。',
+          html: scene(P(400, 255, BAG2, '', 0, 1.6) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">脫穎而出</text>') }
+      ];
+    },
+    /* 名不虛傳 */
+    i486: function () {
+      return [
+        { minDur: 6800, sub: '聽說巷底的牛肉麵是「全市第一」——小虛特地排隊一小時去驗證！',
+          html: scene(P(430, 302, '<rect x="-60" y="-30" width="120" height="30" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/><text x="0" y="-38" text-anchor="middle" font-size="13" font-weight="bold" fill="#4a3200">牛肉麵</text>') +
+            P(240, 302, A('kid', 'happy'), '', 0, .95) + P(160, 302, A('kid', 'happy'), '', .2, .9) + qmark(320, 195)) },
+        { minDur: 6800, sub: '一口湯下肚——「太好喝了！」名聲和實際完全相符，不是吹出來的！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(38, -46, '<path d="M-16 -6 q0 12 16 12 q16 0 16 -12 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-8 -6 q2 -10 -2 -16 M4 -6 q2 -10 0 -16" stroke="#ffe066" stroke-width="2.4" fill="none" stroke-linecap="round"/>', '', 0, 1.1)) +
+            bang(470, 195) + hearts(280, 192)) },
+        { minDur: 6600, sub: '「名不虛傳」：名聲與實際相符——經得起驗證的實力最可貴！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(490, 188) +
+            P(400, 195, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><path d="M-9 0 l6 7 l13 -13" stroke="#548a40" stroke-width="4" fill="none" stroke-linecap="round"/>')) },
+        { minDur: 6400, sub: '名不虛傳：名聲與實際相符。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><path d="M-10 0 l7 8 l14 -14" stroke="#548a40" stroke-width="4.4" fill="none" stroke-linecap="round"/>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">名不虛傳</text>') }
+      ];
+    },
+    /* 有口皆碑 */
+    i487: function () {
+      var STELE = '<rect x="-24" y="-70" width="48" height="70" rx="5" fill="#b0b4bf" stroke="#8b93a3" stroke-width="2.6"/><path d="M-24 -70 Q0 -84 24 -70" fill="#b0b4bf" stroke="#8b93a3" stroke-width="2.6"/><rect x="-32" y="0" width="64" height="10" rx="3" fill="#8b93a3"/><text x="0" y="-32" text-anchor="middle" font-size="14" font-weight="bold" fill="#4a5462">讚</text>';
+      return [
+        { minDur: 6800, sub: '問起市場的修鞋爺爺，人人豎起大拇指：「手藝好、收費公道、還常常免費幫忙！」',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) +
+            P(200, 302, A('kid', 'happy'), '', 0, .88) + P(540, 302, A('kid', 'happy'), '', .2, .88) + hearts(400, 178) + hearts(250, 190)) },
+        { minDur: 6800, sub: '每個人的嘴都像一座記功碑——好名聲刻在大家心裡，比石碑更長久！',
+          html: scene(P(400, 300, STELE, '', 0, 1.2) +
+            P(240, 302, A('kid', 'happy'), '', 0, .9) + P(560, 302, A('kid', 'happy'), '', .2, .9) + hearts(400, 190)) },
+        { minDur: 6600, sub: '「有口皆碑」：人人稱讚，如同口頭的紀念碑——用好行為累積好口碑！',
+          html: scene(P(400, 300, STELE, '', 0, 1.15) + hearts(510, 220) + hearts(290, 225)) },
+        { minDur: 6400, sub: '有口皆碑：人人稱讚，口頭的紀念碑。',
+          html: scene(P(400, 300, STELE, '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">有口皆碑</text>') }
+      ];
+    },
+    /* 讚不絕口 */
+    i488: function () {
+      function bub8(x, y, txt, dly) {
+        return P(x, y, '<g class="st-zfloat"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M-24 -12 a20 15 0 1 1 40 5 q-2 6 -9 7 l-8 7 l1 -7 q-20 -2 -24 -12 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>' +
+          '<text x="-2" y="-2" text-anchor="middle" font-size="11" fill="#c96a5a">' + txt + '</text></g>');
+      }
+      return [
+        { minDur: 6800, sub: '奶奶端出滷了一下午的東坡肉——全家人一邊吃一邊讚美：「太香了！」「入口即化！」「再來一碗！」',
+          html: scene(P(430, 285, '<ellipse cx="0" cy="0" rx="30" ry="10" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-14" y="-18" width="28" height="14" rx="4" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, 1.2) +
+            bub8(260, 175, '太香了!', 0) + bub8(400, 150, '入口即化!', .3) + bub8(540, 180, '再來一碗!', .6) +
+            P(240, 302, A('kid', 'happy'), '', 0, .93) + P(580, 302, A('kid', 'happy'), '', .2, .93)) },
+        { minDur: 6600, sub: '稱讚的話一句接一句、停不下來——「讚不絕口」！奶奶笑得合不攏嘴。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.08) +
+            hearts(490, 185) + hearts(310, 190) + notes(400, 155)) },
+        { minDur: 6600, sub: '「讚不絕口」：不停地稱讚——真誠的讚美，是最溫暖的禮物！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .97, true) +
+            bub8(405, 170, '讚!', 0) + hearts(405, 230)) },
+        { minDur: 6400, sub: '讚不絕口：不停地稱讚。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + bub8(320, 175, '讚!', 0) + bub8(480, 170, '好棒!', .3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">讚不絕口</text>') }
+      ];
     }
   };
 
