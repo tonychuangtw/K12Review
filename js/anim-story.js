@@ -15484,6 +15484,154 @@
             P(310, 245, A('kid', 'happy'), 'st-strut', 0, .8, true) + P(490, 245, A('kid', 'happy'), 'st-strut', .2, .8) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">各奔前程</text>') }
       ];
+    },
+    /* 不知所云 */
+    i120: function () {
+      return [
+        { minDur: 7000, sub: '諸葛亮出師北伐前上表：「臨表涕零，不知所云」——激動落淚，都不知道自己說了什麼！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/><g class="st-tear"><path d="M-12 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>' + P(-46, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/></g>', '', 0, .95), '', 0, 1.05) + hearts(480, 190)) },
+        { minDur: 6800, sub: '原是謙詞——但今天多用來批評：文章東拉西扯、報告抓不到重點，讓人「不知所云」！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(620, 185) +
+            P(430, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#8b93a3">???</text>')) },
+        { minDur: 6800, sub: '避免不知所云的訣竅：開口前先想好「我要說的一句話結論」——其他內容繞著它轉！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(540, 220, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">一句話</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">結論</text>', '', 0, 1.1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '不知所云：言辭混亂，不知重點。',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#8b93a3">???</text>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不知所云</text>') }
+      ];
+    },
+    /* 莫衷一是 */
+    i121: function () {
+      return [
+        { minDur: 6800, sub: '校外教學去哪？有人喊海邊、有人要爬山、有人堅持博物館——吵了一節課沒結果！',
+          html: scene(P(260, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95) +
+            P(400, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95) +
+            P(540, 302, A('kid', 'wow'), '', 0, .95, true) +
+            P(260, 200, '<circle cx="0" cy="0" r="17" fill="#7fb2d4" opacity=".9"/>', '', 0, 1) + P(400, 190, '<path d="M-15 10 L0 -12 L15 10 Z" fill="#7a9a6a" opacity=".9"/>', '', 0, 1) + P(540, 200, '<rect x="-14" y="-12" width="28" height="24" rx="3" fill="#c9a06c" opacity=".9"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「衷」是折中定論——「莫衷一是」：眾說紛紜，折不出一個大家都接受的結論！',
+          html: scene(P(400, 250, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="#8b93a3">?</text>', 'st-bob', 0, 1.2) +
+            '<g stroke="#c9bfa8" stroke-width="2.6" stroke-dasharray="6 5"><line x1="250" y1="190" x2="375" y2="240"/><line x1="550" y1="190" x2="425" y2="240"/><line x1="250" y1="310" x2="375" y2="262"/><line x1="550" y1="310" x2="425" y2="262"/></g>' + sweat(500, 200)) },
+        { minDur: 6800, sub: '解法：訂標準再投票——「預算內、車程一小時內」，條件一清楚，答案就浮出來了！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -10 l4 4 l7 -8 M-10 2 l4 4 l7 -8"/></g>', '', 0, .95)) + bang(470, 188) + hearts(280, 195)) },
+        { minDur: 6400, sub: '莫衷一是：眾說紛紜，難有定論。',
+          html: scene(P(400, 255, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="#8b93a3">?</text>', 'st-bob', 0, 1.2) +
+            '<g stroke="#c9bfa8" stroke-width="2.6" stroke-dasharray="6 5"><line x1="260" y1="195" x2="378" y2="245"/><line x1="540" y1="195" x2="422" y2="245"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">莫衷一是</text>') }
+      ];
+    },
+    /* 殫精竭慮 */
+    i122: function () {
+      return [
+        { minDur: 7000, sub: '「殫」「竭」都是用盡——白居易寫「殫思極慮」：把精力和思慮全部倒出來！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-10" y1="-12" x2="10" y2="-12"/><line x1="-10" y1="-4" x2="10" y2="-4"/><line x1="-10" y1="4" x2="10" y2="4"/></g>', '', 0, .95), '', 0, 1.02) + sweat(290, 188) +
+            P(560, 210, '<path d="M-14 10 q0 -22 14 -22 q14 0 14 22" stroke="#c9bfa8" stroke-width="3" fill="none"/><g class="st-rain"><circle cx="0" cy="16" r="3.4" fill="#7fb2d4"/></g>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '為了設計出安全又省水的校園澆花系統，小慮翻資料、畫圖、做模型——想到半夜！',
+          html: scene(P(380, 302, A('kid', 'happy') + P(-44, -52, '<rect x="-16" y="-13" width="32" height="26" rx="4" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/><path d="M-8 -3 l4 -6 4 4 5 -7" stroke="#a5d47c" stroke-width="2" fill="none"/>', '', 0, .95), '', 0, 1.02) +
+            P(620, 130, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#2c3550"/>', '', 0, 1) + notes(280, 195), 'night') },
+        { minDur: 6800, sub: '「殫精竭慮」：費盡心力思慮——用盡全力做出來的東西，自己看了都感動！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(500, 188) +
+            P(280, 205, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '殫精竭慮：竭盡心力，苦心籌謀。',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) + sweat(310, 188) +
+            P(620, 135, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">殫精竭慮</text>', 'night') }
+      ];
+    },
+    /* 語無倫次 */
+    i123: function () {
+      return [
+        { minDur: 6800, sub: '突然被抽到上台報告——小次腦中一片空白：「這個…那個…就是…呃…」',
+          html: scene(P(400, 280, '<rect x="-90" y="-16" width="180" height="16" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(400, 280, A('kid', 'wow'), 'st-bob', 0, 1) + sweat(330, 200) +
+            P(530, 200, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="11" fill="#8b93a3">這個那個…</text>')) },
+        { minDur: 6800, sub: '「倫次」是條理次序——「語無倫次」：話沒頭沒尾、顛三倒四，聽的人一頭霧水！',
+          html: scene(P(400, 250, '<g fill="#fff" opacity=".92"><rect x="-70" y="-40" width="44" height="24" rx="4" transform="rotate(-14)"/><rect x="10" y="-30" width="44" height="24" rx="4" transform="rotate(10)"/><rect x="-30" y="4" width="44" height="24" rx="4" transform="rotate(-4)"/></g>', '', 0, 1.3) + qmark(550, 205) + qmark(250, 210)) },
+        { minDur: 6800, sub: '緊張時先深呼吸三秒，套公式說：「我要講三點：第一…」——條理一出來，心就穩了！',
+          html: scene(P(400, 280, '<rect x="-90" y="-16" width="180" height="16" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(400, 280, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(250, 205, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">1.2.3</text>', '', 0, 1.05) + hearts(540, 210)) },
+        { minDur: 6400, sub: '語無倫次：言語混亂，沒有條理。',
+          html: scene(P(400, 302, A('kid', 'wow'), 'st-bob', 0, 1.05) + sweat(320, 185) +
+            P(520, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="11" fill="#8b93a3">呃…那個</text>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">語無倫次</text>') }
+      ];
+    },
+    /* 含英咀華 */
+    i124: function () {
+      var FLOWERB = '<path d="M0 0 C-6 -12 -20 -8 -16 2 C-24 2 -24 14 -13 14 C-17 24 -4 28 0 19 C4 28 17 24 13 14 C24 14 24 2 16 2 C20 -8 6 -12 0 0 Z" fill="#ff9eb5" stroke="#e07a94" stroke-width="1.8"/><circle cx="0" cy="9" r="4" fill="#ffd97a"/>';
+      return [
+        { minDur: 7000, sub: '韓愈〈進學解〉教讀書法：「沉浸醲郁，含英咀華」——像含著花朵細嚼花蜜，品文章的精華！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) +
+            P(540, 230, '<g class="st-tw">' + FLOWERB + '</g>', '', 0, 1.2) + notes(270, 195)) },
+        { minDur: 6800, sub: '讀一首好詩不要趕進度：一句一句慢慢讀、想像畫面、唸出聲音——滋味才出得來！',
+          html: scene(P(380, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) +
+            P(550, 210, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><path d="M-12 6 q6 -16 24 -10" stroke="#7a9a6a" stroke-width="2.4" fill="none"/><circle cx="8" cy="-8" r="6" fill="#ffb066"/>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6800, sub: '「含英咀華」：細細品味詩文精華——狼吞虎嚥讀十本，不如含英咀華讀一本！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) +
+            P(540, 220, '<g class="st-tw">' + FLOWERB + '</g>', '', 0, 1.1) + hearts(280, 200)) },
+        { minDur: 6400, sub: '含英咀華：細品文章的精華。',
+          html: scene(P(400, 250, '<g class="st-tw">' + FLOWERB + '</g>', '', 0, 2) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">含英咀華</text>') }
+      ];
+    },
+    /* 文風不動 */
+    i125: function () {
+      return [
+        { minDur: 6800, sub: '搬家時大家想挪動老衣櫃——三個人又推又搖，櫃子穩穩站著，連晃都不晃！',
+          html: scene(P(480, 290, '<rect x="-50" y="-70" width="100" height="70" fill="#8a5a33" stroke="#6d4426" stroke-width="3"/><line x1="0" y1="-70" x2="0" y2="0" stroke="#6d4426" stroke-width="2.6"/><circle cx="-12" cy="-36" r="3.4" fill="#ffd97a"/><circle cx="12" cy="-36" r="3.4" fill="#ffd97a"/>', '', 0, 1.05) +
+            P(300, 302, A('kid', 'angry') + '<path d="M24 -46 l18 -6 M28 -32 l16 -2" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .98) + sweat(240, 190)) },
+        { minDur: 6800, sub: '「文風不動」：連一絲風都吹不動——形容東西極穩固，或人沉著不受影響！',
+          html: scene(P(400, 290, '<rect x="-46" y="-64" width="92" height="64" fill="#8a5a33" stroke="#6d4426" stroke-width="3"/>', '', 0, 1.1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="200" y1="200" x2="290" y2="200"/><line x1="180" y1="235" x2="270" y2="235"/></g>' + bang(540, 220)) },
+        { minDur: 6800, sub: '考場外再吵、觀眾再喧嘩——他文風不動地寫完最後一題——定力就是實力！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/></g>', '', 0, .95), '', 0, 1.05) +
+            notes(240, 190) + bang(580, 195) + hearts(310, 210)) },
+        { minDur: 6400, sub: '文風不動：紋絲不動，沉穩堅定。',
+          html: scene(P(400, 292, '<rect x="-46" y="-64" width="92" height="64" fill="#8a5a33" stroke="#6d4426" stroke-width="3"/>', '', 0, 1.1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="210" y1="210" x2="300" y2="210"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">文風不動</text>') }
+      ];
+    },
+    /* 談笑自若 */
+    i126: function () {
+      return [
+        { minDur: 7000, sub: '史書記載：敵軍壓境，大將卻在帳中與客人談笑如常——軍心因此安定下來！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05) +
+            P(520, 302, A('kid', 'happy'), '', 0, .97, true) + notes(440, 185) +
+            P(200, 302, A('kid', 'wow') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, .9), '', 0, .88) + sweat(150, 195)) },
+        { minDur: 6800, sub: '簡報當機、投影片全黑——他笑著說：「正好考考大家的想像力！」邊修邊講不慌不忙！',
+          html: scene(P(300, 270, '<rect x="-40" y="-30" width="80" height="60" rx="4" fill="#3a3550" stroke="#2c2840" stroke-width="2.6"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#8b93a3">黑屏</text>', '', 0, 1) +
+            P(500, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02, true) + notes(600, 190) + sweat(240, 220)) },
+        { minDur: 6800, sub: '「談笑自若」：危急中依然鎮定如常——冷靜是會傳染的，領頭的人穩，大家就穩！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(260, 302, A('kid', 'happy'), '', 0, .9) + P(540, 302, A('kid', 'happy'), '', 0, .9, true) + notes(400, 178)) },
+        { minDur: 6400, sub: '談笑自若：臨危不亂，從容如常。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08) + notes(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">談笑自若</text>') }
+      ];
+    },
+    /* 廣場無垢 */
+    i127: function () {
+      var PLAZA = '<rect x="-120" y="-8" width="240" height="20" rx="4" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#d8d2c4" stroke-width="1.6"><line x1="-80" y1="-8" x2="-80" y2="12"/><line x1="-40" y1="-8" x2="-40" y2="12"/><line x1="0" y1="-8" x2="0" y2="12"/><line x1="40" y1="-8" x2="40" y2="12"/><line x1="80" y1="-8" x2="80" y2="12"/></g>';
+      return [
+        { minDur: 6800, sub: '一座乾乾淨淨的大廣場：沒有一片垃圾、沒有一點汙垢——望過去清清爽爽！',
+          html: scene(P(400, 295, PLAZA, '', 0, 1.2) +
+            P(200, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            '<g class="st-tw"><path d="M540 230 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>') },
+        { minDur: 6800, sub: '「廣場無垢」：比喻心胸像廣場一樣坦蕩開闊，品德沒有一點瑕疵！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-30 -46 q-14 -8 -22 2 M30 -46 q14 -8 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.08) +
+            P(400, 195, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" class="st-tw"/>') + hearts(290, 200)) },
+        { minDur: 6800, sub: '心裡沒有見不得人的事，走到哪裡都抬頭挺胸——坦蕩的人睡得最安穩！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + hearts(500, 188) +
+            P(620, 135, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#87a0c4"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '廣場無垢：心胸坦蕩，品德無瑕。',
+          html: scene(P(400, 295, PLAZA, '', 0, 1.2) +
+            P(400, 200, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>', '', 0, 1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">廣場無垢</text>') }
+      ];
     }
   };
 
