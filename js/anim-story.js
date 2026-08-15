@@ -12926,6 +12926,180 @@
             P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.15) + bang(510, 190) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">橫行霸道</text>') }
       ];
+    },
+    /* 一丘之貉 */
+    i889: function () {
+      var HILL2 = '<path d="M-120 40 Q0 -60 120 40 Z" fill="#a0885c" stroke="#8a744a" stroke-width="2.6"/>';
+      return [
+        { minDur: 7000, sub: '漢代楊惲議論歷代昏君，說了一句：「古與今，如一丘之貉！」——古今昏君都是同一座山丘上的貉！',
+          html: scene(P(400, 300, HILL2, '', 0, 1.1) +
+            P(340, 250, A('fox'), '', 0, .8) + P(460, 250, A('fox'), '', .2, .8, true) +
+            P(180, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '貉長得都一個樣，擠在同一座丘上——比喻一夥人同樣低劣，誰也沒比誰好！',
+          html: scene(P(400, 300, HILL2, '', 0, 1.15) +
+            P(310, 252, A('fox'), '', 0, .78) + P(400, 244, A('fox'), '', .2, .8) + P(490, 252, A('fox'), '', .4, .78, true) + qmark(580, 200)) },
+        { minDur: 6800, sub: '「一丘之貉」：譏諷對方是同一類的壞人——注意「貉」讀ㄏㄜˊ，別唸成ㄌㄨㄛˋ！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#c96a5a">ㄏㄜˊ</text>', '', 0, 1.1)) +
+            P(540, 270, A('fox'), '', 0, .9, true) + hearts(260, 195)) },
+        { minDur: 6400, sub: '一丘之貉：同類劣者，彼此無別。',
+          html: scene(P(400, 300, HILL2, '', 0, 1.15) +
+            P(340, 250, A('fox'), '', 0, .8) + P(460, 250, A('fox'), '', .2, .8, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一丘之貉</text>') }
+      ];
+    },
+    /* 腹背受敵 */
+    i890: function () {
+      var SPEARB = '<line x1="0" y1="10" x2="0" y2="-42" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -54 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 7000, sub: '北魏謀士崔浩分析戰局：大軍若貿然西進函谷關，就會「進退路窮，腹背受敵」！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -50, '<rect x="-16" y="-12" width="32" height="24" rx="3" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.4"/><path d="M-10 -4 h20 M-10 4 h14" stroke="#8a744a" stroke-width="1.8"/>', '', 0, .95), '', 0, 1.05) +
+            P(540, 245, '<path d="M-40 30 L0 -30 L40 30 Z" fill="#8fa3bf" opacity=".85"/><path d="M-14 30 L0 8 L14 30 Z" fill="#aab8cf"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '前面有敵軍堵路、背後又有追兵殺到——前後同時挨打，兩頭都顧不了！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.02) + sweat(400, 175) +
+            P(200, 302, A('kid', 'angry') + P(26, -50, SPEARB), '', 0, .95) +
+            P(600, 302, A('kid', 'angry') + P(-26, -50, SPEARB), '', 0, .95, true) + bang(310, 195) + bang(490, 195)) },
+        { minDur: 6800, sub: '「腹背受敵」：同時面臨多方壓力——功課趕不完、比賽又逼近，就是這種內外夾攻的感覺！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1) + sweat(330, 185) +
+            P(240, 230, '<rect x="-24" y="-16" width="48" height="32" rx="4" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#c96a5a">作業</text>', '', 0, 1) +
+            P(560, 230, '<rect x="-24" y="-16" width="48" height="32" rx="4" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#c96a5a">比賽</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '腹背受敵：前後同時受攻。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            P(210, 302, A('kid', 'angry') + P(26, -50, SPEARB), '', 0, .92) +
+            P(590, 302, A('kid', 'angry') + P(-26, -50, SPEARB), '', 0, .92, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">腹背受敵</text>') }
+      ];
+    },
+    /* 束手無策 */
+    i892: function () {
+      return [
+        { minDur: 6800, sub: '水管突然爆裂，水柱狂噴——一家人圍著看，誰都不知道該從哪裡下手！',
+          html: scene(P(430, 285, '<rect x="-8" y="-30" width="16" height="60" rx="4" fill="#8b93a3"/><g class="st-bub"><path d="M0 -34 q-10 -16 -4 -30 M8 -32 q10 -14 6 -28" stroke="#7fb2d4" stroke-width="4" fill="none" stroke-linecap="round"/></g>', '', 0, 1.2) +
+            P(250, 302, A('kid', 'wow'), '', 0, .95) + P(600, 302, A('kid', 'wow'), '', 0, .95, true) + sweat(200, 190) + qmark(550, 185)) },
+        { minDur: 6800, sub: '「束手無策」：雙手像被綁住，一點辦法也拿不出來——乾著急，事情不會好轉！',
+          html: scene(P(400, 302, A('kid', 'sad') + P(0, -34, '<path d="M-16 0 q16 10 32 0" stroke="#a8734a" stroke-width="4" fill="none"/><path d="M-10 6 q10 8 20 0" stroke="#a8734a" stroke-width="3" fill="none"/>', '', 0, 1), '', 0, 1.05) + sweat(320, 188) + qmark(490, 182)) },
+        { minDur: 6800, sub: '先關總開關、再打電話請水電師傅——束手無策時，找對的人求助也是一種辦法！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(38, -52, '<rect x="-8" y="-13" width="16" height="26" rx="4" fill="#3a2e26"/><rect x="-5" y="-9" width="10" height="16" rx="2" fill="#7fb2e0"/>', '', 0, 1)) + hearts(430, 188) +
+            P(540, 302, A('kid', 'angry') + P(30, -50, '<line x1="-8" y1="8" x2="10" y2="-10" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/><path d="M10 -10 a7 7 0 1 0 8 -8" stroke="#8b93a3" stroke-width="4" fill="none"/>', '', 0, 1), '', 0, 1, true)) },
+        { minDur: 6400, sub: '束手無策：毫無辦法可施。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(0, -34, '<path d="M-16 0 q16 10 32 0" stroke="#a8734a" stroke-width="4" fill="none"/>', '', 0, 1), '', 0, 1.05) + qmark(500, 182) + sweat(310, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">束手無策</text>') }
+      ];
+    },
+    /* 一籌莫展 */
+    i893: function () {
+      var TALLY = '<g stroke="#c9a06c" stroke-width="5" stroke-linecap="round"><line x1="-16" y1="-18" x2="-16" y2="18"/><line x1="0" y1="-18" x2="0" y2="18"/><line x1="16" y1="-18" x2="16" y2="18"/></g>';
+      return [
+        { minDur: 7000, sub: '《宋史》感歎：「多士盈庭而一籌不吐」——滿朝都是人才，卻沒人提得出一條對策！',
+          html: scene(P(260, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) +
+            P(400, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) +
+            P(540, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + sweat(330, 190) + qmark(470, 182)) },
+        { minDur: 6800, sub: '「籌」是計算用的籌碼，引申為計策——一根籌都擺不出來，就是一點辦法都沒有！',
+          html: scene(P(400, 260, TALLY, '', 0, 1.5) +
+            '<line x1="330" y1="200" x2="470" y2="300" stroke="#c96a5a" stroke-width="4"/>' + qmark(540, 200)) },
+        { minDur: 6800, sub: '「一籌莫展」：毫無辦法——注意是「籌」不是「愁」！卡住時休息一下，換個角度想！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#548a40">籌✓</text>', '', 0, 1.1)) +
+            P(560, 200, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '一籌莫展：計無可施，毫無辦法。',
+          html: scene(P(400, 265, TALLY, '', 0, 1.5) + qmark(520, 200) + sweat(290, 205) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一籌莫展</text>') }
+      ];
+    },
+    /* 窮途末路 */
+    i894: function () {
+      var CLIFFEND = '<path d="M100 302 h380 q30 0 30 -14 l0 -6 q60 10 120 -8" stroke="#d9cfae" stroke-width="18" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 7000, sub: '晉朝阮籍常獨自駕車亂走，走到路的盡頭無路可走——放聲大哭，掉頭而返！',
+          html: scene('<path d="M140 296 q180 -10 320 -4" stroke="#d9cfae" stroke-width="16" fill="none" stroke-linecap="round"/>' +
+            P(480, 290, '<circle cx="-18" cy="14" r="12" fill="#5a4632"/><circle cx="18" cy="14" r="12" fill="#5a4632"/><rect x="-32" y="-14" width="64" height="24" rx="5" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/>', '', 0, 1) +
+            P(470, 258, A('kid', 'sad'), '', 0, .85) + '<g class="st-tear"><path d="M462 240 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>' +
+            '<line x1="600" y1="230" x2="600" y2="310" stroke="#8a744a" stroke-width="5"/><line x1="580" y1="240" x2="620" y2="240" stroke="#8a744a" stroke-width="5"/>') },
+        { minDur: 6800, sub: '「窮途」是路的盡頭、「末路」是最後一段——合起來：陷入無路可走的絕境！',
+          html: scene(CLIFFEND + P(560, 268, A('kid', 'sad'), '', 0, .95) + sweat(500, 185) +
+            P(660, 250, '<line x1="0" y1="0" x2="0" y2="40" stroke="#c96a5a" stroke-width="4"/><rect x="-24" y="-24" width="48" height="26" rx="3" fill="#fff" stroke="#c96a5a" stroke-width="2.6"/><line x1="-12" y1="-18" x2="12" y2="-4" stroke="#c96a5a" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「窮途末路」：瀕臨絕境——但別忘了，很多絕境轉個彎就是新路，先冷靜下來找出口！',
+          html: scene(P(340, 302, A('kid', 'happy'), '', 0, 1) +
+            '<path d="M420 280 q80 -20 120 -60 q30 -30 80 -40" stroke="#548a40" stroke-width="5" fill="none" stroke-dasharray="10 8"/><path d="M620 178 l-14 2 l9 10 z" fill="#548a40"/>' + hearts(270, 192)) },
+        { minDur: 6400, sub: '窮途末路：無路可走的絕境。',
+          html: scene(CLIFFEND + P(560, 268, A('kid', 'sad'), '', 0, .95) + sweat(500, 190) +
+            '<text x="340" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">窮途末路</text>') }
+      ];
+    },
+    /* 山窮水盡 */
+    i895: function () {
+      return [
+        { minDur: 7000, sub: '陸游遊山西村：「山重水複疑無路」——山一座又一座、溪一條又一條，眼看已經無路可走！',
+          html: scene(P(250, 280, '<path d="M-70 30 L0 -50 L70 30 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.4"/>', '', 0, 1) +
+            P(420, 290, '<path d="M-60 22 L0 -36 L60 22 Z" fill="#8aab7a" stroke="#5a7a4a" stroke-width="2.4"/>', '', 0, .95) +
+            '<path d="M480 302 q60 -18 140 -10" stroke="#7fb2d4" stroke-width="10" fill="none" stroke-linecap="round"/>' +
+            P(160, 302, A('kid', 'wow'), '', 0, .92) + sweat(110, 192) + qmark(230, 188)) },
+        { minDur: 6800, sub: '正絕望時——「柳暗花明又一村」！轉過山腳，眼前竟出現一座開滿花的村莊！',
+          html: scene(P(560, 285, '<path d="M-40 -30 L0 -52 L40 -30 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2"/><rect x="-32" y="-30" width="64" height="30" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, 1) +
+            P(430, 292, '<path d="M0 8 q-3 -14 6 -20 q8 -5 6 -14" stroke="#548a40" stroke-width="3" fill="none"/><path d="M12 -30 C6 -40 18 -45 21 -35 C27 -43 35 -35 28 -29 Z" fill="#ff9eb5"/>', '', 0, 1.2) +
+            P(250, 302, A('kid', 'happy'), 'st-strut', 0, .98) + hearts(340, 190) + bang(560, 215)) },
+        { minDur: 6800, sub: '「山窮水盡」：處境艱難到極點——但它的下一句永遠可以是「柳暗花明」，別放棄希望！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(280, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#c96a5a">山窮</text>') +
+            '<path d="M312 200 h80" stroke="#548a40" stroke-width="3.4"/><path d="M392 200 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(460, 200, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#548a40">花明</text>')) },
+        { minDur: 6400, sub: '山窮水盡：山水皆盡，陷入絕境。',
+          html: scene(P(280, 280, '<path d="M-70 30 L0 -50 L70 30 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.4"/>', '', 0, 1.05) +
+            '<path d="M400 300 q70 -14 150 -8" stroke="#7fb2d4" stroke-width="9" fill="none" stroke-linecap="round" stroke-dasharray="10 12"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">山窮水盡</text>') }
+      ];
+    },
+    /* 教學相長 */
+    i1023: function () {
+      return [
+        { minDur: 7000, sub: '《禮記．學記》說：「學然後知不足，教然後知困」——學了才知道自己不夠，教了才發現自己卡住！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/></g>', '', 0, .95)) +
+            P(520, 302, A('kid', 'wow'), '', 0, .97, true) + qmark(590, 188)) },
+        { minDur: 6800, sub: '小長教同學數學，講到一半發現自己也講不清楚——回去重讀，反而弄得更透澈了！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(500, 302, A('kid', 'happy'), '', 0, .97, true) +
+            P(410, 195, '<rect x="-26" y="-18" width="52" height="36" rx="4" fill="#2f4f3f"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#fff">x+y</text>', '', 0, 1) + hearts(580, 200)) },
+        { minDur: 6800, sub: '「教學相長」：教與學互相促進——教人一遍，勝過自己讀三遍！（「長」讀ㄓㄤˇ，常考！）',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<g stroke="#548a40" stroke-width="3.4" fill="none"><path d="M340 230 q60 -36 120 0"/><path d="M460 250 q-60 36 -120 0"/></g><path d="M460 230 l-11 -6 v13 z" fill="#548a40"/><path d="M340 250 l11 6 v-13 z" fill="#548a40"/>' + hearts(400, 165)) },
+        { minDur: 6400, sub: '教學相長：教與學互相促進。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<g stroke="#548a40" stroke-width="3.4" fill="none"><path d="M340 235 q60 -34 120 0"/><path d="M460 252 q-60 34 -120 0"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">教學相長</text>') }
+      ];
+    },
+    /* 誨人不倦 */
+    i1024: function () {
+      return [
+        { minDur: 7000, sub: '孔子自述：「學而不厭，誨人不倦」——自己學不膩，教別人也永遠不嫌累！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.08) +
+            P(200, 302, A('kid', 'happy'), '', 0, .88) + P(560, 302, A('kid', 'happy'), '', 0, .88, true) + hearts(360, 175)) },
+        { minDur: 6800, sub: '同一題講了五遍，學生還是不懂——老師仍微笑著換第六種講法，直到學生眼睛一亮！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'wow'), '', 0, .95, true) +
+            P(600, 195, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1) + hearts(260, 192)) },
+        { minDur: 6800, sub: '「誨人不倦」：教導別人有耐心不倦怠——注意是言部的「誨」（教誨），不是心部的「悔」！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#548a40">誨✓</text>', '', 0, 1.1), '', 0, 1.02) + hearts(480, 190)) },
+        { minDur: 6400, sub: '誨人不倦：耐心教導，不知疲倦。',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(550, 302, A('kid', 'happy'), '', 0, .93, true) + hearts(460, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">誨人不倦</text>') }
+      ];
+    },
+    /* 雜亂無章 */
+    i1025: function () {
+      var MESS = '<rect x="-40" y="-8" width="30" height="22" rx="3" fill="#7fb2e0" transform="rotate(-18)"/><rect x="6" y="-16" width="30" height="22" rx="3" fill="#ff9eb5" transform="rotate(14)"/><rect x="-14" y="4" width="34" height="10" rx="3" fill="#ffd97a" transform="rotate(-6)"/><path d="M-30 -22 q20 8 26 -6" stroke="#8b93a3" stroke-width="3" fill="none"/>';
+      return [
+        { minDur: 6800, sub: '打開小章的書包：考卷揉成球、課本倒插、鉛筆盒開口朝下——什麼都找不到！',
+          html: scene(P(430, 280, MESS, '', 0, 1.6) +
+            P(240, 302, A('kid', 'wow'), '', 0, .98) + sweat(190, 190) + qmark(320, 185)) },
+        { minDur: 6800, sub: '韓愈就批評過「亂雜而無章」——「雜亂無章」：又雜又亂，毫無條理章法！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -12 q8 8 -2 12 q12 2 4 10 M2 -14 q-6 10 8 8" stroke="#8fa3bf" stroke-width="2" fill="none"/>', '', 0, .95)) + sweat(470, 188)) },
+        { minDur: 6800, sub: '分類、貼標籤、固定位置——整理過後井然有序，找東西三秒搞定，效率大增！',
+          html: scene(P(400, 285, '<g fill="#7fb2e0"><rect x="-52" y="-14" width="30" height="24" rx="3"/></g><g fill="#ff9eb5"><rect x="-14" y="-14" width="30" height="24" rx="3"/></g><g fill="#ffd97a"><rect x="24" y="-14" width="30" height="24" rx="3"/></g><line x1="-60" y1="14" x2="62" y2="14" stroke="#a8734a" stroke-width="4"/>', '', 0, 1.3) +
+            P(230, 302, A('kid', 'happy'), '', 0, .98) + hearts(310, 195) + bang(560, 230)) },
+        { minDur: 6400, sub: '雜亂無章：紛亂而毫無條理。',
+          html: scene(P(400, 280, MESS, '', 0, 1.6) + qmark(540, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">雜亂無章</text>') }
+      ];
     }
   };
 
