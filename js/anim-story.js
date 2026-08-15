@@ -8121,6 +8121,142 @@
             P(500, 190, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".92"/><text x="0" y="5" text-anchor="middle" font-size="13" fill="#c96a5a">3</text>') +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">頭頭是道</text>') }
       ];
+    },
+    /* 古色古香 */
+    i1080: function () {
+      var OLDHOUSE = '<path d="M-90 -70 q90 -40 180 0 l-12 0 q-78 -32 -156 0 z" fill="#8a5a33"/>' +
+        '<rect x="-76" y="-70" width="152" height="70" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/>' +
+        '<g stroke="#8a5a33" stroke-width="3"><rect x="-58" y="-54" width="34" height="34" fill="#c9762f"/><line x1="-41" y1="-54" x2="-41" y2="-20"/><line x1="-58" y1="-37" x2="-24" y2="-37"/></g>' +
+        '<rect x="-12" y="-48" width="34" height="48" rx="3" fill="#8a5a33"/>' +
+        '<circle cx="52" cy="-40" r="12" fill="#e85a4f"/><path d="M46 -40 h12 M52 -46 v12" stroke="#f4ecd8" stroke-width="1.6"/>';
+      return [
+        { minDur: 6800, sub: '走進老街的百年茶樓：木雕窗花、紅磚牆、老燈籠——到處都是歲月的味道！',
+          html: scene(P(430, 302, OLDHOUSE, '', 0, 1.1) +
+            P(200, 302, A('kid', 'wow'), '', 0, .92) + hearts(290, 205)) },
+        { minDur: 6800, sub: '爺爺的書房也古色古香：硯台、毛筆、線裝書，連椅子都是古早的木頭椅！',
+          html: scene(P(430, 280, '<rect x="-50" y="-30" width="100" height="12" rx="4" fill="#8a5a33"/><line x1="-40" y1="-18" x2="-40" y2="6" stroke="#8a5a33" stroke-width="5"/><line x1="40" y1="-18" x2="40" y2="6" stroke="#8a5a33" stroke-width="5"/><rect x="-34" y="-44" width="26" height="14" rx="2" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2"/><line x1="12" y1="-52" x2="20" y2="-32" stroke="#a8734a" stroke-width="3.4" stroke-linecap="round"/>') +
+            P(240, 302, A('kid', 'happy')) + hearts(330, 200)) },
+        { minDur: 6600, sub: '「古色古香」：帶有古雅的色彩和情調——老東西有新玩具沒有的韻味！',
+          html: scene(P(400, 302, OLDHOUSE, '', 0, 1.05) + hearts(550, 210)) },
+        { minDur: 6400, sub: '古色古香：帶有古雅的色彩和情調。',
+          html: scene(P(400, 302, OLDHOUSE, '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">古色古香</text>') }
+      ];
+    },
+    /* 大獲全勝 */
+    i1092: function () {
+      var TROPHY2 = '<path d="M-14 -34 h28 v10 q0 14 -14 16 q-14 -2 -14 -16 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/><path d="M-14 -30 q-12 0 -10 12 q2 8 10 6 M14 -30 q12 0 10 12 q-2 8 -10 6" stroke="#e8b84a" stroke-width="2.6" fill="none"/><rect x="-4" y="-8" width="8" height="8" fill="#c98f2a"/><rect x="-12" y="0" width="24" height="6" rx="2.4" fill="#c98f2a"/>';
+      return [
+        { minDur: 6800, sub: '躲避球決賽！我們班從第一局贏到最後一局，對手一分都沒拿到——完勝！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(450, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .95) + bang(560, 195) +
+            '<text x="620" y="180" font-size="26" font-weight="bold" fill="#4a3200">10:0</text>') },
+        { minDur: 6600, sub: '捧回冠軍獎盃，歡呼聲響徹操場——「大獲全勝」就是贏得徹徹底底！',
+          html: scene(P(400, 290, TROPHY2, '', 0, 1.4) +
+            P(260, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(540, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .95) + hearts(400, 200)) },
+        { minDur: 6600, sub: '勝利的背後是整學期的練習——「大獲全勝」的果實，最甜！',
+          html: scene(P(400, 290, TROPHY2, '', 0, 1.3) + hearts(500, 220) + notes(300, 210)) },
+        { minDur: 6400, sub: '大獲全勝：獲得完全的勝利。',
+          html: scene(P(400, 288, TROPHY2, '', 0, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大獲全勝</text>') }
+      ];
+    },
+    /* 落荒而逃 */
+    i1093: function () {
+      return [
+        { minDur: 6800, sub: '偷菜的野豬被農家的大狗發現——嚇得連菜都不要了，慌慌張張往荒草叢裡鑽！',
+          html: scene(P(300, 302, A('dog'), 'st-dashL', 0, 1.05) + bang(420, 210) +
+            P(560, 302, '<g class="st-fleeR">' + A('fox') + '</g>', 'st-dashL', 0, .95) + sweat(500, 230) +
+            '<g stroke="#5f8a46" stroke-width="4.6" fill="none" stroke-linecap="round"><path d="M680 318 q-5 -24 -12 -30 M680 318 q5 -26 13 -32"/></g>') },
+        { minDur: 6800, sub: '不走大路、逃向荒野——形容輸得狼狽、逃得倉皇的樣子！',
+          html: scene(P(400, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, 1.02) + sweat(340, 195) +
+            '<g stroke="#5f8a46" stroke-width="4.6" fill="none" stroke-linecap="round"><path d="M620 318 q-5 -24 -12 -30 M620 318 q5 -26 13 -32 M700 320 q-4 -20 -10 -26"/></g>', 'night') },
+        { minDur: 6600, sub: '「落荒而逃」：離開大路逃向荒野——常用來形容比賽或爭論中敗下陣來、狼狽離場！',
+          html: scene(P(300, 302, A('kid', 'happy')) + bang(390, 188) +
+            P(560, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .93) + sweat(500, 195)) },
+        { minDur: 6400, sub: '落荒而逃：逃向荒野，狼狽逃走。',
+          html: scene(P(450, 302, '<g class="st-fleeR">' + A('fox') + '</g>', 'st-dashL', 0, 1.05) + sweat(390, 225) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">落荒而逃</text>') }
+      ];
+    },
+    /* 來去無蹤 */
+    i1118: function () {
+      return [
+        { minDur: 6800, sub: '武俠片裡的俠客：一陣風似地出現、救了人又一閃而去——連衣角都抓不到！',
+          html: scene(P(360, 302, '<g opacity=".55">' + A('kid', 'angry') + '</g>', 'st-inL', 0, 1.05) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="480" y1="230" x2="580" y2="230"/><line class="st-windln" style="animation-delay:.4s" x1="460" y1="260" x2="550" y2="260"/></g>' +
+            P(600, 302, A('kid', 'wow'), '', 0, .92) + qmark(650, 188), 'night') },
+        { minDur: 6800, sub: '巷口的野貓也來去無蹤：早上還在牆頭晒太陽，一眨眼就不見了！',
+          html: scene(P(300, 260, '<rect x="-60" y="0" width="120" height="42" fill="#b0a390" stroke="#8a7a66" stroke-width="2.6"/>') +
+            P(300, 258, A('fox'), '', 0, .85) + qmark(430, 210) +
+            P(560, 302, A('kid', 'wow'), '', 0, .93)) },
+        { minDur: 6600, sub: '「來去無蹤」：來和去都不留痕跡——行動飄忽、難以捉摸！',
+          html: scene(P(400, 250, '<circle cx="0" cy="0" r="40" fill="none" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="10 10"/><text x="0" y="10" text-anchor="middle" font-size="30" fill="#c9bfa8">?</text>') +
+            '<g stroke="#c9dff0" stroke-width="4" stroke-linecap="round" opacity=".8"><line class="st-windln" x1="200" y1="220" x2="280" y2="220"/><line class="st-windln" style="animation-delay:.5s" x1="520" y1="240" x2="600" y2="240"/></g>') },
+        { minDur: 6400, sub: '來去無蹤：來去不留蹤跡，行動飄忽。',
+          html: scene(P(400, 302, '<g opacity=".5">' + A('kid', 'happy') + '</g>', '', 0, 1.05) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="480" y1="240" x2="570" y2="240"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">來去無蹤</text>', 'night') }
+      ];
+    },
+    /* 省吃儉用 */
+    i1146: function () {
+      var PATCHSHIRT = '<path d="M-12 -20 L-22 -12 L-16 -4 L-12 -8 L-12 12 L12 12 L12 -8 L16 -4 L22 -12 L12 -20 Q0 -14 -12 -20 Z" fill="#8fa8c9" stroke="#5c82ba" stroke-width="2"/><rect x="-6" y="0" width="9" height="8" fill="#ffd97a" stroke="#e8b84a" stroke-width="1.4" stroke-dasharray="2 2"/>';
+      var COIN = '<circle cx="0" cy="0" r="8" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.2"/>';
+      return [
+        { minDur: 7000, sub: '阿嬤常說她小時候：衣服破了縫補丁繼續穿、一塊豆腐配三餐——省下的錢供孩子讀書！',
+          html: scene(P(360, 260, PATCHSHIRT, '', 0, 1.4) +
+            P(200, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + hearts(280, 210)) },
+        { minDur: 6800, sub: '就這樣一分一毫省下來，家裡的日子越過越穩，孩子們也都念完了書！',
+          html: scene(P(400, 290, COIN, '', 0, 1) + P(440, 286, COIN, '', .1, 1) + P(480, 292, COIN, '', .2, 1) +
+            P(260, 302, A('kid', 'happy')) + hearts(350, 200)) },
+        { minDur: 6600, sub: '「省吃儉用」：吃的用的都節省——珍惜資源的美德，什麼時代都不過時！',
+          html: scene(P(360, 260, PATCHSHIRT, '', 0, 1.2) + P(520, 288, COIN, '', 0, 1.1) + hearts(440, 220)) },
+        { minDur: 6400, sub: '省吃儉用：吃用節省，生活節儉。',
+          html: scene(P(350, 262, PATCHSHIRT, '', 0, 1.3) + P(510, 288, COIN, '', 0, 1.2) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">省吃儉用</text>') }
+      ];
+    },
+    /* 胡言亂語 */
+    i1173: function () {
+      function bub7(x, y, txt, rot, dly) {
+        return P(x, y, '<g class="st-zfloat"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + ' transform="rotate(' + rot + ')">' +
+          '<path d="M-22 -12 a19 14 0 1 1 38 4 q-2 6 -8 7 l-8 7 l1 -7 q-18 -2 -21 -11 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>' +
+          '<text x="-2" y="-2" text-anchor="middle" font-size="10" fill="#8a7a4a">' + txt + '</text></g>');
+      }
+      return [
+        { minDur: 6800, sub: '發燒說夢話的弟弟嘴裡念念有詞：「大象在天上游泳……數學課吃冰淇淋……」誰也聽不懂！',
+          html: scene(P(360, 302, '<ellipse cx="0" cy="-8" rx="34" ry="12" fill="#6fbf8e"/><circle cx="-28" cy="-16" r="13" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>') +
+            bub7(300, 200, '大象游泳?', -6, 0) + bub7(460, 185, '吃冰淇淋?', 5, .3) + zzz(250, 230), 'night') },
+        { minDur: 6800, sub: '沒有根據、沒有條理地亂說一通——就是「胡言亂語」！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.02) +
+            bub7(290, 180, '？？', -5, 0) + bub7(450, 170, '！？', 6, .3) +
+            P(580, 302, A('kid', 'wow'), '', 0, .92) + qmark(630, 190)) },
+        { minDur: 6800, sub: '說話前先想一想、查一查——有憑有據，別人才會相信你！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-8 12 l5 6 l11 -10" stroke="#548a40" stroke-width="3" fill="none" stroke-linecap="round"/>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '胡言亂語：毫無根據、沒有條理地亂說。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + bub7(310, 180, '？！', -5, 0) + bub7(480, 175, '？？', 5, .3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">胡言亂語</text>') }
+      ];
+    },
+    /* 甜言蜜語 */
+    i1174: function () {
+      var HONEY2 = '<path d="M0 0 q-7 10 0 16 q7 -6 0 -16 z" fill="#e8b84a"/>';
+      return [
+        { minDur: 6800, sub: '童話裡的狐狸對烏鴉說：「您的歌聲是森林裡最美的！」烏鴉一開心張嘴唱歌——嘴裡的肉掉了！',
+          html: scene(P(200, 180, '<g class="st-bob"><ellipse cx="0" cy="-14" rx="14" ry="10" fill="#4a4a55"/><circle cx="-11" cy="-24" r="7.5" fill="#4a4a55"/><path d="M-17 -24 l-7 2 l7 3 z" fill="#e0a458"/><circle cx="-13" cy="-26" r="1.8" fill="#fff"/></g>') +
+            P(400, 302, A('fox'), '', 0, 1.05) + P(470, 220, HONEY2, '', 0, 1.2) +
+            P(240, 240, '<ellipse cx="0" cy="0" rx="10" ry="7" fill="#e88a7a" stroke="#c96a5a" stroke-width="2"/>', 'st-bang')) },
+        { minDur: 6800, sub: '像糖蜜一樣甜的話，聽起來舒服——但目的常常是討好或哄騙，要小心！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -60, HONEY2, '', 0, 1.4)) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95) + qmark(610, 188)) },
+        { minDur: 6800, sub: '真正的朋友不只說好聽話，也會誠實提醒你的缺點——那才是真心！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(410, 180)) },
+        { minDur: 6400, sub: '甜言蜜語：討好或哄騙人的甜美話語。',
+          html: scene(P(360, 250, HONEY2, '', 0, 2) + P(480, 260, HONEY2, '', .3, 1.6) + qmark(560, 220) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">甜言蜜語</text>') }
+      ];
     }
   };
 
