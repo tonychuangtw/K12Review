@@ -8927,6 +8927,114 @@
           html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + bub8(320, 175, '讚!', 0) + bub8(480, 170, '好棒!', .3) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">讚不絕口</text>') }
       ];
+    },
+    /* 刮目相看 */
+    i489: function () {
+      var BOOK = '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>';
+      return [
+        { minDur: 7000, sub: '三國吳將呂蒙本來只會打仗、不愛讀書。孫權勸他：「帶兵的人更要讀書呀！」他發憤苦讀——',
+          html: scene(P(300, 302, A('kid', 'angry') + P(-42, -54, BOOK, '', 0, .95)) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>', '', 0, .98, true)) },
+        { minDur: 7200, sub: '魯肅再見到他，發現他談起兵法頭頭是道，大驚：「你已不是當年的吳下阿蒙！」呂蒙笑答：「士別三日，即更刮目相待！」',
+          html: scene(P(300, 302, A('kid', 'happy')) + notes(380, 170) +
+            P(540, 302, A('kid', 'wow'), '', 0, .98, true) + bang(450, 185) + qmark(600, 188)) },
+        { minDur: 6800, sub: '「刮目相看」：擦亮眼睛、用全新眼光看待進步的人——三天不見，就該重新認識！',
+          html: scene(P(400, 200, '<path d="M-26 0 Q0 -20 26 0 Q0 20 -26 0 Z" fill="#fff" stroke="#4a3200" stroke-width="2.8"/><circle cx="0" cy="0" r="8" fill="#6b4a32"/><g class="st-tw"><path d="M32 -14 L34 -8 L40 -6 L34 -4 L32 2 L30 -4 L24 -6 L30 -8 Z" fill="#ffd97a"/></g>', '', 0, 1.4) +
+            P(250, 302, A('kid', 'happy'), '', 0, .95) + hearts(340, 210)) },
+        { minDur: 6400, sub: '刮目相看：以全新的眼光看待進步的人。',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-42, -54, BOOK, '', 0, .95)) + P(540, 302, A('kid', 'wow'), '', 0, .95, true) + bang(440, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">刮目相看</text>') }
+      ];
+    },
+    /* 另眼相看 */
+    i490: function () {
+      return [
+        { minDur: 6800, sub: '平時安靜的小另，在地震演習時冷靜指揮全班疏散——老師從此對他另眼相看！',
+          html: scene(P(360, 302, A('kid', 'happy') +
+              '<path d="M18 -60 q14 -4 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>') +
+            P(200, 302, A('kid', 'happy'), 'st-inL', .2, .9) + P(560, 302, A('kid', 'happy'), 'st-inR', .3, .9) + bang(450, 185)) },
+        { minDur: 6800, sub: '用不同於一般的眼光看待——通常是因為表現特別出色，令人刮目！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(490, 188) +
+            P(310, 195, '<path d="M-22 0 Q0 -17 22 0 Q0 17 -22 0 Z" fill="#fff" stroke="#4a3200" stroke-width="2.6"/><circle cx="0" cy="0" r="7" fill="#6b4a32"/>')) },
+        { minDur: 6800, sub: '想被另眼相看，不用大聲張揚——在關鍵時刻拿出實力，大家自然看見你！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(460, 185)) },
+        { minDur: 6400, sub: '另眼相看：用不同於一般的眼光看待。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<path d="M-24 0 Q0 -18 24 0 Q0 18 -24 0 Z" fill="#fff" stroke="#4a3200" stroke-width="2.8"/><circle cx="0" cy="0" r="8" fill="#6b4a32"/>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">另眼相看</text>') }
+      ];
+    },
+    /* 受寵若驚 */
+    i491: function () {
+      return [
+        { minDur: 6800, sub: '校長在朝會上點名表揚小寵，還請他上台領獎——他受寵若驚，臉都紅了：「我、我只是做了該做的事……」',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(340, 288, A('kid', 'wow') + '<ellipse cx="-15" cy="-44" rx="7" ry="5" fill="#ff9c8a"/><ellipse cx="15" cy="-44" rx="7" ry="5" fill="#ff9c8a"/>', '', 0, .98) +
+            P(480, 288, A('kid', 'happy'), '', 0, 1.05) + sweat(290, 190) + hearts(560, 200)) },
+        { minDur: 6800, sub: '受到超出預期的禮遇，開心之餘反而有點不安——這種心情就是「受寵若驚」！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + hearts(480, 185) + sweat(320, 190) + qmark(400, 158)) },
+        { minDur: 6800, sub: '把驚喜化為動力：「下次要做得更好！」——被肯定是繼續努力的最好理由！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(490, 185) + bang(300, 192)) },
+        { minDur: 6400, sub: '受寵若驚：受到過分禮遇而感到不安。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.08) + hearts(490, 185) + sweat(320, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">受寵若驚</text>') }
+      ];
+    },
+    /* 感激不盡 */
+    i492: function () {
+      return [
+        { minDur: 6800, sub: '腳受傷的那個月，同學天天幫小感背書包、送作業——媽媽說：「真是感激不盡！」',
+          html: scene(P(300, 302, A('kid', 'sad') + '<rect x="20" y="-30" width="10" height="26" rx="4" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2"/>') +
+            P(470, 302, A('kid', 'happy') + P(-40, -46, '<rect x="-14" y="-16" width="28" height="20" rx="4" fill="#5c82ba" stroke="#46689a" stroke-width="2.4"/>', '', 0, .95), '', 0, .98) + hearts(390, 185)) },
+        { minDur: 6800, sub: '感謝的心情多到說不完、謝不完——「感激不盡」是最深的謝意！',
+          html: scene(P(320, 302, '<g transform="rotate(24)">' + A('kid', 'happy') + '</g>') +
+            P(500, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(410, 180) + hearts(300, 195)) },
+        { minDur: 6800, sub: '收到幫助要記得說謝謝，也要把這份善意傳下去——幫助下一個需要的人！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(460, 302, A('kid', 'happy'), '', .2, .95) + P(610, 302, A('kid', 'happy'), '', .4, .93) +
+            '<path d="M340 250 q60 -30 120 0 M500 250 q55 -28 110 0" stroke="#ff9eb5" stroke-width="3.4" fill="none" stroke-dasharray="7 7"/>' + hearts(470, 180)) },
+        { minDur: 6400, sub: '感激不盡：感激之情無法言盡。',
+          html: scene(P(340, 302, '<g transform="rotate(20)">' + A('kid', 'happy') + '</g>') + P(520, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(430, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">感激不盡</text>') }
+      ];
+    },
+    /* 沒齒難忘 */
+    i493: function () {
+      return [
+        { minDur: 7000, sub: '溺水那天被救生員叔叔救起——爺爺說這叫「沒齒難忘」：到牙齒掉光的年紀，都忘不了這份恩情！',
+          html: scene('<rect y="270" width="800" height="70" fill="#7fb2e0"/>' +
+            P(360, 296, A('kid', 'sad'), '', 0, .95) +
+            P(500, 296, A('kid', 'happy') + '<circle cx="-26" cy="-40" r="8.5" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>', '', 0, 1.05) + hearts(430, 200)) },
+        { minDur: 6800, sub: '「沒齒」是終身、一輩子——恩情深到一生一世都難以忘記！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(500, 200, '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#ff7b9c"/>', '', 0, 1.3) + hearts(280, 195)) },
+        { minDur: 6800, sub: '長大後他也考上救生員執照，守護更多人——把難忘的恩情，變成傳承的力量！',
+          html: scene('<rect y="286" width="800" height="54" fill="#7fb2e0"/>' +
+            P(400, 296, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(490, 200) + bang(300, 210)) },
+        { minDur: 6400, sub: '沒齒難忘：一輩子難以忘記。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<path d="M0 5 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 5 Z" fill="#ff7b9c"/>', '', 0, 1.5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">沒齒難忘</text>') }
+      ];
+    },
+    /* 投桃報李 */
+    i494: function () {
+      var PEACH2 = '<circle cx="0" cy="0" r="12" fill="#f7a8c4" stroke="#e07ba3" stroke-width="2.4"/><path d="M0 -10 q2 -6 6 -7" stroke="#548a40" stroke-width="2.4" fill="none"/><path d="M-3 -12 Q0 -16 3 -12" stroke="#e07ba3" stroke-width="1.8" fill="none"/>';
+      var PLUM = '<circle cx="0" cy="0" r="11" fill="#c9a8e0" stroke="#a884c4" stroke-width="2.4"/><path d="M0 -9 q2 -6 6 -7" stroke="#548a40" stroke-width="2.4" fill="none"/>';
+      return [
+        { minDur: 7000, sub: '《詩經》說：「投我以桃，報之以李」——你送我一顆桃子，我回贈一顆李子！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -60, PEACH2, '', 0, 1)) +
+            P(500, 302, A('kid', 'happy') + P(-38, -60, PLUM, '', 0, 1), '', 0, .98, true) +
+            '<path d="M360 240 q40 -24 80 0" stroke="#f7a8c4" stroke-width="3" fill="none" stroke-dasharray="7 7"/>' + hearts(400, 185)) },
+        { minDur: 6800, sub: '鄰居送來自己種的芒果，媽媽回贈親手做的蛋糕——禮尚往來，情誼越走越深！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -56, '<circle cx="0" cy="0" r="11" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.2"/>', '', 0, 1)) +
+            P(500, 302, A('kid', 'happy') + P(-38, -56, '<rect x="-14" y="-12" width="28" height="12" rx="3" fill="#f7a8c4" stroke="#e07ba3" stroke-width="2"/>', '', 0, 1), '', 0, .98, true) + hearts(400, 182)) },
+        { minDur: 6600, sub: '「投桃報李」：互相贈答、禮尚往來——收到善意，記得也釋出善意！',
+          html: scene(P(330, 250, PEACH2, '', 0, 1.4) + P(470, 252, PLUM, '', .3, 1.4) +
+            '<path d="M360 220 q40 -20 80 0 M440 285 q-40 20 -80 0" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 7"/>' + hearts(400, 310)) },
+        { minDur: 6400, sub: '投桃報李：互相贈答，禮尚往來。',
+          html: scene(P(330, 250, PEACH2, '', 0, 1.5) + P(470, 252, PLUM, '', .3, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">投桃報李</text>') }
+      ];
     }
   };
 
