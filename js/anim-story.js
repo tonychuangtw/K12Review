@@ -7521,6 +7521,115 @@
           html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(300, 190) + hearts(500, 185) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">情不自禁</text>') }
       ];
+    },
+    /* 不由自主 */
+    i457: function () {
+      return [
+        { minDur: 6800, sub: '雲霄飛車俯衝而下——小主明明想忍住，卻不由自主放聲尖叫！',
+          html: scene(P(400, 240, '<path d="M-140 40 q60 -80 140 -30 q70 44 140 -20" stroke="#8b93a3" stroke-width="7" fill="none"/>' +
+              P(-20, -30, '<rect x="-24" y="-16" width="48" height="20" rx="6" fill="#e85a4f" stroke="#c94a3f" stroke-width="2.6"/>' + P(0, -16, A('kid', 'wow'), '', 0, .6), '', 0, 1)) +
+            bang(560, 160) + sweat(280, 190)) },
+        { minDur: 6800, sub: '天氣太冷，牙齒不由自主打顫；聽到好笑的事，嘴角不由自主上揚——身體自己反應了！',
+          html: scene(P(320, 302, A('kid', 'wow')) + sweat(270, 192) +
+            P(520, 302, A('kid', 'happy'), '', 0, .97) + hearts(590, 190)) },
+        { minDur: 6600, sub: '「不由自主」：由不得自己作主、控制不了——和「情不自禁」很像，但更強調身體的反應！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + qmark(480, 182) + bang(310, 190)) },
+        { minDur: 6400, sub: '不由自主：由不得自己作主，控制不了。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.08) + sweat(330, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不由自主</text>') }
+      ];
+    },
+    /* 破涕為笑 */
+    i458: function () {
+      return [
+        { minDur: 6800, sub: '心愛的冰淇淋掉在地上，妹妹哇哇大哭，眼淚像斷線的珍珠……',
+          html: scene(P(360, 302, A('kid', 'sad'), '', 0, 1.02) + sweat(300, 190) +
+            P(470, 318, '<path d="M-8 0 a8 5 0 0 0 16 0 z" fill="#f7a8c4"/><path d="M-4 -2 L0 -14 L4 -2" stroke="#c9a06c" stroke-width="2.4" fill="none"/>') ) },
+        { minDur: 6800, sub: '哥哥變出一個鬼臉，再遞上自己的冰淇淋——妹妹「噗哧」一聲，眼淚還掛著就笑了！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -50, '<path d="M-4 -2 L0 -14 L4 -2 z" fill="#c9a06c"/><circle cx="0" cy="-18" r="7" fill="#f7a8c4"/>', '', 0, 1.1)) +
+            P(490, 302, A('kid', 'happy'), '', 0, .95) + hearts(400, 185) + notes(560, 190)) },
+        { minDur: 6600, sub: '「破涕為笑」：停止哭泣、轉為笑容——從哭到笑，只需要一點點溫暖！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 185)) },
+        { minDur: 6400, sub: '破涕為笑：停止哭泣，轉為笑容。',
+          html: scene(P(300, 302, A('kid', 'sad'), '', 0, .95) +
+            '<path d="M370 240 L430 240" stroke="#548a40" stroke-width="4" stroke-linecap="round"/><path d="M430 240 l-10 -6 v12 z" fill="#548a40"/>' +
+            P(500, 302, A('kid', 'happy'), '', 0, 1.02) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">破涕為笑</text>') }
+      ];
+    },
+    /* 淚流滿面 */
+    i459: function () {
+      var TEARS = '<circle class="st-tear" cx="-14" cy="-46" r="3.2" fill="#8fc6ff"/><circle class="st-tear" style="animation-delay:.4s" cx="14" cy="-46" r="3.2" fill="#8fc6ff"/><path d="M-14 -44 q-2 8 0 14 M14 -44 q2 8 0 14" stroke="#8fc6ff" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '離家三年的哥哥從國外回來——一開門，媽媽抱著他，眼淚一下子流了滿臉！',
+          html: scene(P(320, 302, A('kid', 'sad') + TEARS, '', 0, 1.05) +
+            P(470, 302, A('kid', 'happy'), '', 0, 1.02, true) + hearts(400, 180)) },
+        { minDur: 6800, sub: '有傷心的淚，也有感動、喜悅的淚——「淚流滿面」的原因，可以很不一樣！',
+          html: scene(P(300, 302, A('kid', 'sad') + TEARS) +
+            P(520, 302, A('kid', 'happy') + TEARS, '', 0, .97) + hearts(590, 190) + sweat(250, 195)) },
+        { minDur: 6600, sub: '眼淚流了滿臉——非常傷心，或非常感動的樣子！',
+          html: scene(P(400, 302, A('kid', 'sad') + TEARS, '', 0, 1.08)) },
+        { minDur: 6400, sub: '淚流滿面：眼淚流滿臉，非常傷心或感動。',
+          html: scene(P(400, 302, A('kid', 'sad') + TEARS, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">淚流滿面</text>') }
+      ];
+    },
+    /* 百感交集 */
+    i460: function () {
+      return [
+        { minDur: 7000, sub: '畢業典禮這天：想到要和同學分開很難過、想到升上國中又期待、還捨不得老師……各種心情湧上來！',
+          html: scene(P(400, 302, A('kid', 'sad')) +
+            P(280, 190, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".9"/><path d="M0 3 C-5 -4 -13 1 -7 8 L0 13 L7 8 C13 1 5 -4 0 3 Z" fill="#ff7b9c" transform="translate(0,-6)"/>') +
+            P(400, 160, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".9"/><path d="M-7 2 q7 -10 14 0" stroke="#8fc6ff" stroke-width="3" fill="none" stroke-linecap="round"/>', '', .2) +
+            P(520, 190, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".9"/><text x="0" y="7" text-anchor="middle" font-size="20" fill="#e0a458">!</text>', '', .4)) },
+        { minDur: 6800, sub: '難過、期待、感謝、不捨——一百種感覺交織在心頭，說不清是哭還是笑！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<circle class="st-tear" cx="-14" cy="-46" r="3" fill="#8fc6ff"/>', '', 0, 1.05) +
+            hearts(490, 185) + sweat(320, 192)) },
+        { minDur: 6600, sub: '「百感交集」：各種感觸交織在心頭——人生的重要時刻，常常就是這種滋味！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) + hearts(300, 190) + qmark(480, 182) + notes(400, 160)) },
+        { minDur: 6400, sub: '百感交集：各種感觸交織在心頭。',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.05) + hearts(310, 190) + sweat(480, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">百感交集</text>') }
+      ];
+    },
+    /* 歷歷在目 */
+    i461: function () {
+      function photo(x, y, rot, inner) {
+        return P(x, y, '<g transform="rotate(' + rot + ')"><rect x="-24" y="-20" width="48" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>' + inner + '</g>');
+      }
+      return [
+        { minDur: 6800, sub: '翻開去年環島旅行的相簿——花蓮的海、阿里山的日出、夜市的章魚燒……',
+          html: scene(photo(280, 250, -6, '<rect x="-18" y="-14" width="36" height="22" fill="#7fb2e0"/><circle cx="10" cy="-8" r="5" fill="#ffdd66"/>') +
+            photo(420, 240, 5, '<path d="M-16 8 L0 -12 L16 8 Z" fill="#a5c2b2"/>') +
+            photo(550, 255, -3, '<circle cx="0" cy="-3" r="9" fill="#e0a458"/>') +
+            P(160, 302, A('kid', 'happy'), '', 0, .95) + hearts(230, 210)) },
+        { minDur: 6800, sub: '每個畫面都清清楚楚浮現眼前，好像昨天才發生——這就是「歷歷在目」！',
+          html: scene(P(430, 200, '<circle cx="0" cy="0" r="66" fill="#fff" opacity=".9"/><path d="M-30 20 L0 -20 L30 20 Z" fill="#a5c2b2"/><circle cx="26" cy="-24" r="10" fill="#ffdd66"/>') +
+            P(240, 302, A('kid', 'happy')) + hearts(330, 210)) },
+        { minDur: 6600, sub: '把美好的時刻用心記住——多年後回想，依然歷歷在目！',
+          html: scene(photo(350, 250, -4, '<rect x="-18" y="-14" width="36" height="22" fill="#a5d47c"/>') +
+            P(520, 302, A('kid', 'happy'), '', 0, .97) + hearts(440, 200)) },
+        { minDur: 6400, sub: '歷歷在目：過去的情景清楚浮現眼前。',
+          html: scene(photo(300, 250, -5, '<rect x="-18" y="-14" width="36" height="22" fill="#7fb2e0"/>') + photo(480, 245, 4, '<path d="M-16 8 L0 -12 L16 8 Z" fill="#a5c2b2"/>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">歷歷在目</text>') }
+      ];
+    },
+    /* 記憶猶新 */
+    i462: function () {
+      return [
+        { minDur: 7000, sub: '爺爺說起五十年前第一天上學的情景：老師的名字、教室的窗、同桌的笑話——記得一清二楚！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(560, 302, A('kid', 'wow'), '', 0, .9) + qmark(610, 190) +
+            P(240, 200, '<circle cx="0" cy="0" r="40" fill="#fff" opacity=".9"/><path d="M-20 12 L0 -14 L20 12 Z" fill="#8a5a33"/><rect x="-14" y="12" width="28" height="10" fill="#f4ecd8"/>')) },
+        { minDur: 6800, sub: '過了這麼多年，記憶卻像新的一樣鮮明——「記憶猶新」！',
+          html: scene(P(400, 220, '<circle cx="0" cy="0" r="52" fill="#fff" opacity=".92"/><g class="st-tw"><path d="M0 -20 L3 -8 L15 -6 L5 2 L8 14 L0 7 L-8 14 L-5 2 L-15 -6 L-3 -8 Z" fill="#ffd97a"/></g>') +
+            P(240, 302, A('kid', 'happy'), '', 0, .95) + hearts(320, 210)) },
+        { minDur: 6800, sub: '印象深刻的事、重要的教訓，都會記憶猶新——好的回憶是一輩子的寶藏！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, 1.02, true) + hearts(410, 182)) },
+        { minDur: 6400, sub: '記憶猶新：對過去的事記得清清楚楚。',
+          html: scene(P(400, 225, '<circle cx="0" cy="0" r="50" fill="#fff" opacity=".92"/><g class="st-tw"><path d="M0 -18 L3 -7 L14 -5 L5 2 L7 13 L0 6 L-7 13 L-5 2 L-14 -5 L-3 -7 Z" fill="#ffd97a"/></g>') +
+            '<text x="400" y="320" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">記憶猶新</text>') }
+      ];
     }
   };
 
