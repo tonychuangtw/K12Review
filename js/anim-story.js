@@ -2793,6 +2793,118 @@
           html: scene(P(300, 296, A('kid', 'happy') + P(16, -30, HOE)) + P(540, 290, BOWL, '', 0, 1.4) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">克勤克儉</text>') }
       ];
+    },
+    /* 吳牛喘月 */
+    i1051: function () {
+      var MOON = '<path d="M14 -26 A30 30 0 1 0 26 16 A24 24 0 1 1 14 -26 Z" fill="#f4f1de" stroke="#d8d4bd" stroke-width="2"/>';
+      var PANT = '<g class="st-sweat"><path d="M0 0 q8 -4 16 0 M0 8 q8 -4 16 0" stroke="#bfe0ff" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>';
+      var WINDOW = '<rect x="-40" y="-70" width="80" height="70" rx="6" fill="#aee3f5" stroke="#a8734a" stroke-width="5"/>' +
+        '<line x1="0" y1="-70" x2="0" y2="0" stroke="#a8734a" stroke-width="4"/><line x1="-40" y1="-35" x2="40" y2="-35" stroke="#a8734a" stroke-width="4"/>' +
+        '<g class="st-rays" style="transform-origin:0px -35px"><line x1="-14" y1="-49" x2="14" y2="-21" stroke="#fff" stroke-width="3" opacity=".8"/></g>';
+      return [
+        { minDur: 7000, sub: '吳地天氣炎熱，水牛最怕烈日。夜裡看見圓圓的月亮，竟誤以為是太陽，嚇得直喘大氣！',
+          html: scene(P(680, 70, MOON) +
+            P(400, 300, A('ox')) + P(330, 240, PANT, '', 0, 1.2) + sweat(460, 230) + qmark(350, 190), 'night') },
+        { minDur: 7400, sub: '晉朝大臣滿奮怕風。他見琉璃窗透著光，以為窗子漏風，臉色發難——又自我解嘲：「臣就像吳地的牛，看見月亮也會喘呀！」',
+          html: scene(P(560, 300, WINDOW) +
+            P(280, 302, A('kid', 'wow')) + sweat(230, 200) + qmark(340, 180) +
+            P(680, 302, A('kid', 'happy'), '', 0, .85)) },
+        { minDur: 6800, sub: '「吳牛喘月」比喻曾受過驚嚇，遇到類似的事物就過度害怕、疑神疑鬼。',
+          html: scene(P(680, 70, MOON) + P(400, 300, A('ox')) + P(330, 240, PANT, '', 0, 1.1) + sweat(460, 230), 'night') },
+        { minDur: 6400, sub: '吳牛喘月：因曾受驚嚇，遇類似事物便過度害怕。',
+          html: scene(P(650, 90, MOON, '', 0, 1.1) + P(380, 300, A('ox'), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">吳牛喘月</text>', 'night') }
+      ];
+    },
+    /* 響遏行雲 */
+    i1073: function () {
+      var CLOUDSTOP = '<g class="st-cloud"><ellipse cx="0" cy="0" rx="34" ry="14" fill="#fff"/><ellipse cx="-24" cy="6" rx="19" ry="10" fill="#fff"/><ellipse cx="26" cy="6" rx="20" ry="11" fill="#fff"/></g>';
+      var BUNDLE = '<circle cx="0" cy="-6" r="11" fill="#e8c48f" stroke="#c9a066" stroke-width="2.4"/><line x1="8" y1="-14" x2="20" y2="-26" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>';
+      return [
+        { minDur: 7000, sub: '薛譚向名師秦青學唱歌，才學了一半，就自以為都學會了，收拾行李要回家。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-30, -60, BUNDLE, '', 0, .9), 'st-strut') +
+            P(560, 302, A('kid', 'sad'), '', 0, .95, true) + notes(250, 180)) },
+        { minDur: 7400, sub: '秦青沒挽留，只在郊外設宴送行。席間他撫著節拍高歌一曲——歌聲震動林木，連天上流動的雲，都停下來聽！',
+          html: scene(P(240, 90, CLOUDSTOP) + P(560, 70, CLOUDSTOP) +
+            P(120, 302, TREE) + P(690, 302, TREE, '', 0, .9) +
+            P(400, 302, A('kid', 'happy')) + notes(320, 150) + notes(480, 130) + bang(400, 90)) },
+        { minDur: 6800, sub: '薛譚聽得目瞪口呆，慚愧地道歉，請求繼續學習——從此再也不敢說要回家了。',
+          html: scene(P(300, 302, '<g transform="rotate(30)">' + A('kid', 'sad') + '</g>') + sweat(260, 210) +
+            P(540, 302, A('kid', 'happy'), '', 0, 1.05, true) + hearts(430, 180)) },
+        { minDur: 6400, sub: '響遏行雲：歌聲響亮高亢，連行雲都被攔住。',
+          html: scene(P(250, 100, CLOUDSTOP) + P(550, 85, CLOUDSTOP) + P(400, 302, A('kid', 'happy')) + notes(400, 170) +
+            '<text x="400" y="230" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">響遏行雲</text>') }
+      ];
+    },
+    /* 暴虎馮河 */
+    i1061: function () {
+      var RIVER4 = '<rect y="262" width="800" height="78" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 274 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#6db3d9" stroke-width="8" stroke-linecap="round" opacity=".9"/></g>';
+      return [
+        { minDur: 6800, sub: '有人空著兩手就想和老虎搏鬥，什麼武器也不帶——這就是「暴虎」！',
+          html: scene(P(500, 302, A('tiger'), '', 0, 1.05) + bang(420, 200) +
+            P(280, 302, A('kid', 'angry')) + sweat(230, 195)) },
+        { minDur: 6800, sub: '河水又深又急，他不找船、不搭橋，抬腿就想蹚水過河——這就是「馮河」！',
+          html: scene(RIVER4 + P(400, 296, A('kid', 'angry')) + sweat(360, 210) + qmark(460, 190)) },
+        { minDur: 7200, sub: '孔子說：「這種空手打虎、徒步渡河，死了都不後悔的人，我不跟他共事——我要的是遇事謹慎、善於謀劃的人。」',
+          html: scene(P(540, 302, A('kid', 'happy') +
+              '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05, true) +
+            P(280, 302, A('kid', 'wow')) + qmark(230, 185)) },
+        { minDur: 6400, sub: '暴虎馮河：有勇無謀，冒險蠻幹。',
+          html: scene(RIVER4 + P(560, 296, A('tiger'), '', 0, .95) + P(300, 296, A('kid', 'angry')) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">暴虎馮河</text>') }
+      ];
+    },
+    /* 城下之盟 */
+    i1050: function () {
+      var WALL2 = '<rect x="-80" y="-70" width="160" height="70" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/>' +
+        '<path d="M-80 -70 h20 v-14 h20 v14 h20 v-14 h20 v14 h20 v-14 h20 v14 h20 v-14 h20 v14 h20" fill="none" stroke="#8a7a66" stroke-width="3"/>' +
+        '<rect x="-18" y="-44" width="36" height="44" rx="4" fill="#6d6357"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      var TREATY = '<rect x="-18" y="-26" width="36" height="52" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>' +
+        '<path d="M-10 -16 h20 M-10 -8 h20 M-10 0 h20 M-10 8 h14" stroke="#8fa3bf" stroke-width="2"/>' +
+        '<circle cx="8" cy="16" r="6" fill="none" stroke="#c96a5a" stroke-width="2.4"/>';
+      return [
+        { minDur: 6800, sub: '春秋時，楚國攻打絞國，還設下誘敵之計，把絞軍打得大敗。',
+          html: scene(P(560, 302, WALL2) + bang(430, 210) +
+            P(240, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut') +
+            P(360, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', .2, .9)) },
+        { minDur: 7000, sub: '楚軍一路打到城牆下。絞國無力再戰，只好在自己的城下，被迫簽下了屈辱的盟約。',
+          html: scene(P(560, 302, WALL2) +
+            P(430, 290, TREATY, '', 0, 1.1) +
+            P(280, 302, A('kid', 'angry') + P(26, -50, SPEAR3)) +
+            P(640, 302, '<g transform="rotate(30)">' + A('kid', 'sad') + '</g>', '', 0, .9) + sweat(680, 210)) },
+        { minDur: 6800, sub: '敵人兵臨城下才簽的盟約，是莫大的恥辱——「城下之盟」由此而來。',
+          html: scene(P(430, 260, TREATY, '', 0, 1.5) +
+            P(200, 302, A('kid', 'sad')) + sweat(250, 200), 'night') },
+        { minDur: 6400, sub: '城下之盟：在強大壓力下，被迫接受的屈辱協議。',
+          html: scene(P(560, 302, WALL2, '', 0, .9) + P(360, 280, TREATY, '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">城下之盟</text>') }
+      ];
+    },
+    /* 尾大不掉 */
+    i1075: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var BIGTAILOX = '<g class="st-bob"><ellipse cx="0" cy="-24" rx="28" ry="19" fill="#9fb4c7" stroke="#7e94a8" stroke-width="2"/>' +
+        '<circle cx="-22" cy="-44" r="15" fill="#9fb4c7" stroke="#7e94a8" stroke-width="2"/>' +
+        '<ellipse cx="-28" cy="-37" rx="9" ry="7" fill="#f2c9c0"/><circle cx="-31" cy="-37" r="1.6" fill="#8a5a50"/>' +
+        '<circle cx="-26" cy="-46" r="2.6" fill="#3a2e26"/>' +
+        '<path d="M24 -32 q34 4 52 -12 q20 -18 44 -8 q14 6 12 22 q-3 18 -26 18 q-30 0 -48 -6" fill="#7e94a8" stroke="#6d8296" stroke-width="2.6"/>' +
+        '<rect x="-20" y="-12" width="9" height="12" rx="4" fill="#7e94a8"/><rect x="6" y="-12" width="9" height="12" rx="4" fill="#7e94a8"/></g>';
+      return [
+        { minDur: 7000, sub: '楚靈王問大夫申無宇：「封給大臣的城太大，會怎麼樣？」',
+          html: scene(P(280, 302, A('kid', 'happy') + CROWN) + qmark(340, 180) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true)) },
+        { minDur: 7400, sub: '申無宇回答：「樹梢太重，樹幹必定折斷；尾巴太大，就甩不動了——這道理，大王您是知道的呀。」',
+          html: scene(P(430, 300, BIGTAILOX, '', 0, 1.1) + sweat(380, 230) + qmark(560, 200) +
+            P(180, 302, A('kid', 'happy'), '', 0, .9)) },
+        { minDur: 6800, sub: '「尾大不掉」從此比喻部屬勢力太大、指揮不動，或機構臃腫、難以調度。',
+          html: scene(P(430, 300, BIGTAILOX, '', 0, 1.05) +
+            P(180, 302, A('kid', 'sad') + CROWN, '', 0, .95) + sweat(230, 200)) },
+        { minDur: 6400, sub: '尾大不掉：勢力龐大，難以指揮調度。',
+          html: scene(P(400, 300, BIGTAILOX, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">尾大不掉</text>') }
+      ];
     }
   };
 
