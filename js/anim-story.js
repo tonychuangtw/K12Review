@@ -18739,6 +18739,154 @@
           html: scene(P(430, 295, SUNSET2, '', 0, 1.2) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">日薄西山</text>', 'night') }
       ];
+    },
+    /* 苟延殘喘 */
+    i676: function () {
+      return [
+        { minDur: 7000, sub: '《中山狼傳》：被獵人追殺的狼哀求東郭先生——「讓我躲進書袋，苟延殘喘吧！」',
+          html: scene(P(320, 302, A('kid', 'wow') + P(30, -30, '<path d="M-18 -22 q18 -10 36 0 l-4 34 q-14 8 -28 0 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>', '', 0, 1)) +
+            P(500, 302, A('dog', 'sad'), '', 0, .95, true) + sweat(560, 210) +
+            '<g class="st-zfloat" opacity=".7"><path d="M560 250 q3 -6 0 -10" stroke="#c9bfa8" stroke-width="2" fill="none"/></g>') },
+        { minDur: 6800, sub: '「苟延殘喘」：勉強拖著最後一口氣——公司靠借貸硬撐，撐一天算一天……',
+          html: scene(P(400, 285, '<rect x="-56" y="-52" width="112" height="52" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6" transform="rotate(-3)"/><text x="0" y="-24" text-anchor="middle" font-size="13" fill="#8a744a" transform="rotate(-3)">公司</text>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'sad') + P(-38, -48, '<rect x="-12" y="-9" width="24" height="18" rx="3" fill="#fff" stroke="#c96a5a" stroke-width="2"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#c96a5a">-$-</text>', '', 0, 1), '', 0, .95) + sweat(310, 195), 'night') },
+        { minDur: 6800, sub: '苟延殘喘不如壯士斷腕——止損、轉型、重新出發，留得青山在！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) + bang(470, 185) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">轉型</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">重生</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '苟延殘喘：勉強存續，氣若游絲。',
+          html: scene(P(430, 302, A('dog', 'sad'), '', 0, 1) + sweat(500, 210) +
+            '<g class="st-zfloat" opacity=".7"><path d="M500 250 q3 -6 0 -10" stroke="#c9bfa8" stroke-width="2" fill="none"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">苟延殘喘</text>') }
+      ];
+    },
+    /* 迴光返照 */
+    i677: function () {
+      return [
+        { minDur: 7000, sub: '太陽已沉到山後——天空卻突然亮了一陣：這是日落前最後的「返照」！',
+          html: scene(P(430, 292, '<path d="M-110 40 L-30 -30 L40 20 L110 -20 L180 40 Z" fill="#3d4a63" stroke="#2c3550" stroke-width="2.4"/>', '', 0, 1.15) +
+            '<g class="st-tw"><path d="M320 180 q80 -40 180 -30" stroke="#ffb066" stroke-width="5" fill="none" opacity=".8" stroke-linecap="round"/><path d="M300 220 q100 -30 220 -24" stroke="#ffd97a" stroke-width="4" fill="none" opacity=".7" stroke-linecap="round"/></g>', 'night') },
+        { minDur: 6800, sub: '「迴光返照」：衰亡前短暫的好轉——重病的人突然精神大好，家人反而要有心理準備……',
+          html: scene(P(400, 296, '<rect x="-70" y="-8" width="140" height="16" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' + P(0, -14, '<g transform="rotate(90)">' + A('kid', 'happy') + '</g>', '', 0, .85), '', 0, 1) +
+            P(220, 302, A('kid', 'wow') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95) + qmark(300, 200), 'night') },
+        { minDur: 6800, sub: '也用在事物上：倒閉前的最後一波促銷熱潮——短暫的亮，不是真的回春！',
+          html: scene(P(400, 285, '<rect x="-56" y="-46" width="112" height="46" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-44" y="-66" width="88" height="16" rx="4" fill="#c96a5a"/><text x="0" y="-53" text-anchor="middle" font-size="10" fill="#fff">清倉大拍賣</text>', '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy'), 'st-inL', 0, .92) + P(570, 302, A('kid', 'happy'), 'st-inR', .2, .92, true) + qmark(650, 210)) },
+        { minDur: 6400, sub: '迴光返照：將熄之光，短暫一亮。',
+          html: scene(P(430, 295, '<path d="M-110 40 L-30 -30 L40 20 L110 -20 L180 40 Z" fill="#3d4a63" stroke="#2c3550" stroke-width="2.4"/>', '', 0, 1.2) +
+            '<g class="st-tw"><path d="M310 190 q90 -36 200 -28" stroke="#ffb066" stroke-width="5" fill="none" opacity=".8" stroke-linecap="round"/></g>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">迴光返照</text>', 'night') }
+      ];
+    },
+    /* 物換星移 */
+    i678: function () {
+      return [
+        { minDur: 7000, sub: '王勃登滕王閣歎：「閣中帝子今何在？」「物換星移幾度秋」——樓還在，人早已不在！',
+          html: scene(P(300, 285, '<g stroke="#a8734a" stroke-width="5"><line x1="-40" y1="0" x2="-40" y2="-80"/><line x1="40" y1="0" x2="40" y2="-80"/></g><rect x="-52" y="-80" width="104" height="16" fill="#c9762f"/><path d="M-60 -80 h120 l-14 -22 h-92 z" fill="#a85a1e"/><rect x="-52" y="-44" width="104" height="12" fill="#e0a458"/>', '', 0, 1.05) +
+            '<g class="st-tw"><circle cx="540" cy="80" r="3" fill="#fff"/><circle cx="620" cy="120" r="2.6" fill="#fff"/><circle cx="580" cy="170" r="3" fill="#fff"/></g>' +
+            P(540, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95), 'night') },
+        { minDur: 6800, sub: '「物換星移」：景物更換、星辰移位——季節輪轉、城市長高，時間從不停下腳步！',
+          html: scene(P(280, 250, '<path d="M0 -20 l6 12 13 2 -9 10 2 13 -12 -7 -12 7 2 -13 -9 -10 13 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', 'st-zfloat', 0, 1) +
+            '<path d="M330 245 h140" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/><path d="M470 245 l-12 -8 v16 z" fill="#c9bfa8"/>' +
+            P(530, 250, '<path d="M0 -20 l6 12 13 2 -9 10 2 13 -12 -7 -12 7 2 -13 -9 -10 13 -2 z" fill="#c9d6e8" stroke="#aab8cf" stroke-width="2"/>', 'st-zfloat', .4, 1), 'night') },
+        { minDur: 6800, sub: '面對物換星移，詩人的答案是寫下來——文字留住的瞬間，勝過流走的千年！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -46, '<line x1="0" y1="10" x2="6" y2="-14" stroke="#3a2e26" stroke-width="3.4" stroke-linecap="round"/><path d="M6 -14 l3 -9 l4 9" fill="#3a2e26"/>', '', 0, 1), '', 0, 1.02) +
+            P(540, 260, '<rect x="-34" y="-44" width="68" height="88" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-20" y1="-26" x2="20" y2="-26"/><line x1="-20" y1="-12" x2="20" y2="-12"/><line x1="-20" y1="2" x2="14" y2="2"/></g>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6400, sub: '物換星移：星霜屢變，景物全非。',
+          html: scene(P(320, 288, '<g stroke="#a8734a" stroke-width="5"><line x1="-36" y1="0" x2="-36" y2="-72"/><line x1="36" y1="0" x2="36" y2="-72"/></g><rect x="-46" y="-72" width="92" height="15" fill="#c9762f"/><path d="M-54 -72 h108 l-13 -20 h-82 z" fill="#a85a1e"/>', '', 0, 1.05) +
+            '<g class="st-tw"><circle cx="540" cy="90" r="3" fill="#fff"/><circle cx="610" cy="130" r="2.6" fill="#fff"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">物換星移</text>', 'night') }
+      ];
+    },
+    /* 時過境遷 */
+    i679: function () {
+      return [
+        { minDur: 6800, sub: '小時候吵到絕交的兩個死對頭——十年後同學會相見，笑著碰杯：「當年真幼稚！」',
+          html: scene(P(330, 302, A('kid', 'happy') + P(38, -44, '<path d="M-8 -8 h16 l-2 14 h-12 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) +
+            P(480, 302, A('kid', 'happy') + P(-38, -44, '<path d="M-8 -8 h16 l-2 14 h-12 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, .98, true) + hearts(405, 180) + notes(560, 195)) },
+        { minDur: 6800, sub: '「時過境遷」：時間過去、環境改變——當年天大的事，回頭看只是小水花！',
+          html: scene(P(300, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#c96a5a">當年</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#c96a5a">天大</text>') +
+            '<path d="M340 245 h110" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/><path d="M450 245 l-12 -8 v16 z" fill="#c9bfa8"/>' +
+            P(510, 245, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">小事</text>')) },
+        { minDur: 6800, sub: '所以現在深陷的煩惱，也給時間一點時間——很多結，是歲月替你解開的！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-11" stroke="#6d7585" stroke-width="2.4"/><line x1="0" y1="0" x2="8" y2="4" stroke="#6d7585" stroke-width="2.4"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '時過境遷：時移事往，境況已變。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(405, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">時過境遷</text>') }
+      ];
+    },
+    /* 人事已非 */
+    i680: function () {
+      return [
+        { minDur: 6800, sub: '畢業二十年重回母校：校門還是那個校門——警衛換了、老師退了、教室裡全是陌生面孔……',
+          html: scene(P(400, 285, '<rect x="-70" y="-50" width="140" height="50" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-80 -50 h160 l-16 -22 h-128 z" fill="#c9762f"/><rect x="-14" y="-28" width="28" height="28" fill="#8a6a44"/>', '', 0, 1.05) +
+            P(220, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .98) + qmark(300, 200)) },
+        { minDur: 6800, sub: '「人事已非」：人與事都不同往昔——熟悉的地方，只剩回憶認得你……',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.02) +
+            P(520, 220, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".7"/>' + P(0, 12, A('kid', 'happy'), '', 0, .4), 'st-zfloat', 0, 1.05) + sweat(290, 195), 'night') },
+        { minDur: 6800, sub: '感傷之外也有溫柔：把老同學約出來——人還在，回憶就能繼續寫下去！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>') +
+            P(480, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .98, true) + hearts(405, 180) + notes(560, 195)) },
+        { minDur: 6400, sub: '人事已非：人事全改，不復當年。',
+          html: scene(P(400, 288, '<rect x="-64" y="-46" width="128" height="46" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-74 -46 h148 l-15 -20 h-118 z" fill="#c9762f"/>', '', 0, 1.05) +
+            P(230, 302, A('kid', 'sad'), '', 0, .98) + qmark(310, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">人事已非</text>') }
+      ];
+    },
+    /* 物是人非 */
+    i681: function () {
+      return [
+        { minDur: 7000, sub: '李清照亡國喪夫後寫下：「物是人非事事休，欲語淚先流」——景物依舊，人卻不在了……',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/><g class="st-tear"><path d="M-12 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1.02) +
+            P(560, 275, '<path d="M-36 28 L0 -8 L36 28 Z" fill="#c9762f"/><rect x="-26" y="28" width="52" height="16" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.05), 'night') },
+        { minDur: 6800, sub: '書桌還在、茶杯還在、椅子還在——只是那個坐在椅子上的人，再也不會回來……',
+          html: scene(P(400, 285, '<rect x="-60" y="-8" width="120" height="10" rx="3" fill="#a8734a"/><g stroke="#8a5a33" stroke-width="5"><line x1="-50" y1="2" x2="-50" y2="40"/><line x1="50" y1="2" x2="50" y2="40"/></g>' + P(30, -18, '<path d="M-8 -6 h16 v5 q0 8 -8 8 q-8 0 -8 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1.1) +
+            P(230, 302, A('kid', 'sad'), '', 0, .95) + sweat(300, 200), 'night') },
+        { minDur: 6800, sub: '「物是人非」：懷念故人、感傷變遷——把思念放進心裡，帶著他的期望好好生活！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) +
+            P(400, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.2) + hearts(290, 200)) },
+        { minDur: 6400, sub: '物是人非：景物如故，故人已渺。',
+          html: scene(P(400, 288, '<rect x="-56" y="-8" width="112" height="10" rx="3" fill="#a8734a"/><g stroke="#8a5a33" stroke-width="5"><line x1="-46" y1="2" x2="-46" y2="38"/><line x1="46" y1="2" x2="46" y2="38"/></g>' + P(26, -16, '<path d="M-8 -6 h16 v5 q0 8 -8 8 q-8 0 -8 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">物是人非</text>', 'night') }
+      ];
+    },
+    /* 觸景傷情 */
+    i682: function () {
+      return [
+        { minDur: 6800, sub: '路過小學門口的紅豆餅攤——那是爺爺每次接他放學必買的味道……眼眶忽然熱了！',
+          html: scene(P(500, 285, '<rect x="-44" y="-40" width="88" height="40" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-34" y="-58" width="68" height="15" rx="4" fill="#c96a5a"/><circle cx="-14" cy="-16" r="8" fill="#c9a06c"/><circle cx="10" cy="-16" r="8" fill="#c9a06c"/>', '', 0, 1.05) +
+            P(260, 302, A('kid', 'sad') + '<g class="st-tear"><path d="M-10 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1)) },
+        { minDur: 6800, sub: '「觸景傷情」：看到眼前景物而引發傷感——場景像鑰匙，一下打開回憶的抽屜！',
+          html: scene(P(360, 302, A('kid', 'sad'), '', 0, 1.02) +
+            P(540, 220, '<path d="M-8 0 a8 8 0 1 1 8 -8 l16 0 l0 6 l-5 0 l0 5 l-6 0 l0 -5" stroke="#e8b93f" stroke-width="3" fill="none"/>', '', 0, 1.3) +
+            P(280, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#c9d6e8" stroke="#aab8cf" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '傷感不必逃——買一份紅豆餅，說一聲「爺爺我很好」——思念也可以很溫暖！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -46, '<circle cx="0" cy="0" r="9" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1.1)) +
+            P(400, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1) + hearts(540, 200)) },
+        { minDur: 6400, sub: '觸景傷情：見景思昔，感傷不已。',
+          html: scene(P(500, 288, '<rect x="-40" y="-36" width="80" height="36" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-30" y="-52" width="60" height="14" rx="4" fill="#c96a5a"/>', '', 0, 1.05) +
+            P(270, 302, A('kid', 'sad') + '<g class="st-tear"><path d="M-10 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">觸景傷情</text>') }
+      ];
+    },
+    /* 睹物思人 */
+    i683: function () {
+      return [
+        { minDur: 6800, sub: '整理老屋，翻出奶奶的老花眼鏡——鏡片擦得亮亮的，像她隨時會回來戴上……',
+          html: scene(P(400, 260, '<g stroke="#8b93a3" stroke-width="3" fill="none"><circle cx="-16" cy="0" r="14"/><circle cx="16" cy="0" r="14"/><line x1="-2" y1="0" x2="2" y2="0"/><path d="M-30 -2 q-8 -2 -12 -8 M30 -2 q8 -2 12 -8"/></g>', '', 0, 1.5) +
+            P(240, 302, A('kid', 'sad'), '', 0, .98) + sweat(310, 200)) },
+        { minDur: 6800, sub: '「睹物思人」：看到遺物想念故人——一件毛衣、一封信、一支筆，都住著一個人！',
+          html: scene(P(300, 250, '<path d="M-18 -16 h36 l-4 32 h-28 z M-18 -16 q-8 4 -10 12 M18 -16 q8 4 10 12" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/>', '', 0, 1.1) +
+            P(430, 250, '<rect x="-16" y="-11" width="32" height="22" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-16 -11 L0 2 L16 -11" stroke="#c9bfa8" stroke-width="2" fill="none"/>', '', 0, 1.1) +
+            P(550, 250, '<line x1="0" y1="14" x2="6" y2="-12" stroke="#3a2e26" stroke-width="3.4" stroke-linecap="round"/>', '', 0, 1.2) +
+            P(430, 180, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '最好的紀念是傳承：戴上那副眼鏡讀她愛的詩——她教的溫柔，繼續活在你身上！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) + hearts(500, 190) +
+            P(280, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '睹物思人：見物如晤，思念故人。',
+          html: scene(P(400, 262, '<g stroke="#8b93a3" stroke-width="3" fill="none"><circle cx="-16" cy="0" r="14"/><circle cx="16" cy="0" r="14"/><line x1="-2" y1="0" x2="2" y2="0"/></g>', '', 0, 1.55) + hearts(520, 210) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">睹物思人</text>') }
+      ];
     }
   };
 
