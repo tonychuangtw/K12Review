@@ -2131,6 +2131,120 @@
           html: scene(fire(520, 300, 1.3) + P(300, 302, A('kid', 'sad') + WOODARM) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">抱薪救火</text>') }
       ];
+    },
+    /* 投鼠忌器 */
+    i1047: function () {
+      var VASE = '<path d="M-13 0 Q-20 -12 -13 -26 Q-6 -34 -9 -44 L9 -44 Q6 -34 13 -26 Q20 -12 13 0 Z" fill="#8fd0c0" stroke="#5aa896" stroke-width="2.6"/>' +
+        '<path d="M-8 -20 q8 -6 16 0" stroke="#5aa896" stroke-width="2" fill="none"/>' +
+        '<ellipse cx="0" cy="-44" rx="9" ry="3" fill="#5aa896"/>';
+      var STICK = '<line x1="0" y1="0" x2="30" y2="-46" stroke="#a8734a" stroke-width="5.5" stroke-linecap="round"/>';
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '一隻老鼠，躲在珍貴的瓷瓶旁邊。有人高高舉起棍子要打——卻遲遲不敢揮下去。',
+          html: scene(P(520, 302, VASE, '', 0, 1.2) + P(580, 300, A('mouse'), '', 0, .9) +
+            P(300, 302, A('kid', 'angry') + P(20, -34, STICK)) + sweat(260, 195)) },
+        { minDur: 6600, sub: '「打下去，萬一砸破了寶貝瓷瓶，怎麼辦？」他顧忌著，只能乾瞪眼。',
+          html: scene(P(520, 302, VASE, '', 0, 1.2) + P(580, 300, A('mouse'), '', 0, .9) +
+            P(300, 302, A('kid', 'wow') + P(20, -34, STICK)) + qmark(360, 175) + sweat(250, 195)) },
+        { minDur: 7400, sub: '漢朝的賈誼用這句俗諺勸諫皇帝：懲治君王身邊的近臣，也要顧到君王的體面——就像打老鼠，得顧忌牠旁邊的器皿呀。',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(560, 302, A('kid', 'happy') + CROWN, '', 0, 1, true) + hearts(440, 180) +
+            P(680, 290, VASE, '', 0, .8)) },
+        { minDur: 6400, sub: '投鼠忌器：想打擊壞人，卻因有所顧忌而不敢放手去做。',
+          html: scene(P(430, 292, VASE, '', 0, 1.4) + P(520, 300, A('mouse')) + P(240, 302, A('kid', 'angry') + P(20, -34, STICK)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">投鼠忌器</text>') }
+      ];
+    },
+    /* 縱虎歸山 */
+    i1072: function () {
+      var MT3 = '<path d="M-130 0 L0 -150 L130 0 Z" fill="#8fb0a0"/><path d="M0 -150 L-22 -122 L0 -112 L24 -120 Z" fill="#eef4f0"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 6800, sub: '三國時，劉璋把劉備請進蜀地，還想派他帶兵去討伐張魯。',
+          html: scene(P(280, 302, A('kid', 'happy')) +
+            P(540, 302, A('kid', 'happy') + P(26, -50, SPEAR3), '', 0, .95, true)) },
+        { minDur: 6800, sub: '謀士劉巴急忙勸阻：「派劉備出去帶兵，就像把老虎放回山林呀！千萬不可！」',
+          html: scene(P(560, 250, '<circle cx="0" cy="-20" r="66" fill="#fff" opacity=".9"/>' + P(0, 30, A('tiger'), '', 0, .8)) +
+            P(240, 302, A('kid', 'angry')) + sweat(200, 200) +
+            P(400, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(440, 185)) },
+        { minDur: 7000, sub: '劉璋不聽。劉備一去果然日益壯大，回頭反取了益州——放走的老虎，再也叫不回來了。',
+          html: scene(P(620, 302, MT3) +
+            P(520, 302, A('tiger'), 'st-strut') +
+            P(200, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') + sweat(250, 200), 'night') },
+        { minDur: 6400, sub: '縱虎歸山：放走敵人或惡人，留下後患。',
+          html: scene(P(620, 302, MT3, '', 0, .9) + P(480, 302, A('tiger'), 'st-strut') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">縱虎歸山</text>') }
+      ];
+    },
+    /* 期期艾艾 */
+    i1060: function () {
+      function bubble(x, y, txt, sc) {
+        return P(x, y, '<path d="M-30 -18 a26 20 0 1 1 52 6 q-2 9 -12 10 l-13 12 l1 -12 q-24 -2 -28 -16 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>' +
+          '<text x="-3" y="-4" text-anchor="middle" font-size="16" font-weight="bold" fill="#4a3200">' + txt + '</text>', '', 0, sc || 1);
+      }
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      return [
+        { minDur: 7400, sub: '漢朝大臣周昌有口吃。皇帝要廢掉太子，他氣得漲紅了臉，大聲說：「臣、臣口不能言，但臣期、期……期期知道不可以！」',
+          html: scene(P(300, 302, A('kid', 'angry')) + bubble(390, 190, '期期…', 1.1) +
+            P(600, 302, A('kid', 'wow') + CROWN, '', 0, 1, true) + sweat(260, 200)) },
+        { minDur: 7000, sub: '三國的鄧艾也口吃，自我介紹總說：「艾……艾……」旁人打趣他：「到底有幾個艾呀？」',
+          html: scene(P(300, 302, A('kid', 'happy')) + bubble(390, 190, '艾…艾…', 1.1) +
+            P(600, 302, A('kid', 'happy'), '', 0, .95, true) + qmark(660, 185)) },
+        { minDur: 6600, sub: '後人把兩個故事合在一起，用「期期艾艾」形容說話結結巴巴、不流利的樣子。',
+          html: scene(P(260, 302, A('kid', 'happy')) + bubble(340, 195, '期期', .9) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95) + bubble(640, 200, '艾艾', .9)) },
+        { minDur: 6400, sub: '期期艾艾：形容人口吃，說話結結巴巴不流利。',
+          html: scene(bubble(300, 230, '期期', 1.2) + bubble(500, 235, '艾艾', 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">期期艾艾</text>') }
+      ];
+    },
+    /* 焚書坑儒 */
+    i1116: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var BOOKPILE = '<g stroke-width="2"><rect x="-30" y="-12" width="60" height="12" rx="2.6" fill="#c9a06c" stroke="#a8734a"/><rect x="-26" y="-24" width="52" height="12" rx="2.6" fill="#e8dcc0" stroke="#c9bfa8"/><rect x="-28" y="-36" width="56" height="12" rx="2.6" fill="#c9a06c" stroke="#a8734a"/></g>';
+      var FIRE2 = '<g class="st-flick"><path d="M0 -8 q-16 -20 0 -38 q3 11 11 15 q9 -9 7 -18 q13 16 2 34 q-9 11 -20 7 z" fill="#ff9c40"/>' +
+        '<path d="M2 -10 q-8 -11 0 -22 q7 9 9 13 q3 9 -9 9 z" fill="#ffd166"/></g>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 6800, sub: '秦始皇統一天下後，丞相李斯建議：民間收藏的詩書和諸子典籍，一律燒掉！',
+          html: scene(P(240, 302, A('kid', 'angry') + CROWN) +
+            P(420, 302, A('kid', 'happy'), '', 0, .95) +
+            P(600, 316, BOOKPILE, '', 0, 1.1) + bang(320, 180)) },
+        { minDur: 6600, sub: '大批書簡被投進火裡，千年累積的智慧，化成了灰燼……',
+          html: scene(P(430, 316, BOOKPILE, '', 0, 1.2) + P(430, 302, FIRE2, '', 0, 1.4) +
+            P(220, 302, A('kid', 'sad')) + sweat(270, 200), 'night') },
+        { minDur: 7000, sub: '第二年，方士的誹謗讓秦始皇大怒，四百多名儒生在咸陽被坑殺，讀書人人人自危。',
+          html: scene(P(240, 302, A('kid', 'angry') + CROWN) + bang(310, 180) +
+            P(500, 302, A('kid', 'sad'), '', 0, .9) + sweat(540, 200) +
+            P(620, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', 0, .9), 'night') },
+        { minDur: 6800, sub: '「焚書坑儒」從此成了摧殘文化的代名詞，秦朝也失去了天下讀書人的心。',
+          html: scene(P(300, 316, BOOKPILE, '', 0, .9) + P(300, 306, FIRE2) +
+            P(560, 302, A('kid', 'sad')) + sweat(600, 200), 'night') },
+        { minDur: 6400, sub: '焚書坑儒：摧殘文化、迫害知識分子。',
+          html: scene(P(360, 316, BOOKPILE, '', 0, 1.1) + P(360, 306, FIRE2, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">焚書坑儒</text>', 'night') }
+      ];
+    },
+    /* 甘拜下風 */
+    i1055: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      function bowKid(x, sc) {
+        return P(x, 302, '<g transform="rotate(38)">' + A('kid', 'happy') + '</g>', '', 0, sc || 1);
+      }
+      return [
+        { minDur: 6800, sub: '春秋時，秦國和晉國在韓原大戰。晉軍戰敗，連晉惠公都被俘虜了。',
+          html: scene(P(240, 302, A('kid', 'angry') + P(26, -50, SPEAR3)) + bang(400, 190) +
+            P(540, 302, A('kid', 'sad') + CROWN, '', 0, .95) + sweat(580, 200)) },
+        { minDur: 7000, sub: '晉國的大夫們跟到秦營，站在下風的位置，恭恭敬敬地向秦穆公下拜致意。',
+          html: scene(P(600, 302, A('kid', 'happy') + CROWN, '', 0, 1, true) +
+            bowKid(300, .95) + bowKid(420, .9) + hearts(660, 190)) },
+        { minDur: 6600, sub: '「甘拜下風」從此流傳下來——真心佩服對方，承認自己不如人家。',
+          html: scene(P(560, 302, A('kid', 'happy'), '', 0, 1, true) + bowKid(320, .95) + hearts(450, 180)) },
+        { minDur: 6400, sub: '甘拜下風：真心佩服別人，承認自己不如對方。',
+          html: scene(P(560, 302, A('kid', 'happy'), '', 0, 1, true) + bowKid(300, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">甘拜下風</text>') }
+      ];
     }
   };
 
