@@ -16705,6 +16705,158 @@
             P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">化險為夷</text>') }
       ];
+    },
+    /* 絕處逢生 */
+    i632: function () {
+      return [
+        { minDur: 6800, sub: '登山迷路三天，糧食吃完、手機沒電——前方又是一面峭壁，看似無路可走……',
+          html: scene(P(560, 250, '<rect x="-16" y="-90" width="120" height="180" fill="#6d7585" stroke="#525a68" stroke-width="3"/>', '', 0, 1) +
+            P(300, 302, A('kid', 'sad'), '', 0, 1) + sweat(240, 190) + qmark(400, 195), 'night') },
+        { minDur: 6800, sub: '絕望之際，他聽見水聲——順著溪流走，竟走出山谷、遇上搜救隊！',
+          html: scene('<path d="M200 302 q120 -20 240 -8 q120 12 240 -16" stroke="#7fb2d4" stroke-width="10" fill="none" stroke-linecap="round"/>' +
+            P(300, 302, A('kid', 'happy'), 'st-strut', 0, 1) +
+            P(600, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#e0813f"/><path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .98, true) + bang(470, 195) + hearts(390, 190)) },
+        { minDur: 6800, sub: '「絕處逢生」：絕境中出現生路——只要不放棄，路常在你以為沒路的地方！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(500, 190) +
+            P(280, 200, '<path d="M0 8 q-2 -12 5 -17 q5 -5 4 -11" stroke="#7fa858" stroke-width="3" fill="none"/><path d="M9 -24 q7 -7 13 -1 q-2 8 -8 9 q-6 0 -5 -8 z" fill="#a5d47c"/>', '', 0, 1.3)) },
+        { minDur: 6400, sub: '絕處逢生：山窮水盡，又見生機。',
+          html: scene(P(540, 255, '<rect x="-14" y="-85" width="110" height="170" fill="#6d7585" stroke="#525a68" stroke-width="3" opacity=".7"/>', '', 0, 1) +
+            '<path d="M180 302 q120 -18 300 -6" stroke="#7fb2d4" stroke-width="9" fill="none" stroke-linecap="round"/>' +
+            P(300, 302, A('kid', 'happy'), 'st-strut', 0, 1) +
+            '<text x="330" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">絕處逢生</text>') }
+      ];
+    },
+    /* 起死回生 */
+    i633: function () {
+      return [
+        { minDur: 7000, sub: '虢國太子「暴斃」，全國舉哀——名醫扁鵲一看：「太子沒死，是假死症！」',
+          html: scene(P(430, 296, '<rect x="-70" y="-8" width="140" height="16" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' + P(0, -14, '<g transform="rotate(90)">' + A('kid', 'sad') + '</g>', '', 0, .85), '', 0, 1) +
+            P(220, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) + bang(320, 200)) },
+        { minDur: 6800, sub: '扁鵲施針用藥，太子悠悠醒轉！世人驚呼起死回生——他卻謙虛：「我只是喚醒了本來就活著的人。」',
+          html: scene(P(430, 302, A('kid', 'happy'), '', 0, 1) + bang(430, 190) +
+            P(240, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(34, -44, '<line x1="0" y1="8" x2="8" y2="-12" stroke="#8b93a3" stroke-width="3" stroke-linecap="round"/>', '', 0, 1), '', 0, 1) + hearts(550, 195)) },
+        { minDur: 6800, sub: '「起死回生」：挽回看似無望的局面——倒閉邊緣的老店換新菜單、新裝潢，生意起死回生！',
+          html: scene(P(400, 285, '<rect x="-60" y="-46" width="120" height="46" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-44" y="-68" width="88" height="18" rx="4" fill="#c96a5a"/><text x="0" y="-54" text-anchor="middle" font-size="11" fill="#fff">新開幕</text>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy'), 'st-inL', 0, .95) + P(580, 302, A('kid', 'happy'), 'st-inR', .2, .95, true) + hearts(400, 195)) },
+        { minDur: 6400, sub: '起死回生：絕望之局，重獲生機。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + bang(400, 175) + hearts(510, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">起死回生</text>') }
+      ];
+    },
+    /* 妙手回春 */
+    i634: function () {
+      return [
+        { minDur: 6800, sub: '重病的老爺爺臥床數月，面色枯黃——家人抱著最後希望請來老中醫……',
+          html: scene(P(400, 296, '<rect x="-70" y="-8" width="140" height="16" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' + P(0, -14, '<g transform="rotate(90)">' + A('kid', 'sad') + '</g>', '', 0, .85), '', 0, 1) +
+            P(200, 302, A('kid', 'sad') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95) + sweat(270, 210), 'night') },
+        { minDur: 6800, sub: '望聞問切、開方調理——三個月後，老爺爺紅光滿面地在院子裡打太極！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M-28 -46 q-14 -6 -20 4 M28 -46 q14 -6 20 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(200, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            P(580, 290, '<path d="M0 8 q-3 -14 6 -20 q8 -5 6 -14" stroke="#548a40" stroke-width="3" fill="none"/><path d="M12 -28 C6 -38 18 -43 21 -33 C27 -41 35 -33 28 -27 Z" fill="#ff9eb5"/>', '', 0, 1.2) + hearts(490, 195)) },
+        { minDur: 6800, sub: '「妙手回春」：醫術高明，讓病體像回到春天——這四個字，是給醫者最高的謝意！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-18 -34 L-14 6 h28 l4 -40 z" fill="#fff" stroke="#d8d2c4" stroke-width="2"/><path d="M0 -30 v22" stroke="#d8d2c4" stroke-width="2"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + P(-38, -50, '<rect x="-24" y="-14" width="48" height="28" rx="4" fill="#c96a5a"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#fff">仁心</text>', '', 0, 1), '', 0, .97, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '妙手回春：醫術高明，重病得癒。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -34 L-14 6 h28 l4 -40 z" fill="#fff" stroke="#d8d2c4" stroke-width="2"/>', '', 0, 1.05) + hearts(500, 190) +
+            P(280, 200, '<path d="M12 -24 C6 -34 18 -39 21 -29 C27 -37 35 -29 28 -23 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">妙手回春</text>') }
+      ];
+    },
+    /* 藥到病除 */
+    i635: function () {
+      var MEDICINE = '<rect x="-14" y="-20" width="28" height="40" rx="5" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-14" y="-20" width="28" height="12" rx="5" fill="#7fb2e0"/><path d="M-6 2 h12 M0 -4 v12" stroke="#c96a5a" stroke-width="2.6"/>';
+      return [
+        { minDur: 6800, sub: '感冒頭昏腦脹一整週——吃了醫生開的藥，隔天燒退鼻通，整個人活過來了！',
+          html: scene(P(320, 302, A('kid', 'sad') + P(34, -30, '<path d="M-8 4 q8 -12 16 0" stroke="#fff" stroke-width="5" fill="none"/>', '', 0, 1), '', 0, .98) + sweat(260, 190) +
+            '<path d="M400 260 h70" stroke="#548a40" stroke-width="4"/><path d="M470 260 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(540, 302, A('kid', 'happy'), 'st-cheer', 0, 1, true) + hearts(620, 195)) },
+        { minDur: 6800, sub: '「藥到病除」：藥一用上病就好——也比喻對策精準：問題一招解決！',
+          html: scene(P(340, 260, MEDICINE, '', 0, 1.4) +
+            '<path d="M395 255 h80" stroke="#548a40" stroke-width="4"/><path d="M475 255 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(540, 255, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><path d="M-9 0 l6 7 l13 -14" stroke="#548a40" stroke-width="3.4" fill="none"/>', '', 0, 1.2)) },
+        { minDur: 6800, sub: '網站當機查了三天——工程師找到真正病灶，改一行程式碼藥到病除，全站復活！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -52, '<rect x="-16" y="-13" width="32" height="26" rx="4" fill="#2f3550" stroke="#232840" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="11" fill="#7fd47f">fix!</text>', '', 0, .95), 'st-cheer', 0, 1.02) + bang(470, 185) + hearts(280, 195)) },
+        { minDur: 6400, sub: '藥到病除：對策一出，立竿見影。',
+          html: scene(P(400, 265, MEDICINE, '', 0, 1.6) + bang(510, 220) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">藥到病除</text>') }
+      ];
+    },
+    /* 因材施教 */
+    i637: function () {
+      return [
+        { minDur: 7000, sub: '朱熹注解《論語》說：「孔子教人，各因其材」——同一個問題，對不同學生給不同答案！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(200, 302, A('kid', 'happy'), '', 0, .88) + P(540, 302, A('kid', 'wow'), '', 0, .9, true) + P(650, 302, A('kid', 'happy'), '', 0, .85, true) + notes(430, 185)) },
+        { minDur: 6800, sub: '子路性急，孔子讓他三思而行；冉有猶豫，孔子催他立刻去做——對症下藥！',
+          html: scene(P(280, 302, A('kid', 'angry'), 'st-dashL', 0, .98) +
+            P(280, 200, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">慢一點</text>', '', 0, 1) +
+            P(520, 302, A('kid', 'wow'), 'st-bob', 0, .98, true) +
+            P(520, 200, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">快去做</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '「因材施教」：依資質給不同教導——好老師眼中沒有差學生，只有還沒找到方法的學生！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + hearts(450, 188)) },
+        { minDur: 6400, sub: '因材施教：依其資質，各予教導。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy'), '', 0, .85) + P(550, 302, A('kid', 'wow'), '', 0, .85, true) + hearts(400, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">因材施教</text>') }
+      ];
+    },
+    /* 有教無類 */
+    i638: function () {
+      return [
+        { minDur: 7000, sub: '孔子說：「有教無類」——不分貴族平民、富有貧窮，只要肯學，我都教！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M-28 -46 q-14 -6 -20 4 M28 -46 q14 -6 20 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.08) +
+            P(230, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, .88) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-12 -30 h24 l-2 20 h-20 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, .88, true) + hearts(400, 172)) },
+        { minDur: 6800, sub: '他的學生裡有貴族、有商人、也有窮到只帶一束肉乾當學費的——一視同仁！',
+          html: scene(P(280, 302, A('kid', 'happy'), '', 0, .92) + P(400, 302, A('kid', 'happy'), '', 0, .92) + P(520, 302, A('kid', 'happy'), '', 0, .92, true) +
+            '<line x1="240" y1="250" x2="560" y2="250" stroke="#548a40" stroke-width="3" stroke-dasharray="8 7"/>' + hearts(400, 185)) },
+        { minDur: 6800, sub: '「有教無類」：教育不分貴賤賢愚——兩千五百年前的理念，今天的義務教育還在實踐它！',
+          html: scene(P(400, 285, '<rect x="-70" y="-50" width="140" height="50" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-80 -50 h160 l-16 -22 h-128 z" fill="#c9762f"/><rect x="-14" y="-28" width="28" height="28" fill="#8a6a44"/>', '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy'), 'st-inL', 0, .88) + P(560, 302, A('kid', 'happy'), 'st-inR', .2, .88, true) + hearts(400, 190)) },
+        { minDur: 6400, sub: '有教無類：人人可教，不分貴賤。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(260, 302, A('kid', 'happy'), '', 0, .88) + P(540, 302, A('kid', 'happy'), '', 0, .88, true) + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">有教無類</text>') }
+      ];
+    },
+    /* 循循善誘 */
+    i639: function () {
+      return [
+        { minDur: 7000, sub: '顏淵讚歎老師孔子：「夫子循循然善誘人」——一步一步、有次序地把人引進學問之門！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(450, 188)) },
+        { minDur: 6800, sub: '不直接給答案：「你先看這一步……對！那下一步呢？」——學生自己想通的那刻最亮！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'wow'), '', 0, .97, true) +
+            P(600, 195, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1) +
+            '<g fill="#d9cfae" stroke="#b8a982" stroke-width="2"><rect x="380" y="272" width="60" height="26"/><rect x="400" y="246" width="60" height="26"/></g>') },
+        { minDur: 6800, sub: '「循循善誘」：有步驟地耐心引導——教別人時試試：多問引導的問題，少給現成的答案！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(280, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">一步</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">一步</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '循循善誘：循序引導，耐心啟發。',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(450, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">循循善誘</text>') }
+      ];
+    },
+    /* 諄諄教誨 */
+    i640: function () {
+      return [
+        { minDur: 7000, sub: '《詩經》感歎：「誨爾諄諄，聽我藐藐」——我懇切耐心地教，你卻心不在焉地聽……',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 296, '<g transform="rotate(10)">' + A('kid', 'happy') + '</g>' + P(-34, -30, '<rect x="-9" y="-14" width="18" height="26" rx="3" fill="#3a2e26"/>', '', 0, .9), '', 0, .95) + sweat(430, 195)) },
+        { minDur: 6800, sub: '畢業多年後翻到老師寫在聯絡簿上的叮嚀——當年嫌囉唆的話，如今讀來字字是金！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff7e8" stroke="#d8cbb0" stroke-width="2.4"/><g stroke="#a8945a" stroke-width="1.6"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/><line x1="-10" y1="6" x2="6" y2="6"/></g>', '', 0, .95), '', 0, 1.02) +
+            P(280, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1) + hearts(490, 195)) },
+        { minDur: 6800, sub: '「諄諄教誨」：懇切耐心地教導——那些重複了一百遍的話，都是捨不得你走彎路！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.05) +
+            P(530, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '諄諄教誨：懇切叮嚀，耐心教導。',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(530, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(440, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">諄諄教誨</text>') }
+      ];
     }
   };
 
