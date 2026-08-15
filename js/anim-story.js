@@ -753,6 +753,160 @@
           html: scene(P(280, 302, A('kid', 'happy') + P(24, -40, SWORD2)) + P(560, 302, A('chicken')) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">聞雞起舞</text>') }
       ];
+    },
+    /* 老馬識途 */
+    i051: function () {
+      function mt2(w, h, fill) {
+        return '<path d="M-' + w + ' 0 L0 -' + h + ' L' + w + ' 0 Z" fill="' + fill + '"/>';
+      }
+      var VALLEY = P(120, 302, mt2(140, 170, '#8fb0a0')) + P(680, 302, mt2(150, 190, '#8fb0a0')) + P(400, 302, mt2(110, 120, '#a5c2b2'));
+      var SNOWFX = '<g fill="#fff"><circle class="st-snow" cx="160" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1.2s" cx="330" cy="20" r="3.4"/>' +
+        '<circle class="st-snow" style="animation-delay:.5s" cx="470" cy="36" r="4"/><circle class="st-snow" style="animation-delay:1.7s" cx="600" cy="24" r="3"/></g>';
+      return [
+        { minDur: 6600, sub: '齊桓公出兵遠征，回程時大軍在山谷裡迷了路，怎麼繞都繞不出去。',
+          html: scene(VALLEY + P(300, 302, A('kid', 'wow'), '', 0, .95) + P(430, 302, A('kid', 'sad'), '', .3, .9) +
+            qmark(350, 180) + sweat(460, 210)) },
+        { minDur: 6400, sub: '天寒地凍，雪越下越大，糧食也越來越少，大家都急壞了。',
+          html: scene(VALLEY + SNOWFX +
+            P(300, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .95) +
+            P(430, 302, '<g class="st-slump" style="animation-delay:.3s">' + A('kid', 'sad') + '</g>', '', 0, .9) +
+            sweat(340, 200)) },
+        { minDur: 7000, sub: '管仲想到辦法：「老馬走過的路多，一定認得回家的路！」於是解開一匹老馬，讓牠在前面帶路。',
+          html: scene(VALLEY + P(260, 302, A('horse'), 'st-strut') +
+            P(450, 302, A('kid', 'happy'), '', 0, .95) + P(570, 302, A('kid', 'happy'), '', .3, .9) +
+            hearts(380, 190)) },
+        { minDur: 6600, sub: '大軍跟著老馬走，果然一步步走出了山谷，平安回到了齊國！',
+          html: scene(P(680, 302, mt2(120, 140, '#a5c2b2')) +
+            P(200, 302, A('horse'), 'st-strut') +
+            P(380, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            P(500, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            hearts(300, 180)) },
+        { minDur: 6200, sub: '老馬識途：比喻經驗豐富的人，有能力解決問題。',
+          html: scene(P(300, 302, A('horse')) + P(540, 302, A('kid', 'happy')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">老馬識途</text>') }
+      ];
+    },
+    /* 三顧茅廬 */
+    i243: function () {
+      var HUT = '<path d="M-90 -70 L0 -130 L90 -70 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="4"/>' +
+        '<g stroke="#a8734a" stroke-width="2.4"><line x1="-60" y1="-90" x2="-52" y2="-70"/><line x1="-20" y1="-116" x2="-14" y2="-70"/><line x1="30" y1="-110" x2="36" y2="-70"/></g>' +
+        '<rect x="-74" y="-70" width="148" height="70" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/>' +
+        '<rect x="-22" y="-52" width="44" height="52" rx="4" fill="#8a5a33"/>';
+      var SNOWFX = '<g fill="#fff"><circle class="st-snow" cx="160" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1.2s" cx="330" cy="20" r="3.4"/>' +
+        '<circle class="st-snow" style="animation-delay:.5s" cx="470" cy="36" r="4"/><circle class="st-snow" style="animation-delay:1.7s" cx="600" cy="24" r="3"/></g>';
+      return [
+        { minDur: 7000, sub: '劉備聽說臥龍先生諸葛亮是難得的賢才，親自到茅廬拜訪——可惜先生出遠門了，撲了個空。',
+          html: scene(P(550, 302, HUT) + P(250, 302, A('kid', 'happy'), 'st-inL') +
+            qmark(300, 190) + sweat(220, 210)) },
+        { minDur: 7000, sub: '過了些日子，劉備冒著大雪第二次拜訪——還是沒見到人。同行的關羽、張飛都等得不耐煩了。',
+          html: scene(P(550, 302, HUT) + SNOWFX +
+            P(220, 302, A('kid', 'sad')) +
+            P(110, 302, A('kid', 'angry'), '', 0, .9) + P(330, 302, A('kid', 'angry'), '', .3, .9) +
+            bang(140, 190)) },
+        { minDur: 7200, sub: '第三次再去，諸葛亮正在午睡。劉備不敢驚動，恭恭敬敬地站在門外，一直等到先生睡醒。',
+          html: scene(P(550, 302, HUT) + zzz(560, 190) +
+            P(300, 302, A('kid', 'happy')) +
+            P(140, 302, A('kid', 'angry'), '', 0, .85) + sweat(170, 215)) },
+        { minDur: 6800, sub: '諸葛亮被劉備的誠意感動，答應出山相助，後來幫他三分天下，成就一番大業！',
+          html: scene(P(550, 302, HUT) +
+            P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(470, 302, A('kid', 'happy') + '<path d="M-16 -86 q16 -12 32 0" stroke="#8a5a33" stroke-width="3" fill="none" stroke-linecap="round"/>', 'st-inR', 0, .95) +
+            hearts(390, 180)) },
+        { minDur: 6200, sub: '三顧茅廬：比喻誠心誠意，一再邀請賢才。',
+          html: scene(P(550, 302, HUT, '', 0, .9) + P(260, 302, A('kid', 'happy')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">三顧茅廬</text>') }
+      ];
+    },
+    /* 打草驚蛇 */
+    i247: function () {
+      var COIN = '<circle cx="0" cy="0" r="10" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/><rect x="-3.4" y="-3.4" width="6.8" height="6.8" fill="none" stroke="#c98f2a" stroke-width="2"/>';
+      var PAPER = '<rect x="-20" y="-30" width="40" height="56" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>' +
+        '<g stroke="#8fa3bf" stroke-width="2.4"><line x1="-12" y1="-18" x2="12" y2="-18"/><line x1="-12" y1="-6" x2="12" y2="-6"/><line x1="-12" y1="6" x2="12" y2="6"/></g>';
+      var GRASS = '<g stroke="#5f8a46" stroke-width="5" fill="none" stroke-linecap="round">' +
+        '<path d="M-40 0 q-6 -30 -16 -38 M-40 0 q4 -32 12 -40 M0 0 q-6 -26 -14 -32 M0 0 q6 -28 16 -36 M40 0 q-4 -30 -12 -36 M40 0 q6 -26 14 -32"/></g>';
+      var STICK = '<line x1="0" y1="0" x2="34" y2="-48" stroke="#a8734a" stroke-width="5" stroke-linecap="round"/>';
+      return [
+        { minDur: 6600, sub: '縣官王魯愛貪錢，他的手下也跟著撈油水，百姓苦不堪言。',
+          html: scene(P(280, 302, A('kid', 'happy') + P(36, -62, COIN) + P(52, -46, COIN, '', 0, .8)) +
+            P(560, 302, A('kid', 'sad'), '', 0, .9) + P(670, 302, A('kid', 'sad'), '', .3, .85) + sweat(590, 205)) },
+        { minDur: 6200, sub: '有一天，百姓們聯名寫了狀紙，控告他的手下貪汙。',
+          html: scene(P(560, 302, A('kid', 'angry') + P(-40, -50, PAPER, '', 0, .9)) +
+            P(670, 302, A('kid', 'angry'), '', .3, .9) +
+            P(280, 302, A('kid', 'wow')) + qmark(240, 185)) },
+        { minDur: 7200, sub: '王魯一看狀紙，嚇出一身冷汗：「這說的不就是我嗎？」提筆寫下：「你們雖然只是打草，我這條藏著的蛇，已經受驚了！」',
+          html: scene(P(280, 302, A('kid', 'wow') + P(-40, -50, PAPER, '', 0, .9)) +
+            sweat(230, 195) + sweat(330, 205) + bang(430, 170)) },
+        { minDur: 7000, sub: '就像拿棍子打草，草叢裡的蛇受了驚，立刻竄逃——行動不保密，就會讓對方有了防備。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(20, -34, STICK, 'st-hoe')) +
+            P(470, 318, GRASS) + bang(450, 240) +
+            P(600, 302, '<g class="st-fleeR">' + A('snake') + '</g>', 'st-dashL') + sweat(640, 220)) },
+        { minDur: 6200, sub: '打草驚蛇：行動不密，讓對方有所警覺防備。',
+          html: scene(P(470, 318, GRASS) + P(280, 302, A('kid', 'happy') + P(20, -34, STICK)) + P(600, 302, A('snake')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">打草驚蛇</text>') }
+      ];
+    },
+    /* 螳臂當車 */
+    i251: function () {
+      var MANTIS = '<g class="st-bob">' +
+        '<ellipse cx="6" cy="-12" rx="15" ry="8" fill="#8fc866" stroke="#6da844" stroke-width="2"/>' +
+        '<circle cx="-12" cy="-26" r="7" fill="#8fc866" stroke="#6da844" stroke-width="2"/>' +
+        '<circle cx="-14" cy="-28" r="2" fill="#3a2e26"/>' +
+        '<path d="M-16 -32 q-3 -6 -7 -7 M-9 -33 q1 -7 5 -8" stroke="#6da844" stroke-width="2" fill="none" stroke-linecap="round"/>' +
+        '<path d="M-18 -22 q-10 -6 -12 -16 l4 -2 q2 8 10 12 z M-6 -20 q-2 -12 4 -18 l4 3 q-5 6 -3 13 z" fill="#6da844"/>' +
+        '<g stroke="#6da844" stroke-width="2.4" stroke-linecap="round"><line x1="2" y1="-5" x2="-2" y2="4"/><line x1="10" y1="-4" x2="10" y2="5"/><line x1="17" y1="-6" x2="22" y2="2"/></g></g>';
+      function cart(sc) {
+        return P(0, 0, '<circle cx="0" cy="-30" r="30" fill="#c9a06c" stroke="#a8734a" stroke-width="5"/>' +
+          '<g stroke="#a8734a" stroke-width="4"><line x1="0" y1="-52" x2="0" y2="-8"/><line x1="-22" y1="-30" x2="22" y2="-30"/><line x1="-16" y1="-46" x2="16" y2="-14"/><line x1="16" y1="-46" x2="-16" y2="-14"/></g>' +
+          '<rect x="-14" y="-92" width="120" height="44" rx="8" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>' +
+          '<circle cx="86" cy="-30" r="30" fill="#c9a06c" stroke="#a8734a" stroke-width="5"/>' +
+          '<g stroke="#a8734a" stroke-width="4"><line x1="86" y1="-52" x2="86" y2="-8"/><line x1="64" y1="-30" x2="108" y2="-30"/></g>' +
+          '<line x1="-14" y1="-48" x2="-58" y2="-40" stroke="#a8734a" stroke-width="5" stroke-linecap="round"/>', '', 0, sc);
+      }
+      return [
+        { minDur: 6400, sub: '齊莊公坐著馬車出遊，路中央有一隻小螳螂，看見大車轟隆隆地駛來。',
+          html: scene(P(520, 302, cart(1) + P(150, 0, A('kid', 'happy') + '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>', '', 0, .9)) +
+            P(200, 302, MANTIS) + qmark(240, 230)) },
+        { minDur: 6600, sub: '螳螂不但不躲，反而氣呼呼地高高舉起雙臂，想擋住滾來的車輪！',
+          html: scene(P(430, 302, cart(1.05)) +
+            P(250, 302, MANTIS, '', 0, 1.2) + bang(330, 220) + sweat(210, 240)) },
+        { minDur: 7200, sub: '莊公看了說：「這小蟲真勇敢，可惜不自量力。要是人有這股勇氣，必是天下勇士！」便叫車伕繞開牠走。',
+          html: scene(P(520, 302, cart(1) + P(150, 0, A('kid', 'happy') + '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>', '', 0, .9)) +
+            P(200, 302, MANTIS) + hearts(280, 210) +
+            '<path d="M310 316 q-60 14 -140 8" stroke="#e8dcc0" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="12 10"/>') },
+        { minDur: 6600, sub: '小小的臂膀，怎麼擋得住大車呢？不自量力去硬拚，只會白白送命呀。',
+          html: scene(P(500, 302, cart(1.15)) + P(240, 302, MANTIS) +
+            sweat(280, 240) + qmark(200, 220)) },
+        { minDur: 6200, sub: '螳臂當車：比喻不自量力，去做辦不到的事。',
+          html: scene(P(520, 302, cart(.95)) + P(240, 302, MANTIS, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">螳臂當車</text>') }
+      ];
+    },
+    /* 畫餅充飢 */
+    i252: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var DRAWNBING = '<circle cx="0" cy="0" r="26" fill="none" stroke="#fff" stroke-width="5" stroke-dasharray="10 8" opacity=".95"/>' +
+        '<circle cx="-8" cy="-5" r="2.4" fill="#fff" opacity=".9"/><circle cx="7" cy="3" r="2.4" fill="#fff" opacity=".9"/><circle cx="2" cy="-9" r="2.4" fill="#fff" opacity=".9"/>';
+      var REALBING = '<circle cx="0" cy="0" r="22" fill="#e8b84a" stroke="#c98f2a" stroke-width="3"/>' +
+        '<circle cx="-7" cy="-4" r="2" fill="#8a5a33"/><circle cx="6" cy="3" r="2" fill="#8a5a33"/><circle cx="1" cy="-8" r="2" fill="#8a5a33"/><circle cx="-2" cy="7" r="2" fill="#8a5a33"/>';
+      return [
+        { minDur: 6400, sub: '魏文帝要選拔人才，對大臣盧毓說：「這一次選人，千萬不能只看名聲。」',
+          html: scene(P(280, 302, A('kid', 'happy') + CROWN) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95, true)) },
+        { minDur: 6800, sub: '「名聲就像畫在地上的餅，看起來又圓又香，肚子餓了，卻不能拿來吃呀！」',
+          html: scene(P(430, 316, DRAWNBING) +
+            P(240, 302, A('kid', 'happy') + CROWN) +
+            P(620, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(660, 190)) },
+        { minDur: 6600, sub: '肚子餓的人，就算把餅畫得再圓再大，畫上一百個，也填不飽肚子——',
+          html: scene(P(300, 316, DRAWNBING) + P(430, 320, DRAWNBING, '', 0, .8) + P(540, 314, DRAWNBING, '', 0, .65) +
+            P(180, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') +
+            sweat(220, 205) + qmark(140, 185)) },
+        { minDur: 6600, sub: '真正能填飽肚子的，是實實在在的餅。做事也一樣：空想和虛名，解決不了真正的問題。',
+          html: scene(P(500, 302, A('kid', 'happy') + P(-38, -60, REALBING, '', 0, .9)) + hearts(560, 190) +
+            P(240, 316, DRAWNBING, '', 0, .8) + P(180, 302, A('kid', 'happy'), '', 0, .9)) },
+        { minDur: 6200, sub: '畫餅充飢：比喻用空想安慰自己，無濟於事。',
+          html: scene(P(400, 306, DRAWNBING, '', 0, 1.25) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">畫餅充飢</text>') }
+      ];
     }
   };
 
