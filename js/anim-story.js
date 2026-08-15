@@ -5903,6 +5903,121 @@
           html: scene(flower5(230, 320, '#c9a8e0', 0) + flower5(340, 318, '#e85a4f', .2) + flower5(450, 322, '#ff9eb5', .4) + flower5(560, 318, '#ffd97a', .6) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">萬紫千紅</text>') }
       ];
+    },
+    /* 鳥語花香 */
+    i226: function () {
+      function flower6(x, y, color, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<line x1="0" y1="0" x2="0" y2="-15" stroke="#5f8a46" stroke-width="3"/>' +
+          '<circle cx="0" cy="-21" r="4.8" fill="' + color + '"/><circle cx="-5.6" cy="-17" r="4.8" fill="' + color + '"/><circle cx="5.6" cy="-17" r="4.8" fill="' + color + '"/><circle cx="0" cy="-13" r="4.8" fill="' + color + '"/><circle cx="0" cy="-17" r="3.2" fill="#ffe066"/></g>');
+      }
+      return [
+        { minDur: 6600, sub: '清晨的山林步道上：小鳥在枝頭吱吱喳喳唱歌，花香隨著微風一陣陣飄來——',
+          html: scene(P(140, 302, TREE, '', 0, 1.2) + P(220, 170, A('bird')) + notes(300, 130) +
+            flower6(420, 320, '#ff9eb5', 0) + flower6(520, 318, '#ffd97a', .3) +
+            P(640, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6600, sub: '深深吸一口氣，聽著鳥鳴、聞著花香——整個人的心情都亮了起來！',
+          html: scene(P(560, 170, A('bird')) + notes(480, 140) + flower6(240, 320, '#c9a8e0', 0) +
+            P(380, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(300, 190)) },
+        { minDur: 6600, sub: '「鳥語花香」：鳥兒鳴唱、花朵飄香——形容春光明媚的美好景象！',
+          html: scene(P(200, 180, A('bird')) + P(600, 190, A('bird'), '', .3, .9, true) + notes(400, 140) +
+            flower6(300, 320, '#ff9eb5', 0) + flower6(500, 318, '#ffd97a', .4) + hearts(400, 250)) },
+        { minDur: 6400, sub: '鳥語花香：鳥兒鳴唱，花朵飄香，春光明媚。',
+          html: scene(P(240, 180, A('bird')) + notes(330, 145) + flower6(400, 320, '#ff9eb5', 0) + flower6(520, 318, '#c9a8e0', .3) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鳥語花香</text>') }
+      ];
+    },
+    /* 一絲不苟 */
+    i227: function () {
+      var NEEDLEWORK = '<rect x="-24" y="-24" width="48" height="48" rx="5" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/>' +
+        '<path d="M-14 -8 q7 -8 14 0 q7 8 14 0" stroke="#e07ba3" stroke-width="2.6" fill="none"/>' +
+        '<path d="M-14 6 q7 -8 14 0 q7 8 14 0" stroke="#5c82ba" stroke-width="2.6" fill="none"/>' +
+        '<line x1="16" y1="-18" x2="24" y2="-26" stroke="#8b93a3" stroke-width="1.8"/>';
+      return [
+        { minDur: 6800, sub: '刺繡老師傅一針一線慢慢繡：每一針的距離、每一條線的顏色，全都分毫不差！',
+          html: scene(P(430, 280, NEEDLEWORK, '', 0, 1.3) +
+            P(260, 302, A('kid', 'happy')) + hearts(340, 195)) },
+        { minDur: 6800, sub: '小潔寫作業也是一絲不苟：字寫得端端正正，寫錯了立刻擦掉重寫。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18 M-9 4 h18 M-9 12 h12" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, 1)) + hearts(460, 190)) },
+        { minDur: 6600, sub: '「苟」是隨便——連一根絲那麼小的地方都不隨便，就是「一絲不苟」！',
+          html: scene(P(400, 280, NEEDLEWORK, '', 0, 1.2) + bang(520, 210) + hearts(300, 220)) },
+        { minDur: 6400, sub: '一絲不苟：做事認真仔細，一點也不馬虎。',
+          html: scene(P(400, 285, NEEDLEWORK, '', 0, 1.35) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一絲不苟</text>') }
+      ];
+    },
+    /* 井然有序 */
+    i228: function () {
+      var SHELFBOOKS = '<g stroke="#a8734a" stroke-width="4"><line x1="-90" y1="0" x2="-90" y2="-96"/><line x1="90" y1="0" x2="90" y2="-96"/><line x1="-90" y1="-48" x2="90" y2="-48"/><line x1="-90" y1="-96" x2="90" y2="-96"/></g>' +
+        '<g stroke-width="1.8"><rect x="-80" y="-92" width="12" height="42" fill="#e85a4f" stroke="#c94a3f"/><rect x="-66" y="-92" width="12" height="42" fill="#e0a458" stroke="#c08838"/><rect x="-52" y="-92" width="12" height="42" fill="#6fae58" stroke="#548a40"/><rect x="-38" y="-92" width="12" height="42" fill="#5c82ba" stroke="#46689a"/>' +
+        '<rect x="-80" y="-44" width="12" height="42" fill="#c9a8e0" stroke="#a884c4"/><rect x="-66" y="-44" width="12" height="42" fill="#5c82ba" stroke="#46689a"/><rect x="-52" y="-44" width="12" height="42" fill="#e0a458" stroke="#c08838"/></g>';
+      return [
+        { minDur: 6800, sub: '圖書館裡的書照著編號一本本排好，書架一排排整整齊齊——要找哪本，一下就找到！',
+          html: scene(P(430, 302, SHELFBOOKS) +
+            P(220, 302, A('kid', 'happy')) + hearts(300, 195)) },
+        { minDur: 6800, sub: '放學排路隊也是：一班接一班、一列跟一列，秩序井然，又快又安全！',
+          html: scene(P(240, 302, A('kid', 'happy'), 'st-strut', 0, .95) + P(360, 302, A('kid', 'happy'), 'st-strut', .05, .93) +
+            P(480, 302, A('kid', 'happy'), 'st-strut', .1, .91) + P(600, 302, A('kid', 'happy'), 'st-strut', .15, .89)) },
+        { minDur: 6600, sub: '「井然有序」：整齊而有條理——東西有序、做事有序，效率自然高！',
+          html: scene(P(430, 302, SHELFBOOKS, '', 0, .95) + P(230, 302, A('kid', 'happy')) + bang(330, 200)) },
+        { minDur: 6400, sub: '井然有序：整齊而有條理。',
+          html: scene(P(400, 302, SHELFBOOKS, '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">井然有序</text>') }
+      ];
+    },
+    /* 迫不及待 */
+    i229: function () {
+      var GIFT3 = '<rect x="-18" y="-28" width="36" height="28" rx="4" fill="#a5d47c" stroke="#7cab6e" stroke-width="2.4"/><line x1="0" y1="-28" x2="0" y2="0" stroke="#fff" stroke-width="3.4"/><line x1="-18" y1="-14" x2="18" y2="-14" stroke="#fff" stroke-width="3.4"/><path d="M-6 -28 q-8 -10 0 -12 q5 -1 6 6 q1 -7 6 -6 q8 2 0 12 z" fill="#fff"/>';
+      return [
+        { minDur: 6800, sub: '快遞送來期待已久的新書！小佑迫不及待，鞋都來不及脫就衝過去拆包裹！',
+          html: scene(P(500, 292, GIFT3, '', 0, 1.2) +
+            P(300, 302, A('kid', 'happy'), 'st-dashL') + sweat(250, 195) + bang(430, 220)) },
+        { minDur: 6600, sub: '拆開的手都在發抖——急得一秒鐘也等不下去啦！',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-44, -50, GIFT3, '', 0, 1)) + bang(500, 195) + hearts(300, 190)) },
+        { minDur: 6600, sub: '「迫不及待」：急切得不能再等待——那種心癢癢的期待，人人都懂！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) +
+            P(520, 292, GIFT3, '', 0, .95) + hearts(440, 185)) },
+        { minDur: 6400, sub: '迫不及待：急切得不能再等待。',
+          html: scene(P(340, 302, A('kid', 'happy'), 'st-dashL', 0, 1.08) + P(540, 292, GIFT3, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">迫不及待</text>') }
+      ];
+    },
+    /* 恍然大悟 */
+    i230: function () {
+      var BULB = '<circle cx="0" cy="-14" r="16" fill="#ffe066" stroke="#e8b84a" stroke-width="2.6"/>' +
+        '<rect x="-7" y="0" width="14" height="9" rx="3" fill="#b8ae9c"/>' +
+        '<g class="st-rays" style="transform-origin:0px -14px"><g stroke="#ffd97a" stroke-width="3.4" stroke-linecap="round"><line x1="0" y1="-40" x2="0" y2="-33"/><line x1="-24" y1="-14" x2="-18" y2="-14"/><line x1="24" y1="-14" x2="18" y2="-14"/></g></g>';
+      return [
+        { minDur: 6800, sub: '數學題想了半天解不出來，小恩抓著頭髮直嘆氣……',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="15" fill="#8fa3bf">?</text>', '', 0, 1)) +
+            sweat(300, 192) + qmark(440, 178)) },
+        { minDur: 6800, sub: '老師一句提示：「先畫圖看看！」——啊！他腦中燈泡一亮，一下子全明白了！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(0, -110, BULB, '', 0, 1.1)) + bang(470, 185) +
+            P(580, 302, A('kid', 'happy'), '', 0, .95, true)) },
+        { minDur: 6600, sub: '「恍然大悟」：忽然完全明白過來——那一刻真是暢快！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>' + P(0, -116, BULB, '', 0, 1)) + hearts(500, 195)) },
+        { minDur: 6400, sub: '恍然大悟：忽然完全明白過來。',
+          html: scene(P(400, 302, A('kid', 'wow') + P(0, -110, BULB, '', 0, 1.2)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">恍然大悟</text>') }
+      ];
+    },
+    /* 再接再厲 */
+    i231: function () {
+      var MEDAL = '<circle cx="0" cy="0" r="13" fill="#c9d6e8" stroke="#8b93a3" stroke-width="2.4"/><text x="0" y="5" text-anchor="middle" font-size="12" font-weight="bold" fill="#5c82ba">2</text><path d="M-6 -12 l-4 -10 h20 l-4 10" fill="#e85a4f"/>';
+      return [
+        { minDur: 6800, sub: '游泳比賽拿到第二名——小蓉有點可惜，但她擦乾眼淚：「下次一定要拿第一！」',
+          html: scene(P(360, 302, A('kid', 'happy') + P(0, -104, MEDAL, '', 0, 1.1)) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(460, 190)) },
+        { minDur: 6800, sub: '她天天加練：划水、轉身、衝刺，一次比一次進步——一次又一次繼續努力！',
+          html: scene('<rect y="262" width="800" height="78" fill="#7fb2e0"/>' +
+            '<g class="st-wavemove"><path d="M-40 274 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>' +
+            P(400, 290, '<g transform="rotate(76)">' + A('kid', 'happy') + '</g>') + sweat(320, 230) + bang(540, 230)) },
+        { minDur: 6600, sub: '「再接再厲」：一次又一次地繼續努力——成功屬於不放棄的人！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 185) + bang(300, 195)) },
+        { minDur: 6400, sub: '再接再厲：一次又一次地繼續努力。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -104, MEDAL, '', 0, 1.1), '', 0, 1.05) + hearts(500, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">再接再厲</text>') }
+      ];
     }
   };
 
