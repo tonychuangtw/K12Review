@@ -12461,6 +12461,156 @@
             P(400, 195, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>') +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">深思熟慮</text>') }
       ];
+    },
+    /* 深謀遠慮 */
+    i554: function () {
+      return [
+        { minDur: 7000, sub: '賈誼〈過秦論〉評各國謀士「深謀遠慮，行軍用兵之道」——好謀士看的不是眼前，是十年後！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -50, '<rect x="-16" y="-12" width="32" height="24" rx="3" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.4"/><path d="M-10 -4 h20 M-10 4 h14" stroke="#8a744a" stroke-width="1.8"/>', '', 0, .95), '', 0, 1.05) +
+            '<path d="M420 250 q120 -50 240 -70" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/><path d="M660 180 l-14 -1 l8 11 z" fill="#c9bfa8"/>') },
+        { minDur: 6800, sub: '下棋高手走一步看十步：現在犧牲一顆小卒，是為了十步之後將軍！',
+          html: scene(P(400, 280, '<rect x="-56" y="-38" width="112" height="76" rx="4" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><g stroke="#a89878" stroke-width="1.3"><line x1="-56" y1="-13" x2="56" y2="-13"/><line x1="-56" y1="13" x2="56" y2="13"/><line x1="-19" y1="-38" x2="-19" y2="38"/><line x1="19" y1="-38" x2="19" y2="38"/></g><circle cx="-19" cy="-13" r="8" fill="#3a2e26"/><circle cx="19" cy="-13" r="8" fill="#fff" stroke="#c9bfa8" stroke-width="1.6"/><circle cx="19" cy="13" r="8" fill="#3a2e26"/>', '', 0, 1.15) +
+            P(240, 302, A('kid', 'happy'), '', 0, 1) +
+            P(560, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#6d7585">十步後</text>')) },
+        { minDur: 6800, sub: '「深謀遠慮」：計畫周密、眼光長遠——存零用錢、提早準備考試，都是生活裡的深謀遠慮！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -48, '<path d="M-16 -6 q0 -12 16 -12 q16 0 16 12 l-2 12 q-14 8 -28 0 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/><line x1="0" y1="-18" x2="0" y2="-8" stroke="#e07a94" stroke-width="2"/>', '', 0, 1)) + hearts(470, 188) +
+            P(580, 210, '<circle cx="0" cy="0" r="14" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/><text x="0" y="5" text-anchor="middle" font-size="13" fill="#a8791e">$</text>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '深謀遠慮：計畫周密，考慮長遠。',
+          html: scene(P(340, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<path d="M420 250 q110 -46 220 -64" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/><path d="M640 186 l-14 -1 l8 11 z" fill="#c9bfa8"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">深謀遠慮</text>') }
+      ];
+    },
+    /* 急中生智 */
+    i555: function () {
+      return [
+        { minDur: 6800, sub: '野炊時油鍋突然冒火！大家嚇得往後跳——火苗越竄越高，眼看就要燒到帳篷！',
+          html: scene(P(430, 290, '<ellipse cx="0" cy="8" rx="26" ry="8" fill="#3a2e26"/><g class="st-flick"><path d="M0 6 Q-14 -14 0 -34 Q6 -20 12 -28 Q20 -8 8 4 Z" fill="#ff9d4d"/><path d="M2 2 Q-6 -8 2 -20 Q6 -12 10 -16 Q13 -4 7 2 Z" fill="#ffd166"/></g>', '', 0, 1.2) +
+            P(250, 302, A('kid', 'wow'), 'st-dashL', 0, .95, true) + sweat(200, 190) + bang(540, 200)) },
+        { minDur: 6800, sub: '小智靈光一閃——抓起鍋蓋往上一蓋！隔絕空氣，火立刻熄了！',
+          html: scene(P(430, 290, '<ellipse cx="0" cy="8" rx="26" ry="8" fill="#3a2e26"/><ellipse cx="0" cy="-6" rx="24" ry="8" fill="#8b93a3" stroke="#6d7585" stroke-width="2.4"/><circle cx="0" cy="-12" r="4" fill="#6d7585"/>', '', 0, 1.2) +
+            P(280, 302, A('kid', 'happy') + '<path d="M28 -56 l18 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(280, 195, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1) + bang(520, 230)) },
+        { minDur: 6800, sub: '「急中生智」：危急時突然想出辦法——靠的是平時多學多想，關鍵時刻才拿得出來！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-cheer', 0, 1.02) + hearts(300, 188) +
+            P(520, 302, A('kid', 'wow') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .98, true) + bang(440, 178)) },
+        { minDur: 6400, sub: '急中生智：危急中想出妙計。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 190, '<path d="M0 -16 a16 16 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/><line x1="0" y1="6" x2="0" y2="18" stroke="#e0b73f" stroke-width="3"/>', '', 0, 1.1) + bang(510, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">急中生智</text>') }
+      ];
+    },
+    /* 隨機應變 */
+    i556: function () {
+      return [
+        { minDur: 6800, sub: '戶外表演到一半突然下起大雨——怎麼辦？節目要開天窗了嗎？',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="220" y1="30" x2="212" y2="56"/><line class="st-rain" style="animation-delay:.5s" x1="440" y1="20" x2="432" y2="46"/><line class="st-rain" style="animation-delay:1s" x1="620" y1="34" x2="612" y2="60"/></g>' +
+            P(360, 302, A('kid', 'wow'), '', 0, 1) + sweat(300, 190) + qmark(450, 182), 'night') },
+        { minDur: 6800, sub: '主持人馬上改方案：把觀眾請進走廊，樂器換成不插電，表演照樣進行！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1.02) + notes(450, 185) +
+            P(560, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + hearts(620, 200)) },
+        { minDur: 6800, sub: '「隨機應變」：依情況變化靈活應對——計畫趕不上變化時，腦筋要轉得比變化快！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(300, 200, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-8 0 a8 8 0 1 1 8 8" stroke="#548a40" stroke-width="2.6" fill="none"/><path d="M0 8 l-5 -3 l6 -4 z" fill="#548a40"/>', '', 0, 1) + bang(500, 190)) },
+        { minDur: 6400, sub: '隨機應變：因應變化，靈活應對。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) +
+            P(400, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-8 0 a8 8 0 1 1 8 8" stroke="#548a40" stroke-width="2.8" fill="none"/><path d="M0 8 l-5 -3 l6 -4 z" fill="#548a40"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">隨機應變</text>') }
+      ];
+    },
+    /* 防患未然 */
+    i558: function () {
+      return [
+        { minDur: 7000, sub: '《易經》說：「君子以思患而豫防之」——禍患還沒發生，就先想到、先防備！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 230, '<g class="st-cloud"><ellipse cx="0" cy="0" rx="46" ry="18" fill="#8b93a3" opacity=".5"/></g>', '', 0, 1) + qmark(540, 185)) },
+        { minDur: 6800, sub: '颱風還沒來，全家先修屋頂、清水溝、備好手電筒——樣樣提前做好！',
+          html: scene(P(400, 285, '<path d="M-50 -40 L0 -68 L50 -40 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><rect x="-40" y="-40" width="80" height="40" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/>', '', 0, 1.05) +
+            P(300, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1)) +
+            P(540, 302, A('kid', 'happy') + P(-36, -46, '<rect x="-6" y="-14" width="12" height="24" rx="3" fill="#3a2e26"/><circle cx="0" cy="-18" r="6" fill="#ffe9a0" class="st-tw"/>', '', 0, 1), '', 0, .97, true)) },
+        { minDur: 6800, sub: '颱風夜狂風暴雨，家裡卻安然無恙——「防患未然」：禍患發生前先防備，勝過事後補救！',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="200" y1="30" x2="188" y2="58"/><line class="st-rain" style="animation-delay:.4s" x1="600" y1="24" x2="588" y2="52"/></g>' +
+            P(400, 285, '<path d="M-50 -40 L0 -68 L50 -40 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><rect x="-40" y="-40" width="80" height="40" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-10" y="-26" width="20" height="14" rx="2" fill="#ffe9a0"/>', '', 0, 1.05) +
+            P(300, 302, A('kid', 'happy'), '', 0, .9) + hearts(500, 210), 'night') },
+        { minDur: 6400, sub: '防患未然：禍患未生，先為防備。',
+          html: scene(P(400, 285, '<path d="M-50 -40 L0 -68 L50 -40 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><rect x="-40" y="-40" width="80" height="40" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/>', '', 0, 1.1) +
+            P(260, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">防患未然</text>') }
+      ];
+    },
+    /* 亡命之徒 */
+    i559: function () {
+      return [
+        { minDur: 7000, sub: '《史記》裡的「亡命」：逃亡的人把名字從戶籍中除掉，躲進江湖——連命都不顧了！',
+          html: scene(P(300, 290, '<rect x="-30" y="-38" width="60" height="76" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-18" y1="-20" x2="18" y2="-20"/><line x1="-18" y1="-6" x2="18" y2="-6"/><line x1="-18" y1="8" x2="18" y2="8"/></g><line x1="-20" y1="-26" x2="20" y2="-14" stroke="#c96a5a" stroke-width="3.4"/>', '', 0, 1.1) +
+            P(560, 302, '<g class="st-fleeR">' + A('kid', 'angry') + '</g>', 'st-dashL', 0, .95), 'night') },
+        { minDur: 6800, sub: '「亡命之徒」：不顧性命作惡的人——搶劫逃竄、無法無天，人人避之唯恐不及！',
+          html: scene(P(430, 302, '<g class="st-fleeR">' + A('kid', 'angry') + P(-38, -46, '<path d="M-12 8 h24 l-4 -20 h-16 z" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, 1) + '</g>', 'st-dashL', 0, 1) +
+            P(200, 302, A('kid', 'wow'), '', 0, .92, true) + sweat(150, 192) + bang(560, 195), 'night') },
+        { minDur: 6800, sub: '但天網恢恢——警察循線追捕，亡命之徒終究被逮捕歸案，逃再遠也沒用！',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/><rect x="-20" y="-80" width="40" height="5" rx="2" fill="#2c3550"/>', 'st-strut', 0, 1.02) +
+            P(500, 302, A('kid', 'sad'), '', 0, .97, true) + sweat(560, 192) + bang(410, 188)) },
+        { minDur: 6400, sub: '亡命之徒：不顧性命作惡之人。',
+          html: scene(P(430, 302, '<g class="st-fleeR">' + A('kid', 'angry') + '</g>', 'st-dashL', 0, 1) + sweat(360, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">亡命之徒</text>', 'night') }
+      ];
+    },
+    /* 無惡不作 */
+    i560: function () {
+      return [
+        { minDur: 6800, sub: '故事裡的惡霸：搶攤販的貨、砸店家的門、欺負過路人——什麼壞事都做得出來！',
+          html: scene(P(430, 302, A('kid', 'angry'), '', 0, 1.15) + bang(520, 190) +
+            P(250, 302, A('kid', 'sad') + P(-34, -40, '<path d="M-12 8 h24 l-3 -18 h-18 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, .9), '', 0, .92) + sweat(200, 192) +
+            P(620, 290, '<rect x="-18" y="-12" width="36" height="24" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2" transform="rotate(18)"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「無惡不作」：沒有一件壞事不做——鄉里的人敢怒不敢言，日子苦不堪言！',
+          html: scene(P(300, 306, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .95) +
+            P(430, 306, '<g class="st-slump" style="animation-delay:.2s">' + A('kid', 'sad') + '</g>', '', 0, .92) + sweat(360, 195) +
+            P(600, 302, A('kid', 'angry'), '', 0, 1.1, true) + bang(520, 185), 'night') },
+        { minDur: 6800, sub: '最後大家團結起來報警作證——惡霸被繩之以法，正義永遠不會缺席！',
+          html: scene(P(280, 302, A('kid', 'happy')) + P(400, 302, A('kid', 'happy'), '', .1, .97) + P(520, 302, A('kid', 'happy'), '', .2, .95) +
+            bang(400, 180) + hearts(600, 195)) },
+        { minDur: 6400, sub: '無惡不作：壞事做盡。',
+          html: scene(P(430, 302, A('kid', 'angry'), '', 0, 1.12) + bang(520, 188) + sweat(310, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">無惡不作</text>') }
+      ];
+    },
+    /* 為非作歹 */
+    i561: function () {
+      return [
+        { minDur: 6800, sub: '戲文裡常唱：一夥歹徒白天踩點、夜裡翻牆，偷雞摸狗、欺行霸市——為非作歹！',
+          html: scene(P(300, 302, '<g stroke="#a8734a" stroke-width="5"><line x1="-60" y1="0" x2="-60" y2="-56"/><line x1="0" y1="0" x2="0" y2="-56"/><line x1="60" y1="0" x2="60" y2="-56"/><line x1="-70" y1="-40" x2="70" y2="-40"/></g>' +
+            P(0, -60, A('kid', 'angry'), '', 0, .8), '', 0, 1) +
+            P(560, 302, A('kid', 'angry') + P(-36, -44, '<path d="M-12 8 h24 l-4 -20 h-16 z" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, .95), 'st-dashL', 0, .98), 'night') },
+        { minDur: 6800, sub: '「為非作歹」：做各種壞事——街坊不安寧，人人搖頭：「豈容歹徒橫行！」',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(450, 302, A('kid', 'angry') + '<path d="M-28 -60 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .97, true) + bang(380, 182)) },
+        { minDur: 6800, sub: '守望相助隊成立、監視器裝起來——歹徒無處下手，只能落網！社區恢復平靜！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -56, '<rect x="-6" y="-14" width="12" height="24" rx="3" fill="#3a2e26"/><circle cx="0" cy="-18" r="6" fill="#ffe9a0" class="st-tw"/>', '', 0, 1)) +
+            P(480, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(400, 182) +
+            P(620, 220, '<rect x="-14" y="-9" width="28" height="18" rx="4" fill="#3a3550"/><circle cx="0" cy="0" r="5" fill="#7fb2e0"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '為非作歹：做各種壞事。',
+          html: scene(P(430, 302, A('kid', 'angry') + P(-36, -44, '<path d="M-12 8 h24 l-4 -20 h-16 z" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, .95), 'st-dashL', 0, 1) + bang(320, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">為非作歹</text>', 'night') }
+      ];
+    },
+    /* 繩之以法 */
+    i562: function () {
+      var GAVEL = '<rect x="-6" y="-20" width="12" height="26" rx="3" fill="#8a5a33"/><rect x="-20" y="-32" width="40" height="14" rx="5" fill="#6d4426"/><rect x="-26" y="8" width="52" height="8" rx="3" fill="#a8734a"/>';
+      return [
+        { minDur: 7000, sub: '「繩」原是木匠的墨繩——彈出筆直的線，歪的地方一眼就看出來，照線裁正！',
+          html: scene(P(360, 290, '<rect x="-70" y="-14" width="140" height="28" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><line x1="-62" y1="0" x2="62" y2="0" stroke="#3a2e26" stroke-width="2" stroke-dasharray="5 4"/>', '', 0, 1.1) +
+            P(220, 302, A('kid', 'angry') + P(30, -48, '<circle cx="0" cy="0" r="8" fill="#3a2e26"/><line x1="0" y1="0" x2="26" y2="10" stroke="#3a2e26" stroke-width="2"/>', '', 0, 1)) + bang(500, 240)) },
+        { minDur: 6800, sub: '法律就是社會的墨繩：行為歪了，就用這條準繩來糾正、制裁！',
+          html: scene(P(400, 285, GAVEL, '', 0, 1.4) + bang(500, 230) +
+            P(240, 302, A('kid', 'wow'), '', 0, .95)) },
+        { minDur: 6800, sub: '「繩之以法」：依法懲處——詐騙集團再狡猾，最後也被檢警繩之以法！',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/><rect x="-20" y="-80" width="40" height="5" rx="2" fill="#2c3550"/>', '', 0, 1.02) +
+            P(500, 302, A('kid', 'sad'), '', 0, .97, true) + sweat(560, 192) +
+            P(620, 240, GAVEL, '', 0, .9) + bang(410, 188)) },
+        { minDur: 6400, sub: '繩之以法：依法律制裁。',
+          html: scene(P(400, 285, GAVEL, '', 0, 1.5) + bang(510, 225) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">繩之以法</text>') }
+      ];
     }
   };
 
