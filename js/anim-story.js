@@ -15789,6 +15789,158 @@
             P(400, 292, '<g class="st-bob"><rect x="-46" y="-52" width="92" height="52" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6" transform="rotate(-4)"/></g>', '', 0, 1.1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">風雨飄搖</text>', 'night') }
       ];
+    },
+    /* 烈火烹油 */
+    i137: function () {
+      var BIGFIRE = '<g class="st-flick"><path d="M0 10 Q-20 -18 0 -46 Q8 -26 18 -38 Q28 -10 12 8 Z" fill="#ff9d4d"/><path d="M2 6 Q-8 -10 2 -26 Q8 -16 12 -22 Q17 -6 9 4 Z" fill="#ffd166"/></g>';
+      return [
+        { minDur: 7000, sub: '《紅樓夢》形容賈府極盛：「烈火烹油、鮮花著錦之盛」——火上澆油、錦上添花，盛到了頂點！',
+          html: scene(P(360, 290, '<ellipse cx="0" cy="10" rx="30" ry="9" fill="#3a2e26"/>' + BIGFIRE, '', 0, 1.2) +
+            P(560, 260, '<path d="M0 0 C-6 -12 -20 -8 -16 2 C-24 2 -24 14 -13 14 C-17 24 -4 28 0 19 C4 28 17 24 13 14 C24 14 24 2 16 2 C20 -8 6 -12 0 0 Z" fill="#ff9eb5" stroke="#e07a94" stroke-width="1.8"/>', '', 0, 1.3) + bang(250, 210)) },
+        { minDur: 6800, sub: '但曹雪芹埋著警語：油澆在烈火上，燒得越旺、越接近燒完——盛極必衰！',
+          html: scene(P(400, 290, '<ellipse cx="0" cy="10" rx="34" ry="10" fill="#3a2e26"/>' + BIGFIRE, '', 0, 1.5) + sweat(540, 220) +
+            P(250, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#c96a5a">盛極</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#c96a5a">必衰?</text>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「烈火烹油」：聲勢極盛（暗藏危機）——最紅的時候最要冷靜，留三分餘地！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">冷靜</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '烈火烹油：聲勢極盛，暗藏盛衰。',
+          html: scene(P(400, 292, '<ellipse cx="0" cy="10" rx="34" ry="10" fill="#3a2e26"/>' + BIGFIRE, '', 0, 1.5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">烈火烹油</text>', 'night') }
+      ];
+    },
+    /* 天搖地動 */
+    i138: function () {
+      return [
+        { minDur: 6800, sub: '深夜地牛翻身——燈在晃、櫃子在移、整棟樓像坐在船上！',
+          html: scene(P(400, 302, '<g class="st-bob"><rect x="-60" y="-80" width="120" height="80" fill="#e8d9a8" stroke="#b8a982" stroke-width="3" transform="rotate(-3)"/><rect x="-20" y="-52" width="24" height="20" fill="#ffe9a0" transform="rotate(-3)"/></g>', '', 0, 1.05) +
+            '<g class="st-bob" style="animation-delay:.2s"><path d="M150 302 l-14 -30 M660 302 l14 -26" stroke="#8b93a3" stroke-width="4"/></g>' + bang(250, 220) + bang(560, 200), 'night') },
+        { minDur: 6800, sub: '「天搖地動」：天在搖、地在動——形容聲勢浩大或變動劇烈：炮聲天搖地動！',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + '</g>', '', 0, 1.05) + sweat(320, 185) +
+            '<g stroke="#8b93a3" stroke-width="3" fill="none"><path d="M200 280 q10 -8 20 0 t20 0 M560 290 q10 -8 20 0 t20 0"/></g>' + bang(540, 200)) },
+        { minDur: 6800, sub: '遇到地震記住三步：趴下、掩護、穩住——躲進桌下抓緊桌腳，搖完再行動！',
+          html: scene(P(400, 285, '<rect x="-70" y="-8" width="140" height="10" rx="3" fill="#a8734a"/><g stroke="#8a5a33" stroke-width="6"><line x1="-58" y1="2" x2="-58" y2="46"/><line x1="58" y1="2" x2="58" y2="46"/></g>', '', 0, 1.1) +
+            P(400, 302, A('kid', 'happy'), '', 0, .8) + hearts(540, 220) +
+            P(240, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">趴下掩護</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">穩住</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '天搖地動：變動劇烈，聲勢浩大。',
+          html: scene(P(400, 302, '<g class="st-bob"><rect x="-56" y="-74" width="112" height="74" fill="#e8d9a8" stroke="#b8a982" stroke-width="3" transform="rotate(-3)"/></g>', '', 0, 1.05) + bang(250, 220) + bang(560, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">天搖地動</text>', 'night') }
+      ];
+    },
+    /* 集思廣益 */
+    i335: function () {
+      return [
+        { minDur: 7000, sub: '諸葛亮告訴幕僚：辦公要「集眾思，廣忠益」——集合眾人智慧，廣納有益的意見！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(200, 302, A('kid', 'happy'), '', 0, .88) + P(540, 302, A('kid', 'happy'), '', 0, .9, true) + P(650, 302, A('kid', 'happy'), '', 0, .85, true) + notes(430, 185)) },
+        { minDur: 6800, sub: '班會討論園遊會攤位：你出點子、我補細節、他找漏洞——方案越磨越漂亮！',
+          html: scene(P(400, 220, '<circle cx="0" cy="0" r="26" fill="#ffe9a0" class="st-tw"/><path d="M0 -36 v-12 M26 -26 l9 -10 M-26 -26 l-9 -10" stroke="#e0b73f" stroke-width="3" stroke-linecap="round"/>', '', 0, 1.1) +
+            P(280, 302, A('kid', 'happy'), '', 0, .92) + P(400, 302, A('kid', 'happy'), '', 0, .95) + P(520, 302, A('kid', 'happy'), '', 0, .92, true) +
+            '<g stroke="#c9bfa8" stroke-width="2.4" stroke-dasharray="5 5"><line x1="300" y1="250" x2="380" y2="230"/><line x1="500" y1="250" x2="420" y2="230"/></g>') },
+        { minDur: 6800, sub: '「集思廣益」：眾人智慧勝過一人聰明——好領導不是最會想的人，是最會聽的人！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-8 -46 q8 4 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1.05) + hearts(500, 190) +
+            P(280, 210, '<path d="M14 -10 q10 10 0 20" stroke="#8fa3bf" stroke-width="3" fill="none"/><circle cx="-6" cy="0" r="13" fill="none" stroke="#8fa3bf" stroke-width="3"/>', '', 0, 1.2)) },
+        { minDur: 6400, sub: '集思廣益：集眾人之智，納有益之言。',
+          html: scene(P(400, 225, '<circle cx="0" cy="0" r="24" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1) +
+            P(300, 302, A('kid', 'happy'), '', 0, .92) + P(500, 302, A('kid', 'happy'), '', 0, .92, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">集思廣益</text>') }
+      ];
+    },
+    /* 面面相覷 */
+    i336: function () {
+      return [
+        { minDur: 6800, sub: '晚自習教室突然「啪」一聲全黑——停電了！',
+          html: scene(P(300, 302, A('kid', 'wow'), '', 0, .95) + P(430, 302, A('kid', 'wow'), '', 0, .95) + P(560, 302, A('kid', 'wow'), '', 0, .95, true) +
+            bang(400, 185) + sweat(250, 190), 'night') },
+        { minDur: 6800, sub: '黑暗中大家你看我、我看你——「覷」就是看！誰也不知道該怎麼辦……',
+          html: scene(P(320, 302, A('kid', 'wow'), '', 0, .98) + P(480, 302, A('kid', 'wow'), '', 0, .98, true) +
+            '<g stroke="#c9d6e8" stroke-width="2.4" stroke-dasharray="5 4"><line x1="350" y1="240" x2="450" y2="240"/></g>' + qmark(400, 195), 'night') },
+        { minDur: 6800, sub: '「面面相覷」：驚訝或無措地互相對望——這時最需要有人先開口：「我去找手電筒！」',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -50, '<rect x="-6" y="-14" width="12" height="24" rx="3" fill="#3a2e26"/><path d="M0 -18 l-8 -14 h16 z" fill="#ffe9a0" opacity=".8"/>', '', 0, 1)) + bang(450, 185) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(620, 200), 'night') },
+        { minDur: 6400, sub: '面面相覷：相顧無言，不知所措。',
+          html: scene(P(320, 302, A('kid', 'wow'), '', 0, .98) + P(480, 302, A('kid', 'wow'), '', 0, .98, true) + qmark(400, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">面面相覷</text>', 'night') }
+      ];
+    },
+    /* 顧名思義 */
+    i337: function () {
+      return [
+        { minDur: 7000, sub: '三國王昶幫子姪取名字都取謙虛務實的字——要他們「顧名思義」：看著名字警惕自己！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 240, '<rect x="-36" y="-24" width="72" height="48" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="#6d5335">謙</text>', '', 0, 1.1) + hearts(280, 195)) },
+        { minDur: 6800, sub: '「防水袋」顧名思義就是不透水的袋子、「削鉛筆機」一聽就知道用途——名字自帶說明書！',
+          html: scene(P(300, 250, '<path d="M-20 -26 h40 l-4 46 h-32 z" fill="#7fd4d4" stroke="#4aa8a8" stroke-width="2.6"/><g class="st-rain"><circle cx="0" cy="-40" r="4" fill="#7fb2d4"/></g>', '', 0, 1.1) +
+            P(500, 250, '<rect x="-24" y="-18" width="48" height="36" rx="5" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.6"/><circle cx="18" cy="0" r="5" fill="#3a2e26"/><line x1="-32" y1="0" x2="-24" y2="0" stroke="#e0b73f" stroke-width="5"/>', '', 0, 1.1) + bang(400, 200)) },
+        { minDur: 6800, sub: '「顧名思義」：從名稱推知含義——但小心例外：「熱狗」可不是狗、「風馬牛」也跟馬牛無關！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(540, 220, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="11" fill="#c96a5a">熱狗</text><text x="0" y="13" text-anchor="middle" font-size="10" fill="#8b93a3">≠狗!</text>', '', 0, 1.1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '顧名思義：望其名而知其義。',
+          html: scene(P(400, 250, '<rect x="-40" y="-26" width="80" height="52" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="8" text-anchor="middle" font-size="18" fill="#6d5335">名→義</text>', '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">顧名思義</text>') }
+      ];
+    },
+    /* 首當其衝 */
+    i338: function () {
+      return [
+        { minDur: 7000, sub: '《漢書》說鄭國「當其衝」——位在大國交通的要道上，戰事一起，第一個遭殃！',
+          html: scene('<path d="M120 260 h560" stroke="#d9cfae" stroke-width="18" stroke-linecap="round"/>' +
+            P(400, 285, '<path d="M-36 25 L0 -8 L36 25 Z" fill="#c9762f"/><rect x="-26" y="25" width="52" height="16" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="16" text-anchor="middle" font-size="12" fill="#6d4426">鄭</text>', '', 0, 1.05) +
+            P(180, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, .95), 'st-strut', 0, .95) +
+            P(640, 302, A('kid', 'angry'), 'st-strut', .2, .95, true)) },
+        { minDur: 6800, sub: '「首當其衝」：最先受到攻擊或災難——颱風登陸，沿海村落首當其衝！',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="220" y1="30" x2="200" y2="60"/><line class="st-rain" style="animation-delay:.4s" x1="420" y1="20" x2="400" y2="50"/></g>' +
+            '<rect y="272" width="800" height="68" fill="#5a7fa8"/>' +
+            P(280, 278, '<path d="M-30 6 L0 -20 L30 6 Z" fill="#c9762f"/><rect x="-22" y="6" width="44" height="14" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.05) + bang(360, 230) + sweat(220, 225), 'night') },
+        { minDur: 6800, sub: '注意！它不是「首先去做」的意思——「我首當其衝去報名」是誤用，別踩這個坑！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#c96a5a">≠搶先</text>', '', 0, 1.1)) +
+            P(560, 220, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">最先</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">受衝擊</text>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6400, sub: '首當其衝：最先蒙受衝擊災難。',
+          html: scene('<path d="M120 265 h560" stroke="#d9cfae" stroke-width="16" stroke-linecap="round"/>' +
+            P(400, 288, '<path d="M-32 22 L0 -8 L32 22 Z" fill="#c9762f"/><rect x="-24" y="22" width="48" height="14" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.05) + bang(310, 230) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">首當其衝</text>') }
+      ];
+    },
+    /* 駕輕就熟 */
+    i339: function () {
+      var CART = '<circle cx="-20" cy="14" r="12" fill="none" stroke="#5a4632" stroke-width="4"/><circle cx="20" cy="14" r="12" fill="none" stroke="#5a4632" stroke-width="4"/><rect x="-34" y="-12" width="68" height="18" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>';
+      return [
+        { minDur: 7000, sub: '韓愈形容輕鬆勝任：「若駟馬駕輕車就熟路」——好馬拉著輕車，跑的是熟路！',
+          html: scene('<path d="M100 302 h600" stroke="#d9cfae" stroke-width="14" stroke-linecap="round"/>' +
+            P(320, 292, A('horse'), 'st-strut', 0, .95) +
+            P(450, 290, CART, '', 0, 1.05) +
+            '<path d="M360 280 h44" stroke="#8a6a44" stroke-width="3"/>') },
+        { minDur: 6800, sub: '路熟、車輕、馬又好——跑起來不費力氣，閉著眼都知道哪裡有彎！',
+          html: scene('<path d="M100 302 q150 -16 300 0 q150 16 300 0" stroke="#d9cfae" stroke-width="14" fill="none" stroke-linecap="round"/>' +
+            P(400, 290, A('horse'), 'st-dashL', 0, 1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="240" y1="240" x2="310" y2="240"/></g>' + notes(520, 210)) },
+        { minDur: 6800, sub: '「駕輕就熟」：做熟悉的事，輕鬆勝任——老手排版五分鐘搞定新手一小時的活！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -52, '<rect x="-16" y="-13" width="32" height="26" rx="4" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/><g stroke="#d9e8d0" stroke-width="1.6"><line x1="-8" y1="-4" x2="8" y2="-4"/><line x1="-8" y1="2" x2="4" y2="2"/></g>', '', 0, .95), '', 0, 1.02) + bang(470, 188) + hearts(280, 195)) },
+        { minDur: 6400, sub: '駕輕就熟：輕車熟路，得心應手。',
+          html: scene('<path d="M100 302 h600" stroke="#d9cfae" stroke-width="14" stroke-linecap="round"/>' +
+            P(340, 292, A('horse'), 'st-strut', 0, .95) + P(470, 290, CART, '', 0, 1.05) +
+            '<path d="M380 280 h44" stroke="#8a6a44" stroke-width="3"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">駕輕就熟</text>') }
+      ];
+    },
+    /* 高瞻遠矚 */
+    i340: function () {
+      var TOWER = '<rect x="-14" y="-90" width="28" height="90" fill="#8b93a3" stroke="#6d7585" stroke-width="2.6"/><path d="M-20 -90 h40 l-6 -14 h-28 z" fill="#6d7585"/><g stroke="#6d7585" stroke-width="2"><line x1="-14" y1="-60" x2="14" y2="-60"/><line x1="-14" y1="-30" x2="14" y2="-30"/></g>';
+      return [
+        { minDur: 6800, sub: '站在瞭望塔頂放眼四望——別人看到眼前的街口，他看到整座城市的走向！',
+          html: scene(P(300, 302, TOWER, '', 0, 1.1) +
+            P(300, 200, A('kid', 'happy'), '', 0, .7) +
+            '<path d="M340 190 q140 -40 280 -30" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/><path d="M620 158 l-14 -2 l8 11 z" fill="#c9bfa8"/>') },
+        { minDur: 6800, sub: '「瞻」「矚」都是看——「高瞻遠矚」：站得高、看得遠，格局大！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-40, -56, '<circle cx="0" cy="-4" r="12" fill="none" stroke="#3a2e26" stroke-width="3"/><circle cx="22" cy="-4" r="12" fill="none" stroke="#3a2e26" stroke-width="3"/><line x1="12" y1="-4" x2="10" y2="-4" stroke="#3a2e26" stroke-width="3"/>', '', 0, 1.05), '', 0, 1.05) +
+            P(600, 150, '<path d="M0 -20 l6 12 13 2 -9 10 2 13 -12 -7 -12 7 2 -13 -9 -10 13 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '高瞻遠矚的人現在做的事，是為五年後鋪路——選社團、學技能，都想想長遠！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#548a40">五年後</text>', '', 0, .95)) + hearts(450, 188) +
+            '<path d="M480 260 q80 -30 160 -50" stroke="#548a40" stroke-width="4" fill="none" stroke-dasharray="9 8"/><path d="M640 210 l-14 0 l8 11 z" fill="#548a40"/>') },
+        { minDur: 6400, sub: '高瞻遠矚：眼光遠大，格局開闊。',
+          html: scene(P(300, 302, TOWER, '', 0, 1.1) + P(300, 200, A('kid', 'happy'), '', 0, .7) +
+            '<path d="M340 190 q140 -40 280 -30" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/>' +
+            '<text x="500" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">高瞻遠矚</text>') }
+      ];
     }
   };
 
