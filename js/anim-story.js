@@ -2372,6 +2372,138 @@
           html: scene(paperY(320, 260, true) + paperY(480, 265, true) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">信口雌黃</text>') }
       ];
+    },
+    /* 過河拆橋 */
+    i1154: function () {
+      var RIVER3 = '<rect y="262" width="800" height="78" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 274 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>' +
+        '<ellipse cx="90" cy="330" rx="140" ry="46" fill="#b8e08e"/><ellipse cx="710" cy="330" rx="140" ry="46" fill="#b8e08e"/>';
+      function bridge(broken) {
+        var s = '<g stroke="#a8734a" stroke-width="6" stroke-linecap="round"><line x1="-120" y1="0" x2="-120" y2="22"/><line x1="120" y1="0" x2="120" y2="22"/></g>';
+        if (broken) {
+          s += '<g stroke="#c9a06c" stroke-width="8" stroke-linecap="round"><line x1="-130" y1="0" x2="-60" y2="0"/></g>' +
+            '<g transform="translate(-10,26) rotate(24)"><line x1="-30" y1="0" x2="30" y2="0" stroke="#c9a06c" stroke-width="8" stroke-linecap="round"/></g>';
+        } else {
+          s += '<line x1="-130" y1="0" x2="130" y2="0" stroke="#c9a06c" stroke-width="8" stroke-linecap="round"/>' +
+            '<g stroke="#a8734a" stroke-width="2.6"><line x1="-90" y1="-4" x2="-90" y2="4"/><line x1="-45" y1="-4" x2="-45" y2="4"/><line x1="0" y1="-4" x2="0" y2="4"/><line x1="45" y1="-4" x2="45" y2="4"/><line x1="90" y1="-4" x2="90" y2="4"/></g>';
+        }
+        return s;
+      }
+      return [
+        { minDur: 6600, sub: '有個人要過河，踏著一座木橋，平平安安走到了對岸。',
+          html: scene(RIVER3 + P(400, 268, bridge(false)) +
+            P(560, 302, A('kid', 'happy'), 'st-strut')) },
+        { minDur: 7000, sub: '一到對岸，他回頭就把橋拆了：「反正我用不到了，管別人怎麼過！」對岸要過河的人，全傻了眼。',
+          html: scene(RIVER3 + P(400, 268, bridge(true)) +
+            P(600, 302, A('kid', 'happy') + P(-30, -42, HAMMER)) + bang(480, 220) +
+            P(130, 302, A('kid', 'wow'), '', 0, .9) + qmark(170, 190) + sweat(90, 200)) },
+        { minDur: 7200, sub: '元朝廢科舉時，一位靠科舉當上官的大臣竟然帶頭贊成廢除。人們諷刺他：「這就是過河拆橋！」',
+          html: scene(P(300, 302, A('kid', 'happy')) + sweat(340, 195) +
+            P(540, 302, A('kid', 'angry'), '', 0, .95, true) + bang(430, 180)) },
+        { minDur: 6400, sub: '過河拆橋：達到目的後，拋棄曾幫助過自己的人。',
+          html: scene(RIVER3 + P(400, 268, bridge(true)) + P(600, 302, A('kid', 'happy'), '', 0, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">過河拆橋</text>') }
+      ];
+    },
+    /* 孤掌難鳴 */
+    i1160: function () {
+      function palm(x, y, flip, cls, dly) {
+        return P(x, y, '<path d="M-14 20 q-8 -18 -6 -34 q1 -8 7 -8 q5 0 5 8 l0 10 q0 -22 2 -28 q2 -7 8 -6 q5 1 5 9 l-1 16 q2 -18 4 -23 q3 -7 8 -5 q5 2 4 10 l-2 18 q3 -12 5 -15 q3 -5 7 -3 q5 3 3 10 q-3 14 -8 30 q-4 13 -18 15 q-15 2 -23 -4 z" fill="#ffe3c1" stroke="#eec39a" stroke-width="2.4"/>', cls, dly, 1, flip);
+      }
+      return [
+        { minDur: 6800, sub: '《韓非子》裡說：一隻手單獨拍，拍得再快、再用力，也發不出聲音。',
+          html: scene(palm(400, 220, false, 'st-wave') + qmark(480, 160) +
+            P(200, 302, A('kid', 'wow'), '', 0, .95)) },
+        { minDur: 6600, sub: '兩隻手掌合起來拍，才能「啪」地一聲響——做事也一樣，單打獨鬥，難成大事。',
+          html: scene(palm(340, 220, false) + palm(470, 220, true) + bang(405, 160) + notes(500, 130) +
+            P(180, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 7000, sub: '一個人搬不動大木頭；大家一起抬，一二三——輕輕鬆鬆就抬起來了！',
+          html: scene(P(430, 316, '<line x1="-110" y1="0" x2="110" y2="0" stroke="#a8734a" stroke-width="14" stroke-linecap="round"/>') +
+            P(300, 302, A('kid', 'happy'), '', 0, .9) + P(430, 302, A('kid', 'happy'), '', .2, .9) +
+            P(560, 302, A('kid', 'happy'), '', .4, .9) + hearts(430, 175)) },
+        { minDur: 6400, sub: '孤掌難鳴：勢單力薄，難以成事。',
+          html: scene(palm(400, 240, false, 'st-wave') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">孤掌難鳴</text>') }
+      ];
+    },
+    /* 烏合之眾 */
+    i1161: function () {
+      function crow(x, y, sc, dly, cls) {
+        return P(x, y, '<g class="st-bob"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<ellipse cx="0" cy="-14" rx="14" ry="10" fill="#4a4a55" stroke="#33333c" stroke-width="2"/>' +
+          '<circle cx="-11" cy="-24" r="7.5" fill="#4a4a55" stroke="#33333c" stroke-width="2"/>' +
+          '<path d="M-17 -24 l-7 2 l7 3 z" fill="#e0a458"/>' +
+          '<circle cx="-13" cy="-26" r="1.8" fill="#fff"/>' +
+          '<path d="M4 -18 l12 -6 l-4 9 z" fill="#33333c"/></g>', cls, dly, sc);
+      }
+      return [
+        { minDur: 6600, sub: '一群烏鴉臨時聚在一起，黑壓壓一大片，看起來聲勢驚人。',
+          html: scene(crow(240, 300, 1, 0) + crow(340, 296, .9, .2) + crow(440, 302, 1.05, .1) +
+            crow(540, 298, .85, .3) + crow(630, 300, .95, .15) + notes(430, 190)) },
+        { minDur: 6600, sub: '可是稍有風吹草動——「砰！」牠們立刻四散奔逃，誰也不管誰。',
+          html: scene(bang(400, 250) +
+            crow(220, 240, .9, 0, 'st-fleeR') + crow(360, 200, .85, .1, 'st-fleeR') +
+            crow(520, 220, .9, .2, 'st-fleeR') + crow(650, 250, .8, .15, 'st-fleeR') + sweat(430, 200)) },
+        { minDur: 7000, sub: '東漢名將耿弇評敵軍：「用精銳騎兵去衝擊這種烏合之眾，就像摧枯拉朽一樣容易！」',
+          html: scene(P(240, 302, A('kid', 'angry') + P(26, -50, '<line x1=\"0\" y1=\"10\" x2=\"0\" y2=\"-46\" stroke=\"#a8734a\" stroke-width=\"4\" stroke-linecap=\"round\"/><path d=\"M0 -58 l-7 14 h14 z\" fill=\"#8b93a3\"/>')) +
+            P(500, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .85) +
+            P(640, 302, '<g class="st-fleeR" style="animation-delay:.2s">' + A('kid', 'wow') + '</g>', 'st-dashL', .2, .8) +
+            bang(420, 200)) },
+        { minDur: 6400, sub: '烏合之眾：無組織、無紀律的群體。',
+          html: scene(crow(260, 300, 1, 0) + crow(400, 296, .9, .2) + crow(540, 300, .95, .1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">烏合之眾</text>') }
+      ];
+    },
+    /* 一言九鼎 */
+    i1186: function () {
+      var DING = '<path d="M-34 -14 L-30 -52 Q-30 -60 -22 -60 L22 -60 Q30 -60 30 -52 L34 -14 Q34 -4 22 -4 L-22 -4 Q-34 -4 -34 -14 Z" fill="#8a7a5a" stroke="#6d6044" stroke-width="3"/>' +
+        '<path d="M-24 -60 q-2 -12 8 -14 M24 -60 q2 -12 -8 -14" stroke="#6d6044" stroke-width="5" fill="none" stroke-linecap="round"/>' +
+        '<g stroke="#6d6044" stroke-width="4"><line x1="-22" y1="-4" x2="-26" y2="14"/><line x1="22" y1="-4" x2="26" y2="14"/><line x1="0" y1="-4" x2="0" y2="14"/></g>' +
+        '<path d="M-20 -38 h40 M-20 -28 h40" stroke="#a89878" stroke-width="2.6"/>';
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var SWORD2 = '<line x1="0" y1="0" x2="26" y2="-40" stroke="#c4cede" stroke-width="5" stroke-linecap="round"/>' +
+        '<line x1="4" y1="-12" x2="14" y2="-4" stroke="#c98f2a" stroke-width="4" stroke-linecap="round"/>';
+      return [
+        { minDur: 7000, sub: '毛遂跟著平原君出使楚國，一番慷慨陳詞，說得楚王當場答應聯合出兵抗秦。',
+          html: scene(P(300, 302, A('kid', 'angry') + P(24, -40, SWORD2)) + bang(380, 175) +
+            P(580, 302, A('kid', 'wow') + CROWN, '', 0, 1, true) + sweat(540, 195)) },
+        { minDur: 7000, sub: '平原君讚嘆：「毛先生一到楚國，就讓趙國的分量，重過了傳國的九鼎大呂！」',
+          html: scene(P(430, 300, DING, '', 0, 1.5) +
+            P(200, 302, A('kid', 'happy')) + hearts(280, 180) +
+            P(650, 302, A('kid', 'happy'), '', 0, .9, true)) },
+        { minDur: 6600, sub: '「一言九鼎」從此形容一句話分量極重，說出來就算數。',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(500, 290, DING, '', 0, 1.1) + hearts(400, 180)) },
+        { minDur: 6400, sub: '一言九鼎：一句話重如九鼎，說話極有分量。',
+          html: scene(P(400, 290, DING, '', 0, 1.7) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一言九鼎</text>') }
+      ];
+    },
+    /* 泥牛入海 */
+    i1137: function () {
+      var SEA3 = '<rect y="252" width="800" height="88" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 262 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#6db3d9" stroke-width="9" stroke-linecap="round" opacity=".9"/></g>';
+      function mudOx(x, y, sc, flip, cls) {
+        return P(x, y, '<g class="st-bob"><ellipse cx="0" cy="-20" rx="26" ry="17" fill="#9c8468" stroke="#7a6650" stroke-width="2.4"/>' +
+          '<circle cx="-20" cy="-38" r="13" fill="#9c8468" stroke="#7a6650" stroke-width="2.4"/>' +
+          '<path d="M-30 -46 q-8 -3 -8 -11 M-10 -48 q8 -3 8 -11" stroke="#7a6650" stroke-width="4.6" fill="none" stroke-linecap="round"/>' +
+          '<circle cx="-24" cy="-40" r="1.8" fill="#4a3a2c"/>' +
+          '<rect x="-18" y="-10" width="8" height="10" rx="3.6" fill="#7a6650"/><rect x="10" y="-10" width="8" height="10" rx="3.6" fill="#7a6650"/></g>', cls, 0, sc, flip);
+      }
+      return [
+        { minDur: 7000, sub: '禪師洞山說過一句妙語：「我看見兩頭泥做的牛，打鬥著跳進了大海——到現在，都沒有半點消息。」',
+          html: scene(SEA3 + mudOx(300, 280, 1, false) + mudOx(470, 284, .95, true) + bang(390, 220)) },
+        { minDur: 6600, sub: '泥做的牛一碰到海水，立刻就融化了，無影無蹤——怎麼可能再回來呢？',
+          html: scene(SEA3 + P(380, 290, '<circle cx="0" cy="0" r="16" fill="#9c8468" opacity=".5"/><circle cx="30" cy="6" r="9" fill="#9c8468" opacity=".35"/><circle cx="-26" cy="8" r="7" fill="#9c8468" opacity=".3"/>') +
+            qmark(400, 190)) },
+        { minDur: 6800, sub: '後來「泥牛入海」就用來比喻一去不返、毫無音訊——像寄出去的信石沉大海，再也等不到回音。',
+          html: scene(SEA3 +
+            P(240, 296, A('kid', 'sad') + P(36, -60, '<rect x="-14" y="-9" width="28" height="18" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-14 -9 L0 2 L14 -9" stroke="#c9bfa8" stroke-width="2" fill="none"/>', '', 0, .9)) +
+            sweat(200, 200) + qmark(320, 180)) },
+        { minDur: 6400, sub: '泥牛入海：一去不返，毫無消息。',
+          html: scene(SEA3 + mudOx(360, 280, 1.05, false) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">泥牛入海</text>') }
+      ];
     }
   };
 
