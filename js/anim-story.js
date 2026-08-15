@@ -3021,6 +3021,126 @@
           html: scene(ghost(250, 220, '#9ccc65', 0, 1.1) + ghost(400, 200, '#8fa8c9', .4, 1) + ghost(550, 225, '#c9a8e0', .8, 1.05) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">魑魅魍魎</text>', 'night') }
       ];
+    },
+    /* 言過其實 */
+    i1187: function () {
+      var BED = '<rect x="-90" y="-18" width="180" height="18" rx="6" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+        '<rect x="-84" y="-34" width="52" height="18" rx="8" fill="#f4ecd8" stroke="#ddd2b8" stroke-width="2"/>' +
+        '<rect x="-30" y="-32" width="116" height="16" rx="7" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2"/>';
+      var MT3 = '<path d="M-130 0 L0 -150 L130 0 Z" fill="#8fb0a0"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      var FAN = '<path d="M0 0 L-16 -34 A22 22 0 0 1 16 -34 Z" fill="#f4f1e8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#c9bfa8" stroke-width="1.6"><line x1="0" y1="0" x2="-8" y2="-36"/><line x1="0" y1="0" x2="0" y2="-38"/><line x1="0" y1="0" x2="8" y2="-36"/></g>';
+      return [
+        { minDur: 7000, sub: '劉備臨終前，特別告誡諸葛亮：「馬謖這個人說話誇張、超過實際本領，不能重用！」',
+          html: scene(P(400, 302, BED + P(-10, -30, '<circle cx="0" cy="0" r="15" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>', '', 0, .9)) +
+            P(620, 302, A('kid', 'sad') + P(-30, -40, FAN, '', 0, .9), '', 0, .95, true), 'night') },
+        { minDur: 6800, sub: '馬謖平日談起兵法頭頭是道，諸葛亮很賞識他，派他去鎮守軍事要地街亭。',
+          html: scene(P(300, 302, A('kid', 'happy')) + notes(380, 175) +
+            P(560, 302, A('kid', 'happy') + P(-30, -40, FAN, '', 0, .9), '', 0, .95, true) + hearts(460, 190)) },
+        { minDur: 7200, sub: '到了街亭，馬謖不聽副將勸告，硬把大軍駐紮在山頂——被魏軍切斷水源，圍山猛攻，街亭大敗！',
+          html: scene(P(430, 302, MT3 + P(0, -150, A('kid', 'wow'), '', 0, .7)) +
+            P(150, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', 0, .85) +
+            P(680, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', .2, .85, true) +
+            bang(430, 120) + sweat(470, 160)) },
+        { minDur: 7000, sub: '諸葛亮揮淚處置馬謖，想起先主的告誡——「言過其實，不可大用」，悔之晚矣。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-30, -40, FAN, '', 0, .9)) + sweat(350, 195) + sweat(450, 200), 'night') },
+        { minDur: 6400, sub: '言過其實：言辭誇張，超過實際才能或情形。',
+          html: scene(P(340, 302, A('kid', 'happy')) + notes(420, 180) + qmark(280, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">言過其實</text>') }
+      ];
+    },
+    /* 身先士卒 */
+    i708: function () {
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      var BROOM2 = '<line x1="0" y1="0" x2="20" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>' +
+        '<path d="M0 0 l-10 12 M0 0 l-2 14 M0 0 l6 13" stroke="#c9a06c" stroke-width="3.4" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '打仗的時候，好的將軍不躲在隊伍後面，而是高舉武器，衝在所有士兵的最前面！',
+          html: scene(P(240, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', 0, 1.05) +
+            P(420, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', .2, .88) +
+            P(560, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', .4, .84) + bang(150, 200)) },
+        { minDur: 6600, sub: '將軍身先士卒、不怕危險，士兵們士氣大振，個個奮勇向前！',
+          html: scene(P(240, 302, '<g class="st-cheer">' + A('kid', 'angry') + P(26, -50, SPEAR3) + '</g>', '', 0, 1.05) +
+            P(430, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + P(26, -50, SPEAR3) + '</g>', '', 0, .88) +
+            P(590, 302, '<g class="st-cheer" style="animation-delay:.4s">' + A('kid', 'happy') + P(26, -50, SPEAR3) + '</g>', '', 0, .84) +
+            hearts(400, 165)) },
+        { minDur: 6800, sub: '生活裡也一樣：班長帶頭捲起袖子打掃，同學們也跟著一起動起來！',
+          html: scene(P(280, 302, A('kid', 'happy') + P(20, -34, BROOM2, 'st-hoe')) +
+            P(460, 302, A('kid', 'happy') + P(20, -34, BROOM2), '', .3, .9) +
+            P(620, 302, A('kid', 'happy'), 'st-inR', .5, .85) + hearts(380, 180)) },
+        { minDur: 6400, sub: '身先士卒：走在最前面，率先垂範。',
+          html: scene(P(300, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', 0, 1.1) +
+            P(520, 302, A('kid', 'happy') + P(26, -50, SPEAR3), '', 0, .85) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">身先士卒</text>') }
+      ];
+    },
+    /* 盤根錯節 */
+    i1141: function () {
+      var ROOTS = '<g stroke="#8a5a33" stroke-width="7" fill="none" stroke-linecap="round">' +
+        '<path d="M0 -60 L0 -20 M0 -20 q-30 10 -56 2 q-18 -6 -30 8 M0 -20 q30 10 56 0 q18 -8 32 6 M0 -20 q-14 22 -6 40 M0 -20 q16 20 30 26"/>' +
+        '<path d="M-40 -6 q-10 14 -26 14 M42 -8 q12 12 26 10" stroke-width="5"/></g>' +
+        '<circle cx="0" cy="-72" r="20" fill="#7cc47f"/><circle cx="-17" cy="-62" r="13" fill="#8fd08f"/><circle cx="17" cy="-63" r="14" fill="#8fd08f"/>';
+      var BLADE = '<path d="M0 0 L26 -40 q6 -10 -2 -12 q-8 -2 -12 8 L0 0 z" fill="#c4cede" stroke="#8b93a3" stroke-width="2"/><rect x="-6" y="0" width="12" height="12" rx="3" fill="#8a5a33"/>';
+      return [
+        { minDur: 7000, sub: '東漢的虞詡被派到最難治理的朝歌當官，朋友們都來安慰他：「這差事太苦了！」',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(540, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(580, 200) + qmark(480, 185)) },
+        { minDur: 7200, sub: '虞詡卻笑著說：「不碰上盤繞的樹根、交錯的枝節，怎麼顯得出刀刃的鋒利呢？」',
+          html: scene(P(500, 302, ROOTS, '', 0, 1.1) +
+            P(240, 302, A('kid', 'happy') + P(30, -50, BLADE, '', 0, .9)) + hearts(320, 180)) },
+        { minDur: 6800, sub: '他果然大展身手，把難題一一解決，聲名大噪！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(560, 302, A('kid', 'happy'), '', 0, .9) + hearts(430, 175) + bang(500, 200)) },
+        { minDur: 6400, sub: '盤根錯節：事情複雜難以處理，或勢力根深柢固。',
+          html: scene(P(400, 302, ROOTS, '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">盤根錯節</text>') }
+      ];
+    },
+    /* 各自為政 */
+    i1197: function () {
+      function cart2() {
+        return '<circle cx="0" cy="-24" r="24" fill="#c9a06c" stroke="#a8734a" stroke-width="4"/>' +
+          '<g stroke="#a8734a" stroke-width="3.4"><line x1="0" y1="-42" x2="0" y2="-6"/><line x1="-18" y1="-24" x2="18" y2="-24"/></g>' +
+          '<rect x="-12" y="-74" width="96" height="36" rx="7" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>';
+      }
+      var MEAT = '<ellipse cx="0" cy="0" rx="12" ry="9" fill="#e88a7a" stroke="#c96a5a" stroke-width="2"/><rect x="-3" y="-15" width="6" height="8" rx="3" fill="#f4f1e8"/>';
+      return [
+        { minDur: 7200, sub: '宋鄭交戰前夜，宋軍主帥華元殺羊犒賞全軍——偏偏漏掉了自己的車夫羊斟，一口也沒分給他。',
+          html: scene(P(240, 302, A('kid', 'happy') + P(40, -60, MEAT, '', 0, .9)) +
+            P(420, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .85) +
+            P(530, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .82) +
+            P(680, 302, A('kid', 'sad'), '', 0, .9) + sweat(710, 205) + qmark(650, 185)) },
+        { minDur: 7400, sub: '開戰了！羊斟冷冷地說：「昨天分羊肉，你作主；今天駕車，我作主！」竟駕著主帥的戰車，直衝進敵陣！',
+          html: scene(P(360, 302, A('horse') + P(70, 0, cart2() + P(30, -74, A('kid', 'wow'), '', 0, .6)), 'st-dashL', 0, 1, true) +
+            bang(620, 210) + sweat(500, 180)) },
+        { minDur: 6800, sub: '主帥當場被敵軍活捉，宋軍大敗——只因為兩個人「各自為政」，不互相配合。',
+          html: scene(P(500, 302, '<g transform="rotate(30)">' + A('kid', 'sad') + '</g>', '', 0, .95) +
+            P(300, 302, A('kid', 'angry'), '', 0, .9) + P(650, 302, A('kid', 'angry'), '', .2, .9) + sweat(540, 210), 'night') },
+        { minDur: 6400, sub: '各自為政：各自按自己的主張行事，不互相配合。',
+          html: scene(P(260, 302, A('kid', 'happy')) + P(560, 302, A('kid', 'angry'), '', 0, .95, true) +
+            '<path d="M370 240 L430 240 M370 250 L430 250" stroke="#c96a5a" stroke-width="4" stroke-dasharray="8 8"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">各自為政</text>') }
+      ];
+    },
+    /* 輔車相依 */
+    i1199: function () {
+      var JAW = '<path d="M-44 -14 Q0 -40 44 -14 Q44 8 0 14 Q-44 8 -44 -14 Z" fill="#f2c9b8" stroke="#d9a890" stroke-width="3"/>' +
+        '<g fill="#fff" stroke="#d5cfc0" stroke-width="1.6"><rect x="-30" y="-18" width="13" height="13" rx="3"/><rect x="-13" y="-21" width="13" height="14" rx="3"/><rect x="3" y="-21" width="13" height="14" rx="3"/><rect x="19" y="-18" width="13" height="13" rx="3"/></g>';
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '頰骨和牙床，一外一內、互相支撐依靠——少了哪一個，都咬不動東西。',
+          html: scene(P(400, 200, '<circle cx="0" cy="-4" r="62" fill="#fff" opacity=".9"/>' + JAW, '', 0, 1.1) +
+            P(200, 302, A('kid', 'wow')) + qmark(260, 190)) },
+        { minDur: 7200, sub: '宮之奇勸虞公：「虞虢兩國就像輔車相依、脣亡齒寒——虢國亡了，虞國一定跟著遭殃！」',
+          html: scene(P(400, 190, '<circle cx="0" cy="-4" r="56" fill="#fff" opacity=".9"/>' + P(0, 0, JAW, '', 0, .85)) +
+            P(200, 302, A('kid', 'angry')) + sweat(160, 200) +
+            P(600, 302, A('kid', 'happy') + CROWN, '', 0, 1, true) + qmark(650, 190)) },
+        { minDur: 6800, sub: '虞公貪圖財寶不聽勸。虢國滅亡後，虞國果然也被晉國順手滅了。',
+          html: scene(P(560, 302, '<g class="st-slump">' + A('kid', 'sad') + CROWN + '</g>') + sweat(600, 200) + bang(300, 200), 'night') },
+        { minDur: 6400, sub: '輔車相依：兩者關係密切，互相依存。',
+          html: scene(P(400, 230, '<circle cx="0" cy="-4" r="66" fill="#fff" opacity=".9"/>' + JAW, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">輔車相依</text>') }
+      ];
     }
   };
 
