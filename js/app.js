@@ -814,7 +814,7 @@
   function startSubjectQuiz(key) {
     var p = filterByGrades(DATA[key], state.grades);
     if (!p.length) p = DATA[key];
-    if (!p.length) { alert('這科還沒有題目。'); return; }
+    if (!p.length) { UIDialog.alert('這科還沒有題目。'); return; }
     var entries = shuffle(p).slice(0, 10).map(function (it) { return { t: key, id: it.id }; });
     beginQuiz(entries, 'normal', key);
   }
@@ -825,14 +825,14 @@
 
   function startQuiz(cat, itemsOverride) {
     var items = itemsOverride || shuffle(pool(cat)).slice(0, 10);
-    if (!items.length) { alert('這個年級目前沒有題目，換個年級或勾選「含以下年級」。'); return; }
+    if (!items.length) { UIDialog.alert('這個年級目前沒有題目，換個年級或勾選「含以下年級」。'); return; }
     beginQuiz(itemsToEntries(items), itemsOverride ? 'retry' : 'normal', cat);
   }
 
   function startReading() {
     // 挑 2 篇文章，展開全部子題
     var picks = shuffle(pool('reading')).slice(0, 2);
-    if (!picks.length) { alert('這個年級目前沒有閱讀題，換個年級或勾選「含以下年級」。'); return; }
+    if (!picks.length) { UIDialog.alert('這個年級目前沒有閱讀題，換個年級或勾選「含以下年級」。'); return; }
     var entries = [];
     picks.forEach(function (r) {
       for (var qi = 0; qi < r.questions.length; qi++) entries.push({ t: 'reading', id: r.id, qi: qi });
@@ -1113,14 +1113,17 @@
     if (k >= 0) paintSnap(k);
   });
   $('quizExit').addEventListener('click', function () {
+    function leave() {
+      if (quiz && quiz.mode === 'search') { show('search'); return; }
+      show('home');
+    }
     if (quiz && quiz.mode === 'daily' && !((state.daily || {})[today()] || {}).done) {
-      if (!confirm('今日練習還沒完成，確定要離開？（進度不會保留）')) return;
+      UIDialog.confirm('今日練習還沒完成，確定要離開？（進度不會保留）', leave); return;
     }
     if (quiz && quiz.mode === 'review' && quiz.i < quiz.entries.length) {
-      if (!confirm('測驗還沒做完，確定要離開？（這次不會計分）')) return;
+      UIDialog.confirm('測驗還沒做完，確定要離開？（這次不會計分）', leave); return;
     }
-    if (quiz && quiz.mode === 'search') { show('search'); return; }
-    show('home');
+    leave();
   });
 
   /* ---------- 搜尋題庫 ---------- */
@@ -1412,7 +1415,7 @@
       if (counts[ws.strong] > 3) counts[ws.strong] -= 2;
     }
     var entries = composeDaily(DATA, state.grades, today() + '|' + state.grades.join(','), counts);
-    if (entries.length < 5) { alert('所選年級題目不足，請多勾幾個年級。'); return; }
+    if (entries.length < 5) { UIDialog.alert('所選年級題目不足，請多勾幾個年級。'); return; }
     // 記下今天實際出了哪些題（總結測驗依此精確重組當日題組）
     var recPrev = state.daily[today()] || {};
     recPrev.refs = entries.slice();
@@ -1548,10 +1551,10 @@
     var days = Array.prototype.slice.call(document.querySelectorAll('#rvDays input:checked'))
       .map(function (c) { return c.value; });
     var includeMb = $('rvMb').checked;
-    if (!days.length && !includeMb) { alert('至少勾選一天，或勾選「混入錯題本題目」。'); return; }
+    if (!days.length && !includeMb) { UIDialog.alert('至少勾選一天，或勾選「混入錯題本題目」。'); return; }
     var daysEntries = days.map(reviewEntriesForDate);
     var entries = composeReview(daysEntries, includeMb ? state.wrong : [], 20, 6, Math.random);
-    if (entries.length < 5) { alert('可出的題目太少，請多勾幾天。'); return; }
+    if (entries.length < 5) { UIDialog.alert('可出的題目太少，請多勾幾天。'); return; }
     beginQuiz(entries, 'review', null);
     quiz.reviewDays = days;
   }
@@ -1661,7 +1664,7 @@
   // startWrite()＝一般 10 題；startWrite(items,'wrongbook')＝錯題本手寫重練（練完可回錯題本）
   function startWrite(itemsArg, backTo) {
     var items = Array.isArray(itemsArg) ? itemsArg.slice() : shuffle(pool('chars')).slice(0, 10);
-    if (!items.length) { alert('這個年級目前沒有題目。'); return; }
+    if (!items.length) { UIDialog.alert('這個年級目前沒有題目。'); return; }
     wr = { items: items, i: 0, score: 0, attempt: 1, judged: false, curData: null,
            backTo: backTo || null };
     $('writeResult').classList.add('hidden');
@@ -2134,10 +2137,11 @@
       delBtn.addEventListener('click', function () {
         var keys = Object.keys(wb.sel).filter(function (k) { return wb.sel[k]; });
         if (!keys.length) { setStatusToast('先勾選要刪的題目'); return; }
-        if (!confirm('確定刪除 ' + keys.length + ' 題？（確定已記牢再刪）')) return;
-        deleteWrong(keys);
-        wb.sel = {};
-        showWrongbook();
+        UIDialog.confirm('確定刪除 ' + keys.length + ' 題？（確定已記牢再刪）', function () {
+          deleteWrong(keys);
+          wb.sel = {};
+          showWrongbook();
+        });
       });
       tools.appendChild(delBtn);
     }
@@ -2174,7 +2178,7 @@
       del.title = '確定記牢了，刪除這題';
       del.addEventListener('click', function (ev) {
         ev.stopPropagation();
-        if (confirm('刪除「' + label + '」？')) { deleteWrong([key]); showWrongbook(); }
+        UIDialog.confirm('刪除「' + label + '」？', function () { deleteWrong([key]); showWrongbook(); });
       });
       head.appendChild(del);
       div.appendChild(head);
@@ -2361,10 +2365,10 @@
     box.innerHTML = html;
   }
   $('progReset').addEventListener('click', function () {
-    if (confirm('確定清除所有練習紀錄、錯題本與字卡進度？')) {
+    UIDialog.confirm('確定清除所有練習紀錄、錯題本與字卡進度？', function () {
       localStorage.removeItem(LS_KEY);
       state = load(); save(); renderHome(); show('home');
-    }
+    });
   });
   $('progExit').addEventListener('click', function () { show('home'); });
 
@@ -2550,10 +2554,10 @@
   function ptLoadChild(email) {
     setStatusToast('載入 ' + email + ' 的進度…');
     ptApi('GET', '/api/progress?level=main&app=chinese&owner=' + encodeURIComponent(email), null, function (err, res) {
-      if (err) { alert('讀不到對方進度：' + err); return; }
+      if (err) { UIDialog.alert('讀不到對方進度：' + err); return; }
       var childState = null;
       try { childState = JSON.parse(((res && res.blob) || {})['chinese-review-v1'] || 'null'); } catch (e) {}
-      if (!childState) { alert('這個帳號還沒有雲端進度資料（要先在孩子的裝置登入並練習過）。'); return; }
+      if (!childState) { UIDialog.alert('這個帳號還沒有雲端進度資料（要先在孩子的裝置登入並練習過）。'); return; }
       showParent(childState, email);
     });
   }
@@ -2618,10 +2622,11 @@
           del.textContent = '✕';
           del.title = '取消授權';
           del.addEventListener('click', function () {
-            if (!confirm('取消 ' + bb.textContent + ' 的檢視授權？')) return;
-            ptApi('DELETE', '/api/grants?app=chinese&viewerEmail=' + encodeURIComponent(bb.textContent), null, function (derr) {
-              if (derr) { alert('取消失敗：' + derr); return; }
-              showParent();
+            UIDialog.confirm('取消 ' + bb.textContent + ' 的檢視授權？', function () {
+              ptApi('DELETE', '/api/grants?app=chinese&viewerEmail=' + encodeURIComponent(bb.textContent), null, function (derr) {
+                if (derr) { UIDialog.alert('取消失敗：' + derr); return; }
+                showParent();
+              });
             });
           });
           chip.appendChild(del);
@@ -2644,7 +2649,7 @@
         btn.disabled = true;
         ptApi('POST', '/api/grants?app=chinese', { viewerEmail: em, role: 'viewer' }, function (aerr) {
           btn.disabled = false;
-          if (aerr) { alert('授權失敗：' + aerr); return; }
+          if (aerr) { UIDialog.alert('授權失敗：' + aerr); return; }
           setStatusToast('✓ 已授權 ' + em);
           showParent();
         });
@@ -2677,7 +2682,7 @@
   function showCustom() {
     if (!DATA.custom.length) {
       if (!W.__customReady) { setStatusToast('📦 題庫還在背景載入中，請稍候幾秒再點一次'); return; }
-      alert('自創題庫還沒有題目。請把 Word 題庫檔傳到 Telegram，轉檔後會自動分冊分課出現在這裡。');
+      UIDialog.alert('自創題庫還沒有題目。請把 Word 題庫檔傳到 Telegram，轉檔後會自動分冊分課出現在這裡。');
       return;
     }
     show('custom');
@@ -2801,28 +2806,33 @@
 
   function startDrill(cat, book, lesson) {
     var pool = drillPool(cat, book, lesson);
-    if (!pool.length) { alert(cat === 'custom' ? '自創題庫還沒有題目。請把 Word 題庫檔傳到 Telegram，轉檔後就會出現。' : '這個年級範圍沒有題目。'); return; }
+    if (!pool.length) { UIDialog.alert(cat === 'custom' ? '自創題庫還沒有題目。請把 Word 題庫檔傳到 Telegram，轉檔後就會出現。' : '這個年級範圍沒有題目。'); return; }
     state.drillPos = state.drillPos || {};
     var key = drillKey(cat, book, lesson);
     var pos = state.drillPos[key] || 0;
-    if (pos >= pool.length) {
-      if (!confirm('這個範圍已經刷完一輪，要從第 1 題重新開始嗎？')) return;
-      pos = 0;
-      state.drillPos[key] = 0;
-      save();
+    function go(p) {
+      var entries = pool.slice(p, p + DRILL_CHUNK).map(function (it) { return { t: cat, id: it.id }; });
+      beginQuiz(entries, 'drill', cat);
+      quiz.drillKey = key;
+      quiz.drillBase = p;
+      quiz.drillTotal = pool.length;
+      quiz.drillBook = book || null;
+      quiz.drillLesson = lesson || null;
+      quiz.drillDesc = cat === 'custom'
+        ? [book, lesson,
+           customSel.diffs.length ? '難度:' + customSel.diffs.join('/') : '',
+           customSel.qtypes.length ? '題型:' + customSel.qtypes.join('/') : ''].filter(Boolean).join(' ') || '自創題庫'
+        : CAT_NAME[cat] + '（' + gradesLabel(state.grades) + '）';
     }
-    var entries = pool.slice(pos, pos + DRILL_CHUNK).map(function (it) { return { t: cat, id: it.id }; });
-    beginQuiz(entries, 'drill', cat);
-    quiz.drillKey = key;
-    quiz.drillBase = pos;
-    quiz.drillTotal = pool.length;
-    quiz.drillBook = book || null;
-    quiz.drillLesson = lesson || null;
-    quiz.drillDesc = cat === 'custom'
-      ? [book, lesson,
-         customSel.diffs.length ? '難度:' + customSel.diffs.join('/') : '',
-         customSel.qtypes.length ? '題型:' + customSel.qtypes.join('/') : ''].filter(Boolean).join(' ') || '自創題庫'
-      : CAT_NAME[cat] + '（' + gradesLabel(state.grades) + '）';
+    if (pos >= pool.length) {
+      UIDialog.confirm('這個範圍已經刷完一輪，要從第 1 題重新開始嗎？', function () {
+        state.drillPos[key] = 0;
+        save();
+        go(0);
+      });
+      return;
+    }
+    go(pos);
   }
 
   /* ---------- 單元學習（先教後考，逐關解鎖） ---------- */
@@ -2966,7 +2976,7 @@
     show('writing');
     var poolW = filterByGrades(DATA.writing, state.grades);
     if (!poolW.length) poolW = DATA.writing;
-    if (!poolW.length) { alert('素材庫載入失敗'); return; }
+    if (!poolW.length) { UIDialog.alert('素材庫載入失敗'); return; }
     var it = seededPick(poolW, 1, rngFromString(today() + '|writing'))[0];
     $('wrTag').textContent = '今日素材 · ' + today();
     $('wrQuote').textContent = '「' + it.quote + '」';

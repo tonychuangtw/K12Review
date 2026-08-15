@@ -133,9 +133,9 @@
       chip.title = (p.email || "") + " — 點擊登出";
       chip.textContent = (p.given_name || p.name || "?").charAt(0).toUpperCase();
       chip.addEventListener("click", function () {
-        if (confirm("登出雲端同步？（本機進度會保留在此裝置）")) {
+        UIDialog.confirm("登出雲端同步？（本機進度會保留在此裝置）", function () {
           clearToken(); lastPushedHash = null; renderUi();
-        }
+        });
       });
       statusEl = document.createElement("span");
       statusEl.className = "sync-status";
@@ -157,7 +157,7 @@
         if (window.google && google.accounts && google.accounts.id) {
           google.accounts.id.prompt();
         } else {
-          alert("這個 App 內建瀏覽器擋住了 Google 登入元件。\n請用右下角選單選「用 Safari／瀏覽器開啟」，再登入即可同步進度。");
+          UIDialog.alert("這個 App 內建瀏覽器擋住了 Google 登入元件。\n請用右下角選單選「用 Safari／瀏覽器開啟」，再登入即可同步進度。");
         }
       });
       var slot = document.createElement("div");

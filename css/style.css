@@ -685,3 +685,17 @@ body.anim-lock { overflow: hidden; }
 @keyframes stDrawIn { from { opacity: 0; } }
 .st-hammer { animation: stHammer .7s ease-in-out infinite; transform-box: fill-box; transform-origin: 0% 100%; }
 @keyframes stHammer { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-38deg); } }
+
+/* ---------- 站內對話框（取代原生 alert/confirm，2026-08-15） ---------- */
+.dlg-overlay {
+  position: fixed; inset: 0; background: rgba(0, 0, 0, .55); z-index: 120;
+  display: flex; align-items: center; justify-content: center; padding: 1.2rem;
+}
+.dlg-card {
+  background: var(--panel2); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.1rem 1.2rem; max-width: 360px; width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .45);
+}
+.dlg-msg { font-size: .95rem; line-height: 1.7; white-space: pre-line; margin-bottom: 1rem; }
+.dlg-btns { display: flex; gap: .6rem; justify-content: flex-end; }
+.dlg-btns .chip.dlg-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
