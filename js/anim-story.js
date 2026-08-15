@@ -17495,6 +17495,159 @@
             '<circle cx="400" cy="135" r="24" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>' +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">隻手遮天</text>') }
       ];
+    },
+    /* 罄竹難書 */
+    i139: function () {
+      var BAMBOOS = '<g stroke="#7fa858" stroke-width="7" stroke-linecap="round"><line x1="-40" y1="20" x2="-44" y2="-60"/><line x1="-10" y1="20" x2="-10" y2="-70"/><line x1="22" y1="20" x2="26" y2="-56"/></g><g stroke="#5a8a3a" stroke-width="2.6"><line x1="-46" y1="-20" x2="-38" y2="-20"/><line x1="-14" y1="-30" x2="-6" y2="-30"/><line x1="20" y1="-16" x2="28" y2="-16"/></g>';
+      return [
+        { minDur: 7000, sub: '李密起兵討隋煬帝，檄文寫道：「罄南山之竹，書罪未窮」——砍光南山的竹子做簡，也寫不完他的罪！',
+          html: scene(P(280, 300, BAMBOOS, '', 0, 1.15) +
+            P(520, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>' + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/><line x1="-9" y1="7" x2="9" y2="7"/></g>', '', 0, .95), '', 0, 1.05)) },
+        { minDur: 6800, sub: '古人把字寫在竹簡上——罪狀多到用盡天下竹子都寫不完（罄＝用盡），罪孽之深可想而知！',
+          html: scene(P(400, 270, '<g stroke="#c9a06c" stroke-width="6" stroke-linecap="round"><line x1="-45" y1="-24" x2="-45" y2="24"/><line x1="-27" y1="-24" x2="-27" y2="24"/><line x1="-9" y1="-24" x2="-9" y2="24"/><line x1="9" y1="-24" x2="9" y2="24"/><line x1="27" y1="-24" x2="27" y2="24"/><line x1="45" y1="-24" x2="45" y2="24"/></g><path d="M-51 -10 h102 M-51 10 h102" stroke="#8a6a44" stroke-width="2.4" fill="none"/>', '', 0, 1.3) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#c96a5a">寫不完</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#c96a5a">的罪</text>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '「罄竹難書」：罪狀多得寫不完——注意：只能形容罪惡！「他的善行罄竹難書」是大誤用！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#c96a5a">限罪惡</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">善行✗</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8b93a3">誤用</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '罄竹難書：罪狀累累，書之不盡。',
+          html: scene(P(300, 300, BAMBOOS, '', 0, 1.1) +
+            P(520, 270, '<g stroke="#c9a06c" stroke-width="5.4" stroke-linecap="round"><line x1="-30" y1="-22" x2="-30" y2="22"/><line x1="-15" y1="-22" x2="-15" y2="22"/><line x1="0" y1="-22" x2="0" y2="22"/><line x1="15" y1="-22" x2="15" y2="22"/><line x1="30" y1="-22" x2="30" y2="22"/></g><path d="M-36 -9 h72 M-36 9 h72" stroke="#8a6a44" stroke-width="2.2" fill="none"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">罄竹難書</text>') }
+      ];
+    },
+    /* 篳路藍縷 */
+    i140: function () {
+      var WOODCART = '<circle cx="-18" cy="16" r="13" fill="none" stroke="#5a4632" stroke-width="4"/><circle cx="22" cy="16" r="13" fill="none" stroke="#5a4632" stroke-width="4"/><path d="M-34 2 h68 l-6 -18 h-56 z" fill="#a8734a" stroke="#8a5a33" stroke-width="2.4"/><g stroke="#8a5a33" stroke-width="2"><line x1="-24" y1="-16" x2="-20" y2="-30"/><line x1="0" y1="-16" x2="0" y2="-32"/><line x1="22" y1="-16" x2="18" y2="-28"/></g>';
+      return [
+        { minDur: 7000, sub: '《左傳》記楚國先人：「篳路藍縷，以啟山林」——駕柴車、穿破衣，一斧一斧開闢山林！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M-18 -34 L-14 4 h28 l4 -38 z M-6 -14 l4 6 M8 -20 l3 6" fill="#c9b26a" stroke="#a8905a" stroke-width="2"/>' + P(30, -50, '<line x1="0" y1="12" x2="0" y2="-34" stroke="#8a5a33" stroke-width="4.6" stroke-linecap="round"/><path d="M0 -34 q-20 -4 -22 -20 q14 -6 24 4 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, 1), '', 0, 1.02) +
+            P(520, 292, WOODCART, '', 0, 1.05) +
+            P(660, 285, TREE, '', 0, .9)) },
+        { minDur: 6800, sub: '「篳路」是柴車、「藍縷」是破衣——條件再差也要往前開路，這就是創業的樣子！',
+          html: scene(P(400, 292, WOODCART, '', 0, 1.3) + sweat(300, 220) +
+            '<path d="M500 290 q100 -20 180 -60" stroke="#d9cfae" stroke-width="12" fill="none" stroke-linecap="round"/>') },
+        { minDur: 6800, sub: '「篳路藍縷」：創業維艱——今天的每條大路，都是前人披荊斬棘踩出來的！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1) +
+            P(530, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(440, 185) +
+            '<path d="M180 302 h440" stroke="#d9cfae" stroke-width="14" stroke-linecap="round"/>') },
+        { minDur: 6400, sub: '篳路藍縷：柴車破衣，創業維艱。',
+          html: scene(P(400, 292, WOODCART, '', 0, 1.3) +
+            P(620, 285, TREE, '', 0, .95) +
+            '<text x="330" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">篳路藍縷</text>') }
+      ];
+    },
+    /* 磊落光明 */
+    i141: function () {
+      return [
+        { minDur: 6800, sub: '「磊」是三塊石頭疊起——石塊稜角分明、擺在明處，一眼看得清清楚楚！',
+          html: scene(P(400, 290, '<g fill="#aab4c4" stroke="#8b93a3" stroke-width="2.6"><path d="M-34 12 L-20 -14 L2 8 Z"/><path d="M2 12 L20 -18 L42 10 Z"/><path d="M-14 -12 L2 -34 L20 -14 Z"/></g>', '', 0, 1.3) +
+            P(200, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「磊落光明」：品行坦蕩、光明正大——做的每件事都攤得開、說得清！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-30 -46 q-14 -8 -22 2 M30 -46 q14 -8 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.08) +
+            P(400, 190, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" class="st-tw"/>') + hearts(290, 200)) },
+        { minDur: 6800, sub: '選舉班長，他把政見、帳目、承諾全部公開——磊落光明的人，最值得信任！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#548a40">公開</text>', '', 0, .95)) +
+            P(240, 302, A('kid', 'happy'), 'st-cheer', 0, .88) + P(560, 302, A('kid', 'happy'), 'st-cheer', .2, .9, true) + hearts(400, 178)) },
+        { minDur: 6400, sub: '磊落光明：坦蕩無私，光明正大。',
+          html: scene(P(400, 292, '<g fill="#aab4c4" stroke="#8b93a3" stroke-width="2.6"><path d="M-34 12 L-20 -14 L2 8 Z"/><path d="M2 12 L20 -18 L42 10 Z"/><path d="M-14 -12 L2 -34 L20 -14 Z"/></g>', '', 0, 1.3) +
+            P(220, 135, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">磊落光明</text>') }
+      ];
+    },
+    /* 寶劍出鞘 */
+    i142: function () {
+      var SHEATH = '<path d="M-8 -36 L8 -36 L6 34 Q0 42 -6 34 Z" fill="#8a5a33" stroke="#6d4426" stroke-width="2.4"/>';
+      var BLADE2 = '<path d="M-5 -46 L5 -46 L3 26 L0 34 L-3 26 Z" fill="#c9d2de" stroke="#8b93a3" stroke-width="2"/><rect x="-10" y="-56" width="20" height="10" rx="3" fill="#e8b93f"/>';
+      return [
+        { minDur: 6800, sub: '寶劍藏在鞘裡多年——不出鞘時，沒人知道它有多鋒利！',
+          html: scene(P(400, 285, SHEATH, '', 0, 1.4) +
+            P(240, 302, A('kid', 'happy'), '', 0, .95) + qmark(320, 200)) },
+        { minDur: 6800, sub: '「唰」——寶劍出鞘，寒光四射！比喻懷才的人終於獲得施展的舞台！',
+          html: scene(P(340, 280, SHEATH, '', 0, 1.2) +
+            P(480, 260, BLADE2, '', 0, 1.4) +
+            '<g class="st-tw"><path d="M540 210 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' + bang(560, 260)) },
+        { minDur: 6800, sub: '「寶劍出鞘」：人才被發現任用——平時默默磨劍，機會一來立刻發光！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + bang(400, 172) + hearts(510, 195) +
+            P(280, 200, '<path d="M0 -18 l6 11 12 2 -9 9 2 12 -11 -6 -11 6 2 -12 -9 -9 12 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '寶劍出鞘：懷才得施，鋒芒畢露。',
+          html: scene(P(340, 285, SHEATH, '', 0, 1.2) + P(480, 262, BLADE2, '', 0, 1.4) +
+            '<g class="st-tw"><path d="M540 215 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">寶劍出鞘</text>') }
+      ];
+    },
+    /* 馬到成功 */
+    i143: function () {
+      return [
+        { minDur: 6800, sub: '古代出征的吉祥話：戰馬一到陣前就打贏——「旗開得勝，馬到成功」！',
+          html: scene(P(360, 296, A('horse'), 'st-strut', 0, 1.1) +
+            P(560, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-44" stroke="#a8734a" stroke-width="4"/><path d="M0 -44 q16 4 30 -2 l-2 14 q-14 6 -28 0 z" fill="#c96a5a"/>', '', 0, 1), '', 0, .98, true) + bang(280, 200)) },
+        { minDur: 6800, sub: '「馬到成功」：迅速取得成功——現在最常用在祝福：考試、開店、比賽，馬到成功！',
+          html: scene(P(400, 296, A('horse'), 'st-dashL', 0, 1.15) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="220" y1="250" x2="310" y2="250"/></g>' +
+            P(600, 200, '<path d="M0 -18 l6 11 12 2 -9 9 2 12 -11 -6 -11 6 2 -12 -9 -9 12 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '收到寫著「馬到成功」的紅包袋——祝福背後，是別人真心盼你一次就成！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -50, '<rect x="-14" y="-20" width="28" height="40" rx="3" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/><text x="0" y="2" text-anchor="middle" font-size="8" fill="#ffd97a">馬到</text><text x="0" y="12" text-anchor="middle" font-size="8" fill="#ffd97a">成功</text>', '', 0, 1.1)) +
+            P(530, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '馬到成功：一到即勝，旗開得勝。',
+          html: scene(P(400, 296, A('horse'), 'st-strut', 0, 1.2) + bang(520, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">馬到成功</text>') }
+      ];
+    },
+    /* 層峰迭起 */
+    i144: function () {
+      var PEAKS = '<path d="M-180 60 L-110 -30 L-50 30 L20 -60 L90 20 L160 -40 L220 60 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6" opacity=".9"/>';
+      return [
+        { minDur: 6800, sub: '站在山口眺望：一座高峰過去，又一座更高的立起——峰峰相連到天邊！',
+          html: scene(P(400, 290, PEAKS, '', 0, 1.1) +
+            P(180, 302, A('kid', 'wow'), '', 0, .9) + hearts(250, 220)) },
+        { minDur: 6800, sub: '「層峰迭起」：高潮或傑出人物接連出現——好比賽一波未平一波又起，讓人目不轉睛！',
+          html: scene(P(400, 292, PEAKS, '', 0, 1.1) +
+            '<g class="st-tw"><path d="M290 180 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/><path d="M490 160 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ff9eb5"/></g>') },
+        { minDur: 6800, sub: '棋壇也是層峰迭起：舊王者還在，新天才又冒出頭——高手輩出，賽事才精彩！',
+          html: scene(P(280, 302, A('kid', 'happy') + P(0, -74, '<path d="M-12 0 h24 l-3 8 h-18 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, .95)) +
+            P(430, 302, A('kid', 'happy'), 'st-cheer', 0, 1) + P(570, 302, A('kid', 'happy'), 'st-cheer', .2, .97, true) + bang(430, 180) + hearts(650, 200)) },
+        { minDur: 6400, sub: '層峰迭起：高峰相連，人才輩出。',
+          html: scene(P(400, 292, PEAKS, '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">層峰迭起</text>') }
+      ];
+    },
+    /* 高山仰止 */
+    i145: function () {
+      var BIGMOUNT = '<path d="M-110 60 L0 -80 L110 60 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="3"/><path d="M-30 22 L0 -14 L30 22" fill="none" stroke="#5a7a4a" stroke-width="2.4"/><path d="M-24 -48 L0 -80 L24 -48 Z" fill="#fff" opacity=".85"/>';
+      return [
+        { minDur: 7000, sub: '《詩經》詠歎：「高山仰止，景行行止」——崇高的山令人仰望，光明的大道使人追隨！',
+          html: scene(P(430, 292, BIGMOUNT, '', 0, 1.1) +
+            P(200, 302, A('kid', 'happy'), 'st-bob', 0, .92) + hearts(270, 230)) },
+        { minDur: 6800, sub: '司馬遷寫《史記》讚孔子，就引了這句——雖不能至，心嚮往之！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(560, 292, BIGMOUNT, '', 0, .9) +
+            '<path d="M370 250 q80 -40 120 -60" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>' + hearts(400, 185)) },
+        { minDur: 6800, sub: '「高山仰止」：對偉大人格的敬仰——找一位讓你仰望的人，朝著那個高度走！',
+          html: scene(P(430, 292, BIGMOUNT, '', 0, 1.05) +
+            P(230, 302, A('kid', 'happy'), 'st-strut', 0, .95) +
+            '<path d="M290 280 q80 -40 130 -90" stroke="#548a40" stroke-width="4" fill="none" stroke-dasharray="9 8"/>' + hearts(310, 210)) },
+        { minDur: 6400, sub: '高山仰止：德如高山，令人景仰。',
+          html: scene(P(430, 292, BIGMOUNT, '', 0, 1.15) +
+            P(210, 302, A('kid', 'happy'), 'st-bob', 0, .92) +
+            '<text x="330" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">高山仰止</text>') }
+      ];
+    },
+    /* 翼翼小心 */
+    i146: function () {
+      return [
+        { minDur: 7000, sub: '《詩經》讚文王「小心翼翼」——恭敬謹慎，一絲不苟；「翼翼小心」是它的變序！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(560, 240, '<rect x="-30" y="-20" width="60" height="40" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#6d5335">翼翼</text>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '博物館修復師捧著千年瓷瓶——呼吸都放輕，每一步像踩在雲上！',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + P(0, -56, '<path d="M-10 -18 q10 -8 20 0 l-3 22 q-7 5 -14 0 z" fill="#7fd4d4" stroke="#4aa8a8" stroke-width="2.4"/><path d="M-6 -20 q6 -6 12 0" stroke="#4aa8a8" stroke-width="2" fill="none"/>', '', 0, 1) + '</g>', '', 0, 1.05) + sweat(310, 188) +
+            '<g class="st-zfloat" opacity=".5"><text x="520" y="200" font-size="13" fill="#8b93a3">（輕…輕…）</text></g>') },
+        { minDur: 6800, sub: '「翼翼小心」：非常謹慎——珍貴的東西值得慢下來：文物如此，感情和信任也是！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(410, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '翼翼小心：恭敬謹慎，絲毫不苟。',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + P(0, -56, '<path d="M-10 -18 q10 -8 20 0 l-3 22 q-7 5 -14 0 z" fill="#7fd4d4" stroke="#4aa8a8" stroke-width="2.4"/>', '', 0, 1) + '</g>', '', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">翼翼小心</text>') }
+      ];
     }
   };
 
