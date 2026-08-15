@@ -8597,6 +8597,115 @@
             P(290, 250, '<circle cx="0" cy="0" r="26" fill="#ffd97a"/>') + P(510, 250, '<rect x="-24" y="-24" width="48" height="48" rx="6" fill="#5c82ba"/>') +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">截然不同</text>') }
       ];
+    },
+    /* 大相逕庭 */
+    i284: function () {
+      return [
+        { minDur: 7000, sub: '「逕」是門外小路、「庭」是院子——一個在門外、一個在門裡，位置差得遠！這出自《莊子》。',
+          html: scene(P(500, 302, '<path d="M-60 -60 L0 -96 L60 -60 Z" fill="#8a5a33"/><rect x="-50" y="-60" width="100" height="60" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><rect x="-14" y="-40" width="28" height="40" rx="3" fill="#8a5a33"/>') +
+            '<path d="M120 320 q120 8 240 0" stroke="#e8dcc0" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="14 10"/>' +
+            P(200, 302, A('kid', 'happy'), '', 0, .92) + qmark(340, 200)) },
+        { minDur: 6800, sub: '同一場電影，你覺得超好看、他覺得超無聊——兩人的評價大相逕庭！',
+          html: scene(P(300, 302, A('kid', 'happy')) + hearts(360, 185) +
+            P(520, 302, A('kid', 'sad'), '', 0, .97, true) + sweat(570, 195) +
+            '<text x="410" y="200" text-anchor="middle" font-size="26" fill="#4a3200">VS</text>') },
+        { minDur: 6800, sub: '「大相逕庭」：彼此差距極大、明顯不同——比「不太一樣」強烈得多！',
+          html: scene(P(290, 250, '<circle cx="0" cy="0" r="28" fill="#a5d47c"/>') +
+            P(510, 250, '<path d="M0 -26 L26 22 L-26 22 Z" fill="#c96a5a"/>') +
+            '<path d="M340 250 h120" stroke="#8b93a3" stroke-width="3" stroke-dasharray="8 8"/>') },
+        { minDur: 6400, sub: '大相逕庭：彼此差距極大，明顯不同。',
+          html: scene(P(290, 255, '<circle cx="0" cy="0" r="26" fill="#a5d47c"/>') + P(510, 255, '<path d="M0 -24 L24 20 L-24 20 Z" fill="#c96a5a"/>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大相逕庭</text>') }
+      ];
+    },
+    /* 相輔相成 */
+    i285: function () {
+      var GEARS = '<g fill="#8fa8c9" stroke="#6d87ab" stroke-width="2.4"><circle cx="-28" cy="0" r="22"/><circle cx="28" cy="8" r="17"/></g>' +
+        '<g fill="#6d87ab"><circle cx="-28" cy="0" r="7"/><circle cx="28" cy="8" r="5.6"/></g>' +
+        '<g stroke="#6d87ab" stroke-width="5" stroke-linecap="round"><line x1="-28" y1="-27" x2="-28" y2="-21"/><line x1="-28" y1="21" x2="-28" y2="27"/><line x1="-55" y1="0" x2="-49" y2="0"/><line x1="-7" y1="0" x2="-1" y2="0"/><line x1="28" y1="-14" x2="28" y2="-9"/><line x1="28" y1="25" x2="28" y2="30"/><line x1="6" y1="8" x2="11" y2="8"/><line x1="45" y1="8" x2="50" y2="8"/></g>';
+      return [
+        { minDur: 6800, sub: '兩個齒輪咬合在一起：你轉我也轉，誰缺了誰都動不了——互相配合、互相補足！',
+          html: scene(P(400, 240, GEARS, '', 0, 1.4) + bang(530, 200)) },
+        { minDur: 6800, sub: '讀書和運動也相輔相成：運動讓腦袋清醒、讀書讓運動更有策略——一起做，效果加倍！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95)) +
+            P(520, 302, A('kid', 'happy'), 'st-dashL', 0, .97) + hearts(410, 185)) },
+        { minDur: 6600, sub: '「相輔相成」：互相配合補足、缺一不可——最好的搭檔關係！',
+          html: scene(P(400, 245, GEARS, '', 0, 1.3) + hearts(530, 210)) },
+        { minDur: 6400, sub: '相輔相成：互相配合補足，缺一不可。',
+          html: scene(P(400, 248, GEARS, '', 0, 1.4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">相輔相成</text>') }
+      ];
+    },
+    /* 相得益彰 */
+    i286: function () {
+      return [
+        { minDur: 6800, sub: '紅花配綠葉：紅的更豔、綠的更翠——放在一起，比各自單獨看更漂亮！',
+          html: scene(P(400, 280, '<g class="st-grow"><line x1="0" y1="20" x2="0" y2="-10" stroke="#5f8a46" stroke-width="4"/><path d="M0 -2 q-16 -6 -22 -16 M0 -2 q16 -6 22 -16" stroke="#6fae58" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="0" cy="-18" r="8" fill="#e85a4f"/><circle cx="-8" cy="-12" r="8" fill="#e85a4f"/><circle cx="8" cy="-12" r="8" fill="#e85a4f"/><circle cx="0" cy="-8" r="8" fill="#e85a4f"/><circle cx="0" cy="-12" r="5" fill="#ffe066"/></g>', '', 0, 1.5) + hearts(510, 220)) },
+        { minDur: 6800, sub: '歌聲好的配上琴藝佳的：合作一曲，歌更動人、琴更悠揚——彼此的長處都被放大！',
+          html: scene(P(300, 302, A('kid', 'happy')) + notes(370, 165) +
+            P(500, 302, A('kid', 'happy') + P(38, -30, QIN, '', 0, .8), '', 0, .97) + notes(590, 180) + hearts(430, 200)) },
+        { minDur: 6600, sub: '「相得益彰」：互相配合，長處更加顯著——一加一大於二！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .97, true) +
+            '<text x="400" y="180" text-anchor="middle" font-size="26" font-weight="bold" fill="#548a40">1+1＞2</text>' + hearts(400, 230)) },
+        { minDur: 6400, sub: '相得益彰：互相配合，彼此長處更顯著。',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(400, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">相得益彰</text>') }
+      ];
+    },
+    /* 滴水穿石 */
+    i474: function () {
+      var STONE5 = '<path d="M-40 6 q-8 -26 12 -32 q22 -8 36 6 q12 12 2 26 z" fill="#b0b4bf" stroke="#8b93a3" stroke-width="2.6"/><path d="M-4 -24 q2 10 0 24" stroke="#8b93a3" stroke-width="3" fill="none"/><ellipse cx="-3" cy="-2" rx="5" ry="3" fill="#6d7585"/>';
+      var DRIP = '<g class="st-sweat"><path d="M0 0 q-5 8 0 13 q5 -5 0 -13 z" fill="#8fc6ff"/></g>';
+      return [
+        { minDur: 6800, sub: '山洞屋簷下的石頭上有個小凹洞——那是水滴一滴一滴、滴了幾百年打出來的！',
+          html: scene(P(400, 140, DRIP, '', 0, 1.3) + P(400, 180, DRIP, '', .5, 1.1) +
+            P(400, 310, STONE5, '', 0, 1.3) +
+            P(200, 302, A('kid', 'wow'), '', 0, .92) + qmark(280, 200)) },
+        { minDur: 6800, sub: '一滴水的力量微不足道——但持之以恆，連石頭都能穿透！',
+          html: scene(P(400, 150, DRIP, '', 0, 1.2) + P(400, 310, STONE5, '', 0, 1.25) + bang(510, 240)) },
+        { minDur: 6800, sub: '每天背五個單字、練十分鐘琴——「滴水穿石」，小小的堅持能成就大大的事！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) + hearts(450, 190)) },
+        { minDur: 6400, sub: '滴水穿石：微小力量持之以恆，也能成功。',
+          html: scene(P(400, 145, DRIP, '', 0, 1.3) + P(400, 310, STONE5, '', 0, 1.35) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">滴水穿石</text>') }
+      ];
+    },
+    /* 念念不忘 */
+    i475: function () {
+      return [
+        { minDur: 6800, sub: '去年在花蓮看到的海豚跳躍——小念到現在還常常想起，作文、畫畫都是海豚！',
+          html: scene(P(430, 190, '<circle cx="0" cy="0" r="56" fill="#fff" opacity=".9"/>' +
+              P(0, 16, '<path d="M-24 6 q10 -22 34 -14 q16 6 12 20 q-18 8 -32 0 q-12 -4 -14 -6 z" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2"/><path d="M-2 -8 l6 -12 l6 10 z" fill="#6d87ab"/>', '', 0, .9)) +
+            P(240, 302, A('kid', 'happy')) + hearts(330, 210)) },
+        { minDur: 6800, sub: '「念念」是一個念頭接一個念頭——時時記在心上、想忘也忘不了！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) +
+            P(310, 190, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".9"/><path d="M0 3 C-5 -4 -13 1 -7 8 L0 13 L7 8 C13 1 5 -4 0 3 Z" fill="#ff7b9c" transform="translate(0,-6) scale(.8)"/>') +
+            P(400, 165, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".9"/><path d="M0 3 C-5 -4 -13 1 -7 8 L0 13 L7 8 C13 1 5 -4 0 3 Z" fill="#ff7b9c" transform="translate(0,-6) scale(.8)"/>', '', .2) +
+            P(490, 190, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".9"/><path d="M0 3 C-5 -4 -13 1 -7 8 L0 13 L7 8 C13 1 5 -4 0 3 Z" fill="#ff7b9c" transform="translate(0,-6) scale(.8)"/>', '', .4)) },
+        { minDur: 6800, sub: '把念念不忘化成目標：「我以後要當海洋研究員！」——想念也能變成前進的動力！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(460, 185) + bang(280, 195)) },
+        { minDur: 6400, sub: '念念不忘：牢記在心，時時想著。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 180, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><path d="M0 4 C-6 -5 -16 1 -9 10 L0 16 L9 10 C16 1 6 -5 0 4 Z" fill="#ff7b9c"/>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">念念不忘</text>') }
+      ];
+    },
+    /* 戀戀不捨 */
+    i476: function () {
+      return [
+        { minDur: 6800, sub: '要離開待了一週的外婆家——小戀在門口抱著外婆不放，一步三回頭……',
+          html: scene(P(360, 302, A('kid', 'sad')) +
+            P(480, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05, true) +
+            hearts(420, 182) + sweat(310, 198)) },
+        { minDur: 6800, sub: '上了車還貼著車窗揮手，直到外婆的身影變成小點——捨不得，真的捨不得！',
+          html: scene(P(300, 296, '<rect x="-50" y="-40" width="100" height="40" rx="8" fill="#ffd97a" stroke="#e8b84a" stroke-width="3"/><circle cx="-28" cy="0" r="10" fill="#3a2e26"/><circle cx="28" cy="0" r="10" fill="#3a2e26"/><rect x="-40" y="-32" width="26" height="16" rx="3" fill="#aee3f5"/>', 'st-inL', 0, 1.05, true) +
+            P(620, 302, A('kid', 'happy'), '', 0, .8) + hearts(480, 200)) },
+        { minDur: 6600, sub: '「戀戀不捨」：非常留戀、捨不得離去——和「依依不捨」是雙胞胎！',
+          html: scene(P(320, 302, A('kid', 'sad')) + P(500, 302, A('kid', 'sad'), '', 0, .97, true) + hearts(410, 182)) },
+        { minDur: 6400, sub: '戀戀不捨：非常留戀，捨不得離去。',
+          html: scene(P(340, 302, A('kid', 'sad')) + hearts(430, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">戀戀不捨</text>') }
+      ];
     }
   };
 
