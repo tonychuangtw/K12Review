@@ -7994,6 +7994,133 @@
           html: scene(P(400, 130, COMET2, '', 0, 1.25) +
             '<text x="400" y="280" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">千載難逢</text>', 'night') }
       ];
+    },
+    /* 易如反掌 */
+    i839: function () {
+      var PALM2 = '<path d="M-12 16 q-6 -14 -5 -28 q1 -7 6 -7 q4 0 4 7 l0 8 q0 -18 2 -23 q2 -6 7 -5 q4 1 4 8 l-1 13 q2 -15 3 -19 q3 -6 7 -4 q4 2 3 8 l-2 15 q3 -10 4 -12 q3 -4 6 -2 q4 2 2 8 q-2 12 -6 25 q-4 11 -15 12 q-13 2 -19 -4 z" fill="#ffe3c1" stroke="#eec39a" stroke-width="2.2"/>';
+      return [
+        { minDur: 6800, sub: '把手掌翻過來——一秒鐘就做到，誰都會！',
+          html: scene(P(340, 230, PALM2, '', 0, 1.4) +
+            P(480, 230, '<g transform="scale(-1,1)">' + PALM2 + '</g>', '', .4, 1.4) +
+            P(200, 302, A('kid', 'happy'), '', 0, .95) + bang(410, 170)) },
+        { minDur: 6800, sub: '游泳健將表演打水漂、心算高手秒答二位數乘法——對高手來說，這些事易如反掌！',
+          html: scene(P(340, 302, A('kid', 'happy')) +
+            P(500, 250, '<text x="0" y="0" font-size="24" font-weight="bold" fill="#4a3200">23×47=1081</text>', '', 0, .9) + bang(590, 200) + hearts(260, 195)) },
+        { minDur: 6600, sub: '「易如反掌」：像翻一下手掌那麼容易——不過別人的「容易」，背後都是苦練！',
+          html: scene(P(400, 230, PALM2, '', 0, 1.5) + hearts(510, 210)) },
+        { minDur: 6400, sub: '易如反掌：像翻手掌那麼容易。',
+          html: scene(P(400, 235, PALM2, '', 0, 1.6) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">易如反掌</text>') }
+      ];
+    },
+    /* 眼高手低 */
+    i1011: function () {
+      return [
+        { minDur: 6800, sub: '看別人做蛋糕影片：「這麼簡單，我也會！」小高信心滿滿開工——',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -56, '<rect x="-18" y="-14" width="36" height="24" rx="3" fill="#3a2e26"/><rect x="-15" y="-11" width="30" height="18" rx="2" fill="#7fb2e0"/>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6800, sub: '結果麵糊打得到處都是、蛋糕烤成黑炭——眼光很高，動手能力卻跟不上！',
+          html: scene(P(360, 302, A('kid', 'wow')) + sweat(300, 190) +
+            P(500, 290, '<path d="M-18 -8 a18 10 0 0 1 36 0 l-3 12 h-30 z" fill="#4a4238"/><g class="st-sweat"><path d="M-6 -18 q3 -6 0 -12 M6 -20 q3 -6 0 -12" stroke="#8b93a3" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>', '', 0, 1.1) + bang(580, 220)) },
+        { minDur: 6800, sub: '「眼高手低」提醒我們：看會了不等於做得到——從基本功開始，一步步把手練起來！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -46, '<path d="M-12 -6 q0 10 12 10 q12 0 12 -10 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.2"/>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '眼高手低：眼光很高，實際能力不足。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + qmark(480, 182) + sweat(320, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">眼高手低</text>') }
+      ];
+    },
+    /* 尊師重道 */
+    i1012: function () {
+      return [
+        { minDur: 6800, sub: '程門立雪的楊時、每天幫老師曬書的學生——古人把老師看得和父母一樣重要！',
+          html: scene(P(560, 302, '<path d="M-80 -70 L0 -118 L80 -70 Z" fill="#8a5a33"/><rect x="-66" y="-70" width="132" height="70" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><rect x="-18" y="-48" width="36" height="48" rx="4" fill="#8a5a33"/>') +
+            P(300, 302, '<g transform="rotate(30)">' + A('kid', 'happy') + '</g>') + hearts(400, 200)) },
+        { minDur: 6800, sub: '上課專心、作業用心、見到老師問聲好——尊敬老師，也珍惜老師教的道理與學問！',
+          html: scene(P(320, 302, A('kid', 'happy')) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05, true) + hearts(420, 182)) },
+        { minDur: 6600, sub: '「尊師重道」：尊敬師長、重視學問之道——是中華文化最美的傳統之一！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(460, 302, A('kid', 'happy'), '', .2, .95) +
+            P(600, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02, true) + hearts(460, 178)) },
+        { minDur: 6400, sub: '尊師重道：尊敬師長，重視道理與學問。',
+          html: scene(P(320, 302, '<g transform="rotate(24)">' + A('kid', 'happy') + '</g>') +
+            P(520, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">尊師重道</text>') }
+      ];
+    },
+    /* 更上層樓 */
+    i1013: function () {
+      var TOWER = '<rect x="-46" y="-40" width="92" height="40" fill="#c9762f" stroke="#a85a1e" stroke-width="2.6"/><path d="M-54 -40 h108 l-10 -12 h-88 z" fill="#8a5a33"/>' +
+        '<rect x="-36" y="-76" width="72" height="36" fill="#c9762f" stroke="#a85a1e" stroke-width="2.6"/><path d="M-44 -76 h88 l-9 -11 h-70 z" fill="#8a5a33"/>' +
+        '<rect x="-26" y="-108" width="52" height="32" fill="#c9762f" stroke="#a85a1e" stroke-width="2.6"/><path d="M-34 -108 h68 l-8 -11 h-52 z" fill="#8a5a33"/>';
+      return [
+        { minDur: 7000, sub: '王之渙登鸛雀樓寫下名句：「欲窮千里目，更上一層樓」——想看得更遠，就要爬得更高！',
+          html: scene(P(430, 302, TOWER, '', 0, 1.1) +
+            P(240, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + hearts(330, 200)) },
+        { minDur: 6800, sub: '已經考到九十分了？下次挑戰九十五！游泳學會了？挑戰換氣更順——境界再提高一層！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) +
+            '<path d="M280 260 L360 230 L440 200 L520 170" stroke="#548a40" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M520 170 l-13 -3 l7 12 z" fill="#548a40"/>' + bang(560, 150)) },
+        { minDur: 6600, sub: '「更上層樓」：再提高一層水準——永遠給自己一個新目標！',
+          html: scene(P(430, 302, TOWER, '', 0, 1.05) + P(250, 302, A('kid', 'happy'), 'st-strut', 0, .95) + hearts(340, 200)) },
+        { minDur: 6400, sub: '更上層樓：再提高一層境界或水準。',
+          html: scene(P(400, 302, TOWER, '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">更上層樓</text>') }
+      ];
+    },
+    /* 適可而止 */
+    i1014: function () {
+      return [
+        { minDur: 6800, sub: '吃到飽餐廳裡，小止吃得剛剛好就放下筷子：「再吃就撐啦！」隔壁桌卻硬塞到肚子痛……',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -46, '<path d="M-12 -6 q0 10 12 10 q12 0 12 -10 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.2"/>', '', 0, .95)) + hearts(390, 190) +
+            P(540, 302, A('kid', 'wow')) + sweat(590, 195)) },
+        { minDur: 6800, sub: '打電動三十分鐘就下線、開玩笑點到為止——懂得「適可而止」，才不會樂極生悲！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -56, '<rect x="-18" y="-14" width="36" height="24" rx="3" fill="#3a2e26"/><rect x="-15" y="-11" width="30" height="18" rx="2" fill="#7fb2e0"/>', '', 0, .95)) +
+            P(500, 220, '<circle cx="0" cy="0" r="20" fill="#fff" stroke="#8b93a3" stroke-width="3"/><line x1="0" y1="0" x2="0" y2="-12" stroke="#e85a4f" stroke-width="2.6"/><line x1="0" y1="0" x2="8" y2="4" stroke="#e85a4f" stroke-width="2.6"/>', '', 0, 1)) },
+        { minDur: 6600, sub: '「適可而止」：做到恰當的程度就停止——分寸拿捏得好，是大智慧！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 200, '<path d="M-40 0 h80" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/><path d="M20 -8 L20 8" stroke="#e85a4f" stroke-width="4" stroke-linecap="round"/>', '', 0, 1.2) + hearts(500, 220)) },
+        { minDur: 6400, sub: '適可而止：做到恰當程度就停止，不過分。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) + hearts(490, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">適可而止</text>') }
+      ];
+    },
+    /* 有頭有尾 */
+    i1043: function () {
+      return [
+        { minDur: 6800, sub: '小尾答應照顧班上的盆栽——從播種、澆水到開花，每一天都沒偷懶，直到全班看見花開！',
+          html: scene(P(430, 296, '<path d="M-16 -6 q0 12 16 12 q16 0 16 -12 z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/>' +
+              '<g class="st-grow"><line x1="0" y1="-6" x2="0" y2="-28" stroke="#5f8a46" stroke-width="3.4"/><circle cx="0" cy="-34" r="5" fill="#ff9eb5"/><circle cx="-6" cy="-30" r="5" fill="#ff9eb5"/><circle cx="6" cy="-30" r="5" fill="#ff9eb5"/><circle cx="0" cy="-30" r="3.4" fill="#ffe066"/></g>') +
+            P(260, 302, A('kid', 'happy')) + hearts(350, 200)) },
+        { minDur: 6800, sub: '做事有開頭、也有好結尾——不像有的人起頭轟轟烈烈，後面就不見人影啦！',
+          html: scene('<path d="M220 250 L580 250" stroke="#548a40" stroke-width="5" stroke-linecap="round"/><circle cx="220" cy="250" r="9" fill="#548a40"/><circle cx="580" cy="250" r="9" fill="#548a40"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, 1.02) + hearts(490, 195)) },
+        { minDur: 6600, sub: '「有頭有尾」：有始有終、堅持到底——答應的事就負責到最後！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 185)) },
+        { minDur: 6400, sub: '有頭有尾：做事有始有終。',
+          html: scene('<path d="M240 250 L560 250" stroke="#548a40" stroke-width="5" stroke-linecap="round"/><circle cx="240" cy="250" r="9" fill="#548a40"/><circle cx="560" cy="250" r="9" fill="#548a40"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">有頭有尾</text>') }
+      ];
+    },
+    /* 頭頭是道 */
+    i1066: function () {
+      return [
+        { minDur: 6800, sub: '班會討論怎麼辦義賣——小道站起來：「第一，先調查大家想買什麼；第二，分組準備；第三，定價要親民！」',
+          html: scene(P(360, 302, A('kid', 'happy') +
+              '<path d="M18 -60 q14 -4 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(280, 190, '<circle cx="0" cy="0" r="17" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#5c82ba">1</text>') +
+            P(400, 165, '<circle cx="0" cy="0" r="17" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#548a40">2</text>', '', .2) +
+            P(520, 190, '<circle cx="0" cy="0" r="17" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#c96a5a">3</text>', '', .4)) },
+        { minDur: 6600, sub: '一條一條講得清清楚楚，每點都有道理——同學聽得連連點頭！',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, 1.02) +
+            P(500, 302, A('kid', 'happy'), '', 0, .95) + P(620, 302, A('kid', 'happy'), '', .2, .93) + hearts(460, 182)) },
+        { minDur: 6600, sub: '「頭頭是道」：說話做事條理分明——先想清楚再開口，人人都能頭頭是道！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + notes(490, 185) + hearts(310, 188)) },
+        { minDur: 6400, sub: '頭頭是道：條理分明，每一點都有道理。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) +
+            P(300, 190, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".92"/><text x="0" y="5" text-anchor="middle" font-size="13" fill="#5c82ba">1</text>') +
+            P(400, 170, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".92"/><text x="0" y="5" text-anchor="middle" font-size="13" fill="#548a40">2</text>') +
+            P(500, 190, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".92"/><text x="0" y="5" text-anchor="middle" font-size="13" fill="#c96a5a">3</text>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">頭頭是道</text>') }
+      ];
     }
   };
 
