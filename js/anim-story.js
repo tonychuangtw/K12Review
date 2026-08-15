@@ -10099,6 +10099,118 @@
           html: scene(P(400, 302, GATE2) + P(300, 302, A('kid', 'happy'), '', 0, .88) + P(500, 302, A('kid', 'happy'), '', .2, .88) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">門庭若市</text>') }
       ];
+    },
+    /* 門可羅雀 */
+    i511: function () {
+      var DOOR2 = '<rect x="-24" y="-70" width="48" height="70" rx="4" fill="#8a5a33" stroke="#6d4426" stroke-width="2.6"/><circle cx="12" cy="-34" r="3.4" fill="#e8b84a"/>';
+      var NET = '<path d="M-30 -50 Q0 -66 30 -50 L26 -6 Q0 4 -26 -6 Z" fill="none" stroke="#8b93a3" stroke-width="2"/><g stroke="#8b93a3" stroke-width="1.2"><line x1="-20" y1="-52" x2="-16" y2="-8"/><line x1="0" y1="-58" x2="0" y2="-2"/><line x1="20" y1="-52" x2="16" y2="-8"/><line x1="-28" y1="-36" x2="28" y2="-36"/><line x1="-27" y1="-20" x2="27" y2="-20"/></g>';
+      return [
+        { minDur: 7000, sub: '漢朝翟公當官時賓客滿門；一丟官——門前冷清得可以張網捕麻雀！',
+          html: scene(P(400, 302, DOOR2, '', 0, 1.1) + P(290, 290, NET, '', 0, 1) +
+            P(250, 250, A('bird'), '', 0, .7) + P(540, 250, A('bird'), '', .3, .65, true) + qmark(480, 200)) },
+        { minDur: 6800, sub: '「門可羅雀」：門前冷落、無人上門——和「門庭若市」剛好是一對反義詞！',
+          html: scene(P(400, 302, DOOR2, '', 0, 1.05) + P(300, 260, A('bird'), '', 0, .7) + zzz(500, 220)) },
+        { minDur: 7000, sub: '後來翟公復官，賓客又擠上門——他在門上寫：「一貴一賤，交情乃見」！人情冷暖，看得透徹。',
+          html: scene(P(400, 302, DOOR2, '', 0, 1) +
+            P(260, 302, A('kid', 'happy'), 'st-inL', 0, .9) + P(540, 302, A('kid', 'happy'), 'st-inR', .2, .9, true) +
+            P(400, 190, '<rect x="-50" y="-18" width="100" height="36" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#4a3200">交情乃見</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '門可羅雀：門前冷清，無人造訪。',
+          html: scene(P(400, 302, DOOR2, '', 0, 1.1) + P(300, 288, NET, '', 0, .95) + P(260, 250, A('bird'), '', 0, .68) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">門可羅雀</text>') }
+      ];
+    },
+    /* 絡繹不絕 */
+    i512: function () {
+      return [
+        { minDur: 6800, sub: '燈會的入口：人潮一批接著一批、車輛一輛跟著一輛——從傍晚到深夜沒停過！',
+          html: scene(P(200, 302, A('kid', 'happy'), 'st-inL', 0, .92) + P(310, 302, A('kid', 'happy'), 'st-inL', .15, .9) +
+            P(420, 302, A('kid', 'happy'), 'st-inL', .3, .92) + P(530, 302, A('kid', 'happy'), 'st-inL', .45, .9) +
+            P(650, 240, '<g class="st-tw"><circle cx="0" cy="0" r="10" fill="#ff9eb5"/></g>', '', 0, 1.2) + notes(600, 190), 'night') },
+        { minDur: 6800, sub: '「絡繹」是前後相連、連續不斷——人車像一條不斷的線，就是「絡繹不絕」！',
+          html: scene('<path d="M100 250 q150 -30 300 0 q150 30 300 0" stroke="#ffd97a" stroke-width="4" fill="none" stroke-dasharray="10 9"/>' +
+            P(250, 302, A('kid', 'happy'), 'st-strut', 0, .92) + P(400, 302, A('kid', 'happy'), 'st-strut', .15, .92) + P(550, 302, A('kid', 'happy'), 'st-strut', .3, .92)) },
+        { minDur: 6600, sub: '參觀的人絡繹不絕、道賀的電話絡繹不絕——形容連續不斷的熱鬧景象！',
+          html: scene(P(280, 302, A('kid', 'happy'), 'st-inL', 0, .92) + P(400, 302, A('kid', 'happy'), 'st-inL', .15, .92) + P(520, 302, A('kid', 'happy'), 'st-inL', .3, .92) + hearts(430, 185)) },
+        { minDur: 6400, sub: '絡繹不絕：人車連續不斷。',
+          html: scene(P(240, 302, A('kid', 'happy'), 'st-strut', 0, .9) + P(370, 302, A('kid', 'happy'), 'st-strut', .15, .9) + P(500, 302, A('kid', 'happy'), 'st-strut', .3, .9) + P(630, 302, A('kid', 'happy'), 'st-strut', .45, .88) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">絡繹不絕</text>') }
+      ];
+    },
+    /* 摩肩接踵 */
+    i513: function () {
+      return [
+        { minDur: 7000, sub: '晏子形容齊國都城的熱鬧：「摩肩接踵」——肩膀擦著肩膀、腳尖碰著腳跟，人多到走不動！',
+          html: scene(P(250, 302, A('kid', 'happy'), '', 0, .93) + P(330, 302, A('kid', 'happy'), '', .05, .95) +
+            P(410, 302, A('kid', 'happy'), '', .1, .93) + P(490, 302, A('kid', 'happy'), '', .15, .95) + P(570, 302, A('kid', 'happy'), '', .2, .93) +
+            sweat(400, 192)) },
+        { minDur: 6800, sub: '他還誇張地說：齊國人「揮汗成雨、比肩繼踵」——大家一起揮汗就像下雨！',
+          html: scene(P(280, 302, A('kid', 'happy'), '', 0, .93) + P(400, 302, A('kid', 'happy'), '', .1, .95) + P(520, 302, A('kid', 'happy'), '', .2, .93) +
+            sweat(320, 180) + sweat(440, 175) + sweat(560, 182)) },
+        { minDur: 6600, sub: '「摩肩接踵」：形容人多擁擠——夜市、演唱會、燈會都用得上！',
+          html: scene(P(260, 302, A('kid', 'happy'), '', 0, .92) + P(340, 302, A('kid', 'happy'), '', .05, .94) + P(420, 302, A('kid', 'happy'), '', .1, .92) + P(500, 302, A('kid', 'happy'), '', .15, .94) +
+            notes(560, 190)) },
+        { minDur: 6400, sub: '摩肩接踵：肩碰肩腳跟腳，人多擁擠。',
+          html: scene(P(270, 302, A('kid', 'happy'), '', 0, .92) + P(350, 302, A('kid', 'happy'), '', .05, .94) + P(430, 302, A('kid', 'happy'), '', .1, .92) + P(510, 302, A('kid', 'happy'), '', .15, .94) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">摩肩接踵</text>') }
+      ];
+    },
+    /* 座無虛席 */
+    i514: function () {
+      function seats(full) {
+        var s = '';
+        for (var r = 0; r < 2; r++) for (var c = 0; c < 6; c++) {
+          var x = 200 + c * 80, y = 260 + r * 42;
+          s += P(x, y, '<rect x="-16" y="-12" width="32" height="20" rx="4" fill="#c96a5a" stroke="#a84a3f" stroke-width="2"/>' +
+            (full ? '<circle cx="0" cy="-22" r="10" fill="#ffe3c1" stroke="#eec39a" stroke-width="1.8"/>' : ''), '', (r * 6 + c) * .05, .95);
+        }
+        return s;
+      }
+      return [
+        { minDur: 6800, sub: '學校音樂劇公演之夜——禮堂的每一個座位都坐滿了人，連走道都站著觀眾！',
+          html: scene(seats(true) + notes(400, 160), 'night') },
+        { minDur: 6800, sub: '「座無虛席」：座位全滿、沒有一個空位——表示表演大受歡迎！',
+          html: scene(seats(true) + hearts(400, 165) + bang(620, 180), 'night') },
+        { minDur: 6800, sub: '謝幕時掌聲如雷——為了不辜負座無虛席的支持，演員們鞠了三次躬！',
+          html: scene(P(400, 200, A('kid', 'happy'), '', 0, .9) + seats(true) + hearts(300, 150) + hearts(500, 145), 'night') },
+        { minDur: 6400, sub: '座無虛席：座位全滿，沒有空位。',
+          html: scene(seats(true) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">座無虛席</text>', 'night') }
+      ];
+    },
+    /* 高朋滿座 */
+    i515: function () {
+      return [
+        { minDur: 7000, sub: '王勃在〈滕王閣序〉寫下「勝友如雲，高朋滿座」——宴會上賓客雲集，滿堂都是嘉賓！',
+          html: scene(P(400, 302, '<ellipse cx="0" cy="-10" rx="60" ry="18" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(250, 302, A('kid', 'happy'), '', 0, .93) + P(340, 296, A('kid', 'happy'), '', .1, .88) +
+            P(460, 296, A('kid', 'happy'), '', .15, .88) + P(550, 302, A('kid', 'happy'), '', .2, .93) + hearts(400, 180)) },
+        { minDur: 6800, sub: '「高朋」是尊貴的朋友——滿座都是好朋友、貴賓，主人臉上有光！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) +
+            P(240, 302, A('kid', 'happy'), '', 0, .9) + P(560, 302, A('kid', 'happy'), '', .2, .9) + notes(470, 180) + hearts(320, 185)) },
+        { minDur: 6600, sub: '生日會上高朋滿座、店慶時高朋滿座——人緣好、人氣旺的證明！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            P(430, 302, '<g class="st-cheer" style="animation-delay:.15s">' + A('kid', 'happy') + '</g>', '', 0, .93) +
+            P(560, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .95) + hearts(430, 170)) },
+        { minDur: 6400, sub: '高朋滿座：賓客眾多，滿堂都是。',
+          html: scene(P(260, 302, A('kid', 'happy'), '', 0, .92) + P(400, 302, A('kid', 'happy'), '', .1, .95) + P(540, 302, A('kid', 'happy'), '', .2, .92) + hearts(400, 175) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">高朋滿座</text>') }
+      ];
+    },
+    /* 賓至如歸 */
+    i516: function () {
+      return [
+        { minDur: 6800, sub: '到民宿度假：老闆準備了熱茶、拖鞋，還記得我們愛吃的水果——舒服得像回到自己家！',
+          html: scene(P(430, 302, '<path d="M-60 -60 L0 -96 L60 -60 Z" fill="#8a5a33"/><rect x="-50" y="-60" width="100" height="60" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><rect x="-14" y="-40" width="28" height="40" rx="3" fill="#8a5a33"/>') +
+            P(250, 302, A('kid', 'happy')) + hearts(340, 200)) },
+        { minDur: 7000, sub: '這個詞出自《左傳》：鄭國把接待外賓的館舍照顧得無微不至，讓「賓至如歸」——賓客像回家一樣自在！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -46, '<path d="M-10 -6 q0 8 10 8 q10 0 10 -8 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2"/><g class="st-sweat"><path d="M-2 -14 q2 -5 0 -9" stroke="#d5e4ee" stroke-width="2" fill="none" stroke-linecap="round"/></g>', '', 0, 1)) +
+            P(500, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(410, 188)) },
+        { minDur: 6800, sub: '招待客人也學這一招：倒杯水、留個好位子、記住對方的喜好——賓至如歸的溫暖，人人喜歡！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(405, 182) + notes(560, 195)) },
+        { minDur: 6400, sub: '賓至如歸：客人來到像回到家一樣舒適。',
+          html: scene(P(400, 302, '<path d="M-50 -50 L0 -80 L50 -50 Z" fill="#8a5a33"/><rect x="-42" y="-50" width="84" height="50" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-12" y="-34" width="24" height="34" rx="3" fill="#8a5a33"/>', '', 0, 1.1) + hearts(500, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">賓至如歸</text>') }
+      ];
     }
   };
 
