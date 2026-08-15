@@ -3934,6 +3934,125 @@
           html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.1) + bang(490, 180) + sweat(330, 190) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大吃一驚</text>') }
       ];
+    },
+    /* 依依不捨 */
+    i206: function () {
+      var GATE = '<g stroke="#a8734a" stroke-width="8"><line x1="-70" y1="0" x2="-70" y2="-110"/><line x1="70" y1="0" x2="70" y2="-110"/></g>' +
+        '<rect x="-80" y="-130" width="160" height="24" rx="6" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>' +
+        '<text x="0" y="-112" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">快樂國小</text>';
+      return [
+        { minDur: 6800, sub: '好朋友要搬家轉學了。放學後，大家聚在校門口為她送行。',
+          html: scene(P(430, 302, GATE) +
+            P(280, 302, A('kid', 'sad'), '', 0, .95) + P(400, 302, A('kid', 'sad'), '', .2, .9) +
+            P(560, 302, A('kid', 'sad'), '', 0, 1) + sweat(600, 200)) },
+        { minDur: 6800, sub: '說了再見又回頭、走了幾步又揮手——誰都捨不得放開手。',
+          html: scene(P(600, 302, A('kid', 'sad'), 'st-inR') +
+            P(300, 302, A('kid', 'sad')) + P(420, 302, A('kid', 'sad'), '', .2, .92) +
+            hearts(500, 190) + sweat(350, 200)) },
+        { minDur: 6600, sub: '「依依不捨」就是非常留戀、捨不得分離——大家約好：放假一定再見面！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(520, 302, A('kid', 'happy'), '', 0, .95, true) +
+            hearts(410, 170)) },
+        { minDur: 6400, sub: '依依不捨：非常留戀，捨不得分離。',
+          html: scene(P(300, 302, A('kid', 'sad')) + P(540, 302, A('kid', 'sad'), '', 0, .95, true) + hearts(420, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">依依不捨</text>') }
+      ];
+    },
+    /* 興高采烈 */
+    i207: function () {
+      return [
+        { minDur: 6600, sub: '明天要去動物園遠足！小朋友們又蹦又跳，開心得不得了。',
+          html: scene(P(260, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(420, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .92) +
+            P(580, 302, '<g class="st-cheer" style="animation-delay:.4s">' + A('kid', 'happy') + '</g>', '', 0, .88) +
+            hearts(340, 170) + hearts(520, 165)) },
+        { minDur: 6600, sub: '一路上唱歌、拍手，興致高昂——連太陽公公都好像跟著笑了！',
+          html: scene(P(280, 302, A('kid', 'happy'), 'st-strut') + P(430, 302, A('kid', 'happy'), 'st-strut', .2, .92) +
+            notes(360, 160) + notes(500, 150)) },
+        { minDur: 6600, sub: '看到小猴子盪鞦韆、翻跟斗，大家興高采烈地歡呼拍手！',
+          html: scene(P(560, 300, A('monkey'), '', 0, 1.05) +
+            P(260, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(400, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            hearts(480, 180) + notes(330, 165)) },
+        { minDur: 6400, sub: '興高采烈：興致高昂，情緒熱烈。',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(460, 180) + notes(280, 170) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">興高采烈</text>') }
+      ];
+    },
+    /* 手忙腳亂 */
+    i208: function () {
+      var SOCK = '<path d="M-6 -14 L-6 2 Q-6 10 2 10 L10 10 Q16 10 14 2 L10 -2 L4 -2 L4 -14 Z" fill="#ff9eb5" stroke="#e07ba3" stroke-width="2"/>';
+      var BAG = '<rect x="-16" y="-22" width="32" height="26" rx="6" fill="#5c82ba" stroke="#46689a" stroke-width="2.4"/><path d="M-10 -22 q10 -10 20 0" stroke="#46689a" stroke-width="3" fill="none"/>';
+      var TOOTHBRUSH = '<line x1="0" y1="0" x2="18" y2="-18" stroke="#a5c8ff" stroke-width="4" stroke-linecap="round"/><rect x="14" y="-26" width="10" height="9" rx="2" fill="#fff" stroke="#8fa3bf" stroke-width="1.6" transform="rotate(45 19 -21)"/>';
+      var CLOCK = '<circle cx="0" cy="0" r="18" fill="#fff" stroke="#8b93a3" stroke-width="3"/><line x1="0" y1="0" x2="0" y2="-11" stroke="#e85a4f" stroke-width="2.6"/><line x1="0" y1="0" x2="8" y2="-4" stroke="#e85a4f" stroke-width="2.6"/>';
+      return [
+        { minDur: 6800, sub: '糟糕，睡過頭了！小奇一邊刷牙、一邊找襪子、一邊抓書包，整個人團團轉——',
+          html: scene(P(360, 302, A('kid', 'wow') + P(24, -44, TOOTHBRUSH)) +
+            P(220, 290, SOCK, 'st-zfloat') + P(520, 280, BAG, 'st-zfloat', .3) +
+            P(620, 190, CLOCK, '', 0, 1.1) + sweat(300, 190) + sweat(430, 195)) },
+        { minDur: 6800, sub: '結果牙膏擠到衣服上、襪子一長一短，最重要的課本竟然忘了帶！',
+          html: scene(P(360, 302, A('kid', 'wow') +
+              '<path d="M-8 -26 q6 4 12 0" stroke="#fff" stroke-width="4" stroke-linecap="round"/>') +
+            bang(450, 190) + sweat(300, 195) + qmark(520, 185)) },
+        { minDur: 6800, sub: '手忙腳亂，只會越忙越亂——前一晚先把東西準備好，早上就從容多啦！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -46, BAG, '', 0, .95)) +
+            P(560, 190, CLOCK, '', 0, 1) + hearts(440, 185)) },
+        { minDur: 6400, sub: '手忙腳亂：做事慌張忙亂，沒有條理。',
+          html: scene(P(380, 302, A('kid', 'wow'), '', 0, 1.05) + P(250, 280, SOCK, 'st-zfloat') + P(540, 275, BAG, 'st-zfloat', .3) + sweat(320, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">手忙腳亂</text>') }
+      ];
+    },
+    /* 五顏六色 */
+    i209: function () {
+      function flower(x, y, color, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<line x1="0" y1="0" x2="0" y2="-16" stroke="#5f8a46" stroke-width="3"/>' +
+          '<circle cx="0" cy="-22" r="5" fill="' + color + '"/><circle cx="-6" cy="-18" r="5" fill="' + color + '"/><circle cx="6" cy="-18" r="5" fill="' + color + '"/><circle cx="0" cy="-14" r="5" fill="' + color + '"/><circle cx="0" cy="-18" r="3.4" fill="#ffe066"/></g>');
+      }
+      var RAINBOW = '<g fill="none" stroke-width="7"><path d="M180 220 A220 220 0 0 1 620 220" stroke="#e85a4f"/><path d="M192 220 A208 208 0 0 1 608 220" stroke="#ffb14d"/><path d="M204 220 A196 196 0 0 1 596 220" stroke="#ffe066"/><path d="M216 220 A184 184 0 0 1 584 220" stroke="#a5d47c"/><path d="M228 220 A172 172 0 0 1 572 220" stroke="#a5c8ff"/><path d="M240 220 A160 160 0 0 1 560 220" stroke="#c9a8e0"/></g>';
+      return [
+        { minDur: 6600, sub: '雨過天晴，花園裡的花全開了：紅的、黃的、紫的、粉的，一朵比一朵鮮豔——',
+          html: scene(flower(200, 318, '#ff8a80', 0) + flower(290, 322, '#ffd97a', .3) + flower(380, 318, '#c9a8e0', .5) +
+            flower(470, 322, '#ff9eb5', .2) + flower(560, 318, '#a5c8ff', .6) +
+            P(660, 302, A('kid', 'wow'), '', 0, .95) + hearts(600, 200)) },
+        { minDur: 6600, sub: '天邊還掛起一道彩虹，七種顏色排排站，美得像一幅畫！',
+          html: scene(RAINBOW + P(300, 302, A('kid', 'happy')) + hearts(430, 250)) },
+        { minDur: 6600, sub: '「五顏六色」就是形容這樣色彩繁多、繽紛美麗的景象！',
+          html: scene(flower(230, 320, '#ff8a80', 0) + flower(330, 318, '#a5d47c', .3) + flower(430, 322, '#ffd97a', .5) +
+            P(560, 302, A('kid', 'happy')) + P(660, 200, A('butterfly'), '', 0, .95) + hearts(600, 240)) },
+        { minDur: 6400, sub: '五顏六色：色彩繁多、繽紛美麗。',
+          html: scene(RAINBOW + flower(260, 320, '#ff9eb5', 0) + flower(540, 320, '#a5c8ff', .4) +
+            '<text x="400" y="290" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">五顏六色</text>') }
+      ];
+    },
+    /* 四面八方 */
+    i210: function () {
+      var DRUM = '<ellipse cx="0" cy="-30" rx="22" ry="8" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.4"/>' +
+        '<path d="M-22 -30 L-22 -6 Q0 4 22 -6 L22 -30" fill="#c96a5a" stroke="#a84a3f" stroke-width="2.4"/>' +
+        '<line x1="-10" y1="-44" x2="-2" y2="-34" stroke="#a8734a" stroke-width="3.4" stroke-linecap="round"/><line x1="12" y1="-46" x2="4" y2="-34" stroke="#a8734a" stroke-width="3.4" stroke-linecap="round"/>';
+      var ARROWS8 = '<g stroke="#4a3200" stroke-width="4" stroke-linecap="round">' +
+        '<line x1="0" y1="-28" x2="0" y2="-52"/><line x1="0" y1="28" x2="0" y2="52"/><line x1="-28" y1="0" x2="-52" y2="0"/><line x1="28" y1="0" x2="52" y2="0"/>' +
+        '<line x1="-20" y1="-20" x2="-38" y2="-38"/><line x1="20" y1="-20" x2="38" y2="-38"/><line x1="-20" y1="20" x2="-38" y2="38"/><line x1="20" y1="20" x2="38" y2="38"/></g>' +
+        '<path d="M0 -60 l-6 10 h12 z M0 60 l-6 -10 h12 z M-60 0 l10 -6 v12 z M60 0 l-10 -6 v12 z" fill="#4a3200"/>' +
+        '<circle cx="0" cy="0" r="12" fill="#e0a458" stroke="#c08838" stroke-width="3"/>';
+      return [
+        { minDur: 6800, sub: '廟會開始了！鑼鼓「咚咚鏘」一響，人們從東邊、西邊、南邊、北邊全湧了過來——',
+          html: scene(P(400, 302, DRUM, '', 0, 1.2) + notes(400, 180) +
+            P(150, 302, A('kid', 'happy'), 'st-inL', 0, .9) + P(650, 302, A('kid', 'happy'), 'st-inR', .2, .9, true) +
+            P(280, 302, A('kid', 'happy'), 'st-inL', .4, .85)) },
+        { minDur: 6600, sub: '廣場上很快擠滿了人，四面八方都是笑臉、都是歡呼聲！',
+          html: scene(P(400, 302, DRUM, '', 0, 1) +
+            P(220, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            P(320, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .85) +
+            P(500, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .88) +
+            P(610, 302, '<g class="st-cheer" style="animation-delay:.5s">' + A('kid', 'happy') + '</g>', '', 0, .82) +
+            hearts(400, 165) + notes(540, 175)) },
+        { minDur: 6600, sub: '東、西、南、北，加上四個斜角——「四面八方」就是每一個方向、每一個地方！',
+          html: scene(P(400, 200, ARROWS8, '', 0, 1.1) +
+            P(200, 302, A('kid', 'happy'), '', 0, .9)) },
+        { minDur: 6400, sub: '四面八方：各個方向、各個地方。',
+          html: scene(P(400, 210, ARROWS8, '', 0, 1.2) +
+            '<text x="400" y="315" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">四面八方</text>') }
+      ];
     }
   };
 
