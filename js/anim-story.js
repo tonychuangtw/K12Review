@@ -1865,6 +1865,150 @@
           html: scene(peach(180, 302, 1) + P(600, 302, HOUSE3) + P(400, 302, A('kid', 'happy'), '', 0, .9) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">世外桃源</text>') }
       ];
+    },
+    /* 圖窮匕見 */
+    i371: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var DAGGER2 = '<line x1="0" y1="0" x2="16" y2="-24" stroke="#c4cede" stroke-width="4.6" stroke-linecap="round"/>' +
+        '<line x1="3" y1="-8" x2="11" y2="-2" stroke="#c98f2a" stroke-width="3.4" stroke-linecap="round"/>';
+      var SCROLLROLLED = '<rect x="-30" y="-10" width="60" height="20" rx="9" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.4"/>' +
+        '<circle cx="-30" cy="0" r="10" fill="#d5c9a8" stroke="#c9bfa8" stroke-width="2"/><circle cx="30" cy="0" r="10" fill="#d5c9a8" stroke="#c9bfa8" stroke-width="2"/>';
+      function scrollOpen(withDagger) {
+        var s = '<rect x="-90" y="-30" width="180" height="60" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/>' +
+          '<circle cx="-90" cy="0" r="11" fill="#d5c9a8" stroke="#c9bfa8" stroke-width="2"/><circle cx="90" cy="0" r="11" fill="#d5c9a8" stroke="#c9bfa8" stroke-width="2"/>' +
+          '<path d="M-70 8 q20 -26 44 -6 q22 18 42 -4 q14 -14 30 -2" stroke="#8fa3bf" stroke-width="3" fill="none"/>';
+        if (withDagger) s += P(58, -4, DAGGER2, '', 0, 1.2);
+        return s;
+      }
+      var PILLAR = '<rect x="-14" y="-150" width="28" height="150" rx="6" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>';
+      return [
+        { minDur: 6800, sub: '燕太子丹派荊軻去刺殺秦王。荊軻捧著燕國的地圖上殿，假裝要獻上土地。',
+          html: scene(P(280, 302, A('kid', 'happy') + P(36, -60, SCROLLROLLED, '', 0, .8)) +
+            P(600, 302, A('kid', 'happy') + CROWN, '', 0, 1, true)) },
+        { minDur: 7000, sub: '秦王在殿上緩緩展開地圖，一卷、一卷……攤到盡頭——竟露出一把匕首！',
+          html: scene(P(430, 240, scrollOpen(true)) + bang(540, 190) +
+            P(620, 302, A('kid', 'wow') + CROWN, '', 0, 1, true) + sweat(660, 200) +
+            P(240, 302, A('kid', 'angry'))) },
+        { minDur: 6800, sub: '荊軻一把抓起匕首刺向秦王！秦王嚇得繞著柱子逃命，驚險萬分。',
+          html: scene(P(430, 302, PILLAR) +
+            P(300, 302, A('kid', 'angry') + P(28, -50, DAGGER2), 'st-dashL') +
+            P(560, 302, '<g class="st-fleeR">' + A('kid', 'wow') + CROWN + '</g>') + sweat(600, 190) + bang(430, 150)) },
+        { minDur: 6600, sub: '刺殺終究沒有成功，荊軻被侍衛所殺。但「圖窮匕見」這個成語流傳了下來。',
+          html: scene(P(340, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>') +
+            P(560, 302, A('kid', 'angry'), '', 0, .9) + P(670, 302, A('kid', 'angry'), '', .2, .85), 'night') },
+        { minDur: 6200, sub: '圖窮匕見：事情發展到最後，真相或本意顯露出來。',
+          html: scene(P(400, 250, scrollOpen(true), '', 0, 1.15) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">圖窮匕見</text>') }
+      ];
+    },
+    /* 圍魏救趙 */
+    i922: function () {
+      var WALL2 = '<rect x="-80" y="-70" width="160" height="70" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/>' +
+        '<path d="M-80 -70 h20 v-14 h20 v14 h20 v-14 h20 v14 h20 v-14 h20 v14 h20 v-14 h20 v14 h20" fill="none" stroke="#8a7a66" stroke-width="3"/>' +
+        '<rect x="-18" y="-44" width="36" height="44" rx="4" fill="#6d6357"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      function troop(x, cls, dly, sc, flip) { return P(x, 302, A('kid', 'angry') + P(26, -50, SPEAR3), cls, dly, sc || .85, flip); }
+      return [
+        { minDur: 6800, sub: '魏國大軍團團圍住趙國都城邯鄲，趙國急忙派人向齊國求救。',
+          html: scene(P(560, 302, WALL2) +
+            troop(400, '', 0, .8) + troop(700, '', .2, .75, true) +
+            P(160, 302, A('kid', 'sad'), 'st-dashL', 0, .9) + sweat(200, 200)) },
+        { minDur: 7400, sub: '齊將田忌想直奔邯鄲硬拚，軍師孫臏搖頭：「魏國的精兵全在趙國，老巢大梁一定空虛——我們直接攻打大梁！」',
+          html: scene(P(280, 302, A('kid', 'angry') + P(26, -50, SPEAR3)) +
+            P(520, 302, A('kid', 'happy'), '', 0, .95, true) + bang(430, 170) + qmark(240, 180)) },
+        { minDur: 6800, sub: '齊軍直撲大梁，魏軍大驚失色，只好丟下邯鄲，日夜兼程趕回去救援。',
+          html: scene(troop(220, 'st-strut', 0, .9) + troop(340, 'st-strut', .2, .85) +
+            P(560, 302, '<g class="st-fleeR">' + A('kid', 'wow') + P(26, -50, SPEAR3) + '</g>', 'st-dashL', 0, .85) +
+            P(680, 302, '<g class="st-fleeR" style="animation-delay:.2s">' + A('kid', 'wow') + P(26, -50, SPEAR3) + '</g>', 'st-dashL', .2, .8) +
+            sweat(600, 200)) },
+        { minDur: 7000, sub: '孫臏早在半路設好埋伏，把疲累不堪的魏軍打得大敗——邯鄲之圍，不攻自解！',
+          html: scene(P(120, 302, TREE) + bang(400, 190) +
+            troop(300, '', 0, .9) +
+            P(500, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>', '', 0, .85) +
+            P(620, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) + hearts(680, 190)) },
+        { minDur: 6400, sub: '圍魏救趙：不正面迎擊，改攻敵方要害來解圍。',
+          html: scene(P(560, 302, WALL2, '', 0, .9) + P(260, 302, A('kid', 'happy') + P(26, -50, SPEAR3)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">圍魏救趙</text>') }
+      ];
+    },
+    /* 對症下藥 */
+    i636: function () {
+      var MEDBAG1 = '<path d="M-14 0 Q-18 -22 0 -26 Q18 -22 14 0 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><line x1="-6" y1="-26" x2="6" y2="-26" stroke="#a8734a" stroke-width="3"/>';
+      var MEDBAG2 = '<rect x="-14" y="-24" width="28" height="24" rx="5" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2.4"/><line x1="-14" y1="-12" x2="14" y2="-12" stroke="#6d87ab" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '名醫華佗遇到兩位病人，都是頭痛發燒，症狀看起來一模一樣。',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(520, 302, A('kid', 'sad'), '', 0, .9) + sweat(550, 200) +
+            P(660, 302, A('kid', 'sad'), '', .3, .88) + sweat(690, 205)) },
+        { minDur: 6800, sub: '華佗細細把脈之後，開出的藥方竟然完全不同！兩人都很疑惑。',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(520, 302, A('kid', 'wow') + P(-34, -56, MEDBAG1, '', 0, .9), '', 0, .9) + qmark(560, 185) +
+            P(670, 302, A('kid', 'wow') + P(-34, -56, MEDBAG2, '', 0, .9), '', .3, .88) + qmark(710, 195)) },
+        { minDur: 7200, sub: '華佗解釋：「你們的病因不同——一個病在腸胃、一個病在體表。病根不一樣，藥當然也不一樣！」',
+          html: scene(P(300, 302, A('kid', 'happy') +
+              '<path d="M18 -60 q14 -4 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>') +
+            P(520, 302, A('kid', 'happy'), '', 0, .9) + P(670, 302, A('kid', 'happy'), '', .3, .88) +
+            hearts(430, 175)) },
+        { minDur: 6600, sub: '兩人照著各自的藥方吃藥，第二天全都好了！找對病因、下對藥，才治得好病。',
+          html: scene(P(520, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            P(670, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .88) +
+            P(300, 302, A('kid', 'happy')) + hearts(590, 170)) },
+        { minDur: 6200, sub: '對症下藥：針對問題的根源採取對策。',
+          html: scene(P(320, 280, MEDBAG1, '', 0, 1.4) + P(500, 282, MEDBAG2, '', 0, 1.4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">對症下藥</text>') }
+      ];
+    },
+    /* 洛陽紙貴 */
+    i320: function () {
+      var BRUSH = '<line x1="0" y1="0" x2="14" y2="-34" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>' +
+        '<path d="M0 0 q-3 6 -1 11 q4 -2 5 -8 z" fill="#3a2e26"/>';
+      function paper(x, y, rot) {
+        return P(x, y, '<rect x="-14" y="-20" width="28" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(' + rot + ')"/>' +
+          '<path d="M-8 -12 h16 M-8 -4 h16 M-8 4 h16" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(' + rot + ')"/>');
+      }
+      var COIN = '<circle cx="0" cy="0" r="10" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/><rect x="-3.4" y="-3.4" width="6.8" height="6.8" fill="none" stroke="#c98f2a" stroke-width="2"/>';
+      return [
+        { minDur: 6600, sub: '晉朝的左思其貌不揚，卻立下大志：要寫出一篇傳世的大文章〈三都賦〉。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(24, -44, BRUSH)) + paper(450, 290, 6) + hearts(280, 180)) },
+        { minDur: 6800, sub: '他構思了整整十年，家裡牆上、門上到處掛著紙筆，想到一句，就立刻記下來。',
+          html: scene(paper(150, 200, -8) + paper(250, 170, 5) + paper(560, 190, -5) + paper(660, 220, 8) +
+            P(400, 302, A('kid', 'happy') + P(24, -44, BRUSH)) + bang(480, 200)) },
+        { minDur: 6800, sub: '〈三都賦〉一完成就轟動天下，大家爭先恐後地借來抄寫傳閱——',
+          html: scene(P(240, 302, A('kid', 'happy') + P(24, -44, BRUSH), '', 0, .9) +
+            P(420, 302, A('kid', 'happy') + P(24, -44, BRUSH), '', .2, .88) +
+            P(600, 302, A('kid', 'happy') + P(24, -44, BRUSH), '', .4, .86) +
+            paper(330, 280, -6) + paper(510, 282, 7) + hearts(420, 165)) },
+        { minDur: 7000, sub: '抄的人實在太多，洛陽城的紙都被買光了，紙價一路大漲！這就是「洛陽紙貴」。',
+          html: scene(paper(300, 290, -5) + paper(340, 284, 6) + paper(380, 292, -3) +
+            P(540, 250, COIN, '', 0, 1.2) + P(580, 220, COIN, '', .2, 1) + P(615, 190, COIN, '', .4, .85) +
+            '<path d="M520 270 L640 170" stroke="#e0a458" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 8"/>' +
+            bang(660, 150)) },
+        { minDur: 6200, sub: '洛陽紙貴：著作風行一時，流傳甚廣。',
+          html: scene(paper(280, 290, -6) + paper(340, 282, 5) + P(540, 270, COIN, '', 0, 1.4) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">洛陽紙貴</text>') }
+      ];
+    },
+    /* 狡兔三窟 */
+    i840: function () {
+      function hole(x, y, sc) {
+        return P(x, y, '<ellipse cx="0" cy="0" rx="26" ry="12" fill="#4a4238"/><path d="M-30 2 a30 14 0 0 1 60 0" fill="none" stroke="#8a7a66" stroke-width="4"/>', '', 0, sc || 1);
+      }
+      return [
+        { minDur: 6600, sub: '聰明的兔子不會只挖一個洞——牠在山坡上，準備了三個洞穴！',
+          html: scene(hole(220, 316) + hole(430, 320, .9) + hole(640, 314, .95) +
+            P(330, 300, A('rabbit')) + hearts(390, 200)) },
+        { minDur: 6800, sub: '獵狗追來了！兔子鑽進第一個洞；洞口被堵住，牠立刻從第二個洞溜了出去！',
+          html: scene(hole(220, 316) + hole(430, 320, .9) + hole(640, 314, .95) +
+            P(150, 300, A('dog'), 'st-dashL') + bang(220, 260) +
+            P(560, 300, '<g class="st-fleeR">' + A('rabbit') + '</g>') + sweat(500, 240)) },
+        { minDur: 7200, sub: '戰國時，門客馮諼也用同樣的道理，替孟嘗君安排了三條後路，果然在他失勢時保住了平安。',
+          html: scene(P(280, 302, A('kid', 'happy')) +
+            P(520, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(400, 175) +
+            hole(660, 318, .8)) },
+        { minDur: 6200, sub: '狡兔三窟：預留多條退路，以保安全。',
+          html: scene(hole(200, 316) + hole(400, 320, .9) + hole(600, 314, .95) + P(300, 300, A('rabbit')) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">狡兔三窟</text>') }
+      ];
     }
   };
 
