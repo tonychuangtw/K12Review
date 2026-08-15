@@ -184,6 +184,17 @@
         '<rect x="-18" y="-16" width="8" height="8" rx="4" fill="#7cab6e"/><rect x="10" y="-16" width="8" height="8" rx="4" fill="#7cab6e"/>' +
         eye(-35, -28, 3) + blush(-39, -22) + '</g>';
     },
+    frog: function () {
+      return '<g class="st-hop">' +
+        '<ellipse cx="0" cy="-20" rx="20" ry="16" fill="#8fc866" stroke="#6da844" stroke-width="2"/>' +
+        '<ellipse cx="0" cy="-14" rx="12" ry="9" fill="#d8eec2"/>' +
+        '<circle cx="-10" cy="-38" r="7" fill="#8fc866" stroke="#6da844" stroke-width="2"/>' +
+        '<circle cx="10" cy="-38" r="7" fill="#8fc866" stroke="#6da844" stroke-width="2"/>' +
+        eye(-10, -38, 3.2) + eye(10, -38, 3.2) +
+        '<path d="M-8 -27 Q0 -21 8 -27" stroke="#4a7a30" stroke-width="2.4" fill="none" stroke-linecap="round"/>' +
+        blush(-15, -27) + blush(15, -27) +
+        '<path d="M-14 -6 q-8 4 -13 1 M14 -6 q8 4 13 1" stroke="#6da844" stroke-width="5" fill="none" stroke-linecap="round"/></g>';
+    },
     fox: function () {
       return '<g class="st-bob">' +
         '<ellipse cx="2" cy="-22" rx="24" ry="18" fill="#f0925e" stroke="#d1713c" stroke-width="2"/>' +
@@ -210,7 +221,7 @@
     [/兔/, 'rabbit'], [/[馬駒驥騮騏]/, 'horse'], [/牛/, 'ox'], [/[虎豹獅]/, 'tiger'],
     [/[魚鯉鮒鱉鰲]/, 'fish'], [/[鳥雀燕鴉鵲鶯雁鵬鳩雛鶴鷺鳳凰鴻]/, 'bird'], [/雞/, 'chicken'],
     [/[狗犬]/, 'dog'], [/龍/, 'dragon'], [/蛇/, 'snake'], [/羊/, 'goat'], [/[猴猿]/, 'monkey'],
-    [/鼠/, 'mouse'], [/龜/, 'turtle'], [/[狐狼豺貓]/, 'fox'], [/[蝶蜂蟬蟻蟲螳螂]/, 'butterfly']
+    [/鼠/, 'mouse'], [/龜/, 'turtle'], [/[狐狼豺貓]/, 'fox'], [/[蛙蟾]/, 'frog'], [/[蝶蜂蟬蟻蟲螳螂]/, 'butterfly']
   ];
 
   function pick(term) {

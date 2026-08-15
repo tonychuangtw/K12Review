@@ -277,6 +277,175 @@
           html: scene(P(300, 302, A('fox')) + P(500, 302, A('tiger')) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">狐假虎威</text>') }
       ];
+    },
+    /* 畫龍點睛 */
+    i008: function () {
+      function wallDragon(hasEye) {
+        var s = '<path d="M-26 6 q14 -18 34 -8 q14 8 6 18 q-7 8 -20 4" fill="none" stroke="#e8b84a" stroke-width="7" stroke-linecap="round"/>' +
+          '<circle cx="-28" cy="3" r="8" fill="#e8b84a"/>' +
+          '<path d="M-33 -4 l-2 -7 l6 4 z M-26 -5 l1 -7 l4 5 z" fill="#c98f2a"/>';
+        if (hasEye) s += '<circle cx="-30" cy="2" r="2.2" fill="#3a2e26"/>';
+        return s;
+      }
+      var WALL = '<rect x="-180" y="-170" width="360" height="170" rx="6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="4"/>' +
+        '<line x1="-180" y1="-86" x2="180" y2="-86" stroke="#ddd2b8" stroke-width="2"/>' +
+        '<line x1="0" y1="-170" x2="0" y2="-86" stroke="#ddd2b8" stroke-width="2"/>' +
+        '<line x1="-90" y1="-86" x2="-90" y2="0" stroke="#ddd2b8" stroke-width="2"/>' +
+        '<line x1="90" y1="-86" x2="90" y2="0" stroke="#ddd2b8" stroke-width="2"/>';
+      var BRUSH = '<line x1="0" y1="0" x2="14" y2="-34" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>' +
+        '<path d="M0 0 q-3 6 -1 11 q4 -2 5 -8 z" fill="#3a2e26"/>';
+      function fourDragons(eyeOn) {
+        return P(-90, -110, wallDragon(eyeOn === 0), '', 0, .9) + P(90, -110, wallDragon(eyeOn === 1), '', 0, .9) +
+               P(-90, -30, wallDragon(eyeOn === 2), '', 0, .9) + P(90, -30, wallDragon(eyeOn === 3), '', 0, .9);
+      }
+      return [
+        { minDur: 6400, sub: '畫家張僧繇在牆上畫了四條龍，活靈活現，卻一隻眼睛也沒畫。',
+          html: scene(P(400, 300, WALL + fourDragons(-1)) +
+            P(150, 302, A('kid', 'happy') + P(20, -40, BRUSH), 'st-inL')) },
+        { minDur: 6800, sub: '大家好奇地問：「為什麼不畫眼睛呢？」他說：「點上眼睛，龍就會飛走！」大家都不相信。',
+          html: scene(P(400, 300, WALL + fourDragons(-1)) +
+            P(150, 302, A('kid', 'happy')) + P(660, 302, A('kid', 'wow'), '', 0, .95, true) +
+            qmark(690, 190) + qmark(120, 200)) },
+        { minDur: 5800, sub: '張僧繇提起筆，輕輕為其中一條龍，點上了眼睛……',
+          html: scene(P(400, 300, WALL + fourDragons(0)) +
+            P(260, 302, A('kid', 'happy') + P(24, -44, BRUSH)) +
+            P(310, 190, '<g class="st-bang"><path d="M0-8 L2-2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2-2 Z" fill="#fff27a"/></g>')) },
+        { minDur: 6800, sub: '轟隆！雷聲大作，那條龍破牆而出，騰空飛上天去了！',
+          html: scene(P(400, 300, WALL + P(90, -110, wallDragon(false), '', 0, .9) +
+              P(-90, -30, wallDragon(false), '', 0, .9) + P(90, -30, wallDragon(false), '', 0, .9) +
+              '<path d="M-120 -140 l18 20 M-70 -152 l-12 22 M-60 -96 l-20 10" stroke="#c9bfa8" stroke-width="4" stroke-linecap="round"/>') +
+            P(220, 130, A('dragon'), 'st-fleeR', 0, 1.15) + bang(310, 100) +
+            P(660, 302, A('kid', 'wow'), '', 0, .95, true) + sweat(690, 214)) },
+        { minDur: 6200, sub: '畫龍點睛：比喻最後加上關鍵一筆，使整體更加生動完美。',
+          html: scene(P(280, 190, A('dragon')) + P(520, 302, A('kid', 'happy')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">畫龍點睛</text>') }
+      ];
+    },
+    /* 掩耳盜鈴 */
+    i033: function () {
+      var FRAME = '<path d="M-64 0 L-64 -96 L64 -96 L64 0" stroke="#a8734a" stroke-width="9" fill="none" stroke-linecap="round"/>';
+      var BELL = '<line x1="0" y1="-96" x2="0" y2="-86" stroke="#8a5a33" stroke-width="4"/>' +
+        '<path d="M-26 -46 Q-26 -84 0 -88 Q26 -84 26 -46 Z" fill="#e8b84a" stroke="#c98f2a" stroke-width="3"/>' +
+        '<rect x="-30" y="-46" width="60" height="9" rx="4.5" fill="#c98f2a"/>' +
+        '<circle cx="0" cy="-32" r="6" fill="#c98f2a"/>';
+      var EARS_COVERED = '<circle cx="-24" cy="-54" r="8.5" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>' +
+        '<circle cx="24" cy="-54" r="8.5" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>';
+      return [
+        { minDur: 6200, sub: '有個人路過大戶人家，看見門前掛著一口大鐘，心想：把它偷回家多好！',
+          html: scene(P(500, 302, FRAME + BELL) +
+            P(180, 302, A('kid', 'happy'), 'st-inL') + hearts(240, 190)) },
+        { minDur: 6600, sub: '大鐘又大又重，怎麼搬也搬不動。他想到一個辦法：把鐘敲碎，再一塊塊搬走！',
+          html: scene(P(500, 302, FRAME + BELL) +
+            P(390, 302, A('kid', 'angry') + P(26, -42, HAMMER)) +
+            sweat(360, 200) + sweat(440, 210)) },
+        { minDur: 6800, sub: '他又怕鐘聲被人聽見，靈機一動，緊緊摀住自己的耳朵：「我聽不見，別人一定也聽不見！」',
+          html: scene(P(500, 302, FRAME + BELL) +
+            P(390, 302, A('kid', 'happy') + EARS_COVERED) + qmark(320, 190)) },
+        { minDur: 6600, sub: '「噹——！」鎚子一敲，鐘聲又響又亮，大家全聽見了，跑出來把他抓個正著！',
+          html: scene(P(500, 302, FRAME + BELL) + bang(500, 200) +
+            notes(560, 150) + notes(420, 130) +
+            P(390, 302, A('kid', 'wow') + EARS_COVERED + sweat(34, -90)) +
+            P(120, 302, A('kid', 'angry'), 'st-dashL', 0, .95) +
+            P(210, 302, A('kid', 'angry'), 'st-dashL', .3, .9)) },
+        { minDur: 6000, sub: '掩耳盜鈴：比喻自欺欺人，掩蓋不了事實。',
+          html: scene(P(500, 302, FRAME + BELL) + P(240, 302, A('kid', 'happy')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">掩耳盜鈴</text>') }
+      ];
+    },
+    /* 井底之蛙 */
+    i235: function () {
+      var SHAFT = '<rect x="-120" y="-150" width="240" height="150" fill="#9c8468"/>' +
+        '<rect x="-40" y="-150" width="80" height="150" fill="#5f574c"/>' +
+        '<g stroke="#8a7a66" stroke-width="2"><line x1="-40" y1="-120" x2="40" y2="-120"/><line x1="-40" y1="-88" x2="40" y2="-88"/>' +
+        '<line x1="-40" y1="-56" x2="40" y2="-56"/><line x1="-40" y1="-24" x2="40" y2="-24"/></g>' +
+        '<ellipse cx="0" cy="-150" rx="40" ry="8" fill="#aee3f5" stroke="#8fd0e8" stroke-width="3"/>';
+      var RING = '<path d="M-46 0 L-38 -34 L38 -34 L46 0 Z" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/>' +
+        '<ellipse cx="0" cy="-34" rx="38" ry="9" fill="#6d6357"/>' +
+        '<line x1="-30" y1="-17" x2="30" y2="-17" stroke="#8a7a66" stroke-width="2"/>';
+      var SEAWAVES = '<rect y="252" width="800" height="88" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 262 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#6db3d9" stroke-width="9" stroke-linecap="round" opacity=".9"/></g>' +
+        '<g class="st-wavemove" style="animation-delay:.7s"><path d="M-70 286 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="8" stroke-linecap="round" opacity=".8"/></g>';
+      return [
+        { minDur: 6400, sub: '一隻青蛙住在井底。牠抬頭望著小小的井口，說：「天空呀，就只有井口這麼大！」',
+          html: scene(P(400, 340, SHAFT + P(0, -8, A('frog'), '', 0, .9)) + qmark(400, 160)) },
+        { minDur: 6600, sub: '有一天，一隻大海龜路過井邊。青蛙得意地誇耀：「我在井裡自由自在，你要不要進來玩呀？」',
+          html: scene(P(330, 302, RING + P(0, -40, A('frog'), '', 0, .85)) +
+            P(520, 302, A('turtle'), 'st-inR') + hearts(300, 190)) },
+        { minDur: 6800, sub: '海龜笑著說：「大海千里遼闊、萬丈深。住在大海裡，那才是真正的快樂呀！」',
+          html: scene(SEAWAVES + P(400, 296, A('turtle'), '', 0, 1.1) +
+            P(600, 290, A('fish')) + P(180, 286, A('fish'), '', .5, .8, true)) },
+        { minDur: 6200, sub: '青蛙聽得目瞪口呆——原來井外的世界，這麼大！',
+          html: scene(P(330, 302, RING + P(0, -40, A('frog'), '', 0, .85)) +
+            P(520, 302, A('turtle')) + sweat(300, 200) + qmark(360, 170)) },
+        { minDur: 6000, sub: '井底之蛙：比喻見識淺薄狹隘的人。',
+          html: scene(P(330, 302, RING + P(0, -40, A('frog'), '', 0, .85)) + P(540, 302, A('turtle')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">井底之蛙</text>') }
+      ];
+    },
+    /* 自相矛盾 */
+    i236: function () {
+      var SPEAR = '<line x1="0" y1="8" x2="0" y2="-56" stroke="#a8734a" stroke-width="5" stroke-linecap="round"/>' +
+        '<path d="M0 -74 l-9 18 h18 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>';
+      var SHIELD = '<path d="M-22 -52 h44 q0 36 -22 46 q-22 -10 -22 -46 z" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>' +
+        '<circle cx="0" cy="-28" r="6.5" fill="#e8b84a"/>' +
+        '<path d="M-22 -38 h44" stroke="#a85a1e" stroke-width="2.4"/>';
+      var STALL = '<rect x="-70" y="-30" width="140" height="30" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+        '<line x1="-58" y1="0" x2="-58" y2="-30" stroke="#a8734a" stroke-width="4"/><line x1="58" y1="0" x2="58" y2="-30" stroke="#a8734a" stroke-width="4"/>';
+      return [
+        { minDur: 6600, sub: '楚國商人在市場擺攤，賣矛又賣盾。他先舉起盾誇口：「我的盾最堅固，什麼矛都刺不穿！」',
+          html: scene(P(430, 302, STALL + P(40, -30, SPEAR, '', 0, .9)) +
+            P(300, 302, A('kid', 'happy') + P(34, -66, SHIELD, '', 0, .85), 'st-inL') +
+            P(640, 302, A('kid', 'happy'), '', 0, .95, true)) },
+        { minDur: 6400, sub: '他又舉起矛誇口：「我的矛最鋒利，天下的盾，沒有一面刺不穿！」',
+          html: scene(P(430, 302, STALL + P(40, -32, SHIELD, '', 0, .8)) +
+            P(300, 302, A('kid', 'happy') + P(34, -60, SPEAR, '', 0, .9)) +
+            P(640, 302, A('kid', 'wow'), '', 0, .95, true)) },
+        { minDur: 6800, sub: '一位路人問：「那……用你的矛，刺你的盾，會怎麼樣呢？」',
+          html: scene(P(430, 240, P(-40, 0, SPEAR, '', 0, 1) + P(40, 10, SHIELD)) +
+            qmark(430, 130) +
+            P(180, 302, A('kid', 'happy')) + P(640, 302, A('kid', 'wow'), '', 0, .95, true) +
+            sweat(660, 200)) },
+        { minDur: 6200, sub: '商人張口結舌，漲紅了臉，一句話也答不上來。',
+          html: scene(P(430, 302, STALL + P(-40, -30, SPEAR, '', 0, .9) + P(40, -32, SHIELD, '', 0, .8)) +
+            P(300, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') +
+            sweat(340, 200) + P(640, 302, A('kid', 'happy'), '', 0, .95, true)) },
+        { minDur: 6000, sub: '自相矛盾：言行前後牴觸，互相衝突。',
+          html: scene(P(400, 260, P(-60, 0, SPEAR, '', 0, 1.1) + P(60, 12, SHIELD, '', 0, 1.1)) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">自相矛盾</text>') }
+      ];
+    },
+    /* 刻舟求劍 */
+    i238: function () {
+      var RIVER = '<rect y="258" width="800" height="82" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 268 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#6db3d9" stroke-width="8" stroke-linecap="round" opacity=".9"/></g>';
+      var BOAT = '<path d="M-72 0 L72 0 L52 24 L-52 24 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/>';
+      var SWORD = '<rect x="-3" y="-34" width="6" height="34" rx="2.4" fill="#c4cede" stroke="#8b93a3" stroke-width="1.6"/>' +
+        '<rect x="-11" y="0" width="22" height="5.5" rx="2.6" fill="#c98f2a"/>' +
+        '<rect x="-3.5" y="5.5" width="7" height="13" rx="3" fill="#8a5a33"/>';
+      var MARK = '<path d="M-7 -7 L7 7 M-7 7 L7 -7" stroke="#e85a4f" stroke-width="4.5" stroke-linecap="round"/>';
+      var SPLASH = '<g class="st-bang"><path d="M-14 0 q-4 -12 -10 -14 M0 -4 q0 -14 -2 -18 M14 0 q4 -12 10 -14" stroke="#bfe0ff" stroke-width="4" fill="none" stroke-linecap="round"/></g>';
+      return [
+        { minDur: 6600, sub: '楚國人坐船過江，船身搖搖晃晃——「撲通！」寶劍從腰間滑落，掉進江裡！',
+          html: scene(RIVER + P(400, 262, BOAT + P(-20, -24, A('kid', 'wow'), '', 0, .9)) +
+            P(310, 290, SWORD, '', 0, 1, false) + SPLASH.replace('<g class="st-bang">', '<g class="st-bang" transform="translate(310,286)">') +
+            sweat(360, 190)) },
+        { minDur: 6800, sub: '他不慌不忙，拿出小刀在船邊刻了一個記號：「我的劍，就是從這裡掉下去的。」',
+          html: scene(RIVER + P(400, 262, BOAT + P(-58, 12, MARK) +
+              P(0, -24, A('kid', 'happy'), '', 0, .9) +
+              P(-40, -20, '<line x1="0" y1="0" x2="10" y2="-14" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/>')) +
+            qmark(300, 170)) },
+        { minDur: 6400, sub: '船走了很遠才靠岸。他立刻從刻記號的地方，跳進水裡撈劍。',
+          html: scene(RIVER + '<ellipse cx="740" cy="330" rx="150" ry="60" fill="#b8e08e"/>' +
+            P(560, 262, BOAT + P(-58, 12, MARK)) +
+            P(460, 296, A('kid', 'wow'), '', 0, .9, true) + SPLASH.replace('<g class="st-bang">', '<g class="st-bang" transform="translate(460,290)">')) },
+        { minDur: 6800, sub: '撈了半天，什麼也撈不到——船一直往前走，劍卻早就沉在原來的江心呀！',
+          html: scene(RIVER + P(560, 262, BOAT + P(-58, 12, MARK)) +
+            P(460, 300, A('kid', 'sad'), '', 0, .9) + sweat(430, 210) + qmark(500, 180) +
+            P(150, 330, SWORD, '', 0, .9)) },
+        { minDur: 6000, sub: '刻舟求劍：比喻拘泥固執，不知隨情勢變通。',
+          html: scene(RIVER + P(400, 262, BOAT + P(-58, 12, MARK) + P(20, -24, A('kid', 'happy'), '', 0, .9)) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">刻舟求劍</text>') }
+      ];
     }
   };
 
