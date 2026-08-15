@@ -3386,6 +3386,112 @@
           html: scene(LAKE + P(400, 252, BOAT4) + qmark(480, 180) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不著邊際</text>') }
       ];
+    },
+    /* 言不及義 */
+    i1193: function () {
+      return [
+        { minDur: 7000, sub: '孔子感嘆：有些人整天聚在一起，說的話卻沒有一句碰得到正經道理，只愛耍小聰明——這種人很難教好呀！',
+          html: scene(P(260, 302, A('kid', 'happy'), '', 0, .9) + P(390, 302, A('kid', 'happy'), '', .2, .88) +
+            P(510, 302, A('kid', 'happy'), '', .4, .86) + notes(380, 165) +
+            P(680, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1, true) + sweat(720, 200)) },
+        { minDur: 6800, sub: '嘻嘻哈哈聊了一整天，功課沒討論、正事沒半句——時間就這樣溜走了。',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(460, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            notes(380, 165) + zzz(560, 200)) },
+        { minDur: 6600, sub: '「言不及義」提醒我們：談天說地之餘，也別忘了把正經事放在心上。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -56, '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>')) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(430, 180)) },
+        { minDur: 6400, sub: '言不及義：說的話都觸及不到正經道理。',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .9) + notes(400, 170) + qmark(560, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">言不及義</text>') }
+      ];
+    },
+    /* 各行其是 */
+    i1196: function () {
+      return [
+        { minDur: 6800, sub: '莊子說：天下沒有人人公認的「對」，每個人都覺得自己才是對的。',
+          html: scene(P(280, 302, A('kid', 'angry')) + P(540, 302, A('kid', 'angry'), '', 0, .95, true) +
+            bang(410, 180) + qmark(220, 185) + qmark(600, 190)) },
+        { minDur: 7000, sub: '划一條船，一個往東划、一個往西划——誰也不服誰，船就在原地打轉！',
+          html: scene('<rect y="262" width="800" height="78" fill="#7fb2e0"/>' +
+            P(400, 268, '<path d="M-60 0 L60 0 L46 20 L-46 20 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/>' +
+              P(-24, 0, A('kid', 'angry'), '', 0, .75) + P(28, 0, A('kid', 'angry'), '', 0, .72, true) +
+              '<line x1="-52" y1="10" x2="-76" y2="26" stroke="#8a5a33" stroke-width="5" stroke-linecap="round"/>' +
+              '<line x1="52" y1="10" x2="76" y2="26" stroke="#8a5a33" stroke-width="5" stroke-linecap="round"/>') +
+            qmark(400, 170) + sweat(320, 200) + sweat(490, 205)) },
+        { minDur: 6800, sub: '團體裡如果人人「各行其是」、缺乏協調，力氣再大也拉不動一件事。',
+          html: scene(P(280, 302, A('kid', 'angry'), 'st-inL') +
+            P(540, 302, A('kid', 'angry'), 'st-inR', 0, .95, true) +
+            '<line x1="360" y1="260" x2="460" y2="260" stroke="#a8734a" stroke-width="8" stroke-linecap="round"/>' + sweat(410, 220)) },
+        { minDur: 6400, sub: '各行其是：各人按自己認為對的去做，缺乏協調。',
+          html: scene(P(280, 302, A('kid', 'happy')) + P(540, 302, A('kid', 'happy'), '', 0, .95, true) +
+            '<path d="M300 230 l-40 -30 M500 230 l40 -30" stroke="#c96a5a" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 7"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">各行其是</text>') }
+      ];
+    },
+    /* 名聞遐邇 */
+    i734: function () {
+      var MEGA = '<path d="M0 0 L30 -14 L30 14 Z" fill="#e0a458" stroke="#c08838" stroke-width="2.4"/><rect x="-12" y="-7" width="14" height="14" rx="4" fill="#c08838"/>';
+      function mtn(x, sc) { return P(x, 302, '<path d="M-90 0 L0 -100 L90 0 Z" fill="#a5c2b2"/>', '', 0, sc); }
+      return [
+        { minDur: 6800, sub: '「遐」是遠，「邇」是近——名聲傳得又遠又近，人人都聽過，就叫「名聞遐邇」。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(30, -56, MEGA, '', 0, .9)) + notes(400, 160) +
+            mtn(650, .9) + hearts(220, 185)) },
+        { minDur: 6800, sub: '一位小鎮師傅的手藝出了名，連山那頭、海對岸的人都專程趕來拜訪！',
+          html: scene(P(300, 302, A('kid', 'happy')) + hearts(360, 180) +
+            P(520, 302, A('kid', 'happy'), 'st-inR', 0, .9) + P(650, 302, A('kid', 'happy'), 'st-inR', .3, .85) +
+            mtn(120, .7)) },
+        { minDur: 6600, sub: '從《魏書》的時代起，人們就用「名聞遐邇」稱讚名聲遠播的人與事。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -56, '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>')) +
+            notes(420, 170) + hearts(500, 195)) },
+        { minDur: 6400, sub: '名聞遐邇：名聲遠近皆知。',
+          html: scene(P(330, 302, A('kid', 'happy') + P(30, -56, MEGA, '', 0, 1)) + notes(450, 160) + mtn(680, .8) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">名聞遐邇</text>') }
+      ];
+    },
+    /* 耳目一新 */
+    i754: function () {
+      var SPARK = '<g class="st-tw"><path d="M0 -10 L2.5 -2.5 L10 0 L2.5 2.5 L0 10 L-2.5 2.5 L-10 0 L-2.5 -2.5 Z" fill="#ffd97a"/></g>';
+      return [
+        { minDur: 6800, sub: '走進重新布置的教室：新窗簾、新壁報、新書櫃——眼睛看到的，全都亮了起來！',
+          html: scene(P(430, 300, '<rect x="-90" y="-140" width="180" height="140" rx="6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/>' +
+              '<rect x="-70" y="-120" width="52" height="36" rx="4" fill="#aee3f5" stroke="#8fd0e8" stroke-width="2.6"/>' +
+              '<rect x="16" y="-120" width="56" height="42" rx="4" fill="#a5d47c" stroke="#7cab6e" stroke-width="2.6"/>' +
+              '<rect x="-64" y="-60" width="120" height="20" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(430, 150, SPARK) + P(340, 180, SPARK) +
+            P(200, 302, A('kid', 'wow')) + hearts(270, 190)) },
+        { minDur: 6600, sub: '耳朵聽到的也不一樣了：新歌、新故事、新想法——處處是新鮮感！',
+          html: scene(P(300, 302, A('kid', 'happy')) + notes(380, 160) + P(480, 190, SPARK) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(640, 195)) },
+        { minDur: 6600, sub: '所見所聞煥然一新，讓人精神一振——這就是「耳目一新」。',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(430, 160, SPARK) + P(300, 190, SPARK) + P(540, 200, SPARK) + hearts(470, 220)) },
+        { minDur: 6400, sub: '耳目一新：所見所聞都有新鮮感。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + P(330, 180, SPARK) + P(480, 160, SPARK) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">耳目一新</text>') }
+      ];
+    },
+    /* 開宗明義 */
+    i999: function () {
+      var BOOKOPEN = '<path d="M-52 0 Q-26 -12 0 0 Q26 -12 52 0 L52 -56 Q26 -68 0 -56 Q-26 -68 -52 -56 Z" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/>' +
+        '<line x1="0" y1="0" x2="0" y2="-56" stroke="#c9bfa8" stroke-width="2"/>' +
+        '<g stroke="#8fa3bf" stroke-width="1.8"><line x1="-42" y1="-44" x2="-10" y2="-48"/><line x1="-42" y1="-34" x2="-10" y2="-38"/><line x1="10" y1="-48" x2="42" y2="-44"/><line x1="10" y1="-38" x2="42" y2="-34"/></g>' +
+        '<rect x="-42" y="-58" width="32" height="9" rx="2" fill="#ffd97a"/>';
+      return [
+        { minDur: 7000, sub: '《孝經》的第一章，章名就叫「開宗明義」——一開卷，就把全書的宗旨、孝道的大義說得明明白白。',
+          html: scene(P(400, 290, BOOKOPEN, '', 0, 1.4) +
+            P(180, 302, A('kid', 'happy'), '', 0, .95) + hearts(260, 195)) },
+        { minDur: 6800, sub: '說話、寫文章也一樣：第一段就亮出主旨，聽的人、讀的人立刻抓得住重點！',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(470, 260, '<rect x="-16" y="-22" width="32" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-10" y="-16" width="20" height="7" rx="2" fill="#ffd97a"/><path d="M-10 -2 h20 M-10 6 h20 M-10 14 h14" stroke="#8fa3bf" stroke-width="1.8"/>') +
+            bang(560, 200) + hearts(380, 180)) },
+        { minDur: 6600, sub: '反過來，開頭繞來繞去不進主題，大家聽得一頭霧水——所以要「開宗明義」！',
+          html: scene(P(300, 302, A('kid', 'happy')) + notes(370, 170) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(610, 185) + sweat(520, 200)) },
+        { minDur: 6400, sub: '開宗明義：一開頭就闡明主旨要義。',
+          html: scene(P(400, 292, BOOKOPEN, '', 0, 1.5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">開宗明義</text>') }
+      ];
     }
   };
 
