@@ -19360,6 +19360,145 @@
             P(640, 288, '<rect x="-28" y="-34" width="56" height="34" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, 1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">政通人和</text>') }
       ];
+    },
+    /* 勵精圖治 */
+    i960: function () {
+      return [
+        { minDur: 7000, sub: '漢宣帝親政後「勵精為治」：整頓吏治、輕徭薄賦——開創了漢室中興！',
+          html: scene(P(360, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>' + P(-46, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/></g>', '', 0, .95), '', 0, 1.05) +
+            P(600, 130, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「勵精圖治」：振奮精神、認真治理——新教練上任，重整訓練、汰弱留強，球隊脫胎換骨！',
+          html: scene(P(340, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c96a5a"/><path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'angry'), 'st-hop', 0, .95, true) + bang(440, 182) + hearts(620, 200)) },
+        { minDur: 6800, sub: '圖治的第一步是面對問題：把爛帳攤開、把漏洞列表——不迴避，才有中興！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#c96a5a" stroke-width="1.8"><line x1="-10" y1="-12" x2="10" y2="-12"/><line x1="-10" y1="-4" x2="10" y2="-4"/></g><g stroke="#548a40" stroke-width="2"><path d="M-10 6 l4 4 l7 -8"/></g>', '', 0, .95)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '勵精圖治：發憤圖強，銳意治理。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', 'st-strut', 0, 1.08) + bang(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">勵精圖治</text>') }
+      ];
+    },
+    /* 一字之師 */
+    i1035: function () {
+      return [
+        { minDur: 7000, sub: '僧齊己寫〈早梅〉：「前村深雪裡，昨夜數枝開」——拿去請教詩人鄭谷！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/>' + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="2" text-anchor="middle" font-size="9" fill="#6d7585">數枝開</text>', '', 0, .95), '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1, true) +
+            '<g fill="#fff"><circle class="st-snow" cx="240" cy="40" r="4"/><circle class="st-snow" style="animation-delay:1.2s" cx="620" cy="30" r="3.4"/></g>') },
+        { minDur: 6800, sub: '鄭谷說：既然是「早梅」，改「數枝」為「一枝」更妙！——一字之差，意境全出！',
+          html: scene(P(400, 250, '<rect x="-60" y="-26" width="120" height="52" rx="4" fill="#fff" opacity=".95"/><text x="-22" y="8" text-anchor="middle" font-size="20" fill="#c9bfa8" text-decoration="line-through">數</text><text x="24" y="8" text-anchor="middle" font-size="22" fill="#c96a5a">一</text><text x="0" y="-12" text-anchor="middle" font-size="10" fill="#8b93a3">昨夜＿枝開</text>', '', 0, 1.2) + bang(520, 200) +
+            P(240, 302, A('kid', 'wow'), '', 0, .95) + hearts(310, 210)) },
+        { minDur: 6800, sub: '齊己當場下拜——時人尊鄭谷為「一字師」！關鍵處的一句指點，勝過千言萬語！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(530, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '一字之師：一字點竅，尊為師表。',
+          html: scene(P(400, 255, '<rect x="-56" y="-25" width="112" height="50" rx="4" fill="#fff" opacity=".95"/><text x="-20" y="8" text-anchor="middle" font-size="19" fill="#c9bfa8" text-decoration="line-through">數</text><text x="22" y="8" text-anchor="middle" font-size="21" fill="#c96a5a">一</text>', '', 0, 1.2) + hearts(520, 210) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一字之師</text>') }
+      ];
+    },
+    /* 繩鋸木斷 */
+    i1036: function () {
+      var ROPE_WOOD = '<rect x="-40" y="-10" width="80" height="24" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><path d="M-2 -10 q2 6 0 12" stroke="#8a6a44" stroke-width="3" fill="none"/><path d="M-30 -30 q30 12 60 0" stroke="#c9b98a" stroke-width="4" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 7000, sub: '張乖崖判小吏：「一日一錢，千日千錢——繩鋸木斷，水滴石穿！」小事累積成大事！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 285, ROPE_WOOD, '', 0, 1.2) + bang(430, 195)) },
+        { minDur: 6800, sub: '軟繩怎麼鋸得斷木頭？來回一千次、一萬次——溝痕越來越深，終有斷的一天！',
+          html: scene(P(400, 285, ROPE_WOOD, '', 0, 1.5) +
+            '<g class="st-windln" stroke="#c9b98a" stroke-width="3" stroke-linecap="round"><line x1="290" y1="240" x2="340" y2="245"/><line x1="460" y1="245" x2="510" y2="240"/></g>' +
+            P(240, 302, A('kid', 'wow'), '', 0, .95) + qmark(310, 220)) },
+        { minDur: 6800, sub: '「繩鋸木斷」：力量雖小，持之以恆必成——每天背五個單字，一年就是一千八百個！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="11" fill="#548a40">×365</text>', '', 0, .95)) + hearts(470, 190) +
+            P(580, 220, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '繩鋸木斷：恆心不輟，滴水穿石。',
+          html: scene(P(400, 288, ROPE_WOOD, '', 0, 1.5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">繩鋸木斷</text>') }
+      ];
+    },
+    /* 目光如豆 */
+    i1074: function () {
+      return [
+        { minDur: 6800, sub: '店老闆為省小錢用劣質食材——老顧客一個個流失，招牌慢慢做爛了……',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>' + P(-40, -50, '<circle cx="0" cy="0" r="10" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/><text x="0" y="4" text-anchor="middle" font-size="9" fill="#a8791e">省</text>', '', 0, 1.05), '', 0, 1.02) +
+            P(560, 302, '<g class="st-fleeR">' + A('kid', 'sad') + '</g>', 'st-dashL', 0, .9) + sweat(620, 195)) },
+        { minDur: 6800, sub: '「目光如豆」：眼光只有豆子那麼小——只見眼前小利，看不到長遠大局！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-40, -56, '<circle cx="0" cy="0" r="4" fill="#3a2e26"/><circle cx="20" cy="0" r="4" fill="#3a2e26"/>', '', 0, 1.1), '', 0, 1.05) +
+            P(280, 210, '<circle cx="0" cy="0" r="8" fill="#a5d47c" stroke="#7fa858" stroke-width="2"/><text x="0" y="-16" text-anchor="middle" font-size="10" fill="#8b93a3">豆</text>', '', 0, 1.2) + qmark(520, 190)) },
+        { minDur: 6800, sub: '相對的是高瞻遠矚——捨得用好食材的店，十年後成了排隊名店！',
+          html: scene(P(400, 285, '<rect x="-56" y="-46" width="112" height="46" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-44" y="-66" width="88" height="16" rx="4" fill="#c96a5a"/><text x="0" y="-53" text-anchor="middle" font-size="10" fill="#fff">排隊名店</text>', '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy'), 'st-inL', 0, .92) + P(560, 302, A('kid', 'happy'), 'st-inR', .2, .92, true) + hearts(400, 200)) },
+        { minDur: 6400, sub: '目光如豆：見識短淺，只顧眼前。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(290, 210, '<circle cx="0" cy="0" r="8" fill="#a5d47c" stroke="#7fa858" stroke-width="2"/>', '', 0, 1.2) + qmark(510, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">目光如豆</text>') }
+      ];
+    },
+    /* 遊刃有餘 */
+    i1087: function () {
+      return [
+        { minDur: 7000, sub: '庖丁為文惠君解牛：手起刀落如舞蹈，骨肉應聲分離——全場看呆了！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(34, -46, '<line x1="0" y1="8" x2="10" y2="-14" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/>', '', 0, 1)) +
+            P(540, 296, A('ox'), '', 0, 1.05, true) + notes(430, 190) +
+            P(220, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, .9)) },
+        { minDur: 6800, sub: '庖丁說：我順著牛體天然的紋理下刀——骨節間有空隙，「遊刃必有餘地」，一把刀用了十九年！',
+          html: scene(P(400, 250, '<path d="M-50 20 q20 -50 50 -50 q30 0 50 50" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="6 5"/><line x1="-10" y1="10" x2="14" y2="-18" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/>', '', 0, 1.3) + hearts(540, 210) +
+            P(250, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">順紋理</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">找空隙</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '「遊刃有餘」：技藝純熟、應付自如——熟到看見結構，難事也變輕鬆事！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '遊刃有餘：技進乎道，應付裕如。',
+          html: scene(P(360, 302, A('kid', 'angry') + P(34, -46, '<line x1="0" y1="8" x2="10" y2="-14" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.02) +
+            P(540, 296, A('ox'), '', 0, 1.05, true) + notes(440, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">遊刃有餘</text>') }
+      ];
+    },
+    /* 字斟句酌 */
+    i1192: function () {
+      return [
+        { minDur: 7000, sub: '紀昀讚宋儒治學：「積一生精力，字斟句酌」——每個字都反覆推敲，不輕易放過！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -50, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/></g><circle cx="4" cy="7" r="5" fill="none" stroke="#c96a5a" stroke-width="1.6"/>', '', 0, .95), '', 0, 1.05) + notes(470, 190)) },
+        { minDur: 6800, sub: '「字斟句酌」：用字遣詞極為謹慎——簽約前一條一條讀、一字一字摳，保護自己！',
+          html: scene(P(400, 260, '<rect x="-46" y="-30" width="92" height="60" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-32" y1="-14" x2="32" y2="-14"/><line x1="-32" y1="-2" x2="32" y2="-2"/><line x1="-32" y1="10" x2="20" y2="10"/></g><circle cx="26" cy="10" r="8" fill="none" stroke="#c96a5a" stroke-width="2.4"/>', '', 0, 1.2) +
+            P(240, 302, A('kid', 'wow') + P(-40, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1), '', 0, .95)) },
+        { minDur: 6800, sub: '相對的是信口開河——重要的話寫三遍改三遍：嚴謹是文字工作者的人品！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -46, '<line x1="0" y1="10" x2="6" y2="-14" stroke="#3a2e26" stroke-width="3.4" stroke-linecap="round"/><path d="M6 -14 l3 -9 l4 9" fill="#3a2e26"/>', '', 0, 1), '', 0, 1.02) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">改三遍</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '字斟句酌：一字一句，細細推敲。',
+          html: scene(P(400, 262, '<rect x="-46" y="-30" width="92" height="60" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-32" y1="-14" x2="32" y2="-14"/><line x1="-32" y1="-2" x2="32" y2="-2"/></g><circle cx="24" cy="8" r="8" fill="none" stroke="#c96a5a" stroke-width="2.4"/>', '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">字斟句酌</text>') }
+      ];
+    },
+    /* 危言聳聽 */
+    i1194: function () {
+      return [
+        { minDur: 6800, sub: '群組瘋傳：「明天起自來水全面停供一個月！」——大家嚇得瘋狂囤水！',
+          html: scene(P(340, 302, A('kid', 'wow') + P(-42, -50, '<rect x="-15" y="-10" width="30" height="20" rx="3" fill="#fff" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#c96a5a">停水!!</text>', '', 0, 1.1)) + sweat(280, 188) +
+            P(540, 302, A('kid', 'wow') + P(38, -46, '<path d="M-10 -14 h20 l-3 26 h-14 z" fill="#7fd4d4" stroke="#4aa8a8" stroke-width="2"/>', '', 0, 1), 'st-dashL', 0, .97, true)) },
+        { minDur: 6800, sub: '查證後根本沒這回事——「危言聳聽」（危讀ㄨㄟˊ）：故意誇大嚇人！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1.05)) + bang(470, 185) +
+            P(580, 220, '<rect x="-30" y="-15" width="60" height="30" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">ㄨㄟˊ</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '恐懼是流量密碼，也是判斷力的天敵——看到嚇人標題，先深呼吸再查證！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -50, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/><path d="M-4 -6 l3 4 l6 -7" stroke="#a5d47c" stroke-width="2" fill="none"/>', '', 0, 1.05)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">查證✓</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '危言聳聽：誇大其事，故作驚人。',
+          html: scene(P(400, 250, '<rect x="-46" y="-24" width="92" height="48" rx="4" fill="#fff" opacity=".95" stroke="#c96a5a" stroke-width="2.6"/><text x="0" y="-2" text-anchor="middle" font-size="14" fill="#c96a5a">驚!!!</text><text x="0" y="14" text-anchor="middle" font-size="9" fill="#8b93a3">（假消息）</text>', 'st-bob', 0, 1.2) + sweat(520, 210) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">危言聳聽</text>') }
+      ];
+    },
+    /* 浪得虛名 */
+    i1195: function () {
+      return [
+        { minDur: 6800, sub: '網紅名店號稱「全城第一」——慕名而來的客人咬一口：「就這樣？」',
+          html: scene(P(400, 285, '<rect x="-56" y="-46" width="112" height="46" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-44" y="-66" width="88" height="16" rx="4" fill="#c96a5a"/><text x="0" y="-53" text-anchor="middle" font-size="10" fill="#fff">全城第一</text>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'wow') + P(-38, -44, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, .98) + qmark(310, 195)) },
+        { minDur: 6800, sub: '「浪得虛名」：名聲與實際不符——但反過來用就是稱讚：「老店果然不是浪得虛名！」',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-38, -44, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/><g class="st-zfloat" opacity=".7"><path d="M-2 -14 q3 -6 0 -10" stroke="#c9bfa8" stroke-width="2" fill="none"/></g>', '', 0, 1), '', 0, 1.02) + hearts(470, 188) + bang(280, 195)) },
+        { minDur: 6800, sub: '名聲是借來的、實力是自己的——把每一次出品做扎實，名與實自然相符！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -46, '<path d="M-14 -6 h28 v5 q0 9 -14 9 q-14 0 -14 -9 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, 1.02) +
+            P(560, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">名實</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">相符</text>', '', 0, 1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '浪得虛名：名過其實，虛有名聲。',
+          html: scene(P(400, 288, '<rect x="-52" y="-42" width="104" height="42" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-40" y="-60" width="80" height="15" rx="4" fill="#c96a5a"/>', '', 0, 1.05) + qmark(510, 230) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">浪得虛名</text>') }
+      ];
     }
   };
 
