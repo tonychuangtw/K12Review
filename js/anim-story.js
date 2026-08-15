@@ -11004,6 +11004,128 @@
           html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + qmark(490, 182) + sweat(320, 190) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">投機取巧</text>') }
       ];
+    },
+    /* 敷衍了事 */
+    i1123: function () {
+      return [
+        { minDur: 6800, sub: '小衍寫讀書報告只花五分鐘：抄兩句簡介、隨便畫個圈就交出去——「反正有交就好啦！」',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 q9 5 18 -1" stroke="#8fa3bf" stroke-width="2" fill="none"/><circle cx="0" cy="6" r="7" fill="none" stroke="#c96a5a" stroke-width="2"/>', '', 0, .95)) + notes(460, 195)) },
+        { minDur: 6800, sub: '老師一看就知道：整份報告敷衍了事——馬虎應付、草草了結，退回重寫！',
+          html: scene(P(320, 302, A('kid', 'sad')) + sweat(260, 192) +
+            P(520, 302, A('kid', 'angry') + P(-40, -56, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-11 -11 L11 11 M11 -11 L-11 11" stroke="#c96a5a" stroke-width="2.6"/>', '', 0, .95), '', 0, 1, true) + bang(430, 185)) },
+        { minDur: 6800, sub: '重寫這次認真讀完整本書，寫出真心得——一絲不苟的作品，連自己都覺得驕傲！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-12" x2="10" y2="-12"/><line x1="-10" y1="-5" x2="10" y2="-5"/><line x1="-10" y1="2" x2="10" y2="2"/><line x1="-10" y1="9" x2="6" y2="9"/></g>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '敷衍了事：做事馬虎應付，草草了結。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><circle cx="0" cy="0" r="8" fill="none" stroke="#c96a5a" stroke-width="2"/>', '', 0, .95), '', 0, 1.02) + sweat(500, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">敷衍了事</text>') }
+      ];
+    },
+    /* 循序漸進 */
+    i1149: function () {
+      var STAIRS = '<g fill="#d9cfae" stroke="#b8a982" stroke-width="2.4"><rect x="180" y="272" width="120" height="30"/><rect x="300" y="242" width="120" height="60"/><rect x="420" y="212" width="120" height="90"/><rect x="540" y="182" width="120" height="120"/></g>';
+      return [
+        { minDur: 7000, sub: '朱熹注解《論語》說：「君子之道，循序而漸進」——學問要照著次序，一步一步往上走！',
+          html: scene(STAIRS + P(240, 272, A('kid', 'happy'), '', 0, .92) +
+            '<path d="M250 200 q80 -60 320 -80" stroke="#548a40" stroke-width="3" fill="none" stroke-dasharray="8 7"/><path d="M580 118 l-14 -2 l8 12 z" fill="#548a40"/>') },
+        { minDur: 6800, sub: '學游泳先練憋氣、再打水、再划手——每站穩一階，才踏下一階！',
+          html: scene(STAIRS + P(360, 242, A('kid', 'happy'), 'st-hop', 0, .92) + hearts(300, 175)) },
+        { minDur: 6800, sub: '想一步登天反而摔跤——循序漸進的人，最後穩穩站上最高處！',
+          html: scene(STAIRS + P(600, 182, A('kid', 'happy'), 'st-cheer', 0, .95) + bang(600, 100) +
+            P(210, 302, A('kid', 'wow'), '', 0, .88) + hearts(300, 230)) },
+        { minDur: 6400, sub: '循序漸進：按照次序，逐步前進。',
+          html: scene(STAIRS + P(480, 212, A('kid', 'happy'), 'st-hop', 0, .92) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">循序漸進</text>') }
+      ];
+    },
+    /* 反目成仇 */
+    i1150: function () {
+      return [
+        { minDur: 6800, sub: '小目和小成本來是最好的合夥人，一起擺攤賣檸檬汁，天天有說有笑！',
+          html: scene(P(400, 302, '<rect x="-60" y="-58" width="120" height="14" fill="#e0a458"/><g stroke="#a8734a" stroke-width="5"><line x1="-50" y1="-44" x2="-50" y2="0"/><line x1="50" y1="-44" x2="50" y2="0"/></g><circle cx="0" cy="-72" r="12" fill="#ffe36b" stroke="#e0b73f" stroke-width="2"/>') +
+            P(280, 302, A('kid', 'happy')) + P(520, 302, A('kid', 'happy'), '', 0, 1, true) + hearts(400, 185)) },
+        { minDur: 6800, sub: '為了帳目分錢吵起來——誰也不讓誰，翻臉互不理睬，從朋友變成了仇人！',
+          html: scene(P(300, 302, A('kid', 'angry'), '', 0, 1, true) + P(500, 302, A('kid', 'angry')) +
+            bang(400, 185) + '<path d="M385 250 L400 275 L388 275 L403 302" stroke="#e8b93f" stroke-width="4" fill="none"/>') },
+        { minDur: 6800, sub: '「反目成仇」：親近的人決裂成仇——其實把帳算清楚、話說開，就不會走到這一步！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, 1, true) +
+            P(400, 250, '<rect x="-20" y="-14" width="40" height="26" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#548a40">帳</text>') + hearts(400, 180)) },
+        { minDur: 6400, sub: '反目成仇：翻臉變成仇人。',
+          html: scene(P(310, 302, A('kid', 'angry'), '', 0, 1, true) + P(490, 302, A('kid', 'angry')) + bang(400, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">反目成仇</text>') }
+      ];
+    },
+    /* 恩將仇報 */
+    i1151: function () {
+      return [
+        { minDur: 7000, sub: '東郭先生的故事：獵人追一隻狼，狼哀求救命——東郭先生心軟，把牠藏進書袋裡！',
+          html: scene(P(300, 302, A('kid', 'wow') + P(30, -30, '<path d="M-18 -22 q18 -10 36 0 l-4 34 q-14 8 -28 0 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>', '', 0, 1)) +
+            P(470, 302, A('dog', 'sad'), 'st-inR', 0, .95, true) + sweat(520, 210) +
+            P(660, 302, A('kid', 'angry') + P(-30, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 13 h12 z" fill="#8b93a3"/>', '', 0, .9), 'st-inR', .3, .95, true)) },
+        { minDur: 6800, sub: '獵人走遠，狼一鑽出來卻露出利牙：「我餓了，就吃你吧！」——這就是恩將仇報！',
+          html: scene(P(320, 302, A('kid', 'wow'), '', 0, .98) + sweat(260, 192) +
+            P(480, 302, A('dog', 'angry') + '<path d="M-16 -58 l5 9 M-6 -56 l4 9" stroke="#fff" stroke-width="3" stroke-linecap="round"/>', '', 0, 1.08, true) + bang(400, 185)) },
+        { minDur: 6800, sub: '「恩將仇報」：受人恩惠反而加害對方——別學狼忘恩負義，要「知恩圖報」！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .97, true) +
+            P(400, 240, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5"/>') + hearts(400, 180)) },
+        { minDur: 6400, sub: '恩將仇報：用仇恨回報恩惠，忘恩負義。',
+          html: scene(P(330, 302, A('kid', 'wow')) + P(480, 302, A('dog', 'angry'), '', 0, 1.05, true) + bang(405, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">恩將仇報</text>') }
+      ];
+    },
+    /* 一盤散沙 */
+    i1152: function () {
+      var SANDPILE = '<ellipse cx="0" cy="0" rx="52" ry="14" fill="#e8d9a8" stroke="#cbb877" stroke-width="2.4"/><g fill="#cbb877"><circle cx="-24" cy="-4" r="2.4"/><circle cx="0" cy="-7" r="2.4"/><circle cx="22" cy="-3" r="2.4"/><circle cx="10" cy="-10" r="2"/></g>';
+      return [
+        { minDur: 6800, sub: '拔河比賽，這隊有人早拉、有人晚拉、有人放空——力氣像一盤散沙，聚不起來！',
+          html: scene('<line x1="200" y1="258" x2="620" y2="258" stroke="#a8734a" stroke-width="6" stroke-linecap="round"/>' +
+            P(260, 302, A('kid', 'angry'), '', 0, .95) + P(390, 302, A('kid', 'happy') + P(20, -34, '<path d="M-12 0 q6 -7 12 0 q6 7 12 0" stroke="#ffd97a" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, .85)) +
+            P(530, 302, A('kid', 'wow'), '', 0, .95) + sweat(300, 195) + qmark(600, 200)) },
+        { minDur: 6800, sub: '「一盤散沙」：沙子握不成團——比喻群體不團結、缺乏凝聚力，一推就散！',
+          html: scene(P(400, 280, SANDPILE, '', 0, 1.2) +
+            '<g class="st-zfloat" fill="#cbb877"><circle cx="330" cy="230" r="3"/><circle cx="470" cy="222" r="3"/><circle cx="405" cy="205" r="2.6"/></g>') },
+        { minDur: 6800, sub: '定好口令「一、二、拉！」全隊同一秒出力——散沙加了水凝成團，眾志成城就贏了！',
+          html: scene('<line x1="200" y1="258" x2="560" y2="258" stroke="#a8734a" stroke-width="6" stroke-linecap="round"/>' +
+            P(260, 302, '<g transform="rotate(10)">' + A('kid', 'angry') + '</g>', '', 0, .95) +
+            P(380, 302, '<g transform="rotate(10)">' + A('kid', 'angry') + '</g>', '', 0, .95) +
+            P(500, 302, '<g transform="rotate(10)">' + A('kid', 'angry') + '</g>', '', 0, .95) + bang(620, 210) + hearts(330, 180)) },
+        { minDur: 6400, sub: '一盤散沙：群體渙散，缺乏凝聚力。',
+          html: scene(P(400, 285, SANDPILE, '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一盤散沙</text>') }
+      ];
+    },
+    /* 拐彎抹角 */
+    i1176: function () {
+      var MAZE = '<g stroke="#b8a982" stroke-width="5" fill="none" stroke-linecap="round"><path d="M230 292 h90 v-46 h110 v46 h100 v-70 h90"/></g>';
+      return [
+        { minDur: 6800, sub: '小拐想跟同學借漫畫，卻先聊天氣、聊午餐、聊作業——繞了十分鐘還沒進正題！',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(510, 302, A('kid', 'wow'), '', 0, .97, true) + qmark(580, 185) +
+            P(360, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#6d7585">天氣?</text>')) },
+        { minDur: 6800, sub: '「拐彎抹角」：像沿著彎路繞行——說話做事繞圈子，不直截了當！',
+          html: scene(MAZE + P(250, 292, A('kid', 'happy'), 'st-hop', 0, .8) + sweat(600, 180)) },
+        { minDur: 6800, sub: '同學笑說：「你到底想說什麼？」小拐鼓起勇氣開門見山：「借我漫畫好嗎？」「早說嘛，好啊！」',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy') + P(-38, -52, '<rect x="-13" y="-17" width="26" height="34" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2"/>', '', 0, .95), '', 0, .98, true) + hearts(410, 185)) },
+        { minDur: 6400, sub: '拐彎抹角：說話做事繞圈子，不直截了當。',
+          html: scene(MAZE + P(250, 292, A('kid', 'happy'), '', 0, .8) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">拐彎抹角</text>') }
+      ];
+    },
+    /* 有憑有據 */
+    i1177: function () {
+      var TICKET = '<rect x="-20" y="-13" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-12" y1="-4" x2="12" y2="-4"/><line x1="-12" y1="3" x2="8" y2="3"/></g><circle cx="10" cy="7" r="6" fill="none" stroke="#c96a5a" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '班費少了五十元，有人隨口說：「一定是小憑拿的！」小憑急得漲紅了臉——空口說白話最傷人！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M30 -62 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(510, 302, A('kid', 'sad'), '', 0, .98, true) + sweat(560, 190) + bang(400, 185)) },
+        { minDur: 6800, sub: '小憑拿出收據：「五十元是買掃具的，這裡有憑有據！」收據上日期、金額、印章清清楚楚！',
+          html: scene(P(420, 302, A('kid', 'happy') + P(-40, -54, TICKET, '', 0, 1.2)) + bang(310, 190) + hearts(520, 190)) },
+        { minDur: 6800, sub: '「有憑有據」：有憑證、有依據，說法經得起查驗——指控別人之前，先拿出證據！',
+          html: scene(P(400, 240, TICKET, '', 0, 1.8) +
+            P(240, 302, A('kid', 'happy'), '', 0, .92) + P(560, 302, A('kid', 'happy'), '', 0, .92, true) + hearts(400, 165)) },
+        { minDur: 6400, sub: '有憑有據：有憑證有依據，確實可信。',
+          html: scene(P(400, 250, TICKET, '', 0, 1.9) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">有憑有據</text>') }
+      ];
     }
   };
 
