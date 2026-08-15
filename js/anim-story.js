@@ -603,6 +603,156 @@
           html: scene(P(300, 190, A('dragon')) + P(540, 302, A('kid', 'happy')) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">葉公好龍</text>') }
       ];
+    },
+    /* 朝三暮四 */
+    i239: function () {
+      function acorn(x, y) {
+        return P(x, y, '<ellipse cx="0" cy="2" rx="7" ry="8" fill="#c9a06c"/>' +
+          '<path d="M-7 -2 q7 -6 14 0 l-1 3 h-12 z" fill="#8a5a33"/><line x1="0" y1="-5" x2="0" y2="-9" stroke="#8a5a33" stroke-width="2.4" stroke-linecap="round"/>');
+      }
+      function acornRow(x, y, n) { var s = ''; for (var i = 0; i < n; i++) s += acorn(x + i * 26, y); return s; }
+      var SUNICO = '<circle cx="0" cy="0" r="13" fill="#ffdd66" stroke="#f5b73e" stroke-width="2.4"/>';
+      var MOONICO = '<path d="M6 -11 A13 13 0 1 0 11 7 A10 10 0 1 1 6 -11 Z" fill="#f4f1de" stroke="#d8d4bd" stroke-width="2"/>';
+      var BASKET = '<path d="M-26 0 q0 18 26 18 q26 0 26 -18 z" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+        '<path d="M-26 0 q26 -22 52 0" fill="none" stroke="#a8734a" stroke-width="4"/>';
+      return [
+        { minDur: 6600, sub: '養猴人養了一群猴子，家裡的橡實快不夠吃了，只好跟猴子們商量減量。',
+          html: scene(P(200, 302, A('kid', 'sad') + P(50, -6, BASKET + acorn(-8, -8) + acorn(10, -10))) + sweat(150, 200) +
+            P(460, 302, A('monkey')) + P(580, 302, A('monkey'), '', .3, .9) + P(690, 302, A('monkey'), '', .5, .85)) },
+        { minDur: 7000, sub: '他說：「以後橡實早上給三顆、晚上給四顆，好嗎？」猴子們一聽，氣得又蹦又跳，大吵大鬧！',
+          html: scene(P(150, 160, SUNICO) + acornRow(185, 160, 3) +
+            P(150, 210, MOONICO) + acornRow(185, 210, 4) +
+            P(200, 302, A('kid', 'happy')) +
+            P(470, 302, A('monkey')) + P(580, 302, A('monkey'), '', .2, .9) + P(690, 302, A('monkey'), '', .4, .85) +
+            bang(560, 200) + sweat(640, 190)) },
+        { minDur: 6800, sub: '他改口說：「那——早上給四顆、晚上給三顆！」猴子們以為變多了，開心得拍手歡呼！',
+          html: scene(P(150, 160, SUNICO) + acornRow(185, 160, 4) +
+            P(150, 210, MOONICO) + acornRow(185, 210, 3) +
+            P(200, 302, A('kid', 'happy')) +
+            P(470, 302, '<g class="st-cheer">' + A('monkey') + '</g>') +
+            P(580, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('monkey') + '</g>', '', 0, .9) +
+            P(690, 302, '<g class="st-cheer" style="animation-delay:.4s">' + A('monkey') + '</g>', '', 0, .85) +
+            hearts(600, 170)) },
+        { minDur: 6800, sub: '其實早三晚四、早四晚三，一天都是七顆，一顆也沒變多呀！猴子們被數字騙得團團轉。',
+          html: scene(P(230, 150, SUNICO) + acornRow(265, 150, 4) + P(230, 205, MOONICO) + acornRow(265, 205, 3) +
+            '<text x="530" y="185" font-size="34" font-weight="bold" fill="#4a3200">＝ 7 顆</text>' +
+            P(200, 302, A('kid', 'happy')) + P(520, 302, A('monkey')) + qmark(570, 200)) },
+        { minDur: 6200, sub: '朝三暮四：本指用詐術欺人，後比喻反覆無常。',
+          html: scene(P(280, 302, A('kid', 'happy')) + P(520, 302, A('monkey')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">朝三暮四</text>') }
+      ];
+    },
+    /* 東施效顰 */
+    i246: function () {
+      var CHEST = '<circle cx="-8" cy="-24" r="7" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '美女西施心口疼，皺著眉、捂著胸口走在街上。大家看了都說：「連皺眉的樣子都這麼美！」',
+          html: scene(P(300, 302, A('kid', 'sad') + CHEST) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) + P(670, 302, A('kid', 'happy'), '', .3, .9, true) +
+            hearts(480, 180) + hearts(620, 160)) },
+        { minDur: 6200, sub: '鄰居東施看見了，心想：「原來皺眉捂胸這麼美，我也來學一學！」',
+          html: scene(P(300, 302, A('kid', 'sad') + CHEST, '', 0, .9) +
+            P(600, 302, A('kid', 'wow'), '', 0, 1, true) + qmark(650, 180) + hearts(560, 200)) },
+        { minDur: 7000, sub: '東施也捂著胸口、皺起眉頭在街上走——村裡的人一看，嚇得逃跑的逃跑、關門的關門！',
+          html: scene(P(300, 302, A('kid', 'angry') + CHEST) +
+            P(560, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .95) +
+            P(690, 302, '<g class="st-fleeR" style="animation-delay:.2s">' + A('kid', 'wow') + '</g>', 'st-dashL', .2, .9) +
+            sweat(520, 200) + bang(430, 180)) },
+        { minDur: 6800, sub: '東施不知道：西施美的是天生的模樣，不是皺眉這個動作。盲目模仿，反而更不好看了呀！',
+          html: scene(P(300, 302, A('kid', 'sad') + CHEST) + sweat(340, 200) + qmark(260, 180)) },
+        { minDur: 6200, sub: '東施效顰：盲目模仿別人，反而弄巧成拙。',
+          html: scene(P(300, 302, A('kid', 'sad') + CHEST) + P(540, 302, A('kid', 'happy')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">東施效顰</text>') }
+      ];
+    },
+    /* 驚弓之鳥 */
+    i854: function () {
+      var BOW2 = '<path d="M0 -46 q32 24 0 46" fill="none" stroke="#a8734a" stroke-width="6" stroke-linecap="round"/>' +
+        '<line x1="0" y1="-46" x2="0" y2="0" stroke="#d9cbb0" stroke-width="2.6"/>';
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      return [
+        { minDur: 7200, sub: '神射手更羸陪魏王出遊，指著天上一隻飛得又慢又低的大雁說：「我不用箭，只拉一下弓弦，就能讓牠掉下來！」',
+          html: scene(P(560, 150, A('bird')) +
+            P(180, 302, A('kid', 'happy') + CROWN) + qmark(230, 190) +
+            P(340, 302, A('kid', 'happy') + P(30, -40, BOW2, '', 0, .8))) },
+        { minDur: 6200, sub: '只聽「嘣」的一聲弦響——那隻大雁真的從空中掉了下來！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(30, -40, BOW2, '', 0, .8)) + bang(390, 220) +
+            P(600, 292, '<g class="st-faint">' + A('bird') + '</g>', 'st-dashL') +
+            P(180, 302, A('kid', 'wow') + CROWN) + sweat(230, 200)) },
+        { minDur: 7000, sub: '魏王大吃一驚。更羸解釋：「這隻雁受過箭傷，傷口還沒好，又離了群，叫聲才那麼悲哀。」',
+          html: scene(P(180, 302, A('kid', 'wow') + CROWN) + qmark(140, 190) +
+            P(360, 302, A('kid', 'happy')) +
+            P(600, 296, A('bird') + '<rect x="-4" y="-52" width="14" height="7" rx="3.5" fill="#fff" stroke="#e3dcd4" stroke-width="1.6" transform="rotate(-18)"/>') +
+            sweat(640, 220)) },
+        { minDur: 7200, sub: '「牠一聽到弦聲，以為又有箭射來，嚇得拚命往高處飛，一用力，舊傷裂開，就掉下來了。」',
+          html: scene(P(560, 120, A('bird')) + sweat(600, 90) + bang(500, 80) +
+            P(340, 302, A('kid', 'happy') + P(30, -40, BOW2, '', 0, .8)) +
+            P(180, 302, A('kid', 'happy') + CROWN)) },
+        { minDur: 6200, sub: '驚弓之鳥：比喻受過驚嚇、遇事就害怕的人。',
+          html: scene(P(540, 180, A('bird')) + P(260, 302, A('kid', 'happy') + P(30, -40, BOW2, '', 0, .8)) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">驚弓之鳥</text>') }
+      ];
+    },
+    /* 望梅止渴 */
+    i1015: function () {
+      var PLUMTREE = TREE + '<circle cx="-12" cy="-66" r="5" fill="#ff8a80"/><circle cx="10" cy="-58" r="5" fill="#ff8a80"/><circle cx="0" cy="-74" r="5" fill="#a5d47c"/><circle cx="18" cy="-68" r="5" fill="#ff8a80"/>';
+      function soldier(x, dly, sc, cls) {
+        return P(x, 302, A('kid', cls === 'sad' ? 'sad' : 'happy'), cls === 'sad' ? '' : 'st-strut', dly, sc);
+      }
+      return [
+        { minDur: 6800, sub: '曹操帶兵急行軍。烈日當空，水早就喝光了，士兵們又渴又累，一步也走不動了。',
+          html: scene(P(200, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') +
+            P(340, 302, '<g class="st-slump" style="animation-delay:.3s">' + A('kid', 'sad') + '</g>', '', 0, .9) +
+            P(470, 302, '<g class="st-slump" style="animation-delay:.5s">' + A('kid', 'sad') + '</g>', '', 0, .85) +
+            sweat(240, 200) + sweat(380, 210) + sweat(500, 205) +
+            P(660, 302, A('kid', 'happy'))) },
+        { minDur: 6800, sub: '曹操心生一計，指著前方大聲說：「前面有一大片梅林，梅子又酸又甜，大家快走呀！」',
+          html: scene(P(660, 302, A('kid', 'happy')) +
+            P(560, 180, '<circle cx="0" cy="0" r="52" fill="#fff" opacity=".85"/>' + P(0, 34, PLUMTREE, '', 0, .72)) +
+            P(200, 302, A('kid', 'wow')) + P(340, 302, A('kid', 'wow'), '', 0, .9) + qmark(260, 190)) },
+        { minDur: 6800, sub: '士兵們一聽到酸梅子，口水都流出來了，覺得沒那麼渴，精神大振，加快腳步往前走！',
+          html: scene(soldier(180, 0, 1) + soldier(320, .2, .9) + soldier(450, .4, .85) +
+            P(660, 302, A('kid', 'happy')) + hearts(400, 170) + notes(250, 150)) },
+        { minDur: 6400, sub: '靠著想像中的梅子，大軍一路撐到了有水的地方，人人喝了個痛快。',
+          html: scene('<rect y="286" width="800" height="54" fill="#7fb2e0"/>' +
+            '<g class="st-wavemove"><path d="M-40 294 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>' +
+            P(240, 296, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(420, 296, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            hearts(330, 180)) },
+        { minDur: 6200, sub: '望梅止渴：比喻用空想安慰自己，願望無法真正實現。',
+          html: scene(P(620, 302, PLUMTREE, '', 0, 1.2) + P(300, 302, A('kid', 'happy')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">望梅止渴</text>') }
+      ];
+    },
+    /* 聞雞起舞 */
+    i113: function () {
+      var SWORD2 = '<line x1="0" y1="0" x2="26" y2="-40" stroke="#c4cede" stroke-width="5" stroke-linecap="round"/>' +
+        '<line x1="4" y1="-12" x2="14" y2="-4" stroke="#c98f2a" stroke-width="4" stroke-linecap="round"/>';
+      var BED = '<rect x="-90" y="-18" width="180" height="18" rx="6" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+        '<rect x="-84" y="-34" width="52" height="18" rx="8" fill="#f4ecd8" stroke="#ddd2b8" stroke-width="2"/>' +
+        '<rect x="-30" y="-32" width="116" height="16" rx="7" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '晉朝的祖逖和好友劉琨，立志報效國家。兩人同睡一張床，天天互相勉勵。',
+          html: scene(P(400, 302, BED + P(-10, -30, '<circle cx="0" cy="0" r="15" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>', '', 0, .9) +
+              P(46, -30, '<circle cx="0" cy="0" r="15" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>', '', 0, .9)) +
+            zzz(480, 220) + zzz(330, 230), 'night') },
+        { minDur: 6600, sub: '半夜，雞叫了！祖逖一骨碌爬起來，推醒劉琨：「聽！雞在叫我們起床練劍了！」',
+          html: scene(P(660, 302, A('chicken')) + notes(620, 190) +
+            P(330, 302, A('kid', 'happy')) + P(450, 302, A('kid', 'wow'), '', 0, .95) +
+            qmark(490, 190) + bang(600, 150), 'night') },
+        { minDur: 6600, sub: '兩人翻身下床，在院子裡拔劍起舞，一招一式，勤練武藝。',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + P(24, -40, SWORD2) + '</g>') +
+            P(540, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + P(24, -40, SWORD2) + '</g>', '', 0, .95, true) +
+            P(700, 302, A('chicken'), '', 0, .85), 'night') },
+        { minDur: 6800, sub: '從此不論寒冬酷暑，天天雞鳴即起，從不間斷。後來兩人都成了保家衛國的大將軍！',
+          html: scene('<g fill="#fff"><circle class="st-snow" cx="160" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1.2s" cx="330" cy="20" r="3.4"/>' +
+            '<circle class="st-snow" style="animation-delay:.5s" cx="470" cy="36" r="4"/><circle class="st-snow" style="animation-delay:1.7s" cx="560" cy="24" r="3"/></g>' +
+            P(300, 302, A('kid', 'happy') + P(24, -40, SWORD2)) +
+            P(520, 302, A('kid', 'happy') + P(24, -40, SWORD2), '', 0, .95) + hearts(410, 170)) },
+        { minDur: 6200, sub: '聞雞起舞：一聽到雞叫就起身練習，比喻立志發奮。',
+          html: scene(P(280, 302, A('kid', 'happy') + P(24, -40, SWORD2)) + P(560, 302, A('chicken')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">聞雞起舞</text>') }
+      ];
     }
   };
 
