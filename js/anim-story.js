@@ -18268,6 +18268,172 @@
           html: scene(P(400, 272, '<path d="M-30 -40 h60 l-6 66 q-24 10 -48 0 z" fill="#f0ede4" stroke="#c9bfa8" stroke-width="2.6"/><g class="st-bub"><circle cx="-8" cy="-10" r="4" fill="#fff"/></g>', '', 0, 1.35) + hearts(510, 210) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">水乳交融</text>') }
       ];
+    },
+    /* 唇齒相依 */
+    i652: function () {
+      var LIPTEETH = '<path d="M-30 -10 q30 -18 60 0 q-30 14 -60 0 z" fill="#e07a94"/><g fill="#fff" stroke="#d8cbb0" stroke-width="1.4"><rect x="-22" y="-4" width="10" height="12" rx="2"/><rect x="-9" y="-4" width="10" height="12" rx="2"/><rect x="4" y="-4" width="10" height="12" rx="2"/><rect x="17" y="-4" width="10" height="12" rx="2"/></g><path d="M-30 12 q30 16 60 0 q-30 -10 -60 0 z" fill="#e07a94"/>';
+      return [
+        { minDur: 7000, sub: '《三國志》論天下大勢：吳蜀兩國「唇齒相依」——嘴唇沒了，牙齒就要受凍！',
+          html: scene(P(400, 250, LIPTEETH, '', 0, 1.6) +
+            P(220, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '「唇齒相依」：關係密切、互相依存——上游護林、下游才有乾淨水，環環相扣！',
+          html: scene(P(280, 270, TREE, '', 0, 1) +
+            '<path d="M340 280 q120 16 240 8" stroke="#7fb2d4" stroke-width="9" fill="none" stroke-linecap="round"/>' +
+            P(620, 285, '<path d="M-14 -6 h28 v5 q0 9 -14 9 q-14 0 -14 -9 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.1) + hearts(450, 230)) },
+        { minDur: 6800, sub: '班上也一樣：值日生把教室顧好、大家把值日生當隊友——彼此依存，環境才好！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M362 258 h76" stroke="#548a40" stroke-width="4" stroke-linecap="round"/>' + hearts(410, 180)) },
+        { minDur: 6400, sub: '唇齒相依：相互依存，密不可分。',
+          html: scene(P(400, 255, LIPTEETH, '', 0, 1.7) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">唇齒相依</text>') }
+      ];
+    },
+    /* 休戚與共 */
+    i653: function () {
+      return [
+        { minDur: 7000, sub: '《國語》記載：晉公子孫周身在他鄉，聽到晉國有喜就高興、有難就憂愁——不忘根本！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(560, 250, '<path d="M-36 26 L0 -10 L36 26 Z" fill="#c9762f"/><rect x="-26" y="26" width="52" height="16" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.05) +
+            '<path d="M400 250 q60 -20 120 -10" stroke="#ff9eb5" stroke-width="3" fill="none" stroke-dasharray="7 6"/>' + hearts(300, 195)) },
+        { minDur: 6800, sub: '「休」是喜、「戚」是憂——「休戚與共」：你的喜是我的喜、你的難是我的難！',
+          html: scene(P(310, 245, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#548a40">休=喜</text>') +
+            P(490, 245, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#5a7fa8">戚=憂</text>') +
+            P(400, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '公司賺錢分紅給員工、虧損時大家共體時艱——休戚與共的團隊，走得最遠！',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, .95) + P(430, 302, A('kid', 'happy'), '', 0, .98) + P(560, 302, A('kid', 'happy'), '', 0, .95, true) +
+            '<path d="M320 258 h220" stroke="#548a40" stroke-width="4" stroke-linecap="round"/>' + hearts(430, 180)) },
+        { minDur: 6400, sub: '休戚與共：禍福同擔，命運一體。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M355 258 h90" stroke="#548a40" stroke-width="4" stroke-linecap="round"/>' + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">休戚與共</text>') }
+      ];
+    },
+    /* 息息相關 */
+    i654: function () {
+      return [
+        { minDur: 6800, sub: '「息息」是一呼一吸——像呼吸一樣連著，一刻都分不開！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<g class="st-zfloat" opacity=".7"><path d="M440 230 q6 -8 0 -14 q-6 -8 0 -14" stroke="#8fc6e8" stroke-width="3" fill="none"/></g>' +
+            '<g class="st-zfloat" style="animation-delay:.4s" opacity=".7"><path d="M360 230 q-6 -8 0 -14 q6 -8 0 -14" stroke="#8fc6e8" stroke-width="3" fill="none"/></g>') },
+        { minDur: 6800, sub: '「息息相關」：關係極密切——氣候與生活、睡眠與成績、森林與空氣，全連在一起！',
+          html: scene(P(260, 230, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#5a7fa8">氣候</text>') +
+            P(400, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#548a40">森林</text>') +
+            P(540, 230, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#c96a5a">生活</text>') +
+            '<g stroke="#c9bfa8" stroke-width="2.4" stroke-dasharray="5 5"><line x1="285" y1="222" x2="375" y2="206"/><line x1="425" y1="206" x2="515" y2="222"/><path d="M285 240 q115 40 230 0"/></g>') },
+        { minDur: 6800, sub: '明白息息相關，就懂得珍惜：隨手關燈、少用一個塑膠袋——小動作牽動大世界！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -50, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#a5d47c"/><path d="M0 -3 q3 -8 8 -9" stroke="#548a40" stroke-width="2" fill="none"/>', '', 0, 1)) + hearts(470, 190) +
+            P(200, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '息息相關：如同呼吸，緊密相連。',
+          html: scene(P(300, 235, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/>', '', 0, 1) +
+            P(400, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/>', '', 0, 1) +
+            P(500, 235, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/>', '', 0, 1) +
+            '<g stroke="#c9bfa8" stroke-width="2.4" stroke-dasharray="5 5"><line x1="320" y1="228" x2="380" y2="215"/><line x1="420" y1="215" x2="480" y2="228"/></g>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">息息相關</text>') }
+      ];
+    },
+    /* 榮辱與共 */
+    i655: function () {
+      return [
+        { minDur: 6800, sub: '球隊奪冠，每個人胸前都掛上金牌；輸球時，也沒有人把責任推給誰——一起扛！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(0, -40, '<circle cx="0" cy="10" r="9" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/><path d="M-6 2 l6 -10 6 10" stroke="#c96a5a" stroke-width="3" fill="none"/>', '', 0, 1), 'st-cheer', 0, .98) +
+            P(430, 302, A('kid', 'happy') + P(0, -40, '<circle cx="0" cy="10" r="9" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/><path d="M-6 2 l6 -10 6 10" stroke="#c96a5a" stroke-width="3" fill="none"/>', '', 0, 1), 'st-cheer', .2, .98) +
+            P(560, 302, A('kid', 'happy') + P(0, -40, '<circle cx="0" cy="10" r="9" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/><path d="M-6 2 l6 -10 6 10" stroke="#c96a5a" stroke-width="3" fill="none"/>', '', 0, 1), 'st-cheer', .4, .98, true) + bang(430, 175)) },
+        { minDur: 6800, sub: '「榮辱與共」：光榮與恥辱一同承擔——穿上同一件隊服，就是同一個命運！',
+          html: scene(P(330, 302, A('kid', 'sad')) + P(470, 302, A('kid', 'sad'), '', 0, .98, true) + sweat(400, 188) +
+            '<path d="M355 258 h90" stroke="#548a40" stroke-width="4" stroke-linecap="round"/>' +
+            P(600, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">一起扛</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '贏了不獨攬功勞、輸了不甩鍋隊友——榮辱與共的默契，比冠軍更珍貴！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M362 258 h76" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(410, 180)) },
+        { minDur: 6400, sub: '榮辱與共：榮耀同享，恥辱同擔。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M355 258 h90" stroke="#548a40" stroke-width="4" stroke-linecap="round"/>' + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">榮辱與共</text>') }
+      ];
+    },
+    /* 相濡以沫 */
+    i656: function () {
+      return [
+        { minDur: 7000, sub: '《莊子》的畫面：泉水乾了，魚兒困在陸地——用唾沫互相濕潤對方，苦苦支撐！',
+          html: scene('<ellipse cx="400" cy="300" rx="200" ry="16" fill="#c9b98a"/>' +
+            P(340, 292, A('fish'), '', 0, .95) + P(460, 292, A('fish'), '', 0, .95, true) +
+            '<g class="st-bub"><circle cx="395" cy="270" r="3" fill="#8fc6e8"/><circle cx="405" cy="262" r="2.4" fill="#8fc6e8"/></g>' + sweat(300, 250)) },
+        { minDur: 6800, sub: '莊子還說：「不如相忘於江湖」——但人們記住的，是那份患難中的深情！',
+          html: scene(P(340, 292, A('fish'), '', 0, .95) + P(460, 292, A('fish'), '', 0, .95, true) +
+            P(400, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.2) +
+            '<ellipse cx="400" cy="300" rx="200" ry="16" fill="#c9b98a"/>') },
+        { minDur: 6800, sub: '「相濡以沫」：困境中以微力相互扶持——患難夫妻分一碗麵，比盛宴更暖！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(405, 255, '<path d="M-14 -6 h28 v5 q0 9 -14 9 q-14 0 -14 -9 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.1) + hearts(405, 180)) },
+        { minDur: 6400, sub: '相濡以沫：患難互持，情義深重。',
+          html: scene('<ellipse cx="400" cy="300" rx="200" ry="15" fill="#c9b98a"/>' +
+            P(340, 292, A('fish'), '', 0, .95) + P(460, 292, A('fish'), '', 0, .95, true) + hearts(400, 230) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">相濡以沫</text>') }
+      ];
+    },
+    /* 和衷共濟 */
+    i657: function () {
+      var BIGBOAT = '<path d="M-70 0 L70 0 L52 24 L-52 24 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="2.6"/>';
+      return [
+        { minDur: 7000, sub: '「和衷」是同心、「共濟」是一起渡河——大家坐同一條船，就要一起划槳！',
+          html: scene('<rect y="268" width="800" height="72" fill="#5a7fa8"/>' +
+            '<g class="st-wavemove"><path d="M-40 278 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#8fb2d4" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>' +
+            P(400, 268, '<g class="st-bob">' + BIGBOAT +
+              P(-34, -8, A('kid', 'angry') + '<line x1="20" y1="-20" x2="34" y2="26" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/>', '', 0, .6) +
+              P(6, -8, A('kid', 'angry') + '<line x1="20" y1="-20" x2="34" y2="26" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/>', '', 0, .6) +
+              P(44, -8, A('kid', 'angry') + '<line x1="20" y1="-20" x2="34" y2="26" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/>', '', 0, .6) + '</g>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '風災過後：有人捐物資、有人清淤泥、有人煮熱食——「和衷共濟」，全村一條心！',
+          html: scene(P(280, 302, A('kid', 'angry') + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, .95, true) +
+            P(440, 302, A('kid', 'happy') + P(-38, -46, '<rect x="-14" y="-10" width="28" height="20" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1)) +
+            P(590, 302, A('kid', 'happy') + P(38, -44, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/><g class="st-zfloat" opacity=".7"><path d="M-3 -14 q3 -6 0 -10" stroke="#c9bfa8" stroke-width="2" fill="none"/></g>', '', 0, 1), '', 0, .95) + hearts(430, 185)) },
+        { minDur: 6800, sub: '同舟不吵誰划得多——把力氣用在同一個方向，難關就是風景！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M480 250 h100" stroke="#548a40" stroke-width="4"/><path d="M580 250 l-12 -8 v16 z" fill="#548a40"/>' + hearts(400, 182)) },
+        { minDur: 6400, sub: '和衷共濟：同心協力，共渡難關。',
+          html: scene('<rect y="272" width="800" height="68" fill="#5a7fa8"/>' +
+            P(400, 272, '<g class="st-bob">' + BIGBOAT + '</g>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">和衷共濟</text>') }
+      ];
+    },
+    /* 眾擎易舉 */
+    i658: function () {
+      return [
+        { minDur: 7000, sub: '張岱募款修祠堂寫道：「眾擎易舉，獨力難支」——一個人扛不動的，大家一起就輕了！',
+          html: scene(P(400, 250, '<rect x="-80" y="-20" width="160" height="26" rx="4" fill="#8a5a33" stroke="#6d4426" stroke-width="2.6"/>', '', 0, 1.1) +
+            P(300, 302, A('kid', 'angry') + '<path d="M-24 -60 l-6 -14 M24 -60 l6 -14" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95) +
+            P(400, 302, A('kid', 'angry') + '<path d="M-24 -60 l-6 -14 M24 -60 l6 -14" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95) +
+            P(500, 302, A('kid', 'angry') + '<path d="M-24 -60 l-6 -14 M24 -60 l6 -14" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '「擎」是舉——一根木頭一人扛到冒汗，十個人抬像羽毛！人多力量大不是口號！',
+          html: scene(P(280, 296, '<g transform="rotate(10)">' + A('kid', 'sad') + '</g>' + P(0, -70, '<rect x="-40" y="-12" width="80" height="16" rx="4" fill="#8a5a33"/>', '', 0, 1), '', 0, .95) + sweat(210, 190) +
+            '<path d="M380 250 h60" stroke="#548a40" stroke-width="4"/><path d="M440 250 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(550, 302, A('kid', 'happy') + P(0, -66, '<rect x="-40" y="-12" width="80" height="16" rx="4" fill="#8a5a33"/>', '', 0, .9), 'st-cheer', 0, .92) + P(630, 302, A('kid', 'happy'), 'st-cheer', .2, .9) + hearts(600, 200)) },
+        { minDur: 6800, sub: '「眾擎易舉」：眾人合力事情易成——募款、淨灘、辦活動，找對夥伴就成功一半！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-cheer', 0, .95) + P(420, 302, A('kid', 'happy'), 'st-cheer', .2, .95) + P(540, 302, A('kid', 'happy'), 'st-cheer', .4, .95, true) +
+            bang(420, 178) + hearts(320, 188)) },
+        { minDur: 6400, sub: '眾擎易舉：合眾人力，其事易成。',
+          html: scene(P(400, 245, '<rect x="-80" y="-18" width="160" height="24" rx="4" fill="#8a5a33" stroke="#6d4426" stroke-width="2.6"/>', '', 0, 1.1) +
+            P(310, 302, A('kid', 'angry'), '', 0, .92) + P(400, 302, A('kid', 'angry'), '', 0, .92) + P(490, 302, A('kid', 'angry'), '', 0, .92) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">眾擎易舉</text>') }
+      ];
+    },
+    /* 群策群力 */
+    i659: function () {
+      return [
+        { minDur: 7000, sub: '揚雄總結漢朝得天下：「漢屈群策，群策屈群力」——用盡眾人的計謀，再用盡眾人的力量！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 220, '<circle cx="0" cy="0" r="24" fill="#ffe9a0" class="st-tw"/><path d="M0 -34 v-10 M24 -24 l9 -10 M-24 -24 l-9 -10" stroke="#e0b73f" stroke-width="3" stroke-linecap="round"/>', '', 0, 1.1) + bang(260, 195)) },
+        { minDur: 6800, sub: '園遊會攤位怎麼辦？你出點子、他畫海報、我算成本——每個人的專長都用上！',
+          html: scene(P(280, 302, A('kid', 'happy') + P(-38, -56, '<path d="M0 -12 a12 12 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1)) +
+            P(420, 302, A('kid', 'happy') + P(-38, -50, '<line x1="0" y1="8" x2="6" y2="-12" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/>', '', 0, 1)) +
+            P(560, 302, A('kid', 'happy') + P(-38, -50, '<rect x="-12" y="-15" width="24" height="30" rx="3" fill="#8b93a3"/><rect x="-8" y="-11" width="16" height="9" rx="1.6" fill="#d9e8d0"/>', '', 0, 1), '', 0, .97, true) + hearts(420, 180)) },
+        { minDur: 6800, sub: '「群策群力」：一起出主意、一起出力——一個諸葛亮很強，一群臭皮匠合作更強！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-cheer', 0, .95) + P(430, 302, A('kid', 'happy'), 'st-cheer', .2, .98) + P(560, 302, A('kid', 'happy'), 'st-cheer', .4, .95, true) +
+            P(430, 195, '<path d="M0 -18 l6 11 12 2 -9 9 2 12 -11 -6 -11 6 2 -12 -9 -9 12 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '群策群力：集眾智，合眾力。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(400, 210, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1) + hearts(560, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">群策群力</text>') }
+      ];
     }
   };
 
