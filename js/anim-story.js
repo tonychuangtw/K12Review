@@ -5322,6 +5322,123 @@
           html: scene(bigTree(260, 1.1) + bigTree(520, 1.15) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">綠樹成蔭</text>') }
       ];
+    },
+    /* 說三道四 */
+    i809: function () {
+      function bub4(x, y, dly) {
+        return P(x, y, '<g class="st-zfloat"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M-20 -12 a17 13 0 1 1 34 4 q-2 6 -8 7 l-8 7 l1 -7 q-17 -2 -19 -11 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>' +
+          '<text x="-2" y="-3" text-anchor="middle" font-size="11" fill="#8a7a4a">嘰嘰喳喳</text></g>');
+      }
+      return [
+        { minDur: 6800, sub: '走廊上，兩個同學湊在一起，對別人的穿著、成績指指點點、議論個不停。',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(420, 302, A('kid', 'happy'), '', 0, .96, true) +
+            bub4(360, 172, 0) +
+            P(620, 302, A('kid', 'sad'), '', 0, .92) + sweat(660, 200)) },
+        { minDur: 6800, sub: '被議論的同學聽見了，心裡好難受——隨便批評別人的事，是很不禮貌的行為。',
+          html: scene(P(560, 302, A('kid', 'sad')) + sweat(600, 195) + qmark(510, 182) +
+            P(280, 302, A('kid', 'wow'), '', 0, .93)) },
+        { minDur: 6600, sub: '「說三道四」：隨意批評、議論別人的事——管好自己、尊重別人，才是好風度！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .96, true) + hearts(400, 178)) },
+        { minDur: 6400, sub: '說三道四：隨意批評、議論別人的事。',
+          html: scene(P(340, 302, A('kid', 'happy')) + bub4(410, 175, 0) + qmark(530, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">說三道四</text>') }
+      ];
+    },
+    /* 九霄雲外 */
+    i810: function () {
+      function cloudsHigh() {
+        return '<g class="st-cloud"><ellipse cx="200" cy="70" rx="44" ry="16" fill="#fff"/><ellipse cx="430" cy="45" rx="52" ry="18" fill="#fff"/><ellipse cx="640" cy="80" rx="40" ry="15" fill="#fff"/></g>';
+      }
+      return [
+        { minDur: 6800, sub: '一放暑假，小齊玩得不亦樂乎——老師交代的暑假作業，早被他拋到九霄雲外去了！',
+          html: scene(cloudsHigh() +
+            P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + notes(450, 180) +
+            P(180, 120, '<g class="st-zfloat"><rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -10 h16 M-8 -2 h16" stroke="#8fa3bf" stroke-width="1.8"/></g>')) },
+        { minDur: 6800, sub: '「九霄」是天空最高最高的地方——東西被丟到那裡，就是忘得一乾二淨啦！',
+          html: scene(cloudsHigh() + P(400, 302, A('kid', 'happy')) + qmark(480, 185) +
+            '<path d="M430 250 Q420 160 400 90" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 8"/>') },
+        { minDur: 6800, sub: '開學前一晚他才想起來——挑燈夜戰寫作業！該記的事，可別拋到九霄雲外呀。',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-42, -54, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -10 h16 M-8 -2 h16" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) +
+            sweat(300, 195) + zzz(500, 200), 'night') },
+        { minDur: 6400, sub: '九霄雲外：非常遙遠的地方，或忘得一乾二淨。',
+          html: scene(cloudsHigh() +
+            '<text x="400" y="270" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">九霄雲外</text>') }
+      ];
+    },
+    /* 度日如年 */
+    i811: function () {
+      var CLOCK2 = '<circle cx="0" cy="0" r="22" fill="#fff" stroke="#8b93a3" stroke-width="3"/><line x1="0" y1="0" x2="0" y2="-13" stroke="#3a2e26" stroke-width="2.8"/><line x1="0" y1="0" x2="9" y2="5" stroke="#3a2e26" stroke-width="2.8"/>';
+      return [
+        { minDur: 6800, sub: '打預防針前的等待好難熬——小旭盯著時鐘，秒針好像走得特別特別慢……',
+          html: scene(P(500, 190, CLOCK2, '', 0, 1.3) +
+            P(300, 302, A('kid', 'sad')) + sweat(250, 195) + qmark(370, 182)) },
+        { minDur: 6600, sub: '明明只過了五分鐘，卻覺得像過了一整年——這就是「度日如年」的感覺！',
+          html: scene(P(500, 190, CLOCK2, '', 0, 1.2) + zzz(380, 200) +
+            P(300, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>')) },
+        { minDur: 6600, sub: '其實針一下就打完了！很多害怕的事，真正面對時並沒有想像中可怕。',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(500, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(400, 180)) },
+        { minDur: 6400, sub: '度日如年：日子難熬，過一天像過一年。',
+          html: scene(P(430, 200, CLOCK2, '', 0, 1.5) + P(260, 302, A('kid', 'sad')) + sweat(310, 195) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">度日如年</text>') }
+      ];
+    },
+    /* 日新月異 */
+    i812: function () {
+      var OLDPHONE = '<rect x="-12" y="-30" width="24" height="46" rx="5" fill="#8b93a3" stroke="#6d7585" stroke-width="2.4"/><rect x="-8" y="-24" width="16" height="16" rx="2" fill="#c9d6e8"/><g fill="#6d7585"><circle cx="-5" cy="2" r="2"/><circle cx="3" cy="2" r="2"/><circle cx="-5" cy="8" r="2"/><circle cx="3" cy="8" r="2"/></g>';
+      var NEWPHONE = '<rect x="-13" y="-32" width="26" height="52" rx="6" fill="#3a2e26" stroke="#1e1812" stroke-width="2"/><rect x="-10" y="-27" width="20" height="42" rx="3" fill="#7fb2e0"/>';
+      return [
+        { minDur: 6800, sub: '爺爺翻出他年輕時的舊手機：又厚又重，只能打電話。再看看現在的手機——薄薄一片什麼都會！',
+          html: scene(P(300, 280, OLDPHONE, '', 0, 1.2) + P(500, 278, NEWPHONE, '', 0, 1.2) +
+            '<path d="M340 250 L450 250" stroke="#4a3200" stroke-width="4" stroke-dasharray="9 8"/><path d="M450 250 l-12 -8 v16 z" fill="#4a3200"/>' +
+            P(160, 302, A('kid', 'wow'), '', 0, .92)) },
+        { minDur: 6800, sub: '高鐵、機器人、會說話的音箱……新發明一個接一個，每天每月都有新變化！',
+          html: scene(P(400, 302, A('kid', 'happy')) + bang(310, 190) + bang(500, 175) + hearts(430, 220)) },
+        { minDur: 6600, sub: '「日新月異」：進步飛快，天天有新氣象——我們的學習也要跟上腳步！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(540, 278, NEWPHONE, '', 0, 1) + hearts(450, 190)) },
+        { minDur: 6400, sub: '日新月異：每天每月都有新變化，進步非常快。',
+          html: scene(P(300, 285, OLDPHONE, '', 0, 1) + P(500, 280, NEWPHONE, '', 0, 1.15) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">日新月異</text>') }
+      ];
+    },
+    /* 龍飛鳳舞 */
+    i813: function () {
+      var CALLIG = '<rect x="-60" y="-70" width="120" height="140" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="3"/>' +
+        '<path d="M-30 -48 q30 -14 44 8 q10 18 -14 22 q-26 4 -18 24 q6 16 28 12 M-34 30 q20 16 52 6" stroke="#3a2e26" stroke-width="6" fill="none" stroke-linecap="round"/>';
+      var BRUSH = '<line x1="0" y1="0" x2="14" y2="-34" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 0 q-3 6 -1 11 q4 -2 5 -8 z" fill="#3a2e26"/>';
+      return [
+        { minDur: 6800, sub: '書法老師揮毫寫下一幅大字：筆走龍蛇、氣勢奔放，像龍在飛、鳳在舞！',
+          html: scene(P(430, 300, CALLIG, '', 0, 1) +
+            P(220, 302, A('kid', 'happy') + P(24, -44, BRUSH)) + hearts(320, 185)) },
+        { minDur: 6600, sub: '同學們看得目瞪口呆：「哇——這字活起來了！」',
+          html: scene(P(430, 300, CALLIG, '', 0, 1.05) +
+            P(200, 302, A('kid', 'wow'), '', 0, .92) + P(650, 302, A('kid', 'wow'), '', .2, .9, true) + bang(560, 170)) },
+        { minDur: 6800, sub: '「龍飛鳳舞」形容書法筆勢活潑奔放——不過有時也拿來開玩笑，說字跡潦草看不懂啦！',
+          html: scene(P(300, 160, A('dragon'), '', 0, .95) + P(540, 300, CALLIG, '', 0, .9) + notes(430, 200)) },
+        { minDur: 6400, sub: '龍飛鳳舞：書法筆勢活潑奔放（也戲稱字跡潦草）。',
+          html: scene(P(400, 300, CALLIG, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">龍飛鳳舞</text>') }
+      ];
+    },
+    /* 快馬加鞭 */
+    i814: function () {
+      var WHIP = '<path d="M0 0 q16 -18 34 -20" stroke="#8a5a33" stroke-width="4" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '送信的騎士接到緊急任務！他騎上快馬，還揚起馬鞭：「駕——再快一點！」',
+          html: scene(P(400, 302, A('horse') + P(4, -34, A('kid', 'angry'), '', 0, .72) + P(30, -60, WHIP), 'st-dashL', 0, 1.05) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="120" y1="240" x2="210" y2="240"/></g>' + bang(600, 220)) },
+        { minDur: 6800, sub: '馬已經跑得飛快，再加上一鞭——比喻事情進行得很快了，還要再加速！',
+          html: scene(P(360, 302, A('horse'), 'st-dashL', 0, 1.1) + sweat(300, 210) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="100" y1="230" x2="190" y2="230"/><line class="st-windln" style="animation-delay:.4s" x1="80" y1="260" x2="160" y2="260"/></g>') },
+        { minDur: 6800, sub: '考試前一週，小杰快馬加鞭複習功課，進度突飛猛進！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-42, -54, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -10 h16 M-8 -2 h16 M-8 6 h16" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) +
+            bang(460, 190) + hearts(260, 188)) },
+        { minDur: 6400, sub: '快馬加鞭：對快馬再加鞭，加速進行。',
+          html: scene(P(400, 302, A('horse') + P(30, -60, WHIP), 'st-dashL', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">快馬加鞭</text>') }
+      ];
     }
   };
 
