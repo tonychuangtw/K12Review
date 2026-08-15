@@ -21218,6 +21218,170 @@
           html: scene(P(400, 302, A('kid', 'wow') + P(0, -60, '<path d="M-16 -8 q0 -14 16 -14 q16 0 16 14 l-3 14 q-13 8 -26 0 z" fill="#c9b26a" stroke="#a8905a" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="11" fill="#6d5a33">古</text>', '', 0, 1), '', 0, 1.08) + qmark(510, 185) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">食古不化</text>') }
       ];
+    },
+    /* 驚鴻一瞥 */
+    i980: function () {
+      return [
+        { minDur: 7000, sub: '曹植寫洛神：「翩若驚鴻，婉若遊龍」——輕盈的身影像受驚飛起的鴻雁，一現即逝！',
+          html: scene(P(400, 180, A('bird'), 'st-fly', 0, 1.2) +
+            '<g class="st-tw"><path d="M300 140 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' +
+            P(240, 302, A('kid', 'wow') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + hearts(320, 220), 'night') },
+        { minDur: 6800, sub: '陸游在沈園寫唐琬：「曾是驚鴻照影來」——橋下春波，還記得她驚鴻般的倒影……',
+          html: scene('<path d="M150 280 q250 -60 500 0" stroke="#a8734a" stroke-width="9" fill="none"/>' +
+            '<rect y="295" width="800" height="45" fill="#5a8a6a" opacity=".6"/>' +
+            P(400, 240, '<g opacity=".55">' + A('kid', 'happy') + '</g>', '', 0, .8) +
+            P(230, 302, A('kid', 'sad') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95) + hearts(320, 220), 'night') },
+        { minDur: 6800, sub: '「驚鴻一瞥」：短暫而深刻的美好印象——旅途中那座山城的一眼，成了再訪的理由！',
+          html: scene(P(540, 250, '<path d="M-40 30 L0 -20 L40 30 Z" fill="#7a9a6a"/><g fill="#f4ecd8" stroke="#c9bfa8" stroke-width="1.6"><rect x="-20" y="8" width="14" height="14"/><rect x="4" y="2" width="14" height="14"/></g>', '', 0, 1.1) +
+            P(280, 302, A('kid', 'wow'), '', 0, .98) + hearts(360, 210) +
+            '<g class="st-tw"><path d="M590 200 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>') },
+        { minDur: 6400, sub: '驚鴻一瞥：翩然一現，銘刻於心。',
+          html: scene(P(400, 185, A('bird'), 'st-fly', 0, 1.2) +
+            '<g class="st-tw"><path d="M310 145 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' + hearts(480, 240) +
+            '<text x="400" y="290" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">驚鴻一瞥</text>', 'night') }
+      ];
+    },
+    /* 老驥伏櫪 */
+    i981: function () {
+      return [
+        { minDur: 7000, sub: '曹操晚年寫下：「老驥伏櫪，志在千里」——老千里馬伏在馬槽邊，心仍奔向千里之外！',
+          html: scene(P(340, 302, '<g stroke="#a8734a" stroke-width="5"><line x1="-60" y1="0" x2="-60" y2="-56"/><line x1="60" y1="0" x2="60" y2="-56"/><line x1="-70" y1="-56" x2="70" y2="-56"/></g>' + A('horse'), '', 0, 1.05) +
+            '<path d="M430 240 q110 -60 200 -80" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/><path d="M630 160 l-14 1 l8 11 z" fill="#c9bfa8"/>') },
+        { minDur: 6800, sub: '「烈士暮年，壯心不已」——他寫這首詩時已五十多歲，仍要統一北方！',
+          html: scene(P(360, 302, A('kid', 'angry') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>' + P(-46, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) + bang(470, 185) + hearts(280, 195)) },
+        { minDur: 6800, sub: '「老驥伏櫪」：年老壯志不減——七十歲學程式、八十歲跑馬拉松，年齡只是數字！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', 'st-dashL', 0, 1.02) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="220" y1="250" x2="300" y2="250"/></g>' + bang(470, 185) + hearts(560, 195)) },
+        { minDur: 6400, sub: '老驥伏櫪：年雖老邁，壯心不已。',
+          html: scene(P(360, 302, '<g stroke="#a8734a" stroke-width="5"><line x1="-60" y1="0" x2="-60" y2="-56"/><line x1="60" y1="0" x2="60" y2="-56"/><line x1="-70" y1="-56" x2="70" y2="-56"/></g>' + A('horse'), '', 0, 1.08) +
+            '<path d="M450 240 q100 -50 180 -70" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">老驥伏櫪</text>') }
+      ];
+    },
+    /* 肆無忌憚 */
+    i982: function () {
+      return [
+        { minDur: 7000, sub: '《中庸》說小人「無忌憚也」——心中沒有一絲敬畏，什麼事都做得出來！',
+          html: scene(P(430, 302, A('kid', 'angry') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', 'st-strut', 0, 1.12) + bang(540, 190) +
+            P(240, 302, A('kid', 'wow'), '', 0, .92) + sweat(190, 192)) },
+        { minDur: 6800, sub: '「肆無忌憚」：放肆到毫無顧忌——盜版商明目張膽翻印、惡鄰半夜開趴不理勸告！',
+          html: scene(P(400, 302, A('kid', 'angry') + P(-42, -50, '<rect x="-14" y="-18" width="28" height="36" rx="2" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="4" text-anchor="middle" font-size="9" fill="#c96a5a">盜版</text>', '', 0, 1.05), '', 0, 1.08) + notes(500, 185) +
+            P(240, 302, A('kid', 'sad'), '', 0, .92) + sweat(300, 192), 'night') },
+        { minDur: 6800, sub: '無忌憚的盡頭是法律和後果——心存敬畏不是膽小，是成熟的煞車！',
+          html: scene(P(340, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/><rect x="-20" y="-80" width="40" height="5" rx="2" fill="#2c3550"/>', '', 0, 1.02) +
+            P(520, 302, A('kid', 'sad'), '', 0, .97, true) + sweat(580, 192) + bang(430, 188)) },
+        { minDur: 6400, sub: '肆無忌憚：放縱妄為，毫無顧忌。',
+          html: scene(P(420, 302, A('kid', 'angry') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', 'st-strut', 0, 1.12) + bang(530, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">肆無忌憚</text>') }
+      ];
+    },
+    /* 病入膏肓 */
+    i1038: function () {
+      return [
+        { minDur: 7000, sub: '晉景公病重，夢見疾病化成兩個小孩商量：「躲到肓之上、膏之下，神醫也拿我們沒辦法！」',
+          html: scene(P(400, 296, '<rect x="-80" y="-9" width="160" height="18" rx="5" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' + P(0, -16, '<g transform="rotate(90)">' + A('kid', 'sad') + '</g>', '', 0, .85), '', 0, 1.05) +
+            P(300, 190, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".9"/>' + P(-6, 10, A('kid', 'angry'), '', 0, .3) + P(8, 10, A('kid', 'angry'), '', 0, .3), 'st-zfloat', 0, 1.05), 'night') },
+        { minDur: 6800, sub: '名醫緩診斷後直說：「疾不可為也」——藥力到不了膏肓之間，晉景公不久病逝……',
+          html: scene(P(340, 302, A('kid', 'sad') + '<path d="M-18 -34 L-14 6 h28 l4 -40 z" fill="#fff" stroke="#d8d2c4" stroke-width="2"/>', '', 0, 1) + sweat(280, 190) +
+            P(540, 296, '<rect x="-70" y="-8" width="140" height="16" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' + P(0, -14, '<g transform="rotate(90)">' + A('kid', 'sad') + '</g>', '', 0, .8), '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「病入膏肓」（肓讀ㄏㄨㄤ）：病重難治、積弊難返——小病要早治，小弊要早改！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">ㄏㄨㄤ</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">早發現</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">早治療</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '病入膏肓：沉痾難起，無可救藥。',
+          html: scene(P(400, 298, '<rect x="-76" y="-9" width="152" height="18" rx="5" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' + P(0, -16, '<g transform="rotate(90)">' + A('kid', 'sad') + '</g>', '', 0, .85), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">病入膏肓</text>', 'night') }
+      ];
+    },
+    /* 諱疾忌醫 */
+    i1039: function () {
+      return [
+        { minDur: 7000, sub: '扁鵲初見蔡桓公：「您有病在皮膚，不治會加深！」桓公不悅：「寡人無疾！」',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(540, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1.05, true) + qmark(430, 185)) },
+        { minDur: 6800, sub: '二見、三見——病入肌膚、進腸胃，桓公照樣不理；等病入骨髓，扁鵲掉頭就走：沒救了……',
+          html: scene(P(540, 302, A('kid', 'sad') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>' + P(34, -30, '<path d="M-8 4 q8 -12 16 0" stroke="#fff" stroke-width="5" fill="none"/>', '', 0, 1), '', 0, 1.02, true) + sweat(600, 190) +
+            P(280, 302, '<g class="st-fleeR">' + A('kid', 'happy') + '</g>', 'st-dashL', 0, .95, true) + bang(430, 195)) },
+        { minDur: 6800, sub: '「諱疾忌醫」：掩飾過錯、拒絕規勸——身體的病要看醫生，行為的病要聽得進批評！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#ffe3c1" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(530, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '諱疾忌醫：文過拒諫，終致沉痾。',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(540, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1.05, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">諱疾忌醫</text>') }
+      ];
+    },
+    /* 蕭規曹隨 */
+    i1088: function () {
+      return [
+        { minDur: 7000, sub: '漢初曹參接任相國，一切照蕭何定的法令辦——自己日日飲酒，什麼都不改！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>' + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#6d5335">法令</text>', '', 0, .95), '', 0, 1) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>' + P(38, -44, '<path d="M-8 -8 h16 l-2 14 h-12 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1, true) + notes(620, 195)) },
+        { minDur: 6800, sub: '惠帝責問，曹參反問：「陛下與我，比得上高帝與蕭何嗎？法令既明，遵而勿失不就好了！」',
+          html: scene(P(320, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#c9762f" stroke="#a85a1e" stroke-width="2"/>', '', 0, 1) + qmark(400, 182) +
+            P(540, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02, true) + bang(620, 190)) },
+        { minDur: 6800, sub: '「蕭規曹隨」：沿襲前人成規——制度好就別亂動；但時代變了，該改也要敢改！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-8 0 l4 4 l8 -8" stroke="#548a40" stroke-width="2.4" fill="none"/>', '', 0, .95)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">好規則</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">就沿用</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '蕭規曹隨：前規後隨，守成不變。',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1) +
+            P(510, 302, A('kid', 'happy'), '', 0, 1, true) +
+            '<path d="M370 250 h80" stroke="#548a40" stroke-width="3.4"/><path d="M450 250 l-12 -8 v16 z" fill="#548a40"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">蕭規曹隨</text>') }
+      ];
+    },
+    /* 杳如黃鶴 */
+    i1143: function () {
+      return [
+        { minDur: 7000, sub: '崔顥登黃鶴樓：「黃鶴一去不復返，白雲千載空悠悠」——仙人乘鶴飛走，只留空樓！',
+          html: scene(P(300, 285, '<g stroke="#a8734a" stroke-width="5"><line x1="-40" y1="0" x2="-40" y2="-70"/><line x1="40" y1="0" x2="40" y2="-70"/></g><rect x="-52" y="-70" width="104" height="15" fill="#c9762f"/><path d="M-60 -70 h120 l-14 -22 h-92 z" fill="#a85a1e"/><rect x="-52" y="-38" width="104" height="12" fill="#e0a458"/>', '', 0, 1.05) +
+            P(560, 130, A('bird'), 'st-fly', 0, .9) +
+            '<g class="st-cloud"><ellipse cx="420" cy="110" rx="56" ry="17" fill="#fff" opacity=".8"/></g>') },
+        { minDur: 6800, sub: '「杳如黃鶴」（杳讀ㄧㄠˇ）：一去無蹤、毫無消息——借出去的書、匯出去的訂金……',
+          html: scene(P(340, 302, A('kid', 'wow') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">ㄧㄠˇ</text>', '', 0, 1.1)) + qmark(450, 185) +
+            P(580, 250, '<rect x="-24" y="-16" width="48" height="32" rx="3" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4" opacity=".5"/><text x="0" y="6" text-anchor="middle" font-size="16" fill="#5a8fbf">?</text>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '避免杳如黃鶴：借東西記下來、交易留憑證——追蹤有據，黃鶴才飛不遠！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-4" text-anchor="middle" font-size="9" fill="#548a40">借書</text><text x="0" y="8" text-anchor="middle" font-size="9" fill="#548a40">紀錄</text>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '杳如黃鶴：一去不返，音信全無。',
+          html: scene(P(320, 288, '<g stroke="#a8734a" stroke-width="5"><line x1="-36" y1="0" x2="-36" y2="-62"/><line x1="36" y1="0" x2="36" y2="-62"/></g><rect x="-46" y="-62" width="92" height="14" fill="#c9762f"/><path d="M-54 -62 h108 l-13 -20 h-82 z" fill="#a85a1e"/>', '', 0, 1.05) +
+            P(580, 130, A('bird'), 'st-fly', 0, .85) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">杳如黃鶴</text>') }
+      ];
+    },
+    /* 左支右絀 */
+    i1170: function () {
+      return [
+        { minDur: 6800, sub: '園遊會人手不夠：補了飲料攤、煎台沒人顧；調回煎台、收銀又大排長龍……',
+          html: scene(P(400, 302, A('kid', 'wow'), 'st-dashL', 0, 1.05) + sweat(330, 185) +
+            P(240, 250, '<rect x="-26" y="-15" width="52" height="30" rx="4" fill="#fff" opacity=".9"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#c96a5a">飲料缺人</text>', 'st-bob', 0, 1) +
+            P(560, 250, '<rect x="-26" y="-15" width="52" height="30" rx="4" fill="#fff" opacity=".9"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#c96a5a">煎台缺人</text>', 'st-bob', .3, 1)) },
+        { minDur: 6800, sub: '「左支右絀」（絀讀ㄔㄨˋ）：這頭撐住、那頭又缺——資源不足，窮於應付！',
+          html: scene(P(400, 260, '<line x1="0" y1="30" x2="0" y2="-30" stroke="#a8734a" stroke-width="5"/><line x1="-60" y1="-30" x2="60" y2="-30" stroke="#a8734a" stroke-width="4" transform="rotate(-12 0 -30)"/>', 'st-bob', 0, 1.2) + sweat(520, 210) +
+            P(250, 210, '<rect x="-30" y="-15" width="60" height="30" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">ㄔㄨˋ</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '左支右絀時先做減法：砍掉一個攤位、集中人力——把三件事做爛，不如把兩件做好！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-15" y="-11" width="30" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">做減法</text>', '', 0, 1.1)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '左支右絀：捉襟見肘，窮於應付。',
+          html: scene(P(400, 302, A('kid', 'wow'), 'st-bob', 0, 1.08) + sweat(320, 185) +
+            P(250, 245, '<rect x="-24" y="-14" width="48" height="28" rx="4" fill="#fff" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#c96a5a">左缺</text>', 'st-bob', 0, 1) +
+            P(550, 245, '<rect x="-24" y="-14" width="48" height="28" rx="4" fill="#fff" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#c96a5a">右缺</text>', 'st-bob', .3, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">左支右絀</text>') }
+      ];
+    },
+    /* 掛一漏萬 */
+    i1171: function () {
+      return [
+        { minDur: 7000, sub: '韓愈寫〈南山詩〉自歎：山景千萬，落筆卻「掛一念萬漏」——寫出一分、漏掉萬分！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-44, -46, '<line x1="0" y1="10" x2="6" y2="-14" stroke="#3a2e26" stroke-width="3.4" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.02) +
+            P(540, 260, '<path d="M-90 45 L-40 -20 L0 20 L50 -35 L100 45 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.4"/>', '', 0, 1) + sweat(380, 210)) },
+        { minDur: 6800, sub: '「掛一漏萬」：列舉不周全——多作自謙：「以上僅掛一漏萬，詳情請見全文！」',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-10" y1="-12" x2="10" y2="-12"/></g><text x="0" y="8" text-anchor="middle" font-size="9" fill="#c9bfa8">……</text>', '', 0, .95), '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(450, 188)) },
+        { minDur: 6800, sub: '謙詞要用對方向：可以說自己掛一漏萬，不能拿來指責別人喔！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">自謙用</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#c96a5a">責人✗</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '掛一漏萬：所舉不全，自謙之語。',
+          html: scene(P(400, 260, '<rect x="-40" y="-30" width="80" height="60" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-26" y1="-14" x2="26" y2="-14"/></g><text x="0" y="10" text-anchor="middle" font-size="13" fill="#c9bfa8">……？</text>', '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">掛一漏萬</text>') }
+      ];
     }
   };
 
