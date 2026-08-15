@@ -16408,6 +16408,155 @@
             '<path d="M440 260 h80" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/>' + qmark(560, 240) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">後繼無人</text>', 'night') }
       ];
+    },
+    /* 任勞任怨 */
+    i616: function () {
+      return [
+        { minDur: 7000, sub: '《鹽鐵論》說賢者「任勞而不任怨」——後來合成「任勞任怨」：勞苦和抱怨都扛得住！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(0, -66, '<rect x="-20" y="-28" width="40" height="32" rx="6" fill="#8a5a33" stroke="#6d4426" stroke-width="2.6"/>', '', 0, 1), '', 0, 1.02) + sweat(290, 190) + hearts(470, 195)) },
+        { minDur: 6800, sub: '媽媽每天煮飯、洗衣、接送——被唸「菜太鹹」也只笑笑，隔天調整再端上桌！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-40, -44, '<path d="M-14 -6 h28 v5 q0 9 -14 9 q-14 0 -14 -9 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1.05) +
+            P(560, 302, A('kid', 'happy'), '', 0, .92, true) + hearts(460, 188)) },
+        { minDur: 6800, sub: '「任勞任怨」：勤懇不計較委屈——別把這份付出當理所當然，說聲謝謝、搭把手！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.02) +
+            P(500, 302, A('kid', 'happy') + P(-36, -44, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, .95, true) + hearts(420, 182) +
+            P(620, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">謝謝</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '任勞任怨：不辭勞苦，不計委屈。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(0, -66, '<rect x="-20" y="-28" width="40" height="32" rx="6" fill="#8a5a33" stroke="#6d4426" stroke-width="2.6"/>', '', 0, 1), '', 0, 1.05) + hearts(510, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">任勞任怨</text>') }
+      ];
+    },
+    /* 鞠躬盡瘁 */
+    i617: function () {
+      return [
+        { minDur: 7000, sub: '諸葛亮在〈後出師表〉立誓：「臣鞠躬盡瘁，死而後已」——為國家竭盡最後一分力！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/>' + P(-46, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/></g>', '', 0, .95), '', 0, 1.05) +
+            P(620, 130, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '他北伐途中積勞成疾，仍事必躬親——連二十軍棍以上的處罰都親自過問！',
+          html: scene(P(380, 302, A('kid', 'sad') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/>' + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/><line x1="-9" y1="7" x2="9" y2="7"/></g>', '', 0, .95), '', 0, 1.02) + sweat(300, 188) +
+            P(620, 130, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「鞠躬盡瘁」：不辭勞苦、竭盡心力——千年來它是「奉獻」兩個字最重的寫法！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#c96a5a" class="st-tw"/>', '', 0, 1.2) + hearts(290, 200)) },
+        { minDur: 6400, sub: '鞠躬盡瘁：竭盡心力，奉獻不懈。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.05) + hearts(500, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">鞠躬盡瘁</text>', 'night') }
+      ];
+    },
+    /* 死而後已 */
+    i618: function () {
+      return [
+        { minDur: 7000, sub: '曾子說讀書人「任重而道遠」——扛著仁德走遠路，「死而後已，不亦遠乎」！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(0, -66, '<rect x="-18" y="-26" width="36" height="30" rx="6" fill="#8a5a33" stroke="#6d4426" stroke-width="2.6"/>', '', 0, 1), 'st-strut', 0, 1.02) +
+            '<path d="M440 290 q140 -30 260 -80" stroke="#d9cfae" stroke-width="14" fill="none" stroke-linecap="round"/>') },
+        { minDur: 6800, sub: '「死而後已」：到死才停止——一輩子只做一件事並做到極致，本身就是傳奇！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.05) +
+            '<path d="M200 260 q100 -14 200 -8 q100 6 200 -12" stroke="#d9cfae" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="14 10"/>' + hearts(500, 195)) },
+        { minDur: 6800, sub: '像一生守燈塔的老人、行醫到九十歲的醫師——他們用一輩子詮釋這四個字！',
+          html: scene(P(300, 290, '<rect x="-14" y="-70" width="28" height="70" fill="#c96a5a" stroke="#a84f42" stroke-width="2.6"/><path d="M-18 -70 h36 l-6 -14 h-24 z" fill="#8b93a3"/><circle cx="0" cy="-78" r="7" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M-18 -34 L-14 6 h28 l4 -40 z" fill="#fff" stroke="#d8d2c4" stroke-width="2" opacity=".9"/>', '', 0, 1) + hearts(420, 195), 'night') },
+        { minDur: 6400, sub: '死而後已：奉獻終身，至死方休。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -66, '<rect x="-18" y="-26" width="36" height="30" rx="6" fill="#8a5a33" stroke="#6d4426" stroke-width="2.6"/>', '', 0, 1), 'st-strut', 0, 1.05) +
+            '<path d="M480 290 q120 -24 220 -66" stroke="#d9cfae" stroke-width="12" fill="none" stroke-linecap="round"/>' +
+            '<text x="330" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">死而後已</text>') }
+      ];
+    },
+    /* 夙夜匪懈 */
+    i619: function () {
+      return [
+        { minDur: 7000, sub: '《詩經》讚美賢臣仲山甫：「夙夜匪解，以事一人」——起早睡晚，一刻不敢鬆懈！',
+          html: scene(P(220, 120, '<circle cx="0" cy="0" r="18" fill="#ffb066" stroke="#e8944d" stroke-width="2.6"/>', '', 0, 1) +
+            P(580, 120, '<circle cx="0" cy="0" r="15" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1) +
+            P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02)) },
+        { minDur: 6800, sub: '「夙」是清早、「匪」是不——天沒亮就起身做事，到深夜也不偷懶！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/></g>', '', 0, .95), '', 0, 1.02) +
+            P(600, 130, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1) + sweat(290, 190), 'night') },
+        { minDur: 6800, sub: '「夙夜匪懈」：日夜勤奮不懈怠——大賽前的球隊、上市前的團隊，都是這個狀態！',
+          html: scene(P(320, 302, A('kid', 'angry'), 'st-strut', 0, .98) + P(470, 302, A('kid', 'angry'), 'st-strut', .2, .98) + sweat(390, 188) + bang(560, 195) + hearts(240, 195)) },
+        { minDur: 6400, sub: '夙夜匪懈：日夜勤勉，不敢鬆懈。',
+          html: scene(P(230, 125, '<circle cx="0" cy="0" r="17" fill="#ffb066" stroke="#e8944d" stroke-width="2.6"/>', '', 0, 1) +
+            P(570, 125, '<circle cx="0" cy="0" r="14" fill="#f5f0dc"/><circle cx="5" cy="-3" r="11" fill="#2c3550"/>', '', 0, 1) +
+            P(400, 302, A('kid', 'angry') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) +
+            '<text x="400" y="220" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">夙夜匪懈</text>') }
+      ];
+    },
+    /* 宵衣旰食 */
+    i620: function () {
+      return [
+        { minDur: 7000, sub: '史書稱讚勤政的君王「宵衣旰食」——天沒亮就摸黑穿衣上朝，忙到天黑才想起吃飯！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>' + P(-44, -40, '<path d="M-12 -18 h24 l-3 26 h-18 z" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/>', '', 0, .95), '', 0, 1.05) +
+            P(600, 130, '<circle cx="0" cy="0" r="15" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1) +
+            P(200, 250, '<g class="st-flick"><path d="M0 8 Q-6 -4 0 -14 Q3 -8 6 -12 Q9 -2 4 6 Z" fill="#ffd166"/></g><rect x="-4" y="8" width="8" height="16" fill="#f4ecd8"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「宵」是夜、「旰」是天晚——奏摺一份接一份批，桌上的飯菜熱了又涼、涼了又熱！',
+          html: scene(P(380, 302, A('kid', 'sad') + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/><line x1="-9" y1="7" x2="9" y2="7"/></g>', '', 0, .95), '', 0, 1.02) +
+            P(580, 285, '<path d="M-14 -6 h28 v5 q0 9 -14 9 q-14 0 -14 -9 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.1) + zzz(300, 200), 'night') },
+        { minDur: 6800, sub: '「宵衣旰食」：勤於政事、忘我操勞——不過再忙也要好好吃飯，身體是本錢！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -44, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">吃飯!</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '宵衣旰食：夙興夜寐，勤於政事。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05) +
+            P(600, 130, '<circle cx="0" cy="0" r="14" fill="#f5f0dc"/><circle cx="5" cy="-3" r="11" fill="#2c3550"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">宵衣旰食</text>', 'night') }
+      ];
+    },
+    /* 夜以繼日 */
+    i621: function () {
+      return [
+        { minDur: 7000, sub: '孟子說周公治國：想不通的問題「仰而思之，夜以繼日」——想通了就坐等天亮去實行！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(600, 130, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1) +
+            P(280, 195, '<circle cx="0" cy="0" r="18" fill="#ffe9a0" class="st-tw"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「夜以繼日」：夜晚接著白天不停做——救災搶修的工程隊，就是這樣輪班接力！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>' + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1)) +
+            P(500, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>' + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, .98, true) + bang(400, 195), 'night') },
+        { minDur: 6800, sub: '衝刺可以，硬撐不行——輪流休息、分工接力，夜以繼日也要照顧好每個人！',
+          html: scene(P(320, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1)) +
+            P(540, 296, '<g transform="rotate(8)">' + A('kid', 'happy') + '</g>', '', 0, .95, true) + zzz(620, 240) + hearts(420, 190)) },
+        { minDur: 6400, sub: '夜以繼日：日夜不停，全力以赴。',
+          html: scene(P(230, 125, '<circle cx="0" cy="0" r="17" fill="#ffdd66" stroke="#f5b73e" stroke-width="2.6"/>', '', 0, 1) +
+            P(570, 125, '<circle cx="0" cy="0" r="14" fill="#f5f0dc"/><circle cx="5" cy="-3" r="11" fill="#87a0c4"/>', '', 0, 1) +
+            '<path d="M280 125 h240" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="8 7"/>' +
+            P(400, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1), '', 0, 1) +
+            '<text x="400" y="220" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">夜以繼日</text>') }
+      ];
+    },
+    /* 全力衝刺 */
+    i622: function () {
+      return [
+        { minDur: 6800, sub: '最後一百公尺！小刺咬緊牙關，把所有力氣灌進雙腿——風在耳邊呼嘯！',
+          html: scene('<line x1="620" y1="240" x2="620" y2="310" stroke="#c96a5a" stroke-width="4"/><rect x="614" y="236" width="40" height="26" rx="3" fill="#fff" stroke="#c96a5a" stroke-width="2"/>' +
+            P(360, 302, A('kid', 'angry'), 'st-dashL', 0, 1.05) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="220" y1="250" x2="300" y2="250"/><line x1="200" y1="280" x2="290" y2="280"/></g>' + sweat(300, 188)) },
+        { minDur: 6800, sub: '「全力衝刺」：使出全部力量朝目標邁進——考前兩週、比賽最後一節，都是衝刺時刻！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/></g>', '', 0, .95), '', 0, 1.02) + bang(470, 188) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-11" stroke="#c96a5a" stroke-width="2.6"/><line x1="0" y1="0" x2="8" y2="4" stroke="#c96a5a" stroke-width="2.6"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '衝刺前要先配速——平時穩穩累積，關鍵時刻才有力氣全開！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + bang(400, 172) + hearts(510, 195) +
+            '<path d="M240 260 q80 -10 160 -30 q80 -20 160 -24" stroke="#548a40" stroke-width="4" fill="none" stroke-dasharray="10 8"/>') },
+        { minDur: 6400, sub: '全力衝刺：傾盡全力，邁向目標。',
+          html: scene('<line x1="620" y1="240" x2="620" y2="310" stroke="#c96a5a" stroke-width="4"/>' +
+            P(400, 302, A('kid', 'angry'), 'st-dashL', 0, 1.08) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="240" y1="255" x2="330" y2="255"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">全力衝刺</text>') }
+      ];
+    },
+    /* 摩拳擦掌 */
+    i623: function () {
+      return [
+        { minDur: 6800, sub: '比賽開始前十分鐘——選手們有的搓拳頭、有的擦手掌、有的原地小跳！',
+          html: scene(P(280, 302, A('kid', 'angry') + P(0, -46, '<path d="M-14 0 a7 7 0 1 1 0 1 M2 0 a7 7 0 1 1 0 1" stroke="#ffe3c1" stroke-width="4" fill="none"/>', '', 0, 1), 'st-bob', 0, .98) +
+            P(430, 302, A('kid', 'angry'), 'st-hop', .2, .98) +
+            P(570, 302, A('kid', 'angry'), 'st-bob', .4, .98, true) + bang(400, 180)) },
+        { minDur: 6800, sub: '「摩拳擦掌」：躍躍欲試、準備大幹一場——腎上腺素已經在血管裡沸騰！',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-28 -56 l-14 -8 M28 -56 l14 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.1) + bang(500, 182) + bang(300, 182) +
+            '<g class="st-tw"><path d="M400 180 l5 10 10 2 -8 8 2 11 -9 -5 -9 5 2 -11 -8 -8 10 -2 z" fill="#ffd97a"/></g>') },
+        { minDur: 6800, sub: '把興奮化成專注：深呼吸、過一遍戰術、看準第一步——哨聲一響就出發！',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.05) +
+            P(280, 205, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">專注</text>', '', 0, 1) + hearts(510, 195)) },
+        { minDur: 6400, sub: '摩拳擦掌：躍躍欲試，蓄勢待發。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-28 -56 l-14 -8 M28 -56 l14 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', 'st-bob', 0, 1.1) + bang(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">摩拳擦掌</text>') }
+      ];
     }
   };
 
