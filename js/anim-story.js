@@ -10859,6 +10859,151 @@
           html: scene(RIVERUP + P(400, 245, '<g transform="rotate(-24)">' + A('fish') + '</g>', '', 0, 1.15) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">力爭上游</text>') }
       ];
+    },
+    /* 欲速不達 */
+    i1022: function () {
+      return [
+        { minDur: 7000, sub: '孔子的學生急著求成績，孔子提醒：「欲速則不達」——只求快，反而到不了目的地！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(560, 302, A('kid', 'wow'), '', 0, .93) + qmark(610, 188)) },
+        { minDur: 6800, sub: '趕著抄完作業、字潦草答案錯——全部重寫一遍，反而花了雙倍時間！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -10 q8 6 18 -2 M-10 2 q10 4 18 -4" stroke="#c96a5a" stroke-width="2" fill="none"/>', '', 0, .95)) + sweat(300, 190) + bang(470, 195)) },
+        { minDur: 6800, sub: '「欲速不達」：一味求快，反而達不到目的——穩穩做好每一步，其實最快！',
+          html: scene(P(340, 302, A('kid', 'happy'), 'st-strut', 0, 1.02) + hearts(450, 190) +
+            '<path d="M260 250 h280" stroke="#548a40" stroke-width="4" stroke-dasharray="9 8"/>') },
+        { minDur: 6400, sub: '欲速不達：一味求快，反而達不到目的。',
+          html: scene(P(400, 302, A('kid', 'wow'), 'st-dashL', 0, 1.05) + sweat(330, 190) + bang(500, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">欲速不達</text>') }
+      ];
+    },
+    /* 隨遇而安 */
+    i1045: function () {
+      return [
+        { minDur: 6800, sub: '露營遇到下雨改住穀倉——小安不抱怨，鋪好睡袋笑著說：「聽著雨聲睡覺，也很棒呀！」',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="180" y1="30" x2="174" y2="52"/><line class="st-rain" style="animation-delay:.5s" x1="580" y1="20" x2="574" y2="42"/></g>' +
+            P(430, 302, '<path d="M-70 -60 L0 -100 L70 -60 Z" fill="#8a5a33"/><rect x="-58" y="-60" width="116" height="60" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>') +
+            P(300, 302, A('kid', 'happy')) + hearts(380, 200), 'night') },
+        { minDur: 6800, sub: '「隨遇而安」：不論處在什麼環境，都能順應安然——心安定了，哪裡都自在！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(490, 188) +
+            P(300, 195, '<path d="M0 4 C-6 -5 -16 1 -9 10 L0 16 L9 10 C16 1 6 -5 0 4 Z" fill="#a5d47c"/>', '', 0, 1.2)) },
+        { minDur: 6800, sub: '轉學、搬家、換環境——帶著隨遇而安的心，到哪裡都能發現新的美好！',
+          html: scene(P(320, 302, A('kid', 'happy'), 'st-strut') + P(560, 302, '<path d="M-36 -30 L0 -54 L36 -30 Z" fill="#8a5a33"/><rect x="-28" y="-30" width="56" height="30" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, 1) + hearts(440, 200)) },
+        { minDur: 6400, sub: '隨遇而安：順應環境，安然自得。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) + hearts(490, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">隨遇而安</text>') }
+      ];
+    },
+    /* 素昧平生 */
+    i1068: function () {
+      return [
+        { minDur: 6800, sub: '車站裡，一位素昧平生的阿姨看到小昧的錢包掉了，追了半條街送回來——彼此完全不認識！',
+          html: scene(P(300, 302, A('kid', 'wow')) +
+            P(500, 302, A('kid', 'happy') + P(-38, -50, '<rect x="-12" y="-9" width="24" height="18" rx="4" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, 1), 'st-dashL', 0, 1.02, true) + hearts(400, 190)) },
+        { minDur: 6800, sub: '「素」是向來、「昧」是不明——從來不認識、未曾見過面，就是「素昧平生」！',
+          html: scene(P(320, 240, '<circle cx="0" cy="0" r="26" fill="#c9d6e8" opacity=".8"/><text x="0" y="7" text-anchor="middle" font-size="22" fill="#6d7585">?</text>') +
+            P(480, 240, '<circle cx="0" cy="0" r="26" fill="#c9d6e8" opacity=".8"/><text x="0" y="7" text-anchor="middle" font-size="22" fill="#6d7585">?</text>') +
+            '<path d="M355 240 h90" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 7"/>') },
+        { minDur: 6800, sub: '素昧平生卻願意伸出援手——這種善意最動人！也要把它傳給下一位陌生人。',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 182) +
+            '<path d="M480 240 q60 -26 120 0" stroke="#ff9eb5" stroke-width="3.4" fill="none" stroke-dasharray="7 7"/>') },
+        { minDur: 6400, sub: '素昧平生：彼此向來不認識。',
+          html: scene(P(330, 245, '<circle cx="0" cy="0" r="24" fill="#c9d6e8" opacity=".8"/><text x="0" y="7" text-anchor="middle" font-size="20" fill="#6d7585">?</text>') +
+            P(470, 245, '<circle cx="0" cy="0" r="24" fill="#c9d6e8" opacity=".8"/><text x="0" y="7" text-anchor="middle" font-size="20" fill="#6d7585">?</text>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">素昧平生</text>') }
+      ];
+    },
+    /* 美輪美奐 */
+    i1083: function () {
+      var GRANDHALL = '<rect x="-100" y="-80" width="200" height="80" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/>' +
+        '<path d="M-112 -80 h224 l-16 -24 h-192 z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.6"/>' +
+        '<g stroke="#e0a458" stroke-width="6"><line x1="-72" y1="0" x2="-72" y2="-80"/><line x1="-24" y1="0" x2="-24" y2="-80"/><line x1="24" y1="0" x2="24" y2="-80"/><line x1="72" y1="0" x2="72" y2="-80"/></g>' +
+        '<g class="st-tw"><circle cx="0" cy="-52" r="5" fill="#ffe9a0"/></g>';
+      return [
+        { minDur: 7000, sub: '《禮記》記載：晉國大夫蓋好新居，賓客讚美「美哉輪焉，美哉奐焉」——高大又華美！',
+          html: scene(P(400, 302, GRANDHALL, '', 0, 1.02) +
+            P(180, 302, A('kid', 'wow'), '', 0, .88) + hearts(260, 215)) },
+        { minDur: 6800, sub: '「輪」是高大、「奐」是眾多華麗——「美輪美奐」專門形容建築宏偉漂亮！',
+          html: scene(P(400, 302, GRANDHALL, '', 0, .98) + bang(560, 190) + notes(230, 200)) },
+        { minDur: 6800, sub: '新落成的圖書館美輪美奐：挑高大廳、旋轉書牆、彩繪天窗——閱讀變成一種享受！',
+          html: scene(P(400, 302, GRANDHALL, '', 0, .95) +
+            P(240, 302, A('kid', 'happy'), 'st-inL', 0, .88) + P(560, 302, A('kid', 'happy'), 'st-inR', .2, .88, true) + hearts(400, 190)) },
+        { minDur: 6400, sub: '美輪美奐：建築高大華美。',
+          html: scene(P(400, 302, GRANDHALL, '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">美輪美奐</text>') }
+      ];
+    },
+    /* 節節敗退 */
+    i1100: function () {
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 6800, sub: '守第一道防線——破了！退守第二道——又破了！第三道——還是守不住！一節一節往後退……',
+          html: scene(P(500, 302, '<g class="st-fleeR">' + A('kid', 'wow') + P(26, -50, SPEAR3) + '</g>', 'st-dashL', 0, .95) +
+            P(620, 302, '<g class="st-fleeR" style="animation-delay:.2s">' + A('kid', 'wow') + '</g>', 'st-dashL', .2, .9) +
+            P(240, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', 0, .98) + bang(400, 200)) },
+        { minDur: 6800, sub: '「節節敗退」：接連打敗仗、不斷後退——氣勢一垮，就兵敗如山倒！',
+          html: scene('<g stroke="#c96a5a" stroke-width="4"><path d="M250 250 h60 M370 250 h60 M490 250 h60"/></g><path d="M580 250 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            P(300, 302, A('kid', 'sad'), '', 0, .95) + sweat(360, 195)) },
+        { minDur: 6800, sub: '輸球輸到節節敗退時，先叫暫停、穩住陣腳——調整心態，才能止住頹勢！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M18 -60 q14 -4 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95) + hearts(460, 190)) },
+        { minDur: 6400, sub: '節節敗退：接連敗仗、不斷後退。',
+          html: scene(P(450, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, 1) + sweat(390, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">節節敗退</text>') }
+      ];
+    },
+    /* 全軍覆沒 */
+    i1101: function () {
+      return [
+        { minDur: 6800, sub: '象棋大戰：小沒的車馬炮一顆顆被吃光——最後連將軍也被將死，整盤棋子全滅！',
+          html: scene(P(430, 270, '<rect x="-60" y="-40" width="120" height="80" rx="5" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#a89878" stroke-width="1.4"><line x1="-60" y1="-13" x2="60" y2="-13"/><line x1="-60" y1="13" x2="60" y2="13"/><line x1="-20" y1="-40" x2="-20" y2="40"/><line x1="20" y1="-40" x2="20" y2="40"/></g><circle cx="30" cy="0" r="10" fill="#c96a5a"/>') +
+            P(240, 302, A('kid', 'wow')) + sweat(300, 195) + bang(560, 210)) },
+        { minDur: 6800, sub: '「全軍覆沒」：整支軍隊全部被消滅——比喻徹底失敗，一個也不剩！',
+          html: scene(P(300, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>', '', 0, .9) +
+            P(430, 306, '<g class="st-faint" style="animation-delay:.2s">' + A('kid', 'sad') + '</g>', '', 0, .88) +
+            P(560, 306, '<g class="st-faint" style="animation-delay:.4s">' + A('kid', 'sad') + '</g>', '', 0, .86) + bang(430, 200), 'night') },
+        { minDur: 6800, sub: '輸個精光不可怕——檢討每一步失誤，下一盤就知道怎麼贏回來！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) +
+            P(520, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(430, 190)) },
+        { minDur: 6400, sub: '全軍覆沒：全部被消滅，徹底失敗。',
+          html: scene(P(320, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>', '', 0, .92) + P(480, 306, '<g class="st-faint" style="animation-delay:.3s">' + A('kid', 'sad') + '</g>', '', 0, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">全軍覆沒</text>') }
+      ];
+    },
+    /* 石沉大海 */
+    i1121: function () {
+      var SEASTONE = '<rect y="252" width="800" height="88" fill="#5a7fa8"/>' +
+        '<g class="st-wavemove"><path d="M-40 262 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#8fb2d4" stroke-width="8" stroke-linecap="round" opacity=".9"/></g>';
+      return [
+        { minDur: 6800, sub: '把石頭丟進大海——噗通一聲、幾圈漣漪，然後就再也沒有任何動靜了……',
+          html: scene(SEASTONE +
+            P(400, 290, '<circle cx="0" cy="0" r="10" fill="#8b93a3"/><g stroke="#a8c4de" stroke-width="2.4" fill="none"><circle cx="0" cy="-14" r="14"/><circle cx="0" cy="-14" r="24" opacity=".6"/></g>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '投稿三個月沒回音、訊息傳出去已讀不回——「石沉大海」：毫無回音、杳無消息！',
+          html: scene(P(340, 302, A('kid', 'sad') + P(38, -56, '<rect x="-14" y="-9" width="28" height="18" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-14 -9 L0 2 L14 -9" stroke="#c9bfa8" stroke-width="2" fill="none"/>', '', 0, .95)) +
+            sweat(290, 192) + qmark(440, 182)) },
+        { minDur: 6800, sub: '等不到回音別氣餒——主動追蹤詢問、或再試下一個機會，別讓自己也跟著沉下去！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -56, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/>', '', 0, .95)) + bang(470, 190) + hearts(280, 192)) },
+        { minDur: 6400, sub: '石沉大海：毫無回音、杳無消息。',
+          html: scene(SEASTONE + P(400, 292, '<circle cx="0" cy="0" r="11" fill="#8b93a3"/>', '', 0, 1.1) + qmark(490, 200) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">石沉大海</text>', 'night') }
+      ];
+    },
+    /* 投機取巧 */
+    i1122: function () {
+      return [
+        { minDur: 6800, sub: '打掃時間，小巧專挑老師看得到的地方掃——老師一轉身，他就躲到樹後滑手機！',
+          html: scene(P(150, 302, TREE, '', 0, 1.1) +
+            P(240, 302, A('kid', 'happy') + P(-38, -50, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/>', '', 0, .9)) +
+            P(520, 302, A('kid', 'happy') + P(20, -34, '<path d="M-14 0 q7 -8 14 0 q7 8 14 0" stroke="#ffd97a" stroke-width="7" fill="none" stroke-linecap="round"/>', '', 0, .9), '', 0, .97) + sweat(580, 195)) },
+        { minDur: 6800, sub: '「投機取巧」：利用時機耍小聰明謀利、不肯踏實努力——僥倖一時，吃虧一世！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + qmark(480, 182) +
+            P(310, 190, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="18" fill="#c96a5a">巧?</text>')) },
+        { minDur: 6800, sub: '大掃除評分，他負責的區域最髒被扣分——投機的便宜，最後都要加倍還！',
+          html: scene(P(360, 302, A('kid', 'sad')) + sweat(300, 192) +
+            P(540, 302, A('kid', 'angry'), '', 0, .97, true) + bang(450, 188)) },
+        { minDur: 6400, sub: '投機取巧：耍小聰明謀利，不踏實。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + qmark(490, 182) + sweat(320, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">投機取巧</text>') }
+      ];
     }
   };
 
