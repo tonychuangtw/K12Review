@@ -9035,6 +9035,114 @@
           html: scene(P(330, 250, PEACH2, '', 0, 1.5) + P(470, 252, PLUM, '', .3, 1.5) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">投桃報李</text>') }
       ];
+    },
+    /* 慷慨解囊 */
+    i495: function () {
+      var MONEYBAG = '<path d="M-18 0 Q-24 -28 0 -34 Q24 -28 18 0 Z" fill="#e0a458" stroke="#c08838" stroke-width="2.6"/><path d="M-8 -34 q8 -6 16 0" stroke="#c08838" stroke-width="3" fill="none"/><text x="0" y="-10" text-anchor="middle" font-size="14" font-weight="bold" fill="#8a5a33">$</text>';
+      return [
+        { minDur: 6800, sub: '山區學校圖書室被颱風吹壞了——各地的叔叔阿姨知道消息，紛紛打開錢包捐款！',
+          html: scene(P(430, 290, MONEYBAG, '', 0, 1.3) +
+            P(240, 302, A('kid', 'happy'), '', 0, .95) + P(600, 302, A('kid', 'happy'), '', .2, .93) + hearts(430, 200)) },
+        { minDur: 6800, sub: '「解囊」是解開錢袋——大方拿出錢財幫助別人，就是「慷慨解囊」！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -60, MONEYBAG, '', 0, .95)) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(450, 185)) },
+        { minDur: 6800, sub: '新圖書室蓋好了，孩子們寫了滿牆的感謝卡——善款變成了書香！',
+          html: scene(P(430, 300, '<rect x="-70" y="-80" width="140" height="80" rx="6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><g stroke-width="1.8"><rect x="-52" y="-62" width="12" height="30" fill="#e85a4f" stroke="#c94a3f"/><rect x="-38" y="-62" width="12" height="30" fill="#5c82ba" stroke="#46689a"/><rect x="-24" y="-62" width="12" height="30" fill="#6fae58" stroke="#548a40"/></g><path d="M18 -56 q-8 -10 0 -12 q5 -1 6 6 q1 -7 6 -6 q8 2 0 12 l-6 7 z" fill="#ff9eb5"/>') +
+            P(220, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .92) + hearts(320, 200)) },
+        { minDur: 6400, sub: '慷慨解囊：大方拿出錢財幫助別人。',
+          html: scene(P(400, 288, MONEYBAG, '', 0, 1.5) + hearts(510, 220) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">慷慨解囊</text>') }
+      ];
+    },
+    /* 拋頭露面 */
+    i496: function () {
+      return [
+        { minDur: 7000, sub: '古時候的觀念保守，覺得在大庭廣眾出現不合禮數——「拋頭露面」原本帶著批評的意思。',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-24 -80 q24 -14 48 0 l0 10 q-24 -12 -48 0 z" fill="#c9a8e0" opacity=".8"/>', '', 0, 1) +
+            P(560, 302, A('kid', 'wow'), '', 0, .92) + qmark(610, 190)) },
+        { minDur: 6800, sub: '現在時代不同了：上台演講、參加比賽、為公益發聲——公開露面是勇氣的表現！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, A('kid', 'happy'), '', 0, 1.02) + hearts(490, 195) +
+            P(200, 302, A('kid', 'happy'), '', 0, .88) + P(620, 302, A('kid', 'happy'), '', .2, .88, true)) },
+        { minDur: 6600, sub: '「拋頭露面」：公開出現在眾人面前——詞義隨時代改變，用的時候注意語氣喔！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + notes(490, 185) + qmark(310, 185)) },
+        { minDur: 6400, sub: '拋頭露面：公開出現在眾人面前。',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, A('kid', 'happy'), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">拋頭露面</text>') }
+      ];
+    },
+    /* 拾金不昧 */
+    i497: function () {
+      var WALLET = '<rect x="-16" y="-12" width="32" height="24" rx="4" fill="#8a5a33" stroke="#6d4426" stroke-width="2.4"/><path d="M-16 -2 h32" stroke="#6d4426" stroke-width="2"/><circle cx="8" cy="4" r="3" fill="#ffd97a"/>';
+      return [
+        { minDur: 6800, sub: '放學路上，小昧撿到一個鼓鼓的錢包——裡面有好幾千元和證件！',
+          html: scene(P(430, 316, WALLET, '', 0, 1.3) +
+            P(300, 302, A('kid', 'wow')) + qmark(360, 190) + bang(500, 240)) },
+        { minDur: 6800, sub: '他一秒也沒猶豫，直接送到警察局——「昧」是隱藏：撿到錢不藏起來，就是「拾金不昧」！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -50, WALLET, '', 0, .9)) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 10 0 0 1 32 0 l0 4 h-32 z" fill="#3a5a8c"/>', '', 0, 1.02, true) + hearts(420, 185)) },
+        { minDur: 6800, sub: '失主找回錢包感動萬分，學校也頒發了好人好事獎——誠實，比金子更值錢！',
+          html: scene(P(320, 302, A('kid', 'happy')) +
+            P(500, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02, true) + hearts(410, 180) + bang(580, 200)) },
+        { minDur: 6400, sub: '拾金不昧：撿到財物不占為己有。',
+          html: scene(P(400, 300, WALLET, '', 0, 1.5) + hearts(510, 240) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">拾金不昧</text>') }
+      ];
+    },
+    /* 路不拾遺 */
+    i498: function () {
+      return [
+        { minDur: 7000, sub: '傳說路上掉了東西，整天都沒人把它撿走占有——因為人人誠實、生活富足，不貪別人的財物！',
+          html: scene('<rect y="296" width="800" height="18" fill="#d9a890"/>' +
+            P(430, 310, '<rect x="-14" y="-10" width="28" height="20" rx="4" fill="#8a5a33" stroke="#6d4426" stroke-width="2.2"/>') +
+            P(240, 296, A('kid', 'happy'), 'st-strut', 0, .95) + P(580, 296, A('kid', 'happy'), 'st-strut', .3, .93, true)) },
+        { minDur: 6800, sub: '「路不拾遺、夜不閉戶」——古人形容治理得最好的社會，就是這幅景象！',
+          html: scene(P(300, 302, '<path d="M-36 -30 L0 -54 L36 -30 Z" fill="#8a5a33"/><rect x="-28" y="-30" width="56" height="30" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-8" y="-22" width="16" height="22" rx="3" fill="#c9a06c"/>', '', 0, 1.1) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95) + hearts(430, 200), 'night') },
+        { minDur: 6800, sub: '誠實的風氣要靠每個人：撿到東西送招領、不是自己的不拿——我們也能打造這樣的社會！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(460, 302, A('kid', 'happy'), '', .2, .95) + P(610, 302, A('kid', 'happy'), '', .4, .93) + hearts(450, 178)) },
+        { minDur: 6400, sub: '路不拾遺：風氣良好，掉的東西沒人撿走。',
+          html: scene('<rect y="296" width="800" height="18" fill="#d9a890"/>' +
+            P(400, 310, '<rect x="-14" y="-10" width="28" height="20" rx="4" fill="#8a5a33" stroke="#6d4426" stroke-width="2.2"/>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">路不拾遺</text>') }
+      ];
+    },
+    /* 井水不犯河水 */
+    i499: function () {
+      var WELLRING = '<path d="M-40 0 L-33 -30 L33 -30 L40 0 Z" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/><ellipse cx="0" cy="-30" rx="33" ry="8" fill="#6d6357"/>';
+      var RIVERX = '<path d="M560 120 q-30 80 20 220" stroke="#7fb2e0" stroke-width="26" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '井有井的水、河有河的水——一個在地下、一個在地上，互不相干、各自安好！',
+          html: scene(RIVERX + P(260, 302, WELLRING, '', 0, 1.15) + qmark(420, 190)) },
+        { minDur: 6800, sub: '兄妹倆約好：你的書桌我不亂動、我的玩具你別亂拿——井水不犯河水，天下太平！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .97, true) +
+            '<line x1="400" y1="180" x2="400" y2="300" stroke="#c9bfa8" stroke-width="4" stroke-dasharray="10 9"/>' + hearts(400, 158)) },
+        { minDur: 6800, sub: '「井水不犯河水」：彼此互不侵犯——尊重界線，相處反而更和睦！',
+          html: scene(RIVERX + P(260, 302, WELLRING, '', 0, 1.1) +
+            P(400, 200, '<path d="M-9 0 l6 7 l13 -13" stroke="#548a40" stroke-width="4.4" fill="none" stroke-linecap="round"/>', '', 0, 1.4)) },
+        { minDur: 6400, sub: '井水不犯河水：彼此互不相干、互不侵犯。',
+          html: scene(RIVERX + P(260, 302, WELLRING, '', 0, 1.2) +
+            '<text x="330" y="90" text-anchor="middle" font-size="44" font-weight="bold" fill="#4a3200">井水不犯河水</text>') }
+      ];
+    },
+    /* 集腋成裘 */
+    i500: function () {
+      var FURCOAT = '<path d="M-26 -40 q26 -14 52 0 l-6 52 q-20 8 -40 0 z" fill="#f4f1e8" stroke="#d5cfc0" stroke-width="2.6"/>' +
+        '<circle cx="-12" cy="-30" r="6" fill="#fff"/><circle cx="8" cy="-24" r="6" fill="#fff"/><circle cx="-4" cy="-8" r="6" fill="#fff"/><circle cx="12" cy="2" r="6" fill="#fff"/>' +
+        '<path d="M0 -40 L0 12" stroke="#d5cfc0" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '狐狸腋下的白毛最珍貴，但一隻狐狸只有一小撮——要聚集許許多多，才能縫成一件皮裘！',
+          html: scene(P(300, 300, A('fox'), '', 0, .95) + P(520, 280, FURCOAT, '', 0, 1.1) + qmark(410, 200)) },
+        { minDur: 6800, sub: '全班每人捐一本二手書，就湊成了一個小圖書角——小小的累積，成就大大的溫暖！',
+          html: scene(P(430, 302, '<g stroke-width="1.8"><rect x="-52" y="-40" width="12" height="40" fill="#e85a4f" stroke="#c94a3f"/><rect x="-38" y="-40" width="12" height="40" fill="#5c82ba" stroke="#46689a"/><rect x="-24" y="-40" width="12" height="40" fill="#6fae58" stroke="#548a40"/><rect x="-10" y="-40" width="12" height="40" fill="#e0a458" stroke="#c08838"/><rect x="4" y="-40" width="12" height="40" fill="#c9a8e0" stroke="#a884c4"/></g>') +
+            P(240, 302, A('kid', 'happy'), '', 0, .93) + P(600, 302, A('kid', 'happy'), '', .2, .93) + hearts(430, 200)) },
+        { minDur: 6600, sub: '「集腋成裘」：聚集眾多微小力量而成大事——和「聚沙成塔」「積少成多」是一家人！',
+          html: scene(P(400, 280, FURCOAT, '', 0, 1.3) + hearts(520, 220)) },
+        { minDur: 6400, sub: '集腋成裘：聚集微小力量而成大功。',
+          html: scene(P(300, 300, A('fox'), '', 0, .9) + P(500, 280, FURCOAT, '', 0, 1.2) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">集腋成裘</text>') }
+      ];
     }
   };
 
