@@ -11707,6 +11707,159 @@
           html: scene(P(400, 250, '<line x1="-30" y1="30" x2="22" y2="-22" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M22 -22 l10 -10" stroke="#c96a5a" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.3) + bang(470, 200) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一針見血</text>') }
       ];
+    },
+    /* 判若兩人 */
+    i305: function () {
+      return [
+        { minDur: 6800, sub: '以前的小判：上課趴著睡、作業遲交、看到人就低頭不打招呼……',
+          html: scene(P(360, 296, '<g transform="rotate(14)">' + A('kid', 'sad') + '</g>', '', 0, 1) + zzz(450, 200) + sweat(280, 200)) },
+        { minDur: 6800, sub: '升上七年級的小判：抬頭挺胸、主動舉手發言、還當上了班級幹部！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -60 l14 -20" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', 'st-cheer', 0, 1.05) + bang(510, 178) + hearts(290, 190)) },
+        { minDur: 6800, sub: '「判若兩人」：前後表現差異大得像換了一個人——同學都說：「你是誰？我們認識嗎？」',
+          html: scene(P(300, 296, '<g transform="rotate(14)" opacity=".55">' + A('kid', 'sad') + '</g>', '', 0, .95) +
+            '<line x1="400" y1="180" x2="400" y2="300" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="8 7"/>' +
+            P(510, 302, A('kid', 'happy'), 'st-cheer', 0, 1) + qmark(620, 190)) },
+        { minDur: 6400, sub: '判若兩人：前後差異極大，像是兩個人。',
+          html: scene(P(300, 296, '<g transform="rotate(14)" opacity=".55">' + A('kid', 'sad') + '</g>', '', 0, .95) +
+            '<line x1="400" y1="190" x2="400" y2="300" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="8 7"/>' +
+            P(510, 302, A('kid', 'happy'), '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">判若兩人</text>') }
+      ];
+    },
+    /* 咄咄逼人 */
+    i306: function () {
+      return [
+        { minDur: 7000, sub: '《世說新語》記載：名士們比賽說驚險的話，一位參軍隨口一句妙絕全場——殷仲堪驚呼：「咄咄逼人！」',
+          html: scene(P(280, 302, A('kid', 'wow') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1) +
+            P(500, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + bang(400, 178)) },
+        { minDur: 6800, sub: '辯論會上，對手音量越來越大、句句尖銳，逼得人喘不過氣——這就是咄咄逼人的氣勢！',
+          html: scene(P(500, 302, A('kid', 'angry') + '<path d="M-28 -56 l-18 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.15, true) +
+            '<g stroke="#c96a5a" stroke-width="3.4" stroke-linecap="round"><path d="M430 220 l-30 -6 M436 240 l-34 2 M430 260 l-30 10"/></g>' +
+            P(280, 302, A('kid', 'wow'), '', 0, .92) + sweat(230, 190)) },
+        { minDur: 6800, sub: '「咄咄逼人」：盛氣凌人、使人難堪——有理不用兇，好好說反而更有說服力！',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(510, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(430, 185)) },
+        { minDur: 6400, sub: '咄咄逼人：氣勢洶洶，言語逼人。',
+          html: scene(P(480, 302, A('kid', 'angry'), '', 0, 1.12, true) +
+            '<g stroke="#c96a5a" stroke-width="3.4" stroke-linecap="round"><path d="M410 225 l-28 -6 M416 245 l-32 2 M410 265 l-28 10"/></g>' +
+            P(270, 302, A('kid', 'wow'), '', 0, .92) + sweat(220, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">咄咄逼人</text>') }
+      ];
+    },
+    /* 姍姍來遲 */
+    i307: function () {
+      return [
+        { minDur: 7000, sub: '漢武帝思念過世的李夫人，方士深夜設帳召魂——燭影裡彷彿有個身影緩緩走來……',
+          html: scene(P(430, 302, '<rect x="-90" y="-100" width="180" height="100" fill="#3a3550" stroke="#575170" stroke-width="3" opacity=".9"/><g opacity=".55">' + A('kid', 'happy') + '</g>', '', 0, 1) +
+            P(220, 302, A('kid', 'sad') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1) +
+            P(600, 250, '<g class="st-flick"><path d="M0 8 Q-6 -4 0 -14 Q3 -8 6 -12 Q9 -2 4 6 Z" fill="#ffd166"/></g><rect x="-4" y="8" width="8" height="18" fill="#f4ecd8"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '武帝望著身影輕歎：「是邪？非邪？……偏何姍姍其來遲！」——妳怎麼走得這麼慢、來得這麼晚！',
+          html: scene(P(250, 302, A('kid', 'sad') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1) + sweat(200, 195) +
+            P(560, 302, '<g opacity=".5">' + A('kid', 'happy') + '</g>', 'st-inR', 0, .95, true) + qmark(360, 185), 'night') },
+        { minDur: 6800, sub: '「姍姍來遲」：慢吞吞地來晚了——現在多用來調侃遲到：電影都開演了，主角才姍姍來遲！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(-42, -54, '<circle cx="0" cy="0" r="15" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><line x1="0" y1="0" x2="0" y2="-9" stroke="#6d7585" stroke-width="2.4"/><line x1="0" y1="0" x2="7" y2="3" stroke="#6d7585" stroke-width="2.4"/>', '', 0, 1)) +
+            P(560, 302, A('kid', 'happy'), 'st-inR', 0, .98, true) + sweat(620, 195)) },
+        { minDur: 6400, sub: '姍姍來遲：慢吞吞地來晚了。',
+          html: scene(P(520, 302, A('kid', 'happy'), 'st-inR', 0, 1) +
+            P(280, 302, A('kid', 'angry') + P(-42, -54, '<circle cx="0" cy="0" r="15" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><line x1="0" y1="0" x2="0" y2="-9" stroke="#6d7585" stroke-width="2.4"/><line x1="0" y1="0" x2="7" y2="3" stroke="#6d7585" stroke-width="2.4"/>', '', 0, 1)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">姍姍來遲</text>') }
+      ];
+    },
+    /* 家喻戶曉 */
+    i308: function () {
+      var ROW_HOUSE = function (x, d) { return P(x, 302, '<path d="M-30 -28 L0 -46 L30 -28 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2"/><rect x="-24" y="-28" width="48" height="28" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.2"/><rect x="-7" y="-16" width="14" height="16" fill="#8a6a44"/>', '', d, 1); };
+      return [
+        { minDur: 6800, sub: '一個溫暖的故事登上新聞——第一戶人家看了，講給第二戶聽，第二戶又講給第三戶……',
+          html: scene(ROW_HOUSE(220, 0) + ROW_HOUSE(400, .15) + ROW_HOUSE(580, .3) +
+            '<g stroke="#e8b93f" stroke-width="3" fill="none"><path class="st-tw" d="M260 240 q45 -24 90 0"/><path class="st-tw" style="animation-delay:.4s" d="M440 240 q45 -24 90 0"/></g>' + notes(320, 190)) },
+        { minDur: 6800, sub: '「家喻戶曉」：家家明白、戶戶知道——大街小巷，人人都能說上兩句！',
+          html: scene(P(260, 302, A('kid', 'happy')) + P(400, 302, A('kid', 'happy'), '', .1, .97) + P(540, 302, A('kid', 'happy'), '', .2, .95, true) +
+            hearts(330, 185) + notes(470, 180)) },
+        { minDur: 6800, sub: '像龜兔賽跑、孫悟空——家喻戶曉的故事，連幼兒園小朋友都講得出來！',
+          html: scene(P(300, 302, A('rabbit'), '', 0, .95) + P(460, 302, A('turtle'), '', 0, 1) +
+            P(620, 302, A('monkey'), '', 0, .95, true) + hearts(400, 185)) },
+        { minDur: 6400, sub: '家喻戶曉：家家戶戶都知道。',
+          html: scene(ROW_HOUSE(260, 0) + ROW_HOUSE(430, .15) + ROW_HOUSE(600, .3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">家喻戶曉</text>') }
+      ];
+    },
+    /* 屈指可數 */
+    i309: function () {
+      var HANDCT = '<path d="M-20 20 q-6 -26 2 -40 q4 -8 10 -2 l2 10 q2 -16 10 -14 q6 2 4 14 q4 -10 10 -6 q5 4 2 14 q5 -6 9 -1 q4 5 -2 16 q-6 18 -20 22 q-16 4 -27 -13 z" fill="#ffe3c1" stroke="#e0b088" stroke-width="2.6"/>';
+      return [
+        { minDur: 6800, sub: '這次超難的數學考卷，全班及格的有幾個？小數扳起手指：一個、兩個、三個……',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -52, HANDCT, '', 0, 1.05)) + qmark(470, 185) +
+            P(250, 200, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#6d7585">1,2,3</text>')) },
+        { minDur: 6800, sub: '數完了——只有四個！一隻手都用不完！「屈指可數」：彎著手指就數得完！',
+          html: scene(P(400, 245, HANDCT, '', 0, 1.9) +
+            P(560, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="#c96a5a">4</text>') + bang(280, 200)) },
+        { minDur: 6800, sub: '形容數量極少就用它：合格的、達標的、見過的，屈指可數——所以更顯得珍貴！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(430, 302, A('kid', 'happy'), '', .1, .97) +
+            P(560, 302, A('kid', 'happy'), '', .2, .95, true) + hearts(430, 182) +
+            P(200, 210, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '屈指可數：數量極少，扳指可算。',
+          html: scene(P(400, 250, HANDCT, '', 0, 1.8) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">屈指可數</text>') }
+      ];
+    },
+    /* 巧奪天工 */
+    i310: function () {
+      var JADE = '<path d="M0 -30 q26 8 26 30 q0 22 -26 30 q-26 -8 -26 -30 q0 -22 26 -30 z" fill="#a5d4b8" stroke="#6faa8a" stroke-width="2.6"/><path d="M0 -18 q16 6 16 18 q0 12 -16 18 q-16 -6 -16 -18 q0 -12 16 -18 z" fill="none" stroke="#6faa8a" stroke-width="2"/><circle cx="0" cy="0" r="5" fill="#fff" opacity=".8"/>';
+      return [
+        { minDur: 6800, sub: '玉雕師傅把一塊璞玉刻成層層鏤空的寶塔——每一層都能轉動，細得像蟬翼！',
+          html: scene(P(430, 285, JADE, '', 0, 1.4) +
+            P(260, 302, A('kid', 'angry') + P(32, -46, '<line x1="0" y1="8" x2="0" y2="-18" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/><path d="M0 -26 l-5 10 h10 z" fill="#6d7585"/>', '', 0, 1)) + sweat(200, 195) +
+            '<g class="st-tw"><path d="M500 230 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>') },
+        { minDur: 6800, sub: '「巧奪天工」：人工的精巧勝過天然（奪＝勝過）——連大自然都要甘拜下風！',
+          html: scene(P(400, 260, JADE, '', 0, 1.6) + bang(540, 190) + hearts(270, 200)) },
+        { minDur: 6800, sub: '注意！只能形容「人做的東西」：玉雕、刺繡、建築可以——天然的峽谷、雲海不能用它形容！',
+          html: scene(P(300, 260, JADE, '', 0, 1.2) +
+            P(300, 320, '<text x="0" y="0" text-anchor="middle" font-size="17" fill="#548a40">人工 ✓</text>') +
+            P(540, 250, '<path d="M-50 30 L-20 -20 L5 8 L25 -14 L50 30 Z" fill="#8fa3bf" opacity=".85"/>', '', 0, 1.1) +
+            P(540, 320, '<text x="0" y="0" text-anchor="middle" font-size="17" fill="#c96a5a">天然 ✗</text>')) },
+        { minDur: 6400, sub: '巧奪天工：人工技藝精巧，勝過自然。',
+          html: scene(P(400, 265, JADE, '', 0, 1.6) +
+            '<g class="st-tw"><path d="M470 210 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">巧奪天工</text>') }
+      ];
+    },
+    /* 心曠神怡 */
+    i311: function () {
+      return [
+        { minDur: 7000, sub: '范仲淹寫〈岳陽樓記〉：春光明媚時登上岳陽樓，眺望八百里洞庭湖——水天一色，沙鷗飛翔！',
+          html: scene('<rect y="252" width="800" height="88" fill="#7fb2d4"/>' +
+            '<g class="st-wavemove"><path d="M-40 264 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d0e8" stroke-width="6" stroke-linecap="round" opacity=".9"/></g>' +
+            P(170, 252, '<g stroke="#a8734a" stroke-width="5"><line x1="-40" y1="0" x2="-40" y2="-90"/><line x1="40" y1="0" x2="40" y2="-90"/></g><rect x="-52" y="-90" width="104" height="16" fill="#c9762f"/><path d="M-60 -90 h120 l-14 -22 h-92 z" fill="#a85a1e"/>', '', 0, 1) +
+            P(500, 150, A('bird'), 'st-fly', 0, .9) + P(620, 190, A('bird'), 'st-fly', .4, .8) +
+            P(150, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「登斯樓也，則有心曠神怡，寵辱偕忘」——心胸豁然開闊，煩惱全都忘光了！',
+          html: scene('<rect y="252" width="800" height="88" fill="#7fb2d4"/>' +
+            P(170, 252, '<g stroke="#a8734a" stroke-width="5"><line x1="-40" y1="0" x2="-40" y2="-90"/><line x1="40" y1="0" x2="40" y2="-90"/></g><rect x="-52" y="-90" width="104" height="16" fill="#c9762f"/><path d="M-60 -90 h120 l-14 -22 h-92 z" fill="#a85a1e"/>', '', 0, 1) +
+            P(170, 178, A('kid', 'happy'), '', 0, .8) + hearts(260, 130)) },
+        { minDur: 6800, sub: '「心曠神怡」：心胸開闊、精神愉快——爬到山頂遠眺、走進大森林，都會有這種感覺！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) +
+            P(200, 280, TREE, '', 0, .9) + P(620, 280, TREE, '', 0, .85) + hearts(400, 175) + notes(530, 195)) },
+        { minDur: 6400, sub: '心曠神怡：心胸開闊，精神愉快。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) + hearts(500, 185) +
+            P(180, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">心曠神怡</text>') }
+      ];
+    },
+    /* 愛不釋手 */
+    i312: function () {
+      var BOOKLOVE = '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/><line x1="0" y1="-20" x2="0" y2="20" stroke="#5a8fbf" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '昭明太子蕭統說他讀陶淵明的文章「愛嗜其文，不能釋手」——喜歡到手放不下來！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-44, -48, BOOKLOVE, '', 0, 1), '', 0, 1.05) + hearts(470, 185)) },
+        { minDur: 6800, sub: '小釋拿到新出的漫畫：吃飯看、走路看、睡前還躲在被窩裡看——整天抱著不放！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -46, BOOKLOVE, '', 0, .95), 'st-strut', 0, 1) +
+            P(600, 130, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#2c3550"/>', '', 0, 1) + hearts(470, 190), 'night') },
+        { minDur: 6800, sub: '「愛不釋手」：喜愛得捨不得放手——不過再喜歡，也要記得休息眼睛喔！',
+          html: scene(P(380, 302, A('kid', 'happy') + P(-42, -48, BOOKLOVE, '', 0, 1)) + hearts(490, 185) +
+            P(250, 200, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#548a40">休息</text>')) },
+        { minDur: 6400, sub: '愛不釋手：喜愛得捨不得放手。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -48, BOOKLOVE, '', 0, 1.05), '', 0, 1.05) + hearts(510, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">愛不釋手</text>') }
+      ];
     }
   };
 
