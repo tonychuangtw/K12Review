@@ -21883,6 +21883,188 @@
           html: scene(P(400, 288, '<ellipse cx="0" cy="8" rx="56" ry="13" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><g fill="#c96a5a" opacity=".8"><circle cx="-22" cy="0" r="8"/><circle cx="4" cy="-4" r="7"/><circle cx="24" cy="2" r="8"/></g>', '', 0, 1.2) + qmark(510, 230) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">暴殄天物</text>') }
       ];
+    },
+    /* 鞭辟入裡 */
+    i387: function () {
+      return [
+        { minDur: 7000, sub: '朱熹講學要學生「鞭辟近裡」——像鞭子抽進最裡層，把道理剖到骨子裡！',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#6d5335" stroke="#4a3a24" stroke-width="2"/>' + P(38, -48, '<path d="M0 8 q20 -18 40 -10" stroke="#8a5a33" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1)) +
+            P(540, 260, '<circle cx="0" cy="0" r="34" fill="#fff" opacity=".9"/><circle cx="0" cy="0" r="22" fill="#ffe9a0" opacity=".9"/><circle cx="0" cy="0" r="10" fill="#c96a5a"/>', '', 0, 1.05) + bang(540, 230)) },
+        { minDur: 6800, sub: '老師評小傑的作文只有三行字，卻句句戳中要害——這才叫鞭辟入裡的點評！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#c96a5a" stroke-width="2"><line x1="-9" y1="-8" x2="9" y2="-8"/><line x1="-9" y1="0" x2="9" y2="0"/><line x1="-9" y1="8" x2="9" y2="8"/></g>', '', 0, .95)) +
+            P(520, 302, A('kid', 'wow'), '', 0, .98, true) + bang(440, 190)) },
+        { minDur: 6800, sub: '「鞭辟入裡」：分析透澈、切中要害——說一堆漂亮空話，不如一句打中重點！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 6 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>' + P(0, -110, '<ellipse cx="0" cy="0" rx="34" ry="16" fill="#fff" opacity=".8"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#c9bfa8">空話…</text>', '', 0, 1), '', 0, .98) +
+            P(520, 302, A('kid', 'happy') + P(0, -110, '<ellipse cx="0" cy="0" rx="30" ry="16" fill="#ffe9a0"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#8a5a33">重點!</text>', '', 0, 1), '', 0, 1.02, true) + hearts(600, 210)) },
+        { minDur: 6400, sub: '鞭辟入裡：剖析深透，切中要害。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 210, '<circle cx="0" cy="0" r="28" fill="#ffe9a0" opacity=".9"/><circle cx="0" cy="0" r="10" fill="#c96a5a" class="st-tw"/>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鞭辟入裡</text>') }
+      ];
+    },
+    /* 醍醐灌頂 */
+    i388: function () {
+      return [
+        { minDur: 7000, sub: '「醍醐」是乳酪提煉的精華，「灌頂」是佛家儀式——把精華從頭頂緩緩澆下！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) +
+            P(400, 170, '<path d="M-12 -18 h24 l-4 14 h-16 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2" transform="rotate(150)"/>', '', 0, 1) +
+            '<g opacity=".85"><path d="M400 185 q3 20 0 46" stroke="#fff7d9" stroke-width="6" fill="none" stroke-linecap="round" class="st-tw"/></g>' + hearts(500, 200)) },
+        { minDur: 6800, sub: '唐代顧況詩：「豈知灌頂有醍醐」——高人一句話，像清涼精華澆頂，全身通透！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>' + P(0, -110, '<ellipse cx="0" cy="0" rx="32" ry="16" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#548a40">一席話</text>', '', 0, 1)) +
+            P(520, 302, A('kid', 'wow') + '<g class="st-tw"><circle cx="-11" cy="-52" r="2.6" fill="#ffd97a"/><circle cx="11" cy="-52" r="2.6" fill="#ffd97a"/></g>', '', 0, 1.02, true) + bang(600, 200)) },
+        { minDur: 6800, sub: '「醍醐灌頂」：聽到高明見解而徹底醒悟——卡了三天的難題，一句提示全通了！',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="12" fill="#5a8fbf">✓</text>', '', 0, .95), 'st-cheer', 0, 1.05) +
+            P(400, 170, '<circle cx="0" cy="0" r="16" fill="#ffe9a0" class="st-tw"/><g stroke="#ffd97a" stroke-width="3" stroke-linecap="round"><line x1="-24" y1="0" x2="-32" y2="0"/><line x1="24" y1="0" x2="32" y2="0"/><line x1="0" y1="-24" x2="0" y2="-32"/></g>', '', 0, 1)) },
+        { minDur: 6400, sub: '醍醐灌頂：智慧灌注，豁然醒悟。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<g opacity=".85"><path d="M400 190 q3 18 0 42" stroke="#fff7d9" stroke-width="6" fill="none" stroke-linecap="round" class="st-tw"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">醍醐灌頂</text>') }
+      ];
+    },
+    /* 曲突徙薪 */
+    i389: function () {
+      return [
+        { minDur: 7200, sub: '《漢書》故事：客人見主人家煙囪筆直、柴薪堆在旁邊——勸他「把煙囪改彎、柴火搬走」！',
+          html: scene(P(500, 302, '<rect x="-52" y="-72" width="104" height="72" fill="#e8d9b8" stroke="#b59a6a" stroke-width="3"/><path d="M-60 -72 L0 -108 L60 -72 Z" fill="#c96a5a" stroke="#a8544a" stroke-width="3"/><rect x="18" y="-140" width="14" height="42" fill="#8b93a3"/><g fill="#c9a06c"><rect x="-46" y="-18" width="34" height="8" rx="3"/><rect x="-42" y="-28" width="34" height="8" rx="3"/></g>', '', 0, 1) +
+            P(280, 302, A('kid', 'wow') + '<path d="M28 -50 l16 -8" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1) + qmark(360, 180)) },
+        { minDur: 7000, sub: '主人不聽——不久果然失火！鄰居們衝來救火，燒得焦頭爛額……',
+          html: scene(P(500, 302, '<rect x="-52" y="-72" width="104" height="72" fill="#e8d9b8" stroke="#b59a6a" stroke-width="3"/><path d="M-60 -72 L0 -108 L60 -72 Z" fill="#c96a5a" stroke="#a8544a" stroke-width="3"/>' + P(0, -100, '<g class="st-flick"><path d="M0 0 q-12 -22 0 -40 q12 18 0 40" fill="#ff9d4a"/><path d="M0 -4 q-6 -14 0 -26 q6 12 0 26" fill="#ffd97a"/></g>', '', 0, 1.2), '', 0, 1) +
+            P(250, 302, A('kid', 'wow') + P(38, -40, '<path d="M-8 -10 a10 10 0 0 1 16 0 l0 14 h-16 z" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2"/>', '', 0, 1), 'st-dashL', 0, 1) + sweat(330, 195), 'night') },
+        { minDur: 7000, sub: '事後主人宴謝救火的人，卻忘了當初獻策的客人——有人提醒：先見之明才最該謝啊！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -46, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) +
+            P(560, 302, A('kid', 'sad'), '', 0, .95, true) + qmark(600, 200) + notes(280, 200)) },
+        { minDur: 6800, sub: '「曲突徙薪」：事先防範勝於事後補救——防災檢查、備份資料，都是現代版曲突徙薪！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#548a40">防範</text>', '', 0, 1.05)) +
+            P(560, 250, '<rect x="-24" y="-30" width="48" height="60" rx="4" fill="#c96a5a" stroke="#a8544a" stroke-width="2.6"/><rect x="-14" y="-20" width="28" height="26" rx="3" fill="#fff"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#c96a5a">滅火器</text>', '', 0, 1) + hearts(460, 190)) },
+        { minDur: 6400, sub: '曲突徙薪：防患未然，勝於救火。',
+          html: scene(P(400, 302, '<rect x="-46" y="-64" width="92" height="64" fill="#e8d9b8" stroke="#b59a6a" stroke-width="3"/><path d="M-54 -64 L0 -96 L54 -64 Z" fill="#c96a5a" stroke="#a8544a" stroke-width="3"/><path d="M14 -122 q14 4 12 30 l-10 -2 q2 -18 -2 -28 z" fill="#8b93a3"/>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">曲突徙薪</text>') }
+      ];
+    },
+    /* 每下愈況 */
+    i390: function () {
+      return [
+        { minDur: 7200, sub: '《莊子》原典很妙：驗豬的肥瘦要踩牠的腳脛——愈往低處踩，愈能看清實情，這叫「每下愈況」！',
+          html: scene(P(480, 296, '<ellipse cx="0" cy="-16" rx="44" ry="28" fill="#f4b8c1" stroke="#d98a97" stroke-width="2.6"/><circle cx="-38" cy="-26" r="16" fill="#f4b8c1" stroke="#d98a97" stroke-width="2.6"/><ellipse cx="-44" cy="-26" rx="6" ry="5" fill="#e89aa7"/><circle cx="-40" cy="-31" r="2" fill="#3a2e26"/><g stroke="#d98a97" stroke-width="5" stroke-linecap="round"><line x1="-18" y1="8" x2="-18" y2="-4"/><line x1="18" y1="8" x2="18" y2="-4"/></g>', '', 0, 1.05) +
+            P(300, 302, A('kid', 'wow') + '<path d="M28 -30 l20 16" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1) + qmark(380, 190)) },
+        { minDur: 7000, sub: '後世把它倒過來用成「每況愈下」——現在「每下愈況」多半也拿來說：情況愈來愈糟！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-46, -54, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -12 L10 12" stroke="#c96a5a" stroke-width="3" stroke-linecap="round"/><path d="M6 8 L10 12 L5 13" stroke="#c96a5a" stroke-width="2.6" fill="none"/>', '', 0, 1)) + sweat(470, 195) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">≒每況</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8b93a3">愈下</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '爺爺嘆體力每下愈況、店家生意每下愈況——用來形容日漸走下坡的情勢！',
+          html: scene(P(400, 302, '<g transform="rotate(6)">' + A('kid', 'sad') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/></g>', 'st-slump', 0, 1.02) +
+            '<path d="M270 200 L370 225 L470 245 L560 258" stroke="#c96a5a" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M548 250 L560 258 L550 264" stroke="#c96a5a" stroke-width="3.6" fill="none"/>' + sweat(310, 220)) },
+        { minDur: 6400, sub: '每下愈況：情勢日下，逐步走低。',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.02) +
+            '<path d="M280 200 L380 228 L500 252" stroke="#c96a5a" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M488 244 L500 252 L490 258" stroke="#c96a5a" stroke-width="3.6" fill="none"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">每下愈況</text>') }
+      ];
+    },
+    /* 危如累卵 */
+    i391: function () {
+      return [
+        { minDur: 7000, sub: '《史記》裡勸諫秦王的比喻：「秦王之國，危於累卵」——像疊起來的蛋，碰一下就全垮！',
+          html: scene(P(400, 296, '<g class="st-tw"><ellipse cx="0" cy="-12" rx="16" ry="20" fill="#fdf3dc" stroke="#d9c9a8" stroke-width="2.4"/><ellipse cx="4" cy="-46" rx="15" ry="19" fill="#fdf3dc" stroke="#d9c9a8" stroke-width="2.4" transform="rotate(8 4 -46)"/><ellipse cx="-3" cy="-80" rx="14" ry="18" fill="#fdf3dc" stroke="#d9c9a8" stroke-width="2.4" transform="rotate(-10 -3 -80)"/></g>', '', 0, 1.15) +
+            P(240, 302, A('kid', 'wow') + '<path d="M28 -50 l18 -6" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1) + sweat(320, 200)) },
+        { minDur: 6800, sub: '「危如累卵」：情勢危險到極點——一點風吹草動就會整個崩塌！',
+          html: scene(P(400, 296, '<g class="st-tw"><ellipse cx="0" cy="-12" rx="16" ry="20" fill="#fdf3dc" stroke="#d9c9a8" stroke-width="2.4"/><ellipse cx="5" cy="-46" rx="15" ry="19" fill="#fdf3dc" stroke="#d9c9a8" stroke-width="2.4" transform="rotate(12 5 -46)"/><ellipse cx="-4" cy="-80" rx="14" ry="18" fill="#fdf3dc" stroke="#d9c9a8" stroke-width="2.4" transform="rotate(-14 -4 -80)"/></g>' +
+            '<g class="st-windln" stroke="#9db8d9" stroke-width="3" stroke-linecap="round" opacity=".7"><path d="M-120 -70 q20 -6 40 0"/><path d="M-130 -40 q24 -8 48 0"/></g>', '', 0, 1.15) + sweat(520, 200)) },
+        { minDur: 6800, sub: '熬夜硬撐的身體、只剩一格電的手機、期限前一晚才動工的報告——都危如累卵！',
+          html: scene(P(340, 302, A('kid', 'sad') + P(-44, -50, '<rect x="-14" y="-24" width="28" height="48" rx="5" fill="#3a2e26"/><rect x="-10" y="-19" width="20" height="38" rx="2.6" fill="#fff"/><rect x="-7" y="12" width="4" height="6" fill="#c96a5a"/>', '', 0, .95), '', 0, 1.02) + sweat(450, 190) +
+            P(570, 260, '<rect x="-22" y="-15" width="44" height="30" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#c96a5a">明天交!</text>', '', 0, 1.05)) },
+        { minDur: 6400, sub: '危如累卵：勢若疊卵，一觸即崩。',
+          html: scene(P(400, 296, '<g class="st-tw"><ellipse cx="0" cy="-12" rx="16" ry="20" fill="#fdf3dc" stroke="#d9c9a8" stroke-width="2.4"/><ellipse cx="4" cy="-46" rx="15" ry="19" fill="#fdf3dc" stroke="#d9c9a8" stroke-width="2.4" transform="rotate(8 4 -46)"/><ellipse cx="-3" cy="-80" rx="14" ry="18" fill="#fdf3dc" stroke="#d9c9a8" stroke-width="2.4" transform="rotate(-10 -3 -80)"/></g>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">危如累卵</text>') }
+      ];
+    },
+    /* 大放厥詞 */
+    i392: function () {
+      return [
+        { minDur: 7000, sub: '韓愈祭柳宗元的文章寫「玉佩瓊琚，大放厥辭」——原本是誇他文辭華美如玉！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#5a8fbf" stroke-width="2"><line x1="-9" y1="-10" x2="9" y2="-10"/><line x1="-9" y1="-2" x2="9" y2="-2"/><line x1="-9" y1="6" x2="9" y2="6"/></g>', '', 0, .95)) +
+            '<g class="st-tw"><path d="M480 200 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd97a"/><path d="M530 180 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd97a"/></g>' + hearts(560, 220)) },
+        { minDur: 7000, sub: '但今天說人「大放厥詞」是貶義——會議上他不懂裝懂、高談闊論，大家直搖頭！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(0, -116, '<ellipse cx="0" cy="0" rx="42" ry="20" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#c9bfa8">吧啦吧啦…</text>', '', 0, 1), '', 0, 1.05) +
+            P(540, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(600, 200) + qmark(460, 210)) },
+        { minDur: 6800, sub: '「大放厥詞」（厥＝其）：誇誇其談、胡言亂論——注意：現在用它可不是稱讚人喔！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#c96a5a">貶義!</text>', '', 0, 1.1)) +
+            P(570, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">古褒</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8b93a3">今貶</text>', '', 0, 1) + hearts(280, 200)) },
+        { minDur: 6400, sub: '大放厥詞：誇誇其談，虛言妄議。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(0, -116, '<ellipse cx="0" cy="0" rx="40" ry="19" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#c9bfa8">吧啦吧啦…</text>', '', 0, 1), '', 0, 1.08) +
+            '<text x="400" y="220" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大放厥詞</text>') }
+      ];
+    },
+    /* 沐猴而冠 */
+    i393: function () {
+      return [
+        { minDur: 7000, sub: '有人譏諷項羽：「楚人沐猴而冠耳」——獼猴洗了澡、戴上帽子，裝得再像也不是人！',
+          html: scene(P(400, 302, A('monkey') + '<path d="M-14 -66 l3 -10 h22 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', 'st-strut', 0, 1.1) +
+            P(220, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 6 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .95) + qmark(320, 190)) },
+        { minDur: 6800, sub: '帽子戴得再正，猴子還是猴子——「沐猴而冠」譏諷徒具外表、竊據名位的人！',
+          html: scene(P(400, 302, A('monkey') + '<path d="M-14 -66 l3 -10 h22 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.12) +
+            P(400, 175, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".9"/><text x="0" y="6" text-anchor="middle" font-size="16" fill="#c96a5a">?</text>', 'st-zfloat', 0, 1) + sweat(510, 200)) },
+        { minDur: 6800, sub: '外表可以包裝，本事裝不出來——與其借名牌撐場面，不如把實力練起來！',
+          html: scene(P(320, 302, A('monkey') + '<path d="M-14 -66 l3 -10 h22 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1) + sweat(390, 200) +
+            P(540, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#548a40">實力</text>', '', 0, .95), '', 0, 1.02, true) + hearts(620, 200)) },
+        { minDur: 6400, sub: '沐猴而冠：虛有其表，難掩本相。',
+          html: scene(P(400, 302, A('monkey') + '<path d="M-14 -66 l3 -10 h22 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', 'st-strut', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">沐猴而冠</text>') }
+      ];
+    },
+    /* 膠柱鼓瑟 */
+    i394: function () {
+      return [
+        { minDur: 7200, sub: '藺相如評趙括只會背兵書：「若膠柱而鼓瑟耳」——把調弦的柱黏死，瑟就再也變不了調！',
+          html: scene(P(430, 296, QIN + '<g fill="#e8b93f"><rect x="-30" y="-16" width="6" height="10" rx="2"/><rect x="-6" y="-16" width="6" height="10" rx="2"/><rect x="18" y="-16" width="6" height="10" rx="2"/></g><g fill="#c96a5a" opacity=".85"><ellipse cx="-27" cy="-18" rx="6" ry="4"/><ellipse cx="-3" cy="-18" rx="6" ry="4"/><ellipse cx="21" cy="-18" rx="6" ry="4"/></g>', '', 0, 1.15) +
+            P(260, 302, A('kid', 'sad') + '<path d="M28 -40 l18 8" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1) + qmark(340, 200)) },
+        { minDur: 7000, sub: '弦柱黏死，音只剩一種——「膠柱鼓瑟」：拘泥成法、不知變通！',
+          html: scene(P(430, 296, QIN, '', 0, 1.12) +
+            '<g opacity=".7"><text x="430" y="220" text-anchor="middle" font-size="16" fill="#8b93a3">♪ ♪ ♪（同一個音…）</text></g>' +
+            P(240, 302, A('kid', 'sad'), '', 0, .98) + sweat(310, 200)) },
+        { minDur: 6800, sub: '考題換了情境還硬套背過的解法、市場變了還守舊做法——都是現代版膠柱鼓瑟！',
+          html: scene(P(340, 302, A('kid', 'sad') + P(-46, -54, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-4" text-anchor="middle" font-size="10" fill="#c96a5a">硬套</text><text x="0" y="10" text-anchor="middle" font-size="10" fill="#c96a5a">舊解</text>', '', 0, 1)) + sweat(450, 195) +
+            P(570, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">要懂</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">變通</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '膠柱鼓瑟：拘泥成法，不知變通。',
+          html: scene(P(400, 296, QIN + '<g fill="#c96a5a" opacity=".85"><ellipse cx="-27" cy="-14" rx="6" ry="4"/><ellipse cx="-3" cy="-14" rx="6" ry="4"/><ellipse cx="21" cy="-14" rx="6" ry="4"/></g>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">膠柱鼓瑟</text>') }
+      ];
+    },
+    /* 蚍蜉撼樹 */
+    i395: function () {
+      return [
+        { minDur: 7000, sub: '韓愈笑那些貶低李白杜甫的人：「蚍蜉撼大樹，可笑不自量」——大螞蟻想搖大樹！',
+          html: scene(P(430, 302, TREE, '', 0, 1.5) +
+            P(340, 300, '<g class="st-tw"><ellipse cx="0" cy="-5" rx="8" ry="5" fill="#5a4632"/><circle cx="-10" cy="-7" r="4.6" fill="#5a4632"/><circle cx="8" cy="-4" r="5" fill="#5a4632"/><g stroke="#5a4632" stroke-width="1.6" stroke-linecap="round"><line x1="-4" y1="-1" x2="-8" y2="4"/><line x1="0" y1="0" x2="0" y2="5"/><line x1="5" y1="-1" x2="9" y2="4"/></g><g stroke="#5a4632" stroke-width="1.4"><line x1="-13" y1="-9" x2="-17" y2="-13"/><line x1="-11" y1="-10" x2="-13" y2="-15"/></g></g>', '', 0, 1.3) + sweat(330, 260)) },
+        { minDur: 6800, sub: '螞蟻推得滿頭大汗，大樹連葉子都沒動一下——「蚍蜉撼樹」：不自量力！',
+          html: scene(P(430, 302, TREE, '', 0, 1.5) +
+            P(345, 300, '<g class="st-hammer"><ellipse cx="0" cy="-5" rx="8" ry="5" fill="#5a4632"/><circle cx="-10" cy="-7" r="4.6" fill="#5a4632"/><circle cx="8" cy="-4" r="5" fill="#5a4632"/><g stroke="#5a4632" stroke-width="1.6" stroke-linecap="round"><line x1="-4" y1="-1" x2="-8" y2="4"/><line x1="0" y1="0" x2="0" y2="5"/><line x1="5" y1="-1" x2="9" y2="4"/></g></g>', '', 0, 1.3) + sweat(335, 258) + sweat(310, 268) +
+            P(200, 302, A('kid', 'wow'), '', 0, .92) + qmark(260, 210)) },
+        { minDur: 6800, sub: '注意用法：它笑的是「妄想以小搏大還不自知」——謙虛評估實力，不打沒準備的仗！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#548a40">評估</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#548a40">實力</text>', '', 0, .95)) + hearts(470, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#c96a5a">貶義</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#c96a5a">慎用</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '蚍蜉撼樹：以小撼大，不自量力。',
+          html: scene(P(430, 302, TREE, '', 0, 1.5) +
+            P(345, 300, '<g class="st-tw"><ellipse cx="0" cy="-5" rx="8" ry="5" fill="#5a4632"/><circle cx="-10" cy="-7" r="4.6" fill="#5a4632"/><circle cx="8" cy="-4" r="5" fill="#5a4632"/></g>', '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">蚍蜉撼樹</text>') }
+      ];
+    },
+    /* 觥籌交錯 */
+    i396: function () {
+      return [
+        { minDur: 7000, sub: '〈醉翁亭記〉的宴席：「觥籌交錯，起坐而諠譁者，眾賓懽也」——酒杯與酒籌滿桌飛舞！',
+          html: scene(P(400, 285, '<ellipse cx="0" cy="8" rx="90" ry="16" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><g fill="#e8b93f" stroke="#c99a1e" stroke-width="1.6"><path d="M-56 -4 l4 -14 h10 l4 14 z"/><path d="M-6 -8 l4 -14 h10 l4 14 z"/><path d="M44 -2 l4 -14 h10 l4 14 z"/></g><g stroke="#a8734a" stroke-width="3" stroke-linecap="round"><line x1="-30" y1="-4" x2="-22" y2="-18"/><line x1="24" y1="-2" x2="34" y2="-16"/></g>', '', 0, 1.1) +
+            P(220, 302, A('kid', 'happy') + P(38, -46, '<path d="M-4 6 l3 -12 h8 l3 12 z" fill="#e8b93f"/>', '', 0, 1), '', 0, .95) +
+            P(580, 302, A('kid', 'happy'), 'st-bob', 0, .95, true) + notes(400, 190)) },
+        { minDur: 6800, sub: '「觥」是酒杯、「籌」是行酒令的竹籤——「觥籌交錯」：宴飲熱鬧、賓主盡歡！',
+          html: scene(P(330, 250, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><path d="M-8 8 l4 -16 h8 l4 16 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="1.6"/><text x="0" y="24" text-anchor="middle" font-size="9" fill="#8a5a33">觥=杯</text>') +
+            P(470, 250, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><g stroke="#a8734a" stroke-width="3" stroke-linecap="round"><line x1="-6" y1="8" x2="0" y2="-10"/><line x1="4" y1="8" x2="8" y2="-8"/></g><text x="0" y="24" text-anchor="middle" font-size="9" fill="#8a5a33">籌=籤</text>') + notes(400, 180)) },
+        { minDur: 6800, sub: '年夜飯全家舉杯、謝師宴滿堂笑語——熱鬧歡宴的場面，就用觥籌交錯！',
+          html: scene(P(400, 285, '<ellipse cx="0" cy="8" rx="70" ry="14" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><circle cx="0" cy="-6" r="16" fill="#ffdd88" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy') + P(36, -48, '<path d="M-4 6 l3 -12 h8 l3 12 z" fill="#e8b93f"/>', '', 0, 1), '', 0, .95) +
+            P(550, 302, A('kid', 'happy') + P(36, -48, '<path d="M-4 6 l3 -12 h8 l3 12 z" fill="#e8b93f"/>', '', 0, 1), '', 0, .95, true) + hearts(400, 175) + notes(620, 200)) },
+        { minDur: 6400, sub: '觥籌交錯：杯籌交舞，盡歡而醉。',
+          html: scene(P(400, 285, '<ellipse cx="0" cy="8" rx="86" ry="15" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><g fill="#e8b93f" stroke="#c99a1e" stroke-width="1.6"><path d="M-50 -4 l4 -14 h10 l4 14 z"/><path d="M0 -8 l4 -14 h10 l4 14 z"/><path d="M44 -2 l4 -14 h10 l4 14 z"/></g>', '', 0, 1.15) + notes(400, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">觥籌交錯</text>') }
+      ];
     }
   };
 
