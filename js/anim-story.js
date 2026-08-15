@@ -17000,6 +17000,179 @@
             P(320, 230, '<g class="st-snow">' + FALLLEAF + '</g>', '', 0, 1.1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">落葉歸根</text>') }
       ];
+    },
+    /* 衣錦還鄉 */
+    i649: function () {
+      return [
+        { minDur: 7000, sub: '項羽說：「富貴不歸故鄉，如衣繡夜行」——發達了不回鄉，就像穿錦衣在黑夜裡走，誰看得見！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-20 -36 h40 l-4 30 h-32 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/><path d="M-12 -28 q6 -6 12 0 q6 -6 10 0" stroke="#ffd97a" stroke-width="2" fill="none"/>', '', 0, 1.08) +
+            P(620, 130, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1) + qmark(480, 190), 'night') },
+        { minDur: 6800, sub: '「衣錦還鄉」：功成名就、榮歸故里——注意「衣」當動詞用，讀ㄧˋ（穿）！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-20 -36 h40 l-4 30 h-32 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', 'st-strut', 0, 1.05) +
+            P(600, 285, '<path d="M-40 30 L0 -10 L40 30 Z" fill="#c9762f"/><rect x="-30" y="30" width="60" height="18" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1) +
+            P(240, 200, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">ㄧˋ</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '鄉親們夾道歡迎學成歸來的博士——最好的衣錦還鄉，是把所學帶回來建設家鄉！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#3a3550" stroke="#232840" stroke-width="2"/>', 'st-strut', 0, 1.05) +
+            P(240, 302, A('kid', 'happy'), 'st-cheer', 0, .9) + P(570, 302, A('kid', 'happy'), 'st-cheer', .2, .9, true) + hearts(400, 178) + bang(500, 190)) },
+        { minDur: 6400, sub: '衣錦還鄉：功成名就，榮歸故里。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-20 -36 h40 l-4 30 h-32 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', 'st-strut', 0, 1.08) +
+            P(620, 285, '<path d="M-36 28 L0 -8 L36 28 Z" fill="#c9762f"/><rect x="-26" y="28" width="52" height="16" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1) +
+            '<text x="340" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">衣錦還鄉</text>') }
+      ];
+    },
+    /* 光宗耀祖 */
+    i650: function () {
+      return [
+        { minDur: 6800, sub: '放榜那天，全村鞭炮響起——「我們村出狀元啦！」祠堂前掛起大紅燈籠！',
+          html: scene(P(400, 285, '<rect x="-70" y="-50" width="140" height="50" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-80 -50 h160 l-16 -22 h-128 z" fill="#c9762f"/><text x="0" y="-24" text-anchor="middle" font-size="12" fill="#6d4426">祠堂</text>', '', 0, 1.05) +
+            P(260, 240, '<ellipse cx="0" cy="0" rx="13" ry="16" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/><line x1="0" y1="16" x2="0" y2="26" stroke="#e8b93f" stroke-width="2.6"/>', 'st-bob', 0, 1.1) +
+            P(540, 240, '<ellipse cx="0" cy="0" rx="13" ry="16" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/><line x1="0" y1="16" x2="0" y2="26" stroke="#e8b93f" stroke-width="2.6"/>', 'st-bob', .3, 1.1) + bang(400, 190)) },
+        { minDur: 6800, sub: '「光宗耀祖」：讓祖先和家族增添光彩——長輩最驕傲的一刻，眼眶都紅了！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(0, -74, '<path d="M-14 0 h28 l-4 10 h-20 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><g class="st-tear"><path d="M-10 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, .97, true) + hearts(440, 185)) },
+        { minDur: 6800, sub: '其實光宗耀祖不只有金榜題名——正直做人、認真做事，就是給家族最好的名聲！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(280, 200, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '光宗耀祖：榮顯門楣，光耀家族。',
+          html: scene(P(400, 288, '<rect x="-64" y="-46" width="128" height="46" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-74 -46 h148 l-15 -20 h-118 z" fill="#c9762f"/>', '', 0, 1.05) +
+            P(270, 245, '<ellipse cx="0" cy="0" rx="12" ry="15" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/>', 'st-bob', 0, 1.1) +
+            P(530, 245, '<ellipse cx="0" cy="0" rx="12" ry="15" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/>', 'st-bob', .3, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">光宗耀祖</text>') }
+      ];
+    },
+    /* 暗度陳倉 */
+    i921: function () {
+      return [
+        { minDur: 7000, sub: '楚漢相爭：韓信大張旗鼓派人修棧道——項羽的守軍全盯著棧道看笑話！',
+          html: scene(P(300, 290, '<path d="M-60 30 L-20 -30 L20 20 L60 -20" stroke="#8b93a3" stroke-width="5" fill="none"/><g stroke="#a8734a" stroke-width="4"><line x1="-40" y1="30" x2="-40" y2="0"/><line x1="0" y1="30" x2="0" y2="-4"/><line x1="40" y1="30" x2="40" y2="0"/></g>', '', 0, 1.05) +
+            P(300, 230, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, .9), '', 0, .8) +
+            P(580, 302, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .95, true) + notes(650, 195)) },
+        { minDur: 6800, sub: '主力卻悄悄繞小路奔陳倉——殺出時守軍措手不及，一舉平定三秦！',
+          html: scene(P(360, 302, '<g class="st-fleeR">' + A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1) + '</g>', 'st-dashL', 0, 1) +
+            '<path d="M180 260 q120 -40 260 -20" stroke="#548a40" stroke-width="4" fill="none" stroke-dasharray="9 8"/>' + bang(560, 220) + sweat(650, 200), 'night') },
+        { minDur: 6800, sub: '「明修棧道，暗度陳倉」：公開行動作掩護，真正的行動在暗處——三十六計的經典！',
+          html: scene(P(300, 240, '<rect x="-38" y="-19" width="76" height="38" rx="4" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="11" fill="#8b93a3">明修棧道</text><text x="0" y="12" text-anchor="middle" font-size="9" fill="#c9bfa8">（給你看）</text>') +
+            P(500, 240, '<rect x="-38" y="-19" width="76" height="38" rx="4" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="11" fill="#548a40">暗度陳倉</text><text x="0" y="12" text-anchor="middle" font-size="9" fill="#7fa858">（真行動）</text>') + bang(620, 200)) },
+        { minDur: 6400, sub: '暗度陳倉：明為掩護，暗行真計。',
+          html: scene(P(280, 290, '<path d="M-50 26 L-16 -26 L16 16 L50 -16" stroke="#8b93a3" stroke-width="4.6" fill="none"/>', '', 0, 1) +
+            '<path d="M200 302 q150 -20 300 -10" stroke="#548a40" stroke-width="4" fill="none" stroke-dasharray="9 8"/>' +
+            P(560, 302, '<g class="st-fleeR">' + A('kid', 'angry') + '</g>', 'st-dashL', 0, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">暗度陳倉</text>') }
+      ];
+    },
+    /* 指桑罵槐 */
+    i923: function () {
+      var TWOTREES = P(260, 302, TREE, '', 0, 1.05) + P(560, 302, '<path d="M0 0 L0 -60" stroke="#6d5a3a" stroke-width="8" stroke-linecap="round"/><circle cx="-18" cy="-66" r="20" fill="#8aab7a"/><circle cx="16" cy="-74" r="22" fill="#7a9a6a"/>', '', 0, 1.05);
+      return [
+        { minDur: 7000, sub: '《紅樓夢》裡的管家奶奶們最會這招——不敢明著罵人，就「指桑罵槐」地抱怨給你聽！',
+          html: scene(TWOTREES +
+            P(400, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/><path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '指著桑樹開罵，罵的其實是槐樹——「有些人就是愛遲到！」全班都知道在說誰……',
+          html: scene(P(340, 302, A('kid', 'angry') + '<path d="M28 -60 l18 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(560, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(620, 192) +
+            P(430, 190, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="10" fill="#c96a5a">有些人…</text>')) },
+        { minDur: 6800, sub: '「指桑罵槐」：表面罵這個、實際罵那個——有意見直接好好說，拐彎的酸話最傷感情！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(520, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(430, 185)) },
+        { minDur: 6400, sub: '指桑罵槐：明指此，暗罵彼。',
+          html: scene(TWOTREES +
+            P(410, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -4 M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">指桑罵槐</text>') }
+      ];
+    },
+    /* 含沙射影 */
+    i924: function () {
+      return [
+        { minDur: 7000, sub: '《搜神記》裡的水怪「蜮」：口含沙粒射人的影子——被射中影子的人就會生病！',
+          html: scene('<rect y="272" width="800" height="68" fill="#5a7fa8"/>' +
+            P(300, 285, '<ellipse cx="0" cy="0" rx="22" ry="12" fill="#4a6d5a" stroke="#3a5646" stroke-width="2.4"/><circle cx="16" cy="-6" r="5" fill="#3a5646"/><circle cx="18" cy="-7" r="1.6" fill="#ffd97a"/>', '', 0, 1.1) +
+            '<path d="M330 278 q80 -30 160 -10" stroke="#c9b98a" stroke-width="3" fill="none" stroke-dasharray="4 5"/>' +
+            P(540, 302, A('kid', 'wow') + '<ellipse cx="10" cy="8" rx="30" ry="7" fill="#3a2e26" opacity=".3"/>', '', 0, .98, true) + sweat(600, 190), 'night') },
+        { minDur: 6800, sub: '「含沙射影」：用隱晦的話暗中中傷——不點名的酸文、影射的留言，都是這種暗箭！',
+          html: scene(P(360, 302, A('kid', 'sad'), '', 0, 1) + sweat(300, 190) +
+            P(540, 240, '<rect x="-40" y="-22" width="80" height="44" rx="5" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#c96a5a">某人自以為…</text><g stroke="#c9bfa8" stroke-width="1.6"><line x1="-26" y1="10" x2="26" y2="10"/></g>', '', 0, 1.1) + qmark(280, 200)) },
+        { minDur: 6800, sub: '遇到含沙射影別急著對號入座——有話請對方明說，清者自清，暗箭傷不了坦蕩的人！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) + hearts(280, 195) +
+            P(540, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">清者</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">自清</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '含沙射影：暗中中傷，影射他人。',
+          html: scene('<rect y="278" width="800" height="62" fill="#5a7fa8"/>' +
+            P(300, 290, '<ellipse cx="0" cy="0" rx="20" ry="11" fill="#4a6d5a" stroke="#3a5646" stroke-width="2.4"/><circle cx="15" cy="-5" r="4.6" fill="#3a5646"/>', '', 0, 1.1) +
+            '<path d="M330 282 q80 -26 150 -8" stroke="#c9b98a" stroke-width="3" fill="none" stroke-dasharray="4 5"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">含沙射影</text>', 'night') }
+      ];
+    },
+    /* 旁敲側擊 */
+    i925: function () {
+      return [
+        { minDur: 6800, sub: '媽媽想知道考試成績，卻不直接問——「你們班這次考得怎樣呀？隔壁小美考幾分？」',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + sweat(600, 190) +
+            P(430, 190, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#6d7585">班上如何?</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#6d7585">小美幾分?</text>')) },
+        { minDur: 6800, sub: '「旁敲側擊」：不從正面直說，繞著彎子探——像敲鼓不敲鼓面，敲鼓的側邊！',
+          html: scene(P(400, 275, '<ellipse cx="0" cy="-24" rx="34" ry="10" fill="#e8d9a8"/><path d="M-34 -24 v34 a34 12 0 0 0 68 0 v-34" fill="#c96a5a" stroke="#a84f42" stroke-width="2.6"/>', '', 0, 1.3) +
+            P(500, 250, '<line x1="0" y1="0" x2="20" y2="-18" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="-22" r="6" fill="#6d4426"/>', '', 0, 1.1) + notes(300, 210)) },
+        { minDur: 6800, sub: '旁敲側擊有時是體貼（怕你尷尬），有時不如直說——看場合選擇：機智用在刀口上！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(410, 182) +
+            P(600, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">看場合</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '旁敲側擊：迂迴試探，不直接說。',
+          html: scene(P(400, 278, '<ellipse cx="0" cy="-24" rx="32" ry="10" fill="#e8d9a8"/><path d="M-32 -24 v32 a32 12 0 0 0 64 0 v-32" fill="#c96a5a" stroke="#a84f42" stroke-width="2.6"/>', '', 0, 1.3) +
+            P(495, 252, '<line x1="0" y1="0" x2="20" y2="-18" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="-22" r="6" fill="#6d4426"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">旁敲側擊</text>') }
+      ];
+    },
+    /* 單刀直入 */
+    i926: function () {
+      return [
+        { minDur: 7000, sub: '禪師勉勵學人：「便請單刀直入，更莫如何若何」——別繞圈子，一刀直指本心！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(34, -50, '<line x1="0" y1="14" x2="0" y2="-26" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M0 -38 l-6 14 h12 z" fill="#c9d2de"/>', '', 0, 1), '', 0, 1.05) + bang(480, 190)) },
+        { minDur: 6800, sub: '「單刀直入」：直截了當切入要點——「時間有限，我就單刀直入：我們需要再加兩個人。」',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/>', '', 0, 1, true) +
+            '<path d="M380 240 h120" stroke="#c96a5a" stroke-width="4" stroke-linecap="round"/><path d="M500 240 l-14 -8 v16 z" fill="#c96a5a"/>') },
+        { minDur: 6800, sub: '直入不等於失禮——先一句「容我直說」，再把重點講清楚，果斷又不傷人！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(520, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(430, 185) +
+            P(620, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">容我直說</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '單刀直入：直指要點，不繞彎子。',
+          html: scene(P(400, 275, '<line x1="0" y1="24" x2="0" y2="-36" stroke="#8b93a3" stroke-width="6" stroke-linecap="round"/><path d="M0 -52 l-8 18 h16 z" fill="#c9d2de"/>', '', 0, 1.4) +
+            '<path d="M300 250 h200" stroke="#c96a5a" stroke-width="4" stroke-linecap="round" opacity=".6"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">單刀直入</text>') }
+      ];
+    },
+    /* 直截了當 */
+    i927: function () {
+      return [
+        { minDur: 6800, sub: '同學問小當：「這企劃可行嗎？」他不繞彎：「預算可行，時程太趕，建議延一週。」',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'wow'), '', 0, .97, true) + bang(440, 182) +
+            P(620, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-6 0 l4 4 l8 -8" stroke="#548a40" stroke-width="2.6" fill="none"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「直截了當」：乾脆爽快、不繞彎——注意寫「直截」不是「直接」，「截」是斬斷！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#548a40">截✓</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#c96a5a">接✗</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '直截了當是效率也是誠意——不過語氣放軟一點，直話也能好好說！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(410, 182) + notes(580, 195)) },
+        { minDur: 6400, sub: '直截了當：乾脆爽快，有話直說。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08) + bang(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">直截了當</text>') }
+      ];
+    },
+    /* 言歸正傳 */
+    i928: function () {
+      return [
+        { minDur: 7000, sub: '老說書人講故事岔題聊到自家貓——一拍醒木：「閒話少說，言歸正傳！」',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>' + P(-44, -46, '<rect x="-14" y="-6" width="28" height="10" rx="2" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, 1), '', 0, 1.05) + bang(470, 185) +
+            P(220, 302, A('kid', 'happy'), '', 0, .88) + P(600, 302, A('kid', 'happy'), '', 0, .88, true)) },
+        { minDur: 6800, sub: '「言歸正傳」：把話題拉回正題（傳讀ㄓㄨㄢˋ）——開會聊到午餐吃什麼時，最需要這句！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(280, 200, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">ㄓㄨㄢˋ</text>', '', 0, 1) +
+            P(540, 210, '<rect x="-30" y="-16" width="60" height="32" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">回正題→</text>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '會歪樓不可怕，拉得回來就好——一句「言歸正傳」，全場注意力立刻歸位！',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, .95) + P(430, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) + P(560, 302, A('kid', 'happy'), '', 0, .95, true) +
+            bang(430, 182) + hearts(300, 190)) },
+        { minDur: 6400, sub: '言歸正傳：閒話收起，回到正題。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -46, '<rect x="-14" y="-6" width="28" height="10" rx="2" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, 1), '', 0, 1.05) + bang(500, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">言歸正傳</text>') }
+      ];
     }
   };
 
