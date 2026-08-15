@@ -13739,6 +13739,150 @@
             P(360, 302, A('kid', 'happy') + P(-46, -46, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">十年寒窗</text>', 'night') }
       ];
+    },
+    /* 棄甲曳兵 */
+    i119: function () {
+      var ARMOR = '<path d="M-14 -18 h28 l-4 30 h-20 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2.4"/><path d="M-14 -18 q14 -8 28 0" stroke="#6d7585" stroke-width="2.4" fill="none"/>';
+      return [
+        { minDur: 7000, sub: '孟子描述戰敗的士兵：丟掉鎧甲、拖著長戈就跑——「棄甲曳兵而走」！',
+          html: scene(P(450, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '<path d="M30 -6 L64 20" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M64 20 l8 8" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/></g>', 'st-dashL', 0, 1) +
+            P(300, 295, ARMOR, '', 0, 1.1) + sweat(520, 190), 'night') },
+        { minDur: 6800, sub: '有人跑了一百步停下來，笑跑五十步的人膽小——孟子反問：都是逃跑，有差別嗎？',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(520, 302, A('kid', 'sad'), '', 0, .97, true) + qmark(410, 182) + sweat(580, 192)) },
+        { minDur: 6800, sub: '「棄甲曳兵」：潰不成軍、狼狽逃散——這也是「五十步笑百步」典故的出處！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -50, '<rect x="-16" y="-12" width="32" height="24" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -4 h20 M-10 4 h14" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95), '', 0, 1.05) + hearts(470, 190)) },
+        { minDur: 6400, sub: '棄甲曳兵：敗逃潰散，狼狽不堪。',
+          html: scene(P(450, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, 1) +
+            P(290, 295, ARMOR, '', 0, 1.1) + sweat(520, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">棄甲曳兵</text>', 'night') }
+      ];
+    },
+    /* 樂此不疲 */
+    i317: function () {
+      return [
+        { minDur: 7000, sub: '光武帝日理萬機到深夜，太子勸他保重身體——他笑答：「我自樂此，不為疲也！」',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>' + P(-46, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/></g>', '', 0, .95), '', 0, 1.05) +
+            P(560, 302, A('kid', 'happy'), '', 0, .92, true) +
+            P(640, 135, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '小疲週末天沒亮就出門觀察昆蟲，一蹲三小時——別人喊累，他眼睛發亮！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-40, -46, '<circle cx="0" cy="-4" r="13" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="7" x2="18" y2="16" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1)) +
+            P(520, 292, '<ellipse cx="0" cy="0" rx="10" ry="7" fill="#8a5a33"/><g stroke="#6d4426" stroke-width="1.8"><line x1="-6" y1="6" x2="-9" y2="11"/><line x1="0" y1="7" x2="0" y2="12"/><line x1="6" y1="6" x2="9" y2="11"/></g>', '', 0, 1.2) + hearts(280, 192)) },
+        { minDur: 6800, sub: '「樂此不疲」：沉浸在喜歡的事裡不覺疲倦——找到熱愛的事，努力就不再是苦差事！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(500, 185) + notes(300, 190)) },
+        { minDur: 6400, sub: '樂此不疲：樂在其中，不知疲倦。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.08) + hearts(500, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">樂此不疲</text>') }
+      ];
+    },
+    /* 毛骨悚然 */
+    i318: function () {
+      return [
+        { minDur: 6800, sub: '深夜的老屋，樓梯自己嘎吱作響——小悚的寒毛「唰」一下全豎起來了！',
+          html: scene(P(400, 302, A('kid', 'wow') + '<g stroke="#3a2e26" stroke-width="2" stroke-linecap="round"><line x1="-20" y1="-84" x2="-24" y2="-94"/><line x1="-8" y1="-88" x2="-9" y2="-98"/><line x1="6" y1="-88" x2="8" y2="-98"/><line x1="18" y1="-84" x2="23" y2="-94"/></g>', 'st-bob', 0, 1.05) + sweat(320, 185) +
+            P(600, 250, '<rect x="-40" y="-60" width="80" height="90" fill="#3a3550" stroke="#575170" stroke-width="3" opacity=".9"/><rect x="-24" y="-40" width="18" height="22" fill="#575170"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「毛骨悚然」：寒毛豎起、骨頭發冷——極度恐懼時，身體的本能反應！',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + '</g>', '', 0, 1.08) + sweat(310, 185) + sweat(490, 185) +
+            '<g class="st-zfloat" opacity=".7"><path d="M250 220 q6 -10 0 -18 q-6 -8 0 -16" stroke="#c9d6e8" stroke-width="3" fill="none"/></g>', 'night') },
+        { minDur: 6800, sub: '開燈一看——是貓咪在樓梯上玩毛線球！虛驚一場，大家笑成一團！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) + hearts(500, 190) +
+            P(560, 296, A('fox') + P(30, 0, '<circle cx="0" cy="0" r="8" fill="#ff9eb5"/><path d="M-6 -4 q8 8 12 -2" stroke="#e07a94" stroke-width="1.6" fill="none"/>', '', 0, 1), '', 0, .9, true) + bang(300, 195)) },
+        { minDur: 6400, sub: '毛骨悚然：極度恐懼，寒毛直豎。',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + '<g stroke="#3a2e26" stroke-width="2" stroke-linecap="round"><line x1="-20" y1="-84" x2="-24" y2="-94"/><line x1="6" y1="-88" x2="8" y2="-98"/><line x1="18" y1="-84" x2="23" y2="-94"/></g></g>', '', 0, 1.08) + sweat(310, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">毛骨悚然</text>', 'night') }
+      ];
+    },
+    /* 氣宇軒昂 */
+    i319: function () {
+      return [
+        { minDur: 6800, sub: '校慶典禮，儀隊隊長踏著正步進場：抬頭挺胸、目光炯炯——全場目光都被吸過去！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#3d4a63" stroke="#2c3550" stroke-width="2"/><path d="M28 -46 l14 -20" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', 'st-strut', 0, 1.1) +
+            P(220, 302, A('kid', 'wow'), '', 0, .88) + P(600, 302, A('kid', 'wow'), '', 0, .88, true) + bang(400, 170)) },
+        { minDur: 6800, sub: '「軒昂」是高昂不凡——「氣宇軒昂」：整個人的氣度神采，像高大的車蓋一樣挺拔敞亮！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.15) +
+            '<g class="st-rays" style="transform-origin:400px 200px"><g stroke="#ffe9a0" stroke-width="4" stroke-linecap="round" opacity=".8"><line x1="400" y1="150" x2="400" y2="130"/><line x1="440" y1="165" x2="455" y2="150"/><line x1="360" y1="165" x2="345" y2="150"/></g></g>' + hearts(520, 200)) },
+        { minDur: 6800, sub: '氣宇軒昂不是擺架子——是自信、專注加上好體態，任何人練得出來！',
+          html: scene(P(320, 296, '<g transform="rotate(10)">' + A('kid', 'sad') + '</g>', '', 0, .92) +
+            '<path d="M400 250 h70" stroke="#548a40" stroke-width="4"/><path d="M470 250 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(560, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + hearts(640, 195)) },
+        { minDur: 6400, sub: '氣宇軒昂：神采飛揚，氣度不凡。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.15) + bang(510, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">氣宇軒昂</text>') }
+      ];
+    },
+    /* 津津樂道 */
+    i321: function () {
+      return [
+        { minDur: 6800, sub: '下課鐘一響，大家圍在一起聊昨晚的球賽——那記最後一秒的三分球，講三遍都不膩！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(430, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -8 M28 -56 l14 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) + P(560, 302, A('kid', 'happy'), '', 0, .97, true) +
+            P(430, 190, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><circle cx="0" cy="-2" r="8" fill="#e0813f" stroke="#b85f24" stroke-width="1.8"/>', '', 0, 1) + notes(330, 185)) },
+        { minDur: 6800, sub: '「津津」是興味濃厚的樣子——「津津樂道」：有滋有味地談論，越講越起勁！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            notes(400, 178) + hearts(540, 195) + bang(260, 195)) },
+        { minDur: 6800, sub: '被人津津樂道的，往往是那些拚盡全力的瞬間——把每一場都打好，故事自然流傳！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(38, -56, '<circle cx="0" cy="0" r="12" fill="#e0813f" stroke="#b85f24" stroke-width="2"/><path d="M-12 0 h24 M0 -12 v24" stroke="#b85f24" stroke-width="1.6"/>', '', 0, 1), 'st-cheer', 0, 1.05) + hearts(300, 190) + bang(510, 185)) },
+        { minDur: 6400, sub: '津津樂道：興味盎然地談論。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + notes(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">津津樂道</text>') }
+      ];
+    },
+    /* 無動於衷 */
+    i322: function () {
+      return [
+        { minDur: 6800, sub: '全班熱烈討論園遊會要賣什麼，只有小衷趴在桌上滑手機——一句話都不搭！',
+          html: scene(P(280, 302, A('kid', 'happy'), 'st-cheer', 0, .95) + P(400, 302, A('kid', 'happy'), 'st-cheer', .2, .95) + notes(340, 180) +
+            P(570, 296, '<g transform="rotate(12)">' + A('kid', 'happy') + '</g>' + P(-34, -30, '<rect x="-9" y="-14" width="18" height="26" rx="3" fill="#3a2e26"/><rect x="-6" y="-10" width="12" height="16" rx="2" fill="#7fb2e0"/>', '', 0, .9), '', 0, .98)) },
+        { minDur: 6800, sub: '「衷」是內心——「無動於衷」：內心毫無觸動，別人再熱再急，他都漠不關心！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-14 -50 h28" stroke="#8b93a3" stroke-width="2.6"/>', '', 0, 1.05) +
+            P(280, 205, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#c9d6e8" stroke="#aab8cf" stroke-width="2"/>', '', 0, 1.1) + qmark(500, 185)) },
+        { minDur: 6800, sub: '後來攤位缺人手，大家還是找他幫忙——被需要的感覺，終於讓他動了心、捲起袖子！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(500, 302, A('kid', 'happy'), 'st-cheer', 0, .98, true) + hearts(420, 182)) },
+        { minDur: 6400, sub: '無動於衷：內心毫無觸動。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-14 -50 h28" stroke="#8b93a3" stroke-width="2.6"/>', '', 0, 1.05) +
+            P(290, 205, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#c9d6e8" stroke="#aab8cf" stroke-width="2"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">無動於衷</text>') }
+      ];
+    },
+    /* 無懈可擊 */
+    i323: function () {
+      var SHIELD2 = '<path d="M0 -34 L30 -22 L30 8 Q30 30 0 38 Q-30 30 -30 8 L-30 -22 Z" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="3"/><path d="M0 -22 L18 -14 L18 6 Q18 20 0 26 Q-18 20 -18 6 L-18 -14 Z" fill="none" stroke="#5a8fbf" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '兵法說要「擊其懈怠」——攻擊敵人鬆懈的破綻！可是眼前這座陣，竟然一個破綻都找不到！',
+          html: scene(P(500, 290, SHIELD2, '', 0, 1.3) +
+            P(260, 302, A('kid', 'angry') + P(28, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1)) + qmark(340, 185) + sweat(200, 192)) },
+        { minDur: 6800, sub: '「無懈可擊」：沒有任何鬆懈之處可攻——嚴密完美，挑不出一點毛病！',
+          html: scene(P(400, 280, SHIELD2, '', 0, 1.5) +
+            '<g class="st-tw"><path d="M480 220 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' + bang(290, 230)) },
+        { minDur: 6800, sub: '科展答辯，評審連問十個問題——數據齊全、邏輯嚴密，論證無懈可擊，全場折服！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 6 l4 -8 l5 5 l6 -10" stroke="#548a40" stroke-width="2.2" fill="none"/>', '', 0, .95)) +
+            P(560, 302, A('kid', 'wow') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .97, true) + bang(460, 180) + hearts(280, 192)) },
+        { minDur: 6400, sub: '無懈可擊：嚴密完美，毫無破綻。',
+          html: scene(P(400, 285, SHIELD2, '', 0, 1.5) +
+            '<g class="st-tw"><path d="M480 225 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">無懈可擊</text>') }
+      ];
+    },
+    /* 相形見絀 */
+    i324: function () {
+      return [
+        { minDur: 6800, sub: '小絀自認畫得不錯——直到看見美術社社長的作品：光影、比例、細節，全是另一個等級！',
+          html: scene(P(280, 270, '<rect x="-26" y="-34" width="52" height="68" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><circle cx="0" cy="-12" r="8" fill="#ffdd66"/><path d="M-16 12 l8 -10 6 6 8 -8" stroke="#7a9a6a" stroke-width="2.4" fill="none"/>', '', 0, .95) +
+            P(500, 262, '<rect x="-40" y="-48" width="80" height="96" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="3"/><circle cx="10" cy="-24" r="12" fill="#ffb066"/><path d="M-28 24 q14 -30 28 -12 q12 -22 28 -6" stroke="#5a7a4a" stroke-width="3" fill="none"/><path d="M-28 4 h56" stroke="#8fa3bf" stroke-width="1.6" opacity=".6"/>', '', 0, 1.05) +
+            '<g class="st-tw"><path d="M560 195 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>') },
+        { minDur: 6800, sub: '「相形見絀」：一比較就顯出不足（絀＝不足）——注意寫「絀」，不是笨拙的「拙」！',
+          html: scene(P(340, 302, A('kid', 'sad'), '', 0, .9) + sweat(280, 195) +
+            P(500, 302, A('kid', 'happy'), '', 0, 1.1, true) +
+            P(620, 210, '<rect x="-26" y="-14" width="52" height="28" rx="4" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#548a40">絀✓</text>')) },
+        { minDur: 6800, sub: '差距不是打擊，是路線圖——小絀拜社長為師，一年後他的畫也讓學弟妹讚歎了！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(-42, -48, '<line x1="0" y1="8" x2="6" y2="-12" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/><rect x="-14" y="6" width="28" height="4" rx="2" fill="#c9bfa8"/>', '', 0, 1)) +
+            P(500, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(420, 185) +
+            P(620, 210, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '相形見絀：兩相比較，顯得遜色。',
+          html: scene(P(300, 275, '<rect x="-22" y="-28" width="44" height="56" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4" opacity=".7"/>', '', 0, .95) +
+            P(490, 265, '<rect x="-36" y="-42" width="72" height="84" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="3"/><circle cx="8" cy="-20" r="10" fill="#ffb066"/>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">相形見絀</text>') }
+      ];
     }
   };
 
