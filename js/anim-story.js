@@ -22797,6 +22797,198 @@
             P(400, 140, '<circle cx="0" cy="0" r="18" fill="#ffdd66"/>', '', 0, 1) +
             '<text x="400" y="230" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">俯仰無愧</text>') }
       ];
+    },
+    /* 光明磊落 */
+    i771: function () {
+      return [
+        { minDur: 7000, sub: '朱熹說：「光明磊落底便是好人」——「磊落」是石頭堆得分明，一塊一塊看得清清楚楚！',
+          html: scene(P(500, 296, '<g fill="#c9bfa8" stroke="#a89a80" stroke-width="2.4"><circle cx="-24" cy="0" r="16"/><circle cx="12" cy="2" r="14"/><circle cx="-6" cy="-22" r="13"/></g>', '', 0, 1.1) +
+            P(280, 302, A('kid', 'happy'), '', 0, 1.02) +
+            P(400, 140, '<circle cx="0" cy="0" r="22" fill="#ffdd66"/><g stroke="#e8b93f" stroke-width="2.6" stroke-linecap="round"><line x1="-30" y1="0" x2="-38" y2="0"/><line x1="30" y1="0" x2="38" y2="0"/><line x1="0" y1="-30" x2="0" y2="-38"/></g>', '', 0, 1)) },
+        { minDur: 6800, sub: '「光明磊落」：心地坦白、行事正大——做的每件事都經得起攤在陽光下看！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.08) +
+            '<g class="st-rays" style="transform-origin:400px 195px"><g stroke="#ffe9a0" stroke-width="4" stroke-linecap="round" opacity=".75"><line x1="400" y1="158" x2="400" y2="140"/><line x1="436" y1="170" x2="450" y2="156"/><line x1="364" y1="170" x2="350" y2="156"/></g></g>' + hearts(530, 200)) },
+        { minDur: 6800, sub: '不搞小動作、有話當面說、贏要贏得漂亮——坦蕩的人睡得香、走得穩！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -46 q10 -2 14 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-28 -46 q-10 -2 -14 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1, true) + hearts(420, 185) +
+            P(620, 220, '<g class="st-tw"><path d="M0 0 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>', '', 0, 1)) },
+        { minDur: 6400, sub: '光明磊落：胸懷坦蕩，正大光明。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.1) +
+            P(540, 296, '<g fill="#c9bfa8" stroke="#a89a80" stroke-width="2.4"><circle cx="-20" cy="0" r="14"/><circle cx="12" cy="2" r="12"/><circle cx="-4" cy="-20" r="11"/></g>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">光明磊落</text>') }
+      ];
+    },
+    /* 高風亮節 */
+    i772: function () {
+      return [
+        { minDur: 7000, sub: '老教授退休：一生不收厚禮、不搶名利，把積蓄全捐成獎學金——全校起立鼓掌！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>' + P(-40, -40, '<rect x="-14" y="-10" width="28" height="20" rx="3" fill="#ffe9a0" stroke="#e8b93f" stroke-width="2.2"/><text x="0" y="4" text-anchor="middle" font-size="8" fill="#8a5a33">獎學金</text>', '', 0, 1), '', 0, 1.05) +
+            P(220, 302, A('kid', 'happy'), 'st-cheer', 0, .88) + P(580, 302, A('kid', 'happy'), 'st-cheer', 0, .88, true) + hearts(480, 190)) },
+        { minDur: 6800, sub: '「高風亮節」：高尚的風範、堅貞的節操——像山上的松，風越大站得越直！',
+          html: scene(P(520, 302, '<path d="M0 0 L0 -70" stroke="#8a6a44" stroke-width="7" stroke-linecap="round"/><g fill="#4a7a5a"><path d="M0 -96 L-34 -62 L34 -62 Z"/><path d="M0 -74 L-40 -38 L40 -38 Z"/></g>', '', 0, 1.1) +
+            '<g class="st-windln" opacity=".6" stroke="#9db8d9" stroke-width="3" fill="none" stroke-linecap="round"><path d="M300 180 q30 -8 60 0"/><path d="M280 220 q36 -10 72 0"/></g>' +
+            P(280, 302, A('kid', 'happy') + '<path d="M28 -50 l16 -8" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .98) + hearts(380, 200)) },
+        { minDur: 6800, sub: '用它稱頌品德崇高的長者最合適——是敬語，說自己就變自誇囉！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#5a8fbf">敬語</text>', '', 0, 1.1)) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', '', 0, 1, true) + hearts(470, 190)) },
+        { minDur: 6400, sub: '高風亮節：風範高潔，節操如松。',
+          html: scene(P(400, 302, '<path d="M0 0 L0 -76" stroke="#8a6a44" stroke-width="7" stroke-linecap="round"/><g fill="#4a7a5a"><path d="M0 -102 L-36 -66 L36 -66 Z"/><path d="M0 -78 L-44 -40 L44 -40 Z"/></g>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">高風亮節</text>') }
+      ];
+    },
+    /* 潔身自愛 */
+    i773: function () {
+      return [
+        { minDur: 7000, sub: '孟子稱許潔身的人：「歸潔其身而已矣」——把自己的身子骨守乾淨，不趟渾水！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(560, 280, '<ellipse cx="0" cy="8" rx="60" ry="14" fill="#8b93a3" opacity=".5"/><g class="st-tw" opacity=".6"><circle cx="-16" cy="0" r="5" fill="#6d7585"/><circle cx="14" cy="4" r="4" fill="#6d7585"/></g>', '', 0, 1) +
+            '<path d="M430 280 l50 0" stroke="#c96a5a" stroke-width="3" stroke-dasharray="6 5"/><path d="M468 272 l12 8 -12 8" stroke="#c96a5a" stroke-width="2.6" fill="none" transform="rotate(180 470 280)"/>') },
+        { minDur: 6800, sub: '同學起鬨要一起惡作劇，他搖搖頭走開——「潔身自愛」：不同流合汙！',
+          html: scene(P(500, 302, A('kid', 'happy') + P(-40, -46, '<circle cx="0" cy="0" r="10" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-5 0 h10 M0 -5 v10" stroke="#c96a5a" stroke-width="2.4" transform="rotate(45)"/>', '', 0, 1), 'st-fleeR', 0, 1.02, true) +
+            P(280, 302, A('kid', 'happy') + P(0, -108, '<ellipse cx="0" cy="0" rx="30" ry="15" fill="#fff" opacity=".8"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#8b93a3">來嘛~</text>', '', 0, 1), '', 0, .95) + qmark(360, 200)) },
+        { minDur: 6800, sub: '拒絕不必大聲——安靜離開、不參一腳，就是最有力的表態！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) +
+            P(560, 220, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">安靜</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">走開</text>', '', 0, 1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '潔身自愛：守身如玉，不染塵汙。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.1) +
+            '<g class="st-tw"><path d="M310 195 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#9db8d9"/><path d="M490 190 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#9db8d9"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">潔身自愛</text>') }
+      ];
+    },
+    /* 出淤泥而不染 */
+    i774: function () {
+      return [
+        { minDur: 7200, sub: '周敦頤〈愛蓮說〉：「予獨愛蓮之出淤泥而不染」——蓮花從汙泥裡長出，卻一塵不染！',
+          html: scene('<ellipse cx="400" cy="300" rx="200" ry="16" fill="#7a6a50" opacity=".7"/>' +
+            P(400, 292, '<path d="M0 0 L0 -60" stroke="#548a40" stroke-width="5" stroke-linecap="round"/><g fill="#ff9eb5"><path d="M0 -60 q-16 -22 0 -38 q16 16 0 38"/><path d="M0 -62 q-26 -10 -24 -32 q22 2 24 32" opacity=".9"/><path d="M0 -62 q26 -10 24 -32 q-22 2 -24 32" opacity=".9"/></g><circle cx="0" cy="-66" r="5" fill="#ffd97a"/>', 'st-grow', 0, 1.15) +
+            P(560, 296, '<path d="M-30 0 a30 10 0 0 0 60 0 z" fill="#79b56a"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「濯清漣而不妖」——它潔淨卻不妖豔：環境髒，不代表自己一定髒！',
+          html: scene('<ellipse cx="400" cy="300" rx="200" ry="16" fill="#7a6a50" opacity=".7"/>' +
+            P(360, 292, '<path d="M0 0 L0 -56" stroke="#548a40" stroke-width="5" stroke-linecap="round"/><g fill="#ff9eb5"><path d="M0 -56 q-16 -22 0 -38 q16 16 0 38"/><path d="M0 -58 q-24 -10 -22 -30 q20 2 22 30" opacity=".9"/><path d="M0 -58 q24 -10 22 -30 q-20 2 -22 30" opacity=".9"/></g>', '', 0, 1.1) +
+            P(240, 302, A('kid', 'wow') + '<path d="M28 -50 l14 -8" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .95) + hearts(300, 190)) },
+        { minDur: 6800, sub: '「出淤泥而不染」：身處惡劣環境仍保持高潔——圈子再亂，原則自己守！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<g opacity=".5"><circle cx="250" cy="280" r="12" fill="#8b93a3"/><circle cx="560" cy="285" r="10" fill="#8b93a3"/><circle cx="620" cy="270" r="8" fill="#8b93a3"/></g>' +
+            '<g class="st-rays" style="transform-origin:400px 200px"><g stroke="#ffe9a0" stroke-width="3.6" stroke-linecap="round" opacity=".7"><line x1="400" y1="162" x2="400" y2="146"/><line x1="434" y1="172" x2="446" y2="160"/><line x1="366" y1="172" x2="354" y2="160"/></g></g>' + hearts(520, 200)) },
+        { minDur: 6400, sub: '出淤泥而不染：濯清漣而不妖。',
+          html: scene('<ellipse cx="400" cy="300" rx="200" ry="16" fill="#7a6a50" opacity=".7"/>' +
+            P(400, 292, '<path d="M0 0 L0 -60" stroke="#548a40" stroke-width="5" stroke-linecap="round"/><g fill="#ff9eb5"><path d="M0 -60 q-16 -22 0 -38 q16 16 0 38"/><path d="M0 -62 q-26 -10 -24 -32 q22 2 24 32" opacity=".9"/><path d="M0 -62 q26 -10 24 -32 q-22 2 -24 32" opacity=".9"/></g><circle cx="0" cy="-66" r="5" fill="#ffd97a"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="42" font-weight="bold" fill="#4a3200">出淤泥而不染</text>') }
+      ];
+    },
+    /* 同流合汙 */
+    i775: function () {
+      return [
+        { minDur: 7000, sub: '孟子批評鄉愿：「同乎流俗，合乎汙世」——跟著濁流一起流，跟汙濁世道合成一氣！',
+          html: scene('<path d="M120 270 q80 -14 160 0 q80 14 160 0 q80 -14 160 0 l0 40 l-480 0 z" fill="#8b93a3" opacity=".55" class="st-wavemove"/>' +
+            P(340, 260, A('kid', 'sad'), 'st-bob', 0, .9) + P(470, 265, A('kid', 'sad'), 'st-bob', 0, .85, true) + sweat(280, 210)) },
+        { minDur: 6800, sub: '「同流合汙」：跟壞人一起做壞事——「大家都這樣」不是理由，錯的事人再多也是錯！',
+          html: scene(P(300, 302, A('kid', 'sad') + P(0, -108, '<ellipse cx="0" cy="0" rx="38" ry="16" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#8b93a3">大家都這樣</text>', '', 0, 1), '', 0, .98) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-28 -50 l-14 -4" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1.02, true) + qmark(410, 195)) },
+        { minDur: 6800, sub: '相對的活法就是前面學的：潔身自愛、出淤泥而不染——站在濁流邊，你可以不下水！',
+          html: scene('<path d="M120 285 q80 -12 160 0 q80 12 160 0 q80 -12 160 0 l0 25 l-480 0 z" fill="#8b93a3" opacity=".5"/>' +
+            P(400, 285, A('kid', 'happy'), 'st-strut', 0, 1.05) +
+            P(580, 220, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">可以</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">不下水</text>', '', 0, 1) + hearts(280, 200)) },
+        { minDur: 6400, sub: '同流合汙：隨波逐惡，自甘沉淪。',
+          html: scene('<path d="M120 275 q80 -14 160 0 q80 14 160 0 q80 -14 160 0 l0 35 l-480 0 z" fill="#8b93a3" opacity=".55" class="st-wavemove"/>' +
+            P(400, 265, A('kid', 'sad'), 'st-bob', 0, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">同流合汙</text>') }
+      ];
+    },
+    /* 狼狽為奸 */
+    i776: function () {
+      return [
+        { minDur: 7200, sub: '《酉陽雜俎》的傳說：狽前腿極短，走不了路——得趴在狼背上，兩獸合體行動！',
+          html: scene(P(400, 300, A('fox') + '<path d="M-30 -6 q-14 -4 -20 4" stroke="#8a6a44" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.15, true) +
+            P(370, 258, '<g transform="scale(.62)">' + A('fox') + '</g>', '', 0, 1, true) +
+            P(240, 302, A('kid', 'wow'), '', 0, .92) + qmark(300, 200), 'night') },
+        { minDur: 7000, sub: '狼有腿、狽有詭計——一個出力、一個出主意，聯手偷雞摸狗樣樣來！',
+          html: scene(P(430, 300, A('fox'), 'st-dashL', 0, 1.15, true) +
+            P(400, 258, '<g transform="scale(.62)">' + A('fox') + '</g>', '', 0, 1, true) +
+            P(220, 296, A('chicken'), 'st-fleeR', 0, .95) + bang(320, 220) + sweat(180, 230), 'night') },
+        { minDur: 6800, sub: '「狼狽為奸」：互相勾結做壞事——詐騙集團一人打電話、一人假扮官員，正是這樣配合！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(-40, -46, '<rect x="-12" y="-20" width="24" height="40" rx="4" fill="#3a2e26"/><rect x="-8" y="-15" width="16" height="30" rx="2" fill="#fff"/>', '', 0, .9)) +
+            P(500, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, .95, true) +
+            '<path d="M395 250 q22 -14 44 0" stroke="#c96a5a" stroke-width="3" fill="none" stroke-dasharray="5 4"/>' + sweat(620, 200) + qmark(250, 195)) },
+        { minDur: 6400, sub: '狼狽為奸：二惡相倚，朋比作惡。',
+          html: scene(P(430, 300, A('fox'), '', 0, 1.15, true) +
+            P(400, 258, '<g transform="scale(.62)">' + A('fox') + '</g>', '', 0, 1, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">狼狽為奸</text>', 'night') }
+      ];
+    },
+    /* 助紂為虐 */
+    i777: function () {
+      return [
+        { minDur: 7200, sub: '劉邦攻進秦宮想住下享受——樊噲直諫：這樣做「此所謂助桀為虐」，是幫暴君作惡！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>' + P(-42, -40, '<rect x="-14" y="-10" width="28" height="20" rx="3" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1), '', 0, 1.02) +
+            P(540, 302, A('kid', 'angry') + '<path d="M28 -50 l18 -8" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1.02, true) + bang(450, 190)) },
+        { minDur: 6800, sub: '桀、紂都是暴君——「助紂為虐」：明知對方作惡，還出手出力幫他！',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, 1.05) +
+            P(260, 302, A('kid', 'sad') + P(38, -40, '<rect x="-12" y="-8" width="24" height="16" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1), '', 0, .95) +
+            '<path d="M310 260 l50 0" stroke="#c96a5a" stroke-width="3" stroke-dasharray="5 4"/><path d="M350 254 l12 6 -12 6" stroke="#c96a5a" stroke-width="2.6" fill="none"/>' + sweat(200, 200), 'night') },
+        { minDur: 6800, sub: '把帳戶借給詐團、幫人把風——就算只是「幫個小忙」，也是助紂為虐要負責！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#c96a5a">拒絕!</text>', '', 0, 1.1)) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">幫兇</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8b93a3">也有罪</text>', '', 0, 1) + hearts(280, 200)) },
+        { minDur: 6400, sub: '助紂為虐：為惡張目，同罪一體。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, 1.08) + sweat(300, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">助紂為虐</text>', 'night') }
+      ];
+    },
+    /* 為虎作倀 */
+    i778: function () {
+      return [
+        { minDur: 7200, sub: '《太平廣記》傳說：被老虎咬死的人化成「倀鬼」——不報仇，反倒替老虎帶路找獵物！',
+          html: scene(P(500, 300, A('tiger'), '', 0, 1.15, true) +
+            P(320, 296, '<g opacity=".65">' + A('kid', 'sad') + '</g><g class="st-zfloat" opacity=".5"><circle cx="0" cy="-90" r="6" fill="#dbe4f0"/></g>', 'st-zfloat', 0, .95) +
+            '<path d="M250 250 l-40 10" stroke="#dbe4f0" stroke-width="3" stroke-linecap="round" opacity=".6"/>' + qmark(410, 200), 'night') },
+        { minDur: 7000, sub: '倀鬼在前面引路，老虎在後面撲人——「為虎作倀」：甘心替惡人當幫兇！',
+          html: scene(P(280, 296, '<g opacity=".65">' + A('kid', 'sad') + '<path d="M28 -46 l16 -4" stroke="#dbe4f0" stroke-width="4" stroke-linecap="round"/></g>', 'st-dashL', 0, .95) +
+            P(460, 300, A('tiger'), 'st-dashL', 0, 1.2, true) +
+            P(140, 302, A('rabbit'), 'st-fleeR', 0, .9) + sweat(180, 240), 'night') },
+        { minDur: 6800, sub: '幫霸凌的人把風、替造謠的人轉發——別當倀鬼：受過傷，更不該再幫著傷人！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#548a40">不幫兇</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#c96a5a">轉發</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#c96a5a">＝參與</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '為虎作倀：引虎傷人，甘為鷹犬。',
+          html: scene(P(480, 300, A('tiger'), '', 0, 1.2, true) +
+            P(300, 296, '<g opacity=".6">' + A('kid', 'sad') + '</g>', 'st-zfloat', 0, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">為虎作倀</text>', 'night') }
+      ];
+    },
+    /* 仗義執言 */
+    i779: function () {
+      return [
+        { minDur: 7000, sub: '班上有人被冤枉抄襲，大家不敢吭聲——只有小安站起來：「那份筆記我看著他寫的！」',
+          html: scene(P(300, 302, A('kid', 'sad'), '', 0, .95) +
+            P(480, 302, A('kid', 'angry') + '<path d="M28 -56 l14 -14" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>' + P(0, -116, '<ellipse cx="0" cy="0" rx="44" ry="19" fill="#ffe9a0"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#8a5a33">我作證!</text>', '', 0, 1), '', 0, 1.05) + bang(600, 200) + sweat(230, 200)) },
+        { minDur: 6800, sub: '「仗義執言」（仗＝依恃）：依著正義說公道話——不看交情看是非！',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M28 -56 l16 -12" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', 'st-strut', 0, 1.08) +
+            P(560, 220, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#5a8fbf">是非></text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#5a8fbf">交情</text>', '', 0, 1) + hearts(280, 195)) },
+        { minDur: 6800, sub: '為弱者發聲需要勇氣——但沉默的好人一多，壞事就暢行無阻；你的那句話很重要！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(500, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(410, 185) +
+            P(620, 220, '<g class="st-tw"><path d="M0 0 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>', '', 0, 1)) },
+        { minDur: 6400, sub: '仗義執言：義之所在，直言不諱。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M28 -56 l16 -12" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', 'st-strut', 0, 1.1) + bang(530, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">仗義執言</text>') }
+      ];
+    },
+    /* 捨己為人 */
+    i780: function () {
+      return [
+        { minDur: 7000, sub: '火場裡，消防員把自己的面罩讓給被困的孩子——濃煙中先護著別人往外走！',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#c96a5a" stroke="#a8544a" stroke-width="2"/>' + P(-38, -40, '<g transform="scale(.7)">' + A('kid', 'sad') + '</g>', '', 0, 1), 'st-dashL', 0, 1.05, true) +
+            '<g class="st-flick" opacity=".8"><path d="M600 302 q-14 -30 4 -52 q16 24 -4 52" fill="#ff9d4a"/><path d="M660 302 q-10 -22 2 -38 q12 18 -2 38" fill="#ffd97a"/></g>' + sweat(300, 200), 'night') },
+        { minDur: 6800, sub: '「捨己為人」：犧牲自己、成全別人——把安全、利益、機會先讓給更需要的人！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(40, -40, '<path d="M0 6 C-5 -3 -14 2 -8 9 L0 14 L8 9 C14 2 5 -3 0 6 Z" fill="#ff9eb5"/>', '', 0, 1.05), '', 0, 1.02) +
+            P(520, 302, A('kid', 'happy'), '', 0, .95, true) +
+            '<path d="M395 258 q26 -16 52 -4" stroke="#e07a94" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>' + hearts(600, 195)) },
+        { minDur: 6800, sub: '不必等火場才偉大——讓座、把最後一份留給別人、替同學扛重物，都是日常的捨己為人！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(38, -44, '<path d="M-10 8 h20 l-3 -16 h-14 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1), '', 0, 1.02) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-28 -46 q-10 -2 -14 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .98, true) + hearts(420, 185)) },
+        { minDur: 6400, sub: '捨己為人：先人後己，大愛無私。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -34, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1), '', 0, 1.1) + hearts(500, 190) + hearts(300, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">捨己為人</text>') }
+      ];
     }
   };
 
