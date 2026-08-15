@@ -17339,6 +17339,162 @@
           html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08) + qmark(510, 185) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">振振有詞</text>') }
       ];
+    },
+    /* 強詞奪理 */
+    i1033: function () {
+      return [
+        { minDur: 7000, sub: '諸葛亮舌戰群儒，東吳嚴畯強辯不休——諸葛亮正色斥道：「強詞奪理，均非正論！」',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="0" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + bang(430, 182)) },
+        { minDur: 6800, sub: '「強詞奪理」（強讀ㄑㄧㄤˇ）：明明沒理硬拗成有理——踩了人還怪路太窄！',
+          html: scene(P(360, 302, A('kid', 'angry') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/><path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(560, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(620, 192) +
+            P(250, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#c96a5a">路太窄!</text>')) },
+        { minDur: 6800, sub: '和「據理力爭」一字之差：一個有理而爭、一個無理硬拗——差在講不講道理！',
+          html: scene(P(310, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#c96a5a">無理</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#c96a5a">硬拗</text>') +
+            P(490, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#548a40">有理</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#548a40">而爭</text>') + qmark(310, 190) + hearts(490, 190)) },
+        { minDur: 6400, sub: '強詞奪理：無理強辯，硬拗成理。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/><path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08) + qmark(510, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">強詞奪理</text>') }
+      ];
+    },
+    /* 據理力爭 */
+    i1034: function () {
+      return [
+        { minDur: 6800, sub: '球賽被誤判出界，隊長沒有咆哮——他調出重播畫面，指著落點冷靜申訴！',
+          html: scene(P(340, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>' + P(-42, -52, '<rect x="-15" y="-11" width="30" height="22" rx="3" fill="#3a3550"/><circle cx="0" cy="0" r="5" fill="#7fb2e0"/>', '', 0, 1.05), '', 0, 1.02) +
+            P(540, 302, A('kid', 'wow') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3a2e26"/>', '', 0, 1, true) + bang(440, 182)) },
+        { minDur: 6800, sub: '「據理力爭」：依據道理、盡力爭取——有證據、有條理、有禮貌，裁判也點頭改判！',
+          html: scene(P(340, 302, A('kid', 'happy'), 'st-cheer', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + hearts(440, 185) +
+            P(620, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-6 0 l4 4 l8 -8" stroke="#548a40" stroke-width="2.6" fill="none"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '該爭的權益就要爭——為自己、也為別人：他為部屬據理力爭加班費，全組都感謝他！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(220, 302, A('kid', 'happy'), '', 0, .88) + P(540, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(400, 178)) },
+        { minDur: 6400, sub: '據理力爭：持理有節，力爭到底。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08) + bang(500, 185) + hearts(300, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">據理力爭</text>') }
+      ];
+    },
+    /* 望穿秋水 */
+    i1138: function () {
+      return [
+        { minDur: 7000, sub: '《西廂記》寫思念：「望穿他盈盈秋水，蹙損他淡淡春山」——秋水是眼波，春山是眉！',
+          html: scene(P(400, 302, A('kid', 'sad') + '<path d="M-20 -64 q6 -6 12 -2 M8 -66 q6 -4 12 0" stroke="#5a4632" stroke-width="3" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(600, 130, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1) +
+            '<rect y="282" width="800" height="58" fill="#4a6d94" opacity=".6"/>', 'night') },
+        { minDur: 6800, sub: '「望穿秋水」：盼到眼睛都要望穿——災區斷水斷電，居民望穿秋水等物資車進來！',
+          html: scene(P(340, 302, A('kid', 'sad'), 'st-bob', 0, 1) + P(460, 302, A('kid', 'sad'), 'st-bob', .2, .97) + sweat(400, 185) +
+            '<path d="M540 290 q80 -8 160 -20" stroke="#d9cfae" stroke-width="12" fill="none" stroke-linecap="round"/>' + qmark(650, 240)) },
+        { minDur: 6800, sub: '車隊終於出現在山路盡頭——歡呼聲響徹山谷！等待越久，重逢越甜！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-cheer', 0, .98) + P(420, 302, A('kid', 'happy'), 'st-cheer', .2, .95) +
+            P(600, 295, '<rect x="-36" y="-26" width="72" height="26" rx="4" fill="#c96a5a" stroke="#a84f42" stroke-width="2.4"/><circle cx="-20" cy="4" r="9" fill="#3a2e26"/><circle cx="20" cy="4" r="9" fill="#3a2e26"/><text x="0" y="-8" text-anchor="middle" font-size="10" fill="#fff">物資</text>', 'st-inR', 0, 1.05) + bang(480, 200) + hearts(360, 185)) },
+        { minDur: 6400, sub: '望穿秋水：引頸長盼，望眼欲穿。',
+          html: scene(P(400, 302, A('kid', 'sad'), 'st-bob', 0, 1.05) +
+            '<path d="M470 260 q90 -20 180 -40" stroke="#d9cfae" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="12 10"/>' + qmark(620, 200) +
+            '<text x="330" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">望穿秋水</text>') }
+      ];
+    },
+    /* 唇槍舌劍 */
+    i1140: function () {
+      return [
+        { minDur: 7000, sub: '元雜劇裡辯士自誇：「憑著我唇槍舌劍定江山」——嘴唇是槍、舌頭是劍！',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(500, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02, true) +
+            P(410, 230, '<line x1="-24" y1="12" x2="0" y2="-12" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/><line x1="24" y1="12" x2="0" y2="-12" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/>', '', 0, 1.1) + bang(410, 180)) },
+        { minDur: 6800, sub: '辯論決賽：正反雙方唇槍舌劍，一句頂一句——台下觀眾看得大呼過癮！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(500, 302, A('kid', 'angry') + '<path d="M-28 -60 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) +
+            P(660, 302, A('kid', 'wow'), 'st-cheer', 0, .85, true) + bang(400, 178) + notes(580, 200)) },
+        { minDur: 6800, sub: '「唇槍舌劍」：辯論激烈、言辭鋒利——記住：交鋒的是觀點，尊重的是對手！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M362 258 h76" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(400, 180)) },
+        { minDur: 6400, sub: '唇槍舌劍：言辭交鋒，針鋒相對。',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(490, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02, true) + bang(405, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">唇槍舌劍</text>') }
+      ];
+    },
+    /* 寅吃卯糧 */
+    i1168: function () {
+      return [
+        { minDur: 7000, sub: '地支排序寅在卯前——「寅吃卯糧」：寅年就把卯年的糧食吃掉，提前吃光明年的份！',
+          html: scene(P(300, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="18" fill="#6d7585">寅</text>') +
+            P(480, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="18" fill="#8b93a3">卯</text>') +
+            '<path d="M340 245 h96" stroke="#c96a5a" stroke-width="3.4"/><path d="M436 245 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            P(600, 290, '<path d="M-22 14 L-22 -10 L0 -22 L22 -10 L22 14 Z" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#8a744a">糧</text>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '這個月刷卡買、下個月分期還，薪水一到就填卡債——永遠在還「上個月的自己」欠的帳！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-42, -50, '<rect x="-15" y="-10" width="30" height="20" rx="3" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2"/><line x1="-15" y1="-3" x2="15" y2="-3" stroke="#3a3550" stroke-width="3"/>', '', 0, 1.05)) + sweat(290, 188) +
+            P(560, 220, '<rect x="-32" y="-18" width="64" height="36" rx="4" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#c96a5a">帳單</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#c96a5a">又來了</text>', 'st-bob', 0, 1.05)) },
+        { minDur: 6800, sub: '「寅吃卯糧」：入不敷出、預支未來——解藥是「量入為出」：先存再花，不透支明天！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -48, '<path d="M-16 -6 q0 -12 16 -12 q16 0 16 12 l-2 12 q-14 8 -28 0 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/>', '', 0, 1)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">量入</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">為出</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '寅吃卯糧：透支未來，入不敷出。',
+          html: scene(P(310, 250, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="17" fill="#6d7585">寅</text>') +
+            P(480, 250, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="17" fill="#8b93a3">卯</text>') +
+            '<path d="M348 250 h88" stroke="#c96a5a" stroke-width="3.4"/><path d="M436 250 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">寅吃卯糧</text>') }
+      ];
+    },
+    /* 名不副實 */
+    i1188: function () {
+      return [
+        { minDur: 6800, sub: '「全市最好吃牛肉麵」的招牌高高掛——端上來卻是三片肉、半碗湯，麵還糊掉了！',
+          html: scene(P(400, 285, '<rect x="-70" y="-50" width="140" height="50" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-56" y="-74" width="112" height="20" rx="4" fill="#c96a5a"/><text x="0" y="-59" text-anchor="middle" font-size="10" fill="#fff">全市最好吃!</text>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'sad') + P(-38, -44, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) + sweat(300, 195) + qmark(180, 190)) },
+        { minDur: 6800, sub: '「名不副實」：名聲與實際不相符——注意寫「副」（相稱）不寫「符」！',
+          html: scene(P(310, 245, '<rect x="-34" y="-19" width="68" height="38" rx="4" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#6d5335">名氣大</text>') +
+            P(490, 245, '<rect x="-34" y="-19" width="68" height="38" rx="4" fill="#c9d6e8" stroke="#aab8cf" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#6d7585">實力小</text>') +
+            '<line x1="352" y1="245" x2="448" y2="245" stroke="#c96a5a" stroke-width="3" stroke-dasharray="6 5"/>' +
+            P(620, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#548a40">副✓</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '相反的是「名副其實」——把實力做起來，名聲自然跟上；先養名不養實，遲早穿幫！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-8 2 l4 5 l10 -11" stroke="#548a40" stroke-width="2.4" fill="none"/>', '', 0, .95)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '名不副實：徒有虛名，實不相稱。',
+          html: scene(P(400, 288, '<rect x="-64" y="-46" width="128" height="46" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-52" y="-68" width="104" height="18" rx="4" fill="#c96a5a"/>', '', 0, 1.05) + qmark(520, 220) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">名不副實</text>') }
+      ];
+    },
+    /* 背道而馳 */
+    i1190: function () {
+      return [
+        { minDur: 7000, sub: '柳宗元評文人各執一端：「相與背馳於道者，其去彌遠」——背對背跑，越跑越遠！',
+          html: scene('<path d="M120 280 h560" stroke="#d9cfae" stroke-width="16" stroke-linecap="round"/>' +
+            P(320, 302, A('kid', 'angry'), 'st-dashL', 0, 1, true) +
+            P(480, 302, A('kid', 'angry'), 'st-dashL', .2, 1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="390" y1="250" x2="440" y2="250"/></g>') },
+        { minDur: 6800, sub: '「背道而馳」：作法與目標完全相反——想健康卻天天熬夜，正是背道而馳！',
+          html: scene(P(300, 240, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="11" fill="#548a40">目標:</text><text x="0" y="12" text-anchor="middle" font-size="11" fill="#548a40">健康</text>') +
+            P(500, 240, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="-1" text-anchor="middle" font-size="11" fill="#c96a5a">作法:</text><text x="0" y="12" text-anchor="middle" font-size="11" fill="#c96a5a">熬夜</text>') +
+            '<path d="M270 275 l-30 20 M530 275 l30 20" stroke="#c96a5a" stroke-width="3.4"/><path d="M240 295 l14 -2 l-8 -11 z M560 295 l-14 -2 l8 -11 z" fill="#c96a5a"/>') },
+        { minDur: 6800, sub: '定期檢查方向：現在做的事，離目標更近還是更遠？——方向對了，慢也是快！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="15" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><path d="M0 -9 L3 0 L10 2 L3 4 L0 11 L-3 4 L-10 2 L-3 0 Z" fill="#c96a5a"/>', '', 0, 1)) + hearts(470, 190) +
+            '<path d="M480 250 h100" stroke="#548a40" stroke-width="4"/><path d="M580 250 l-12 -8 v16 z" fill="#548a40"/>') },
+        { minDur: 6400, sub: '背道而馳：方向相反，越行越遠。',
+          html: scene('<path d="M120 285 h560" stroke="#d9cfae" stroke-width="14" stroke-linecap="round"/>' +
+            P(330, 302, A('kid', 'angry'), 'st-dashL', 0, 1, true) + P(470, 302, A('kid', 'angry'), 'st-dashL', .2, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">背道而馳</text>') }
+      ];
+    },
+    /* 隻手遮天 */
+    i1191: function () {
+      return [
+        { minDur: 7000, sub: '唐人讀《李斯傳》歎道：「難將一人手，掩得天下目」——一隻手遮不住天下人的眼睛！',
+          html: scene(P(400, 240, '<path d="M-20 24 q-6 -30 4 -44 q4 -8 10 -2 l2 12 q2 -18 11 -15 q7 2 5 15 q4 -11 11 -6 q5 4 2 15 q6 -7 10 -1 q4 6 -3 18 q-7 20 -22 24 q-18 5 -30 -16 z" fill="#3a3550" opacity=".85"/>', '', 0, 1.4) +
+            '<circle cx="400" cy="130" r="26" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>' +
+            P(240, 302, A('kid', 'wow'), '', 0, .95) + qmark(300, 195)) },
+        { minDur: 6800, sub: '「隻手遮天」：仗權勢操控一切、掩蓋真相——公司裡沒人敢說真話，全憑他一句話！',
+          html: scene(P(430, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3a3550"/><path d="M28 -60 l18 -10" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.12) +
+            P(240, 306, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .9) + sweat(190, 195) +
+            P(600, 306, '<g class="st-slump" style="animation-delay:.3s">' + A('kid', 'sad') + '</g>', '', 0, .88, true), 'night') },
+        { minDur: 6800, sub: '但天遮不住：帳目攤在陽光下、大家敢發聲——透明和勇氣，是隻手遮天的剋星！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M28 -60 l14 -20" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(450, 302, A('kid', 'happy') + '<path d="M28 -60 l14 -20" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .98) +
+            P(200, 130, '<circle cx="0" cy="0" r="22" fill="#ffdd66" stroke="#f5b73e" stroke-width="3" class="st-rays" style="transform-origin:0px 0px"/>', '', 0, 1) + bang(560, 195) + hearts(380, 182)) },
+        { minDur: 6400, sub: '隻手遮天：仗勢弄權，掩蓋真相。',
+          html: scene(P(400, 245, '<path d="M-20 24 q-6 -30 4 -44 q4 -8 10 -2 l2 12 q2 -18 11 -15 q7 2 5 15 q4 -11 11 -6 q5 4 2 15 q6 -7 10 -1 q4 6 -3 18 q-7 20 -22 24 q-18 5 -30 -16 z" fill="#3a3550" opacity=".85"/>', '', 0, 1.4) +
+            '<circle cx="400" cy="135" r="24" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">隻手遮天</text>') }
+      ];
     }
   };
 
