@@ -21556,6 +21556,173 @@
             '<path d="M372 258 h56" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(400, 176) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">親密無間</text>') }
       ];
+    },
+    /* 手足之情 */
+    i185: function () {
+      return [
+        { minDur: 7000, sub: '蘇軾下獄，弟弟蘇轍上書求情願削官職替兄贖罪——「不勝手足之情」！',
+          html: scene(P(320, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/></g>', '', 0, .95), '', 0, 1.02) +
+            P(540, 302, '<g opacity=".8">' + A('kid', 'sad') + '</g><g stroke="#8b93a3" stroke-width="3"><line x1="-30" y1="-70" x2="-30" y2="10"/><line x1="-10" y1="-70" x2="-10" y2="10"/><line x1="10" y1="-70" x2="10" y2="10"/><line x1="30" y1="-70" x2="30" y2="10"/></g>', '', 0, 1, true) + hearts(430, 195), 'night') },
+        { minDur: 6800, sub: '兄弟倆一生詩文唱和、患難相扶——「與君世世為兄弟」是蘇軾最深的心願！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M362 258 h76" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' +
+            P(405, 190, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '「手足之情」：兄弟姊妹的情誼——吵歸吵，關鍵時刻永遠第一個挺你！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>') +
+            P(490, 302, A('kid', 'happy'), '', 0, .93, true) + hearts(415, 182)) },
+        { minDur: 6400, sub: '手足之情：兄弟至情，血脈相連。',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(460, 302, A('kid', 'happy'), '', 0, .95, true) +
+            '<path d="M368 258 h64" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">手足之情</text>') }
+      ];
+    },
+    /* 同舟共濟 */
+    i186: function () {
+      var BOAT3 = '<path d="M-60 0 L60 0 L44 22 L-44 22 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="2.6"/>';
+      return [
+        { minDur: 7000, sub: '《孫子兵法》：吳人越人是世仇——但同船渡河遇上大風，互相救援像左右手！',
+          html: scene('<rect y="262" width="800" height="78" fill="#4a6d94"/>' +
+            '<g class="st-wavemove"><path d="M-40 274 q30 -16 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#7fa8d4" stroke-width="8" stroke-linecap="round"/></g>' +
+            P(400, 262, '<g class="st-bob">' + BOAT3 + P(-24, -8, A('kid', 'wow'), '', 0, .62) + P(24, -8, A('kid', 'wow'), '', 0, .62, true) + '</g>', '', 0, 1.1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="170" y1="170" x2="270" y2="170"/></g>', 'night') },
+        { minDur: 6800, sub: '風浪面前沒有仇人——「同舟共濟」：利害相同時，攜手才能活命！',
+          html: scene('<rect y="266" width="800" height="74" fill="#5a7fa8"/>' +
+            P(400, 266, '<g class="st-bob">' + BOAT3 + P(-24, -8, A('kid', 'angry') + '<line x1="20" y1="-20" x2="32" y2="24" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/>', '', 0, .62) + P(24, -8, A('kid', 'angry') + '<line x1="20" y1="-20" x2="32" y2="24" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/>', '', 0, .62) + '</g>', '', 0, 1.1) + hearts(400, 185)) },
+        { minDur: 6800, sub: '疫情、災害、班際比賽——都是同一條船：放下成見，一起划向岸邊！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M362 258 h76" stroke="#548a40" stroke-width="4" stroke-linecap="round"/>' + hearts(410, 180) + bang(560, 195)) },
+        { minDur: 6400, sub: '同舟共濟：風雨同船，共渡難關。',
+          html: scene('<rect y="268" width="800" height="72" fill="#5a7fa8"/>' +
+            P(400, 268, '<g class="st-bob">' + BOAT3 + '</g>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">同舟共濟</text>') }
+      ];
+    },
+    /* 患難與共 */
+    i187: function () {
+      return [
+        { minDur: 6800, sub: '創業夥伴最難的一年：薪水發不出，兩人一起吃泡麵、擠小辦公室——誰也沒走！',
+          html: scene(P(330, 302, A('kid', 'sad') + P(38, -44, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) +
+            P(480, 302, A('kid', 'sad') + P(-38, -44, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, .98, true) + sweat(405, 190), 'night') },
+        { minDur: 6800, sub: '「患難與共」：艱難一起扛——順境的朋友滿街是，逆境還在的才是真情！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M362 258 h76" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' +
+            '<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="240" y1="30" x2="232" y2="54"/><line class="st-rain" style="animation-delay:.5s" x1="580" y1="24" x2="572" y2="48"/></g>' + hearts(405, 180), 'night') },
+        { minDur: 6800, sub: '後來公司成功了，兩人在慶功宴上相視而笑——那碗泡麵，比香檳更難忘！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(38, -44, '<path d="M-8 -8 h16 l-2 14 h-12 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, 1) +
+            P(480, 302, A('kid', 'happy') + P(-38, -44, '<path d="M-8 -8 h16 l-2 14 h-12 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), 'st-cheer', .2, .98, true) + bang(405, 178) + hearts(560, 195)) },
+        { minDur: 6400, sub: '患難與共：同甘共苦，情義不渝。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M362 258 h76" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(405, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">患難與共</text>') }
+      ];
+    },
+    /* 秋毫無犯 */
+    i188: function () {
+      return [
+        { minDur: 7000, sub: '鴻門宴上樊噲替劉邦辯白：入關以來「秋毫不敢有所近」——連最細的毫毛都不敢碰！',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>' + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05, true) + bang(430, 185)) },
+        { minDur: 6800, sub: '軍隊過境：不進民宅、不取一物——百姓端水相迎，「秋毫無犯」的軍紀贏得民心！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1), 'st-strut', 0, 1) +
+            P(540, 302, A('kid', 'happy') + P(-38, -44, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, .95, true) + hearts(440, 190)) },
+        { minDur: 6800, sub: '「秋毫無犯」：紀律嚴明、絲毫不取——借住別人家把棉被摺好，就是你的秋毫無犯！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-16" y="-10" width="32" height="20" rx="4" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2"/><line x1="-16" y1="-3" x2="16" y2="-3" stroke="#5a8fbf" stroke-width="1.6"/>', '', 0, 1)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '秋毫無犯：紀律嚴明，一介不取。',
+          html: scene(P(340, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1), 'st-strut', 0, 1.02) +
+            P(540, 302, A('kid', 'happy'), '', 0, .93, true) + hearts(450, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">秋毫無犯</text>') }
+      ];
+    },
+    /* 廉潔奉公 */
+    i189: function () {
+      return [
+        { minDur: 6800, sub: '包商私下塞紅包，官員當場退回：「該辦的照規矩辦，不該收的一毛不收！」',
+          html: scene(P(340, 302, A('kid', 'angry') + '<path d="M28 -56 l18 -2" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/><path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + P(-40, -46, '<rect x="-13" y="-18" width="26" height="36" rx="3" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/>', '', 0, 1), '', 0, .98, true) +
+            '<line x1="440" y1="250" x2="470" y2="250" stroke="#c96a5a" stroke-width="3"/><line x1="455" y1="235" x2="455" y2="265" stroke="#c96a5a" stroke-width="3"/>') },
+        { minDur: 6800, sub: '「廉潔奉公」：清廉自持、盡忠職守——手握權力的人，操守就是最重要的資格！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/>', '', 0, 1.05) +
+            P(400, 195, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" class="st-tw"/>') + hearts(290, 200)) },
+        { minDur: 6800, sub: '學生版廉潔奉公：管班費一筆一筆記清楚、當幹部不給自己人開後門！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#548a40">帳目</text>', '', 0, .95)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '廉潔奉公：清廉自守，克盡職責。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/>', '', 0, 1.08) +
+            P(400, 192, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">廉潔奉公</text>') }
+      ];
+    },
+    /* 兩袖清風 */
+    i190: function () {
+      return [
+        { minDur: 7000, sub: '明代官員進京都要帶土產打點——于謙偏偏空手上路，寫詩：「清風兩袖朝天去！」',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-30 -46 q-16 -4 -24 6 M30 -46 q16 -4 24 6" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.08) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="250" y1="250" x2="310" y2="250"/><line x1="490" y1="250" x2="550" y2="250"/></g>' + hearts(400, 180)) },
+        { minDur: 6800, sub: '「免得閭閻話短長」——不帶一物，百姓就沒閒話可說！兩袖裡除了風，什麼都沒有！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#3d4a63" stroke="#2c3550" stroke-width="2"/>', 'st-strut', 0, 1.05) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="240" y1="240" x2="320" y2="240"/><line x1="480" y1="240" x2="560" y2="240"/></g>' +
+            P(240, 302, A('kid', 'happy'), '', 0, .88) + hearts(300, 200)) },
+        { minDur: 6800, sub: '「兩袖清風」：為官清廉——走的時候和來的時候一樣乾淨，就是最好的政績！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + hearts(500, 190) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="240" y1="250" x2="310" y2="250"/></g>') },
+        { minDur: 6400, sub: '兩袖清風：不取一物，清廉自持。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-30 -46 q-16 -4 -24 6 M30 -46 q16 -4 24 6" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="250" y1="245" x2="320" y2="245"/><line x1="480" y1="245" x2="550" y2="245"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">兩袖清風</text>') }
+      ];
+    },
+    /* 一塵不染 */
+    i191: function () {
+      return [
+        { minDur: 7000, sub: '佛家說的六塵：色、聲、香、味、觸、法——修行到一塵不染，心如明鏡！',
+          html: scene(P(400, 250, '<circle cx="0" cy="0" r="34" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="3"/><circle cx="-8" cy="-8" r="8" fill="#fff" opacity=".8"/>', '', 0, 1.2) +
+            P(230, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + hearts(310, 210)) },
+        { minDur: 6800, sub: '「一塵不染」形容環境：阿嬤的廚房用了三十年，鍋鏟亮得能照鏡子！',
+          html: scene(P(400, 285, '<rect x="-60" y="-46" width="120" height="46" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><g class="st-tw"><path d="M-30 -20 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#fff"/><path d="M24 -28 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#fff"/></g>', '', 0, 1.1) +
+            P(230, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95) + hearts(310, 210)) },
+        { minDur: 6800, sub: '也形容操守：帳目乾淨、手腳乾淨、心也乾淨——查一百次都不怕！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" class="st-tw"/>') +
+            P(560, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-6 0 l4 4 l8 -8" stroke="#548a40" stroke-width="2.6" fill="none"/>', '', 0, 1) + hearts(280, 200)) },
+        { minDur: 6400, sub: '一塵不染：纖塵不染，清白無瑕。',
+          html: scene(P(400, 252, '<circle cx="0" cy="0" r="34" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="3"/><circle cx="-8" cy="-8" r="8" fill="#fff" opacity=".8"/>', '', 0, 1.25) +
+            '<g class="st-tw"><path d="M490 210 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#fff"/></g>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一塵不染</text>') }
+      ];
+    },
+    /* 鶴髮童顏 */
+    i192: function () {
+      return [
+        { minDur: 6800, sub: '九十歲的老先生：滿頭白髮如鶴羽，臉色卻紅潤得像小孩——每天晨泳打拳！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/><circle cx="-14" cy="-44" r="3" fill="#ffb3c1" opacity=".8"/><circle cx="14" cy="-44" r="3" fill="#ffb3c1" opacity=".8"/>', 'st-hop', 0, 1.05) + hearts(500, 190) +
+            P(230, 302, A('kid', 'wow'), '', 0, .9) + bang(300, 200)) },
+        { minDur: 6800, sub: '「鶴髮童顏」：白髮紅顏、老而不衰——歲月只染白了頭髮，沒偷走活力！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', '', 0, 1.05) +
+            P(540, 290, A('bird'), '', 0, 1, true) + hearts(440, 190)) },
+        { minDur: 6800, sub: '不老的祕方最普通：睡飽、多動、心情好——現在的習慣，就是未來的容顏！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-hop', 0, 1.02) +
+            P(560, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">睡飽</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">多動</text>', '', 0, 1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '鶴髮童顏：白髮朱顏，老當益壯。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/><circle cx="-14" cy="-44" r="3" fill="#ffb3c1" opacity=".8"/><circle cx="14" cy="-44" r="3" fill="#ffb3c1" opacity=".8"/>', 'st-hop', 0, 1.08) + hearts(500, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鶴髮童顏</text>') }
+      ];
+    },
+    /* 蒼顏白髮 */
+    i193: function () {
+      return [
+        { minDur: 7000, sub: '歐陽修寫醉翁亭：「蒼顏白髮，頹然乎其間者，太守醉也」——白髮太守醉倒賓客之間！',
+          html: scene(P(400, 285, '<path d="M-70 -46 L0 -78 L70 -46 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.6"/><g stroke="#a8734a" stroke-width="5"><line x1="-50" y1="0" x2="-50" y2="-46"/><line x1="50" y1="0" x2="50" y2="-46"/></g>', '', 0, 1.1) +
+            P(400, 292, '<g transform="rotate(12)">' + A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/></g>', '', 0, .85) +
+            P(250, 302, A('kid', 'happy'), '', 0, .85) + P(550, 302, A('kid', 'happy'), '', 0, .85, true) + notes(320, 200)) },
+        { minDur: 6800, sub: '「蒼顏白髮」：容顏蒼老、頭髮花白——但醉翁之意不在酒：與民同樂，老得快樂！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/><path d="M-18 -58 q4 3 8 0 M10 -58 q4 3 8 0" stroke="#c9bfa8" stroke-width="2" fill="none"/>', '', 0, 1.05) + hearts(500, 190) + notes(300, 192)) },
+        { minDur: 6800, sub: '白髮是歲月的勳章——每一根都記著一段故事：老去不可怕，白活才可惜！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', '', 0, 1.02) +
+            P(530, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(450, 188) +
+            P(620, 210, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '蒼顏白髮：容顏已蒼，鬢髮如霜。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/><path d="M-18 -58 q4 3 8 0 M10 -58 q4 3 8 0" stroke="#c9bfa8" stroke-width="2" fill="none"/>', '', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">蒼顏白髮</text>') }
+      ];
     }
   };
 
