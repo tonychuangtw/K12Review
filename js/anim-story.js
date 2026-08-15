@@ -5088,6 +5088,121 @@
           html: scene(P(540, 150, KITE, 'st-zfloat', 0, 1.1) + P(340, 302, A('kid', 'happy'), 'st-strut') +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">風和日麗</text>') }
       ];
+    },
+    /* 千軍萬馬 */
+    i415: function () {
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      var FLAG = '<line x1="0" y1="0" x2="0" y2="-56" stroke="#a8734a" stroke-width="4"/><path d="M0 -56 h30 l-8 8 l8 8 h-30 z" fill="#e85a4f"/>';
+      return [
+        { minDur: 6800, sub: '站上城樓往下望：旌旗獵獵、萬馬奔騰，士兵一排接一排，一眼望不到盡頭！',
+          html: scene(P(200, 302, A('horse'), 'st-strut', 0, .95) + P(340, 302, A('horse'), 'st-strut', .15, .9) + P(480, 302, A('horse'), 'st-strut', .3, .85) +
+            P(600, 302, A('kid', 'angry') + P(0, -60, FLAG), '', 0, .9) +
+            P(700, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', .2, .85)) },
+        { minDur: 6600, sub: '兵馬眾多、聲勢浩大——這樣的陣仗，就是「千軍萬馬」！',
+          html: scene(P(240, 302, A('horse'), 'st-strut', 0, 1) + P(400, 302, A('horse'), 'st-strut', .15, .95) +
+            P(560, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', .3, .9) + bang(680, 220)) },
+        { minDur: 6800, sub: '現在也形容氣勢驚人：運動會進場時，全校的隊伍浩浩蕩蕩，有如千軍萬馬！',
+          html: scene(P(240, 302, A('kid', 'happy') + P(0, -60, FLAG), 'st-strut') +
+            P(380, 302, A('kid', 'happy'), 'st-strut', .1, .95) + P(500, 302, A('kid', 'happy'), 'st-strut', .2, .9) +
+            P(620, 302, A('kid', 'happy'), 'st-strut', .3, .85) + notes(430, 165)) },
+        { minDur: 6400, sub: '千軍萬馬：兵馬眾多，聲勢浩大。',
+          html: scene(P(260, 302, A('horse'), 'st-strut', 0, 1.05) + P(430, 302, A('horse'), 'st-strut', .15, .95) + P(590, 302, A('horse'), 'st-strut', .3, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千軍萬馬</text>') }
+      ];
+    },
+    /* 萬眾一心 */
+    i416: function () {
+      var ROPE2 = '<line x1="-160" y1="-22" x2="160" y2="-22" stroke="#a8734a" stroke-width="8" stroke-linecap="round"/><circle cx="0" cy="-22" r="9" fill="#e85a4f"/>';
+      var HEART2 = '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff7b9c"/>';
+      return [
+        { minDur: 6800, sub: '拔河決賽！全班握緊繩子，喊著同一個節奏：「一、二，嘿呦！一、二，嘿呦！」',
+          html: scene(P(400, 302, ROPE2) +
+            P(240, 302, A('kid', 'angry'), '', 0, .95) + P(340, 302, A('kid', 'angry'), '', .05, .93) +
+            P(470, 302, A('kid', 'angry'), '', .1, .93) + P(570, 302, A('kid', 'angry'), '', .15, .95) +
+            notes(400, 165) + sweat(300, 200)) },
+        { minDur: 6600, sub: '所有人的力氣往同一個方向使、所有人的心跳同一個節拍——繩子一寸寸被拉了過來，贏了！',
+          html: scene(P(400, 190, HEART2, '', 0, 1.6) +
+            P(280, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(430, 302, '<g class="st-cheer" style="animation-delay:.15s">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            P(570, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .9) + bang(650, 200)) },
+        { minDur: 6600, sub: '「萬眾一心」：眾人同一條心、協力合作——再難的事也能完成！',
+          html: scene(P(400, 200, HEART2, '', 0, 1.4) +
+            P(300, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', .15, .95) + hearts(400, 260)) },
+        { minDur: 6400, sub: '萬眾一心：眾人同心協力。',
+          html: scene(P(400, 210, HEART2, '', 0, 1.7) +
+            P(270, 302, A('kid', 'happy')) + P(400, 302, A('kid', 'happy'), '', .1, .95) + P(530, 302, A('kid', 'happy'), '', .2, .92) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">萬眾一心</text>') }
+      ];
+    },
+    /* 眾志成城 */
+    i417: function () {
+      var SANDBAGS = '<g fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"><ellipse cx="-40" cy="-8" rx="20" ry="11"/><ellipse cx="0" cy="-8" rx="20" ry="11"/><ellipse cx="40" cy="-8" rx="20" ry="11"/><ellipse cx="-20" cy="-24" rx="20" ry="11"/><ellipse cx="20" cy="-24" rx="20" ry="11"/><ellipse cx="0" cy="-40" rx="20" ry="11"/></g>';
+      var WALLCITY = '<rect x="-90" y="-60" width="180" height="60" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/>' +
+        '<path d="M-90 -60 h22 v-13 h23 v13 h22 v-13 h23 v13 h22 v-13 h23 v13 h23" fill="none" stroke="#8a7a66" stroke-width="3"/>';
+      return [
+        { minDur: 6800, sub: '颱風要來了，河水一直漲！村裡的人全出動：傳沙包的傳沙包、堆沙包的堆沙包——',
+          html: scene('<rect y="286" width="800" height="54" fill="#7fb2e0"/>' +
+            P(430, 316, SANDBAGS) +
+            P(220, 302, A('kid', 'angry'), '', 0, .95) + P(620, 302, A('kid', 'angry'), '', .2, .92, true) + sweat(300, 200)) },
+        { minDur: 6600, sub: '一袋又一袋、一層又一層——沙包牆越堆越高，洪水終於被擋住了！',
+          html: scene('<rect y="292" width="800" height="48" fill="#7fb2e0"/>' +
+            P(430, 314, SANDBAGS, '', 0, 1.25) + bang(560, 220) +
+            P(240, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .95) + hearts(320, 195)) },
+        { minDur: 6800, sub: '眾人的意志聚在一起，就像一座堅固的城牆——「眾志成城」，沒有攻不破的難關！',
+          html: scene(P(430, 302, WALLCITY, '', 0, 1) +
+            P(240, 302, A('kid', 'happy'), '', 0, .92) + P(620, 302, A('kid', 'happy'), '', .2, .9, true) + hearts(430, 200)) },
+        { minDur: 6400, sub: '眾志成城：眾人齊心，力量堅固如城。',
+          html: scene(P(430, 302, WALLCITY, '', 0, 1.1) + P(240, 302, A('kid', 'happy')) + P(620, 302, A('kid', 'happy'), '', .2, .95, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">眾志成城</text>') }
+      ];
+    },
+    /* 風平浪靜 */
+    i418: function () {
+      var CALMSEA = '<rect y="262" width="800" height="78" fill="#7fb2e0"/>' +
+        '<g stroke="#a8d4ee" stroke-width="4" stroke-linecap="round" opacity=".8"><line x1="120" y1="285" x2="240" y2="285"/><line x1="380" y1="300" x2="520" y2="300"/><line x1="580" y1="280" x2="700" y2="280"/></g>';
+      var STORMSEA = '<rect y="252" width="800" height="88" fill="#5a7fa8"/>' +
+        '<g class="st-wavemove"><path d="M-40 268 q30 -22 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#8fb2d4" stroke-width="10" stroke-linecap="round"/></g>';
+      var SAIL = '<path d="M-46 0 L46 0 L34 16 L-34 16 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/>' +
+        '<line x1="0" y1="0" x2="0" y2="-66" stroke="#8a5a33" stroke-width="4"/>' +
+        '<path d="M0 -66 Q34 -46 0 -8 Z" fill="#fff" stroke="#d5cfc0" stroke-width="2.4"/>';
+      return [
+        { minDur: 6600, sub: '昨夜狂風大浪，小船在海上搖得像鞦韆，大家嚇得緊緊抓住船舷！',
+          html: scene(STORMSEA + P(400, 262, '<g transform="rotate(-10)">' + SAIL + '</g>') + sweat(480, 190) +
+            '<g stroke="#e8f4fb" stroke-width="5" fill="none" stroke-linecap="round" opacity=".9"><path class="st-windln" d="M100 120 q60 -18 120 0"/><path class="st-windln" style="animation-delay:.5s" d="M500 100 q70 -16 130 2"/></g>', 'night') },
+        { minDur: 6600, sub: '天亮了，風停了、浪也平了——海面像鏡子一樣平靜，太陽照得閃閃發亮。',
+          html: scene(CALMSEA + P(400, 268, SAIL) + hearts(520, 200)) },
+        { minDur: 6800, sub: '「風平浪靜」除了形容海面，也比喻事情平息、恢復平靜——吵完架和好了，教室又風平浪靜啦！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(400, 178)) },
+        { minDur: 6400, sub: '風平浪靜：沒有風浪，平靜無事。',
+          html: scene(CALMSEA + P(430, 268, SAIL, '', 0, 1.05) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">風平浪靜</text>') }
+      ];
+    },
+    /* 花好月圓 */
+    i419: function () {
+      var FULLMOON = '<circle cx="0" cy="0" r="34" fill="#f4f1de" stroke="#d8d4bd" stroke-width="3"/><circle cx="-8" cy="-6" r="4" fill="#d8d4bd" opacity=".6"/><circle cx="10" cy="8" r="5" fill="#d8d4bd" opacity=".5"/>';
+      function flower3(x, y, color, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<line x1="0" y1="0" x2="0" y2="-16" stroke="#5f8a46" stroke-width="3"/>' +
+          '<circle cx="0" cy="-22" r="5" fill="' + color + '"/><circle cx="-6" cy="-18" r="5" fill="' + color + '"/><circle cx="6" cy="-18" r="5" fill="' + color + '"/><circle cx="0" cy="-14" r="5" fill="' + color + '"/><circle cx="0" cy="-18" r="3.4" fill="#ffe066"/></g>');
+      }
+      var MOONCAKE = '<circle cx="0" cy="0" r="14" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><circle cx="0" cy="0" r="8" fill="none" stroke="#a8734a" stroke-width="1.6"/><circle cx="0" cy="0" r="3" fill="#a8734a"/>';
+      return [
+        { minDur: 6600, sub: '中秋夜，圓圓的月亮掛上天空；院子裡的桂花、月季也開得正好——',
+          html: scene(P(600, 100, FULLMOON) +
+            flower3(200, 320, '#ff9eb5', 0) + flower3(300, 318, '#ffd97a', .3) +
+            P(450, 302, A('kid', 'happy'), '', 0, .95), 'night') },
+        { minDur: 6600, sub: '全家人圍坐在一起賞月、吃月餅，說說笑笑，多麼圓滿幸福！',
+          html: scene(P(600, 100, FULLMOON) +
+            P(300, 302, A('kid', 'happy')) + P(450, 302, A('kid', 'happy'), '', .2, 1.02, true) +
+            P(380, 280, MOONCAKE, '', 0, 1.1) + hearts(380, 190), 'night') },
+        { minDur: 6600, sub: '「花好月圓」：花開得好、月亮圓滿——比喻美好圓滿，常用來祝福！',
+          html: scene(P(560, 110, FULLMOON, '', 0, .95) + flower3(240, 320, '#ff9eb5', 0) + flower3(340, 318, '#c9a8e0', .3) +
+            hearts(430, 200), 'night') },
+        { minDur: 6400, sub: '花好月圓：花開得好、月亮圓滿，美好圓滿。',
+          html: scene(P(560, 110, FULLMOON) + flower3(240, 320, '#ff9eb5', 0) + flower3(350, 322, '#ffd97a', .3) +
+            '<text x="400" y="240" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">花好月圓</text>', 'night') }
+      ];
     }
   };
 
