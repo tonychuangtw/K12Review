@@ -3611,6 +3611,118 @@
           html: scene(P(400, 210, BIGEYE2, '', 0, 1.6) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">目不轉睛</text>') }
       ];
+    },
+    /* 兩手空空 */
+    i003: function () {
+      var SANDWICH = '<path d="M-14 4 L0 -10 L14 4 Z" fill="#ffe9a0" stroke="#e8b84a" stroke-width="2"/><line x1="-10" y1="1" x2="10" y2="1" stroke="#a5d47c" stroke-width="3"/>';
+      var APPLE = '<circle cx="0" cy="0" r="9" fill="#e85a4f"/><path d="M0 -8 q2 -6 6 -7" stroke="#548a40" stroke-width="2.4" fill="none"/>';
+      var BOTTLE = '<rect x="-6" y="-18" width="12" height="24" rx="4" fill="#a5c8ff" stroke="#5c82ba" stroke-width="2"/><rect x="-4" y="-24" width="8" height="6" rx="2" fill="#5c82ba"/>';
+      var OPENHANDS = '<circle cx="-26" cy="-24" r="8.5" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/><circle cx="26" cy="-24" r="8.5" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>';
+      var MAT = '<ellipse cx="0" cy="0" rx="120" ry="26" fill="#f2c9c0" stroke="#d9a890" stroke-width="2.6"/>';
+      return [
+        { minDur: 6800, sub: '野餐的日子到了！大家都帶了好吃的：三明治、蘋果、果汁——只有小輝什麼也沒帶，兩手空空！',
+          html: scene(P(430, 316, MAT) + P(370, 300, SANDWICH) + P(440, 298, APPLE) + P(500, 300, BOTTLE) +
+            P(180, 302, A('kid', 'happy'), '', 0, .9) + P(650, 302, A('kid', 'sad') + OPENHANDS) + sweat(690, 205)) },
+        { minDur: 6600, sub: '他不好意思地攤開兩隻手：「我出門太急，東西全忘在家裡了……」',
+          html: scene(P(400, 302, A('kid', 'sad') + OPENHANDS, '', 0, 1.05) + sweat(350, 195) + qmark(470, 180)) },
+        { minDur: 6600, sub: '大家笑著分他一起吃。下次出門前記得檢查背包，別再兩手空空啦！',
+          html: scene(P(430, 316, MAT) + P(400, 300, SANDWICH) +
+            P(250, 302, A('kid', 'happy'), '', 0, .9) + P(600, 302, A('kid', 'happy'), '', .2, .9, true) + hearts(430, 200)) },
+        { minDur: 6400, sub: '兩手空空：什麼都沒有，一無所有。',
+          html: scene(P(400, 302, A('kid', 'sad') + OPENHANDS, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">兩手空空</text>') }
+      ];
+    },
+    /* 十全十美 */
+    i005: function () {
+      var CARD = '<rect x="-20" y="-26" width="40" height="52" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/>' +
+        '<path d="M-6 -10 q-8 -10 0 -12 q5 -1 6 6 q1 -7 6 -6 q8 2 0 12 l-6 7 z" fill="#ff9eb5"/>' +
+        '<path d="M-12 8 h24 M-12 16 h16" stroke="#8fa3bf" stroke-width="2"/>';
+      var ERASER = '<rect x="-10" y="-7" width="20" height="14" rx="3" fill="#a5c8ff" stroke="#5c82ba" stroke-width="2" transform="rotate(-12)"/>';
+      return [
+        { minDur: 6800, sub: '美勞課上，小婷想做一張「完美」的母親節卡片：畫了又擦、擦了又畫，總覺得差那麼一點點。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-44, -50, CARD, '', 0, .9) + P(30, -40, ERASER)) +
+            sweat(350, 195) + qmark(470, 180)) },
+        { minDur: 6800, sub: '老師輕輕說：「世界上很難有十全十美的作品——用心完成的，就是最棒的！」',
+          html: scene(P(560, 302, A('kid', 'happy'), '', 0, 1.05, true) +
+            P(300, 302, A('kid', 'wow')) + hearts(430, 180)) },
+        { minDur: 6800, sub: '她安下心完成卡片——雖然愛心畫得有點歪，媽媽卻感動地抱著她說：「這是最美的禮物！」',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-44, -50, CARD, '', 0, .95)) +
+            P(460, 302, A('kid', 'happy'), '', 0, 1.1, true) + hearts(390, 170) + hearts(520, 190)) },
+        { minDur: 6400, sub: '十全十美：完美無缺，沒有任何缺點。',
+          html: scene(P(400, 280, CARD, '', 0, 1.5) + hearts(500, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">十全十美</text>') }
+      ];
+    },
+    /* 大同小異 */
+    i006: function () {
+      function drawing(x, cloudLeft) {
+        return P(x, 290, '<rect x="-44" y="-56" width="88" height="70" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/>' +
+          '<path d="M-30 8 L-4 -26 L22 8 Z" fill="#a5c2b2"/>' +
+          '<circle cx="26" cy="-38" r="9" fill="#ffdd66"/>' +
+          '<ellipse cx="' + (cloudLeft ? -20 : 8) + '" cy="-42" rx="12" ry="5.6" fill="#c9dff0"/>');
+      }
+      var MOLE = '<circle cx="-16" cy="-46" r="2.2" fill="#6b4a32"/>';
+      return [
+        { minDur: 6800, sub: '雙胞胎兄弟長得幾乎一模一樣——仔細看才發現：哥哥臉上有顆小痣，弟弟沒有！',
+          html: scene(P(300, 302, A('kid', 'happy') + MOLE) + P(500, 302, A('kid', 'happy')) +
+            qmark(400, 180)) },
+        { minDur: 6800, sub: '他們畫的圖也大同小異：都是一座山、一個太陽——只有雲的位置，一左一右不一樣。',
+          html: scene(drawing(270, true) + drawing(530, false) + qmark(400, 190)) },
+        { minDur: 6600, sub: '「大同小異」就是大部分相同，只有細微的小差別。',
+          html: scene(P(300, 302, A('kid', 'happy') + MOLE) + P(500, 302, A('kid', 'happy')) + hearts(400, 175)) },
+        { minDur: 6400, sub: '大同小異：差不多，只有細微差別。',
+          html: scene(drawing(280, true) + drawing(520, false) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大同小異</text>') }
+      ];
+    },
+    /* 百聞不如一見 */
+    i010: function () {
+      var SUNRISE = '<ellipse cx="330" cy="180" rx="260" ry="36" fill="#fff" opacity=".9"/><ellipse cx="560" cy="200" rx="220" ry="30" fill="#fff" opacity=".8"/>' +
+        '<circle cx="430" cy="150" r="30" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>' +
+        '<g class="st-rays" style="transform-origin:430px 150px"><g stroke="#ffcf4d" stroke-width="5" stroke-linecap="round"><line x1="430" y1="102" x2="430" y2="114"/><line x1="382" y1="150" x2="394" y2="150"/><line x1="466" y1="150" x2="478" y2="150"/></g></g>';
+      return [
+        { minDur: 6800, sub: '同學們都說：「山上的日出美極了！」小平聽了一百遍，還是想像不出到底有多美。',
+          html: scene(P(260, 302, A('kid', 'happy'), '', 0, .9) + P(400, 302, A('kid', 'happy'), '', .2, .88) + notes(330, 170) +
+            P(600, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(650, 185)) },
+        { minDur: 6800, sub: '這天他跟著爸爸半夜上山——當太陽從雲海裡跳出來的那一刻，他整個人驚呆了！',
+          html: scene(SUNRISE +
+            P(240, 302, A('kid', 'wow')) + P(400, 302, A('kid', 'happy'), '', 0, 1.1) + bang(550, 220)) },
+        { minDur: 6600, sub: '「原來聽別人講一百次，都不如自己親眼看一次呀！」',
+          html: scene(SUNRISE + P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(420, 230)) },
+        { minDur: 6400, sub: '百聞不如一見：親眼看到，比聽別人說更確實。',
+          html: scene(SUNRISE +
+            '<text x="400" y="300" text-anchor="middle" font-size="46" font-weight="bold" fill="#4a3200">百聞不如一見</text>') }
+      ];
+    },
+    /* 五光十色 */
+    i012: function () {
+      function lamp(x, y, color, dly) {
+        return P(x, y, '<circle class="st-tw"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + ' cx="0" cy="0" r="7" fill="' + color + '"/>');
+      }
+      var STALL2 = '<rect x="-60" y="-30" width="120" height="30" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+        '<path d="M-66 -30 h132 l-10 -18 h-112 z" fill="#e85a4f" stroke="#c94a3f" stroke-width="2.4"/>' +
+        '<circle cx="-30" cy="-38" r="7" fill="#ffd97a"/><circle cx="0" cy="-40" r="7" fill="#a5d47c"/><circle cx="30" cy="-38" r="7" fill="#a5c8ff"/>';
+      function balloon(x, y, color, dly) {
+        return P(x, y, '<ellipse cx="0" cy="-14" rx="10" ry="13" fill="' + color + '"/><line x1="0" y1="-1" x2="0" y2="14" stroke="#8b93a3" stroke-width="1.6"/>', 'st-zfloat', dly);
+      }
+      return [
+        { minDur: 6600, sub: '天一黑，夜市的燈一盞盞亮起來：紅的、黃的、藍的、綠的，閃閃爍爍——',
+          html: scene(lamp(200, 120, '#ff8a80', 0) + lamp(280, 100, '#ffd97a', .3) + lamp(360, 130, '#a5c8ff', .6) +
+            lamp(440, 105, '#a5d47c', .2) + lamp(520, 125, '#f7a8c4', .5) + lamp(600, 110, '#c9a8e0', .8) +
+            P(300, 302, A('kid', 'wow')) + hearts(380, 200), 'night') },
+        { minDur: 6800, sub: '攤位上的玩具、糖果、氣球也五顏六色，看得人眼花撩亂、捨不得眨眼！',
+          html: scene(P(430, 302, STALL2) +
+            balloon(620, 220, '#ff9eb5', 0) + balloon(670, 250, '#a5c8ff', .4) +
+            P(220, 302, A('kid', 'wow')) + hearts(300, 200), 'night') },
+        { minDur: 6600, sub: '「五光十色」就是形容這樣色彩繽紛、光彩奪目的景象！',
+          html: scene(lamp(250, 130, '#ff8a80', 0) + lamp(400, 110, '#ffd97a', .4) + lamp(550, 135, '#a5c8ff', .7) +
+            P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(460, 200), 'night') },
+        { minDur: 6400, sub: '五光十色：色彩繽紛，光彩奪目。',
+          html: scene(lamp(230, 140, '#ff8a80', 0) + lamp(330, 115, '#ffd97a', .3) + lamp(430, 145, '#a5d47c', .5) +
+            lamp(530, 120, '#a5c8ff', .2) + lamp(620, 140, '#f7a8c4', .6) +
+            '<text x="400" y="270" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">五光十色</text>', 'night') }
+      ];
     }
   };
 
