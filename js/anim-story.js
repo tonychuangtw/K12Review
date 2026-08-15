@@ -12311,6 +12311,156 @@
           html: scene(P(310, 275, COMPASS2, '', 0, 1.1) + P(490, 275, SQUARE2, '', 0, 1.1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">循規蹈矩</text>') }
       ];
+    },
+    /* 我行我素 */
+    i546: function () {
+      return [
+        { minDur: 6800, sub: '大隊接力練習，教練說要照棒次跑——小素偏不：「我想怎麼跑就怎麼跑！」',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 6 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', 'st-dashL', 0, 1.02, true) + qmark(420, 182)) },
+        { minDur: 6800, sub: '隊友提醒、老師勸告，他全當耳邊風——照樣按自己的一套來，一點都不改！',
+          html: scene(P(480, 302, A('kid', 'happy') + P(-40, -56, '<path d="M-8 -6 q8 -8 16 0" stroke="#c9bfa8" stroke-width="3" fill="none"/><line x1="-12" y1="4" x2="12" y2="-8" stroke="#c96a5a" stroke-width="3"/>', '', 0, 1.1), 'st-strut', 0, 1.02) +
+            P(260, 302, A('kid', 'wow'), '', 0, .95) + sweat(210, 192) +
+            '<g class="st-zfloat" opacity=".6"><text x="360" y="200" font-size="16" fill="#8b93a3">勸告…</text></g>') },
+        { minDur: 6800, sub: '「我行我素」：不理別人意見、依然故我——接力賽亂了棒次，全隊成績泡湯！',
+          html: scene(P(360, 302, A('kid', 'sad')) + sweat(300, 192) +
+            P(540, 302, A('kid', 'angry'), '', 0, 1, true) + bang(450, 185) +
+            P(250, 250, '<path d="M-16 8 l8 -20 6 10 8 -16" stroke="#c96a5a" stroke-width="3" fill="none"/><line x1="10" y1="-18" x2="20" y2="-8" stroke="#c96a5a" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '我行我素：不聽勸，依然故我。',
+          html: scene(P(430, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 6 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', 'st-strut', 0, 1.05) +
+            P(240, 302, A('kid', 'wow'), '', 0, .92) + qmark(300, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">我行我素</text>') }
+      ];
+    },
+    /* 一意孤行 */
+    i547: function () {
+      return [
+        { minDur: 7000, sub: '《史記》記載：酷吏趙禹謝絕所有賓客拜訪，不聽公卿勸說——「孤立行一意而已」！',
+          html: scene(P(430, 302, A('kid', 'angry') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1.05) +
+            P(220, 302, A('kid', 'happy'), '', 0, .9) + P(120, 302, A('kid', 'happy'), '', 0, .85) +
+            '<line x1="300" y1="200" x2="300" y2="302" stroke="#c9bfa8" stroke-width="4" stroke-dasharray="8 7"/>') },
+        { minDur: 6800, sub: '全組同學都說企劃有漏洞，組長卻堅持照原案做，一句話都聽不進去！',
+          html: scene(P(480, 302, A('kid', 'angry') + P(-42, -52, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><line x1="-8" y1="-8" x2="8" y2="-8" stroke="#8fa3bf" stroke-width="1.8"/><circle cx="0" cy="6" r="7" fill="none" stroke="#c96a5a" stroke-width="2"/>', '', 0, .95), '', 0, 1.02) +
+            P(260, 302, A('kid', 'wow'), '', 0, .95) + P(160, 302, A('kid', 'sad'), '', 0, .9) + sweat(320, 192)) },
+        { minDur: 6800, sub: '「一意孤行」：不聽勸告、獨斷行事——成果發表當場出包，後悔已經來不及！',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.02) + bang(400, 185) + sweat(320, 195) +
+            P(550, 250, '<path d="M-16 8 l8 -20 6 10 8 -16" stroke="#c96a5a" stroke-width="3" fill="none"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '一意孤行：固執己見，不聽勸告。',
+          html: scene(P(450, 302, A('kid', 'angry'), 'st-strut', 0, 1.05) +
+            P(240, 302, A('kid', 'wow'), '', 0, .92) + qmark(310, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一意孤行</text>') }
+      ];
+    },
+    /* 獨斷獨行 */
+    i548: function () {
+      return [
+        { minDur: 6800, sub: '社長不開會、不投票，海報、預算、活動日期全都自己一個人拍板決定！',
+          html: scene(P(430, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer"><rect x="-4" y="-18" width="8" height="22" rx="3" fill="#8a5a33"/><rect x="-14" y="-26" width="28" height="12" rx="4" fill="#6d4426"/></g>', '', 0, 1)) + bang(540, 195) +
+            P(220, 302, A('kid', 'wow'), '', 0, .92) + qmark(280, 185)) },
+        { minDur: 6800, sub: '社員的建議全被擋在門外——大家越來越沒勁：「反正說了也沒用……」',
+          html: scene(P(260, 306, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .95) +
+            P(380, 306, '<g class="st-slump" style="animation-delay:.2s">' + A('kid', 'sad') + '</g>', '', 0, .92) + sweat(320, 195) +
+            P(560, 302, A('kid', 'angry'), '', 0, 1.02, true) +
+            '<line x1="470" y1="210" x2="470" y2="302" stroke="#c9bfa8" stroke-width="4" stroke-dasharray="8 7"/>') },
+        { minDur: 6800, sub: '「獨斷獨行」：獨自決斷、不採納意見——團隊離了心，社團差點倒社！好領導要傾聽！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(500, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(420, 182) + notes(560, 200)) },
+        { minDur: 6400, sub: '獨斷獨行：獨自決斷，不納人言。',
+          html: scene(P(450, 302, A('kid', 'angry'), '', 0, 1.05) +
+            P(250, 306, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .92) + sweat(200, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">獨斷獨行</text>') }
+      ];
+    },
+    /* 當機立斷 */
+    i549: function () {
+      return [
+        { minDur: 6800, sub: '登山途中天色突變、烏雲壓頂——領隊當場拍板：「立刻下撤，不攻頂了！」',
+          html: scene('<g class="st-cloud"><ellipse cx="300" cy="70" rx="70" ry="26" fill="#575170"/><ellipse cx="420" cy="60" rx="80" ry="30" fill="#3a3550"/></g>' +
+            '<path d="M430 100 L415 130 L428 130 L410 165" stroke="#e8b93f" stroke-width="4" fill="none"/>' +
+            P(300, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -10" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(500, 302, A('kid', 'wow'), '', 0, .95, true) + bang(390, 190), 'night') },
+        { minDur: 6800, sub: '半小時後暴雨傾盆——還好撤得快，全隊平安回到山屋！',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="200" y1="30" x2="192" y2="56"/><line class="st-rain" style="animation-delay:.4s" x1="420" y1="20" x2="412" y2="46"/><line class="st-rain" style="animation-delay:.8s" x1="620" y1="34" x2="612" y2="60"/></g>' +
+            P(400, 285, '<path d="M-60 -46 L0 -80 L60 -46 Z" fill="#8a5a33"/><rect x="-48" y="-46" width="96" height="46" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>', '', 0, 1) +
+            P(330, 302, A('kid', 'happy'), '', 0, .8) + P(460, 302, A('kid', 'happy'), '', 0, .8, true) + hearts(400, 200), 'night') },
+        { minDur: 6800, sub: '「當機立斷」：抓住時機、立刻決斷——關鍵時刻猶豫一分鐘，可能就是天壤之別！',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -10" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08) + bang(510, 182) +
+            P(270, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-11" stroke="#c96a5a" stroke-width="2.6"/><line x1="0" y1="0" x2="8" y2="4" stroke="#c96a5a" stroke-width="2.6"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '當機立斷：把握時機，立刻決斷。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -10" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08) + bang(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">當機立斷</text>') }
+      ];
+    },
+    /* 猶豫不決 */
+    i550: function () {
+      return [
+        { minDur: 6800, sub: '文具店裡，小決捧著兩個鉛筆盒：「藍色好？還是綠色好？」站了整整二十分鐘……',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-44, -46, '<rect x="-14" y="-9" width="28" height="18" rx="4" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2"/>', '', 0, 1) + P(44, -46, '<rect x="-14" y="-9" width="28" height="18" rx="4" fill="#a5d47c" stroke="#7fa858" stroke-width="2"/>', '', 0, 1), '', 0, 1.05) +
+            qmark(310, 180) + qmark(490, 180) + sweat(400, 168)) },
+        { minDur: 6800, sub: '《戰國策》裡平原君也這樣：「猶豫未有所決」——遲遲拿不定主意，急壞了身邊的人！',
+          html: scene(P(360, 302, A('kid', 'wow') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) + qmark(450, 180) +
+            P(560, 302, A('kid', 'angry'), '', 0, .95, true) + sweat(620, 192)) },
+        { minDur: 6800, sub: '「猶豫不決」：拿不定主意——小事練習快選：定個時限，時間到就下決定！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -54, '<circle cx="0" cy="0" r="15" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><line x1="0" y1="0" x2="0" y2="-9" stroke="#6d7585" stroke-width="2.4"/><line x1="0" y1="0" x2="7" y2="3" stroke="#6d7585" stroke-width="2.4"/>', '', 0, 1)) + bang(470, 188) + hearts(280, 195)) },
+        { minDur: 6400, sub: '猶豫不決：遲疑難定，拿不定主意。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + qmark(320, 180) + qmark(480, 180) + sweat(400, 165) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">猶豫不決</text>') }
+      ];
+    },
+    /* 舉棋不定 */
+    i551: function () {
+      var GOBOARD = '<rect x="-56" y="-38" width="112" height="76" rx="4" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><g stroke="#a89878" stroke-width="1.3"><line x1="-56" y1="-13" x2="56" y2="-13"/><line x1="-56" y1="13" x2="56" y2="13"/><line x1="-19" y1="-38" x2="-19" y2="38"/><line x1="19" y1="-38" x2="19" y2="38"/></g><circle cx="-19" cy="-13" r="8" fill="#3a2e26"/><circle cx="19" cy="13" r="8" fill="#fff" stroke="#c9bfa8" stroke-width="1.6"/>';
+      return [
+        { minDur: 7000, sub: '《左傳》說：「弈者舉棋不定，不勝其耦」——下棋的人拿著棋子定不了往哪下，就贏不了對手！',
+          html: scene(P(400, 280, GOBOARD, '', 0, 1.15) +
+            P(240, 302, A('kid', 'wow') + P(40, -56, '<circle cx="0" cy="0" r="8" fill="#3a2e26"/>', 'st-bob', 0, 1), '', 0, 1) + qmark(300, 180) + sweat(190, 195)) },
+        { minDur: 6800, sub: '棋子懸在半空：下這裡？下那裡？——猶豫太久，好時機都被對手搶光了！',
+          html: scene(P(400, 280, GOBOARD, '', 0, 1.15) +
+            P(560, 302, A('kid', 'happy'), '', 0, .98, true) + bang(620, 195) +
+            P(240, 302, A('kid', 'sad') + P(40, -56, '<circle cx="0" cy="0" r="8" fill="#3a2e26"/>', 'st-bob', 0, 1), '', 0, 1) + sweat(190, 192)) },
+        { minDur: 6800, sub: '「舉棋不定」：臨事遲疑難決——想清楚就落子，落子就不後悔！',
+          html: scene(P(400, 280, GOBOARD, '', 0, 1.15) +
+            P(240, 302, A('kid', 'happy'), '', 0, 1) + bang(360, 235) + hearts(180, 195)) },
+        { minDur: 6400, sub: '舉棋不定：持棋難下，遲疑難決。',
+          html: scene(P(400, 285, GOBOARD, '', 0, 1.2) +
+            P(400, 205, '<circle cx="0" cy="0" r="9" fill="#3a2e26"/>', 'st-bob', 0, 1.2) + qmark(490, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">舉棋不定</text>') }
+      ];
+    },
+    /* 優柔寡斷 */
+    i552: function () {
+      return [
+        { minDur: 7000, sub: '《韓非子》警告君王：心軟手慢、遇事不敢決斷——「柔茹而寡斷」是亡國之兆！',
+          html: scene(P(400, 302, A('kid', 'sad') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05) + sweat(320, 190) + qmark(490, 182)) },
+        { minDur: 6800, sub: '訂便當要想半小時、選社團拖到截止——什麼都「再想想」，機會一個個溜走！',
+          html: scene(P(360, 302, A('kid', 'wow'), '', 0, 1.02) + qmark(300, 182) + sweat(430, 185) +
+            P(560, 240, '<g class="st-zfloat"><rect x="-20" y="-13" width="40" height="26" rx="4" fill="#fff" opacity=".7" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#c96a5a">截止!</text></g>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '「優柔寡斷」：遲疑不果斷——練習給自己「三個深呼吸」的時間，然後果斷選一個！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + bang(500, 185) +
+            P(280, 205, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#548a40">決定!</text>')) },
+        { minDur: 6400, sub: '優柔寡斷：遲疑軟弱，缺乏決斷。',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.05) + qmark(310, 182) + qmark(490, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">優柔寡斷</text>') }
+      ];
+    },
+    /* 深思熟慮 */
+    i553: function () {
+      return [
+        { minDur: 6800, sub: '要不要轉學考？小慮沒有衝動決定——他攤開紙，把優點缺點一條條寫下來！',
+          html: scene(P(380, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><line x1="0" y1="-16" x2="0" y2="16" stroke="#c9bfa8" stroke-width="1.6"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-12" y1="-8" x2="-3" y2="-8"/><line x1="-12" y1="0" x2="-3" y2="0"/><line x1="3" y1="-8" x2="12" y2="-8"/></g>', '', 0, .95), '', 0, 1.02) +
+            P(560, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#6d7585">優/缺</text>')) },
+        { minDur: 6800, sub: '問老師、問爸媽、想了整整一週——每個環節都想透，才做出最後決定！',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(500, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1, true) + notes(400, 185) +
+            P(620, 210, '<circle cx="0" cy="0" r="18" fill="#ffe9a0" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「深思熟慮」：深入而周密地思考——想清楚再行動，走的每一步都踏實！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(400, 195, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" class="st-tw"/><path d="M0 -32 v-10 M22 -22 l8 -9 M-22 -22 l-8 -9" stroke="#e0b73f" stroke-width="3" stroke-linecap="round"/>')) },
+        { minDur: 6400, sub: '深思熟慮：深入周密地思考。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">深思熟慮</text>') }
+      ];
     }
   };
 
