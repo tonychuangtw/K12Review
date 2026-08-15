@@ -13,7 +13,9 @@
     var ua = navigator.userAgent || "";
     return /\bwv\b/.test(ua) ||                                    // Android WebView
       (/iPhone|iPad|iPod/.test(ua) && !/Safari\//.test(ua)) ||     // iOS 內嵌 WKWebView（無 Safari token）
-      /Line\/|FBAN|FBAV|Instagram|MicroMessenger|Telegram/i.test(ua);
+      /Line\/|FBAN|FBAV|Instagram|MicroMessenger|Telegram|LIFF/i.test(ua) ||
+      !!window.TelegramWebviewProxy ||                             // Telegram iOS（UA 無任何標記，只能認注入物件）
+      !!(window.webkit && window.webkit.messageHandlers);          // 其他 App 的 WKWebView（Safari 本體不會有）
   })();
   var WEBVIEW_MSG = "Google 不允許在 App 內建瀏覽器（LINE／Telegram 等）裡登入，硬走只會看到空白頁。\n請點畫面角落的選單（⋯ 或分享鈕），選「用 Safari／Chrome 開啟」，再登入即可同步進度。";
 
