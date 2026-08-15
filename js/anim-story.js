@@ -17803,6 +17803,159 @@
             P(500, 268, '<rect x="-32" y="-42" width="64" height="84" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="3"/>' + P(0, 30, A('kid', 'happy'), '', 0, .45), '', 0, 1.05) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">惟妙惟肖</text>') }
       ];
+    },
+    /* 栩栩如生 */
+    i155: function () {
+      return [
+        { minDur: 7000, sub: '莊周夢見自己變成蝴蝶——「栩栩然胡蝶也」！翩翩飛舞，快活得忘了自己是莊周！',
+          html: scene(P(360, 302, '<g transform="rotate(90)">' + A('kid', 'happy') + '</g>', '', 0, .9) + zzz(280, 240) +
+            P(480, 180, A('butterfly'), 'st-fly', 0, 1.2) +
+            P(580, 220, A('butterfly'), 'st-fly', .4, .9)) },
+        { minDur: 6800, sub: '醒來他糊塗了：是莊周夢見蝴蝶，還是蝴蝶夢見莊周？——因為夢裡的一切太真實！',
+          html: scene(P(360, 302, A('kid', 'wow') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) + qmark(450, 182) +
+            P(540, 200, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/>' + P(0, 6, A('butterfly'), '', 0, .5), '', 0, 1.05)) },
+        { minDur: 6800, sub: '「栩栩如生」：生動得像活的——大師的木雕貓，路過的狗都對著它叫！',
+          html: scene(P(400, 290, '<rect x="-40" y="4" width="80" height="12" rx="3" fill="#a8734a"/><g fill="#c9a06c" stroke="#a8734a" stroke-width="2"><ellipse cx="0" cy="-12" rx="20" ry="14"/><circle cx="14" cy="-24" r="9"/><path d="M9 -30 l3 -6 3 5 M16 -31 l3 -6 3 5" fill="none" stroke-width="1.8"/></g>', '', 0, 1.15) +
+            P(220, 302, A('dog', 'wow'), '', 0, .95) + bang(300, 230)) },
+        { minDur: 6400, sub: '栩栩如生：生動逼真，宛然如活。',
+          html: scene(P(400, 200, A('butterfly'), 'st-fly', 0, 1.3) +
+            P(540, 250, A('butterfly'), 'st-fly', .4, .9) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">栩栩如生</text>') }
+      ];
+    },
+    /* 笑靨如花 */
+    i156: function () {
+      return [
+        { minDur: 6800, sub: '「靨」是酒窩——她一笑，兩頰的小酒窩像花瓣舒展開來，整個人亮了！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<circle cx="-16" cy="-44" r="3" fill="#ffb3c1" opacity=".8"/><circle cx="16" cy="-44" r="3" fill="#ffb3c1" opacity=".8"/>', '', 0, 1.1) + hearts(500, 190) +
+            P(280, 210, '<path d="M0 0 C-6 -12 -20 -8 -16 2 C-24 2 -24 14 -13 14 C-17 24 -4 28 0 19 C4 28 17 24 13 14 C24 14 24 2 16 2 C20 -8 6 -12 0 0 Z" fill="#ff9eb5" stroke="#e07a94" stroke-width="1.8" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「笑靨如花」：笑容美麗如花綻放——婚禮上新娘笑靨如花，賓客都跟著笑了！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#e07a94" stroke-width="4" fill="none"/><circle cx="-14" cy="-44" r="2.6" fill="#ffb3c1"/><circle cx="14" cy="-44" r="2.6" fill="#ffb3c1"/>', '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy'), 'st-cheer', 0, .88) + P(560, 302, A('kid', 'happy'), 'st-cheer', .2, .88, true) + hearts(400, 172)) },
+        { minDur: 6800, sub: '真誠的笑容最有感染力——它不用錢買，卻是你最好看的表情！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(410, 180) + notes(580, 195)) },
+        { minDur: 6400, sub: '笑靨如花：笑容嬌美，燦若春花。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<circle cx="-16" cy="-44" r="3" fill="#ffb3c1" opacity=".8"/><circle cx="16" cy="-44" r="3" fill="#ffb3c1" opacity=".8"/>', '', 0, 1.1) +
+            P(280, 210, '<path d="M0 0 C-6 -12 -20 -8 -16 2 C-24 2 -24 14 -13 14 C-17 24 -4 28 0 19 C4 28 17 24 13 14 C24 14 24 2 16 2 C20 -8 6 -12 0 0 Z" fill="#ff9eb5" stroke="#e07a94" stroke-width="1.8" class="st-tw"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">笑靨如花</text>') }
+      ];
+    },
+    /* 傾國傾城 */
+    i157: function () {
+      return [
+        { minDur: 7000, sub: '李延年在漢武帝面前唱：「北方有佳人，絕世而獨立——一顧傾人城，再顧傾人國！」',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1) + notes(420, 185) +
+            P(540, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.02, true) + hearts(620, 195)) },
+        { minDur: 6800, sub: '她回眸一望，全城的人看呆；再一望，全國的人傾倒——這位佳人就是李夫人！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#e07a94" stroke-width="4" fill="none"/>', '', 0, 1.08) +
+            P(230, 302, A('kid', 'wow'), '', 0, .88) + P(560, 302, A('kid', 'wow'), '', 0, .88, true) + hearts(400, 172) + bang(300, 190)) },
+        { minDur: 6800, sub: '「傾國傾城」：形容女子容貌極美——不過真正傾倒眾人的，往往是美貌加上風骨！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#e07a94" stroke-width="4" fill="none"/>', '', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '傾國傾城：絕世容顏，傾倒眾生。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#e07a94" stroke-width="4" fill="none"/>', '', 0, 1.08) + hearts(500, 188) + hearts(300, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">傾國傾城</text>') }
+      ];
+    },
+    /* 冰清玉潔 */
+    i158: function () {
+      var ICEJADE = P(320, 250, '<path d="M-20 -24 L20 -24 L26 20 L-26 20 Z" fill="#cfe8f5" stroke="#9cc4dc" stroke-width="2.6" opacity=".9"/>', '', 0, 1.2) +
+        P(480, 250, '<path d="M0 -26 q22 5 22 26 q0 21 -22 26 q-22 -5 -22 -26 q0 -21 22 -26 z" fill="#a5d4b8" stroke="#6faa8a" stroke-width="2.6"/>', '', 0, 1.2);
+      return [
+        { minDur: 6800, sub: '冰，透亮無瑕；玉，溫潤純淨——古人用這兩樣，比喻最乾淨的品格！',
+          html: scene(ICEJADE +
+            '<g class="st-tw"><path d="M400 200 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>') },
+        { minDur: 6800, sub: '「冰清玉潔」：品行高潔——管了三十年帳目，一塊錢都清清楚楚，人人敬重！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-44, -50, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-8 2 l4 5 l10 -11" stroke="#548a40" stroke-width="2.4" fill="none"/>', '', 0, .95), '', 0, 1.05) + hearts(510, 190)) },
+        { minDur: 6800, sub: '高潔不是清高：是別人看不到時，你仍然選擇乾淨的那條路！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" class="st-tw"/>') + hearts(290, 200) +
+            P(600, 130, '<circle cx="0" cy="0" r="15" fill="#f5f0dc"/><circle cx="5" cy="-3" r="12" fill="#87a0c4"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '冰清玉潔：如冰之清，如玉之潔。',
+          html: scene(ICEJADE +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">冰清玉潔</text>') }
+      ];
+    },
+    /* 玲瓏剔透 */
+    i159: function () {
+      var LATTICE = '<path d="M0 -34 q30 6 30 34 q0 28 -30 34 q-30 -6 -30 -34 q0 -28 30 -34 z" fill="#d9f0f0" stroke="#7fc4c4" stroke-width="2.6" opacity=".9"/><g stroke="#7fc4c4" stroke-width="1.8" fill="none"><circle cx="0" cy="0" r="16"/><path d="M0 -34 v68 M-30 0 h60 M-21 -21 L21 21 M21 -21 L-21 21"/></g>';
+      return [
+        { minDur: 6800, sub: '玉雕大師的鏤空作品：層層通透、每一格都精雕細琢——光一照，滿桌都是花影！',
+          html: scene(P(400, 260, LATTICE, '', 0, 1.3) +
+            P(200, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            '<g class="st-tw"><path d="M500 210 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>') },
+        { minDur: 6800, sub: '「玲瓏剔透」：精巧細緻、清晰透徹——也形容人：心思玲瓏剔透，一點就通！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-42, -60, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.05), '', 0, 1.02) + bang(430, 185) +
+            P(560, 250, LATTICE, '', 0, .85)) },
+        { minDur: 6800, sub: '精巧來自耐心：一刀刻壞就前功盡棄——所以大師刻一件，用一整年！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(32, -46, '<line x1="0" y1="8" x2="10" y2="-14" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.02) + sweat(290, 190) +
+            P(540, 255, LATTICE, '', 0, .9) + hearts(640, 210)) },
+        { minDur: 6400, sub: '玲瓏剔透：精巧透澈，靈秀聰慧。',
+          html: scene(P(400, 262, LATTICE, '', 0, 1.35) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">玲瓏剔透</text>') }
+      ];
+    },
+    /* 超塵拔俗 */
+    i160: function () {
+      return [
+        { minDur: 6800, sub: '鬧市裡人人追逐流行、比較名牌——山上的老畫家守著一屋子畫，自得其樂！',
+          html: scene(P(260, 302, A('kid', 'happy') + P(-36, -46, '<path d="M-12 8 h24 l-3 -20 h-18 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/>', '', 0, .9), '', 0, .92) +
+            P(380, 302, A('kid', 'happy') + P(38, -46, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/>', '', 0, .9), '', 0, .92) +
+            P(600, 275, '<path d="M-40 30 L0 -20 L40 30 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.4"/>' + P(0, 12, A('kid', 'happy'), '', 0, .6), '', 0, 1.05) + notes(660, 220)) },
+        { minDur: 6800, sub: '「超塵拔俗」：超出塵世、拔離凡俗——不被流行牽著走，活出自己的節奏！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<path d="M200 250 h130 M470 250 h130" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/>' +
+            P(400, 195, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" class="st-tw"/>') + hearts(290, 200)) },
+        { minDur: 6800, sub: '超塵拔俗不是孤僻——是心裡有更想守護的東西，所以捨得放下熱鬧！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -46, '<line x1="0" y1="8" x2="6" y2="-12" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/>', '', 0, 1)) +
+            P(540, 260, '<rect x="-32" y="-42" width="64" height="84" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-20 20 q14 -28 24 -12 q10 -20 20 -6" stroke="#5a7a4a" stroke-width="2.6" fill="none"/>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6400, sub: '超塵拔俗：脫離凡俗，品格清高。',
+          html: scene(P(400, 275, '<path d="M-44 34 L0 -24 L44 34 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.4"/>' + P(0, 14, A('kid', 'happy'), '', 0, .62), '', 0, 1.15) +
+            '<g class="st-cloud"><ellipse cx="250" cy="140" rx="46" ry="15" fill="#fff" opacity=".85"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">超塵拔俗</text>') }
+      ];
+    },
+    /* 白駒過隙 */
+    i351: function () {
+      return [
+        { minDur: 7000, sub: '莊子說：人生在天地之間，「若白駒之過隙，忽然而已」——像白馬掠過牆縫，一晃就過！',
+          html: scene('<rect x="330" y="180" width="18" height="160" fill="#8a8274"/><rect x="452" y="180" width="18" height="160" fill="#8a8274"/>' +
+            P(400, 296, '<g opacity=".9">' + A('horse') + '</g>', 'st-dashL', 0, 1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="230" y1="250" x2="310" y2="250"/></g>') },
+        { minDur: 6800, sub: '小學六年彷彿昨天，一轉眼要考大學了——時間快得讓人來不及數！',
+          html: scene(P(280, 302, A('kid', 'happy'), '', 0, .8) +
+            '<path d="M340 260 h120" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/><path d="M460 260 l-12 -8 v16 z" fill="#c9bfa8"/>' +
+            P(540, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(410, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-11" stroke="#6d7585" stroke-width="2.4"/><line x1="0" y1="0" x2="8" y2="4" stroke="#6d7585" stroke-width="2.4"/>', 'st-tw', 0, 1)) },
+        { minDur: 6800, sub: '「白駒過隙」：時光飛逝——既然留不住時間，就把每一天過成捨不得快轉的樣子！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '白駒過隙：光陰似箭，倏忽即逝。',
+          html: scene('<rect x="330" y="185" width="16" height="155" fill="#8a8274"/><rect x="454" y="185" width="16" height="155" fill="#8a8274"/>' +
+            P(400, 296, A('horse'), 'st-dashL', 0, 1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">白駒過隙</text>') }
+      ];
+    },
+    /* 滄海桑田 */
+    i352: function () {
+      return [
+        { minDur: 7000, sub: '仙女麻姑對王方平說：「接待以來，已見東海三為桑田」——大海變桑田，我都見過三次了！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/>', '', 0, 1.02) +
+            P(560, 250, '<rect x="-48" y="-14" width="96" height="28" rx="6" fill="#5a7fa8"/><g class="st-wavemove"><path d="M-40 -4 q10 -6 20 0 t20 0 t20 0 t20 0" fill="none" stroke="#8fb2d4" stroke-width="4"/></g>', '', 0, 1.05) + qmark(260, 190)) },
+        { minDur: 6800, sub: '滄海與桑田輪流交替——地質學也證實：高山上真的找得到貝殼化石！',
+          html: scene(P(300, 270, '<path d="M-60 40 L0 -40 L60 40 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6"/>', '', 0, 1.1) +
+            P(300, 250, '<path d="M-10 6 a10 10 0 0 1 20 0 q-4 6 -10 6 q-6 0 -10 -6 z" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/><path d="M-6 4 v6 M0 2 v8 M6 4 v6" stroke="#d8cbb0" stroke-width="1.4"/>', '', 0, 1.3) + bang(400, 220) +
+            P(560, 302, A('kid', 'wow') + P(-40, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1), '', 0, .98, true)) },
+        { minDur: 6800, sub: '「滄海桑田」：世事變化極大——五十年後回到母校，操場成了大樓，滄海桑田啊！',
+          html: scene(P(300, 260, '<rect x="-40" y="-30" width="80" height="50" rx="4" fill="#a5d47c" opacity=".7"/><text x="0" y="0" text-anchor="middle" font-size="12" fill="#3d5232">操場</text>', '', 0, 1) +
+            '<path d="M360 255 h80" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/><path d="M440 255 l-12 -8 v16 z" fill="#c9bfa8"/>' +
+            P(540, 265, '<rect x="-30" y="-56" width="60" height="76" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.6"/><g fill="#d9e8f5"><rect x="-20" y="-44" width="14" height="12"/><rect x="6" y="-44" width="14" height="12"/><rect x="-20" y="-24" width="14" height="12"/><rect x="6" y="-24" width="14" height="12"/></g>', '', 0, 1.05) + qmark(650, 220)) },
+        { minDur: 6400, sub: '滄海桑田：海田互變，世事無常。',
+          html: scene(P(300, 255, '<rect x="-48" y="-13" width="96" height="26" rx="6" fill="#5a7fa8"/><g class="st-wavemove"><path d="M-40 -4 q10 -6 20 0 t20 0 t20 0 t20 0" fill="none" stroke="#8fb2d4" stroke-width="4"/></g>', '', 0, 1.05) +
+            '<path d="M362 255 h76" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/><path d="M438 255 l-10 -7 v14 z" fill="#c9bfa8"/>' +
+            P(510, 258, '<g stroke="#7fa858" stroke-width="3.2" stroke-linecap="round"><path d="M-18 12 q-2 -14 5 -21 M0 14 q0 -16 7 -23 M16 12 q3 -12 -2 -18"/></g>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">滄海桑田</text>') }
+      ];
     }
   };
 
