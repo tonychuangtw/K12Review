@@ -4053,6 +4053,104 @@
           html: scene(P(400, 210, ARROWS8, '', 0, 1.2) +
             '<text x="400" y="315" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">四面八方</text>') }
       ];
+    },
+    /* 手舞足蹈 */
+    i401: function () {
+      var BIKE = '<circle cx="-24" cy="0" r="16" fill="none" stroke="#5c82ba" stroke-width="4"/><circle cx="24" cy="0" r="16" fill="none" stroke="#5c82ba" stroke-width="4"/>' +
+        '<path d="M-24 0 L-8 -22 L14 -22 L24 0 M-8 -22 L-2 0 M14 -22 L10 -30 M-8 -22 L-14 -30 L-4 -30" stroke="#e85a4f" stroke-width="3.4" fill="none" stroke-linecap="round"/>';
+      var GIFT2 = '<rect x="-16" y="-26" width="32" height="26" rx="4" fill="#a5d47c" stroke="#7cab6e" stroke-width="2.4"/>' +
+        '<line x1="0" y1="-26" x2="0" y2="0" stroke="#fff" stroke-width="3.4"/><line x1="-16" y1="-13" x2="16" y2="-13" stroke="#fff" stroke-width="3.4"/>';
+      return [
+        { minDur: 6600, sub: '小樂拆開生日禮物——竟然是夢寐以求的新腳踏車！',
+          html: scene(P(500, 300, BIKE, '', 0, 1.2) + P(340, 292, GIFT2, '', 0, .9) +
+            P(240, 302, A('kid', 'wow')) + bang(420, 210)) },
+        { minDur: 6600, sub: '他高興得手也揮、腳也跳，整個人快要飛起來了！',
+          html: scene(P(500, 300, BIKE, '', 0, 1.1) +
+            P(280, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.1) +
+            hearts(370, 165) + notes(220, 175)) },
+        { minDur: 6600, sub: '高興到手腳都像在跳舞——這就是「手舞足蹈」！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(480, 302, '<g class="st-hop">' + A('kid', 'happy') + '</g>', '', 0, .92) +
+            notes(390, 160) + hearts(550, 180)) },
+        { minDur: 6400, sub: '手舞足蹈：高興得手腳都舞動起來。',
+          html: scene(P(380, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.1) + notes(470, 170) + hearts(290, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">手舞足蹈</text>') }
+      ];
+    },
+    /* 東奔西跑 */
+    i402: function () {
+      var FLAG2 = '<line x1="0" y1="0" x2="0" y2="-46" stroke="#a8734a" stroke-width="3.4"/><path d="M0 -46 h26 l-7 7 l7 7 h-26 z" fill="#5c82ba"/>';
+      var TABLE2 = '<rect x="-30" y="-16" width="60" height="8" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><line x1="-24" y1="-8" x2="-24" y2="4" stroke="#a8734a" stroke-width="4"/><line x1="24" y1="-8" x2="24" y2="4" stroke="#a8734a" stroke-width="4"/>';
+      return [
+        { minDur: 6800, sub: '運動會前一天，班長為了準備道具東奔西跑：跑操場、跑器材室、又跑辦公室——',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-dashL') + sweat(250, 195) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="120" y1="250" x2="200" y2="250"/></g>') },
+        { minDur: 6800, sub: '一下借旗子、一下搬桌子、一下又去領號碼布，忙得團團轉，卻一點也不喊累！',
+          html: scene(P(280, 302, A('kid', 'happy') + P(30, -50, FLAG2)) +
+            P(480, 300, TABLE2, '', 0, 1) + sweat(340, 195) + bang(560, 220)) },
+        { minDur: 6600, sub: '為了大家的事到處奔走，就是「東奔西跑」——記得跟辛苦的人說聲謝謝呀！',
+          html: scene(P(300, 302, A('kid', 'happy'))+
+            P(500, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .92) +
+            P(620, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .88) + hearts(420, 175)) },
+        { minDur: 6400, sub: '東奔西跑：到處奔走忙碌。',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-dashL', 0, 1.05) + sweat(300, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">東奔西跑</text>') }
+      ];
+    },
+    /* 大搖大擺 */
+    i403: function () {
+      return [
+        { minDur: 6600, sub: '大公雞吃飽了，挺起胸膛在院子裡走路——左搖一下、右擺一下，神氣極了！',
+          html: scene(P(400, 302, '<g class="st-strut">' + A('chicken') + '</g>', '', 0, 1.25) + hearts(500, 200)) },
+        { minDur: 6600, sub: '連小貓經過都要讓牠三分，牠頭抬得更高、步子擺得更大了！',
+          html: scene(P(360, 302, '<g class="st-strut">' + A('chicken') + '</g>', '', 0, 1.2) +
+            P(600, 302, A('fox'), '', 0, .85) + sweat(640, 215) + qmark(560, 195)) },
+        { minDur: 6600, sub: '走路搖搖擺擺、一副滿不在乎的神氣樣子——就是「大搖大擺」！',
+          html: scene(P(300, 302, '<g class="st-strut">' + A('chicken') + '</g>', '', 0, 1.1) +
+            P(560, 302, A('kid', 'wow'), '', 0, .9) + qmark(610, 190)) },
+        { minDur: 6400, sub: '大搖大擺：走路搖擺神氣，滿不在乎的樣子。',
+          html: scene(P(400, 302, '<g class="st-strut">' + A('chicken') + '</g>', '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大搖大擺</text>') }
+      ];
+    },
+    /* 交頭接耳 */
+    i404: function () {
+      var WHISPER = '<path d="M-16 -10 a14 11 0 1 1 28 4 q-1 5 -7 6 l-7 6 l1 -6 q-13 -1 -15 -10 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="-2" y="-3" text-anchor="middle" font-size="9" fill="#8a7a4a">悄悄話</text>';
+      return [
+        { minDur: 6600, sub: '上課的時候，小軒和同桌頭靠著頭、湊在耳朵邊，嘀嘀咕咕說起悄悄話。',
+          html: scene(P(330, 302, '<g transform="rotate(12)">' + A('kid', 'happy') + '</g>') +
+            P(450, 302, '<g transform="rotate(-12)">' + A('kid', 'happy') + '</g>', '', 0, 1, true) +
+            P(390, 180, WHISPER, '', 0, 1.3)) },
+        { minDur: 6800, sub: '講台上的老師咳了一聲：「有什麼有趣的事，要不要跟全班分享呀？」兩人的臉一下子紅了。',
+          html: scene(P(150, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 302, A('kid', 'wow') + '<ellipse cx="-15" cy="-44" rx="7" ry="5" fill="#ff9c8a"/><ellipse cx="15" cy="-44" rx="7" ry="5" fill="#ff9c8a"/>', '', 0, .9) +
+            P(520, 302, A('kid', 'wow'), '', 0, .88) + sweat(470, 195)) },
+        { minDur: 6600, sub: '「交頭接耳」是湊近耳邊低聲說話——上課時，可要專心聽講呀！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .95) + hearts(400, 175)) },
+        { minDur: 6400, sub: '交頭接耳：湊近耳邊低聲私語。',
+          html: scene(P(330, 302, '<g transform="rotate(12)">' + A('kid', 'happy') + '</g>') +
+            P(450, 302, '<g transform="rotate(-12)">' + A('kid', 'happy') + '</g>', '', 0, 1, true) + P(390, 190, WHISPER, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">交頭接耳</text>') }
+      ];
+    },
+    /* 面紅耳赤 */
+    i405: function () {
+      var REDFACE = '<circle cx="0" cy="-54" r="24" fill="#ffb3a3" opacity=".55"/><ellipse cx="-24" cy="-54" rx="6" ry="8" fill="#ff8a80"/><ellipse cx="24" cy="-54" rx="6" ry="8" fill="#ff8a80"/>';
+      var STAGE = '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>';
+      return [
+        { minDur: 6600, sub: '輪到小甄上台自我介紹。她一緊張，臉「唰」地一下，紅到了耳根！',
+          html: scene(P(400, 288, STAGE) +
+            P(400, 288, A('kid', 'wow') + REDFACE, '', 0, .95) + sweat(340, 190) +
+            P(160, 302, A('kid', 'happy'), '', 0, .8) + P(640, 302, A('kid', 'happy'), '', .2, .8, true)) },
+        { minDur: 6600, sub: '辯論比賽上，兩隊你一句我一句，爭得面紅耳赤，誰也不肯讓誰！',
+          html: scene(P(300, 302, A('kid', 'angry') + REDFACE) +
+            P(520, 302, A('kid', 'angry') + REDFACE, '', 0, .98, true) + bang(410, 180)) },
+        { minDur: 6600, sub: '因為害羞、緊張或激動，而滿臉通紅——這就是「面紅耳赤」。',
+          html: scene(P(400, 302, A('kid', 'happy') + REDFACE, '', 0, 1.05) + hearts(490, 190)) },
+        { minDur: 6400, sub: '面紅耳赤：因害羞、緊張或激動而滿臉通紅。',
+          html: scene(P(400, 302, A('kid', 'wow') + REDFACE, '', 0, 1.1) + sweat(330, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">面紅耳赤</text>') }
+      ];
     }
   };
 
