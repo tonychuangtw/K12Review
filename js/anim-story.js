@@ -907,6 +907,145 @@
           html: scene(P(400, 306, DRAWNBING, '', 0, 1.25) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">畫餅充飢</text>') }
       ];
+    },
+    /* 四面楚歌 */
+    i013: function () {
+      var TENT = '<path d="M-46 0 L0 -64 L46 0 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="4"/>' +
+        '<path d="M-10 0 L0 -18 L10 0 Z" fill="#8a5a33"/>' +
+        '<line x1="0" y1="-64" x2="0" y2="-84" stroke="#a8734a" stroke-width="4"/>' +
+        '<path d="M0 -84 h26 l-7 7 l7 7 h-26 z" fill="#e85a4f"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      function enemy(x, sc, dly, flip) { return P(x, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', dly, sc, flip); }
+      return [
+        { minDur: 6800, sub: '楚漢相爭，項羽的軍隊被劉邦的大軍團團圍在垓下，糧食也快吃完了。',
+          html: scene(P(400, 300, TENT) + P(400, 302, A('kid', 'angry'), '', 0, .95) +
+            enemy(90, .8, 0) + enemy(210, .75, .2) + enemy(600, .75, .3, true) + enemy(710, .8, .1, true)) },
+        { minDur: 6800, sub: '夜裡，四面八方忽然傳來楚國的歌聲——那是項羽士兵們家鄉的歌呀！',
+          html: scene(P(400, 300, TENT) + P(400, 302, A('kid', 'wow'), '', 0, .95) +
+            notes(120, 150) + notes(680, 140) + notes(250, 100) + notes(540, 110) + qmark(450, 180), 'night') },
+        { minDur: 7000, sub: '楚軍士兵聽了，以為家鄉全被占領，個個想起家來——哭的哭、逃的逃，軍心全散了。',
+          html: scene(P(400, 300, TENT) +
+            P(280, 302, A('kid', 'sad'), '', 0, .85) + sweat(310, 210) +
+            P(560, 302, '<g class="st-fleeR">' + A('kid', 'sad') + '</g>', 'st-dashL', 0, .85) +
+            P(680, 302, '<g class="st-fleeR" style="animation-delay:.3s">' + A('kid', 'sad') + '</g>', 'st-dashL', .3, .8), 'night') },
+        { minDur: 6600, sub: '項羽嘆道：「難道楚地全都失守了嗎？」孤立無援，大勢已去……',
+          html: scene(P(400, 300, TENT) +
+            P(400, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .95) +
+            qmark(450, 180) + sweat(360, 210), 'night') },
+        { minDur: 6200, sub: '四面楚歌：處於四面受敵的孤立困境。',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, .95) +
+            notes(150, 170) + notes(650, 160) + notes(300, 120) + notes(520, 130) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">四面楚歌</text>') }
+      ];
+    },
+    /* 一鳴驚人 */
+    i067: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var MOUND = '<ellipse cx="0" cy="0" rx="70" ry="26" fill="#b8a071"/><ellipse cx="0" cy="-6" rx="52" ry="16" fill="#c9b184"/>';
+      return [
+        { minDur: 6800, sub: '楚莊王即位三年，天天吃喝玩樂，什麼國事都不管，大臣們急壞了。',
+          html: scene(P(300, 302, A('kid', 'happy') + CROWN + P(40, -66, JUG, '', 0, .8)) +
+            notes(360, 170) + hearts(240, 180) +
+            P(620, 302, A('kid', 'sad'), '', 0, .9) + sweat(650, 205)) },
+        { minDur: 7000, sub: '大臣伍舉打了個謎語問他：「有隻大鳥停在山丘上，三年不飛也不叫，這是什麼鳥呢？」',
+          html: scene(P(560, 316, MOUND) + P(560, 300, A('bird')) +
+            P(200, 302, A('kid', 'happy'), '', 0, .95) + qmark(260, 180) +
+            P(360, 302, A('kid', 'happy') + CROWN, '', 0, .95, true)) },
+        { minDur: 7000, sub: '莊王笑著回答：「牠三年不飛，一飛沖天；三年不叫，一叫就要震驚所有人！」',
+          html: scene(P(560, 130, A('bird'), '', 0, 1.2) + bang(640, 90) +
+            '<path d="M560 280 Q570 200 560 150" stroke="#8fd0e8" stroke-width="4" fill="none" stroke-dasharray="8 8"/>' +
+            P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + CROWN + '</g>')) },
+        { minDur: 6600, sub: '從此莊王發憤治國、勤理朝政，楚國果然強盛起來，稱霸諸侯！',
+          html: scene(P(300, 302, A('kid', 'happy') + CROWN) +
+            P(540, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            P(660, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .85) +
+            hearts(430, 170)) },
+        { minDur: 6200, sub: '一鳴驚人：初次表現，就引起驚人的注意。',
+          html: scene(P(540, 150, A('bird'), '', 0, 1.1) + P(280, 302, A('kid', 'happy') + CROWN) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一鳴驚人</text>') }
+      ];
+    },
+    /* 臥薪嘗膽 */
+    i263: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var BROOM = '<line x1="0" y1="0" x2="20" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>' +
+        '<path d="M0 0 l-10 12 M0 0 l-2 14 M0 0 l6 13" stroke="#c9a06c" stroke-width="3.4" stroke-linecap="round"/>';
+      var WOODPILE = '<g stroke="#a8734a" stroke-width="8" stroke-linecap="round"><line x1="-52" y1="-6" x2="52" y2="-6"/><line x1="-44" y1="-16" x2="44" y2="-16"/><line x1="-34" y1="-26" x2="34" y2="-26"/></g>';
+      var GALL = '<line x1="0" y1="-52" x2="0" y2="-24" stroke="#8a7a66" stroke-width="2.4"/>' +
+        '<path d="M0 -24 q-12 4 -12 16 q0 12 12 12 q12 0 12 -12 q0 -12 -12 -16 z" fill="#5f7a4a" stroke="#4a6238" stroke-width="2"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 6800, sub: '越國被吳國打敗，越王勾踐被抓去當了三年僕人，天天做苦工，受盡屈辱。',
+          html: scene(P(300, 302, A('kid', 'sad') + P(20, -34, BROOM)) + sweat(260, 200) +
+            P(600, 302, A('kid', 'angry') + CROWN, '', 0, 1, true)) },
+        { minDur: 6600, sub: '回國以後，他不睡舒服的床，天天睡在柴薪上，屋裡還掛了一顆苦膽。',
+          html: scene(P(360, 316, WOODPILE) +
+            P(360, 296, '<ellipse cx="0" cy="-8" rx="34" ry="12" fill="#6fbf8e"/><circle cx="-28" cy="-16" r="13" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>') +
+            P(560, 240, GALL) + zzz(300, 220), 'night') },
+        { minDur: 6800, sub: '每天起床，他先嘗一口苦膽，提醒自己：「不要忘記戰敗的恥辱！」',
+          html: scene(P(400, 302, A('kid', 'angry') + P(36, -70, GALL, '', 0, .9)) +
+            sweat(340, 200) + bang(520, 170)) },
+        { minDur: 6800, sub: '他勤練士兵、努力生產，越國一天天強大。十年後一舉打敗吳國，終於一雪前恥！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + CROWN + '</g>') +
+            P(520, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + P(26, -50, SPEAR3) + '</g>', '', 0, .9) +
+            P(650, 302, '<g class="st-cheer" style="animation-delay:.4s">' + A('kid', 'happy') + P(26, -50, SPEAR3) + '</g>', '', 0, .85) +
+            hearts(420, 160)) },
+        { minDur: 6200, sub: '臥薪嘗膽：刻苦自勵，發憤圖強，不忘雪恥。',
+          html: scene(P(300, 316, WOODPILE) + P(520, 250, GALL, '', 0, 1.1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">臥薪嘗膽</text>') }
+      ];
+    },
+    /* 負荊請罪 */
+    i264: function () {
+      var THORNS = '<g transform="rotate(-24)"><line x1="-6" y1="-2" x2="34" y2="-2" stroke="#8a5a33" stroke-width="5" stroke-linecap="round"/>' +
+        '<line x1="-2" y1="4" x2="38" y2="4" stroke="#a8734a" stroke-width="5" stroke-linecap="round"/>' +
+        '<g stroke="#8a5a33" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="-2" x2="3" y2="-9"/><line x1="16" y1="-2" x2="19" y2="-9"/><line x1="26" y1="-2" x2="23" y2="-9"/><line x1="12" y1="4" x2="12" y2="11"/><line x1="24" y1="4" x2="27" y2="11"/></g></g>';
+      return [
+        { minDur: 6800, sub: '藺相如立了大功，官位升得比大將軍廉頗還高。廉頗不服氣：「我要當面給他難看！」',
+          html: scene(P(280, 302, A('kid', 'angry')) + bang(350, 180) +
+            P(580, 302, A('kid', 'happy'), '', 0, .95, true)) },
+        { minDur: 7400, sub: '藺相如卻處處躲著他。門客不解，他說：「秦國不敢打趙國，就因為有我們兩人。我怎能為了私人恩怨，誤了國家大事呢！」',
+          html: scene(P(180, 302, A('kid', 'happy'), '', 0, .95, true) +
+            P(420, 302, A('kid', 'wow'), '', 0, .9) + qmark(470, 190) +
+            P(660, 302, A('kid', 'angry'), '', 0, .9)) },
+        { minDur: 7000, sub: '廉頗聽說後羞愧極了。他脫下戰袍，背上帶刺的荊條，親自登門請罪。',
+          html: scene(P(120, 302, TREE) +
+            P(340, 302, A('kid', 'sad') + P(-34, -60, THORNS), 'st-inL') + sweat(300, 205) +
+            P(580, 302, A('kid', 'wow'), '', 0, .95, true)) },
+        { minDur: 6800, sub: '藺相如連忙扶起他。兩人從此成了同生共死的好朋友，同心保衛趙國！',
+          html: scene(P(340, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(500, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .95, true) +
+            hearts(420, 170)) },
+        { minDur: 6200, sub: '負荊請罪：背著荊條請罪，表示誠心認錯。',
+          html: scene(P(340, 302, A('kid', 'sad') + P(-34, -60, THORNS)) + P(560, 302, A('kid', 'happy')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">負荊請罪</text>') }
+      ];
+    },
+    /* 完璧歸趙 */
+    i265: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var JADE = '<circle cx="0" cy="0" r="20" fill="#8fd0c0" stroke="#5aa896" stroke-width="3"/><circle cx="0" cy="0" r="7" fill="#aee3f5" stroke="#5aa896" stroke-width="2"/>';
+      var PILLAR = '<rect x="-16" y="-160" width="32" height="160" rx="6" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/><rect x="-24" y="-172" width="48" height="14" rx="5" fill="#a85a1e"/>';
+      return [
+        { minDur: 7000, sub: '趙王得到稀世寶玉「和氏璧」。秦王來信說：願意用十五座城來交換！藺相如帶著寶玉出使秦國。',
+          html: scene(P(200, 302, A('kid', 'happy') + P(38, -64, JADE, '', 0, .8), 'st-strut') +
+            '<path d="M300 316 q160 14 340 6" stroke="#e8dcc0" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="12 10"/>' +
+            P(660, 302, A('kid', 'happy') + CROWN, '', 0, .95, true)) },
+        { minDur: 6800, sub: '秦王捧著寶玉看了又看、愛不釋手，卻絕口不提十五座城的事。',
+          html: scene(P(560, 302, A('kid', 'happy') + CROWN + P(-38, -64, JADE, '', 0, .9), '', 0, 1, true) +
+            hearts(620, 180) +
+            P(240, 302, A('kid', 'angry'), '', 0, .95) + qmark(200, 185)) },
+        { minDur: 7400, sub: '藺相如說：「玉上有個小斑點，我指給大王看。」把玉要回手中，退到柱子旁：「大王不給城，我就和寶玉一起撞碎在這柱子上！」',
+          html: scene(P(380, 302, PILLAR) +
+            P(290, 302, A('kid', 'angry') + P(34, -70, JADE, '', 0, .9)) + bang(360, 150) +
+            P(600, 302, A('kid', 'wow') + CROWN, '', 0, 1, true) + sweat(560, 200)) },
+        { minDur: 6800, sub: '秦王只好作罷。藺相如暗中派人連夜把寶玉送回趙國——完好無缺，一點也沒損傷！',
+          html: scene(P(300, 302, '<g class="st-fleeR">' + A('kid', 'happy') + P(30, -64, JADE, '', 0, .8) + '</g>', 'st-dashL') +
+            P(660, 302, A('kid', 'happy') + CROWN, 'st-inR', 0, .95, true) + hearts(700, 190), 'night') },
+        { minDur: 6200, sub: '完璧歸趙：把原物完好無缺地歸還本人。',
+          html: scene(P(400, 250, JADE, '', 0, 1.6) + P(200, 302, A('kid', 'happy')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">完璧歸趙</text>') }
+      ];
     }
   };
 
