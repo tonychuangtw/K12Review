@@ -4360,6 +4360,192 @@
           html: scene(P(400, 190, STONE3, '', 0, 1.3) + P(320, 210, A('bird'), '', 0, .9) + P(490, 220, A('bird'), '', .2, .85, true) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一石二鳥</text>') }
       ];
+    },
+    /* 大驚小怪 */
+    i802: function () {
+      var SPIDER = '<circle cx="0" cy="0" r="7" fill="#6d6044"/><circle cx="0" cy="-8" r="4.6" fill="#6d6044"/>' +
+        '<g stroke="#6d6044" stroke-width="1.8" stroke-linecap="round"><line x1="-6" y1="-2" x2="-14" y2="-8"/><line x1="-6" y1="2" x2="-15" y2="2"/><line x1="-6" y1="5" x2="-13" y2="10"/><line x1="6" y1="-2" x2="14" y2="-8"/><line x1="6" y1="2" x2="15" y2="2"/><line x1="6" y1="5" x2="13" y2="10"/></g>' +
+        '<circle cx="-2" cy="-9" r="1" fill="#fff"/><circle cx="2" cy="-9" r="1" fill="#fff"/>';
+      return [
+        { minDur: 6600, sub: '「啊——！蜘蛛！」小美看到牆角一隻小蜘蛛，尖叫得整層樓都聽見了。',
+          html: scene(P(560, 260, SPIDER, '', 0, 1.1) +
+            P(300, 302, A('kid', 'wow')) + bang(380, 180) + sweat(250, 195)) },
+        { minDur: 6800, sub: '哥哥跑來一看，笑了：「這麼小一隻，別大驚小怪啦！」輕輕把牠請到花園去了。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(40, -60, SPIDER, '', 0, .8)) +
+            P(500, 302, A('kid', 'happy'), '', 0, .95) + hearts(410, 185)) },
+        { minDur: 6600, sub: '為了不重要的小事過分驚訝、大呼小叫——就是「大驚小怪」。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + bang(490, 185) + qmark(320, 185)) },
+        { minDur: 6400, sub: '大驚小怪：為了小事過分驚訝。',
+          html: scene(P(360, 302, A('kid', 'wow'), '', 0, 1.05) + P(560, 250, SPIDER, '', 0, 1) + bang(450, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大驚小怪</text>') }
+      ];
+    },
+    /* 早出晚歸 */
+    i803: function () {
+      var BRIEFCASE = '<rect x="-14" y="-16" width="28" height="20" rx="4" fill="#8a5a33" stroke="#6d4426" stroke-width="2.4"/><path d="M-6 -16 q6 -8 12 0" stroke="#6d4426" stroke-width="3" fill="none"/>';
+      return [
+        { minDur: 6600, sub: '天剛濛濛亮，爸爸就提著公事包出門上班了。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-38, -30, BRIEFCASE), 'st-inR', 0, 1.05)) },
+        { minDur: 6600, sub: '星星都出來了，他才拖著疲憊的腳步回到家。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-38, -30, BRIEFCASE), 'st-inL', 0, 1.05) + sweat(350, 195) + zzz(500, 200), 'night') },
+        { minDur: 6800, sub: '農夫伯伯也是早出晚歸，天天在田裡辛勤工作——記得跟辛苦的家人說聲「辛苦了」！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(16, -30, HOE, 'st-hoe')) + sweat(290, 195) +
+            P(560, 302, A('kid', 'happy'), '', 0, .9) + hearts(470, 185)) },
+        { minDur: 6400, sub: '早出晚歸：早上出門、很晚回家，形容辛勤忙碌。',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-38, -30, BRIEFCASE), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">早出晚歸</text>', 'night') }
+      ];
+    },
+    /* 大街小巷 */
+    i804: function () {
+      var LANTERN = '<line x1="0" y1="-40" x2="0" y2="-30" stroke="#a85a1e" stroke-width="2.6"/>' +
+        '<path d="M-12 -30 Q-16 -12 -12 0 L12 0 Q16 -12 12 -30 Z" fill="#e85a4f" stroke="#c94a3f" stroke-width="2.4"/>' +
+        '<path d="M-6 0 l0 8 M0 0 l0 9 M6 0 l0 8" stroke="#ffd97a" stroke-width="2"/>';
+      var HOUSE4 = '<path d="M-40 -34 L0 -60 L40 -34 Z" fill="#8a5a33"/><rect x="-32" y="-34" width="64" height="34" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>' +
+        '<rect x="-24" y="-26" width="10" height="20" fill="#e85a4f"/><rect x="14" y="-26" width="10" height="20" fill="#e85a4f"/>';
+      var TANGHULU = '<line x1="0" y1="0" x2="0" y2="-40" stroke="#a8734a" stroke-width="3"/><circle cx="0" cy="-38" r="6" fill="#e85a4f"/><circle cx="0" cy="-27" r="6" fill="#e85a4f"/><circle cx="0" cy="-16" r="6" fill="#e85a4f"/>';
+      return [
+        { minDur: 6600, sub: '過年到了！大街小巷都掛起紅燈籠，家家戶戶貼上春聯，喜氣洋洋。',
+          html: scene(P(220, 302, HOUSE4) + P(600, 302, HOUSE4, '', 0, .9) +
+            P(330, 240, LANTERN, '', 0, 1) + P(480, 235, LANTERN, '', .3, .95) + hearts(400, 190)) },
+        { minDur: 6600, sub: '賣糖葫蘆的叫賣聲，傳遍了每一條大街、每一條小巷。',
+          html: scene(P(320, 302, A('kid', 'happy') + P(30, -50, TANGHULU)) + notes(400, 170) +
+            P(560, 302, A('kid', 'happy'), 'st-inR', 0, .9) + hearts(480, 195)) },
+        { minDur: 6600, sub: '「大街小巷」指城裡所有的街道巷弄——也就是每一個角落！',
+          html: scene(P(200, 302, HOUSE4, '', 0, .9) + P(430, 302, HOUSE4, '', 0, .8) + P(640, 302, HOUSE4, '', 0, .85) +
+            P(320, 240, LANTERN, '', 0, .9)) },
+        { minDur: 6400, sub: '大街小巷：城裡所有的街道巷弄，每個角落。',
+          html: scene(P(230, 302, HOUSE4) + P(580, 302, HOUSE4, '', 0, .9) + P(400, 235, LANTERN, '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大街小巷</text>') }
+      ];
+    },
+    /* 心花怒放 */
+    i805: function () {
+      function bloom(x, y, color, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<circle cx="0" cy="-8" r="6" fill="' + color + '"/><circle cx="-7" cy="-3" r="6" fill="' + color + '"/><circle cx="7" cy="-3" r="6" fill="' + color + '"/><circle cx="-4" cy="4" r="6" fill="' + color + '"/><circle cx="4" cy="4" r="6" fill="' + color + '"/><circle cx="0" cy="-1" r="4" fill="#ffe066"/></g>');
+      }
+      var REPORT = '<rect x="-16" y="-22" width="32" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>' +
+        '<path d="M-9 -12 h18 M-9 -4 h18 M-9 4 h18" stroke="#8fa3bf" stroke-width="1.8"/>' +
+        '<path d="M-8 12 l5 6 l11 -10" stroke="#548a40" stroke-width="3" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6600, sub: '成績單發下來——小婷竟然進步了二十名！她的心裡樂開了花。',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-42, -56, REPORT, '', 0, .95)) + bang(460, 190) + hearts(280, 185)) },
+        { minDur: 6600, sub: '高興得像心裡的花朵「啪」地一下全部盛開——這就是「心花怒放」！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) +
+            bloom(280, 200, '#ff9eb5', 0) + bloom(400, 170, '#ffd97a', .3) + bloom(520, 200, '#c9a8e0', .6) + hearts(460, 240)) },
+        { minDur: 6600, sub: '媽媽知道了也心花怒放，晚餐特地加菜，全家一起慶祝！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, 1.05, true) +
+            bloom(400, 190, '#ff9eb5', 0) + hearts(390, 240)) },
+        { minDur: 6400, sub: '心花怒放：心裡高興得像花朵盛開。',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) +
+            bloom(270, 210, '#ff9eb5', 0) + bloom(530, 210, '#ffd97a', .4) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">心花怒放</text>') }
+      ];
+    },
+    /* 七手八腳 */
+    i806: function () {
+      var BUCKET = '<path d="M-12 -18 L-9 2 Q0 6 9 2 L12 -18 Z" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2.4"/><path d="M-12 -18 q12 -12 24 0" stroke="#6d87ab" stroke-width="2.6" fill="none"/>';
+      var PUDDLE = '<ellipse cx="0" cy="0" rx="46" ry="10" fill="#a8d4ee" opacity=".8"/>';
+      var CLOTH = '<path d="M-14 0 q7 -8 14 0 q7 8 14 0" stroke="#ffd97a" stroke-width="7" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '啊，金魚缸打翻了！大家七手八腳搶救：有人撈魚、有人提水桶、有人拿抹布擦地——',
+          html: scene(P(430, 318, PUDDLE) + P(430, 300, A('fish'), '', 0, .8) + bang(430, 240) +
+            P(260, 302, A('kid', 'wow')) +
+            P(560, 302, A('kid', 'wow') + P(-34, -30, BUCKET, '', 0, .9), '', 0, .92) +
+            P(670, 302, A('kid', 'wow') + P(-30, -24, CLOTH, '', 0, .8), '', .2, .88)) },
+        { minDur: 6600, sub: '人多手雜，你撞我、我擠你，反而亂成一團！金魚差點又摔了出去。',
+          html: scene(P(430, 318, PUDDLE) +
+            P(340, 302, A('kid', 'wow')) + P(440, 302, A('kid', 'wow'), '', 0, .92, true) +
+            bang(395, 200) + sweat(300, 195) + sweat(490, 200)) },
+        { minDur: 6800, sub: '很多人一起動手、卻忙亂沒條理，就是「七手八腳」——分工合作，才有效率呀！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-34, -30, BUCKET, '', 0, .9)) +
+            P(470, 302, A('kid', 'happy'), '', 0, .95) + hearts(390, 180)) },
+        { minDur: 6400, sub: '七手八腳：很多人一起動手，忙亂沒有條理。',
+          html: scene(P(330, 302, A('kid', 'wow')) + P(450, 302, A('kid', 'wow'), '', 0, .92, true) + bang(395, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">七手八腳</text>') }
+      ];
+    },
+    /* 三長兩短 */
+    i807: function () {
+      var CHESS = '<rect x="-24" y="-24" width="48" height="48" rx="5" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#a89878" stroke-width="1.8"><line x1="-24" y1="-8" x2="24" y2="-8"/><line x1="-24" y1="8" x2="24" y2="8"/><line x1="-8" y1="-24" x2="-8" y2="24"/><line x1="8" y1="-24" x2="8" y2="24"/></g><circle cx="-16" cy="-16" r="5" fill="#3a2e26"/><circle cx="16" cy="0" r="5" fill="#fff" stroke="#c9bfa8"/>';
+      return [
+        { minDur: 6800, sub: '爺爺出門好久沒回來，天都黑了。奶奶急得在門口走來走去：「可別出了什麼三長兩短呀！」',
+          html: scene(P(360, 302, A('kid', 'sad'), '', 0, 1.02) + sweat(310, 195) + qmark(430, 180), 'night') },
+        { minDur: 6800, sub: '原來爺爺只是在公園下棋下過了頭！平平安安回到家，大家都鬆了一口氣。',
+          html: scene(P(300, 302, A('kid', 'happy') +
+              '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', 'st-inL', 0, 1.05) +
+            P(520, 260, CHESS, '', 0, .9) +
+            P(620, 302, A('kid', 'happy'), '', 0, .95) + hearts(450, 190), 'night') },
+        { minDur: 6600, sub: '「三長兩短」指意外的災禍——是一句擔心親人安危的話。',
+          html: scene(P(360, 302, A('kid', 'sad'), '', 0, 1) + qmark(430, 180) + sweat(300, 195)) },
+        { minDur: 6400, sub: '三長兩短：指意外的災禍或事故。',
+          html: scene(P(380, 302, A('kid', 'sad'), '', 0, 1.05) + qmark(460, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">三長兩短</text>') }
+      ];
+    },
+    /* 眼明手快 */
+    i808: function () {
+      var VASE2 = '<path d="M-10 0 Q-15 -10 -10 -22 Q-5 -28 -7 -34 L7 -34 Q5 -28 10 -22 Q15 -10 10 0 Z" fill="#8fd0c0" stroke="#5aa896" stroke-width="2.4"/>';
+      var PADDLE = '<ellipse cx="8" cy="-24" rx="11" ry="14" fill="#c96a5a" stroke="#a84a3f" stroke-width="2.4"/><line x1="4" y1="-12" x2="0" y2="0" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>';
+      var BALL2 = '<circle cx="0" cy="0" r="6" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '花瓶被手肘一碰、滑下桌子的那一瞬間——小哲眼明手快，「唰」地伸手接住了！',
+          html: scene(P(430, 250, '<g transform="rotate(28)">' + VASE2 + '</g>') + bang(500, 200) +
+            P(330, 302, A('kid', 'wow') + '<circle cx="30" cy="-58" r="8.5" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>') + sweat(270, 195)) },
+        { minDur: 6600, sub: '打桌球也要眼明手快：看得準、出手快，才接得住每一顆球！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(28, -40, PADDLE)) +
+            P(470, 220, BALL2, '', 0, 1.1) +
+            P(600, 302, A('kid', 'happy') + P(28, -40, PADDLE), '', 0, .95, true) + bang(480, 170)) },
+        { minDur: 6600, sub: '「眼明手快」：眼睛看得準、動作又敏捷——反應快的人真厲害！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 185) + bang(310, 195)) },
+        { minDur: 6400, sub: '眼明手快：眼睛看得準，動作敏捷。',
+          html: scene(P(360, 302, A('kid', 'happy') + P(28, -40, PADDLE), '', 0, 1.05) + P(520, 230, BALL2, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">眼明手快</text>') }
+      ];
+    },
+    /* 積少成多 */
+    i1001: function () {
+      var PIGGY = '<ellipse cx="0" cy="-16" rx="24" ry="18" fill="#f7a8c4" stroke="#e07ba3" stroke-width="2.6"/>' +
+        '<circle cx="-20" cy="-24" r="7" fill="#f7a8c4" stroke="#e07ba3" stroke-width="2"/>' +
+        '<ellipse cx="-24" cy="-23" rx="3.4" ry="4" fill="#e07ba3"/>' +
+        '<rect x="-5" y="-36" width="12" height="3.4" rx="1.7" fill="#c95a83"/>' +
+        '<rect x="-14" y="-2" width="7" height="7" rx="3" fill="#e07ba3"/><rect x="8" y="-2" width="7" height="7" rx="3" fill="#e07ba3"/>' +
+        '<circle cx="-14" cy="-26" r="1.8" fill="#3a2e26"/>';
+      var COIN = '<circle cx="0" cy="0" r="9" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/><rect x="-3" y="-3" width="6" height="6" fill="none" stroke="#c98f2a" stroke-width="1.8"/>';
+      return [
+        { minDur: 6600, sub: '小杉每天把五塊錢投進小豬撲滿——叮咚、叮咚，一天存一點。',
+          html: scene(P(460, 302, PIGGY, '', 0, 1.2) + P(430, 230, COIN, '', 0, 1) +
+            P(280, 302, A('kid', 'happy')) + notes(520, 200)) },
+        { minDur: 6800, sub: '一年後打開一數：哇！竟然存了一千八百多塊，夠買那套一直想要的百科全書了！',
+          html: scene(P(430, 300, COIN, '', 0, 1) + P(470, 296, COIN, '', .1, 1) + P(510, 300, COIN, '', .2, 1) + P(450, 280, COIN, '', .3, .9) + P(490, 278, COIN, '', .4, .9) +
+            P(280, 302, A('kid', 'wow')) + bang(560, 220) + hearts(340, 185)) },
+        { minDur: 6800, sub: '一點一滴累積，少的也會變成多——讀書也一樣：每天記一點，學問就越來越多！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -56, '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>')) +
+            P(520, 302, PIGGY, '', 0, 1) + hearts(420, 185)) },
+        { minDur: 6400, sub: '積少成多：一點一滴累積，少的也會變成多。',
+          html: scene(P(400, 302, PIGGY, '', 0, 1.4) + P(360, 230, COIN, '', 0, 1) + P(450, 220, COIN, '', .3, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">積少成多</text>') }
+      ];
+    },
+    /* 遙遙領先 */
+    i1002: function () {
+      var TRACK = '<rect y="296" width="800" height="18" fill="#d9a890"/><g stroke="#fff" stroke-width="3" stroke-dasharray="18 14"><line x1="0" y1="305" x2="800" y2="305"/></g>';
+      return [
+        { minDur: 6600, sub: '賽跑槍聲一響，小捷一馬當先衝到最前面，把其他人甩開一大段距離！',
+          html: scene(TRACK + P(620, 296, A('kid', 'happy'), 'st-dashL', 0, 1.05) +
+            P(240, 296, A('kid', 'happy'), 'st-strut', 0, .85) + P(140, 296, A('kid', 'happy'), 'st-strut', .2, .8) + bang(700, 220)) },
+        { minDur: 6600, sub: '跑到操場另一頭回頭一看——第二名還遠遠落在後面呢！',
+          html: scene(TRACK + P(640, 296, A('kid', 'happy'), '', 0, 1.05, true) +
+            P(150, 296, A('kid', 'wow'), 'st-strut', 0, .8) + sweat(200, 210) +
+            '<path d="M240 260 q180 -20 340 0" stroke="#c9bfa8" stroke-width="4" fill="none" stroke-dasharray="9 8"/>') },
+        { minDur: 6600, sub: '「遙遙領先」：遠遠走在最前面，大幅超過其他人！',
+          html: scene(TRACK + P(600, 296, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(680, 200) +
+            P(180, 296, A('kid', 'happy'), 'st-strut', 0, .8)) },
+        { minDur: 6400, sub: '遙遙領先：遠遠走在最前面，大幅超過別人。',
+          html: scene(TRACK + P(620, 296, A('kid', 'happy'), 'st-dashL', 0, 1.1) + P(160, 296, A('kid', 'happy'), 'st-strut', 0, .78) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">遙遙領先</text>') }
+      ];
     }
   };
 
