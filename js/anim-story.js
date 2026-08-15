@@ -1172,6 +1172,142 @@
             P(560, 302, A('kid', 'happy')) +
             '<text x="400" y="80" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">鷸蚌相爭</text>') }
       ];
+    },
+    /* 磨杵成針 */
+    i786: function () {
+      var PESTLE = '<line x1="0" y1="0" x2="30" y2="-40" stroke="#6d7585" stroke-width="9" stroke-linecap="round"/>';
+      var STONE = '<ellipse cx="0" cy="0" rx="34" ry="13" fill="#b0b4bf" stroke="#8b93a3" stroke-width="2.4"/>';
+      var NEEDLE = '<line x1="-14" y1="6" x2="14" y2="-6" stroke="#c4cede" stroke-width="2.6" stroke-linecap="round"/><circle cx="14" cy="-6" r="2" fill="none" stroke="#c4cede" stroke-width="1.4"/>';
+      var BOOK = '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><line x1="-1" y1="-14" x2="-3" y2="11" stroke="#c9bfa8" stroke-width="2"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>';
+      return [
+        { minDur: 6600, sub: '小時候的李白不愛讀書，這天又偷偷溜出學堂，跑到河邊玩耍。',
+          html: scene(P(300, 302, '<g class="st-fleeR">' + A('kid', 'happy') + '</g>', 'st-dashL') +
+            P(120, 296, BOOK, '', 0, 1.1) + notes(400, 180)) },
+        { minDur: 6800, sub: '河邊，他看見一位老婆婆拿著一根粗鐵杵，在大石頭上一下一下地磨。',
+          html: scene(P(520, 316, STONE) +
+            P(440, 302, A('kid', 'happy') + P(20, -30, PESTLE, 'st-hoe'), '', 0, .9) +
+            P(220, 302, A('kid', 'wow')) + qmark(280, 190)) },
+        { minDur: 7400, sub: '李白好奇地問：「婆婆，您磨鐵杵做什麼？」婆婆說：「磨成一根繡花針呀！只要天天磨、不放棄，總有一天磨得成！」',
+          html: scene(P(520, 316, STONE) +
+            P(440, 302, A('kid', 'happy') + P(20, -30, PESTLE), '', 0, .9) +
+            P(300, 220, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".9"/>' + NEEDLE) +
+            P(200, 302, A('kid', 'wow')) + hearts(260, 170)) },
+        { minDur: 6800, sub: '李白深受感動，回到學堂發憤讀書。後來，他成了名傳千古的大詩人！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -50, BOOK)) +
+            P(580, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) + hearts(470, 170)) },
+        { minDur: 6200, sub: '磨杵成針：只要功夫深，功到自然成。',
+          html: scene(P(360, 316, STONE) + P(300, 296, PESTLE, '', 0, 1.1) + P(520, 250, NEEDLE, '', 0, 1.4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">磨杵成針</text>') }
+      ];
+    },
+    /* 騎虎難下 */
+    i891: function () {
+      function riding(cls) {
+        return P(430, 302, A('tiger') + P(4, -34, A('kid', 'wow'), '', 0, .72), cls);
+      }
+      return [
+        { minDur: 6600, sub: '有個人在山裡遇到野獸，慌忙逃命，情急之下竟一躍跳上了一隻老虎的背！',
+          html: scene(P(120, 302, TREE) + riding('st-inR') + bang(520, 200) + sweat(360, 200)) },
+        { minDur: 6600, sub: '老虎馱著他狂奔起來！他嚇得緊緊抱住虎背——現在跳下來，一定會被老虎咬呀！',
+          html: scene(riding('st-dashL') + sweat(500, 190) + sweat(380, 180) +
+            '<path d="M560 316 q90 8 180 2" stroke="#e8dcc0" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="12 10"/>') },
+        { minDur: 6800, sub: '想下又不敢下，只好硬著頭皮一直騎著——進也不是、退也不是，兩頭為難。',
+          html: scene(riding('') + qmark(360, 170) + qmark(520, 180) + sweat(430, 150)) },
+        { minDur: 6800, sub: '很多事也一樣：做到一半，情勢逼人，想停也停不下來，只能硬著頭皮做下去。',
+          html: scene(riding('') + sweat(470, 170), 'night') },
+        { minDur: 6200, sub: '騎虎難下：事情做到一半，迫於形勢無法停止。',
+          html: scene(riding('') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">騎虎難下</text>') }
+      ];
+    },
+    /* 胸有成竹 */
+    i085: function () {
+      function bamboo(x, h, dly) {
+        return P(x, 302, '<line x1="0" y1="0" x2="0" y2="' + (-h) + '" stroke="#5f9a4a" stroke-width="8" stroke-linecap="round"/>' +
+          '<g stroke="#4a7a38" stroke-width="2.4"><line x1="-5" y1="' + (-h * .33) + '" x2="5" y2="' + (-h * .33) + '"/><line x1="-5" y1="' + (-h * .66) + '" x2="5" y2="' + (-h * .66) + '"/></g>' +
+          '<path d="M0 ' + (-h) + ' q-14 -10 -26 -8 M0 ' + (-h) + ' q14 -10 26 -8 M0 ' + (-h * .8) + ' q12 -6 22 -2" stroke="#6fae58" stroke-width="4" fill="none" stroke-linecap="round"/>', '', dly);
+      }
+      var BRUSH = '<line x1="0" y1="0" x2="14" y2="-34" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>' +
+        '<path d="M0 0 q-3 6 -1 11 q4 -2 5 -8 z" fill="#3a2e26"/>';
+      var INKBAMBOO = '<line x1="0" y1="0" x2="0" y2="-64" stroke="#4a4a55" stroke-width="5" stroke-linecap="round"/>' +
+        '<path d="M0 -64 q-10 -8 -18 -6 M0 -64 q10 -8 18 -6 M0 -40 q10 -5 18 -2" stroke="#4a4a55" stroke-width="3" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6600, sub: '宋朝畫家文同最愛畫竹子。他在屋前屋後種滿了竹子，天天細細觀察。',
+          html: scene(bamboo(560, 130, 0) + bamboo(640, 110, .3) + bamboo(710, 140, .5) +
+            P(340, 302, A('kid', 'happy'))) },
+        { minDur: 6800, sub: '晴天雨天、春夏秋冬，竹子的每一種姿態，他都看得清清楚楚、記在心裡。',
+          html: scene(bamboo(560, 130, 0) + bamboo(650, 115, .3) +
+            '<g stroke="#8fc6ff" stroke-width="3.4" stroke-linecap="round">' +
+            '<line class="st-rain" x1="140" y1="30" x2="134" y2="52"/><line class="st-rain" style="animation-delay:.4s" x1="300" y1="16" x2="294" y2="38"/>' +
+            '<line class="st-rain" style="animation-delay:.8s" x1="450" y1="30" x2="444" y2="52"/></g>' +
+            P(340, 302, A('kid', 'happy'))) },
+        { minDur: 6800, sub: '所以每次提筆，他心中早有一幅完整的竹子，下筆一氣呵成，畫得又快又好！',
+          html: scene(P(430, 300, '<rect x="-90" y="-140" width="180" height="140" rx="6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/>' +
+              P(0, -30, INKBAMBOO)) +
+            P(250, 302, A('kid', 'happy') + P(24, -44, BRUSH)) +
+            P(620, 230, '<circle cx="0" cy="0" r="40" fill="#fff" opacity=".85"/>' + P(0, 28, INKBAMBOO, '', 0, .7))) },
+        { minDur: 6600, sub: '朋友們讚嘆：「文同畫竹，早就胸有成竹了呀！」',
+          html: scene(P(430, 300, '<rect x="-90" y="-140" width="180" height="140" rx="6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/>' +
+              P(0, -30, INKBAMBOO)) +
+            P(250, 302, A('kid', 'happy')) +
+            P(640, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) + hearts(560, 180)) },
+        { minDur: 6200, sub: '胸有成竹：做事很有把握，心中早有計畫。',
+          html: scene(bamboo(620, 130, 0) + P(280, 302, A('kid', 'happy') + P(24, -44, BRUSH)) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">胸有成竹</text>') }
+      ];
+    },
+    /* 南轅北轍 */
+    i043: function () {
+      var CART2 = '<circle cx="0" cy="-24" r="24" fill="#c9a06c" stroke="#a8734a" stroke-width="4"/>' +
+        '<g stroke="#a8734a" stroke-width="3.4"><line x1="0" y1="-42" x2="0" y2="-6"/><line x1="-18" y1="-24" x2="18" y2="-24"/></g>' +
+        '<rect x="-12" y="-74" width="96" height="36" rx="7" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>';
+      var SIGN = '<line x1="0" y1="0" x2="0" y2="-84" stroke="#a8734a" stroke-width="6"/>' +
+        '<g><rect x="-6" y="-84" width="64" height="22" rx="4" fill="#e8dcc0" stroke="#a8734a" stroke-width="2.4"/>' +
+        '<text x="26" y="-68" text-anchor="middle" font-size="15" font-weight="bold" fill="#4a3200">楚國→</text></g>';
+      function rig(x, cls, dly) {
+        return P(x, 302, A('horse') + P(70, 0, CART2), cls, dly, 1, true) ;
+      }
+      return [
+        { minDur: 6600, sub: '有個人要去南方的楚國，卻駕著馬車，一路往北走。',
+          html: scene(P(130, 302, SIGN) + rig(420, 'st-strut', 0) +
+            P(560, 302, A('kid', 'happy'), '', 0, .9)) },
+        { minDur: 6800, sub: '朋友攔住他：「楚國在南邊，你怎麼往北走呀？」他說：「沒關係，我的馬跑得特別快！」',
+          html: scene(P(130, 302, SIGN) + rig(460, '', 0) +
+            P(600, 302, A('kid', 'happy'), '', 0, .9) +
+            P(260, 302, A('kid', 'wow')) + qmark(300, 185)) },
+        { minDur: 7000, sub: '「馬再快，方向錯了呀！」「不怕不怕，我的路費帶得多、車伕的技術特別好！」',
+          html: scene(P(130, 302, SIGN) + rig(460, '', 0) +
+            P(600, 302, A('kid', 'happy'), '', 0, .9) +
+            P(260, 302, A('kid', 'angry')) + bang(330, 180) + sweat(230, 200)) },
+        { minDur: 6800, sub: '馬越快、錢越多、車伕越好，他只會離楚國越來越遠啊！',
+          html: scene(P(90, 302, SIGN) + rig(640, 'st-strut', 0) +
+            P(300, 302, A('kid', 'sad'), '', 0, .9) + sweat(340, 200) + qmark(250, 180)) },
+        { minDur: 6200, sub: '南轅北轍：行動和目標相反，背道而馳。',
+          html: scene(P(150, 302, SIGN) + rig(520, '', 0) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">南轅北轍</text>') }
+      ];
+    },
+    /* 樂不思蜀 */
+    i046: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '蜀國滅亡後，後主劉禪被接到魏國的都城居住，天天有酒宴、有歌舞，日子過得逍遙快活。',
+          html: scene(P(320, 302, A('kid', 'happy') + CROWN + P(40, -66, JUG, '', 0, .8)) +
+            notes(420, 160) + hearts(250, 180)) },
+        { minDur: 7000, sub: '司馬昭故意安排蜀地的歌舞。跟來的蜀國舊臣看了，難過得低頭掉淚；劉禪卻看得津津有味。',
+          html: scene(P(320, 302, '<g class="st-cheer">' + A('kid', 'happy') + CROWN + '</g>') + notes(400, 150) +
+            P(580, 302, A('kid', 'sad'), '', 0, .9) + sweat(610, 205) +
+            P(690, 302, A('kid', 'sad'), '', .3, .85)) },
+        { minDur: 7000, sub: '司馬昭問他：「你想不想念蜀國呀？」劉禪說：「這裡這麼快樂，我一點也不想念蜀國！」',
+          html: scene(P(240, 302, A('kid', 'happy'), '', 0, .95) + qmark(290, 185) +
+            P(500, 302, A('kid', 'happy') + CROWN, '', 0, 1, true) + hearts(560, 180)) },
+        { minDur: 6600, sub: '連自己的故國都忘得一乾二淨——「樂不思蜀」從此成了千古笑話。',
+          html: scene(P(500, 302, A('kid', 'happy') + CROWN + P(40, -66, JUG, '', 0, .8), '', 0, 1, true) +
+            P(240, 302, A('kid', 'wow'), '', 0, .9) + sweat(280, 195) + qmark(200, 180)) },
+        { minDur: 6200, sub: '樂不思蜀：沉溺於享樂，忘記故鄉。',
+          html: scene(P(400, 302, A('kid', 'happy') + CROWN) + notes(480, 170) + hearts(320, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">樂不思蜀</text>') }
+      ];
     }
   };
 
