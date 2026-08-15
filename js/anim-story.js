@@ -1588,6 +1588,141 @@
           html: scene(P(560, 302, STACK, '', 0, 1.1) + P(300, 302, A('kid', 'happy') + P(-40, -56, BOOK)) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">開卷有益</text>') }
       ];
+    },
+    /* 唇亡齒寒 */
+    i045: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var JADE = '<circle cx="0" cy="0" r="16" fill="#8fd0c0" stroke="#5aa896" stroke-width="3"/><circle cx="0" cy="0" r="5.6" fill="#aee3f5" stroke="#5aa896" stroke-width="2"/>';
+      var MOUTH = '<path d="M-40 -10 Q0 -34 40 -10 Q0 6 -40 -10 Z" fill="#e8899a" stroke="#c96a7a" stroke-width="3"/>' +
+        '<g fill="#fff" stroke="#d5cfc0" stroke-width="1.6"><rect x="-26" y="-16" width="12" height="12" rx="3"/><rect x="-11" y="-18" width="12" height="13" rx="3"/><rect x="4" y="-18" width="12" height="13" rx="3"/><rect x="18" y="-16" width="12" height="12" rx="3"/></g>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 6800, sub: '晉國想攻打虢國，先送上美玉和寶馬給中間的虞國國君，請求借路。',
+          html: scene(P(240, 302, A('kid', 'happy') + P(38, -64, JADE, '', 0, .9)) + P(400, 302, A('horse'), '', 0, .9) +
+            P(620, 302, A('kid', 'happy') + CROWN, '', 0, 1, true) + hearts(680, 185)) },
+        { minDur: 7200, sub: '大臣宮之奇急忙勸阻：「虞虢兩國就像嘴唇和牙齒——嘴唇沒了，牙齒就要受凍呀！千萬不能借！」',
+          html: scene(P(400, 190, '<circle cx="0" cy="-12" r="58" fill="#fff" opacity=".9"/>' + MOUTH) +
+            P(240, 302, A('kid', 'angry')) + sweat(200, 200) +
+            P(620, 302, A('kid', 'happy') + CROWN, '', 0, 1, true) + qmark(670, 190)) },
+        { minDur: 6800, sub: '虞君貪圖寶物，不聽勸告，讓晉國大軍借道通過，滅掉了虢國。',
+          html: scene(P(200, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut') +
+            P(330, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', .2, .9) +
+            bang(680, 200) +
+            P(540, 302, A('kid', 'happy') + CROWN + P(-38, -64, JADE, '', 0, .8), '', 0, .9, true)) },
+        { minDur: 7000, sub: '晉軍回程時，順手把虞國也滅了，美玉寶馬又全被拿了回去！虞君後悔莫及。',
+          html: scene(P(500, 302, '<g class="st-fleeR">' + A('kid', 'angry') + P(30, -64, JADE, '', 0, .8) + '</g>', 'st-dashL') +
+            P(640, 302, A('horse'), 'st-fleeR', .3, .85) +
+            P(240, 302, '<g class="st-slump">' + A('kid', 'sad') + CROWN + '</g>') + sweat(280, 200), 'night') },
+        { minDur: 6200, sub: '唇亡齒寒：利益相關，禍福相連。',
+          html: scene(P(400, 220, '<circle cx="0" cy="-12" r="58" fill="#fff" opacity=".9"/>' + MOUTH) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">唇亡齒寒</text>') }
+      ];
+    },
+    /* 熟能生巧 */
+    i1005: function () {
+      var TARGET = '<circle cx="0" cy="-50" r="30" fill="#fff" stroke="#c96a5a" stroke-width="4"/><circle cx="0" cy="-50" r="18" fill="none" stroke="#c96a5a" stroke-width="4"/><circle cx="0" cy="-50" r="6" fill="#c96a5a"/><line x1="0" y1="-20" x2="0" y2="0" stroke="#a8734a" stroke-width="5"/>' +
+        '<line x1="-3" y1="-52" x2="-26" y2="-58" stroke="#8a5a33" stroke-width="3.4"/><line x1="4" y1="-46" x2="-18" y2="-40" stroke="#8a5a33" stroke-width="3.4"/>';
+      var BOW2 = '<path d="M0 -46 q32 24 0 46" fill="none" stroke="#a8734a" stroke-width="6" stroke-linecap="round"/>' +
+        '<line x1="0" y1="-46" x2="0" y2="0" stroke="#d9cbb0" stroke-width="2.6"/>';
+      var GOURD = '<path d="M-10 0 q-12 -8 -8 -20 q3 -9 12 -10 q-8 -6 -5 -14 q4 -9 11 -9 q7 0 11 9 q3 8 -5 14 q9 1 12 10 q4 12 -8 20 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4" transform="translate(0,-2)"/>';
+      var COINOIL = '<circle cx="0" cy="0" r="13" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.6"/><rect x="-4" y="-4" width="8" height="8" fill="#aee3f5" stroke="#c98f2a" stroke-width="1.6"/>' +
+        '<line x1="0" y1="-42" x2="0" y2="-5" stroke="#e8b84a" stroke-width="2" opacity=".9"/>';
+      return [
+        { minDur: 6600, sub: '宋朝的陳堯咨箭術高明，十箭能中八九支，他得意極了。',
+          html: scene(P(620, 302, TARGET) +
+            P(240, 302, '<g class="st-cheer">' + A('kid', 'happy') + P(30, -40, BOW2, '', 0, .8) + '</g>') + hearts(330, 175)) },
+        { minDur: 6600, sub: '路旁賣油的老翁看了，卻只是微微點頭。陳堯咨不高興：「你懂什麼射箭？」',
+          html: scene(P(620, 302, TARGET, '', 0, .9) +
+            P(280, 302, A('kid', 'angry') + P(30, -40, BOW2, '', 0, .8)) + bang(350, 185) +
+            P(520, 302, A('kid', 'happy'), '', 0, .9, true)) },
+        { minDur: 7400, sub: '老翁拿出葫蘆，在瓶口放一枚銅錢，高高舉杓倒油——油像一條細線穿過錢孔流進去，銅錢竟一滴也沒沾到！',
+          html: scene(P(430, 260, COINOIL, '', 0, 1.2) + P(430, 300, GOURD) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) +
+            P(260, 302, A('kid', 'wow')) + sweat(310, 195) + bang(360, 160)) },
+        { minDur: 6800, sub: '老翁說：「沒什麼特別的，只是手熟罷了。」陳堯咨聽了，心服口服。',
+          html: scene(P(520, 302, A('kid', 'happy'), '', 0, .95, true) +
+            P(280, 302, A('kid', 'happy')) + hearts(400, 175)) },
+        { minDur: 6200, sub: '熟能生巧：做事熟練了，自然產生巧妙的方法。',
+          html: scene(P(300, 290, COINOIL, '', 0, 1.2) + P(300, 316, GOURD, '', 0, .9) + P(560, 302, TARGET, '', 0, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">熟能生巧</text>') }
+      ];
+    },
+    /* 名落孫山 */
+    i244: function () {
+      var LISTBOARD = '<rect x="-40" y="-120" width="80" height="120" rx="5" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/>' +
+        '<text x="0" y="-100" text-anchor="middle" font-size="15" font-weight="bold" fill="#c96a5a">榜</text>' +
+        '<g stroke="#8fa3bf" stroke-width="2.6"><line x1="-24" y1="-84" x2="24" y2="-84"/><line x1="-24" y1="-68" x2="24" y2="-68"/><line x1="-24" y1="-52" x2="24" y2="-52"/><line x1="-24" y1="-36" x2="24" y2="-36"/></g>' +
+        '<line x1="-24" y1="-20" x2="24" y2="-20" stroke="#c96a5a" stroke-width="3"/>';
+      var BUNDLE = '<circle cx="0" cy="-6" r="11" fill="#e8c48f" stroke="#c9a066" stroke-width="2.4"/><line x1="8" y1="-14" x2="20" y2="-26" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>';
+      return [
+        { minDur: 6400, sub: '宋朝的孫山和同鄉的兒子，一起上京城趕考。',
+          html: scene(P(280, 302, A('kid', 'happy') + P(-30, -60, BUNDLE, '', 0, .9), 'st-strut') +
+            P(430, 302, A('kid', 'happy') + P(-30, -60, BUNDLE, '', 0, .9), 'st-strut', .3, .92)) },
+        { minDur: 7000, sub: '放榜了！孫山考中了最後一名；同鄉的兒子，榜上卻找不到名字。',
+          html: scene(P(430, 302, LISTBOARD) +
+            P(250, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(600, 302, A('kid', 'sad'), '', 0, .92) + sweat(640, 200)) },
+        { minDur: 7400, sub: '孫山先回到家鄉。同鄉急著問：「我兒子考上了嗎？」他幽默地說：「榜單最後一名是孫山，令郎的名字，還在孫山後面呢。」',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(610, 185) + sweat(520, 200)) },
+        { minDur: 6400, sub: '「名落孫山」從此成了考試沒考上的委婉說法。',
+          html: scene(P(430, 302, LISTBOARD, '', 0, .95) + P(620, 302, A('kid', 'sad'), '', 0, .92) + sweat(660, 200)) },
+        { minDur: 6200, sub: '名落孫山：考試或選拔沒有錄取。',
+          html: scene(P(300, 302, LISTBOARD, '', 0, .95) + P(560, 302, A('kid', 'sad')) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">名落孫山</text>') }
+      ];
+    },
+    /* 毛遂自薦 */
+    i266: function () {
+      var BAG = '<path d="M-20 0 Q-26 -30 0 -36 Q26 -30 20 0 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>' +
+        '<path d="M-8 -36 q8 -6 16 0" stroke="#a8734a" stroke-width="3" fill="none"/>' +
+        '<path d="M6 -40 l6 -12 l4 13 z" fill="#8b93a3"/>';
+      var SWORD2 = '<line x1="0" y1="0" x2="26" y2="-40" stroke="#c4cede" stroke-width="5" stroke-linecap="round"/>' +
+        '<line x1="4" y1="-12" x2="14" y2="-4" stroke="#c98f2a" stroke-width="4" stroke-linecap="round"/>';
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '秦軍圍攻趙國都城，平原君要挑二十位人才出使楚國求救，挑來挑去，還缺一個人。',
+          html: scene(P(180, 302, A('kid', 'sad') + CROWN) + qmark(230, 185) +
+            P(400, 302, A('kid', 'happy'), '', 0, .85) + P(510, 302, A('kid', 'happy'), '', .2, .85) +
+            P(620, 302, A('kid', 'happy'), '', .4, .85)) },
+        { minDur: 7400, sub: '門客毛遂站了出來：「帶我去吧！」平原君說：「人才就像錐子放進布袋，尖端立刻會露出來——你來了三年，我卻沒聽說過你。」',
+          html: scene(P(430, 210, '<circle cx="0" cy="-14" r="46" fill="#fff" opacity=".9"/>' + BAG) +
+            P(240, 302, A('kid', 'happy')) +
+            P(600, 302, A('kid', 'wow') + CROWN, '', 0, .95, true) + qmark(650, 185)) },
+        { minDur: 6800, sub: '毛遂不慌不忙：「那是因為我今天才請您把我放進袋子裡呀！」平原君覺得有理，帶上了他。',
+          html: scene(P(240, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(600, 302, A('kid', 'happy') + CROWN, '', 0, .95, true) + hearts(420, 175)) },
+        { minDur: 7200, sub: '到了楚國，談判僵持不下。毛遂手按寶劍走上前，慷慨陳詞，楚王當場答應出兵救趙！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(24, -40, SWORD2)) + bang(380, 170) +
+            P(580, 302, A('kid', 'wow') + CROWN, '', 0, 1, true) + sweat(540, 195)) },
+        { minDur: 6200, sub: '毛遂自薦：自我推薦，主動爭取任務。',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, 1.05) + P(560, 260, BAG, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">毛遂自薦</text>') }
+      ];
+    },
+    /* 紙上談兵 */
+    i267: function () {
+      var BOOK = '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><line x1="-1" y1="-14" x2="-3" y2="11" stroke="#c9bfa8" stroke-width="2"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 7000, sub: '趙國名將趙奢的兒子趙括，從小熟讀兵書，講起打仗頭頭是道，連父親都辯不過他。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -56, BOOK)) + notes(380, 170) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(630, 185)) },
+        { minDur: 6600, sub: '可是趙奢搖頭憂心：「打仗是生死大事，他卻說得太輕鬆了。」',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -56, BOOK)) +
+            P(560, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(600, 200) + qmark(520, 180)) },
+        { minDur: 6800, sub: '長平之戰，趙王讓趙括代替老將廉頗領兵。他照搬兵書、硬衝硬打——',
+          html: scene(P(260, 302, A('kid', 'happy') + P(-40, -56, BOOK) + P(26, -50, SPEAR3), 'st-strut') +
+            P(420, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', .2, .9) +
+            P(560, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', .4, .85) + bang(680, 220)) },
+        { minDur: 6800, sub: '結果中了秦軍的埋伏，四十萬大軍全軍覆沒。只會背書本，害了整個趙國！',
+          html: scene(P(300, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>', '', 0, .9) +
+            P(460, 306, '<g class="st-faint" style="animation-delay:.3s">' + A('kid', 'sad') + '</g>', '', 0, .85) +
+            bang(560, 190) + sweat(380, 220), 'night') },
+        { minDur: 6200, sub: '紙上談兵：空談理論，不能解決實際問題。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -56, BOOK)) + notes(430, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">紙上談兵</text>') }
+      ];
     }
   };
 
