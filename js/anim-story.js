@@ -9375,6 +9375,148 @@
           html: scene(P(400, 302, A('kid', 'angry') + P(0, -104, '<rect x="-22" y="-14" width="44" height="18" rx="4" fill="#8a7a5a" stroke="#6d6044" stroke-width="2.4"/>', '', 0, 1.1), '', 0, 1.05) +
             '<text x="400" y="70" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">忍辱負重</text>') }
       ];
+    },
+    /* 蜻蜓點水 */
+    i1016: function () {
+      var DRAGONFLY = '<g class="st-fly"><ellipse cx="0" cy="0" rx="4" ry="14" fill="#5aa896"/><circle cx="0" cy="-16" r="5" fill="#5aa896"/><g fill="#c9e8e0" opacity=".8"><ellipse cx="-14" cy="-8" rx="14" ry="5" transform="rotate(-18 -14 -8)"/><ellipse cx="14" cy="-8" rx="14" ry="5" transform="rotate(18 14 -8)"/><ellipse cx="-13" cy="-2" rx="12" ry="4.4" transform="rotate(-8 -13 -2)"/><ellipse cx="13" cy="-2" rx="12" ry="4.4" transform="rotate(8 13 -2)"/></g><circle cx="-2" cy="-18" r="1.6" fill="#2a5a4a"/></g>';
+      var POND = '<rect y="270" width="800" height="70" fill="#7fb2e0"/>' +
+        '<g stroke="#a8d4ee" stroke-width="3" fill="none"><circle cx="430" cy="285" r="10"/><circle cx="430" cy="285" r="20" opacity=".6"/><circle cx="430" cy="285" r="30" opacity=".3"/></g>';
+      return [
+        { minDur: 6800, sub: '池塘上的蜻蜓輕輕一碰水面，馬上飛起——只留下一圈圈小小的漣漪！',
+          html: scene(POND + P(430, 240, DRAGONFLY, '', 0, 1.2)) },
+        { minDur: 6800, sub: '讀書如果也像蜻蜓點水：每頁翻兩秒、每題掃一眼——什麼都碰過，什麼都不深入！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95)) +
+            P(500, 200, DRAGONFLY, '', 0, 1) + qmark(300, 190)) },
+        { minDur: 6800, sub: '「蜻蜓點水」：只輕輕觸及表面、不深入——想真正學會，就要沉下去鑽研！',
+          html: scene(POND + P(430, 235, DRAGONFLY, '', 0, 1.1) + qmark(540, 200)) },
+        { minDur: 6400, sub: '蜻蜓點水：做事膚淺不深入。',
+          html: scene(POND + P(430, 238, DRAGONFLY, '', 0, 1.25) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">蜻蜓點水</text>') }
+      ];
+    },
+    /* 慢條斯理 */
+    i1017: function () {
+      return [
+        { minDur: 6800, sub: '大家都趕著交卷，小理卻慢條斯理：一題一題檢查、一個字一個字看——不慌不忙！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) +
+            P(200, 302, A('kid', 'wow'), 'st-dashL', 0, .9) + sweat(250, 192)) },
+        { minDur: 6800, sub: '結果他是全班唯一滿分——從容緩慢不等於拖拉，而是穩穩把每步做對！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(520, 260, '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="15" font-weight="bold" fill="#e85a4f">100</text>', '', 0, 1) + hearts(280, 192)) },
+        { minDur: 6600, sub: '「慢條斯理」：說話做事從容緩慢、不慌不忙——該快則快、該慢則慢才是智慧！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + hearts(500, 190)) },
+        { minDur: 6400, sub: '慢條斯理：從容緩慢，不慌不忙。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.08) + notes(490, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">慢條斯理</text>') }
+      ];
+    },
+    /* 心服口服 */
+    i1018: function () {
+      return [
+        { minDur: 6800, sub: '棋賽輸了，小服本來不服氣——對手把棋譜攤開，一步步分析給他看：哪裡失誤、怎麼補救……',
+          html: scene(P(430, 260, '<rect x="-24" y="-24" width="48" height="48" rx="5" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#a89878" stroke-width="1.8"><line x1="-24" y1="-8" x2="24" y2="-8"/><line x1="-24" y1="8" x2="24" y2="8"/><line x1="-8" y1="-24" x2="-8" y2="24"/><line x1="8" y1="-24" x2="8" y2="24"/></g><circle cx="-16" cy="-16" r="4.6" fill="#3a2e26"/><circle cx="8" cy="0" r="4.6" fill="#fff" stroke="#c9bfa8"/>') +
+            P(260, 302, A('kid', 'angry')) + P(580, 302, A('kid', 'happy'), '', 0, .97, true)) },
+        { minDur: 6800, sub: '聽完他豎起大拇指：「你真的比我強，我輸得心服口服！」——心裡服、嘴上也服！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(400, 180)) },
+        { minDur: 6600, sub: '「心服口服」：完全信服，一點也不勉強——輸給實力，輸得漂亮！',
+          html: scene(P(360, 302, '<g transform="rotate(20)">' + A('kid', 'happy') + '</g>') +
+            P(520, 302, A('kid', 'happy'), '', 0, 1.02, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '心服口服：心裡和嘴上都信服。',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(420, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">心服口服</text>') }
+      ];
+    },
+    /* 冷言冷語 */
+    i1044: function () {
+      var ICEBUB = '<path d="M-24 -12 a20 15 0 1 1 40 5 q-2 6 -9 7 l-8 7 l1 -7 q-20 -2 -24 -12 z" fill="#e0f0fa" stroke="#8fc0e0" stroke-width="2.2"/>' +
+        '<path d="M-10 -8 l4 4 M-2 -12 l0 6 M6 -8 l-4 4" stroke="#8fc0e0" stroke-width="1.8" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '小語鼓起勇氣參加朗讀比賽，有人卻酸溜溜地說：「就你？別丟臉了吧。」',
+          html: scene(P(300, 302, A('kid', 'sad')) + sweat(250, 195) +
+            P(520, 302, A('kid', 'happy'), '', 0, .97, true) + P(440, 175, ICEBUB, '', 0, 1.1)) },
+        { minDur: 6800, sub: '帶刺的話像冰一樣扎人——「冷言冷語」傷人的心，比冷水更冷！',
+          html: scene(P(400, 200, ICEBUB, '', 0, 1.5) +
+            P(260, 302, A('kid', 'sad'), '', 0, .95) + sweat(320, 195)) },
+        { minDur: 6800, sub: '她沒被擊倒，反而更努力練習，比賽拿下第二名——最好的回應，就是把事情做好！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(490, 195) + bang(300, 200)) },
+        { minDur: 6400, sub: '冷言冷語：譏諷輕蔑的冰冷話語。',
+          html: scene(P(400, 200, ICEBUB, '', 0, 1.6) +
+            '<text x="400" y="300" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">冷言冷語</text>') }
+      ];
+    },
+    /* 知足常樂 */
+    i1056: function () {
+      return [
+        { minDur: 6800, sub: '同學炫耀新款球鞋，小樂低頭看看自己的舊鞋——乾乾淨淨、陪他跑過好多比賽，挺好的！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-strut') + hearts(380, 190) +
+            P(540, 302, A('kid', 'happy') + P(-38, -20, '<path d="M-14 0 q0 -10 8 -10 l12 0 q8 0 8 6 l0 4 z" fill="#e85a4f" stroke="#c94a3f" stroke-width="2"/>', '', 0, 1.1), '', 0, .97, true)) },
+        { minDur: 7000, sub: '老子說「知足者富」——對擁有的感到滿足，心裡就富有；一直跟人比，永遠覺得缺！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(500, 200, '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#ff7b9c"/>', '', 0, 1.2) + hearts(280, 195)) },
+        { minDur: 6800, sub: '「知足常樂」：珍惜擁有的，快樂常相伴——感恩的心是快樂的泉源！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 185) + hearts(310, 190)) },
+        { minDur: 6400, sub: '知足常樂：對擁有的感到滿足，就能常保快樂。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) + hearts(490, 186) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">知足常樂</text>') }
+      ];
+    },
+    /* 燃眉之急 */
+    i1067: function () {
+      var FIREBROW = '<g class="st-flick"><path d="M0 -6 q-8 -10 0 -20 q2 6 6 8 q4 -5 3 -9 q7 8 1 17 q-5 6 -10 4 z" fill="#ff9c40"/></g>';
+      return [
+        { minDur: 6800, sub: '火燒到眉毛了——還能慢慢來嗎？「燃眉之急」就是急到不能再急的事！',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-14, -66, FIREBROW, '', 0, .9) + P(14, -66, FIREBROW, '', .2, .9)) +
+            sweat(330, 190) + bang(500, 185)) },
+        { minDur: 6800, sub: '明天要交的報告電腦突然當機！——先借同學的電腦救急，解了燃眉之急！',
+          html: scene(P(300, 302, A('kid', 'wow') + P(-44, -56, '<rect x="-18" y="-14" width="36" height="24" rx="3" fill="#3a2e26"/><text x="0" y="0" text-anchor="middle" font-size="12" fill="#e85a4f">!</text>', '', 0, .95)) + sweat(250, 190) +
+            P(520, 302, A('kid', 'happy') + P(-40, -56, '<rect x="-18" y="-14" width="36" height="24" rx="3" fill="#3a2e26"/><rect x="-15" y="-11" width="30" height="18" rx="2" fill="#7fb2e0"/>', '', 0, .95), '', 0, .97) + hearts(410, 190)) },
+        { minDur: 6600, sub: '「燃眉之急」：像火燒眉毛一樣緊迫——先救急、再治本！',
+          html: scene(P(400, 302, A('kid', 'wow') + P(0, -70, FIREBROW, '', 0, 1.1), '', 0, 1.05) + sweat(330, 190)) },
+        { minDur: 6400, sub: '燃眉之急：非常緊迫的困難。',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-14, -66, FIREBROW, '', 0, .95) + P(14, -66, FIREBROW, '', .2, .95), '', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">燃眉之急</text>') }
+      ];
+    },
+    /* 星羅棋布 */
+    i1081: function () {
+      function stars() {
+        var s = '';
+        [[150,60],[260,40],[380,70],[500,45],[620,65],[210,110],[330,120],[450,100],[570,120],[680,95]].forEach(function(p, i) {
+          s += '<circle class="st-tw"' + (i % 3 ? ' style="animation-delay:.' + (i % 3 * 3) + 's"' : '') + ' cx="' + p[0] + '" cy="' + p[1] + '" r="' + (2.4 + (i % 3)) + '" fill="#fff"/>';
+        });
+        return s;
+      }
+      return [
+        { minDur: 6800, sub: '晴朗的夜空：星星一顆顆散布天際，像棋盤上排開的棋子——密密麻麻又錯落有致！',
+          html: scene(stars() + P(360, 302, A('kid', 'wow'), '', 0, .98) + hearts(450, 230), 'night') },
+        { minDur: 6800, sub: '從飛機上看城市的燈火、地圖上看台灣的廟宇——也都星羅棋布地分布著！',
+          html: scene('<g fill="#ffe9a0"><circle cx="180" cy="240" r="4"/><circle cx="260" cy="270" r="3.4"/><circle cx="350" cy="230" r="4"/><circle cx="440" cy="265" r="3"/><circle cx="530" cy="240" r="4"/><circle cx="620" cy="270" r="3.4"/></g>' +
+            P(300, 150, '<path d="M-30 0 L30 0 L18 -12 L6 -12 L0 -20 L-8 -12 L-20 -12 Z" fill="#c9d6e8" stroke="#8b93a3" stroke-width="2"/>', '', 0, 1.2), 'night') },
+        { minDur: 6600, sub: '「星羅棋布」：像星星、棋子那樣散布——形容數量多、分布廣！',
+          html: scene(stars() +
+            P(430, 250, '<rect x="-24" y="-24" width="48" height="48" rx="5" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.4" opacity=".9"/><g fill="#3a2e26"><circle cx="-12" cy="-12" r="4"/><circle cx="12" cy="4" r="4"/></g><circle cx="4" cy="-8" r="4" fill="#fff" stroke="#c9bfa8"/>', '', 0, 1), 'night') },
+        { minDur: 6400, sub: '星羅棋布：如星棋散布，數量多分布廣。',
+          html: scene(stars() +
+            '<text x="400" y="280" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">星羅棋布</text>', 'night') }
+      ];
+    },
+    /* 鱗次櫛比 */
+    i1082: function () {
+      var ROWHOUSES = '<g stroke-width="2.4"><rect x="-160" y="-60" width="44" height="60" fill="#c9a06c" stroke="#a8734a"/><rect x="-112" y="-74" width="44" height="74" fill="#8fa8c9" stroke="#6d87ab"/><rect x="-64" y="-56" width="44" height="56" fill="#e0a458" stroke="#c08838"/><rect x="-16" y="-80" width="44" height="80" fill="#a5c2b2" stroke="#7a9a8a"/><rect x="32" y="-64" width="44" height="64" fill="#c9a8e0" stroke="#a884c4"/><rect x="80" y="-72" width="44" height="72" fill="#8fa8c9" stroke="#6d87ab"/><rect x="128" y="-58" width="44" height="58" fill="#c9a06c" stroke="#a8734a"/></g>';
+      return [
+        { minDur: 6800, sub: '老街兩旁的房子一間挨著一間、屋簷連著屋簷——像魚鱗、像梳子的齒，排得整整齊齊！',
+          html: scene(P(400, 302, ROWHOUSES, '', 0, 1) +
+            P(200, 302, A('kid', 'wow'), '', 0, .88) + hearts(280, 220)) },
+        { minDur: 6800, sub: '「鱗」是魚鱗、「櫛」是梳子——密密麻麻又井然有序地排列！',
+          html: scene(P(300, 250, '<g fill="#8fd0c0" stroke="#5aa896" stroke-width="1.6"><path d="M-30 0 a10 10 0 0 1 20 0 a10 10 0 0 1 20 0 a10 10 0 0 1 20 0"/><path d="M-20 12 a10 10 0 0 1 20 0 a10 10 0 0 1 20 0"/></g>', '', 0, 1.4) +
+            P(500, 250, '<g stroke="#a8734a" stroke-width="3.4"><line x1="-24" y1="-16" x2="-24" y2="16"/><line x1="-12" y1="-16" x2="-12" y2="16"/><line x1="0" y1="-16" x2="0" y2="16"/><line x1="12" y1="-16" x2="12" y2="16"/><line x1="24" y1="-16" x2="24" y2="16"/><line x1="-28" y1="-16" x2="28" y2="-16"/></g>', '', .3, 1.3)) },
+        { minDur: 6600, sub: '「鱗次櫛比」：建築物整齊密集地排列——描寫街景、城市的好詞！',
+          html: scene(P(400, 302, ROWHOUSES, '', 0, .95) + notes(200, 200)) },
+        { minDur: 6400, sub: '鱗次櫛比：像魚鱗梳齒般整齊密集排列。',
+          html: scene(P(400, 302, ROWHOUSES, '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鱗次櫛比</text>') }
+      ];
     }
   };
 
