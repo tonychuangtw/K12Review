@@ -14179,6 +14179,150 @@
           html: scene(P(400, 302, A('monkey'), 'st-hop', 0, 1.05) + bang(500, 190) + hearts(300, 195) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">活靈活現</text>') }
       ];
+    },
+    /* 維妙維肖 */
+    i578: function () {
+      return [
+        { minDur: 6800, sub: '口技表演：學鳥叫、學風聲、學火車進站——閉上眼睛聽，就像真的在現場！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-8 -46 q8 6 16 0" stroke="#c96a5a" stroke-width="2.6" fill="none"/>', '', 0, 1.05) +
+            P(540, 210, A('bird'), 'st-fly', 0, .85) + notes(280, 185) + notes(480, 250) +
+            P(620, 302, A('kid', 'wow'), '', 0, .92, true)) },
+        { minDur: 6800, sub: '「維妙維肖」：模仿精妙又相似（肖＝相似）——注意寫「肖」，不是俏皮的「俏」！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#548a40">肖✓</text>', '', 0, 1.1)) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(440, 188)) },
+        { minDur: 6800, sub: '模仿大賽：小肖學校長講話的神韻，連校長本人都笑著鼓掌——像到骨子裡！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', 'st-cheer', 0, 1.02, true) + bang(440, 180) + hearts(620, 195)) },
+        { minDur: 6400, sub: '維妙維肖：模仿精妙，逼真相似。',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .99, true) +
+            '<path d="M355 235 q65 -30 130 0" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>' + bang(420, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">維妙維肖</text>') }
+      ];
+    },
+    /* 躍然紙上 */
+    i579: function () {
+      var PAPER = '<rect x="-40" y="-52" width="80" height="104" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-26" y1="-32" x2="26" y2="-32"/><line x1="-26" y1="-18" x2="26" y2="-18"/><line x1="-26" y1="-4" x2="26" y2="-4"/></g>';
+      return [
+        { minDur: 7000, sub: '《一瓢詩話》讚好詩「如生龍活虎，躍然紙上」——字裡的形象活得像要跳出來！',
+          html: scene(P(400, 275, PAPER, '', 0, 1.2) +
+            P(400, 240, A('dragon'), 'st-hop', 0, .7) + bang(510, 200)) },
+        { minDur: 6800, sub: '讀好小說時：主角的笑聲、街道的氣味都浮現眼前——人物躍然紙上，像認識多年的朋友！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95)) +
+            P(530, 220, '<circle cx="0" cy="0" r="28" fill="#fff" opacity=".92"/>' + P(0, 14, A('kid', 'happy'), '', 0, .42), '', 0, 1.1) + hearts(420, 185)) },
+        { minDur: 6800, sub: '「躍然紙上」：描寫生動傳神——祕訣是寫細節：不寫「他很開心」，寫「他嘴角壓不住地往上翹」！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-8 4 q8 8 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .95)) + hearts(470, 190) + notes(280, 192)) },
+        { minDur: 6400, sub: '躍然紙上：描寫生動，如在眼前。',
+          html: scene(P(400, 280, PAPER, '', 0, 1.2) + P(400, 245, A('dragon'), 'st-hop', 0, .68) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">躍然紙上</text>') }
+      ];
+    },
+    /* 入木三分 */
+    i580: function () {
+      var WOODB = '<rect x="-50" y="-30" width="100" height="60" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><path d="M-30 -8 q10 -10 20 0 M6 4 q10 -10 20 0" stroke="#8a6a44" stroke-width="2" fill="none"/>';
+      return [
+        { minDur: 7000, sub: '王羲之在木板上寫祭祝文字，之後工匠要把字削掉重用——刀一削，嚇了一跳！',
+          html: scene(P(430, 285, WOODB, '', 0, 1.2) +
+            P(430, 265, '<text x="0" y="0" text-anchor="middle" font-size="26" fill="#3a2e26" font-weight="bold">永</text>', '', 0, 1) +
+            P(240, 302, A('kid', 'wow') + P(32, -46, '<line x1="0" y1="8" x2="10" y2="-14" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/>', '', 0, 1), '', 0, .98) + bang(330, 220)) },
+        { minDur: 6800, sub: '墨跡竟然滲進木板三分深！削了一層又一層還在——筆力雄勁到不可思議！',
+          html: scene(P(430, 285, WOODB, '', 0, 1.3) +
+            P(430, 265, '<text x="0" y="0" text-anchor="middle" font-size="30" fill="#3a2e26" font-weight="bold" opacity=".75">永</text>', '', 0, 1) +
+            P(560, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#c96a5a">三分深</text>') + sweat(300, 220)) },
+        { minDur: 6800, sub: '「入木三分」：本指筆力遒勁——現在多形容見解或刻畫深刻：他把角色演得入木三分！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -46, '<line x1="0" y1="8" x2="8" y2="-14" stroke="#3a2e26" stroke-width="3.4" stroke-linecap="round"/><path d="M8 -14 l3 -8 l3 8" fill="#3a2e26"/>', '', 0, 1)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '入木三分：筆力遒勁，刻畫深刻。',
+          html: scene(P(400, 288, WOODB, '', 0, 1.3) +
+            P(400, 268, '<text x="0" y="0" text-anchor="middle" font-size="30" fill="#3a2e26" font-weight="bold">永</text>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">入木三分</text>') }
+      ];
+    },
+    /* 力透紙背 */
+    i581: function () {
+      return [
+        { minDur: 7000, sub: '顏真卿傳授筆法心得：用筆要「常欲使其透過紙背」——每一筆都灌足全身的勁！',
+          html: scene(P(360, 302, A('kid', 'angry') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-44, -46, '<line x1="0" y1="10" x2="6" y2="-14" stroke="#3a2e26" stroke-width="3.6" stroke-linecap="round"/><path d="M6 -14 l3 -9 l4 9" fill="#3a2e26"/>', '', 0, 1), '', 0, 1.05) +
+            P(560, 270, '<rect x="-34" y="-44" width="68" height="88" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="12" text-anchor="middle" font-size="40" fill="#3a2e26" font-weight="bold">氣</text>', '', 0, 1.05) + sweat(290, 190)) },
+        { minDur: 6800, sub: '把紙翻過來——墨色隱隱透到背面！「力透紙背」：筆力強勁到穿透紙張！',
+          html: scene(P(400, 270, '<rect x="-34" y="-44" width="68" height="88" rx="3" fill="#f7f3ea" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="12" text-anchor="middle" font-size="40" fill="#3a2e26" opacity=".35" font-weight="bold" transform="scale(-1,1)">氣</text>', '', 0, 1.3) + bang(520, 210)) },
+        { minDur: 6800, sub: '它也形容文章深刻有力——一篇評論句句打中要害，就是「批判力透紙背」！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#3a3550" stroke-width="2"><line x1="-10" y1="-11" x2="10" y2="-11"/><line x1="-10" y1="-3" x2="10" y2="-3"/><line x1="-10" y1="5" x2="10" y2="5"/></g>', '', 0, .95)) + bang(470, 188) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true)) },
+        { minDur: 6400, sub: '力透紙背：筆力剛勁，深刻有力。',
+          html: scene(P(400, 275, '<rect x="-34" y="-44" width="68" height="88" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="12" text-anchor="middle" font-size="40" fill="#3a2e26" font-weight="bold">氣</text>', '', 0, 1.25) + bang(510, 215) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">力透紙背</text>') }
+      ];
+    },
+    /* 行雲流水 */
+    i582: function () {
+      var CLOUDW = '<g class="st-cloud"><ellipse cx="0" cy="0" rx="52" ry="18" fill="#fff" opacity=".9"/><ellipse cx="40" cy="-8" rx="34" ry="14" fill="#fff" opacity=".8"/></g>';
+      return [
+        { minDur: 7000, sub: '蘇軾說好文章像「行雲流水」：該走就走、該停就停——一切自然，毫不勉強！',
+          html: scene(P(300, 120, CLOUDW, '', 0, 1) +
+            '<path d="M120 280 q140 -22 280 0 q140 22 280 0" stroke="#7fb2d4" stroke-width="12" fill="none" stroke-linecap="round"/>' +
+            '<g class="st-windln" stroke="#a8d0e8" stroke-width="4" stroke-linecap="round"><line x1="240" y1="276" x2="320" y2="274"/><line x1="470" y1="284" x2="550" y2="284"/></g>' +
+            P(620, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95, true)) },
+        { minDur: 6800, sub: '體操選手的動作一連到底：翻騰、落地、轉身——像雲在飄、水在流，沒有一絲卡頓！',
+          html: scene(P(400, 302, '<g transform="rotate(-16)">' + A('kid', 'happy') + '</g>', 'st-hop', 0, 1.05) +
+            '<path d="M240 250 q80 -60 160 -20 q80 40 160 -10" stroke="#c9d6e8" stroke-width="4" fill="none" stroke-dasharray="10 8"/>' + hearts(560, 190)) },
+        { minDur: 6800, sub: '「行雲流水」：自然流暢、毫不做作——寫作文也一樣：想清楚再下筆，文氣就順了！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -10 q10 4 20 -2 M-10 0 q10 4 20 -2 M-10 10 q10 4 20 -2" stroke="#8fa3bf" stroke-width="1.8" fill="none"/>', '', 0, .95)) + hearts(470, 190) + notes(280, 192)) },
+        { minDur: 6400, sub: '行雲流水：自然流暢，不滯不澀。',
+          html: scene(P(300, 125, CLOUDW, '', 0, 1) +
+            '<path d="M140 285 q130 -20 260 0 q130 20 260 0" stroke="#7fb2d4" stroke-width="11" fill="none" stroke-linecap="round"/>' +
+            '<text x="400" y="200" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">行雲流水</text>') }
+      ];
+    },
+    /* 一氣呵成 */
+    i583: function () {
+      return [
+        { minDur: 7000, sub: '《詩藪》評杜甫的詩「若百川東注，一氣呵成」——像千百條江河同時奔向大海！',
+          html: scene('<g stroke="#7fb2d4" stroke-width="8" fill="none" stroke-linecap="round"><path d="M120 200 q140 10 280 60 M140 260 q120 8 260 30 M120 300 q150 -4 300 -6"/></g>' +
+            '<rect x="560" y="180" width="240" height="160" fill="#5a7fa8"/>' +
+            P(220, 150, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .9)) },
+        { minDur: 6800, sub: '書法家提筆蘸墨，從第一筆到最後一捺不停頓——整幅字一口氣寫完，氣韻貫通！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(-44, -46, '<line x1="0" y1="10" x2="6" y2="-14" stroke="#3a2e26" stroke-width="3.6" stroke-linecap="round"/><path d="M6 -14 l3 -9 l4 9" fill="#3a2e26"/>', '', 0, 1)) +
+            P(560, 270, '<rect x="-34" y="-44" width="68" height="88" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-16 -24 q20 10 8 28 q-14 16 12 24 M-10 20 h24" stroke="#3a2e26" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.05) + notes(290, 190)) },
+        { minDur: 6800, sub: '「一氣呵成」：流暢不間斷地完成——靈感來了就專心衝完，中途一分心氣就斷了！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + bang(500, 182) +
+            P(280, 205, '<path d="M-16 8 q8 -26 32 -16" stroke="#548a40" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M16 -8 l-2 -10 l9 4 z" fill="#548a40"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '一氣呵成：一鼓作氣，流暢完成。',
+          html: scene(P(400, 275, '<rect x="-34" y="-44" width="68" height="88" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-16 -24 q20 10 8 28 q-14 16 12 24 M-10 20 h24" stroke="#3a2e26" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.2) + notes(520, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一氣呵成</text>') }
+      ];
+    },
+    /* 字字珠璣 */
+    i584: function () {
+      var PEARLS = '<g class="st-tw"><circle cx="-40" cy="0" r="9" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/><circle cx="-13" cy="-6" r="9" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/><circle cx="14" cy="0" r="9" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/><circle cx="40" cy="-5" r="9" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/></g>';
+      return [
+        { minDur: 6800, sub: '打開一篇短文：每一句都精準漂亮，一個多餘的字都找不到——像一串亮晶晶的珍珠！',
+          html: scene(P(300, 270, '<rect x="-30" y="-40" width="60" height="80" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-18" y1="-24" x2="18" y2="-24"/><line x1="-18" y1="-10" x2="18" y2="-10"/><line x1="-18" y1="4" x2="18" y2="4"/></g>', '', 0, 1.05) +
+            P(500, 250, PEARLS, '', 0, 1.2) + hearts(600, 210)) },
+        { minDur: 6800, sub: '「珠璣」是珍珠美玉——「字字珠璣」：每個字都像寶石，文辭精妙到極點！',
+          html: scene(P(400, 250, PEARLS, '', 0, 1.6) +
+            '<g class="st-tw" style="animation-delay:.4s"><path d="M300 200 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>') },
+        { minDur: 6800, sub: '想寫出字字珠璣的文章：每寫完一句就問「這個字能刪嗎？換個更準的？」——磨出來的！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="0" x2="6" y2="0"/></g>', '', 0, .95)) + qmark(470, 185) + hearts(280, 195)) },
+        { minDur: 6400, sub: '字字珠璣：字字如珠玉，文辭精妙。',
+          html: scene(P(400, 255, PEARLS, '', 0, 1.6) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">字字珠璣</text>') }
+      ];
+    },
+    /* 妙筆生花 */
+    i585: function () {
+      var FLOWERPEN = '<line x1="0" y1="20" x2="10" y2="-20" stroke="#3a2e26" stroke-width="4" stroke-linecap="round"/><path d="M10 -20 l4 -12 l5 12" fill="#3a2e26"/><g class="st-grow" style="transform-origin:14px -34px"><path d="M14 -30 C8 -42 20 -47 23 -37 C29 -45 37 -37 30 -31 C36 -25 26 -19 21 -26 C14 -22 8 -28 14 -30 Z" fill="#ff9eb5"/><circle cx="22" cy="-33" r="3.4" fill="#ffd97a"/></g>';
+      return [
+        { minDur: 7000, sub: '相傳李白少年時夢見自己的筆頭開出花來——醒來後才思泉湧，寫出的詩名滿天下！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-40, -50, FLOWERPEN, '', 0, 1.1), '', 0, 1.05) +
+            P(620, 130, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#2c3550"/>', '', 0, 1) + hearts(480, 190), 'night') },
+        { minDur: 6800, sub: '筆頭開花，文思也開花——「妙筆生花」：文筆高妙，寫什麼都活色生香！',
+          html: scene(P(400, 265, FLOWERPEN, '', 0, 2) + hearts(530, 210) + notes(280, 210)) },
+        { minDur: 6800, sub: '她描寫自己的小城：巷口的麵香、廟埕的老榕樹——妙筆生花，讀的人都想去走一趟！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -10 q10 4 20 -2 M-10 0 q10 4 20 -2" stroke="#8fa3bf" stroke-width="1.8" fill="none"/>', '', 0, .95)) +
+            P(560, 275, '<path d="M-30 20 L0 -10 L30 20 Z" fill="#c9762f"/><rect x="-22" y="20" width="44" height="18" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>' + P(38, 10, TREE, '', 0, .5), '', 0, 1.05) + hearts(440, 190)) },
+        { minDur: 6400, sub: '妙筆生花：文筆高妙，字裡生香。',
+          html: scene(P(400, 270, FLOWERPEN, '', 0, 2) + hearts(530, 215) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">妙筆生花</text>') }
+      ];
     }
   };
 
