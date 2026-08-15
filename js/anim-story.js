@@ -6475,6 +6475,124 @@
           html: scene(P(400, 296, ROBOT, '', 0, 1.25) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">七拼八湊</text>') }
       ];
+    },
+    /* 亂七八糟 */
+    i445: function () {
+      var MESS = '<rect x="-46" y="-14" width="26" height="12" rx="3" fill="#c96a5a" transform="rotate(22 -33 -8)"/>' +
+        '<circle cx="-4" cy="-10" r="9" fill="#8fa8c9"/>' +
+        '<rect x="14" y="-20" width="24" height="10" rx="3" fill="#e0a458" transform="rotate(-18 26 -15)"/>' +
+        '<path d="M-30 6 q12 8 26 2 q12 -6 24 4" stroke="#a3a9b8" stroke-width="4" fill="none"/>' +
+        '<rect x="-16" y="-30" width="14" height="18" rx="3" fill="#a5d47c" transform="rotate(35 -9 -21)"/>';
+      return [
+        { minDur: 6800, sub: '打開小凱的房間門——玩具、衣服、課本丟得到處都是，連踩腳的地方都沒有！',
+          html: scene(P(400, 306, MESS, '', 0, 1.5) +
+            P(180, 302, A('kid', 'wow'), '', 0, .95) + sweat(240, 195) + qmark(500, 220)) },
+        { minDur: 6600, sub: '想找一隻襪子？在玩具堆裡翻了十分鐘還找不到——亂七八糟，什麼都難找！',
+          html: scene(P(400, 306, MESS, '', 0, 1.4) + P(300, 302, A('kid', 'sad')) + sweat(250, 192) + qmark(370, 182)) },
+        { minDur: 6800, sub: '花一小時分類收好：玩具進箱、衣服進櫃、書本上架——房間立刻清爽，找東西一秒到位！',
+          html: scene(P(430, 302, '<g stroke-width="2"><rect x="-60" y="-40" width="36" height="40" rx="4" fill="#a5c8ff" stroke="#5c82ba"/><rect x="-18" y="-40" width="36" height="40" rx="4" fill="#a5d47c" stroke="#7cab6e"/><rect x="24" y="-40" width="36" height="40" rx="4" fill="#ffd97a" stroke="#e8b84a"/></g>') +
+            P(240, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(330, 195)) },
+        { minDur: 6400, sub: '亂七八糟：混亂沒有條理。',
+          html: scene(P(400, 306, MESS, '', 0, 1.5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">亂七八糟</text>') }
+      ];
+    },
+    /* 千奇百怪 */
+    i446: function () {
+      var SHELL = '<path d="M0 0 a16 16 0 0 1 16 -16 a12 12 0 0 1 -4 -12 a20 20 0 0 0 -24 20 a14 14 0 0 0 12 8 z" fill="#e8b84a" stroke="#c98f2a" stroke-width="2"/>';
+      var STARFISH = '<path d="M0 -14 L4 -4 L14 -4 L6 2 L9 12 L0 6 L-9 12 L-6 2 L-14 -4 L-4 -4 Z" fill="#f0925e" stroke="#d1713c" stroke-width="2"/>';
+      var CORAL = '<path d="M0 0 q-2 -14 -10 -18 M0 0 q0 -18 6 -24 M0 0 q6 -12 14 -14" stroke="#f7a8c4" stroke-width="4.6" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '海邊退潮後的沙灘上，撿到好多寶貝：螺旋形的貝殼、五角星的海星、樹枝狀的珊瑚——',
+          html: scene('<ellipse cx="400" cy="330" rx="420" ry="46" fill="#e8d5a8"/>' +
+            P(280, 300, SHELL, '', 0, 1.2) + P(420, 302, STARFISH, '', .2, 1.3) + P(560, 300, CORAL, '', .4, 1.2) +
+            P(150, 302, A('kid', 'wow'), '', 0, .95) + hearts(220, 210)) },
+        { minDur: 6800, sub: '世界上的東西各式各樣、什麼形狀都有——奇形怪狀看得人嘖嘖稱奇！',
+          html: scene(P(300, 260, SHELL, '', 0, 1.4) + P(430, 250, STARFISH, '', .2, 1.5) + P(560, 258, CORAL, '', .4, 1.4) +
+            P(180, 302, A('kid', 'happy'), '', 0, .95) + bang(430, 180)) },
+        { minDur: 6600, sub: '「千奇百怪」：各種各樣奇怪的事物——大自然就是最大的驚奇博物館！',
+          html: scene(P(320, 270, STARFISH, '', 0, 1.4) + P(500, 265, SHELL, '', .3, 1.3) + hearts(410, 220) +
+            P(180, 302, A('kid', 'happy'), '', 0, .92)) },
+        { minDur: 6400, sub: '千奇百怪：各種各樣奇怪的事物。',
+          html: scene(P(280, 265, SHELL, '', 0, 1.4) + P(420, 258, STARFISH, '', .2, 1.5) + P(550, 264, CORAL, '', .4, 1.4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千奇百怪</text>') }
+      ];
+    },
+    /* 口是心非 */
+    i447: function () {
+      var HEART3 = '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#ff7b9c"/>';
+      var XMARK = '<path d="M-8 -8 L8 8 M-8 8 L8 -8" stroke="#c96a5a" stroke-width="4" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '妹妹問：「哥哥，你想吃這塊蛋糕嗎？」哥哥嘴上說「不想」，眼睛卻一直偷瞄……',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(430, 280, '<rect x="-22" y="-18" width="44" height="18" rx="4" fill="#f7a8c4" stroke="#e07ba3" stroke-width="2.4"/><path d="M-22 -18 q11 7 22 0 q11 7 22 0" stroke="#fff" stroke-width="3" fill="none"/>', '', 0, 1.1) +
+            P(560, 302, A('kid', 'happy'), '', 0, .9, true) + qmark(620, 190)) },
+        { minDur: 6800, sub: '嘴巴說的是一套、心裡想的是另一套——「口是心非」就是說話不老實！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(300, 180, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/>' + P(0, -8, XMARK)) +
+            P(500, 180, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/>' + P(0, -12, HEART3, '', 0, .8))) },
+        { minDur: 6800, sub: '有話直說、心口如一，別人才知道你真正的想法——誠實最可愛！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(410, 178)) },
+        { minDur: 6400, sub: '口是心非：嘴上說的和心裡想的不一致。',
+          html: scene(P(310, 200, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/>' + P(0, -7, XMARK)) +
+            P(490, 200, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/>' + P(0, -11, HEART3, '', 0, .75)) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">口是心非</text>') }
+      ];
+    },
+    /* 有始有終 */
+    i448: function () {
+      var PUZZLEDONE = '<g stroke-width="2"><rect x="-28" y="-22" width="26" height="22" rx="3" fill="#a5c8ff" stroke="#5c82ba"/><rect x="2" y="-22" width="26" height="22" rx="3" fill="#a5d47c" stroke="#7cab6e"/><rect x="-28" y="4" width="26" height="22" rx="3" fill="#ffd97a" stroke="#e8b84a"/><rect x="2" y="4" width="26" height="22" rx="3" fill="#f7a8c4" stroke="#e07ba3"/></g>';
+      return [
+        { minDur: 6800, sub: '一千片的大拼圖！拼到一半好想放棄——小恆咬咬牙：「開始了，就要拼完它！」',
+          html: scene(P(430, 280, '<g stroke-width="2"><rect x="-28" y="-22" width="26" height="22" rx="3" fill="#a5c8ff" stroke="#5c82ba"/><rect x="2" y="-22" width="26" height="22" rx="3" fill="#a5d47c" stroke="#7cab6e"/><rect x="-28" y="4" width="26" height="22" rx="3" fill="#ffd97a" stroke="#e8b84a"/><rect x="2" y="4" width="26" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-dasharray="4 4"/></g>', '', 0, 1.2) +
+            P(260, 302, A('kid', 'sad')) + sweat(210, 192) + qmark(330, 182)) },
+        { minDur: 6800, sub: '一天拼一點，兩個星期後——最後一片喀擦放上，完成！那一刻成就感爆棚！',
+          html: scene(P(430, 275, PUZZLEDONE, '', 0, 1.3) + bang(540, 210) +
+            P(260, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(340, 195)) },
+        { minDur: 6600, sub: '「有始有終」：開始了就堅持到最後——半途而廢最可惜！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(490, 188) +
+            '<path d="M250 250 L550 250" stroke="#548a40" stroke-width="4" stroke-linecap="round"/><circle cx="250" cy="250" r="7" fill="#548a40"/><circle cx="550" cy="250" r="7" fill="#548a40"/>') },
+        { minDur: 6400, sub: '有始有終：做事能堅持到底。',
+          html: scene(P(400, 275, PUZZLEDONE, '', 0, 1.3) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">有始有終</text>') }
+      ];
+    },
+    /* 自告奮勇 */
+    i449: function () {
+      return [
+        { minDur: 6800, sub: '老師問：「誰願意代表班上參加演講比賽？」教室一片安靜——小勇舉起了手：「我來！」',
+          html: scene(P(560, 302, A('kid', 'happy'), '', 0, 1.02, true) + qmark(610, 185) +
+            P(300, 302, A('kid', 'happy') +
+              '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-62" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>') + bang(380, 180)) },
+        { minDur: 6800, sub: '沒人指派、主動請纓——「自告奮勇」就是自己站出來承擔任務！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(450, 185) +
+            P(200, 302, A('kid', 'happy'), '', 0, .9) + P(580, 302, A('kid', 'happy'), '', .2, .9)) },
+        { minDur: 6800, sub: '他認真準備了兩星期，上台侃侃而談，為班上拿下第二名——勇敢站出來的人最帥氣！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, A('kid', 'happy'), '', 0, 1.02) + hearts(490, 190) + notes(310, 185)) },
+        { minDur: 6400, sub: '自告奮勇：主動要求承擔任務。',
+          html: scene(P(400, 302, A('kid', 'happy') +
+              '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-62" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>', '', 0, 1.08) + bang(490, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">自告奮勇</text>') }
+      ];
+    },
+    /* 小心翼翼 */
+    i450: function () {
+      var EGGTRAY = '<path d="M-24 0 q0 10 24 10 q24 0 24 -10 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' +
+        '<ellipse cx="-10" cy="-4" rx="7" ry="9" fill="#fff" stroke="#e3dcd4" stroke-width="1.8"/><ellipse cx="8" cy="-5" rx="7" ry="9" fill="#ffe9d0" stroke="#e3dcd4" stroke-width="1.8"/>';
+      return [
+        { minDur: 6800, sub: '幫媽媽端一盤雞蛋——小葳放慢腳步、雙手端平，眼睛盯著盤子，大氣都不敢喘！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(0, -100, EGGTRAY, '', 0, 1)) + sweat(300, 192)) },
+        { minDur: 6800, sub: '過獨木橋也一樣：一步一步踩穩，張開雙手保持平衡——謹慎再謹慎！',
+          html: scene('<rect y="286" width="800" height="54" fill="#7fb2e0"/>' +
+            P(430, 268, '<line x1="-140" y1="0" x2="140" y2="0" stroke="#a8734a" stroke-width="9" stroke-linecap="round"/>') +
+            P(400, 268, A('kid', 'wow'), '', 0, .95) + sweat(340, 190)) },
+        { minDur: 6600, sub: '「翼翼」是恭敬謹慎的樣子——做事非常小心、不敢有一點疏忽！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -100, EGGTRAY, '', 0, .95), '', 0, 1.05) + hearts(500, 195)) },
+        { minDur: 6400, sub: '小心翼翼：非常謹慎，不敢疏忽。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -100, EGGTRAY, '', 0, 1.05), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">小心翼翼</text>') }
+      ];
     }
   };
 
