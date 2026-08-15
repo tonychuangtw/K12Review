@@ -15941,6 +15941,168 @@
             '<path d="M340 190 q140 -40 280 -30" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/>' +
             '<text x="500" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">高瞻遠矚</text>') }
       ];
+    },
+    /* 鴉雀無聲 */
+    i341: function () {
+      return [
+        { minDur: 6800, sub: '模擬考鐘聲一響——剛才還鬧哄哄的教室，瞬間安靜到連烏鴉麻雀的聲音都沒有！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, .98) +
+            P(460, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, .98) +
+            P(620, 220, A('bird') + '<line x1="-10" y1="-22" x2="10" y2="-22" stroke="#c9bfa8" stroke-width="2" opacity="0"/>', '', 0, .8)) },
+        { minDur: 6800, sub: '「鴉雀無聲」：靜得掉根針都聽得到——魔術師揭曉答案前，全場屏住呼吸！',
+          html: scene(P(400, 280, '<rect x="-90" y="-16" width="180" height="16" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(400, 280, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3a2e26"/><path d="M28 -50 q14 -4 18 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(230, 302, A('kid', 'wow'), '', 0, .88) + P(580, 302, A('kid', 'wow'), '', 0, .88, true) +
+            '<g class="st-zfloat" opacity=".5"><text x="400" y="180" text-anchor="middle" font-size="16" fill="#c9bfa8">（安靜）</text></g>', 'night') },
+        { minDur: 6800, sub: '安靜是一種尊重：聽演講、看表演、在圖書館——把音量留給該出聲的人！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -50 q14 -4 18 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>') +
+            P(540, 302, A('kid', 'happy') + P(-40, -46, '<rect x="-13" y="-16" width="26" height="32" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, .97, true) + hearts(450, 188)) },
+        { minDur: 6400, sub: '鴉雀無聲：寂靜無聲，全場屏息。',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, .98) + P(500, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<g class="st-zfloat" opacity=".5"><text x="400" y="200" text-anchor="middle" font-size="16" fill="#8b93a3">（安靜）</text></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鴉雀無聲</text>') }
+      ];
+    },
+    /* 口若懸河 */
+    i342: function () {
+      var WATERFALL = '<path d="M-20 -60 q4 30 -6 60 M0 -60 q0 32 0 62 M20 -60 q-4 30 6 60" stroke="#7fb2d4" stroke-width="8" fill="none" stroke-linecap="round"/><ellipse cx="0" cy="8" rx="40" ry="10" fill="#a8d0e8" opacity=".8"/>';
+      return [
+        { minDur: 7000, sub: '《世說新語》評清談名家郭象：「如懸河瀉水，注而不竭」——像瀑布傾瀉，永遠講不完！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(550, 260, WATERFALL, '', 0, 1.2) + notes(420, 190)) },
+        { minDur: 6800, sub: '「口若懸河」：滔滔不絕、能言善辯——銷售員介紹產品講了二十分鐘沒喘氣！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'wow'), '', 0, .95, true) + sweat(600, 190) +
+            '<g stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"><path d="M400 240 q14 6 28 0 M404 256 q14 6 28 0 M408 272 q14 6 28 0"/></g>') },
+        { minDur: 6800, sub: '但會說更要會聽——口若懸河而不傾聽，就成了油嘴滑舌；留一半時間給對方！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(500, 302, A('kid', 'happy') + P(-38, -52, '<path d="M6 -8 q8 8 0 16" stroke="#8fa3bf" stroke-width="3" fill="none"/>', '', 0, 1.1), '', 0, .98, true) + hearts(420, 185)) },
+        { minDur: 6400, sub: '口若懸河：滔滔不絕，能言善辯。',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(550, 265, WATERFALL, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">口若懸河</text>') }
+      ];
+    },
+    /* 侃侃而談 */
+    i343: function () {
+      return [
+        { minDur: 7000, sub: '《論語》記載孔子在朝中與同僚說話「侃侃如也」——從容和樂、不卑不亢！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + notes(450, 185) + hearts(280, 195)) },
+        { minDur: 6800, sub: '面試現場：考官連環提問，小談不慌不忙，一題一題答得條理分明、理直氣壯！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/>' + P(-40, -52, '<rect x="-13" y="-16" width="26" height="32" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, 1), '', 0, 1, true) + bang(440, 182)) },
+        { minDur: 6800, sub: '「侃侃而談」：從容不迫、理直氣壯地談論——底氣來自準備：練得夠熟，自然不慌！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">準備足</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '侃侃而談：從容暢談，理直氣壯。',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(550, 302, A('kid', 'happy'), '', 0, .95, true) + notes(460, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">侃侃而談</text>') }
+      ];
+    },
+    /* 滔滔不絕 */
+    i344: function () {
+      return [
+        { minDur: 6800, sub: '問小絕最喜歡的電影——不得了，從劇情聊到導演、配樂、彩蛋，一路講了半小時！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) + notes(450, 182) +
+            P(430, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-8 -4 l5 -6 5 4 6 -6 M-8 6 h16" stroke="#8fa3bf" stroke-width="2" fill="none"/>')) },
+        { minDur: 6800, sub: '「滔滔」本形容大水奔流——「滔滔不絕」：話像洪水一樣連續不斷、停不下來！',
+          html: scene('<g class="st-wavemove"><path d="M-40 250 q40 -20 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#7fb2d4" stroke-width="10" stroke-linecap="round"/></g>' +
+            '<g class="st-wavemove" style="animation-delay:.5s"><path d="M-70 285 q40 -14 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#9cc0e0" stroke-width="7" stroke-linecap="round" opacity=".8"/></g>' + notes(400, 190)) },
+        { minDur: 6800, sub: '對熱愛的事滔滔不絕是好事——記得看看聽眾的表情，適時換人說說話！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .98, true) +
+            notes(400, 178) + hearts(560, 195)) },
+        { minDur: 6400, sub: '滔滔不絕：言如流水，連綿不斷。',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            '<g class="st-wavemove"><path d="M420 250 q20 -10 40 0 t40 0 t40 0 t40 0" fill="none" stroke="#7fb2d4" stroke-width="6" stroke-linecap="round"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">滔滔不絕</text>') }
+      ];
+    },
+    /* 一暴十寒 */
+    i345: function () {
+      return [
+        { minDur: 7000, sub: '孟子說：就算是天下最容易生長的植物——曬一天太陽、凍十天寒風，也絕對長不成！',
+          html: scene(P(250, 130, '<circle cx="0" cy="0" r="22" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            P(400, 292, '<path d="M0 8 q-3 -14 6 -20 q8 -5 6 -14" stroke="#548a40" stroke-width="3.4" fill="none"/><path d="M12 -28 q8 -6 14 0 q-2 8 -8 8 q-6 0 -6 -8 z" fill="#a5d47c"/>', '', 0, 1.2) +
+            '<g fill="#fff"><circle class="st-snow" cx="560" cy="40" r="4"/><circle class="st-snow" style="animation-delay:1s" cx="620" cy="24" r="3.6"/></g>') },
+        { minDur: 6800, sub: '學吉他熱三天，然後兩週不碰——每次重來都從零開始，永遠卡在第一課！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1) + notes(420, 185) +
+            '<path d="M470 250 h60" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/><path d="M530 250 l-10 -7 v14 z" fill="#c9bfa8"/>' +
+            P(600, 296, '<g transform="rotate(12)"><path d="M-16 -20 h32 l-3 34 h-26 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2" opacity=".6"/></g>', '', 0, 1) + zzz(660, 250)) },
+        { minDur: 6800, sub: '「一暴十寒」：勤少懈多、沒有恆心（暴＝曝，讀ㄆㄨˋ）——每天十分鐘勝過偶爾狂練三小時！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">ㄆㄨˋ</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">每天</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">10分鐘</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '一暴十寒：勤少懈多，難有所成。',
+          html: scene(P(260, 135, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            '<g fill="#fff"><circle class="st-snow" cx="560" cy="40" r="4"/><circle class="st-snow" style="animation-delay:1.2s" cx="620" cy="26" r="3.6"/></g>' +
+            P(400, 295, '<path d="M0 8 q-2 -10 4 -14" stroke="#a8945a" stroke-width="3" fill="none"/>', '', 0, 1.4) +
+            '<text x="400" y="220" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一暴十寒</text>') }
+      ];
+    },
+    /* 人云亦云 */
+    i346: function () {
+      return [
+        { minDur: 6800, sub: '有人說新出的飲料超好喝，大家跟著喊好喝——小云也點頭：「對對對，超好喝！」其實他根本沒喝過！',
+          html: scene(P(260, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95) +
+            P(400, 302, A('kid', 'happy'), '', 0, .95) + P(540, 302, A('kid', 'happy'), '', 0, .95, true) +
+            P(400, 190, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#6d7585">好喝+1</text>') + sweat(610, 195)) },
+        { minDur: 6800, sub: '「人云亦云」：別人說什麼就跟著說什麼——像回音一樣，沒有自己的想法！',
+          html: scene(P(300, 240, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#6d7585">云</text>') +
+            P(430, 240, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".75"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#8b93a3">云</text>') +
+            P(540, 240, '<circle cx="0" cy="0" r="16" fill="#fff" opacity=".55"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#a8a294">云</text>') + qmark(620, 200)) },
+        { minDur: 6800, sub: '自己試過、查過、想過再開口——有主見的一句話，勝過跟風的一百句！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1.05)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '人云亦云：隨聲附和，沒有主見。',
+          html: scene(P(300, 245, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#6d7585">云</text>') +
+            P(430, 245, '<circle cx="0" cy="0" r="19" fill="#fff" opacity=".7"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#8b93a3">云</text>') +
+            P(535, 245, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".5"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#a8a294">云</text>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">人云亦云</text>') }
+      ];
+    },
+    /* 以訛傳訛 */
+    i347: function () {
+      return [
+        { minDur: 6800, sub: '傳話遊戲開始：「小明養了一隻小白貓」——傳到第五個人變成「小明白天扛了一隻大白鵝」！',
+          html: scene(P(220, 302, A('kid', 'happy'), '', 0, .92) + P(340, 302, A('kid', 'happy'), '', 0, .92) + P(460, 302, A('kid', 'happy'), '', 0, .92) + P(580, 302, A('kid', 'wow'), '', 0, .92, true) +
+            '<g stroke="#c9bfa8" stroke-width="2.6" stroke-dasharray="5 4"><path d="M250 250 h60 M370 250 h60 M490 250 h60"/></g>' + qmark(640, 195)) },
+        { minDur: 6800, sub: '「訛」是錯誤——「以訛傳訛」：錯的訊息一傳十、十傳百，越傳越離譜！',
+          html: scene(P(280, 240, '<rect x="-30" y="-16" width="60" height="32" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#6d7585">小錯</text>') +
+            '<path d="M318 240 h60" stroke="#c96a5a" stroke-width="3"/><path d="M378 240 l-10 -7 v14 z" fill="#c96a5a"/>' +
+            P(450, 240, '<rect x="-34" y="-19" width="68" height="38" rx="4" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#c96a5a">中錯</text>') +
+            '<path d="M492 240 h56" stroke="#c96a5a" stroke-width="3"/><path d="M548 240 l-10 -7 v14 z" fill="#c96a5a"/>' +
+            P(610, 240, '<rect x="-38" y="-22" width="76" height="44" rx="4" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="3"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#c96a5a">大錯!</text>')) },
+        { minDur: 6800, sub: '收到驚人消息先做三件事：查來源、找原文、看日期——確認過再轉發，別當訛的傳聲筒！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -50, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/><path d="M-4 -6 l3 4 l6 -7" stroke="#a5d47c" stroke-width="2" fill="none"/>', '', 0, 1.05)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">查證✓</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '以訛傳訛：謬誤相傳，越傳越錯。',
+          html: scene(P(300, 245, '<rect x="-26" y="-15" width="52" height="30" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#6d7585">訛</text>') +
+            '<path d="M334 245 h56" stroke="#c96a5a" stroke-width="3"/><path d="M390 245 l-10 -7 v14 z" fill="#c96a5a"/>' +
+            P(450, 245, '<rect x="-32" y="-19" width="64" height="38" rx="4" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.6"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#c96a5a">訛!</text>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">以訛傳訛</text>') }
+      ];
+    },
+    /* 好高騖遠 */
+    i348: function () {
+      return [
+        { minDur: 7000, sub: '程顥批評有些學者「厭卑近而騖高遠」——嫌基礎太簡單，一心只追高深的東西！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 6 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1) +
+            P(280, 250, '<rect x="-24" y="-14" width="48" height="28" rx="4" fill="#fff" opacity=".7"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#8b93a3">基礎</text>', '', 0, 1) +
+            P(580, 140, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#c96a5a">高深!</text>', 'st-zfloat', 0, 1.1) +
+            '<path d="M380 260 q120 -80 170 -110" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>') },
+        { minDur: 6800, sub: '九九乘法還不熟就想挑戰微積分——結果兩頭落空，越學越挫折！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">∫dx?</text>', '', 0, .95)) + sweat(290, 188) + qmark(470, 185)) },
+        { minDur: 6800, sub: '「好高騖遠」：不切實際、眼高手低（注意「騖」是馬字底，不是鴨的「鶩」）——先蹲穩再跳高！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#548a40">騖✓</text>', '', 0, 1.1)) + hearts(470, 190) +
+            '<g fill="#d9cfae" stroke="#b8a982" stroke-width="2"><rect x="520" y="272" width="90" height="30"/><rect x="540" y="242" width="70" height="30"/><rect x="560" y="212" width="50" height="30"/></g>') },
+        { minDur: 6400, sub: '好高騖遠：目標過高，不切實際。',
+          html: scene(P(340, 302, A('kid', 'happy'), '', 0, 1) +
+            P(580, 140, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#c96a5a">高遠</text>', 'st-zfloat', 0, 1.1) +
+            '<path d="M380 260 q120 -80 170 -100" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">好高騖遠</text>') }
+      ];
     }
   };
 
