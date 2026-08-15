@@ -6018,6 +6018,113 @@
           html: scene(P(400, 302, A('kid', 'happy') + P(0, -104, MEDAL, '', 0, 1.1), '', 0, 1.05) + hearts(500, 190) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">再接再厲</text>') }
       ];
+    },
+    /* 精益求精 */
+    i232: function () {
+      var CUP2 = '<path d="M-14 -34 h28 v10 q0 14 -14 16 q-14 -2 -14 -16 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/><rect x="-4" y="-8" width="8" height="8" fill="#c98f2a"/><rect x="-12" y="0" width="24" height="6" rx="2.4" fill="#c98f2a"/>';
+      var VIOLIN = '<path d="M-8 0 q-12 -4 -12 -16 q0 -8 6 -10 q-4 -6 0 -12 q4 -6 10 -4 l0 -22 l4 0 l0 22 q6 -2 10 4 q4 6 0 12 q6 2 6 10 q0 12 -12 16 q-6 2 -12 0 z" fill="#c9762f" stroke="#a85a1e" stroke-width="2"/><line x1="0" y1="-64" x2="0" y2="-42" stroke="#6d4426" stroke-width="2.6"/>';
+      return [
+        { minDur: 6800, sub: '小提琴比賽得了第一名！但小育回家後照樣練習：「這一段，還可以拉得更好。」',
+          html: scene(P(340, 302, A('kid', 'happy') + P(30, -50, VIOLIN, '', 0, .9)) +
+            P(540, 290, CUP2, '', 0, 1) + notes(260, 180)) },
+        { minDur: 6800, sub: '已經很好了，還要求更好——把「好」磨成「更好」，把「更好」磨成「最好」！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(30, -50, VIOLIN, '', 0, .95)) + notes(460, 165) + hearts(270, 188) + bang(540, 200)) },
+        { minDur: 6600, sub: '「精益求精」：追求卓越、永不滿足於現狀——大師都是這樣煉成的！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(490, 188) + notes(310, 180)) },
+        { minDur: 6400, sub: '精益求精：已經很好，還要求更好。',
+          html: scene(P(360, 302, A('kid', 'happy') + P(30, -50, VIOLIN, '', 0, 1)) + notes(470, 170) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">精益求精</text>') }
+      ];
+    },
+    /* 如魚得水 */
+    i234: function () {
+      var SEA8 = '<rect y="262" width="800" height="78" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 274 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>';
+      return [
+        { minDur: 6800, sub: '擱淺在沙灘上的小魚奄奄一息——一放回水裡，立刻活蹦亂跳、游得飛快！',
+          html: scene(SEA8 + '<ellipse cx="200" cy="330" rx="180" ry="40" fill="#e8d5a8"/>' +
+            P(430, 296, A('fish'), '', 0, 1.1) + hearts(520, 230) + bang(340, 240)) },
+        { minDur: 7000, sub: '三國的劉備得到諸葛亮相助後說：「我得到孔明，就像魚得到水一樣呀！」',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(520, 302, A('kid', 'happy') + '<path d="M0 0 L-16 -34 A22 22 0 0 1 16 -34 Z" fill="#f4f1e8" stroke="#c9bfa8" stroke-width="2.4" transform="translate(-30,-40) scale(.9)"/>', '', 0, .98, true) + hearts(410, 178)) },
+        { minDur: 6800, sub: '轉學生小柏加入棋社後如魚得水，天天下得不亦樂乎——找到最適合自己的地方了！',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', .2, .95, true) +
+            P(430, 250, '<rect x="-22" y="-22" width="44" height="44" rx="5" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .9) + hearts(420, 175)) },
+        { minDur: 6400, sub: '如魚得水：像魚回到水中，得到契合的環境或夥伴。',
+          html: scene(SEA8 + P(400, 294, A('fish'), '', 0, 1.2) + hearts(500, 230) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">如魚得水</text>') }
+      ];
+    },
+    /* 半信半疑 */
+    i240: function () {
+      return [
+        { minDur: 6800, sub: '同學神祕兮兮地說：「操場的老榕樹下埋著寶藏！」小晉聽了，有點想信，又覺得怪怪的……',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(520, 302, A('kid', 'wow'), '', 0, .97, true) + qmark(570, 182) +
+            P(150, 302, TREE, '', 0, 1.1)) },
+        { minDur: 6800, sub: '一半相信、一半懷疑，心裡像有兩個小人在拔河——「要不要去挖挖看呢？」',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            P(300, 190, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".9"/><path d="M-8 4 l6 6 l12 -12" stroke="#548a40" stroke-width="3.4" fill="none" stroke-linecap="round"/>', '', 0, .95) +
+            P(500, 190, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".9"/><text x="0" y="8" text-anchor="middle" font-size="26" font-weight="bold" fill="#c96a5a">?</text>', '', .3, .95)) },
+        { minDur: 6800, sub: '「半信半疑」：有點相信、又有點懷疑——查證清楚，才不會被騙也不會錯過！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(16, -30, HOE, 'st-hoe')) + P(150, 302, TREE, '', 0, 1.05) + qmark(430, 185)) },
+        { minDur: 6400, sub: '半信半疑：有點相信，又有點懷疑。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            P(310, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".9"/><path d="M-7 3 l5 5 l10 -10" stroke="#548a40" stroke-width="3" fill="none" stroke-linecap="round"/>') +
+            P(490, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".9"/><text x="0" y="7" text-anchor="middle" font-size="22" font-weight="bold" fill="#c96a5a">?</text>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">半信半疑</text>') }
+      ];
+    },
+    /* 津津有味 */
+    i241: function () {
+      var NOODLES = '<path d="M-16 -6 q0 10 16 10 q16 0 16 -10 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -6 q2 -10 -2 -16 M0 -6 q2 -12 -1 -18 M10 -6 q2 -8 0 -14" stroke="#ffe066" stroke-width="2.6" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6600, sub: '媽媽煮的牛肉麵香噴噴——小宇呼嚕呼嚕吃得津津有味，連湯都喝得一滴不剩！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -46, NOODLES, '', 0, 1.1)) + hearts(470, 190) + notes(270, 185)) },
+        { minDur: 6800, sub: '聽爺爺講古早的故事，他也聽得津津有味，眼睛發亮：「後來呢？後來呢？」',
+          html: scene(P(300, 302, A('kid', 'wow')) + qmark(360, 180) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05, true) + notes(430, 170)) },
+        { minDur: 6600, sub: '「津津有味」：吃得有滋味，或聽得、看得興致盎然！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#a5c8ff" stroke="#5c82ba" stroke-width="2.4"/>', '', 0, .95)) + hearts(470, 188)) },
+        { minDur: 6400, sub: '津津有味：吃得有滋味或聽得有興致。',
+          html: scene(P(380, 302, A('kid', 'happy') + P(38, -46, NOODLES, '', 0, 1.15)) + hearts(490, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">津津有味</text>') }
+      ];
+    },
+    /* 目瞪口呆 */
+    i242: function () {
+      var OPENMOUTH2 = '<ellipse cx="0" cy="-38" rx="6" ry="9" fill="#3a2e26"/>';
+      var BIGEYES = '<circle cx="-8" cy="-52" r="6.4" fill="#fff" stroke="#3a2e26" stroke-width="2"/><circle cx="8" cy="-52" r="6.4" fill="#fff" stroke="#3a2e26" stroke-width="2"/><circle cx="-8" cy="-52" r="2.6" fill="#3a2e26"/><circle cx="8" cy="-52" r="2.6" fill="#3a2e26"/>';
+      return [
+        { minDur: 6800, sub: '魔術師把手帕一抖——變出一隻活生生的鴿子！台下的小朋友全都看傻了。',
+          html: scene(P(300, 302, A('kid', 'happy') +
+              '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-58" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>') +
+            P(400, 170, A('bird')) + bang(470, 130) +
+            P(580, 302, A('kid', 'wow') + BIGEYES + OPENMOUTH2, '', 0, .95)) },
+        { minDur: 6600, sub: '眼睛瞪得圓圓的、嘴巴張得大大的，半天說不出一句話——嚇到了、也驚呆了！',
+          html: scene(P(400, 302, A('kid', 'wow') + BIGEYES + OPENMOUTH2, '', 0, 1.08) + sweat(330, 190) + qmark(480, 180)) },
+        { minDur: 6600, sub: '「目瞪口呆」：瞪大眼睛說不出話——形容非常驚訝的樣子！',
+          html: scene(P(320, 302, A('kid', 'wow') + BIGEYES + OPENMOUTH2) +
+            P(500, 302, A('kid', 'wow') + BIGEYES + OPENMOUTH2, '', .2, .95) + bang(410, 180)) },
+        { minDur: 6400, sub: '目瞪口呆：瞪大眼睛說不出話，受驚或驚訝。',
+          html: scene(P(400, 302, A('kid', 'wow') + BIGEYES + OPENMOUTH2, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">目瞪口呆</text>') }
+      ];
+    },
+    /* 狼吞虎嚥 */
+    i426: function () {
+      var BURGER = '<path d="M-14 -8 a14 8 0 0 1 28 0 z" fill="#e8b84a" stroke="#c98f2a" stroke-width="2"/><rect x="-14" y="-8" width="28" height="5" fill="#a5d47c"/><rect x="-14" y="-3" width="28" height="5" rx="1" fill="#8a5a33"/><path d="M-14 2 a14 7 0 0 0 28 0 z" fill="#e8b84a" stroke="#c98f2a" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '踢完球回家，小豪餓壞了——抓起漢堡三兩口就吞下肚，又猛又急！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(38, -50, BURGER, '', 0, 1.2)) + bang(470, 200) + sweat(280, 192)) },
+        { minDur: 6800, sub: '像餓狼吞肉、像老虎嚥食——「狼吞虎嚥」就是吃相又猛又急的樣子！',
+          html: scene(P(280, 302, A('fox'), '', 0, .95) + P(520, 302, A('tiger'), '', .2, .95) + bang(400, 200)) },
+        { minDur: 6800, sub: '不過吃太快容易噎到、也傷腸胃——細嚼慢嚥，才是健康的吃法！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -50, BURGER, '', 0, 1)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '狼吞虎嚥：吃東西又猛又急。',
+          html: scene(P(340, 302, A('kid', 'wow') + P(38, -50, BURGER, '', 0, 1.15)) + P(560, 302, A('tiger'), '', 0, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">狼吞虎嚥</text>') }
+      ];
     }
   };
 
