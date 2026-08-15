@@ -19800,6 +19800,152 @@
             '<line x1="405" y1="205" x2="405" y2="300" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/>' +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">越俎代庖</text>') }
       ];
+    },
+    /* 金蟬脫殼 */
+    i372: function () {
+      var CICADA2 = '<ellipse cx="0" cy="0" rx="9" ry="14" fill="#c9b26a" stroke="#a8905a" stroke-width="2"/><path d="M-7 -7 q-10 7 -7 19 M7 -7 q10 7 7 19" stroke="#d9c98a" stroke-width="2" fill="none" opacity=".8"/>';
+      return [
+        { minDur: 7000, sub: '蟬蛻變時留下完整的空殼掛在樹上——自己早已振翅飛遠！',
+          html: scene(P(520, 285, TREE, '', 0, 1.2) +
+            P(500, 210, '<g opacity=".55">' + CICADA2 + '</g>', '', 0, 1) +
+            P(280, 160, CICADA2 + '<path d="M-9 -9 q-14 6 -10 20 M9 -9 q14 6 10 20" stroke="#e8dcb0" stroke-width="2.4" fill="none"/>', 'st-fly', 0, 1.1)) },
+        { minDur: 6800, sub: '「金蟬脫殼」：留下假象、悄悄脫身——三十六計之一：嫌犯留外套在座位上，人早溜了！',
+          html: scene(P(400, 285, '<rect x="-40" y="-8" width="80" height="12" rx="3" fill="#a8734a"/><g stroke="#8a5a33" stroke-width="5"><line x1="-32" y1="4" x2="-32" y2="34"/><line x1="32" y1="4" x2="32" y2="34"/></g>' + P(0, -22, '<path d="M-16 -12 h32 l-4 24 h-24 z" fill="#8b93a3" opacity=".7"/>', '', 0, 1), '', 0, 1.1) +
+            P(620, 302, '<g class="st-fleeR">' + A('kid', 'happy') + '</g>', 'st-dashL', 0, .9) + qmark(300, 220), 'night') },
+        { minDur: 6800, sub: '計謀用在正道：緊急撤離時留標記引導、談判時留緩衝空間——脫身也要有智慧！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '金蟬脫殼：留殼惑敵，抽身而去。',
+          html: scene(P(520, 288, TREE, '', 0, 1.2) +
+            P(500, 215, '<g opacity=".55">' + CICADA2 + '</g>', '', 0, 1) +
+            P(300, 165, CICADA2, 'st-fly', 0, 1.1) +
+            '<text x="330" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">金蟬脫殼</text>') }
+      ];
+    },
+    /* 閉門造車 */
+    i373: function () {
+      return [
+        { minDur: 7000, sub: '朱熹引古語：「閉門造車，出門合轍」——古時規格統一，關門造的車上路也合軌！',
+          html: scene(P(360, 290, '<rect x="-56" y="-52" width="112" height="52" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><rect x="-12" y="-32" width="24" height="32" fill="#8a6a44"/>' + P(-32, -14, '<circle cx="0" cy="0" r="11" fill="none" stroke="#5a4632" stroke-width="3.4"/>', '', 0, 1), '', 0, 1.1) +
+            P(220, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '後來轉成貶義——「閉門造車」：不看實際狀況、憑空想像做事，一出門就撞牆！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#c96a5a">空想</text>', '', 0, .95)) + sweat(290, 188) +
+            P(560, 240, '<rect x="-30" y="-18" width="60" height="36" rx="4" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#c96a5a">現實</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#c96a5a">不符!</text>', '', 0, 1.05) + bang(460, 200)) },
+        { minDur: 6800, sub: '做產品先問使用者、訂政策先下基層——把門打開，答案在現場！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(38, -52, '<rect x="-13" y="-17" width="26" height="34" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-6 -8 h12 M-6 0 h12 M-6 8 h8" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, 1)) +
+            P(500, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .97, true) + hearts(415, 182)) },
+        { minDur: 6400, sub: '閉門造車：憑空杜撰，脫離實際。',
+          html: scene(P(400, 292, '<rect x="-52" y="-48" width="104" height="48" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><rect x="-11" y="-30" width="22" height="30" fill="#8a6a44"/>' + P(-30, -12, '<circle cx="0" cy="0" r="10" fill="none" stroke="#5a4632" stroke-width="3.2"/>', '', 0, 1), '', 0, 1.1) + qmark(520, 230) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">閉門造車</text>') }
+      ];
+    },
+    /* 陽奉陰違 */
+    i374: function () {
+      return [
+        { minDur: 6800, sub: '會議上小違點頭如搗蒜：「好的！沒問題！」——散會後照舊我行我素！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-8 -46 q8 4 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', 'st-bob', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/>', '', 0, 1, true) +
+            P(430, 190, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">好的!</text>')) },
+        { minDur: 6800, sub: '「陽奉陰違」：表面遵從、暗地違背——「陽」是檯面上、「陰」是檯面下！',
+          html: scene(P(300, 245, '<circle cx="0" cy="0" r="26" fill="#ffdd66" stroke="#f5b73e" stroke-width="2.6"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#a8791e">遵從</text>') +
+            P(500, 245, '<circle cx="0" cy="0" r="26" fill="#3a3550"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#c9d6e8">違背</text>') +
+            '<line x1="400" y1="200" x2="400" y2="295" stroke="#8b93a3" stroke-width="3" stroke-dasharray="7 6"/>') },
+        { minDur: 6800, sub: '不認同就當面說——把話講開也許起爭執，但陽奉陰違一定毀信任！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(500, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .98, true) + hearts(415, 182) + notes(580, 195)) },
+        { minDur: 6400, sub: '陽奉陰違：表面順從，暗中作對。',
+          html: scene(P(310, 250, '<circle cx="0" cy="0" r="24" fill="#ffdd66" stroke="#f5b73e" stroke-width="2.6"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#a8791e">奉</text>') +
+            P(490, 250, '<circle cx="0" cy="0" r="24" fill="#3a3550"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#c9d6e8">違</text>') +
+            '<line x1="400" y1="205" x2="400" y2="298" stroke="#8b93a3" stroke-width="3" stroke-dasharray="7 6"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">陽奉陰違</text>') }
+      ];
+    },
+    /* 隔靴搔癢 */
+    i375: function () {
+      return [
+        { minDur: 7000, sub: '禪師評論不到位的言論：「說得十分好，只是隔靴搔癢」——腳癢隔著靴子抓，怎麼抓都不對勁！',
+          html: scene(P(400, 302, A('kid', 'wow') + P(20, 0, '<path d="M-16 4 q-4 -12 6 -14 l18 0 q12 0 14 8 l0 6 q-18 6 -38 0 z" fill="#8a5a33" stroke="#6d4426" stroke-width="2.4"/>', '', 0, 1.1) + P(44, -18, '<path d="M-6 -8 q6 8 0 16" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.05) + sweat(320, 188) + qmark(500, 185)) },
+        { minDur: 6800, sub: '「隔靴搔癢」：沒切中要點——評語只說「加油」不說哪裡要改，聽了還是不會！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(430, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#c9bfa8">加油?</text>') +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(620, 188)) },
+        { minDur: 6800, sub: '到位的建議長這樣：「第二段舉例太籠統，換成你自己的故事」——脫靴搔癢，一抓就中！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(540, 302, A('kid', 'happy'), 'st-cheer', 0, .97, true) + bang(440, 182) + hearts(620, 195)) },
+        { minDur: 6400, sub: '隔靴搔癢：不著邊際，未中要害。',
+          html: scene(P(400, 302, A('kid', 'wow') + P(20, 0, '<path d="M-16 4 q-4 -12 6 -14 l18 0 q12 0 14 8 l0 6 q-18 6 -38 0 z" fill="#8a5a33" stroke="#6d4426" stroke-width="2.4"/>', '', 0, 1.1), '', 0, 1.05) + qmark(500, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">隔靴搔癢</text>') }
+      ];
+    },
+    /* 雕蟲小技 */
+    i376: function () {
+      return [
+        { minDur: 7000, sub: '揚雄自謙年少作賦是「童子雕蟲篆刻」——像小孩刻蟲形文字，壯夫不為！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="none"/>' + P(-44, -46, '<line x1="0" y1="10" x2="6" y2="-12" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.05) +
+            P(540, 260, '<rect x="-30" y="-24" width="60" height="48" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-14 -8 q6 -8 12 0 q6 8 12 0 M-12 8 q5 -6 10 0 q5 6 10 0" stroke="#8a6a44" stroke-width="2" fill="none"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '「雕蟲小技」：微不足道的技能——多用來自謙：「雕蟲小技，何足掛齒！」',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'wow') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .97, true) + hearts(440, 188)) },
+        { minDur: 6800, sub: '謙稱歸謙稱——所有大技都是從小技磨起：別小看任何一項「小」本事！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -46, '<line x1="0" y1="10" x2="6" y2="-12" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.02) + hearts(470, 190) +
+            P(580, 220, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '雕蟲小技：微末技藝，自謙之詞。',
+          html: scene(P(400, 262, '<rect x="-30" y="-24" width="60" height="48" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-14 -8 q6 -8 12 0 q6 8 12 0 M-12 8 q5 -6 10 0 q5 6 10 0" stroke="#8a6a44" stroke-width="2" fill="none"/>', '', 0, 1.35) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">雕蟲小技</text>') }
+      ];
+    },
+    /* 敝帚自珍 */
+    i377: function () {
+      var BROOM = '<line x1="0" y1="-30" x2="0" y2="10" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><path d="M-12 10 L0 8 L12 10 L8 30 L-8 30 Z" fill="#c9b26a" stroke="#a8905a" stroke-width="2"/><path d="M-6 14 l-2 12 M2 13 l0 13 M8 14 l2 12" stroke="#a8905a" stroke-width="1.6"/>';
+      return [
+        { minDur: 7000, sub: '曹丕引諺語：「家有敝帚，享之千金」——自家的破掃帚，也當千金寶貝疼惜！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -40, BROOM, '', 0, 1), '', 0, 1.05) + hearts(460, 190) +
+            P(220, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .9)) },
+        { minDur: 6800, sub: '「敝帚自珍」：珍惜自己的東西——舊筆記、破手套、小學的獎狀，別人眼中不值錢，自己視若珍寶！',
+          html: scene(P(400, 260, '<rect x="-40" y="-28" width="80" height="56" rx="5" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><path d="M-24 -28 q24 -18 48 0" stroke="#a8734a" stroke-width="4" fill="none"/>' + P(-14, -6, '<rect x="-10" y="-13" width="20" height="26" rx="2" fill="#fff7e8"/>', '', 0, 1) + P(14, -4, '<path d="M0 -12 l3 6 7 1 -5 5 1 7 -6 -3 -6 3 1 -7 -5 -5 7 -1 z" fill="#ffd97a"/>', '', 0, 1), '', 0, 1.15) + hearts(530, 210)) },
+        { minDur: 6800, sub: '多作自謙：「拙作敝帚自珍，請多指教」——珍惜自己的過去，也是給努力的自己一個擁抱！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff7e8" stroke="#d8cbb0" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) + hearts(470, 190) +
+            P(280, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '敝帚自珍：物雖微薄，珍愛有加。',
+          html: scene(P(400, 285, BROOM, '', 0, 1.5) + hearts(510, 220) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">敝帚自珍</text>') }
+      ];
+    },
+    /* 數典忘祖 */
+    i378: function () {
+      return [
+        { minDur: 7000, sub: '晉大夫籍談出使周朝，被問晉國與王室的淵源——他答不出來！',
+          html: scene(P(340, 302, A('kid', 'wow') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) + sweat(280, 188) + qmark(430, 182) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05, true)) },
+        { minDur: 6800, sub: '周景王譏諷：你的祖先世代掌管典籍——你卻「數典而忘其祖」！打臉打得響亮！',
+          html: scene(P(540, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M-28 -56 l-16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05, true) + bang(430, 182) +
+            P(320, 302, A('kid', 'sad'), '', 0, .98) + sweat(260, 190) +
+            P(400, 220, '<rect x="-22" y="-15" width="44" height="30" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#6d5335">典籍</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '「數典忘祖」：忘本——學遍世界很好，但別忘了自己的語言、歷史和家鄉的故事！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#c96a5a" stroke="#a84f42" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#ffd97a">史</text>', '', 0, .95), '', 0, 1.02) + hearts(470, 190) +
+            P(600, 285, '<path d="M-36 28 L0 -8 L36 28 Z" fill="#c9762f"/><rect x="-26" y="28" width="52" height="14" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '數典忘祖：捨本忘源，不知所自。',
+          html: scene(P(400, 250, '<rect x="-26" y="-18" width="52" height="36" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#6d5335">典籍</text>', '', 0, 1.3) + qmark(510, 205) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">數典忘祖</text>') }
+      ];
+    },
+    /* 文過飾非 */
+    i379: function () {
+      return [
+        { minDur: 7000, sub: '《論語》直指人性：「小人之過也必文」——小人犯了錯，一定要拿話術粉飾！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 250, '<rect x="-32" y="-20" width="64" height="40" rx="4" fill="#fff" opacity=".92"/><line x1="-18" y1="4" x2="18" y2="-8" stroke="#c96a5a" stroke-width="3"/><path d="M-18 10 q18 -4 36 -14" stroke="#ffd97a" stroke-width="5" fill="none"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '打破花瓶卻說「它自己掉的」、遲到怪「鬧鐘壞了」——「文過飾非」：用漂亮話蓋住錯！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1.02) +
+            P(430, 195, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#c96a5a">它自己</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#c96a5a">掉的!</text>') +
+            P(560, 290, '<path d="M-14 8 l4 -18 8 6 6 -14" stroke="#8b93a3" stroke-width="3" fill="none"/><ellipse cx="0" cy="12" rx="20" ry="5" fill="#c9bfa8" opacity=".6"/>', '', 0, 1.1) + sweat(290, 190)) },
+        { minDur: 6800, sub: '君子之過如日月之食——錯了大方認，「對不起，我來善後」比一百個藉口高貴！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#ffe3c1" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1, true) + hearts(450, 185)) },
+        { minDur: 6400, sub: '文過飾非：粉飾過錯，拒不認錯。',
+          html: scene(P(400, 250, '<rect x="-34" y="-21" width="68" height="42" rx="4" fill="#fff" opacity=".92"/><line x1="-20" y1="5" x2="20" y2="-9" stroke="#c96a5a" stroke-width="3"/><path d="M-20 12 q20 -5 40 -16" stroke="#ffd97a" stroke-width="5" fill="none"/>', '', 0, 1.3) + qmark(510, 205) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">文過飾非</text>') }
+      ];
     }
   };
 
