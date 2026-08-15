@@ -6236,6 +6236,126 @@
             P(540, 302, A('kid', 'happy'), '', .2, .93) + P(620, 302, A('kid', 'happy'), '', .3, .9) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">三三兩兩</text>') }
       ];
+    },
+    /* 五湖四海 */
+    i433: function () {
+      var GLOBE = '<circle cx="0" cy="0" r="34" fill="#7fb2e0" stroke="#5a8fc4" stroke-width="3"/>' +
+        '<path d="M-20 -14 q10 -8 22 -2 q8 4 4 12 q-10 6 -20 0 q-10 -4 -6 -10 z M2 12 q10 -4 16 4 q-4 8 -14 6 q-6 -4 -2 -10 z" fill="#a5d47c"/>';
+      return [
+        { minDur: 6800, sub: '夏令營開營了！有人從台北來、有人從台東來，還有從澎湖、金門坐飛機來的——',
+          html: scene(P(240, 302, A('kid', 'happy'), 'st-inL', 0, .93) + P(360, 302, A('kid', 'happy'), 'st-inL', .2, .9) +
+            P(540, 302, A('kid', 'happy'), 'st-inR', .1, .92, true) + P(650, 302, A('kid', 'happy'), 'st-inR', .3, .9, true) +
+            hearts(450, 185)) },
+        { minDur: 6600, sub: '「五湖四海」泛指天南地北、各個地方——來自五湖四海的朋友相聚，特別有緣！',
+          html: scene(P(400, 200, GLOBE, '', 0, 1.4) + hearts(500, 240) + P(220, 302, A('kid', 'happy'), '', 0, .92)) },
+        { minDur: 6600, sub: '大家圍成一圈自我介紹，口音不同、故鄉不同，很快就變成好朋友！',
+          html: scene(P(280, 302, A('kid', 'happy'), '', 0, .95) + P(400, 302, A('kid', 'happy'), '', .1, .93) +
+            P(520, 302, A('kid', 'happy'), '', .2, .95) + hearts(400, 172) + notes(480, 185)) },
+        { minDur: 6400, sub: '五湖四海：泛指各地各方。',
+          html: scene(P(400, 210, GLOBE, '', 0, 1.6) +
+            '<text x="400" y="310" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">五湖四海</text>') }
+      ];
+    },
+    /* 八面玲瓏 */
+    i434: function () {
+      var CRYSTAL = '<path d="M0 -30 L22 -10 L14 22 L-14 22 L-22 -10 Z" fill="#c9e2f5" stroke="#8fc0e0" stroke-width="2.6"/>' +
+        '<path d="M0 -30 L0 22 M-22 -10 L14 22 M22 -10 L-14 22" stroke="#8fc0e0" stroke-width="1.6" opacity=".7"/>' +
+        '<g class="st-tw"><circle cx="8" cy="-12" r="3" fill="#fff"/></g>';
+      return [
+        { minDur: 6800, sub: '玲瓏是精巧透亮的玉石——八個面都打磨得光滑閃亮，哪一面看都漂亮！',
+          html: scene(P(400, 230, CRYSTAL, '', 0, 1.5) + P(230, 302, A('kid', 'wow'), '', 0, .92) + hearts(320, 210)) },
+        { minDur: 7000, sub: '班上的康樂股長就是這樣：跟誰都合得來、什麼場面都應付得宜，人人誇他會做人。',
+          html: scene(P(400, 302, A('kid', 'happy')) +
+            P(250, 302, A('kid', 'happy'), '', .1, .9) + P(550, 302, A('kid', 'happy'), '', .2, .9) + hearts(400, 172) + hearts(300, 190)) },
+        { minDur: 6800, sub: '「八面玲瓏」：處事圓滑、面面俱到——但太過圓滑失去原則，就不可取囉！',
+          html: scene(P(400, 240, CRYSTAL, '', 0, 1.3) + qmark(510, 210) + P(250, 302, A('kid', 'happy'), '', 0, .92)) },
+        { minDur: 6400, sub: '八面玲瓏：處事圓滑，面面俱到。',
+          html: scene(P(400, 240, CRYSTAL, '', 0, 1.6) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">八面玲瓏</text>') }
+      ];
+    },
+    /* 九死一生 */
+    i435: function () {
+      var STORMSEA2 = '<rect y="252" width="800" height="88" fill="#5a7fa8"/>' +
+        '<g class="st-wavemove"><path d="M-40 268 q30 -22 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#8fb2d4" stroke-width="10" stroke-linecap="round"/></g>';
+      var RAFT2 = '<g stroke="#a8734a" stroke-width="8" stroke-linecap="round"><line x1="-40" y1="0" x2="40" y2="0"/><line x1="-40" y1="-9" x2="40" y2="-9"/></g>';
+      return [
+        { minDur: 6800, sub: '探險家的木筏在暴風雨的大海上翻騰：大浪一個接一個，好幾次差點被吞沒！',
+          html: scene(STORMSEA2 + P(400, 262, '<g transform="rotate(-12)">' + RAFT2 + P(0, -9, A('kid', 'wow'), '', 0, .8) + '</g>') +
+            sweat(490, 190) + bang(250, 200), 'night') },
+        { minDur: 6600, sub: '歷經千難萬險，他終於漂到岸邊獲救——撿回一條命！',
+          html: scene('<rect y="272" width="800" height="68" fill="#7fb2e0"/><ellipse cx="620" cy="330" rx="180" ry="48" fill="#e8d5a8"/>' +
+            P(560, 300, '<g transform="rotate(30)">' + A('kid', 'sad') + '</g>') +
+            P(680, 302, A('kid', 'happy'), '', 0, .92) + hearts(620, 220)) },
+        { minDur: 6600, sub: '「九死一生」：九分死、一分生——歷經極大危險而倖存！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + sweat(330, 192) + hearts(490, 188)) },
+        { minDur: 6400, sub: '九死一生：歷經極大危險而倖存。',
+          html: scene(STORMSEA2 + P(400, 265, '<g transform="rotate(-10)">' + RAFT2 + '</g>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">九死一生</text>', 'night') }
+      ];
+    },
+    /* 十拿九穩 */
+    i436: function () {
+      var TARGET2 = '<circle cx="0" cy="-50" r="30" fill="#fff" stroke="#c96a5a" stroke-width="4"/><circle cx="0" cy="-50" r="18" fill="none" stroke="#c96a5a" stroke-width="4"/><circle cx="0" cy="-50" r="6" fill="#c96a5a"/><line x1="0" y1="-20" x2="0" y2="0" stroke="#a8734a" stroke-width="5"/>' +
+        '<line x1="-3" y1="-52" x2="-26" y2="-58" stroke="#8a5a33" stroke-width="3.4"/>';
+      return [
+        { minDur: 6800, sub: '罰球線上，隊長穩穩舉球——他練了三年，這個位置十球能進九球！',
+          html: scene(P(600, 302, '<line x1="0" y1="0" x2="0" y2="-110" stroke="#8b93a3" stroke-width="6"/><rect x="-26" y="-152" width="52" height="42" rx="4" fill="#fff" stroke="#8b93a3" stroke-width="3"/><ellipse cx="0" cy="-112" rx="18" ry="5" fill="none" stroke="#e0a458" stroke-width="4"/>') +
+            P(300, 302, A('kid', 'happy') + P(34, -70, '<circle cx="0" cy="0" r="12" fill="#e0a458" stroke="#c08838" stroke-width="2.4"/>', '', 0, 1)) + hearts(220, 190)) },
+        { minDur: 6600, sub: '「唰——」空心入網！平時苦練出來的把握，就是這麼穩！',
+          html: scene(P(600, 302, '<line x1="0" y1="0" x2="0" y2="-110" stroke="#8b93a3" stroke-width="6"/><rect x="-26" y="-152" width="52" height="42" rx="4" fill="#fff" stroke="#8b93a3" stroke-width="3"/><ellipse cx="0" cy="-112" rx="18" ry="5" fill="none" stroke="#e0a458" stroke-width="4"/>') +
+            P(590, 150, '<circle cx="0" cy="0" r="12" fill="#e0a458" stroke="#c08838" stroke-width="2.4"/>', '', 0, .95) + bang(600, 100) +
+            P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>')) },
+        { minDur: 6600, sub: '「十拿九穩」：十次拿九次——非常有把握！但別忘了，把握來自練習。',
+          html: scene(P(500, 300, TARGET2, '', 0, 1.1) + P(280, 302, A('kid', 'happy')) + hearts(390, 195)) },
+        { minDur: 6400, sub: '十拿九穩：非常有把握。',
+          html: scene(P(500, 300, TARGET2, '', 0, 1.2) + P(280, 302, A('kid', 'happy'), '', 0, 1.02) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">十拿九穩</text>') }
+      ];
+    },
+    /* 百年樹人 */
+    i437: function () {
+      function sapling(x, y) {
+        return P(x, y, '<g class="st-grow"><line x1="0" y1="0" x2="0" y2="-22" stroke="#5f8a46" stroke-width="4"/><path d="M0 -22 q-8 -8 -4 -14 M0 -22 q8 -8 4 -14" stroke="#7cc47f" stroke-width="4" fill="none" stroke-linecap="round"/></g>');
+      }
+      var BIGTREE2 = '<rect x="-11" y="-70" width="22" height="70" rx="8" fill="#a8734a"/><circle cx="0" cy="-98" r="40" fill="#7cc47f"/><circle cx="-32" cy="-78" r="26" fill="#8fd08f"/><circle cx="32" cy="-80" r="27" fill="#8fd08f"/>';
+      return [
+        { minDur: 7000, sub: '《管子》說：「一年之計，莫如樹穀；十年之計，莫如樹木；終身之計，莫如樹人。」',
+          html: scene(sapling(240, 320) + P(430, 302, BIGTREE2, '', 0, .8) +
+            P(620, 302, A('kid', 'happy'), '', 0, .95) +
+            P(140, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .92)) },
+        { minDur: 7000, sub: '種穀一年收成、種樹十年成材——培養一個人才，要花上百年的耐心！',
+          html: scene(sapling(220, 320) + P(400, 302, BIGTREE2, '', 0, .95) +
+            P(600, 302, A('kid', 'happy') + P(-42, -54, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -10 h16 M-8 -2 h16" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95), '', 0, .95)) },
+        { minDur: 6800, sub: '「百年樹人」：教育是長遠的大計——每一位用心的老師，都在種百年的樹！',
+          html: scene(P(430, 302, BIGTREE2, '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy')) + P(620, 302, A('kid', 'happy'), '', .2, .92) + hearts(430, 170)) },
+        { minDur: 6400, sub: '百年樹人：培育人才是長遠大計。',
+          html: scene(sapling(250, 320) + P(480, 302, BIGTREE2, '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">百年樹人</text>') }
+      ];
+    },
+    /* 千方百計 */
+    i438: function () {
+      var JARHIGH = '<path d="M-16 0 Q-22 -14 -14 -30 L14 -30 Q22 -14 16 0 Z" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2.6"/><rect x="-10" y="-36" width="20" height="8" rx="3" fill="#6d87ab"/>';
+      var STOOL = '<rect x="-20" y="-14" width="40" height="8" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><line x1="-14" y1="-6" x2="-14" y2="6" stroke="#a8734a" stroke-width="4"/><line x1="14" y1="-6" x2="14" y2="6" stroke="#a8734a" stroke-width="4"/>';
+      return [
+        { minDur: 6800, sub: '餅乾罐被放到櫃子最上層！小圓想了一個又一個辦法：墊椅子、拿掃把、疊枕頭——',
+          html: scene(P(560, 200, JARHIGH, '', 0, 1) +
+            P(560, 302, '<rect x="-40" y="-90" width="80" height="90" rx="5" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>') +
+            P(340, 302, A('kid', 'wow') + P(-40, -20, STOOL, '', 0, .9)) + qmark(280, 185) + sweat(400, 192)) },
+        { minDur: 6800, sub: '方法一個不行就換下一個——想盡各種辦法，就是「千方百計」！',
+          html: scene(P(400, 302, A('kid', 'happy')) +
+            P(280, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".9"/><text x="0" y="7" text-anchor="middle" font-size="18" fill="#5c82ba">1</text>') +
+            P(400, 170, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".9"/><text x="0" y="7" text-anchor="middle" font-size="18" fill="#548a40">2</text>', '', .2) +
+            P(520, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".9"/><text x="0" y="7" text-anchor="middle" font-size="18" fill="#c96a5a">3</text>', '', .4)) },
+        { minDur: 6800, sub: '最後他搬來小樓梯，安安全全拿到了餅乾——動腦筋，總會有辦法！',
+          html: scene(P(500, 302, '<g stroke="#a8734a" stroke-width="5" stroke-linecap="round"><line x1="-30" y1="0" x2="10" y2="-70"/><line x1="10" y1="0" x2="50" y2="-70"/><line x1="-18" y1="-22" x2="24" y2="-22"/><line x1="-6" y1="-44" x2="36" y2="-44"/></g>') +
+            P(430, 302, A('kid', 'happy') + P(30, -90, JARHIGH, '', 0, .7)) + hearts(330, 190) + bang(560, 180)) },
+        { minDur: 6400, sub: '千方百計：想盡各種辦法。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + qmark(330, 182) + bang(490, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千方百計</text>') }
+      ];
     }
   };
 
