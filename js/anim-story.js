@@ -10637,6 +10637,119 @@
           html: scene(P(400, 302, A('kid', 'happy') + GLOWFACE, '', 0, 1.12) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">神采奕奕</text>') }
       ];
+    },
+    /* 意氣風發 */
+    i872: function () {
+      return [
+        { minDur: 6800, sub: '畢業班選出的畢聯會主席站上司令台，聲音響亮地宣布活動計畫——意志昂揚、神采飛揚！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, A('kid', 'happy') + '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-62" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>', '', 0, 1.05) +
+            '<g stroke="#e8f4fb" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"><path class="st-windln" d="M150 180 q50 -12 100 0"/></g>' + hearts(500, 200)) },
+        { minDur: 6800, sub: '「意氣風發」：像颳起的風一樣昂揚奮發——年輕人追夢的樣子，就該這樣！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.08) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="150" y1="220" x2="250" y2="220"/><line class="st-windln" style="animation-delay:.4s" x1="130" y1="250" x2="220" y2="250"/></g>' + bang(520, 190)) },
+        { minDur: 6600, sub: '定下目標、全力衝刺、眼裡有光——意氣風發的人，連背影都在發亮！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 185) +
+            P(300, 180, '<g class="st-tw"><path d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#ffd97a"/></g>')) },
+        { minDur: 6400, sub: '意氣風發：意志昂揚、精神煥發。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.1) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="150" y1="230" x2="250" y2="230"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">意氣風發</text>') }
+      ];
+    },
+    /* 排山倒海 */
+    i873: function () {
+      var BIGWAVE = '<path d="M-120 40 q-20 -60 40 -70 q50 -8 60 30 q40 -50 90 -20 q36 22 20 60 z" fill="#7fb2e0" stroke="#5a8fc4" stroke-width="3"/><path d="M-90 -10 q16 -18 36 -12 M20 -32 q20 -14 40 -4" stroke="#c9e2f5" stroke-width="5" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '颱風天的海邊：巨浪像山一樣壓過來，浪頭高過堤防——彷彿要把山推開、把海翻倒！',
+          html: scene(P(400, 290, BIGWAVE, '', 0, 1.2) + bang(560, 160) + sweat(240, 190), 'night') },
+        { minDur: 6800, sub: '「排山倒海」：推開高山、翻倒大海——形容力量或聲勢巨大不可擋！',
+          html: scene(P(300, 302, '<path d="M-90 0 L0 -110 L90 0 Z" fill="#8fb0a0"/>', '', 0, .9) +
+            P(560, 290, BIGWAVE, '', 0, .9) + bang(430, 170)) },
+        { minDur: 6800, sub: '球賽最後一分鐘逆轉，全場歡呼聲排山倒海而來——連地板都在震動！',
+          html: scene(P(260, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .93) +
+            P(400, 302, '<g class="st-cheer" style="animation-delay:.1s">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            P(540, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .93) +
+            notes(400, 160) + bang(560, 175) + bang(240, 180)) },
+        { minDur: 6400, sub: '排山倒海：聲勢巨大，不可阻擋。',
+          html: scene(P(400, 292, BIGWAVE, '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">排山倒海</text>', 'night') }
+      ];
+    },
+    /* 驚濤駭浪 */
+    i874: function () {
+      var STORMWAVE = '<rect y="240" width="800" height="100" fill="#5a7fa8"/>' +
+        '<g class="st-wavemove"><path d="M-40 260 q30 -30 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#8fb2d4" stroke-width="12" stroke-linecap="round"/></g>';
+      return [
+        { minDur: 6800, sub: '遠洋漁船遇上暴風雨：十層樓高的巨浪一個接一個砸下——船身劇烈搖晃，驚險萬分！',
+          html: scene(STORMWAVE + P(400, 245, '<g transform="rotate(-14)"><path d="M-52 0 L52 0 L38 18 L-38 18 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/></g>') +
+            bang(560, 170) + sweat(300, 180), 'night') },
+        { minDur: 6800, sub: '「驚濤駭浪」：令人驚恐的大風浪——也比喻人生中險惡的處境和重大考驗！',
+          html: scene(STORMWAVE + qmark(400, 150) +
+            P(240, 296, A('kid', 'wow'), '', 0, .9) + sweat(300, 190), 'night') },
+        { minDur: 6800, sub: '創業失敗、重大挫折——闖過人生的驚濤駭浪，回頭看都是成長的勳章！',
+          html: scene('<rect y="270" width="800" height="70" fill="#7fb2e0"/>' +
+            P(400, 276, '<path d="M-46 0 L46 0 L34 16 L-34 16 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/>') +
+            P(400, 250, A('kid', 'happy'), '', 0, .9) + hearts(500, 200)) },
+        { minDur: 6400, sub: '驚濤駭浪：驚險的大風浪，險惡處境。',
+          html: scene(STORMWAVE +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">驚濤駭浪</text>', 'night') }
+      ];
+    },
+    /* 支支吾吾 */
+    i875: function () {
+      function stutterBub(x, y, txt, dly) {
+        return P(x, y, '<g class="st-zfloat"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M-22 -12 a19 14 0 1 1 38 4 q-2 6 -8 7 l-8 7 l1 -7 q-18 -2 -21 -11 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>' +
+          '<text x="-2" y="-2" text-anchor="middle" font-size="11" fill="#8a7a4a">' + txt + '</text></g>');
+      }
+      return [
+        { minDur: 6800, sub: '「作業呢？」老師問。小吾眼神飄移：「那個……就是……我、我好像……」半天說不出重點！',
+          html: scene(P(360, 302, A('kid', 'wow')) + stutterBub(430, 175, '那個…就是…', 0) + sweat(300, 190) +
+            P(580, 302, A('kid', 'happy'), '', 0, 1, true) + qmark(630, 188)) },
+        { minDur: 6800, sub: '「支支吾吾」：說話含混閃躲、不肯痛快說清楚——通常是心虛或有隱情！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + stutterBub(320, 172, '嗯…', 0) + stutterBub(480, 168, '呃…', .3) + sweat(400, 158)) },
+        { minDur: 6800, sub: '忘了寫就坦白說「我忘了，明天補交」——誠實直說，反而讓人尊敬！',
+          html: scene(P(340, 302, A('kid', 'happy')) + bang(430, 188) +
+            P(540, 302, A('kid', 'happy'), '', 0, 1, true) + hearts(450, 210)) },
+        { minDur: 6400, sub: '支支吾吾：說話含混閃躲、不痛快。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + stutterBub(330, 172, '那個…', 0) + stutterBub(480, 168, '就是…', .3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">支支吾吾</text>') }
+      ];
+    },
+    /* 吞吞吐吐 */
+    i876: function () {
+      return [
+        { minDur: 6800, sub: '小吐想跟媽媽要新球鞋——話到嘴邊又縮回去，張了三次口都只說出「媽……沒事」。',
+          html: scene(P(340, 302, A('kid', 'wow')) + sweat(290, 192) +
+            P(520, 302, A('kid', 'happy'), '', 0, 1.02, true) + qmark(570, 188)) },
+        { minDur: 6800, sub: '「吞吞吐吐」：想說又不敢說、話吞了又吐、吐了又吞——聽的人急死啦！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            '<path d="M330 210 q-16 8 0 16 M470 210 q16 8 0 16" stroke="#c9bfa8" stroke-width="3.4" fill="none" stroke-linecap="round"/>' + sweat(400, 160)) },
+        { minDur: 6800, sub: '媽媽笑了：「有話直說呀！」他一口氣說完理由——舊鞋真的破了，媽媽爽快答應！',
+          html: scene(P(340, 302, A('kid', 'happy')) + bang(430, 188) +
+            P(520, 302, A('kid', 'happy'), '', 0, 1.02, true) + hearts(440, 210)) },
+        { minDur: 6400, sub: '吞吞吐吐：想說又不敢說，欲言又止。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + sweat(330, 190) + qmark(480, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">吞吞吐吐</text>') }
+      ];
+    },
+    /* 直言不諱 */
+    i877: function () {
+      return [
+        { minDur: 6800, sub: '班會檢討園遊會：小諱直接舉手：「我認為這次動線設計有問題，出口太窄造成回堵！」',
+          html: scene(P(360, 302, A('kid', 'happy') + '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-62" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>', '', 0, 1.02) +
+            bang(460, 185) + P(560, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6800, sub: '「諱」是忌諱隱瞞——有話直說、毫不繞彎，就是「直言不諱」！',
+          html: scene('<path d="M280 240 L560 240" stroke="#548a40" stroke-width="5" stroke-linecap="round"/><path d="M560 240 l-13 -8 v16 z" fill="#548a40"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, 1.05)) },
+        { minDur: 6800, sub: '不過直言也要有禮貌：對事不對人、提出問題也提出建議——正直又暖心！',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(420, 185) +
+            P(420, 200, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-7 0 l5 6 l11 -11" stroke="#548a40" stroke-width="3.4" fill="none" stroke-linecap="round"/>')) },
+        { minDur: 6400, sub: '直言不諱：直接說出意見，毫不隱瞞。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-62" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>', '', 0, 1.05) + bang(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">直言不諱</text>') }
+      ];
     }
   };
 
