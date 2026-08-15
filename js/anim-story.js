@@ -12757,6 +12757,175 @@
           html: scene(ICEFLOOR + P(400, 274, A('kid', 'wow'), '', 0, 1) + sweat(330, 178) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">如履薄冰</text>', 'night') }
       ];
+    },
+    /* 戰戰兢兢 */
+    i571: function () {
+      return [
+        { minDur: 7000, sub: '《詩經》的名句三連發：「戰戰兢兢，如臨深淵，如履薄冰」——形容小心到發抖的樣子！',
+          html: scene(P(400, 274, '<g class="st-bob">' + A('kid', 'wow') + '</g>', '', 0, 1) +
+            '<rect y="274" width="800" height="66" fill="#cfe8f5"/><path d="M300 274 l30 26 M520 274 l-24 32" stroke="#9cc4dc" stroke-width="2"/>' + sweat(330, 178), 'night') },
+        { minDur: 6800, sub: '第一次端熱湯上桌：雙手發抖、眼睛盯緊碗沿、一步一步挪——生怕灑出一滴！',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + P(0, -56, '<path d="M-16 -6 h32 v6 q0 10 -16 10 q-16 0 -16 -10 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/><g class="st-zfloat" opacity=".7"><path d="M-5 -14 q3 -6 0 -11 M6 -12 q3 -6 0 -11" stroke="#c9bfa8" stroke-width="2" fill="none"/></g>', '', 0, 1) + '</g>', '', 0, 1.02) + sweat(310, 188)) },
+        { minDur: 6800, sub: '「戰戰兢兢」：戒慎恐懼、小心謹慎——新手上路都會這樣，熟練之後就從容了！',
+          html: scene(P(340, 302, A('kid', 'wow'), 'st-bob', 0, .98) + sweat(280, 190) +
+            '<path d="M420 260 h90" stroke="#548a40" stroke-width="4"/><path d="M510 260 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(580, 302, A('kid', 'happy'), '', 0, 1) + hearts(650, 195)) },
+        { minDur: 6400, sub: '戰戰兢兢：戒慎恐懼，小心謹慎。',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + '</g>', '', 0, 1.05) + sweat(320, 185) + sweat(490, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">戰戰兢兢</text>') }
+      ];
+    },
+    /* 捕風捉影 */
+    i881: function () {
+      return [
+        { minDur: 7000, sub: '漢代谷永勸皇帝別信方士的仙話：聽起來天花亂墜，去追求卻「如係風捕影」，永遠抓不到！',
+          html: scene(P(320, 302, A('kid', 'wow') + P(40, -40, '<circle cx="0" cy="-6" r="16" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="0" y1="10" x2="0" y2="34" stroke="#8b93a3" stroke-width="3.4"/>', '', 0, 1)) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="460" y1="200" x2="540" y2="200"/><line x1="440" y1="230" x2="530" y2="230"/></g>' +
+            P(600, 302, '<ellipse cx="0" cy="0" rx="34" ry="9" fill="#3a2e26" opacity=".3"/>', '', 0, 1) + qmark(420, 175)) },
+        { minDur: 6800, sub: '風抓不住、影子撈不起——沒有根據的話，就像風和影子一樣空！',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-40, -40, '<circle cx="0" cy="-6" r="16" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="0" y1="10" x2="0" y2="34" stroke="#8b93a3" stroke-width="3.4"/>', '', 0, 1, true), 'st-dashL', 0, 1) + sweat(480, 185) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="240" y1="210" x2="320" y2="210"/></g>') },
+        { minDur: 6800, sub: '「捕風捉影」：毫無事實根據——聽到八卦先查證，別跟著捕風捉影冤枉人！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1)) +
+            P(540, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#548a40">查證</text>') + hearts(260, 195)) },
+        { minDur: 6400, sub: '捕風捉影：憑空猜測，毫無根據。',
+          html: scene(P(400, 302, A('kid', 'wow') + P(40, -40, '<circle cx="0" cy="-6" r="16" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="0" y1="10" x2="0" y2="34" stroke="#8b93a3" stroke-width="3.4"/>', '', 0, 1), '', 0, 1.02) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="500" y1="210" x2="580" y2="210"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">捕風捉影</text>') }
+      ];
+    },
+    /* 無中生有 */
+    i882: function () {
+      return [
+        { minDur: 6800, sub: '明明什麼都沒發生——有人卻編出一個「他偷改分數」的故事，說得活靈活現！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 6 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1) +
+            P(430, 195, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="15" fill="#c96a5a">假的!</text>', 'st-zfloat', 0, 1) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(620, 190)) },
+        { minDur: 6800, sub: '「無中生有」：從「沒有」硬生出「有」——憑空捏造事實，還被列入三十六計當騙術！',
+          html: scene(P(300, 240, '<circle cx="0" cy="0" r="26" fill="none" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/><text x="0" y="8" text-anchor="middle" font-size="18" fill="#8b93a3">無</text>') +
+            '<path d="M340 240 h100" stroke="#c96a5a" stroke-width="3.4"/><path d="M440 240 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            P(500, 240, '<circle cx="0" cy="0" r="26" fill="#fff" stroke="#c96a5a" stroke-width="3"/><text x="0" y="8" text-anchor="middle" font-size="18" fill="#c96a5a">有?</text>')) },
+        { minDur: 6800, sub: '被冤枉的同學拿出證據，謠言不攻自破——造謠一張嘴，闢謠跑斷腿，別當造謠的人！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -50, '<rect x="-14" y="-9" width="28" height="18" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><circle cx="8" cy="4" r="5" fill="none" stroke="#c96a5a" stroke-width="1.8"/>', '', 0, 1.1)) + bang(470, 185) +
+            P(560, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(620, 192)) },
+        { minDur: 6400, sub: '無中生有：憑空捏造，硬說成真。',
+          html: scene(P(310, 245, '<circle cx="0" cy="0" r="26" fill="none" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/><text x="0" y="8" text-anchor="middle" font-size="18" fill="#8b93a3">無</text>') +
+            '<path d="M350 245 h96" stroke="#c96a5a" stroke-width="3.4"/><path d="M446 245 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            P(500, 245, '<circle cx="0" cy="0" r="26" fill="#fff" stroke="#c96a5a" stroke-width="3"/><text x="0" y="8" text-anchor="middle" font-size="18" fill="#c96a5a">有?</text>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">無中生有</text>') }
+      ];
+    },
+    /* 三人成虎 */
+    i883: function () {
+      return [
+        { minDur: 7000, sub: '龐蔥問魏王：「一個人說街上有老虎，您信嗎？」「不信。」「兩個人說呢？」「有點懷疑了……」',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1) +
+            P(520, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05, true) + qmark(600, 185)) },
+        { minDur: 6800, sub: '「三個人都說呢？」魏王：「那……我就信了！」——明明街上根本沒有老虎啊！',
+          html: scene(P(240, 302, A('kid', 'happy'), '', 0, .9) + P(340, 302, A('kid', 'happy'), '', .1, .9) + P(440, 302, A('kid', 'happy'), '', .2, .9) +
+            P(620, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05, true) +
+            P(340, 190, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/>' + P(0, 10, A('tiger'), '', 0, .3), '', 0, 1) + bang(540, 190)) },
+        { minDur: 6800, sub: '「三人成虎」：謠言重複多次就被信以為真——龐蔥提醒完，魏王後來還是中了讒言的計！',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1) + sweat(300, 190) +
+            P(560, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#c96a5a">謠言×3</text>')) },
+        { minDur: 6400, sub: '三人成虎：謠言多說幾次，就成了「真的」。',
+          html: scene(P(300, 195, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/>' + P(0, 12, A('tiger'), '', 0, .34), '', 0, 1.1) +
+            P(280, 302, A('kid', 'happy'), '', 0, .88) + P(380, 302, A('kid', 'happy'), '', .1, .88) + P(480, 302, A('kid', 'happy'), '', .2, .88) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">三人成虎</text>') }
+      ];
+    },
+    /* 錯綜複雜 */
+    i884: function () {
+      var TANGLE = '<g fill="none" stroke-linecap="round"><path d="M-70 20 C-30 -50 30 60 70 -20" stroke="#c96a5a" stroke-width="4"/><path d="M-70 -20 C-20 50 20 -60 70 20" stroke="#7fb2e0" stroke-width="4"/><path d="M-60 0 C0 -40 0 40 60 0" stroke="#a5d47c" stroke-width="4"/></g>';
+      return [
+        { minDur: 6800, sub: '耳機線在書包裡放了一天——拿出來已經和充電線、鑰匙圈纏成一團解不開的結！',
+          html: scene(P(400, 250, TANGLE, '', 0, 1.3) +
+            P(220, 302, A('kid', 'wow'), '', 0, .95) + sweat(170, 192) + qmark(300, 185)) },
+        { minDur: 6800, sub: '「錯綜」出自《易經》，本指卦數交錯演算——「錯綜複雜」：頭緒交錯繁雜，難以理清！',
+          html: scene(P(400, 245, TANGLE, '', 0, 1.4) + qmark(560, 190) + qmark(250, 190)) },
+        { minDur: 6800, sub: '再亂的線團也有辦法：找到線頭、一次解一個結——複雜的事，拆成小步驟就不可怕！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -50, '<path d="M-14 8 C0 -10 8 14 20 -6" stroke="#7fb2e0" stroke-width="3.4" fill="none" stroke-linecap="round"/>', '', 0, 1.1)) + hearts(470, 188) +
+            P(580, 220, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#548a40">線頭</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '錯綜複雜：頭緒交錯，難以理清。',
+          html: scene(P(400, 255, TANGLE, '', 0, 1.4) + qmark(550, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">錯綜複雜</text>') }
+      ];
+    },
+    /* 變本加厲 */
+    i885: function () {
+      return [
+        { minDur: 6800, sub: '樓上鄰居半夜彈鋼琴，好言相勸之後——隔天居然改成打鼓，聲音更大、時間更晚！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(-40, -50, '<circle cx="0" cy="4" r="13" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><line x1="-10" y1="-8" x2="-18" y2="-18" stroke="#8a5a33" stroke-width="3"/><line x1="10" y1="-8" x2="18" y2="-18" stroke="#8a5a33" stroke-width="3"/>', '', 0, 1.1)) + bang(400, 175) + notes(240, 180) +
+            P(560, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(620, 190) + zzz(660, 230), 'night') },
+        { minDur: 6800, sub: '「變本加厲」原是稱讚文章一代比一代華美——後來轉成貶義：壞行為愈演愈烈！',
+          html: scene(P(300, 250, '<rect x="-24" y="-18" width="48" height="36" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="16" fill="#6d7585">吵</text>') +
+            '<path d="M340 250 h80" stroke="#c96a5a" stroke-width="3.4"/><path d="M420 250 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            P(490, 245, '<rect x="-30" y="-24" width="60" height="48" rx="4" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="8" text-anchor="middle" font-size="24" fill="#c96a5a">更吵!</text>') + bang(590, 200)) },
+        { minDur: 6800, sub: '溝通無效就請管委會協調——用對方法處理，別讓問題繼續變本加厲！注意：是「厲」不是「利」！',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1, true) + hearts(420, 185) +
+            P(620, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#c96a5a">厲✓</text>')) },
+        { minDur: 6400, sub: '變本加厲：比原來更加嚴重過分。',
+          html: scene(P(300, 250, '<rect x="-22" y="-16" width="44" height="32" rx="4" fill="#fff" opacity=".9"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#6d7585">吵</text>') +
+            '<path d="M336 250 h76" stroke="#c96a5a" stroke-width="3.4"/><path d="M412 250 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            P(480, 245, '<rect x="-28" y="-22" width="56" height="44" rx="4" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="8" text-anchor="middle" font-size="22" fill="#c96a5a">更吵</text>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">變本加厲</text>') }
+      ];
+    },
+    /* 有恃無恐 */
+    i886: function () {
+      return [
+        { minDur: 7000, sub: '齊侯大軍壓境問魯國使者：「魯國人怕了吧？」展喜答：「小人怕了，君子不怕！」',
+          html: scene(P(280, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>' + P(28, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1), '', 0, 1.1) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .98, true) + qmark(400, 180)) },
+        { minDur: 6800, sub: '「因為我們恃先王之盟約！」——有可倚仗的依靠，所以無所畏懼，這是原本的「有恃無恐」！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02, true) +
+            P(250, 240, '<rect x="-28" y="-20" width="56" height="40" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#6d5335">盟約</text>', '', 0, 1.1) + bang(520, 185)) },
+        { minDur: 6800, sub: '今天多用貶義：仗著有人撐腰就肆無忌憚——「有恃無恐地一再違規」，遲早出事！',
+          html: scene(P(430, 302, A('kid', 'angry') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', 'st-strut', 0, 1.05) +
+            P(600, 302, A('kid', 'angry'), '', 0, 1.2, true) + sweat(260, 192) +
+            P(240, 302, A('kid', 'sad'), '', 0, .92)) },
+        { minDur: 6400, sub: '有恃無恐：有所倚仗，毫無顧忌。',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.05) +
+            P(560, 302, A('kid', 'angry'), '', 0, 1.18, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">有恃無恐</text>') }
+      ];
+    },
+    /* 為所欲為 */
+    i887: function () {
+      return [
+        { minDur: 6800, sub: '故事裡的紈絝子弟仗著家裡有錢有勢：插隊、砸東西、欺負人——想做什麼就做什麼！',
+          html: scene(P(430, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9762f"/>', 'st-strut', 0, 1.1) + bang(540, 190) +
+            P(240, 302, A('kid', 'sad') + P(-30, -30, '<path d="M-10 8 l4 -14 M2 10 l0 -16 M12 8 l-4 -14" stroke="#9cc4dc" stroke-width="2.4" stroke-linecap="round"/>', '', 0, 1), '', 0, .92) + sweat(190, 192)) },
+        { minDur: 6800, sub: '「為所欲為」：不受約束、任意胡為——大家敢怒不敢言，但帳都記著呢！',
+          html: scene(P(300, 306, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .92) +
+            P(420, 306, '<g class="st-slump" style="animation-delay:.2s">' + A('kid', 'sad') + '</g>', '', 0, .9) + sweat(360, 195) +
+            P(590, 302, A('kid', 'angry'), 'st-strut', 0, 1.08, true)) },
+        { minDur: 6800, sub: '終於有人挺身檢舉，證據攤開——仗勢為所欲為的人，最後還是受到了制裁！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(38, -52, '<rect x="-14" y="-9" width="28" height="18" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.1)) + bang(430, 182) +
+            P(540, 302, A('kid', 'sad'), '', 0, .97, true) + sweat(600, 192)) },
+        { minDur: 6400, sub: '為所欲為：任意妄為，毫無節制。',
+          html: scene(P(430, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9762f"/>', 'st-strut', 0, 1.1) + bang(540, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">為所欲為</text>') }
+      ];
+    },
+    /* 橫行霸道 */
+    i888: function () {
+      return [
+        { minDur: 7000, sub: '《紅樓夢》裡的薛蟠仗著家世「橫行霸道」——家人不但不管教，反而幫著他撐腰！',
+          html: scene(P(430, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9762f"/><path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', 'st-strut', 0, 1.12) +
+            P(620, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + bang(330, 190)) },
+        { minDur: 6800, sub: '「橫」著走路、霸占整條道——路人紛紛閃避，敢怒不敢言！（注意：橫讀ㄏㄥˊ）',
+          html: scene('<path d="M180 302 h440" stroke="#d9cfae" stroke-width="20" stroke-linecap="round"/>' +
+            P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.15) +
+            P(200, 302, A('kid', 'wow'), '', 0, .88, true) + P(620, 302, A('kid', 'sad'), '', 0, .88) + sweat(250, 192) + sweat(580, 192)) },
+        { minDur: 6800, sub: '「橫行霸道」：倚仗權勢胡作非為——惡勢力再囂張，社會也絕不容它橫行！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/><rect x="-20" y="-80" width="40" height="5" rx="2" fill="#2c3550"/>', '', 0, 1.02) +
+            P(480, 302, A('kid', 'sad'), '', 0, .97, true) + sweat(540, 192) + bang(390, 188)) },
+        { minDur: 6400, sub: '橫行霸道：仗勢蠻橫，不講道理。',
+          html: scene('<path d="M180 302 h440" stroke="#d9cfae" stroke-width="20" stroke-linecap="round"/>' +
+            P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.15) + bang(510, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">橫行霸道</text>') }
+      ];
     }
   };
 
