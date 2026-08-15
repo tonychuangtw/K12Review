@@ -2620,6 +2620,179 @@
           html: scene(P(400, 270, GIFT, '', 0, 1.6) + hearts(500, 200) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">以德報怨</text>') }
       ];
+    },
+    /* 攻無不克 */
+    i1098: function () {
+      var WALL2 = '<rect x="-80" y="-70" width="160" height="70" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/>' +
+        '<path d="M-80 -70 h20 v-14 h20 v14 h20 v-14 h20 v14 h20 v-14 h20 v14 h20 v-14 h20 v14 h20" fill="none" stroke="#8a7a66" stroke-width="3"/>' +
+        '<rect x="-18" y="-44" width="36" height="44" rx="4" fill="#6d6357"/>';
+      var FLAG = '<line x1="0" y1="0" x2="0" y2="-56" stroke="#a8734a" stroke-width="4"/><path d="M0 -56 h30 l-8 8 l8 8 h-30 z" fill="#e85a4f"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      var TROPHY = '<path d="M-14 -34 h28 v10 q0 14 -14 16 q-14 -2 -14 -16 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/>' +
+        '<path d="M-14 -30 q-12 0 -10 12 q2 8 10 6 M14 -30 q12 0 10 12 q-2 8 -10 6" stroke="#e8b84a" stroke-width="2.6" fill="none"/>' +
+        '<rect x="-4" y="-8" width="8" height="8" fill="#c98f2a"/><rect x="-12" y="0" width="24" height="6" rx="2.4" fill="#c98f2a"/>';
+      return [
+        { minDur: 6800, sub: '戰國時的秦軍勇猛善戰——只要出兵攻城，就沒有攻不下來的！',
+          html: scene(P(560, 302, WALL2 + P(0, -70, FLAG)) + bang(460, 210) +
+            P(240, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut') +
+            P(360, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', .2, .9)) },
+        { minDur: 6800, sub: '《戰國策》記載：秦國打仗未嘗不勝、攻城未嘗不取。「攻無不克」就是這樣來的。',
+          html: scene(P(560, 302, WALL2 + P(0, -70, FLAG)) +
+            P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + P(26, -50, SPEAR3) + '</g>') + hearts(420, 180)) },
+        { minDur: 6600, sub: '現在也用來形容實力強大：這支球隊士氣如虹，一路過關斬將，攻無不克！',
+          html: scene(P(430, 290, TROPHY, '', 0, 1.2) +
+            P(260, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            P(580, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .9) + hearts(430, 190)) },
+        { minDur: 6400, sub: '攻無不克：只要進攻，沒有攻不下的，形容力量強大。',
+          html: scene(P(560, 302, WALL2, '', 0, .9) + P(300, 302, A('kid', 'angry') + P(26, -50, SPEAR3)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">攻無不克</text>') }
+      ];
+    },
+    /* 戰無不勝 */
+    i1099: function () {
+      var FLAG = '<line x1="0" y1="0" x2="0" y2="-56" stroke="#a8734a" stroke-width="4"/><path d="M0 -56 h30 l-8 8 l8 8 h-30 z" fill="#e85a4f"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      var PAPER100 = '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>' +
+        '<text x="0" y="0" text-anchor="middle" font-size="15" font-weight="bold" fill="#e85a4f">100</text>' +
+        '<path d="M-10 10 l6 7 l13 -13" stroke="#e85a4f" stroke-width="3" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6600, sub: '「戰必勝，攻必取」——每一次上戰場，都能打勝仗！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + P(26, -50, SPEAR3) + '</g>') +
+            P(450, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + P(0, -60, FLAG) + '</g>', '', 0, .9) +
+            hearts(380, 165) + bang(560, 200)) },
+        { minDur: 6600, sub: '「戰無不勝」常和「攻無不克」連著用，形容百戰百勝、極為強大。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -60, FLAG), '', 0, 1.05) +
+            P(200, 302, A('kid', 'happy') + P(26, -50, SPEAR3), '', 0, .9) +
+            P(600, 302, A('kid', 'happy') + P(26, -50, SPEAR3), '', .2, .9) + hearts(400, 160)) },
+        { minDur: 6800, sub: '生活裡也能用：只要準備充分、全力以赴，考場上就能戰無不勝！',
+          html: scene(P(500, 280, PAPER100, '', 0, 1.2) +
+            P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(400, 185)) },
+        { minDur: 6400, sub: '戰無不勝：每次作戰都獲勝，形容極為強大。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -60, FLAG), '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">戰無不勝</text>') }
+      ];
+    },
+    /* 監守自盜 */
+    i913: function () {
+      var STOREHOUSE = '<path d="M-90 -70 L0 -114 L90 -70 Z" fill="#8a5a33"/><rect x="-76" y="-70" width="152" height="70" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+        '<rect x="-20" y="-48" width="40" height="48" rx="4" fill="#8a5a33"/><text x="0" y="-78" text-anchor="middle" font-size="15" font-weight="bold" fill="#f4ecd8">倉</text>';
+      var GOLD = '<g stroke-width="2"><path d="M-26 0 l8 -14 h36 l8 14 z" fill="#ffd97a" stroke="#e8b84a"/><path d="M-20 -14 l7 -12 h26 l7 12 z" fill="#ffe9a0" stroke="#e8b84a"/></g>';
+      return [
+        { minDur: 6600, sub: '倉庫管理員負責看守官府的財物，官府對他十分信任。',
+          html: scene(P(430, 302, STOREHOUSE) + P(620, 290, GOLD, '', 0, .9) +
+            P(220, 302, A('kid', 'happy')) + hearts(300, 190)) },
+        { minDur: 6800, sub: '沒想到他竟然監守自盜——半夜偷偷打開倉門，把保管的財物一箱箱搬回自己家！',
+          html: scene(P(430, 302, STOREHOUSE) +
+            P(260, 302, '<g class="st-fleeR">' + A('kid', 'wow') + P(-34, -60, GOLD, '', 0, .7) + '</g>', 'st-dashL') +
+            sweat(320, 200), 'night') },
+        { minDur: 7000, sub: '從漢朝起，法律就對「看守的人自己偷」罪加一等——辜負別人的信任，最不可原諒。',
+          html: scene(P(560, 302, A('kid', 'angry')) + bang(500, 185) +
+            P(300, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') + sweat(340, 200)) },
+        { minDur: 6400, sub: '監守自盜：負責看守的人，自己偷竊所保管的財物。',
+          html: scene(P(430, 302, STOREHOUSE, '', 0, .95) + P(240, 302, A('kid', 'wow') + P(-34, -60, GOLD, '', 0, .7)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">監守自盜</text>') }
+      ];
+    },
+    /* 束手就擒 */
+    i1106: function () {
+      var ROPEHANDS = '<circle cx="-8" cy="0" r="8" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/><circle cx="8" cy="0" r="8" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>' +
+        '<path d="M-16 -4 h32 M-16 0 h32 M-16 4 h32" stroke="#a8734a" stroke-width="2.6"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 6800, sub: '宋朝將軍符彥卿被敵軍團團包圍，情勢危急，有人勸他乾脆投降。',
+          html: scene(P(400, 302, A('kid', 'sad')) + sweat(440, 195) +
+            P(150, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', 0, .85) +
+            P(650, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', .2, .85, true) + qmark(340, 180)) },
+        { minDur: 6800, sub: '他說：「與其綁起雙手讓人活捉，不如拚死一戰！」帶著部下奮勇衝殺，竟然突圍成功！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut') + bang(420, 190) +
+            P(560, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .85) + hearts(250, 180)) },
+        { minDur: 6600, sub: '「束手就擒」就是把手一伸、任人捆綁捉拿，一點也不抵抗——符彥卿偏偏不肯這樣。',
+          html: scene(P(400, 240, ROPEHANDS, '', 0, 1.6) +
+            P(220, 302, A('kid', 'sad'), '', 0, .95) + sweat(260, 200)) },
+        { minDur: 6400, sub: '束手就擒：不作抵抗，甘願被擒。',
+          html: scene(P(400, 250, ROPEHANDS, '', 0, 1.8) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">束手就擒</text>') }
+      ];
+    },
+    /* 撥雲見日 */
+    i1156: function () {
+      var SUNBIG = '<g class="st-rays" style="transform-origin:0px 0px"><g stroke="#ffcf4d" stroke-width="5" stroke-linecap="round">' +
+        '<line x1="0" y1="-46" x2="0" y2="-34"/><line x1="0" y1="34" x2="0" y2="46"/><line x1="-46" y1="0" x2="-34" y2="0"/><line x1="34" y1="0" x2="46" y2="0"/></g></g>' +
+        '<circle cx="0" cy="0" r="26" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>';
+      function cloudG(x, y, cls) {
+        return P(x, y, '<ellipse cx="0" cy="0" rx="46" ry="20" fill="#8b93a3" opacity=".92"/><ellipse cx="-34" cy="8" rx="26" ry="14" fill="#a3a9b8" opacity=".92"/><ellipse cx="34" cy="8" rx="28" ry="15" fill="#a3a9b8" opacity=".92"/>', cls);
+      }
+      return [
+        { minDur: 6800, sub: '晉朝的樂廣最會講道理，再難的問題，他都能分析得清清楚楚。',
+          html: scene(P(300, 302, A('kid', 'happy')) + notes(380, 175) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(610, 185)) },
+        { minDur: 6800, sub: '有人聽完他的分析，忍不住讚嘆：「就像撥開了滿天雲霧，一下子看見了青天！」',
+          html: scene(P(400, 130, SUNBIG) + cloudG(230, 120, 'st-inL') + cloudG(580, 130, 'st-inR') +
+            P(300, 302, A('kid', 'happy')) + P(540, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .95) + hearts(430, 210)) },
+        { minDur: 6800, sub: '「撥雲見日」比喻疑團消除、重見光明——就像想通難題的那一刻，豁然開朗！',
+          html: scene(P(400, 140, SUNBIG) +
+            P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + bang(450, 200) + hearts(280, 210)) },
+        { minDur: 6400, sub: '撥雲見日：衝破黑暗、疑團消除，重見光明。',
+          html: scene(P(400, 160, SUNBIG, '', 0, 1.2) + cloudG(180, 130) + cloudG(620, 140) +
+            '<text x="400" y="270" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">撥雲見日</text>') }
+      ];
+    },
+    /* 天壤之別 */
+    i1153: function () {
+      var ARROWUD = '<line x1="0" y1="-70" x2="0" y2="70" stroke="#4a3200" stroke-width="4" stroke-dasharray="9 8"/>' +
+        '<path d="M0 -82 l-8 14 h16 z M0 82 l-8 -14 h16 z" fill="#4a3200"/>';
+      function room(x, messy) {
+        var inner = '<rect x="-70" y="-90" width="140" height="90" rx="6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/>';
+        if (messy) {
+          inner += '<rect x="-52" y="-30" width="26" height="14" rx="3" fill="#c96a5a" transform="rotate(18 -40 -22)"/>' +
+            '<circle cx="8" cy="-18" r="9" fill="#8fa8c9"/>' +
+            '<rect x="26" y="-36" width="24" height="12" rx="3" fill="#e0a458" transform="rotate(-24 38 -30)"/>' +
+            '<path d="M-40 -66 q10 8 22 2 q10 -6 20 2" stroke="#a3a9b8" stroke-width="4" fill="none"/>';
+        } else {
+          inner += '<rect x="-52" y="-26" width="30" height="14" rx="3" fill="#8fa8c9"/>' +
+            '<rect x="-14" y="-26" width="30" height="14" rx="3" fill="#a5d47c"/>' +
+            '<rect x="24" y="-26" width="26" height="14" rx="3" fill="#e0a458"/>' +
+            '<line x1="-52" y1="-48" x2="50" y2="-48" stroke="#c9bfa8" stroke-width="3"/>';
+        }
+        return P(x, 300, inner);
+      }
+      return [
+        { minDur: 6600, sub: '天高高在上、地近在腳邊——一個高不可攀，一個伸手可及，差距有多大呢？',
+          html: scene(P(400, 165, ARROWUD) +
+            '<text x="470" y="110" font-size="22" font-weight="bold" fill="#4a3200">天</text>' +
+            '<text x="470" y="245" font-size="22" font-weight="bold" fill="#4a3200">地</text>' +
+            P(200, 302, A('kid', 'wow')) + qmark(260, 190)) },
+        { minDur: 6600, sub: '晉朝的葛洪就用「天壤」——天與土地——來形容兩件事的差別極大。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -56, '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>')) +
+            P(540, 165, ARROWUD, '', 0, .8)) },
+        { minDur: 6800, sub: '生活裡也常用：哥哥的房間亂七八糟，弟弟的整整齊齊——兩間簡直天壤之別！',
+          html: scene(room(230, true) + room(570, false) +
+            sweat(230, 230) + hearts(570, 230)) },
+        { minDur: 6400, sub: '天壤之別：像天和地那樣大的差別。',
+          html: scene(P(400, 175, ARROWUD, '', 0, 1.1) +
+            '<text x="400" y="290" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">天壤之別</text>') }
+      ];
+    },
+    /* 克勤克儉 */
+    i1159: function () {
+      var HOUSE3 = '<path d="M-40 -34 L0 -60 L40 -34 Z" fill="#8a5a33"/><rect x="-32" y="-34" width="64" height="34" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-9" y="-24" width="18" height="24" rx="3" fill="#8a5a33"/>';
+      var WAVES = '<rect y="280" width="800" height="60" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 290 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#6db3d9" stroke-width="8" stroke-linecap="round" opacity=".9"/></g>';
+      var BOWL = '<path d="M-16 -6 q0 14 16 14 q16 0 16 -14 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.4"/><ellipse cx="0" cy="-6" rx="16" ry="5" fill="#f4f1e8"/>';
+      return [
+        { minDur: 7000, sub: '大禹治水，十三年在外奔波，三次經過自己家門口，都忙得沒空進去看一眼——勤於國事！',
+          html: scene(WAVES + P(620, 276, HOUSE3) +
+            P(300, 296, A('kid', 'happy') + P(16, -30, HOE, 'st-hoe'), 'st-strut') + sweat(250, 195)) },
+        { minDur: 6600, sub: '回到家裡，他吃得簡單、穿得樸素，一點一滴都不浪費——儉於持家！',
+          html: scene(P(430, 302, HOUSE3, '', 0, 1.3) +
+            P(250, 302, A('kid', 'happy') + P(38, -50, BOWL, '', 0, .9))) },
+        { minDur: 6800, sub: '《尚書》稱讚他「克勤于邦，克儉于家」——這就是「克勤克儉」的由來。',
+          html: scene(P(300, 302, A('kid', 'happy')) + hearts(380, 180) +
+            P(560, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9)) },
+        { minDur: 6400, sub: '克勤克儉：既能勤勞，又能節儉。',
+          html: scene(P(300, 296, A('kid', 'happy') + P(16, -30, HOE)) + P(540, 290, BOWL, '', 0, 1.4) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">克勤克儉</text>') }
+      ];
     }
   };
 
