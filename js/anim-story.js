@@ -13883,6 +13883,151 @@
             P(490, 265, '<rect x="-36" y="-42" width="72" height="84" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="3"/><circle cx="8" cy="-20" r="10" fill="#ffb066"/>', '', 0, 1.05) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">相形見絀</text>') }
       ];
+    },
+    /* 眼花撩亂 */
+    i325: function () {
+      return [
+        { minDur: 7000, sub: '《西廂記》裡張生初見鶯鶯，驚為天人——「眼花撩亂口難言」，話都說不出來了！',
+          html: scene(P(320, 302, A('kid', 'wow'), '', 0, 1) + hearts(390, 180) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -14 36 0" stroke="#e07a94" stroke-width="4" fill="none"/>', '', 0, 1, true) +
+            '<g class="st-tw"><path d="M420 210 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>') },
+        { minDur: 6800, sub: '夜市開張：糖葫蘆、套圈圈、霓虹燈牌、叫賣聲——滿眼繽紛，看得人眼花撩亂！',
+          html: scene(P(260, 260, '<rect x="-24" y="-16" width="48" height="32" rx="4" fill="#ff9eb5"/>', 'st-tw', 0, 1) +
+            P(400, 240, '<rect x="-24" y="-16" width="48" height="32" rx="4" fill="#ffd97a"/>', 'st-tw', .3, 1.1) +
+            P(540, 262, '<rect x="-24" y="-16" width="48" height="32" rx="4" fill="#7fd4d4"/>', 'st-tw', .6, 1) +
+            P(400, 302, A('kid', 'wow'), 'st-bob', 0, 1) + qmark(470, 190), 'night') },
+        { minDur: 6800, sub: '「眼花撩亂」：事物繁雜看得迷亂——選擇太多時，先想清楚自己要什麼再挑！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-15" y="-11" width="30" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">清單</text>', '', 0, 1.05)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '眼花撩亂：繁雜炫目，目不暇給。',
+          html: scene(P(280, 255, '<rect x="-22" y="-15" width="44" height="30" rx="4" fill="#ff9eb5"/>', 'st-tw', 0, 1) +
+            P(400, 238, '<rect x="-22" y="-15" width="44" height="30" rx="4" fill="#ffd97a"/>', 'st-tw', .3, 1.1) +
+            P(520, 258, '<rect x="-22" y="-15" width="44" height="30" rx="4" fill="#7fd4d4"/>', 'st-tw', .6, 1) +
+            P(400, 302, A('kid', 'wow'), '', 0, 1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">眼花撩亂</text>') }
+      ];
+    },
+    /* 義不容辭 */
+    i326: function () {
+      return [
+        { minDur: 7000, sub: '《三國演義》裡有人推託任務，被正色勸道：「豈可推調？此是義不容辭！」',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(520, 302, A('kid', 'wow'), '', 0, .97, true) + bang(410, 182)) },
+        { minDur: 6800, sub: '社區淹水，消防隊員二話不說跳下水救人——道義所在，沒有「要不要」，只有「馬上去」！',
+          html: scene('<rect y="278" width="800" height="62" fill="#7fb2d4" opacity=".9"/>' +
+            P(340, 290, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c96a5a"/>', 'st-dashL', 0, 1.02) +
+            P(540, 292, A('kid', 'sad'), '', 0, .95, true) + sweat(600, 210) + bang(260, 200)) },
+        { minDur: 6800, sub: '「義不容辭」：道義上不容許推辭——同學受傷需要人陪去保健室？我來，義不容辭！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l18 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(510, 302, A('kid', 'sad') + P(34, -30, '<path d="M-8 4 q8 -12 16 0" stroke="#fff" stroke-width="5" fill="none"/>', '', 0, 1), '', 0, .97, true) + hearts(430, 185)) },
+        { minDur: 6400, sub: '義不容辭：道義所在，不容推辭。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -10" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08) + bang(500, 182) + hearts(300, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">義不容辭</text>') }
+      ];
+    },
+    /* 耳濡目染 */
+    i327: function () {
+      return [
+        { minDur: 7000, sub: '韓愈寫道：「目擩耳染，不學以能」——常看常聽，不用刻意學也自然會了！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 220, '<circle cx="-24" cy="0" r="14" fill="none" stroke="#8fa3bf" stroke-width="3"/><path d="M14 -10 q10 10 0 20" stroke="#8fa3bf" stroke-width="3" fill="none"/>', '', 0, 1.2) + notes(620, 190)) },
+        { minDur: 6800, sub: '爸媽每晚都窩在沙發看書——小染沒人逼，自己也捧著繪本翻得入迷！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .9)) +
+            P(500, 302, A('kid', 'happy') + P(-40, -44, '<rect x="-13" y="-16" width="26" height="32" rx="2.6" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', '', 0, .9), '', 0, .92, true) + hearts(400, 185)) },
+        { minDur: 6800, sub: '「耳濡目染」：長期接觸、不知不覺受影響——所以環境很重要，跟著好榜樣就變好！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .9, true) +
+            '<path d="M350 235 q55 -30 110 0" stroke="#ff9eb5" stroke-width="3.4" fill="none" stroke-dasharray="7 6"/>' + hearts(410, 175)) },
+        { minDur: 6400, sub: '耳濡目染：常見常聞，潛移默化。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95)) +
+            P(510, 302, A('kid', 'happy') + P(-40, -44, '<rect x="-13" y="-16" width="26" height="32" rx="2.6" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', '', 0, .9), '', 0, .92, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">耳濡目染</text>') }
+      ];
+    },
+    /* 膾炙人口 */
+    i328: function () {
+      var BBQ = '<line x1="-20" y1="10" x2="20" y2="10" stroke="#8a5a33" stroke-width="3.4"/><path d="M-14 2 h28 v-8 q0 -6 -8 -6 h-12 q-8 0 -8 6 z" fill="#c9762f" stroke="#a85a1e" stroke-width="2"/><g class="st-zfloat" opacity=".8"><path d="M-4 -18 q3 -6 0 -11 M6 -16 q3 -6 0 -11" stroke="#c9bfa8" stroke-width="2" fill="none"/></g>';
+      return [
+        { minDur: 7000, sub: '「膾」是細切的肉、「炙」是烤肉——古代人人愛吃的兩道美味，聞到香味就圍過來！',
+          html: scene(P(400, 285, BBQ, '', 0, 1.5) +
+            P(240, 302, A('kid', 'happy'), 'st-inL', 0, .95) + P(560, 302, A('kid', 'happy'), 'st-inR', .2, .95, true) + hearts(400, 200)) },
+        { minDur: 6800, sub: '好詩好文就像美味：人人愛讀、爭相傳誦——《唐摭言》就用「膾炙人口」稱讚名句！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-46, -50, '<rect x="-16" y="-12" width="32" height="24" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -4 h20 M-10 4 h14" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95), '', 0, 1.02) + notes(470, 185) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(620, 200)) },
+        { minDur: 6800, sub: '「膾炙人口」：作品廣受喜愛傳誦——經典老歌一放，全場都會跟著唱！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1.02) + notes(450, 180) +
+            P(540, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + notes(610, 195) + hearts(260, 195)) },
+        { minDur: 6400, sub: '膾炙人口：人人傳誦，廣受喜愛。',
+          html: scene(P(400, 290, BBQ, '', 0, 1.5) + notes(520, 210) + hearts(290, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">膾炙人口</text>') }
+      ];
+    },
+    /* 言簡意賅 */
+    i329: function () {
+      return [
+        { minDur: 6800, sub: '兩份報告：一份寫了十頁還講不清楚，一份半頁就把重點說得明明白白！',
+          html: scene(P(280, 270, '<rect x="-30" y="-40" width="60" height="80" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#c9bfa8" stroke-width="1.4"><line x1="-20" y1="-28" x2="20" y2="-28"/><line x1="-20" y1="-20" x2="20" y2="-20"/><line x1="-20" y1="-12" x2="20" y2="-12"/><line x1="-20" y1="-4" x2="20" y2="-4"/><line x1="-20" y1="4" x2="20" y2="4"/><line x1="-20" y1="12" x2="20" y2="12"/><line x1="-20" y1="20" x2="20" y2="20"/><line x1="-20" y1="28" x2="20" y2="28"/></g>', '', 0, 1) + sweat(350, 215) +
+            P(520, 270, '<rect x="-30" y="-40" width="60" height="80" rx="3" fill="#fff" stroke="#548a40" stroke-width="3"/><g stroke="#548a40" stroke-width="2"><line x1="-18" y1="-24" x2="18" y2="-24"/><line x1="-18" y1="-12" x2="10" y2="-12"/></g><path d="M-10 12 l6 8 l14 -16" stroke="#548a40" stroke-width="3" fill="none"/>', '', 0, 1) + bang(600, 210)) },
+        { minDur: 6800, sub: '「賅」是完備——「言簡意賅」：話少，但意思一點不缺，句句都在刀口上！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(280, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#548a40">三句話</text>') + hearts(510, 190)) },
+        { minDur: 6800, sub: '練習方法：寫完再刪一半——刪到不能再刪，留下的就是精華！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-11" x2="10" y2="-11"/></g><g stroke="#c96a5a" stroke-width="1.8"><line x1="-10" y1="-3" x2="10" y2="-3"/><line x1="-10" y1="1" x2="10" y2="-7"/><line x1="-10" y1="5" x2="10" y2="5"/><line x1="-10" y1="9" x2="10" y2="1"/></g>', '', 0, .95)) + bang(470, 188)) },
+        { minDur: 6400, sub: '言簡意賅：言辭簡潔，意思完備。',
+          html: scene(P(400, 270, '<rect x="-30" y="-40" width="60" height="80" rx="3" fill="#fff" stroke="#548a40" stroke-width="3"/><g stroke="#548a40" stroke-width="2"><line x1="-18" y1="-24" x2="18" y2="-24"/><line x1="-18" y1="-12" x2="10" y2="-12"/></g><path d="M-10 12 l6 8 l14 -16" stroke="#548a40" stroke-width="3" fill="none"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">言簡意賅</text>') }
+      ];
+    },
+    /* 趨之若鶩 */
+    i330: function () {
+      var DUCK = '<ellipse cx="0" cy="0" rx="16" ry="11" fill="#f4ecd8" stroke="#d8cbb0" stroke-width="2"/><circle cx="14" cy="-10" r="7" fill="#f4ecd8" stroke="#d8cbb0" stroke-width="2"/><path d="M20 -10 l8 2 l-8 3 z" fill="#e8944d"/><circle cx="16" cy="-12" r="1.6" fill="#3a2e26"/>';
+      return [
+        { minDur: 6800, sub: '池塘邊有人撒了把飼料——鴨群「嘎嘎嘎」全衝過來，擠成一團！',
+          html: scene(P(300, 296, DUCK, 'st-dashL', 0, 1) + P(400, 300, DUCK, 'st-dashL', .15, .95) + P(500, 294, DUCK, 'st-dashL', .3, 1.05) +
+            P(640, 290, '<g fill="#c9a06c"><circle cx="0" cy="0" r="3"/><circle cx="10" cy="4" r="3"/><circle cx="-8" cy="6" r="3"/></g>', '', 0, 1.2) + notes(360, 220)) },
+        { minDur: 6800, sub: '「鶩」就是鴨子——「趨之若鶩」：像鴨群一樣爭相跑去，一窩蜂追逐！',
+          html: scene(P(500, 285, '<rect x="-50" y="-44" width="100" height="44" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-36" y="-70" width="72" height="20" rx="4" fill="#c96a5a"/><text x="0" y="-55" text-anchor="middle" font-size="13" fill="#fff">新開幕</text>', '', 0, 1.05) +
+            P(230, 302, A('kid', 'happy'), 'st-dashL', 0, .92) + P(320, 302, A('kid', 'happy'), 'st-dashL', .15, .9) + P(410, 302, A('kid', 'wow'), 'st-dashL', .3, .88) + sweat(280, 190)) },
+        { minDur: 6800, sub: '多半帶點貶義：提醒人別盲目跟風——排三小時的「爆紅店」，真的適合你嗎？',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".92" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="14" fill="#6d7585">?</text>', '', 0, 1.05)) +
+            P(560, 302, A('kid', 'wow'), 'st-dashL', 0, .9, true) + qmark(280, 190)) },
+        { minDur: 6400, sub: '趨之若鶩：爭相追逐，一窩蜂去。',
+          html: scene(P(300, 296, DUCK, 'st-dashL', 0, 1) + P(400, 300, DUCK, 'st-dashL', .15, .95) + P(500, 294, DUCK, 'st-dashL', .3, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">趨之若鶩</text>') }
+      ];
+    },
+    /* 迎刃而解 */
+    i331: function () {
+      var BAMBOO2 = '<g stroke="#7fa858" stroke-width="8" stroke-linecap="round"><line x1="0" y1="20" x2="0" y2="-60"/></g><g stroke="#5a8a3a" stroke-width="3"><line x1="-5" y1="-8" x2="5" y2="-8"/><line x1="-5" y1="-34" x2="5" y2="-34"/></g>';
+      return [
+        { minDur: 7000, sub: '杜預伐吳，有人主張撤兵——他說：如今士氣如破竹，「數節之後，皆迎刃而解」！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, BAMBOO2, '', 0, 1.2) + bang(420, 185)) },
+        { minDur: 6800, sub: '劈竹子：劈開前幾節後，後面的竹節碰到刀刃就「啪啪啪」自己裂開了！',
+          html: scene(P(430, 302, '<g stroke="#7fa858" stroke-width="8" stroke-linecap="round"><line x1="-8" y1="20" x2="-16" y2="-60"/><line x1="8" y1="20" x2="16" y2="-60"/></g>', '', 0, 1.2) +
+            P(430, 210, '<line x1="-16" y1="10" x2="16" y2="-14" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><rect x="14" y="-24" width="10" height="14" rx="3" fill="#8a5a33"/>', '', 0, 1.1) + bang(340, 240) + bang(520, 250)) },
+        { minDur: 6800, sub: '「迎刃而解」：關鍵突破後，其餘問題順勢化解——數學也一樣，觀念通了整份考卷都會了！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -12 l4 4 l7 -8 M-10 -2 l4 4 l7 -8 M-10 8 l4 4 l7 -8"/></g>', '', 0, .95), 'st-cheer', 0, 1.02) + hearts(470, 188)) },
+        { minDur: 6400, sub: '迎刃而解：關鍵一破，其餘皆順。',
+          html: scene(P(430, 302, '<g stroke="#7fa858" stroke-width="8" stroke-linecap="round"><line x1="-8" y1="20" x2="-16" y2="-60"/><line x1="8" y1="20" x2="16" y2="-60"/></g>', '', 0, 1.2) + bang(430, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">迎刃而解</text>') }
+      ];
+    },
+    /* 適得其反 */
+    i332: function () {
+      return [
+        { minDur: 6800, sub: '小反想讓盆栽長快點，一天澆五次水、狂加肥料——照顧得無微不至！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-40, -50, '<path d="M-10 -6 q10 -8 20 0 l-4 10 q-6 4 -12 0 z" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2"/><g class="st-rain"><circle cx="4" cy="14" r="2.6" fill="#7fb2d4"/></g>', '', 0, 1)) +
+            P(560, 290, '<path d="M0 10 q-3 -14 6 -20 q8 -5 6 -14" stroke="#548a40" stroke-width="3.4" fill="none"/><path d="M12 -28 q8 -6 14 0 q-2 8 -8 8 q-6 0 -6 -8 z" fill="#a5d47c"/>', '', 0, 1.2) + hearts(300, 192)) },
+        { minDur: 6800, sub: '一週後——葉子全黃了、根也爛了！愛得太多，反而把植物害慘了！',
+          html: scene(P(560, 292, '<path d="M0 10 q-3 -12 4 -18 q6 -6 4 -12" stroke="#a8945a" stroke-width="3.4" fill="none"/><path d="M8 -22 q6 -8 12 -4 q0 8 -6 10 q-6 0 -6 -6 z" fill="#d9c05a" transform="rotate(40)"/>', '', 0, 1.2) +
+            P(360, 302, A('kid', 'wow'), '', 0, 1.02) + sweat(300, 188) + qmark(460, 185)) },
+        { minDur: 6800, sub: '「適得其反」：結果與願望正好相反——用錯方法，越用力越糟糕！',
+          html: scene(P(300, 240, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><path d="M-10 0 h20 M10 0 l-7 -6 M10 0 l-7 6" stroke="#548a40" stroke-width="2.6" fill="none"/><text x="0" y="-32" text-anchor="middle" font-size="12" fill="#548a40">想要</text>') +
+            P(500, 240, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><path d="M10 0 h-20 M-10 0 l7 -6 M-10 0 l7 6" stroke="#c96a5a" stroke-width="2.6" fill="none"/><text x="0" y="-32" text-anchor="middle" font-size="12" fill="#c96a5a">結果</text>') + sweat(400, 290)) },
+        { minDur: 6400, sub: '適得其反：結果與期望相反。',
+          html: scene(P(560, 292, '<path d="M0 10 q-3 -12 4 -18 q6 -6 4 -12" stroke="#a8945a" stroke-width="3.4" fill="none"/><path d="M8 -22 q6 -8 12 -4 q0 8 -6 10 q-6 0 -6 -6 z" fill="#d9c05a" transform="rotate(40)"/>', '', 0, 1.2) +
+            P(360, 302, A('kid', 'wow'), '', 0, 1.02) + qmark(460, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">適得其反</text>') }
+      ];
     }
   };
 
