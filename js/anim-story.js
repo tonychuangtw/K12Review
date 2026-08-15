@@ -9766,6 +9766,114 @@
           html: scene(P(400, 302, PEAK) + P(400, 112, FLAGPEAK) +
             '<text x="400" y="70" text-anchor="middle" font-size="48" font-weight="bold" fill="#4a3200">登峰造極</text>') }
       ];
+    },
+    /* 貫徹始終 */
+    i293: function () {
+      return [
+        { minDur: 6800, sub: '班上訂了「每日晨讀十分鐘」的約定——從開學第一天到最後一天，一天也沒中斷！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-42, -54, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -10 h16 M-8 -2 h16" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) +
+            P(460, 302, A('kid', 'happy') + P(-42, -54, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>', '', 0, .95), '', .2, .95) +
+            '<path d="M240 250 L580 250" stroke="#548a40" stroke-width="5" stroke-linecap="round"/><circle cx="240" cy="250" r="8" fill="#548a40"/><circle cx="580" cy="250" r="8" fill="#548a40"/>') },
+        { minDur: 6800, sub: '「貫徹」是穿透到底——訂了目標就從頭到尾徹底執行，毫不鬆懈！',
+          html: scene('<path d="M200 240 L600 240" stroke="#548a40" stroke-width="6" stroke-linecap="round"/><path d="M600 240 l-14 -8 v16 z" fill="#548a40"/>' +
+            P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.05) + bang(500, 195)) },
+        { minDur: 6600, sub: '「貫徹始終」讓小約定變成大習慣——期末時，全班的閱讀量翻了三倍！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(460, 185) + bang(280, 195)) },
+        { minDur: 6400, sub: '貫徹始終：從頭到尾徹底執行。',
+          html: scene('<path d="M220 250 L580 250" stroke="#548a40" stroke-width="5" stroke-linecap="round"/><circle cx="220" cy="250" r="8" fill="#548a40"/><circle cx="580" cy="250" r="8" fill="#548a40"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">貫徹始終</text>') }
+      ];
+    },
+    /* 全力以赴 */
+    i294: function () {
+      return [
+        { minDur: 6800, sub: '大隊接力最後一棒——小赴接棒後拚盡每一分力氣：手臂擺到最大、步伐跨到最開！',
+          html: scene('<rect y="296" width="800" height="18" fill="#d9a890"/>' +
+            P(400, 296, A('kid', 'angry') + P(30, -50, '<rect x="-4" y="-20" width="8" height="26" rx="4" fill="#e0a458" stroke="#c08838" stroke-width="2"/>', '', 0, 1), 'st-dashL', 0, 1.08) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="120" y1="240" x2="220" y2="240"/><line class="st-windln" style="animation-delay:.4s" x1="100" y1="270" x2="190" y2="270"/></g>' + sweat(330, 190)) },
+        { minDur: 6800, sub: '不管結果是不是第一，把全部力量用出來就沒有遺憾——「全力以赴」的樣子最帥！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 188) + sweat(320, 190)) },
+        { minDur: 6800, sub: '讀書、比賽、幫助別人——凡事全力以赴，就是對自己最好的交代！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-42, -54, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>', '', 0, .95)) +
+            P(500, 302, A('kid', 'angry'), 'st-dashL', .2, .95) + hearts(410, 188)) },
+        { minDur: 6400, sub: '全力以赴：用全部的力量去做。',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-dashL', 0, 1.08) + bang(500, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">全力以赴</text>') }
+      ];
+    },
+    /* 精疲力竭 */
+    i295: function () {
+      return [
+        { minDur: 6800, sub: '登山十小時回到家——小竭往沙發一倒：手指頭都不想動了，連飯都吃不動……',
+          html: scene(P(400, 302, '<rect x="-60" y="-34" width="120" height="34" rx="10" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>' +
+              P(0, -34, '<g transform="rotate(80)">' + A('kid', 'sad') + '</g>', '', 0, .95)) +
+            zzz(500, 210) + sweat(300, 220)) },
+        { minDur: 6800, sub: '精神和體力全部用光——「精疲力竭」！這時候最需要的就是休息和補充能量。',
+          html: scene(P(400, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.05) + sweat(340, 192) + sweat(460, 195) + zzz(520, 200)) },
+        { minDur: 6800, sub: '睡一晚、吃頓好的——隔天又是活力滿滿！懂得休息，才能走更長的路。',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 185) + bang(300, 192)) },
+        { minDur: 6400, sub: '精疲力竭：精神體力都消耗殆盡。',
+          html: scene(P(400, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.08) + zzz(480, 195) + sweat(320, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">精疲力竭</text>') }
+      ];
+    },
+    /* 事倍功半 */
+    i296: function () {
+      return [
+        { minDur: 6800, sub: '小倍抄課文複習：抄了三小時手都痠了，考出來卻只有六十分——花大力氣、收小效果！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18 M-9 4 h18 M-9 12 h18" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) +
+            sweat(300, 190) + P(520, 260, '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="15" font-weight="bold" fill="#c96a5a">60</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '「事倍功半」：力氣花了兩倍、成果只有一半——方法不對，努力打折！',
+          html: scene('<text x="290" y="220" text-anchor="middle" font-size="30" font-weight="bold" fill="#c96a5a">力氣×2</text>' +
+            '<path d="M360 212 L440 212" stroke="#8b93a3" stroke-width="4"/><path d="M440 212 l-10 -6 v12 z" fill="#8b93a3"/>' +
+            '<text x="520" y="220" text-anchor="middle" font-size="30" font-weight="bold" fill="#8b93a3">成果÷2</text>' +
+            P(400, 302, A('kid', 'sad'), '', 0, 1) + sweat(340, 195)) },
+        { minDur: 6800, sub: '改用「理解＋畫重點＋自我測驗」——時間減半、分數大進步！方法對了就翻身！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(520, 260, '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="15" font-weight="bold" fill="#548a40">95</text>', '', 0, 1) + hearts(280, 192)) },
+        { minDur: 6400, sub: '事倍功半：費力多而收效少。',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.05) + sweat(330, 190) + sweat(470, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">事倍功半</text>') }
+      ];
+    },
+    /* 事半功倍 */
+    i297: function () {
+      return [
+        { minDur: 6800, sub: '搬一堆磚頭：一塊塊抱要跑二十趟——聰明的小功找來推車，五趟就搬完了！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-50, -6, '<rect x="-30" y="-24" width="60" height="18" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><circle cx="-16" cy="0" r="8" fill="#8a5a33"/><circle cx="16" cy="0" r="8" fill="#8a5a33"/><g fill="#c96a5a"><rect x="-24" y="-38" width="16" height="10" rx="2"/><rect x="-4" y="-38" width="16" height="10" rx="2"/></g>', '', 0, 1)) + hearts(470, 195)) },
+        { minDur: 6800, sub: '「事半功倍」：力氣只花一半、成果卻加倍——用對方法和工具，效率翻倍！',
+          html: scene('<text x="290" y="220" text-anchor="middle" font-size="30" font-weight="bold" fill="#548a40">力氣÷2</text>' +
+            '<path d="M360 212 L440 212" stroke="#8b93a3" stroke-width="4"/><path d="M440 212 l-10 -6 v12 z" fill="#8b93a3"/>' +
+            '<text x="520" y="220" text-anchor="middle" font-size="30" font-weight="bold" fill="#e0a458">成果×2</text>' +
+            P(400, 302, A('kid', 'happy'), '', 0, 1) + hearts(490, 260)) },
+        { minDur: 6800, sub: '它和「事倍功半」正好相反——先想清楚「怎麼做最聰明」，再動手！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(0, -110, '<circle cx="0" cy="-14" r="14" fill="#ffe066" stroke="#e8b84a" stroke-width="2.4"/><rect x="-6" y="0" width="12" height="8" rx="3" fill="#b8ae9c"/>', '', 0, 1)) + bang(420, 190) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95) + hearts(450, 240)) },
+        { minDur: 6400, sub: '事半功倍：費力少而收效大。',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 185) + bang(300, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">事半功倍</text>') }
+      ];
+    },
+    /* 觸類旁通 */
+    i298: function () {
+      return [
+        { minDur: 6800, sub: '學會了直排輪，第一次滑冰竟然也很快上手——因為平衡的原理是相通的！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<g fill="#8b93a3"><circle cx="-12" cy="4" r="4"/><circle cx="-2" cy="4" r="4"/><circle cx="8" cy="4" r="4"/></g>', 'st-strut') +
+            P(520, 302, A('kid', 'happy') + '<line x1="-14" y1="4" x2="14" y2="4" stroke="#8b93a3" stroke-width="3.4"/>', 'st-strut', .3, .95) + hearts(410, 190)) },
+        { minDur: 6800, sub: '「觸類旁通」：掌握一類知識後，碰到同類的就能舉一反三、自己想通！',
+          html: scene(P(300, 220, '<circle cx="0" cy="0" r="24" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.6"/><text x="0" y="7" text-anchor="middle" font-size="17" fill="#8a5a33">A</text>') +
+            '<g stroke="#548a40" stroke-width="3.4" stroke-dasharray="7 7"><path d="M330 210 q60 -30 120 -10 M330 230 q60 30 120 10"/></g>' +
+            P(500, 190, '<circle cx="0" cy="0" r="20" fill="#a5d47c" stroke="#7cab6e" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#3a5a28">B</text>') +
+            P(500, 250, '<circle cx="0" cy="0" r="20" fill="#a5c8ff" stroke="#5c82ba" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#2c4a75">C</text>')) },
+        { minDur: 6800, sub: '學好分數，比例和百分數就好懂；學好注音，查字典就更快——知識是彼此相連的網！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95)) + bang(470, 190) + hearts(280, 192)) },
+        { minDur: 6400, sub: '觸類旁通：掌握一類後能類推理解其他。',
+          html: scene(P(320, 225, '<circle cx="0" cy="0" r="22" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/>') +
+            '<path d="M350 218 q50 -22 100 -8" stroke="#548a40" stroke-width="3.4" stroke-dasharray="7 7" fill="none"/>' +
+            P(490, 205, '<circle cx="0" cy="0" r="18" fill="#a5d47c" stroke="#7cab6e" stroke-width="2.4"/>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">觸類旁通</text>') }
+      ];
     }
   };
 
