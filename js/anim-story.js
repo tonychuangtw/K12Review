@@ -1723,6 +1723,148 @@
           html: scene(P(340, 302, A('kid', 'happy') + P(-40, -56, BOOK)) + notes(430, 180) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">紙上談兵</text>') }
       ];
+    },
+    /* 呆若木雞 */
+    i831: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '紀渻子替齊王訓練鬥雞。十天後齊王問：「練好了嗎？」「還不行——牠又驕傲又浮躁，一碰就跳。」',
+          html: scene(P(430, 302, '<g class="st-cheer">' + A('chicken') + '</g>') + bang(490, 230) +
+            P(200, 302, A('kid', 'happy') + CROWN) + qmark(250, 185) +
+            P(620, 302, A('kid', 'happy'), '', 0, .9)) },
+        { minDur: 6800, sub: '又過了幾十天，雞一聽到聲音、看到影子，還是會激動地撲騰——「還是不行。」',
+          html: scene(P(430, 302, A('chicken')) + sweat(470, 230) + notes(330, 190) +
+            P(620, 302, A('kid', 'sad'), '', 0, .9) + qmark(660, 195)) },
+        { minDur: 6800, sub: '最後，這隻雞不管周圍多吵，都站著一動也不動，看上去就像一隻木頭刻的雞——「成了！」',
+          html: scene(P(430, 302, A('chicken'), '', 0, 1.1) +
+            P(200, 302, A('kid', 'happy') + CROWN) + hearts(280, 185) +
+            P(620, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9)) },
+        { minDur: 6800, sub: '別的雞一看到牠這副沉穩無畏的氣勢，嚇得掉頭就跑，根本不敢應戰！',
+          html: scene(P(340, 302, A('chicken'), '', 0, 1.1) +
+            P(560, 302, '<g class="st-fleeR">' + A('chicken') + '</g>', 'st-dashL', 0, .85) +
+            P(680, 302, '<g class="st-fleeR" style="animation-delay:.3s">' + A('chicken') + '</g>', 'st-dashL', .3, .8) +
+            sweat(540, 230)) },
+        { minDur: 6400, sub: '呆若木雞：像木頭雞一樣發呆，今多形容嚇傻或愣住的樣子。',
+          html: scene(P(400, 302, A('chicken'), '', 0, 1.2) + qmark(460, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">呆若木雞</text>') }
+      ];
+    },
+    /* 舉一反三 */
+    i250: function () {
+      function corner(x, y, lit, rot) {
+        return P(x, y, '<path d="M-16 0 L0 0 L0 -16" stroke="' + (lit ? '#e0a458' : '#8fa3bf') + '" stroke-width="7" fill="none" stroke-linecap="round" transform="rotate(' + rot + ')"/>');
+      }
+      var BOOK = '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><line x1="-1" y1="-14" x2="-3" y2="11" stroke="#c9bfa8" stroke-width="2"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>';
+      return [
+        { minDur: 6800, sub: '孔子教學生時，指著屋子的一個角落說：「我告訴你這一個角是什麼樣子……」',
+          html: scene(corner(520, 250, true, 0) +
+            P(240, 302, A('kid', 'happy') +
+              '<path d="M18 -60 q14 -4 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>') +
+            P(430, 302, A('kid', 'happy'), '', 0, .85)) },
+        { minDur: 7000, sub: '「如果你不能自己推想出另外三個角的樣子，我就不再往下教了。」',
+          html: scene(corner(430, 190, true, 0) + corner(560, 190, false, 90) +
+            corner(560, 280, false, 180) + corner(430, 280, false, 270) +
+            qmark(495, 230) +
+            P(220, 302, A('kid', 'happy')) + P(680, 302, A('kid', 'wow'), '', 0, .85)) },
+        { minDur: 6800, sub: '學生們學著從一件事推想出許多道理，越學越聰明、越學越通透！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-36, -52, BOOK, '', 0, .9)) +
+            P(470, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', .2, .9) +
+            P(620, 302, A('kid', 'happy') + P(-36, -52, BOOK, '', 0, .9), '', .4, .85) +
+            hearts(400, 165) + bang(540, 170)) },
+        { minDur: 6200, sub: '舉一反三：從一件事，類推明白其他許多事。',
+          html: scene(corner(300, 240, true, 0) + corner(430, 240, false, 90) + corner(530, 240, false, 90) + corner(630, 240, false, 90) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">舉一反三</text>') }
+      ];
+    },
+    /* 螳螂捕蟬 */
+    i1071: function () {
+      var MANTIS2 = '<ellipse cx="6" cy="-10" rx="12" ry="6.5" fill="#8fc866" stroke="#6da844" stroke-width="1.8"/>' +
+        '<circle cx="-8" cy="-19" r="5.5" fill="#8fc866" stroke="#6da844" stroke-width="1.8"/>' +
+        '<circle cx="-10" cy="-20" r="1.6" fill="#3a2e26"/>' +
+        '<path d="M-13 -16 q-8 -5 -9 -12 l3 -2 q2 7 8 10 z M-4 -15 q-2 -9 3 -13 l3 2 q-4 5 -2 10 z" fill="#6da844"/>';
+      var CICADA = '<ellipse cx="0" cy="0" rx="9" ry="6" fill="#8a7a5a" stroke="#6d6044" stroke-width="1.8"/>' +
+        '<path d="M2 -3 q10 -5 16 0 q-6 6 -16 3 z" fill="#c9d6b8" opacity=".85"/>' +
+        '<circle cx="-7" cy="-2" r="1.6" fill="#3a2e26"/>';
+      var SLINGSHOT = '<path d="M0 0 L0 -18 M0 -18 L-9 -32 M0 -18 L9 -32" stroke="#a8734a" stroke-width="4.6" fill="none" stroke-linecap="round"/>' +
+        '<path d="M-9 -32 Q0 -24 9 -32" stroke="#8b93a3" stroke-width="2.4" fill="none"/>';
+      var BIGTREE = '<rect x="-11" y="-120" width="22" height="120" rx="8" fill="#a8734a"/>' +
+        '<circle cx="0" cy="-150" r="44" fill="#7cc47f"/><circle cx="-38" cy="-126" r="28" fill="#8fd08f"/><circle cx="38" cy="-128" r="30" fill="#8fd08f"/>';
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      return [
+        { minDur: 6600, sub: '吳王執意要出兵攻打楚國，還下令：「誰敢勸阻，就處死誰！」',
+          html: scene(P(300, 302, A('kid', 'angry') + CROWN) + bang(380, 180) +
+            P(560, 302, A('kid', 'sad'), '', 0, .9) + sweat(600, 200)) },
+        { minDur: 6800, sub: '一位少年連著三天拿彈弓在後園裡轉。吳王好奇：「你在做什麼？」他說：「大王，您看那棵樹上——」',
+          html: scene(P(560, 302, BIGTREE) +
+            P(260, 302, A('kid', 'happy') + P(30, -44, SLINGSHOT)) +
+            P(420, 302, A('kid', 'happy') + CROWN, '', 0, .95, true) + qmark(460, 185)) },
+        { minDur: 8000, sub: '「蟬在高處喝露水，不知道螳螂在牠身後；螳螂想捕蟬，不知道黃雀在牠後面；黃雀想吃螳螂，卻不知道我的彈弓正瞄準著牠！」',
+          html: scene(P(560, 302, BIGTREE) +
+            P(500, 150, CICADA) + P(555, 165, MANTIS2) + P(625, 155, A('bird'), '', 0, .75) +
+            P(300, 302, A('kid', 'happy') + P(30, -44, SLINGSHOT)) +
+            qmark(500, 110) + qmark(580, 120)) },
+        { minDur: 7000, sub: '吳王恍然大悟：「只顧眼前的利益，不顧身後的危險，太危險了！」立刻取消了出兵。',
+          html: scene(P(400, 302, A('kid', 'wow') + CROWN) + bang(470, 175) +
+            P(220, 302, A('kid', 'happy'), '', 0, .9) + hearts(310, 190)) },
+        { minDur: 6400, sub: '螳螂捕蟬，黃雀在後：只顧眼前利益，不顧身後禍患。',
+          html: scene(P(240, 260, CICADA, '', 0, 1.4) + P(380, 268, MANTIS2, '', 0, 1.5) + P(540, 250, A('bird'), '', 0, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">螳螂捕蟬</text>') }
+      ];
+    },
+    /* 口蜜腹劍 */
+    i861: function () {
+      var HONEY = '<path d="M0 0 q-7 10 0 16 q7 -6 0 -16 z" fill="#e8b84a"/>';
+      var DAGGER = '<line x1="0" y1="0" x2="18" y2="-26" stroke="#c4cede" stroke-width="4.6" stroke-linecap="round"/>' +
+        '<line x1="3" y1="-8" x2="11" y2="-2" stroke="#c98f2a" stroke-width="3.4" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '唐朝宰相李林甫，見了人總是滿臉堆笑，說出來的話甜得像抹了蜜。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(30, -46, HONEY)) + hearts(430, 180) +
+            P(580, 302, A('kid', 'happy'), '', 0, .95, true)) },
+        { minDur: 6800, sub: '可是一轉身，他就在背地裡設計陷害比他有才能的人。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-34, -40, DAGGER, '', 0, .9)) +
+            P(580, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>', '', 0, .9) + sweat(620, 210) + bang(500, 190), 'night') },
+        { minDur: 6800, sub: '大家漸漸看穿了他：「李林甫嘴上像抹了蜜，肚子裡卻藏著一把劍！」人人對他又怕又防。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(0, -96, HONEY) + P(-14, -30, DAGGER, '', 0, .8)) +
+            P(560, 302, A('kid', 'wow'), '', 0, .9) + sweat(600, 200) +
+            P(680, 302, A('kid', 'sad'), '', .3, .85)) },
+        { minDur: 6200, sub: '口蜜腹劍：嘴上甜如蜜，心裡藏著劍，形容人陰險。',
+          html: scene(P(320, 250, HONEY, '', 0, 1.8) + P(500, 260, DAGGER, '', 0, 1.5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">口蜜腹劍</text>') }
+      ];
+    },
+    /* 世外桃源 */
+    i841: function () {
+      var RIVERW = '<rect y="266" width="800" height="74" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 276 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>';
+      var BOAT2 = '<path d="M-52 0 L52 0 L38 18 L-38 18 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/>';
+      function peach(x, y, sc) {
+        return P(x, y, '<rect x="-7" y="-38" width="14" height="38" rx="6" fill="#a8734a"/>' +
+          '<circle cx="0" cy="-52" r="24" fill="#f7b8cc"/><circle cx="-19" cy="-40" r="15" fill="#fbc9d9"/><circle cx="19" cy="-42" r="16" fill="#fbc9d9"/>' +
+          '<circle cx="-6" cy="-58" r="3.4" fill="#fff"/><circle cx="10" cy="-46" r="3.4" fill="#fff"/>', '', 0, sc);
+      }
+      var CAVE = '<path d="M-60 0 L-60 -40 Q-60 -110 0 -110 Q60 -110 60 -40 L60 0 Z" fill="#8a7a66"/>' +
+        '<path d="M-26 0 Q-26 -52 0 -52 Q26 -52 26 0 Z" fill="#4a4238"/>' +
+        '<circle cx="0" cy="-24" r="9" fill="#ffe9a0" opacity=".9"/>';
+      var HOUSE3 = '<path d="M-40 -34 L0 -60 L40 -34 Z" fill="#8a5a33"/><rect x="-32" y="-34" width="64" height="34" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-9" y="-24" width="18" height="24" rx="3" fill="#8a5a33"/>';
+      return [
+        { minDur: 6800, sub: '東晉有位漁夫，沿著小溪划船——兩岸忽然開滿了桃花，粉紅一片，美得像畫一樣。',
+          html: scene(RIVERW + peach(120, 270, 1) + peach(680, 268, 1.05) + peach(250, 274, .8) +
+            P(430, 272, BOAT2 + P(0, 0, A('kid', 'happy'), '', 0, .8)) + hearts(500, 180)) },
+        { minDur: 6600, sub: '溪水的盡頭有座小山，山腳下有個洞口，隱隱透著光。他把船靠岸，鑽了進去——',
+          html: scene(P(560, 302, CAVE) + peach(180, 300, .95) +
+            P(360, 302, A('kid', 'wow'), 'st-inR') + qmark(410, 190)) },
+        { minDur: 7200, sub: '眼前豁然開朗：良田美屋、雞犬相聞，人人安居樂業，見了生人也笑臉相迎！',
+          html: scene(P(180, 302, HOUSE3) + P(650, 302, HOUSE3, '', 0, .9) +
+            P(300, 302, A('kid', 'happy'), '', 0, .9) + P(430, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', .3, .85) +
+            P(540, 300, A('chicken'), '', 0, .8) + P(620, 300, A('dog'), '', .3, .8) +
+            hearts(400, 165) + peach(80, 300, .8)) },
+        { minDur: 7000, sub: '漁夫回家之後，再想帶人去尋找，卻怎麼也找不到那個入口了。「世外桃源」從此成了理想世界的代名詞。',
+          html: scene(peach(560, 300, 1) + peach(680, 298, .85) +
+            P(300, 302, A('kid', 'sad')) + qmark(360, 185) + sweat(250, 200)) },
+        { minDur: 6200, sub: '世外桃源：與世隔絕、安樂美好的理想世界。',
+          html: scene(peach(180, 302, 1) + P(600, 302, HOUSE3) + P(400, 302, A('kid', 'happy'), '', 0, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">世外桃源</text>') }
+      ];
     }
   };
 
