@@ -11567,6 +11567,146 @@
           html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.08) + bang(500, 180) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">奮發有為</text>') }
       ];
+    },
+    /* 韜光養晦 */
+    i096: function () {
+      var SWORD_BAG = '<path d="M-10 -34 L10 -34 L8 30 Q0 38 -8 30 Z" fill="#8a5a33" stroke="#6d4426" stroke-width="2.4"/><path d="M-10 -34 h20 v8 h-20 z" fill="#6d4426"/>';
+      return [
+        { minDur: 7000, sub: '「韜」是裝劍的袋子——寶劍再鋒利，也先收進劍袋，不隨便露出光芒！',
+          html: scene(P(400, 290, SWORD_BAG, '', 0, 1.3) +
+            '<g class="st-tw" opacity=".6"><path d="M430 230 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 z" fill="#fff"/></g>' +
+            P(240, 302, A('kid', 'wow'), '', 0, .95)) },
+        { minDur: 6800, sub: '高手不急著炫耀：白天低調做事，夜裡默默苦練——在暗處把本事磨得更利！',
+          html: scene(P(380, 302, A('kid', 'angry') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/></g>', '', 0, .95)) +
+            P(600, 130, '<circle cx="0" cy="0" r="20" fill="#f5f0dc"/><circle cx="8" cy="-4" r="16" fill="#2c3550"/>', '', 0, 1) + sweat(300, 192), 'night') },
+        { minDur: 6800, sub: '「韜光養晦」：隱藏才能、蓄勢待發——時機一到出手，一鳴驚人！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.08) + bang(400, 168) + hearts(540, 195) +
+            P(260, 200, '<path d="M0 -20 l6 12 13 2 -9 10 2 13 -12 -7 -12 7 2 -13 -9 -10 13 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '韜光養晦：藏起鋒芒，養精蓄銳。',
+          html: scene(P(400, 290, SWORD_BAG, '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">韜光養晦</text>') }
+      ];
+    },
+    /* 寶貴難求 */
+    i097: function () {
+      var GEM = '<path d="M-20 -8 L-10 -20 L10 -20 L20 -8 L0 16 Z" fill="#7fd4d4" stroke="#4aa8a8" stroke-width="2.4"/><path d="M-20 -8 h40 M-10 -20 L0 16 L10 -20" stroke="#4aa8a8" stroke-width="1.6" fill="none"/>';
+      return [
+        { minDur: 6800, sub: '尋寶隊翻山越嶺、挖遍了整座山谷——稀世寶石就是找不到，因為它太稀有了！',
+          html: scene('<path d="M120 302 Q240 180 380 302 M340 302 Q480 150 640 302" fill="#c9b98a" stroke="#a8945a" stroke-width="3"/>' +
+            P(300, 302, A('kid', 'wow') + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, .95, true) + sweat(240, 195) + qmark(420, 190)) },
+        { minDur: 6800, sub: '「寶貴難求」：珍貴的東西難以求得——最常用來形容難遇的人才！',
+          html: scene(P(400, 245, GEM, '', 0, 1.6) +
+            '<g class="st-tw"><path d="M460 205 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' + hearts(300, 200)) },
+        { minDur: 6800, sub: '球隊教練感歎：「又會投籃又肯苦練還能帶動全隊的人，寶貴難求啊！」所以要好好珍惜！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -56, '<circle cx="0" cy="0" r="12" fill="#e0813f" stroke="#b85f24" stroke-width="2"/><path d="M-12 0 h24 M0 -12 v24" stroke="#b85f24" stroke-width="1.6"/>', '', 0, 1.05), '', 0, 1) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '寶貴難求：珍稀難得，人才難遇。',
+          html: scene(P(400, 250, GEM, '', 0, 1.7) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">寶貴難求</text>') }
+      ];
+    },
+    /* 矢志不移 */
+    i098: function () {
+      return [
+        { minDur: 6800, sub: '小矢立志當醫生，把志願寫在紙上貼在牆頭——「矢」就是發誓，這是他鄭重的誓言！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -10" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(560, 210, '<rect x="-30" y="-22" width="60" height="44" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="-2" text-anchor="middle" font-size="14" fill="#c96a5a">我要當</text><text x="0" y="14" text-anchor="middle" font-size="14" fill="#c96a5a">醫生</text>') + bang(280, 185)) },
+        { minDur: 6800, sub: '有人笑他不自量力、考試也曾失利——但他的志向像釘進石頭的箭，一動也不動！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 6 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .95, true) + qmark(240, 190) +
+            P(520, 285, '<path d="M-28 18 Q0 -6 28 14 L20 22 Q0 6 -20 26 Z" fill="#8b93a3"/><line x1="0" y1="4" x2="0" y2="-42" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#c96a5a"/>', '', 0, 1.1) + sweat(560, 200)) },
+        { minDur: 6800, sub: '「矢志不移」：誓願堅定、決心不變——多年後他真的穿上白袍，站在診間裡！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -34 L-14 6 h28 l4 -40 z" fill="#fff" stroke="#d8d2c4" stroke-width="2"/><path d="M0 -30 v22" stroke="#d8d2c4" stroke-width="2"/>', '', 0, 1.05) + hearts(510, 188) +
+            P(270, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-8 0 h16 M0 -8 v16" stroke="#c96a5a" stroke-width="3"/>')) },
+        { minDur: 6400, sub: '矢志不移：誓願堅定，決心不變。',
+          html: scene(P(400, 285, '<path d="M-28 18 Q0 -6 28 14 L20 22 Q0 6 -20 26 Z" fill="#8b93a3"/><line x1="0" y1="4" x2="0" y2="-42" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#c96a5a"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">矢志不移</text>') }
+      ];
+    },
+    /* 發憤圖強 */
+    i099: function () {
+      return [
+        { minDur: 7000, sub: '有人問孔子是怎樣的人，孔子說：我「發憤忘食，樂以忘憂」——用功起來連吃飯都忘了！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-48, -46, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/></g>', '', 0, .95), '', 0, 1.05) +
+            P(560, 285, '<path d="M-14 -8 h28 v6 q0 10 -14 10 q-14 0 -14 -10 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/><g class="st-zfloat" opacity=".7"><path d="M-4 -18 q3 -6 0 -12 M6 -16 q3 -6 0 -12" stroke="#c9bfa8" stroke-width="2" fill="none"/></g>', '', 0, 1) + qmark(620, 235)) },
+        { minDur: 6800, sub: '「發憤圖強」：把不服輸的勁化成行動——戰後的人們發憤圖強，把家園重新建起來！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1)) +
+            P(500, 302, '<g stroke="#a8734a" stroke-width="5"><line x1="-40" y1="0" x2="-40" y2="-50"/><line x1="40" y1="0" x2="40" y2="-50"/><line x1="-50" y1="-50" x2="50" y2="-50"/></g>', '', 0, 1) + bang(420, 200) + sweat(230, 192)) },
+        { minDur: 6800, sub: '跌倒不哭，把力氣用來站起來、變更強——這股勁，就是進步最大的引擎！',
+          html: scene(P(360, 302, A('kid', 'angry'), 'st-strut', 0, 1.05) + bang(470, 180) +
+            P(600, 200, '<path d="M0 -20 l6 12 13 2 -9 10 2 13 -12 -7 -12 7 2 -13 -9 -10 13 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '發憤圖強：下定決心，努力進取。',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.08) + bang(510, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">發憤圖強</text>') }
+      ];
+    },
+    /* 不速之客 */
+    i301: function () {
+      return [
+        { minDur: 7000, sub: '《易經》說：「有不速之客三人來，敬之終吉」——「速」是邀請，不速之客就是沒被邀請的客人！',
+          html: scene(P(250, 302, A('kid', 'wow') + P(34, -40, '<rect x="-4" y="-30" width="8" height="34" rx="3" fill="#8a5a33"/>', '', 0, 1)) +
+            P(480, 302, A('kid', 'happy'), 'st-inR', 0, .95, true) + P(570, 302, A('kid', 'happy'), 'st-inR', .2, .92, true) + P(655, 302, A('kid', 'happy'), 'st-inR', .4, .9, true) + qmark(330, 185)) },
+        { minDur: 6800, sub: '生日會正熱鬧，隔壁班同學突然探頭進來——大家愣住：這位可是不速之客！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-40, -44, '<path d="M-12 8 h24 l-3 -22 h-18 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/><g class="st-flick"><path d="M0 -22 q3 -6 0 -10" stroke="#ffd166" stroke-width="3" fill="none"/></g>', '', 0, 1)) +
+            P(560, 302, A('kid', 'happy'), 'st-inR', 0, .98, true) + bang(450, 185) + notes(250, 190)) },
+        { minDur: 6800, sub: '《易經》教我們「敬之終吉」——好好接待，反而化尷尬為友誼，多了一個朋友！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(36, -44, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) +
+            P(500, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(420, 182)) },
+        { minDur: 6400, sub: '不速之客：不請自來的客人。',
+          html: scene(P(300, 302, A('kid', 'wow')) + P(520, 302, A('kid', 'happy'), 'st-inR', 0, .98, true) + qmark(380, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不速之客</text>') }
+      ];
+    },
+    /* 別出心裁 */
+    i302: function () {
+      return [
+        { minDur: 6800, sub: '海報比賽，大家都畫一樣的構圖——小裁偏偏把海報做成立體摺頁，一翻開會跳出圖案！',
+          html: scene(P(250, 280, '<rect x="-26" y="-34" width="52" height="68" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><circle cx="0" cy="-10" r="10" fill="#8fa3bf"/>', '', 0, .95) +
+            P(360, 280, '<rect x="-26" y="-34" width="52" height="68" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><circle cx="0" cy="-10" r="10" fill="#8fa3bf"/>', '', 0, .95) +
+            P(530, 280, '<path d="M-30 -30 L0 -40 L30 -30 L30 30 L0 40 L-30 30 Z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.6"/><path d="M0 -40 V40" stroke="#e8b93f" stroke-width="2"/><g class="st-tw"><path d="M0 -6 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ff9d4d"/></g>', '', 0, 1.05) + bang(620, 200)) },
+        { minDur: 6800, sub: '「心裁」是心中的設計剪裁——「別出心裁」：另外想出與眾不同的新點子！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -60, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/><line x1="0" y1="4" x2="0" y2="14" stroke="#e0b73f" stroke-width="3"/>', '', 0, 1.1), '', 0, 1.05) + hearts(510, 188)) },
+        { minDur: 6800, sub: '評審眼睛一亮：「構想太特別了！」別出心裁的作品拿下第一名！',
+          html: scene(P(340, 302, A('kid', 'happy'), 'st-cheer', 0, 1.02) +
+            P(540, 302, A('kid', 'wow') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) +
+            P(340, 195, '<path d="M0 -18 l6 11 12 2 -9 9 2 12 -11 -6 -11 6 2 -12 -9 -9 12 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1.1) + bang(450, 175)) },
+        { minDur: 6400, sub: '別出心裁：獨創新意，與眾不同。',
+          html: scene(P(400, 285, '<path d="M-30 -30 L0 -40 L30 -30 L30 30 L0 40 L-30 30 Z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.6"/><g class="st-tw"><path d="M0 -6 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ff9d4d"/></g>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">別出心裁</text>') }
+      ];
+    },
+    /* 匠心獨運 */
+    i303: function () {
+      var CARVE = '<rect x="-30" y="-16" width="60" height="42" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><path d="M-14 -2 q14 -14 28 0 q-14 14 -28 0" fill="#f4ecd8" stroke="#a8734a" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '唐人稱讚孟浩然作文「文不按古，匠心獨妙」——不照老套路，自有巧妙的構思！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -50, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-8 -8 q8 6 16 -2 M-8 2 q8 6 16 -2" stroke="#8fa3bf" stroke-width="1.8" fill="none"/>', '', 0, .95), '', 0, 1.05) + notes(470, 185)) },
+        { minDur: 6800, sub: '老木匠雕一扇窗：不用現成花樣，自己設計出雲朵繞月的紋路——每一刀都有巧思！',
+          html: scene(P(430, 285, CARVE, '', 0, 1.3) +
+            P(270, 302, A('kid', 'angry') + P(32, -46, '<line x1="0" y1="8" x2="0" y2="-18" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/><path d="M0 -26 l-5 10 h10 z" fill="#6d7585"/>', '', 0, 1)) + sweat(210, 195) + hearts(560, 210)) },
+        { minDur: 6800, sub: '「匠心獨運」：像巧匠一樣獨自運用巧思——作品獨到之處，都是用心琢磨出來的！',
+          html: scene(P(400, 280, CARVE, '', 0, 1.5) +
+            '<g class="st-tw"><path d="M470 230 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' + hearts(290, 200)) },
+        { minDur: 6400, sub: '匠心獨運：構思巧妙，獨到創新。',
+          html: scene(P(400, 285, CARVE, '', 0, 1.4) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">匠心獨運</text>') }
+      ];
+    },
+    /* 一針見血 */
+    i304: function () {
+      return [
+        { minDur: 6800, sub: '班會討論成績退步的原因，大家繞來繞去講不到重點——場面亂成一團！',
+          html: scene(P(260, 302, A('kid', 'happy'), '', 0, .95) + P(400, 302, A('kid', 'wow'), '', 0, .95) + P(540, 302, A('kid', 'happy'), '', 0, .95, true) +
+            qmark(300, 185) + qmark(480, 178) + sweat(600, 195)) },
+        { minDur: 6800, sub: '小血一句話：「就是大家都熬夜滑手機！」——像一針下去立刻見血，直接刺中要害！',
+          html: scene(P(360, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 240, '<line x1="-24" y1="24" x2="18" y2="-18" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/><path d="M18 -18 l8 -8" stroke="#c96a5a" stroke-width="5" stroke-linecap="round"/>', '', 0, 1.1) + bang(560, 185)) },
+        { minDur: 6800, sub: '「一針見血」：言論簡潔、切中要害——大家沉默三秒，然後齊聲說：「他說得對……」',
+          html: scene(P(300, 302, A('kid', 'sad'), '', 0, .95) + P(440, 302, A('kid', 'sad'), '', 0, .95) + P(580, 302, A('kid', 'happy'), '', 0, .95, true) +
+            P(370, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="18" fill="#c96a5a">對…</text>') + sweat(250, 195)) },
+        { minDur: 6400, sub: '一針見血：言論精準，切中要害。',
+          html: scene(P(400, 250, '<line x1="-30" y1="30" x2="22" y2="-22" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M22 -22 l10 -10" stroke="#c96a5a" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.3) + bang(470, 200) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一針見血</text>') }
+      ];
     }
   };
 
