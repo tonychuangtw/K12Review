@@ -3723,6 +3723,111 @@
             lamp(530, 120, '#a5c8ff', .2) + lamp(620, 140, '#f7a8c4', .6) +
             '<text x="400" y="270" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">五光十色</text>', 'night') }
       ];
+    },
+    /* 千里馬 */
+    i002: function () {
+      return [
+        { minDur: 6800, sub: '千里馬一天能跑一千里，是世上最珍貴的良馬——可是牠混在普通馬群裡，誰認得出來呢？',
+          html: scene(P(260, 302, A('horse'), '', 0, .9) + P(420, 302, A('horse'), '', .2, .9) +
+            P(580, 302, A('horse'), '', .4, .9) + qmark(400, 180)) },
+        { minDur: 6800, sub: '幸好有懂馬的伯樂！他一眼認出千里馬，解開韁繩讓牠盡情奔馳——果然快如閃電！',
+          html: scene(P(240, 302, A('kid', 'happy')) + hearts(310, 185) +
+            P(520, 302, A('horse'), 'st-dashL', 0, 1.1) + bang(660, 220)) },
+        { minDur: 6800, sub: '「千里馬」比喻有才能的人——但也要遇上識才的「伯樂」，才能大放光彩呀！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(520, 302, A('horse'), '', 0, 1.05) + hearts(420, 175)) },
+        { minDur: 6400, sub: '千里馬：比喻有才能的人。',
+          html: scene(P(430, 302, A('horse'), 'st-strut', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千里馬</text>') }
+      ];
+    },
+    /* 千變萬化 */
+    i011: function () {
+      function cloudShape(x, y, inner, dly) {
+        return P(x, y, '<g class="st-cloud"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<ellipse cx="0" cy="0" rx="42" ry="17" fill="#fff"/><ellipse cx="-30" cy="7" rx="22" ry="11" fill="#fff"/><ellipse cx="30" cy="7" rx="24" ry="12" fill="#fff"/>' + inner + '</g>');
+      }
+      var DOGCLOUD = '<ellipse cx="34" cy="-12" rx="12" ry="9" fill="#fff"/><ellipse cx="44" cy="-20" rx="5" ry="8" fill="#fff"/>';
+      var DRGCLOUD = '<path d="M-40 -8 q16 -14 36 -6 q16 8 30 -2" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '躺在草地上看天上的雲：一會兒像小狗、一會兒像棉花糖、一會兒又變成一條龍！',
+          html: scene(cloudShape(240, 110, DOGCLOUD, 0) + cloudShape(540, 90, DRGCLOUD, .5) +
+            P(400, 316, '<g transform="rotate(76)">' + A('kid', 'happy') + '</g>') + hearts(500, 240)) },
+        { minDur: 6600, sub: '還沒看清楚，風一吹——雲又變成新的樣子！變化多得根本數不完。',
+          html: scene(cloudShape(340, 100, '', 0) + cloudShape(560, 130, DOGCLOUD, .4) +
+            '<g stroke="#e8f4fb" stroke-width="5" fill="none" stroke-linecap="round" opacity=".9"><path class="st-windln" d="M100 140 q60 -18 120 0"/></g>' +
+            P(400, 316, '<g transform="rotate(76)">' + A('kid', 'wow') + '</g>') + qmark(480, 250)) },
+        { minDur: 6600, sub: '「千變萬化」就是形容變化極多、讓人猜不透接下來會變成什麼樣子。',
+          html: scene(cloudShape(230, 120, DRGCLOUD, 0) + cloudShape(450, 90, '', .3) + cloudShape(640, 130, DOGCLOUD, .6) +
+            P(360, 302, A('kid', 'happy'))) },
+        { minDur: 6400, sub: '千變萬化：形容變化極多，難以預測。',
+          html: scene(cloudShape(260, 130, DOGCLOUD, 0) + cloudShape(540, 110, DRGCLOUD, .4) +
+            '<text x="400" y="270" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千變萬化</text>') }
+      ];
+    },
+    /* 龍騰虎躍 */
+    i014: function () {
+      return [
+        { minDur: 6800, sub: '運動會開始了！操場上人人生龍活虎：有的騰空跳遠、有的猛衝短跑，活力十足！',
+          html: scene(P(240, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(420, 302, A('kid', 'happy'), 'st-dashL', 0, .95) +
+            P(600, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .9) + bang(520, 190)) },
+        { minDur: 6800, sub: '龍在空中騰飛、老虎在地上跳躍——這幅畫面，就是最有活力的樣子！',
+          html: scene(P(300, 160, A('dragon'), '', 0, 1.1) + P(540, 302, '<g class="st-hop">' + A('tiger') + '</g>') +
+            hearts(420, 200)) },
+        { minDur: 6600, sub: '加油聲、歡呼聲此起彼落，整個操場龍騰虎躍、熱鬧非凡！',
+          html: scene(P(260, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(430, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            P(590, 302, '<g class="st-cheer" style="animation-delay:.4s">' + A('kid', 'happy') + '</g>', '', 0, .85) +
+            notes(350, 165) + hearts(500, 180)) },
+        { minDur: 6400, sub: '龍騰虎躍：生龍活虎，充滿活力。',
+          html: scene(P(280, 170, A('dragon')) + P(540, 302, '<g class="st-hop">' + A('tiger') + '</g>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">龍騰虎躍</text>') }
+      ];
+    },
+    /* 聲名狼藉 */
+    i017: function () {
+      var STALL3 = '<rect x="-60" y="-30" width="120" height="30" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+        '<line x1="-50" y1="0" x2="-50" y2="-30" stroke="#a8734a" stroke-width="4"/><line x1="50" y1="0" x2="50" y2="-30" stroke="#a8734a" stroke-width="4"/>';
+      var BROKENGOOD = '<circle cx="0" cy="-4" r="9" fill="#e85a4f"/><path d="M-4 -10 l8 12 M4 -10 l-8 12" stroke="#8a3a30" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '有個商人賣東西總是缺斤少兩、拿壞的充好的，騙過了不少客人。',
+          html: scene(P(430, 302, STALL3 + P(-20, -36, BROKENGOOD)) +
+            P(280, 302, A('kid', 'happy')) +
+            P(620, 302, A('kid', 'angry'), '', 0, .9) + bang(560, 190)) },
+        { minDur: 6800, sub: '一傳十、十傳百，大家都知道他不老實——名聲壞得一塌糊塗，店門口再也沒有人上門。',
+          html: scene(P(430, 302, STALL3) +
+            P(300, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') + sweat(340, 200) + zzz(550, 220)) },
+        { minDur: 6800, sub: '「聲名狼藉」：名聲敗壞到了極點。誠信一旦失去，就很難再挽回了呀。',
+          html: scene(P(300, 302, A('kid', 'sad')) + sweat(250, 195) + qmark(370, 180) +
+            P(560, 302, A('kid', 'angry'), '', 0, .9, true)) },
+        { minDur: 6400, sub: '聲名狼藉：名聲很壞，惡名昭著。',
+          html: scene(P(360, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.05) + sweat(420, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">聲名狼藉</text>') }
+      ];
+    },
+    /* 奮力直追 */
+    i018: function () {
+      var BATON = '<rect x="-4" y="-20" width="8" height="26" rx="4" fill="#e0a458" stroke="#c08838" stroke-width="2"/>';
+      var TRACK = '<rect y="296" width="800" height="18" fill="#d9a890"/><g stroke="#fff" stroke-width="3" stroke-dasharray="18 14"><line x1="0" y1="305" x2="800" y2="305"/></g>';
+      var FINISH = '<line x1="0" y1="0" x2="0" y2="-80" stroke="#8b93a3" stroke-width="4"/><path d="M0 -80 h34 v20 h-34 z" fill="#fff" stroke="#8b93a3" stroke-width="2"/><path d="M0 -80 h8.5 v10 h8.5 v-10 h8.5 v10 h8.5" fill="#3a2e26"/>';
+      return [
+        { minDur: 6600, sub: '接力賽上，小杰接過棒子時，已經落後前面的人半圈了！',
+          html: scene(TRACK + P(600, 296, A('kid', 'happy'), 'st-strut', 0, .9) +
+            P(240, 296, A('kid', 'wow') + P(30, -50, BATON)) + sweat(200, 200)) },
+        { minDur: 6800, sub: '他咬緊牙關、手臂用力擺動，一步一步奮力直追——距離越來越近！',
+          html: scene(TRACK +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="100" y1="240" x2="190" y2="240"/><line class="st-windln" style="animation-delay:.4s" x1="80" y1="270" x2="160" y2="270"/></g>' +
+            P(360, 296, A('kid', 'angry') + P(30, -50, BATON), 'st-dashL') +
+            P(560, 296, A('kid', 'happy'), 'st-strut', 0, .9) + sweat(400, 200)) },
+        { minDur: 6800, sub: '終點線前，他竟然一口氣追過兩位選手，幫隊伍搶回了第三名！',
+          html: scene(TRACK + P(650, 296, FINISH) +
+            P(560, 296, A('kid', 'happy') + P(30, -50, BATON), 'st-dashL', 0, 1.05) +
+            P(380, 296, A('kid', 'wow'), '', 0, .9) + bang(640, 200) +
+            P(180, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .85) + hearts(250, 190)) },
+        { minDur: 6400, sub: '奮力直追：用力追趕，努力追上。',
+          html: scene(TRACK + P(400, 296, A('kid', 'angry') + P(30, -50, BATON), 'st-dashL', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">奮力直追</text>') }
+      ];
     }
   };
 
