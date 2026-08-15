@@ -9517,6 +9517,143 @@
           html: scene(P(400, 302, ROWHOUSES, '', 0, 1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鱗次櫛比</text>') }
       ];
+    },
+    /* 富麗堂皇 */
+    i1094: function () {
+      var PALACE = '<rect x="-100" y="-70" width="200" height="70" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/>' +
+        '<path d="M-110 -70 h220 l-14 -20 h-192 z" fill="#e0a458" stroke="#c08838" stroke-width="2.6"/>' +
+        '<g stroke="#c9a06c" stroke-width="6"><line x1="-70" y1="0" x2="-70" y2="-70"/><line x1="-24" y1="0" x2="-24" y2="-70"/><line x1="24" y1="0" x2="24" y2="-70"/><line x1="70" y1="0" x2="70" y2="-70"/></g>' +
+        '<circle cx="0" cy="-46" r="9" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '走進音樂廳大廳：水晶吊燈、大理石柱、金色雕花天花板——氣派得讓人不敢大聲說話！',
+          html: scene(P(400, 302, PALACE, '', 0, 1.05) +
+            P(180, 302, A('kid', 'wow'), '', 0, .88) + hearts(260, 215)) },
+        { minDur: 6800, sub: '「富麗」是華麗、「堂皇」是氣勢盛大——形容建築或陳設華麗又氣派！',
+          html: scene(P(400, 302, PALACE, '', 0, 1) +
+            P(300, 190, '<g class="st-tw"><path d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#ffd97a"/></g>') +
+            P(520, 180, '<g class="st-tw"><path d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#ffd97a"/></g>', '', .3)) },
+        { minDur: 6600, sub: '不過再富麗堂皇的房子，也比不上溫暖的家——華麗是外表，溫馨才是家的心！',
+          html: scene(P(300, 302, '<path d="M-36 -30 L0 -54 L36 -30 Z" fill="#8a5a33"/><rect x="-28" y="-30" width="56" height="30" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-8" y="-22" width="16" height="22" rx="3" fill="#8a5a33"/>', '', 0, 1.15) +
+            P(500, 302, A('kid', 'happy'), '', 0, .97) + hearts(400, 195)) },
+        { minDur: 6400, sub: '富麗堂皇：建築或陳設華麗氣派。',
+          html: scene(P(400, 302, PALACE, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">富麗堂皇</text>') }
+      ];
+    },
+    /* 金碧輝煌 */
+    i1095: function () {
+      var TEMPLE = '<rect x="-90" y="-60" width="180" height="60" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>' +
+        '<path d="M-104 -60 q104 -34 208 0 l-12 0 q-92 -26 -184 0 z" fill="#e8b84a" stroke="#c98f2a" stroke-width="2.6"/>' +
+        '<g stroke="#ffd97a" stroke-width="5"><line x1="-60" y1="0" x2="-60" y2="-60"/><line x1="0" y1="0" x2="0" y2="-60"/><line x1="60" y1="0" x2="60" y2="-60"/></g>' +
+        '<g class="st-tw"><circle cx="-30" cy="-40" r="4" fill="#ffe9a0"/></g><g class="st-tw" style="animation-delay:.5s"><circle cx="34" cy="-34" r="4" fill="#ffe9a0"/></g>';
+      return [
+        { minDur: 6800, sub: '廟宇在夕陽下閃閃發光：金箔的屋簷、彩繪的樑柱，整座建築像鍍了金一樣！',
+          html: scene(P(400, 302, TEMPLE, '', 0, 1.05) +
+            P(180, 302, A('kid', 'wow'), '', 0, .88) + hearts(260, 215)) },
+        { minDur: 6800, sub: '「金」是金黃、「碧」是青綠——金碧交映、光彩奪目，就是「金碧輝煌」！',
+          html: scene(P(400, 302, TEMPLE, '', 0, 1) +
+            P(280, 190, '<circle cx="0" cy="0" r="12" fill="#ffd97a"/>') + P(520, 185, '<circle cx="0" cy="0" r="12" fill="#8fd0c0"/>', '', .3)) },
+        { minDur: 6600, sub: '它和「富麗堂皇」是好朋友——一個重色彩光澤、一個重氣派規模！',
+          html: scene(P(400, 302, TEMPLE, '', 0, 1.02) + notes(200, 200) + hearts(600, 210)) },
+        { minDur: 6400, sub: '金碧輝煌：建築裝飾光彩華麗。',
+          html: scene(P(400, 302, TEMPLE, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">金碧輝煌</text>') }
+      ];
+    },
+    /* 凱旋而歸 */
+    i1096: function () {
+      var TROPHY3 = '<path d="M-14 -34 h28 v10 q0 14 -14 16 q-14 -2 -14 -16 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/><rect x="-4" y="-8" width="8" height="8" fill="#c98f2a"/><rect x="-12" y="0" width="24" height="6" rx="2.4" fill="#c98f2a"/>';
+      var BANNER = '<path d="M-60 -20 h120 l-10 12 l10 12 h-120 z" fill="#e85a4f" stroke="#c94a3f" stroke-width="2.4"/><text x="-2" y="2" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">歡迎凱旋</text>';
+      return [
+        { minDur: 6800, sub: '棒球隊遠征全國賽奪冠——回到學校那天，全校拉起布條、夾道歡呼迎接！',
+          html: scene(P(400, 180, BANNER, '', 0, 1.2) +
+            P(360, 302, A('kid', 'happy') + P(0, -104, TROPHY3, '', 0, 1), 'st-strut', 0, 1.02) +
+            P(180, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .88) +
+            P(600, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .88) + notes(500, 230)) },
+        { minDur: 6800, sub: '「凱」是勝利的樂歌、「旋」是歸來——帶著勝利回家，就是「凱旋而歸」！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + P(0, -110, TROPHY3, '', 0, 1) + '</g>', '', 0, 1.05) +
+            notes(490, 175) + hearts(300, 190)) },
+        { minDur: 6600, sub: '出發時大家說「加油」、回來時大家喊「恭喜」——努力過後的凱旋最光榮！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-strut', 0, 1.02) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95) + hearts(450, 185) + bang(280, 195)) },
+        { minDur: 6400, sub: '凱旋而歸：勝利歸來。',
+          html: scene(P(400, 180, BANNER, '', 0, 1.1) + P(400, 302, A('kid', 'happy') + P(0, -104, TROPHY3, '', 0, 1), '', 0, 1.05) +
+            '<text x="400" y="90" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">凱旋而歸</text>') }
+      ];
+    },
+    /* 情同手足 */
+    i1120: function () {
+      return [
+        { minDur: 6800, sub: '小情和小足從幼兒園就同班：一起上學、一起練球、有零食分一半——好得像親兄弟！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            hearts(400, 178) + notes(550, 195)) },
+        { minDur: 6800, sub: '「手足」就是兄弟——手和腳長在同一個身體上，缺一不可、密不可分！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) +
+            '<circle cx="330" cy="230" r="10" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/><circle cx="470" cy="230" r="10" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>' + hearts(400, 190)) },
+        { minDur: 6800, sub: '一個轉學了，兩人還是每週視訊、假日約打球——情同手足的友誼，距離拆不散！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -56, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/>', '', 0, .95)) +
+            P(520, 302, A('kid', 'happy') + P(-38, -56, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/>', '', 0, .95), '', 0, .97, true) + hearts(410, 185)) },
+        { minDur: 6400, sub: '情同手足：感情像親兄弟一樣深厚。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(405, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">情同手足</text>') }
+      ];
+    },
+    /* 各司其職 */
+    i1147: function () {
+      return [
+        { minDur: 6800, sub: '消防隊出勤：司機開車、隊長指揮、水線手接水、救護員待命——每個人守住自己的崗位！',
+          html: scene(P(260, 302, A('kid', 'angry'), '', 0, .95) + P(390, 302, A('kid', 'happy'), '', .1, .93) +
+            P(510, 302, A('kid', 'happy'), '', .2, .93) + P(620, 302, A('kid', 'happy'), '', .3, .9) +
+            bang(180, 200)) },
+        { minDur: 6800, sub: '身體也是如此：眼睛看、耳朵聽、心臟跳、腸胃消化——各自負責自己的職務，缺誰都不行！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.1) +
+            P(300, 200, '<path d="M-18 0 Q0 -14 18 0 Q0 14 -18 0 Z" fill="#fff" stroke="#4a3200" stroke-width="2.4"/><circle cx="0" cy="0" r="6" fill="#6b4a32"/>', '', 0, .95) +
+            P(500, 200, '<path d="M0 4 C-5 -4 -14 1 -8 9 L0 15 L8 9 C14 1 5 -4 0 4 Z" fill="#ff7b9c"/>', '', .3, 1.1)) },
+        { minDur: 6600, sub: '「各司其職」：各自負責掌管自己的職務——人人盡責，團隊才會強！',
+          html: scene(P(280, 302, A('kid', 'happy')) + P(420, 302, A('kid', 'happy'), '', .1, .95) + P(560, 302, A('kid', 'happy'), '', .2, .93) +
+            '<path d="M280 240 h280" stroke="#548a40" stroke-width="4" stroke-dasharray="9 8"/>' + hearts(420, 200)) },
+        { minDur: 6400, sub: '各司其職：各自負責自己的職務。',
+          html: scene(P(280, 302, A('kid', 'angry'), '', 0, .95) + P(420, 302, A('kid', 'happy'), '', .1, .95) + P(560, 302, A('kid', 'happy'), '', .2, .93) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">各司其職</text>') }
+      ];
+    },
+    /* 涓滴成河 */
+    i1148: function () {
+      var DRIP2 = '<g class="st-sweat"><path d="M0 0 q-5 8 0 13 q5 -5 0 -13 z" fill="#8fc6ff"/></g>';
+      var STREAM = '<path d="M100 200 q100 30 200 60 q120 36 400 50" stroke="#7fb2e0" stroke-width="16" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '山壁上的小水滴，一滴滴落下、匯成細流——細流再會合，竟成了一條小河！',
+          html: scene(P(150, 150, DRIP2, '', 0, 1.2) + P(220, 170, DRIP2, '', .4, 1.1) + STREAM) },
+        { minDur: 6800, sub: '班上的「零錢竹筒」也一樣：每人每天投一兩塊，一學期竟存了六千元，捐給了流浪動物之家！',
+          html: scene(P(430, 296, '<path d="M-16 0 Q-22 -14 -14 -34 L14 -34 Q22 -14 16 0 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><rect x="-10" y="-40" width="20" height="8" rx="3" fill="#a8734a"/>', '', 0, 1.2) +
+            P(260, 302, A('kid', 'happy')) + P(580, 300, A('dog'), '', 0, .95) + hearts(430, 200)) },
+        { minDur: 6600, sub: '「涓滴成河」：細小的水滴匯聚成河——積少成多的又一個好朋友！',
+          html: scene(P(200, 140, DRIP2, '', 0, 1.2) + STREAM + hearts(500, 180)) },
+        { minDur: 6400, sub: '涓滴成河：小水滴匯聚成河，積少成多。',
+          html: scene(P(180, 145, DRIP2, '', 0, 1.3) + STREAM +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">涓滴成河</text>') }
+      ];
+    },
+    /* 花言巧語 */
+    i1175: function () {
+      function flowerBub(x, y, dly) {
+        return P(x, y, '<g class="st-zfloat"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M-24 -12 a20 15 0 1 1 40 5 q-2 6 -9 7 l-8 7 l1 -7 q-20 -2 -24 -12 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>' +
+          '<circle cx="-8" cy="-6" r="4" fill="#ff9eb5"/><circle cx="0" cy="-9" r="4" fill="#ffd97a"/><circle cx="8" cy="-5" r="4" fill="#c9a8e0"/></g>');
+      }
+      return [
+        { minDur: 6800, sub: '「同學！這支筆是限量珍藏版，只賣你半價！」——推銷的人嘴裡開出一朵朵花……',
+          html: scene(P(320, 302, A('kid', 'happy')) + flowerBub(400, 172, 0) +
+            P(540, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(590, 188)) },
+        { minDur: 6800, sub: '回家一查：原價比他說的「半價」還便宜！說得天花亂墜、句句動聽——卻是騙人的話！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(-44, -56, '<rect x="-18" y="-14" width="36" height="24" rx="3" fill="#3a2e26"/><rect x="-15" y="-11" width="30" height="18" rx="2" fill="#7fb2e0"/>', '', 0, .95)) + bang(470, 190) + sweat(300, 192)) },
+        { minDur: 6800, sub: '「花言巧語」：華而不實、動聽卻騙人的話——聽到太美好的說詞，先查證再決定！',
+          html: scene(flowerBub(320, 190, 0) + flowerBub(480, 180, .3) + qmark(400, 250) +
+            P(240, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6400, sub: '花言巧語：虛華動聽卻騙人的話。',
+          html: scene(flowerBub(330, 185, 0) + flowerBub(470, 178, .3) +
+            '<text x="400" y="290" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">花言巧語</text>') }
+      ];
     }
   };
 
