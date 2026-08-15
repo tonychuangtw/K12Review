@@ -178,6 +178,8 @@ body {
   position: absolute; inset: 0; opacity: .0001;
   display: flex; align-items: center; justify-content: center;
 }
+/* 空 slot（GSI 沒載入）不可攔截點擊，否則底下的登入 pill 按不到 */
+.gsi-slot:empty { pointer-events: none; }
 .gsi-slot > div { transform: scale(2.2); transform-origin: center; }
 #gradeSel {
   background: var(--panel2); color: var(--text);

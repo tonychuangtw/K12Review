@@ -179,11 +179,16 @@
       });
       var slot = document.createElement("div");
       slot.className = "gsi-slot";
+      // 空 slot 是蓋在 pill 上的透明層，會把點擊整個吃掉（2026-08-16 Tony 實測：
+      // LINE webview 裡 GSI 不載入、slot 永遠是空的 → 登入鈕完全按不動）。
+      // 預設關掉 pointer-events，等官方按鈕真的掛上去才打開；webview 乾脆不掛 slot。
+      slot.style.pointerEvents = "none";
       wrap.appendChild(pill);
-      wrap.appendChild(slot);
+      if (!IN_WEBVIEW) wrap.appendChild(slot);
       ui.appendChild(wrap);
       // webview 裡不掛官方按鈕：它會蓋在 pill 上把點擊帶進空白登入頁
       if (!IN_WEBVIEW && window.google && google.accounts && google.accounts.id) {
+        slot.style.pointerEvents = "";
         google.accounts.id.renderButton(slot, { type: "icon", shape: "circle", size: "large" });
       }
     }
