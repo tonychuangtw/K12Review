@@ -19,6 +19,10 @@
   })();
   var WEBVIEW_MSG = "Google 不允許在 App 內建瀏覽器（LINE／Telegram 等）裡登入，硬走只會看到空白頁。\n請點畫面角落的選單（⋯ 或分享鈕），選「用 Safari／Chrome 開啟」，再登入即可同步進度。";
 
+  // UIDialog 可能因混版快取（舊 HTML 沒載 dialog.js + 新 sync.js）不存在——退回原生框保底
+  function dlgAlert(msg) { if (window.UIDialog) UIDialog.alert(msg); else alert(msg); }
+  function dlgConfirm(msg, ok) { if (window.UIDialog) UIDialog.confirm(msg, ok); else if (confirm(msg)) ok(); }
+
   var TOKEN_KEY = "sync.token";
   var PREFIX = "chinese-review";        // 同步所有這個前綴的 key（目前只有 chinese-review-v1）
   var SYNC_TS_KEY = "chinese-review.sync_ts";
@@ -146,7 +150,7 @@
       chip.title = (p.email || "") + " — 點擊登出";
       chip.textContent = (p.given_name || p.name || "?").charAt(0).toUpperCase();
       chip.addEventListener("click", function () {
-        UIDialog.confirm("登出雲端同步？（本機進度會保留在此裝置）", function () {
+        dlgConfirm("登出雲端同步？（本機進度會保留在此裝置）", function () {
           clearToken(); lastPushedHash = null; renderUi();
         });
       });
@@ -170,7 +174,7 @@
         if (!IN_WEBVIEW && window.google && google.accounts && google.accounts.id) {
           google.accounts.id.prompt();
         } else {
-          UIDialog.alert(WEBVIEW_MSG);
+          dlgAlert(WEBVIEW_MSG);
         }
       });
       var slot = document.createElement("div");
