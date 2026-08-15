@@ -14323,6 +14323,147 @@
           html: scene(P(400, 270, FLOWERPEN, '', 0, 2) + hearts(530, 215) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">妙筆生花</text>') }
       ];
+    },
+    /* 神來之筆 */
+    i586: function () {
+      return [
+        { minDur: 6800, sub: '畫到最後一刻，小筆卡住了——總覺得畫面少了什麼，卻說不上來……',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 8 l7 -10 6 6 8 -12" stroke="#7a9a6a" stroke-width="2.4" fill="none"/>', '', 0, .95)) + qmark(470, 185) + sweat(290, 190)) },
+        { minDur: 6800, sub: '靈光一閃！他在角落添了一隻抬頭望天的小貓——整幅畫瞬間活了！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="3"/><path d="M-10 8 l7 -10 6 6 8 -12" stroke="#7a9a6a" stroke-width="2.4" fill="none"/><circle cx="8" cy="14" r="4.6" fill="#3a2e26"/><path d="M5 10 l2 -3 2 3 M9 10 l2 -3 2 3" stroke="#3a2e26" stroke-width="1.4" fill="none"/>', '', 0, .95)) +
+            P(280, 195, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/><line x1="0" y1="4" x2="0" y2="14" stroke="#e0b73f" stroke-width="3"/>', '', 0, 1.1) + bang(480, 185)) },
+        { minDur: 6800, sub: '「神來之筆」：靈感突現的精彩一筆，像有神相助——評審讚歎：這隻貓是全畫的靈魂！',
+          html: scene(P(340, 302, A('kid', 'happy'), 'st-cheer', 0, 1) +
+            P(540, 302, A('kid', 'wow') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .98, true) + hearts(440, 185) + bang(620, 195)) },
+        { minDur: 6400, sub: '神來之筆：靈感突現，妙不可言。',
+          html: scene(P(400, 270, '<line x1="0" y1="20" x2="10" y2="-20" stroke="#3a2e26" stroke-width="4" stroke-linecap="round"/><path d="M10 -20 l4 -12 l5 12" fill="#3a2e26"/>', '', 0, 1.8) +
+            '<g class="st-rays" style="transform-origin:410px 230px"><g stroke="#ffe9a0" stroke-width="4" stroke-linecap="round"><line x1="410" y1="205" x2="410" y2="188"/><line x1="435" y1="215" x2="448" y2="203"/><line x1="385" y1="215" x2="372" y2="203"/></g></g>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">神來之筆</text>') }
+      ];
+    },
+    /* 錦心繡口 */
+    i587: function () {
+      return [
+        { minDur: 7000, sub: '柳宗元讚美駢文高手「錦心繡口」——心思像錦緞華美，出口像刺繡精緻！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 230, '<rect x="-36" y="-24" width="72" height="48" rx="5" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/><path d="M-22 -8 q6 -8 12 -2 q6 -8 10 0 q-6 10 -11 5 q-6 6 -11 -3 z" fill="#ffd97a"/>', '', 0, 1.1) + notes(260, 195)) },
+        { minDur: 6800, sub: '文學社的社長：寫詩得獎、致詞優雅——動筆動口都漂亮，同學都說她錦心繡口！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) + notes(470, 182) +
+            P(560, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + hearts(620, 200)) },
+        { minDur: 6800, sub: '錦心繡口是練出來的：多讀好文養心思，多練表達磨口才——內外兼修！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95)) +
+            P(510, 302, A('kid', 'happy') + '<path d="M-8 -46 q8 6 16 0" stroke="#c96a5a" stroke-width="2.6" fill="none"/>', '', 0, .98, true) + hearts(420, 185) + notes(580, 195)) },
+        { minDur: 6400, sub: '錦心繡口：文思優美，談吐出眾。',
+          html: scene(P(400, 250, '<rect x="-36" y="-24" width="72" height="48" rx="5" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/><path d="M-22 -8 q6 -8 12 -2 q6 -8 10 0 q-6 10 -11 5 q-6 6 -11 -3 z" fill="#ffd97a"/>', '', 0, 1.4) + notes(520, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">錦心繡口</text>') }
+      ];
+    },
+    /* 妙語如珠 */
+    i588: function () {
+      return [
+        { minDur: 6800, sub: '晚會主持人一開口，台下就笑聲不斷——每句話都又快又妙，接得漂亮！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-36, -44, '<rect x="-4" y="-26" width="8" height="30" rx="3" fill="#3a2e26"/><circle cx="0" cy="-32" r="6" fill="#8b93a3"/>', '', 0, 1), '', 0, 1.05) +
+            P(200, 302, A('kid', 'happy'), 'st-cheer', 0, .88) + P(600, 302, A('kid', 'happy'), 'st-cheer', .2, .88, true) + notes(450, 180) + bang(280, 190)) },
+        { minDur: 6800, sub: '「妙語如珠」：精妙的話一句接一句，像一串珍珠滾出來——顆顆圓潤發亮！',
+          html: scene(P(400, 245, '<g class="st-tw"><circle cx="-42" cy="4" r="9" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/><circle cx="-14" cy="-4" r="9" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/><circle cx="14" cy="2" r="9" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/><circle cx="42" cy="-4" r="9" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/></g>', '', 0, 1.5) + notes(300, 200) + notes(520, 195)) },
+        { minDur: 6800, sub: '妙語的背後是快腦袋加好累積——平時多讀多聽多想，臨場才接得住每一球！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" class="st-tw"/><path d="M0 -32 v-10 M24 -22 l8 -9 M-24 -22 l-8 -9" stroke="#e0b73f" stroke-width="3" stroke-linecap="round"/>') + hearts(290, 200)) },
+        { minDur: 6400, sub: '妙語如珠：言談風趣，妙語連連。',
+          html: scene(P(400, 250, '<g class="st-tw"><circle cx="-40" cy="4" r="9" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/><circle cx="-13" cy="-4" r="9" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/><circle cx="14" cy="2" r="9" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2"/></g>', '', 0, 1.5) + notes(520, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">妙語如珠</text>') }
+      ];
+    },
+    /* 出口成章 */
+    i589: function () {
+      return [
+        { minDur: 7000, sub: '《詩經》讚美有教養的人「出言有章」——一開口，話語自然有文采、有條理！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 220, '<rect x="-30" y="-22" width="60" height="44" rx="4" fill="#fff" opacity=".92"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-18" y1="-8" x2="18" y2="-8"/><line x1="-18" y1="2" x2="18" y2="2"/><line x1="-18" y1="12" x2="10" y2="12"/></g>', '', 0, 1.1) + notes(270, 195)) },
+        { minDur: 6800, sub: '臨時被叫上台即席演講——小章不慌不忙，開場、舉例、結尾一氣呵成，如同背好的講稿！',
+          html: scene(P(400, 280, '<rect x="-90" y="-16" width="180" height="16" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(400, 280, A('kid', 'happy') + '<path d="M28 -56 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(220, 302, A('kid', 'wow'), '', 0, .88) + P(600, 302, A('kid', 'wow'), '', 0, .88, true) + bang(400, 178)) },
+        { minDur: 6800, sub: '「出口成章」：才思敏捷、口才極好——肚子裡有墨水，嘴上才有文章！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) + notes(500, 185) + hearts(290, 195)) },
+        { minDur: 6400, sub: '出口成章：開口即文章，才思敏捷。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08) + notes(500, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">出口成章</text>') }
+      ];
+    },
+    /* 引經據典 */
+    i590: function () {
+      var BOOKS3 = '<g><rect x="-44" y="-14" width="26" height="34" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2"/><rect x="-12" y="-20" width="26" height="40" rx="2.6" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/><rect x="20" y="-10" width="26" height="30" rx="2.6" fill="#a5d47c" stroke="#7fa858" stroke-width="2"/></g>';
+      return [
+        { minDur: 6800, sub: '辯論賽上，小典每個論點都有出處：「《論語》說過……」「《史記》記載……」',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>' + P(-44, -46, BOOKS3, '', 0, .8), '', 0, 1.02) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + bang(450, 182)) },
+        { minDur: 6800, sub: '「引經據典」：引用經書典籍作根據——有憑有據的話，說服力倍增！',
+          html: scene(P(400, 260, BOOKS3, '', 0, 1.6) +
+            P(560, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-6 0 l4 4 l8 -8" stroke="#548a40" stroke-width="2.6" fill="none"/>', '', 0, 1.1) + hearts(280, 210)) },
+        { minDur: 6800, sub: '但別掉書袋：引用是為了說明道理，不是炫耀——用得準比用得多重要！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-13" y="-16" width="26" height="32" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95)) +
+            P(540, 302, A('kid', 'wow') + P(-40, -46, BOOKS3, '', 0, .7) + P(20, -60, BOOKS3, '', 0, .6), '', 0, .95, true) + sweat(620, 190) + qmark(450, 185)) },
+        { minDur: 6400, sub: '引經據典：引用經典，言必有據。',
+          html: scene(P(400, 265, BOOKS3, '', 0, 1.6) + notes(530, 215) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">引經據典</text>') }
+      ];
+    },
+    /* 旁徵博引 */
+    i591: function () {
+      return [
+        { minDur: 6800, sub: '小博寫報告：查歷史文獻、找統計數據、訪問專家、對照外國案例——資料來源好豐富！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1) +
+            P(230, 230, '<rect x="-20" y="-14" width="40" height="28" rx="3" fill="#7fb2e0" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="11" fill="#fff">文獻</text>', '', 0, 1) +
+            P(320, 195, '<rect x="-20" y="-14" width="40" height="28" rx="3" fill="#a5d47c" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="11" fill="#fff">數據</text>', '', 0, 1.05) +
+            P(480, 195, '<rect x="-20" y="-14" width="40" height="28" rx="3" fill="#ff9eb5" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="11" fill="#fff">訪談</text>', '', 0, 1.05) +
+            P(570, 230, '<rect x="-20" y="-14" width="40" height="28" rx="3" fill="#ffd97a" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="11" fill="#6d5335">案例</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '「旁徵博引」：從各方廣泛蒐集、引用資料佐證——比「引經據典」範圍更廣！',
+          html: scene(P(400, 250, '<circle cx="0" cy="0" r="26 " fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="15" fill="#548a40">論點</text>', '', 0, 1.2) +
+            '<g stroke="#c9bfa8" stroke-width="2.6" stroke-dasharray="6 5"><line x1="250" y1="180" x2="370" y2="235"/><line x1="550" y1="180" x2="430" y2="235"/><line x1="240" y1="300" x2="368" y2="262"/><line x1="560" y1="300" x2="432" y2="262"/></g>') },
+        { minDur: 6800, sub: '評審驚豔：「論文旁徵博引、論證扎實！」——廣度靠蒐集，深度靠消化！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-cheer', 0, 1.02) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .97, true) + bang(460, 180) + hearts(280, 192)) },
+        { minDur: 6400, sub: '旁徵博引：廣引資料，佐證有力。',
+          html: scene(P(400, 255, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#548a40">論點</text>', '', 0, 1.2) +
+            '<g stroke="#c9bfa8" stroke-width="2.6" stroke-dasharray="6 5"><line x1="260" y1="190" x2="375" y2="240"/><line x1="540" y1="190" x2="425" y2="240"/><line x1="260" y1="310" x2="375" y2="268"/><line x1="540" y1="310" x2="425" y2="268"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">旁徵博引</text>') }
+      ];
+    },
+    /* 斷章取義 */
+    i592: function () {
+      return [
+        { minDur: 7000, sub: '春秋時外交官賦詩言志，常只截取詩中一段表達意思——「賦詩斷章，余取所求」！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -50, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/></g>', '', 0, .95), '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + notes(430, 185)) },
+        { minDur: 6800, sub: '現在多指曲解：小義說「不複習『的話』會考差」，被截成「小義說不複習」——意思全反了！',
+          html: scene(P(300, 240, '<rect x="-46" y="-18" width="92" height="36" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#6d7585">不複習的話會考差</text>', '', 0, 1.05) +
+            P(520, 240, '<rect x="-38" y="-18" width="76" height="36" rx="4" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">「不複習」</text>', '', 0, 1.05) +
+            '<line x1="356" y1="240" x2="440" y2="240" stroke="#c96a5a" stroke-width="3"/><path d="M440 240 l-11 -7 v14 z" fill="#c96a5a"/>' +
+            '<path d="M330 222 l16 36" stroke="#c96a5a" stroke-width="3"/>') },
+        { minDur: 6800, sub: '「斷章取義」：截取片段、曲解原意——看新聞讀留言，記得找完整脈絡再下判斷！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1.05)) +
+            P(560, 220, '<rect x="-28" y="-16" width="56" height="32" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#548a40">全文✓</text>', '', 0, 1.1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '斷章取義：截取片段，曲解原意。',
+          html: scene(P(400, 250, '<rect x="-60" y="-20" width="120" height="40" rx="4" fill="#fff" opacity=".92"/><g stroke="#8fa3bf" stroke-width="2"><line x1="-44" y1="-6" x2="44" y2="-6"/><line x1="-44" y1="6" x2="10" y2="6"/></g><path d="M20 -20 v40" stroke="#c96a5a" stroke-width="3" stroke-dasharray="5 4"/>', '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">斷章取義</text>') }
+      ];
+    },
+    /* 望文生義 */
+    i593: function () {
+      return [
+        { minDur: 6800, sub: '小義看到「差強人意」就猜：「差＝不好，一定是『令人不滿意』！」——猜錯啦！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 220, '<rect x="-42" y="-20" width="84" height="40" rx="4" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#6d7585">差強人意</text>', '', 0, 1.05) + qmark(280, 188)) },
+        { minDur: 6800, sub: '一查才知道：「差」是大致、「強」是振奮——真正意思是「大體上還算滿意」！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-42, -52, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#6d5335">字典</text>', '', 0, 1.05)) + bang(470, 185) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#548a40">尚可!</text>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '「望文生義」：只憑字面亂猜意思——成語多有典故，勤查字典才不會鬧笑話！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) + hearts(500, 190)) },
+        { minDur: 6400, sub: '望文生義：憑字面猜，不求正解。',
+          html: scene(P(400, 250, '<rect x="-46" y="-20" width="92" height="40" rx="4" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#6d7585">差強人意</text>', '', 0, 1.3) + qmark(510, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">望文生義</text>') }
+      ];
     }
   };
 
