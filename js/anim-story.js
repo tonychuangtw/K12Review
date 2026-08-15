@@ -19647,6 +19647,159 @@
             '<g class="st-zfloat"><circle cx="310" cy="200" r="10" fill="#c9d6e8" opacity=".8"/><circle cx="380" cy="170" r="13" fill="#c9d6e8" opacity=".8"/><circle cx="460" cy="165" r="11" fill="#c9d6e8" opacity=".8"/><circle cx="520" cy="200" r="9" fill="#c9d6e8" opacity=".8"/></g>' +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">萬千思緒</text>') }
       ];
+    },
+    /* 春風化雨 */
+    i169: function () {
+      return [
+        { minDur: 7000, sub: '孟子說最好的教育「有如時雨化之」——像春風輕拂、像及時雨滋潤，萬物不知不覺長大！',
+          html: scene('<g stroke="#8fc6ff" stroke-width="2.6" stroke-linecap="round"><line class="st-rain" x1="260" y1="30" x2="254" y2="50"/><line class="st-rain" style="animation-delay:.5s" x1="480" y1="24" x2="474" y2="44"/></g>' +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="180" y1="180" x2="260" y2="180"/></g>' +
+            P(400, 295, '<path d="M0 8 q-2 -12 5 -17 q5 -5 4 -11" stroke="#7fa858" stroke-width="3" fill="none"/><path d="M9 -24 q7 -7 13 -1 q-2 8 -8 9 q-6 0 -5 -8 z" fill="#a5d47c"/>', 'st-grow', 0, 1.4) +
+            P(560, 295, '<path d="M0 8 q-2 -10 4 -14" stroke="#7fa858" stroke-width="2.6" fill="none"/>', 'st-grow', .3, 1.3)) },
+        { minDur: 6800, sub: '好老師從不疾言厲色——一句鼓勵、一個眼神，學生在不知不覺中變好！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(530, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + hearts(440, 185)) },
+        { minDur: 6800, sub: '「春風化雨」：良師的薰陶化育——多年後你早忘了考卷，卻記得那句改變你的話！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">老師的</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">那句話</text>', '', 0, 1.1) + hearts(290, 200)) },
+        { minDur: 6400, sub: '春風化雨：潤物無聲，作育英才。',
+          html: scene('<g stroke="#8fc6ff" stroke-width="2.6" stroke-linecap="round"><line class="st-rain" x1="280" y1="30" x2="274" y2="50"/><line class="st-rain" style="animation-delay:.6s" x1="520" y1="24" x2="514" y2="44"/></g>' +
+            P(400, 296, '<path d="M0 8 q-2 -12 5 -17 q5 -5 4 -11" stroke="#7fa858" stroke-width="3" fill="none"/><path d="M9 -24 q7 -7 13 -1 q-2 8 -8 9 q-6 0 -5 -8 z" fill="#a5d47c"/>', 'st-grow', 0, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">春風化雨</text>') }
+      ];
+    },
+    /* 暗送秋波 */
+    i170: function () {
+      return [
+        { minDur: 7000, sub: '「秋波」是秋水般的眼神——戲曲裡貂蟬對呂布眉目傳情，一個眼神抵千言！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/><path d="M-16 -56 q4 3 8 0 M8 -56 q4 3 8 0" stroke="#3a2e26" stroke-width="2" fill="none"/>', '', 0, 1) +
+            P(520, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, 1.02, true) +
+            '<path d="M360 240 q80 -20 130 0" stroke="#ff9eb5" stroke-width="2.6" fill="none" stroke-dasharray="5 5"/>' + hearts(440, 200)) },
+        { minDur: 6800, sub: '「暗送秋波」：偷偷用眼神傳情——也引申為暗中示好：向對手陣營暗送秋波！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-16 -56 q4 3 8 0 M8 -56 q4 3 8 0" stroke="#3a2e26" stroke-width="2" fill="none"/>') +
+            P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M360 235 q60 -18 105 0" stroke="#ff9eb5" stroke-width="2.6" fill="none" stroke-dasharray="5 5"/>' +
+            P(600, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#8b93a3">（暗中）</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '欣賞就大方說——正大光明的讚美，比一百個曖昧眼神更打動人！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(490, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(415, 182)) },
+        { minDur: 6400, sub: '暗送秋波：眉目傳情，暗中示好。',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-16 -56 q4 3 8 0 M8 -56 q4 3 8 0" stroke="#3a2e26" stroke-width="2" fill="none"/>') +
+            P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M360 238 q60 -18 105 0" stroke="#ff9eb5" stroke-width="2.6" fill="none" stroke-dasharray="5 5"/>' + hearts(560, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">暗送秋波</text>') }
+      ];
+    },
+    /* 卿卿我我 */
+    i171: function () {
+      return [
+        { minDur: 7000, sub: '王戎的妻子總喚他「卿」——王戎說於禮不合，妻子答：「親卿愛卿，是以卿卿！」',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/>') +
+            P(480, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .98, true) +
+            P(405, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#e07a94">卿～</text>', '', 0, 1.05) + hearts(560, 200)) },
+        { minDur: 6800, sub: '因為愛你才這樣喚你——王戎聽了無話可說！「卿卿」從此成了甜蜜的代名詞！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            hearts(400, 178) + notes(540, 195) +
+            P(280, 205, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「卿卿我我」：親暱甜蜜的樣子——放閃可以，公共場合記得留三分給別人的眼睛！',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(460, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 180) +
+            P(600, 302, A('kid', 'wow') + '<path d="M-40 -52 q-6 4 -4 10" stroke="#8b93a3" stroke-width="2.4" fill="none"/>', '', 0, .9, true) + sweat(660, 195)) },
+        { minDur: 6400, sub: '卿卿我我：兩情繾綣，親暱甜蜜。',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(460, 302, A('kid', 'happy'), '', 0, .98, true) +
+            hearts(400, 178) + hearts(540, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">卿卿我我</text>') }
+      ];
+    },
+    /* 如膠似漆 */
+    i172: function () {
+      return [
+        { minDur: 7000, sub: '古詩十九首：「以膠投漆中，誰能別離此」——膠混進漆裡，誰還分得開！',
+          html: scene(P(320, 260, '<path d="M-16 -20 h32 l-4 40 q-12 6 -24 0 z" fill="#e8b95a" stroke="#c99a3a" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#8a6a2a">膠</text>', '', 0, 1.15) +
+            '<path d="M368 255 h64" stroke="#548a40" stroke-width="4"/><path d="M432 255 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(490, 260, '<path d="M-16 -20 h32 l-4 40 q-12 6 -24 0 z" fill="#3a3550" stroke="#2c2840" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c9d6e8">漆</text>', '', 0, 1.15)) },
+        { minDur: 6800, sub: '「如膠似漆」：感情親密難分——形影不離的好朋友、蜜月期的新婚夫妻！',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(455, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M368 258 h56" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(400, 178) + notes(540, 195)) },
+        { minDur: 6800, sub: '再黏也要留呼吸的空間——最好的關係是黏而不縛：一起很甜、獨處也自在！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95)) +
+            P(500, 302, A('kid', 'happy') + P(40, -46, QIN, '', 0, .85), '', 0, .98, true) + hearts(410, 182)) },
+        { minDur: 6400, sub: '如膠似漆：情投意合，密不可分。',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(455, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M368 258 h56" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">如膠似漆</text>') }
+      ];
+    },
+    /* 魂牽夢縈 */
+    i173: function () {
+      return [
+        { minDur: 7000, sub: '劉過寫思念：「思君憶君，魂牽夢縈」——白天想、夜裡夢，靈魂都被牽著走！',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) +
+            P(540, 190, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".85"/>' + P(0, 12, A('kid', 'happy'), '', 0, .4), 'st-zfloat', 0, 1.1) +
+            '<path d="M420 250 q60 -30 90 -40" stroke="#c9bfa8" stroke-width="2.6" fill="none" stroke-dasharray="5 5"/>', 'night') },
+        { minDur: 6800, sub: '「魂牽夢縈」：思念深切纏繞——遊子夢裡的故鄉：巷口的燈、灶上的湯、母親的呼喚！',
+          html: scene(P(400, 296, '<rect x="-90" y="-10" width="180" height="24" rx="6" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>' + P(0, -22, '<g transform="rotate(90)">' + A('kid', 'happy') + '</g>', '', 0, .8), '', 0, 1.05) +
+            P(320, 170, '<circle cx="0" cy="0" r="28" fill="#fff" opacity=".85"/><path d="M-14 8 L0 -8 L14 8 Z" fill="#c9762f"/><rect x="-9" y="8" width="18" height="8" fill="#f4ecd8"/>', 'st-zfloat', 0, 1.05) +
+            P(480, 160, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".85"/><path d="M-8 -2 h16 v3 q0 7 -8 7 q-8 0 -8 -7 z" fill="#e8e2d5"/>', 'st-zfloat', .3, 1), 'night') },
+        { minDur: 6800, sub: '魂牽夢縈的地方就回去看看、想念的人就撥個電話——思念是提醒，不是懲罰！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -52, '<rect x="-8" y="-13" width="16" height="26" rx="4" fill="#3a2e26"/><rect x="-5" y="-9" width="10" height="16" rx="2" fill="#7fb2e0"/>', '', 0, 1.05)) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95, true) + hearts(430, 185)) },
+        { minDur: 6400, sub: '魂牽夢縈：日思夜想，縈迴不去。',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.02) +
+            P(520, 185, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".85"/><path d="M-13 8 L0 -8 L13 8 Z" fill="#c9762f"/><rect x="-8" y="8" width="16" height="7" fill="#f4ecd8"/>', 'st-zfloat', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">魂牽夢縈</text>', 'night') }
+      ];
+    },
+    /* 惴惴不安 */
+    i174: function () {
+      return [
+        { minDur: 7000, sub: '《詩經．黃鳥》哀悼殉葬者：「臨其穴，惴惴其慄」——走向墓穴的人，發抖著恐懼著……',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + '</g>', '', 0, 1.02) + sweat(320, 185) + sweat(480, 185) +
+            P(600, 130, '<circle cx="0" cy="0" r="15" fill="#f5f0dc"/><circle cx="5" cy="-3" r="11" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「惴惴不安」：提心吊膽——成績單發下來前、面試結果公布前，心都懸著！',
+          html: scene(P(360, 302, '<g class="st-bob">' + A('kid', 'wow') + '</g>', '', 0, 1.02) + sweat(300, 185) +
+            P(540, 240, '<rect x="-30" y="-18" width="60" height="36" rx="4" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#8b93a3">結果</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#8b93a3">未知…</text>', 'st-bob', 0, 1.05)) },
+        { minDur: 6800, sub: '安撫不安的辦法：把「最壞會怎樣」想清楚——大多數的害怕，見了光就縮小一半！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-4" text-anchor="middle" font-size="9" fill="#6d7585">最壞?</text><path d="M-8 8 l4 4 l8 -8" stroke="#548a40" stroke-width="2" fill="none"/>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '惴惴不安：憂懼難安，忐忑不定。',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + '</g>', '', 0, 1.05) + sweat(320, 185) + sweat(480, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">惴惴不安</text>') }
+      ];
+    },
+    /* 楚楚可憐 */
+    i175: function () {
+      return [
+        { minDur: 7000, sub: '孫綽種了一株小松樹，有人笑它成不了材——桓溫卻讚：「楚楚可憐！」鮮嫩可愛！',
+          html: scene(P(400, 295, '<path d="M0 0 L0 -26" stroke="#7a5a3a" stroke-width="5" stroke-linecap="round"/><path d="M-18 -20 L0 -40 L18 -20 Z" fill="#4a8a55"/><path d="M-13 -34 L0 -50 L13 -34 Z" fill="#57996b"/>', 'st-grow', 0, 1.3) +
+            P(220, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + hearts(300, 220)) },
+        { minDur: 6800, sub: '「楚楚」原是鮮明整潔——後來多形容纖弱動人：她含著淚的樣子楚楚可憐！',
+          html: scene(P(400, 302, A('kid', 'sad') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/><g class="st-tear"><path d="M-12 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1.05) + hearts(500, 195)) },
+        { minDur: 6800, sub: '柔弱會讓人心疼，但別把它當武器——真正的可愛是柔中帶韌：會哭，也會擦乾眼淚往前走！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/>', 'st-strut', 0, 1.05) + hearts(300, 192) + bang(500, 188)) },
+        { minDur: 6400, sub: '楚楚可憐：嬌柔纖弱，惹人愛憐。',
+          html: scene(P(400, 302, A('kid', 'sad') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/>', '', 0, 1.05) + hearts(500, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">楚楚可憐</text>') }
+      ];
+    },
+    /* 越俎代庖 */
+    i369: function () {
+      return [
+        { minDur: 7000, sub: '《莊子》說：就算廚師不做菜，主祭的人也不能丟下禮器、跑去替他掌廚！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8a9a6a" stroke="#6d7a52" stroke-width="2"/>' + P(-40, -44, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1), '', 0, 1.02) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-16 -80 a16 12 0 0 1 32 0 l-4 6 h-24 z" fill="#fff" stroke="#d8d2c4" stroke-width="2"/>' + P(36, -44, '<path d="M-12 -6 h24 v5 q0 9 -12 9 q-12 0 -12 -9 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, 1), '', 0, 1, true) +
+            '<line x1="400" y1="200" x2="400" y2="300" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/>') },
+        { minDur: 6800, sub: '「越俎代庖」：超出職分代人做事——組長把組員的報告全改成自己的版本，好心卻越了界！',
+          html: scene(P(340, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#c96a5a" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-2"/><line x1="-10" y1="0" x2="10" y2="8"/></g>', '', 0, .95)) + sweat(280, 190) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .97, true) + qmark(450, 182)) },
+        { minDur: 6800, sub: '幫忙前先問一句「需要我幫嗎？」——尊重別人的職分，就是尊重他這個人！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>') +
+            P(500, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(420, 182) +
+            P(620, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">需要幫</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">嗎?</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '越俎代庖：逾越職分，代人行事。',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-40, -44, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1)) +
+            P(500, 302, A('kid', 'happy') + '<path d="M-16 -80 a16 12 0 0 1 32 0 l-4 6 h-24 z" fill="#fff" stroke="#d8d2c4" stroke-width="2"/>', '', 0, 1, true) +
+            '<line x1="405" y1="205" x2="405" y2="300" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">越俎代庖</text>') }
+      ];
     }
   };
 
