@@ -14931,6 +14931,151 @@
             P(480, 302, A('dog', 'angry'), 'st-inR', 0, 1.08, true) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">引狼入室</text>') }
       ];
+    },
+    /* 大公無私 */
+    i914: function () {
+      return [
+        { minDur: 7000, sub: '春秋名臣祁黃羊推薦人才：舉薦仇人當縣令、推薦兒子當軍官——只問才能，不問恩怨親疏！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(560, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1, true) + bang(460, 182)) },
+        { minDur: 6800, sub: '孔子聽了讚歎：「外舉不避仇，內舉不避子」——這才是真正的公正！',
+          html: scene(P(400, 285, '<line x1="0" y1="0" x2="0" y2="-56" stroke="#a8734a" stroke-width="5"/><line x1="-80" y1="-56" x2="80" y2="-56" stroke="#a8734a" stroke-width="4"/><path d="M-80 -56 l-13 22 h26 z M80 -56 l-13 22 h26 z" fill="#e0a458" stroke="#c9862f" stroke-width="2"/>', '', 0, 1.15) + hearts(540, 200)) },
+        { minDur: 6800, sub: '「大公無私」：一切為公、毫無私心——裁判不偏袒自己班，雙方都心服口服！',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-8 -46 q8 4 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/><path d="M28 -46 l14 -20" stroke="#3a2e26" stroke-width="4" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy'), '', 0, .9) + P(560, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(400, 172)) },
+        { minDur: 6400, sub: '大公無私：一心為公，毫無私心。',
+          html: scene(P(400, 285, '<line x1="0" y1="0" x2="0" y2="-56" stroke="#a8734a" stroke-width="5"/><line x1="-80" y1="-56" x2="80" y2="-56" stroke="#a8734a" stroke-width="4"/><path d="M-80 -56 l-13 22 h26 z M80 -56 l-13 22 h26 z" fill="#e0a458" stroke="#c9862f" stroke-width="2"/>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大公無私</text>') }
+      ];
+    },
+    /* 中飽私囊 */
+    i915: function () {
+      return [
+        { minDur: 7000, sub: '《韓非子》記載：君主問稅收，大臣直言——國庫空、百姓窮，錢呢？全被經手的貪官吞了！',
+          html: scene(P(250, 280, '<path d="M-30 20 L-30 -20 L0 -36 L30 -20 L30 20 Z" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="14" fill="#c96a5a">空</text>', '', 0, 1) +
+            P(420, 302, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>' + P(0, -64, '<path d="M-16 -8 q0 -14 16 -14 q16 0 16 14 l-3 16 q-13 8 -26 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="13" fill="#a8791e">$</text>', '', 0, 1), '', 0, 1.05) +
+            P(590, 302, A('kid', 'sad'), '', 0, .9, true) + sweat(650, 195)) },
+        { minDur: 6800, sub: '「中飽」——上頭空虛、下面貧餓，只有「中間人」吃得飽飽，口袋塞得滿滿！',
+          html: scene(P(400, 250, '<path d="M-20 -14 q0 -18 20 -18 q20 0 20 18 l-4 26 q-16 10 -32 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.6"/><text x="0" y="8" text-anchor="middle" font-size="17" fill="#a8791e">$$$</text>', '', 0, 1.5) + bang(530, 210) + qmark(270, 210)) },
+        { minDur: 6800, sub: '「中飽私囊」：經手時暗中侵吞——班費、善款都要帳目透明，讓每一塊錢去該去的地方！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="11" fill="#548a40">帳目</text>', '', 0, .95)) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(450, 188)) },
+        { minDur: 6400, sub: '中飽私囊：侵吞經手的財物。',
+          html: scene(P(400, 255, '<path d="M-20 -14 q0 -18 20 -18 q20 0 20 18 l-4 26 q-16 10 -32 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.6"/><text x="0" y="8" text-anchor="middle" font-size="17" fill="#a8791e">$$$</text>', '', 0, 1.5) + qmark(520, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">中飽私囊</text>') }
+      ];
+    },
+    /* 節衣縮食 */
+    i916: function () {
+      return [
+        { minDur: 7000, sub: '《史記》寫商人白圭：「薄飲食，忍嗜欲，節衣服」——對自己刻苦，把錢用在刀口上！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-42, -40, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, .95), '', 0, 1.05) +
+            P(560, 250, '<path d="M-18 12 q-5 -16 7 -21 q4 7 11 5 q9 5 5 16 q-11 7 -23 0 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.2"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '為了帶全家出國旅行，爸媽一年不買新衣、自己帶便當——每一筆省下的錢都是機票！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-40, -44, '<rect x="-13" y="-10" width="26" height="20" rx="4" fill="#a5d47c" stroke="#7fa858" stroke-width="2"/>', '', 0, 1)) +
+            P(500, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1, true) +
+            P(620, 210, '<path d="M-20 6 L20 -6 L12 6 L20 14 Z" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2"/>', 'st-fly', 0, 1.1) + hearts(410, 188)) },
+        { minDur: 6800, sub: '「節衣縮食」：省吃省穿、極力節約——省下的不是苦，是為了更想要的目標！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -48, '<path d="M-16 -6 q0 -12 16 -12 q16 0 16 12 l-2 12 q-14 8 -28 0 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/>', '', 0, 1), '', 0, 1.05) + hearts(510, 190) +
+            P(280, 205, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '節衣縮食：省吃儉用，刻苦節約。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -48, '<path d="M-16 -6 q0 -12 16 -12 q16 0 16 12 l-2 12 q-14 8 -28 0 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/>', '', 0, 1), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">節衣縮食</text>') }
+      ];
+    },
+    /* 粗茶淡飯 */
+    i917: function () {
+      var SIMPLE_MEAL = '<path d="M-30 -4 h24 v4 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/><path d="M8 -6 h26 v5 q0 9 -13 9 q-13 0 -13 -9 z" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/><g class="st-zfloat" opacity=".6"><path d="M-16 -12 q3 -6 0 -10 M22 -14 q3 -6 0 -10" stroke="#c9bfa8" stroke-width="2" fill="none"/></g>';
+      return [
+        { minDur: 7000, sub: '黃庭堅寫「四休居士」的格言：「粗茶淡飯飽即休，補破遮寒暖即休」——吃飽穿暖就滿足！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.05) +
+            P(520, 285, SIMPLE_MEAL, '', 0, 1.3) + hearts(280, 195)) },
+        { minDur: 6800, sub: '「粗茶淡飯」：粗糙的茶、清淡的飯——生活簡樸，心卻自在踏實！',
+          html: scene(P(400, 280, SIMPLE_MEAL, '', 0, 1.7) + hearts(530, 220) +
+            P(250, 210, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '老教師甘於粗茶淡飯，卻把積蓄捐給圖書館——簡樸的人，心最富有！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(38, -50, '<rect x="-12" y="-16" width="24" height="32" rx="3" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2"/>', '', 0, .95)) +
+            P(540, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '粗茶淡飯：生活簡樸，知足常樂。',
+          html: scene(P(400, 285, SIMPLE_MEAL, '', 0, 1.7) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">粗茶淡飯</text>') }
+      ];
+    },
+    /* 山珍海味 */
+    i918: function () {
+      var FEAST = '<ellipse cx="0" cy="0" rx="70" ry="18" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-40 -8 q0 -10 10 -10 q10 0 10 10" fill="#c96a5a"/><circle cx="0" cy="-10" r="8" fill="#ffb066"/><path d="M24 -6 q8 -12 20 -6" stroke="#7fa858" stroke-width="4" fill="none"/><circle cx="42" cy="-4" r="6" fill="#ff9eb5"/>';
+      return [
+        { minDur: 7000, sub: '唐詩已有「山珍海錯」——山裡的珍品、海裡的美味，滿桌名貴菜餚擺不完！',
+          html: scene(P(400, 280, FEAST, '', 0, 1.4) +
+            P(200, 302, A('kid', 'wow'), '', 0, .95) + hearts(280, 210) +
+            '<g class="st-zfloat" opacity=".7"><path d="M370 230 q3 -8 0 -14 M430 226 q3 -8 0 -14" stroke="#c9bfa8" stroke-width="2.4" fill="none"/></g>') },
+        { minDur: 6800, sub: '「山珍海味」：豐盛名貴的酒席佳餚——婚宴滿漢全席，樣樣都是功夫菜！',
+          html: scene(P(400, 285, FEAST, '', 0, 1.5) +
+            P(250, 302, A('kid', 'happy'), '', 0, .9) + P(560, 302, A('kid', 'happy'), '', 0, .9, true) + notes(400, 200)) },
+        { minDur: 6800, sub: '不過吃得再豪華，不如吃得開心——家人圍桌的粗茶淡飯，有時比山珍海味更香！',
+          html: scene(P(400, 285, '<path d="M-24 -4 h20 v4 q0 7 -10 7 q-10 0 -10 -7 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.3) +
+            P(280, 302, A('kid', 'happy'), '', 0, .92) + P(520, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95, true) + hearts(400, 195)) },
+        { minDur: 6400, sub: '山珍海味：珍饈美饌，豐盛滿席。',
+          html: scene(P(400, 285, FEAST, '', 0, 1.5) + hearts(540, 220) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">山珍海味</text>') }
+      ];
+    },
+    /* 錦衣玉食 */
+    i919: function () {
+      return [
+        { minDur: 7000, sub: '《魏書》說「錦衣玉食，可頤其形」——穿錦繡的衣、吃如玉的食，養尊處優！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-20 -36 h40 l-4 30 h-32 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/><path d="M-12 -28 q6 -6 12 0 q6 -6 10 0" stroke="#ffd97a" stroke-width="2" fill="none"/>' + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1.1) +
+            P(580, 280, '<ellipse cx="0" cy="0" rx="40" ry="12" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><circle cx="0" cy="-8" r="7" fill="#ffb066"/>', '', 0, 1.05) + hearts(280, 200)) },
+        { minDur: 6800, sub: '「錦衣玉食」：生活豪奢富貴——但故事裡的富家子弟常常悶悶不樂：什麼都有，就是不快樂……',
+          html: scene(P(400, 302, A('kid', 'sad') + '<path d="M-20 -36 h40 l-4 30 h-32 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', '', 0, 1.05) + sweat(320, 190) + qmark(490, 182)) },
+        { minDur: 6800, sub: '快樂從來不在衣服和菜色——在朋友、在成就感、在被愛——錦衣玉食買不到這些！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 178) +
+            P(600, 210, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '錦衣玉食：衣食奢華，生活富貴。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-20 -36 h40 l-4 30 h-32 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/><path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">錦衣玉食</text>') }
+      ];
+    },
+    /* 左右為難 */
+    i920: function () {
+      return [
+        { minDur: 6800, sub: '兩個好朋友吵架了，都拉著小難評理：「你說！是不是他的錯！」',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.02) + sweat(400, 172) +
+            P(230, 302, A('kid', 'angry') + '<path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95) +
+            P(570, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95, true)) },
+        { minDur: 6800, sub: '幫左邊，右邊生氣；幫右邊，左邊傷心——「左右為難」：偏哪邊都不好辦！',
+          html: scene(P(400, 302, A('kid', 'wow'), 'st-bob', 0, 1.05) +
+            P(280, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-8 0 h16 M-8 0 l5 -5 M-8 0 l5 5" stroke="#c96a5a" stroke-width="2.6" fill="none"/>', '', 0, 1) +
+            P(520, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M8 0 h-16 M8 0 l-5 -5 M8 0 l-5 5" stroke="#c96a5a" stroke-width="2.6" fill="none"/>', '', 0, 1) + sweat(400, 180)) },
+        { minDur: 6800, sub: '聰明的解法：不當裁判，當橋梁——「你們都是我的好朋友，先聽聽對方怎麼說好嗎？」',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-30 -46 q-14 -8 -22 2 M30 -46 q14 -8 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(250, 302, A('kid', 'happy'), '', 0, .92) + P(550, 302, A('kid', 'happy'), '', 0, .92, true) + hearts(400, 175)) },
+        { minDur: 6400, sub: '左右為難：兩邊都難，取捨不易。',
+          html: scene(P(400, 302, A('kid', 'wow'), 'st-bob', 0, 1.05) + sweat(400, 175) +
+            P(280, 225, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><path d="M-7 0 h14 M-7 0 l5 -5 M-7 0 l5 5" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1) +
+            P(520, 225, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><path d="M7 0 h-14 M7 0 l-5 -5 M7 0 l-5 5" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">左右為難</text>') }
+      ];
+    },
+    /* 舌粲蓮花 */
+    i1027: function () {
+      var LOTUS = '<path d="M0 0 C-8 -14 -24 -10 -20 2 C-30 0 -32 14 -18 16 C-24 26 -8 32 0 22 C8 32 24 26 18 16 C32 14 30 0 20 2 C24 -10 8 -14 0 0 Z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/><circle cx="0" cy="12" r="5" fill="#ffd97a"/>';
+      return [
+        { minDur: 7000, sub: '晉代高僧佛圖澄講經說法妙不可言——傳說他開口時，口中彷彿湧現朵朵蓮花！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(480, 210, '<g class="st-zfloat">' + LOTUS + '</g>', '', 0, .9) +
+            P(560, 250, '<g class="st-zfloat" style="animation-delay:.4s">' + LOTUS + '</g>', '', 0, .7) + notes(260, 195)) },
+        { minDur: 6800, sub: '「舌粲蓮花」：口才極佳、言辭動聽——談判桌上他一開口，連對手都聽得點頭！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(440, 185) +
+            P(430, 200, '<g class="st-tw">' + LOTUS + '</g>', '', 0, .8)) },
+        { minDur: 6800, sub: '但話說得再漂亮，也要做得到——舌粲蓮花加上言出必行，才是真本事！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -50, '<rect x="-12" y="-9" width="24" height="18" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-5 0 l4 4 l8 -8" stroke="#548a40" stroke-width="2.2" fill="none"/>', '', 0, 1)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '舌粲蓮花：能言善道，言辭動聽。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(500, 210, '<g class="st-zfloat">' + LOTUS + '</g>', '', 0, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">舌粲蓮花</text>') }
+      ];
     }
   };
 
