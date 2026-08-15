@@ -13100,6 +13100,184 @@
           html: scene(P(400, 280, MESS, '', 0, 1.6) + qmark(540, 200) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">雜亂無章</text>') }
       ];
+    },
+    /* 以卵擊石 */
+    i1026: function () {
+      var ROCK = '<path d="M-40 20 L-28 -20 L0 -32 L30 -18 L40 20 Z" fill="#8b93a3" stroke="#6d7585" stroke-width="2.6"/>';
+      var EGG = '<ellipse cx="0" cy="0" rx="11" ry="14" fill="#fff7e8" stroke="#e0d0b0" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '墨子說：拿別的話來反駁我的道理，就像拿蛋去砸石頭——把天下的蛋都砸完，石頭還是石頭！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1) +
+            P(540, 290, ROCK, '', 0, 1.2) + P(460, 240, EGG, 'st-bob', 0, 1.1)) },
+        { minDur: 6800, sub: '雞蛋飛出去——啪！蛋碎了一地，石頭連一道刮痕都沒有！',
+          html: scene(P(540, 290, ROCK, '', 0, 1.2) +
+            P(480, 288, '<path d="M-14 0 q0 -10 8 -12 l4 8 8 -4 q6 8 -2 14 q-12 6 -18 -6 z" fill="#fff7e8" stroke="#e0d0b0" stroke-width="2"/><path d="M-4 -4 q6 6 10 2" stroke="#ffd97a" stroke-width="3" fill="none"/>', '', 0, 1.2) + bang(500, 230) + sweat(300, 220)) },
+        { minDur: 6800, sub: '「以卵擊石」：以極弱攻極強，必遭失敗——硬拚不行就智取，找對方法才是聰明！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -60, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/><line x1="0" y1="4" x2="0" y2="14" stroke="#e0b73f" stroke-width="3"/>', '', 0, 1.05)) + hearts(450, 188) +
+            P(580, 290, ROCK, '', 0, .9)) },
+        { minDur: 6400, sub: '以卵擊石：不自量力，必遭失敗。',
+          html: scene(P(520, 290, ROCK, '', 0, 1.3) + P(430, 235, EGG, 'st-bob', 0, 1.2) + bang(470, 265) +
+            '<text x="340" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">以卵擊石</text>') }
+      ];
+    },
+    /* 不落窠臼 */
+    i1046: function () {
+      var MORTAR = '<path d="M-24 -14 L24 -14 L18 18 L-18 18 Z" fill="#8b93a3" stroke="#6d7585" stroke-width="2.6"/><ellipse cx="0" cy="-14" rx="24" ry="7" fill="#aab4c4" stroke="#6d7585" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '「窠」是鳥巢、「臼」是石臼——形狀固定、一成不變，所以「窠臼」比喻陳舊的老套子！',
+          html: scene(P(300, 260, '<path d="M-26 8 q0 -18 26 -18 q26 0 26 18 q-12 10 -52 0 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><circle cx="-6" cy="-4" r="5" fill="#fff7e8"/><circle cx="8" cy="-4" r="5" fill="#fff7e8"/>', '', 0, 1.2) +
+            P(500, 265, MORTAR, '', 0, 1.2) + qmark(400, 195)) },
+        { minDur: 6800, sub: '美術比賽人人畫「日出山景」——小窠偏用拼貼加立體摺紙，做出會動的海浪！',
+          html: scene(P(250, 270, '<rect x="-26" y="-34" width="52" height="68" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><circle cx="0" cy="-14" r="9" fill="#ffdd66"/><path d="M-18 10 l10 -12 8 8 8 -10" stroke="#7a9a6a" stroke-width="2.6" fill="none"/>', '', 0, .95) +
+            P(370, 270, '<rect x="-26" y="-34" width="52" height="68" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><circle cx="0" cy="-14" r="9" fill="#ffdd66"/><path d="M-18 10 l10 -12 8 8 8 -10" stroke="#7a9a6a" stroke-width="2.6" fill="none"/>', '', 0, .95) +
+            P(540, 268, '<rect x="-30" y="-38" width="60" height="76" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="3"/><g class="st-wavemove"><path d="M-22 6 q8 -10 16 0 t16 0" stroke="#5a8fbf" stroke-width="4" fill="none"/></g><circle cx="12" cy="-20" r="7" fill="#ff9d4d"/>', '', 0, 1.05) + bang(620, 210)) },
+        { minDur: 6800, sub: '「不落窠臼」：不掉進舊格式，有獨創性——跳出框框想，作品才會眼睛一亮！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.02) +
+            P(400, 195, '<path d="M0 -18 l6 11 12 2 -9 9 2 12 -11 -6 -11 6 2 -12 -9 -9 12 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1.2) + hearts(290, 195)) },
+        { minDur: 6400, sub: '不落窠臼：獨創新格，不襲舊套。',
+          html: scene(P(500, 270, MORTAR, '', 0, 1.1) +
+            P(300, 302, A('kid', 'happy'), 'st-hop', 0, 1) +
+            '<path d="M360 240 q60 -40 100 -10" stroke="#548a40" stroke-width="4" fill="none" stroke-dasharray="9 8"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不落窠臼</text>') }
+      ];
+    },
+    /* 撲朔迷離 */
+    i1058: function () {
+      return [
+        { minDur: 7000, sub: '〈木蘭詩〉結尾：「雄兔腳撲朔，雌兔眼迷離」——雄兔愛蹬腳、雌兔常瞇眼，各有特徵！',
+          html: scene(P(300, 302, A('rabbit') + '<path d="M14 6 q8 -3 12 3" stroke="#8b93a3" stroke-width="2.6" fill="none"/>', 'st-hop', 0, 1) +
+            P(500, 302, A('rabbit') + '<line x1="-10" y1="-26" x2="-2" y2="-26" stroke="#3a2e26" stroke-width="2.6"/>', '', 0, 1, true)) },
+        { minDur: 6800, sub: '「雙兔傍地走，安能辨我是雄雌？」——兩隻兔子一起奔跑，誰分得出公母！',
+          html: scene(P(340, 302, A('rabbit'), 'st-dashL', 0, 1) + P(470, 302, A('rabbit'), 'st-dashL', .2, 1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="220" y1="250" x2="290" y2="250"/><line x1="560" y1="270" x2="630" y2="270"/></g>' + qmark(400, 185)) },
+        { minDur: 6800, sub: '木蘭女扮男裝從軍十二年，戰友竟沒人識破——她用這個比喻笑答大家的驚訝！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, 1.05) +
+            P(550, 302, A('kid', 'wow'), '', 0, .95, true) + bang(620, 190) + hearts(280, 190)) },
+        { minDur: 6400, sub: '撲朔迷離：錯綜複雜，真相難辨。',
+          html: scene(P(340, 302, A('rabbit'), 'st-hop', 0, 1) + P(470, 302, A('rabbit'), 'st-hop', .3, 1, true) + qmark(400, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">撲朔迷離</text>') }
+      ];
+    },
+    /* 拋磚引玉 */
+    i1069: function () {
+      var BRICK = '<rect x="-18" y="-9" width="36" height="18" rx="2" fill="#c96a5a" stroke="#a84f42" stroke-width="2.4"/>';
+      var JADE2 = '<path d="M0 -16 q14 5 14 16 q0 11 -14 16 q-14 -5 -14 -16 q0 -11 14 -16 z" fill="#a5d4b8" stroke="#6faa8a" stroke-width="2.4"/>';
+      return [
+        { minDur: 7000, sub: '相傳詩人常建仰慕趙嘏，先在寺壁題了兩句普通的詩，等趙嘏路過忍不住補上絕妙下聯！',
+          html: scene(P(300, 275, '<rect x="-40" y="-46" width="80" height="92" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-26" y1="-28" x2="26" y2="-28"/><line x1="-26" y1="-14" x2="26" y2="-14"/></g>', '', 0, 1.05) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-40, -46, '<line x1="0" y1="8" x2="6" y2="-12" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/>', '', 0, 1), '', 0, 1, true) + notes(420, 190)) },
+        { minDur: 6800, sub: '用自己的「磚」引出別人的「玉」——普通的開頭，換來精采的傑作！',
+          html: scene(P(300, 260, BRICK, '', 0, 1.3) +
+            '<path d="M350 255 h90" stroke="#548a40" stroke-width="4"/><path d="M440 255 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(510, 255, JADE2, '', 0, 1.4) +
+            '<g class="st-tw"><path d="M560 215 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>') },
+        { minDur: 6800, sub: '「拋磚引玉」：自謙先提淺見，引出高明見解——注意：只能謙稱自己，不能說別人「拋磚」！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(520, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(430, 190, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#6d7585">草案…</text>') + hearts(590, 200)) },
+        { minDur: 6400, sub: '拋磚引玉：以淺見引出高論（自謙）。',
+          html: scene(P(310, 265, BRICK, '', 0, 1.3) +
+            '<path d="M356 260 h84" stroke="#548a40" stroke-width="4"/><path d="M440 260 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(500, 260, JADE2, '', 0, 1.4) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">拋磚引玉</text>') }
+      ];
+    },
+    /* 居安思危 */
+    i1084: function () {
+      return [
+        { minDur: 7000, sub: '晉國大勝，鄭國送來厚禮——大臣魏絳卻勸晉悼公：「居安思危，思則有備，有備無患！」',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05) +
+            P(520, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>' + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1, true) +
+            P(400, 235, '<rect x="-26" y="-16" width="52" height="32" rx="4" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '太平的日子也要想到可能的危難：糧倉備滿、城牆修好、士兵照常操練！',
+          html: scene(P(280, 290, '<path d="M-30 20 L-30 -20 L0 -36 L30 -20 L30 20 Z" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#8a744a">糧</text>', '', 0, 1.05) +
+            P(480, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1)) +
+            P(640, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, .95), '', 0, .95)) },
+        { minDur: 6800, sub: '「居安思危」：安定時預想禍患、及早防備——地震包、儲備糧，都是現代版的居安思危！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -48, '<rect x="-14" y="-18" width="28" height="34" rx="4" fill="#c96a5a" stroke="#a84f42" stroke-width="2.4"/><path d="M-6 -8 h12 M0 -14 v12" stroke="#fff" stroke-width="2.6"/>', '', 0, 1)) + hearts(470, 188) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#548a40">有備</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '居安思危：安定中預想危難，先備無患。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -48, '<rect x="-14" y="-18" width="28" height="34" rx="4" fill="#c96a5a" stroke="#a84f42" stroke-width="2.4"/><path d="M-6 -8 h12 M0 -14 v12" stroke="#fff" stroke-width="2.6"/>', '', 0, 1), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">居安思危</text>') }
+      ];
+    },
+    /* 洶湧澎湃 */
+    i1103: function () {
+      var BIGWAVE = '<rect y="240" width="800" height="100" fill="#4a6d94"/>' +
+        '<g class="st-wavemove"><path d="M-40 252 q30 -22 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#7fa8d4" stroke-width="12" stroke-linecap="round"/></g>' +
+        '<g class="st-wavemove" style="animation-delay:.5s"><path d="M-70 280 q30 -16 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#9cc0e0" stroke-width="9" stroke-linecap="round" opacity=".8"/></g>';
+      return [
+        { minDur: 7000, sub: '司馬相如〈上林賦〉描寫大水「洶湧彭湃」——巨浪翻騰衝擊，轟隆隆震耳欲聾！',
+          html: scene(BIGWAVE + '<g class="st-bub"><circle cx="300" cy="225" r="5" fill="#fff" opacity=".8"/><circle cx="520" cy="218" r="6" fill="#fff" opacity=".8"/></g>', 'night') },
+        { minDur: 6800, sub: '颱風天的海邊：浪頭比房子高，一波接一波砸向堤防，濺起十層樓高的水花！',
+          html: scene(BIGWAVE +
+            P(200, 302, '<rect x="-30" y="-40" width="60" height="40" fill="#8b93a3" stroke="#6d7585" stroke-width="2.6"/>', '', 0, 1.1) + bang(240, 215) + sweat(320, 190), 'night') },
+        { minDur: 6800, sub: '「洶湧澎湃」也能形容心情：站上頒獎台那一刻，心中思緒洶湧澎湃，久久不能平息！',
+          html: scene(P(400, 280, '<rect x="-60" y="0" width="120" height="24" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><text x="0" y="17" text-anchor="middle" font-size="12" fill="#6d4426">1</text>', '', 0, 1) +
+            P(400, 280, A('kid', 'happy'), 'st-cheer', 0, 1) + hearts(400, 175) +
+            '<g class="st-wavemove"><path d="M240 210 q16 -10 32 0 t32 0" stroke="#ff9eb5" stroke-width="4" fill="none" opacity=".8"/></g>') },
+        { minDur: 6400, sub: '洶湧澎湃：波濤翻騰，聲勢浩大。',
+          html: scene(BIGWAVE +
+            '<text x="400" y="100" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">洶湧澎湃</text>', 'night') }
+      ];
+    },
+    /* 損兵折將 */
+    i1105: function () {
+      return [
+        { minDur: 6800, sub: '一場惡戰下來：士兵倒了一半、三員大將負傷——軍營裡一片哀號！',
+          html: scene(P(280, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>', '', 0, .92) +
+            P(420, 306, '<g class="st-faint" style="animation-delay:.3s">' + A('kid', 'sad') + '</g>', '', 0, .9) +
+            P(560, 302, A('kid', 'sad') + P(-30, -30, '<path d="M-10 6 q10 -14 20 0" stroke="#fff" stroke-width="5" fill="none"/>', '', 0, 1), '', 0, .95) + sweat(340, 195), 'night') },
+        { minDur: 6800, sub: '「損兵折將」：士兵將領都有損失——《三國演義》裡戰敗的一方，常這樣元氣大傷！',
+          html: scene(P(400, 302, A('kid', 'sad') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, 1.02) + sweat(320, 190) +
+            P(560, 260, '<line x1="0" y1="30" x2="0" y2="-24" stroke="#a8734a" stroke-width="4"/><path d="M0 -24 q14 4 26 -2 l-2 14 q-12 6 -24 0 z" fill="#c96a5a" opacity=".6" transform="rotate(24)"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '現在也用在球隊或公司：主力接連受傷離隊，「損兵折將」，實力大受影響！',
+          html: scene(P(320, 302, A('kid', 'sad') + P(-30, -20, '<path d="M-8 4 q8 -12 16 0" stroke="#fff" stroke-width="5" fill="none"/>', '', 0, 1)) +
+            P(480, 302, A('kid', 'sad') + P(34, -30, '<rect x="-5" y="-22" width="10" height="44" rx="4" fill="#c9bfa8"/>', '', 0, 1), '', 0, .97, true) + sweat(400, 188) +
+            P(620, 250, '<circle cx="0" cy="0" r="12" fill="#e0813f" stroke="#b85f24" stroke-width="2"/><path d="M-12 0 h24 M0 -12 v24" stroke="#b85f24" stroke-width="1.6"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '損兵折將：傷亡慘重，元氣大傷。',
+          html: scene(P(300, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>', '', 0, .92) +
+            P(480, 302, A('kid', 'sad'), '', 0, .97) + sweat(540, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">損兵折將</text>', 'night') }
+      ];
+    },
+    /* 以牙還牙 */
+    i1124: function () {
+      return [
+        { minDur: 7000, sub: '古巴比倫《漢摩拉比法典》定下「以眼還眼，以牙還牙」——你怎麼傷人，就受同樣的罰！',
+          html: scene(P(400, 270, '<path d="M-50 -60 L50 -60 L58 40 L-58 40 Z" fill="#8b93a3" stroke="#6d7585" stroke-width="3"/><g stroke="#3a3550" stroke-width="1.8"><line x1="-34" y1="-40" x2="34" y2="-40"/><line x1="-34" y1="-24" x2="34" y2="-24"/><line x1="-34" y1="-8" x2="34" y2="-8"/><line x1="-34" y1="8" x2="24" y2="8"/></g>', '', 0, 1.15) +
+            P(200, 302, A('kid', 'wow'), '', 0, .92)) },
+        { minDur: 6800, sub: '「以牙還牙」：用對方的手段回敬對方——你推我一下，我就推回去，衝突越滾越大！',
+          html: scene(P(330, 302, A('kid', 'angry')) + P(470, 302, A('kid', 'angry'), '', 0, 1, true) +
+            bang(400, 185) + bang(400, 240) + sweat(260, 192) + sweat(540, 192)) },
+        { minDur: 6800, sub: '反擊不一定要動手——被質疑就用數據回應、被嘲笑就用成績證明，這是聰明的「還牙」！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 8 l5 -10 l5 6 l6 -12" stroke="#548a40" stroke-width="2.4" fill="none"/>', '', 0, 1)) + bang(470, 185) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true)) },
+        { minDur: 6400, sub: '以牙還牙：以其人之道，還治其人。',
+          html: scene(P(330, 302, A('kid', 'angry')) + P(470, 302, A('kid', 'angry'), '', 0, 1, true) + bang(400, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">以牙還牙</text>') }
+      ];
+    },
+    /* 變幻莫測 */
+    i1125: function () {
+      return [
+        { minDur: 6800, sub: '登山那天：早上大晴天、中午起大霧、下午竟然下起冰霰——山上的天氣說變就變！',
+          html: scene(P(200, 110, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            '<g class="st-cloud"><ellipse cx="420" cy="100" rx="60" ry="20" fill="#c9d6e8" opacity=".9"/></g>' +
+            '<g fill="#fff"><circle class="st-snow" cx="600" cy="60" r="4"/><circle class="st-snow" style="animation-delay:1s" cx="650" cy="40" r="3.4"/></g>' +
+            P(400, 302, A('kid', 'wow'), '', 0, 1) + qmark(470, 185)) },
+        { minDur: 6800, sub: '「變幻莫測」：變化多端、無法預測——跟「瞬息萬變」不同，它強調的是「猜不透」！',
+          html: scene(P(400, 240, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><text x="0" y="9" text-anchor="middle" font-size="26" fill="#8b93a3">?</text>', 'st-zfloat', 0, 1.2) +
+            P(280, 200, '<circle cx="0" cy="0" r="16" fill="#c9d6e8" opacity=".7"/>', 'st-zfloat', .3, 1) +
+            P(530, 210, '<circle cx="0" cy="0" r="13" fill="#c9d6e8" opacity=".7"/>', 'st-zfloat', .6, 1)) },
+        { minDur: 6800, sub: '面對變幻莫測的狀況，最好的辦法是做足準備——雨衣、外套、頭燈全帶上，來什麼都不怕！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(0, -70, '<rect x="-22" y="-30" width="44" height="36" rx="6" fill="#8a5a33" stroke="#6d4426" stroke-width="2.6"/><path d="M-14 -30 q14 -12 28 0" stroke="#6d4426" stroke-width="4" fill="none"/>', '', 0, 1)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '變幻莫測：變化多端，難以預料。',
+          html: scene(P(230, 120, '<circle cx="0" cy="0" r="18" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            '<g class="st-cloud"><ellipse cx="480" cy="100" rx="56" ry="19" fill="#c9d6e8" opacity=".9"/></g>' +
+            P(400, 302, A('kid', 'wow'), '', 0, 1) + qmark(470, 190) +
+            '<text x="400" y="200" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">變幻莫測</text>') }
+      ];
     }
   };
 
