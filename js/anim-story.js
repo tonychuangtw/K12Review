@@ -18887,6 +18887,162 @@
           html: scene(P(400, 262, '<g stroke="#8b93a3" stroke-width="3" fill="none"><circle cx="-16" cy="0" r="14"/><circle cx="16" cy="0" r="14"/><line x1="-2" y1="0" x2="2" y2="0"/></g>', '', 0, 1.55) + hearts(520, 210) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">睹物思人</text>') }
       ];
+    },
+    /* 不勝唏噓 */
+    i684: function () {
+      return [
+        { minDur: 6800, sub: '紀錄片播出當年叱吒球場的球王——如今拄著拐杖，連走路都吃力……',
+          html: scene(P(300, 260, '<rect x="-46" y="-32" width="92" height="64" rx="4" fill="#3a3550"/><rect x="-38" y="-24" width="76" height="48" rx="2" fill="#7fb2e0"/>' + P(0, 16, A('kid', 'happy'), '', 0, .4), '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-30, -30, '<path d="M0 12 L0 -34 q0 -10 10 -10" stroke="#8a6a44" stroke-width="4.6" fill="none" stroke-linecap="round"/>', '', 0, 1), '', 0, .95, true)) },
+        { minDur: 6800, sub: '「唏噓」是嘆息聲——「不勝唏噓」：感慨嘆息個不停，五味雜陳說不出話！',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-8 -46 q8 6 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1.02) +
+            '<g class="st-zfloat" opacity=".7"><text x="470" y="210" font-size="18" fill="#8b93a3">唉……</text></g>' + sweat(290, 195)) },
+        { minDur: 6800, sub: '唏噓之餘記住教訓：巔峰時保養身體、留好退路——別讓未來的自己被人唏噓！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -12 l4 4 l7 -8 M-10 0 l4 4 l7 -8"/></g>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '不勝唏噓：感慨嘆息，情難自已。',
+          html: scene(P(400, 302, A('kid', 'sad') + '<path d="M-8 -46 q8 6 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1.05) +
+            '<g class="st-zfloat" opacity=".7"><text x="500" y="205" font-size="18" fill="#8b93a3">唉……</text></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不勝唏噓</text>') }
+      ];
+    },
+    /* 感慨萬千 */
+    i685: function () {
+      return [
+        { minDur: 6800, sub: '站上頒獎台的那刻——訓練的苦、想放棄的夜、家人的支持，全部一起湧上心頭！',
+          html: scene(P(400, 280, '<rect x="-60" y="0" width="120" height="24" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><text x="0" y="17" text-anchor="middle" font-size="12" fill="#6d4426">1</text>') +
+            P(400, 280, A('kid', 'happy') + P(0, -74, '<path d="M-14 0 h28 l-4 10 h-20 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1) + '<g class="st-tear"><path d="M-12 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1) + hearts(300, 195) + bang(520, 190)) },
+        { minDur: 6800, sub: '「感慨萬千」：感觸極多、心緒複雜——喜悅、辛酸、感謝，一句話裝不下！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(280, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1) +
+            P(400, 175, '<circle cx="0" cy="0" r="16" fill="#c9d6e8" opacity=".85"/>', 'st-zfloat', 0, 1) +
+            P(520, 200, '<path d="M0 -14 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', 'st-zfloat', .3, 1)) },
+        { minDur: 6800, sub: '把感慨寫下來吧——日記裡的萬千思緒，多年後就是最珍貴的成長紀錄！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff7e8" stroke="#d8cbb0" stroke-width="2.4"/><path d="M-10 -10 q10 4 20 -2 M-10 0 q10 4 20 -2" stroke="#a8945a" stroke-width="1.8" fill="none"/>', '', 0, .95)) + hearts(470, 190) + notes(280, 192)) },
+        { minDur: 6400, sub: '感慨萬千：百感交集，思緒萬端。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<g class="st-tear"><path d="M-12 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1.05) +
+            P(290, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1) +
+            P(510, 200, '<path d="M0 -14 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', 'st-zfloat', .3, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">感慨萬千</text>') }
+      ];
+    },
+    /* 削足適履 */
+    i937: function () {
+      var SHOE = '<path d="M-24 6 q-4 -14 8 -16 l22 0 q14 0 16 10 l0 6 q-22 6 -46 0 z" fill="#8a5a33" stroke="#6d4426" stroke-width="2.4"/>';
+      return [
+        { minDur: 7000, sub: '《淮南子》的荒謬比喻：鞋子太小——竟想把腳削小去配鞋！為鞋傷腳，本末倒置！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(40, -14, SHOE, '', 0, 1.1), '', 0, 1.02) + sweat(290, 190) + qmark(470, 185)) },
+        { minDur: 6800, sub: '「削足適履」（削讀ㄒㄩㄝˋ）：勉強遷就、生搬硬套——該改的是鞋，不是腳！',
+          html: scene(P(320, 260, SHOE, '', 0, 1.5) + qmark(420, 220) +
+            P(560, 240, '<rect x="-32" y="-18" width="64" height="36" rx="4" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#c96a5a">ㄒㄩㄝˋ</text>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '照抄別校的制度卻不合校情、硬套範本寫作文——都是削足適履！方法要為人服務！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-15" y="-11" width="30" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#548a40">因地制宜</text>', '', 0, 1.1)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '削足適履：勉強遷就，本末倒置。',
+          html: scene(P(400, 270, SHOE, '', 0, 1.7) + qmark(510, 220) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">削足適履</text>') }
+      ];
+    },
+    /* 亦步亦趨 */
+    i938: function () {
+      return [
+        { minDur: 7000, sub: '顏淵對孔子說：「夫子步亦步，夫子趨亦趨」——老師走我就走、老師跑我就跑，卻總追不上您的境界！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', 'st-strut', 0, 1.05) +
+            P(480, 302, A('kid', 'happy'), 'st-strut', .3, .95, true) + qmark(560, 190)) },
+        { minDur: 6800, sub: '今天多含貶義：對大廠的設計亦步亦趨——別人出什麼就抄什麼，永遠慢一步！',
+          html: scene(P(300, 250, '<rect x="-20" y="-32" width="40" height="64" rx="5" fill="#3a3550"/><rect x="-15" y="-26" width="30" height="52" rx="2" fill="#7fb2e0"/>', '', 0, 1.05) +
+            '<path d="M340 250 h80" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/><path d="M420 250 l-10 -7 v14 z" fill="#c9bfa8"/>' +
+            P(480, 252, '<rect x="-18" y="-30" width="36" height="60" rx="5" fill="#8b93a3" opacity=".8"/><rect x="-13" y="-24" width="26" height="48" rx="2" fill="#a8c4de"/>', '', 0, 1) + sweat(560, 210)) },
+        { minDur: 6800, sub: '跟隨是起點，不是終點——學走之後要走出自己的路，才有超越的一天！',
+          html: scene(P(320, 302, A('kid', 'happy'), 'st-strut', 0, .95) +
+            '<path d="M400 280 q80 -20 160 -60" stroke="#548a40" stroke-width="4" fill="none" stroke-dasharray="9 8"/><path d="M560 220 l-14 0 l8 11 z" fill="#548a40"/>' + hearts(250, 192) + bang(500, 190)) },
+        { minDur: 6400, sub: '亦步亦趨：一味跟隨，缺乏主見。',
+          html: scene(P(320, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) +
+            P(470, 302, A('kid', 'happy'), 'st-strut', .3, .92, true) + qmark(550, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">亦步亦趨</text>') }
+      ];
+    },
+    /* 隨波逐流 */
+    i939: function () {
+      return [
+        { minDur: 7000, sub: '漁父勸屈原隨世俗打滾就好——屈原答：寧可投江，也不讓潔白之身蒙上塵埃！',
+          html: scene('<rect y="262" width="800" height="78" fill="#5a7fa8"/>' +
+            '<g class="st-wavemove"><path d="M-40 274 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#8fb2d4" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>' +
+            P(300, 262, '<g class="st-bob"><path d="M-40 0 L40 0 L28 14 L-28 14 Z" fill="#8a5a33"/>' + P(0, -8, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .72) + '</g>', '', 0, 1) +
+            P(540, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1, true)) },
+        { minDur: 6800, sub: '「隨波逐流」：跟著大流漂、沒有主見——大家翹課我也翹、大家亂丟我也丟……',
+          html: scene('<rect y="268" width="800" height="72" fill="#5a7fa8"/>' +
+            P(300, 280, '<circle cx="0" cy="0" r="10" fill="#e8e2d5"/>', 'st-bob', 0, 1) +
+            P(400, 285, '<circle cx="0" cy="0" r="10" fill="#e8e2d5"/>', 'st-bob', .2, 1) +
+            P(500, 278, '<circle cx="0" cy="0" r="10" fill="#e8e2d5"/>', 'st-bob', .4, 1) +
+            '<g class="st-windln" stroke="#8fb2d4" stroke-width="4" stroke-linecap="round"><line x1="240" y1="250" x2="330" y2="250"/><line x1="440" y1="255" x2="530" y2="255"/></g>' + qmark(620, 230)) },
+        { minDur: 6800, sub: '不隨波逐流不用大聲宣告——別人起鬨時你安靜做對的事，就是中流砥柱！',
+          html: scene('<rect y="272" width="800" height="68" fill="#5a7fa8"/>' +
+            P(400, 285, '<path d="M-24 20 L-16 -30 L16 -30 L24 20 Z" fill="#6d7585" stroke="#525a68" stroke-width="2.6"/>', '', 0, 1.2) +
+            P(400, 240, A('kid', 'happy'), '', 0, .85) + hearts(500, 200) +
+            '<g class="st-wavemove"><path d="M-40 290 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#8fb2d4" stroke-width="6" stroke-linecap="round" opacity=".9"/></g>') },
+        { minDur: 6400, sub: '隨波逐流：盲從世俗，沒有主見。',
+          html: scene('<rect y="268" width="800" height="72" fill="#5a7fa8"/>' +
+            P(320, 282, '<circle cx="0" cy="0" r="10" fill="#e8e2d5"/>', 'st-bob', 0, 1) +
+            P(430, 286, '<circle cx="0" cy="0" r="10" fill="#e8e2d5"/>', 'st-bob', .25, 1) +
+            '<g class="st-windln" stroke="#8fb2d4" stroke-width="4" stroke-linecap="round"><line x1="240" y1="252" x2="330" y2="252"/></g>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">隨波逐流</text>') }
+      ];
+    },
+    /* 獨善其身 */
+    i940: function () {
+      return [
+        { minDur: 7000, sub: '孟子的處世哲學：「窮則獨善其身，達則兼善天下」——不得志就修好自己，得志就造福大家！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-28 -46 q-14 -8 -20 2 M28 -46 q14 -8 20 2" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1, true) + hearts(440, 188)) },
+        { minDur: 6800, sub: '今天常用貶義：垃圾分類「與我無關」、公共事務「別找我」——只顧自己的獨善其身！',
+          html: scene(P(430, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>' + P(-38, -48, '<rect x="-9" y="-14" width="18" height="26" rx="3" fill="#3a2e26"/>', '', 0, .9), '', 0, 1.02, true) +
+            P(240, 290, '<rect x="-18" y="-12" width="36" height="24" rx="3" fill="#8b93a3" opacity=".7"/><path d="M-10 -18 l4 6 M4 -20 l3 8" stroke="#8b93a3" stroke-width="3"/>', '', 0, 1.1) + qmark(320, 240)) },
+        { minDur: 6800, sub: '修好自己是起點，不是藉口——有能力時搭把手，獨善其身就升級成兼善天下！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>') +
+            P(500, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(420, 182)) },
+        { minDur: 6400, sub: '獨善其身：修身自持；今戒只顧自己。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, 1), '', 0, 1.05) + hearts(500, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">獨善其身</text>') }
+      ];
+    },
+    /* 悲天憫人 */
+    i941: function () {
+      return [
+        { minDur: 7000, sub: '韓愈說賢者「畏天命而悲人窮」——敬畏天道，又為百姓的困苦感到悲痛！',
+          html: scene(P(340, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'sad') + P(-34, -40, '<path d="M-12 8 h24 l-3 -18 h-18 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2" opacity=".8"/>', '', 0, .9), '', 0, .9, true) + sweat(600, 195) +
+            P(280, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「悲天憫人」：對世間苦難深切同情——醫師蹲下來握住病人的手，先當人、再當醫！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-18 -34 L-14 6 h28 l4 -40 z" fill="#fff" stroke="#d8d2c4" stroke-width="2"/><path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(520, 302, A('kid', 'sad') + P(34, -30, '<path d="M-8 4 q8 -12 16 0" stroke="#fff" stroke-width="5" fill="none"/>', '', 0, 1), '', 0, .95, true) + hearts(430, 185)) },
+        { minDur: 6800, sub: '悲憫不只是眼淚——捐一份物資、陪一段路、發一次聲，讓同情長出手腳！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(38, -46, '<rect x="-12" y="-9" width="24" height="18" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1)) +
+            P(490, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(415, 182) +
+            P(610, 210, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '悲天憫人：憂時憫世，胸懷蒼生。',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.05) +
+            P(400, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">悲天憫人</text>') }
+      ];
+    },
+    /* 推己及人 */
+    i942: function () {
+      return [
+        { minDur: 7000, sub: '儒家「恕」道核心：「己所不欲，勿施於人」——自己不想要的，別加在別人身上！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 240, '<rect x="-40" y="-22" width="80" height="44" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="-2" text-anchor="middle" font-size="11" fill="#6d5335">己所不欲</text><text x="0" y="12" text-anchor="middle" font-size="11" fill="#6d5335">勿施於人</text>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6800, sub: '下雨天外送遲到——想想騎士在雨中趕路的樣子，一句「辛苦了」代替抱怨！',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="220" y1="30" x2="210" y2="56"/><line class="st-rain" style="animation-delay:.5s" x1="580" y1="24" x2="570" y2="50"/></g>' +
+            P(330, 302, A('kid', 'happy') + '<path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(530, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#e0813f"/>' + P(38, -46, '<rect x="-12" y="-10" width="24" height="20" rx="4" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/>', '', 0, 1), '', 0, .95, true) + hearts(430, 185), 'night') },
+        { minDur: 6800, sub: '「推己及人」：用自己的心推想別人的處境——同理心是最高級的教養！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<g stroke="#ff9eb5" stroke-width="3" fill="none"><path d="M350 235 q55 -30 110 0"/></g><path d="M460 235 l-11 -6 v13 z" fill="#ff9eb5"/>' +
+            P(405, 190, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '推己及人：將心比心，體諒他人。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(405, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">推己及人</text>') }
+      ];
     }
   };
 
