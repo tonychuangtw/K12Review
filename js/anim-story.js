@@ -2009,6 +2009,128 @@
           html: scene(hole(200, 316) + hole(400, 320, .9) + hole(600, 314, .95) + P(300, 300, A('rabbit')) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">狡兔三窟</text>') }
       ];
+    },
+    /* 草木皆兵 */
+    i1107: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      var MTGRASS = '<path d="M-160 0 L0 -170 L160 0 Z" fill="#8fb0a0"/>' +
+        '<g class="st-grow" stroke="#4a7a38" stroke-width="4.6" fill="none" stroke-linecap="round">' +
+        '<path d="M-70 -30 q-4 -22 -12 -28 M-70 -30 q6 -24 12 -30 M0 -80 q-4 -20 -10 -26 M0 -80 q6 -22 12 -26 M60 -40 q-4 -20 -12 -26 M60 -40 q6 -22 12 -26"/></g>';
+      return [
+        { minDur: 7000, sub: '前秦苻堅率八十萬大軍南下攻晉，驕傲地說：「我軍把馬鞭丟進江裡，都能截斷江水！」',
+          html: scene(P(240, 302, A('kid', 'angry') + CROWN) + bang(320, 175) +
+            P(480, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', 0, .85) +
+            P(600, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', .2, .8) +
+            P(700, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', .4, .78)) },
+        { minDur: 7400, sub: '沒想到先鋒一交戰就吃了敗仗。苻堅登上城樓遠望——八公山上的草木隨風搖動，他竟看成了滿山遍野的晉兵！',
+          html: scene(P(560, 302, MTGRASS) +
+            P(240, 302, A('kid', 'wow') + CROWN) + sweat(200, 195) + sweat(290, 200) + qmark(320, 165)) },
+        { minDur: 7000, sub: '秦軍從此人心惶惶。淝水一戰大敗，士兵們聽到風聲鶴叫，都以為追兵來了，沒命地奔逃！',
+          html: scene(P(400, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .9) +
+            P(540, 302, '<g class="st-fleeR" style="animation-delay:.2s">' + A('kid', 'wow') + '</g>', 'st-dashL', .2, .85) +
+            P(670, 302, '<g class="st-fleeR" style="animation-delay:.4s">' + A('kid', 'wow') + '</g>', 'st-dashL', .4, .8) +
+            notes(200, 150) + P(150, 160, A('bird')) + sweat(480, 200), 'night') },
+        { minDur: 6400, sub: '草木皆兵：把草木都看成敵兵，形容驚慌疑懼、自相驚擾。',
+          html: scene(P(560, 302, MTGRASS, '', 0, .9) + P(240, 302, A('kid', 'wow') + CROWN) + sweat(290, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">草木皆兵</text>') }
+      ];
+    },
+    /* 一諾千金 */
+    i1179: function () {
+      var GOLD = '<g stroke-width="2"><path d="M-26 0 l8 -14 h36 l8 14 z" fill="#ffd97a" stroke="#e8b84a"/><path d="M-20 -14 l7 -12 h26 l7 12 z" fill="#ffe9a0" stroke="#e8b84a"/></g>';
+      var CHECKBUBBLE = '<path d="M-34 -20 a30 24 0 1 1 60 8 q-2 10 -14 12 l-16 14 l2 -14 q-28 -2 -32 -20 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/>' +
+        '<path d="M-14 -12 l8 10 l16 -18" stroke="#548a40" stroke-width="5" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6600, sub: '漢朝的季布為人爽快守信——只要是他答應過的事，就一定做到。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(40, -80, CHECKBUBBLE, '', 0, .8)) +
+            P(580, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(470, 180)) },
+        { minDur: 6800, sub: '楚地流傳著一句話：「得到黃金百斤，不如得到季布的一句承諾！」',
+          html: scene(P(240, 290, GOLD, '', 0, 1.2) + P(430, 240, CHECKBUBBLE, '', 0, 1.1) +
+            '<text x="330" y="240" text-anchor="middle" font-size="26" font-weight="bold" fill="#4a3200">＜</text>' +
+            P(620, 302, A('kid', 'happy'), '', 0, .95) + hearts(680, 195)) },
+        { minDur: 7000, sub: '後來季布遭到追捕，許多人冒著危險輪流保護他——平日一諾千金的信用，救了他的性命。',
+          html: scene(P(430, 302, A('kid', 'sad'), '', 0, .9) +
+            P(300, 302, A('kid', 'angry')) + P(560, 302, A('kid', 'angry'), '', 0, .95, true) +
+            hearts(430, 175)) },
+        { minDur: 6200, sub: '一諾千金：一句承諾價值千金，說話極守信用。',
+          html: scene(P(300, 290, GOLD, '', 0, 1.3) + P(520, 250, CHECKBUBBLE, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一諾千金</text>') }
+      ];
+    },
+    /* 江郎才盡 */
+    i1114: function () {
+      var BRUSH5 = '<line x1="0" y1="0" x2="16" y2="-38" stroke="#a8734a" stroke-width="4.6" stroke-linecap="round"/>' +
+        '<path d="M0 0 q-3 7 -1 12 q4 -2 5 -9 z" fill="#3a2e26"/>' +
+        '<g stroke-width="3.4" stroke-linecap="round"><line x1="4" y1="-10" x2="7" y2="-17" stroke="#e85a4f"/><line x1="7" y1="-17" x2="10" y2="-24" stroke="#e0a458"/><line x1="10" y1="-24" x2="13" y2="-31" stroke="#548a40"/><line x1="13" y1="-31" x2="16" y2="-38" stroke="#5c82ba"/></g>';
+      function paper2(x, y, blank) {
+        return P(x, y, '<rect x="-14" y="-20" width="28" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>' +
+          (blank ? '' : '<path d="M-8 -12 h16 M-8 -4 h16 M-8 4 h16 M-8 12 h10" stroke="#8fa3bf" stroke-width="1.8"/>'));
+      }
+      return [
+        { minDur: 6800, sub: '南朝的江淹年輕時文思泉湧，文章寫得又快又好，人人稱讚這位「江郎」。',
+          html: scene(P(320, 302, A('kid', 'happy') + P(24, -44, BRUSH5)) +
+            paper2(460, 286, false) + paper2(520, 292, false) + hearts(250, 180)) },
+        { minDur: 7400, sub: '有一夜，他夢見神人對他說：「我有一支五色筆放在你那裡多年，該還我了。」江淹從懷中掏出五彩筆，還了回去。',
+          html: scene(P(430, 180, '<circle cx="0" cy="0" r="62" fill="#fff" opacity=".85"/>' + P(-10, 34, BRUSH5, '', 0, 1.1)) +
+            P(300, 302, A('kid', 'happy'), '', 0, .95) + zzz(220, 220), 'night') },
+        { minDur: 6800, sub: '醒來之後，他提筆半天，一個好句子也寫不出來了。大家嘆息：「江郎才盡了呀！」',
+          html: scene(P(320, 302, A('kid', 'sad') + P(24, -44, '<line x1="0" y1="0" x2="14" y2="-34" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 0 q-3 6 -1 11 q4 -2 5 -8 z" fill="#3a2e26"/>')) +
+            paper2(460, 288, true) + sweat(280, 195) + qmark(400, 175)) },
+        { minDur: 6200, sub: '江郎才盡：比喻才思枯竭，寫不出好作品。',
+          html: scene(P(320, 280, BRUSH5, '', 0, 1.4) + paper2(520, 280, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">江郎才盡</text>') }
+      ];
+    },
+    /* 曾參殺人 */
+    i1048: function () {
+      var LOOM2 = '<path d="M-50 0 L-50 -80 L50 -80 L50 0" stroke="#a8734a" stroke-width="7" fill="none" stroke-linecap="round"/>' +
+        '<rect x="-42" y="-72" width="84" height="40" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2"/>' +
+        '<g stroke="#c9d6e8" stroke-width="1.8"><line x1="-42" y1="-62" x2="42" y2="-62"/><line x1="-42" y1="-52" x2="42" y2="-52"/><line x1="-42" y1="-42" x2="42" y2="-42"/></g>';
+      var WALLE = '<rect x="-14" y="-96" width="28" height="96" fill="#b0a390" stroke="#8a7a66" stroke-width="2.6"/><path d="M-14 -96 h9 v-10 h10 v10 h9" fill="none" stroke="#8a7a66" stroke-width="2.6"/>';
+      return [
+        { minDur: 6800, sub: '曾參是孔子門下有名的賢人。有一天，一個和他同名同姓的人殺了人，消息很快傳開——',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(560, 302, A('kid', 'wow'), '', 0, .9) + bang(620, 185) + qmark(500, 180)) },
+        { minDur: 6800, sub: '第一個人跑來喊：「曾參殺人了！」曾母頭也不抬：「我兒子絕不會殺人。」照樣安心織布。',
+          html: scene(P(320, 302, LOOM2 + P(52, 0, A('kid', 'happy'), '', 0, .9)) +
+            P(600, 302, A('kid', 'wow'), 'st-dashL', 0, .9) + bang(660, 190)) },
+        { minDur: 6600, sub: '第二個人又跑來說。曾母仍然不信——但織布的手，慢了下來……',
+          html: scene(P(320, 302, LOOM2 + P(52, 0, A('kid', 'wow'), '', 0, .9)) + sweat(400, 210) +
+            P(600, 302, A('kid', 'wow'), 'st-dashL', 0, .9) + qmark(430, 175)) },
+        { minDur: 7000, sub: '第三個人再跑來喊——曾母嚇得丟下織布機，翻牆逃走了！謠言說了三遍，連最信任兒子的母親都動搖了。',
+          html: scene(P(280, 302, LOOM2) + P(560, 302, WALLE) +
+            P(470, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .95) + sweat(430, 200) +
+            P(160, 302, A('kid', 'wow'), '', 0, .85) + bang(200, 190)) },
+        { minDur: 6400, sub: '曾參殺人：謠言傳的次數多了，連最信任的人也會動搖。',
+          html: scene(P(300, 302, LOOM2, '', 0, .9) + P(560, 302, A('kid', 'wow')) + qmark(620, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">曾參殺人</text>') }
+      ];
+    },
+    /* 抱薪救火 */
+    i1049: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var WOODARM = '<g stroke="#a8734a" stroke-width="6" stroke-linecap="round"><line x1="-20" y1="-40" x2="16" y2="-52"/><line x1="-18" y1="-34" x2="18" y2="-44"/><line x1="-16" y1="-46" x2="14" y2="-58"/></g>';
+      function fire(x, y, sc) {
+        return P(x, y, '<g class="st-flick"><path d="M0 -8 q-16 -20 0 -38 q3 11 11 15 q9 -9 7 -18 q13 16 2 34 q-9 11 -20 7 z" fill="#ff9c40"/>' +
+          '<path d="M2 -10 q-8 -11 0 -22 q7 9 9 13 q3 9 -9 9 z" fill="#ffd166"/></g>' +
+          '<path d="M-18 0 l12 -7 l13 9 l11 -9 M-16 6 l33 -2" stroke="#8a5a33" stroke-width="5" stroke-linecap="round"/>', '', 0, sc || 1);
+      }
+      return [
+        { minDur: 6800, sub: '戰國末年，秦國不斷攻打魏國。魏王害怕了：「割幾座城給秦國，換個平安吧！」',
+          html: scene(P(300, 302, A('kid', 'sad') + CROWN) + sweat(250, 195) +
+            bang(600, 200) + P(680, 302, A('kid', 'angry'), '', 0, .9)) },
+        { minDur: 7400, sub: '大臣蘇代勸他：「用土地去討好秦國，就像抱著柴草去救火——柴一天不燒完，火就一天不會滅呀！」',
+          html: scene(fire(560, 300, 1.2) +
+            P(330, 302, A('kid', 'happy') + WOODARM, 'st-inL') +
+            P(160, 302, A('kid', 'wow') + CROWN, '', 0, .95) + qmark(210, 180)) },
+        { minDur: 7000, sub: '魏王不聽，一次又一次割地求和；秦國的胃口卻越來越大，最後魏國還是滅亡了。',
+          html: scene(fire(430, 300, 1.5) + fire(620, 302, 1.1) +
+            P(200, 302, '<g class="st-slump">' + A('kid', 'sad') + CROWN + '</g>') + sweat(250, 200), 'night') },
+        { minDur: 6400, sub: '抱薪救火：用錯誤的方法消除禍患，反而使禍患擴大。',
+          html: scene(fire(520, 300, 1.3) + P(300, 302, A('kid', 'sad') + WOODARM) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">抱薪救火</text>') }
+      ];
     }
   };
 
