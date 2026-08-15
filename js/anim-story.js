@@ -17956,6 +17956,165 @@
             P(510, 258, '<g stroke="#7fa858" stroke-width="3.2" stroke-linecap="round"><path d="M-18 12 q-2 -14 5 -21 M0 14 q0 -16 7 -23 M16 12 q3 -12 -2 -18"/></g>', '', 0, 1.1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">滄海桑田</text>') }
       ];
+    },
+    /* 曇花一現 */
+    i353: function () {
+      var EPIFLOWER = '<path d="M0 8 C-10 -8 -26 -4 -22 8 C-32 8 -32 22 -20 22 C-24 34 -8 38 0 28 C8 38 24 34 20 22 C32 22 32 8 22 8 C26 -4 10 -8 0 8 Z" fill="#fff7f0" stroke="#e8d0c0" stroke-width="2"/><circle cx="0" cy="18" r="5" fill="#ffd97a"/>';
+      return [
+        { minDur: 7000, sub: '佛經說優曇缽花難得一現——真實的曇花也是：深夜綻放，幾小時後就凋謝！',
+          html: scene(P(400, 250, '<g class="st-grow" style="transform-origin:400px 280px">' + EPIFLOWER + '</g>', '', 0, 1.3) +
+            P(620, 130, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1) + hearts(280, 210), 'night') },
+        { minDur: 6800, sub: '天亮再看——花瓣垂下謝了……「曇花一現」：美好事物短暫出現就消逝！',
+          html: scene(P(400, 265, '<path d="M0 10 q-8 -6 -10 -18 M0 10 q8 -6 10 -18 M0 10 q0 -10 0 -20" stroke="#d8c0b0" stroke-width="3" fill="none"/><path d="M-10 -8 q-4 8 2 12 M10 -8 q4 8 -2 12" fill="#f5e8e0" stroke="#d8c0b0" stroke-width="1.6"/>', '', 0, 1.4) +
+            P(200, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) + sweat(500, 220)) },
+        { minDur: 6800, sub: '爆紅一個月就被遺忘的網紅、只贏一場的黑馬——不想曇花一現，就要有真本事續航！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 6 l5 -10 l5 6 l6 -12" stroke="#548a40" stroke-width="2.2" fill="none"/>', '', 0, .95)) + hearts(450, 188) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">真本事</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">續航</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '曇花一現：乍現即逝，好景不常。',
+          html: scene(P(400, 255, EPIFLOWER, '', 0, 1.4) +
+            P(620, 135, '<circle cx="0" cy="0" r="15" fill="#f5f0dc"/><circle cx="5" cy="-3" r="11" fill="#2c3550"/>', '', 0, 1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">曇花一現</text>', 'night') }
+      ];
+    },
+    /* 明日黃花 */
+    i354: function () {
+      var CHRYS = '<g fill="#ffd97a" stroke="#e8b93f" stroke-width="1.6"><circle cx="0" cy="0" r="6"/><path d="M0 -16 q4 8 0 10 q-4 -2 0 -10 M11 -11 q0 9 -4 9 q-2 -4 4 -9 M16 0 q-8 4 -10 0 q2 -4 10 0 M11 11 q-9 0 -9 -4 q4 -2 9 4 M0 16 q-4 -8 0 -10 q4 2 0 10 M-11 11 q0 -9 4 -9 q2 4 -4 9 M-16 0 q8 -4 10 0 q-2 4 -10 0 M-11 -11 q9 0 9 4 q-4 2 -9 -4"/></g>';
+      return [
+        { minDur: 7000, sub: '蘇軾重陽寫詩留客：「相逢不用忙歸去，明日黃花蝶也愁」——過了今天，菊花就不稀罕了！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(38, -44, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, .95), '', 0, 1.05) +
+            P(540, 260, CHRYS, '', 0, 1.5) + P(620, 220, A('butterfly'), 'st-fly', 0, .9)) },
+        { minDur: 6800, sub: '「明日黃花」：過時的事物——注意是「明日」不是「昨日」！重陽後的菊花，蝴蝶都不來了！',
+          html: scene(P(400, 260, '<g opacity=".55">' + CHRYS + '</g>', '', 0, 1.6) + qmark(520, 210) +
+            P(250, 200, '<rect x="-36" y="-16" width="72" height="32" rx="4" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#c96a5a">明日✓昨日✗</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '去年的爆款手機今年成了明日黃花——所以別追著「最新」跑，要追「真正需要」！',
+          html: scene(P(320, 260, '<rect x="-18" y="-30" width="36" height="60" rx="5" fill="#8b93a3" opacity=".55"/>', '', 0, 1) +
+            P(480, 255, '<rect x="-18" y="-32" width="36" height="64" rx="5" fill="#3a3550"/><rect x="-13" y="-26" width="26" height="48" rx="2" fill="#7fb2e0"/>', '', 0, 1.05) +
+            P(620, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".92" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#548a40">需要?</text>', '', 0, 1.05), '', 0, .98)) },
+        { minDur: 6400, sub: '明日黃花：時過境遷，風光不再。',
+          html: scene(P(400, 262, '<g opacity=".6">' + CHRYS + '</g>', '', 0, 1.7) +
+            P(560, 220, A('butterfly'), 'st-fly', 0, .8, true) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">明日黃花</text>') }
+      ];
+    },
+    /* 甘之如飴 */
+    i355: function () {
+      return [
+        { minDur: 7000, sub: '《詩經》歌頌周人遷居：新土地上連苦菜都像麥芽糖一樣甜——「堇荼如飴」！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -46, '<g stroke="#7a9a6a" stroke-width="3" stroke-linecap="round"><path d="M-8 8 q-2 -12 4 -18 M4 10 q0 -14 6 -20"/></g>', '', 0, 1.1)) + hearts(450, 188) +
+            P(580, 250, '<circle cx="0" cy="0" r="14" fill="#e8b95a" stroke="#c99a3a" stroke-width="2.4"/><line x1="0" y1="14" x2="0" y2="28" stroke="#a8794a" stroke-width="3.4"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '媽媽半夜照顧生病的孩子，天亮又趕去上班——別人問累不累，她笑：「甘之如飴！」',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.02) +
+            P(520, 296, '<g transform="rotate(8)">' + A('kid', 'sad') + '</g>' + P(30, -24, '<path d="M-8 4 q8 -12 16 0" stroke="#fff" stroke-width="5" fill="none"/>', '', 0, .9), '', 0, .92) + hearts(430, 185) +
+            P(620, 135, '<circle cx="0" cy="0" r="15" fill="#f5f0dc"/><circle cx="5" cy="-3" r="11" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「甘之如飴」：心甘情願承受辛苦——因為愛，苦差事也嘗得出甜味！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.2) + hearts(290, 200)) },
+        { minDur: 6400, sub: '甘之如飴：甘願受苦，樂在其中。',
+          html: scene(P(400, 260, '<circle cx="0" cy="0" r="18" fill="#e8b95a" stroke="#c99a3a" stroke-width="2.6"/><line x1="0" y1="18" x2="0" y2="36" stroke="#a8794a" stroke-width="4"/>', '', 0, 1.4) + hearts(510, 210) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">甘之如飴</text>') }
+      ];
+    },
+    /* 手不釋卷 */
+    i356: function () {
+      return [
+        { minDur: 7000, sub: '孫權勸呂蒙讀書，舉例說：曹操都稱讚光武帝「當兵馬之務，手不釋卷」——打仗還帶著書！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy') + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95) + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-36" stroke="#a8734a" stroke-width="4"/><path d="M0 -48 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, .9), '', 0, 1, true)) },
+        { minDur: 6800, sub: '呂蒙聽勸發憤——後來魯肅驚呼「非復吳下阿蒙」！這也是「刮目相看」的由來！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) + bang(470, 185) +
+            P(580, 302, A('kid', 'wow') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95, true)) },
+        { minDur: 6800, sub: '「手不釋卷」：書不離手、勤奮好學——通勤十分鐘、睡前十五分鐘，都是讀書的縫隙！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-11" stroke="#6d7585" stroke-width="2.4"/><line x1="0" y1="0" x2="8" y2="4" stroke="#6d7585" stroke-width="2.4"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '手不釋卷：卷不離手，好學不倦。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, 1), '', 0, 1.08) + hearts(510, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">手不釋卷</text>') }
+      ];
+    },
+    /* 披星戴月 */
+    i357: function () {
+      return [
+        { minDur: 7000, sub: '天沒亮，農人已扛著鋤頭出門；回家時，月亮又掛上了樹梢——身披星光、頭頂月色！',
+          html: scene('<g class="st-tw"><circle cx="200" cy="60" r="3" fill="#fff"/><circle cx="320" cy="40" r="2.4" fill="#fff"/><circle cx="480" cy="70" r="3" fill="#fff"/></g>' +
+            P(620, 120, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#2c3550"/>', '', 0, 1) +
+            P(360, 302, A('kid', 'angry') + P(30, -50, HOE, '', 0, 1, true), 'st-strut', 0, 1, true) + sweat(290, 190), 'night') },
+        { minDur: 6800, sub: '「披星戴月」：早出晚歸、日夜奔波——外送員、夜班護理師，都在披星戴月地撐起生活！',
+          html: scene('<g class="st-tw"><circle cx="240" cy="50" r="3" fill="#fff"/><circle cx="560" cy="40" r="2.6" fill="#fff"/></g>' +
+            P(360, 296, '<circle cx="-16" cy="14" r="11" fill="none" stroke="#5a4632" stroke-width="3.4"/><circle cx="18" cy="14" r="11" fill="none" stroke="#5a4632" stroke-width="3.4"/><path d="M-16 14 L-6 -8 h20 l4 22" stroke="#6d7585" stroke-width="3.4" fill="none"/><rect x="-2" y="-22" width="18" height="16" rx="3" fill="#c96a5a"/>' + P(-8, -22, A('kid', 'angry'), '', 0, .62), 'st-dashL', 0, 1.05) + sweat(280, 220), 'night') },
+        { minDur: 6800, sub: '看到披星戴月的身影，多一分體諒——每份日夜的辛勞，都值得一句謝謝！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#ffe3c1" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(530, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#e0813f"/>', '', 0, .97, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '披星戴月：起早貪黑，日夜辛勞。',
+          html: scene('<g class="st-tw"><circle cx="220" cy="55" r="3" fill="#fff"/><circle cx="360" cy="35" r="2.4" fill="#fff"/></g>' +
+            P(600, 120, '<circle cx="0" cy="0" r="17" fill="#f5f0dc"/><circle cx="6" cy="-3" r="13" fill="#2c3550"/>', '', 0, 1) +
+            P(370, 302, A('kid', 'angry') + P(30, -50, HOE, '', 0, 1, true), 'st-strut', 0, 1, true) +
+            '<text x="330" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">披星戴月</text>', 'night') }
+      ];
+    },
+    /* 豁然開朗 */
+    i358: function () {
+      return [
+        { minDur: 7000, sub: '〈桃花源記〉：漁人鑽進窄得只容一人的山洞——「復行數十步，豁然開朗」！',
+          html: scene('<path d="M100 340 L100 150 Q160 130 220 150 L220 340" fill="#6d7585"/><path d="M150 340 L150 210 Q160 195 175 210 L175 340" fill="#2c3550"/>' +
+            P(163, 300, A('kid', 'wow'), '', 0, .62) +
+            '<rect x="300" y="240" width="480" height="100" fill="#a5d47c" opacity=".8"/>' +
+            P(500, 275, '<path d="M0 0 L0 -34" stroke="#7a5a3a" stroke-width="5"/><circle cx="0" cy="-44" r="17" fill="#ffb3c1"/>', '', 0, 1) +
+            P(650, 270, '<path d="M-30 25 L0 -8 L30 25 Z" fill="#c9762f"/><rect x="-22" y="25" width="44" height="14" fill="#f4ecd8"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '眼前忽然大開：良田美池、桃花夾岸、雞犬相聞——世外桃源就藏在窄洞後面！',
+          html: scene('<rect y="252" width="800" height="88" fill="#a5d47c" opacity=".7"/>' +
+            P(250, 280, '<path d="M0 0 L0 -38" stroke="#7a5a3a" stroke-width="5"/><circle cx="0" cy="-50" r="19" fill="#ffb3c1"/><circle cx="-14" cy="-40" r="13" fill="#ffc9d4"/>', '', 0, 1.1) +
+            P(430, 302, A('kid', 'happy'), 'st-strut', 0, 1) +
+            P(600, 296, A('chicken'), '', 0, .8) + hearts(500, 200) +
+            P(180, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「豁然開朗」也指想通了——卡三天的難題被一句話點醒，腦中瞬間亮起一片天！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(360, 185, '<path d="M0 -16 a16 16 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/><line x1="0" y1="6" x2="0" y2="18" stroke="#e0b73f" stroke-width="3"/>', '', 0, 1.2) + bang(480, 195) + hearts(270, 200)) },
+        { minDur: 6400, sub: '豁然開朗：忽見天地寬，疑團盡解。',
+          html: scene('<path d="M100 340 L100 160 Q150 140 200 160 L200 340" fill="#6d7585"/>' +
+            '<rect x="280" y="248" width="500" height="92" fill="#a5d47c" opacity=".8"/>' +
+            P(480, 275, '<path d="M0 0 L0 -34" stroke="#7a5a3a" stroke-width="5"/><circle cx="0" cy="-44" r="17" fill="#ffb3c1"/>', '', 0, 1) +
+            '<text x="470" y="100" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">豁然開朗</text>') }
+      ];
+    },
+    /* 過猶不及 */
+    i359: function () {
+      return [
+        { minDur: 7000, sub: '子貢問：子張和子夏誰比較優秀？一個常做過頭、一個常不到位——孔子答：「過猶不及！」',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(500, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(560, 188) +
+            P(400, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#c96a5a">過頭=</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#c96a5a">不夠</text>')) },
+        { minDur: 6800, sub: '澆花太多爛根、太少枯死；管教太嚴叛逆、放任學壞——兩端都是坑！',
+          html: scene(P(260, 292, '<path d="M0 10 q-3 -12 4 -18" stroke="#a8945a" stroke-width="3" fill="none"/><g class="st-rain"><circle cx="0" cy="-24" r="4" fill="#7fb2d4"/></g><ellipse cx="0" cy="14" rx="22" ry="5" fill="#7fb2d4" opacity=".6"/>', '', 0, 1.2) + sweat(320, 240) +
+            P(540, 292, '<path d="M0 10 q-2 -10 3 -14" stroke="#d9c05a" stroke-width="3" fill="none"/><path d="M5 -8 q6 -6 10 -2 q-2 6 -7 6 z" fill="#d9c05a" transform="rotate(30)"/>', '', 0, 1.2) + sweat(600, 240) +
+            P(400, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">剛剛好</text>', 'st-tw', 0, 1)) },
+        { minDur: 6800, sub: '「過猶不及」：過頭跟不夠一樣糟——中庸不是平庸，是恰到好處的智慧！',
+          html: scene(P(400, 270, '<line x1="0" y1="0" x2="0" y2="-48" stroke="#a8734a" stroke-width="4.6"/><line x1="-70" y1="-48" x2="70" y2="-48" stroke="#a8734a" stroke-width="4"/><path d="M-70 -48 l-11 18 h22 z M70 -48 l-11 18 h22 z" fill="#e0a458" stroke="#c9862f" stroke-width="2"/>', '', 0, 1.2) + hearts(530, 210)) },
+        { minDur: 6400, sub: '過猶不及：過與不及，同樣失當。',
+          html: scene(P(400, 272, '<line x1="0" y1="0" x2="0" y2="-48" stroke="#a8734a" stroke-width="4.6"/><line x1="-70" y1="-48" x2="70" y2="-48" stroke="#a8734a" stroke-width="4"/><path d="M-70 -48 l-11 18 h22 z M70 -48 l-11 18 h22 z" fill="#e0a458" stroke="#c9862f" stroke-width="2"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">過猶不及</text>') }
+      ];
+    },
+    /* 瑕不掩瑜 */
+    i360: function () {
+      var JADEDOT = '<path d="M0 -30 q26 6 26 30 q0 24 -26 30 q-26 -6 -26 -30 q0 -24 26 -30 z" fill="#a5d4b8" stroke="#6faa8a" stroke-width="2.6"/><circle cx="8" cy="8" r="3.4" fill="#8a744a" opacity=".7"/><circle cx="-7" cy="-9" r="6" fill="#fff" opacity=".6"/>';
+      return [
+        { minDur: 7000, sub: '《禮記》論君子如玉：「瑕不掩瑜，瑜不掩瑕」——斑點遮不住光彩，光彩也不必遮斑點！',
+          html: scene(P(400, 255, JADEDOT, '', 0, 1.4) +
+            '<g class="st-tw"><path d="M470 210 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' +
+            P(220, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '「瑕不掩瑜」：小缺點掩蓋不了整體的美好——一場好表演，一個小失誤不減精彩！',
+          html: scene(P(400, 280, '<rect x="-90" y="-16" width="180" height="16" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(400, 280, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1) + notes(500, 190) +
+            P(230, 302, A('kid', 'happy'), 'st-cheer', 0, .88) + P(580, 302, A('kid', 'happy'), 'st-cheer', .2, .88, true) + hearts(400, 172)) },
+        { minDur: 6800, sub: '評價別人時記得這句：別拿放大鏡找瑕疵——先看見玉的光，再溫柔指出斑！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(520, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(430, 185) +
+            P(620, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-6 0 l4 4 l8 -8" stroke="#548a40" stroke-width="2.6" fill="none"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '瑕不掩瑜：小疵難掩，大器之光。',
+          html: scene(P(400, 258, JADEDOT, '', 0, 1.5) +
+            '<g class="st-tw"><path d="M475 212 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">瑕不掩瑜</text>') }
+      ];
     }
   };
 
