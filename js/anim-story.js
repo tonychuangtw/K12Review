@@ -10211,6 +10211,117 @@
           html: scene(P(400, 302, '<path d="M-50 -50 L0 -80 L50 -50 Z" fill="#8a5a33"/><rect x="-42" y="-50" width="84" height="50" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-12" y="-34" width="24" height="34" rx="3" fill="#8a5a33"/>', '', 0, 1.1) + hearts(500, 210) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">賓至如歸</text>') }
       ];
+    },
+    /* 無微不至 */
+    i517: function () {
+      return [
+        { minDur: 6800, sub: '小微感冒發燒，媽媽整夜照顧：量體溫、換毛巾、煮稀飯，連燈光都調到最柔和——',
+          html: scene(P(340, 302, '<ellipse cx="0" cy="-8" rx="34" ry="12" fill="#6fbf8e"/><circle cx="-28" cy="-16" r="13" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>') +
+            P(500, 302, A('kid', 'happy') + P(-38, -46, '<rect x="-12" y="-4" width="24" height="8" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1.02, true) + hearts(420, 200), 'night') },
+        { minDur: 6800, sub: '「無微不至」：連最細微的地方都照顧到了——這就是最深的關愛！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) +
+            P(310, 190, '<path d="M0 4 C-5 -4 -14 1 -8 9 L0 15 L8 9 C14 1 5 -4 0 4 Z" fill="#ff7b9c"/>', '', 0, 1) +
+            P(400, 165, '<path d="M0 4 C-5 -4 -14 1 -8 9 L0 15 L8 9 C14 1 5 -4 0 4 Z" fill="#ff9eb5"/>', '', .2, .85) +
+            P(480, 190, '<path d="M0 4 C-5 -4 -14 1 -8 9 L0 15 L8 9 C14 1 5 -4 0 4 Z" fill="#ffb3c8"/>', '', .4, .7)) },
+        { minDur: 6800, sub: '康復後小微也學著照顧別人：同學受傷時扶他去保健室、幫他抄聯絡簿——愛會傳染！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'sad') + '<rect x="20" y="-30" width="10" height="26" rx="4" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2"/>', '', 0, .97) + hearts(400, 185)) },
+        { minDur: 6400, sub: '無微不至：照顧得非常周到細緻。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(310, 190) + hearts(490, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">無微不至</text>') }
+      ];
+    },
+    /* 體貼入微 */
+    i518: function () {
+      return [
+        { minDur: 6800, sub: '爺爺膝蓋不好——小貼默默把家裡的拖鞋換成防滑的、樓梯裝上扶手燈、遙控器放在爺爺順手的位置！',
+          html: scene(P(360, 302, A('kid', 'happy')) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><rect x="20" y="-30" width="10" height="26" rx="4" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.02, true) + hearts(450, 190)) },
+        { minDur: 6800, sub: '不用等人開口，就先想到對方的需要——「體貼入微」是觀察出來的溫柔！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 190, '<path d="M-26 0 Q0 -20 26 0 Q0 20 -26 0 Z" fill="#fff" stroke="#4a3200" stroke-width="2.6"/><path d="M0 3 C-4 -3 -11 1 -6 7 L0 11 L6 7 C11 1 4 -3 0 3 Z" fill="#ff7b9c"/>', '', 0, 1.2)) },
+        { minDur: 6800, sub: '爺爺笑著說：「我孫子比我還懂我！」——細緻的關懷，最能暖進心裡！',
+          html: scene(P(320, 302, A('kid', 'happy')) +
+            P(490, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05, true) + hearts(405, 180)) },
+        { minDur: 6400, sub: '體貼入微：關懷照顧細緻周到。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 190, '<path d="M0 5 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 5 Z" fill="#ff7b9c"/>', '', 0, 1.4) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">體貼入微</text>') }
+      ];
+    },
+    /* 感同身受 */
+    i519: function () {
+      return [
+        { minDur: 6800, sub: '同學的小狗過世了，紅著眼睛來上學——小受想起自己的貓咪生病時的心情，眼眶也熱了……',
+          html: scene(P(300, 302, A('kid', 'sad')) + sweat(250, 195) +
+            P(480, 302, A('kid', 'sad') + '<circle class="st-tear" cx="-14" cy="-46" r="3" fill="#8fc6ff"/>', '', 0, .98, true) + hearts(390, 195)) },
+        { minDur: 6800, sub: '雖然不是自己的事，感受卻像親身經歷——「感同身受」是同理心的最高境界！',
+          html: scene(P(320, 220, '<path d="M0 4 C-6 -5 -16 1 -9 10 L0 16 L9 10 C16 1 6 -5 0 4 Z" fill="#ff7b9c"/>', '', 0, 1.4) +
+            '<path d="M360 215 h80" stroke="#ff9eb5" stroke-width="3.4" stroke-dasharray="7 7"/>' +
+            P(480, 220, '<path d="M0 4 C-6 -5 -16 1 -9 10 L0 16 L9 10 C16 1 6 -5 0 4 Z" fill="#ff7b9c"/>', '', .3, 1.4)) },
+        { minDur: 6800, sub: '他沒有多說什麼，只是陪著坐了一節下課——有時候，安靜的陪伴就是最好的安慰。',
+          html: scene(P(330, 302, A('kid', 'sad')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 185)) },
+        { minDur: 6400, sub: '感同身受：感受如同親身經歷一樣。',
+          html: scene(P(330, 225, '<path d="M0 4 C-6 -5 -16 1 -9 10 L0 16 L9 10 C16 1 6 -5 0 4 Z" fill="#ff7b9c"/>', '', 0, 1.5) +
+            P(470, 225, '<path d="M0 4 C-6 -5 -16 1 -9 10 L0 16 L9 10 C16 1 6 -5 0 4 Z" fill="#ff7b9c"/>', '', .3, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">感同身受</text>') }
+      ];
+    },
+    /* 設身處地 */
+    i520: function () {
+      return [
+        { minDur: 6800, sub: '新轉來的同學上課不太敢說話——小地想：「如果是我到陌生班級，是不是也會緊張？」',
+          html: scene(P(300, 302, A('kid', 'sad'), '', 0, .95) + sweat(350, 195) +
+            P(520, 302, A('kid', 'happy'), '', 0, 1) + qmark(570, 185)) },
+        { minDur: 6800, sub: '「設身處地」：把自己放到對方的位置想一想——想通了，就知道該怎麼幫忙！',
+          html: scene(P(330, 250, '<circle cx="0" cy="0" r="26" fill="#a5c8ff" opacity=".6"/>') +
+            P(470, 250, '<circle cx="0" cy="0" r="26" fill="#ff9eb5" opacity=".6"/>') +
+            '<path d="M360 240 q40 -26 80 0 M440 262 q-40 26 -80 0" stroke="#8b93a3" stroke-width="3" fill="none" stroke-dasharray="7 7"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6800, sub: '他主動邀請新同學一起吃午餐、介紹朋友給他——一週後，新同學笑著舉手發言了！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(400, 182)) },
+        { minDur: 6400, sub: '設身處地：站在別人的立場著想。',
+          html: scene(P(330, 245, '<circle cx="0" cy="0" r="24" fill="#a5c8ff" opacity=".6"/>') + P(470, 245, '<circle cx="0" cy="0" r="24" fill="#ff9eb5" opacity=".6"/>') +
+            '<path d="M360 238 q40 -24 80 0" stroke="#8b93a3" stroke-width="3" fill="none" stroke-dasharray="7 7"/>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">設身處地</text>') }
+      ];
+    },
+    /* 將心比心 */
+    i521: function () {
+      return [
+        { minDur: 6800, sub: '排隊時有人插隊你會生氣吧？——那自己趕時間時，也別插別人的隊！',
+          html: scene(P(300, 302, A('kid', 'angry')) + P(430, 302, A('kid', 'happy'), '', .1, .95) + P(550, 302, A('kid', 'happy'), '', .2, .93) +
+            qmark(370, 185)) },
+        { minDur: 6800, sub: '「將心比心」：拿自己的心去體會別人的心——自己不喜歡的，就別加在別人身上！',
+          html: scene(P(340, 220, '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#ff7b9c"/>', '', 0, 1.4) +
+            '<text x="400" y="232" text-anchor="middle" font-size="24" fill="#4a3200">＝</text>' +
+            P(460, 220, '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#ff9eb5"/>', '', .3, 1.4)) },
+        { minDur: 6800, sub: '孔子的「己所不欲，勿施於人」說的正是這個道理——兩千年來最溫柔的黃金法則！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(560, 302, A('kid', 'happy'), '', 0, .93) + hearts(470, 188)) },
+        { minDur: 6400, sub: '將心比心：拿自己的心體會別人的心。',
+          html: scene(P(340, 225, '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#ff7b9c"/>', '', 0, 1.5) +
+            P(460, 225, '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#ff9eb5"/>', '', .3, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">將心比心</text>') }
+      ];
+    },
+    /* 同甘共苦 */
+    i522: function () {
+      return [
+        { minDur: 6800, sub: '越野賽跑訓練隊：烈日下一起流汗、下雨天一起加練——辛苦的日子一起扛！',
+          html: scene(P(300, 302, A('kid', 'angry'), 'st-dashL', 0, .95) + P(430, 302, A('kid', 'angry'), 'st-dashL', .15, .93) +
+            sweat(360, 190) + sweat(480, 192) +
+            '<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="600" y1="150" x2="594" y2="172"/></g>') },
+        { minDur: 6800, sub: '奪冠那天，獎盃大家一起捧、慶功宴一起吃——快樂也一起分享！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(470, 302, '<g class="st-cheer" style="animation-delay:.15s">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            P(415, 200, '<path d="M-14 -34 h28 v10 q0 14 -14 16 q-14 -2 -14 -16 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/>', '', 0, 1.1) + hearts(415, 255)) },
+        { minDur: 6800, sub: '「同甘共苦」：一起分享快樂、一起分擔痛苦——這樣的情誼最堅固！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 180) +
+            '<path d="M320 240 q80 -40 160 0" stroke="#ff9eb5" stroke-width="3.4" fill="none" stroke-dasharray="7 7"/>') },
+        { minDur: 6400, sub: '同甘共苦：一起分享快樂、分擔痛苦。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">同甘共苦</text>') }
+      ];
     }
   };
 
