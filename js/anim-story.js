@@ -3250,6 +3250,142 @@
           html: scene(P(320, 280, LEDGER, '', 0, 1.3) + P(520, 292, JAR, '', 0, 1.2) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">量入為出</text>') }
       ];
+    },
+    /* 除舊布新 */
+    i1097: function () {
+      var COMET = '<g class="st-fly"><circle cx="0" cy="0" r="9" fill="#ffe9a0" stroke="#ffd97a" stroke-width="2"/>' +
+        '<path d="M6 -4 q40 -18 76 -22 M7 2 q42 -6 78 -4 M5 7 q38 8 70 16" stroke="#ffe9a0" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/></g>';
+      var BROOM2 = '<line x1="0" y1="0" x2="20" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>' +
+        '<path d="M0 0 l-10 12 M0 0 l-2 14 M0 0 l6 13" stroke="#c9a06c" stroke-width="3.4" stroke-linecap="round"/>';
+      var LANTERN = '<line x1="0" y1="-40" x2="0" y2="-30" stroke="#a85a1e" stroke-width="2.6"/>' +
+        '<path d="M-12 -30 Q-16 -12 -12 0 L12 0 Q16 -12 12 -30 Z" fill="#e85a4f" stroke="#c94a3f" stroke-width="2.4"/>' +
+        '<line x1="-6" y1="-28" x2="-6" y2="-2" stroke="#c94a3f" stroke-width="1.6"/><line x1="6" y1="-28" x2="6" y2="-2" stroke="#c94a3f" stroke-width="1.6"/>' +
+        '<path d="M-6 0 l0 8 M0 0 l0 9 M6 0 l0 8" stroke="#ffd97a" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '古人看見拖著長尾巴的彗星劃過天空，說：「這是一把大掃帚，要掃除舊的、布置新的了！」',
+          html: scene(P(430, 110, COMET, '', 0, 1.2) +
+            P(240, 302, A('kid', 'wow')) + qmark(300, 190), 'night') },
+        { minDur: 6600, sub: '就像過年大掃除：把舊灰塵掃出門，掛上新春聯、新燈籠，迎接新的一年！',
+          html: scene(P(280, 302, A('kid', 'happy') + P(20, -34, BROOM2, 'st-hoe')) +
+            P(560, 300, LANTERN, '', 0, 1.2) + P(640, 296, LANTERN, '', .3, 1) + hearts(430, 180)) },
+        { minDur: 6600, sub: '「除舊布新」：去除舊的、建立新的——生活和制度，都要不斷更新進步。',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(540, 300, LANTERN, '', 0, 1.1) + hearts(430, 185)) },
+        { minDur: 6400, sub: '除舊布新：去除舊的，建立新的。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(20, -34, BROOM2)) + P(540, 298, LANTERN, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">除舊布新</text>') }
+      ];
+    },
+    /* 革故鼎新 */
+    i1115: function () {
+      var DING = '<path d="M-34 -14 L-30 -52 Q-30 -60 -22 -60 L22 -60 Q30 -60 30 -52 L34 -14 Q34 -4 22 -4 L-22 -4 Q-34 -4 -34 -14 Z" fill="#8a7a5a" stroke="#6d6044" stroke-width="3"/>' +
+        '<path d="M-24 -60 q-2 -12 8 -14 M24 -60 q2 -12 -8 -14" stroke="#6d6044" stroke-width="5" fill="none" stroke-linecap="round"/>' +
+        '<g stroke="#6d6044" stroke-width="4"><line x1="-22" y1="-4" x2="-26" y2="14"/><line x1="22" y1="-4" x2="26" y2="14"/><line x1="0" y1="-4" x2="0" y2="14"/></g>';
+      var OLDSCROLL = '<rect x="-26" y="-9" width="52" height="18" rx="8" fill="#c9bfa8" stroke="#a89878" stroke-width="2.4"/><path d="M-18 -4 h36 M-18 2 h36" stroke="#a89878" stroke-width="1.6"/>';
+      return [
+        { minDur: 7000, sub: '《周易》裡有「革」「鼎」兩卦：「革」是去除舊的，「鼎」是取用新的。',
+          html: scene(P(300, 290, OLDSCROLL, '', 0, 1.2) + P(540, 300, DING, '', 0, 1.2) +
+            '<path d="M360 260 L470 260" stroke="#4a3200" stroke-width="4" stroke-dasharray="9 8"/><path d="M470 260 l-12 -8 v16 z" fill="#4a3200"/>') },
+        { minDur: 7000, sub: '朝代更替、制度改革，把過時的規矩革除，建立起全新的秩序——這就是「革故鼎新」。',
+          html: scene(P(240, 302, A('kid', 'happy') + '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>') +
+            P(520, 300, DING, '', 0, 1.3) + hearts(400, 185) + bang(620, 210)) },
+        { minDur: 6800, sub: '它多用在大的變革上：新政推行、制度翻新，讓國家煥然一新！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(500, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            P(650, 300, DING, '', 0, .9) + hearts(420, 170)) },
+        { minDur: 6400, sub: '革故鼎新：革除舊的，建立新的（多指重大改革）。',
+          html: scene(P(400, 298, DING, '', 0, 1.6) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">革故鼎新</text>') }
+      ];
+    },
+    /* 俯首稱臣 */
+    i1113: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      function bow2(x, sc, dly) {
+        return P(x, 302, '<g transform="rotate(42)">' + A('kid', 'happy') + '</g>', '', dly, sc || 1);
+      }
+      return [
+        { minDur: 6800, sub: '兩軍交戰，敗的一方打不下去了——國君只好低下頭，向對方自稱臣子。',
+          html: scene(P(560, 302, A('kid', 'happy') + CROWN, '', 0, 1.05, true) +
+            bow2(300, 1) + sweat(340, 210)) },
+        { minDur: 6800, sub: '「俯首」是低頭，「稱臣」是自稱臣子——合起來，就是徹底屈服、甘拜下風。',
+          html: scene(P(560, 302, A('kid', 'happy') + CROWN, '', 0, 1.05, true) +
+            bow2(280, 1) + bow2(400, .9, .3) + qmark(480, 190)) },
+        { minDur: 6800, sub: '現在也用在比賽或較量上：面對這位棋王，挑戰者一個個俯首稱臣！',
+          html: scene(P(560, 302, A('kid', 'happy'), '', 0, 1.05, true) + hearts(620, 190) +
+            P(430, 260, '<rect x="-24" y="-24" width="48" height="48" rx="5" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#a89878" stroke-width="1.8"><line x1="-24" y1="-8" x2="24" y2="-8"/><line x1="-24" y1="8" x2="24" y2="8"/><line x1="-8" y1="-24" x2="-8" y2="24"/><line x1="8" y1="-24" x2="8" y2="24"/></g><circle cx="-16" cy="-16" r="5" fill="#3a2e26"/><circle cx="16" cy="0" r="5" fill="#fff" stroke="#c9bfa8"/>') +
+            bow2(260, .95)) },
+        { minDur: 6400, sub: '俯首稱臣：屈服投降，甘拜下風。',
+          html: scene(P(560, 302, A('kid', 'happy') + CROWN, '', 0, 1.05, true) + bow2(300, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">俯首稱臣</text>') }
+      ];
+    },
+    /* 言之鑿鑿 */
+    i1166: function () {
+      var STONE2 = '<path d="M-24 0 q-6 -20 8 -26 q16 -7 28 4 q10 10 2 22 z" fill="#e8e2d4" stroke="#b8ae9c" stroke-width="2.6"/>';
+      var CHECKDOC = '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>' +
+        '<path d="M-10 -14 h20 M-10 -6 h20 M-10 2 h20" stroke="#8fa3bf" stroke-width="2"/>' +
+        '<path d="M-8 12 l6 7 l12 -12" stroke="#548a40" stroke-width="3.4" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '《詩經》裡說溪水中的白石「鑿鑿」——稜角分明、清清楚楚，一眼就看得真切。',
+          html: scene('<rect y="286" width="800" height="54" fill="#7fb2e0"/>' +
+            P(300, 300, STONE2, '', 0, 1.1) + P(440, 304, STONE2, '', .2, .9) + P(560, 300, STONE2, '', .4, 1) +
+            P(150, 296, A('kid', 'happy'), '', 0, .9)) },
+        { minDur: 6800, sub: '後來「言之鑿鑿」形容話說得像白石一樣分明：有憑有據、非常確實。',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(450, 270, CHECKDOC, '', 0, 1.2) +
+            P(620, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(560, 195)) },
+        { minDur: 6800, sub: '不過要小心：有人「言之鑿鑿」，講得斬釘截鐵，內容卻未必是真的——證據才是關鍵！',
+          html: scene(P(300, 302, A('kid', 'happy')) + notes(370, 175) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(610, 185)) },
+        { minDur: 6400, sub: '言之鑿鑿：說得非常確實、有憑有據的樣子。',
+          html: scene(P(320, 290, STONE2, '', 0, 1.3) + P(500, 272, CHECKDOC, '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">言之鑿鑿</text>') }
+      ];
+    },
+    /* 曠日持久 */
+    i1142: function () {
+      var CAL = '<rect x="-26" y="-30" width="52" height="60" rx="5" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/>' +
+        '<rect x="-26" y="-30" width="52" height="14" rx="5" fill="#c96a5a"/>' +
+        '<g stroke="#8fa3bf" stroke-width="1.8"><line x1="-16" y1="-6" x2="16" y2="-6"/><line x1="-16" y1="4" x2="16" y2="4"/><line x1="-16" y1="14" x2="16" y2="14"/></g>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      var WALL2 = '<rect x="-60" y="-50" width="120" height="50" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/>' +
+        '<path d="M-60 -50 h15 v-11 h15 v11 h15 v-11 h15 v11 h15 v-11 h15 v11 h15" fill="none" stroke="#8a7a66" stroke-width="3"/>';
+      return [
+        { minDur: 7000, sub: '戰國時，趙國名將趙奢分析：這場仗打下去，會拖上好幾年，士兵的力氣都耗在壕溝壁壘裡。',
+          html: scene(P(560, 302, WALL2) +
+            P(240, 302, A('kid', 'happy')) +
+            P(420, 302, A('kid', 'sad') + P(26, -50, SPEAR3), '', 0, .9) + sweat(460, 200)) },
+        { minDur: 6800, sub: '日子一天天翻過去，仗還沒打完——荒廢了時日，拖延得長長久久。',
+          html: scene(P(300, 270, CAL, '', 0, 1.1) + P(430, 276, CAL, '', .2, .9) + P(540, 272, CAL, '', .4, .75) +
+            sweat(430, 210) + zzz(620, 210)) },
+        { minDur: 6800, sub: '「曠日持久」用來形容事情拖延太久、遲遲沒有結果——寫作業拖拖拉拉，也是一種曠日持久呀！',
+          html: scene(P(300, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') +
+            P(460, 280, '<rect x="-14" y="-20" width="28" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -12 h16 M-8 -4 h16" stroke="#8fa3bf" stroke-width="1.8"/>') +
+            zzz(380, 200) + sweat(250, 200)) },
+        { minDur: 6400, sub: '曠日持久：荒廢時日，拖延長久。',
+          html: scene(P(320, 272, CAL, '', 0, 1.2) + P(480, 276, CAL, '', .3, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">曠日持久</text>') }
+      ];
+    },
+    /* 不著邊際 */
+    i1184: function () {
+      var LAKE = '<rect y="220" width="800" height="120" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 240 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>';
+      var BOAT4 = '<path d="M-40 0 L40 0 L30 14 L-30 14 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/>';
+      return [
+        { minDur: 7000, sub: '《水滸傳》裡，何濤困在八百里水泊中，四面望去全是水，摸不著岸邊——「在此不著邊際，怎生奈何！」',
+          html: scene(LAKE + P(400, 250, BOAT4 + P(0, 0, A('kid', 'wow'), '', 0, .8)) +
+            qmark(480, 170) + sweat(330, 180)) },
+        { minDur: 6800, sub: '後來「不著邊際」形容說話空泛、離題萬里——講了半天，一句也碰不到重點的邊！',
+          html: scene(P(300, 302, A('kid', 'happy')) + notes(250, 175) + notes(380, 160) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(610, 185) + sweat(520, 200)) },
+        { minDur: 6800, sub: '寫作文也一樣：緊扣題目才拿得到分數，天馬行空、不著邊際，可就離題啦。',
+          html: scene(P(300, 302, A('kid', 'sad') + P(-40, -56, '<rect x="-14" y="-20" width="28" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -12 h16 M-8 -4 h16 M-8 4 h16" stroke="#8fa3bf" stroke-width="1.8"/>')) +
+            qmark(400, 180) + sweat(250, 200)) },
+        { minDur: 6400, sub: '不著邊際：言論空泛、不切實際或離題。',
+          html: scene(LAKE + P(400, 252, BOAT4) + qmark(480, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不著邊際</text>') }
+      ];
     }
   };
 
