@@ -5439,6 +5439,117 @@
           html: scene(P(400, 302, A('horse') + P(30, -60, WHIP), 'st-dashL', 0, 1.15) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">快馬加鞭</text>') }
       ];
+    },
+    /* 馬不停蹄 */
+    i815: function () {
+      return [
+        { minDur: 6800, sub: '古時候送緊急公文，驛馬一站接一站地跑，馬蹄一刻也不停歇！',
+          html: scene(P(340, 302, A('horse') + P(4, -34, A('kid', 'angry'), '', 0, .7), 'st-dashL', 0, 1.05) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="110" y1="240" x2="200" y2="240"/></g>' + sweat(280, 210)) },
+        { minDur: 6800, sub: '園遊會當天，總務股長馬不停蹄：補貨、收錢、擦桌子，一刻也沒歇著！',
+          html: scene(P(340, 302, A('kid', 'happy'), 'st-dashL') + sweat(290, 195) +
+            P(540, 302, '<rect x="-60" y="-30" width="120" height="30" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>') + bang(620, 230)) },
+        { minDur: 6600, sub: '「馬不停蹄」：一刻也不休息地連續進行——真是辛苦又拚勁十足！',
+          html: scene(P(400, 302, A('horse'), 'st-strut', 0, 1.1) + hearts(500, 200)) },
+        { minDur: 6400, sub: '馬不停蹄：一刻不休息地連續進行。',
+          html: scene(P(400, 302, A('horse'), 'st-dashL', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">馬不停蹄</text>') }
+      ];
+    },
+    /* 走馬看花 */
+    i816: function () {
+      function flower4(x, y, color, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<line x1="0" y1="0" x2="0" y2="-14" stroke="#5f8a46" stroke-width="3"/>' +
+          '<circle cx="0" cy="-20" r="4.6" fill="' + color + '"/><circle cx="-5" cy="-16" r="4.6" fill="' + color + '"/><circle cx="5" cy="-16" r="4.6" fill="' + color + '"/><circle cx="0" cy="-12" r="4.6" fill="' + color + '"/></g>');
+      }
+      return [
+        { minDur: 6800, sub: '騎在奔跑的馬上看花——咻一下就過去了，哪朵是紅的、哪朵是黃的，根本看不清！',
+          html: scene(flower4(200, 320, '#ff9eb5', 0) + flower4(300, 318, '#ffd97a', .2) + flower4(400, 322, '#c9a8e0', .4) +
+            P(500, 302, A('horse') + P(4, -34, A('kid', 'happy'), '', 0, .7), 'st-dashL', 0, 1) + qmark(600, 200)) },
+        { minDur: 6800, sub: '逛博物館也一樣：一路衝著走馬看花，出了門什麼也想不起來——慢慢看，才有收穫！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-dashL') + sweat(250, 195) +
+            P(540, 260, '<rect x="-30" y="-36" width="60" height="46" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-18 -20 L0 -34 L18 -20 Z" fill="#a5c2b2"/><circle cx="12" cy="-28" r="5" fill="#ffdd66"/>') + qmark(430, 190)) },
+        { minDur: 6600, sub: '「走馬看花」：粗略地看、匆匆一瞥，沒有仔細觀察。',
+          html: scene(flower4(250, 320, '#ff9eb5', 0) + flower4(360, 318, '#ffd97a', .3) +
+            P(500, 302, A('horse'), 'st-strut', 0, .95) + qmark(590, 200)) },
+        { minDur: 6400, sub: '走馬看花：騎馬奔跑中看花，粗略地觀察。',
+          html: scene(flower4(240, 320, '#ff9eb5', 0) + flower4(340, 322, '#c9a8e0', .3) + P(520, 302, A('horse'), 'st-dashL', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">走馬看花</text>') }
+      ];
+    },
+    /* 汗流浹背 */
+    i817: function () {
+      return [
+        { minDur: 6800, sub: '大熱天的體育課跑完八百公尺——小安整件衣服都濕透了，連背上都是汗！',
+          html: scene(P(360, 302, A('kid', 'wow')) +
+            sweat(300, 185) + sweat(420, 190) + sweat(340, 165) + sweat(390, 210) +
+            '<rect y="296" width="800" height="18" fill="#d9a890"/>') },
+        { minDur: 6800, sub: '農夫伯伯在烈日下插秧，也是汗流浹背——每一粒米，都是辛苦換來的！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(16, -30, HOE, 'st-hoe')) +
+            sweat(290, 190) + sweat(390, 195) + hearts(480, 200)) },
+        { minDur: 6600, sub: '「浹」是濕透——汗水濕透背部，形容非常辛勞（或非常緊張）！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + sweat(340, 185) + sweat(460, 188) + sweat(400, 160)) },
+        { minDur: 6400, sub: '汗流浹背：汗水濕透背部，非常辛勞或緊張。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.08) + sweat(340, 185) + sweat(460, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">汗流浹背</text>') }
+      ];
+    },
+    /* 舉手之勞 */
+    i818: function () {
+      var ERASERDROP = '<rect x="-9" y="-6" width="18" height="12" rx="3" fill="#f7a8c4" stroke="#e07ba3" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '前座同學的橡皮擦掉到地上了。小其彎個腰、伸個手，順手撿起來遞回去。',
+          html: scene(P(430, 316, ERASERDROP) +
+            P(320, 302, '<g transform="rotate(24)">' + A('kid', 'happy') + '</g>') +
+            P(540, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(470, 190)) },
+        { minDur: 6800, sub: '「謝謝你！」「小事一樁，舉手之勞而已！」——舉一下手的力氣，一點也不費力。',
+          html: scene(P(320, 302, A('kid', 'happy') +
+              '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-58" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>') +
+            P(500, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(410, 175)) },
+        { minDur: 6800, sub: '關門、撿垃圾、幫忙按電梯——生活裡的舉手之勞，累積起來就是大大的溫暖！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', .2, .95) +
+            hearts(390, 172) + hearts(540, 190)) },
+        { minDur: 6400, sub: '舉手之勞：毫不費力的小事。',
+          html: scene(P(400, 302, A('kid', 'happy') +
+              '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-58" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>', '', 0, 1.08) + hearts(500, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">舉手之勞</text>') }
+      ];
+    },
+    /* 輕而易舉 */
+    i819: function () {
+      var FEATHER2 = '<path d="M0 0 q-8 -14 0 -26 q8 12 0 26 z" fill="#fff" stroke="#e3dcd4" stroke-width="1.6"/>';
+      var BOX2 = '<rect x="-20" y="-24" width="40" height="24" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><path d="M-20 -16 h40" stroke="#a8734a" stroke-width="2"/>';
+      return [
+        { minDur: 6600, sub: '搬一根羽毛，誰都做得到——輕輕一拿就起來了，毫不費力！',
+          html: scene(P(400, 260, FEATHER2, '', 0, 1.6) +
+            P(300, 302, A('kid', 'happy')) + hearts(480, 210)) },
+        { minDur: 6800, sub: '大力士抬起小紙箱，也是輕而易舉——對有本領的人來說，這種小事太簡單啦！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(0, -104, BOX2, '', 0, .9), '', 0, 1.1) + bang(470, 190)) },
+        { minDur: 6600, sub: '「輕而易舉」：很輕鬆、毫不費力就能做到。',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 188)) },
+        { minDur: 6400, sub: '輕而易舉：很輕鬆、毫不費力就能做到。',
+          html: scene(P(360, 250, FEATHER2, '', 0, 1.5) + P(480, 302, A('kid', 'happy')) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">輕而易舉</text>') }
+      ];
+    },
+    /* 東拼西湊 */
+    i820: function () {
+      var PATCHWORK = '<g stroke-width="2"><rect x="-40" y="-30" width="30" height="30" fill="#a5c8ff" stroke="#5c82ba"/><rect x="-10" y="-30" width="24" height="18" fill="#ffd97a" stroke="#e8b84a"/><rect x="14" y="-30" width="26" height="30" fill="#a5d47c" stroke="#7cab6e"/><rect x="-10" y="-12" width="24" height="12" fill="#f7a8c4" stroke="#e07ba3"/></g>';
+      var COIN = '<circle cx="0" cy="0" r="9" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/>';
+      return [
+        { minDur: 6800, sub: '勞作課要做機器人，材料不夠——小組東找一個紙箱、西撿一個瓶蓋，四處拼湊材料！',
+          html: scene(P(430, 290, PATCHWORK, '', 0, 1.1) +
+            P(240, 302, A('kid', 'happy'), 'st-inL') + P(620, 302, A('kid', 'happy'), 'st-inR', .2, .92, true) + qmark(500, 200)) },
+        { minDur: 6800, sub: '買禮物錢不夠，兄妹倆東拼西湊零用錢，總算湊出了媽媽的生日禮金！',
+          html: scene(P(360, 290, COIN, '', 0, 1) + P(400, 285, COIN, '', .1, 1) + P(440, 292, COIN, '', .2, 1) +
+            P(260, 302, A('kid', 'happy')) + P(540, 302, A('kid', 'happy'), '', 0, .93, true) + hearts(400, 220)) },
+        { minDur: 6600, sub: '「東拼西湊」：到處拼湊、七拼八湊地聚集起來——雖然辛苦，也是一種努力！',
+          html: scene(P(430, 290, PATCHWORK, '', 0, 1.05) + P(260, 302, A('kid', 'happy')) + hearts(350, 195)) },
+        { minDur: 6400, sub: '東拼西湊：到處拼湊聚集起來。',
+          html: scene(P(400, 288, PATCHWORK, '', 0, 1.2) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">東拼西湊</text>') }
+      ];
     }
   };
 
