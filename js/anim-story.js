@@ -1447,6 +1447,147 @@
           html: scene(P(300, 250, FIREFLYBAG, '', 0, 1.2) + SNOWGROUND + P(560, 296, A('kid', 'happy') + P(-40, -56, BOOK), '', 0, .95) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">囊螢映雪</text>', 'night') }
       ];
+    },
+    /* 半途而廢 */
+    i213: function () {
+      var LOOM = '<path d="M-50 0 L-50 -80 L50 -80 L50 0" stroke="#a8734a" stroke-width="7" fill="none" stroke-linecap="round"/>' +
+        '<rect x="-42" y="-72" width="84" height="40" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2"/>' +
+        '<g stroke="#c9d6e8" stroke-width="1.8"><line x1="-42" y1="-62" x2="42" y2="-62"/><line x1="-42" y1="-52" x2="42" y2="-52"/><line x1="-42" y1="-42" x2="42" y2="-42"/></g>';
+      var LOOMCUT = '<path d="M-50 0 L-50 -80 L50 -80 L50 0" stroke="#a8734a" stroke-width="7" fill="none" stroke-linecap="round"/>' +
+        '<rect x="-42" y="-72" width="84" height="22" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2"/>' +
+        '<path d="M-42 -50 l10 6 l12 -7 l11 6 l12 -6 l11 7 l12 -6 l16 5" stroke="#6d87ab" stroke-width="2.4" fill="none"/>' +
+        '<rect x="-42" y="-34" width="84" height="14" fill="#8fa8c9" opacity=".5"/>';
+      var SCISSORS = '<g stroke="#8b93a3" stroke-width="4" stroke-linecap="round"><line x1="-10" y1="10" x2="12" y2="-12"/><line x1="-10" y1="-12" x2="12" y2="10"/></g><circle cx="-12" cy="12" r="4" fill="none" stroke="#8b93a3" stroke-width="2.6"/><circle cx="-12" cy="-14" r="4" fill="none" stroke="#8b93a3" stroke-width="2.6"/>';
+      var BOOK = '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><line x1="-1" y1="-14" x2="-3" y2="11" stroke="#c9bfa8" stroke-width="2"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>';
+      return [
+        { minDur: 6600, sub: '樂羊子出遠門拜師求學，才過一年就想家，半路跑回來了。',
+          html: scene(P(620, 302, '<path d="M-70 -60 L0 -104 L70 -60 Z" fill="#8a5a33"/><rect x="-58" y="-60" width="116" height="60" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><rect x="-16" y="-42" width="32" height="42" rx="3" fill="#8a5a33"/>') +
+            P(300, 302, A('kid', 'happy'), 'st-dashL')) },
+        { minDur: 6800, sub: '妻子正在織布機前織布。她拿起剪刀，「喀嚓」一聲，把織了一半的布剪斷了！',
+          html: scene(P(430, 302, LOOMCUT) + P(560, 250, SCISSORS) + bang(500, 200) +
+            P(250, 302, A('kid', 'wow')) + sweat(300, 200)) },
+        { minDur: 7200, sub: '她說：「布織到一半剪斷，前面的功夫全白費了——你讀書讀到一半跑回來，不是一樣嗎？」',
+          html: scene(P(430, 302, LOOMCUT) +
+            P(600, 302, A('kid', 'angry'), '', 0, .95, true) +
+            P(250, 302, A('kid', 'wow')) + sweat(210, 200) + qmark(300, 175)) },
+        { minDur: 6800, sub: '樂羊子大受震動，回去繼續苦讀，整整七年學成才回家！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -56, BOOK), 'st-strut') +
+            P(560, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) + hearts(440, 170)) },
+        { minDur: 6200, sub: '半途而廢：事情做到一半就放棄。',
+          html: scene(P(400, 302, LOOMCUT, '', 0, 1.1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">半途而廢</text>') }
+      ];
+    },
+    /* 一箭雙鵰 */
+    i254: function () {
+      var BOW2 = '<path d="M0 -46 q32 24 0 46" fill="none" stroke="#a8734a" stroke-width="6" stroke-linecap="round"/>' +
+        '<line x1="0" y1="-46" x2="0" y2="0" stroke="#d9cbb0" stroke-width="2.6"/>';
+      var MEAT = '<ellipse cx="0" cy="0" rx="11" ry="8" fill="#e88a7a" stroke="#c96a5a" stroke-width="2"/><rect x="-3" y="-14" width="6" height="8" rx="3" fill="#f4f1e8"/>';
+      var ARROW = '<line x1="-30" y1="0" x2="30" y2="0" stroke="#8a5a33" stroke-width="3.4" stroke-linecap="round"/><path d="M30 0 l-10 -5 v10 z" fill="#8b93a3"/><path d="M-30 -4 l-8 4 l8 4 z" fill="#c9a06c"/>';
+      return [
+        { minDur: 6800, sub: '北周的長孫晟箭術高超。這天，天上兩隻大鵰正為了一塊肉，爭搶得不可開交。',
+          html: scene(P(430, 130, A('bird')) + P(530, 150, A('bird'), '', .3, .9, true) +
+            P(485, 110, MEAT) + bang(480, 170) +
+            P(200, 302, A('kid', 'happy'))) },
+        { minDur: 6400, sub: '同伴遞給他兩支箭：「請把牠們射下來吧！」',
+          html: scene(P(430, 130, A('bird')) + P(530, 150, A('bird'), '', .3, .9, true) +
+            P(200, 302, A('kid', 'happy') + P(30, -40, BOW2, '', 0, .8)) +
+            P(330, 302, A('kid', 'happy'), '', 0, .9) + qmark(370, 190)) },
+        { minDur: 6800, sub: '長孫晟只搭上一支箭，「咻」地射出——竟一箭同時穿過了兩隻大鵰！',
+          html: scene(P(480, 140, ARROW, '', 0, 1.3) +
+            P(430, 150, '<g class="st-faint">' + A('bird') + '</g>') +
+            P(540, 160, '<g class="st-faint" style="animation-delay:.2s">' + A('bird') + '</g>', '', 0, .9, true) +
+            bang(490, 90) +
+            P(200, 302, A('kid', 'happy') + P(30, -40, BOW2, '', 0, .8))) },
+        { minDur: 6400, sub: '大家看得目瞪口呆，齊聲喝采：「一箭雙鵰，真是神箭手！」',
+          html: scene(P(200, 302, A('kid', 'happy') + P(30, -40, BOW2, '', 0, .8)) +
+            P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            P(530, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'wow') + '</g>', '', 0, .85) +
+            hearts(340, 170)) },
+        { minDur: 6200, sub: '一箭雙鵰：一次行動，同時達到兩個目的。',
+          html: scene(P(400, 180, ARROW, '', 0, 1.4) + P(340, 190, A('bird'), '', 0, .9) + P(470, 200, A('bird'), '', 0, .8, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一箭雙鵰</text>') }
+      ];
+    },
+    /* 臨渴掘井 */
+    i557: function () {
+      var JAR = '<path d="M-16 0 Q-22 -16 -14 -34 L14 -34 Q22 -16 16 0 Z" fill="#b98a5d" stroke="#96683c" stroke-width="2.6"/><ellipse cx="0" cy="-34" rx="14" ry="4.6" fill="#6d5a44"/>';
+      var CRACKS = '<g stroke="#96683c" stroke-width="2.6" fill="none" opacity=".8"><path d="M180 316 l24 6 l18 -5 M420 322 l20 4 l16 -6 M600 318 l22 5"/></g>';
+      return [
+        { minDur: 6600, sub: '有個人從不儲水，家裡連一口井也懶得挖：「等要喝水的時候再說吧！」',
+          html: scene(P(560, 302, JAR, '', 0, 1.1) +
+            P(300, 302, A('kid', 'happy')) + zzz(360, 200)) },
+        { minDur: 6600, sub: '大旱來了！河乾了、水缸也空了，他渴得嘴唇發白、頭昏眼花。',
+          html: scene(CRACKS + P(560, 302, '<g transform="rotate(76)">' + JAR + '</g>') +
+            P(300, 302, A('kid', 'sad')) + sweat(260, 200) + sweat(340, 195)) },
+        { minDur: 6800, sub: '他這才慌慌張張抓起鋤頭挖井——可是挖一口井要好多天，水一時哪裡出得來？',
+          html: scene(CRACKS + P(430, 316, '<ellipse cx="0" cy="0" rx="40" ry="12" fill="#8a7a66"/>') +
+            P(320, 302, A('kid', 'wow') + P(16, -30, HOE, 'st-hoe')) +
+            sweat(280, 195) + qmark(400, 175)) },
+        { minDur: 6600, sub: '口渴了才想到挖井，早就來不及了。凡事，要及早準備呀！',
+          html: scene(CRACKS + P(430, 316, '<ellipse cx="0" cy="0" rx="40" ry="12" fill="#8a7a66"/>') +
+            P(320, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') + sweat(360, 200)) },
+        { minDur: 6200, sub: '臨渴掘井：事到臨頭才想辦法，為時已晚。',
+          html: scene(P(320, 302, A('kid', 'sad') + P(16, -30, HOE)) + P(500, 316, '<ellipse cx="0" cy="0" rx="40" ry="12" fill="#8a7a66"/>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">臨渴掘井</text>') }
+      ];
+    },
+    /* 孟母三遷 */
+    i717: function () {
+      var GRAVES = '<path d="M-60 0 a26 22 0 0 1 52 0 z" fill="#9aa88f" stroke="#7a8a70" stroke-width="2.4"/>' +
+        '<path d="M10 0 a22 18 0 0 1 44 0 z" fill="#9aa88f" stroke="#7a8a70" stroke-width="2.4"/>' +
+        '<rect x="-40" y="-34" width="10" height="24" rx="2" fill="#b0b4a8"/>';
+      var STALL = '<rect x="-60" y="-30" width="120" height="30" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+        '<line x1="-50" y1="0" x2="-50" y2="-30" stroke="#a8734a" stroke-width="4"/><line x1="50" y1="0" x2="50" y2="-30" stroke="#a8734a" stroke-width="4"/>' +
+        '<circle cx="-24" cy="-36" r="7" fill="#ff8a80"/><circle cx="0" cy="-37" r="7" fill="#ffd97a"/><circle cx="24" cy="-36" r="7" fill="#a5d47c"/>';
+      var SCHOOL = '<path d="M-80 -70 L0 -118 L80 -70 Z" fill="#8a5a33"/>' +
+        '<rect x="-66" y="-70" width="132" height="70" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/>' +
+        '<rect x="-18" y="-48" width="36" height="48" rx="4" fill="#8a5a33"/>' +
+        '<text x="0" y="-78" text-anchor="middle" font-size="16" font-weight="bold" fill="#f4ecd8">學</text>';
+      var BOOK = '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><line x1="-1" y1="-14" x2="-3" y2="11" stroke="#c9bfa8" stroke-width="2"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>';
+      var BUNDLE = '<circle cx="0" cy="-6" r="11" fill="#e8c48f" stroke="#c9a066" stroke-width="2.4"/><line x1="8" y1="-14" x2="20" y2="-26" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>';
+      return [
+        { minDur: 7000, sub: '孟子小時候家住墓地旁，天天學人辦喪事、挖墳掃墓。孟母搖搖頭：「這裡不能住！」搬家！',
+          html: scene(P(560, 302, GRAVES) +
+            P(430, 302, A('kid', 'happy') + P(16, -30, HOE, 'st-hoe'), '', 0, .8) +
+            P(220, 302, A('kid', 'sad') + P(-30, -60, BUNDLE, '', 0, .9)) + qmark(180, 185)) },
+        { minDur: 7000, sub: '搬到市場旁，孟子又學起小販大聲吆喝、討價還價。孟母又搖頭：「這裡也不行！」再搬！',
+          html: scene(P(560, 302, STALL) +
+            P(440, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .8) + notes(480, 190) +
+            P(220, 302, A('kid', 'sad') + P(-30, -60, BUNDLE, '', 0, .9)) + sweat(180, 200)) },
+        { minDur: 7000, sub: '第三次，搬到了學堂旁邊——孟子跟著讀書學禮。孟母終於笑了：「這才是孩子該住的地方！」',
+          html: scene(P(560, 302, SCHOOL) +
+            P(430, 302, A('kid', 'happy') + P(-36, -50, BOOK, '', 0, .9), '', 0, .8) +
+            P(220, 302, A('kid', 'happy')) + hearts(280, 180)) },
+        { minDur: 6600, sub: '在好環境裡長大的孟子，後來成了僅次於孔子的大思想家，被尊稱「亞聖」！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-40, -56, BOOK)) +
+            P(600, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) + hearts(500, 170)) },
+        { minDur: 6200, sub: '孟母三遷：重視環境對教育的影響。',
+          html: scene(P(600, 302, SCHOOL, '', 0, .9) + P(300, 302, A('kid', 'happy') + P(-30, -60, BUNDLE, '', 0, .9)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">孟母三遷</text>') }
+      ];
+    },
+    /* 開卷有益 */
+    i1008: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var BOOK = '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><line x1="-1" y1="-14" x2="-3" y2="11" stroke="#c9bfa8" stroke-width="2"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>';
+      var STACK = '<g stroke-width="2"><rect x="-34" y="-14" width="68" height="14" rx="3" fill="#c9762f" stroke="#a85a1e"/><rect x="-30" y="-28" width="60" height="14" rx="3" fill="#5c82ba" stroke="#46689a"/><rect x="-32" y="-42" width="64" height="14" rx="3" fill="#6fae58" stroke="#548a40"/><rect x="-28" y="-56" width="56" height="14" rx="3" fill="#e0a458" stroke="#c08838"/></g>';
+      return [
+        { minDur: 6800, sub: '宋太宗命人編了一部一千卷的大書《太平御覽》，規定自己每天一定要讀三卷。',
+          html: scene(P(560, 302, STACK, '', 0, 1.2) +
+            P(300, 302, A('kid', 'happy') + CROWN + P(-40, -56, BOOK))) },
+        { minDur: 7200, sub: '政事再忙，沒讀完的隔天一定補上。大臣勸他多休息，他說：「只要打開書就有收穫，我一點也不覺得累呀！」',
+          html: scene(P(300, 302, A('kid', 'happy') + CROWN + P(-40, -56, BOOK)) + hearts(240, 180) +
+            P(580, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(620, 185)) },
+        { minDur: 6600, sub: '在皇帝帶頭之下，全國讀書的風氣越來越興盛。',
+          html: scene(P(240, 302, A('kid', 'happy') + P(-36, -52, BOOK, '', 0, .9), '', 0, .95) +
+            P(420, 302, A('kid', 'happy') + P(-36, -52, BOOK, '', 0, .9), '', .3, .9) +
+            P(590, 302, A('kid', 'happy') + P(-36, -52, BOOK, '', 0, .9), '', .5, .85) +
+            hearts(400, 160)) },
+        { minDur: 6200, sub: '開卷有益：只要打開書本閱讀，就會有收穫。',
+          html: scene(P(560, 302, STACK, '', 0, 1.1) + P(300, 302, A('kid', 'happy') + P(-40, -56, BOOK)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">開卷有益</text>') }
+      ];
     }
   };
 
