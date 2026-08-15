@@ -13278,6 +13278,153 @@
             P(400, 302, A('kid', 'wow'), '', 0, 1) + qmark(470, 190) +
             '<text x="400" y="200" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">變幻莫測</text>') }
       ];
+    },
+    /* 指日可待 */
+    i1127: function () {
+      var CAL = '<rect x="-26" y="-28" width="52" height="56" rx="5" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-26" y="-28" width="52" height="14" rx="5" fill="#c96a5a"/><circle cx="8" cy="10" r="9" fill="none" stroke="#c96a5a" stroke-width="2.6"/>';
+      return [
+        { minDur: 7000, sub: '司馬光上書皇帝：只要廣開言路、下情上通——「太平之期指日可待也」！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -50, '<rect x="-16" y="-12" width="32" height="24" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -4 h20 M-10 4 h14" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95), '', 0, 1.05) + hearts(420, 190)) },
+        { minDur: 6800, sub: '「指日可待」：指著日曆上的那一天等——目標近在眼前，很快就能實現！',
+          html: scene(P(430, 260, CAL, '', 0, 1.4) +
+            P(250, 302, A('kid', 'happy') + '<path d="M28 -56 l18 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) + bang(560, 200)) },
+        { minDur: 6800, sub: '存款只差最後一百元，新球鞋指日可待——看得到終點的等待，最有動力！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-42, -48, '<path d="M-16 -6 q0 -12 16 -12 q16 0 16 12 l-2 12 q-14 8 -28 0 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/>', '', 0, 1)) +
+            P(540, 250, '<path d="M-20 14 q-6 -18 8 -24 q4 8 12 6 q10 6 6 18 q-12 8 -26 0 z" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, 1.2) + hearts(430, 190)) },
+        { minDur: 6400, sub: '指日可待：不久就能實現。',
+          html: scene(P(400, 265, CAL, '', 0, 1.5) + hearts(520, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">指日可待</text>') }
+      ];
+    },
+    /* 遙遙無期 */
+    i1128: function () {
+      return [
+        { minDur: 6800, sub: '小期問：「遊樂園什麼時候去？」爸爸每次都說「下次」——下次到底是哪一次呀？',
+          html: scene(P(320, 302, A('kid', 'sad')) + qmark(390, 185) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.05, true) +
+            P(600, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#8b93a3">下次…</text>')) },
+        { minDur: 6800, sub: '「遙遙無期」：遠得看不到日期——路一直延伸到天邊，終點連影子都沒有……',
+          html: scene('<path d="M120 302 Q400 250 690 180" stroke="#d9cfae" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="16 12"/>' +
+            P(220, 302, A('kid', 'sad'), '', 0, .98) + sweat(170, 192) + qmark(650, 150)) },
+        { minDur: 6800, sub: '與其空等，不如自己推進度：想要的東西列出計畫，就把「遙遙無期」變成「指日可待」！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -12 l4 4 l7 -8 M-10 0 l4 4 l7 -8"/></g>', '', 0, .95)) + bang(470, 188) + hearts(280, 195)) },
+        { minDur: 6400, sub: '遙遙無期：實現之日，遙不可見。',
+          html: scene('<path d="M120 302 Q400 255 690 185" stroke="#d9cfae" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="16 12"/>' +
+            P(230, 302, A('kid', 'sad'), '', 0, 1) + qmark(640, 158) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">遙遙無期</text>') }
+      ];
+    },
+    /* 每況愈下 */
+    i1155: function () {
+      return [
+        { minDur: 7000, sub: '《莊子》原話是「每下愈況」：驗豬肥瘦要踩牠的小腿——越往下踩，越能看出實情！',
+          html: scene(P(400, 302, '<ellipse cx="0" cy="-16" rx="34" ry="22" fill="#f2c4cd" stroke="#d8a0ab" stroke-width="2.4"/><circle cx="30" cy="-24" r="12" fill="#f2c4cd" stroke="#d8a0ab" stroke-width="2.4"/><ellipse cx="34" cy="-24" rx="4.6" ry="3.6" fill="#e8a8b5"/><g stroke="#d8a0ab" stroke-width="4" stroke-linecap="round"><line x1="-16" y1="4" x2="-16" y2="16"/><line x1="14" y1="4" x2="14" y2="16"/></g>', '', 0, 1.15) +
+            P(230, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .98) + qmark(320, 200)) },
+        { minDur: 6800, sub: '後人把它倒著念成「每況愈下」，意思也轉了——變成「情況一次比一次糟」！',
+          html: scene('<g stroke="#c96a5a" stroke-width="4" fill="none"><path d="M220 220 L340 245 L460 262 L580 290"/></g><path d="M580 290 l-14 -8 l4 14 z" fill="#c96a5a"/>' +
+            P(250, 302, A('kid', 'sad'), '', 0, .95) + sweat(200, 195)) },
+        { minDur: 6800, sub: '老店客人一個月比一個月少、招牌也褪了色——生意每況愈下，得想辦法轉型了！',
+          html: scene(P(400, 285, '<rect x="-70" y="-48" width="140" height="48" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><rect x="-50" y="-72" width="100" height="22" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4" transform="rotate(-3)"/><rect x="-12" y="-26" width="24" height="26" fill="#8a6a44"/>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'sad'), '', 0, .95) + sweat(300, 195) + zzz(540, 200)) },
+        { minDur: 6400, sub: '每況愈下：情況愈來愈壞。',
+          html: scene('<g stroke="#c96a5a" stroke-width="4" fill="none"><path d="M230 215 L350 242 L470 260 L570 288"/></g><path d="M570 288 l-14 -8 l4 14 z" fill="#c96a5a"/>' +
+            P(260, 302, A('kid', 'sad'), '', 0, .98) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">每況愈下</text>') }
+      ];
+    },
+    /* 獨木難支 */
+    i1157: function () {
+      var TILTHOUSE = '<g transform="rotate(-8)"><rect x="-70" y="-70" width="140" height="70" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><path d="M-80 -70 h160 l-14 -22 h-132 z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/></g>';
+      return [
+        { minDur: 7000, sub: '王通《文中子》說：「大廈將顛，非一木所支也」——大樓要倒，一根木頭是撐不住的！',
+          html: scene(P(430, 302, TILTHOUSE, '', 0, 1.05) +
+            P(340, 302, '<line x1="0" y1="0" x2="24" y2="-56" stroke="#8a6a44" stroke-width="7" stroke-linecap="round"/>', '', 0, 1) + sweat(280, 210)) },
+        { minDur: 6800, sub: '獨自苦撐的那根木頭吱吱作響——快撐不住了！一個人的力量終究有限！',
+          html: scene(P(430, 302, '<g class="st-bob">' + TILTHOUSE + '</g>', '', 0, 1.05) +
+            P(340, 302, A('kid', 'wow') + '<path d="M-24 -60 l-8 -14 M24 -60 l8 -14" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95) + sweat(270, 190) + bang(530, 210)) },
+        { minDur: 6800, sub: '「獨木難支」：一人難撐大局——多找幾根「柱子」一起扛，眾擎才易舉！',
+          html: scene(P(430, 290, '<rect x="-70" y="-58" width="140" height="58" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><path d="M-80 -58 h160 l-14 -22 h-132 z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/>', '', 0, 1.05) +
+            P(310, 302, A('kid', 'angry'), '', 0, .88) + P(430, 302, A('kid', 'angry'), '', 0, .88) + P(550, 302, A('kid', 'angry'), '', 0, .88) + hearts(430, 180)) },
+        { minDur: 6400, sub: '獨木難支：一人之力，難撐大局。',
+          html: scene(P(430, 302, TILTHOUSE, '', 0, 1.05) +
+            P(340, 302, '<line x1="0" y1="0" x2="24" y2="-56" stroke="#8a6a44" stroke-width="7" stroke-linecap="round"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">獨木難支</text>') }
+      ];
+    },
+    /* 揮金如土 */
+    i1158: function () {
+      var COINRAIN = '<g class="st-rain"><circle cx="0" cy="0" r="8" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/></g>';
+      return [
+        { minDur: 6800, sub: '闊少爺逛街：名牌包三個、限量鞋五雙、宴客一擲千金——把錢當泥土一樣撒！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9762f"/>', 'st-strut', 0, 1.08) +
+            P(300, 200, COINRAIN, '', 0, 1) + P(480, 190, '<g class="st-rain" style="animation-delay:.4s"><circle cx="0" cy="0" r="8" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/></g>', '', 0, 1) +
+            P(560, 290, '<path d="M-14 8 h28 l-4 -22 h-20 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/><path d="M-16 8 h32" stroke="#e07a94" stroke-width="2"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '「揮金如土」：極度浪費——月底一看帳戶，空空如也，連車錢都掏不出來！',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-42, -50, '<path d="M-16 -6 q0 -12 16 -12 q16 0 16 12 l-2 12 q-14 8 -28 0 z" fill="#c9bfa8" stroke="#a8a294" stroke-width="2"/><text x="0" y="4" text-anchor="middle" font-size="13" fill="#6d7585">0</text>', '', 0, 1.1), '', 0, 1.02) + sweat(320, 188) + qmark(490, 182)) },
+        { minDur: 6800, sub: '記帳、分清「想要」和「需要」、量入為出——會用錢比會花錢更了不起！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-10" y1="-11" x2="10" y2="-11"/><line x1="-10" y1="-3" x2="10" y2="-3"/></g><text x="0" y="13" text-anchor="middle" font-size="10" fill="#548a40">帳</text>', '', 0, .95)) + hearts(470, 190) +
+            P(580, 240, '<path d="M-20 14 q-6 -18 8 -24 q4 8 12 6 q10 6 6 18 q-12 8 -26 0 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '揮金如土：花錢如撒土，極度浪費。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.08) +
+            P(300, 195, COINRAIN, '', 0, 1) + P(500, 185, '<g class="st-rain" style="animation-delay:.5s"><circle cx="0" cy="0" r="8" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/></g>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">揮金如土</text>') }
+      ];
+    },
+    /* 空口無憑 */
+    i1178: function () {
+      return [
+        { minDur: 6800, sub: '小憑說：「他答應借我腳踏車！」對方卻翻臉不認帳：「我什麼時候說過？」',
+          html: scene(P(320, 302, A('kid', 'wow')) + qmark(390, 182) +
+            P(520, 302, A('kid', 'angry') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1, true) + sweat(260, 192)) },
+        { minDur: 6800, sub: '「空口無憑」：光用嘴說沒有憑據——所以老話說「空口無憑，立字為據」！',
+          html: scene(P(400, 260, '<rect x="-40" y="-30" width="80" height="60" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-26" y1="-14" x2="26" y2="-14"/><line x1="-26" y1="-2" x2="26" y2="-2"/><line x1="-26" y1="10" x2="10" y2="10"/></g><circle cx="22" cy="18" r="8" fill="none" stroke="#c96a5a" stroke-width="2.4"/>', '', 0, 1.3) + bang(530, 205)) },
+        { minDur: 6800, sub: '重要約定寫下來、拍照存證、找人見證——保護自己，也讓對方安心！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(38, -52, '<rect x="-14" y="-9" width="28" height="18" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-6 0 l4 4 l8 -8" stroke="#548a40" stroke-width="2.4" fill="none"/>', '', 0, 1.1)) +
+            P(500, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(420, 185)) },
+        { minDur: 6400, sub: '空口無憑：口說無據，難以採信。',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') + qmark(420, 185) +
+            P(540, 250, '<rect x="-30" y="-22" width="60" height="44" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.4" opacity=".55"/><line x1="-20" y1="-14" x2="20" y2="14" stroke="#c96a5a" stroke-width="3"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">空口無憑</text>') }
+      ];
+    },
+    /* 長篇大論 */
+    i1180: function () {
+      var SCROLLL = '<rect x="-14" y="-60" width="28" height="120" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.4"><line x1="-7" y1="-46" x2="7" y2="-46"/><line x1="-7" y1="-34" x2="7" y2="-34"/><line x1="-7" y1="-22" x2="7" y2="-22"/><line x1="-7" y1="-10" x2="7" y2="-10"/><line x1="-7" y1="2" x2="7" y2="2"/><line x1="-7" y1="14" x2="7" y2="14"/><line x1="-7" y1="26" x2="7" y2="26"/><line x1="-7" y1="38" x2="7" y2="38"/><line x1="-7" y1="50" x2="7" y2="50"/></g>';
+      return [
+        { minDur: 6800, sub: '班會報告，小論一開口就是四十分鐘——從開天闢地講到午餐菜色，台下哈欠連連！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(500, 306, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .92) + zzz(570, 210) +
+            P(620, 306, '<g class="st-slump" style="animation-delay:.3s">' + A('kid', 'sad') + '</g>', '', 0, .9)) },
+        { minDur: 6800, sub: '「長篇大論」：冗長的文章或滔滔不絕的言論——講得多，不等於講得好！',
+          html: scene(P(400, 285, SCROLLL, '', 0, 1.4) + zzz(540, 210) + sweat(270, 210)) },
+        { minDur: 6800, sub: '與其長篇大論，不如舉一個好例子——言簡意賅、一句到位，大家反而記得住！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(430, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#548a40">一句!</text>') +
+            P(560, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + hearts(620, 200)) },
+        { minDur: 6400, sub: '長篇大論：言辭冗長，滔滔不絕。',
+          html: scene(P(400, 285, SCROLLL, '', 0, 1.4) + zzz(530, 215) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">長篇大論</text>') }
+      ];
+    },
+    /* 誇大其詞 */
+    i1181: function () {
+      return [
+        { minDur: 6800, sub: '小詞釣到一條手掌大的魚——回到班上卻說：「跟我的手臂一樣長！差點拉不上來！」',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(480, 200, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/>' + P(0, 6, A('fish'), '', 0, .7), '', 0, 1.1) +
+            P(600, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(660, 190)) },
+        { minDur: 6800, sub: '同學要他拿照片出來——照片裡的魚小小一條，全班笑成一團！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-42, -50, '<rect x="-15" y="-11" width="30" height="22" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>' + P(2, 2, A('fish'), '', 0, .28), '', 0, 1.1)) + sweat(300, 190) +
+            P(540, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + bang(600, 195)) },
+        { minDur: 6800, sub: '「誇大其詞」：說法超過實際情形——偶爾吹牛博君一笑沒關係，重要的事千萬別誇大！',
+          html: scene(P(340, 240, '<circle cx="0" cy="0" r="16" fill="#fff" opacity=".92"/>' + P(0, 4, A('fish'), '', 0, .3), '', 0, 1) +
+            '<path d="M372 240 h60" stroke="#c96a5a" stroke-width="3.4"/><path d="M432 240 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            P(500, 240, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/>' + P(0, 8, A('fish'), '', 0, .62), '', 0, 1)) },
+        { minDur: 6400, sub: '誇大其詞：言過其實，渲染過度。',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(490, 200, '<circle cx="0" cy="0" r="28" fill="#fff" opacity=".92"/>' + P(0, 6, A('fish'), '', 0, .65), '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">誇大其詞</text>') }
+      ];
     }
   };
 
