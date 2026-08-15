@@ -18115,6 +18115,159 @@
             '<g class="st-tw"><path d="M475 212 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">瑕不掩瑜</text>') }
       ];
+    },
+    /* 眾矢之的 */
+    i361: function () {
+      var TARGET = '<circle cx="0" cy="0" r="30" fill="#fff" stroke="#c96a5a" stroke-width="3"/><circle cx="0" cy="0" r="19" fill="none" stroke="#c96a5a" stroke-width="2.6"/><circle cx="0" cy="0" r="8" fill="#c96a5a"/>';
+      var ARROW3 = function (r) { return '<g transform="rotate(' + r + ')"><line x1="-40" y1="0" x2="-8" y2="0" stroke="#8a6a44" stroke-width="3.4"/><path d="M-8 0 l-8 -4 v8 z" fill="#6d7585" transform="rotate(180 -8 0)"/></g>'; };
+      return [
+        { minDur: 6800, sub: '「的」是箭靶的中心——所有弓箭手拉滿弓，箭全朝著同一個靶心飛去！',
+          html: scene(P(540, 250, TARGET + ARROW3(-30) + ARROW3(10) + ARROW3(45), '', 0, 1.3) +
+            P(240, 302, A('kid', 'angry') + P(30, -50, '<path d="M0 -36 Q26 0 0 36" stroke="#8a5a33" stroke-width="4" fill="none"/><line x1="0" y1="-36" x2="0" y2="36" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) + bang(420, 220)) },
+        { minDur: 6800, sub: '「眾矢之的」：眾人攻擊指責的對象——政策一出包，官員立刻成了輿論的靶心！',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.02) + sweat(330, 188) +
+            '<g stroke="#c96a5a" stroke-width="3" stroke-linecap="round"><path d="M240 220 l60 30 M560 220 l-60 30 M250 300 l58 -18 M550 300 l-58 -18"/></g>' + qmark(490, 185)) },
+        { minDur: 6800, sub: '成了眾矢之的怎麼辦？先別急著反擊——該道歉的道歉、該澄清的拿證據，誠實面對最快止血！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#ffe3c1" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(560, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">誠實</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">面對</text>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6400, sub: '眾矢之的：千夫所指，箭靶中心。',
+          html: scene(P(400, 250, TARGET + ARROW3(-25) + ARROW3(15) + ARROW3(50), '', 0, 1.4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">眾矢之的</text>') }
+      ];
+    },
+    /* 噤若寒蟬 */
+    i362: function () {
+      var CICADA = '<ellipse cx="0" cy="0" rx="10" ry="16" fill="#8a9a6a" stroke="#6d7a52" stroke-width="2"/><path d="M-8 -8 q-12 8 -8 22 M8 -8 q12 8 8 22" stroke="#aab86a" stroke-width="2.4" fill="none" opacity=".8"/><circle cx="-4" cy="-10" r="2" fill="#3a2e26"/><circle cx="4" cy="-10" r="2" fill="#3a2e26"/>';
+      return [
+        { minDur: 7000, sub: '夏天的蟬叫個不停——深秋一到，寒蟬一聲不吭，靜悄悄掛在枯枝上……',
+          html: scene(P(500, 285, TREE, '', 0, 1.2) +
+            P(478, 195, CICADA, '', 0, 1) +
+            '<g fill="#e0a458"><circle class="st-snow" cx="300" cy="60" r="3"/><circle class="st-snow" style="animation-delay:1.4s" cx="380" cy="30" r="3"/></g>', 'night') },
+        { minDur: 6800, sub: '《後漢書》批評明哲保身的官員：「知善不薦，聞惡無言……自同寒蟬」——像寒蟬一樣沉默！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-8 -46 h16" stroke="#8b93a3" stroke-width="2.6"/>', '', 0, 1) +
+            P(500, 302, A('kid', 'happy') + '<path d="M-8 -46 h16" stroke="#8b93a3" stroke-width="2.6"/>', '', 0, .97, true) +
+            P(420, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".7"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c9bfa8">……</text>') + sweat(260, 195), 'night') },
+        { minDur: 6800, sub: '「噤若寒蟬」：因害怕而不敢作聲——但沉默會餵大不公，該說話時要有人先開口！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) + bang(440, 182) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(620, 195)) },
+        { minDur: 6400, sub: '噤若寒蟬：畏懼緘默，不敢作聲。',
+          html: scene(P(500, 288, TREE, '', 0, 1.2) + P(478, 200, CICADA, '', 0, 1) +
+            '<g class="st-zfloat" opacity=".5"><text x="300" y="200" font-size="16" fill="#c9bfa8">（無聲）</text></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">噤若寒蟬</text>', 'night') }
+      ];
+    },
+    /* 懸梁刺股 */
+    i363: function () {
+      return [
+        { minDur: 7000, sub: '漢代孫敬夜讀怕打瞌睡——用繩子把頭髮繫在屋梁上，頭一垂就被扯醒！',
+          html: scene('<line x1="200" y1="150" x2="620" y2="150" stroke="#8a5a33" stroke-width="8"/>' +
+            P(400, 302, A('kid', 'wow') + '<line x1="0" y1="-88" x2="0" y2="-140" stroke="#c9bfa8" stroke-width="2.6"/>' + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) +
+            P(620, 130, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '戰國蘇秦更狠：想睡就「引錐自刺其股」——拿錐子刺大腿，痛醒了繼續讀！',
+          html: scene(P(400, 302, A('kid', 'wow') + P(34, -20, '<line x1="0" y1="0" x2="10" y2="-16" stroke="#8b93a3" stroke-width="3.4" stroke-linecap="round"/><path d="M10 -16 l2 -7 l4 6" fill="#8b93a3"/>', '', 0, 1) + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) + bang(310, 220) +
+            P(620, 130, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「懸梁刺股」：發憤苦讀——精神可學，方法別學！現代版：早睡早起、番茄鐘專注法！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/></g>', '', 0, .95)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#c96a5a"/><path d="M0 -20 q4 -6 8 -4" stroke="#548a40" stroke-width="3" fill="none"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '懸梁刺股：發憤苦讀，志堅不搖。',
+          html: scene('<line x1="220" y1="150" x2="600" y2="150" stroke="#8a5a33" stroke-width="8"/>' +
+            P(400, 302, A('kid', 'wow') + '<line x1="0" y1="-88" x2="0" y2="-140" stroke="#c9bfa8" stroke-width="2.6"/>' + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">懸梁刺股</text>', 'night') }
+      ];
+    },
+    /* 焚膏繼晷 */
+    i364: function () {
+      var OILLAMP = '<path d="M-16 0 h32 l-6 10 h-20 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/><ellipse cx="0" cy="-2" rx="12" ry="5" fill="#e8d9a8"/><g class="st-flick"><path d="M0 -6 Q-5 -16 0 -26 Q3 -18 6 -22 Q8 -10 4 -6 Z" fill="#ffd166"/></g>';
+      return [
+        { minDur: 7000, sub: '韓愈〈進學解〉自述治學：「焚膏油以繼晷，恆兀兀以窮年」——燒燈油接替日光，整年不歇！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) +
+            P(540, 280, OILLAMP, '', 0, 1.2), 'night') },
+        { minDur: 6800, sub: '「晷」是日影——白天靠太陽、晚上靠燈油，時間一寸都不放過！',
+          html: scene(P(250, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            '<path d="M300 130 h180" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="8 7"/><path d="M480 130 l-11 -7 v14 z" fill="#c9bfa8"/>' +
+            P(540, 135, OILLAMP, '', 0, 1) +
+            P(400, 302, A('kid', 'happy') + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1)) },
+        { minDur: 6800, sub: '「焚膏繼晷」：夜以繼日地勤讀勤作——衝刺期拚勁十足很好，也要留足睡眠讓大腦存檔！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -12 l4 4 l7 -8"/></g>', '', 0, .95)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">睡飽!</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '焚膏繼晷：燃燈繼日，勤學不輟。',
+          html: scene(P(400, 280, OILLAMP, '', 0, 1.6) +
+            P(620, 135, '<circle cx="0" cy="0" r="15" fill="#f5f0dc"/><circle cx="5" cy="-3" r="11" fill="#2c3550"/>', '', 0, 1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">焚膏繼晷</text>', 'night') }
+      ];
+    },
+    /* 目不識丁 */
+    i365: function () {
+      return [
+        { minDur: 7000, sub: '唐代軍吏罵士兵：「挽得兩石力弓，不如識一丁字」——力氣再大，不識字也吃虧！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(30, -50, '<path d="M0 -36 Q26 0 0 36" stroke="#8a5a33" stroke-width="4" fill="none"/><line x1="0" y1="-36" x2="0" y2="36" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) +
+            P(540, 240, '<rect x="-30" y="-30" width="60" height="60" rx="4" fill="#fff" opacity=".92"/><text x="0" y="12" text-anchor="middle" font-size="34" fill="#6d7585">丁</text>', '', 0, 1.1) + qmark(400, 190)) },
+        { minDur: 6800, sub: '「目不識丁」：連最簡單的「丁」字都不認識——從前農村不少人一輩子沒機會上學……',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="18" fill="#c9bfa8">?</text>', '', 0, .95), '', 0, 1.02) + sweat(290, 190) +
+            P(560, 290, '<path d="M-24 12 q-3 -18 5 -26 M-6 14 q0 -20 7 -28 M14 12 q4 -16 -2 -24" stroke="#a8b86a" stroke-width="3.4" fill="none" stroke-linecap="round"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '識字改變命運：夜校裡白髮的阿嬤一筆一劃學寫自己的名字——寫完哭了，全班都拍手！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-44, -46, '<line x1="0" y1="8" x2="5" y2="-10" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.02) +
+            P(560, 240, '<rect x="-30" y="-22" width="60" height="44" rx="4" fill="#fff" opacity=".92" stroke="#e8b93f" stroke-width="2.6"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#c96a5a">名字</text>', '', 0, 1.05) + hearts(280, 195) + bang(450, 185)) },
+        { minDur: 6400, sub: '目不識丁：一字不識，未曾受教。',
+          html: scene(P(400, 245, '<rect x="-32" y="-32" width="64" height="64" rx="4" fill="#fff" opacity=".92"/><text x="0" y="13" text-anchor="middle" font-size="36" fill="#6d7585">丁</text>', '', 0, 1.3) + qmark(500, 200) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">目不識丁</text>') }
+      ];
+    },
+    /* 鵬程萬里 */
+    i366: function () {
+      var ROC = '<path d="M0 0 q-40 -26 -80 -12 q20 14 34 12 q-20 10 -40 26 q34 2 56 -12 q10 10 30 12 q20 -2 54 -12 q-20 -16 -40 -26 q14 2 34 -12 q-40 -14 -78 12 z" fill="#3d5a7a" stroke="#2c4358" stroke-width="2.6"/><circle cx="0" cy="-4" r="4" fill="#ffd97a"/>';
+      return [
+        { minDur: 7000, sub: '《逍遙遊》開篇：北冥大魚化為鵬鳥——「摶扶搖而上者九萬里」，一飛沖天奔向南海！',
+          html: scene(P(400, 160, ROC, 'st-fly', 0, 1.4) +
+            '<g class="st-cloud"><ellipse cx="220" cy="240" rx="60" ry="18" fill="#fff" opacity=".85"/><ellipse cx="580" cy="260" rx="70" ry="20" fill="#fff" opacity=".8"/></g>') },
+        { minDur: 6800, sub: '鵬翼一張如垂天之雲——蜩與學鳩笑牠飛太高，牠仍朝著九萬里外的目標前進！',
+          html: scene(P(400, 140, ROC, 'st-fly', 0, 1.5) +
+            P(240, 296, A('bird'), '', 0, .8) + qmark(300, 250) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="500" y1="200" x2="590" y2="200"/></g>') },
+        { minDur: 6800, sub: '「鵬程萬里」：前程遠大——畢業卡片上最常見的祝福：願你像大鵬，飛得又高又遠！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(0, -74, '<path d="M-14 0 h28 l-4 10 h-20 z" fill="#3a3550" stroke="#232840" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, 1.02) +
+            P(560, 170, ROC, 'st-fly', 0, .9) + hearts(440, 185)) },
+        { minDur: 6400, sub: '鵬程萬里：前程遠大，一飛沖天。',
+          html: scene(P(400, 155, ROC, 'st-fly', 0, 1.5) +
+            '<g class="st-cloud"><ellipse cx="250" cy="250" rx="60" ry="18" fill="#fff" opacity=".85"/></g>' +
+            '<text x="400" y="290" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鵬程萬里</text>') }
+      ];
+    },
+    /* 頭角崢嶸 */
+    i367: function () {
+      return [
+        { minDur: 7000, sub: '韓愈寫柳宗元少年時：「嶄然見頭角」——年紀輕輕就鋒芒畢露，考中進士名動京師！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(0, -74, '<path d="M-12 0 h24 l-3 8 h-18 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, 1.05) +
+            P(560, 302, A('kid', 'wow') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .97, true) + bang(460, 182)) },
+        { minDur: 6800, sub: '「頭角崢嶸」：才華出眾、表現突出——像群山中特別高峻的那座峰，一眼就看見！',
+          html: scene(P(400, 292, '<path d="M-180 48 L-110 -10 L-50 30 L10 -70 L80 20 L150 -20 L210 48 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6"/><path d="M-8 -40 L10 -70 L28 -40 Z" fill="#fff" opacity=".85"/>', '', 0, 1.1) +
+            '<g class="st-tw"><path d="M10 -90 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a" transform="translate(400 200)"/></g>') },
+        { minDur: 6800, sub: '科展會場上，小崢的作品被評審圍住猛問——頭角崢嶸的人，機會自己找上門！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -52, '<rect x="-16" y="-13" width="32" height="26" rx="4" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) +
+            P(240, 302, A('kid', 'wow') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/>', '', 0, .92) +
+            P(560, 302, A('kid', 'wow') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/>', '', 0, .92, true) + bang(400, 178)) },
+        { minDur: 6400, sub: '頭角崢嶸：鋒芒初露，卓然出眾。',
+          html: scene(P(400, 295, '<path d="M-160 45 L-90 -5 L-30 28 L20 -62 L80 18 L150 -14 L200 45 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6"/><path d="M4 -34 L20 -62 L36 -34 Z" fill="#fff" opacity=".85"/>', '', 0, 1.1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">頭角崢嶸</text>') }
+      ];
+    },
+    /* 水乳交融 */
+    i651: function () {
+      return [
+        { minDur: 6800, sub: '把牛奶倒進水裡——一攪拌，完全融成一體，再也分不出哪滴是水、哪滴是乳！',
+          html: scene(P(400, 270, '<path d="M-30 -40 h60 l-6 66 q-24 10 -48 0 z" fill="#f0ede4" stroke="#c9bfa8" stroke-width="2.6"/><g class="st-bub"><circle cx="-8" cy="-10" r="4" fill="#fff"/><circle cx="8" cy="4" r="3" fill="#fff"/></g>', '', 0, 1.3) +
+            P(240, 240, '<path d="M-10 -20 h20 l-3 26 h-14 z" fill="#7fb2d4" opacity=".8"/>', '', 0, 1) +
+            P(560, 240, '<path d="M-10 -20 h20 l-3 26 h-14 z" fill="#fff" stroke="#e0d8c8" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「水乳交融」：關係密切無間——新轉來的同學一週就和全班打成一片，水乳交融！',
+          html: scene(P(280, 302, A('kid', 'happy'), '', 0, .95) + P(400, 302, A('kid', 'happy'), '', 0, .98) + P(520, 302, A('kid', 'happy'), '', 0, .95, true) +
+            hearts(400, 175) + notes(300, 190) + bang(520, 185)) },
+        { minDur: 6800, sub: '交融的祕訣：主動幫忙、真心關心——把「你們」變成「我們」，感情自然融在一起！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(405, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '水乳交融：彼此相融，親密無間。',
+          html: scene(P(400, 272, '<path d="M-30 -40 h60 l-6 66 q-24 10 -48 0 z" fill="#f0ede4" stroke="#c9bfa8" stroke-width="2.6"/><g class="st-bub"><circle cx="-8" cy="-10" r="4" fill="#fff"/></g>', '', 0, 1.35) + hearts(510, 210) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">水乳交融</text>') }
+      ];
     }
   };
 
