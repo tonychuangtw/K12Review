@@ -7419,6 +7419,108 @@
           html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'angry') + '</g>', '', 0, 1.05) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不屈不撓</text>') }
       ];
+    },
+    /* 喜出望外 */
+    i451: function () {
+      var TICKET = '<rect x="-22" y="-14" width="44" height="28" rx="4" fill="#ffe066" stroke="#e8b84a" stroke-width="2.4"/><circle cx="-22" cy="0" r="4" fill="#fff"/><circle cx="22" cy="0" r="4" fill="#fff"/><text x="0" y="5" text-anchor="middle" font-size="11" font-weight="bold" fill="#8a5a33">門票</text>';
+      return [
+        { minDur: 6800, sub: '本來以為生日只有蛋糕——爸爸卻突然拿出遊樂園門票：「明天全家出發！」',
+          html: scene(P(300, 302, A('kid', 'wow')) + bang(390, 185) +
+            P(520, 302, A('kid', 'happy') + P(-40, -60, TICKET, '', 0, .95), '', 0, 1.05, true)) },
+        { minDur: 6600, sub: '期待之外的驚喜，讓人高興得跳起來——「喜出望外」就是這種心情！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.08) +
+            hearts(460, 180) + hearts(280, 188) + notes(400, 155)) },
+        { minDur: 6800, sub: '「望外」是期望之外——沒想到的好事突然發生，快樂加倍！',
+          html: scene(P(400, 260, TICKET, '', 0, 1.5) + bang(510, 210) + hearts(300, 220)) },
+        { minDur: 6400, sub: '喜出望外：遇到意想不到的好事而特別高興。',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.08) + hearts(490, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">喜出望外</text>') }
+      ];
+    },
+    /* 忐忑不安 */
+    i452: function () {
+      var HEARTBEAT = '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#ff7b9c"/>' +
+        '<path d="M-30 8 h12 l4 -10 l6 18 l5 -12 l3 4 h12" stroke="#c96a5a" stroke-width="2.6" fill="none" stroke-linecap="round" transform="translate(0,34)"/>';
+      return [
+        { minDur: 6800, sub: '成績單今天發下來……小忑在座位上坐立難安：考得好嗎？考砸了怎麼辦？',
+          html: scene(P(360, 302, A('kid', 'wow')) + sweat(300, 190) + qmark(430, 178) +
+            P(500, 200, HEARTBEAT, 'st-zfloat', 0, 1.1)) },
+        { minDur: 6800, sub: '「忐忑」兩個字很妙：心一上一下——心裡七上八下、怦怦亂跳，就是「忐忑不安」！',
+          html: scene(P(400, 210, HEARTBEAT, 'st-zfloat', 0, 1.5) +
+            '<text x="300" y="160" font-size="30" font-weight="bold" fill="#4a3200">忐</text><text x="470" y="250" font-size="30" font-weight="bold" fill="#4a3200">忑</text>' +
+            P(240, 302, A('kid', 'wow'), '', 0, .95)) },
+        { minDur: 6800, sub: '結果成績比預期好！深呼吸、把心放回原位——其實多數擔心的事都不會發生！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(460, 185)) },
+        { minDur: 6400, sub: '忐忑不安：心神不定，惶恐不安。',
+          html: scene(P(400, 215, HEARTBEAT, 'st-zfloat', 0, 1.5) + P(250, 302, A('kid', 'wow'), '', 0, .95) + sweat(310, 195) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">忐忑不安</text>') }
+      ];
+    },
+    /* 無精打采 */
+    i453: function () {
+      return [
+        { minDur: 6800, sub: '熬夜看球賽的隔天早上——小采眼皮沉重、走路拖拖拉拉，連書包都背不動……',
+          html: scene(P(360, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.02) +
+            zzz(450, 195) + sweat(300, 195)) },
+        { minDur: 6600, sub: '上課哈欠連連、眼神放空——一點精神和活力都沒有，就是「無精打采」！',
+          html: scene(P(360, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') + zzz(440, 190) +
+            P(580, 302, A('kid', 'happy'), '', 0, .95, true) + qmark(630, 188)) },
+        { minDur: 6800, sub: '早睡早起、吃頓好早餐——隔天整個人神清氣爽，活力滿滿！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(460, 185) + bang(280, 192)) },
+        { minDur: 6400, sub: '無精打采：提不起精神，沒有活力。',
+          html: scene(P(400, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.05) + zzz(480, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">無精打采</text>') }
+      ];
+    },
+    /* 興致勃勃 */
+    i454: function () {
+      var BUGBOX = '<rect x="-18" y="-24" width="36" height="24" rx="4" fill="none" stroke="#8b93a3" stroke-width="2.6"/><line x1="-18" y1="-12" x2="18" y2="-12" stroke="#8b93a3" stroke-width="1.4"/><line x1="-6" y1="-24" x2="-6" y2="0" stroke="#8b93a3" stroke-width="1.4"/><line x1="6" y1="-24" x2="6" y2="0" stroke="#8b93a3" stroke-width="1.4"/>';
+      return [
+        { minDur: 6800, sub: '自然老師宣布：「這週末去溪邊觀察昆蟲！」全班眼睛發亮，興趣一下子被點燃！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(460, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            hearts(380, 172) + bang(550, 195)) },
+        { minDur: 6800, sub: '當天大家帶著觀察箱、放大鏡，興致勃勃地出發——一路上問題問個不停！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-44, -46, BUGBOX, '', 0, .95), 'st-strut') +
+            P(460, 302, A('kid', 'happy'), 'st-strut', .2, .95) + qmark(390, 180) + P(620, 210, A('butterfly'), '', 0, .95)) },
+        { minDur: 6600, sub: '「勃勃」是旺盛的樣子——興趣濃厚、情緒高昂，就是「興致勃勃」！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 185) + notes(310, 180)) },
+        { minDur: 6400, sub: '興致勃勃：興趣濃厚，情緒高昂。',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + P(560, 210, A('butterfly'), '', 0, .95) + hearts(460, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">興致勃勃</text>') }
+      ];
+    },
+    /* 依依難捨 */
+    i455: function () {
+      return [
+        { minDur: 6800, sub: '夏令營最後一天，來自各地的營友要各自回家了——大家抱在一起，遲遲不肯說再見。',
+          html: scene(P(300, 302, A('kid', 'sad')) + P(430, 302, A('kid', 'sad'), '', .1, .97) +
+            P(560, 302, A('kid', 'sad'), '', .2, .95) + hearts(430, 180) + sweat(360, 198)) },
+        { minDur: 6800, sub: '巴士開動了，車窗內外互相揮手，直到看不見彼此——「依依難捨」，滿滿的不捨！',
+          html: scene(P(560, 296, '<rect x="-60" y="-46" width="120" height="46" rx="8" fill="#ffd97a" stroke="#e8b84a" stroke-width="3"/><circle cx="-34" cy="0" r="11" fill="#3a2e26"/><circle cx="34" cy="0" r="11" fill="#3a2e26"/><rect x="-48" y="-36" width="28" height="18" rx="3" fill="#aee3f5"/><rect x="-12" y="-36" width="28" height="18" rx="3" fill="#aee3f5"/>', 'st-inR') +
+            P(240, 302, A('kid', 'sad') + '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-58" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>') + hearts(400, 195)) },
+        { minDur: 6600, sub: '約好明年再一起參加——把不捨化成期待，友誼不會因距離變淡！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .97, true) +
+            P(405, 210, '<path d="M-20 -6 q10 -14 20 0 q10 14 20 0" stroke="#ffe3c1" stroke-width="9" fill="none" stroke-linecap="round"/>', '', 0, 1.1) + hearts(405, 165)) },
+        { minDur: 6400, sub: '依依難捨：非常留戀，捨不得離開。',
+          html: scene(P(300, 302, A('kid', 'sad')) + P(520, 302, A('kid', 'sad'), '', 0, .97, true) + hearts(410, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">依依難捨</text>') }
+      ];
+    },
+    /* 情不自禁 */
+    i456: function () {
+      return [
+        { minDur: 6800, sub: '畢業典禮上，看著大螢幕播放六年來的照片——小情忍不住，眼淚自己流了下來……',
+          html: scene(P(430, 240, '<rect x="-60" y="-40" width="120" height="70" rx="5" fill="#c9d6e8" stroke="#8b93a3" stroke-width="3"/><circle cx="-20" cy="-10" r="10" fill="#ffe3c1"/><circle cx="20" cy="-10" r="10" fill="#ffe3c1"/>') +
+            P(240, 302, A('kid', 'sad')) + sweat(200, 195)) },
+        { minDur: 6800, sub: '聽到最愛的歌，腳跟著打拍子；看到好笑的影片，哈哈大笑——感情湧上來，想忍也忍不住！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + notes(450, 170) + hearts(280, 188)) },
+        { minDur: 6600, sub: '「情不自禁」：感情激動，控制不住自己——真情流露，一點也不丟臉！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(490, 185) + notes(310, 182)) },
+        { minDur: 6400, sub: '情不自禁：感情激動，控制不住自己。',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(300, 190) + hearts(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">情不自禁</text>') }
+      ];
     }
   };
 
