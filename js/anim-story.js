@@ -14028,6 +14028,157 @@
             P(360, 302, A('kid', 'wow'), '', 0, 1.02) + qmark(460, 188) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">適得其反</text>') }
       ];
+    },
+    /* 鍥而不捨 */
+    i333: function () {
+      var CHISEL = '<line x1="0" y1="8" x2="10" y2="-14" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/><rect x="8" y="-24" width="10" height="14" rx="3" fill="#8a5a33"/>';
+      return [
+        { minDur: 7000, sub: '《荀子》說：刻兩下就放棄，朽木也刻不斷——「鍥而舍之，朽木不折」！',
+          html: scene(P(430, 290, '<rect x="-34" y="-18" width="68" height="36" rx="5" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><path d="M-16 -6 q6 -6 10 0" stroke="#8a6a44" stroke-width="2" fill="none"/>', '', 0, 1.2) +
+            P(280, 302, '<g class="st-fleeR">' + A('kid', 'sad') + '</g>', 'st-dashL', 0, .95, true) + sweat(220, 192) + qmark(500, 230)) },
+        { minDur: 6800, sub: '「鍥而不舍，金石可鏤」——不停地刻下去，連金屬和石頭都能雕出花來！',
+          html: scene(P(430, 290, '<path d="M-30 18 L-22 -16 L0 -26 L24 -14 L30 18 Z" fill="#8b93a3" stroke="#6d7585" stroke-width="2.6"/><path d="M-12 -4 q6 -8 12 -2 q6 -8 12 -2" stroke="#fff" stroke-width="2.4" fill="none"/>', '', 0, 1.2) +
+            P(280, 302, A('kid', 'angry') + P(32, -46, CHISEL, '', 0, 1)) + bang(400, 230) + sweat(220, 190)) },
+        { minDur: 6800, sub: '「鍥而不捨」：堅持到底不放手——每天進步一點點，日子久了連石頭都被你刻穿！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(500, 188) +
+            P(280, 205, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '鍥而不捨：堅持不懈，金石可鏤。',
+          html: scene(P(430, 295, '<path d="M-30 18 L-22 -16 L0 -26 L24 -14 L30 18 Z" fill="#8b93a3" stroke="#6d7585" stroke-width="2.6"/>', '', 0, 1.2) +
+            P(290, 302, A('kid', 'angry') + P(32, -46, CHISEL, '', 0, 1)) + bang(400, 235) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鍥而不捨</text>') }
+      ];
+    },
+    /* 開門見山 */
+    i334: function () {
+      var DOORM = '<rect x="-40" y="-70" width="80" height="70" fill="#8a5a33" stroke="#6d4426" stroke-width="3"/><rect x="-34" y="-64" width="30" height="64" fill="#a8734a"/><circle cx="-10" cy="-32" r="3.4" fill="#ffd97a"/>';
+      return [
+        { minDur: 7000, sub: '嚴羽《滄浪詩話》讚李白的詩「發句謂之開門見山」——第一句就直奔主題，氣勢全開！',
+          html: scene(P(300, 302, DOORM, '', 0, 1.05) +
+            P(550, 260, '<path d="M-80 40 L0 -50 L80 40 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6"/><path d="M-24 12 L0 -14 L24 12" fill="none" stroke="#5a7a4a" stroke-width="2"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '一推開門，大山就在眼前——不繞路、不遮掩，直接看到最重要的風景！',
+          html: scene(P(260, 302, DOORM, '', 0, 1.05) +
+            P(260, 268, A('kid', 'wow'), '', 0, .85) +
+            P(560, 255, '<path d="M-90 45 L0 -55 L90 45 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6"/>', '', 0, 1.2) + bang(420, 200)) },
+        { minDur: 6800, sub: '「開門見山」：說話寫文章直接切入主題——「老師，我想借教室辦讀書會！」一句就到位！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(540, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1, true) + bang(440, 182) + hearts(620, 195)) },
+        { minDur: 6400, sub: '開門見山：直入主題，不繞彎子。',
+          html: scene(P(280, 302, DOORM, '', 0, 1.05) +
+            P(560, 258, '<path d="M-85 42 L0 -52 L85 42 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6"/>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">開門見山</text>') }
+      ];
+    },
+    /* 千頭萬緒 */
+    i572: function () {
+      var THREADS = '<g fill="none" stroke-linecap="round"><path d="M-60 30 C-40 -30 0 50 30 -20 Q45 -50 70 -30" stroke="#c96a5a" stroke-width="3.4"/><path d="M-70 -10 C-30 40 10 -50 50 10 Q60 24 76 16" stroke="#7fb2e0" stroke-width="3.4"/><path d="M-50 -30 C-10 10 -20 -40 30 30 Q40 42 60 38" stroke="#a5d47c" stroke-width="3.4"/><path d="M-76 12 C-40 -16 20 40 60 -8" stroke="#ffd97a" stroke-width="3.4"/></g>';
+      return [
+        { minDur: 6800, sub: '開學第一週：課表要排、社團要選、講義要領、座位要換——事情像一千條線纏在一起！',
+          html: scene(P(430, 250, THREADS, '', 0, 1.3) +
+            P(220, 302, A('kid', 'wow'), '', 0, .98) + sweat(170, 190) + qmark(300, 185)) },
+        { minDur: 6800, sub: '「千頭萬緒」：一千個開頭、一萬條線緒——不知道該從哪一條抓起！',
+          html: scene(P(400, 245, THREADS, '', 0, 1.4) + qmark(560, 190) + qmark(250, 195) + sweat(400, 165)) },
+        { minDur: 6800, sub: '訣竅：全部寫下來、排出先後、一次只做一件——線再多，一條一條理總會清！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-10" y1="-12" x2="10" y2="-12"/><line x1="-10" y1="-4" x2="10" y2="-4"/><line x1="-10" y1="4" x2="10" y2="4"/></g><path d="M-13 -12 l2 2 l3 -4" stroke="#548a40" stroke-width="1.6" fill="none"/>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '千頭萬緒：事務繁雜，頭緒紛亂。',
+          html: scene(P(400, 250, THREADS, '', 0, 1.4) + sweat(280, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千頭萬緒</text>') }
+      ];
+    },
+    /* 百廢待舉 */
+    i573: function () {
+      return [
+        { minDur: 7000, sub: '范仲淹寫岳陽樓：滕子京治理巴陵一年，「百廢具興」——荒廢的事務全都辦起來了！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -50, '<rect x="-16" y="-12" width="32" height="24" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -4 h20 M-10 4 h14" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95), '', 0, 1.05) +
+            P(540, 275, '<g stroke="#a8734a" stroke-width="5"><line x1="-40" y1="27" x2="-40" y2="-40"/><line x1="40" y1="27" x2="40" y2="-40"/></g><rect x="-52" y="-40" width="104" height="14" fill="#c9762f"/><path d="M-60 -40 h120 l-13 -20 h-94 z" fill="#a85a1e"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '風災過後的社區：路要修、電要牽、活動中心要重蓋——「百廢待舉」，樣樣等著動工！',
+          html: scene(P(280, 295, '<path d="M-24 12 l10 -26 l14 8 l12 -18" stroke="#8b93a3" stroke-width="4" fill="none"/><rect x="-30" y="12" width="60" height="8" rx="3" fill="#6d7585"/>', '', 0, 1.1) +
+            P(450, 290, '<line x1="0" y1="14" x2="0" y2="-40" stroke="#8a6a44" stroke-width="5" transform="rotate(18)"/><path d="M4 -34 q10 -4 14 4" stroke="#3a2e26" stroke-width="2.6" fill="none"/>', '', 0, 1.1) +
+            P(600, 292, '<rect x="-26" y="-20" width="52" height="32" fill="#c9bfa8" opacity=".7" transform="rotate(-8)"/>', '', 0, 1.1) + sweat(350, 200)) },
+        { minDur: 6800, sub: '列清單、分優先、大家分工——百廢待舉不可怕，一件一件舉起來就是了！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1)) +
+            P(470, 302, A('kid', 'angry') + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, .98, true) +
+            P(620, 302, A('kid', 'happy') + P(-36, -48, '<rect x="-12" y="-16" width="24" height="32" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>', '', 0, .95), '', 0, .95) + bang(390, 195) + hearts(550, 190)) },
+        { minDur: 6400, sub: '百廢待舉：諸事荒廢，亟待興辦。',
+          html: scene(P(300, 295, '<path d="M-24 12 l10 -26 l14 8 l12 -18" stroke="#8b93a3" stroke-width="4" fill="none"/><rect x="-30" y="12" width="60" height="8" rx="3" fill="#6d7585"/>', '', 0, 1.1) +
+            P(540, 290, '<rect x="-26" y="-20" width="52" height="32" fill="#c9bfa8" opacity=".7" transform="rotate(-8)"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">百廢待舉</text>') }
+      ];
+    },
+    /* 井井有條 */
+    i574: function () {
+      var GRIDW = '<g stroke="#8a744a" stroke-width="3.4"><line x1="-50" y1="-18" x2="50" y2="-18"/><line x1="-50" y1="18" x2="50" y2="18"/><line x1="-18" y1="-50" x2="-18" y2="50"/><line x1="18" y1="-50" x2="18" y2="50"/></g>';
+      return [
+        { minDur: 7000, sub: '《荀子》讚美：「井井兮其有理也」——像井田一樣方方正正，條理分明！',
+          html: scene(P(400, 250, GRIDW, '', 0, 1.3) +
+            '<g fill="#a5d47c" opacity=".6"><rect x="330" y="180" width="44" height="44"/><rect x="426" y="276" width="44" height="44"/></g>' +
+            P(200, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '小條管的倉庫：工具掛牆上、箱子貼標籤、清單釘門口——要什麼三秒找到！',
+          html: scene(P(400, 270, '<g stroke="#a8734a" stroke-width="4"><line x1="-80" y1="-30" x2="80" y2="-30"/><line x1="-80" y1="10" x2="80" y2="10"/></g><g fill="#7fb2e0"><rect x="-70" y="-56" width="34" height="24" rx="3"/></g><g fill="#ffd97a"><rect x="-20" y="-56" width="34" height="24" rx="3"/></g><g fill="#ff9eb5"><rect x="30" y="-56" width="34" height="24" rx="3"/></g><g fill="#a5d47c"><rect x="-70" y="-16" width="34" height="24" rx="3"/></g><g fill="#c9a06c"><rect x="-20" y="-16" width="34" height="24" rx="3"/></g>', '', 0, 1.15) +
+            P(220, 302, A('kid', 'happy'), '', 0, .98) + hearts(300, 200)) },
+        { minDur: 6800, sub: '「井井有條」：整齊有序、有條不紊——環境整齊了，腦子也跟著清楚！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(280, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><path d="M-8 -8 h16 M-8 0 h16 M-8 8 h16" stroke="#548a40" stroke-width="2.2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '井井有條：條理分明，整齊不亂。',
+          html: scene(P(400, 255, GRIDW, '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">井井有條</text>') }
+      ];
+    },
+    /* 有聲有色 */
+    i575: function () {
+      return [
+        { minDur: 6800, sub: '園遊會的班級攤位：有樂隊現場演奏、有彩繪布景、還有戲劇快閃——熱鬧滾滾！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1) + notes(380, 180) +
+            P(500, 302, A('kid', 'happy') + P(38, -50, '<path d="M-12 8 h24 l-3 -20 h-18 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, .98, true) +
+            P(620, 250, '<rect x="-22" y="-15" width="44" height="30" rx="4" fill="#ffd97a" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「有聲有色」：有聲音、有色彩——形容表現精彩生動，五感都被抓住！',
+          html: scene(P(310, 240, '<path d="M-10 -14 q12 14 0 28 M2 -22 q18 22 0 44" stroke="#7fb2e0" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.2) + notes(310, 180) +
+            P(490, 240, '<g class="st-tw"><circle cx="-14" cy="0" r="12" fill="#ff9eb5"/><circle cx="8" cy="-10" r="10" fill="#ffd97a"/><circle cx="12" cy="12" r="9" fill="#a5d47c"/></g>', '', 0, 1.2)) },
+        { minDur: 6800, sub: '把活動辦得有聲有色的祕訣：用心設計每個細節，讓參加的人又看得爽、又玩得開心！',
+          html: scene(P(280, 302, A('kid', 'happy'), 'st-cheer', 0, .95) + P(400, 302, A('kid', 'happy'), 'st-cheer', .2, .98) + P(520, 302, A('kid', 'happy'), 'st-cheer', .4, .95, true) +
+            hearts(400, 172) + notes(300, 185) + bang(520, 180)) },
+        { minDur: 6400, sub: '有聲有色：精彩生動，繪形繪色。',
+          html: scene(P(320, 245, '<path d="M-10 -14 q12 14 0 28 M2 -22 q18 22 0 44" stroke="#7fb2e0" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.2) + notes(320, 185) +
+            P(480, 245, '<g class="st-tw"><circle cx="-14" cy="0" r="12" fill="#ff9eb5"/><circle cx="8" cy="-10" r="10" fill="#ffd97a"/></g>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">有聲有色</text>') }
+      ];
+    },
+    /* 繪聲繪影 */
+    i576: function () {
+      return [
+        { minDur: 6800, sub: '小影說起露營夜遇到的貓頭鷹：「咕——的一聲，眼睛像兩盞燈！」大家聽得入神！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -8 M28 -56 l14 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(500, 200, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><ellipse cx="0" cy="4" rx="12" ry="14" fill="#8a6a44"/><circle cx="-5" cy="-2" r="4" fill="#ffd97a"/><circle cx="5" cy="-2" r="4" fill="#ffd97a"/>', '', 0, 1.1) +
+            P(620, 302, A('kid', 'wow'), '', 0, .95, true) + notes(400, 185)) },
+        { minDur: 6800, sub: '「繪聲繪影」：把聲音和影像都描繪出來——講得逼真，聽的人像親臨現場！',
+          html: scene(P(360, 302, A('kid', 'happy')) +
+            P(500, 230, '<path d="M-10 -12 q10 12 0 24" stroke="#7fb2e0" stroke-width="3.4" fill="none" stroke-linecap="round"/><ellipse cx="16" cy="4" rx="12" ry="16" fill="#3a2e26" opacity=".4"/>', '', 0, 1.3) + hearts(260, 195)) },
+        { minDur: 6800, sub: '注意：它也能形容謠言講得活靈活現——聽到繪聲繪影的傳聞，先查證再相信！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 6 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1) +
+            P(540, 302, A('kid', 'wow') + P(-40, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1), '', 0, .97, true) + qmark(430, 182)) },
+        { minDur: 6400, sub: '繪聲繪影：描述生動，如聞如見。',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -8 M28 -56 l14 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) + notes(440, 182) +
+            P(560, 230, '<ellipse cx="0" cy="0" rx="14" ry="18" fill="#3a2e26" opacity=".4"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">繪聲繪影</text>') }
+      ];
+    },
+    /* 活靈活現 */
+    i577: function () {
+      return [
+        { minDur: 6800, sub: '說書社的學長講《西遊記》：一下學猴王抓耳撓腮、一下學八戒打呵欠——維妙維肖！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-28 -60 l-12 -10 M28 -56 l14 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', 'st-hop', 0, 1.05) +
+            P(560, 302, A('monkey'), '', 0, .85, true) + notes(280, 190) + bang(470, 185)) },
+        { minDur: 6800, sub: '台下同學看得目瞪口呆——猴王彷彿真的從書裡跳出來，站在講台上！',
+          html: scene(P(400, 280, '<rect x="-60" y="0" width="120" height="22" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(400, 280, A('monkey'), 'st-hop', 0, 1) + bang(400, 190) +
+            P(220, 302, A('kid', 'wow'), '', 0, .9) + P(600, 302, A('kid', 'wow'), '', 0, .9, true) + hearts(300, 200)) },
+        { minDur: 6800, sub: '「活靈活現」：生動逼真，彷彿就在眼前——好的描寫和表演，能讓紙上的角色活過來！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95)) +
+            P(520, 270, A('monkey'), 'st-hop', 0, .8, true) +
+            '<path d="M380 250 q60 -30 100 -6" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>' + hearts(620, 210)) },
+        { minDur: 6400, sub: '活靈活現：逼真傳神，栩栩如生。',
+          html: scene(P(400, 302, A('monkey'), 'st-hop', 0, 1.05) + bang(500, 190) + hearts(300, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">活靈活現</text>') }
+      ];
     }
   };
 
