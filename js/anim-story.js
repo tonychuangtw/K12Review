@@ -20394,6 +20394,159 @@
           html: scene(P(400, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-44" stroke="#a8734a" stroke-width="4"/><path d="M0 -44 q16 4 30 -2 l-2 14 q-14 6 -28 0 z" fill="#c96a5a"/>', '', 0, 1), 'st-strut', 0, 1.08) + bang(510, 188) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">義無反顧</text>') }
       ];
+    },
+    /* 勇往直前 */
+    i706: function () {
+      return [
+        { minDur: 6800, sub: '馬拉松最後五公里，雙腿像灌了鉛——她盯著前方，一步一步不停下！',
+          html: scene(P(360, 302, A('kid', 'angry'), 'st-dashL', 0, 1.05) + sweat(290, 188) +
+            '<line x1="620" y1="240" x2="620" y2="310" stroke="#c96a5a" stroke-width="4"/>' +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="220" y1="255" x2="300" y2="255"/></g>') },
+        { minDur: 6800, sub: '「勇往直前」：無所畏懼向前——路上有坑就跨過、有牆就翻過，方向不變！',
+          html: scene(P(340, 302, A('kid', 'angry'), 'st-hop', 0, 1.02) +
+            P(480, 290, '<rect x="-14" y="-26" width="28" height="26" fill="#8b93a3" opacity=".7"/>', '', 0, 1) +
+            '<path d="M520 270 q60 -20 120 -30" stroke="#548a40" stroke-width="4" fill="none" stroke-dasharray="9 8"/><path d="M640 240 l-14 0 l8 11 z" fill="#548a40"/>') },
+        { minDur: 6800, sub: '衝線那刻所有的累都值了——勇往直前的人不是不怕，是怕著怕著也要前進！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + bang(400, 172) + hearts(510, 195) +
+            '<line x1="330" y1="240" x2="330" y2="310" stroke="#c96a5a" stroke-width="4" opacity=".5"/>') },
+        { minDur: 6400, sub: '勇往直前：一往無前，無所畏懼。',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-dashL', 0, 1.08) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="240" y1="250" x2="330" y2="250"/></g>' + bang(520, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">勇往直前</text>') }
+      ];
+    },
+    /* 披堅執銳 */
+    i707: function () {
+      var ARMOR2 = '<path d="M-16 -32 h32 l-4 34 h-24 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2.4"/><path d="M-16 -32 q16 -10 32 0" stroke="#6d7585" stroke-width="2.6" fill="none"/><circle cx="0" cy="-14" r="4" fill="#6d7585"/>';
+      return [
+        { minDur: 7000, sub: '項羽陣前喊話：「披堅執銳，義不如公」——論穿甲上陣衝鋒，你不如我項羽！',
+          html: scene(P(360, 302, A('kid', 'angry') + ARMOR2 + P(30, -56, '<line x1="0" y1="12" x2="0" y2="-30" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M0 -42 l-6 14 h12 z" fill="#c9d2de"/>', '', 0, 1.05), '', 0, 1.08) + bang(480, 185)) },
+        { minDur: 6800, sub: '「披堅執銳」：穿堅甲、持利器、親上前線——不是坐鎮後方，是帶頭衝鋒！',
+          html: scene(P(340, 302, A('kid', 'angry') + ARMOR2, 'st-dashL', 0, 1.05) +
+            P(470, 296, A('kid', 'angry'), 'st-dashL', .2, .95) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="200" y1="250" x2="280" y2="250"/></g>' + bang(560, 200), 'night') },
+        { minDur: 6800, sub: '最能服眾的領導：專案最難的部分自己扛——披堅執銳的主管，團隊願意跟到底！',
+          html: scene(P(360, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c96a5a"/>' + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1), '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + hearts(620, 195) + bang(280, 195)) },
+        { minDur: 6400, sub: '披堅執銳：甲冑在身，身先士卒。',
+          html: scene(P(400, 302, A('kid', 'angry') + ARMOR2 + P(30, -56, '<line x1="0" y1="12" x2="0" y2="-30" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M0 -42 l-6 14 h12 z" fill="#c9d2de"/>', '', 0, 1.05), '', 0, 1.1) + bang(510, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">披堅執銳</text>') }
+      ];
+    },
+    /* 以身作則 */
+    i709: function () {
+      return [
+        { minDur: 7000, sub: '孔子論領導：「其身正，不令而行」——自己站得正，不用下令大家也跟著做！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.08) +
+            P(220, 302, A('kid', 'happy'), '', 0, .88) + P(540, 302, A('kid', 'happy'), '', 0, .88, true) + hearts(400, 180)) },
+        { minDur: 6800, sub: '要求孩子少滑手機——爸媽自己先放下手機拿起書：這就是「以身作則」！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95)) +
+            P(500, 302, A('kid', 'happy') + P(38, -46, '<rect x="-13" y="-16" width="26" height="32" rx="2.6" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', '', 0, .9), '', 0, .92, true) + hearts(415, 185)) },
+        { minDur: 6800, sub: '說一百遍不如做一遍——你希望世界是什麼樣子，先活成那個樣子！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '以身作則：身教為先，垂範他人。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.08) +
+            P(250, 302, A('kid', 'happy'), 'st-strut', .3, .88) + P(550, 302, A('kid', 'happy'), 'st-strut', .5, .88, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">以身作則</text>') }
+      ];
+    },
+    /* 上行下效 */
+    i710: function () {
+      return [
+        { minDur: 6800, sub: '店長每天提早到店擦桌掃地——不用規定，店員也一個個提早來幫忙！',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c96a5a"/>' + P(34, -40, '<path d="M-10 -6 q10 -8 20 0 l-4 10 q-6 4 -12 0 z" fill="#7fd4d4" stroke="#4aa8a8" stroke-width="2"/>', '', 0, 1)) +
+            P(490, 302, A('kid', 'angry') + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, .95, true) + hearts(410, 185)) },
+        { minDur: 6800, sub: '「上行下效」：上面怎麼做、下面就跟著學——好壞都會傳染，所以上位者要先自律！',
+          html: scene(P(400, 220, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c96a5a"/>', '', 0, .95) +
+            '<g stroke="#c9bfa8" stroke-width="2.6" stroke-dasharray="5 5"><line x1="360" y1="250" x2="300" y2="285"/><line x1="440" y1="250" x2="500" y2="285"/></g>' +
+            P(290, 302, A('kid', 'happy'), '', 0, .85) + P(510, 302, A('kid', 'happy'), '', 0, .85, true)) },
+        { minDur: 6800, sub: '反面例子也成立：主管遲到、大家跟著散漫——風氣是從最上面一層層滲下來的！',
+          html: scene(P(400, 220, '<g transform="rotate(10)">' + A('kid', 'happy') + '</g>' + P(-38, -30, '<circle cx="0" cy="0" r="13" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><line x1="0" y1="0" x2="0" y2="-8" stroke="#c96a5a" stroke-width="2.2"/><line x1="0" y1="0" x2="6" y2="3" stroke="#c96a5a" stroke-width="2.2"/>', '', 0, .9), '', 0, .95) + sweat(470, 190) +
+            P(290, 302, '<g transform="rotate(8)">' + A('kid', 'sad') + '</g>', '', 0, .85) + P(510, 302, '<g transform="rotate(8)">' + A('kid', 'sad') + '</g>', '', 0, .85, true) + zzz(560, 250)) },
+        { minDur: 6400, sub: '上行下效：上有所為，下必效之。',
+          html: scene(P(400, 225, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c96a5a"/>', '', 0, .95) +
+            '<g stroke="#c9bfa8" stroke-width="2.6" stroke-dasharray="5 5"><line x1="360" y1="255" x2="305" y2="288"/><line x1="440" y1="255" x2="495" y2="288"/></g>' +
+            P(295, 302, A('kid', 'happy'), '', 0, .85) + P(505, 302, A('kid', 'happy'), '', 0, .85, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">上行下效</text>') }
+      ];
+    },
+    /* 風行草偃 */
+    i711: function () {
+      var GRASSW = '<g stroke="#a8b86a" stroke-width="3.4" stroke-linecap="round"><path d="M-60 10 q16 -8 30 -4 M-24 12 q16 -8 30 -4 M12 10 q16 -8 30 -4 M48 12 q16 -8 30 -4"/></g>';
+      return [
+        { minDur: 7000, sub: '孔子答季康子問政：「君子之德風，小人之德草，草上之風必偃」——風吹過，草自然倒伏！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="380" y1="230" x2="470" y2="230"/><line x1="360" y1="260" x2="450" y2="260"/></g>' +
+            P(540, 300, GRASSW, '', 0, 1.1)) },
+        { minDur: 6800, sub: '「風行草偃」：德政教化使人自然順服——不靠嚴刑峻法，靠以德服人！',
+          html: scene('<g class="st-windln" stroke="#cfe0f0" stroke-width="4" stroke-linecap="round"><line x1="180" y1="200" x2="290" y2="200"/><line x1="150" y1="235" x2="260" y2="235"/></g>' +
+            P(450, 300, GRASSW, '', 0, 1.3) + hearts(400, 180)) },
+        { minDur: 6800, sub: '班風也是吹出來的：班長帶頭自習、值日認真——好風一起，全班的草都朝好的方向倒！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95)) +
+            P(460, 302, A('kid', 'happy') + P(38, -46, '<rect x="-13" y="-16" width="26" height="32" rx="2.6" fill="#a5d47c" stroke="#7fa858" stroke-width="2.4"/>', '', 0, .9), '', 0, .95) +
+            P(600, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(450, 185)) },
+        { minDur: 6400, sub: '風行草偃：德風所過，民草自偃。',
+          html: scene('<g class="st-windln" stroke="#cfe0f0" stroke-width="4" stroke-linecap="round"><line x1="200" y1="210" x2="310" y2="210"/></g>' +
+            P(460, 300, GRASSW, '', 0, 1.3) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">風行草偃</text>') }
+      ];
+    },
+    /* 蔚然成風 */
+    i712: function () {
+      return [
+        { minDur: 6800, sub: '一開始只有一位同學自帶環保杯——一個月後，全班的桌上都是各色環保杯！',
+          html: scene(P(280, 302, A('kid', 'happy') + P(38, -46, '<path d="M-8 -12 h16 l-2 24 h-12 z" fill="#7fd4d4" stroke="#4aa8a8" stroke-width="2"/>', '', 0, 1)) +
+            P(450, 302, A('kid', 'happy') + P(38, -46, '<path d="M-8 -12 h16 l-2 24 h-12 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/>', '', 0, 1), '', .2, .95) +
+            P(600, 302, A('kid', 'happy') + P(-38, -46, '<path d="M-8 -12 h16 l-2 24 h-12 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1), '', .4, .92, true) + hearts(450, 185)) },
+        { minDur: 6800, sub: '「蔚然成風」：逐漸形成普遍風氣（蔚＝草木茂盛）——像草原一片接一片綠起來！',
+          html: scene(P(400, 300, '<g stroke="#7fa858" stroke-width="3.4" stroke-linecap="round"><path d="M-120 8 q-3 -14 5 -20 M-90 10 q0 -16 7 -22 M-58 8 q3 -12 -2 -18 M-26 10 q-3 -14 5 -20 M6 8 q0 -16 7 -22 M38 10 q3 -12 -2 -18 M70 8 q-3 -14 5 -20 M102 10 q0 -16 7 -22"/></g>', 'st-grow', 0, 1.2) +
+            P(200, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '好風氣的起點常是一個人的堅持——別小看自己：你就是那顆會蔓延的種子！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(290, 290, '<path d="M0 8 q-2 -10 4 -14 q4 -4 3 -9" stroke="#7fa858" stroke-width="2.6" fill="none"/>', 'st-grow', 0, 1.3)) },
+        { minDur: 6400, sub: '蔚然成風：漸成風氣，蔚為大觀。',
+          html: scene(P(400, 300, '<g stroke="#7fa858" stroke-width="3.4" stroke-linecap="round"><path d="M-100 8 q-3 -14 5 -20 M-64 10 q0 -16 7 -22 M-28 8 q3 -12 -2 -18 M8 10 q-3 -14 5 -20 M44 8 q0 -16 7 -22 M80 10 q3 -12 -2 -18"/></g>', 'st-grow', 0, 1.25) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">蔚然成風</text>') }
+      ];
+    },
+    /* 移風易俗 */
+    i713: function () {
+      return [
+        { minDur: 7000, sub: '荀子論音樂的力量：「其感人深，其移風易俗」——好的樂教能悄悄改變整個社會的風氣！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1.02) + notes(450, 182) +
+            P(240, 302, A('kid', 'happy'), '', 0, .88) + P(560, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(400, 200)) },
+        { minDur: 6800, sub: '「移風易俗」：改變舊風俗——從前婚喪大操大辦，如今簡約環保漸成新風！',
+          html: scene(P(300, 245, '<rect x="-34" y="-19" width="68" height="38" rx="4" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#c96a5a">鋪張</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#c96a5a">舊俗</text>') +
+            '<path d="M348 245 h96" stroke="#548a40" stroke-width="4"/><path d="M444 245 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(500, 245, '<rect x="-34" y="-19" width="68" height="38" rx="4" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#548a40">簡約</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#548a40">新風</text>')) },
+        { minDur: 6800, sub: '改變風俗急不得：先示範、再說服、後成習——一代人的堅持，換下一代的理所當然！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(410, 182) +
+            P(600, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">示範</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">→成習</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '移風易俗：改易舊習，樹立新風。',
+          html: scene(P(310, 250, '<rect x="-32" y="-18" width="64" height="36" rx="4" fill="#fff" opacity=".85"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">舊俗</text>') +
+            '<path d="M352 250 h92" stroke="#548a40" stroke-width="4"/><path d="M444 250 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(495, 250, '<rect x="-32" y="-18" width="64" height="36" rx="4" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">新風</text>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">移風易俗</text>') }
+      ];
+    },
+    /* 潛移默化 */
+    i714: function () {
+      return [
+        { minDur: 6800, sub: '家裡到處是書、爸媽飯後各自閱讀——沒人逼過小默讀書，他卻自然愛上了圖書館！',
+          html: scene(P(300, 275, '<g><rect x="-40" y="-14" width="24" height="32" rx="2.6" fill="#7fb2e0"/><rect x="-12" y="-18" width="24" height="36" rx="2.6" fill="#ff9eb5"/><rect x="16" y="-12" width="24" height="30" rx="2.6" fill="#a5d47c"/></g><line x1="-48" y1="18" x2="48" y2="18" stroke="#a8734a" stroke-width="4"/>', '', 0, 1.1) +
+            P(500, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/>', '', 0, .95), '', 0, 1) + hearts(420, 200)) },
+        { minDur: 6800, sub: '「潛移默化」：暗中轉移、無聲變化——影響最深的教育，往往一句話都沒說！',
+          html: scene(P(400, 250, '<circle cx="0" cy="0" r="26" fill="#c9d6e8" opacity=".5"/><circle cx="0" cy="0" r="16" fill="#a8c4de" opacity=".6"/><circle cx="0" cy="0" r="7" fill="#7fa8d4" opacity=".8"/>', 'st-zfloat', 0, 1.3) +
+            P(250, 210, '<circle cx="0" cy="0" r="10" fill="#c9d6e8" opacity=".5"/>', 'st-zfloat', .3, 1) +
+            P(540, 220, '<circle cx="0" cy="0" r="12" fill="#c9d6e8" opacity=".5"/>', 'st-zfloat', .6, 1) + hearts(400, 175)) },
+        { minDur: 6800, sub: '想影響一個人，先檢查你的日常——你常做的事，就是你正在教的課！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95)) +
+            P(490, 302, A('kid', 'happy') + P(38, -44, '<rect x="-13" y="-16" width="26" height="32" rx="2.6" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', '', 0, .9), '', 0, .9, true) + hearts(415, 185)) },
+        { minDur: 6400, sub: '潛移默化：無聲浸潤，於無形中。',
+          html: scene(P(400, 255, '<circle cx="0" cy="0" r="28" fill="#c9d6e8" opacity=".5"/><circle cx="0" cy="0" r="17" fill="#a8c4de" opacity=".6"/><circle cx="0" cy="0" r="8" fill="#7fa8d4" opacity=".8"/>', 'st-zfloat', 0, 1.35) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">潛移默化</text>') }
+      ];
     }
   };
 
