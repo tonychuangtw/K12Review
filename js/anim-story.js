@@ -15354,6 +15354,136 @@
             P(400, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">翹首以盼</text>') }
       ];
+    },
+    /* 經年累月 */
+    i1134: function () {
+      var CALSTACK = '<g><rect x="-30" y="-8" width="60" height="14" rx="2" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="1.8"/><rect x="-30" y="-24" width="60" height="14" rx="2" fill="#fff" stroke="#c9bfa8" stroke-width="1.8"/><rect x="-30" y="-40" width="60" height="14" rx="2" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="1.8"/><rect x="-30" y="-56" width="60" height="14" rx="2" fill="#fff" stroke="#c9bfa8" stroke-width="1.8"/></g>';
+      return [
+        { minDur: 6800, sub: '國寶級的製琴師傅：一把好琴刨了又刨、上漆晾乾再上漆——一做就是三年！',
+          html: scene(P(360, 302, A('kid', 'angry') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-42, -40, QIN, '', 0, 1), '', 0, 1.02) + sweat(290, 190) +
+            P(560, 280, CALSTACK, '', 0, 1.1)) },
+        { minDur: 6800, sub: '「經年累月」：經歷許多年月——日曆一本一本疊起來，功夫一層一層磨出來！',
+          html: scene(P(400, 285, CALSTACK, '', 0, 1.5) +
+            P(560, 230, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-11" stroke="#6d7585" stroke-width="2.4"/><line x1="0" y1="0" x2="8" y2="4" stroke="#6d7585" stroke-width="2.4"/>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '所有讓人驚歎的技藝，都是經年累月練出來的——別羨慕天才，開始累積就對了！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1.02) + notes(470, 182) + hearts(280, 192)) },
+        { minDur: 6400, sub: '經年累月：歷時長久，積累深厚。',
+          html: scene(P(400, 288, CALSTACK, '', 0, 1.5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">經年累月</text>') }
+      ];
+    },
+    /* 一擲千金 */
+    i1163: function () {
+      return [
+        { minDur: 7000, sub: '唐詩寫豪賭少年：「一擲千金渾是膽，家無四壁不知貧」——一把就砸下千金！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -60 l18 -14" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(480, 200, '<g class="st-rain"><circle cx="0" cy="0" r="8" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/></g>', '', 0, 1) +
+            P(540, 220, '<g class="st-rain" style="animation-delay:.3s"><circle cx="0" cy="0" r="7" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/></g>', '', 0, 1) + bang(600, 260)) },
+        { minDur: 6800, sub: '「一擲千金」：花錢豪奢、毫不在乎——拍賣會上富商舉牌不眨眼，千萬名畫當場標下！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9762f"/>' + P(34, -56, '<rect x="-10" y="-14" width="20" height="20" rx="2" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><line x1="0" y1="6" x2="0" y2="18" stroke="#8a6a44" stroke-width="3"/>', '', 0, 1.05)) +
+            P(560, 260, '<rect x="-34" y="-44" width="68" height="88" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="3"/><circle cx="0" cy="-14" r="12" fill="#ffb066"/><path d="M-20 24 q10 -18 20 -8 q10 -14 20 -2" stroke="#5a7a4a" stroke-width="2.6" fill="none"/>', '', 0, 1.05) + bang(450, 190)) },
+        { minDur: 6800, sub: '錢要花在刀口上——一擲千金買面子，不如細水長流做該做的事！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -48, '<path d="M-16 -6 q0 -12 16 -12 q16 0 16 12 l-2 12 q-14 8 -28 0 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/>', '', 0, 1)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">刀口上</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '一擲千金：揮金如土，豪奢無度。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -60 l18 -14" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(520, 210, '<g class="st-rain"><circle cx="0" cy="0" r="8" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/></g>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一擲千金</text>') }
+      ];
+    },
+    /* 顧此失彼 */
+    i1164: function () {
+      return [
+        { minDur: 7000, sub: '《東周列國志》兵家名言：「分兵四路，顧此失彼」——兵力一分散，哪邊都守不住！',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-40, -50, '<circle cx="0" cy="0" r="9" fill="#e0813f"/>', 'st-bob', 0, 1) + P(40, -50, '<circle cx="0" cy="0" r="9" fill="#7fb2e0"/>', 'st-bob', .3, 1), '', 0, 1.05) + sweat(400, 172) +
+            P(240, 250, '<circle cx="0" cy="0" r="9" fill="#a5d47c"/>', 'st-rain', 0, 1.1) + qmark(300, 190)) },
+        { minDur: 6800, sub: '園遊會一人顧兩攤：跑去補飲料，煎台燒焦了；衝回煎台，飲料攤大排長龍！',
+          html: scene(P(260, 290, '<rect x="-34" y="-40" width="68" height="40" fill="#e0a458" stroke="#c9862f" stroke-width="2.4"/><g class="st-zfloat" opacity=".8"><path d="M-8 -48 q3 -8 0 -14" stroke="#6d7585" stroke-width="2.6" fill="none"/></g>', '', 0, 1) +
+            P(430, 302, A('kid', 'wow'), 'st-dashL', 0, 1) + sweat(490, 188) +
+            P(600, 290, '<rect x="-34" y="-40" width="68" height="40" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, 1) + bang(260, 230)) },
+        { minDur: 6800, sub: '「顧此失彼」：無法兼顧——解法不是更拚命，而是找幫手、排順序、一次顧好一件！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(410, 182) +
+            P(600, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">找幫手</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '顧此失彼：兩頭難顧，捉襟見肘。',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-40, -50, '<circle cx="0" cy="0" r="9" fill="#e0813f"/>', 'st-bob', 0, 1) + P(40, -50, '<circle cx="0" cy="0" r="9" fill="#7fb2e0"/>', 'st-bob', .3, 1), '', 0, 1.08) + sweat(400, 172) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">顧此失彼</text>') }
+      ];
+    },
+    /* 隻字未提 */
+    i1165: function () {
+      return [
+        { minDur: 6800, sub: '班會上大家最關心座位怎麼換——結果老師講了整節課，這件事一個字都沒說！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(620, 188) +
+            P(430, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#8b93a3">座位…?</text>')) },
+        { minDur: 6800, sub: '「隻字未提」：連一個字都沒提到——常暗示「刻意迴避」：不想談，就當沒這回事！',
+          html: scene(P(400, 250, '<rect x="-50" y="-30" width="100" height="60" rx="4" fill="#fff" opacity=".92"/><g stroke="#c9bfa8" stroke-width="2"><line x1="-34" y1="-12" x2="34" y2="-12"/><line x1="-34" y1="0" x2="34" y2="0"/><line x1="-34" y1="12" x2="10" y2="12"/></g><circle cx="30" cy="12" r="10" fill="none" stroke="#c96a5a" stroke-width="2.4" stroke-dasharray="4 3"/>', '', 0, 1.25) + qmark(530, 205)) },
+        { minDur: 6800, sub: '重要的事被隻字未提？別悶著猜——舉手直接問清楚，資訊透明大家都安心！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -60 l14 -20" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '隻字未提：一字不提，避而不談。',
+          html: scene(P(400, 255, '<rect x="-50" y="-30" width="100" height="60" rx="4" fill="#fff" opacity=".92"/><g stroke="#c9bfa8" stroke-width="2"><line x1="-34" y1="-12" x2="34" y2="-12"/><line x1="-34" y1="0" x2="34" y2="0"/></g><circle cx="26" cy="14" r="10" fill="none" stroke="#c96a5a" stroke-width="2.4" stroke-dasharray="4 3"/>', '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">隻字未提</text>') }
+      ];
+    },
+    /* 文思泉湧 */
+    i1182: function () {
+      var SPRING = '<ellipse cx="0" cy="10" rx="34" ry="10" fill="#7fb2d4"/><g class="st-bub"><path d="M-8 4 q-3 -16 4 -26 M6 6 q4 -14 -2 -26" stroke="#a8d0e8" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="-2" cy="-28" r="4" fill="#a8d0e8"/><circle cx="8" cy="-20" r="3" fill="#a8d0e8"/></g>';
+      return [
+        { minDur: 7000, sub: '曹植讚王粲：「文若春華，思若湧泉」——文采像春天的花、才思像湧出的泉水！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 290, SPRING, '', 0, 1.3) + notes(420, 190)) },
+        { minDur: 6800, sub: '寫作文那天靈感大爆發：開頭、比喻、結尾一氣呵成——筆跟不上腦子的速度！',
+          html: scene(P(380, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><path d="M-10 -12 q10 4 20 -2 M-10 -4 q10 4 20 -2 M-10 4 q10 4 20 -2 M-10 12 q10 4 20 -2"/></g>', '', 0, .95), '', 0, 1.02) +
+            P(280, 195, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1) + bang(490, 188)) },
+        { minDur: 6800, sub: '「文思泉湧」：靈感豐沛、下筆順暢——泉水的源頭是平時的閱讀和觀察，存夠了才湧得出！',
+          html: scene(P(400, 290, SPRING, '', 0, 1.5) +
+            P(240, 302, A('kid', 'happy') + P(-40, -46, '<rect x="-13" y="-16" width="26" height="32" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, .98) + hearts(550, 220)) },
+        { minDur: 6400, sub: '文思泉湧：靈感如泉，下筆成章。',
+          html: scene(P(400, 292, SPRING, '', 0, 1.5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">文思泉湧</text>') }
+      ];
+    },
+    /* 冷嘲熱諷 */
+    i1183: function () {
+      return [
+        { minDur: 6800, sub: '小諷剛上台唱歌走了個音——台下馬上有人陰陽怪氣：「喲，這也敢上台？」',
+          html: scene(P(360, 280, '<rect x="-70" y="-14" width="140" height="14" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(360, 280, A('kid', 'sad') + P(-36, -44, QIN, '', 0, .85), '', 0, .98) + sweat(300, 200) +
+            P(580, 302, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .95, true) +
+            '<g stroke="#8fa3bf" stroke-width="2.6" stroke-linecap="round"><path d="M520 240 l-24 -6 M524 254 l-26 2"/></g>') },
+        { minDur: 6800, sub: '「冷嘲熱諷」：冷冷地嘲笑、辛辣地譏諷——這種話像小刀，傷人又不留痕！',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.02) + sweat(330, 188) +
+            P(280, 220, '<circle cx="0" cy="0" r="18" fill="#cfe8f5" stroke="#9cc4dc" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#5a8fbf">冷</text>', '', 0, 1) +
+            P(520, 220, '<circle cx="0" cy="0" r="18" fill="#ffd0b8" stroke="#e8a480" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">熱</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '與其冷嘲熱諷，不如給建設性意見——「副歌再穩一點就完美了！」這才是幫人進步！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(530, 302, A('kid', 'happy') + P(-36, -44, QIN, '', 0, .85), '', 0, .98, true) + hearts(440, 185) + notes(620, 195)) },
+        { minDur: 6400, sub: '冷嘲熱諷：尖酸刻薄，嘲笑譏諷。',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.02) +
+            '<g stroke="#8fa3bf" stroke-width="2.6" stroke-linecap="round"><path d="M330 230 l-24 -6 M470 230 l24 -6"/></g>' + sweat(400, 175) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">冷嘲熱諷</text>') }
+      ];
+    },
+    /* 各奔前程 */
+    i1185: function () {
+      var FORKROAD = '<path d="M400 340 L400 260 Q400 240 360 220 L220 140 M400 260 Q400 240 440 220 L580 140" stroke="#d9cfae" stroke-width="16" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '畢業典禮結束——一個要去南部讀書、一個留在北部學畫，好朋友走到了岔路口！',
+          html: scene(FORKROAD +
+            P(360, 302, A('kid', 'happy')) + P(440, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 190)) },
+        { minDur: 6800, sub: '「各奔前程」：各自朝自己的路前進（奔讀ㄅㄣˋ）——分開不是結束，是各自去發光！',
+          html: scene(FORKROAD +
+            P(300, 240, A('kid', 'happy'), 'st-strut', 0, .85, true) + P(500, 240, A('kid', 'happy'), 'st-strut', .2, .85) +
+            P(400, 180, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">ㄅㄣˋ</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '多年後同學會再相聚——一個成了工程師、一個開了畫室，把各自的故事說給對方聽！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(-40, -50, '<rect x="-13" y="-16" width="26" height="32" rx="2.6" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/>', '', 0, .95)) +
+            P(480, 302, A('kid', 'happy') + P(38, -50, '<rect x="-13" y="-16" width="26" height="32" rx="2.6" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', '', 0, .95), '', 0, .98, true) + hearts(410, 180) + notes(560, 195)) },
+        { minDur: 6400, sub: '各奔前程：各走各路，各自發展。',
+          html: scene(FORKROAD +
+            P(310, 245, A('kid', 'happy'), 'st-strut', 0, .8, true) + P(490, 245, A('kid', 'happy'), 'st-strut', .2, .8) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">各奔前程</text>') }
+      ];
     }
   };
 
