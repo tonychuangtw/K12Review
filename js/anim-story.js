@@ -16250,6 +16250,164 @@
             '<path d="M470 265 h70" stroke="#c96a5a" stroke-width="3.4"/><rect x="540" y="245" width="8" height="40" rx="3" fill="#c96a5a"/>' +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">淺嘗輒止</text>') }
       ];
+    },
+    /* 學以致用 */
+    i608: function () {
+      return [
+        { minDur: 6800, sub: '課堂上學了電路原理——小用回家立刻動手：幫故障的檯燈換好了開關！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -52, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-8 -8 h6 v8 h6 M4 0 h6" stroke="#8fa3bf" stroke-width="2" fill="none"/><circle cx="10" cy="-8" r="3" fill="none" stroke="#8fa3bf" stroke-width="1.6"/>', '', 0, .95)) +
+            P(560, 270, '<line x1="0" y1="30" x2="0" y2="-10" stroke="#8b93a3" stroke-width="4"/><path d="M-14 -10 h28 l-6 -18 h-16 z" fill="#3a3550"/><circle cx="0" cy="-32" r="8" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1) + bang(450, 210)) },
+        { minDur: 6800, sub: '「學以致用」：把學到的知識用在實際上——用過一次，勝過複習十次！',
+          html: scene(P(300, 240, '<rect x="-30" y="-20" width="60" height="40" rx="4" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#fff">學</text>') +
+            '<path d="M340 240 h100" stroke="#548a40" stroke-width="4"/><path d="M440 240 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(500, 240, '<rect x="-30" y="-20" width="60" height="40" rx="4" fill="#a5d47c" stroke="#7fa858" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#3d5232">用</text>') + hearts(400, 185)) },
+        { minDur: 6800, sub: '學英文就開口說、學統計就分析自己的零用錢——知識用出來，才真正是你的！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(540, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 6 l5 -10 l5 6 l6 -12" stroke="#548a40" stroke-width="2.2" fill="none"/>', '', 0, 1), '', 0, .97, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '學以致用：所學所知，付諸實用。',
+          html: scene(P(310, 245, '<rect x="-28" y="-19" width="56" height="38" rx="4" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#fff">學</text>') +
+            '<path d="M348 245 h96" stroke="#548a40" stroke-width="4"/><path d="M444 245 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(500, 245, '<rect x="-28" y="-19" width="56" height="38" rx="4" fill="#a5d47c" stroke="#7fa858" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#3d5232">用</text>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">學以致用</text>') }
+      ];
+    },
+    /* 青出於藍 */
+    i609: function () {
+      return [
+        { minDur: 7000, sub: '《荀子．勸學》：「青，取之於藍，而青於藍」——靛青染料從藍草提煉，顏色卻比藍草更深！',
+          html: scene(P(300, 290, '<g stroke="#7a9a6a" stroke-width="4" stroke-linecap="round"><path d="M-20 12 q-4 -20 4 -30 M-6 14 q0 -24 8 -32 M10 12 q4 -18 -2 -28"/></g>', '', 0, 1.2) +
+            '<path d="M350 265 h80" stroke="#548a40" stroke-width="4"/><path d="M430 265 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(520, 265, '<path d="M-18 -22 h36 l-5 44 q-13 8 -26 0 z" fill="#2c4a8a" stroke="#1e3566" stroke-width="2.4"/>', '', 0, 1.2) +
+            '<g class="st-tw"><path d="M570 225 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#7fb2e0"/></g>') },
+        { minDur: 6800, sub: '徒弟跟師傅學木工——十年後，徒弟的作品拿下大獎，連師傅都自歎不如！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1) +
+            P(520, 302, A('kid', 'happy') + P(0, -74, '<path d="M-14 0 h28 l-4 10 h-20 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, 1.02, true) + bang(430, 180) + hearts(250, 192)) },
+        { minDur: 6800, sub: '「青出於藍」：學生勝過老師——最棒的老師，就是盼著被學生超越的那種！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(530, 302, A('kid', 'happy'), '', 0, 1.05, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '青出於藍：後學勝前輩，弟子勝老師。',
+          html: scene(P(300, 292, '<g stroke="#7a9a6a" stroke-width="4" stroke-linecap="round"><path d="M-20 12 q-4 -20 4 -30 M-6 14 q0 -24 8 -32"/></g>', '', 0, 1.2) +
+            '<path d="M350 268 h76" stroke="#548a40" stroke-width="4"/><path d="M426 268 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(510, 268, '<path d="M-18 -22 h36 l-5 44 q-13 8 -26 0 z" fill="#2c4a8a" stroke="#1e3566" stroke-width="2.4"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">青出於藍</text>') }
+      ];
+    },
+    /* 後生可畏 */
+    i610: function () {
+      return [
+        { minDur: 7000, sub: '孔子說：「後生可畏，焉知來者之不如今也？」——年輕人可敬可畏，誰說未來不如現在！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + bang(620, 190) + hearts(430, 190)) },
+        { minDur: 6800, sub: '國際賽場上，十五歲小將擊敗世界冠軍奪金——全場起立鼓掌：後生可畏！',
+          html: scene(P(400, 280, '<rect x="-60" y="0" width="120" height="24" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><text x="0" y="17" text-anchor="middle" font-size="12" fill="#6d4426">1</text>') +
+            P(400, 280, A('kid', 'happy') + P(0, -74, '<path d="M-14 0 h28 l-4 10 h-20 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, .95) +
+            P(220, 302, A('kid', 'wow'), 'st-cheer', .2, .9) + P(590, 302, A('kid', 'wow'), 'st-cheer', .4, .9, true) + bang(400, 170)) },
+        { minDur: 6800, sub: '「後生可畏」：年輕人潛力可觀——年輕就是本錢：學得快、敢嘗試、輸得起！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.08) +
+            P(280, 200, '<path d="M0 -18 l6 11 12 2 -9 9 2 12 -11 -6 -11 6 2 -12 -9 -9 12 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1.1) + hearts(510, 190)) },
+        { minDur: 6400, sub: '後生可畏：少年潛力，不可小覷。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -74, '<path d="M-14 0 h28 l-4 10 h-20 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, 1.05) + bang(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">後生可畏</text>') }
+      ];
+    },
+    /* 長江後浪推前浪 */
+    i611: function () {
+      var WAVES2 = '<g class="st-wavemove"><path d="M-40 270 q40 -24 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#7fa8d4" stroke-width="11" stroke-linecap="round"/></g><g class="st-wavemove" style="animation-delay:.5s"><path d="M-70 296 q40 -16 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#9cc0e0" stroke-width="8" stroke-linecap="round" opacity=".85"/></g>';
+      return [
+        { minDur: 7000, sub: '宋人詩句：「長江後浪推前浪，浮事新人換舊人」——後浪一波推一波，滾滾向前！',
+          html: scene('<rect y="252" width="800" height="88" fill="#4a6d94"/>' + WAVES2, 'night') },
+        { minDur: 6800, sub: '科技界最明顯：昨天的新機今天就過時——新人新技術一波接一波湧上來！',
+          html: scene(P(260, 260, '<rect x="-20" y="-32" width="40" height="60" rx="5" fill="#8b93a3" opacity=".6"/>', '', 0, 1) +
+            P(400, 255, '<rect x="-20" y="-34" width="40" height="64" rx="5" fill="#6d7585"/>', '', 0, 1.05) +
+            P(540, 250, '<rect x="-20" y="-36" width="40" height="68" rx="5" fill="#3a3550"/><rect x="-15" y="-30" width="30" height="52" rx="3" fill="#7fb2e0"/>', '', 0, 1.1) +
+            '<path d="M300 250 h60 M440 245 h60" stroke="#548a40" stroke-width="3.4"/><path d="M360 250 l-10 -7 v14 z M500 245 l-10 -7 v14 z" fill="#548a40"/>') },
+        { minDur: 6800, sub: '被後浪追不可怕——前浪可以當浪頭：把經驗傳下去，和後浪一起把海推得更遠！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(510, 302, A('kid', 'happy'), 'st-cheer', 0, 1, true) + hearts(420, 185)) },
+        { minDur: 6400, sub: '長江後浪推前浪：新人輩出，代代相推。',
+          html: scene('<rect y="256" width="800" height="84" fill="#4a6d94"/>' + WAVES2 +
+            '<text x="400" y="110" text-anchor="middle" font-size="44" font-weight="bold" fill="#eef4ff">長江後浪推前浪</text>', 'night') }
+      ];
+    },
+    /* 薪火相傳 */
+    i612: function () {
+      var TORCH = '<rect x="-4" y="0" width="8" height="30" rx="3" fill="#8a5a33"/><g class="st-flick"><path d="M0 -2 Q-10 -18 0 -34 Q4 -22 10 -28 Q14 -10 6 -2 Z" fill="#ff9d4d"/><path d="M1 -4 Q-4 -12 1 -20 Q4 -14 7 -17 Q9 -8 5 -4 Z" fill="#ffd166"/></g>';
+      return [
+        { minDur: 7000, sub: '《莊子》說：柴薪總會燒完，火種卻能傳給下一根柴——「火傳也，不知其盡也」！',
+          html: scene(P(300, 290, TORCH, '', 0, 1.2) +
+            P(500, 290, '<rect x="-4" y="0" width="8" height="30" rx="3" fill="#8a5a33"/>', '', 0, 1.2) +
+            '<path d="M330 250 q60 -26 130 -4" stroke="#ff9d4d" stroke-width="3" fill="none" stroke-dasharray="7 6"/>', 'night') },
+        { minDur: 6800, sub: '老藝師手把手教年輕學徒刻布袋戲偶——手藝從上一代的手，傳到下一代的手！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(34, -40, '<line x1="0" y1="8" x2="8" y2="-12" stroke="#8b93a3" stroke-width="3.4" stroke-linecap="round"/>', '', 0, 1)) +
+            P(500, 302, A('kid', 'happy') + P(-38, -44, '<rect x="-11" y="-15" width="22" height="30" rx="6" fill="#c9b26a" stroke="#a8905a" stroke-width="2"/><circle cx="0" cy="-22" r="8" fill="#c9b26a" stroke="#a8905a" stroke-width="2"/>', '', 0, 1), '', 0, .97, true) + hearts(410, 185)) },
+        { minDur: 6800, sub: '「薪火相傳」：學問技藝代代相傳——每個學會的人，都是新的火種！',
+          html: scene(P(260, 292, TORCH, '', 0, 1) + P(400, 292, TORCH, '', 0, 1) + P(540, 292, TORCH, '', 0, 1) + hearts(400, 190), 'night') },
+        { minDur: 6400, sub: '薪火相傳：代代傳承，生生不息。',
+          html: scene(P(320, 292, TORCH, '', 0, 1.1) + P(490, 292, TORCH, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">薪火相傳</text>', 'night') }
+      ];
+    },
+    /* 一脈相承 */
+    i613: function () {
+      return [
+        { minDur: 6800, sub: '美術館裡三幅畫並排：師祖、師父、徒弟——構圖用色一看就是同一路傳下來的！',
+          html: scene(P(250, 265, '<rect x="-28" y="-36" width="56" height="72" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-16 14 q8 -20 16 -8 q8 -16 16 -4" stroke="#5a7a4a" stroke-width="2.6" fill="none"/><circle cx="8" cy="-18" r="7" fill="#ffb066"/>', '', 0, .95) +
+            P(400, 265, '<rect x="-28" y="-36" width="56" height="72" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-16 14 q8 -22 16 -9 q8 -15 16 -5" stroke="#5a7a4a" stroke-width="2.6" fill="none"/><circle cx="6" cy="-20" r="7" fill="#ffb066"/>', '', 0, .98) +
+            P(550, 265, '<rect x="-28" y="-36" width="56" height="72" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="3"/><path d="M-16 14 q8 -24 16 -10 q8 -14 16 -6" stroke="#5a7a4a" stroke-width="2.6" fill="none"/><circle cx="4" cy="-22" r="7" fill="#ffb066"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「脈」是血脈——「一脈相承」：思想、技法同出一源，一代一代接續下來！',
+          html: scene(P(260, 220, '<circle cx="0" cy="0" r="18" fill="#c96a5a" opacity=".9"/>', '', 0, 1) +
+            '<path d="M285 232 q40 24 82 34" stroke="#c96a5a" stroke-width="4" fill="none"/>' +
+            P(400, 275, '<circle cx="0" cy="0" r="18" fill="#c96a5a" opacity=".9"/>', '', 0, 1) +
+            '<path d="M425 285 q40 18 82 22" stroke="#c96a5a" stroke-width="4" fill="none"/>' +
+            P(540, 312, '<circle cx="0" cy="0" r="18" fill="#c96a5a" opacity=".9"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '傳承不是複製——核心精神一脈相承，表現手法各自創新，傳統才活得下去！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1) +
+            P(500, 302, A('kid', 'happy') + P(38, -56, '<path d="M0 -14 l4 9 10 1 -7 7 2 10 -9 -5 -9 5 2 -10 -7 -7 10 -1 z" fill="#ffd97a"/>', '', 0, 1.1), '', 0, .98, true) + hearts(410, 185)) },
+        { minDur: 6400, sub: '一脈相承：同源相繼，代代相傳。',
+          html: scene(P(280, 230, '<circle cx="0" cy="0" r="16" fill="#c96a5a" opacity=".9"/>', '', 0, 1) +
+            '<path d="M300 240 q40 20 80 28" stroke="#c96a5a" stroke-width="4" fill="none"/>' +
+            P(410, 280, '<circle cx="0" cy="0" r="16" fill="#c96a5a" opacity=".9"/>', '', 0, 1) +
+            '<path d="M432 288 q40 14 78 16" stroke="#c96a5a" stroke-width="4" fill="none"/>' +
+            P(540, 310, '<circle cx="0" cy="0" r="16" fill="#c96a5a" opacity=".9"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一脈相承</text>') }
+      ];
+    },
+    /* 青黃不接 */
+    i614: function () {
+      return [
+        { minDur: 7000, sub: '農家最難熬的時節：倉裡的黃穀吃完了，田裡的青苗還沒成熟——兩頭接不上！',
+          html: scene(P(280, 290, '<path d="M-26 18 L-26 -14 L0 -28 L26 -14 L26 18 Z" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#c96a5a">空</text>', '', 0, 1.05) +
+            P(540, 295, '<g stroke="#a5d47c" stroke-width="3.4" stroke-linecap="round"><path d="M-24 10 q-2 -14 4 -20 M-8 12 q0 -16 6 -22 M10 10 q2 -12 -2 -18"/></g>', '', 0, 1.2) + sweat(400, 220)) },
+        { minDur: 6800, sub: '「青黃不接」：新舊接替不上、出現斷層——球隊老將退役、新秀還沒成熟，戰績最險！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(34, -30, '<path d="M0 -26 v40 M-10 -26 q10 8 20 0" stroke="#8a6a44" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1), '', 0, .98) +
+            '<path d="M380 260 h80" stroke="#c96a5a" stroke-width="3" stroke-dasharray="6 5"/>' +
+            P(540, 302, A('kid', 'wow'), '', 0, .8, true) + qmark(600, 210) + sweat(420, 220)) },
+        { minDur: 6800, sub: '解方是提早培養：老將帶新秀、師傅收學徒——趁黃穀還在，就把青苗種下去！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(500, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(410, 185) +
+            P(620, 292, '<path d="M0 8 q-2 -10 4 -14 q4 -4 3 -9" stroke="#7fa858" stroke-width="2.6" fill="none"/>', '', 0, 1.2)) },
+        { minDur: 6400, sub: '青黃不接：新舊斷層，接替不上。',
+          html: scene(P(290, 292, '<path d="M-24 16 L-24 -12 L0 -26 L24 -12 L24 16 Z" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">空</text>', '', 0, 1.05) +
+            P(540, 297, '<g stroke="#a5d47c" stroke-width="3.4" stroke-linecap="round"><path d="M-20 10 q-2 -12 4 -18 M-4 12 q0 -14 6 -20"/></g>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">青黃不接</text>') }
+      ];
+    },
+    /* 後繼無人 */
+    i615: function () {
+      return [
+        { minDur: 6800, sub: '打鐵街最後一間舖子：老師傅七十歲了，敲了一輩子的鐵——身後卻沒有一個學徒……',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1), '', 0, 1.02) +
+            P(560, 290, '<path d="M-40 0 h80 v-12 h-24 l10 -14 h-52 l10 14 h-24 z" fill="#6d7585" stroke="#525a68" stroke-width="2.4"/>', '', 0, 1.1) + sweat(290, 190), 'night') },
+        { minDur: 6800, sub: '「後繼無人」：技藝事業沒人接班——舖子一關，百年手藝就跟著熄燈……',
+          html: scene(P(400, 290, '<rect x="-56" y="-56" width="112" height="56" fill="#8a8274" stroke="#6d675c" stroke-width="2.6"/><rect x="-40" y="-70" width="80" height="18" rx="3" fill="#6d675c"/><path d="M-20 -28 h40 M-20 -14 h40" stroke="#6d675c" stroke-width="4"/>', '', 0, 1.05) + qmark(530, 210) + sweat(270, 220), 'night') },
+        { minDur: 6800, sub: '轉機來了：文化課的學生來拍紀錄片，拍著拍著愛上打鐵——「師傅，收我當學徒！」',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1) +
+            P(520, 302, A('kid', 'happy') + '<path d="M28 -60 l14 -20" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', 'st-cheer', 0, 1, true) + hearts(430, 185) + bang(600, 195)) },
+        { minDur: 6400, sub: '後繼無人：無人接棒，技藝將絕。',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.02) +
+            '<path d="M440 260 h80" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/>' + qmark(560, 240) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">後繼無人</text>', 'night') }
+      ];
     }
   };
 
