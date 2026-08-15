@@ -5550,6 +5550,123 @@
           html: scene(P(400, 288, PATCHWORK, '', 0, 1.2) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">東拼西湊</text>') }
       ];
+    },
+    /* 風雨無阻 */
+    i821: function () {
+      var RAINFX2 = '<g stroke="#8fc6ff" stroke-width="3.4" stroke-linecap="round">' +
+        '<line class="st-rain" x1="140" y1="30" x2="134" y2="52"/><line class="st-rain" style="animation-delay:.4s" x1="300" y1="16" x2="294" y2="38"/>' +
+        '<line class="st-rain" style="animation-delay:.8s" x1="450" y1="30" x2="444" y2="52"/><line class="st-rain" style="animation-delay:.2s" x1="580" y1="14" x2="574" y2="36"/></g>';
+      var UMB = '<path d="M0 -50 q-30 0 -34 22 q8 -8 17 0 q8 -8 17 0 q8 -8 17 0 q8 -8 17 0 q-4 -22 -34 -22 z" fill="#e85a4f" stroke="#c94a3f" stroke-width="2.4"/>' +
+        '<line x1="0" y1="-28" x2="0" y2="8" stroke="#8b93a3" stroke-width="3.4"/>';
+      return [
+        { minDur: 6800, sub: '每週六早上的晨跑約定——就算下大雨，小威也撐著傘準時出現在公園門口！',
+          html: scene(RAINFX2 + P(360, 302, A('kid', 'happy') + P(30, -70, UMB, '', 0, 1.05)) + hearts(460, 200)) },
+        { minDur: 6800, sub: '郵差叔叔也是風雨無阻：颳風下雨，信件照樣一封封送到家！',
+          html: scene(RAINFX2 +
+            P(340, 302, A('kid', 'happy') + P(-38, -30, '<rect x="-14" y="-16" width="28" height="20" rx="4" fill="#5c82ba" stroke="#46689a" stroke-width="2.4"/>', '', 0, 1), 'st-strut') + sweat(290, 195)) },
+        { minDur: 6600, sub: '「風雨無阻」：颳風下雨都擋不住，照常進行——說到做到的毅力！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(450, 185) + bang(280, 195)) },
+        { minDur: 6400, sub: '風雨無阻：颳風下雨都不能阻擋，照常進行。',
+          html: scene(RAINFX2 + P(400, 302, A('kid', 'happy') + P(30, -70, UMB, '', 0, 1.1)) +
+            '<text x="400" y="90" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">風雨無阻</text>') }
+      ];
+    },
+    /* 一馬當先 */
+    i1006: function () {
+      return [
+        { minDur: 6800, sub: '衝鋒號一響，將軍策馬衝在隊伍最前面——一馬當先，帶著大家往前衝！',
+          html: scene(P(560, 302, A('horse') + P(4, -34, A('kid', 'angry'), '', 0, .72), 'st-dashL', 0, 1.1) +
+            P(300, 302, A('horse'), 'st-strut', .2, .9) + P(160, 302, A('horse'), 'st-strut', .4, .85) + bang(680, 220)) },
+        { minDur: 6800, sub: '打掃時間，班長一馬當先拿起掃把——同學們也跟著捲起袖子動起來！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(20, -34, '<line x1="0" y1="0" x2="20" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 0 l-10 12 M0 0 l-2 14 M0 0 l6 13" stroke="#c9a06c" stroke-width="3.4" stroke-linecap="round"/>', 'st-hoe')) +
+            P(480, 302, A('kid', 'happy'), 'st-inR', .3, .93) + P(620, 302, A('kid', 'happy'), 'st-inR', .5, .9) + hearts(400, 180)) },
+        { minDur: 6600, sub: '「一馬當先」：搶在最前面，帶頭去做——領頭的人最需要勇氣！',
+          html: scene(P(430, 302, A('horse'), 'st-strut', 0, 1.15) + hearts(530, 195)) },
+        { minDur: 6400, sub: '一馬當先：策馬走在最前面，領先帶頭。',
+          html: scene(P(500, 302, A('horse'), 'st-dashL', 0, 1.15) + P(220, 302, A('horse'), 'st-strut', .3, .85) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一馬當先</text>') }
+      ];
+    },
+    /* 一五一十 */
+    i1041: function () {
+      var COIN = '<circle cx="0" cy="0" r="9" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/>';
+      return [
+        { minDur: 6800, sub: '數銅板的時候，五個一數：五、十、十五、二十——一筆一筆數得清清楚楚！',
+          html: scene(P(300, 290, COIN) + P(340, 288, COIN) + P(380, 292, COIN) + P(420, 287, COIN) + P(460, 290, COIN) +
+            P(200, 302, A('kid', 'happy')) +
+            '<text x="540" y="270" font-size="26" font-weight="bold" fill="#4a3200">5·10·15…</text>') },
+        { minDur: 6800, sub: '打破花瓶後，小威把經過一五一十告訴媽媽，一點也不隱瞞——誠實的孩子！',
+          html: scene(P(300, 302, A('kid', 'sad')) +
+            P(500, 302, A('kid', 'happy'), '', 0, 1.05, true) + hearts(410, 180) +
+            P(200, 316, '<path d="M-10 0 l6 -14 l6 6 l5 -9 l7 17 z" fill="#8fd0c0" stroke="#5aa896" stroke-width="2"/>') ) },
+        { minDur: 6600, sub: '「一五一十」：像數數一樣毫無遺漏——原原本本、清清楚楚地說出來！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .96, true) + hearts(410, 178)) },
+        { minDur: 6400, sub: '一五一十：原原本本，清楚無遺漏。',
+          html: scene(P(300, 288, COIN) + P(345, 286, COIN) + P(390, 290, COIN) + P(435, 287, COIN) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一五一十</text>') }
+      ];
+    },
+    /* 自食其力 */
+    i1053: function () {
+      var LEMONADE = '<rect x="-46" y="-30" width="92" height="30" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+        '<rect x="-32" y="-52" width="20" height="22" rx="3" fill="#ffe066" stroke="#e8b84a" stroke-width="2"/>' +
+        '<text x="14" y="-36" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a3200">果汁</text>';
+      var COIN = '<circle cx="0" cy="0" r="9" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/>';
+      return [
+        { minDur: 6800, sub: '暑假裡，小柔擺了個小果汁攤：自己榨汁、自己叫賣，賺自己的零用錢！',
+          html: scene(P(430, 302, LEMONADE) + P(300, 302, A('kid', 'happy')) +
+            P(600, 302, A('kid', 'happy'), 'st-inR', 0, .92) + hearts(500, 195)) },
+        { minDur: 6800, sub: '長大以後也一樣：靠自己的雙手工作、養活自己，不依賴別人——多有骨氣！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(16, -30, HOE, 'st-hoe')) + sweat(290, 195) +
+            P(540, 288, COIN, '', 0, 1) + P(580, 285, COIN, '', .2, 1) + hearts(470, 200)) },
+        { minDur: 6600, sub: '「自食其力」：靠自己的勞力養活自己——最踏實、最光榮！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 188)) },
+        { minDur: 6400, sub: '自食其力：靠自己的勞力養活自己。',
+          html: scene(P(360, 302, A('kid', 'happy') + P(16, -30, HOE)) + P(540, 288, COIN, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">自食其力</text>') }
+      ];
+    },
+    /* 傾盆大雨 */
+    i1065: function () {
+      var HEAVYRAIN = '<g stroke="#8fc6ff" stroke-width="4" stroke-linecap="round">' +
+        '<line class="st-rain" x1="120" y1="20" x2="110" y2="56"/><line class="st-rain" style="animation-delay:.2s" x1="220" y1="10" x2="210" y2="46"/>' +
+        '<line class="st-rain" style="animation-delay:.4s" x1="320" y1="24" x2="310" y2="60"/><line class="st-rain" style="animation-delay:.1s" x1="430" y1="8" x2="420" y2="44"/>' +
+        '<line class="st-rain" style="animation-delay:.5s" x1="530" y1="20" x2="520" y2="56"/><line class="st-rain" style="animation-delay:.3s" x1="640" y1="12" x2="630" y2="48"/>' +
+        '<line class="st-rain" style="animation-delay:.6s" x1="180" y1="70" x2="170" y2="106"/><line class="st-rain" style="animation-delay:.7s" x1="480" y1="66" x2="470" y2="102"/></g>' +
+        '<g class="st-cloud"><ellipse cx="260" cy="46" rx="70" ry="22" fill="#8b93a3"/><ellipse cx="520" cy="36" rx="80" ry="24" fill="#a3a9b8"/></g>';
+      var BASIN = '<path d="M-24 -8 L24 -8 L18 10 L-18 10 Z" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2.6"/>';
+      return [
+        { minDur: 6600, sub: '轟隆一聲雷響——嘩啦啦！大雨像整盆水從天上倒下來，眼前白茫茫一片！',
+          html: scene(HEAVYRAIN + P(400, 302, A('kid', 'wow')) + sweat(340, 195) + bang(560, 140), 'night') },
+        { minDur: 6600, sub: '「傾盆」就是把盆子整個倒過來——形容雨勢又大又急！',
+          html: scene(P(430, 200, '<g transform="rotate(160)">' + BASIN + '</g>', '', 0, 1.4) +
+            '<g stroke="#8fc6ff" stroke-width="4" stroke-linecap="round"><line class="st-rain" x1="410" y1="230" x2="404" y2="266"/><line class="st-rain" style="animation-delay:.3s" x1="450" y1="226" x2="444" y2="262"/></g>' +
+            P(240, 302, A('kid', 'happy'))) },
+        { minDur: 6600, sub: '遇上傾盆大雨，記得快找地方躲雨，別淋成落湯雞呀！',
+          html: scene(HEAVYRAIN +
+            P(400, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL') + sweat(340, 200), 'night') },
+        { minDur: 6400, sub: '傾盆大雨：雨大得像整盆水倒下來。',
+          html: scene(HEAVYRAIN +
+            '<text x="400" y="280" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">傾盆大雨</text>', 'night') }
+      ];
+    },
+    /* 湖光山色 */
+    i1077: function () {
+      var LAKE2 = '<rect y="252" width="800" height="88" fill="#7fb2e0"/>' +
+        '<g stroke="#a8d4ee" stroke-width="4" stroke-linecap="round" opacity=".8"><line x1="140" y1="280" x2="260" y2="280"/><line x1="400" y1="300" x2="540" y2="300"/><line x1="580" y1="272" x2="700" y2="272"/></g>';
+      var MTS = '<path d="M-20 252 L150 100 L320 252 Z" fill="#8fb0a0"/><path d="M240 252 L420 130 L600 252 Z" fill="#a5c2b2" opacity=".9"/><path d="M520 252 L660 150 L800 252 Z" fill="#8fb0a0" opacity=".85"/>';
+      return [
+        { minDur: 6600, sub: '走到湖邊一看：湖水閃著金色的波光，遠處的青山倒映在水裡——美得像一幅畫！',
+          html: scene(MTS + LAKE2 + P(150, 296, A('kid', 'wow'), '', 0, .92) + hearts(230, 210)) },
+        { minDur: 6600, sub: '「湖光」是湖水的波光，「山色」是山的景色——合起來就是最美的山水風景！',
+          html: scene(MTS + LAKE2 + P(400, 296, '<path d="M-40 0 L40 0 L30 14 L-30 14 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/>' +
+              P(0, 0, A('kid', 'happy'), '', 0, .78))) },
+        { minDur: 6600, sub: '日月潭、大湖公園……台灣也有許多湖光山色的好地方，假日去走走吧！',
+          html: scene(MTS + LAKE2 + P(200, 296, A('kid', 'happy')) + P(330, 296, A('kid', 'happy'), '', .2, .93) + hearts(270, 210)) },
+        { minDur: 6400, sub: '湖光山色：湖水波光與山景，山水風景優美。',
+          html: scene(MTS + LAKE2 +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">湖光山色</text>') }
+      ];
     }
   };
 
