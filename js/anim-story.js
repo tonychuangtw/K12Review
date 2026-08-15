@@ -2504,6 +2504,122 @@
           html: scene(SEA3 + mudOx(360, 280, 1.05, false) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">泥牛入海</text>') }
       ];
+    },
+    /* 琳瑯滿目 */
+    i1090: function () {
+      function gem(x, y, color, dly) {
+        return P(x, y, '<path class="st-tw"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + ' d="M-10 -4 L0 -14 L10 -4 L0 12 Z" fill="' + color + '" stroke="#fff" stroke-width="1.6"/>');
+      }
+      var SHELF = '<g stroke="#a8734a" stroke-width="5"><line x1="-110" y1="0" x2="-110" y2="-110"/><line x1="110" y1="0" x2="110" y2="-110"/><line x1="-110" y1="-36" x2="110" y2="-36"/><line x1="-110" y1="-74" x2="110" y2="-74"/><line x1="-110" y1="-110" x2="110" y2="-110"/></g>';
+      return [
+        { minDur: 6800, sub: '晉朝有人到王家作客，只見王家子弟個個俊美出眾、談吐不凡，看得他目不轉睛。',
+          html: scene(P(430, 302, A('kid', 'happy'), '', 0, .95) + P(560, 302, A('kid', 'happy'), '', .2, .9) +
+            P(670, 302, A('kid', 'happy'), '', .4, .88) +
+            P(220, 302, A('kid', 'wow')) + hearts(310, 180)) },
+        { minDur: 6800, sub: '回家後他讚嘆：「今天一路看過去，滿眼都是美玉珠寶呀！」',
+          html: scene(gem(340, 200, '#8fd0c0', 0) + gem(420, 170, '#f7a8c4', .3) + gem(500, 210, '#a5c8ff', .6) +
+            gem(580, 180, '#ffd97a', .2) + gem(260, 180, '#c9a8e0', .5) +
+            P(180, 302, A('kid', 'happy')) + hearts(240, 210)) },
+        { minDur: 6800, sub: '「琳瑯滿目」從此形容眼前盡是美好的東西——像文具店的貨架琳瑯滿目，看得目不暇給！',
+          html: scene(P(480, 302, SHELF +
+              gem(-70, -92, '#f7a8c4', 0) + gem(0, -94, '#8fd0c0', .3) + gem(70, -90, '#ffd97a', .5) +
+              gem(-70, -54, '#a5c8ff', .2) + gem(0, -56, '#c9a8e0', .4) + gem(70, -52, '#8fd0c0', .6) +
+              gem(-70, -16, '#ffd97a', .1) + gem(0, -18, '#f7a8c4', .35) + gem(70, -14, '#a5c8ff', .55)) +
+            P(200, 302, A('kid', 'wow')) + hearts(280, 190)) },
+        { minDur: 6400, sub: '琳瑯滿目：眼前盡是美好的東西，多得看不完。',
+          html: scene(gem(260, 230, '#8fd0c0', 0) + gem(360, 250, '#f7a8c4', .3) + gem(460, 225, '#ffd97a', .5) + gem(560, 250, '#a5c8ff', .2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">琳瑯滿目</text>') }
+      ];
+    },
+    /* 神出鬼沒 */
+    i1119: function () {
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 7000, sub: '《淮南子》說：善於用兵的人，行動像神一樣突然出現、像鬼一樣悄悄消失，讓敵人完全摸不著頭腦。',
+          html: scene(P(300, 302, '<g opacity=".55">' + A('kid', 'angry') + P(26, -50, SPEAR3) + '</g>', 'st-inL') +
+            P(560, 302, A('kid', 'wow'), '', 0, .9) + qmark(610, 185), 'night') },
+        { minDur: 6800, sub: '敵人往東邊防守，他從西邊冒出來；敵人急忙回頭堵，他又消失得無影無蹤！',
+          html: scene(P(160, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-inL') + bang(240, 200) +
+            P(520, 302, A('kid', 'wow'), '', 0, .9, true) + P(650, 302, A('kid', 'wow'), '', .3, .85) +
+            sweat(560, 195) + qmark(690, 185), 'night') },
+        { minDur: 6800, sub: '「神出鬼沒」形容行動變化迅速、難以捉摸——就像巷口那隻貓，想找牠時，永遠不知道牠在哪裡。',
+          html: scene(P(540, 302, A('fox'), '', 0, .9) +
+            P(260, 302, A('kid', 'wow')) + qmark(320, 180) + qmark(210, 190)) },
+        { minDur: 6400, sub: '神出鬼沒：出沒無常，行動迅速、難以捉摸。',
+          html: scene(P(300, 302, '<g opacity=".5">' + A('kid', 'happy') + '</g>') + P(560, 302, A('kid', 'happy'), '', 0, .95) + qmark(430, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">神出鬼沒</text>', 'night') }
+      ];
+    },
+    /* 丟盔棄甲 */
+    i1104: function () {
+      var HELMET = '<path d="M-16 0 a16 14 0 0 1 32 0 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2.6"/><circle cx="0" cy="-16" r="4" fill="#c96a5a"/>';
+      var ARMOR = '<path d="M-16 0 l4 -30 h24 l4 30 q-8 6 -16 6 q-8 0 -16 -6 z" fill="#8a7a5a" stroke="#6d6044" stroke-width="2.4"/><path d="M-8 -12 h16 M-9 -22 h18" stroke="#6d6044" stroke-width="2"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 7000, sub: '戰場上一交鋒，敗下陣來的士兵頭盔一丟、鎧甲一扔，拖著兵器沒命地逃！',
+          html: scene(P(300, 316, HELMET) + P(400, 314, ARMOR, '', 0, .9) +
+            P(520, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .9) +
+            P(660, 302, '<g class="st-fleeR" style="animation-delay:.2s">' + A('kid', 'wow') + '</g>', 'st-dashL', .2, .85) +
+            bang(180, 220) + sweat(560, 200)) },
+        { minDur: 7200, sub: '孟子講「五十步笑百步」時，就描寫過這種「棄甲曳兵而走」的狼狽相——逃五十步的，還好意思笑逃一百步的呢。',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            P(620, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .85) +
+            P(300, 316, ARMOR, '', 0, .8) + qmark(450, 185) + sweat(660, 195)) },
+        { minDur: 6600, sub: '「丟盔棄甲」就是打敗仗逃跑時，那副連裝備都不要了的狼狽樣子。',
+          html: scene(P(280, 316, HELMET, '', 0, 1.2) + P(400, 314, ARMOR, '', 0, 1.1) + P(510, 316, SPEAR3, '', 0, .9) +
+            sweat(400, 240)) },
+        { minDur: 6400, sub: '丟盔棄甲：形容打敗仗逃跑的狼狽相。',
+          html: scene(P(300, 316, HELMET, '', 0, 1.3) + P(450, 314, ARMOR, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">丟盔棄甲</text>') }
+      ];
+    },
+    /* 拭目以待 */
+    i1126: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var BIGEYE = '<path d="M-36 0 Q0 -30 36 0 Q0 30 -36 0 Z" fill="#fff" stroke="#4a3200" stroke-width="3"/>' +
+        '<circle cx="0" cy="0" r="11" fill="#6b4a32"/><circle cx="4" cy="-4" r="3.6" fill="#fff"/>' +
+        '<g class="st-rays" style="transform-origin:0px 0px"><g stroke="#ffd97a" stroke-width="3" stroke-linecap="round"><line x1="-46" y1="-14" x2="-40" y2="-11"/><line x1="46" y1="-14" x2="40" y2="-11"/><line x1="0" y1="-36" x2="0" y2="-30"/></g></g>';
+      var TROPHY = '<path d="M-14 -34 h28 v10 q0 14 -14 16 q-14 -2 -14 -16 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/>' +
+        '<path d="M-14 -30 q-12 0 -10 12 q2 8 10 6 M14 -30 q12 0 10 12 q-2 8 -10 6" stroke="#e8b84a" stroke-width="2.6" fill="none"/>' +
+        '<rect x="-4" y="-8" width="8" height="8" fill="#c98f2a"/><rect x="-12" y="0" width="24" height="6" rx="2.4" fill="#c98f2a"/>';
+      return [
+        { minDur: 7000, sub: '漢朝大臣張敞上書勸諫時說：天下的百姓，都擦亮了眼睛，等著看陛下英明的決定！',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(580, 302, A('kid', 'happy') + CROWN, '', 0, 1, true) +
+            P(430, 190, BIGEYE, '', 0, .9)) },
+        { minDur: 6400, sub: '把眼睛擦得亮亮的、專心等著看結果——這就是「拭目以待」。',
+          html: scene(P(400, 210, BIGEYE, '', 0, 1.3) +
+            P(200, 302, A('kid', 'happy') + '<circle cx="-24" cy="-54" r="8" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>')) },
+        { minDur: 6800, sub: '比賽就要開始了！冠軍會是誰呢？大家都拭目以待。',
+          html: scene(P(430, 290, TROPHY, '', 0, 1.2) +
+            P(220, 302, A('kid', 'happy'), '', 0, .9) + P(600, 302, A('kid', 'happy'), '', .2, .9, true) +
+            qmark(430, 200) + hearts(300, 190)) },
+        { minDur: 6400, sub: '拭目以待：擦亮眼睛等著看，殷切期待結果。',
+          html: scene(P(400, 230, BIGEYE, '', 0, 1.4) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">拭目以待</text>') }
+      ];
+    },
+    /* 以德報怨 */
+    i1130: function () {
+      var GIFT = '<rect x="-14" y="-24" width="28" height="24" rx="4" fill="#e88a9a" stroke="#c96a7a" stroke-width="2.4"/>' +
+        '<line x1="0" y1="-24" x2="0" y2="0" stroke="#fff" stroke-width="3.4"/><line x1="-14" y1="-12" x2="14" y2="-12" stroke="#fff" stroke-width="3.4"/>' +
+        '<path d="M-6 -24 q-8 -10 0 -12 q5 -1 6 6 q1 -7 6 -6 q8 2 0 12 z" fill="#c96a7a"/>';
+      return [
+        { minDur: 6800, sub: '有學生問孔子：「用恩德去回報仇怨，怎麼樣？」',
+          html: scene(P(280, 302, A('kid', 'happy')) + qmark(340, 180) +
+            P(540, 302, A('kid', 'happy') +
+              '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05, true)) },
+        { minDur: 7200, sub: '孔子反問：「那要用什麼回報恩德呢？應該用正直對待仇怨、用恩德回報恩德，才公平呀。」',
+          html: scene(P(540, 302, A('kid', 'happy') +
+              '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05, true) +
+            P(280, 302, A('kid', 'wow')) + qmark(230, 185) + hearts(420, 180)) },
+        { minDur: 7000, sub: '不過「以德報怨」仍流傳下來，稱許寬大的胸懷——別人對不起你，你反而用善意相待。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -60, GIFT, '', 0, .9)) +
+            P(540, 302, A('kid', 'sad'), '', 0, .95, true) + hearts(430, 175)) },
+        { minDur: 6400, sub: '以德報怨：用恩德回報仇怨。',
+          html: scene(P(400, 270, GIFT, '', 0, 1.6) + hearts(500, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">以德報怨</text>') }
+      ];
     }
   };
 
