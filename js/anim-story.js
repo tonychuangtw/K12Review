@@ -14464,6 +14464,157 @@
           html: scene(P(400, 250, '<rect x="-46" y="-20" width="92" height="40" rx="4" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#6d7585">差強人意</text>', '', 0, 1.3) + qmark(510, 200) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">望文生義</text>') }
       ];
+    },
+    /* 咬文嚼字 */
+    i594: function () {
+      return [
+        { minDur: 6800, sub: '討論班遊路線，小字卻糾結半天：「這裡該用『的』還是『得』？這句要不要改成倒裝？」',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="11" fill="#c96a5a">的?得?</text>', '', 0, .95)) + qmark(470, 185) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + sweat(620, 192)) },
+        { minDur: 6800, sub: '「咬文嚼字」：把文字咬住細嚼——過分斟酌字句，反而忘了正事要緊！',
+          html: scene(P(400, 250, '<rect x="-40" y="-18" width="80" height="36" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#6d7585">字句斟酌</text>', '', 0, 1.2) +
+            '<path d="M340 232 q-10 -14 4 -20 M460 232 q10 -14 -4 -20" stroke="#c9bfa8" stroke-width="3" fill="none"/>' + sweat(520, 205) +
+            P(260, 210, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-10" stroke="#c96a5a" stroke-width="2.4"/><line x1="0" y1="0" x2="7" y2="3" stroke="#c96a5a" stroke-width="2.4"/>')) },
+        { minDur: 6800, sub: '不過寫作時認真推敲字句是好事——分場合：聊正事說重點，磨文章再咬字！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') + bang(420, 185) +
+            P(540, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -10 q10 4 20 -2" stroke="#8fa3bf" stroke-width="1.8" fill="none"/>', '', 0, .95), '', 0, .97, true) + hearts(620, 195)) },
+        { minDur: 6400, sub: '咬文嚼字：過分斟酌字句。',
+          html: scene(P(400, 255, '<rect x="-40" y="-18" width="80" height="36" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#6d7585">字句斟酌</text>', '', 0, 1.25) + qmark(510, 205) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">咬文嚼字</text>') }
+      ];
+    },
+    /* 現身說法 */
+    i595: function () {
+      return [
+        { minDur: 7000, sub: '本是佛家語：觀音菩薩應眾生因緣，變現各種身形來宣說佛法——「現身說法」！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            '<g class="st-rays" style="transform-origin:400px 210px"><g stroke="#ffe9a0" stroke-width="4" stroke-linecap="round" opacity=".8"><line x1="400" y1="165" x2="400" y2="148"/><line x1="435" y1="178" x2="448" y2="166"/><line x1="365" y1="178" x2="352" y2="166"/></g></g>' + hearts(540, 200)) },
+        { minDur: 6800, sub: '交通安全宣導：曾車禍受傷的學長坐著輪椅來演講——親身經歷，比一百句口號都有力！',
+          html: scene(P(360, 285, '<circle cx="-14" cy="16" r="12" fill="none" stroke="#6d7585" stroke-width="3.4"/><circle cx="16" cy="16" r="9" fill="none" stroke="#6d7585" stroke-width="3"/><path d="M-14 4 L-14 -22 H14 L18 8" stroke="#6d7585" stroke-width="3.4" fill="none"/>' + P(0, -8, A('kid', 'happy'), '', 0, .8), '', 0, 1.05) +
+            P(580, 302, A('kid', 'wow'), '', 0, .92, true) + hearts(470, 195)) },
+        { minDur: 6800, sub: '「現身說法」：以親身經歷為例勸導說明——因為走過，所以說的每句話都有重量！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(440, 185) +
+            P(280, 200, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '現身說法：以親身經歷勸導他人。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08) + hearts(500, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">現身說法</text>') }
+      ];
+    },
+    /* 班門弄斧 */
+    i596: function () {
+      var AXE = '<line x1="0" y1="12" x2="0" y2="-34" stroke="#8a5a33" stroke-width="4.6" stroke-linecap="round"/><path d="M0 -34 q-20 -4 -22 -20 q14 -6 24 4 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '魯班是木匠祖師爺——有人偏偏跑到魯班家門口，掄起大斧頭炫耀刀法！',
+          html: scene(P(300, 302, '<rect x="-40" y="-70" width="80" height="70" fill="#8a5a33" stroke="#6d4426" stroke-width="3"/><rect x="-30" y="-62" width="26" height="62" fill="#a8734a"/><text x="0" y="-78" text-anchor="middle" font-size="15" fill="#6d4426">魯班府</text>', '', 0, 1.05) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>' + P(30, -50, AXE, '', 0, 1.1), 'st-strut', 0, 1.02, true) + notes(620, 190)) },
+        { minDur: 6800, sub: '明代詩人在李白墓前看見遊人題詩，笑道：「魯班門前弄大斧」——關公面前耍大刀啊！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1) +
+            P(540, 302, A('kid', 'happy') + P(30, -50, AXE, '', 0, 1), '', 0, .97, true) + sweat(620, 190) + qmark(440, 182)) },
+        { minDur: 6800, sub: '「班門弄斧」：在行家面前賣弄，不自量力——也常用來自謙：「班門弄斧，請多指教！」',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1) +
+            P(520, 302, A('kid', 'happy') + '<path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .97, true) + hearts(430, 185)) },
+        { minDur: 6400, sub: '班門弄斧：行家面前賣弄本領。',
+          html: scene(P(300, 302, '<rect x="-40" y="-70" width="80" height="70" fill="#8a5a33" stroke="#6d4426" stroke-width="3"/><rect x="-30" y="-62" width="26" height="62" fill="#a8734a"/>', '', 0, 1.05) +
+            P(520, 302, A('kid', 'happy') + P(30, -50, AXE, '', 0, 1.1), 'st-strut', 0, 1, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">班門弄斧</text>') }
+      ];
+    },
+    /* 獻曝之忱 */
+    i597: function () {
+      return [
+        { minDur: 7000, sub: '《列子》故事：宋國農夫冬天曬太陽，暖洋洋地想：「天下哪有比這更棒的享受！」',
+          html: scene(P(200, 120, '<circle cx="0" cy="0" r="24" fill="#ffdd66" stroke="#f5b73e" stroke-width="3" class="st-rays" style="transform-origin:0px 0px"/>', '', 0, 1) +
+            P(420, 302, A('kid', 'happy') + '<path d="M-30 -46 q-14 -8 -22 2 M30 -46 q14 -8 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.05) + hearts(520, 195)) },
+        { minDur: 6800, sub: '他認真地說：「我要把『曬太陽』獻給國君！」——禮物微薄得可愛，心意卻百分之百真誠！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -56 l18 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(540, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.02, true) +
+            P(430, 195, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="2.6"/>', '', 0, 1) + hearts(280, 192)) },
+        { minDur: 6800, sub: '「獻曝之忱」：自謙所獻微薄但出於誠心——「小小建議，聊表獻曝之忱！」',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -50, '<rect x="-12" y="-9" width="24" height="18" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(450, 188)) },
+        { minDur: 6400, sub: '獻曝之忱：所獻雖微，誠意十足。',
+          html: scene(P(230, 130, '<circle cx="0" cy="0" r="22" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            P(430, 302, A('kid', 'happy') + '<path d="M28 -56 l18 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) + hearts(530, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">獻曝之忱</text>') }
+      ];
+    },
+    /* 野人獻曝 */
+    i598: function () {
+      return [
+        { minDur: 7000, sub: '同一個《列子》故事：鄉野農夫沒見過棉袍暖房，一心想把「負日之暄」獻給君王！',
+          html: scene(P(200, 120, '<circle cx="0" cy="0" r="24" fill="#ffdd66" stroke="#f5b73e" stroke-width="3" class="st-rays" style="transform-origin:0px 0px"/>', '', 0, 1) +
+            P(400, 302, A('kid', 'happy') + '<path d="M-12 -30 h24 l-2 22 h-20 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1.02) +
+            P(600, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1, true)) },
+        { minDur: 6800, sub: '有錢人聽了笑他見識少——但那份「把最好的分享給你」的心意，一點都不可笑！',
+          html: scene(P(320, 302, A('kid', 'happy')) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1, true) +
+            P(400, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '「野人獻曝」：自謙見識淺陋、但誠心建言——「野人獻曝，僅供參考！」',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(38, -50, '<rect x="-12" y="-16" width="24" height="32" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>', '', 0, .95)) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(450, 188)) },
+        { minDur: 6400, sub: '野人獻曝：見識雖淺，誠心貢獻。',
+          html: scene(P(230, 130, '<circle cx="0" cy="0" r="22" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            P(430, 302, A('kid', 'happy') + '<path d="M-12 -30 h24 l-2 22 h-20 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1.05) + hearts(530, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">野人獻曝</text>') }
+      ];
+    },
+    /* 受益匪淺 */
+    i599: function () {
+      return [
+        { minDur: 6800, sub: '聽完作家演講，小益抄了滿滿三頁筆記——好多觀念都是第一次聽到，大開眼界！',
+          html: scene(P(340, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-10" y1="-12" x2="10" y2="-12"/><line x1="-10" y1="-4" x2="10" y2="-4"/><line x1="-10" y1="4" x2="10" y2="4"/><line x1="-10" y1="12" x2="6" y2="12"/></g>', '', 0, .95)) +
+            P(560, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + bang(450, 182)) },
+        { minDur: 6800, sub: '「受益匪淺」：得到的好處不淺（匪＝非）——注意寫「匪」，不寫「非」！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#548a40">匪✓</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 220, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「聽君一席話，受益匪淺！」——把學到的用出來，收穫才真正變成自己的！',
+          html: scene(P(340, 302, A('kid', 'happy'), 'st-cheer', 0, 1.02) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(440, 185) + notes(620, 195)) },
+        { minDur: 6400, sub: '受益匪淺：收穫很大，獲益良多。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) + hearts(510, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">受益匪淺</text>') }
+      ];
+    },
+    /* 茅塞頓開 */
+    i600: function () {
+      var GRASSBLK = '<g stroke="#a8b86a" stroke-width="4" stroke-linecap="round"><path d="M-20 12 q-4 -18 4 -30 M-6 14 q0 -20 8 -32 M10 12 q4 -18 -2 -30 M22 14 q6 -16 0 -28"/></g>';
+      return [
+        { minDur: 7000, sub: '孟子說：山間小路常走就成路——一陣子不走，茅草又把它堵住了！心也一樣！',
+          html: scene('<path d="M140 300 q130 -30 260 -20 q130 10 260 -30" stroke="#d9cfae" stroke-width="14" fill="none" stroke-linecap="round"/>' +
+            P(430, 275, GRASSBLK, '', 0, 1.2) +
+            P(220, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '這題數學想了三天都卡住——老師一句「先畫圖看看」，腦中的茅草唰地全開了！',
+          html: scene(P(340, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#c96a5a">?</text>', '', 0, .95)) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) +
+            P(340, 190, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/><line x1="0" y1="4" x2="0" y2="14" stroke="#e0b73f" stroke-width="3"/>', '', 0, 1.1) + bang(450, 200)) },
+        { minDur: 6800, sub: '「茅塞頓開」：堵住的疑惑忽然打通、豁然開朗——那一瞬間，眼睛都亮了！',
+          html: scene('<path d="M140 300 q130 -30 260 -20 q130 10 260 -30" stroke="#d9cfae" stroke-width="14" fill="none" stroke-linecap="round"/>' +
+            P(430, 285, A('kid', 'happy'), 'st-strut', 0, 1) + bang(430, 195) + hearts(540, 220)) },
+        { minDur: 6400, sub: '茅塞頓開：疑惑盡解，豁然開朗。',
+          html: scene(P(400, 280, GRASSBLK, '', 0, 1.3) +
+            P(400, 195, '<path d="M0 -16 a16 16 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.2) + bang(500, 220) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">茅塞頓開</text>') }
+      ];
+    },
+    /* 苦口婆心 */
+    i896: function () {
+      return [
+        { minDur: 7000, sub: '「忠言苦口」加「老婆心切」——像老婆婆一樣慈愛、不厭其煩地叮嚀，就是「苦口婆心」！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(560, 302, A('kid', 'happy'), '', 0, .93, true) + hearts(460, 188)) },
+        { minDur: 6800, sub: '「騎車戴安全帽」「過馬路看左右」——同樣的話媽媽說了一百遍，每一遍都是擔心！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M-28 -56 l-16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, .97, true) +
+            P(430, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">×100遍</text>')) },
+        { minDur: 6800, sub: '有天下雨路滑，那頂安全帽真的救了他——他終於懂了苦口婆心裡藏的愛！',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="220" y1="30" x2="212" y2="54"/><line class="st-rain" style="animation-delay:.5s" x1="580" y1="24" x2="572" y2="48"/></g>' +
+            P(400, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1.02) + hearts(500, 190), 'night') },
+        { minDur: 6400, sub: '苦口婆心：懇切耐心，再三勸導。',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy'), '', 0, .93, true) + hearts(450, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">苦口婆心</text>') }
+      ];
     }
   };
 
