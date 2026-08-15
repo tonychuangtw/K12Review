@@ -2905,6 +2905,122 @@
           html: scene(P(400, 300, BIGTAILOX, '', 0, 1.2) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">尾大不掉</text>') }
       ];
+    },
+    /* 積羽沉舟 */
+    i1169: function () {
+      var RIVER5 = '<rect y="262" width="800" height="78" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 274 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#6db3d9" stroke-width="8" stroke-linecap="round" opacity=".9"/></g>';
+      var BOAT3 = '<path d="M-60 0 L60 0 L46 20 L-46 20 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/>';
+      function feather(x, y, dly, rot) {
+        return P(x, y, '<g class="st-snow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '><path d="M0 0 q-8 -14 0 -26 q8 12 0 26 z" fill="#fff" stroke="#e3dcd4" stroke-width="1.6" transform="rotate(' + (rot || 0) + ')"/><line x1="0" y1="0" x2="0" y2="-24" stroke="#d5cfc0" stroke-width="1" transform="rotate(' + (rot || 0) + ')"/></g>');
+      }
+      function featherPile(x, y) {
+        return P(x, y, '<ellipse cx="0" cy="0" rx="46" ry="14" fill="#fff" stroke="#e3dcd4" stroke-width="2"/><ellipse cx="-16" cy="-8" rx="24" ry="9" fill="#fff"/><ellipse cx="16" cy="-10" rx="20" ry="8" fill="#fff"/>');
+      }
+      return [
+        { minDur: 6600, sub: '一根羽毛輕飄飄的，落在船上，什麼感覺也沒有。',
+          html: scene(RIVER5 + P(400, 268, BOAT3) + feather(390, 220, 0, 10)) },
+        { minDur: 6800, sub: '可是羽毛一根接一根落下、越積越多——堆成小山的羽毛，竟然把船壓沉了！',
+          html: scene(RIVER5 + P(400, 282, '<g transform="rotate(-9)">' + BOAT3 + '</g>') + featherPile(400, 252) +
+            feather(320, 190, 0, -12) + feather(470, 175, .5, 14) + feather(400, 150, .9, 4) + sweat(500, 230)) },
+        { minDur: 7000, sub: '《戰國策》說：「積羽沉舟，群輕折軸」——再小的問題，累積起來也足以釀成大禍，不能輕忽呀。',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(560, 288, featherPile(0, 0) + '', '', 0, .9) + qmark(480, 200)) },
+        { minDur: 6400, sub: '積羽沉舟：小問題累積起來，足以釀成大禍。',
+          html: scene(RIVER5 + P(400, 282, '<g transform="rotate(-9)">' + BOAT3 + '</g>') + featherPile(400, 252) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">積羽沉舟</text>') }
+      ];
+    },
+    /* 得魚忘筌 */
+    i1052: function () {
+      var QUAN = '<path d="M-16 0 Q-20 -30 -8 -42 L8 -42 Q20 -30 16 0 Z" fill="none" stroke="#c9a06c" stroke-width="3.4"/>' +
+        '<g stroke="#c9a06c" stroke-width="2"><line x1="-14" y1="-12" x2="14" y2="-12"/><line x1="-16" y1="-24" x2="16" y2="-24"/><line x1="-12" y1="-36" x2="12" y2="-36"/></g>' +
+        '<ellipse cx="0" cy="0" rx="16" ry="4.6" fill="none" stroke="#a8734a" stroke-width="3"/>';
+      var RIVER5 = '<rect y="270" width="800" height="70" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 280 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>';
+      return [
+        { minDur: 6600, sub: '漁人帶著竹編的捕魚簍「筌」來到河邊，把它沉進水裡等魚游進去。',
+          html: scene(RIVER5 + P(430, 296, QUAN, '', 0, 1.1) +
+            P(240, 296, A('kid', 'happy'))) },
+        { minDur: 6600, sub: '捕到魚啦！他開開心心提著魚回家——竹簍呢？早忘在河邊了。',
+          html: scene(RIVER5 + P(560, 296, QUAN, '', 0, .9) +
+            P(300, 296, '<g class="st-cheer">' + A('kid', 'happy') + P(40, -60, A('fish'), '', 0, .6) + '</g>') + hearts(230, 200)) },
+        { minDur: 7400, sub: '莊子說：「筌是用來捕魚的，捕到了魚，就忘了筌。」他的本意是：工具為目的服務，領會了道理，就不必拘泥形式；但後人也用它譏諷成功後忘本的人。',
+          html: scene(P(300, 302, A('kid', 'happy') +
+              '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>') +
+            P(540, 290, QUAN, '', 0, 1.1) + P(620, 250, A('fish'), '', 0, .9) + qmark(450, 190)) },
+        { minDur: 6400, sub: '得魚忘筌：達到目的後，便忘掉了憑藉的工具。',
+          html: scene(P(320, 260, A('fish'), '', 0, 1.2) + P(520, 290, QUAN, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">得魚忘筌</text>') }
+      ];
+    },
+    /* 管窺蠡測 */
+    i1063: function () {
+      var TUBE = '<rect x="-6" y="-40" width="12" height="40" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4" transform="rotate(32)"/>';
+      var LADLE = '<path d="M-14 0 a14 11 0 0 0 28 0 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><line x1="12" y1="-4" x2="30" y2="-18" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>';
+      var SEA5 = '<rect y="252" width="800" height="88" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 262 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#6db3d9" stroke-width="9" stroke-linecap="round" opacity=".9"/></g>';
+      return [
+        { minDur: 6800, sub: '拿一根細竹管看天——管子裡的天空，只有小小的一圈，哪裡看得見整片天？',
+          html: scene(P(300, 302, A('kid', 'happy') + P(4, -70, TUBE)) +
+            P(560, 130, '<circle cx="0" cy="0" r="34" fill="#aee3f5" stroke="#8fd0e8" stroke-width="4"/><circle class="st-tw" cx="-8" cy="-6" r="3" fill="#fff"/>') + qmark(430, 180)) },
+        { minDur: 6800, sub: '拿一個小瓢舀海水，想量出大海有多少水——量到什麼時候才量得完？',
+          html: scene(SEA5 + P(340, 296, A('kid', 'wow') + P(34, -50, LADLE, '', 0, .9)) + sweat(300, 210) + qmark(440, 190)) },
+        { minDur: 7200, sub: '漢朝的東方朔自謙說：「以管窺天、以蠡測海，用這麼淺陋的工具，怎麼度量得了宏大的事物呢？」',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(500, 260, TUBE, '', 0, 1.2) + P(600, 280, LADLE, '', 0, 1.2)) },
+        { minDur: 6400, sub: '管窺蠡測：見識狹小淺薄，無法窺見全貌。',
+          html: scene(P(300, 270, TUBE, '', 0, 1.5) + P(500, 285, LADLE, '', 0, 1.5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">管窺蠡測</text>') }
+      ];
+    },
+    /* 擢髮難數 */
+    i1064: function () {
+      function hairKid(messy) {
+        return A('kid', messy ? 'wow' : 'sad') +
+          (messy ? '<g stroke="#6b4a32" stroke-width="2.4" stroke-linecap="round"><line x1="-16" y1="-80" x2="-22" y2="-92"/><line x1="-6" y1="-84" x2="-8" y2="-96"/><line x1="6" y1="-84" x2="10" y2="-96"/><line x1="16" y1="-80" x2="22" y2="-92"/></g>' : '');
+      }
+      var PAPERLONG = '<rect x="-16" y="-46" width="32" height="92" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>' +
+        '<g stroke="#8fa3bf" stroke-width="1.8"><line x1="-9" y1="-36" x2="9" y2="-36"/><line x1="-9" y1="-26" x2="9" y2="-26"/><line x1="-9" y1="-16" x2="9" y2="-16"/><line x1="-9" y1="-6" x2="9" y2="-6"/><line x1="-9" y1="4" x2="9" y2="4"/><line x1="-9" y1="14" x2="9" y2="14"/><line x1="-9" y1="24" x2="9" y2="24"/><line x1="-9" y1="34" x2="9" y2="34"/></g>';
+      return [
+        { minDur: 7000, sub: '戰國時，魏國使者須賈曾陷害過范雎。後來范雎在秦國當了宰相，須賈嚇得前來謝罪：「我有幾條罪呢？」',
+          html: scene(P(560, 302, A('kid', 'happy'), '', 0, 1.05, true) +
+            P(300, 302, '<g transform="rotate(30)">' + A('kid', 'wow') + '</g>') + sweat(260, 210) + qmark(370, 185)) },
+        { minDur: 7200, sub: '范雎冷冷回答：「把你的頭髮全拔下來，一根頭髮記一條罪，都還不夠用！」',
+          html: scene(P(560, 302, A('kid', 'angry'), '', 0, 1.05, true) + bang(470, 180) +
+            P(300, 302, hairKid(true)) + sweat(340, 200)) },
+        { minDur: 6800, sub: '一根頭髮記一條罪狀，拔光了都數不完——罪狀之多，可想而知！',
+          html: scene(P(300, 302, hairKid(true)) + P(500, 280, PAPERLONG, '', 0, 1.1) + qmark(580, 200)) },
+        { minDur: 6400, sub: '擢髮難數：罪狀多得數不清。',
+          html: scene(P(340, 302, hairKid(true)) + P(520, 280, PAPERLONG, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">擢髮難數</text>') }
+      ];
+    },
+    /* 魑魅魍魎 */
+    i1062: function () {
+      function ghost(x, y, color, dly, sc) {
+        return P(x, y, '<g class="st-zfloat"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M-14 10 L-14 -14 Q-14 -30 0 -30 Q14 -30 14 -14 L14 10 L7 3 L0 10 L-7 3 Z" fill="' + color + '" opacity=".9"/>' +
+          '<circle cx="-5" cy="-16" r="2.6" fill="#fff"/><circle cx="5" cy="-16" r="2.6" fill="#fff"/></g>', '', 0, sc || 1);
+      }
+      var DING = '<path d="M-34 -14 L-30 -52 Q-30 -60 -22 -60 L22 -60 Q30 -60 30 -52 L34 -14 Q34 -4 22 -4 L-22 -4 Q-34 -4 -34 -14 Z" fill="#8a7a5a" stroke="#6d6044" stroke-width="3"/>' +
+        '<path d="M-24 -60 q-2 -12 8 -14 M24 -60 q2 -12 -8 -14" stroke="#6d6044" stroke-width="5" fill="none" stroke-linecap="round"/>' +
+        '<g stroke="#6d6044" stroke-width="4"><line x1="-22" y1="-4" x2="-26" y2="14"/><line x1="22" y1="-4" x2="26" y2="14"/><line x1="0" y1="-4" x2="0" y2="14"/></g>' +
+        '<circle cx="-10" cy="-38" r="4" fill="#a89878"/><circle cx="10" cy="-38" r="4" fill="#a89878"/><path d="M-12 -22 q12 8 24 0" stroke="#a89878" stroke-width="2.6" fill="none"/>';
+      return [
+        { minDur: 6800, sub: '傳說山林和川澤裡，住著形形色色的鬼怪精靈——魑魅、魍魎，會迷惑走進去的人。',
+          html: scene(P(120, 302, TREE, '', 0, 1.2) +
+            ghost(300, 220, '#9ccc65', 0, 1) + ghost(430, 190, '#8fa8c9', .4, .9) + ghost(560, 230, '#c9a8e0', .8, .95), 'night') },
+        { minDur: 7400, sub: '周朝人把這些鬼怪的樣子鑄在九鼎上，讓百姓認得牠們——認得了，進山入澤就能避開，不受迷惑！',
+          html: scene(P(400, 300, DING, '', 0, 1.6) +
+            P(180, 302, A('kid', 'wow'), '', 0, .95) + hearts(260, 190), 'night') },
+        { minDur: 6800, sub: '後來「魑魅魍魎」用來比喻各式各樣的壞人——認清他們的真面目，才不會上當。',
+          html: scene(ghost(300, 210, '#9ccc65', 0, 1) + ghost(520, 200, '#c9a8e0', .5, .95) +
+            P(400, 302, A('kid', 'angry')) + bang(460, 180), 'night') },
+        { minDur: 6400, sub: '魑魅魍魎：形形色色的壞人。',
+          html: scene(ghost(250, 220, '#9ccc65', 0, 1.1) + ghost(400, 200, '#8fa8c9', .4, 1) + ghost(550, 225, '#c9a8e0', .8, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">魑魅魍魎</text>', 'night') }
+      ];
     }
   };
 
