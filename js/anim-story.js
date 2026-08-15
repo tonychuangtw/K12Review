@@ -4151,6 +4151,110 @@
           html: scene(P(400, 302, A('kid', 'wow') + REDFACE, '', 0, 1.1) + sweat(330, 190) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">面紅耳赤</text>') }
       ];
+    },
+    /* 張口結舌 */
+    i406: function () {
+      var PAPER59 = '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>' +
+        '<text x="0" y="2" text-anchor="middle" font-size="16" font-weight="bold" fill="#e85a4f">59</text>' +
+        '<path d="M-10 12 q10 8 20 0" stroke="#e85a4f" stroke-width="2.6" fill="none"/>';
+      var OPENMOUTH = '<ellipse cx="0" cy="-38" rx="6" ry="9" fill="#3a2e26"/>';
+      return [
+        { minDur: 6600, sub: '考試前，小強跟同學誇下海口：「這次我一定考滿分！」考卷發下來——五十九分。',
+          html: scene(P(300, 302, A('kid', 'wow') + P(-42, -56, PAPER59, '', 0, .95)) + sweat(250, 195) +
+            P(560, 302, A('kid', 'happy'), '', 0, .92, true)) },
+        { minDur: 6600, sub: '同學問：「你不是說一定滿分嗎？」他張著嘴巴，半天答不出一句話……',
+          html: scene(P(300, 302, A('kid', 'wow') + OPENMOUTH) + sweat(340, 195) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95, true) + qmark(590, 185)) },
+        { minDur: 6600, sub: '理虧了、或是嚇呆了，張著嘴說不出話——這就是「張口結舌」。',
+          html: scene(P(400, 302, A('kid', 'wow') + OPENMOUTH, '', 0, 1.05) + qmark(480, 180) + sweat(320, 190)) },
+        { minDur: 6400, sub: '張口結舌：張著嘴說不出話，形容理屈或驚呆。',
+          html: scene(P(400, 302, A('kid', 'wow') + OPENMOUTH, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">張口結舌</text>') }
+      ];
+    },
+    /* 搖頭晃腦 */
+    i407: function () {
+      var BOOK = '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><line x1="-1" y1="-14" x2="-3" y2="11" stroke="#c9bfa8" stroke-width="2"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>';
+      return [
+        { minDur: 6600, sub: '晨讀時間，小安背起唐詩——頭跟著節奏左搖右晃，讀得津津有味！',
+          html: scene(P(360, 302, '<g class="st-wave">' + A('kid', 'happy') + '</g>' + P(-42, -54, BOOK)) +
+            notes(280, 170) + notes(460, 160)) },
+        { minDur: 6600, sub: '爺爺聽京劇也搖頭晃腦，手還跟著咿咿呀呀打拍子呢！',
+          html: scene(P(400, 302, '<g class="st-wave">' + A('kid', 'happy') +
+              '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/></g>', '', 0, 1.05) +
+            notes(310, 165) + notes(500, 170) + hearts(430, 200)) },
+        { minDur: 6600, sub: '頭搖來搖去、一副自得其樂的樣子——就是「搖頭晃腦」。',
+          html: scene(P(340, 302, '<g class="st-wave">' + A('kid', 'happy') + '</g>') +
+            P(520, 302, '<g class="st-wave" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .92) + notes(430, 165)) },
+        { minDur: 6400, sub: '搖頭晃腦：頭搖來搖去，自得其樂的樣子。',
+          html: scene(P(400, 302, '<g class="st-wave">' + A('kid', 'happy') + '</g>', '', 0, 1.1) + notes(490, 170) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">搖頭晃腦</text>') }
+      ];
+    },
+    /* 大名鼎鼎 */
+    i408: function () {
+      var CAP = '<path d="M-16 -78 a16 10 0 0 1 32 0 l0 4 h-40 q0 -4 8 -4 z" fill="#5c82ba" stroke="#46689a" stroke-width="2"/>';
+      var BAT = '<line x1="0" y1="0" x2="20" y2="-44" stroke="#c9a06c" stroke-width="6" stroke-linecap="round"/>';
+      var SIGNPAPER = '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 8 q8 -8 16 -2" stroke="#3a2e26" stroke-width="2" fill="none"/>';
+      return [
+        { minDur: 6800, sub: '學校來了一位大名鼎鼎的棒球明星！人還沒進門，操場就擠滿了想看他的人。',
+          html: scene(P(300, 302, A('kid', 'happy') + CAP + P(26, -40, BAT), '', 0, 1.05) +
+            P(520, 302, A('kid', 'wow'), '', 0, .88) + P(620, 302, A('kid', 'wow'), '', .2, .85) +
+            P(700, 302, A('kid', 'happy'), '', .4, .82) + hearts(440, 175)) },
+        { minDur: 6600, sub: '「鼎鼎」是盛大的樣子——名氣大到人人都知道，就叫「大名鼎鼎」！',
+          html: scene(P(300, 302, A('kid', 'happy') + CAP + P(26, -40, BAT), '', 0, 1.05) +
+            notes(400, 165) + hearts(230, 180)) },
+        { minDur: 6600, sub: '簽名會上，隊伍繞了操場整整三圈，人人都想要一張簽名！',
+          html: scene(P(240, 302, A('kid', 'happy') + CAP + P(-38, -50, SIGNPAPER, '', 0, .9)) +
+            P(430, 302, A('kid', 'happy'), '', 0, .88) + P(540, 302, A('kid', 'happy'), '', .2, .85) +
+            P(650, 302, A('kid', 'happy'), '', .4, .82) + hearts(480, 180)) },
+        { minDur: 6400, sub: '大名鼎鼎：名氣非常大。',
+          html: scene(P(360, 302, A('kid', 'happy') + CAP + P(26, -40, BAT), '', 0, 1.1) + hearts(470, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大名鼎鼎</text>') }
+      ];
+    },
+    /* 二話不說 */
+    i409: function () {
+      var UMB = '<path d="M0 -50 q-30 0 -34 22 q8 -8 17 0 q8 -8 17 0 q8 -8 17 0 q8 -8 17 0 q-4 -22 -34 -22 z" fill="#e85a4f" stroke="#c94a3f" stroke-width="2.4"/>' +
+        '<line x1="0" y1="-28" x2="0" y2="8" stroke="#8b93a3" stroke-width="3.4"/><path d="M0 8 q0 8 8 6" stroke="#8b93a3" stroke-width="3.4" fill="none"/>';
+      var RAINFX = '<g stroke="#8fc6ff" stroke-width="3.4" stroke-linecap="round">' +
+        '<line class="st-rain" x1="140" y1="30" x2="134" y2="52"/><line class="st-rain" style="animation-delay:.4s" x1="300" y1="16" x2="294" y2="38"/>' +
+        '<line class="st-rain" style="animation-delay:.8s" x1="450" y1="30" x2="444" y2="52"/><line class="st-rain" style="animation-delay:.2s" x1="580" y1="14" x2="574" y2="36"/></g>';
+      var BOOKSTACK = '<g stroke-width="2"><rect x="-22" y="-10" width="44" height="10" rx="2" fill="#c9762f" stroke="#a85a1e"/><rect x="-20" y="-20" width="40" height="10" rx="2" fill="#5c82ba" stroke="#46689a"/><rect x="-21" y="-30" width="42" height="10" rx="2" fill="#6fae58" stroke="#548a40"/></g>';
+      return [
+        { minDur: 6800, sub: '放學下起大雨，同學沒帶傘急得直跺腳。小捷二話不說，把傘往他頭上一遮：「一起撐！」',
+          html: scene(RAINFX + P(360, 302, A('kid', 'happy') + P(30, -70, UMB, '', 0, 1.1)) +
+            P(470, 302, A('kid', 'happy'), '', 0, .95) + hearts(420, 190)) },
+        { minDur: 6600, sub: '看到老師抱著一大疊作業本，他也二話不說，馬上跑過去幫忙搬。',
+          html: scene(P(560, 302, A('kid', 'happy') + P(-40, -50, BOOKSTACK, '', 0, 1), '', 0, 1.05, true) +
+            P(330, 302, A('kid', 'happy'), 'st-dashL') + hearts(450, 185)) },
+        { minDur: 6600, sub: '不囉嗦、不猶豫，立刻行動——這就是「二話不說」！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + bang(460, 190) + hearts(280, 185)) },
+        { minDur: 6400, sub: '二話不說：不多說什麼，立刻行動。',
+          html: scene(P(380, 302, A('kid', 'happy'), 'st-dashL', 0, 1.05) + bang(300, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">二話不說</text>') }
+      ];
+    },
+    /* 人山人海 */
+    i410: function () {
+      function crowd(y, sc, n, dly) {
+        var s = '';
+        for (var i = 0; i < n; i++) s += P(120 + i * (560 / (n - 1)), y, A('kid', 'happy'), '', (dly || 0) + i * .1, sc);
+        return s;
+      }
+      return [
+        { minDur: 6800, sub: '跨年晚會的廣場上，放眼望去全是人——多得像山一樣高、像海一樣寬！',
+          html: scene(crowd(302, .95, 5, 0) + crowd(260, .7, 6, .2) + crowd(228, .5, 7, .4), 'night') },
+        { minDur: 6600, sub: '想擠到舞台前面？寸步難行！人挨著人、肩碰著肩。',
+          html: scene(crowd(302, .95, 6, 0) +
+            P(400, 302, A('kid', 'wow'), '', 0, 1) + sweat(450, 195), 'night') },
+        { minDur: 6600, sub: '「人山人海」就是形容人非常多、非常擁擠的場面！',
+          html: scene(crowd(302, .9, 5, 0) + crowd(258, .65, 6, .3) +
+            bang(400, 120) + notes(250, 140), 'night') },
+        { minDur: 6400, sub: '人山人海：人多得像山和海，非常擁擠。',
+          html: scene(crowd(302, .85, 6, 0) + crowd(262, .6, 7, .3) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">人山人海</text>', 'night') }
+      ];
     }
   };
 
