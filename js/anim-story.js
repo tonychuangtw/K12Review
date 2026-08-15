@@ -9987,6 +9987,118 @@
           html: scene(P(400, 302, A('kid', 'angry'), '', 0, 1.08) + bang(490, 188) + sweat(320, 190) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不遺餘力</text>') }
       ];
+    },
+    /* 不勝枚舉 */
+    i505: function () {
+      return [
+        { minDur: 6800, sub: '問阿嬤：「台灣有哪些好吃的小吃？」她扳著手指數：滷肉飯、蚵仔煎、肉圓、擔仔麵、刈包……',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(280, 190, '<circle cx="0" cy="0" r="14" fill="#ffd97a"/>') + P(360, 165, '<circle cx="0" cy="0" r="12" fill="#e0a458"/>', '', .1) +
+            P(440, 175, '<circle cx="0" cy="0" r="13" fill="#e88a7a"/>', '', .2) + P(510, 195, '<circle cx="0" cy="0" r="12" fill="#a5d47c"/>', '', .3) +
+            P(580, 302, A('kid', 'wow'), '', 0, .92) + qmark(630, 190)) },
+        { minDur: 6800, sub: '數了十分鐘還沒數完——「枚舉」是一個個列舉：多到列舉不完，就是「不勝枚舉」！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) +
+            '<text x="400" y="200" text-anchor="middle" font-size="34" font-weight="bold" fill="#4a3200">1、2、3……∞</text>' + sweat(320, 192)) },
+        { minDur: 6800, sub: '值得感謝的人、美好的回憶、想去的地方——生命中不勝枚舉的美好，慢慢數、慢慢珍惜！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(300, 190) + hearts(400, 165) + hearts(500, 190)) },
+        { minDur: 6400, sub: '不勝枚舉：數量太多，無法一一列舉。',
+          html: scene('<text x="400" y="210" text-anchor="middle" font-size="38" font-weight="bold" fill="#4a3200">1、2、3……</text>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不勝枚舉</text>') }
+      ];
+    },
+    /* 捲土重來 */
+    i506: function () {
+      return [
+        { minDur: 7000, sub: '杜牧寫項羽：「江東子弟多才俊，捲土重來未可知」——若肯渡江重整旗鼓，勝負還說不定呢！',
+          html: scene('<rect y="270" width="800" height="70" fill="#7fb2e0"/>' +
+            P(300, 296, A('kid', 'sad') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>', '', 0, 1)) +
+            P(560, 296, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95, true)) },
+        { minDur: 6800, sub: '「捲土」是奔跑時揚起塵土——失敗後重整旗鼓、再次衝鋒，聲勢像捲起的塵土一樣！',
+          html: scene(P(400, 302, A('horse') + P(4, -34, A('kid', 'angry'), '', 0, .7), 'st-dashL', 0, 1.05) +
+            '<g fill="#c9b184" opacity=".6"><ellipse cx="220" cy="310" rx="40" ry="12"/><ellipse cx="150" cy="315" rx="30" ry="10"/></g>' + bang(580, 210)) },
+        { minDur: 6800, sub: '這次比賽輸了沒關係——好好檢討、加倍練習，下一屆捲土重來，把獎盃贏回來！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'angry') + '</g>', '', 0, 1.02) + bang(460, 188) + hearts(280, 192)) },
+        { minDur: 6400, sub: '捲土重來：失敗後重整旗鼓，再次來過。',
+          html: scene(P(400, 302, A('horse'), 'st-dashL', 0, 1.1) +
+            '<g fill="#c9b184" opacity=".6"><ellipse cx="230" cy="312" rx="38" ry="11"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">捲土重來</text>') }
+      ];
+    },
+    /* 不翼而飛 */
+    i507: function () {
+      var WINGS = '<g class="st-flap"><path d="M-6 0 q-16 -14 -26 -4 q12 12 26 8 z" fill="#c9d6e8"/></g><path d="M6 0 q16 -14 26 -4 q-12 12 -26 8 z" fill="#c9d6e8"/>';
+      return [
+        { minDur: 6800, sub: '桌上的布丁明明還有一個——一轉眼竟然不見了！沒長翅膀，怎麼會自己飛走？',
+          html: scene(P(430, 260, '<ellipse cx="0" cy="8" rx="22" ry="7" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><circle cx="0" cy="0" r="26" fill="none" stroke="#c9bfa8" stroke-width="2.6" stroke-dasharray="8 8"/>' + P(0, -6, WINGS, '', 0, .9)) +
+            P(260, 302, A('kid', 'wow')) + qmark(330, 190)) },
+        { minDur: 6800, sub: '「不翼而飛」：沒有翅膀卻飛走了——形容東西突然不見！（後來發現是弟弟偷吃了……）',
+          html: scene(P(300, 302, A('kid', 'angry')) +
+            P(500, 302, A('kid', 'happy') + '<ellipse cx="0" cy="-36" rx="7" ry="5" fill="#ffe066"/>', '', 0, .88) + sweat(550, 200) + bang(400, 185)) },
+        { minDur: 6800, sub: '東西常「不翼而飛」？八成是沒放回原位——固定位置收好，就不會丟三落四！',
+          html: scene(P(430, 302, '<g stroke-width="2"><rect x="-60" y="-40" width="36" height="40" rx="4" fill="#a5c8ff" stroke="#5c82ba"/><rect x="-18" y="-40" width="36" height="40" rx="4" fill="#a5d47c" stroke="#7cab6e"/><rect x="24" y="-40" width="36" height="40" rx="4" fill="#ffd97a" stroke="#e8b84a"/></g>') +
+            P(240, 302, A('kid', 'happy')) + hearts(330, 200)) },
+        { minDur: 6400, sub: '不翼而飛：東西突然不見了。',
+          html: scene(P(400, 250, '<circle cx="0" cy="0" r="30" fill="none" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="9 9"/>' + P(0, -6, WINGS, '', 0, 1.1)) + qmark(500, 210) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不翼而飛</text>') }
+      ];
+    },
+    /* 不脛而走 */
+    i508: function () {
+      return [
+        { minDur: 6800, sub: '早上第一節才宣布「校慶要辦園遊會」——下課時全校都知道了！消息跑得比人還快！',
+          html: scene(P(240, 302, A('kid', 'happy')) +
+            P(400, 302, A('kid', 'happy'), '', .1, .95) + P(540, 302, A('kid', 'happy'), '', .2, .93) +
+            '<g stroke="#ffd97a" stroke-width="3.4" stroke-dasharray="8 7" fill="none"><path d="M280 240 q60 -30 120 0 q60 30 120 0"/></g>' + notes(400, 175)) },
+        { minDur: 6800, sub: '「脛」是小腿——消息沒有腿卻傳得飛快，就是「不脛而走」！',
+          html: scene(P(400, 220, '<path d="M-30 -14 a26 18 0 1 1 52 6 q-2 7 -10 8 l-10 9 l1 -9 q-26 -2 -33 -14 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="-4" y="-4" text-anchor="middle" font-size="12" fill="#4a3200">消息</text>', 'st-dashL', 0, 1.3) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="180" y1="240" x2="270" y2="240"/></g>') },
+        { minDur: 6800, sub: '好消息不脛而走令人開心——但謠言也會不脛而走！轉發訊息前，先確認是不是真的。',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(550, 188) +
+            P(400, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="20" font-weight="bold" fill="#c96a5a">?</text>')) },
+        { minDur: 6400, sub: '不脛而走：消息沒有腿卻傳得飛快。',
+          html: scene(P(400, 230, '<path d="M-28 -13 a24 17 0 1 1 48 5 q-2 6 -9 7 l-9 8 l1 -8 q-24 -2 -31 -12 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', 'st-dashL', 0, 1.4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不脛而走</text>') }
+      ];
+    },
+    /* 水洩不通 */
+    i509: function () {
+      return [
+        { minDur: 6800, sub: '偶像簽名會現場：人貼著人、傘挨著傘——連一滴水都流不出去的擁擠！',
+          html: scene(P(220, 302, A('kid', 'happy'), '', 0, .9) + P(300, 302, A('kid', 'happy'), '', .05, .92) +
+            P(380, 302, A('kid', 'happy'), '', .1, .9) + P(460, 302, A('kid', 'happy'), '', .15, .92) +
+            P(540, 302, A('kid', 'happy'), '', .2, .9) + P(620, 302, A('kid', 'happy'), '', .25, .88) + sweat(400, 195)) },
+        { minDur: 6800, sub: '跨年散場的捷運站、廟會的老街——擠得「水洩不通」時，記得跟緊家人、注意安全！',
+          html: scene(P(260, 302, A('kid', 'wow'), '', 0, .93) + P(360, 302, A('kid', 'happy'), '', .1, .95) +
+            P(460, 302, A('kid', 'wow'), '', .15, .93) + P(560, 302, A('kid', 'happy'), '', .2, .9) +
+            sweat(320, 192) + qmark(500, 185)) },
+        { minDur: 6600, sub: '「水洩不通」也能形容包圍得嚴密——警察把出口守得水洩不通，小偷插翅難逃！',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, .95) +
+            P(240, 302, A('kid', 'angry'), '', 0, .95) + P(560, 302, A('kid', 'angry'), '', .2, .95, true) + bang(400, 185)) },
+        { minDur: 6400, sub: '水洩不通：非常擁擠或包圍嚴密。',
+          html: scene(P(250, 302, A('kid', 'happy'), '', 0, .9) + P(340, 302, A('kid', 'happy'), '', .05, .92) +
+            P(430, 302, A('kid', 'happy'), '', .1, .9) + P(520, 302, A('kid', 'happy'), '', .15, .92) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">水洩不通</text>') }
+      ];
+    },
+    /* 門庭若市 */
+    i510: function () {
+      var GATE2 = '<g stroke="#a8734a" stroke-width="8"><line x1="-60" y1="0" x2="-60" y2="-100"/><line x1="60" y1="0" x2="60" y2="-100"/></g><rect x="-70" y="-118" width="140" height="22" rx="6" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>';
+      return [
+        { minDur: 7200, sub: '戰國的鄒忌勸齊威王廣開言路，齊王下令：能指出寡人過錯的，重賞！——結果宮門前熱鬧得像市場！',
+          html: scene(P(400, 302, GATE2) +
+            P(240, 302, A('kid', 'happy'), 'st-inL', 0, .9) + P(320, 302, A('kid', 'happy'), 'st-inL', .15, .88) +
+            P(500, 302, A('kid', 'happy'), 'st-inR', .1, .9, true) + P(580, 302, A('kid', 'happy'), 'st-inR', .25, .88, true) + notes(400, 170)) },
+        { minDur: 6800, sub: '「門庭若市」：門前庭院像市場一樣熱鬧——形容來訪的人非常多！',
+          html: scene(P(400, 302, GATE2, '', 0, .95) +
+            P(300, 302, A('kid', 'happy'), '', 0, .9) + P(500, 302, A('kid', 'happy'), '', .2, .9) + hearts(400, 175)) },
+        { minDur: 6800, sub: '它的反義詞是「門可羅雀」——一個門前熱鬧滾滾、一個冷清得能張網抓麻雀！',
+          html: scene(P(280, 302, GATE2, '', 0, .7) + P(280, 240, A('kid', 'happy'), '', 0, .6) +
+            '<text x="400" y="240" text-anchor="middle" font-size="24" fill="#4a3200">VS</text>' +
+            P(540, 302, GATE2, '', 0, .7) + P(540, 250, A('bird'), '', 0, .6)) },
+        { minDur: 6400, sub: '門庭若市：門前熱鬧像市場，來客眾多。',
+          html: scene(P(400, 302, GATE2) + P(300, 302, A('kid', 'happy'), '', 0, .88) + P(500, 302, A('kid', 'happy'), '', .2, .88) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">門庭若市</text>') }
+      ];
     }
   };
 
