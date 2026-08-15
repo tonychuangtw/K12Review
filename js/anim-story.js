@@ -9269,6 +9269,112 @@
           html: scene(P(400, 302, A('kid', 'happy') + SMILEBROWS2, '', 0, 1.12) + hearts(490, 185) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">喜形於色</text>') }
       ];
+    },
+    /* 怒髮衝冠 */
+    i849: function () {
+      var HATUP = '<path d="M-16 -96 a16 10 0 0 1 32 0 l0 4 h-32 z" fill="#3a5a8c" stroke="#2c4a75" stroke-width="2"/>' +
+        '<g stroke="#6b4a32" stroke-width="2.6" stroke-linecap="round"><line x1="-12" y1="-80" x2="-14" y2="-92"/><line x1="-4" y1="-82" x2="-4" y2="-94"/><line x1="4" y1="-82" x2="4" y2="-94"/><line x1="12" y1="-80" x2="14" y2="-92"/></g>';
+      return [
+        { minDur: 7000, sub: '岳飛的〈滿江紅〉開頭就是「怒髮衝冠」——想到國仇家恨，憤怒得頭髮直豎、把帽子都頂了起來！',
+          html: scene(P(360, 302, A('kid', 'angry') + HATUP, '', 0, 1.08) + bang(470, 185) +
+            '<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="200" y1="30" x2="194" y2="52"/></g>') },
+        { minDur: 6800, sub: '這也和藺相如有關：他捧璧斥責秦王時「怒髮上衝冠」——正義的怒氣，氣勢驚人！',
+          html: scene(P(320, 302, A('kid', 'angry') + HATUP) + bang(420, 180) +
+            P(560, 302, A('kid', 'wow') + '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>', '', 0, 1, true) + sweat(520, 195)) },
+        { minDur: 6600, sub: '「怒髮衝冠」：憤怒到頭髮豎起頂起帽子——形容憤怒到了極點！',
+          html: scene(P(400, 302, A('kid', 'angry') + HATUP, '', 0, 1.1) + bang(500, 185)) },
+        { minDur: 6400, sub: '怒髮衝冠：憤怒到了極點。',
+          html: scene(P(400, 302, A('kid', 'angry') + HATUP, '', 0, 1.12) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">怒髮衝冠</text>') }
+      ];
+    },
+    /* 火上加油 */
+    i850: function () {
+      var FIRE5 = '<g class="st-flick"><path d="M0 -8 q-16 -20 0 -38 q3 11 11 15 q9 -9 7 -18 q13 16 2 34 q-9 11 -20 7 z" fill="#ff9c40"/><path d="M2 -10 q-8 -11 0 -22 q7 9 9 13 q3 9 -9 9 z" fill="#ffd166"/></g>';
+      var OILCAN = '<path d="M-10 0 L-10 -18 L-4 -18 L-4 -24 L6 -24 L6 -18 L10 -18 L10 0 Z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/><path d="M6 -22 L18 -30" stroke="#6d7585" stroke-width="3" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '兄妹倆吵架吵得正兇——旁邊的表哥還起鬨：「就是說呀，他真的很過分！」火氣更大了！',
+          html: scene(P(280, 302, A('kid', 'angry')) + P(450, 302, A('kid', 'angry'), '', 0, .96, true) + bang(365, 180) +
+            P(620, 302, A('kid', 'happy'), '', 0, .9) + notes(660, 195)) },
+        { minDur: 6800, sub: '火已經在燒，還往上澆油——「火上加油」只會讓衝突越演越烈！',
+          html: scene(P(400, 300, FIRE5, '', 0, 1.4) + P(520, 250, OILCAN, '', 0, 1.3) + bang(480, 190)) },
+        { minDur: 6800, sub: '看到人吵架，勸和不勸離、幫忙降溫不搧風——當澆水的人，別當添油的人！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .96, true) +
+            P(390, 200, '<path d="M0 0 q-6 10 0 15 q6 -5 0 -15 z" fill="#8fc6ff"/>', '', 0, 1.4) + hearts(390, 250)) },
+        { minDur: 6400, sub: '火上加油：使衝突或情緒更加激化。',
+          html: scene(P(400, 300, FIRE5, '', 0, 1.35) + P(520, 255, OILCAN, '', 0, 1.2) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">火上加油</text>') }
+      ];
+    },
+    /* 翻山越嶺 */
+    i851: function () {
+      var MTRANGE = '<path d="M-20 302 L120 150 L260 302 Z" fill="#8fb0a0"/><path d="M180 302 L340 120 L500 302 Z" fill="#a5c2b2" opacity=".92"/><path d="M420 302 L580 160 L740 302 Z" fill="#8fb0a0" opacity=".85"/>';
+      return [
+        { minDur: 6800, sub: '郵差伯伯送信到深山部落：翻過一座山、又一座嶺，山路彎彎又陡陡——',
+          html: scene(MTRANGE +
+            P(240, 296, A('kid', 'happy') + P(-38, -30, '<rect x="-14" y="-16" width="28" height="20" rx="4" fill="#5c82ba" stroke="#46689a" stroke-width="2.4"/>', '', 0, 1), 'st-strut', 0, .95) + sweat(300, 210)) },
+        { minDur: 6800, sub: '不管颳風下雨，重要的信總會送到——翻山越嶺的辛苦，換來部落孩子的笑容！',
+          html: scene(MTRANGE +
+            P(560, 296, A('kid', 'happy'), '', 0, .95) + P(430, 296, A('kid', 'happy'), '', .2, .92) + hearts(500, 210)) },
+        { minDur: 6600, sub: '「翻山越嶺」：翻過一座座山嶺——形容長途跋涉的辛苦！',
+          html: scene(MTRANGE + P(300, 296, A('kid', 'angry'), 'st-strut', 0, .95) + sweat(360, 212)) },
+        { minDur: 6400, sub: '翻山越嶺：翻過山嶺，路途辛苦。',
+          html: scene(MTRANGE +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">翻山越嶺</text>') }
+      ];
+    },
+    /* 翻箱倒櫃 */
+    i852: function () {
+      var OPENBOX = '<rect x="-24" y="-18" width="48" height="24" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><path d="M-24 -18 L-32 -34 L16 -34 L24 -18" fill="#e8dcc0" stroke="#a8734a" stroke-width="2.4"/>';
+      var CLOTHESFLY = '<g class="st-zfloat"><path d="M-8 -12 L-14 -7 L-10 -2 L-8 -5 L-8 8 L8 8 L8 -5 L10 -2 L14 -7 L8 -12 Q0 -8 -8 -12 Z" fill="#a5c8ff" stroke="#5c82ba" stroke-width="1.6"/></g>';
+      return [
+        { minDur: 6800, sub: '明天要交的學生證不見了！小櫃把抽屜、書包、衣櫃全部翻開——衣服玩具飛滿天！',
+          html: scene(P(300, 302, OPENBOX, '', 0, 1.1) + P(540, 300, OPENBOX, '', .2, 1) +
+            P(240, 210, CLOTHESFLY, '', 0, 1.2) + P(460, 190, CLOTHESFLY, '', .4, 1.1) +
+            P(400, 302, A('kid', 'wow'), '', 0, .98) + sweat(340, 190)) },
+        { minDur: 6800, sub: '「翻箱倒櫃」：把箱子櫃子全翻遍——徹底搜尋的樣子！最後在外套口袋找到了……',
+          html: scene(P(400, 302, A('kid', 'happy') + P(38, -56, '<rect x="-12" y="-16" width="24" height="32" rx="3" fill="#a5c8ff" stroke="#5c82ba" stroke-width="2.2"/>', '', 0, 1)) + bang(500, 195) + sweat(320, 192)) },
+        { minDur: 6800, sub: '教訓：東西固定放同一個位置，就不用天天翻箱倒櫃啦！',
+          html: scene(P(430, 302, '<g stroke-width="2"><rect x="-60" y="-40" width="36" height="40" rx="4" fill="#a5c8ff" stroke="#5c82ba"/><rect x="-18" y="-40" width="36" height="40" rx="4" fill="#a5d47c" stroke="#7cab6e"/><rect x="24" y="-40" width="36" height="40" rx="4" fill="#ffd97a" stroke="#e8b84a"/></g>') +
+            P(240, 302, A('kid', 'happy')) + hearts(330, 200)) },
+        { minDur: 6400, sub: '翻箱倒櫃：把箱櫃翻遍，徹底翻找。',
+          html: scene(P(320, 302, OPENBOX, '', 0, 1.15) + P(520, 300, OPENBOX, '', .2, 1.05) + P(420, 200, CLOTHESFLY, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">翻箱倒櫃</text>') }
+      ];
+    },
+    /* 驚天動地 */
+    i853: function () {
+      return [
+        { minDur: 6800, sub: '火箭升空的那一刻：轟隆巨響震得地面發抖，火光照亮半邊天——聲勢驚人！',
+          html: scene(P(430, 240, '<path d="M-14 40 L-14 -30 Q-14 -60 0 -70 Q14 -60 14 -30 L14 40 Z" fill="#e8f0f8" stroke="#8b93a3" stroke-width="2.6"/><path d="M-14 8 L-30 40 L-14 34 M14 8 L30 40 L14 34" fill="#c96a5a" stroke="#a84a3f" stroke-width="2"/><g class="st-flick"><path d="M-8 42 q8 26 8 30 q0 -4 8 -30 z" fill="#ff9c40"/></g>', '', 0, 1.1) +
+            bang(560, 150) + bang(300, 180) +
+            P(180, 302, A('kid', 'wow'), '', 0, .9) + sweat(240, 200), 'night') },
+        { minDur: 6800, sub: '「驚天動地」：驚動了天、震動了地——形容聲勢浩大，或事件重大不凡！',
+          html: scene(bang(300, 160) + bang(500, 140) + bang(400, 220) +
+            P(240, 302, A('kid', 'wow'), '', 0, .95) + P(560, 302, A('kid', 'wow'), '', .2, .95, true)) },
+        { minDur: 6800, sub: '運動會的加油聲驚天動地、科學家的大發現驚天動地——大場面、大事件都可以用！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(460, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .95) + notes(390, 165) + bang(560, 190)) },
+        { minDur: 6400, sub: '驚天動地：聲勢浩大或事件重大。',
+          html: scene(bang(320, 170) + bang(490, 150) +
+            '<text x="400" y="290" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">驚天動地</text>') }
+      ];
+    },
+    /* 忍辱負重 */
+    i855: function () {
+      return [
+        { minDur: 7200, sub: '司馬遷蒙受奇恥大辱，仍咬牙活下來——因為父親交代的《史記》還沒寫完，這個重任只有他能扛！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18 M-9 4 h18" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) +
+            sweat(300, 195), 'night') },
+        { minDur: 7000, sub: '他忍著屈辱寫了十幾年，完成了千古名著《史記》——把恥辱化成了不朽的力量！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(24, -44, '<line x1="0" y1="0" x2="14" y2="-34" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 0 q-3 6 -1 11 q4 -2 5 -8 z" fill="#3a2e26"/>', '', 0, 1)) +
+            P(540, 290, '<g stroke-width="2"><rect x="-26" y="-12" width="52" height="12" rx="2.6" fill="#c9762f" stroke="#a85a1e"/><rect x="-23" y="-24" width="46" height="12" rx="2.6" fill="#e8dcc0" stroke="#c9bfa8"/><rect x="-25" y="-36" width="50" height="12" rx="2.6" fill="#c9762f" stroke="#a85a1e"/></g>', '', 0, 1) + hearts(450, 200)) },
+        { minDur: 6800, sub: '「忍辱負重」：忍受屈辱、擔起重任——為了更重要的目標，暫時的委屈都能承受！',
+          html: scene(P(400, 302, A('kid', 'angry') + P(0, -104, '<rect x="-22" y="-14" width="44" height="18" rx="4" fill="#8a7a5a" stroke="#6d6044" stroke-width="2.4"/>', '', 0, 1.1), '', 0, 1.05) + sweat(330, 192) + hearts(490, 195)) },
+        { minDur: 6400, sub: '忍辱負重：忍受屈辱，承擔重任。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(0, -104, '<rect x="-22" y="-14" width="44" height="18" rx="4" fill="#8a7a5a" stroke="#6d6044" stroke-width="2.4"/>', '', 0, 1.1), '', 0, 1.05) +
+            '<text x="400" y="70" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">忍辱負重</text>') }
+      ];
     }
   };
 
