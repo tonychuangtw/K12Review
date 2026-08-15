@@ -20848,6 +20848,202 @@
             P(570, 302, A('kid', 'wow'), 'st-bob', 0, .95, true) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">當頭棒喝</text>') }
       ];
+    },
+    /* 火中取栗 */
+    i961: function () {
+      var FIRE2 = '<ellipse cx="0" cy="10" rx="26" ry="8" fill="#3a2e26"/><g class="st-flick"><path d="M0 6 Q-14 -14 0 -34 Q6 -20 14 -28 Q22 -6 10 4 Z" fill="#ff9d4d"/></g><g fill="#8a5a33"><circle cx="-8" cy="2" r="5"/><circle cx="6" cy="4" r="5"/></g>';
+      return [
+        { minDur: 7000, sub: '拉封丹寓言：猴子哄貓從火裡掏栗子——「你的爪子巧嘛！」貓一顆顆掏、爪子燙得吱吱叫！',
+          html: scene(P(400, 290, FIRE2, '', 0, 1.2) +
+            P(280, 302, A('fox') + '<path d="M20 -30 q14 -6 22 4" stroke="#e8a87a" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, .95) + sweat(500, 230) +
+            P(540, 302, A('kid', 'wow'), '', 0, .95, true)) },
+        { minDur: 6800, sub: '栗子掏完了——全進了猴子的肚子！貓只落得滿爪水泡……',
+          html: scene(P(300, 302, A('fox') + P(30, -40, '<g fill="#8a5a33"><circle cx="-6" cy="0" r="5"/><circle cx="6" cy="-3" r="5"/><circle cx="0" cy="6" r="5"/></g>', '', 0, 1.1), '', 0, 1) + hearts(380, 200) +
+            P(540, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(600, 190) + qmark(470, 185)) },
+        { minDur: 6800, sub: '「火中取栗」：替人冒險、自己一無所得——聽到「幫個小忙就好」，先想想栗子最後歸誰！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".92" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#c96a5a">歸誰?</text>', '', 0, 1.05)) + hearts(470, 190) +
+            P(580, 290, FIRE2, '', 0, .9)) },
+        { minDur: 6400, sub: '火中取栗：為人冒險，徒勞無得。',
+          html: scene(P(400, 292, FIRE2, '', 0, 1.3) + sweat(510, 240) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">火中取栗</text>') }
+      ];
+    },
+    /* 開門揖盜 */
+    i962: function () {
+      var DOOR2 = '<rect x="-40" y="-70" width="80" height="70" fill="#8a5a33" stroke="#6d4426" stroke-width="3"/><rect x="-34" y="-64" width="30" height="64" fill="#a8734a" transform="rotate(-20 -34 -32)"/>';
+      return [
+        { minDur: 7000, sub: '孫策剛死，孫權哀痛不理政事——張昭勸他：此刻沉溺悲傷，「是猶開門而揖盜」！',
+          html: scene(P(300, 302, A('kid', 'sad') + '<g class="st-tear"><path d="M-10 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M-28 -56 l-16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + sweat(240, 195)) },
+        { minDur: 6800, sub: '「開門揖盜」：開大門向強盜作揖請進——亂世不振作，等於請敵人來攻！',
+          html: scene(P(300, 302, DOOR2, '', 0, 1.05) +
+            P(300, 292, A('kid', 'happy') + '<path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .78) +
+            P(520, 302, A('kid', 'angry') + P(-36, -44, '<path d="M-12 8 h24 l-4 -20 h-16 z" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, .95), 'st-inR', 0, 1, true) + qmark(400, 200), 'night') },
+        { minDur: 6800, sub: '現代版：密碼借人、亂點連結、陌生人說「幫我開一下門禁」——都是開門揖盜！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -50, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/><path d="M-4 -6 a4 4 0 0 1 8 0 v4 h-8 z" fill="#ffd97a"/>', '', 0, 1.05)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#c96a5a">密碼</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#c96a5a">保管好</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '開門揖盜：自啟禍端，引賊入門。',
+          html: scene(P(320, 302, DOOR2, '', 0, 1.05) +
+            P(520, 302, A('kid', 'angry'), 'st-inR', 0, 1, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">開門揖盜</text>', 'night') }
+      ];
+    },
+    /* 徇私舞弊 */
+    i963: function () {
+      return [
+        { minDur: 7000, sub: '評審私下把獎項內定給自己親戚——比賽還沒開始，名次早寫好了……',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>' + P(38, -50, '<rect x="-13" y="-9" width="26" height="18" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#c96a5a">內定</text>', '', 0, 1.05), '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95, true) + sweat(260, 195), 'night') },
+        { minDur: 6800, sub: '「徇私舞弊」（徇讀ㄒㄩㄣˋ）：屈從私情、玩弄弊端——用職權偏袒營私，最傷公信！',
+          html: scene(P(400, 250, '<line x1="0" y1="0" x2="0" y2="-48" stroke="#a8734a" stroke-width="4.6"/><line x1="-64" y1="-48" x2="64" y2="-48" stroke="#a8734a" stroke-width="4" transform="rotate(14 0 -48)"/><path d="M-64 -48 l-10 16 h20 z M64 -48 l-10 16 h20 z" fill="#e0a458" stroke="#c9862f" stroke-width="2" transform="rotate(14 0 -48)"/>', '', 0, 1.2) + sweat(520, 210) +
+            P(250, 210, '<rect x="-30" y="-15" width="60" height="30" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">ㄒㄩㄣˋ</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '防弊的解方是陽光：評分公開、程序透明、利益迴避——照得到光的地方長不出弊！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#548a40">公開</text>', '', 0, .95)) + hearts(470, 190) +
+            P(200, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '徇私舞弊：假公濟私，營私枉法。',
+          html: scene(P(400, 255, '<line x1="0" y1="0" x2="0" y2="-48" stroke="#a8734a" stroke-width="4.6"/><line x1="-64" y1="-48" x2="64" y2="-48" stroke="#a8734a" stroke-width="4" transform="rotate(14 0 -48)"/><path d="M-64 -48 l-10 16 h20 z M64 -48 l-10 16 h20 z" fill="#e0a458" stroke="#c9862f" stroke-width="2" transform="rotate(14 0 -48)"/>', '', 0, 1.25) + qmark(520, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">徇私舞弊</text>') }
+      ];
+    },
+    /* 貪贓枉法 */
+    i964: function () {
+      return [
+        { minDur: 7000, sub: '戲文裡的贓官：收了富商的金銀，當堂就把黑的判成白的——百姓喊冤無門！',
+          html: scene(P(340, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3a3550"/>' + P(-42, -44, '<circle cx="0" cy="0" r="11" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/><circle cx="14" cy="4" r="9" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1.05), '', 0, 1.05) +
+            P(540, 302, A('kid', 'sad') + '<path d="M-24 -60 l-6 -14 M24 -60 l6 -14" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .95, true) + sweat(600, 190), 'night') },
+        { minDur: 6800, sub: '「貪贓枉法」：收賄賂、歪曲法律——「贓」是貝字旁：不法之財！',
+          html: scene(P(310, 250, '<circle cx="0" cy="0" r="20" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#a8791e">贓</text>') +
+            '<path d="M345 250 h80" stroke="#c96a5a" stroke-width="3.4"/><path d="M425 250 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            P(490, 250, '<rect x="-26" y="-20" width="52" height="40" rx="4" fill="#fff" opacity=".92"/><path d="M-14 8 q14 -22 28 -6" stroke="#c96a5a" stroke-width="3" fill="none"/><text x="0" y="-6" text-anchor="middle" font-size="11" fill="#8b93a3">法⤳歪</text>')) },
+        { minDur: 6800, sub: '包青天的鍘刀為何千年被歌頌？因為人們永遠痛恨貪贓枉法、渴望公正的執法者！',
+          html: scene(P(360, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#2c3550"/><path d="M-8 -62 q8 6 16 0" stroke="#ffd97a" stroke-width="2" fill="none"/>', '', 0, 1.05) + bang(470, 185) +
+            P(240, 302, A('kid', 'happy'), 'st-cheer', 0, .9) + hearts(300, 195)) },
+        { minDur: 6400, sub: '貪贓枉法：納賄枉法，罪不可赦。',
+          html: scene(P(340, 250, '<circle cx="0" cy="0" r="20" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#a8791e">贓</text>', '', 0, 1.1) +
+            '<path d="M372 250 h60" stroke="#c96a5a" stroke-width="3.4"/><path d="M432 250 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            P(480, 250, '<path d="M-12 10 q12 -24 24 -8" stroke="#c96a5a" stroke-width="3.4" fill="none"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">貪贓枉法</text>') }
+      ];
+    },
+    /* 簞食瓢飲 */
+    i965: function () {
+      var DANSHI = '<path d="M-40 -4 a16 8 0 0 1 32 0 l-3 10 q-13 6 -26 0 z" fill="#c9b26a" stroke="#a8905a" stroke-width="2.2"/><path d="M14 -8 a12 10 0 0 1 24 4 q-4 8 -12 8 q-10 0 -12 -12 z" fill="#8a6a44" stroke="#6d4426" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '孔子最疼的學生顏回：一竹籃飯、一瓢水、住陋巷——別人受不了，他照樣快樂讀書！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -44, DANSHI, '', 0, .95), '', 0, 1.02) +
+            P(600, 285, '<path d="M-36 28 L0 -8 L36 28 Z" fill="#c9b26a" stroke="#a8905a" stroke-width="2.4"/><rect x="-26" y="28" width="52" height="14" fill="#e8d9a8"/>', '', 0, 1) + notes(300, 195)) },
+        { minDur: 6800, sub: '孔子讚歎：「人不堪其憂，回也不改其樂」——貧窮困不住一顆熱愛學問的心！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(530, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, .98, true) + hearts(430, 188)) },
+        { minDur: 6800, sub: '「簞食瓢飲」（食讀ㄙˋ）：安於清貧——快樂的源頭不在餐桌上，在心裡面！',
+          html: scene(P(400, 260, DANSHI, '', 0, 1.6) + hearts(520, 220) +
+            P(260, 210, '<rect x="-30" y="-15" width="60" height="30" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">食=ㄙˋ</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '簞食瓢飲：一簞一瓢，不改其樂。',
+          html: scene(P(400, 262, DANSHI, '', 0, 1.7) + hearts(520, 220) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">簞食瓢飲</text>') }
+      ];
+    },
+    /* 夙興夜寐 */
+    i966: function () {
+      return [
+        { minDur: 7000, sub: '《詩經．氓》裡的女子自述：「夙興夜寐，靡有朝矣」——起早睡晚操勞家務，沒有一天例外……',
+          html: scene(P(220, 120, '<circle cx="0" cy="0" r="17" fill="#ffb066" stroke="#e8944d" stroke-width="2.6"/>', '', 0, 1) +
+            P(580, 120, '<circle cx="0" cy="0" r="15" fill="#f5f0dc"/><circle cx="5" cy="-3" r="11" fill="#2c3550"/>', '', 0, 1) +
+            P(400, 302, A('kid', 'sad') + P(-40, -44, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1.02) + sweat(320, 190)) },
+        { minDur: 6800, sub: '「夙興夜寐」：早起晚睡、日夜辛勤——創業初期的爸媽、備考的你，都是這樣撐過來的！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) +
+            P(600, 130, '<circle cx="0" cy="0" r="15" fill="#f5f0dc"/><circle cx="5" cy="-3" r="11" fill="#2c3550"/>', '', 0, 1) + sweat(290, 190), 'night') },
+        { minDur: 6800, sub: '勤勞值得敬佩，也要守住底線——睡眠是本錢：熬得了一時，熬不了一世！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">睡眠是</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">本錢</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '夙興夜寐：起早睡晚，勤勞不懈。',
+          html: scene(P(230, 125, '<circle cx="0" cy="0" r="16" fill="#ffb066" stroke="#e8944d" stroke-width="2.6"/>', '', 0, 1) +
+            P(570, 125, '<circle cx="0" cy="0" r="14" fill="#f5f0dc"/><circle cx="5" cy="-3" r="11" fill="#2c3550"/>', '', 0, 1) +
+            P(400, 302, A('kid', 'angry') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) +
+            '<text x="400" y="220" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">夙興夜寐</text>') }
+      ];
+    },
+    /* 席不暇暖 */
+    i967: function () {
+      return [
+        { minDur: 7000, sub: '班固說：「孔席不暖，墨突不黔」——孔子的坐席沒坐暖、墨子家煙囪沒燻黑，都在為理想奔走！',
+          html: scene(P(300, 290, '<rect x="-30" y="-8" width="60" height="10" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/><g class="st-zfloat" opacity=".5"><path d="M0 -16 q3 -6 0 -10" stroke="#c9bfa8" stroke-width="2" fill="none"/></g>', '', 0, 1.1) +
+            P(480, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', 'st-dashL', 0, 1.02) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="560" y1="250" x2="630" y2="250"/></g>') },
+        { minDur: 6800, sub: '「席不暇暖」：坐席來不及坐暖就得起身——新官上任第一天，立刻南下勘災！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/>' + P(0, -66, '<rect x="-16" y="-22" width="32" height="26" rx="5" fill="#8a5a33" stroke="#6d4426" stroke-width="2.4"/>', '', 0, .9), 'st-dashL', 0, 1.05) +
+            P(560, 290, '<path d="M-24 12 l10 -26 l14 8 l12 -18" stroke="#8b93a3" stroke-width="4" fill="none"/>', '', 0, 1.1) + sweat(240, 190) + bang(450, 200)) },
+        { minDur: 6800, sub: '為值得的事奔走不算苦——但記得偶爾坐下來喝口水：席暖一分鐘，再出發！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -44, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1.02) + hearts(470, 190)) },
+        { minDur: 6400, sub: '席不暇暖：奔走不停，無暇安坐。',
+          html: scene(P(300, 292, '<rect x="-28" y="-8" width="56" height="10" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1.1) +
+            P(490, 302, A('kid', 'angry'), 'st-dashL', 0, 1.05) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="560" y1="255" x2="630" y2="255"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">席不暇暖</text>') }
+      ];
+    },
+    /* 生靈塗炭 */
+    i968: function () {
+      return [
+        { minDur: 7000, sub: '《尚書》控訴暴政：「民墜塗炭」——百姓像掉進泥沼、跌入炭火，苦不堪言！',
+          html: scene('<rect y="272" width="800" height="68" fill="#5a4a3a"/>' +
+            P(300, 296, '<g transform="rotate(14)">' + A('kid', 'sad') + '</g>', '', 0, .92) +
+            P(480, 298, '<g transform="rotate(-10)">' + A('kid', 'sad') + '</g>', '', 0, .9) +
+            P(620, 285, '<g class="st-flick"><path d="M0 8 Q-10 -10 0 -26 Q4 -16 10 -22 Q16 -4 8 6 Z" fill="#ff9d4d"/></g>', '', 0, 1.1) + sweat(390, 230), 'night') },
+        { minDur: 6800, sub: '「生靈塗炭」：戰亂暴政使人民受苦——歷史書裡每個「塗炭」背後，都是萬千家庭的破碎……',
+          html: scene(P(340, 290, '<path d="M-24 12 l10 -26 l14 8 l12 -18" stroke="#8b93a3" stroke-width="4" fill="none"/><ellipse cx="0" cy="16" rx="34" ry="7" fill="#6d675c" opacity=".7"/>', '', 0, 1.1) +
+            P(520, 302, A('kid', 'sad') + P(-34, -40, '<path d="M-12 8 h24 l-3 -18 h-18 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2" opacity=".8"/>', '', 0, .9), '', 0, .95) + sweat(580, 195), 'night') },
+        { minDur: 6800, sub: '所以「和平」兩個字這麼重——珍惜安穩的每一天，也為受苦的人伸出手！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(38, -46, '<rect x="-12" y="-9" width="24" height="18" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1)) +
+            P(500, 302, A('kid', 'sad'), '', 0, .95, true) + hearts(420, 185) +
+            P(200, 130, '<circle cx="0" cy="0" r="18" fill="#ffdd66" stroke="#f5b73e" stroke-width="2.6"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '生靈塗炭：民陷水火，苦不堪言。',
+          html: scene('<rect y="276" width="800" height="64" fill="#5a4a3a"/>' +
+            P(320, 298, '<g transform="rotate(14)">' + A('kid', 'sad') + '</g>', '', 0, .92) +
+            P(560, 288, '<g class="st-flick"><path d="M0 8 Q-10 -10 0 -26 Q4 -16 10 -22 Q16 -4 8 6 Z" fill="#ff9d4d"/></g>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">生靈塗炭</text>', 'night') }
+      ];
+    },
+    /* 哀鴻遍野 */
+    i969: function () {
+      return [
+        { minDur: 7000, sub: '《詩經》：「鴻雁于飛，哀鳴嗷嗷」——失群的大雁悲鳴，就像流離失所的災民……',
+          html: scene(P(300, 190, A('bird'), 'st-fly', 0, .95) + P(450, 170, A('bird'), 'st-fly', .3, .9) + P(570, 200, A('bird'), 'st-fly', .6, .85) +
+            '<rect y="282" width="800" height="58" fill="#c9b98a"/>' +
+            '<g class="st-zfloat" opacity=".6"><text x="380" y="240" font-size="14" fill="#8b93a3">嗷嗷……</text></g>', 'night') },
+        { minDur: 6800, sub: '「哀鴻遍野」：災民遍地——饑荒之年，逃難的人群像哀鳴的雁陣鋪滿原野……',
+          html: scene('<rect y="282" width="800" height="58" fill="#c9b98a"/>' +
+            P(280, 302, A('kid', 'sad') + P(-30, -30, '<path d="M0 -26 v40 M-10 -26 q10 8 20 0" stroke="#8a6a44" stroke-width="3.4" fill="none" stroke-linecap="round"/>', '', 0, .9), '', 0, .92) +
+            P(420, 302, A('kid', 'sad'), '', 0, .9) + P(540, 302, A('kid', 'sad') + P(34, -30, '<path d="M-8 4 q8 -12 16 0" stroke="#fff" stroke-width="4" fill="none"/>', '', 0, .9), '', 0, .88) + sweat(360, 200), 'night') },
+        { minDur: 6800, sub: '面對哀鴻，行動勝過嘆息——捐輸、志工、發聲，每雙手都能接住一隻雁！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(38, -46, '<rect x="-12" y="-9" width="24" height="18" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1)) +
+            P(500, 302, A('kid', 'happy') + P(-38, -46, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, .97, true) + hearts(415, 185)) },
+        { minDur: 6400, sub: '哀鴻遍野：災黎遍地，滿目瘡痍。',
+          html: scene(P(320, 195, A('bird'), 'st-fly', 0, .95) + P(480, 175, A('bird'), 'st-fly', .3, .88) +
+            '<rect y="285" width="800" height="55" fill="#c9b98a"/>' +
+            '<text x="400" y="260" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">哀鴻遍野</text>', 'night') }
+      ];
+    },
+    /* 民胞物與 */
+    i970: function () {
+      return [
+        { minDur: 7000, sub: '張載〈西銘〉的胸懷：「民吾同胞，物吾與也」——天下人都是我的手足，萬物都是我的同伴！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-30 -46 q-14 -8 -22 2 M30 -46 q14 -8 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy'), '', 0, .88) + P(550, 302, A('kid', 'happy'), '', 0, .88, true) +
+            P(620, 290, A('bird'), '', 0, .8) + P(180, 290, A('rabbit'), '', 0, .8) + hearts(400, 172)) },
+        { minDur: 6800, sub: '「民胞物與」：博愛眾人、兼愛萬物——這份情懷是現代環境倫理最早的種子！',
+          html: scene(P(400, 220, '<circle cx="0" cy="0" r="26" fill="#7fb2d4" opacity=".9"/><path d="M-14 -8 q10 -6 18 2 M-8 8 q8 -4 14 2" stroke="#a5d47c" stroke-width="3.4" fill="none"/>', '', 0, 1.3) +
+            P(280, 290, A('kid', 'happy'), '', 0, .85) + P(520, 290, A('fox'), '', 0, .8, true) +
+            P(400, 296, '<path d="M0 8 q-2 -12 5 -17 q5 -5 4 -11" stroke="#7fa858" stroke-width="2.6" fill="none"/>', '', 0, 1.2) + hearts(400, 165)) },
+        { minDur: 6800, sub: '從身邊做起：對人多一分體諒、對動物多一分善待、對環境多一分珍惜！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(38, -40, '<path d="M-8 -6 q8 -8 16 0 l-3 8 q-5 3 -10 0 z" fill="#7fd4d4" stroke="#4aa8a8" stroke-width="2"/>', '', 0, 1)) +
+            P(500, 296, A('dog', 'happy'), '', 0, .9, true) + hearts(420, 185) +
+            P(620, 292, '<path d="M0 8 q-2 -10 4 -14" stroke="#7fa858" stroke-width="2.6" fill="none"/>', '', 0, 1.2)) },
+        { minDur: 6400, sub: '民胞物與：民皆同胞，物皆同類。',
+          html: scene(P(400, 225, '<circle cx="0" cy="0" r="26" fill="#7fb2d4" opacity=".9"/><path d="M-14 -8 q10 -6 18 2 M-8 8 q8 -4 14 2" stroke="#a5d47c" stroke-width="3.4" fill="none"/>', '', 0, 1.3) +
+            P(300, 296, A('kid', 'happy'), '', 0, .85) + P(500, 294, A('fox'), '', 0, .8, true) + hearts(400, 170) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">民胞物與</text>') }
+      ];
     }
   };
 
