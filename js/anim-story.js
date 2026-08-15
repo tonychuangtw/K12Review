@@ -11860,6 +11860,157 @@
           html: scene(P(400, 302, A('kid', 'happy') + P(-42, -48, BOOKLOVE, '', 0, 1.05), '', 0, 1.05) + hearts(510, 188) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">愛不釋手</text>') }
       ];
+    },
+    /* 明察秋毫 */
+    i313: function () {
+      var FEATHER = '<path d="M0 22 q-12 -20 -2 -42 q2 -4 5 0 q9 22 -3 42 z" fill="#d9cfae" stroke="#b8a982" stroke-width="1.8"/><line x1="0" y1="22" x2="1" y2="-18" stroke="#b8a982" stroke-width="1.4"/>';
+      return [
+        { minDur: 7000, sub: '孟子對梁惠王說：有人視力好到「明足以察秋毫之末」——連秋天鳥獸新生的細毛都看得一清二楚！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1) +
+            P(540, 260, FEATHER, '', 0, 1.6) +
+            P(540, 260, '<circle cx="0" cy="0" r="34" fill="none" stroke="#8b93a3" stroke-width="3.4"/><line x1="26" y1="26" x2="46" y2="46" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/>', '', 0, 1.2)) },
+        { minDur: 6800, sub: '裁判看比賽：一隻腳有沒有踩線、球有沒有出界——再細微的動作都逃不過他的眼睛！',
+          html: scene('<line x1="200" y1="296" x2="620" y2="296" stroke="#fff" stroke-width="4"/>' +
+            P(300, 302, A('kid', 'wow'), 'st-dashL', 0, .98) +
+            P(560, 302, A('kid', 'angry') + P(-36, -60, '<circle cx="0" cy="0" r="10" fill="none" stroke="#3a2e26" stroke-width="3"/><circle cx="20" cy="0" r="10" fill="none" stroke="#3a2e26" stroke-width="3"/><line x1="10" y1="0" x2="10" y2="0" stroke="#3a2e26" stroke-width="3"/>', '', 0, 1), '', 0, 1, true) + bang(430, 195)) },
+        { minDur: 6800, sub: '「明察秋毫」：目光敏銳、觀察入微——法官明察秋毫，一點蛛絲馬跡都不放過！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="13" fill="none" stroke="#8b93a3" stroke-width="3.4"/><line x1="10" y1="10" x2="20" y2="20" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/>', '', 0, 1.1), '', 0, 1.05) +
+            P(260, 220, '<g class="st-tw"><path d="M0 -14 l4 9 10 1 -7 7 2 10 -9 -5 -9 5 2 -10 -7 -7 10 -1 z" fill="#ffd97a"/></g>', '', 0, 1) + hearts(520, 195)) },
+        { minDur: 6400, sub: '明察秋毫：觀察敏銳，細微畢見。',
+          html: scene(P(400, 255, FEATHER, '', 0, 1.7) +
+            P(400, 255, '<circle cx="0" cy="0" r="38" fill="none" stroke="#8b93a3" stroke-width="3.6"/><line x1="28" y1="28" x2="50" y2="50" stroke="#8b93a3" stroke-width="4.4" stroke-linecap="round"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">明察秋毫</text>') }
+      ];
+    },
+    /* 東山再起 */
+    i314: function () {
+      var MOUNT = '<path d="M-90 40 L0 -50 L90 40 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6"/><path d="M-30 10 L0 -20 L30 10" fill="none" stroke="#5a7a4a" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '東晉名士謝安隱居會稽東山，朝廷幾次請他做官都不出來——每天遊山吟詩，看似與世無爭！',
+          html: scene(P(430, 262, MOUNT, '', 0, 1.2) +
+            P(430, 240, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .85) + notes(540, 175)) },
+        { minDur: 6800, sub: '國家危難，謝安終於復出——淝水之戰以少勝多，救了東晉，成為一代名相！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -10" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>' + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', 'st-strut', 0, 1.05) + bang(420, 180) +
+            P(580, 302, A('kid', 'happy'), 'st-cheer', 0, .92, true) + hearts(500, 200)) },
+        { minDur: 6800, sub: '「東山再起」：失敗或退隱後重新崛起——人稱謝安從東山重新出來，就是這個典故！',
+          html: scene(P(300, 268, MOUNT, '', 0, .95) +
+            P(520, 302, A('kid', 'happy'), 'st-inL', 0, 1.02) +
+            '<path d="M330 230 q90 20 150 50" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/>' + bang(600, 200)) },
+        { minDur: 6400, sub: '東山再起：失勢後重新崛起。',
+          html: scene(P(330, 268, MOUNT, '', 0, 1.05) + P(560, 302, A('kid', 'happy'), 'st-cheer', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">東山再起</text>') }
+      ];
+    },
+    /* 心不在焉 */
+    i315: function () {
+      return [
+        { minDur: 7000, sub: '《大學》說：「心不在焉，視而不見，聽而不聞，食而不知其味」——心不在，什麼都感覺不到！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -44, '<path d="M-14 -8 h28 v6 q0 10 -14 10 q-14 0 -14 -10 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) + qmark(300, 180) +
+            P(540, 195, '<g class="st-zfloat"><circle cx="0" cy="0" r="6" fill="#c9d6e8" opacity=".8"/><circle cx="16" cy="-16" r="9" fill="#c9d6e8" opacity=".8"/><circle cx="38" cy="-36" r="13" fill="#c9d6e8" opacity=".8"/></g>', '', 0, 1)) },
+        { minDur: 6800, sub: '上課時小焉眼睛看著黑板，腦子卻飛到放學後的球場——老師點名叫他，他完全沒聽到！',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, .98) +
+            P(430, 190, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><circle cx="0" cy="-2" r="9" fill="#e0813f" stroke="#b85f24" stroke-width="1.8"/>', '', 0, 1) +
+            P(580, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + bang(640, 190)) },
+        { minDur: 6800, sub: '「心不在焉」：心思不在眼前的事情上——收心的辦法：深呼吸，把注意力拉回當下！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/></g>', '', 0, .95), '', 0, 1.05) + hearts(510, 190)) },
+        { minDur: 6400, sub: '心不在焉：心思不集中於眼前。',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.02) + qmark(300, 185) +
+            P(520, 200, '<g class="st-zfloat"><circle cx="0" cy="0" r="6" fill="#c9d6e8" opacity=".8"/><circle cx="16" cy="-16" r="9" fill="#c9d6e8" opacity=".8"/></g>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">心不在焉</text>') }
+      ];
+    },
+    /* 名列前茅 */
+    i316: function () {
+      var FLAGM = '<line x1="0" y1="12" x2="0" y2="-52" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -52 q16 4 30 -2 q-4 10 2 18 q-16 6 -32 0 z" fill="#a5d47c" stroke="#7fa858" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '《左傳》記載：楚軍行軍時，前鋒部隊高舉茅草做的旌旗開路偵察——走在最前面的就是「前茅」！',
+          html: scene(P(280, 302, A('kid', 'angry') + P(26, -50, FLAGM, '', 0, 1), 'st-strut', 0, 1) +
+            P(460, 302, A('kid', 'happy'), 'st-strut', .2, .95) + P(600, 302, A('kid', 'happy'), 'st-strut', .4, .9) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="180" y1="200" x2="240" y2="200"/></g>') },
+        { minDur: 6800, sub: '成績單貼出來，小茅的名字排在最前面幾名——就像走在隊伍最前頭的旗手！',
+          html: scene(P(300, 250, '<rect x="-46" y="-52" width="92" height="104" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g font-size="13" fill="#6d7585"><text x="-34" y="-30">1. 小茅</text><text x="-34" y="-8">2. ○○</text><text x="-34" y="14">3. ○○</text></g><circle cx="14" cy="-34" r="12" fill="none" stroke="#c96a5a" stroke-width="2.6"/>') +
+            P(520, 302, A('kid', 'happy'), 'st-cheer', 0, 1) + bang(600, 190)) },
+        { minDur: 6800, sub: '「名列前茅」：成績或名次排在前面——保持在前茅的祕訣，就是每天穩穩複習！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(26, -50, FLAGM, '', 0, .95), '', 0, 1.05) + hearts(300, 190) +
+            P(560, 200, '<path d="M0 -18 l6 11 12 2 -9 9 2 12 -11 -6 -11 6 2 -12 -9 -9 12 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '名列前茅：成績名次位居前列。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(26, -50, FLAGM, '', 0, 1), 'st-strut', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">名列前茅</text>') }
+      ];
+    },
+    /* 青梅竹馬 */
+    i526: function () {
+      var BAMBOO_HORSE = '<line x1="0" y1="14" x2="0" y2="-30" stroke="#7fa858" stroke-width="5" stroke-linecap="round"/><path d="M0 -30 q10 -8 20 -2 q-2 8 -10 10 q8 2 6 10 q-10 2 -16 -6" fill="#a5d47c" stroke="#7fa858" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '李白〈長干行〉：「郎騎竹馬來，遶床弄青梅」——小男孩跨著竹竿當馬騎，繞著井欄追逐，拿青梅子玩耍！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-8, -20, BAMBOO_HORSE, '', 0, 1.1), 'st-hop', 0, 1) +
+            P(520, 302, A('kid', 'happy') + P(-36, -50, '<circle cx="0" cy="0" r="8" fill="#a5d47c" stroke="#7fa858" stroke-width="2"/><path d="M0 -8 q3 -6 8 -7" stroke="#7fa858" stroke-width="2" fill="none"/>', '', 0, 1.1), '', 0, .98, true) + hearts(420, 185)) },
+        { minDur: 6800, sub: '「同居長干里，兩小無嫌猜」——住在同一條巷子，從小玩在一起，天真又要好！',
+          html: scene(P(400, 285, '<path d="M-50 -40 L0 -72 L50 -40 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><rect x="-40" y="-40" width="80" height="40" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/>', '', 0, .95) +
+            P(300, 302, A('kid', 'happy'), '', 0, .9) + P(500, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(400, 190)) },
+        { minDur: 6800, sub: '「青梅竹馬」：從小一起長大的親密玩伴——長大再回想，是最珍貴的童年情誼！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(400, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.2) + notes(550, 200)) },
+        { minDur: 6400, sub: '青梅竹馬：自幼一起長大的玩伴。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-8, -20, BAMBOO_HORSE, '', 0, 1), 'st-hop', 0, 1) +
+            P(510, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(430, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">青梅竹馬</text>') }
+      ];
+    },
+    /* 萍水相逢 */
+    i527: function () {
+      var PONDP = '<rect y="252" width="800" height="88" fill="#7fb2d4"/>' +
+        '<g class="st-wavemove"><path d="M-40 264 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d0e8" stroke-width="6" stroke-linecap="round" opacity=".9"/></g>';
+      var LEAF = '<ellipse cx="0" cy="0" rx="16" ry="7" fill="#7fa858"/><path d="M0 0 l10 -3" stroke="#5a8a3a" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '王勃在〈滕王閣序〉寫下：「萍水相逢，盡是他鄉之客」——浮萍隨水漂流，偶然聚在一起！',
+          html: scene(PONDP + P(300, 268, LEAF, 'st-bob', 0, 1.2) + P(480, 272, LEAF, 'st-bob', .4, 1.1) +
+            P(390, 262, LEAF, 'st-bob', .8, 1)) },
+        { minDur: 6800, sub: '旅行的火車上，鄰座的陌生人聊起來——原來都愛畫畫！素不相識，卻相談甚歡！',
+          html: scene(P(400, 285, '<rect x="-120" y="-40" width="240" height="60" rx="8" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="3"/><circle cx="-70" cy="30" r="13" fill="#3a3550"/><circle cx="70" cy="30" r="13" fill="#3a3550"/><rect x="-96" y="-28" width="42" height="30" rx="4" fill="#cfe0f0"/><rect x="54" y="-28" width="42" height="30" rx="4" fill="#cfe0f0"/>', '', 0, 1.1) +
+            P(330, 260, A('kid', 'happy'), '', 0, .78) + P(470, 260, A('kid', 'happy'), '', 0, .78, true) + notes(400, 180)) },
+        { minDur: 6800, sub: '「萍水相逢」：素不相識的人偶然相遇——緣分雖短，也可能成為難忘的朋友！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M330 240 q70 -40 140 0" stroke="#ff9eb5" stroke-width="3.4" fill="none" stroke-dasharray="7 7"/>' + hearts(400, 175)) },
+        { minDur: 6400, sub: '萍水相逢：陌生人偶然相遇。',
+          html: scene(PONDP + P(330, 268, LEAF, 'st-bob', 0, 1.2) + P(460, 272, LEAF, 'st-bob', .4, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">萍水相逢</text>') }
+      ];
+    },
+    /* 一見如故 */
+    i528: function () {
+      return [
+        { minDur: 6800, sub: '新生報到日，小故和鄰座第一次見面——聊漫畫、聊桌遊，越聊越起勁，像認識了十年！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            notes(400, 178) + hearts(540, 195) + bang(260, 195)) },
+        { minDur: 6800, sub: '古人叫這「傾蓋如故」：路上兩車相遇，車蓋一斜靠著聊，一聊就像老朋友！',
+          html: scene(P(300, 290, '<circle cx="0" cy="12" r="13" fill="#5a4632"/><rect x="-34" y="-16" width="68" height="26" rx="5" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><path d="M-30 -16 q30 -22 60 0" fill="#e0a458" stroke="#c9862f" stroke-width="2"/>', '', 0, 1) +
+            P(500, 290, '<circle cx="0" cy="12" r="13" fill="#5a4632"/><rect x="-34" y="-16" width="68" height="26" rx="5" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><path d="M-30 -16 q30 -22 60 0" fill="#e0a458" stroke="#c9862f" stroke-width="2"/>', '', 0, 1, true) + notes(400, 185)) },
+        { minDur: 6800, sub: '「一見如故」：初次見面就像老朋友一樣投緣——頻率對了，友誼一秒點燃！',
+          html: scene(P(330, 302, A('kid', 'happy'), 'st-cheer') + P(470, 302, A('kid', 'happy'), 'st-cheer', .2, .98, true) +
+            P(400, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.3)) },
+        { minDur: 6400, sub: '一見如故：初見即投緣如舊識。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一見如故</text>') }
+      ];
+    },
+    /* 相見恨晚 */
+    i529: function () {
+      return [
+        { minDur: 7000, sub: '漢武帝召見主父偃等三位賢士，一談之下大為欣賞，感歎：「公等皆安在？何相見之晚也！」',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05) +
+            P(500, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95, true) +
+            P(610, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .9, true) + hearts(400, 180)) },
+        { minDur: 6800, sub: '你們之前都在哪裡呀？怎麼現在才遇到！——欣賞到捨不得，只恨認識得太晚！',
+          html: scene(P(340, 302, A('kid', 'wow')) + P(500, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(420, 190, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="15" fill="#c96a5a">太晚!</text>') + hearts(560, 200)) },
+        { minDur: 6800, sub: '「相見恨晚」：投緣到可惜沒早點認識——聊音樂聊到半夜的新朋友，就是這種感覺！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + notes(400, 178) +
+            P(600, 130, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6400, sub: '相見恨晚：遺憾認識得太晚。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">相見恨晚</text>') }
+      ];
     }
   };
 
