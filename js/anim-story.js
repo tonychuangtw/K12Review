@@ -4546,6 +4546,123 @@
           html: scene(TRACK + P(620, 296, A('kid', 'happy'), 'st-dashL', 0, 1.1) + P(160, 296, A('kid', 'happy'), 'st-strut', 0, .78) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">遙遙領先</text>') }
       ];
+    },
+    /* 鐵杵磨針（與磨杵成針同典） */
+    i1003: function () {
+      var sc = STORIES.i786();
+      var last = sc[sc.length - 1];
+      last.sub = '鐵杵磨針：有恆心肯下功夫，再難的事也能成功。';
+      last.html = last.html.replace('磨杵成針', '鐵杵磨針');
+      return sc;
+    },
+    /* 生龍活虎 */
+    i019: function () {
+      return [
+        { minDur: 6600, sub: '一大早的操場上，小朋友們跑的跑、跳的跳，個個精神飽滿、活力十足！',
+          html: scene(P(240, 302, A('kid', 'happy'), 'st-dashL') +
+            P(430, 302, '<g class="st-hop">' + A('kid', 'happy') + '</g>', '', .2, .95) +
+            P(600, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', .4, .9) + bang(330, 200)) },
+        { minDur: 6600, sub: '像騰飛的龍、像跳躍的虎——這種精力充沛的樣子，就叫「生龍活虎」！',
+          html: scene(P(280, 160, A('dragon'), '', 0, 1.05) + P(540, 302, '<g class="st-hop">' + A('tiger') + '</g>') +
+            hearts(410, 210)) },
+        { minDur: 6600, sub: '睡飽吃好、天天運動，每個人都能生龍活虎、精神百倍！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(480, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .93) + hearts(390, 170)) },
+        { minDur: 6400, sub: '生龍活虎：精力充沛，充滿活力。',
+          html: scene(P(270, 180, A('dragon'), '', 0, .95) + P(530, 302, '<g class="st-hop">' + A('tiger') + '</g>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">生龍活虎</text>') }
+      ];
+    },
+    /* 一帆風順 */
+    i020: function () {
+      var SAIL = '<path d="M-46 0 L46 0 L34 16 L-34 16 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/>' +
+        '<line x1="0" y1="0" x2="0" y2="-66" stroke="#8a5a33" stroke-width="4"/>' +
+        '<path d="M0 -66 Q34 -46 0 -8 Z" fill="#fff" stroke="#d5cfc0" stroke-width="2.4"/>';
+      var SEA6 = '<rect y="262" width="800" height="78" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 274 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>';
+      var WINDLN = '<g stroke="#e8f4fb" stroke-width="5" fill="none" stroke-linecap="round" opacity=".9"><path class="st-windln" d="M80 140 q60 -14 120 0"/><path class="st-windln" style="animation-delay:.7s" d="M140 180 q70 -14 130 2"/></g>';
+      return [
+        { minDur: 6600, sub: '小帆船揚起白帆，順著風出發——風把帆吹得鼓鼓的，船兒輕快地往前跑！',
+          html: scene(SEA6 + WINDLN + P(400, 268, SAIL, 'st-strut')) },
+        { minDur: 6600, sub: '一路上沒有大浪、沒有暗礁，順順利利抵達了目的地！',
+          html: scene(SEA6 + P(600, 268, SAIL) +
+            '<ellipse cx="720" cy="330" rx="130" ry="46" fill="#b8e08e"/>' + hearts(520, 200)) },
+        { minDur: 6800, sub: '「一帆風順」比喻事情進行得順順利利、沒有阻礙——也常用來祝福出遠門的人！',
+          html: scene(SEA6 + P(360, 268, SAIL, 'st-strut', 0, .95) +
+            P(150, 296, A('kid', 'happy') +
+              '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-58" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>', '', 0, .9) + hearts(250, 210)) },
+        { minDur: 6400, sub: '一帆風順：事情進行順利，沒有障礙。',
+          html: scene(SEA6 + WINDLN + P(430, 268, SAIL, '', 0, 1.1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一帆風順</text>') }
+      ];
+    },
+    /* 春暖花開 */
+    i022: function () {
+      function flower2(x, y, color, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<line x1="0" y1="0" x2="0" y2="-16" stroke="#5f8a46" stroke-width="3"/>' +
+          '<circle cx="0" cy="-22" r="5" fill="' + color + '"/><circle cx="-6" cy="-18" r="5" fill="' + color + '"/><circle cx="6" cy="-18" r="5" fill="' + color + '"/><circle cx="0" cy="-14" r="5" fill="' + color + '"/><circle cx="0" cy="-18" r="3.4" fill="#ffe066"/></g>');
+      }
+      return [
+        { minDur: 6600, sub: '冬天過去了，太陽變得暖洋洋——公園裡的花一朵接一朵，全都開了！',
+          html: scene(flower2(220, 318, '#ff9eb5', 0) + flower2(320, 322, '#ffd97a', .3) + flower2(420, 318, '#c9a8e0', .5) + flower2(520, 322, '#ff8a80', .2) +
+            P(650, 200, A('butterfly'), '', 0, .95) + hearts(580, 250)) },
+        { minDur: 6600, sub: '蝴蝶飛來了、小鳥唱歌了，大家脫下厚外套，出門野餐踏青！',
+          html: scene(flower2(180, 320, '#ff9eb5', 0) + flower2(650, 318, '#ffd97a', .4) +
+            P(300, 302, A('kid', 'happy'), 'st-strut') + P(450, 302, A('kid', 'happy'), 'st-strut', .2, .93) +
+            P(560, 190, A('bird')) + notes(620, 150)) },
+        { minDur: 6600, sub: '「春暖花開」：春天氣溫回暖、百花綻放——一年裡最舒服的季節！',
+          html: scene(flower2(250, 320, '#ff9eb5', 0) + flower2(400, 318, '#c9a8e0', .3) + flower2(550, 322, '#ffd97a', .5) +
+            P(660, 210, A('butterfly'), '', 0, .9) + hearts(400, 240)) },
+        { minDur: 6400, sub: '春暖花開：春天氣溫回暖，花朵綻放。',
+          html: scene(flower2(240, 320, '#ff9eb5', 0) + flower2(360, 318, '#ffd97a', .2) + flower2(480, 322, '#ff8a80', .4) + flower2(590, 318, '#c9a8e0', .6) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">春暖花開</text>') }
+      ];
+    },
+    /* 雨過天晴 */
+    i024: function () {
+      var RAINFX = '<g stroke="#8fc6ff" stroke-width="3.4" stroke-linecap="round">' +
+        '<line class="st-rain" x1="140" y1="30" x2="134" y2="52"/><line class="st-rain" style="animation-delay:.4s" x1="300" y1="16" x2="294" y2="38"/>' +
+        '<line class="st-rain" style="animation-delay:.8s" x1="450" y1="30" x2="444" y2="52"/><line class="st-rain" style="animation-delay:.2s" x1="580" y1="14" x2="574" y2="36"/></g>' +
+        '<g class="st-cloud"><ellipse cx="300" cy="60" rx="60" ry="20" fill="#8b93a3"/><ellipse cx="480" cy="50" rx="70" ry="22" fill="#a3a9b8"/></g>';
+      var RAINBOW = '<g fill="none" stroke-width="7"><path d="M200 240 A200 200 0 0 1 600 240" stroke="#e85a4f"/><path d="M212 240 A188 188 0 0 1 588 240" stroke="#ffb14d"/><path d="M224 240 A176 176 0 0 1 576 240" stroke="#ffe066"/><path d="M236 240 A164 164 0 0 1 564 240" stroke="#a5d47c"/><path d="M248 240 A152 152 0 0 1 552 240" stroke="#a5c8ff"/></g>';
+      return [
+        { minDur: 6600, sub: '嘩啦啦——大雨下個不停，小朋友們只能待在屋裡，望著窗外嘆氣。',
+          html: scene(RAINFX + P(360, 302, A('kid', 'sad')) + sweat(310, 200) + qmark(430, 185)) },
+        { minDur: 6600, sub: '雨停了！太陽鑽出雲層，天邊還掛起一道彩虹——大家歡呼著衝出門玩！',
+          html: scene(RAINBOW + P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(470, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .93) + hearts(390, 260)) },
+        { minDur: 6800, sub: '「雨過天晴」也比喻困難過去、心情好轉——考差了難過一晚，隔天打起精神繼續加油！',
+          html: scene(P(300, 302, A('kid', 'happy')) + hearts(380, 180) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95) + bang(480, 200)) },
+        { minDur: 6400, sub: '雨過天晴：雨停天晴，比喻困難過去了。',
+          html: scene(RAINBOW +
+            '<text x="400" y="300" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">雨過天晴</text>') }
+      ];
+    },
+    /* 七嘴八舌 */
+    i025: function () {
+      function bub2(x, y, txt, dly) {
+        return P(x, y, '<g class="st-zfloat"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M-24 -14 a20 16 0 1 1 40 5 q-2 7 -10 8 l-10 9 l1 -9 q-19 -2 -21 -13 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/>' +
+          '<text x="-2" y="-3" text-anchor="middle" font-size="11" fill="#4a3200">' + txt + '</text></g>');
+      }
+      return [
+        { minDur: 6800, sub: '班會討論園遊會要賣什麼——「賣冰沙！」「賣熱狗！」「套圈圈啦！」大家同時開口，教室鬧成一團！',
+          html: scene(P(240, 302, A('kid', 'happy'), '', 0, .95) + P(400, 302, A('kid', 'happy'), '', .2, .93) +
+            P(560, 302, A('kid', 'happy'), '', .4, .9) +
+            bub2(240, 170, '冰沙!', 0) + bub2(400, 145, '熱狗!', .3) + bub2(560, 170, '套圈圈!', .6)) },
+        { minDur: 6600, sub: '你一句、我一句，誰也聽不清誰——班長敲敲桌子：「一個一個說！」',
+          html: scene(P(300, 302, A('kid', 'wow')) + sweat(250, 195) +
+            P(540, 302, A('kid', 'angry'), '', 0, .97, true) + bang(440, 185)) },
+        { minDur: 6600, sub: '許多人同時各說各的、亂成一片——就是「七嘴八舌」。輪流發言才聽得清楚呀！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', .2, .93) +
+            '<path d="M300 240 q0 -20 14 -22" stroke="#548a40" stroke-width="4" fill="none" stroke-linecap="round"/>' + hearts(400, 180)) },
+        { minDur: 6400, sub: '七嘴八舌：許多人同時各說各的話，亂成一片。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.02) +
+            bub2(260, 170, '…', 0) + bub2(400, 140, '…!', .3) + bub2(540, 170, '?!', .6) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">七嘴八舌</text>') }
+      ];
     }
   };
 
