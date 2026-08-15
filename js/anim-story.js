@@ -19198,6 +19198,168 @@
           html: scene(P(400, 255, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-17" stroke="#c96a5a" stroke-width="3"/><line x1="0" y1="0" x2="12" y2="6" stroke="#c96a5a" stroke-width="3"/>', 'st-tw', 0, 1.3) + sweat(500, 210) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">曠日廢時</text>') }
       ];
+    },
+    /* 電光石火 */
+    i951: function () {
+      return [
+        { minDur: 7000, sub: '禪宗說悟道如「石火電光」——燧石迸出的火花、劃破夜空的閃電，一瞬即逝！',
+          html: scene('<path d="M340 60 L310 130 L335 130 L300 210" stroke="#ffe36b" stroke-width="6" fill="none"/>' +
+            P(540, 270, '<path d="M-14 8 L0 -10 L14 8 Z" fill="#8b93a3"/><g class="st-tw"><path d="M0 -18 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd166"/></g>', '', 0, 1.3), 'night') },
+        { minDur: 6800, sub: '「電光石火」：一瞬間、極快速——桌球對決，勝負就在電光石火的一板之間！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(38, -50, '<ellipse cx="0" cy="0" rx="10" ry="13" fill="#c96a5a" stroke="#a84f42" stroke-width="2" transform="rotate(30)"/>', '', 0, 1)) +
+            P(500, 302, A('kid', 'angry') + P(-38, -50, '<ellipse cx="0" cy="0" rx="10" ry="13" fill="#3d5a7a" stroke="#2c4358" stroke-width="2" transform="rotate(-30)"/>', '', 0, 1), '', 0, 1, true) +
+            P(400, 240, '<circle cx="0" cy="0" r="6" fill="#fff" stroke="#c9bfa8" stroke-width="1.6"/>', 'st-fly', 0, 1) + bang(400, 190)) },
+        { minDur: 6800, sub: '關鍵時刻的快，來自平時千百次的慢練——身體記住了，反應才能快過思考！',
+          html: scene(P(360, 302, A('kid', 'angry'), 'st-hop', 0, 1.02) + sweat(290, 190) +
+            P(560, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">千次</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">練習</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '電光石火：一閃即逝，瞬息之間。',
+          html: scene('<path d="M360 70 L330 140 L355 140 L320 220" stroke="#ffe36b" stroke-width="6" fill="none"/>' +
+            P(520, 270, '<path d="M-14 8 L0 -10 L14 8 Z" fill="#8b93a3"/><g class="st-tw"><path d="M0 -18 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd166"/></g>', '', 0, 1.3) +
+            '<text x="400" y="300" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">電光石火</text>', 'night') }
+      ];
+    },
+    /* 外強中乾 */
+    i952: function () {
+      return [
+        { minDur: 7000, sub: '晉惠公非要用外國駿馬上戰場——慶鄭勸阻：異國馬看著威風，遇險就慌，「外彊中乾」！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(520, 296, A('horse'), '', 0, 1.15) +
+            P(620, 240, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".8"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#8b93a3">?</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '果然一開戰馬就受驚亂竄，戰車陷進泥裡——晉惠公兵敗被俘！',
+          html: scene(P(430, 296, '<g class="st-bob">' + A('horse') + '</g>', 'st-dashL', 0, 1.1, true) + sweat(500, 210) +
+            P(250, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, .98) + bang(340, 200), 'night') },
+        { minDur: 6800, sub: '「外強中乾」（乾讀ㄍㄢ）：外表強壯、內在空虛——熬夜硬撐的身體，一場感冒就垮！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -8 M28 -56 l14 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.1) +
+            P(360, 200, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".85"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#c9bfa8">空</text>', '', 0, 1) +
+            P(580, 220, '<rect x="-30" y="-15" width="60" height="30" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">ㄍㄢ</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '外強中乾：虛有其表，內在空虛。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -8 M28 -56 l14 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.12) +
+            P(400, 195, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".85"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#c9bfa8">空</text>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">外強中乾</text>') }
+      ];
+    },
+    /* 金玉其外 */
+    i953: function () {
+      var ORANGE = '<circle cx="0" cy="0" r="18" fill="#ffb84d" stroke="#e8963f" stroke-width="2.6"/><path d="M-2 -18 q3 -6 8 -7" stroke="#7fa858" stroke-width="3" fill="none"/>';
+      return [
+        { minDur: 7000, sub: '劉基筆下的賣柑人：柑子外皮金黃油亮——剖開一看，裡面乾得像爛棉絮！',
+          html: scene(P(320, 270, ORANGE, '', 0, 1.4) +
+            P(500, 270, '<path d="M-18 -6 a18 18 0 0 1 36 0 q-8 12 -18 12 q-10 0 -18 -12 z" fill="#ffb84d" stroke="#e8963f" stroke-width="2.4"/><path d="M-8 -4 q4 6 8 0 q4 6 8 -2" stroke="#c9bfa8" stroke-width="3" fill="none"/>', '', 0, 1.4) + qmark(600, 220) +
+            P(220, 302, A('kid', 'wow'), '', 0, .92)) },
+        { minDur: 6800, sub: '被質問時賣柑人反諷：滿朝威風的大官，何嘗不是「金玉其外，敗絮其中」！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(540, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05, true) + bang(440, 182) + sweat(620, 190)) },
+        { minDur: 6800, sub: '「金玉其外（敗絮其中）」：徒有華麗外表——包裝再美，打開見真章！',
+          html: scene(P(310, 250, '<rect x="-30" y="-24" width="60" height="48" rx="5" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.6"/><path d="M0 -24 v48 M-30 0 h60" stroke="#c96a5a" stroke-width="3"/><path d="M-8 -32 q8 -8 16 0" stroke="#c96a5a" stroke-width="3" fill="none"/>', '', 0, 1.1) +
+            '<path d="M355 250 h80" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/><path d="M435 250 l-10 -7 v14 z" fill="#c9bfa8"/>' +
+            P(500, 250, '<path d="M-14 -10 q8 8 14 0 q8 8 14 -2 q-4 14 -14 14 q-10 0 -14 -12 z" fill="#c9bfa8"/>', '', 0, 1.2) + qmark(580, 210)) },
+        { minDur: 6400, sub: '金玉其外：華美其表，敗絮其中。',
+          html: scene(P(340, 270, ORANGE, '', 0, 1.4) +
+            P(500, 272, '<path d="M-18 -6 a18 18 0 0 1 36 0 q-8 12 -18 12 q-10 0 -18 -12 z" fill="#ffb84d" stroke="#e8963f" stroke-width="2.4"/><path d="M-8 -4 q4 6 8 0 q4 6 8 -2" stroke="#c9bfa8" stroke-width="3" fill="none"/>', '', 0, 1.4) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">金玉其外</text>') }
+      ];
+    },
+    /* 虛有其表 */
+    i954: function () {
+      return [
+        { minDur: 7000, sub: '唐玄宗看完蕭嵩起草的詔書大失所望，把稿子擲還：「虛有其表耳！」——空長一副好儀表！',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>' + P(38, -50, '<rect x="-12" y="-16" width="24" height="32" rx="2" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(18)"/>', '', 0, 1.05), '', 0, 1.05) +
+            P(540, 302, A('kid', 'sad') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/>', '', 0, 1, true) + sweat(600, 190)) },
+        { minDur: 6800, sub: '「虛有其表」：外表出眾、沒有真本領——面試穿得再體面，一問專業就露餡！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-20 -36 h40 l-4 30 h-32 z" fill="#3d4a63" stroke="#2c3550" stroke-width="2.4"/><line x1="0" y1="-34" x2="0" y2="-12" stroke="#c96a5a" stroke-width="3"/>', 'st-bob', 0, 1.05) + sweat(290, 188) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/>', '', 0, .97, true) + qmark(450, 182)) },
+        { minDur: 6800, sub: '把打理門面的時間分一半給裡子——外表加實力，才是真正的體面！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '虛有其表：徒具外表，內無才學。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-20 -36 h40 l-4 30 h-32 z" fill="#3d4a63" stroke="#2c3550" stroke-width="2.4"/>', '', 0, 1.08) +
+            P(400, 195, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".85"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#c9bfa8">空</text>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">虛有其表</text>') }
+      ];
+    },
+    /* 華而不實 */
+    i955: function () {
+      return [
+        { minDur: 7000, sub: '《左傳》寧嬴評陽處父：「華而不實，怨之所聚也」——「華」是開花：只開花、不結果！',
+          html: scene(P(320, 290, '<path d="M0 12 L0 -30" stroke="#7a9a6a" stroke-width="4"/><path d="M0 -30 C-8 -44 6 -50 8 -38 C16 -48 26 -38 16 -30 C22 -22 8 -16 4 -26 Z" fill="#ff9eb5"/>', '', 0, 1.3) + qmark(420, 240) +
+            P(560, 290, '<path d="M0 12 L0 -30" stroke="#7a9a6a" stroke-width="4"/><circle cx="4" cy="-34" r="10" fill="#e0813f" stroke="#b85f24" stroke-width="2"/>', '', 0, 1.3) +
+            P(560, 220, '<path d="M-6 0 l4 4 l8 -8" stroke="#548a40" stroke-width="2.6" fill="none"/>', '', 0, 1.2)) },
+        { minDur: 6800, sub: '「華而不實」：外表浮誇、沒有實質——簡報做得炫麗，數據卻全是空話！',
+          html: scene(P(400, 260, '<rect x="-50" y="-34" width="100" height="68" rx="4" fill="#3a3550"/><rect x="-42" y="-26" width="84" height="52" rx="2" fill="#7fb2e0"/><g class="st-tw"><path d="M-20 -8 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g><text x="20" y="8" text-anchor="middle" font-size="14" fill="#fff">?</text>', '', 0, 1.15) +
+            P(220, 302, A('kid', 'wow'), '', 0, .95) + qmark(300, 220)) },
+        { minDur: 6800, sub: '寧可樸實有料，不要花俏空心——結出果子的樹，不需要向人證明自己開過花！',
+          html: scene(P(400, 290, '<path d="M0 12 L0 -40" stroke="#7a5a3a" stroke-width="6"/><circle cx="-14" cy="-46" r="14" fill="#7fba6a"/><circle cx="12" cy="-52" r="15" fill="#8fc47a"/><circle cx="-4" cy="-38" r="7" fill="#e0813f" stroke="#b85f24" stroke-width="1.8"/><circle cx="16" cy="-40" r="7" fill="#e0813f" stroke="#b85f24" stroke-width="1.8"/>', '', 0, 1.35) + hearts(520, 220)) },
+        { minDur: 6400, sub: '華而不實：徒有其華，不結其實。',
+          html: scene(P(340, 292, '<path d="M0 12 L0 -30" stroke="#7a9a6a" stroke-width="4"/><path d="M0 -30 C-8 -44 6 -50 8 -38 C16 -48 26 -38 16 -30 C22 -22 8 -16 4 -26 Z" fill="#ff9eb5"/>', '', 0, 1.35) + qmark(430, 245) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">華而不實</text>') }
+      ];
+    },
+    /* 捉襟見肘 */
+    i956: function () {
+      return [
+        { minDur: 7000, sub: '曾子窮居衛國：拉一下衣襟就露手肘、穿上鞋子就裂腳跟——卻天天唱歌自得其樂！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-20 -36 h40 l-4 30 h-32 z M-14 -20 l6 8 M8 -26 l5 8" fill="#c9b26a" stroke="#a8905a" stroke-width="2"/><circle cx="-24" cy="-16" r="5" fill="#ffe3c1"/>', '', 0, 1.05) + notes(500, 185) + hearts(290, 195)) },
+        { minDur: 6800, sub: '「捉襟見肘」：衣衫破到遮不住——今天多指資源困窘：預算捉襟見肘，處處要省！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-42, -48, '<path d="M-16 -6 q0 -12 16 -12 q16 0 16 12 l-2 12 q-14 8 -28 0 z" fill="#c9bfa8" stroke="#a8a294" stroke-width="2"/><text x="0" y="4" text-anchor="middle" font-size="11" fill="#6d7585">$?</text>', '', 0, 1.05)) + sweat(290, 188) +
+            P(540, 240, '<rect x="-34" y="-18" width="68" height="36" rx="4" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#c96a5a">這也要錢</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#c96a5a">那也要錢</text>', 'st-bob', 0, 1.05)) },
+        { minDur: 6800, sub: '資源不夠就排優先：把錢花在最關鍵的一件事——集中火力，小預算也能辦大事！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-15" y="-11" width="30" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">優先序</text>', '', 0, 1.1)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '捉襟見肘：窮於應付，左支右絀。',
+          html: scene(P(400, 302, A('kid', 'wow') + '<path d="M-20 -36 h40 l-4 30 h-32 z M-14 -20 l6 8" fill="#c9b26a" stroke="#a8905a" stroke-width="2"/><circle cx="-24" cy="-16" r="5" fill="#ffe3c1"/>', '', 0, 1.08) + sweat(310, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">捉襟見肘</text>') }
+      ];
+    },
+    /* 家徒四壁 */
+    i957: function () {
+      var BAREROOM = '<rect x="-90" y="-70" width="180" height="70" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><line x1="-90" y1="-70" x2="-60" y2="-40" stroke="#d8d2c4" stroke-width="2"/><line x1="90" y1="-70" x2="60" y2="-40" stroke="#d8d2c4" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '卓文君夜奔司馬相如，回到他成都的家——「家居徒四壁立」：窮得只剩四面牆！',
+          html: scene(P(400, 302, BAREROOM, '', 0, 1.1) +
+            P(340, 292, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .85) +
+            P(460, 292, A('kid', 'happy') + '<path d="M-18 -66 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/>', '', 0, .85, true) + qmark(560, 230)) },
+        { minDur: 6800, sub: '但兩人不氣餒——當壚賣酒、彈琴寫賦，後來司馬相如名滿天下！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1) + notes(440, 185) +
+            P(520, 302, A('kid', 'happy') + P(38, -46, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, .98, true) + hearts(430, 210)) },
+        { minDur: 6800, sub: '「家徒四壁」：一貧如洗——貧窮擋不住才華和志氣，故事的下半場自己寫！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '家徒四壁：四壁蕭然，一貧如洗。',
+          html: scene(P(400, 302, BAREROOM, '', 0, 1.15) + qmark(530, 250) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">家徒四壁</text>') }
+      ];
+    },
+    /* 一貧如洗 */
+    i958: function () {
+      return [
+        { minDur: 7000, sub: '《竇娥冤》裡窮書生自述：「小生一貧如洗」——窮得像被大水洗過，什麼都不剩！',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-42, -48, '<path d="M-16 -6 q0 -12 16 -12 q16 0 16 12 l-2 12 q-14 8 -28 0 z" fill="#c9bfa8" stroke="#a8a294" stroke-width="2"/><text x="0" y="4" text-anchor="middle" font-size="12" fill="#6d7585">0</text>', '', 0, 1), '', 0, 1.02) + sweat(290, 190)) },
+        { minDur: 6800, sub: '「一貧如洗」：極度貧困——投資失利、災禍臨頭，都可能讓人一夕歸零……',
+          html: scene(P(400, 285, '<path d="M-60 20 q20 -30 60 -30 q40 0 60 30" stroke="#7fb2d4" stroke-width="10" fill="none" stroke-linecap="round"/>' +
+            P(0, -30, '<rect x="-20" y="-14" width="40" height="28" rx="4" fill="#c9bfa8" opacity=".7" transform="rotate(12)"/>', '', 0, 1), '', 0, 1.1) + sweat(540, 220) + qmark(260, 220)) },
+        { minDur: 6800, sub: '歸零不是終點——身上最值錢的資產是腦袋和雙手，它們洗不走！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -8 M28 -56 l14 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) + bang(470, 185) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" class="st-tw"/>', '', 0, 1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '一貧如洗：身無分文，赤貧如洗。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-42, -48, '<path d="M-16 -6 q0 -12 16 -12 q16 0 16 12 l-2 12 q-14 8 -28 0 z" fill="#c9bfa8" stroke="#a8a294" stroke-width="2"/><text x="0" y="4" text-anchor="middle" font-size="12" fill="#6d7585">0</text>', '', 0, 1), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一貧如洗</text>') }
+      ];
+    },
+    /* 政通人和 */
+    i959: function () {
+      return [
+        { minDur: 7000, sub: '滕子京被貶到巴陵郡，只用一年——范仲淹寫下：「政通人和，百廢俱興」！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.02) +
+            P(500, 285, '<g stroke="#a8734a" stroke-width="5"><line x1="-40" y1="0" x2="-40" y2="-60"/><line x1="40" y1="0" x2="40" y2="-60"/></g><rect x="-52" y="-60" width="104" height="15" fill="#c9762f"/><path d="M-60 -60 h120 l-13 -20 h-94 z" fill="#a85a1e"/>', '', 0, 1.05) + hearts(400, 200) + bang(600, 210)) },
+        { minDur: 6800, sub: '「政通人和」：政事順、百姓樂——市集熱鬧、孩童嬉戲，好治理看得見！',
+          html: scene(P(280, 302, A('kid', 'happy'), '', 0, .92) + P(400, 302, A('kid', 'happy'), 'st-hop', .2, .95) + P(520, 302, A('kid', 'happy'), '', 0, .92, true) +
+            P(640, 285, '<rect x="-30" y="-36" width="60" height="36" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-22" y="-50" width="44" height="12" rx="3" fill="#c96a5a"/>', '', 0, 1) + notes(340, 185) + hearts(460, 190)) },
+        { minDur: 6800, sub: '班級也一樣：規則講清楚、意見有管道、幹部肯做事——政通人和，班風自然好！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(240, 302, A('kid', 'happy'), 'st-cheer', 0, .9) + P(540, 302, A('kid', 'happy'), 'st-cheer', .2, .92, true) + hearts(400, 178)) },
+        { minDur: 6400, sub: '政通人和：政事通達，人心和樂。',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, .95) + P(500, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(400, 185) +
+            P(640, 288, '<rect x="-28" y="-34" width="56" height="34" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">政通人和</text>') }
+      ];
     }
   };
 
