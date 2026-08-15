@@ -9874,6 +9874,119 @@
             P(490, 205, '<circle cx="0" cy="0" r="18" fill="#a5d47c" stroke="#7cab6e" stroke-width="2.4"/>') +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">觸類旁通</text>') }
       ];
+    },
+    /* 融會貫通 */
+    i299: function () {
+      return [
+        { minDur: 6800, sub: '歷史課學的朝代、國語課讀的古文、美術課看的文物——小通突然發現：它們說的是同一個時代！',
+          html: scene(P(280, 200, '<circle cx="0" cy="0" r="24" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#8a5a33">史</text>') +
+            P(400, 170, '<circle cx="0" cy="0" r="24" fill="#a5d47c" stroke="#7cab6e" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#3a5a28">文</text>', '', .2) +
+            P(520, 200, '<circle cx="0" cy="0" r="24" fill="#a5c8ff" stroke="#5c82ba" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#2c4a75">美</text>', '', .4) +
+            '<g stroke="#c96a5a" stroke-width="3" stroke-dasharray="7 7" fill="none"><path d="M300 215 q100 60 200 0 M300 185 q50 -30 76 -12 M424 158 q50 10 76 28"/></g>' +
+            P(400, 302, A('kid', 'wow'), '', 0, 1) + bang(560, 250)) },
+        { minDur: 6800, sub: '把各科知識融合起來、想通它們的關聯——「融會貫通」的那一刻，學問活了！',
+          html: scene(P(400, 200, '<circle cx="0" cy="0" r="40" fill="#ffe9a0" stroke="#e8b84a" stroke-width="3"/><g class="st-rays" style="transform-origin:0px 0px"><g stroke="#ffd97a" stroke-width="3.4" stroke-linecap="round"><line x1="0" y1="-56" x2="0" y2="-48"/><line x1="-56" y1="0" x2="-48" y2="0"/><line x1="56" y1="0" x2="48" y2="0"/></g></g>', '', 0, 1.2) +
+            P(250, 302, A('kid', 'happy'), '', 0, .95) + hearts(330, 220)) },
+        { minDur: 6800, sub: '死背只是把知識放進倉庫，融會貫通才是把知識變成工具——隨時取用、靈活運用！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) + bang(470, 190) + hearts(280, 192)) },
+        { minDur: 6400, sub: '融會貫通：把知識融合領會，靈活運用。',
+          html: scene(P(310, 220, '<circle cx="0" cy="0" r="20" fill="#ffd97a"/>') + P(400, 195, '<circle cx="0" cy="0" r="20" fill="#a5d47c"/>') + P(490, 220, '<circle cx="0" cy="0" r="20" fill="#a5c8ff"/>') +
+            '<g stroke="#c96a5a" stroke-width="3" stroke-dasharray="6 6" fill="none"><path d="M330 230 q70 40 140 0"/></g>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">融會貫通</text>') }
+      ];
+    },
+    /* 溫故知新 */
+    i300: function () {
+      return [
+        { minDur: 7000, sub: '孔子說：「溫故而知新，可以為師矣。」——複習舊知識時，常會冒出新的領悟！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(560, 302, A('kid', 'happy'), '', 0, .92) + hearts(470, 190)) },
+        { minDur: 6800, sub: '重讀三年級的數學筆記，小新突然發現：「原來這就是現在教的比例的基礎呀！」',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff7d9" stroke="#e8b84a" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18" stroke="#e0a458" stroke-width="1.8"/>', '', 0, .95)) +
+            P(470, 190, '<circle cx="0" cy="-14" r="14" fill="#ffe066" stroke="#e8b84a" stroke-width="2.4"/><rect x="-6" y="0" width="12" height="8" rx="3" fill="#b8ae9c"/>', '', 0, 1.1) + bang(560, 220)) },
+        { minDur: 6800, sub: '「溫故知新」：舊書不厭百回讀——每次複習，都是跟過去的自己對話、長出新的理解！',
+          html: scene(P(300, 260, '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#8a7a4a">舊</text>') +
+            '<path d="M340 252 L440 252" stroke="#548a40" stroke-width="4"/><path d="M440 252 l-10 -6 v12 z" fill="#548a40"/>' +
+            P(490, 260, '<g class="st-tw"><path d="M0 -12 L3 -3 L12 -3 L5 3 L8 12 L0 6 L-8 12 L-5 3 L-12 -3 L-3 -3 Z" fill="#ffd97a"/></g>', '', 0, 1.3)) },
+        { minDur: 6400, sub: '溫故知新：溫習舊知識而獲得新領悟。',
+          html: scene(P(310, 255, '<rect x="-16" y="-22" width="32" height="44" rx="3" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.2"/>') +
+            P(480, 250, '<g class="st-tw"><path d="M0 -13 L3 -4 L13 -4 L5 3 L8 13 L0 7 L-8 13 L-5 3 L-13 -4 L-3 -4 Z" fill="#ffd97a"/></g>', '', 0, 1.3) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">溫故知新</text>') }
+      ];
+    },
+    /* 一目了然 */
+    i501: function () {
+      return [
+        { minDur: 6800, sub: '小然把班費收支畫成長條圖貼在牆上——誰交了、花在哪，一眼就看得清清楚楚！',
+          html: scene(P(430, 290, '<rect x="-70" y="-70" width="140" height="70" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g><rect x="-52" y="-40" width="18" height="40" fill="#5c82ba"/><rect x="-26" y="-56" width="18" height="56" fill="#6fae58"/><rect x="0" y="-30" width="18" height="30" fill="#e0a458"/><rect x="26" y="-48" width="18" height="48" fill="#c96a5a"/></g>', '', 0, 1.1) +
+            P(220, 302, A('kid', 'happy')) + hearts(310, 210)) },
+        { minDur: 6800, sub: '地圖上的路線、課表上的科目、說明書的圖解——好的整理讓人「一目了然」！',
+          html: scene(P(400, 250, '<rect x="-60" y="-40" width="120" height="80" rx="5" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-40 20 Q-10 -20 20 0 Q40 12 44 -24" stroke="#e85a4f" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="-40" cy="20" r="6" fill="#548a40"/><path d="M44 -24 l-8 -2 l4 8 z" fill="#e85a4f"/>', '', 0, 1.2) +
+            P(230, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6600, sub: '「一目了然」：一眼就看得明明白白——把複雜變簡單，是很棒的能力！',
+          html: scene(P(400, 200, '<path d="M-26 0 Q0 -20 26 0 Q0 20 -26 0 Z" fill="#fff" stroke="#4a3200" stroke-width="2.8"/><circle cx="0" cy="0" r="8" fill="#6b4a32"/>', '', 0, 1.4) +
+            P(400, 275, '<path d="M-9 0 l6 7 l13 -13" stroke="#548a40" stroke-width="4.4" fill="none" stroke-linecap="round"/>', '', 0, 1.3)) },
+        { minDur: 6400, sub: '一目了然：一眼就看得清清楚楚。',
+          html: scene(P(400, 210, '<path d="M-28 0 Q0 -22 28 0 Q0 22 -28 0 Z" fill="#fff" stroke="#4a3200" stroke-width="2.8"/><circle cx="0" cy="0" r="9" fill="#6b4a32"/>', '', 0, 1.5) +
+            '<text x="400" y="310" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一目了然</text>') }
+      ];
+    },
+    /* 一視同仁 */
+    i502: function () {
+      return [
+        { minDur: 6800, sub: '新老師不管成績好壞、個子高矮，每個同學舉手都給機會、犯錯都一樣提醒——',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M18 -60 q14 -4 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(220, 302, A('kid', 'happy'), '', 0, .88) + P(320, 302, A('kid', 'happy'), '', .1, .95) +
+            P(560, 302, A('kid', 'happy'), '', .2, .85) + hearts(400, 165)) },
+        { minDur: 6800, sub: '「一視同仁」：平等對待、不分親疏厚薄——每個人都感受到同樣的尊重！',
+          html: scene(P(300, 250, '<path d="M-40 0 h80" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M0 0 v-30" stroke="#8b93a3" stroke-width="4"/><path d="M-40 0 l-8 18 h16 z M40 0 l-8 18 h16 z" fill="none" stroke="#8b93a3" stroke-width="3"/>', '', 0, 1.2) +
+            P(500, 302, A('kid', 'happy'), '', 0, .97) + hearts(420, 200)) },
+        { minDur: 6800, sub: '分點心、選隊員、聽意見——「一視同仁」讓每個人都被公平對待，團體才有向心力！',
+          html: scene(P(280, 302, A('kid', 'happy'), '', 0, .93) + P(400, 302, A('kid', 'happy'), '', .1, .93) + P(520, 302, A('kid', 'happy'), '', .2, .93) +
+            hearts(400, 175)) },
+        { minDur: 6400, sub: '一視同仁：平等對待，不分親疏。',
+          html: scene(P(400, 240, '<path d="M-40 0 h80" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M0 0 v-30" stroke="#8b93a3" stroke-width="4"/><path d="M-40 0 l-8 18 h16 z M40 0 l-8 18 h16 z" fill="none" stroke="#8b93a3" stroke-width="3"/>', '', 0, 1.4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一視同仁</text>') }
+      ];
+    },
+    /* 有條不紊 */
+    i503: function () {
+      return [
+        { minDur: 6800, sub: '營隊出發前，小紊列好清單：先裝衣物、再放盥洗包、藥品放外袋、證件放胸前袋——',
+          html: scene(P(430, 268, '<rect x="-22" y="-30" width="44" height="60" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#548a40" stroke-width="2.4"><path d="M-14 -18 l4 4 l8 -8 M-14 -2 l4 4 l8 -8 M-14 14 l4 4 l8 -8"/></g>', '', 0, 1.2) +
+            P(250, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-16" width="28" height="20" rx="4" fill="#5c82ba" stroke="#46689a" stroke-width="2.4"/>', '', 0, 1))) },
+        { minDur: 6800, sub: '整理行李、做實驗、辦活動——一步一步照順序來，一點也不亂！',
+          html: scene(P(300, 220, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#5c82ba">1</text>') +
+            '<path d="M330 220 h50" stroke="#8b93a3" stroke-width="3"/><path d="M380 220 l-8 -5 v10 z" fill="#8b93a3"/>' +
+            P(410, 220, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#548a40">2</text>') +
+            '<path d="M440 220 h50" stroke="#8b93a3" stroke-width="3"/><path d="M490 220 l-8 -5 v10 z" fill="#8b93a3"/>' +
+            P(520, 220, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#c96a5a">3</text>') +
+            P(400, 302, A('kid', 'happy'), '', 0, 1)) },
+        { minDur: 6600, sub: '「有條不紊」：有條理、有次序——「紊」是亂：條理分明就不亂！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(490, 188) +
+            P(300, 200, '<g stroke="#8fa3bf" stroke-width="3"><line x1="-20" y1="-12" x2="20" y2="-12"/><line x1="-20" y1="0" x2="20" y2="0"/><line x1="-20" y1="12" x2="20" y2="12"/></g>', '', 0, 1.2)) },
+        { minDur: 6400, sub: '有條不紊：有條理次序，一點不亂。',
+          html: scene(P(320, 220, '<circle cx="0" cy="0" r="16" fill="#fff" opacity=".92"/><text x="0" y="5" text-anchor="middle" font-size="13" fill="#5c82ba">1</text>') +
+            P(400, 220, '<circle cx="0" cy="0" r="16" fill="#fff" opacity=".92"/><text x="0" y="5" text-anchor="middle" font-size="13" fill="#548a40">2</text>') +
+            P(480, 220, '<circle cx="0" cy="0" r="16" fill="#fff" opacity=".92"/><text x="0" y="5" text-anchor="middle" font-size="13" fill="#c96a5a">3</text>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">有條不紊</text>') }
+      ];
+    },
+    /* 不遺餘力 */
+    i504: function () {
+      return [
+        { minDur: 6800, sub: '學校辦義賣幫助受災小學——小力全力投入：畫海報、搬桌椅、當叫賣員，一點力氣都不保留！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(24, -44, '<line x1="0" y1="0" x2="14" y2="-34" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 0 q-3 6 -1 11 q4 -2 5 -8 z" fill="#3a2e26"/>', '', 0, 1)) +
+            P(480, 302, '<rect x="-60" y="-30" width="120" height="30" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>') + sweat(250, 192) + hearts(400, 195)) },
+        { minDur: 6800, sub: '「不遺餘力」：不留下剩餘的力量——把全部力氣都用上，全心投入！',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-dashL', 0, 1.05) + sweat(330, 190) + bang(500, 195)) },
+        { minDur: 6800, sub: '義賣大成功，募到的文具送到了受災的學校——不遺餘力的付出，帶來大大的溫暖！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(470, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .95) + hearts(390, 175)) },
+        { minDur: 6400, sub: '不遺餘力：毫無保留地使出全力。',
+          html: scene(P(400, 302, A('kid', 'angry'), '', 0, 1.08) + bang(490, 188) + sweat(320, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不遺餘力</text>') }
+      ];
     }
   };
 
