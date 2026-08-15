@@ -2245,6 +2245,133 @@
           html: scene(P(560, 302, A('kid', 'happy'), '', 0, 1, true) + bowKid(300, 1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">甘拜下風</text>') }
       ];
+    },
+    /* 脣亡齒寒（與 i045 唇亡齒寒同典，異體字條目） */
+    i1139: function () {
+      var sc = STORIES.i045();
+      var last = sc[sc.length - 1];
+      last.sub = '脣亡齒寒：雙方關係密切、利害相依。';
+      last.html = last.html.replace('唇亡齒寒', '脣亡齒寒');
+      return sc;
+    },
+    /* 一日千里 */
+    i1091: function () {
+      var SPEEDLINES = '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9">' +
+        '<line class="st-windln" x1="80" y1="230" x2="180" y2="230"/><line class="st-windln" style="animation-delay:.5s" x1="60" y1="260" x2="150" y2="260"/></g>';
+      var BRUSH = '<line x1="0" y1="0" x2="14" y2="-34" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>' +
+        '<path d="M0 0 q-3 6 -1 11 q4 -2 5 -8 z" fill="#3a2e26"/>';
+      return [
+        { minDur: 6600, sub: '騏驥、驊騮這些千里良馬，撒開四蹄，一天就能奔馳一千里路！',
+          html: scene(SPEEDLINES + P(400, 302, A('horse'), 'st-dashL', 0, 1.1) + bang(540, 200)) },
+        { minDur: 6600, sub: '普通的馬慢慢走，走上十天，也追不上牠一天跑的路程。',
+          html: scene(P(240, 302, A('donkey'), '', 0, .95) + sweat(290, 210) +
+            '<path d="M330 316 q160 10 330 4" stroke="#e8dcc0" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="12 10"/>' +
+            P(680, 302, A('horse'), '', 0, .9) + qmark(200, 185)) },
+        { minDur: 6800, sub: '後來「一日千里」也用來形容人進步飛快——像天天勤練書法的孩子，字一天比一天漂亮！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(24, -44, BRUSH)) +
+            P(470, 288, '<rect x="-14" y="-20" width="28" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -12 h16 M-8 -4 h16 M-8 4 h16" stroke="#8fa3bf" stroke-width="1.8"/>') +
+            hearts(390, 175) + bang(540, 200)) },
+        { minDur: 6200, sub: '一日千里：形容進步或發展極快。',
+          html: scene(P(400, 302, A('horse'), 'st-strut', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一日千里</text>') }
+      ];
+    },
+    /* 有備無患 */
+    i1057: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var GOLD = '<g stroke-width="2"><path d="M-26 0 l8 -14 h36 l8 14 z" fill="#ffd97a" stroke="#e8b84a"/><path d="M-20 -14 l7 -12 h26 l7 12 z" fill="#ffe9a0" stroke="#e8b84a"/></g>';
+      var GRAIN = '<path d="M-26 0 Q-30 -34 0 -40 Q30 -34 26 0 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>' +
+        '<path d="M-12 -40 q12 -8 24 0" stroke="#a8734a" stroke-width="3" fill="none"/>' +
+        '<circle cx="-8" cy="-16" r="2.4" fill="#8a5a33"/><circle cx="4" cy="-22" r="2.4" fill="#8a5a33"/><circle cx="10" cy="-12" r="2.4" fill="#8a5a33"/>';
+      var SHIELD2 = '<path d="M-18 -44 h36 q0 30 -18 38 q-18 -8 -18 -38 z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.6"/><circle cx="0" cy="-24" r="5" fill="#e8b84a"/>';
+      return [
+        { minDur: 6800, sub: '春秋時晉國連連得勝，晉悼公把功勞歸給大臣魏絳，賜給他豐厚的賞賜。',
+          html: scene(P(280, 302, A('kid', 'happy') + CROWN) + P(430, 290, GOLD, '', 0, 1.1) +
+            P(580, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(480, 185)) },
+        { minDur: 7400, sub: '魏絳卻不居功，反而提醒國君：「安逸的時候要想到危險，想到了就先做準備——有了準備，就不會有禍患！」',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(520, 290, GRAIN, '', 0, 1) + P(630, 292, SHIELD2, '', 0, 1.1) +
+            P(160, 302, A('kid', 'wow') + CROWN, '', 0, .95) + qmark(210, 185)) },
+        { minDur: 6600, sub: '晉悼公大為敬佩，時時警惕、處處準備，晉國因此長保強盛。',
+          html: scene(P(280, 302, '<g class="st-cheer">' + A('kid', 'happy') + CROWN + '</g>') +
+            P(520, 290, GRAIN, '', 0, .9) + P(620, 292, SHIELD2) + hearts(420, 180)) },
+        { minDur: 6200, sub: '有備無患：事先有準備，就不會發生禍患。',
+          html: scene(P(300, 290, GRAIN, '', 0, 1.2) + P(500, 292, SHIELD2, '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">有備無患</text>') }
+      ];
+    },
+    /* 鬼斧神工 */
+    i1102: function () {
+      var JU = '<g stroke="#8a5a33" stroke-width="5" stroke-linecap="round" fill="none">' +
+        '<path d="M-40 0 L-40 -70 Q-40 -86 -24 -86 L24 -86 Q40 -86 40 -70 L40 0"/>' +
+        '<path d="M-40 -70 q-12 -8 -8 -20 M40 -70 q12 -8 8 -20"/>' +
+        '<path d="M-24 -86 q0 -12 10 -14 M24 -86 q0 -12 -10 -14"/></g>' +
+        '<circle cx="-40" cy="-92" r="5" fill="#e8b84a"/><circle cx="40" cy="-92" r="5" fill="#e8b84a"/>';
+      var CHISEL = '<line x1="0" y1="0" x2="20" y2="-28" stroke="#a8734a" stroke-width="4.6" stroke-linecap="round"/><path d="M20 -28 l8 -12 l5 6 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 7000, sub: '木匠梓慶削木頭做「鐻」——掛鐘鼓的架子。作品一完成，看到的人都驚呆了：「這簡直像鬼神做出來的！」',
+          html: scene(P(430, 302, JU) +
+            P(220, 302, A('kid', 'happy') + P(24, -40, CHISEL)) +
+            P(620, 302, A('kid', 'wow'), '', 0, .9) + bang(560, 180) + hearts(670, 200)) },
+        { minDur: 7400, sub: '魯侯問他有什麼祕訣。梓慶說：「動工前我先靜心齋戒，忘掉賞賜名利，再進山挑選天生就合適的木材——」',
+          html: scene(P(120, 302, TREE, '', 0, 1.2) +
+            P(320, 302, A('kid', 'happy')) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>', '', 0, .95, true) +
+            qmark(610, 185)) },
+        { minDur: 6800, sub: '「用我的天性，去配合木材的天性——做出來的東西，才會像神工一樣。」',
+          html: scene(P(430, 302, JU, '', 0, 1.1) + P(240, 302, A('kid', 'happy') + P(24, -40, CHISEL)) +
+            hearts(340, 175)) },
+        { minDur: 6400, sub: '鬼斧神工：技藝或自然景觀精巧絕妙，非人力所能為。',
+          html: scene(P(400, 296, JU, '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鬼斧神工</text>') }
+      ];
+    },
+    /* 推心置腹 */
+    i1136: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var HEART = '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff7b9c"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 7000, sub: '東漢光武帝劉秀打了勝仗，收編大批投降的士兵。降兵們心裡不安：「他會不會找機會害我們？」',
+          html: scene(P(240, 302, A('kid', 'happy') + CROWN) +
+            P(500, 302, A('kid', 'sad'), '', 0, .9) + sweat(540, 200) +
+            P(640, 302, A('kid', 'sad'), '', .3, .85) + qmark(690, 190)) },
+        { minDur: 6800, sub: '劉秀卻毫不設防，只帶著幾個隨從，輕裝騎馬到各營巡視，把降兵完全當自己人信任。',
+          html: scene(P(300, 302, A('horse') + P(6, -36, A('kid', 'happy') + CROWN, '', 0, .7), 'st-strut') +
+            P(540, 302, A('kid', 'wow') + P(26, -50, SPEAR3), '', 0, .9) +
+            P(670, 302, A('kid', 'wow') + P(26, -50, SPEAR3), '', .3, .85)) },
+        { minDur: 7000, sub: '降兵們感動極了：「蕭王把一顆真心都放到我們肚子裡了，我們怎能不為他拚命！」',
+          html: scene(P(360, 220, HEART, '', 0, 1.4) +
+            '<path d="M370 250 q40 30 120 40" stroke="#ff9eb5" stroke-width="4" fill="none" stroke-dasharray="8 8"/>' +
+            P(240, 302, A('kid', 'happy') + CROWN) +
+            P(540, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) + hearts(620, 190)) },
+        { minDur: 6400, sub: '推心置腹：把真心交給對方，以至誠待人。',
+          html: scene(P(400, 240, HEART, '', 0, 1.8) + P(260, 302, A('kid', 'happy')) + P(540, 302, A('kid', 'happy'), '', 0, .95, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">推心置腹</text>') }
+      ];
+    },
+    /* 信口雌黃 */
+    i1167: function () {
+      function paperY(x, y, patched) {
+        return P(x, y, '<rect x="-16" y="-22" width="32" height="44" rx="3" fill="#f2e6b8" stroke="#d5c37a" stroke-width="2"/>' +
+          '<path d="M-9 -14 h18 M-9 -6 h18 M-9 2 h18 M-9 10 h12" stroke="#8a7a4a" stroke-width="1.8"/>' +
+          (patched ? '<rect x="-10" y="-9" width="20" height="7" rx="2" fill="#e8c840"/>' : ''));
+      }
+      return [
+        { minDur: 7000, sub: '晉朝的王衍好談玄理，講得天花亂墜；說錯了、前後矛盾了，就隨口改來改去，臉不紅氣不喘。',
+          html: scene(P(300, 302, A('kid', 'happy')) + notes(380, 170) + qmark(250, 175) +
+            P(580, 302, A('kid', 'wow'), '', 0, .9, true) + sweat(620, 200)) },
+        { minDur: 7400, sub: '當時人用黃紙寫字，寫錯了就拿「雌黃」一塗，蓋掉重寫。大家便笑他：「王衍這張嘴，就像含著雌黃！」',
+          html: scene(paperY(430, 260, true) + bang(500, 200) +
+            P(240, 302, A('kid', 'happy')) +
+            P(620, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9)) },
+        { minDur: 6600, sub: '「信口雌黃」從此用來形容不顧事實、隨口亂說的人。',
+          html: scene(P(300, 302, A('kid', 'happy')) + notes(370, 175) +
+            P(560, 302, A('kid', 'sad'), '', 0, .9) + sweat(600, 200) + qmark(520, 180)) },
+        { minDur: 6400, sub: '信口雌黃：不顧事實，隨口亂說或妄加批評。',
+          html: scene(paperY(320, 260, true) + paperY(480, 265, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">信口雌黃</text>') }
+      ];
     }
   };
 
