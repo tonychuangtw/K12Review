@@ -6719,6 +6719,219 @@
           html: scene(P(400, 300, THINCAT, '', 0, 1.2) + P(250, 300, FIREWOOD, '', 0, 1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">骨瘦如柴</text>') }
       ];
+    },
+    /* 虎背熊腰 */
+    i828: function () {
+      var STRONGKID = '<g class="st-bob"><rect x="-20" y="-14" width="16" height="14" rx="6" fill="#4a5b7d"/><rect x="4" y="-14" width="16" height="14" rx="6" fill="#4a5b7d"/>' +
+        '<rect x="-28" y="-50" width="56" height="40" rx="16" fill="#6fbf8e" stroke="#54a274" stroke-width="2.6"/>' +
+        '<line x1="-26" y1="-42" x2="-42" y2="-24" stroke="#ffe3c1" stroke-width="12" stroke-linecap="round"/>' +
+        '<line x1="26" y1="-42" x2="42" y2="-24" stroke="#ffe3c1" stroke-width="12" stroke-linecap="round"/>' +
+        '<circle cx="0" cy="-60" r="22" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>' +
+        '<path d="M-22 -66 Q-18 -84 0 -84 Q18 -84 22 -66 Q11 -75 0 -74 Q-11 -75 -22 -66 Z" fill="#6b4a32"/>' +
+        '<circle cx="-7" cy="-59" r="2.6" fill="#3a2e26"/><circle cx="7" cy="-59" r="2.6" fill="#3a2e26"/>' +
+        '<path d="M-5 -48 Q0 -44 5 -48" stroke="#3a2e26" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>';
+      return [
+        { minDur: 6800, sub: '舉重隊的教練走過來——背像老虎一樣寬、腰像熊一樣壯，整個人像一座小山！',
+          html: scene(P(400, 302, STRONGKID, '', 0, 1.15) +
+            P(200, 302, A('kid', 'wow'), '', 0, .92) + hearts(290, 200)) },
+        { minDur: 6600, sub: '他輕輕鬆鬆舉起大槓鈴，肌肉結實有力——「虎背熊腰」就是形容魁梧強壯的身材！',
+          html: scene(P(400, 302, STRONGKID + P(0, -108, '<line x1="-40" y1="0" x2="40" y2="0" stroke="#8b93a3" stroke-width="6"/><circle cx="-40" cy="0" r="12" fill="#3a2e26"/><circle cx="40" cy="0" r="12" fill="#3a2e26"/>', '', 0, 1)) + bang(540, 200)) },
+        { minDur: 6600, sub: '多運動、吃得營養，身體才會強壯——目標：虎背熊腰的健康體格！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-dashL') + P(520, 302, STRONGKID, '', 0, .95) + hearts(410, 190)) },
+        { minDur: 6400, sub: '虎背熊腰：背寬腰粗，身材魁梧強壯。',
+          html: scene(P(400, 302, STRONGKID, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">虎背熊腰</text>') }
+      ];
+    },
+    /* 揮汗如雨 */
+    i829: function () {
+      return [
+        { minDur: 6800, sub: '盛夏正午，工地的叔叔們搬磚扛料——汗水一甩，像下雨一樣灑落！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(24, -42, HAMMER)) +
+            sweat(280, 185) + sweat(390, 178) + sweat(330, 160) + sweat(430, 195) +
+            P(560, 302, '<rect x="-40" y="-60" width="80" height="60" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/>')) },
+        { minDur: 6600, sub: '球場上的球員也是揮汗如雨：進攻、防守、衝刺，汗水濕透全身！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-dashL') +
+            sweat(300, 180) + sweat(420, 175) + sweat(360, 155) + bang(500, 210)) },
+        { minDur: 6600, sub: '「揮汗如雨」：汗水灑落像下雨——天氣酷熱，或勞動辛苦！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.08) + sweat(330, 175) + sweat(470, 172) + sweat(400, 150)) },
+        { minDur: 6400, sub: '揮汗如雨：汗水像下雨，天熱或勞動辛苦。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(24, -42, HAMMER), '', 0, 1.05) + sweat(330, 175) + sweat(470, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">揮汗如雨</text>') }
+      ];
+    },
+    /* 持之以恆 */
+    i1009: function () {
+      var CAL3 = '<rect x="-26" y="-30" width="52" height="60" rx="5" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-26" y="-30" width="52" height="14" rx="5" fill="#548a40"/>' +
+        '<g stroke="#548a40" stroke-width="2.2"><path d="M-18 -8 l4 4 l7 -7 M-2 -8 l4 4 l7 -7 M-18 6 l4 4 l7 -7 M-2 6 l4 4 l7 -7"/></g>';
+      return [
+        { minDur: 6800, sub: '小恆立志每天晨讀二十分鐘——第一週很新鮮、第二週有點累、第三週好想放棄……',
+          html: scene(P(340, 302, A('kid', 'sad') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) +
+            sweat(280, 192) + qmark(420, 182)) },
+        { minDur: 6800, sub: '他咬牙撐了下去——日曆上的勾勾一天天增加，一年三百六十五天，一天也沒斷！',
+          html: scene(P(430, 272, CAL3, '', 0, 1.3) + bang(540, 210) +
+            P(250, 302, A('kid', 'happy')) + hearts(340, 195)) },
+        { minDur: 6600, sub: '「持之以恆」：用恆心長久堅持——一年後，他成了全班詞彙量最大的人！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(450, 185) +
+            P(560, 272, CAL3, '', 0, .9)) },
+        { minDur: 6400, sub: '持之以恆：以恆心長久堅持下去。',
+          html: scene(P(400, 272, CAL3, '', 0, 1.35) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">持之以恆</text>') }
+      ];
+    },
+    /* 死裡逃生 */
+    i1010: function () {
+      return [
+        { minDur: 6800, sub: '地震來襲，登山隊被落石困在山谷裡——四周轟隆隆，情況萬分危急！',
+          html: scene(P(560, 302, '<path d="M-110 0 L0 -130 L110 0 Z" fill="#8fb0a0"/>') + bang(430, 200) +
+            P(280, 302, A('kid', 'wow')) + sweat(230, 192) + P(400, 260, '<circle cx="0" cy="0" r="14" fill="#8b93a3"/>', 'st-bang'), 'night') },
+        { minDur: 6800, sub: '他們沉著找路、互相扶持，終於在救難隊幫助下爬出山谷——撿回一條命！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(430, 302, A('kid', 'happy'), '', .2, .95) +
+            P(580, 302, A('kid', 'happy'), 'st-inR', .3, .93) + hearts(430, 180)) },
+        { minDur: 6600, sub: '「死裡逃生」：從極危險的境地中逃脫、保住性命——大難不死的慶幸！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 188) + sweat(310, 195)) },
+        { minDur: 6400, sub: '死裡逃生：從極危險的境地中逃脫。',
+          html: scene(P(560, 302, '<path d="M-110 0 L0 -130 L110 0 Z" fill="#8fb0a0"/>', '', 0, .9) +
+            P(300, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">死裡逃生</text>') }
+      ];
+    },
+    /* 左顧右盼 */
+    i1042: function () {
+      return [
+        { minDur: 6800, sub: '在車站等好朋友，小盼一下看左邊、一下望右邊：「怎麼還沒來呀？」',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            qmark(310, 182) + qmark(490, 185) +
+            '<path d="M340 240 q-40 -10 -70 0 M460 240 q40 -10 70 0" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 7"/>') },
+        { minDur: 6800, sub: '過馬路更要左顧右盼：先看左、再看右、確定沒車才通過——這時候的張望是保命絕招！',
+          html: scene('<rect y="290" width="800" height="26" fill="#8b93a3"/><g stroke="#fff" stroke-width="3" stroke-dasharray="20 16"><line x1="0" y1="303" x2="800" y2="303"/></g>' +
+            P(400, 288, A('kid', 'happy'), '', 0, 1) + hearts(490, 195)) },
+        { minDur: 6600, sub: '「左顧右盼」：左看看、右望望——形容張望或心神不定的樣子！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.08) + qmark(320, 182) + qmark(480, 186)) },
+        { minDur: 6400, sub: '左顧右盼：向左看看，又向右望望。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.1) + qmark(310, 185) + qmark(490, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">左顧右盼</text>') }
+      ];
+    },
+    /* 提心吊膽 */
+    i1054: function () {
+      var HEART4 = '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#ff7b9c"/>' +
+        '<line x1="0" y1="-14" x2="0" y2="2" stroke="#c96a5a" stroke-width="2.6" stroke-dasharray="4 4"/>';
+      return [
+        { minDur: 6800, sub: '打雷的夜裡自己在家，每個聲音都嚇人一跳——小膽整晚提心吊膽，抱著枕頭不敢睡。',
+          html: scene(P(360, 302, A('kid', 'wow')) + sweat(300, 190) +
+            P(500, 180, HEART4, 'st-zfloat', 0, 1.1) + bang(600, 140), 'night') },
+        { minDur: 6800, sub: '心和膽都懸在半空中放不下來——「提心吊膽」就是非常擔心害怕的樣子！',
+          html: scene(P(400, 200, HEART4, 'st-zfloat', 0, 1.5) +
+            P(260, 302, A('kid', 'wow'), '', 0, .95) + sweat(320, 195)) },
+        { minDur: 6800, sub: '爸媽回來了！開燈一看，剛剛的怪聲只是窗簾被風吹——心終於放回肚子裡啦！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, 1.05, true) + hearts(400, 185)) },
+        { minDur: 6400, sub: '提心吊膽：心膽懸著放不下，非常擔心害怕。',
+          html: scene(P(400, 210, HEART4, 'st-zfloat', 0, 1.6) + P(260, 302, A('kid', 'wow'), '', 0, .95) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">提心吊膽</text>', 'night') }
+      ];
+    },
+    /* 綠意盎然 */
+    i1078: function () {
+      function sprout2(x, y, h, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<line x1="0" y1="0" x2="0" y2="' + (-h) + '" stroke="#5f8a46" stroke-width="4"/>' +
+          '<path d="M0 ' + (-h) + ' q-8 -8 -4 -14 M0 ' + (-h) + ' q8 -8 4 -14" stroke="#7cc47f" stroke-width="4" fill="none" stroke-linecap="round"/></g>');
+      }
+      return [
+        { minDur: 6600, sub: '春雨過後的森林步道：樹葉綠得發亮、蕨類爬滿山坡，連空氣都是青草香！',
+          html: scene(P(150, 302, TREE, '', 0, 1.25) + P(650, 302, TREE, '', .2, 1.1) +
+            sprout2(300, 320, 24, 0) + sprout2(400, 318, 32, .3) + sprout2(500, 322, 26, .5) +
+            P(360, 302, A('kid', 'happy'), '', 0, .95) + hearts(450, 200)) },
+        { minDur: 6600, sub: '陽台的小盆栽也冒出新芽，一片生機勃勃——看著就充滿活力！',
+          html: scene(P(430, 296, '<path d="M-16 -6 q0 12 16 12 q16 0 16 -12 z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/>' +
+              sprout2(0, -6, 22, 0)) +
+            P(260, 302, A('kid', 'happy')) + hearts(350, 200)) },
+        { minDur: 6600, sub: '「盎然」是充滿洋溢的樣子——到處都是綠色植物、充滿生機，就是「綠意盎然」！',
+          html: scene(P(200, 302, TREE, '', 0, 1.2) + sprout2(340, 320, 28, 0) + sprout2(440, 318, 34, .3) + sprout2(540, 322, 26, .5) +
+            P(650, 302, A('kid', 'happy'), '', 0, .92)) },
+        { minDur: 6400, sub: '綠意盎然：到處是綠色植物，充滿生機。',
+          html: scene(P(180, 302, TREE, '', 0, 1.2) + P(620, 302, TREE, '', .2, 1.05) + sprout2(360, 320, 30, 0) + sprout2(460, 318, 26, .3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">綠意盎然</text>') }
+      ];
+    },
+    /* 依山傍水 */
+    i1079: function () {
+      var MTW = '<path d="M-20 252 L150 110 L320 252 Z" fill="#8fb0a0"/><path d="M240 252 L420 140 L600 252 Z" fill="#a5c2b2" opacity=".9"/>';
+      var RIVERW2 = '<rect y="266" width="800" height="74" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 278 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>';
+      var HOUSE5 = '<path d="M-36 -30 L0 -54 L36 -30 Z" fill="#8a5a33"/><rect x="-28" y="-30" width="56" height="30" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-8" y="-22" width="16" height="22" rx="3" fill="#8a5a33"/>';
+      return [
+        { minDur: 6800, sub: '外婆的老家背後靠著青山、前面挨著小河——「依山傍水」，風景美極了！',
+          html: scene(MTW + RIVERW2 + P(620, 268, HOUSE5, '', 0, 1.1) +
+            P(300, 296, A('kid', 'happy'), '', 0, .92) + hearts(400, 210)) },
+        { minDur: 6800, sub: '早上聽鳥叫、傍晚看夕陽映在河面上——住在依山傍水的地方，多麼舒服！',
+          html: scene(MTW + RIVERW2 + P(620, 268, HOUSE5, '', 0, 1.05) +
+            P(200, 180, A('bird')) + notes(280, 150) + P(400, 296, A('kid', 'happy'), '', 0, .9)) },
+        { minDur: 6600, sub: '「依山傍水」：靠著山、挨著水——形容地理位置好、風景優美！',
+          html: scene(MTW + RIVERW2 + P(600, 268, HOUSE5, '', 0, 1.1) + hearts(430, 220)) },
+        { minDur: 6400, sub: '依山傍水：靠著山、挨著水，風景優美。',
+          html: scene(MTW + RIVERW2 + P(620, 268, HOUSE5, '', 0, 1.1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">依山傍水</text>') }
+      ];
+    },
+    /* 腳踏實地 */
+    i1089: function () {
+      var LADDER2 = '<g stroke="#a8734a" stroke-width="5" stroke-linecap="round"><line x1="-26" y1="0" x2="6" y2="-100"/><line x1="6" y1="0" x2="38" y2="-100"/><line x1="-17" y1="-28" x2="15" y2="-28"/><line x1="-8" y1="-56" x2="24" y2="-56"/><line x1="1" y1="-84" x2="33" y2="-84"/></g>';
+      return [
+        { minDur: 6800, sub: '學功夫沒有捷徑——師父說：「先蹲穩馬步！腳踩得實，功夫才紮得深。」',
+          html: scene(P(360, 302, A('kid', 'angry')) + sweat(300, 192) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02, true)) },
+        { minDur: 6800, sub: '讀書也一樣：一課一課讀懂、一題一題弄清，像爬梯子一階一階往上——不跳步、不偷懶！',
+          html: scene(P(500, 302, LADDER2) + P(430, 302, A('kid', 'happy'), '', 0, .95) +
+            P(240, 302, A('kid', 'happy') + P(-42, -54, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -10 h16 M-8 -2 h16" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95), '', 0, .95)) },
+        { minDur: 6600, sub: '「腳踏實地」：做事切實穩健、不虛浮——一步一腳印，走得最遠！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + hearts(490, 190) +
+            '<g fill="#a8734a" opacity=".6"><ellipse cx="250" cy="320" rx="10" ry="5"/><ellipse cx="310" cy="322" rx="10" ry="5"/><ellipse cx="370" cy="320" rx="10" ry="5"/></g>') },
+        { minDur: 6400, sub: '腳踏實地：做事切實穩健，不虛浮。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.08) +
+            '<g fill="#a8734a" opacity=".6"><ellipse cx="240" cy="320" rx="10" ry="5"/><ellipse cx="300" cy="322" rx="10" ry="5"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">腳踏實地</text>') }
+      ];
+    },
+    /* 無影無蹤 */
+    i1117: function () {
+      return [
+        { minDur: 6800, sub: '魔術師把手一揮，蓋上布再掀開——籠子裡的鴿子不見了！影子、蹤跡，全都沒有！',
+          html: scene(P(430, 290, '<rect x="-34" y="-40" width="68" height="40" rx="5" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="-34" y1="-20" x2="34" y2="-20" stroke="#8b93a3" stroke-width="1.6"/><line x1="-17" y1="-40" x2="-17" y2="0" stroke="#8b93a3" stroke-width="1.6"/><line x1="17" y1="-40" x2="17" y2="0" stroke="#8b93a3" stroke-width="1.6"/>') +
+            P(260, 302, A('kid', 'happy') + '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-58" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>') +
+            qmark(430, 220) + bang(540, 190)) },
+        { minDur: 6800, sub: '桌上的餅乾也無影無蹤了——地上只剩幾粒餅乾屑，通往小狗的窩……',
+          html: scene(P(360, 290, '<ellipse cx="0" cy="0" rx="24" ry="8" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/>') +
+            '<g fill="#c9a06c"><circle cx="420" cy="310" r="3"/><circle cx="470" cy="316" r="3"/><circle cx="520" cy="312" r="3"/></g>' +
+            P(600, 300, A('dog'), '', 0, .95) + qmark(300, 220) + P(200, 302, A('kid', 'wow'), '', 0, .92)) },
+        { minDur: 6600, sub: '「無影無蹤」：一點影子和蹤跡都沒有——完全消失不見！',
+          html: scene(P(400, 240, '<circle cx="0" cy="0" r="40" fill="none" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="10 10"/><text x="0" y="10" text-anchor="middle" font-size="30" fill="#c9bfa8">?</text>') +
+            P(240, 302, A('kid', 'wow'), '', 0, .95) + sweat(300, 195)) },
+        { minDur: 6400, sub: '無影無蹤：完全消失，蹤影全無。',
+          html: scene(P(400, 245, '<circle cx="0" cy="0" r="44" fill="none" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="10 10"/><text x="0" y="12" text-anchor="middle" font-size="34" fill="#c9bfa8">?</text>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">無影無蹤</text>') }
+      ];
+    },
+    /* 分工合作 */
+    i1145: function () {
+      return [
+        { minDur: 6800, sub: '大掃除開始！班長分派任務：你擦窗、我掃地、他排桌椅——每個人都有自己的工作。',
+          html: scene(P(240, 302, A('kid', 'happy') + P(20, -34, '<path d="M-14 0 q7 -8 14 0 q7 8 14 0" stroke="#ffd97a" stroke-width="7" fill="none" stroke-linecap="round"/>', '', 0, .9)) +
+            P(400, 302, A('kid', 'happy') + P(20, -34, '<line x1="0" y1="0" x2="20" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 0 l-10 12 M0 0 l-2 14 M0 0 l6 13" stroke="#c9a06c" stroke-width="3.4" stroke-linecap="round"/>', 'st-hoe'), '', .2, .95) +
+            P(560, 302, A('kid', 'happy'), '', .4, .93)) },
+        { minDur: 6800, sub: '各做各的、又互相配合——不到一小時，教室煥然一新，比一個人做快十倍！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(450, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            P(590, 302, '<g class="st-cheer" style="animation-delay:.4s">' + A('kid', 'happy') + '</g>', '', 0, .93) +
+            hearts(450, 172) + bang(340, 190)) },
+        { minDur: 6600, sub: '「分工合作」：分配工作、互相配合——團隊的力量最大！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(430, 302, A('kid', 'happy'), '', .1, .95) + P(560, 302, A('kid', 'happy'), '', .2, .93) +
+            '<path d="M300 240 q130 -40 260 0" stroke="#548a40" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="9 8"/>') },
+        { minDur: 6400, sub: '分工合作：分配工作、互相配合，共同完成。',
+          html: scene(P(280, 302, A('kid', 'happy')) + P(420, 302, A('kid', 'happy'), '', .1, .95) + P(560, 302, A('kid', 'happy'), '', .2, .93) + hearts(420, 175) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">分工合作</text>') }
+      ];
     }
   };
 
