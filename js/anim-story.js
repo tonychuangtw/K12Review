@@ -22621,6 +22621,182 @@
             '<g class="st-windln" opacity=".6" stroke="#9db8d9" stroke-width="3.2" fill="none" stroke-linecap="round"><path d="M340 290 q28 -10 20 -38"/><path d="M500 294 q24 -12 16 -36"/></g>' +
             '<text x="400" y="260" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">扶搖直上</text>') }
       ];
+    },
+    /* 一落千丈 */
+    i761: function () {
+      return [
+        { minDur: 7000, sub: '韓愈聽穎師彈琴：琴聲攀到最高處，忽然「失勢一落千丈強」——直直摔落谷底！',
+          html: scene(P(300, 302, A('kid', 'wow') + P(40, -40, QIN, '', 0, .55), '', 0, 1) +
+            '<path d="M380 130 q40 -30 90 -10 L480 130 L620 280" stroke="#7a5aa0" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M608 266 L620 280 L604 280" stroke="#7a5aa0" stroke-width="3.4" fill="none"/>' + notes(420, 110) + bang(620, 290)) },
+        { minDur: 6800, sub: '「一落千丈」：從高處急速跌落——成績、聲望、行情，跌得又快又深都可以用！',
+          html: scene(P(340, 302, A('kid', 'sad') + P(-46, -54, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-11 -12 L-2 8 L4 2 L11 14" stroke="#c96a5a" stroke-width="2.8" fill="none" stroke-linecap="round"/><path d="M5 12 L11 14 L9 7" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1), 'st-slump', 0, 1.02) + sweat(450, 195) + qmark(560, 200)) },
+        { minDur: 6800, sub: '信譽一落千丈往往只要一件事——爬上去要十年，摔下來只要一天，且行且珍惜！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#548a40">守信用</text>', '', 0, 1.1)) +
+            '<path d="M470 280 q50 -50 110 -80" stroke="#548a40" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-dasharray="7 5"/>' + hearts(280, 195)) },
+        { minDur: 6400, sub: '一落千丈：失勢急墜，深不見底。',
+          html: scene(P(300, 302, A('kid', 'sad'), 'st-slump', 0, 1.02) +
+            '<path d="M400 150 L600 285" stroke="#c96a5a" stroke-width="4" stroke-linecap="round"/><path d="M588 271 L600 285 L584 283" stroke="#c96a5a" stroke-width="3.4" fill="none"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一落千丈</text>') }
+      ];
+    },
+    /* 一蹶不振 */
+    i762: function () {
+      return [
+        { minDur: 7000, sub: '劉向《說苑》：「一蹶之故，卻足不行」——跌了一跤，就縮著腳再也不敢走路！',
+          html: scene(P(400, 296, '<g transform="rotate(-78)">' + A('kid', 'sad') + '</g>', '', 0, 1.02) +
+            '<path d="M320 306 q16 -8 30 0" stroke="#b59a6a" stroke-width="3" fill="none" opacity=".6"/>' + sweat(480, 250) + qmark(300, 220)) },
+        { minDur: 6800, sub: '「一蹶不振」（蹶＝跌倒）：失敗一次就再也振作不起來——趴著不動，路就到此為止！',
+          html: scene(P(400, 296, '<g transform="rotate(-84)">' + A('kid', 'sad') + '</g>', '', 0, 1.02) + zzz(480, 240) +
+            P(620, 250, '<g class="st-tw"><path d="M0 0 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a" opacity=".7"/></g>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '摔倒不可怕，趴著不起來才可怕——揉一揉、站起來，下一步就還在！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-24 -14 q-6 8 0 14" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .98, true) + hearts(440, 185) + bang(280, 200)) },
+        { minDur: 6400, sub: '一蹶不振：一跌不起，志氣全消。',
+          html: scene(P(400, 296, '<g transform="rotate(-80)">' + A('kid', 'sad') + '</g>', '', 0, 1.05) + zzz(490, 245) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一蹶不振</text>') }
+      ];
+    },
+    /* 東窗事發 */
+    i763: function () {
+      return [
+        { minDur: 7200, sub: '傳說秦檜在自家東窗下與妻子王氏密謀陷害岳飛——窗裡的悄悄話，自以為天知地知……',
+          html: scene(P(430, 250, '<rect x="-56" y="-40" width="112" height="80" rx="4" fill="#8a6a44" stroke="#6d5335" stroke-width="3"/><rect x="-40" y="-26" width="80" height="52" rx="3" fill="#ffe9a0" opacity=".9"/><path d="M0 -26 v52 M-40 0 h80" stroke="#6d5335" stroke-width="3"/>', '', 0, 1.05) +
+            P(405, 262, A('kid', 'angry'), '', 0, .5) + P(452, 262, A('kid', 'angry'), '', 0, .5, true) +
+            '<g opacity=".7"><text x="290" y="200" text-anchor="middle" font-size="13" fill="#dbe4f0">嘀嘀咕咕…</text></g>', 'night') },
+        { minDur: 7000, sub: '秦檜死後，方士遊冥府見他受罪——捎回一句話：「東窗事發矣！」密謀全被揭穿！',
+          html: scene(P(340, 302, A('kid', 'wow') + P(0, -112, '<ellipse cx="0" cy="0" rx="40" ry="18" fill="#fff" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#c96a5a">東窗事發矣!</text>', '', 0, 1), '', 0, 1.02) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + bang(460, 195) + sweat(620, 200), 'night') },
+        { minDur: 6800, sub: '「東窗事發」：陰謀敗露——弊案曝光、作弊被抓包，見不得光的事總有這一天！',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-14 -50 q14 6 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1.02) + sweat(440, 190) +
+            P(570, 220, '<circle cx="0" cy="0" r="26" fill="#ffe9a0" class="st-tw"/><g stroke="#e8b93f" stroke-width="3" stroke-linecap="round"><line x1="-34" y1="0" x2="-42" y2="0"/><line x1="34" y1="0" x2="42" y2="0"/><line x1="0" y1="-34" x2="0" y2="-42"/></g>', '', 0, 1)) },
+        { minDur: 6400, sub: '東窗事發：密謀敗露，無所遁形。',
+          html: scene(P(400, 250, '<rect x="-52" y="-38" width="104" height="76" rx="4" fill="#8a6a44" stroke="#6d5335" stroke-width="3"/><rect x="-38" y="-24" width="76" height="48" rx="3" fill="#ffe9a0" opacity=".95"/><path d="M0 -24 v48 M-38 0 h76" stroke="#6d5335" stroke-width="3"/>', '', 0, 1.1) + bang(540, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">東窗事發</text>', 'night') }
+      ];
+    },
+    /* 紙包不住火 */
+    i764: function () {
+      return [
+        { minDur: 7000, sub: '俗諺說得直白：拿一張紙去包火苗——包得再緊，火一舔就燒穿了！',
+          html: scene(P(400, 290, '<path d="M-30 10 q-6 -30 8 -38 l44 0 q14 8 8 38 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g class="st-flick"><path d="M0 -28 q-10 -18 0 -32 q10 16 0 32" fill="#ff9d4a"/><path d="M0 -32 q-5 -10 0 -18 q5 8 0 18" fill="#ffd97a"/></g><path d="M-8 -22 q6 8 16 6" stroke="#e8834a" stroke-width="2.6" fill="none"/>', '', 0, 1.15) +
+            P(250, 302, A('kid', 'wow'), '', 0, .95) + sweat(320, 200)) },
+        { minDur: 6800, sub: '「紙包不住火」：真相終究掩蓋不了——瞞著的事就像火，越捂越往外竄！',
+          html: scene(P(340, 302, A('kid', 'sad') + '<path d="M-18 -58 q4 3 8 0 M10 -58 q4 3 8 0" stroke="#8b93a3" stroke-width="2" fill="none"/>' + P(30, -40, '<path d="M-10 8 q-2 -12 4 -14 l12 0 q6 2 4 14 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><g class="st-flick"><path d="M2 -8 q-5 -9 0 -16 q5 8 0 16" fill="#ff9d4a"/></g>', '', 0, 1.05), '', 0, 1.05) + sweat(260, 195) + qmark(520, 195)) },
+        { minDur: 6800, sub: '打破東西先承認、考壞了先坦白——與其提心吊膽等火燒出來，不如自己先說！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -46 q10 -2 14 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-28 -46 q-10 -2 -14 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.02, true) + hearts(420, 185)) },
+        { minDur: 6400, sub: '紙包不住火：真相如火，終要燒穿。',
+          html: scene(P(400, 290, '<path d="M-30 10 q-6 -30 8 -38 l44 0 q14 8 8 38 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g class="st-flick"><path d="M0 -28 q-10 -18 0 -32 q10 16 0 32" fill="#ff9d4a"/></g>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="48" font-weight="bold" fill="#4a3200">紙包不住火</text>') }
+      ];
+    },
+    /* 欲蓋彌彰 */
+    i765: function () {
+      return [
+        { minDur: 7000, sub: '《左傳》早看透人性：「欲蓋而名章」——有人想掩蓋壞名聲，結果反而傳得更響！',
+          html: scene(P(400, 302, A('kid', 'sad') + P(0, -34, '<path d="M-22 0 a22 14 0 0 1 44 0 z" fill="#8b93a3" opacity=".85"/>', '', 0, 1.05), '', 0, 1.05) +
+            '<g class="st-tw"><path d="M290 210 q-14 -8 -10 -22 M510 210 q14 -8 10 -22" stroke="#e8b93f" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>' + qmark(540, 240)) },
+        { minDur: 6800, sub: '刪文滅證，反而人人瘋傳截圖——「欲蓋彌彰」：越想蓋，越是此起彼落地冒出來！',
+          html: scene(P(340, 302, A('kid', 'sad') + P(-44, -50, '<rect x="-14" y="-24" width="28" height="48" rx="5" fill="#3a2e26"/><rect x="-10" y="-19" width="20" height="38" rx="2.6" fill="#fff"/><text x="0" y="4" text-anchor="middle" font-size="8" fill="#c96a5a">刪除</text>', '', 0, .95), '', 0, 1.02) + sweat(440, 190) +
+            '<g class="st-tw"><rect x="500" y="200" width="34" height="24" rx="3" fill="#ffe9a0" stroke="#e8b93f" stroke-width="2"/><rect x="550" y="180" width="34" height="24" rx="3" fill="#ffe9a0" stroke="#e8b93f" stroke-width="2"/><rect x="600" y="210" width="34" height="24" rx="3" fill="#ffe9a0" stroke="#e8b93f" stroke-width="2"/></g>') },
+        { minDur: 6800, sub: '「欲蓋彌彰」：想掩蓋反而更明顯——處理錯誤最好的方式從來是面對，不是遮！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#548a40">面對它</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#c96a5a">越遮</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#c96a5a">越亮</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '欲蓋彌彰：掩之愈急，彰之愈明。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(0, -34, '<path d="M-22 0 a22 14 0 0 1 44 0 z" fill="#8b93a3" opacity=".85"/>', '', 0, 1.05), '', 0, 1.08) +
+            '<g class="st-tw"><path d="M290 205 q-14 -8 -10 -22 M510 205 q14 -8 10 -22" stroke="#e8b93f" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">欲蓋彌彰</text>') }
+      ];
+    },
+    /* 此地無銀三百兩 */
+    i766: function () {
+      return [
+        { minDur: 7200, sub: '民間故事：張三把三百兩銀子埋進土裡，怕人偷——竟立牌寫「此地無銀三百兩」！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -2" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1) +
+            P(520, 290, '<rect x="-52" y="-38" width="104" height="30" rx="4" fill="#f4ecd8" stroke="#b59a6a" stroke-width="2.6"/><text x="0" y="-18" text-anchor="middle" font-size="11" fill="#6d5335">此地無銀三百兩</text><line x1="0" y1="-8" x2="0" y2="12" stroke="#8a6a44" stroke-width="5"/>', '', 0, 1.05) +
+            '<ellipse cx="520" cy="306" rx="30" ry="7" fill="#b59a6a" opacity=".6"/>') },
+        { minDur: 7000, sub: '鄰居王二看到牌子笑了：挖走銀子後，又補一塊牌——「隔壁王二不曾偷」！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-36, -34, '<circle cx="0" cy="0" r="12" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="9" fill="#8a5a33">銀</text>', '', 0, 1), 'st-fleeR', 0, 1, true) +
+            P(520, 290, '<rect x="-52" y="-64" width="104" height="28" rx="4" fill="#f4ecd8" stroke="#b59a6a" stroke-width="2.4"/><text x="0" y="-45" text-anchor="middle" font-size="10" fill="#6d5335">此地無銀三百兩</text><rect x="-52" y="-30" width="104" height="28" rx="4" fill="#fff" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="-11" text-anchor="middle" font-size="10" fill="#c96a5a">隔壁王二不曾偷</text><line x1="0" y1="-2" x2="0" y2="14" stroke="#8a6a44" stroke-width="5"/>', '', 0, 1.05) + notes(240, 210)) },
+        { minDur: 6800, sub: '「此地無銀三百兩」：想隱瞞反而不打自招——沒人問卻急著澄清，大家反而起疑！',
+          html: scene(P(340, 302, A('kid', 'sad') + P(0, -112, '<ellipse cx="0" cy="0" rx="42" ry="18" fill="#fff" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#c96a5a">真的不是我啦!</text>', '', 0, 1), '', 0, 1.02) + sweat(430, 190) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(620, 195)) },
+        { minDur: 6400, sub: '此地無銀三百兩：越描越黑，自曝其短。',
+          html: scene(P(400, 290, '<rect x="-56" y="-40" width="112" height="30" rx="4" fill="#f4ecd8" stroke="#b59a6a" stroke-width="2.6"/><text x="0" y="-20" text-anchor="middle" font-size="12" fill="#6d5335">此地無銀三百兩</text><line x1="0" y1="-10" x2="0" y2="12" stroke="#8a6a44" stroke-width="5"/>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="44" font-weight="bold" fill="#4a3200">此地無銀三百兩</text>') }
+      ];
+    },
+    /* 不打自招 */
+    i767: function () {
+      return [
+        { minDur: 7000, sub: '老師只問一句：「昨天誰值日？」小華立刻大喊：「窗戶不是我打破的！」……咦？',
+          html: scene(P(320, 302, A('kid', 'happy') + P(0, -110, '<ellipse cx="0" cy="0" rx="34" ry="16" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#548a40">誰值日?</text>', '', 0, 1)) +
+            P(540, 302, A('kid', 'wow') + P(0, -112, '<ellipse cx="0" cy="0" rx="42" ry="18" fill="#fff" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#c96a5a">窗戶不是我!</text>', '', 0, 1), '', 0, 1.02, true) + sweat(620, 200) + qmark(400, 200)) },
+        { minDur: 6800, sub: '沒人提窗戶的事啊——「不打自招」：沒被拷問就自己招了，秘密從自己嘴裡溜出來！',
+          html: scene(P(400, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) + sweat(300, 195) +
+            P(560, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">沒人</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8b93a3">問你</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '慌張是最誠實的告密者——心裡有事的人，往往話比問題還多！',
+          html: scene(P(340, 302, A('kid', 'sad') + '<g class="st-tw"><path d="M-30 -60 l-6 -6 M30 -60 l6 -6" stroke="#9db8d9" stroke-width="3" stroke-linecap="round"/></g>', 'st-bob', 0, 1.05) + sweat(430, 185) + sweat(260, 195) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) + qmark(620, 200)) },
+        { minDur: 6400, sub: '不打自招：未審先供，自洩底細。',
+          html: scene(P(400, 302, A('kid', 'wow') + P(0, -112, '<ellipse cx="0" cy="0" rx="40" ry="18" fill="#fff" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#c96a5a">不是我做的!</text>', '', 0, 1), '', 0, 1.08) + sweat(500, 195) +
+            '<text x="400" y="220" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不打自招</text>') }
+      ];
+    },
+    /* 做賊心虛 */
+    i768: function () {
+      return [
+        { minDur: 7000, sub: '禪書《五燈會元》一語道破：「為賊人心虛」——做了虧心事的人，心裡自己先發毛！',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-36, -30, '<circle cx="0" cy="0" r="10" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1), 'st-bob', 0, 1.02) +
+            '<g class="st-tw"><path d="M320 190 q-8 -10 -4 -20" stroke="#9db8d9" stroke-width="3" fill="none" stroke-linecap="round"/></g>' + sweat(480, 190), 'night') },
+        { minDur: 6800, sub: '風吹草動都像在抓他：貓叫一聲嚇一跳、有人看他一眼就心跳加速——做賊心虛！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-36, -30, '<circle cx="0" cy="0" r="10" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1), '', 0, 1.05) +
+            P(580, 300, A('fox'), '', 0, .8, true) +
+            '<g class="st-tw"><text x="540" y="230" text-anchor="middle" font-size="13" fill="#dbe4f0">喵—</text></g>' + bang(300, 190) + sweat(430, 185), 'night') },
+        { minDur: 6800, sub: '「做賊心虛」：做壞事怕被發覺而惶惶不安——最累的不是躲人，是躲自己的心！',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-10 -30 a10 8 0 0 1 20 0" stroke="#c96a5a" stroke-width="2.6" fill="none"/>', '', 0, 1.05) + sweat(450, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">心安</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">最貴</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '做賊心虛：虧心在抱，惶惶難安。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-36, -30, '<circle cx="0" cy="0" r="10" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1), 'st-bob', 0, 1.08) + sweat(500, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">做賊心虛</text>', 'night') }
+      ];
+    },
+    /* 問心無愧 */
+    i769: function () {
+      return [
+        { minDur: 7000, sub: '比賽輸了，隊友悶悶不樂——他拍拍胸口：「每一球都拚盡全力，我問心無愧！」',
+          html: scene(P(340, 302, A('kid', 'sad'), '', 0, .98) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-8 -34 l8 4 8 -4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.05, true) + hearts(620, 195) + sweat(270, 200)) },
+        { minDur: 6800, sub: '「問心無愧」：問自己的良心，沒有一點慚愧——語意源自孟子的「不愧不怍」！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -34, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1), '', 0, 1.08) +
+            '<g class="st-rays" style="transform-origin:400px 200px"><g stroke="#ffe9a0" stroke-width="4" stroke-linecap="round" opacity=".7"><line x1="400" y1="162" x2="400" y2="144"/><line x1="438" y1="174" x2="452" y2="160"/><line x1="362" y1="174" x2="348" y2="160"/></g></g>') },
+        { minDur: 6800, sub: '結果不由人，態度由自己——盡了力、走了正路，成敗都能抬頭挺胸！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) +
+            P(560, 230, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#548a40">盡力+</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#548a40">走正路</text>', '', 0, 1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '問心無愧：俯仰由己，坦蕩無慚。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -34, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1), '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">問心無愧</text>') }
+      ];
+    },
+    /* 俯仰無愧 */
+    i770: function () {
+      return [
+        { minDur: 7000, sub: '孟子說君子之樂：「仰不愧於天，俯不怍於人」——抬頭對天、低頭對人，都坦坦蕩蕩！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-6 -56 q6 -6 12 0" stroke="#3a2e26" stroke-width="2" fill="none"/>', '', 0, 1.05) +
+            P(400, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66"/><g stroke="#e8b93f" stroke-width="2.6" stroke-linecap="round"><line x1="-28" y1="0" x2="-34" y2="0"/><line x1="28" y1="0" x2="34" y2="0"/></g>', '', 0, 1) +
+            P(240, 302, A('kid', 'happy'), '', 0, .88) + P(560, 302, A('kid', 'happy'), '', 0, .88, true)) },
+        { minDur: 6800, sub: '「俯仰無愧」：對天對人皆無慚愧——它比「問心無愧」更進一層：連天地都作見證！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.08) +
+            P(300, 160, '<circle cx="0" cy="0" r="16" fill="#ffdd66" opacity=".9"/>', '', 0, 1) +
+            P(520, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">天+人</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">皆無愧</text>', '', 0, 1) + hearts(620, 200)) },
+        { minDur: 6800, sub: '一生的功課不過八個字：仰不愧天、俯不怍人——每天睡前想想，今天做到了嗎？',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="8" fill="#548a40">仰不愧天</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#548a40">俯不怍人</text>', '', 0, .95)) + hearts(470, 190) +
+            P(580, 160, '<g class="st-tw"><path d="M0 0 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '俯仰無愧：仰對天地，俯對世人。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.1) +
+            P(400, 140, '<circle cx="0" cy="0" r="18" fill="#ffdd66"/>', '', 0, 1) +
+            '<text x="400" y="230" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">俯仰無愧</text>') }
+      ];
     }
   };
 
