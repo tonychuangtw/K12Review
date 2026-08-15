@@ -6125,6 +6125,117 @@
           html: scene(P(340, 302, A('kid', 'wow') + P(38, -50, BURGER, '', 0, 1.15)) + P(560, 302, A('tiger'), '', 0, .9) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">狼吞虎嚥</text>') }
       ];
+    },
+    /* 垂涎三尺 */
+    i427: function () {
+      var CAKE2 = '<rect x="-22" y="-18" width="44" height="18" rx="4" fill="#f7a8c4" stroke="#e07ba3" stroke-width="2.4"/><path d="M-22 -18 q11 7 22 0 q11 7 22 0" stroke="#fff" stroke-width="3" fill="none"/><circle cx="0" cy="-24" r="4" fill="#e85a4f"/>';
+      var DROOL = '<path d="M0 -34 q-2 8 0 14 q4 -2 3 -10 z" fill="#8fc6ff"/>';
+      return [
+        { minDur: 6800, sub: '蛋糕店的櫥窗裡擺著草莓蛋糕——小饞貓盯著看，口水都快流下來了！',
+          html: scene(P(500, 290, CAKE2, '', 0, 1.3) +
+            P(300, 302, A('kid', 'wow') + DROOL) + hearts(400, 200)) },
+        { minDur: 6600, sub: '「垂涎」就是流口水——饞得口水掛了三尺長，太想吃、太想要啦！',
+          html: scene(P(360, 302, A('kid', 'wow') + DROOL +
+              '<path d="M2 -20 q-2 16 1 30" stroke="#8fc6ff" stroke-width="3" fill="none" stroke-linecap="round"/>', '', 0, 1.08) +
+            P(540, 290, CAKE2, '', 0, 1.1) + qmark(280, 188)) },
+        { minDur: 6800, sub: '別人的寶貝讓人垂涎三尺也不能搶——自己努力存錢買，吃起來最香！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -50, CAKE2, '', 0, .9)) + hearts(460, 190)) },
+        { minDur: 6400, sub: '垂涎三尺：非常貪饞或渴望得到。',
+          html: scene(P(340, 302, A('kid', 'wow') + DROOL, '', 0, 1.08) + P(540, 288, CAKE2, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">垂涎三尺</text>') }
+      ];
+    },
+    /* 飢腸轆轆 */
+    i428: function () {
+      var RUMBLE = '<g class="st-bang"><path d="M-10 0 q5 -8 10 0 q5 8 10 0" stroke="#e0a458" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>';
+      var RICE = '<path d="M-16 -6 q0 12 16 12 q16 0 16 -12 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.4"/><ellipse cx="0" cy="-6" rx="16" ry="5" fill="#fff"/>';
+      return [
+        { minDur: 6800, sub: '爬了一上午的山，還沒到中餐時間——小杜的肚子「咕嚕咕嚕」叫個不停！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(0, -26, RUMBLE)) + sweat(300, 192) +
+            P(600, 302, '<path d="M-90 0 L0 -110 L90 0 Z" fill="#a5c2b2"/>')) },
+        { minDur: 6600, sub: '「轆轆」是車輪滾動的聲音——肚子餓得像車輪一樣叫，就是「飢腸轆轆」！',
+          html: scene(P(400, 302, A('kid', 'sad') + P(0, -26, RUMBLE), '', 0, 1.08) + qmark(480, 182) + sweat(320, 192)) },
+        { minDur: 6600, sub: '終於開飯啦！熱騰騰的飯一入口，整個人都活過來了！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -46, RICE, '', 0, 1.1)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '飢腸轆轆：肚子餓得咕嚕作響。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(0, -26, RUMBLE), '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">飢腸轆轆</text>') }
+      ];
+    },
+    /* 白紙黑字 */
+    i429: function () {
+      var CONTRACT = '<rect x="-22" y="-30" width="44" height="60" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/>' +
+        '<path d="M-14 -20 h28 M-14 -12 h28 M-14 -4 h28 M-14 4 h20" stroke="#3a2e26" stroke-width="2.2"/>' +
+        '<path d="M-14 16 q8 -6 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>';
+      return [
+        { minDur: 6800, sub: '兄弟倆約好輪流洗碗，還寫在紙上、各自簽名：「每週一三五換人！」',
+          html: scene(P(430, 270, CONTRACT, '', 0, 1.2) +
+            P(280, 302, A('kid', 'happy')) + P(580, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(430, 200)) },
+        { minDur: 6800, sub: '哥哥想耍賴？弟弟把紙一亮：「白紙黑字寫得清清楚楚，賴不掉喔！」',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-42, -56, CONTRACT, '', 0, .8)) + bang(400, 185) +
+            P(540, 302, A('kid', 'wow'), '', 0, .97, true) + sweat(580, 198)) },
+        { minDur: 6600, sub: '「白紙黑字」：寫成文字的憑據，清楚明確——說話算話，寫下來更可靠！',
+          html: scene(P(400, 265, CONTRACT, '', 0, 1.35) + hearts(500, 220)) },
+        { minDur: 6400, sub: '白紙黑字：寫成文字的憑據，清楚明確。',
+          html: scene(P(400, 270, CONTRACT, '', 0, 1.4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">白紙黑字</text>') }
+      ];
+    },
+    /* 一清二楚 */
+    i430: function () {
+      var GLASS = '<circle cx="0" cy="0" r="20" fill="none" stroke="#8b93a3" stroke-width="4"/><line x1="14" y1="14" x2="28" y2="28" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '玻璃窗擦得亮晶晶，窗外的每一片葉子、每一隻小鳥都看得一清二楚！',
+          html: scene(P(430, 260, '<rect x="-70" y="-60" width="140" height="100" rx="6" fill="#aee3f5" stroke="#a8734a" stroke-width="5"/><line x1="0" y1="-60" x2="0" y2="40" stroke="#a8734a" stroke-width="4"/>') +
+            P(470, 230, A('bird'), '', 0, .7) +
+            P(220, 302, A('kid', 'happy')) + hearts(300, 200)) },
+        { minDur: 6800, sub: '班長把班費記在帳本上：誰交了、買了什麼、剩多少——每一筆都一清二楚！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -52, '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -14 h20 M-10 -6 h20 M-10 2 h20 M-10 10 h14" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, 1)) + hearts(460, 190)) },
+        { minDur: 6600, sub: '「一清二楚」：非常清楚明白——沒有一點含糊！',
+          html: scene(P(400, 230, GLASS, '', 0, 1.5) + bang(500, 200) + P(260, 302, A('kid', 'happy'))) },
+        { minDur: 6400, sub: '一清二楚：非常清楚明白。',
+          html: scene(P(400, 240, GLASS, '', 0, 1.7) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一清二楚</text>') }
+      ];
+    },
+    /* 一乾二淨 */
+    i431: function () {
+      var PLATE = '<ellipse cx="0" cy="0" rx="24" ry="8" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><ellipse cx="0" cy="-1" rx="15" ry="4.6" fill="#e8f0f8"/>';
+      var SPARKLE = '<g class="st-tw"><path d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#ffd97a"/></g>';
+      return [
+        { minDur: 6600, sub: '晚餐太好吃了！小治把飯菜吃得一粒不剩，盤子乾淨得像洗過一樣！',
+          html: scene(P(430, 292, PLATE, '', 0, 1.3) + P(500, 260, SPARKLE) +
+            P(280, 302, A('kid', 'happy')) + hearts(380, 200)) },
+        { minDur: 6800, sub: '大掃除之後，教室的地板、窗戶、黑板全被擦得一乾二淨，亮得反光！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(20, -34, '<line x1="0" y1="0" x2="20" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 0 l-10 12 M0 0 l-2 14 M0 0 l6 13" stroke="#c9a06c" stroke-width="3.4" stroke-linecap="round"/>')) +
+            P(500, 240, SPARKLE) + P(580, 270, SPARKLE) + hearts(430, 200)) },
+        { minDur: 6800, sub: '它還能形容「忘光光」：假期玩瘋了，老師教的內容忘得一乾二淨——這可不行呀！',
+          html: scene(P(360, 302, A('kid', 'wow')) + qmark(430, 180) + sweat(300, 192) +
+            P(540, 260, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="16" fill="#c9bfa8">?</text>')) },
+        { minDur: 6400, sub: '一乾二淨：非常乾淨；一點不剩。',
+          html: scene(P(400, 290, PLATE, '', 0, 1.4) + P(490, 250, SPARKLE) + P(310, 255, SPARKLE) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一乾二淨</text>') }
+      ];
+    },
+    /* 三三兩兩 */
+    i432: function () {
+      return [
+        { minDur: 6800, sub: '放學後的操場上，同學們三個一群、兩個一夥：有的聊天、有的打球、有的散步——',
+          html: scene(P(220, 302, A('kid', 'happy'), '', 0, .92) + P(300, 302, A('kid', 'happy'), '', .1, .9) +
+            P(480, 302, A('kid', 'happy'), '', .2, .93) + P(560, 302, A('kid', 'happy'), '', .3, .9) + P(640, 302, A('kid', 'happy'), '', .4, .88) +
+            notes(260, 180) + hearts(560, 185)) },
+        { minDur: 6600, sub: '不是整整齊齊的大隊伍，而是零零散散的小群體——這就是「三三兩兩」。',
+          html: scene(P(240, 302, A('kid', 'happy'), 'st-strut', 0, .92) + P(320, 302, A('kid', 'happy'), 'st-strut', .1, .9) +
+            P(540, 302, A('kid', 'happy'), 'st-strut', .3, .92) + P(620, 302, A('kid', 'happy'), 'st-strut', .4, .9)) },
+        { minDur: 6600, sub: '黃昏的公園裡，人們三三兩兩散著步，悠悠閒閒，多愜意！',
+          html: scene(P(150, 302, TREE, '', 0, 1.1) +
+            P(300, 302, A('kid', 'happy'), 'st-strut', 0, .95) + P(380, 302, A('kid', 'happy'), 'st-strut', .1, .92) +
+            P(580, 302, A('kid', 'happy'), 'st-strut', .3, .9) + hearts(460, 195), 'night') },
+        { minDur: 6400, sub: '三三兩兩：三兩成群，零零散散。',
+          html: scene(P(260, 302, A('kid', 'happy'), '', 0, .95) + P(340, 302, A('kid', 'happy'), '', .1, .92) +
+            P(540, 302, A('kid', 'happy'), '', .2, .93) + P(620, 302, A('kid', 'happy'), '', .3, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">三三兩兩</text>') }
+      ];
     }
   };
 
