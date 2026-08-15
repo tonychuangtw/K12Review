@@ -22433,6 +22433,194 @@
           html: scene(P(400, 302, A('kid', 'sad') + P(-2, -34, '<g transform="rotate(-6)"><rect x="-20" y="-14" width="40" height="28" rx="3" fill="#e8d9b8" stroke="#b59a6a" stroke-width="2.4"/><path d="M12 -14 l8 8 -6 2 4 4 -8 0" fill="#f4ecd8" stroke="#b59a6a" stroke-width="1.6"/></g>', '', 0, 1.05), '', 0, 1.08) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">抱殘守缺</text>') }
       ];
+    },
+    /* 推陳出新 */
+    i750: function () {
+      return [
+        { minDur: 7000, sub: '這個詞本指糧倉管理：把陳米推出去、新米收進來——倉裡永遠是新鮮的！',
+          html: scene(P(430, 302, '<rect x="-60" y="-70" width="120" height="70" fill="#e8d9b8" stroke="#b59a6a" stroke-width="3"/><path d="M-68 -70 L0 -100 L68 -70 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/><text x="0" y="-40" text-anchor="middle" font-size="13" fill="#8a5a33">糧倉</text>', '', 0, 1) +
+            P(300, 296, '<path d="M-14 0 a14 10 0 0 0 28 0 l-4 -14 h-20 z" fill="#c9bfa8" stroke="#a89a80" stroke-width="2"/><text x="0" y="-20" text-anchor="middle" font-size="9" fill="#8b93a3">陳米</text>', '', 0, 1) +
+            P(560, 296, '<path d="M-14 0 a14 10 0 0 0 28 0 l-4 -14 h-20 z" fill="#ffe9a0" stroke="#e8b93f" stroke-width="2"/><text x="0" y="-20" text-anchor="middle" font-size="9" fill="#c99a1e">新米</text>', '', 0, 1) +
+            '<path d="M330 260 l-40 0 M550 260 l-40 0" stroke="#8a6a44" stroke-width="3" stroke-linecap="round" opacity=".6"/>') },
+        { minDur: 6800, sub: '「推陳出新」：去除舊的、創造新的——百年老店把招牌菜做出新吃法，大排長龍！',
+          html: scene(P(400, 285, '<ellipse cx="0" cy="8" rx="60" ry="13" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><circle cx="0" cy="-6" r="18" fill="#ffdd88" stroke="#e8b93f" stroke-width="2.4"/><g class="st-tw"><path d="M-8 -30 q4 -8 0 -14 M8 -30 q4 -8 0 -14" stroke="#dbe4f0" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1.1) +
+            P(250, 302, A('kid', 'wow'), '', 0, .95) + P(560, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(400, 185)) },
+        { minDur: 6800, sub: '創新不是丟掉一切重來，是站在舊基礎上長出新枝——溫故，才知新！',
+          html: scene(P(430, 302, TREE, '', 0, 1.3) +
+            P(470, 200, '<g class="st-grow"><path d="M0 20 q4 -14 0 -20" stroke="#79b56a" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="0" cy="-4" r="9" fill="#a5d47c"/></g>', '', 0, 1.1) +
+            P(240, 302, A('kid', 'happy') + '<path d="M28 -50 l16 -8" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .98) + hearts(330, 190)) },
+        { minDur: 6400, sub: '推陳出新：去舊納新，生生不息。',
+          html: scene(P(400, 296, '<path d="M-14 0 a14 10 0 0 0 28 0 l-4 -14 h-20 z" fill="#ffe9a0" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1.2) +
+            '<g class="st-tw"><path d="M330 220 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/><path d="M470 215 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">推陳出新</text>') }
+      ];
+    },
+    /* 標新立異 */
+    i751: function () {
+      return [
+        { minDur: 7200, sub: '《世說新語》：支道林講《逍遙遊》，「標新理於二家之表」——立出前人沒有的新見解，滿座折服！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#d5cfc0"/>' + P(0, -112, '<ellipse cx="0" cy="0" rx="34" ry="17" fill="#ffe9a0"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#8a5a33">新解!</text>', '', 0, 1)) +
+            P(180, 302, A('kid', 'wow'), '', 0, .88) + P(560, 302, A('kid', 'wow'), '', 0, .88, true) + bang(460, 190)) },
+        { minDur: 6800, sub: '「標新立異」原是誇創見——但今天也常帶貶義：為了不同而不同、刻意搞怪！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(0, -96, '<circle cx="0" cy="0" r="12" fill="#ffd97a" class="st-tw"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#8a5a33">💡</text>', '', 0, 1), '', 0, 1) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-18 -84 l6 -14 6 10 6 -12 6 14" stroke="#c96a5a" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1, true) + qmark(600, 190) +
+            P(420, 230, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="8" fill="#8b93a3">創見/</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#8b93a3">搞怪?</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '想與眾不同，先問自己：新在道理、還是新在花樣？有內涵的「異」才站得住！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#548a40">內涵</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#548a40">優先</text>', '', 0, .95)) + hearts(470, 190) + bang(280, 200)) },
+        { minDur: 6400, sub: '標新立異：獨標新義，別於眾說。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -96, '<circle cx="0" cy="0" r="12" fill="#ffd97a" class="st-tw"/>', '', 0, 1), '', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">標新立異</text>') }
+      ];
+    },
+    /* 獨樹一幟 */
+    i752: function () {
+      return [
+        { minDur: 7000, sub: '袁枚《隨園詩話》評元稹、白居易：不抄盛唐的老路子，才能「獨樹一幟」！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(36, -60, '<line x1="0" y1="46" x2="0" y2="-26" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><path d="M0 -26 L44 -16 L0 -4 Z" fill="#c96a5a" class="st-wave"/>', '', 0, 1), '', 0, 1.02) +
+            '<g opacity=".55"><g fill="#8b93a3"><path d="M520 250 L556 258 L520 268 Z"/><path d="M580 245 L616 253 L580 263 Z"/><path d="M640 252 L676 260 L640 270 Z"/></g><g stroke="#6d7585" stroke-width="3"><line x1="520" y1="250" x2="520" y2="302"/><line x1="580" y1="245" x2="580" y2="302"/><line x1="640" y1="252" x2="640" y2="302"/></g></g>' + bang(390, 200)) },
+        { minDur: 6800, sub: '「獨樹一幟」：獨自樹起一面旗——自成一家、風格獨特，一眼就認得出來！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(38, -64, '<line x1="0" y1="50" x2="0" y2="-30" stroke="#8a6a44" stroke-width="4.6" stroke-linecap="round"/><path d="M0 -30 L52 -18 L0 -4 Z" fill="#e8834a" class="st-wave"/>', '', 0, 1.05), 'st-strut', 0, 1.05) + hearts(280, 195) +
+            '<g class="st-tw"><path d="M540 190 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>') },
+        { minDur: 6800, sub: '模仿是起點，不是終點——把喜歡的風格消化掉，長出自己的樣子，才算立起旗子！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#c9bfa8" stroke="#a89a80" stroke-width="2.2"/><text x="0" y="4" text-anchor="middle" font-size="8" fill="#6d5335">臨摹</text>', '', 0, .95)) +
+            P(540, 302, A('kid', 'happy') + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="2.6" fill="#ffe9a0" stroke="#e8b93f" stroke-width="2.2"/><text x="0" y="4" text-anchor="middle" font-size="8" fill="#8a5a33">自創</text>', '', 0, .95), '', 0, 1.02, true) +
+            '<path d="M380 250 q40 -20 80 0" stroke="#548a40" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M448 244 l12 6 -10 8" stroke="#548a40" stroke-width="2.6" fill="none"/>' + hearts(620, 200)) },
+        { minDur: 6400, sub: '獨樹一幟：自成一家，風格獨具。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(38, -64, '<line x1="0" y1="50" x2="0" y2="-30" stroke="#8a6a44" stroke-width="4.6" stroke-linecap="round"/><path d="M0 -30 L52 -18 L0 -4 Z" fill="#e8834a" class="st-wave"/>', '', 0, 1.05), '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">獨樹一幟</text>') }
+      ];
+    },
+    /* 別開生面 */
+    i753: function () {
+      return [
+        { minDur: 7200, sub: '杜甫〈丹青引〉：凌煙閣功臣畫像褪了色，曹霸奉命重繪——「將軍下筆開生面」，面貌煥然一新！',
+          html: scene(P(300, 260, '<rect x="-28" y="-36" width="56" height="72" rx="3" fill="#e8d9b8" stroke="#b59a6a" stroke-width="2.6"/><g opacity=".45"><circle cx="0" cy="-12" r="10" fill="#8b93a3"/><path d="M-10 6 q10 -8 20 0 l0 20 h-20 z" fill="#8b93a3"/></g>', '', 0, 1) +
+            P(500, 260, '<rect x="-28" y="-36" width="56" height="72" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="2.6"/><circle cx="0" cy="-12" r="10" fill="#f4b878"/><path d="M-10 6 q10 -8 20 0 l0 20 h-20 z" fill="#c96a5a"/><g class="st-tw"><path d="M20 -30 l3 5 5 2 -5 2 -3 5 -3 -5 -5 -2 5 -2 z" fill="#ffd97a"/></g>', '', 0, 1.05) +
+            P(400, 302, A('kid', 'happy') + P(36, -46, '<line x1="0" y1="8" x2="8" y2="-12" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/>', '', 0, 1), '', 0, .95) + hearts(600, 220)) },
+        { minDur: 6800, sub: '「別開生面」：另創新局面、別具一格——今年的園遊會辦成闖關實境遊戲，超新鮮！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-hop', 0, 1.02) +
+            P(550, 250, '<rect x="-30" y="-20" width="60" height="40" rx="5" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.6"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#fff">實境</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#fff">闖關!</text>', 'st-tw', 0, 1.05) + bang(280, 195) + hearts(450, 190)) },
+        { minDur: 6800, sub: '老活動年年一樣就會膩——換個形式、換個角度，熟悉的事也能耳目一新！',
+          html: scene(P(320, 302, A('kid', 'sad') + P(-42, -50, '<rect x="-15" y="-11" width="30" height="22" rx="3" fill="#c9bfa8"/><text x="0" y="5" text-anchor="middle" font-size="8" fill="#6d5335">老梗…</text>', '', 0, .95)) +
+            P(540, 302, A('kid', 'happy') + P(-44, -52, '<rect x="-16" y="-12" width="32" height="24" rx="3" fill="#ffe9a0" stroke="#e8b93f" stroke-width="2"/><text x="0" y="5" text-anchor="middle" font-size="8" fill="#8a5a33">新玩法!</text>', '', 0, 1.05), 'st-cheer', 0, 1.02, true) + hearts(620, 195) + sweat(260, 200)) },
+        { minDur: 6400, sub: '別開生面：另闢新局，面目一新。',
+          html: scene(P(400, 260, '<rect x="-28" y="-36" width="56" height="72" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="2.6"/><circle cx="0" cy="-12" r="10" fill="#f4b878"/><path d="M-10 6 q10 -8 20 0 l0 20 h-20 z" fill="#c96a5a"/>', '', 0, 1.1) +
+            '<g class="st-tw"><path d="M330 210 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/><path d="M470 205 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">別開生面</text>') }
+      ];
+    },
+    /* 獨當一面 */
+    i755: function () {
+      return [
+        { minDur: 7200, sub: '張良向劉邦點將：眾將之中，「獨韓信可屬大事，當一面」——能獨自撐起一整個戰線！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M28 -50 l18 -6" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .95) +
+            P(520, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>' + P(38, -60, '<line x1="0" y1="42" x2="0" y2="-22" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><path d="M0 -22 L40 -13 L0 -2 Z" fill="#5a8fbf" class="st-wave"/>', '', 0, 1), '', 0, 1.08, true) + bang(410, 190)) },
+        { minDur: 6800, sub: '「獨當一面」：能單獨承擔一方重任——不用人盯、不用人扶，整塊事務交給他就放心！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-46, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -8 l5 7 l12 -13" stroke="#548a40" stroke-width="3.2" fill="none" stroke-linecap="round"/>', '', 0, .95) + P(46, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -8 l5 7 l12 -13" stroke="#548a40" stroke-width="3.2" fill="none" stroke-linecap="round"/>', '', 0, .95), '', 0, 1.05) + hearts(540, 190)) },
+        { minDur: 6800, sub: '從被帶的人變成能扛事的人——多練、多扛、多收尾，總有一天輪到你當那一面！',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, .92) +
+            P(500, 302, A('kid', 'happy') + P(40, -60, '<line x1="0" y1="42" x2="0" y2="-22" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><path d="M0 -22 L40 -13 L0 -2 Z" fill="#e8834a" class="st-wave"/>', '', 0, 1), 'st-strut', 0, 1.08, true) +
+            '<path d="M350 260 q50 -24 100 -6" stroke="#548a40" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>' + hearts(620, 200)) },
+        { minDur: 6400, sub: '獨當一面：獨承重任，可託大事。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(38, -60, '<line x1="0" y1="42" x2="0" y2="-22" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><path d="M0 -22 L40 -13 L0 -2 Z" fill="#5a8fbf" class="st-wave"/>', '', 0, 1), 'st-strut', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">獨當一面</text>') }
+      ];
+    },
+    /* 獨占鰲頭 */
+    i756: function () {
+      return [
+        { minDur: 7200, sub: '科舉殿試放榜：殿前石階刻著巨鰲——狀元一人站上鰲頭迎榜，這就是「獨占鰲頭」！',
+          html: scene(P(400, 296, '<path d="M-70 0 q-10 -26 14 -34 q-6 -18 16 -18 q30 -6 56 6 q30 12 24 34 q-4 14 -20 12 z" fill="#8fa8a0" stroke="#6d8880" stroke-width="2.6"/><circle cx="-34" cy="-42" r="3" fill="#3a2e26"/>', '', 0, 1.15) +
+            P(370, 240, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, .9) +
+            '<g class="st-tw"><path d="M250 180 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/><path d="M540 175 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>' + hearts(500, 210)) },
+        { minDur: 6800, sub: '「獨占鰲頭」：考試競賽得第一名——整座鰲頭只站得下一個人！',
+          html: scene(P(400, 270, '<rect x="-60" y="0" width="120" height="14" rx="4" fill="#c9a06c"/><rect x="-38" y="-16" width="76" height="16" rx="4" fill="#d9b890"/><rect x="-20" y="-32" width="40" height="16" rx="4" fill="#e8cba8"/>', '', 0, 1.05) +
+            P(400, 238, A('kid', 'happy') + P(0, -92, '<circle cx="0" cy="0" r="13" fill="#ffd97a" class="st-tw"/><text x="0" y="5" text-anchor="middle" font-size="11" fill="#8a5a33">1</text>', '', 0, 1), 'st-cheer', 0, .95) +
+            P(250, 302, A('kid', 'happy'), '', 0, .85) + P(550, 302, A('kid', 'happy'), '', 0, .85, true) + bang(620, 200)) },
+        { minDur: 6800, sub: '全國賽獨占鰲頭的背後，是天天加練的清晨——第一名是練出來的，不是抽籤抽到的！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><text x="0" y="4" text-anchor="middle" font-size="8" fill="#c96a5a">晨練</text>', '', 0, .95), '', 0, 1.02) + sweat(460, 190) +
+            P(590, 200, '<circle cx="0" cy="0" r="18" fill="#ffdd66"/><g stroke="#e8b93f" stroke-width="2.6" stroke-linecap="round"><line x1="-26" y1="0" x2="-32" y2="0"/><line x1="26" y1="0" x2="32" y2="0"/><line x1="0" y1="-26" x2="0" y2="-32"/></g>', '', 0, .9)) },
+        { minDur: 6400, sub: '獨占鰲頭：魁星高照，勇奪第一。',
+          html: scene(P(400, 296, '<path d="M-70 0 q-10 -26 14 -34 q-6 -18 16 -18 q30 -6 56 6 q30 12 24 34 q-4 14 -20 12 z" fill="#8fa8a0" stroke="#6d8880" stroke-width="2.6"/>', '', 0, 1.15) +
+            P(370, 240, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', 'st-cheer', 0, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">獨占鰲頭</text>') }
+      ];
+    },
+    /* 金榜題名 */
+    i757: function () {
+      return [
+        { minDur: 7000, sub: '唐代進士放榜日：金色大榜貼出，人山人海——有人衝到榜前，找到了自己的名字！',
+          html: scene(P(430, 260, '<rect x="-70" y="-44" width="140" height="88" rx="4" fill="#ffe9a0" stroke="#e8b93f" stroke-width="3"/><g fill="#8a5a33" font-size="10" text-anchor="middle"><text x="-36" y="-18">張</text><text x="0" y="-18">王</text><text x="36" y="-18">李</text><text x="-36" y="8">陳</text><text x="0" y="8">林</text><text x="36" y="8">黃</text></g>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'wow') + '<path d="M28 -56 l16 -14" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1) + bang(330, 200)) },
+        { minDur: 6800, sub: '「金榜題名」：名字寫上金色榜單——古代讀書人最風光的一刻，今天泛指考試錄取！',
+          html: scene(P(430, 260, '<rect x="-70" y="-44" width="140" height="88" rx="4" fill="#ffe9a0" stroke="#e8b93f" stroke-width="3"/><rect x="-52" y="-28" width="34" height="22" rx="3" fill="#c96a5a"/><text x="-35" y="-13" text-anchor="middle" font-size="11" fill="#fff">我!</text>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(320, 190) +
+            '<g class="st-tw"><path d="M560 190 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>') },
+        { minDur: 6800, sub: '古人金榜題名要苦讀十年——祝福語背後的意思是：上榜的每個名字，都有故事！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><g stroke="#8b93a3" stroke-width="1.8"><line x1="-8" y1="-8" x2="8" y2="-8"/><line x1="-8" y1="0" x2="8" y2="0"/><line x1="-8" y1="8" x2="8" y2="8"/></g>', '', 0, .95), '', 0, 1) +
+            P(560, 250, '<path d="M0 8 C-8 -4 -20 3 -11 12 L0 19 L11 12 C20 3 8 -4 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.2) + notes(280, 195)) },
+        { minDur: 6400, sub: '金榜題名：蟾宮折桂，榜上有名。',
+          html: scene(P(400, 260, '<rect x="-66" y="-42" width="132" height="84" rx="4" fill="#ffe9a0" stroke="#e8b93f" stroke-width="3"/><rect x="-48" y="-26" width="34" height="22" rx="3" fill="#c96a5a"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">金榜題名</text>') }
+      ];
+    },
+    /* 蟾宮折桂 */
+    i758: function () {
+      return [
+        { minDur: 7200, sub: '晉代郤詵自評對策天下第一，像「桂林之一枝」——後人把它跟月宮傳說合起來！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(0, -110, '<ellipse cx="0" cy="0" rx="38" ry="17" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#8a5a33">桂林一枝!</text>', '', 0, 1), '', 0, 1.02) +
+            P(620, 140, '<circle cx="0" cy="0" r="34" fill="#ffe9a0" opacity=".95"/><path d="M-8 8 q0 -18 10 -24 M2 -16 q8 -2 12 4" stroke="#c9a06c" stroke-width="3" fill="none" stroke-linecap="round"/>', '', 0, 1.1), 'night') },
+        { minDur: 6800, sub: '傳說月宮（蟾宮）有棵桂樹——「蟾宮折桂」：登上月宮折下桂枝，比喻考試得中！',
+          html: scene(P(560, 160, '<circle cx="0" cy="0" r="44" fill="#ffe9a0" opacity=".95"/><path d="M-6 22 q-2 -26 8 -34 q10 -8 18 -4" stroke="#8a6a44" stroke-width="4" fill="none" stroke-linecap="round"/><g fill="#a5d47c"><circle cx="16" cy="-18" r="7"/><circle cx="26" cy="-10" r="6"/><circle cx="10" cy="-26" r="6"/></g>', '', 0, 1.05) +
+            P(430, 260, A('kid', 'happy') + '<path d="M28 -56 l24 -22" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1) +
+            P(500, 210, '<path d="M0 12 q-2 -12 6 -16 q8 -4 12 0" stroke="#8a6a44" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="14" cy="-6" r="5" fill="#a5d47c" class="st-tw"/>', '', 0, 1.05) + hearts(300, 210), 'night') },
+        { minDur: 6800, sub: '「蟾宮折桂」是文雅版的金榜題名——賀詞裡用它，帶著月宮桂香的詩意！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -50, '<path d="M0 10 q-2 -12 6 -16" stroke="#8a6a44" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="10" cy="-8" r="5" fill="#a5d47c"/>', '', 0, 1), 'st-cheer', 0, 1.05) + hearts(470, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8a5a33">＝金榜</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8a5a33">題名</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '蟾宮折桂：月中攀桂，一舉登科。',
+          html: scene(P(560, 150, '<circle cx="0" cy="0" r="40" fill="#ffe9a0" opacity=".95"/><path d="M-6 20 q-2 -24 8 -32" stroke="#8a6a44" stroke-width="4" fill="none" stroke-linecap="round"/><g fill="#a5d47c"><circle cx="12" cy="-16" r="7"/><circle cx="22" cy="-8" r="6"/></g>', '', 0, 1.05) +
+            P(340, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) +
+            '<text x="400" y="220" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">蟾宮折桂</text>', 'night') }
+      ];
+    },
+    /* 平步青雲 */
+    i759: function () {
+      return [
+        { minDur: 7200, sub: '《史記》：須賈見昔日落魄的范雎竟已是秦國丞相，驚呼「不意君能自致於青雲之上」！',
+          html: scene(P(300, 302, A('kid', 'wow') + '<path d="M28 -50 l18 -10" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .95) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M-20 -30 q20 10 40 0 l0 24 q-20 8 -40 0 z" fill="#7a5aa0"/>', '', 0, 1.1, true) +
+            P(600, 120, '<g class="st-cloud"><ellipse cx="0" cy="0" rx="34" ry="13" fill="#dbe4f0"/><ellipse cx="22" cy="-8" rx="20" ry="10" fill="#e8eef8"/></g>', '', 0, 1) + bang(400, 190)) },
+        { minDur: 6800, sub: '「平步青雲」：像平地散步一樣輕鬆登上青雲高位——順利得不可思議！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1) +
+            '<g opacity=".8"><path d="M300 290 h60 M350 258 h60 M400 226 h60 M450 194 h60" stroke="#9db8d9" stroke-width="5" stroke-linecap="round"/></g>' +
+            P(560, 130, '<g class="st-cloud"><ellipse cx="0" cy="0" rx="36" ry="14" fill="#dbe4f0"/><ellipse cx="24" cy="-8" rx="20" ry="10" fill="#e8eef8"/></g>', '', 0, 1) + hearts(300, 200)) },
+        { minDur: 6800, sub: '注意語感：多用在仕途官運——說人升遷快可以，別拿來形容考試進步喔！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#5a8fbf">仕途用</text>', '', 0, 1.1)) +
+            P(570, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">升官</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8b93a3">晉爵</text>', '', 0, 1) + qmark(280, 200)) },
+        { minDur: 6400, sub: '平步青雲：平地一步，直上青雲。',
+          html: scene(P(400, 250, A('kid', 'happy'), '', 0, 1) +
+            P(400, 290, '<g class="st-cloud"><ellipse cx="0" cy="0" rx="44" ry="15" fill="#dbe4f0"/><ellipse cx="28" cy="-8" rx="24" ry="11" fill="#e8eef8"/></g>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">平步青雲</text>') }
+      ];
+    },
+    /* 扶搖直上 */
+    i760: function () {
+      return [
+        { minDur: 7200, sub: '《莊子．逍遙遊》：大鵬展翅，「摶扶搖而上者九萬里」——乘著旋風直衝天際！',
+          html: scene(P(430, 180, '<g class="st-fly"><path d="M0 0 q-34 -22 -62 -6 q22 -4 34 8 q-30 2 -46 18 q26 -4 40 4 L0 16 q14 -8 40 -4 q-16 -16 -46 -18 q12 -12 34 -8 q-28 -16 -62 6 z" fill="#5a7a9a" transform="scale(1.4)"/></g>', '', 0, 1.1) +
+            '<g class="st-windln" opacity=".65" stroke="#9db8d9" stroke-width="3.4" fill="none" stroke-linecap="round"><path d="M330 290 q30 -10 20 -40 q-8 -26 18 -34"/><path d="M480 296 q26 -12 18 -38"/></g>' +
+            P(220, 302, A('kid', 'wow') + '<path d="M28 -56 l14 -16" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '「扶搖」是自下而上的旋風——「扶搖直上」：地位、聲勢快速上升！',
+          html: scene('<path d="M400 290 q-30 -18 10 -40 q36 -20 -6 -44 q-30 -18 8 -40" stroke="#9db8d9" stroke-width="4" fill="none" stroke-linecap="round" opacity=".7" class="st-tw"/>' +
+            P(400, 140, '<g class="st-fly"><path d="M0 0 q-30 -18 -54 -4 q18 -4 30 6 q-26 2 -40 16 q22 -4 34 4 L0 14 q12 -8 34 -4 q-14 -14 -40 -16 q12 -10 30 -6 q-24 -14 -54 4 z" fill="#5a7a9a" transform="scale(1.2)"/></g>', '', 0, 1) +
+            '<path d="M540 270 L600 190" stroke="#548a40" stroke-width="4" stroke-linecap="round"/><path d="M588 196 L600 190 L598 204" stroke="#548a40" stroke-width="3.4" fill="none"/>') },
+        { minDur: 6800, sub: '新歌聲勢扶搖直上、球隊排名扶搖直上——用在快速攀升的氣勢正合適！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 10 L-2 0 L4 4 L10 -10" stroke="#548a40" stroke-width="2.8" fill="none" stroke-linecap="round"/><path d="M4 -10 h6 v6" stroke="#548a40" stroke-width="2.4" fill="none"/>', '', 0, .95), 'st-cheer', 0, 1.02) + hearts(430, 190) + notes(560, 200)) },
+        { minDur: 6400, sub: '扶搖直上：乘風九萬，一飛沖天。',
+          html: scene(P(430, 160, '<g class="st-fly"><path d="M0 0 q-34 -22 -62 -6 q22 -4 34 8 q-30 2 -46 18 q26 -4 40 4 L0 16 q14 -8 40 -4 q-16 -16 -46 -18 q12 -12 34 -8 q-28 -16 -62 6 z" fill="#5a7a9a" transform="scale(1.3)"/></g>', '', 0, 1.05) +
+            '<g class="st-windln" opacity=".6" stroke="#9db8d9" stroke-width="3.2" fill="none" stroke-linecap="round"><path d="M340 290 q28 -10 20 -38"/><path d="M500 294 q24 -12 16 -36"/></g>' +
+            '<text x="400" y="260" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">扶搖直上</text>') }
+      ];
     }
   };
 
