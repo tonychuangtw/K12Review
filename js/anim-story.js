@@ -10322,6 +10322,114 @@
           html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 178) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">同甘共苦</text>') }
       ];
+    },
+    /* 相依為命 */
+    i523: function () {
+      return [
+        { minDur: 7000, sub: '李密在〈陳情表〉寫他和祖母：「母孫二人，更相為命」——從小由祖母帶大，兩人彼此依靠著生活！',
+          html: scene(P(340, 302, A('kid', 'happy')) +
+            P(470, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><rect x="20" y="-30" width="10" height="26" rx="4" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.05, true) +
+            hearts(400, 182), 'night') },
+        { minDur: 7000, sub: '祖母年邁生病，他辭官照顧——「臣無祖母，無以至今日；祖母無臣，無以終餘年」，千古孝心！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -46, '<path d="M-10 -6 q0 8 10 8 q10 0 10 -8 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) +
+            P(490, 302, '<ellipse cx="0" cy="-8" rx="30" ry="11" fill="#6fbf8e"/><circle cx="-24" cy="-15" r="12" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>') + hearts(410, 195), 'night') },
+        { minDur: 6800, sub: '「相依為命」：彼此依靠著生活——只剩彼此的兩個人，感情最深！',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(460, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M340 245 q60 -34 120 0" stroke="#ff9eb5" stroke-width="4" fill="none" stroke-dasharray="7 7"/>' + hearts(400, 175)) },
+        { minDur: 6400, sub: '相依為命：彼此依靠著生活。',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(460, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">相依為命</text>') }
+      ];
+    },
+    /* 形影不離 */
+    i524: function () {
+      return [
+        { minDur: 6800, sub: '小形和小影從小一起長大：上學同路、社團同隊、連掉牙都前後不差一週！',
+          html: scene(P(330, 302, A('kid', 'happy'), 'st-strut') + P(430, 302, A('kid', 'happy'), 'st-strut', .05, .97) +
+            hearts(380, 180) + notes(500, 195)) },
+        { minDur: 6800, sub: '「形」是身體、「影」是影子——身體走到哪、影子跟到哪，一刻也不分開！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.02) +
+            '<ellipse cx="440" cy="322" rx="60" ry="12" fill="#4a4238" opacity=".4"/>' +
+            P(500, 200, '<circle cx="0" cy="0" r="24" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6600, sub: '形影不離的好朋友，是童年最珍貴的禮物——長大後回想，都是笑著的回憶！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(440, 302, A('kid', 'happy'), '', .05, .97) + hearts(385, 178)) },
+        { minDur: 6400, sub: '形影不離：像身體和影子一樣分不開。',
+          html: scene(P(340, 302, A('kid', 'happy'), 'st-strut') + P(440, 302, A('kid', 'happy'), 'st-strut', .05, .97) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">形影不離</text>') }
+      ];
+    },
+    /* 志趣相投 */
+    i525: function () {
+      return [
+        { minDur: 6800, sub: '天文社迎新那天，小志和小趣一聊就停不下來——都愛看星星、都想當太空工程師！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<circle class="st-tw" cx="300" cy="120" r="3" fill="#ffd97a"/><circle class="st-tw" style="animation-delay:.5s" cx="480" cy="100" r="4" fill="#ffd97a"/>' + hearts(395, 182)) },
+        { minDur: 6800, sub: '「志趣相投」：志向和興趣彼此契合——聊得來、玩得來、目標也一致！',
+          html: scene(P(330, 220, '<circle cx="0" cy="0" r="26" fill="#a5c8ff" opacity=".7"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#2c4a75">志</text>') +
+            P(470, 220, '<circle cx="0" cy="0" r="26" fill="#ffd97a" opacity=".8"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#8a5a33">趣</text>') +
+            '<path d="M360 220 h80" stroke="#548a40" stroke-width="4" stroke-dasharray="8 7"/>' + hearts(400, 280)) },
+        { minDur: 6800, sub: '他們相約一起做火箭模型、一起參加科展——志同道合的夥伴，讓夢想加速前進！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -60, '<path d="M-6 16 L-6 -12 Q-6 -24 0 -28 Q6 -24 6 -12 L6 16 Z" fill="#e8f0f8" stroke="#8b93a3" stroke-width="2"/><path d="M-6 4 L-12 16 M6 4 L12 16" stroke="#c96a5a" stroke-width="2"/>', '', 0, 1)) +
+            P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(410, 185) + bang(560, 200)) },
+        { minDur: 6400, sub: '志趣相投：志向興趣彼此契合。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">志趣相投</text>') }
+      ];
+    },
+    /* 虎視眈眈 */
+    i856: function () {
+      return [
+        { minDur: 6800, sub: '草叢裡的老虎壓低身子，眼睛死死盯著前方的鹿群——伺機而動，準備撲出！',
+          html: scene(P(300, 302, A('tiger'), '', 0, 1.05) +
+            '<g stroke="#5f8a46" stroke-width="4.6" fill="none" stroke-linecap="round"><path d="M220 318 q-5 -24 -12 -30 M220 318 q5 -26 13 -32"/></g>' +
+            P(560, 300, A('deer'), '', 0, .95) + sweat(600, 235) +
+            '<path d="M340 250 q80 -20 160 20" stroke="#e85a4f" stroke-width="2.6" fill="none" stroke-dasharray="6 6"/>') },
+        { minDur: 6800, sub: '「眈眈」是注視的樣子——像老虎盯獵物那樣兇狠地盯著，圖謀奪取！',
+          html: scene(P(400, 210, '<path d="M-28 0 Q0 -22 28 0 Q0 22 -28 0 Z" fill="#fff" stroke="#d9882a" stroke-width="3"/><circle cx="0" cy="0" r="9" fill="#7a4b12"/><line cx="0" cy="0" x1="0" y1="-9" x2="0" y2="9" stroke="#3a2e26" stroke-width="2.4"/>', '', 0, 1.4) +
+            P(250, 302, A('tiger'), '', 0, .95)) },
+        { minDur: 6800, sub: '比賽中對手對冠軍寶座虎視眈眈——提醒我們不能鬆懈，要保持警覺、持續努力！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(0, -104, '<path d="M-14 -34 h28 v10 q0 14 -14 16 q-14 -2 -14 -16 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/>', '', 0, 1)) +
+            P(540, 302, A('kid', 'angry'), '', 0, .95, true) +
+            '<path d="M480 240 q-60 -20 -120 10" stroke="#e85a4f" stroke-width="2.6" fill="none" stroke-dasharray="6 6"/>') },
+        { minDur: 6400, sub: '虎視眈眈：兇狠注視，伺機奪取。',
+          html: scene(P(340, 302, A('tiger'), '', 0, 1.1) +
+            '<path d="M400 250 q70 -16 140 14" stroke="#e85a4f" stroke-width="2.6" fill="none" stroke-dasharray="6 6"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">虎視眈眈</text>') }
+      ];
+    },
+    /* 兔死狐悲 */
+    i857: function () {
+      return [
+        { minDur: 6800, sub: '寓言裡，兔子被獵人抓走了——狐狸看見竟然哭了。有動物問：「你哭什麼？牠又不是你朋友。」',
+          html: scene(P(300, 300, A('fox') + sweat(-40, -60)) +
+            P(540, 302, A('kid', 'wow'), '', 0, .9) + qmark(590, 190), 'night') },
+        { minDur: 7000, sub: '狐狸說：「兔子和我一樣住在這座山上——今天獵人抓兔子，明天就可能輪到我呀！」',
+          html: scene(P(300, 300, A('fox')) + P(500, 296, A('rabbit'), '', 0, .9) +
+            '<path d="M340 240 q60 -26 120 0" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 7"/>' + sweat(420, 210), 'night') },
+        { minDur: 6800, sub: '「兔死狐悲」：因同類遭遇不幸而悲傷——同病相憐的複雜心情！',
+          html: scene(P(320, 300, A('fox')) + P(480, 296, A('rabbit'), '', 0, .92) + sweat(400, 210) + hearts(400, 175)) },
+        { minDur: 6400, sub: '兔死狐悲：因同類的不幸而悲傷。',
+          html: scene(P(320, 300, A('fox') + sweat(-36, -56)) + P(490, 296, A('rabbit'), '', 0, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">兔死狐悲</text>') }
+      ];
+    },
+    /* 雞犬不寧 */
+    i858: function () {
+      return [
+        { minDur: 7000, sub: '柳宗元寫〈捕蛇者說〉：凶惡的差役闖進村莊催稅，鬧得連雞和狗都不得安寧！',
+          html: scene(P(300, 302, A('kid', 'angry')) + bang(380, 185) +
+            P(500, 300, '<g class="st-fleeR">' + A('chicken') + '</g>', 'st-dashL', 0, .9) +
+            P(620, 300, '<g class="st-fleeR" style="animation-delay:.2s">' + A('dog') + '</g>', 'st-dashL', .2, .9) + sweat(560, 235)) },
+        { minDur: 6800, sub: '「雞犬不寧」：被騷擾得連家禽家畜都無法安寧——形容擾亂得非常厲害！',
+          html: scene(P(300, 300, A('chicken'), 'st-hop', 0, .95) + P(480, 300, A('dog'), 'st-hop', .2, .95) +
+            notes(400, 180) + bang(560, 200) + sweat(360, 230)) },
+        { minDur: 6800, sub: '樓上裝修電鑽響一整天、隔壁卡拉OK唱到半夜——吵得雞犬不寧！記得將心比心、控制音量。',
+          html: scene(P(360, 302, A('kid', 'wow')) + sweat(300, 190) +
+            notes(250, 160) + notes(480, 150) + bang(550, 190), 'night') },
+        { minDur: 6400, sub: '雞犬不寧：被騷擾得不得安寧。',
+          html: scene(P(300, 300, '<g class="st-hop">' + A('chicken') + '</g>', '', 0, .95) + P(500, 300, '<g class="st-hop">' + A('dog') + '</g>', '', .2, .95) + bang(400, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">雞犬不寧</text>') }
+      ];
     }
   };
 
