@@ -7068,6 +7068,134 @@
           html: scene(P(220, 302, WILLOW, '', 0, 1.2) + flower8(360, 320, '#ff9eb5', 0) + flower8(460, 318, '#ffd97a', .3) + P(600, 302, HOUSE6, '', 0, 1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">柳暗花明</text>') }
       ];
+    },
+    /* 披著羊皮的狼 */
+    i052: function () {
+      var SHEEPSKIN = '<path d="M-26 -40 a26 20 0 0 1 52 0 l0 14 a26 16 0 0 1 -52 0 z" fill="#f4f1e8" stroke="#d5cfc0" stroke-width="2.4" opacity=".92"/>' +
+        '<circle cx="-14" cy="-46" r="7" fill="#fff" opacity=".9"/><circle cx="4" cy="-50" r="8" fill="#fff" opacity=".9"/><circle cx="16" cy="-44" r="7" fill="#fff" opacity=".9"/>';
+      return [
+        { minDur: 6800, sub: '寓言裡的狼想混進羊圈——牠披上一張羊皮，遠遠看去，就像一隻溫馴的綿羊！',
+          html: scene(P(400, 302, A('fox') + SHEEPSKIN, '', 0, 1.05) +
+            P(200, 296, A('goat'), '', 0, .85) + P(620, 296, A('goat'), '', .2, .8) + qmark(500, 195)) },
+        { minDur: 6800, sub: '牧羊人數羊時發現不對勁——羊皮下露出了尖尖的爪子！壞心眼再會偽裝，也會露出馬腳。',
+          html: scene(P(400, 302, A('fox') + SHEEPSKIN, '', 0, 1.05) + bang(500, 200) +
+            P(200, 302, A('kid', 'wow')) + sweat(260, 192)) },
+        { minDur: 6800, sub: '「披著羊皮的狼」：外表善良、內心狡詐的偽裝者——交朋友要看人心，不是只看外表！',
+          html: scene(P(320, 302, A('goat'), '', 0, .9) + P(520, 302, A('fox'), '', 0, .95) +
+            '<text x="420" y="200" text-anchor="middle" font-size="24" fill="#4a3200">≠</text>') },
+        { minDur: 6400, sub: '披著羊皮的狼：外表善良，實則狡詐的偽裝者。',
+          html: scene(P(400, 302, A('fox') + SHEEPSKIN, '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="44" font-weight="bold" fill="#4a3200">披著羊皮的狼</text>') }
+      ];
+    },
+    /* 千篇一律 */
+    i053: function () {
+      function samePaper(x, y, dly) {
+        return P(x, y, '<g' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '><rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/>' +
+          '<path d="M-9 -12 h18 M-9 -5 h18 M-9 2 h18 M-9 9 h12" stroke="#8fa3bf" stroke-width="1.8"/></g>');
+      }
+      return [
+        { minDur: 6800, sub: '改作文的老師嘆氣：三十篇〈我的假日〉，全都寫「睡覺、看電視、寫作業」——一模一樣！',
+          html: scene(samePaper(280, 260, 0) + samePaper(400, 255, .1) + samePaper(520, 262, .2) +
+            P(160, 302, A('kid', 'sad'), '', 0, .95) + sweat(220, 195) + zzz(600, 210)) },
+        { minDur: 6800, sub: '只有一篇寫「陪爺爺放風箏，線斷了追過三條街」——特別生動，讓人眼睛一亮！',
+          html: scene(samePaper(280, 262, 0) +
+            P(460, 255, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff7d9" stroke="#e8b84a" stroke-width="2.6"/><path d="M-9 -12 h18 M-9 -5 h18 M-9 2 h18" stroke="#e0a458" stroke-width="1.8"/>', '', 0, 1.2) +
+            bang(560, 200) + P(160, 302, A('kid', 'happy'), '', 0, .95) + hearts(240, 195)) },
+        { minDur: 6600, sub: '「千篇一律」：全部一個樣、毫無變化——寫出自己的觀察和感受，才有味道！',
+          html: scene(samePaper(260, 262, 0) + samePaper(360, 258, .1) + samePaper(460, 264, .2) + qmark(560, 210)) },
+        { minDur: 6400, sub: '千篇一律：全部一樣，毫無變化。',
+          html: scene(samePaper(280, 260, 0) + samePaper(400, 256, .1) + samePaper(520, 262, .2) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千篇一律</text>') }
+      ];
+    },
+    /* 禍在眼前 */
+    i055: function () {
+      return [
+        { minDur: 6800, sub: '騎車不看路、邊騎邊滑手機——前面的水溝就在三步之外！禍事眼看就要發生！',
+          html: scene(P(340, 296, '<circle cx="-24" cy="0" r="16" fill="none" stroke="#5c82ba" stroke-width="4"/><circle cx="24" cy="0" r="16" fill="none" stroke="#5c82ba" stroke-width="4"/><path d="M-24 0 L-8 -22 L14 -22 L24 0 M-8 -22 L-2 0" stroke="#e85a4f" stroke-width="3.4" fill="none" stroke-linecap="round"/>' +
+              P(-4, -32, A('kid', 'happy'), '', 0, .78), 'st-strut') +
+            P(560, 322, '<rect x="-40" y="-6" width="80" height="12" rx="4" fill="#4a4238"/>') + bang(560, 260) + sweat(430, 200)) },
+        { minDur: 6800, sub: '路人大喊：「小心前面！」他及時剎車——好險！差一點就摔進溝裡。',
+          html: scene(P(400, 296, A('kid', 'wow'), '', 0, 1) + sweat(340, 190) +
+            P(180, 302, A('kid', 'angry')) + bang(280, 185) +
+            P(560, 322, '<rect x="-40" y="-6" width="80" height="12" rx="4" fill="#4a4238"/>')) },
+        { minDur: 6600, sub: '「禍在眼前」：危險迫在眉睫——保持警覺，才能及時避開！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(490, 190)) },
+        { minDur: 6400, sub: '禍在眼前：危險就在眼前，迫在眉睫。',
+          html: scene(P(340, 302, A('kid', 'wow'), '', 0, 1.05) + bang(480, 200) + sweat(280, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">禍在眼前</text>') }
+      ];
+    },
+    /* 豐功偉績 */
+    i058: function () {
+      var MONUMENT = '<rect x="-16" y="-90" width="32" height="90" rx="4" fill="#b0b4bf" stroke="#8b93a3" stroke-width="2.6"/><rect x="-26" y="0" width="52" height="10" rx="3" fill="#8b93a3"/><path d="M-16 -90 L0 -108 L16 -90 Z" fill="#b0b4bf" stroke="#8b93a3" stroke-width="2.6"/>';
+      return [
+        { minDur: 6800, sub: '大禹治水十三年，讓百姓免於洪災；李時珍寫《本草綱目》，救人無數——都是了不起的大功勞！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(16, -30, HOE, 'st-hoe')) +
+            P(540, 302, A('kid', 'happy') + P(-42, -54, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -10 h16 M-8 -2 h16" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95), '', 0, .97) + hearts(430, 185)) },
+        { minDur: 6600, sub: '人們立碑紀念這些偉大的功績，讓後代永遠記得！',
+          html: scene(P(430, 302, MONUMENT, '', 0, 1.1) +
+            P(250, 302, A('kid', 'happy')) + P(600, 302, A('kid', 'happy'), '', .2, .93) + hearts(430, 180)) },
+        { minDur: 6600, sub: '「豐功偉績」：偉大的功勞和成就——用一生做對世界有益的事！',
+          html: scene(P(430, 302, MONUMENT, '', 0, 1.05) + hearts(530, 210) + P(250, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6400, sub: '豐功偉績：偉大的功績和成就。',
+          html: scene(P(400, 302, MONUMENT, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">豐功偉績</text>') }
+      ];
+    },
+    /* 眾所周知 */
+    i062: function () {
+      return [
+        { minDur: 6800, sub: '「太陽從東邊升起」「一年有四季」——這些事大家都知道，不用再解釋！',
+          html: scene(P(650, 80, '<circle cx="0" cy="0" r="26" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>') +
+            P(300, 302, A('kid', 'happy')) + P(460, 302, A('kid', 'happy'), '', .2, .95) + hearts(380, 185)) },
+        { minDur: 6800, sub: '演講時可以說：「眾所周知，運動有益健康……」——從大家都認同的事實開始，最有說服力！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, A('kid', 'happy'), '', 0, 1.02) +
+            P(200, 302, A('kid', 'happy'), '', 0, .88) + P(600, 302, A('kid', 'happy'), '', .2, .88, true) + notes(480, 180)) },
+        { minDur: 6600, sub: '「眾所周知」：大家都知道、公開的事實！',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, .95) + P(430, 302, A('kid', 'happy'), '', .1, .93) + P(560, 302, A('kid', 'happy'), '', .2, .95) +
+            P(430, 190, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><path d="M-9 0 l6 7 l13 -13" stroke="#548a40" stroke-width="4" fill="none" stroke-linecap="round"/>')) },
+        { minDur: 6400, sub: '眾所周知：大家都知道，公開的事實。',
+          html: scene(P(280, 302, A('kid', 'happy')) + P(420, 302, A('kid', 'happy'), '', .1, .95) + P(560, 302, A('kid', 'happy'), '', .2, .93) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">眾所周知</text>') }
+      ];
+    },
+    /* 卧虎藏龍 */
+    i064: function () {
+      return [
+        { minDur: 6800, sub: '新來的轉學生看起來安安靜靜——鋼琴比賽一上台，竟然彈出全場最動人的曲子！',
+          html: scene(P(360, 302, A('kid', 'happy')) + notes(450, 165) + notes(300, 175) +
+            P(580, 302, A('kid', 'wow'), '', 0, .93, true) + bang(500, 190)) },
+        { minDur: 6800, sub: '掃地的大叔原來是書法名家、餐廳阿姨是前羽球國手——高手就藏在人群裡！',
+          html: scene(P(280, 302, A('kid', 'happy') + P(20, -34, '<line x1="0" y1="0" x2="20" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 0 l-10 12 M0 0 l-2 14 M0 0 l6 13" stroke="#c9a06c" stroke-width="3.4" stroke-linecap="round"/>', '', 0, .95)) +
+            P(520, 302, A('kid', 'happy'), '', .2, .95) + qmark(400, 182) + hearts(600, 195)) },
+        { minDur: 6800, sub: '「卧虎藏龍」：像趴著的虎、藏起來的龍——隱藏著許多有本領的人才！',
+          html: scene(P(280, 302, A('tiger'), '', 0, .95) + P(540, 190, A('dragon'), '', .2, .95) + hearts(420, 240)) },
+        { minDur: 6400, sub: '卧虎藏龍：隱伏著德才兼備的人。',
+          html: scene(P(300, 302, A('tiger')) + P(520, 190, A('dragon')) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">卧虎藏龍</text>') }
+      ];
+    },
+    /* 峰迴路轉 */
+    i066: function () {
+      var WINDPATH = '<path d="M100 330 q120 -30 60 -80 q-50 -42 60 -70 q100 -26 180 -60" stroke="#e8dcc0" stroke-width="9" fill="none" stroke-linecap="round" stroke-dasharray="16 12"/>';
+      var MTBIG = '<path d="M240 302 L430 90 L640 302 Z" fill="#8fb0a0"/><path d="M430 90 L404 122 L430 134 L458 120 Z" fill="#eef4f0"/>';
+      return [
+        { minDur: 6800, sub: '山路彎彎曲曲，繞著山峰轉了一圈又一圈——每轉一個彎，風景就完全不同！',
+          html: scene(MTBIG + WINDPATH +
+            P(200, 302, A('kid', 'happy'), 'st-strut', 0, .92)) },
+        { minDur: 7000, sub: '歐陽脩在〈醉翁亭記〉寫「峰迴路轉」——後來也比喻：事情有了新轉機，絕處又逢生！',
+          html: scene(MTBIG +
+            P(250, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + hearts(360, 200)) },
+        { minDur: 6800, sub: '比賽落後十分，眼看要輸——最後三分鐘連進四球逆轉！峰迴路轉，絕不放棄！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(470, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .95) + bang(400, 180) + hearts(560, 195)) },
+        { minDur: 6400, sub: '峰迴路轉：山路迂迴，比喻出現轉機。',
+          html: scene(MTBIG + WINDPATH +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">峰迴路轉</text>') }
+      ];
     }
   };
 
