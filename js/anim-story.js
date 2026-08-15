@@ -18586,6 +18586,159 @@
           html: scene(P(400, 278, PALACE, '', 0, 1.15) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">勾心鬥角</text>') }
       ];
+    },
+    /* 暗潮洶湧 */
+    i668: function () {
+      return [
+        { minDur: 7000, sub: '海面風平浪靜——水面下卻有強勁的暗流翻攪，老船長一眼就看出不對勁！',
+          html: scene('<rect y="252" width="800" height="88" fill="#5a7fa8"/>' +
+            '<path d="M100 260 h600" stroke="#8fb2d4" stroke-width="4" opacity=".8"/>' +
+            '<g class="st-wavemove"><path d="M-40 305 q40 -20 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#3d5a7a" stroke-width="10" stroke-linecap="round"/></g>' +
+            P(240, 220, A('kid', 'wow') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/>', '', 0, .9) + qmark(320, 170)) },
+        { minDur: 6800, sub: '「暗潮洶湧」：表面平靜、檯面下激烈——會議上人人微笑，桌底下角力早已開打！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-8 -46 q8 4 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>') +
+            P(470, 302, A('kid', 'happy') + '<path d="M-8 -46 q8 4 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .98, true) +
+            '<g class="st-wavemove"><path d="M300 330 q25 -10 50 0 t50 0 t50 0 t50 0" fill="none" stroke="#8b93a3" stroke-width="5" opacity=".6"/></g>' + sweat(400, 250)) },
+        { minDur: 6800, sub: '察覺暗潮的方法：聽「沒說出口的話」、看「誰突然沉默」——然後把問題搬上檯面談！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">搬上</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">檯面</text>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6400, sub: '暗潮洶湧：表面平靜，暗中激烈。',
+          html: scene('<rect y="256" width="800" height="84" fill="#5a7fa8"/>' +
+            '<path d="M100 262 h600" stroke="#8fb2d4" stroke-width="4" opacity=".8"/>' +
+            '<g class="st-wavemove"><path d="M-40 308 q40 -18 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#3d5a7a" stroke-width="9" stroke-linecap="round"/></g>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">暗潮洶湧</text>') }
+      ];
+    },
+    /* 劍拔弩張 */
+    i669: function () {
+      var CROSSBOW = '<path d="M-24 0 Q0 -22 24 0" stroke="#8a5a33" stroke-width="4" fill="none"/><line x1="-24" y1="0" x2="24" y2="0" stroke="#c9bfa8" stroke-width="2.4"/><line x1="0" y1="-8" x2="0" y2="12" stroke="#6d4426" stroke-width="4"/><path d="M0 -14 l-4 8 h8 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 7000, sub: '袁昂評韋誕的書法「如龍威虎振，劍拔弩張」——筆勢雄健得像拔劍張弩！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-44, -46, '<line x1="0" y1="10" x2="6" y2="-14" stroke="#3a2e26" stroke-width="3.4" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.05) +
+            P(540, 260, '<rect x="-34" y="-44" width="68" height="88" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-16 -24 q22 12 8 32 q-16 18 14 26" stroke="#3a2e26" stroke-width="4.4" fill="none" stroke-linecap="round"/>', '', 0, 1.05) + bang(430, 195)) },
+        { minDur: 6800, sub: '後多形容緊張對峙：兩軍劍已出鞘、弩已上弦——誰咳一聲都可能開打！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(30, -56, '<line x1="0" y1="12" x2="0" y2="-30" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M0 -42 l-6 14 h12 z" fill="#c9d2de"/>', '', 0, 1.05)) +
+            P(500, 302, A('kid', 'angry') + P(-34, -50, CROSSBOW, '', 0, 1.1), '', 0, 1.05, true) +
+            '<line x1="380" y1="200" x2="420" y2="200" stroke="#c96a5a" stroke-width="3" stroke-dasharray="4 4"/>' + sweat(400, 240), 'night') },
+        { minDur: 6800, sub: '「劍拔弩張」時最需要台階——一句「先坐下來談」，可以把戰場變回談判桌！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(405, 255, '<rect x="-30" y="-8" width="60" height="16" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1.1) + hearts(405, 185)) },
+        { minDur: 6400, sub: '劍拔弩張：劍出弩張，一觸即發。',
+          html: scene(P(300, 302, A('kid', 'angry') + P(30, -56, '<line x1="0" y1="12" x2="0" y2="-30" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M0 -42 l-6 14 h12 z" fill="#c9d2de"/>', '', 0, 1.05)) +
+            P(500, 302, A('kid', 'angry') + P(-34, -50, CROSSBOW, '', 0, 1.1), '', 0, 1.05, true) + bang(400, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">劍拔弩張</text>') }
+      ];
+    },
+    /* 一觸即發 */
+    i670: function () {
+      var BOMB = '<circle cx="0" cy="6" r="20" fill="#3a3550"/><path d="M8 -12 q6 -10 14 -12" stroke="#8a6a44" stroke-width="3.4" fill="none"/><g class="st-flick"><path d="M22 -26 q3 -6 0 -10 q4 3 6 8 q-2 4 -6 2 z" fill="#ffd166"/></g>';
+      return [
+        { minDur: 6800, sub: '引線已經點燃，火花滋滋地往下燒——只差最後一公分，就要轟然爆炸！',
+          html: scene(P(430, 285, BOMB, '', 0, 1.4) +
+            P(240, 302, A('kid', 'wow'), 'st-dashL', 0, .95, true) + sweat(190, 190), 'night') },
+        { minDur: 6800, sub: '「一觸即發」：碰一下就爆——排隊糾紛雙方互瞪，空氣緊繃得像拉滿的橡皮筋！',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(480, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) +
+            '<path d="M375 240 h50" stroke="#c96a5a" stroke-width="3" stroke-dasharray="4 4"/>' + bang(400, 190) + sweat(260, 195)) },
+        { minDur: 6800, sub: '拆彈的方法是降溫：深呼吸、後退一步、找第三方——別當那根點火的手指！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 285, '<circle cx="0" cy="6" r="18" fill="#3a3550"/><path d="M8 -10 q5 -8 12 -10" stroke="#8a6a44" stroke-width="3" fill="none"/><g class="st-rain"><circle cx="16" cy="-24" r="4" fill="#7fb2d4"/></g>', '', 0, 1.1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '一觸即發：形勢緊繃，一碰就炸。',
+          html: scene(P(400, 285, BOMB, '', 0, 1.5) + bang(520, 220) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">一觸即發</text>', 'night') }
+      ];
+    },
+    /* 如火如荼 */
+    i671: function () {
+      return [
+        { minDur: 7000, sub: '吳王夫差夜裡擺出三支大軍：白衣軍「望之如荼」、紅衣軍「望之如火」——氣勢懾人！',
+          html: scene(P(280, 302, A('kid', 'angry') + '<path d="M-18 -34 L-14 6 h28 l4 -40 z" fill="#fff" stroke="#d8d2c4" stroke-width="2"/>', '', 0, .95) +
+            P(400, 302, A('kid', 'angry') + '<path d="M-18 -34 L-14 6 h28 l4 -40 z" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/>', '', 0, .95) +
+            P(520, 302, A('kid', 'angry') + '<path d="M-18 -34 L-14 6 h28 l4 -40 z" fill="#fff" stroke="#d8d2c4" stroke-width="2"/>', '', 0, .95) + bang(400, 185), 'night') },
+        { minDur: 6800, sub: '「荼」是白色茅花——像火一樣紅、像荼一樣白，鋪天蓋地的軍容讓晉國不敢輕敵！',
+          html: scene(P(300, 260, '<g class="st-flick"><path d="M0 10 Q-14 -12 0 -34 Q6 -20 14 -28 Q22 -6 10 8 Z" fill="#ff9d4d"/></g>', '', 0, 1.3) +
+            P(500, 265, '<g stroke="#f4ecd8" stroke-width="4" stroke-linecap="round"><path d="M-16 14 q-3 -18 5 -26 M0 16 q0 -20 7 -28 M16 14 q3 -16 -3 -24"/></g><g fill="#fff"><circle cx="-11" cy="-14" r="4"/><circle cx="7" cy="-16" r="4"/><circle cx="19" cy="-12" r="3.4"/></g>', '', 0, 1.2), 'night') },
+        { minDur: 6800, sub: '「如火如荼」：氣勢旺盛熱烈——校慶籌備如火如荼，每個角落都有人在忙！',
+          html: scene(P(280, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1)) +
+            P(440, 302, A('kid', 'happy') + P(-38, -50, '<line x1="0" y1="8" x2="6" y2="-12" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/>', '', 0, 1)) +
+            P(580, 302, A('kid', 'happy') + P(38, -46, '<path d="M-12 8 h24 l-3 -20 h-18 z" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/>', '', 0, 1), '', 0, .97) + bang(380, 190) + hearts(500, 185)) },
+        { minDur: 6400, sub: '如火如荼：如火之紅，如荼之白。',
+          html: scene(P(320, 262, '<g class="st-flick"><path d="M0 10 Q-14 -12 0 -34 Q6 -20 14 -28 Q22 -6 10 8 Z" fill="#ff9d4d"/></g>', '', 0, 1.3) +
+            P(490, 268, '<g stroke="#f4ecd8" stroke-width="4" stroke-linecap="round"><path d="M-14 14 q-3 -16 5 -24 M2 16 q0 -18 7 -26"/></g><g fill="#fff"><circle cx="-9" cy="-12" r="4"/><circle cx="9" cy="-14" r="4"/></g>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">如火如荼</text>', 'night') }
+      ];
+    },
+    /* 方興未艾 */
+    i672: function () {
+      return [
+        { minDur: 6800, sub: '「艾」是停止——「方興未艾」：正在興起、遠遠沒到盡頭，勢頭還在往上衝！',
+          html: scene('<g stroke="#548a40" stroke-width="5" fill="none"><path d="M180 290 Q300 270 420 220 Q520 180 640 120"/></g><path d="M640 120 l-16 2 l9 12 z" fill="#548a40"/>' +
+            P(250, 302, A('kid', 'happy'), 'st-cheer', 0, .95) + bang(500, 180)) },
+        { minDur: 6800, sub: '綠能、AI、電動車——這些產業方興未艾，每年都長出新的機會！',
+          html: scene(P(260, 250, '<circle cx="0" cy="-10" r="16" fill="#ffdd66" stroke="#f5b73e" stroke-width="2.6"/><line x1="0" y1="8" x2="0" y2="26" stroke="#8b93a3" stroke-width="4"/>', '', 0, 1.05) +
+            P(400, 245, '<rect x="-20" y="-18" width="40" height="36" rx="5" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#fff">AI</text>', '', 0, 1.1) +
+            P(540, 250, '<rect x="-24" y="-12" width="48" height="22" rx="7" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/><circle cx="-12" cy="12" r="6" fill="#3a3550"/><circle cx="12" cy="12" r="6" fill="#3a3550"/><path d="M20 -6 l6 -3" stroke="#ffd97a" stroke-width="3"/>', '', 0, 1.05) +
+            '<g class="st-grow"><path d="M330 200 l4 -14 M470 195 l4 -14" stroke="#548a40" stroke-width="3"/></g>') },
+        { minDur: 6800, sub: '看準方興未艾的浪頭提早準備——別等浪到頂了才想上船！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) + hearts(470, 190) +
+            '<g class="st-wavemove"><path d="M500 260 q25 -14 50 0 t50 0 t50 0" fill="none" stroke="#7fb2d4" stroke-width="6" stroke-linecap="round"/></g>') },
+        { minDur: 6400, sub: '方興未艾：蓬勃發展，勢頭正盛。',
+          html: scene('<g stroke="#548a40" stroke-width="5" fill="none"><path d="M180 292 Q300 272 420 222 Q520 182 640 125"/></g><path d="M640 125 l-16 2 l9 12 z" fill="#548a40"/>' + bang(520, 170) +
+            '<text x="330" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">方興未艾</text>') }
+      ];
+    },
+    /* 蒸蒸日上 */
+    i673: function () {
+      return [
+        { minDur: 6800, sub: '蒸籠掀開，熱氣一股股向上竄——「蒸蒸」就是不斷上升的樣子！',
+          html: scene(P(400, 285, '<ellipse cx="0" cy="12" rx="44" ry="10" fill="#c9a06c"/><path d="M-44 12 v-16 a44 14 0 0 1 88 0 v16" fill="#e8d9a8" stroke="#c9b98a" stroke-width="2.6"/><g class="st-zfloat" opacity=".8"><path d="M-16 -24 q4 -10 0 -18 M2 -26 q4 -10 0 -18 M18 -24 q4 -10 0 -18" stroke="#c9bfa8" stroke-width="3" fill="none"/></g>', '', 0, 1.3) +
+            P(230, 302, A('kid', 'happy'), '', 0, .95) + hearts(300, 210)) },
+        { minDur: 6800, sub: '「蒸蒸日上」：一天比一天興旺——小吃店口碑相傳，排隊人龍越來越長！',
+          html: scene(P(300, 285, '<rect x="-50" y="-46" width="100" height="46" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-38" y="-66" width="76" height="16" rx="4" fill="#c96a5a"/>', '', 0, 1.05) +
+            P(460, 302, A('kid', 'happy'), '', 0, .9) + P(540, 302, A('kid', 'happy'), '', .1, .88) + P(620, 302, A('kid', 'happy'), '', .2, .86) + hearts(390, 210)) },
+        { minDur: 6800, sub: '蒸蒸日上的背後是每天進步一點——像蒸氣一樣，看似微小、持續向上！',
+          html: scene('<g stroke="#548a40" stroke-width="4" fill="none"><path d="M220 285 L330 262 L440 230 L550 185"/></g><path d="M550 185 l-15 0 l8 12 z" fill="#548a40"/>' +
+            P(280, 302, A('kid', 'happy'), 'st-cheer', 0, .95) + bang(500, 165) + hearts(380, 220)) },
+        { minDur: 6400, sub: '蒸蒸日上：日益興旺，節節高升。',
+          html: scene(P(400, 288, '<ellipse cx="0" cy="12" rx="44" ry="10" fill="#c9a06c"/><path d="M-44 12 v-16 a44 14 0 0 1 88 0 v16" fill="#e8d9a8" stroke="#c9b98a" stroke-width="2.6"/><g class="st-zfloat" opacity=".8"><path d="M-14 -22 q4 -10 0 -18 M4 -24 q4 -10 0 -18" stroke="#c9bfa8" stroke-width="3" fill="none"/></g>', '', 0, 1.35) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">蒸蒸日上</text>') }
+      ];
+    },
+    /* 江河日下 */
+    i674: function () {
+      return [
+        { minDur: 6800, sub: '江水滾滾，只往低處流——一天天向下，再也回不了頭……',
+          html: scene('<path d="M120 200 Q280 240 430 270 Q560 292 680 302" stroke="#7fb2d4" stroke-width="14" fill="none" stroke-linecap="round"/>' +
+            '<g class="st-windln" stroke="#a8d0e8" stroke-width="4" stroke-linecap="round"><line x1="260" y1="232" x2="330" y2="245"/><line x1="480" y1="278" x2="550" y2="288"/></g>') },
+        { minDur: 6800, sub: '「江河日下」：情況日益衰落——老戲院觀眾一年比一年少，海報都褪了色……',
+          html: scene(P(400, 285, '<rect x="-60" y="-56" width="120" height="56" fill="#8a8274" stroke="#6d675c" stroke-width="2.6"/><rect x="-44" y="-74" width="88" height="16" rx="4" fill="#6d675c"/><rect x="-20" y="-40" width="40" height="26" fill="#c9bfa8" opacity=".6" transform="rotate(-4)"/>', '', 0, 1.05) +
+            P(220, 302, A('kid', 'sad'), '', 0, .95) + sweat(290, 200) + zzz(540, 210), 'night') },
+        { minDur: 6800, sub: '扭轉江河日下要換河道：老戲院改成文創影城，重新排隊的人潮回來了！',
+          html: scene(P(400, 285, '<rect x="-60" y="-56" width="120" height="56" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-44" y="-74" width="88" height="16" rx="4" fill="#c96a5a"/><text x="0" y="-27" text-anchor="middle" font-size="12" fill="#6d4426">文創影城</text>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy'), 'st-inL', 0, .92) + P(570, 302, A('kid', 'happy'), 'st-inR', .2, .92, true) + hearts(400, 200) + bang(520, 190)) },
+        { minDur: 6400, sub: '江河日下：每況愈下，日趨衰微。',
+          html: scene('<path d="M120 200 Q280 240 430 272 Q560 294 680 304" stroke="#7fb2d4" stroke-width="13" fill="none" stroke-linecap="round"/>' +
+            '<path d="M600 260 l14 10 l-16 6 z" fill="#5a8fbf"/>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">江河日下</text>') }
+      ];
+    },
+    /* 日薄西山 */
+    i675: function () {
+      var SUNSET2 = '<path d="M-110 40 L-30 -30 L40 20 L110 -20 L180 40 Z" fill="#3d4a63" stroke="#2c3550" stroke-width="2.4"/><circle cx="-30" cy="-8" r="26" fill="#e0813f" stroke="#c96a30" stroke-width="3"/>';
+      return [
+        { minDur: 7000, sub: '李密〈陳情表〉寫祖母：「日薄西山，氣息奄奄」——像迫近西山的落日，隨時可能熄滅……',
+          html: scene(P(430, 292, SUNSET2, '', 0, 1.15) +
+            P(220, 302, A('kid', 'sad') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95) + sweat(290, 210), 'night') },
+        { minDur: 6800, sub: '他懇求皇帝：讓我先侍奉祖母終老，再效忠朝廷——「烏鳥私情，願乞終養」！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/>' + P(-46, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) +
+            P(540, 296, '<g transform="rotate(8)">' + A('kid', 'sad') + '</g>' + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .9) + hearts(440, 195), 'night') },
+        { minDur: 6800, sub: '「日薄西山」：衰亡在即——也提醒我們：想陪的人要趁現在，夕陽不等人！',
+          html: scene(P(430, 292, SUNSET2, '', 0, 1.1) +
+            P(240, 302, A('kid', 'happy')) + P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95) + hearts(290, 195), 'night') },
+        { minDur: 6400, sub: '日薄西山：夕陽迫山，衰亡在即。',
+          html: scene(P(430, 295, SUNSET2, '', 0, 1.2) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">日薄西山</text>', 'night') }
+      ];
     }
   };
 
