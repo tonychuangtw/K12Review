@@ -14615,6 +14615,159 @@
             P(540, 302, A('kid', 'happy'), '', 0, .93, true) + hearts(450, 185) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">苦口婆心</text>') }
       ];
+    },
+    /* 語重心長 */
+    i897: function () {
+      return [
+        { minDur: 6800, sub: '畢業前最後一次練習結束，教練把大家留下來——「有幾句話，想跟你們好好說……」',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-8 -46 q8 4 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/><path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c96a5a"/>', '', 0, 1.05) +
+            P(220, 302, A('kid', 'happy'), '', 0, .88) + P(560, 302, A('kid', 'happy'), '', 0, .88, true), 'night') },
+        { minDur: 6800, sub: '「輸贏會忘，但你們一起流過的汗不會騙人——出了社會也要這樣拚。」隊員都紅了眼眶……',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c96a5a"/>', '', 0, 1.05) +
+            P(550, 302, A('kid', 'sad') + '<g class="st-tear"><path d="M-8 -50 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, .95, true) + hearts(450, 188), 'night') },
+        { minDur: 6800, sub: '「語重心長」：言辭懇切有分量、情意深長——多用在長輩對晚輩最真心的叮嚀！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.02) +
+            P(530, 302, A('kid', 'happy'), '', 0, .95, true) +
+            P(430, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '語重心長：言懇意切，情深意長。',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c96a5a"/>', '', 0, 1.05) +
+            P(550, 302, A('kid', 'happy'), '', 0, .93, true) + hearts(460, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">語重心長</text>') }
+      ];
+    },
+    /* 千絲萬縷 */
+    i898: function () {
+      var WEBLINES = '<g stroke-linecap="round" fill="none"><path d="M-80 -40 C-30 20 30 -60 80 10" stroke="#ff9eb5" stroke-width="2.6"/><path d="M-80 10 C-20 -40 20 40 80 -30" stroke="#7fb2e0" stroke-width="2.6"/><path d="M-80 -15 C-30 -40 30 30 80 -8" stroke="#a5d47c" stroke-width="2.6"/><path d="M-75 35 C-25 5 25 -25 75 32" stroke="#ffd97a" stroke-width="2.6"/></g>';
+      return [
+        { minDur: 7000, sub: '宋詞寫離愁：「千絲萬縷織離腸」——思念像一千條絲、一萬條線，纏纏繞繞剪不斷！',
+          html: scene(P(400, 240, WEBLINES, '', 0, 1.4) +
+            P(200, 302, A('kid', 'sad'), '', 0, .95) + hearts(270, 200)) },
+        { minDur: 6800, sub: '後來多形容關係緊密複雜：文化與語言、歷史與地名——彼此有千絲萬縷的聯繫！',
+          html: scene(P(300, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#6d7585">文化</text>') +
+            P(500, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#6d7585">語言</text>') +
+            '<g stroke="#c9bfa8" stroke-width="2" fill="none"><path d="M325 220 q75 -30 150 0 M325 232 q75 -8 150 0 M325 242 q75 26 150 6"/></g>') },
+        { minDur: 6800, sub: '「千絲萬縷」：關聯繁多複雜、難以理清——和「千頭萬緒」不同：它強調「彼此相連」！',
+          html: scene(P(400, 245, WEBLINES, '', 0, 1.3) +
+            P(620, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#548a40">相連</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '千絲萬縷：關係緊密，錯綜相連。',
+          html: scene(P(400, 250, WEBLINES, '', 0, 1.4) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千絲萬縷</text>') }
+      ];
+    },
+    /* 千瘡百孔 */
+    i899: function () {
+      var HOLYWALL = '<rect x="-70" y="-50" width="140" height="100" fill="#c9bfa8" stroke="#a8a294" stroke-width="3"/><g fill="#8a8274"><circle cx="-40" cy="-24" r="8"/><circle cx="10" cy="-30" r="6"/><circle cx="42" cy="-10" r="9"/><circle cx="-20" cy="10" r="7"/><circle cx="28" cy="26" r="6"/><circle cx="-48" cy="30" r="6"/></g><path d="M-70 -50 l30 40 M70 20 l-26 30" stroke="#8a8274" stroke-width="2.6"/>';
+      return [
+        { minDur: 7000, sub: '韓愈感歎漢代以來典籍散佚：學者努力修補，仍「百孔千瘡，隨亂隨失」——補不勝補！',
+          html: scene(P(430, 285, HOLYWALL, '', 0, 1.1) +
+            P(220, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + sweat(300, 210)) },
+        { minDur: 6800, sub: '「千瘡百孔」：到處是創傷和破洞——老舊的堤防裂縫處處，一場大雨就會出事！',
+          html: scene(P(430, 290, HOLYWALL, '', 0, 1.15) + sweat(560, 210) +
+            '<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="240" y1="30" x2="232" y2="54"/><line class="st-rain" style="animation-delay:.5s" x1="600" y1="24" x2="592" y2="48"/></g>', 'night') },
+        { minDur: 6800, sub: '也形容制度弊病叢生——與其到處打補丁，不如下決心徹底改革，一次修好！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1)) +
+            P(480, 290, '<rect x="-50" y="-40" width="100" height="80" fill="#e8d9a8" stroke="#b8a982" stroke-width="3"/><path d="M-30 -12 h60 M-30 12 h60" stroke="#b8a982" stroke-width="2"/>', '', 0, 1.05) + bang(400, 210) + hearts(600, 220)) },
+        { minDur: 6400, sub: '千瘡百孔：破敗不堪，弊病叢生。',
+          html: scene(P(400, 288, HOLYWALL, '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千瘡百孔</text>') }
+      ];
+    },
+    /* 遍體鱗傷 */
+    i900: function () {
+      return [
+        { minDur: 6800, sub: '越野賽摔進碎石坡——手肘、膝蓋、肩膀全是擦傷，密密麻麻像魚鱗一樣！',
+          html: scene(P(400, 302, A('kid', 'sad') + '<g stroke="#c96a5a" stroke-width="2.4" stroke-linecap="round"><path d="M-26 -30 l6 6 M-30 -12 l6 6 M22 -34 l6 6 M26 -14 l6 6 M-6 -6 l6 6"/></g>' + P(34, -30, '<path d="M-8 4 q8 -12 16 0" stroke="#fff" stroke-width="5" fill="none"/>', '', 0, 1), '', 0, 1.05) + sweat(310, 188) +
+            '<path d="M540 290 q40 -20 90 -6" stroke="#8b93a3" stroke-width="4" fill="none"/><g fill="#8b93a3"><circle cx="560" cy="296" r="5"/><circle cx="600" cy="292" r="6"/></g>') },
+        { minDur: 6800, sub: '「遍體鱗傷」：全身傷痕密如魚鱗——形容傷勢極重，看了讓人心疼！',
+          html: scene(P(400, 290, A('fish'), '', 0, 1.6) +
+            P(560, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">如鱗片</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '也形容心靈的創傷——被謠言中傷的人，心也會遍體鱗傷，說話前多想一秒！',
+          html: scene(P(360, 302, A('kid', 'sad'), '', 0, 1) + sweat(300, 190) +
+            P(430, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5"/><path d="M-4 2 l8 14" stroke="#c96a5a" stroke-width="2.4"/>', '', 0, 1.2) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95, true) + hearts(620, 200)) },
+        { minDur: 6400, sub: '遍體鱗傷：傷痕滿身，密如魚鱗。',
+          html: scene(P(400, 302, A('kid', 'sad') + '<g stroke="#c96a5a" stroke-width="2.4" stroke-linecap="round"><path d="M-26 -30 l6 6 M-30 -12 l6 6 M22 -34 l6 6 M26 -14 l6 6"/></g>', '', 0, 1.05) + sweat(310, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">遍體鱗傷</text>') }
+      ];
+    },
+    /* 一敗塗地 */
+    i901: function () {
+      return [
+        { minDur: 7000, sub: '沛縣父老推劉邦當縣令，他推辭說：天下大亂，「今置將不善，壹敗塗地」——用錯人就全完了！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M-28 -56 l-14 -4 M28 -56 l14 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(200, 302, A('kid', 'happy'), '', 0, .9) + P(580, 302, A('kid', 'happy'), '', 0, .9, true) + qmark(460, 182)) },
+        { minDur: 6800, sub: '「一敗塗地」：一旦失敗就肝腦塗地——敗到最慘、徹底不可收拾的地步！',
+          html: scene(P(320, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>', '', 0, .95) +
+            P(480, 306, '<g class="st-faint" style="animation-delay:.3s">' + A('kid', 'sad') + '</g>', '', 0, .92) + bang(400, 195) + sweat(560, 200), 'night') },
+        { minDur: 6800, sub: '劉邦其實在提醒大家：重大決定要慎選領頭的人——選對人，才不會一敗塗地！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy'), 'st-cheer', 0, .88) + P(560, 302, A('kid', 'happy'), 'st-cheer', .2, .88, true) + hearts(400, 175)) },
+        { minDur: 6400, sub: '一敗塗地：慘敗至極，不可收拾。',
+          html: scene(P(400, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>', '', 0, 1) + bang(500, 200) + sweat(300, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">一敗塗地</text>', 'night') }
+      ];
+    },
+    /* 潰不成軍 */
+    i902: function () {
+      return [
+        { minDur: 6800, sub: '「潰」原指堤防崩決——大水一沖，堤一裂就全垮，攔都攔不住！',
+          html: scene('<rect y="262" width="800" height="78" fill="#5a7fa8"/>' +
+            P(400, 285, '<rect x="-60" y="-30" width="120" height="55" fill="#c9bfa8" stroke="#a8a294" stroke-width="3"/><path d="M-10 -30 L-2 25 M6 -30 L14 25" stroke="#6d7585" stroke-width="3"/>', '', 0, 1.1) +
+            '<g class="st-bub"><circle cx="404" cy="240" r="6" fill="#8fb2d4"/><circle cx="420" cy="228" r="4" fill="#8fb2d4"/></g>' + bang(400, 200), 'night') },
+        { minDur: 6800, sub: '軍隊一崩就像決堤：你跑東、我跑西，隊形全散——潰不成軍！',
+          html: scene(P(300, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .95) +
+            P(450, 302, '<g class="st-fleeR" style="animation-delay:.2s">' + A('kid', 'wow') + '</g>', 'st-dashL', .2, .9, true) +
+            P(580, 302, '<g class="st-fleeR" style="animation-delay:.4s">' + A('kid', 'wow') + '</g>', 'st-dashL', .4, .92) + sweat(380, 190) + bang(220, 200), 'night') },
+        { minDur: 6800, sub: '「潰不成軍」：被打得徹底崩散——反過來說：只要陣腳不亂，就沒人能擊潰你！',
+          html: scene(P(300, 302, A('kid', 'angry'), '', 0, .95) + P(400, 302, A('kid', 'angry'), '', 0, .95) + P(500, 302, A('kid', 'angry'), '', 0, .95) +
+            '<line x1="240" y1="250" x2="560" y2="250" stroke="#548a40" stroke-width="3" stroke-dasharray="8 7"/>' + hearts(400, 185)) },
+        { minDur: 6400, sub: '潰不成軍：全線崩潰，徹底慘敗。',
+          html: scene(P(320, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .95) +
+            P(500, 302, '<g class="st-fleeR" style="animation-delay:.3s">' + A('kid', 'wow') + '</g>', 'st-dashL', .3, .92, true) + bang(410, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">潰不成軍</text>', 'night') }
+      ];
+    },
+    /* 出奇制勝 */
+    i903: function () {
+      return [
+        { minDur: 7000, sub: '《孫子兵法》說：「以正合，以奇勝」——正面部隊穩住戰線，奇兵繞後一擊定勝負！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1)) +
+            P(480, 302, A('kid', 'angry'), '', 0, .97, true) + bang(390, 195) +
+            P(620, 250, '<g class="st-fleeR">' + A('kid', 'happy') + '</g>', '', 0, .7) +
+            '<path d="M560 240 q60 -50 60 -90" stroke="#548a40" stroke-width="3" fill="none" stroke-dasharray="7 6"/>') },
+        { minDur: 6800, sub: '躲避球決賽：對手緊盯主攻手——小奇突然把球傳給場邊最不起眼的隊友，直接得分！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -56, '<circle cx="0" cy="0" r="11" fill="#e0813f" stroke="#b85f24" stroke-width="2"/>', '', 0, 1)) +
+            '<path d="M350 240 q120 -60 240 -20" stroke="#e0813f" stroke-width="3" fill="none" stroke-dasharray="7 6"/>' +
+            P(600, 302, A('kid', 'wow'), '', 0, .95) + bang(650, 240) + qmark(430, 185)) },
+        { minDur: 6800, sub: '「出奇制勝」：用出人意料的方法取勝——注意寫「制」伏的制，不是導「致」的致！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#548a40">制✓</text>', '', 0, 1.1), 'st-cheer', 0, 1.02) + hearts(470, 190)) },
+        { minDur: 6400, sub: '出奇制勝：奇招妙計，出人意料。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + bang(400, 175) +
+            P(280, 200, '<path d="M0 -18 l6 11 12 2 -9 9 2 12 -11 -6 -11 6 2 -12 -9 -9 12 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">出奇制勝</text>') }
+      ];
+    },
+    /* 聲東擊西 */
+    i904: function () {
+      return [
+        { minDur: 7000, sub: '《淮南子》兵法：「將欲西而示之以東」——想攻西邊，就先大張旗鼓做出攻東的樣子！',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(620, 240, '<rect x="-26" y="-16" width="52" height="32" rx="4" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#c96a5a">東!</text>', '', 0, 1) +
+            P(180, 240, '<rect x="-26" y="-16" width="52" height="32" rx="4" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#548a40">西←真</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '敵軍主力全被騙去東邊防守——西邊城門空虛，奇兵一舉攻下！',
+          html: scene(P(560, 302, A('kid', 'wow'), 'st-dashL', 0, .95) + qmark(620, 190) +
+            P(240, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1), 'st-strut', 0, 1.02, true) + bang(160, 210)) },
+        { minDur: 6800, sub: '「聲東擊西」：假動作迷惑對方、攻其不備——球場上假傳真射，就是這一計！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -56, '<circle cx="0" cy="0" r="11" fill="#fff" stroke="#3a2e26" stroke-width="2"/><path d="M-4 -8 l8 4 -8 4 z" fill="#3a2e26"/>', '', 0, 1)) +
+            '<path d="M410 250 q60 20 120 30" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="6 5"/>' +
+            '<path d="M410 240 q60 -50 140 -40" stroke="#e0813f" stroke-width="3.4" fill="none"/><path d="M550 200 l-13 -5 l6 12 z" fill="#e0813f"/>' +
+            P(600, 302, A('kid', 'wow'), '', 0, .95, true) + sweat(660, 195)) },
+        { minDur: 6400, sub: '聲東擊西：虛張聲勢，攻其不備。',
+          html: scene(P(400, 302, A('kid', 'angry'), '', 0, 1.05) +
+            P(620, 240, '<rect x="-24" y="-15" width="48" height="30" rx="4" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#c96a5a">東</text>', '', 0, 1) +
+            P(180, 240, '<rect x="-24" y="-15" width="48" height="30" rx="4" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#548a40">西</text>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">聲東擊西</text>') }
+      ];
     }
   };
 
