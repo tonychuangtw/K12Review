@@ -3492,6 +3492,125 @@
           html: scene(P(400, 292, BOOKOPEN, '', 0, 1.5) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">開宗明義</text>') }
       ];
+    },
+    /* 一心一意 */
+    i001: function () {
+      var HOOP = '<line x1="0" y1="0" x2="0" y2="-110" stroke="#8b93a3" stroke-width="6"/>' +
+        '<rect x="-26" y="-152" width="52" height="42" rx="4" fill="#fff" stroke="#8b93a3" stroke-width="3"/>' +
+        '<ellipse cx="0" cy="-112" rx="18" ry="5" fill="none" stroke="#e0a458" stroke-width="4"/>' +
+        '<path d="M-16 -110 q4 20 16 22 q12 -2 16 -22" stroke="#c9bfa8" stroke-width="2" fill="none"/>';
+      var BALL = '<circle cx="0" cy="0" r="12" fill="#e0a458" stroke="#c08838" stroke-width="2.4"/><path d="M-12 0 h24 M0 -12 v24" stroke="#c08838" stroke-width="1.8"/>';
+      return [
+        { minDur: 6600, sub: '小明練投籃，心裡只有一個念頭：把球投進籃框！',
+          html: scene(P(600, 302, HOOP) + P(560, 180, BALL, '', 0, .9) +
+            P(300, 302, A('kid', 'happy'))) },
+        { minDur: 6800, sub: '同學找他去玩、去吃冰，他搖搖頭：「我要先練完一百球！」繼續一球一球投。',
+          html: scene(P(600, 302, HOOP) + P(430, 240, BALL) +
+            P(300, 302, A('kid', 'happy')) + sweat(260, 195) +
+            P(130, 302, A('kid', 'happy'), '', 0, .85) + qmark(170, 195)) },
+        { minDur: 6600, sub: '一心一意練了一個月，他投得又準又穩，還入選了校隊！',
+          html: scene(P(600, 302, HOOP) + P(590, 145, BALL, '', 0, .9) + bang(600, 100) +
+            P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(400, 175)) },
+        { minDur: 6400, sub: '一心一意：心思專注不變，完全投入。',
+          html: scene(P(600, 302, HOOP, '', 0, .95) + P(320, 302, A('kid', 'happy') + P(40, -70, BALL, '', 0, .9)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一心一意</text>') }
+      ];
+    },
+    /* 三心二意 */
+    i004: function () {
+      var DESK = '<rect x="-60" y="-30" width="120" height="10" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>' +
+        '<line x1="-48" y1="-20" x2="-48" y2="0" stroke="#a8734a" stroke-width="5"/><line x1="48" y1="-20" x2="48" y2="0" stroke="#a8734a" stroke-width="5"/>';
+      function thought(x, y, inner, dly) {
+        return P(x, y, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/>' + inner, 'st-zfloat', dly);
+      }
+      var COMIC = '<rect x="-12" y="-15" width="24" height="30" rx="3" fill="#a5c8ff" stroke="#5c82ba" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#2c4a75">漫</text>';
+      var TOY = '<circle cx="0" cy="2" r="10" fill="#ff9eb5"/><circle cx="-8" cy="-8" r="6" fill="#ffd97a"/><circle cx="8" cy="-8" r="6" fill="#a5d47c"/>';
+      var SNACK = '<path d="M-10 8 L0 -12 L10 8 Z" fill="#ffe9a0" stroke="#e8b84a" stroke-width="2"/><circle cx="0" cy="-14" r="4" fill="#e8899a"/>';
+      return [
+        { minDur: 6800, sub: '寫功課的時候，小華一下想看漫畫、一下想玩玩具、一下又想吃點心——',
+          html: scene(P(400, 302, DESK) + P(400, 302, A('kid', 'happy'), '', 0, .95) +
+            thought(200, 150, COMIC, 0) + thought(400, 110, TOY, .4) + thought(600, 150, SNACK, .8)) },
+        { minDur: 6800, sub: '摸摸這個、碰碰那個，一個小時過去了，作業竟然一個字也沒寫！',
+          html: scene(P(400, 302, DESK) + P(400, 302, A('kid', 'wow'), '', 0, .95) +
+            P(340, 260, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>') +
+            sweat(460, 200) + qmark(300, 180)) },
+        { minDur: 6800, sub: '三心二意，什麼事都做不好；下定決心專心寫，反而一下子就寫完了！',
+          html: scene(P(400, 302, DESK) + P(400, 302, A('kid', 'happy'), '', 0, .95) +
+            P(340, 260, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -10 h16 M-8 -2 h16 M-8 6 h16" stroke="#8fa3bf" stroke-width="1.8"/>') +
+            hearts(480, 185)) },
+        { minDur: 6400, sub: '三心二意：心思不定，搖擺不決。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            thought(240, 160, COMIC, 0) + thought(560, 160, SNACK, .5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">三心二意</text>') }
+      ];
+    },
+    /* 火冒三丈 */
+    i007: function () {
+      var MODEL = '<rect x="-16" y="-20" width="32" height="20" rx="3" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2.4"/>' +
+        '<rect x="-10" y="-34" width="20" height="14" rx="3" fill="#a5c8ff" stroke="#6d87ab" stroke-width="2"/><circle cx="0" cy="-40" r="4" fill="#e85a4f"/>';
+      var MODELBROKEN = '<rect x="-20" y="-10" width="18" height="12" rx="3" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2" transform="rotate(-18)"/>' +
+        '<rect x="6" y="-14" width="16" height="10" rx="3" fill="#a5c8ff" stroke="#6d87ab" stroke-width="2" transform="rotate(22)"/>' +
+        '<circle cx="-2" cy="-2" r="4" fill="#e85a4f"/>';
+      var HEADFIRE = '<g class="st-flick"><path d="M0 -8 q-10 -14 0 -26 q2 8 8 10 q6 -6 4 -12 q9 10 2 22 q-6 8 -14 6 z" fill="#ff9c40"/><path d="M1 -9 q-5 -8 0 -15 q5 6 6 9 q2 6 -6 6 z" fill="#ffd166"/></g>';
+      return [
+        { minDur: 6600, sub: '弟弟跑過來一個不小心，把哥哥剛拼好的模型撞倒了，摔得四分五裂！',
+          html: scene(P(430, 316, MODELBROKEN, '', 0, 1.2) + bang(430, 250) +
+            P(600, 302, A('kid', 'wow'), '', 0, .85) + sweat(640, 210) +
+            P(240, 302, A('kid', 'wow'))) },
+        { minDur: 6600, sub: '哥哥氣得火冒三丈——頭頂像冒出三丈高的火焰，臉都漲紅了！',
+          html: scene(P(240, 302, A('kid', 'angry') + P(0, -104, HEADFIRE, '', 0, 1.2)) +
+            P(560, 302, A('kid', 'sad'), '', 0, .85) + sweat(600, 205)) },
+        { minDur: 6800, sub: '深呼吸、慢慢數到十……火氣消了。弟弟誠心道歉，兩人一起把模型重新拼好。',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(470, 302, A('kid', 'happy'), '', 0, .85) +
+            P(400, 316, MODEL, '', 0, 1.1) + hearts(380, 190)) },
+        { minDur: 6400, sub: '火冒三丈：非常生氣，怒火中燒。',
+          html: scene(P(360, 302, A('kid', 'angry') + P(0, -104, HEADFIRE, '', 0, 1.3)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">火冒三丈</text>') }
+      ];
+    },
+    /* 虎頭蛇尾 */
+    i015: function () {
+      var CAL2 = '<rect x="-26" y="-30" width="52" height="60" rx="5" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/>' +
+        '<rect x="-26" y="-30" width="52" height="14" rx="5" fill="#c96a5a"/>' +
+        '<g stroke="#548a40" stroke-width="2.4"><path d="M-18 -8 l4 4 l7 -7 M-18 6 l4 4 l7 -7"/></g>' +
+        '<g stroke="#c9bfa8" stroke-width="2"><line x1="4" y1="-6" x2="16" y2="-6"/><line x1="4" y1="8" x2="16" y2="8"/></g>';
+      return [
+        { minDur: 6600, sub: '開學時小強立下志願：每天早起跑步！第一週天天五點起床，跑得虎虎生風！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + bang(200, 210) + hearts(400, 180)) },
+        { minDur: 6800, sub: '第二週開始賴床，第三週只跑了兩天，到最後……乾脆不跑了。',
+          html: scene(P(360, 302, '<ellipse cx="0" cy="-8" rx="34" ry="12" fill="#6fbf8e"/><circle cx="-28" cy="-16" r="13" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>') +
+            zzz(300, 230) + P(540, 272, CAL2) + sweat(600, 220)) },
+        { minDur: 6800, sub: '開頭像老虎一樣威猛，結尾卻像蛇尾巴一樣細小無力——這就是「虎頭蛇尾」！',
+          html: scene(P(260, 300, A('tiger')) + P(560, 300, A('snake'), '', 0, .9) +
+            '<path d="M330 260 q70 -30 150 0" stroke="#c9bfa8" stroke-width="4" fill="none" stroke-dasharray="8 8"/>' + qmark(430, 200)) },
+        { minDur: 6400, sub: '虎頭蛇尾：開始猛烈，後來無力，不能堅持到底。',
+          html: scene(P(280, 300, A('tiger')) + P(560, 300, A('snake'), '', 0, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">虎頭蛇尾</text>') }
+      ];
+    },
+    /* 目不轉睛 */
+    i016: function () {
+      var FLASK = '<path d="M-6 -34 L-6 -16 L-20 6 Q-24 16 -12 16 L12 16 Q24 16 20 6 L6 -16 L6 -34 Z" fill="#e8f0f8" stroke="#9fb4c7" stroke-width="2.6"/>' +
+        '<path d="M-14 4 Q0 -2 14 4 L12 10 Q0 14 -12 10 Z" fill="#c9a8e0"/>' +
+        '<rect x="-9" y="-38" width="18" height="6" rx="3" fill="#9fb4c7"/>';
+      var BIGEYE2 = '<path d="M-24 0 Q0 -20 24 0 Q0 20 -24 0 Z" fill="#fff" stroke="#4a3200" stroke-width="2.6"/><circle cx="0" cy="0" r="8" fill="#6b4a32"/><circle cx="3" cy="-3" r="2.6" fill="#fff"/>';
+      return [
+        { minDur: 6600, sub: '科學課上，老師做了一個神奇的實驗——瓶子裡的液體，「啵」地一聲突然變色！',
+          html: scene(P(430, 290, FLASK, '', 0, 1.3) + bang(500, 210) +
+            P(220, 302, A('kid', 'happy'))) },
+        { minDur: 6600, sub: '全班同學看得目不轉睛，眼睛一眨也不眨，深怕錯過任何一秒！',
+          html: scene(P(430, 290, FLASK, '', 0, 1.1) +
+            P(220, 302, A('kid', 'wow'), '', 0, .9) + P(600, 302, A('kid', 'wow'), '', .2, .9, true) +
+            P(300, 180, BIGEYE2, '', 0, .9) + P(540, 175, BIGEYE2, '', .3, .9)) },
+        { minDur: 6600, sub: '下課鈴響了，大家還捨不得走，圍著講桌問個不停：「為什麼會變色呀？」',
+          html: scene(P(430, 290, FLASK, '', 0, 1) +
+            P(260, 302, A('kid', 'happy'), '', 0, .9) + P(560, 302, A('kid', 'happy'), '', .2, .9, true) +
+            qmark(340, 190) + qmark(500, 185) + hearts(430, 150)) },
+        { minDur: 6400, sub: '目不轉睛：眼睛緊盯著，不移開視線。',
+          html: scene(P(400, 210, BIGEYE2, '', 0, 1.6) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">目不轉睛</text>') }
+      ];
     }
   };
 
