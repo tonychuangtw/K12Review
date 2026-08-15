@@ -22253,6 +22253,186 @@
           html: scene(P(400, 302, A('kid', 'angry') + P(34, -40, HOE, 'st-hoe', 0, .8), '', 0, 1.08) + bang(520, 210) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">斬草除根</text>') }
       ];
+    },
+    /* 釜底抽薪 */
+    i740: function () {
+      return [
+        { minDur: 7000, sub: '鍋裡的水滾個不停，怎麼吹都壓不住——古人說：「抽薪止沸」，去掉柴火才是正解！',
+          html: scene(P(430, 290, '<path d="M-40 0 a40 22 0 0 0 80 0 l-6 -18 h-68 z" fill="#6d7585" stroke="#4a5262" stroke-width="2.6"/><g class="st-tw"><path d="M-20 -26 q4 -10 0 -18 M0 -28 q4 -12 0 -20 M20 -26 q4 -10 0 -18" stroke="#dbe4f0" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/></g><g fill="#c9a06c"><rect x="-34" y="24" width="30" height="7" rx="3"/><rect x="-8" y="26" width="32" height="7" rx="3" transform="rotate(6 8 29)"/></g><g class="st-flick"><path d="M-4 22 q-8 -14 0 -24 q8 12 0 24" fill="#ff9d4a"/></g>', '', 0, 1.1) +
+            P(240, 302, A('kid', 'wow'), '', 0, .95) + sweat(310, 200)) },
+        { minDur: 6800, sub: '他蹲下來把柴火整把抽走——火滅了，滾水立刻安靜下來！',
+          html: scene(P(430, 290, '<path d="M-40 0 a40 22 0 0 0 80 0 l-6 -18 h-68 z" fill="#6d7585" stroke="#4a5262" stroke-width="2.6"/>', '', 0, 1.1) +
+            P(280, 302, A('kid', 'angry') + P(36, -30, '<g fill="#c9a06c"><rect x="-16" y="-4" width="32" height="7" rx="3"/><rect x="-12" y="-13" width="32" height="7" rx="3" transform="rotate(-8 4 -10)"/></g>', '', 0, 1), '', 0, 1) + bang(360, 210)) },
+        { minDur: 6800, sub: '「釜底抽薪」：從根本解決問題——沉迷手機就把遊戲刪掉，比每天硬撐意志力有效！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-14" y="-24" width="28" height="48" rx="5" fill="#3a2e26"/><rect x="-10" y="-19" width="20" height="38" rx="2.6" fill="#fff"/><path d="M-6 -8 L6 4 M6 -8 L-6 4" stroke="#c96a5a" stroke-width="3" stroke-linecap="round"/>', '', 0, .95), 'st-cheer', 0, 1.02) + hearts(470, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">治本</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">之道</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '釜底抽薪：抽薪止沸，直取根本。',
+          html: scene(P(400, 290, '<path d="M-40 0 a40 22 0 0 0 80 0 l-6 -18 h-68 z" fill="#6d7585" stroke="#4a5262" stroke-width="2.6"/>', '', 0, 1.15) +
+            P(250, 296, '<g fill="#c9a06c"><rect x="-16" y="-4" width="32" height="7" rx="3"/><rect x="-12" y="-13" width="32" height="7" rx="3" transform="rotate(-8 4 -10)"/></g>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">釜底抽薪</text>') }
+      ];
+    },
+    /* 揚湯止沸 */
+    i741: function () {
+      return [
+        { minDur: 7000, sub: '《呂氏春秋》：「以湯止沸，沸愈不止」——把滾水舀起來再倒回去，滾得反而更兇！',
+          html: scene(P(430, 290, '<path d="M-40 0 a40 22 0 0 0 80 0 l-6 -18 h-68 z" fill="#6d7585" stroke="#4a5262" stroke-width="2.6"/><g class="st-tw"><path d="M-22 -26 q4 -12 0 -20 M0 -30 q4 -14 0 -22 M22 -26 q4 -12 0 -20" stroke="#dbe4f0" stroke-width="4" fill="none" stroke-linecap="round" opacity=".85"/></g><g class="st-flick"><path d="M-6 24 q-8 -14 0 -24 q8 12 0 24" fill="#ff9d4a"/><path d="M10 24 q-6 -10 0 -18 q6 8 0 18" fill="#ffd97a"/></g>', '', 0, 1.1) +
+            P(270, 302, A('kid', 'sad') + P(38, -46, '<path d="M0 0 l14 -10 M14 -10 a8 5 0 1 0 10 -6" stroke="#8b93a3" stroke-width="3.4" fill="none" stroke-linecap="round"/>', 'st-hammer', 0, 1), '', 0, 1) + sweat(340, 195)) },
+        { minDur: 6800, sub: '舀了半天，火還在燒——「去火則止矣」：不抽掉柴火，滾水永遠停不了！',
+          html: scene(P(430, 290, '<path d="M-40 0 a40 22 0 0 0 80 0 l-6 -18 h-68 z" fill="#6d7585" stroke="#4a5262" stroke-width="2.6"/><g class="st-tw"><path d="M-22 -26 q4 -12 0 -20 M0 -30 q4 -14 0 -22 M22 -26 q4 -12 0 -20" stroke="#dbe4f0" stroke-width="4" fill="none" stroke-linecap="round" opacity=".85"/></g><g class="st-flick"><path d="M-6 24 q-10 -16 0 -28 q10 14 0 28" fill="#ff9d4a"/></g>', '', 0, 1.1) +
+            P(260, 302, A('kid', 'sad'), 'st-slump', 0, 1) + sweat(320, 195) + qmark(560, 200)) },
+        { minDur: 6800, sub: '「揚湯止沸」：治標不治本——考前狂抄同學筆記卻不弄懂觀念，就是這種白忙！',
+          html: scene(P(340, 302, A('kid', 'sad') + P(-46, -52, '<rect x="-18" y="-14" width="36" height="28" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#c96a5a">狂抄</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#c96a5a">不懂</text>', '', 0, 1)) + sweat(450, 195) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">相對:</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8b93a3">釜底抽薪</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '揚湯止沸：徒治其表，沸終不止。',
+          html: scene(P(400, 290, '<path d="M-40 0 a40 22 0 0 0 80 0 l-6 -18 h-68 z" fill="#6d7585" stroke="#4a5262" stroke-width="2.6"/><g class="st-tw"><path d="M-20 -26 q4 -12 0 -20 M20 -26 q4 -12 0 -20" stroke="#dbe4f0" stroke-width="4" fill="none" stroke-linecap="round" opacity=".85"/></g><g class="st-flick"><path d="M-4 24 q-8 -14 0 -24 q8 12 0 24" fill="#ff9d4a"/></g>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">揚湯止沸</text>') }
+      ];
+    },
+    /* 頭痛醫頭 */
+    i742: function () {
+      return [
+        { minDur: 7000, sub: '朱熹批評只治表面的做法：「頭痛灸頭，腳痛灸腳」——哪裡痛貼哪裡，病根不管！',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-24 -60 l-6 -6" stroke="#c96a5a" stroke-width="4" stroke-linecap="round"/><rect x="-30" y="-70" width="16" height="10" rx="3" fill="#f4d8b8" stroke="#d9b890" stroke-width="1.6" transform="rotate(-16 -22 -65)"/>', '', 0, 1.05) + sweat(280, 190) +
+            P(560, 302, A('kid', 'sad') + '<rect x="-8" y="-12" width="16" height="9" rx="3" fill="#f4d8b8" stroke="#d9b890" stroke-width="1.6"/>', '', 0, .95, true) + sweat(620, 220)) },
+        { minDur: 6800, sub: '貼布貼了滿身，病因沒找——過幾天這裡好、那裡又痛，永遠好不了！',
+          html: scene(P(400, 302, A('kid', 'sad') + '<g fill="#f4d8b8" stroke="#d9b890" stroke-width="1.6"><rect x="-28" y="-68" width="14" height="9" rx="3" transform="rotate(-16)"/><rect x="14" y="-30" width="14" height="9" rx="3"/><rect x="-24" y="-14" width="14" height="9" rx="3" transform="rotate(10)"/></g>', '', 0, 1.1) + sweat(500, 190) + qmark(290, 195)) },
+        { minDur: 6800, sub: '「頭痛醫頭，腳痛醫腳」：只治症狀不找根源——成績差就該找讀書方法，不是狂罰抄寫！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#548a40">找出</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#548a40">病根</text>', '', 0, .95)) + hearts(470, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="4" text-anchor="middle" font-size="16" fill="#5a8fbf">🔍</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '頭痛醫頭：只治表面，不除病根。',
+          html: scene(P(400, 302, A('kid', 'sad') + '<g fill="#f4d8b8" stroke="#d9b890" stroke-width="1.6"><rect x="-28" y="-68" width="14" height="9" rx="3" transform="rotate(-16)"/><rect x="14" y="-30" width="14" height="9" rx="3"/></g>', '', 0, 1.1) + sweat(500, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">頭痛醫頭</text>') }
+      ];
+    },
+    /* 輕重倒置 */
+    i743: function () {
+      return [
+        { minDur: 7000, sub: '天平上：一顆大石頭被放在小盤、一根羽毛卻佔了大盤——輕重整個放反了！',
+          html: scene(P(400, 296, '<line x1="0" y1="0" x2="0" y2="-64" stroke="#8a6a44" stroke-width="6" stroke-linecap="round"/><g transform="rotate(-14)"><line x1="-90" y1="-58" x2="90" y2="-58" stroke="#a8734a" stroke-width="5" stroke-linecap="round"/><path d="M-90 -58 l-14 22 h28 z" fill="#c9a06c"/><path d="M90 -58 l-14 22 h28 z" fill="#c9a06c"/><circle cx="-90" cy="-30" r="13" fill="#8b93a3"/><path d="M84 -34 q10 -8 14 -2 q-6 6 -14 2" fill="#fff" stroke="#c9bfa8" stroke-width="1.6"/></g>', '', 0, 1.1) +
+            P(240, 302, A('kid', 'wow'), '', 0, .95) + qmark(310, 195)) },
+        { minDur: 6800, sub: '「輕重倒置」：主次不分、順序弄反——芝麻小事拚命管，關鍵大事沒人顧！',
+          html: scene(P(320, 250, '<circle cx="0" cy="0" r="32" fill="#fff" opacity=".92"/><text x="0" y="-3" text-anchor="middle" font-size="10" fill="#c96a5a">小事</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#c96a5a">拚命管</text>', '', 0, 1.1) +
+            P(500, 260, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".85"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">大事</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#8b93a3">沒人顧</text>', '', 0, 1) +
+            P(400, 302, A('kid', 'sad'), '', 0, .98) + sweat(460, 210)) },
+        { minDur: 6800, sub: '考前熬夜整理超美筆記卻沒時間複習——先分清楚：什麼才是現在最重要的事！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-46, -52, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-6" text-anchor="middle" font-size="9" fill="#c96a5a">1.複習</text><text x="0" y="8" text-anchor="middle" font-size="9" fill="#8b93a3">2.美化</text>', '', 0, 1)) + hearts(470, 190) + bang(280, 200)) },
+        { minDur: 6400, sub: '輕重倒置：主次顛倒，緩急不分。',
+          html: scene(P(400, 296, '<line x1="0" y1="0" x2="0" y2="-64" stroke="#8a6a44" stroke-width="6" stroke-linecap="round"/><g transform="rotate(-14)"><line x1="-90" y1="-58" x2="90" y2="-58" stroke="#a8734a" stroke-width="5" stroke-linecap="round"/><circle cx="-90" cy="-34" r="13" fill="#8b93a3"/><path d="M84 -38 q10 -8 14 -2 q-6 6 -14 2" fill="#fff" stroke="#c9bfa8" stroke-width="1.6"/></g>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">輕重倒置</text>') }
+      ];
+    },
+    /* 本末倒置 */
+    i744: function () {
+      return [
+        { minDur: 7000, sub: '「本」是樹根、「末」是枝梢——把樹倒過來種，根朝天、葉朝地，怎麼活？',
+          html: scene(P(430, 302, '<g transform="rotate(180 0 -44)"><rect x="-8" y="-44" width="16" height="44" rx="6" fill="#a8734a"/><circle cx="0" cy="-64" r="34" fill="#79b56a"/><circle cx="-24" cy="-48" r="22" fill="#8cc47c"/><circle cx="24" cy="-48" r="22" fill="#8cc47c"/></g>', '', 0, 1.1) +
+            P(240, 302, A('kid', 'wow') + '<path d="M28 -50 l18 -6" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .98) + qmark(330, 180)) },
+        { minDur: 6800, sub: '「本末倒置」：把根本和枝節弄顛倒——朱熹書信裡就用它批評治學搞錯了重點！',
+          html: scene(P(320, 250, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><text x="0" y="-3" text-anchor="middle" font-size="10" fill="#548a40">本</text><text x="0" y="11" text-anchor="middle" font-size="8" fill="#548a40">根本</text>', '', 0, 1.1) +
+            P(490, 250, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".85"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#8b93a3">末</text><text x="0" y="11" text-anchor="middle" font-size="8" fill="#8b93a3">枝節</text>', '', 0, 1) +
+            '<path d="M360 250 q40 -30 90 0" stroke="#c96a5a" stroke-width="3" fill="none" stroke-dasharray="6 5"/><path d="M440 242 l10 8 -12 4" stroke="#c96a5a" stroke-width="2.6" fill="none"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, .98)) },
+        { minDur: 6800, sub: '重包裝輕品質、練球只挑帥動作不練基本功——都是本末倒置：根本才是地基！',
+          html: scene(P(340, 302, A('kid', 'sad') + P(-46, -52, '<rect x="-18" y="-14" width="36" height="28" rx="4" fill="#e8b93f" stroke="#c99a1e" stroke-width="2.4"/><path d="M-18 -2 h36 M0 -14 v26" stroke="#c96a5a" stroke-width="3"/><path d="M-6 -8 q6 -6 12 0" stroke="#c96a5a" stroke-width="3" fill="none"/>', '', 0, 1)) + qmark(440, 195) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">基本功</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">優先</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '本末倒置：根梢顛倒，主次全亂。',
+          html: scene(P(400, 302, '<g transform="rotate(180 0 -44)"><rect x="-8" y="-44" width="16" height="44" rx="6" fill="#a8734a"/><circle cx="0" cy="-64" r="34" fill="#79b56a"/><circle cx="-24" cy="-48" r="22" fill="#8cc47c"/><circle cx="24" cy="-48" r="22" fill="#8cc47c"/></g>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">本末倒置</text>') }
+      ];
+    },
+    /* 喧賓奪主 */
+    i745: function () {
+      return [
+        { minDur: 7000, sub: '主人正要致詞——客人卻跳上桌高歌一曲，鬧得全場只看他，主人晾在一旁！',
+          html: scene(P(300, 302, A('kid', 'sad') + '<path d="M28 -46 q10 0 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(520, 285, '<rect x="-50" y="0" width="100" height="17" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' + P(0, 0, A('kid', 'happy'), 'st-bob', 0, 1.05), '', 0, 1) + notes(600, 170) + sweat(240, 200)) },
+        { minDur: 6800, sub: '「喧賓奪主」：客人聲勢蓋過主人——引申為次要事物壓過了主角！',
+          html: scene(P(320, 250, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".85"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#8b93a3">主</text><text x="0" y="11" text-anchor="middle" font-size="8" fill="#8b93a3">被晾</text>', '', 0, .95) +
+            P(490, 240, '<circle cx="0" cy="0" r="34" fill="#ffe9a0"/><text x="0" y="-2" text-anchor="middle" font-size="12" fill="#8a5a33">賓</text><text x="0" y="13" text-anchor="middle" font-size="9" fill="#8a5a33">超大聲</text>', 'st-tw', 0, 1.1) +
+            P(400, 302, A('kid', 'wow'), '', 0, .98) + notes(560, 180)) },
+        { minDur: 6800, sub: '配樂太搶戲蓋過台詞、簡報動畫多到沒人看內容——別讓配角搶了主角的光！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-46, -54, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g class="st-tw"><path d="M-10 -12 l3 5 5 2 -5 2 -3 5 -3 -5 -5 -2 5 -2 z" fill="#e8b93f"/><path d="M6 -2 l3 5 5 2 -5 2 -3 5 -3 -5 -5 -2 5 -2 z" fill="#e8b93f"/></g>', '', 0, 1)) + qmark(450, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">內容</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">是主角</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '喧賓奪主：客聲奪席，次壓過主。',
+          html: scene(P(480, 285, '<rect x="-50" y="0" width="100" height="17" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' + P(0, 0, A('kid', 'happy'), 'st-bob', 0, 1.05), '', 0, 1.05) + notes(560, 175) +
+            P(270, 302, A('kid', 'sad'), '', 0, .92) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">喧賓奪主</text>') }
+      ];
+    },
+    /* 畫地自限 */
+    i746: function () {
+      return [
+        { minDur: 7000, sub: '漢代有「畫地為牢」的說法：在地上畫個圈當監獄——他卻自己畫圈把自己關進去！',
+          html: scene(P(400, 302, A('kid', 'sad') + P(30, -8, '<path d="M0 0 q10 6 16 4" stroke="#8a6a44" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.02) +
+            '<ellipse cx="400" cy="298" rx="86" ry="18" fill="none" stroke="#c96a5a" stroke-width="3.6" stroke-dasharray="10 7"/>') },
+        { minDur: 6800, sub: '圈外的世界很大，他卻搖頭：「我只能做到這裡」——線是自己畫的，不是別人攔的！',
+          html: scene(P(400, 302, A('kid', 'sad') + '<path d="M-14 -46 h28" stroke="#8b93a3" stroke-width="3" stroke-linecap="round"/>', '', 0, 1) +
+            '<ellipse cx="400" cy="298" rx="86" ry="18" fill="none" stroke="#c96a5a" stroke-width="3.6" stroke-dasharray="10 7"/>' +
+            P(620, 250, '<g class="st-tw"><path d="M0 0 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>', '', 0, 1.1) + P(170, 240, '<g class="st-tw"><circle cx="0" cy="0" r="10" fill="#8cc47c" opacity=".8"/></g>') + qmark(500, 200)) },
+        { minDur: 6800, sub: '「畫地自限」：自我設限、不求突破——「我數學就是不行」這句話，就是那個圈！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-hop', 0, 1.02) +
+            '<ellipse cx="320" cy="298" rx="70" ry="15" fill="none" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="10 7" opacity=".6"/>' +
+            P(560, 250, '<rect x="-24" y="-16" width="48" height="32" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-12 -4 l6 8 l14 -14" stroke="#548a40" stroke-width="3.4" fill="none" stroke-linecap="round"/>', '', 0, 1) + hearts(470, 185)) },
+        { minDur: 6400, sub: '畫地自限：自畫牢籠，不敢跨越。',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.05) +
+            '<ellipse cx="400" cy="298" rx="86" ry="18" fill="none" stroke="#c96a5a" stroke-width="3.6" stroke-dasharray="10 7"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">畫地自限</text>') }
+      ];
+    },
+    /* 故步自封 */
+    i747: function () {
+      return [
+        { minDur: 7000, sub: '《漢書》說學邯鄲走路的人「失其故步」——「故步自封」反過來：死守老步伐，把自己封起來！',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-14 -46 h28" stroke="#8b93a3" stroke-width="3" stroke-linecap="round"/>', '', 0, 1.02) +
+            '<g opacity=".6" stroke="#b59a6a" stroke-width="3" fill="none"><ellipse cx="330" cy="308" rx="14" ry="5"/><ellipse cx="368" cy="308" rx="14" ry="5"/><ellipse cx="330" cy="308" rx="14" ry="5"/></g>' +
+            P(580, 250, '<rect x="-26" y="-18" width="52" height="36" rx="4" fill="#e8d9b8" stroke="#b59a6a" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#8a5a33">老方法</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '同學都學了新解法，他擺手：「我用舊的就好」——原地踏步，別人早跑遠了！',
+          html: scene(P(300, 302, A('kid', 'sad') + '<path d="M-24 -44 l-10 0" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', 'st-bob', 0, 1) +
+            P(560, 302, A('kid', 'happy') + P(-40, -50, '<rect x="-13" y="-17" width="26" height="34" rx="3" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.2"/><text x="0" y="4" text-anchor="middle" font-size="9" fill="#fff">新!</text>', '', 0, .95), 'st-dashL', 0, 1, true) + sweat(370, 195)) },
+        { minDur: 6800, sub: '「故步自封」：安於現狀、不求進步——世界在動，站著不動就是後退！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#548a40">敢更新</text>', '', 0, 1.1), 'st-hop', 0, 1.02) +
+            '<path d="M470 260 q60 -20 120 -40" stroke="#548a40" stroke-width="3.6" fill="none" stroke-linecap="round"/><path d="M578 214 L590 220 L580 228" stroke="#548a40" stroke-width="3.2" fill="none"/>' + hearts(280, 195)) },
+        { minDur: 6400, sub: '故步自封：守舊不前，自我封閉。',
+          html: scene(P(400, 302, A('kid', 'sad'), 'st-bob', 0, 1.05) +
+            '<g opacity=".6" stroke="#b59a6a" stroke-width="3" fill="none"><ellipse cx="370" cy="308" rx="14" ry="5"/><ellipse cx="408" cy="308" rx="14" ry="5"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">故步自封</text>') }
+      ];
+    },
+    /* 墨守成規 */
+    i748: function () {
+      return [
+        { minDur: 7200, sub: '「墨守」原是誇獎：墨子守城，連擋公輸盤九波攻勢——善守之名，天下皆知！',
+          html: scene(P(430, 302, '<rect x="-70" y="-58" width="140" height="58" fill="#b5a988" stroke="#8f846a" stroke-width="3"/><g fill="#b5a988" stroke="#8f846a" stroke-width="2.6"><rect x="-70" y="-72" width="20" height="14"/><rect x="-30" y="-72" width="20" height="14"/><rect x="10" y="-72" width="20" height="14"/><rect x="50" y="-72" width="20" height="14"/></g>', '', 0, 1.05) +
+            P(430, 244, A('kid', 'angry') + '<path d="M-28 -56 l-14 -2" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .85) +
+            P(180, 302, A('kid', 'wow'), '', 0, .9) + bang(280, 230)) },
+        { minDur: 7000, sub: '但「墨守」加上「成規」就轉成貶義——守著現成規矩不放，就成了不知變通！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-46, -52, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#e8d9b8" stroke="#b59a6a" stroke-width="2.4"/><text x="0" y="-6" text-anchor="middle" font-size="9" fill="#8a5a33">規章</text><text x="0" y="8" text-anchor="middle" font-size="8" fill="#8a5a33">祖傳版</text>', '', 0, 1)) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">古褒</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8b93a3">今貶</text>', '', 0, 1) + qmark(460, 195)) },
+        { minDur: 6800, sub: '「墨守成規」：固守舊法、不知變通——規則是工具不是枷鎖，時代變了就該檢討！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#548a40">與時</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#548a40">俱進</text>', '', 0, .95), 'st-cheer', 0, 1.02) + hearts(470, 190) + bang(280, 200)) },
+        { minDur: 6400, sub: '墨守成規：固守舊章，不知權變。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-46, -52, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#e8d9b8" stroke="#b59a6a" stroke-width="2.4"/><text x="0" y="2" text-anchor="middle" font-size="9" fill="#8a5a33">舊規</text>', '', 0, 1), '', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">墨守成規</text>') }
+      ];
+    },
+    /* 抱殘守缺 */
+    i749: function () {
+      return [
+        { minDur: 7000, sub: '《漢書》批評有些儒生「保殘守缺」——抱著殘破的舊簡冊，聽不進任何新學問！',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-2, -34, '<g transform="rotate(-6)"><rect x="-20" y="-14" width="40" height="28" rx="3" fill="#e8d9b8" stroke="#b59a6a" stroke-width="2.4"/><path d="M12 -14 l8 8 -6 2 4 4 -8 0" fill="#f4ecd8" stroke="#b59a6a" stroke-width="1.6"/></g>', '', 0, 1.05), '', 0, 1.05) +
+            P(600, 250, '<rect x="-22" y="-15" width="44" height="30" rx="4" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#fff">新學</text>', 'st-tw', 0, 1) +
+            '<path d="M480 270 l30 -14" stroke="#c96a5a" stroke-width="3" stroke-linecap="round" stroke-dasharray="5 4"/>') },
+        { minDur: 6800, sub: '破了角的舊物他抱得死緊，新的看都不看——「抱殘守缺」：戀舊拒新、不肯革新！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-2, -34, '<g transform="rotate(-6)"><rect x="-20" y="-14" width="40" height="28" rx="3" fill="#e8d9b8" stroke="#b59a6a" stroke-width="2.4"/><path d="M-20 6 l6 -5 5 5 6 -5 5 5" stroke="#b59a6a" stroke-width="1.8" fill="none"/></g>', '', 0, 1.05) + '<path d="M-14 -50 h28" stroke="#8b93a3" stroke-width="3" stroke-linecap="round"/>', '', 0, 1.05) + sweat(470, 195) + qmark(270, 200)) },
+        { minDur: 6800, sub: '珍惜傳統沒有錯，錯在「拒絕更新」——老手藝加新創意，才能傳得下去！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-40, -46, '<rect x="-14" y="-12" width="28" height="24" rx="3" fill="#e8d9b8" stroke="#b59a6a" stroke-width="2.2"/><text x="0" y="5" text-anchor="middle" font-size="8" fill="#8a5a33">傳統</text>', '', 0, 1)) +
+            P(520, 302, A('kid', 'happy') + P(40, -46, '<rect x="-14" y="-12" width="28" height="24" rx="3" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.2"/><text x="0" y="5" text-anchor="middle" font-size="8" fill="#fff">創意</text>', '', 0, 1), '', 0, 1, true) +
+            '<path d="M370 250 q30 -18 60 0" stroke="#548a40" stroke-width="3" fill="none" stroke-linecap="round"/>' + hearts(420, 185)) },
+        { minDur: 6400, sub: '抱殘守缺：戀舊拒新，難以進步。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-2, -34, '<g transform="rotate(-6)"><rect x="-20" y="-14" width="40" height="28" rx="3" fill="#e8d9b8" stroke="#b59a6a" stroke-width="2.4"/><path d="M12 -14 l8 8 -6 2 4 4 -8 0" fill="#f4ecd8" stroke="#b59a6a" stroke-width="1.6"/></g>', '', 0, 1.05), '', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">抱殘守缺</text>') }
+      ];
     }
   };
 
