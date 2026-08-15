@@ -7196,6 +7196,116 @@
           html: scene(MTBIG + WINDPATH +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">峰迴路轉</text>') }
       ];
+    },
+    /* 無可厚非 */
+    i054: function () {
+      return [
+        { minDur: 7000, sub: '下大雨，小安遲到了十分鐘。有同學想責怪他，班長說：「風雨這麼大，遲到情有可原呀。」',
+          html: scene('<g stroke=\"#8fc6ff\" stroke-width=\"3.4\" stroke-linecap=\"round\"><line class=\"st-rain\" x1=\"160\" y1=\"30\" x2=\"154\" y2=\"52\"/><line class=\"st-rain\" style=\"animation-delay:.4s\" x1=\"330\" y1=\"16\" x2=\"324\" y2=\"38\"/></g>' +
+            P(300, 302, A('kid', 'sad')) + sweat(250, 195) +
+            P(520, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(420, 185)) },
+        { minDur: 6800, sub: '做法雖然不完美，但理由正當、可以理解——沒什麼好過分責備的！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .97, true) +
+            P(410, 190, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><path d="M-9 0 l6 7 l13 -13" stroke="#548a40" stroke-width="4" fill="none" stroke-linecap="round"/>')) },
+        { minDur: 6600, sub: '「無可厚非」：沒有什麼過分的地方，可以體諒——待人多一分寬容！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.02) + P(540, 302, A('kid', 'happy'), '', .2, .95) + hearts(450, 180)) },
+        { minDur: 6400, sub: '無可厚非：沒有什麼過分之處，可以理解。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><path d="M-10 0 l7 8 l14 -14" stroke="#548a40" stroke-width="4.4" fill="none" stroke-linecap="round"/>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">無可厚非</text>') }
+      ];
+    },
+    /* 雪上加霜 */
+    i248: function () {
+      var SNOWFX2 = '<g fill="#fff"><circle class="st-snow" cx="180" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1s" cx="380" cy="22" r="3.4"/><circle class="st-snow" style="animation-delay:.5s" cx="540" cy="38" r="4"/></g>';
+      return [
+        { minDur: 6800, sub: '出門就摔了一跤，褲子破了個洞——結果又下起大雪，全身濕透，冷上加冷！',
+          html: scene(SNOWFX2 + '<ellipse cx="400" cy="330" rx="420" ry="40" fill="#fff" opacity=".9"/>' +
+            P(360, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>') + sweat(300, 200) + bang(450, 230), 'night') },
+        { minDur: 6800, sub: '雪已經夠冷了，再加上一層霜——壞事一件接一件，處境更加艱難！',
+          html: scene(SNOWFX2 + '<ellipse cx="400" cy="330" rx="420" ry="40" fill="#fff" opacity=".95"/>' +
+            P(400, 300, A('kid', 'wow')) + sweat(340, 190) + qmark(470, 182), 'night') },
+        { minDur: 6800, sub: '朋友遇到「雪上加霜」的時候，一句安慰、一把雨傘，就是雪中送炭的溫暖！',
+          html: scene(SNOWFX2 + P(300, 302, A('kid', 'sad')) +
+            P(480, 302, A('kid', 'happy') + P(30, -70, '<path d="M0 -50 q-30 0 -34 22 q8 -8 17 0 q8 -8 17 0 q8 -8 17 0 q8 -8 17 0 q-4 -22 -34 -22 z" fill="#e85a4f" stroke="#c94a3f" stroke-width="2.4"/><line x1="0" y1="-28" x2="0" y2="8" stroke="#8b93a3" stroke-width="3.4"/>', '', 0, 1), '', 0, .98, true) + hearts(400, 190)) },
+        { minDur: 6400, sub: '雪上加霜：災禍接連而來，處境更加困難。',
+          html: scene(SNOWFX2 + '<ellipse cx="400" cy="330" rx="420" ry="40" fill="#fff" opacity=".95"/>' +
+            P(400, 300, A('kid', 'sad'), '', 0, 1.05) + sweat(340, 192) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">雪上加霜</text>', 'night') }
+      ];
+    },
+    /* 錦囊妙計 */
+    i249: function () {
+      var POUCH = '<path d="M-18 0 Q-24 -28 0 -34 Q24 -28 18 0 Z" fill="#c96a5a" stroke="#a84a3f" stroke-width="2.6"/>' +
+        '<path d="M-8 -34 q8 -6 16 0" stroke="#a84a3f" stroke-width="3" fill="none"/>' +
+        '<path d="M-10 -16 q10 6 20 0" stroke="#ffd97a" stroke-width="2.4" fill="none"/>' +
+        '<circle cx="0" cy="-24" r="3" fill="#ffd97a"/>';
+      var NOTE = '<rect x="-12" y="-16" width="24" height="32" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-6 -8 h12 M-6 0 h12 M-6 8 h8" stroke="#8fa3bf" stroke-width="1.8"/>';
+      return [
+        { minDur: 7000, sub: '《三國演義》裡，諸葛亮交給趙雲三個錦囊：「遇到危急，就依序打開！」',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M0 0 L-16 -34 A22 22 0 0 1 16 -34 Z" fill="#f4f1e8" stroke="#c9bfa8" stroke-width="2.4" transform="translate(-30,-40) scale(.9)"/>') +
+            P(500, 302, A('kid', 'angry') + P(-36, -50, POUCH, '', 0, .8), '', 0, .98, true) + hearts(410, 190)) },
+        { minDur: 7000, sub: '果然每次遇到絕境，一打開錦囊，裡面的妙計都剛好化險為夷——神機妙算！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(38, -60, POUCH, '', 0, .9)) +
+            P(470, 230, NOTE, '', 0, 1.1) + bang(560, 190) + hearts(280, 195)) },
+        { minDur: 6800, sub: '「錦囊妙計」：預先準備好的高明辦法——考前把重點整理成小卡，也是你的錦囊妙計！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -50, NOTE, '', 0, .95)) + hearts(450, 190)) },
+        { minDur: 6400, sub: '錦囊妙計：預先準備好的高明計策。',
+          html: scene(P(400, 290, POUCH, '', 0, 1.6) + P(520, 260, NOTE, '', 0, 1.1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">錦囊妙計</text>') }
+      ];
+    },
+    /* 掩人耳目 */
+    i253: function () {
+      var BOXCOVER = '<rect x="-26" y="-20" width="52" height="20" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><text x="0" y="-6" text-anchor="middle" font-size="11" fill="#4a3200">舊玩具</text>';
+      return [
+        { minDur: 6800, sub: '漫畫被媽媽發現會被收走——小聰把漫畫藏進寫著「舊玩具」的箱子裡，想騙過媽媽的眼睛。',
+          html: scene(P(430, 296, BOXCOVER, '', 0, 1.2) +
+            P(260, 302, A('kid', 'happy')) + qmark(340, 190) + sweat(200, 195)) },
+        { minDur: 6800, sub: '可是紙包不住火——媽媽整理房間一打開箱子，全露餡了！',
+          html: scene(P(430, 296, BOXCOVER, '', 0, 1.1) + bang(520, 220) +
+            P(600, 302, A('kid', 'angry'), '', 0, 1.02, true) +
+            P(260, 302, A('kid', 'wow')) + sweat(310, 192)) },
+        { minDur: 6800, sub: '「掩人耳目」：遮住別人的視聽、隱瞞真相——但謊言總有被拆穿的一天，誠實最好！',
+          html: scene(P(320, 302, A('kid', 'sad')) + P(500, 302, A('kid', 'happy'), '', 0, 1.02, true) + hearts(410, 185)) },
+        { minDur: 6400, sub: '掩人耳目：遮蔽別人的視聽，隱瞞真相。',
+          html: scene(P(400, 296, BOXCOVER, '', 0, 1.3) + qmark(520, 230) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">掩人耳目</text>') }
+      ];
+    },
+    /* 見義勇為 */
+    i255: function () {
+      return [
+        { minDur: 6800, sub: '公車上有人偷拿乘客的錢包！大家都看見了，卻不敢出聲……',
+          html: scene(P(300, 302, A('kid', 'happy') + P(40, -40, '<rect x="-10" y="-14" width="20" height="14" rx="4" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, .9)) +
+            P(500, 302, A('kid', 'wow'), '', 0, .93) + sweat(550, 195) + qmark(420, 182), 'night') },
+        { minDur: 6800, sub: '一位高年級的哥哥站了出來：「請把錢包還給人家！」同時請司機協助處理——勇敢又冷靜！',
+          html: scene(P(360, 302, A('kid', 'angry')) + bang(450, 182) +
+            P(560, 302, A('kid', 'sad'), '', 0, .95) + P(180, 302, A('kid', 'happy'), '', .2, .92) + hearts(270, 190)) },
+        { minDur: 6800, sub: '「見義勇為」：看到正義的事就勇敢去做——但記得也要保護自己、找大人幫忙！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(490, 188)) },
+        { minDur: 6400, sub: '見義勇為：看到合乎正義的事就勇敢去做。',
+          html: scene(P(400, 302, A('kid', 'angry'), '', 0, 1.05) + bang(490, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">見義勇為</text>') }
+      ];
+    },
+    /* 樂善好施 */
+    i256: function () {
+      var DONATEBOX = '<rect x="-24" y="-30" width="48" height="30" rx="4" fill="#e85a4f" stroke="#c94a3f" stroke-width="2.6"/><rect x="-10" y="-34" width="20" height="4" rx="2" fill="#c94a3f"/><path d="M-6 -14 q-8 -8 0 -10 q4 -1 6 4 q2 -5 6 -4 q8 2 0 10 l-6 6 z" fill="#fff"/>';
+      var COIN = '<circle cx="0" cy="0" r="8" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.2"/>';
+      return [
+        { minDur: 6800, sub: '巷口的麵店老闆常送熱湯給獨居的爺爺奶奶，還捐錢幫學校修圖書室——',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -46, '<path d="M-12 -6 q0 10 12 10 q12 0 12 -10 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.2"/>', '', 0, .95)) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95, true) + hearts(420, 185)) },
+        { minDur: 6800, sub: '有人問他為什麼？他笑笑：「幫助別人，自己心裡最快樂呀！」',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(450, 180) + hearts(280, 190)) },
+        { minDur: 6600, sub: '「樂善好施」：樂於行善、喜歡助人——小小的零錢捐款，也是大大的善意！',
+          html: scene(P(430, 296, DONATEBOX, '', 0, 1.2) + P(390, 240, COIN, '', 0, 1) +
+            P(260, 302, A('kid', 'happy')) + hearts(350, 200)) },
+        { minDur: 6400, sub: '樂善好施：樂於行善，喜歡施捨助人。',
+          html: scene(P(400, 296, DONATEBOX, '', 0, 1.3) + P(360, 240, COIN, '', 0, 1.05) + hearts(500, 220) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">樂善好施</text>') }
+      ];
     }
   };
 
