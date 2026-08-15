@@ -16103,6 +16103,153 @@
             '<path d="M380 260 q120 -80 170 -100" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>' +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">好高騖遠</text>') }
       ];
+    },
+    /* 始作俑者 */
+    i349: function () {
+      var PUPPET = '<rect x="-12" y="-30" width="24" height="38" rx="6" fill="#c9b26a" stroke="#a8905a" stroke-width="2.4"/><circle cx="0" cy="-38" r="10" fill="#c9b26a" stroke="#a8905a" stroke-width="2.4"/><line x1="-6" y1="-40" x2="-3" y2="-40" stroke="#6d5a33" stroke-width="2"/><line x1="3" y1="-40" x2="6" y2="-40" stroke="#6d5a33" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '「俑」是陪葬的人形木偶——孔子痛斥發明它的人：「始作俑者，其無後乎！」',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 290, PUPPET, '', 0, 1.2) + bang(430, 190)) },
+        { minDur: 6800, sub: '因為用「人形」陪葬，會讓人心越走越偏——第一個開這種壞頭的人，罪責最大！',
+          html: scene(P(400, 290, PUPPET, '', 0, 1.3) +
+            P(250, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#c96a5a">開了</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#c96a5a">壞頭</text>', '', 0, 1) + sweat(540, 220), 'night') },
+        { minDur: 6800, sub: '「始作俑者」：第一個做壞事、開惡例的人——注意：是貶義！不能拿來稱讚「首創者」！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#c96a5a">貶義!</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">≠讚美</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8b93a3">首創</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '始作俑者：首開惡例之人。',
+          html: scene(P(400, 292, PUPPET, '', 0, 1.3) + qmark(510, 230) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">始作俑者</text>') }
+      ];
+    },
+    /* 不恥下問 */
+    i601: function () {
+      return [
+        { minDur: 7000, sub: '有人問孔子：孔文子憑什麼諡號叫「文」？孔子答：他「敏而好學，不恥下問」！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(600, 188) + hearts(420, 190)) },
+        { minDur: 6800, sub: '部門主管彎下腰向新進實習生請教新軟體——「這個功能怎麼用？教教我！」',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/><path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(530, 302, A('kid', 'happy') + P(-40, -52, '<rect x="-13" y="-17" width="26" height="34" rx="3" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2"/><rect x="-9" y="-13" width="18" height="10" rx="1.6" fill="#d9e8d0"/>', '', 0, 1), '', 0, .95, true) + hearts(440, 185)) },
+        { minDur: 6800, sub: '「不恥下問」：不以向地位學問不如自己的人請教為恥——放下身段的人學得最快！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#548a40">請教</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '不恥下問：虛心求教，不以為恥。',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/>', '', 0, 1.05) +
+            P(530, 302, A('kid', 'happy'), '', 0, .93, true) + hearts(440, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不恥下問</text>') }
+      ];
+    },
+    /* 不學無術 */
+    i602: function () {
+      return [
+        { minDur: 7000, sub: '《漢書》評霍光：「不學亡術，闇於大理」——權傾一時卻不讀書，遇大事就看不清方向！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.08) + qmark(470, 185) +
+            P(580, 250, '<rect x="-24" y="-30" width="48" height="60" rx="3" fill="#c9bfa8" opacity=".5"/><line x1="-16" y1="-14" x2="16" y2="14" stroke="#c96a5a" stroke-width="3"/>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '「不學無術」：沒有學問、也沒本領——空有位子沒有本事，遲早出洋相！',
+          html: scene(P(400, 302, A('kid', 'wow'), 'st-bob', 0, 1.05) + sweat(320, 185) +
+            P(520, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="18" fill="#8b93a3">?</text>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '本事是最好的靠山——每天學一點真功夫，別讓「不學無術」四個字落到自己頭上！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '不學無術：胸無學問，身無本領。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + qmark(490, 185) +
+            P(580, 255, '<rect x="-22" y="-28" width="44" height="56" rx="3" fill="#c9bfa8" opacity=".5"/><line x1="-14" y1="-13" x2="14" y2="13" stroke="#c96a5a" stroke-width="3"/>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不學無術</text>') }
+      ];
+    },
+    /* 胸無點墨 */
+    i603: function () {
+      return [
+        { minDur: 6800, sub: '古人用「肚裡有墨水」形容有學問——輪到發言時，小墨腦中卻一片空白……',
+          html: scene(P(400, 302, A('kid', 'wow') + P(0, -60, '<path d="M-16 -8 q0 -14 16 -14 q16 0 16 14 l-3 14 q-13 8 -26 0 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.4" opacity=".9"/><text x="0" y="4" text-anchor="middle" font-size="12" fill="#c9bfa8">空</text>', '', 0, 1), '', 0, 1.05) + sweat(320, 185) + qmark(490, 182)) },
+        { minDur: 6800, sub: '「胸無點墨」：胸中沒有一點墨水、毫無學識——常用來自嘲：「我胸無點墨，獻醜了！」',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.02) +
+            P(540, 240, '<path d="M-14 -20 h28 l-4 34 q-10 6 -20 0 z" fill="#3a3550"/><path d="M-6 -26 q6 -6 12 0" stroke="#3a3550" stroke-width="3" fill="none"/>', '', 0, 1.1) + notes(280, 195)) },
+        { minDur: 6800, sub: '墨水是一頁一頁讀進去的——今天讀的每一段文字，都在幫你的胸中添墨！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95) + P(0, -60, '<path d="M-14 -7 q0 -12 14 -12 q14 0 14 12 l-3 12 q-11 7 -22 0 z" fill="#3a3550" opacity=".85"/>', '', 0, .9), '', 0, 1.05) + hearts(470, 190)) },
+        { minDur: 6400, sub: '胸無點墨：腹笥甚窘，毫無學識。',
+          html: scene(P(400, 302, A('kid', 'wow') + P(0, -60, '<path d="M-16 -8 q0 -14 16 -14 q16 0 16 14 l-3 14 q-13 8 -26 0 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.4" opacity=".9"/><text x="0" y="4" text-anchor="middle" font-size="12" fill="#c9bfa8">空</text>', '', 0, 1), '', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">胸無點墨</text>') }
+      ];
+    },
+    /* 一知半解 */
+    i604: function () {
+      return [
+        { minDur: 7000, sub: '《滄浪詩話》談領悟的深淺：有人悟得透澈，有人「但得一知半解之悟」——只懂了皮毛！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 240, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><path d="M0 -26 a26 26 0 0 1 0 52 z" fill="#c9d6e8"/><text x="-10" y="7" text-anchor="middle" font-size="12" fill="#548a40">知</text><text x="12" y="7" text-anchor="middle" font-size="12" fill="#8b93a3">?</text>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '規則只看了一半就上場比賽——犯規三次被判出局，隊友哭笑不得！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(38, -56, '<circle cx="0" cy="0" r="11" fill="#e0813f" stroke="#b85f24" stroke-width="2"/>', '', 0, 1)) + bang(450, 185) +
+            P(560, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .97, true) + sweat(300, 190)) },
+        { minDur: 6800, sub: '「一知半解」：了解不透澈——治它的藥方：多問一句「為什麼」，把半懂變全懂！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -60 l14 -20" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 220, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">為什麼</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">?</text>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6400, sub: '一知半解：略知皮毛，不夠透澈。',
+          html: scene(P(400, 250, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><path d="M0 -30 a30 30 0 0 1 0 60 z" fill="#c9d6e8"/><text x="-12" y="8" text-anchor="middle" font-size="14" fill="#548a40">知</text><text x="13" y="8" text-anchor="middle" font-size="14" fill="#8b93a3">?</text>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一知半解</text>') }
+      ];
+    },
+    /* 生吞活剝 */
+    i605: function () {
+      return [
+        { minDur: 7000, sub: '唐代張懷慶愛抄名士文章硬拼成詩——時人譏笑：「活剝王昌齡，生吞郭正一！」',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>' + P(-46, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/></g><line x1="-11" y1="-11" x2="11" y2="1" stroke="#c96a5a" stroke-width="2"/>', '', 0, .95), '', 0, 1.02) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95, true) + bang(450, 185)) },
+        { minDur: 6800, sub: '「生吞活剝」：生硬地抄襲模仿、囫圇吸收——公式死背不懂原理，題目一變就掛！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">背!背!</text>', '', 0, .95)) + sweat(290, 188) + qmark(470, 185)) },
+        { minDur: 6800, sub: '學東西要消化：讀懂、換句話說、用自己的例子講一遍——吸收了才是你的！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-8 0 l4 5 l10 -11" stroke="#548a40" stroke-width="2.4" fill="none"/>', '', 0, .95)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '生吞活剝：硬抄硬背，不加消化。',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><line x1="-11" y1="-12" x2="11" y2="0" stroke="#c96a5a" stroke-width="2"/>', '', 0, .95), '', 0, 1.05) + sweat(310, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">生吞活剝</text>') }
+      ];
+    },
+    /* 舉一隅不以三隅反 */
+    i606: function () {
+      var SQTABLE = '<rect x="-50" y="-30" width="100" height="60" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>';
+      return [
+        { minDur: 7000, sub: '孔子的教學原則：指出桌子的一個角，學生要能推想出其他三個角——推不出來就先不教了！',
+          html: scene(P(400, 275, SQTABLE, '', 0, 1.15) +
+            P(340, 240, '<circle cx="0" cy="0" r="8" fill="#c96a5a"/>', '', 0, 1) +
+            P(220, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '「舉一隅不以三隅反」：講了一角推不出三角——只會做例題，數字一換就不會了！',
+          html: scene(P(400, 275, SQTABLE, '', 0, 1.15) +
+            P(340, 240, '<circle cx="0" cy="0" r="8" fill="#c96a5a"/>', '', 0, 1) +
+            P(460, 240, '<text x="0" y="5" text-anchor="middle" font-size="16" fill="#8b93a3">?</text>', '', 0, 1) +
+            P(340, 312, '<text x="0" y="5" text-anchor="middle" font-size="16" fill="#8b93a3">?</text>', '', 0, 1) +
+            P(460, 312, '<text x="0" y="5" text-anchor="middle" font-size="16" fill="#8b93a3">?</text>', '', 0, 1) +
+            P(600, 302, A('kid', 'wow'), '', 0, .95, true) + sweat(660, 190)) },
+        { minDur: 6800, sub: '練「舉一反三」的方法：做完一題問自己「這招還能用在哪？」——把一個解法變成一把萬用鑰匙！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<path d="M-8 0 a8 8 0 1 1 8 -8 l14 0 l0 6 l-5 0 l0 5 l-5 0 l0 -5" stroke="#e8b93f" stroke-width="3" fill="none"/>', '', 0, 1.2)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">舉一</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">反三</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '舉一隅不以三隅反：不會類推。',
+          html: scene(P(400, 278, SQTABLE, '', 0, 1.15) +
+            P(340, 244, '<circle cx="0" cy="0" r="8" fill="#c96a5a"/>', '', 0, 1) +
+            P(460, 244, '<text x="0" y="5" text-anchor="middle" font-size="16" fill="#8b93a3">?</text>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="42" font-weight="bold" fill="#4a3200">舉一隅不以三隅反</text>') }
+      ];
+    },
+    /* 淺嘗輒止 */
+    i607: function () {
+      return [
+        { minDur: 6800, sub: '小止的興趣清單超長：學圍棋兩週、吉他一個月、滑板三天——每樣都只沾一下就放下！',
+          html: scene(P(360, 302, A('kid', 'happy')) +
+            P(220, 260, '<rect x="-20" y="-14" width="40" height="28" rx="3" fill="#e8d9a8" stroke="#b8a982" stroke-width="2" opacity=".6"/>', '', 0, 1) +
+            P(520, 250, '<g opacity=".6">' + QIN + '</g>', '', 0, 1.1) +
+            P(620, 280, '<rect x="-22" y="-6" width="44" height="10" rx="5" fill="#7fb2e0" opacity=".6"/><circle cx="-14" cy="8" r="5" fill="#3a2e26" opacity=".6"/><circle cx="14" cy="8" r="5" fill="#3a2e26" opacity=".6"/>', '', 0, 1) + zzz(280, 220)) },
+        { minDur: 6800, sub: '「輒」是「就」——「淺嘗輒止」：淺淺嘗一口就停，永遠停在入門的門口！',
+          html: scene(P(400, 280, '<path d="M-20 -6 h40 v5 q0 9 -20 9 q-20 0 -20 -9 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2.4"/><path d="M0 -12 q4 -8 0 -14" stroke="#c9bfa8" stroke-width="2.4" fill="none"/>', '', 0, 1.5) +
+            '<path d="M470 260 h70" stroke="#c96a5a" stroke-width="3.4"/><rect x="540" y="240" width="8" height="40" rx="3" fill="#c96a5a"/>' + qmark(300, 220)) },
+        { minDur: 6800, sub: '選一樣真心喜歡的，跨過「不好玩的撞牆期」——深挖下去，寶藏都埋在深處！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, 1, true) + sweat(300, 188) +
+            P(540, 300, '<path d="M-20 -8 L-10 -20 L10 -20 L20 -8 L0 14 Z" fill="#7fd4d4" stroke="#4aa8a8" stroke-width="2.4"/>', '', 0, 1.1) +
+            '<g class="st-tw"><path d="M580 260 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>') },
+        { minDur: 6400, sub: '淺嘗輒止：略試即停，不肯深入。',
+          html: scene(P(400, 285, '<path d="M-20 -6 h40 v5 q0 9 -20 9 q-20 0 -20 -9 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, 1.5) +
+            '<path d="M470 265 h70" stroke="#c96a5a" stroke-width="3.4"/><rect x="540" y="245" width="8" height="40" rx="3" fill="#c96a5a"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">淺嘗輒止</text>') }
+      ];
     }
   };
 
