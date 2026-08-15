@@ -9654,6 +9654,118 @@
           html: scene(flowerBub(330, 185, 0) + flowerBub(470, 178, .3) +
             '<text x="400" y="290" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">花言巧語</text>') }
       ];
+    },
+    /* 出類拔萃 */
+    i287: function () {
+      function sprout4(x, y, h, color) {
+        return P(x, y, '<line x1="0" y1="0" x2="0" y2="' + (-h) + '" stroke="' + (color || '#5f8a46') + '" stroke-width="4"/><path d="M0 ' + (-h) + ' q-8 -8 -4 -14 M0 ' + (-h) + ' q8 -8 4 -14" stroke="' + (color === '#e0a458' ? '#ffd97a' : '#7cc47f') + '" stroke-width="4" fill="none" stroke-linecap="round"/>');
+      }
+      return [
+        { minDur: 7000, sub: '孟子稱讚孔子「出於其類，拔乎其萃」——像草叢中特別高的那一株，遠遠超出同類！',
+          html: scene(sprout4(260, 320, 22) + sprout4(340, 322, 26) + sprout4(420, 318, 58, '#e0a458') + sprout4(500, 322, 24) + sprout4(580, 320, 20) +
+            P(160, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .92)) },
+        { minDur: 6800, sub: '科展、演講、球賽——各領域最出色的那個人，總是一眼就能認出來！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, A('kid', 'happy') + P(0, -104, '<circle cx="0" cy="0" r="12" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.6"/><text x="0" y="4" text-anchor="middle" font-size="11" font-weight="bold" fill="#8a5a33">1</text>', '', 0, 1.1), '', 0, 1.02) +
+            P(200, 302, A('kid', 'happy'), '', 0, .86) + P(620, 302, A('kid', 'happy'), '', .2, .86, true) + hearts(400, 150)) },
+        { minDur: 6600, sub: '「出類拔萃」：才能超出同類之上——持續深耕自己的強項，你也能出類拔萃！',
+          html: scene(sprout4(300, 320, 24) + sprout4(400, 318, 60, '#e0a458') + sprout4(500, 322, 26) + hearts(400, 200)) },
+        { minDur: 6400, sub: '出類拔萃：才能超出同類之上。',
+          html: scene(sprout4(280, 320, 22) + sprout4(400, 318, 62, '#e0a458') + sprout4(520, 322, 24) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">出類拔萃</text>') }
+      ];
+    },
+    /* 名副其實 */
+    i288: function () {
+      return [
+        { minDur: 6800, sub: '招牌寫著「甜死人不償命西瓜」——切開一咬，果然甜得像蜜！名字和實際完全相符！',
+          html: scene(P(430, 290, '<path d="M-30 0 a30 30 0 0 1 60 0 z" fill="#e85a4f" stroke="#548a40" stroke-width="5"/><g fill="#3a2e26"><circle cx="-12" cy="-8" r="2"/><circle cx="2" cy="-14" r="2"/><circle cx="14" cy="-6" r="2"/></g>', '', 0, 1.4) +
+            P(240, 302, A('kid', 'happy')) + hearts(340, 200)) },
+        { minDur: 6800, sub: '「副」是相稱、符合——名聲配得上實力，就是「名副其實」；配不上，就是「名不副實」！',
+          html: scene(P(320, 220, '<rect x="-40" y="-20" width="80" height="40" rx="5" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#4a3200">名</text>') +
+            '<text x="400" y="228" text-anchor="middle" font-size="24" fill="#548a40">＝</text>' +
+            P(480, 220, '<rect x="-40" y="-20" width="80" height="40" rx="5" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="15" fill="#4a3200">實</text>')) },
+        { minDur: 6800, sub: '被稱作「模範生」就把功課、品行都顧好——用行動讓稱號名副其實！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(490, 188) +
+            P(400, 190, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><path d="M-8 0 l5 6 l12 -12" stroke="#548a40" stroke-width="3.6" fill="none" stroke-linecap="round"/>')) },
+        { minDur: 6400, sub: '名副其實：名聲與實際相符。',
+          html: scene(P(320, 225, '<rect x="-36" y="-18" width="72" height="36" rx="5" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="14" fill="#4a3200">名</text>') +
+            '<text x="400" y="232" text-anchor="middle" font-size="22" fill="#548a40">＝</text>' +
+            P(480, 225, '<rect x="-36" y="-18" width="72" height="36" rx="5" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="14" fill="#4a3200">實</text>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">名副其實</text>') }
+      ];
+    },
+    /* 首屈一指 */
+    i289: function () {
+      var THUMB = '<path d="M-8 20 q-8 -4 -8 -16 l0 -14 q0 -18 8 -22 q6 -3 8 4 l2 10 q8 -2 10 6 q2 6 -2 10 q3 4 0 9 q-3 5 -8 5 q-2 6 -10 8 z" fill="#ffe3c1" stroke="#eec39a" stroke-width="2.4"/>';
+      return [
+        { minDur: 6800, sub: '扳指頭數強者，第一個彎下的是大拇指——「首屈一指」就是排第一的意思！',
+          html: scene(P(400, 230, THUMB, '', 0, 1.6) + bang(510, 190) +
+            P(240, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6800, sub: '說到珍珠奶茶，台灣首屈一指；說到動畫電影，這家工作室世界首屈一指！',
+          html: scene(P(320, 280, '<path d="M-12 -30 L-9 8 Q0 12 9 8 L12 -30 Z" fill="#e8c48f" stroke="#c9a066" stroke-width="2.4"/><line x1="4" y1="-38" x2="8" y2="-10" stroke="#8b93a3" stroke-width="3.4"/><g fill="#3a2e26"><circle cx="-4" cy="2" r="2.6"/><circle cx="3" cy="-4" r="2.6"/><circle cx="-1" cy="-12" r="2.6"/></g>', '', 0, 1.3) +
+            P(520, 302, A('kid', 'happy'), '', 0, .97) + hearts(430, 200)) },
+        { minDur: 6600, sub: '「首屈一指」：位居第一、最為優秀——每個領域都有它的第一名！',
+          html: scene(P(400, 235, THUMB, '', 0, 1.5) + hearts(510, 210)) },
+        { minDur: 6400, sub: '首屈一指：位居第一，最為優秀。',
+          html: scene(P(400, 238, THUMB, '', 0, 1.6) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">首屈一指</text>') }
+      ];
+    },
+    /* 出神入化 */
+    i290: function () {
+      return [
+        { minDur: 6800, sub: '布袋戲大師的雙手一動：戲偶會翻跟斗、耍刀槍、甩頭髮——像活過來一樣！',
+          html: scene(P(400, 250, '<rect x="-16" y="-24" width="32" height="34" rx="5" fill="#c96a5a" stroke="#a84a3f" stroke-width="2.4"/><circle cx="0" cy="-34" r="12" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/><path d="M-10 -42 q10 -8 20 0" fill="#3a2e26"/>', 'st-hop', 0, 1.2) +
+            P(240, 302, A('kid', 'wow'), '', 0, .92) + bang(520, 200) + hearts(320, 210)) },
+        { minDur: 6800, sub: '技藝精妙到彷彿有神相助、化境天成——「出神入化」是形容技藝的最高等級！',
+          html: scene(P(400, 220, '<g class="st-tw"><path d="M0 -16 L4 -5 L16 -5 L6 3 L10 15 L0 8 L-10 15 L-6 3 L-16 -5 L-4 -5 Z" fill="#ffd97a"/></g>', '', 0, 1.6) +
+            P(260, 302, A('kid', 'happy'), '', 0, .95) + hearts(500, 240)) },
+        { minDur: 6800, sub: '從生疏到熟練、從熟練到精妙——出神入化的背後，是幾十年如一日的苦練！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.02) + sweat(300, 192) +
+            '<path d="M260 250 L360 220 L460 190 L560 150" stroke="#548a40" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M560 150 l-13 -3 l7 12 z" fill="#548a40"/>') },
+        { minDur: 6400, sub: '出神入化：技藝高妙到了極點。',
+          html: scene(P(400, 225, '<g class="st-tw"><path d="M0 -18 L4 -6 L17 -6 L7 3 L11 16 L0 9 L-11 16 L-7 3 L-17 -6 L-4 -6 Z" fill="#ffd97a"/></g>', '', 0, 1.7) +
+            '<text x="400" y="310" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">出神入化</text>') }
+      ];
+    },
+    /* 爐火純青 */
+    i291: function () {
+      var FURNACE = '<path d="M-30 0 L-26 -44 L26 -44 L30 0 Z" fill="#8a7a5a" stroke="#6d6044" stroke-width="2.6"/><rect x="-18" y="-16" width="36" height="16" rx="3" fill="#4a4238"/>' +
+        '<g class="st-flick"><path d="M0 -18 q-10 -12 0 -24 q2 7 7 9 q5 -5 4 -10 q8 9 1 20 q-6 7 -12 5 z" fill="#7fd0e8"/></g>';
+      return [
+        { minDur: 7000, sub: '傳說道士煉丹：爐火從紅色燒到最高溫時，會變成純粹的青色——那是功候最到家的時刻！',
+          html: scene(P(400, 300, FURNACE, '', 0, 1.3) +
+            P(220, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .92) + qmark(520, 200)) },
+        { minDur: 6800, sub: '書法家的筆力、老師傅的刀工、演奏家的琴音——練到精純完美，就是「爐火純青」！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(24, -44, '<line x1="0" y1="0" x2="14" y2="-34" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 0 q-3 6 -1 11 q4 -2 5 -8 z" fill="#3a2e26"/>', '', 0, 1)) +
+            P(520, 302, A('kid', 'happy') + P(38, -34, QIN, '', 0, .8), '', 0, .97) + notes(430, 180) + hearts(600, 200)) },
+        { minDur: 6600, sub: '它和「出神入化」「登峰造極」都是頂級讚美——留給真正下過苦功的人！',
+          html: scene(P(400, 300, FURNACE, '', 0, 1.25) + hearts(520, 230)) },
+        { minDur: 6400, sub: '爐火純青：功夫修養達到精純完美。',
+          html: scene(P(400, 300, FURNACE, '', 0, 1.35) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">爐火純青</text>') }
+      ];
+    },
+    /* 登峰造極 */
+    i292: function () {
+      var PEAK = '<path d="M-150 0 L0 -190 L150 0 Z" fill="#8fb0a0"/><path d="M0 -190 L-22 -160 L0 -150 L24 -158 Z" fill="#eef4f0"/>';
+      var FLAGPEAK = '<line x1="0" y1="0" x2="0" y2="-34" stroke="#a8734a" stroke-width="3.4"/><path d="M0 -34 h22 l-6 6 l6 6 h-22 z" fill="#e85a4f"/>';
+      return [
+        { minDur: 6800, sub: '登山家攀上世界最高峰，在峰頂插上旗幟——腳下是雲海，已無更高處！',
+          html: scene(P(400, 302, PEAK) + P(400, 112, FLAGPEAK) +
+            P(430, 130, A('kid', 'happy'), '', 0, .6) +
+            '<ellipse cx="200" cy="260" rx="150" ry="26" fill="#fff" opacity=".7"/><ellipse cx="620" cy="275" rx="160" ry="28" fill="#fff" opacity=".65"/>') },
+        { minDur: 6800, sub: '「登峰造極」：攀登頂峰、到達極點——形容成就或技藝達到最高境界！',
+          html: scene(P(400, 302, PEAK, '', 0, .95) + P(400, 125, FLAGPEAK) + bang(510, 130) + hearts(280, 180)) },
+        { minDur: 6800, sub: '每個領域的大師都曾是初學者——一步步往上爬，終有登峰造極的一天！',
+          html: scene(P(400, 302, PEAK, '', 0, .9) +
+            P(280, 296, A('kid', 'happy'), 'st-strut', 0, .85) +
+            '<path d="M300 280 Q360 200 395 140" stroke="#e8dcc0" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="10 9"/>') },
+        { minDur: 6400, sub: '登峰造極：達到最高的境界或成就。',
+          html: scene(P(400, 302, PEAK) + P(400, 112, FLAGPEAK) +
+            '<text x="400" y="70" text-anchor="middle" font-size="48" font-weight="bold" fill="#4a3200">登峰造極</text>') }
+      ];
     }
   };
 
