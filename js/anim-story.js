@@ -7865,6 +7865,135 @@
           html: scene(P(400, 302, A('kid', 'happy') + DANCEBROWS, '', 0, 1.12) + hearts(490, 186) + notes(300, 184) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">眉飛色舞</text>') }
       ];
+    },
+    /* 千叮萬囑 */
+    i832: function () {
+      function bub6(x, y, txt, dly) {
+        return P(x, y, '<g class="st-zfloat"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M-26 -13 a22 16 0 1 1 44 5 q-2 6 -9 7 l-9 8 l1 -8 q-22 -2 -27 -12 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>' +
+          '<text x="-3" y="-3" text-anchor="middle" font-size="10" fill="#8a7a4a">' + txt + '</text></g>');
+      }
+      return [
+        { minDur: 6800, sub: '第一次自己搭車去奶奶家——媽媽在車站說了又說：「要看好站牌！別跟陌生人走！到了打電話！」',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, 1.05) +
+            bub6(240, 170, '看好站牌', 0) + bub6(370, 145, '打電話!', .3) + bub6(480, 175, '小心喔', .6) +
+            P(540, 302, A('kid', 'happy') + P(-38, -30, '<rect x="-14" y="-16" width="28" height="20" rx="4" fill="#5c82ba" stroke="#46689a" stroke-width="2.4"/>', '', 0, .95), '', 0, .95)) },
+        { minDur: 6800, sub: '一句話叮嚀一千遍一萬遍——因為放不下心呀！這就是「千叮萬囑」。',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.05) + bub6(300, 165, '記得喔', 0) + bub6(450, 175, '要小心', .4) + hearts(400, 230)) },
+        { minDur: 6800, sub: '小朋友平安抵達、立刻回電報平安——不辜負每一句叮嚀，就是最好的回報！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -56, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '千叮萬囑：一再叮嚀交代，非常不放心。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + bub6(320, 168, '……', 0) + bub6(470, 172, '……', .3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千叮萬囑</text>') }
+      ];
+    },
+    /* 精打細算 */
+    i833: function () {
+      var ABACUS = '<rect x="-30" y="-22" width="60" height="44" rx="5" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>' +
+        '<g stroke="#a8734a" stroke-width="1.8"><line x1="-30" y1="-8" x2="30" y2="-8"/><line x1="-20" y1="-22" x2="-20" y2="22"/><line x1="-7" y1="-22" x2="-7" y2="22"/><line x1="7" y1="-22" x2="7" y2="22"/><line x1="20" y1="-22" x2="20" y2="22"/></g>' +
+        '<g fill="#8a5a33"><circle cx="-20" cy="-14" r="3.4"/><circle cx="-7" cy="-14" r="3.4"/><circle cx="7" cy="-14" r="3.4"/><circle cx="-20" cy="2" r="3.4"/><circle cx="-20" cy="10" r="3.4"/><circle cx="-7" cy="6" r="3.4"/><circle cx="20" cy="4" r="3.4"/></g>';
+      return [
+        { minDur: 6800, sub: '班級旅行預算有限——總務股長撥著算盤精算：車錢、門票、保險，每一塊錢都花在刀口上！',
+          html: scene(P(430, 270, ABACUS, '', 0, 1.2) +
+            P(260, 302, A('kid', 'happy')) + qmark(340, 195)) },
+        { minDur: 6800, sub: '貨比三家、集體訂票打折——省下的錢還能多加一站景點！大家鼓掌叫好！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(470, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .95) + hearts(390, 175) + bang(560, 195)) },
+        { minDur: 6600, sub: '「精打細算」：精細地計劃盤算、不浪費一分一毫——會理財的人從小養成！',
+          html: scene(P(400, 268, ABACUS, '', 0, 1.25) + hearts(530, 220)) },
+        { minDur: 6400, sub: '精打細算：精細盤算，不浪費分毫。',
+          html: scene(P(400, 270, ABACUS, '', 0, 1.3) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">精打細算</text>') }
+      ];
+    },
+    /* 開源節流 */
+    i834: function () {
+      var FAUCET = '<path d="M-20 -20 h24 q10 0 10 10 l0 6 h-10 l0 -4 q0 -4 -4 -4 h-20 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/><path d="M4 0 q-1 8 2 12 q4 -2 3 -10 z" fill="#8fc6ff"/>';
+      var COIN = '<circle cx="0" cy="0" r="9" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/>';
+      var SPRING = '<path d="M0 0 q-6 -16 4 -22 q10 -6 16 4" stroke="#8fc6ff" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="0" cy="4" r="10" fill="#a8d4ee"/>';
+      return [
+        { minDur: 6800, sub: '「開源」像挖一道新泉水：擺攤賣手作、回收換零錢——讓收入的來源變多！',
+          html: scene(P(300, 290, SPRING, '', 0, 1.3) + P(430, 288, COIN, '', .2, 1.1) + P(470, 284, COIN, '', .3, 1) +
+            P(180, 302, A('kid', 'happy'), '', 0, .95) + hearts(260, 210)) },
+        { minDur: 6800, sub: '「節流」像關緊水龍頭：隨手關燈、自帶水壺——讓支出慢慢變少！',
+          html: scene(P(430, 260, FAUCET, '', 0, 1.4) +
+            P(250, 302, A('kid', 'happy')) + hearts(340, 200)) },
+        { minDur: 6800, sub: '收入多一點、支出省一點，撲滿越來越重——「開源節流」是理財的第一課！',
+          html: scene(P(400, 302, '<ellipse cx="0" cy="-16" rx="24" ry="18" fill="#f7a8c4" stroke="#e07ba3" stroke-width="2.6"/><circle cx="-20" cy="-24" r="7" fill="#f7a8c4" stroke="#e07ba3" stroke-width="2"/><rect x="-5" y="-36" width="12" height="3.4" rx="1.7" fill="#c95a83"/><circle cx="-14" cy="-26" r="1.8" fill="#3a2e26"/>', '', 0, 1.3) +
+            P(360, 230, COIN, '', 0, 1) + hearts(500, 220)) },
+        { minDur: 6400, sub: '開源節流：開拓收入、節省支出。',
+          html: scene(P(300, 280, SPRING, '', 0, 1.2) + P(500, 262, FAUCET, '', 0, 1.2) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">開源節流</text>') }
+      ];
+    },
+    /* 忍氣吞聲 */
+    i835: function () {
+      return [
+        { minDur: 6800, sub: '排隊被插隊，小忍氣得臉都紅了——卻怕惹麻煩，把到嘴邊的話又吞了回去……',
+          html: scene(P(360, 302, A('kid', 'angry') + '<ellipse cx="-15" cy="-44" rx="7" ry="5" fill="#ff9c8a"/><ellipse cx="15" cy="-44" rx="7" ry="5" fill="#ff9c8a"/>') +
+            P(520, 302, A('kid', 'happy'), '', 0, .95) + sweat(300, 192)) },
+        { minDur: 6800, sub: '把怒氣硬憋著、話往肚裡吞——「忍氣吞聲」久了，心裡會很委屈！',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.05) + sweat(330, 192) + qmark(480, 182)) },
+        { minDur: 6800, sub: '其實可以好好說：「請排隊喔！」——有禮貌地表達，比悶著更勇敢、更有用！',
+          html: scene(P(320, 302, A('kid', 'happy')) + bang(410, 185) +
+            P(520, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(430, 210)) },
+        { minDur: 6400, sub: '忍氣吞聲：忍住怒氣，話吞回去不敢發作。',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.05) + sweat(330, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">忍氣吞聲</text>') }
+      ];
+    },
+    /* 心平氣和 */
+    i836: function () {
+      var CALMHEART = '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#a5d47c"/>';
+      return [
+        { minDur: 6800, sub: '桌遊輸了，小和差點要發火——他停三秒、深呼吸：「沒關係，再來一局！」',
+          html: scene(P(360, 302, A('kid', 'happy')) +
+            P(500, 260, '<rect x="-24" y="-18" width="48" height="30" rx="4" fill="#a5c8ff" stroke="#5c82ba" stroke-width="2.6"/>') +
+            P(240, 200, CALMHEART, '', 0, 1.2) + hearts(430, 195)) },
+        { minDur: 6800, sub: '同學起爭執，他也心平氣和當和事佬：「先聽對方說完，再輪流講。」',
+          html: scene(P(300, 302, A('kid', 'angry'), '', 0, .93) + P(520, 302, A('kid', 'angry'), '', 0, .93, true) +
+            P(410, 302, A('kid', 'happy'), '', 0, 1.02) + hearts(410, 180)) },
+        { minDur: 6600, sub: '「心平氣和」：心情平靜、態度溫和——冷靜的人最有力量！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + P(400, 195, CALMHEART, '', 0, 1.5) + hearts(500, 220)) },
+        { minDur: 6400, sub: '心平氣和：心情平靜、態度溫和。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) + P(400, 198, CALMHEART, '', 0, 1.6) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">心平氣和</text>') }
+      ];
+    },
+    /* 神清氣爽 */
+    i837: function () {
+      return [
+        { minDur: 6800, sub: '清晨的山上空氣涼涼的、混著草香——深深吸一口，整個腦袋都醒過來了！',
+          html: scene(P(600, 302, '<path d="M-110 0 L0 -130 L110 0 Z" fill="#a5c2b2"/>') +
+            P(300, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(400, 190) +
+            '<g stroke="#e8f4fb" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"><path class="st-windln" d="M150 160 q50 -12 100 0"/></g>') },
+        { minDur: 6800, sub: '睡飽起床、洗把冷水臉，也會神清氣爽——精神清朗、心情舒暢！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) +
+            P(500, 240, '<g class="st-tw"><path d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#ffd97a"/></g>', '', 0, 1.2) + hearts(280, 195)) },
+        { minDur: 6600, sub: '運動流汗後沖個澡、房間整理乾淨後坐下來——都是「神清氣爽」的時刻！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + hearts(500, 190) + notes(300, 185)) },
+        { minDur: 6400, sub: '神清氣爽：精神清朗、心情舒暢。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) + hearts(490, 188) +
+            P(320, 220, '<g class="st-tw"><path d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#ffd97a"/></g>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">神清氣爽</text>') }
+      ];
+    },
+    /* 千載難逢 */
+    i838: function () {
+      var COMET2 = '<g class="st-fly"><circle cx="0" cy="0" r="10" fill="#ffe9a0" stroke="#ffd97a" stroke-width="2"/><path d="M7 -5 q44 -20 84 -24 M8 2 q46 -6 86 -4 M6 8 q42 9 78 18" stroke="#ffe9a0" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/></g>';
+      return [
+        { minDur: 6800, sub: '新聞說：今晚的大彗星，要再等七十六年才會回來！全家搬著椅子上頂樓等待——',
+          html: scene(P(400, 110, COMET2, '', 0, 1.1) +
+            P(300, 302, A('kid', 'wow')) + P(460, 302, A('kid', 'happy'), '', .2, 1.02) + hearts(390, 200), 'night') },
+        { minDur: 6800, sub: '「千載」是一千年——一千年才遇得到一次的機會，千萬別錯過！',
+          html: scene(P(430, 120, COMET2, '', 0, 1.2) + bang(560, 170) +
+            P(300, 302, A('kid', 'happy')) + hearts(400, 210), 'night') },
+        { minDur: 6800, sub: '奧運在自己的城市舉辦、和偶像面對面——遇上千載難逢的機會，勇敢抓住它！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + hearts(460, 185) + bang(280, 192)) },
+        { minDur: 6400, sub: '千載難逢：機會極為難得。',
+          html: scene(P(400, 130, COMET2, '', 0, 1.25) +
+            '<text x="400" y="280" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">千載難逢</text>', 'night') }
+      ];
     }
   };
 
