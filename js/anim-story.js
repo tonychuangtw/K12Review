@@ -7760,6 +7760,111 @@
           html: scene(P(400, 302, BARETREE, '', 0, 1.15) + P(390, 195, APPLE2, '', 0, 1.2) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">碩果僅存</text>') }
       ];
+    },
+    /* 從容不迫 */
+    i469: function () {
+      return [
+        { minDur: 6800, sub: '演講比賽突然停電、麥克風沒聲音——台上的小容不慌不忙，清清嗓子直接開講！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, A('kid', 'happy'), '', 0, 1.02) + bang(280, 190) +
+            P(600, 302, A('kid', 'wow'), '', 0, .88) + sweat(650, 200), 'night') },
+        { minDur: 6800, sub: '聲音穩、步調穩，反而讓全場聽得更專注——評審豎起大拇指！',
+          html: scene(P(400, 288, A('kid', 'happy'), '', 0, 1.05) + hearts(490, 190) +
+            P(200, 302, A('kid', 'happy'), '', 0, .9) + notes(300, 185)) },
+        { minDur: 6600, sub: '「從容不迫」：鎮定沉著、不慌不忙——大將之風就是這樣！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + hearts(500, 190)) },
+        { minDur: 6400, sub: '從容不迫：鎮定沉著，不慌不忙。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">從容不迫</text>') }
+      ];
+    },
+    /* 手足無措 */
+    i470: function () {
+      return [
+        { minDur: 6800, sub: '第一次上台抽背課文，小措腦中一片空白——手不知道放哪、腳不知道站哪！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, A('kid', 'wow'), '', 0, 1.02) + sweat(330, 185) + sweat(470, 188) + qmark(400, 155)) },
+        { minDur: 6800, sub: '慌張得不知如何是好——「手足無措」！深呼吸三秒，先想起第一句就好。',
+          html: scene(P(400, 288, A('kid', 'wow'), '', 0, 1.05) + sweat(340, 185) +
+            P(200, 302, A('kid', 'happy'), '', 0, .9) + hearts(280, 195)) },
+        { minDur: 6800, sub: '定下心來，一句接一句流暢背完——原來慌張才是最大的敵人！',
+          html: scene(P(400, 288, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(490, 188) + notes(310, 182)) },
+        { minDur: 6400, sub: '手足無措：慌張得不知如何是好。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.08) + sweat(330, 188) + sweat(470, 190) + qmark(400, 158) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">手足無措</text>') }
+      ];
+    },
+    /* 若無其事 */
+    i471: function () {
+      return [
+        { minDur: 6800, sub: '躲貓貓時，小若就藏在窗簾後——鬼走過來了，他屏住呼吸、臉上裝作什麼都沒發生……',
+          html: scene(P(300, 302, '<rect x="-30" y="-110" width="60" height="110" rx="6" fill="#c9a8e0" opacity=".85"/>' +
+              P(0, 0, A('kid', 'happy'), '', 0, .9)) +
+            P(540, 302, A('kid', 'wow'), 'st-strut', 0, .95) + qmark(600, 188)) },
+        { minDur: 6800, sub: '打翻了水卻假裝沒事繼續看書？——「若無其事」有時是鎮定，有時卻是裝傻喔！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95)) +
+            P(480, 318, '<ellipse cx="0" cy="0" rx="30" ry="8" fill="#a8d4ee" opacity=".8"/>') + qmark(560, 200)) },
+        { minDur: 6600, sub: '「若無其事」：好像沒發生事情一樣、不動聲色——用在鎮定是本事，用在闖禍要反省！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + notes(490, 185)) },
+        { minDur: 6400, sub: '若無其事：好像沒發生事情，不動聲色。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + notes(490, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">若無其事</text>') }
+      ];
+    },
+    /* 屏氣凝神 */
+    i472: function () {
+      var DOMINO = '<g stroke-width="2"><rect x="-40" y="-20" width="8" height="24" rx="2" fill="#e85a4f" stroke="#c94a3f" transform="rotate(-6 -36 -8)"/><rect x="-22" y="-20" width="8" height="24" rx="2" fill="#5c82ba" stroke="#46689a" transform="rotate(-3 -18 -8)"/><rect x="-4" y="-20" width="8" height="24" rx="2" fill="#6fae58" stroke="#548a40"/><rect x="14" y="-20" width="8" height="24" rx="2" fill="#e0a458" stroke="#c08838" transform="rotate(3 18 -8)"/><rect x="32" y="-20" width="8" height="24" rx="2" fill="#c9a8e0" stroke="#a884c4" transform="rotate(6 36 -8)"/></g>';
+      return [
+        { minDur: 6800, sub: '骨牌排到最後一張了！小凝屏住呼吸、集中精神，手指穩穩放下——',
+          html: scene(P(430, 300, DOMINO, '', 0, 1.3) +
+            P(260, 302, A('kid', 'happy')) + sweat(210, 195)) },
+        { minDur: 6800, sub: '大氣都不敢出——「屏氣」是憋住呼吸、「凝神」是集中精神，關鍵時刻就要這樣！',
+          html: scene(P(430, 300, DOMINO, '', 0, 1.25) +
+            '<circle cx="400" cy="250" r="100" fill="none" stroke="#ffd97a" stroke-width="3" stroke-dasharray="10 10" opacity=".7"/>' +
+            P(250, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6800, sub: '成功了！三千張骨牌嘩啦啦漂亮倒下，全場歡呼！',
+          html: scene(P(430, 300, DOMINO, '', 0, 1.2) + bang(560, 210) +
+            P(250, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(340, 195)) },
+        { minDur: 6400, sub: '屏氣凝神：屏住呼吸，集中精神。',
+          html: scene(P(400, 300, DOMINO, '', 0, 1.35) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">屏氣凝神</text>') }
+      ];
+    },
+    /* 聚沙成塔 */
+    i473: function () {
+      var SANDTOWER = '<path d="M-40 0 L-24 -30 L-14 -30 L-8 -58 L8 -58 L14 -30 L24 -30 L40 0 Z" fill="#e8d5a8" stroke="#c9b184" stroke-width="2.6"/><path d="M-8 -58 L0 -76 L8 -58" fill="#e8d5a8" stroke="#c9b184" stroke-width="2.6"/>';
+      return [
+        { minDur: 6800, sub: '海邊玩沙：一把沙、又一把沙，慢慢堆——竟然堆出一座又高又漂亮的沙塔！',
+          html: scene('<ellipse cx="400" cy="330" rx="420" ry="46" fill="#e8d5a8"/>' +
+            P(430, 302, SANDTOWER, '', 0, 1.3) +
+            P(250, 302, A('kid', 'happy')) + hearts(340, 200)) },
+        { minDur: 6800, sub: '一粒沙微不足道，聚在一起卻能成塔——小小的力量累積起來，就是大大的成就！',
+          html: scene(P(400, 300, SANDTOWER, '', 0, 1.4) + bang(530, 210) + hearts(280, 210)) },
+        { minDur: 6800, sub: '每天存一點錢、背一個單字、做一件好事——聚沙成塔，一年後回頭看，嚇你一跳！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -10 h16 M-8 -2 h16" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) +
+            P(520, 302, SANDTOWER, '', 0, .95) + hearts(420, 190)) },
+        { minDur: 6400, sub: '聚沙成塔：累積微小的力量而成大功。',
+          html: scene('<ellipse cx="400" cy="330" rx="420" ry="46" fill="#e8d5a8"/>' + P(400, 302, SANDTOWER, '', 0, 1.45) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">聚沙成塔</text>') }
+      ];
+    },
+    /* 眉飛色舞 */
+    i830: function () {
+      var DANCEBROWS = '<path d="M-15 -64 q7 -7 13 -1 M2 -65 q7 -7 13 -1" stroke="#3a2e26" stroke-width="2.6" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '小舞講起校外教學看到的海豚表演——眉毛揚起來、眼睛發亮、手比來比去，整張臉都在發光！',
+          html: scene(P(340, 302, A('kid', 'happy') + DANCEBROWS +
+              '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-58" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>', '', 0, 1.08) +
+            P(560, 302, A('kid', 'happy'), '', 0, .93) + hearts(460, 185) + notes(260, 182)) },
+        { minDur: 6600, sub: '講到精彩處手舞足蹈，聽的人也被感染得哈哈大笑——快樂會傳染！',
+          html: scene(P(320, 302, '<g class="st-cheer">' + A('kid', 'happy') + DANCEBROWS + '</g>') +
+            P(500, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .95) + hearts(410, 172)) },
+        { minDur: 6600, sub: '「眉飛色舞」：眉毛飛揚、神采煥發——喜悅全寫在臉上！',
+          html: scene(P(400, 302, A('kid', 'happy') + DANCEBROWS, '', 0, 1.1) + hearts(500, 188)) },
+        { minDur: 6400, sub: '眉飛色舞：眉揚神飛，非常得意興奮。',
+          html: scene(P(400, 302, A('kid', 'happy') + DANCEBROWS, '', 0, 1.12) + hearts(490, 186) + notes(300, 184) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">眉飛色舞</text>') }
+      ];
     }
   };
 
