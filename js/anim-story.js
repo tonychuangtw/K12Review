@@ -5667,6 +5667,127 @@
           html: scene(MTS + LAKE2 +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">湖光山色</text>') }
       ];
+    },
+    /* 臨時抱佛腳 */
+    i034: function () {
+      var STATUE = '<ellipse cx="0" cy="0" rx="34" ry="10" fill="#b8ae9c"/>' +
+        '<path d="M-24 0 Q-26 -34 0 -38 Q26 -34 24 0 Z" fill="#d9cbb0" stroke="#b8ae9c" stroke-width="2.6"/>' +
+        '<circle cx="0" cy="-50" r="14" fill="#d9cbb0" stroke="#b8ae9c" stroke-width="2.4"/>' +
+        '<path d="M-5 -50 q5 4 10 0" stroke="#8a7a5a" stroke-width="1.8" fill="none" stroke-linecap="round"/>' +
+        '<circle cx="-5" cy="-53" r="1.4" fill="#8a7a5a"/><circle cx="5" cy="-53" r="1.4" fill="#8a7a5a"/>';
+      var BOOKS2 = '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -10 h16 M-8 -2 h16 M-8 6 h16" stroke="#8fa3bf" stroke-width="1.8"/>';
+      return [
+        { minDur: 6800, sub: '明天就要大考，小威今晚才第一次翻開課本——桌上堆得像小山，怎麼讀得完呀！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -50, BOOKS2, '', 0, 1)) +
+            sweat(300, 192) + zzz(500, 200) + qmark(430, 178), 'night') },
+        { minDur: 7000, sub: '俗話說：「平時不燒香，臨時抱佛腳。」傳說有人平日從不拜佛，遇到急難才衝進廟裡，抱著佛像的腳苦苦哀求！',
+          html: scene(P(500, 302, STATUE, '', 0, 1.3) +
+            P(400, 302, '<g transform="rotate(30)">' + A('kid', 'wow') + '</g>', '', 0, .92) + sweat(350, 200)) },
+        { minDur: 6800, sub: '真本事要靠平時一點一滴累積——臨時抱佛腳，只能碰碰運氣呀！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-42, -54, BOOKS2, '', 0, .9)) + hearts(430, 185)) },
+        { minDur: 6400, sub: '臨時抱佛腳：平時不努力，急時才匆忙應付。',
+          html: scene(P(500, 302, STATUE, '', 0, 1.15) + P(400, 302, '<g transform="rotate(30)">' + A('kid', 'wow') + '</g>', '', 0, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="48" font-weight="bold" fill="#4a3200">臨時抱佛腳</text>') }
+      ];
+    },
+    /* 黃粱一夢 */
+    i040: function () {
+      var POT = '<path d="M-20 0 q-6 -20 4 -26 h32 q10 6 4 26 q-10 8 -20 8 q-10 0 -20 -8 z" transform="translate(-10,-8) scale(.9)" fill="#6d7585" stroke="#4a5462" stroke-width="2.4"/>' +
+        '<g class="st-sweat"><path d="M-6 -40 q3 -6 0 -12 M4 -42 q3 -6 0 -12" stroke="#d5e4ee" stroke-width="2.6" fill="none" stroke-linecap="round"/></g>';
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      var GOLD = '<g stroke-width="2"><path d="M-26 0 l8 -14 h36 l8 14 z" fill="#ffd97a" stroke="#e8b84a"/><path d="M-20 -14 l7 -12 h26 l7 12 z" fill="#ffe9a0" stroke="#e8b84a"/></g>';
+      return [
+        { minDur: 7000, sub: '書生盧生在旅店裡唉聲嘆氣，怨自己不得志。道士遞給他一個枕頭，此時店家正煮著一鍋黃粱米飯。',
+          html: scene(P(560, 300, POT, '', 0, 1.1) +
+            P(300, 302, A('kid', 'sad')) + sweat(250, 195) +
+            P(430, 290, '<ellipse cx="0" cy="0" rx="22" ry="9" fill="#f4ecd8" stroke="#ddd2b8" stroke-width="2.4"/>')) },
+        { minDur: 7200, sub: '他枕著枕頭睡著了——夢裡考中狀元、當上宰相、兒孫滿堂，享盡八十年榮華富貴！',
+          html: scene(P(430, 170, '<circle cx="0" cy="0" r="72" fill="#fff" opacity=".9"/>' +
+              P(-30, 40, A('kid', 'happy') + CROWN, '', 0, .6) + P(30, 30, GOLD, '', 0, .7)) +
+            P(300, 302, '<ellipse cx="0" cy="-8" rx="34" ry="12" fill="#6fbf8e"/><circle cx="-28" cy="-16" r="13" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>') +
+            zzz(230, 230), 'night') },
+        { minDur: 7000, sub: '一覺醒來——鍋裡的黃粱飯竟然都還沒煮熟！八十年的榮華，原來只是短短一場夢。',
+          html: scene(P(560, 300, POT, '', 0, 1.1) +
+            P(300, 302, A('kid', 'wow')) + sweat(250, 195) + qmark(370, 180)) },
+        { minDur: 6400, sub: '黃粱一夢：美夢一場，虛幻不實。',
+          html: scene(P(500, 300, POT, '', 0, 1.2) + P(300, 302, A('kid', 'sad')) + zzz(370, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">黃粱一夢</text>') }
+      ];
+    },
+    /* 庸人自擾 */
+    i041: function () {
+      return [
+        { minDur: 7000, sub: '唐朝宰相陸象先說過一句名言：「天下本來沒有事，都是平庸的人自己攪擾出麻煩來的！」',
+          html: scene(P(360, 302, A('kid', 'happy') +
+              '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(580, 302, A('kid', 'wow'), '', 0, .93, true) + qmark(630, 188)) },
+        { minDur: 7000, sub: '明天要抽背課文，小凡整晚胡思亂想：「一定會抽到我……」嚇得睡不著——結果隔天根本沒抽到他！',
+          html: scene(P(340, 302, A('kid', 'sad')) + sweat(290, 192) + qmark(410, 178) + zzz(500, 205), 'night') },
+        { minDur: 6800, sub: '自尋煩惱、自己嚇自己——就是「庸人自擾」。把擔心的力氣拿來準備，才實在！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-42, -54, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 -10 h16 M-8 -2 h16" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) + hearts(450, 185)) },
+        { minDur: 6400, sub: '庸人自擾：自作聰明，自尋煩惱。',
+          html: scene(P(380, 302, A('kid', 'sad'), '', 0, 1.05) + qmark(450, 180) + sweat(310, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">庸人自擾</text>') }
+      ];
+    },
+    /* 走投無路 */
+    i039: function () {
+      var DEADWALL = '<rect x="-16" y="-110" width="32" height="110" fill="#b0a390" stroke="#8a7a66" stroke-width="2.6"/><path d="M-16 -110 h10 v-10 h12 v10 h10" fill="none" stroke="#8a7a66" stroke-width="2.6"/>';
+      return [
+        { minDur: 6800, sub: '小老鼠被貓追進了死巷——前面是高牆、後面是貓，一點退路也沒有了！',
+          html: scene(P(620, 302, DEADWALL) +
+            P(520, 300, A('mouse')) + sweat(560, 240) +
+            P(280, 302, A('fox'), 'st-dashL', 0, 1.05) + bang(420, 220), 'night') },
+        { minDur: 6600, sub: '「走投無路」：無處可去、陷入絕境——連一條出路都找不到。',
+          html: scene(P(620, 302, DEADWALL) + P(500, 300, A('mouse')) + qmark(540, 240) + sweat(460, 250), 'night') },
+        { minDur: 6800, sub: '不過遇到困境別絕望：靜下心多想一步，常常就能找到新的路！',
+          html: scene(P(300, 302, A('kid', 'happy')) + bang(400, 185) + hearts(490, 190) +
+            '<path d="M540 316 q80 -6 160 -30" stroke="#e8dcc0" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="12 10"/>') },
+        { minDur: 6400, sub: '走投無路：無處可去，陷入絕境。',
+          html: scene(P(620, 302, DEADWALL) + P(500, 300, A('mouse')) + P(300, 302, A('fox'), '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">走投無路</text>', 'night') }
+      ];
+    },
+    /* 分道揚鑣 */
+    i047: function () {
+      function cart3(flip) {
+        return '<g' + (flip ? ' transform="scale(-1,1)"' : '') + '>' + A('horse') +
+          P(70, 0, '<circle cx="0" cy="-24" r="22" fill="#c9a06c" stroke="#a8734a" stroke-width="4"/><rect x="-10" y="-68" width="84" height="32" rx="6" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>') + '</g>';
+      }
+      return [
+        { minDur: 7000, sub: '北魏的元志和李彪在大街上狹路相逢——兩輛車誰也不肯讓誰，一路吵到了皇帝面前！',
+          html: scene(P(240, 302, cart3(false)) + P(620, 302, cart3(true)) + bang(430, 200) +
+            qmark(360, 170) + qmark(500, 175)) },
+        { minDur: 7000, sub: '皇帝笑著裁決：「洛陽是你們共同的地方——那就把路分成兩半，一人一邊，各走各的吧！」',
+          html: scene('<path d="M400 340 L400 220" stroke="#fff" stroke-width="5" stroke-dasharray="16 12"/>' +
+            P(240, 302, cart3(false)) + P(620, 302, cart3(true)) +
+            P(400, 180, A('kid', 'happy') + '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>', '', 0, .8) + hearts(400, 240)) },
+        { minDur: 7000, sub: '「分道揚鑣」：各走各的路、各奔前程——朋友目標不同時好聚好散，也用這個詞。',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-inL', 0, 1, true) +
+            P(500, 302, A('kid', 'happy'), 'st-inR') +
+            '<path d="M370 316 q-60 -10 -120 -40 M430 316 q60 -10 120 -40" stroke="#e8dcc0" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="10 9"/>') },
+        { minDur: 6400, sub: '分道揚鑣：各走各的路，各奔前程。',
+          html: scene(P(280, 302, cart3(true)) + P(580, 302, cart3(false)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">分道揚鑣</text>') }
+      ];
+    },
+    /* 汗牛充棟 */
+    i048: function () {
+      var BOOKPILE2 = '<g stroke-width="2"><rect x="-26" y="-12" width="52" height="12" rx="2.6" fill="#c9762f" stroke="#a85a1e"/><rect x="-23" y="-24" width="46" height="12" rx="2.6" fill="#5c82ba" stroke="#46689a"/><rect x="-25" y="-36" width="50" height="12" rx="2.6" fill="#6fae58" stroke="#548a40"/><rect x="-22" y="-48" width="44" height="12" rx="2.6" fill="#e0a458" stroke="#c08838"/></g>';
+      return [
+        { minDur: 6800, sub: '古人搬家運書：牛車上的書堆得像小山，老牛拉得滿身大汗、直喘大氣！',
+          html: scene(P(360, 302, A('ox')) + sweat(320, 230) + sweat(410, 240) +
+            P(500, 302, '<rect x="-10" y="-56" width="110" height="40" rx="5" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+              P(45, -56, BOOKPILE2, '', 0, .9) + '<circle cx="10" cy="0" r="18" fill="#8a5a33"/><circle cx="80" cy="0" r="18" fill="#8a5a33"/>')) },
+        { minDur: 6800, sub: '搬進屋裡一放——書一疊疊堆到屋樑那麼高！「充棟」就是把整間屋子都塞滿了。',
+          html: scene(P(300, 302, BOOKPILE2, '', 0, 1.5) + P(430, 300, BOOKPILE2, '', .2, 1.8) + P(560, 302, BOOKPILE2, '', .4, 1.4) +
+            P(180, 302, A('kid', 'wow'), '', 0, .92) + qmark(230, 190)) },
+        { minDur: 6600, sub: '「汗牛充棟」：牛搬到出汗、屋子堆到滿——形容書籍非常非常多！',
+          html: scene(P(300, 302, A('ox'), '', 0, .95) + sweat(340, 235) + P(520, 302, BOOKPILE2, '', 0, 1.6) + hearts(430, 200)) },
+        { minDur: 6400, sub: '汗牛充棟：形容書籍極多，堆滿房屋。',
+          html: scene(P(280, 302, A('ox'), '', 0, .95) + P(500, 302, BOOKPILE2, '', 0, 1.7) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">汗牛充棟</text>') }
+      ];
     }
   };
 
