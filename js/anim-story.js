@@ -14768,6 +14768,169 @@
             P(180, 240, '<rect x="-24" y="-15" width="48" height="30" rx="4" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#548a40">西</text>', '', 0, 1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">聲東擊西</text>') }
       ];
+    },
+    /* 調虎離山 */
+    i905: function () {
+      var MOUNTT = '<path d="M-80 40 L0 -50 L80 40 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6"/>';
+      return [
+        { minDur: 7000, sub: '老虎守在山頭，誰都近不了身——《西遊記》裡就用過這一計：「調虎離山，哄你出來爭戰！」',
+          html: scene(P(540, 265, MOUNTT, '', 0, 1.15) +
+            P(540, 235, A('tiger'), '', 0, .85) +
+            P(220, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .98)) },
+        { minDur: 6800, sub: '在山下丟出一塊大肉——老虎聞香衝下山！山頭空了，正好上去辦事！',
+          html: scene(P(540, 265, MOUNTT, '', 0, 1.15) +
+            P(300, 302, A('tiger'), 'st-dashL', 0, 1, true) +
+            P(200, 295, '<path d="M-12 6 q0 -14 12 -14 q12 0 12 14 q-12 8 -24 0 z" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/>', '', 0, 1.1) +
+            P(560, 200, '<g class="st-fleeR">' + A('kid', 'happy') + '</g>', '', 0, .7) + bang(430, 240)) },
+        { minDur: 6800, sub: '「調虎離山」：誘使對方離開有利位置再下手——注意「調」讀ㄉㄧㄠˋ！生活中要當心這一計！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">ㄉㄧㄠˋ</text>', '', 0, 1.1)) +
+            P(560, 265, MOUNTT, '', 0, .9) + hearts(280, 195)) },
+        { minDur: 6400, sub: '調虎離山：誘敵離巢，趁虛而入。',
+          html: scene(P(540, 268, MOUNTT, '', 0, 1.15) +
+            P(280, 302, A('tiger'), 'st-dashL', 0, 1, true) + qmark(360, 220) +
+            '<text x="340" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">調虎離山</text>') }
+      ];
+    },
+    /* 瞞天過海 */
+    i906: function () {
+      var SHIPHOUSE = '<path d="M-70 10 L70 10 L52 34 L-52 34 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="2.6"/><rect x="-46" y="-30" width="92" height="40" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-54 -30 h108 l-12 -18 h-84 z" fill="#c9762f"/>';
+      return [
+        { minDur: 7000, sub: '相傳唐太宗到了海邊不敢渡海——薛仁貴請他到「海上人家」赴宴，帳幕裡歌舞美酒！',
+          html: scene(P(400, 268, SHIPHOUSE, '', 0, 1.1) +
+            P(370, 258, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, .8) +
+            P(450, 258, A('kid', 'happy'), '', 0, .78, true) + notes(400, 175)) },
+        { minDur: 6800, sub: '宴會正酣，帳幕掀開——四面全是大海！原來「房子」是艘大船，早就開到海中央了！',
+          html: scene('<rect y="252" width="800" height="88" fill="#5a7fa8"/>' +
+            '<g class="st-wavemove"><path d="M-40 264 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#8fb2d4" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>' +
+            P(400, 252, '<g class="st-bob">' + SHIPHOUSE + P(0, -44, A('kid', 'wow'), '', 0, .7) + '</g>', '', 0, 1.05) + bang(560, 180)) },
+        { minDur: 6800, sub: '「瞞天過海」：用偽裝掩人耳目——是三十六計的第一計！但記住：假帳再巧也瞞不了一世！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) +
+            P(540, 220, '<rect x="-28" y="-16" width="56" height="32" rx="4" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#c96a5a">第一計</text>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '瞞天過海：巧裝偽飾，掩人耳目。',
+          html: scene('<rect y="258" width="800" height="82" fill="#5a7fa8"/>' +
+            P(400, 258, '<g class="st-bob">' + SHIPHOUSE + '</g>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">瞞天過海</text>') }
+      ];
+    },
+    /* 移花接木 */
+    i907: function () {
+      return [
+        { minDur: 7000, sub: '園藝的嫁接術：把一枝花木剪下，接到另一棵樹上——長好後渾然一體，看不出接痕！',
+          html: scene(P(300, 302, TREE, '', 0, 1.15) +
+            P(500, 302, '<path d="M0 0 L0 -60" stroke="#7a5a3a" stroke-width="7" stroke-linecap="round"/><path d="M0 -40 q20 -16 36 -10" stroke="#7fa858" stroke-width="5" fill="none"/><path d="M36 -52 C30 -62 42 -67 45 -57 C51 -65 59 -57 52 -51 Z" fill="#ff9eb5"/>', '', 0, 1.1) +
+            '<path d="M340 240 q80 -30 140 -10" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>') },
+        { minDur: 6800, sub: '小說裡借它比喻偷換：合約被人動了手腳、照片被張冠李戴——暗中以假換真！',
+          html: scene(P(300, 260, '<rect x="-30" y="-38" width="60" height="76" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-18" y1="-22" x2="18" y2="-22"/><line x1="-18" y1="-10" x2="18" y2="-10"/></g><rect x="-18" y="2" width="36" height="14" fill="#ffd0d8"/>', '', 0, 1.05) +
+            P(520, 302, A('kid', 'angry') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>' + P(-40, -50, '<line x1="0" y1="8" x2="6" y2="-10" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/>', '', 0, 1), '', 0, 1, true) + qmark(400, 190)) },
+        { minDur: 6800, sub: '「移花接木」：暗中掉包、偷換人事物——簽名前逐條細讀，別讓人動了手腳都不知道！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1.05)) +
+            P(540, 260, '<rect x="-26" y="-34" width="52" height="68" rx="3" fill="#fff" stroke="#548a40" stroke-width="2.6"/><path d="M-12 8 l6 8 l14 -16" stroke="#548a40" stroke-width="3" fill="none"/>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6400, sub: '移花接木：暗中掉包，以假換真。',
+          html: scene(P(320, 302, TREE, '', 0, 1.1) +
+            P(520, 302, '<path d="M0 0 L0 -60" stroke="#7a5a3a" stroke-width="7" stroke-linecap="round"/><path d="M36 -52 C30 -62 42 -67 45 -57 C51 -65 59 -57 52 -51 Z" fill="#ff9eb5"/><path d="M0 -40 q20 -16 36 -10" stroke="#7fa858" stroke-width="5" fill="none"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">移花接木</text>') }
+      ];
+    },
+    /* 順手牽羊 */
+    i908: function () {
+      return [
+        { minDur: 6800, sub: '路過羊圈，看羊沒人看管——有人腳步不停，手一伸就把羊牽走了，動作自然得像自己的！',
+          html: scene(P(300, 302, fence(), '', 0, 1) +
+            P(480, 302, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', 'st-strut', 0, 1, true) +
+            P(590, 300, A('goat'), 'st-strut', .1, .9, true) +
+            '<path d="M510 260 q40 10 60 24" stroke="#8a6a44" stroke-width="3" fill="none"/>') },
+        { minDur: 6800, sub: '「順手牽羊」：趁人不備順勢拿走別人的東西——別人的物品再順手，也一毫不能取！',
+          html: scene(P(340, 302, A('kid', 'wow') + P(-40, -46, '<rect x="-12" y="-9" width="24" height="18" rx="3" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, 1)) + qmark(440, 185) +
+            P(560, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .97, true) + bang(460, 230)) },
+        { minDur: 6800, sub: '撿到東西送招領、借東西先開口——克制「順手」的誘惑，是誠實的第一課！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -50, '<rect x="-12" y="-9" width="24" height="18" rx="3" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, 1)) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/><rect x="-20" y="-80" width="40" height="5" rx="2" fill="#2c3550"/>', '', 0, 1, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '順手牽羊：趁隙取物，乘機得利。',
+          html: scene(P(430, 302, A('kid', 'happy'), 'st-strut', 0, 1, true) +
+            P(540, 300, A('goat'), 'st-strut', .1, .9, true) +
+            '<path d="M460 262 q40 10 56 22" stroke="#8a6a44" stroke-width="3" fill="none"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">順手牽羊</text>') }
+      ];
+    },
+    /* 渾水摸魚 */
+    i909: function () {
+      var MUDDYW = '<rect y="252" width="800" height="88" fill="#8a8a6a"/><g class="st-wavemove"><path d="M-40 266 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8a884" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>';
+      return [
+        { minDur: 7000, sub: '把清水攪成一片渾濁——魚兒昏頭轉向看不清方向，正好伸手去摸！',
+          html: scene(MUDDYW +
+            P(340, 290, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/><path d="M28 -20 q10 14 4 26" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, .95) +
+            P(480, 296, A('fish'), 'st-swim', 0, .85) + qmark(520, 250)) },
+        { minDur: 6800, sub: '「渾水摸魚」：趁混亂謀取利益——災後有人趁亂哄抬物價，就是在渾水摸魚！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(-40, -50, '<rect x="-14" y="-9" width="28" height="18" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="5" text-anchor="middle" font-size="11" fill="#c96a5a">漲價!</text>', '', 0, 1.1)) +
+            P(540, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(600, 192) + bang(280, 190)) },
+        { minDur: 6800, sub: '口語裡「摸魚」還指偷懶——打掃時間躲起來滑手機？被抓到就糗大了！',
+          html: scene(P(200, 302, TREE, '', 0, 1.05) +
+            P(280, 302, A('kid', 'happy') + P(-36, -46, '<rect x="-9" y="-14" width="18" height="26" rx="3" fill="#3a2e26"/><rect x="-6" y="-10" width="12" height="16" rx="2" fill="#7fb2e0"/>', '', 0, .95)) +
+            P(540, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + sweat(340, 190) + bang(450, 185)) },
+        { minDur: 6400, sub: '渾水摸魚：趁亂之際，撈取利益。',
+          html: scene(MUDDYW + P(400, 296, A('fish'), 'st-swim', 0, .95) + qmark(480, 240) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">渾水摸魚</text>') }
+      ];
+    },
+    /* 趁火打劫 */
+    i910: function () {
+      return [
+        { minDur: 7000, sub: '民宅失火，主人忙著救火——竟有人溜進屋裡搬東西！這就是最可惡的「趁火打劫」！',
+          html: scene(P(300, 290, '<rect x="-50" y="-46" width="100" height="46" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><g class="st-flick"><path d="M-20 -46 Q-30 -70 -16 -84 Q-10 -68 -2 -76 Q4 -58 -6 -48 Z" fill="#ff9d4d"/><path d="M14 -46 Q8 -62 18 -72 Q22 -60 28 -64 Q30 -52 22 -46 Z" fill="#ffd166"/></g>', '', 0, 1.05) +
+            P(480, 302, '<g class="st-fleeR">' + A('kid', 'angry') + P(-38, -44, '<path d="M-12 8 h24 l-4 -20 h-16 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1) + '</g>', 'st-dashL', 0, 1), 'night') },
+        { minDur: 6800, sub: '《孫子兵法》講「亂而取之」是戰場謀略——但用在別人的苦難上，就是乘人之危！',
+          html: scene(P(340, 302, A('kid', 'sad'), '', 0, .98) + sweat(280, 190) +
+            P(540, 302, A('kid', 'angry') + P(-40, -50, '<circle cx="0" cy="0" r="12" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/>', '', 0, 1.1), '', 0, 1, true) + bang(440, 188)) },
+        { minDur: 6800, sub: '「趁火打劫」：趁人危難撈取利益——相反的是「雪中送炭」：別人有難，伸手相助！',
+          html: scene(P(310, 240, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#c96a5a">趁火打劫</text>') +
+            P(490, 240, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="12" fill="#548a40">雪中送炭</text>') +
+            '<line x1="348" y1="240" x2="452" y2="240" stroke="#c9bfa8" stroke-width="2.6" stroke-dasharray="6 5"/>' + hearts(490, 185)) },
+        { minDur: 6400, sub: '趁火打劫：乘人之危，撈取利益。',
+          html: scene(P(300, 292, '<rect x="-46" y="-42" width="92" height="42" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><g class="st-flick"><path d="M-16 -42 Q-24 -64 -12 -76 Q-6 -62 2 -70 Q6 -52 -4 -44 Z" fill="#ff9d4d"/></g>', '', 0, 1.05) +
+            P(490, 302, '<g class="st-fleeR">' + A('kid', 'angry') + '</g>', 'st-dashL', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">趁火打劫</text>', 'night') }
+      ];
+    },
+    /* 落井下石 */
+    i911: function () {
+      var WELL2 = '<ellipse cx="0" cy="0" rx="40" ry="13" fill="#4f637a"/><path d="M-40 0 v-8 a40 13 0 0 1 80 0 v8" fill="#8b93a3"/><rect x="-46" y="-14" width="92" height="8" rx="3" fill="#6d7585"/>';
+      return [
+        { minDur: 7000, sub: '韓愈痛心地寫：有些人平日稱兄道弟——朋友一落難，不但不拉一把，反而往下推！',
+          html: scene(P(400, 285, WELL2, '', 0, 1.2) +
+            P(400, 262, A('kid', 'sad'), '', 0, .7) + sweat(330, 230) +
+            P(580, 302, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .98, true)) },
+        { minDur: 6800, sub: '「落陷阱，不一引手救，反擠之，又下石焉」——掉進井裡還被丟石頭，情何以堪！',
+          html: scene(P(400, 285, WELL2, '', 0, 1.2) +
+            P(560, 302, A('kid', 'angry') + P(-38, -56, '<circle cx="0" cy="0" r="9" fill="#8b93a3"/>', 'st-bob', 0, 1.1), '', 0, 1, true) + bang(430, 235) + sweat(300, 240)) },
+        { minDur: 6800, sub: '「落井下石」：趁人危難加以陷害——同學被批評時，別跟著補刀；拉一把，才是真朋友！',
+          html: scene(P(400, 285, WELL2, '', 0, 1.15) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-28 -46 q-16 4 -22 14" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1, true) +
+            P(420, 258, A('kid', 'happy'), '', 0, .68) + hearts(620, 200)) },
+        { minDur: 6400, sub: '落井下石：乘人之危，加以陷害。',
+          html: scene(P(400, 288, WELL2, '', 0, 1.2) +
+            P(560, 302, A('kid', 'angry') + P(-38, -56, '<circle cx="0" cy="0" r="9" fill="#8b93a3"/>', '', 0, 1.1), '', 0, 1, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">落井下石</text>') }
+      ];
+    },
+    /* 引狼入室 */
+    i912: function () {
+      var HOUSE2 = '<path d="M-56 -44 L0 -78 L56 -44 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><rect x="-44" y="-44" width="88" height="44" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-12" y="-28" width="24" height="28" fill="#8a6a44"/>';
+      return [
+        { minDur: 7000, sub: '元代戲文唱道：「我不是引的狼來屋裡窩」——把狼親手請進家門，還當牠是客人！',
+          html: scene(P(300, 302, HOUSE2, '', 0, 1.05) +
+            P(300, 292, A('kid', 'happy') + '<path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .8) +
+            P(500, 302, A('dog', 'angry') + '<path d="M-14 -56 l5 8 M-5 -58 l4 8" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>', 'st-inR', 0, 1, true)) },
+        { minDur: 6800, sub: '半夜狼露出真面目——翻箱倒櫃、齜牙咧嘴！主人這才驚覺：大禍是自己請進來的！',
+          html: scene(P(340, 302, A('kid', 'wow'), '', 0, .98) + sweat(280, 188) +
+            P(500, 302, A('dog', 'angry') + '<path d="M-16 -58 l5 9 M-6 -56 l4 9" stroke="#fff" stroke-width="3" stroke-linecap="round"/>', '', 0, 1.12, true) + bang(420, 185), 'night') },
+        { minDur: 6800, sub: '「引狼入室」：自己招來壞人、禍害自身——來路不明的連結和帳號，點下去就是開門迎狼！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -50, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/><line x1="-5" y1="-8" x2="5" y2="2" stroke="#c96a5a" stroke-width="2.4"/><line x1="5" y1="-8" x2="-5" y2="2" stroke="#c96a5a" stroke-width="2.4"/>', '', 0, 1.05)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">別亂點</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '引狼入室：自招禍患，養虎遺患。',
+          html: scene(P(300, 302, HOUSE2, '', 0, 1.05) +
+            P(480, 302, A('dog', 'angry'), 'st-inR', 0, 1.08, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">引狼入室</text>') }
+      ];
     }
   };
 
