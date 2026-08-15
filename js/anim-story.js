@@ -3141,6 +3141,115 @@
           html: scene(P(400, 230, '<circle cx="0" cy="-4" r="66" fill="#fff" opacity=".9"/>' + JAW, '', 0, 1.2) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">輔車相依</text>') }
       ];
+    },
+    /* 神機妙算 */
+    i700: function () {
+      var FAN = '<path d="M0 0 L-16 -34 A22 22 0 0 1 16 -34 Z" fill="#f4f1e8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#c9bfa8" stroke-width="1.6"><line x1="0" y1="0" x2="-8" y2="-36"/><line x1="0" y1="0" x2="0" y2="-38"/><line x1="0" y1="0" x2="8" y2="-36"/></g>';
+      var STRAWBOAT = '<path d="M-52 0 L52 0 L40 16 L-40 16 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/>' +
+        '<g stroke="#c9a06c" stroke-width="5" stroke-linecap="round"><line x1="-30" y1="0" x2="-30" y2="-26"/><line x1="0" y1="0" x2="0" y2="-30"/><line x1="30" y1="0" x2="30" y2="-24"/></g>' +
+        '<circle cx="-30" cy="-32" r="7" fill="#e8dcc0"/><circle cx="0" cy="-36" r="7" fill="#e8dcc0"/><circle cx="30" cy="-30" r="7" fill="#e8dcc0"/>';
+      function arrows(x, y) {
+        return P(x, y, '<g stroke="#8a5a33" stroke-width="2.6" stroke-linecap="round"><line x1="0" y1="0" x2="-20" y2="10"/><line x1="10" y1="-8" x2="-12" y2="4"/><line x1="20" y1="4" x2="-2" y2="16"/></g><path d="M-20 10 l-6 5 l3 -8 z M-12 4 l-6 5 l3 -8 z M-2 16 l-6 5 l3 -8 z" fill="#6d7585"/>');
+      }
+      var FOG = '<ellipse cx="200" cy="200" rx="150" ry="40" fill="#fff" opacity=".45"/><ellipse cx="520" cy="160" rx="180" ry="46" fill="#fff" opacity=".4"/><ellipse cx="400" cy="240" rx="220" ry="42" fill="#fff" opacity=".35"/>';
+      var RIVER6 = '<rect y="262" width="800" height="78" fill="#7fb2e0"/>';
+      return [
+        { minDur: 7000, sub: '周瑜故意刁難諸葛亮：「十天之內，造出十萬支箭！」諸葛亮搖著羽扇微笑：「三天就夠了。」',
+          html: scene(P(280, 302, A('kid', 'angry')) + qmark(340, 180) +
+            P(540, 302, A('kid', 'happy') + P(-30, -40, FAN, '', 0, .9), '', 0, 1, true) + hearts(600, 190)) },
+        { minDur: 7200, sub: '第三天夜裡大霧瀰漫。諸葛亮派出二十艘綁滿草人的船，敲鑼打鼓，慢慢駛近曹軍水寨——',
+          html: scene(RIVER6 + FOG + P(300, 268, STRAWBOAT) + P(520, 274, STRAWBOAT, '', 0, .85) +
+            notes(400, 170), 'night') },
+        { minDur: 7000, sub: '曹軍在霧裡看不清虛實，只敢拚命放箭！箭像雨點般射來，全都插在草人身上。',
+          html: scene(RIVER6 + FOG + P(300, 268, STRAWBOAT + arrows(-10, -40)) + arrows(430, 180) + arrows(200, 160) +
+            bang(600, 200), 'night') },
+        { minDur: 7000, sub: '天亮返航，十萬支箭輕鬆到手！周瑜嘆服：「諸葛亮神機妙算，我真不如他呀！」',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-30, -40, FAN, '', 0, .9)) + hearts(380, 175) +
+            P(560, 302, '<g transform="rotate(24)">' + A('kid', 'wow') + '</g>', '', 0, .95) + sweat(610, 205)) },
+        { minDur: 6400, sub: '神機妙算：神奇的機智，巧妙的謀劃。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-30, -40, FAN, '', 0, .9), '', 0, 1.05) + bang(480, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">神機妙算</text>') }
+      ];
+    },
+    /* 徒有虛名 */
+    i1189: function () {
+      var GRAIN2 = '<path d="M-26 0 Q-30 -34 0 -40 Q30 -34 26 0 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>' +
+        '<path d="M-12 -40 q12 -8 24 0" stroke="#a8734a" stroke-width="3" fill="none"/>';
+      var TINYBOWL = '<path d="M-8 -3 q0 7 8 7 q8 0 8 -7 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2"/><circle cx="0" cy="-4" r="1.6" fill="#c9a06c"/>';
+      return [
+        { minDur: 6800, sub: '北齊鬧饑荒，朝廷宣布要開倉發糧救災——聽起來，好大方呀！',
+          html: scene(P(280, 302, A('kid', 'happy') + '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>') +
+            P(520, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            P(650, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .85) + hearts(430, 180)) },
+        { minDur: 7200, sub: '大臣李元忠一算：一萬石糧分到全國，每戶分不到一升一斗——這一點點，根本救不了災！',
+          html: scene(P(300, 302, A('kid', 'wow')) + P(480, 296, TINYBOWL, '', 0, 1.4) + qmark(430, 200) +
+            sweat(260, 195)) },
+        { minDur: 6800, sub: '他直言：「這樣的救濟只是空有名聲，解決不了問題！」力主加倍發糧，才真正救了百姓。',
+          html: scene(P(300, 302, A('kid', 'angry')) + bang(380, 180) +
+            P(540, 290, GRAIN2, '', 0, 1) + P(640, 292, GRAIN2, '', .2, .9) + hearts(600, 200)) },
+        { minDur: 6400, sub: '徒有虛名：空有名聲，沒有實際本領或內涵。',
+          html: scene(P(400, 296, TINYBOWL, '', 0, 1.8) + qmark(500, 220) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">徒有虛名</text>') }
+      ];
+    },
+    /* 譁眾取寵 */
+    i1198: function () {
+      return [
+        { minDur: 7000, sub: '有的讀書人不肯下功夫鑽研道理，專挑浮誇聳動的話講，逗得群眾又笑又叫好。',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + notes(380, 160) +
+            P(520, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .85) +
+            P(650, 302, '<g class="st-cheer" style="animation-delay:.4s">' + A('kid', 'happy') + '</g>', '', 0, .8) + hearts(560, 180)) },
+        { minDur: 6800, sub: '台下喝采聲不斷——可是仔細一聽，內容空空洞洞，什麼真道理也沒有。',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, 1.05) + notes(370, 165) +
+            P(560, 302, A('kid', 'wow'), '', 0, .9) + qmark(610, 185) + sweat(520, 200)) },
+        { minDur: 6800, sub: '《漢書》批評這種人「譁眾取寵」：違背了學問的根本，只為博取一時的喝采。',
+          html: scene(P(300, 302, A('kid', 'sad'), '', 0, 1.05) + sweat(250, 195) +
+            P(540, 302, A('kid', 'happy') + P(-40, -56, '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>'), '', 0, .95, true)) },
+        { minDur: 6400, sub: '譁眾取寵：用浮誇言行討好群眾，博取喝采。',
+          html: scene(P(340, 302, A('kid', 'happy'), '', 0, 1.05) + notes(420, 170) + hearts(260, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">譁眾取寵</text>') }
+      ];
+    },
+    /* 委曲求全 */
+    i1135: function () {
+      return [
+        { minDur: 6800, sub: '團隊裡意見不合、吵得不可開交——有人選擇先退讓一步，勉強遷就，不讓爭吵毀了大事。',
+          html: scene(P(280, 302, A('kid', 'angry')) + bang(400, 180) +
+            P(540, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(580, 200)) },
+        { minDur: 6800, sub: '委屈了自己、顧全了大局——事情才得以繼續往前走。',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .95, true) +
+            hearts(410, 175)) },
+        { minDur: 7200, sub: '不過漢朝的嚴彭祖也說過：「怎麼能委曲自己迎合世俗，只為求富貴呢！」——該堅持的原則，還是要堅持。',
+          html: scene(P(400, 302, A('kid', 'angry'), '', 0, 1.05) + bang(480, 180) +
+            P(200, 302, A('kid', 'wow'), '', 0, .9) + qmark(250, 185)) },
+        { minDur: 6400, sub: '委曲求全：勉強遷就忍讓，以求保全大局。',
+          html: scene(P(300, 302, '<g transform="rotate(20)">' + A('kid', 'happy') + '</g>') + P(540, 302, A('kid', 'happy'), '', 0, .95, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">委曲求全</text>') }
+      ];
+    },
+    /* 量入為出 */
+    i1162: function () {
+      var COIN = '<circle cx="0" cy="0" r="10" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/><rect x="-3.4" y="-3.4" width="6.8" height="6.8" fill="none" stroke="#c98f2a" stroke-width="2"/>';
+      var LEDGER = '<rect x="-20" y="-26" width="40" height="52" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>' +
+        '<line x1="0" y1="-26" x2="0" y2="26" stroke="#c9bfa8" stroke-width="2"/>' +
+        '<g stroke="#8fa3bf" stroke-width="1.8"><line x1="-14" y1="-14" x2="-5" y2="-14"/><line x1="-14" y1="-4" x2="-5" y2="-4"/><line x1="5" y1="-14" x2="14" y2="-14"/><line x1="5" y1="-4" x2="14" y2="-4"/></g>' +
+        '<text x="-9" y="16" text-anchor="middle" font-size="10" fill="#548a40">入</text><text x="9" y="16" text-anchor="middle" font-size="10" fill="#c96a5a">出</text>';
+      var JAR = '<path d="M-16 0 Q-22 -14 -14 -30 L14 -30 Q22 -14 16 0 Z" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2.6"/><rect x="-10" y="-36" width="20" height="8" rx="3" fill="#6d87ab"/><line x1="-5" y1="-32" x2="5" y2="-32" stroke="#fff" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '《禮記》說：國家要先算清一年收入多少，再決定能支出多少——「量入以為出」。',
+          html: scene(P(400, 280, LEDGER, '', 0, 1.4) +
+            P(200, 302, A('kid', 'happy')) + P(600, 290, COIN, '', 0, 1.2)) },
+        { minDur: 6600, sub: '收入十枚錢，就別花掉十二枚；先存下一些，缺錢的時候才不會慌張。',
+          html: scene(P(300, 290, COIN, '', 0, 1) + P(345, 290, COIN, '', .1, 1) + P(390, 290, COIN, '', .2, 1) +
+            P(540, 296, JAR, '', 0, 1.1) +
+            '<path d="M420 270 q60 -30 100 -10" stroke="#548a40" stroke-width="3.4" fill="none" stroke-dasharray="7 7"/>' + hearts(620, 220)) },
+        { minDur: 6800, sub: '零用錢也一樣：記帳、量入為出，把想買的東西列進計畫——需要時就買得起！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -56, LEDGER, '', 0, .8)) +
+            P(520, 296, JAR, '', 0, 1) + hearts(420, 180)) },
+        { minDur: 6400, sub: '量入為出：衡量收入來決定支出。',
+          html: scene(P(320, 280, LEDGER, '', 0, 1.3) + P(520, 292, JAR, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">量入為出</text>') }
+      ];
     }
   };
 
