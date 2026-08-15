@@ -4980,6 +4980,114 @@
           html: scene(P(380, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.05) + sweat(440, 195) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">垂頭喪氣</text>') }
       ];
+    },
+    /* 理直氣壯 */
+    i219: function () {
+      var PEN = '<line x1="0" y1="0" x2="14" y2="-26" stroke="#5c82ba" stroke-width="4" stroke-linecap="round"/><path d="M14 -26 l4 -8 l3 8 z" fill="#2c4a75"/>';
+      return [
+        { minDur: 6800, sub: '「你是不是拿了我的筆？」小平被冤枉了——可是他一點也不慌。',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(540, 302, A('kid', 'angry'), '', 0, 1, true) + qmark(440, 180) + bang(590, 195)) },
+        { minDur: 6800, sub: '他挺起胸膛、聲音響亮：「我的筆有刻名字，你看！」證據一亮出來，大家都明白了。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(34, -60, PEN, '', 0, 1.1)) + bang(400, 180) +
+            P(540, 302, A('kid', 'wow'), '', 0, .97, true) + sweat(580, 200)) },
+        { minDur: 6600, sub: '理由正當充分，說話自然有氣勢——這就是「理直氣壯」！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(450, 180)) },
+        { minDur: 6400, sub: '理直氣壯：理由正當充分，說話有氣勢。',
+          html: scene(P(380, 302, A('kid', 'happy'), '', 0, 1.05) + bang(470, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">理直氣壯</text>') }
+      ];
+    },
+    /* 眉開眼笑 */
+    i221: function () {
+      var CARD2 = '<rect x="-20" y="-26" width="40" height="52" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/>' +
+        '<path d="M-6 -10 q-8 -10 0 -12 q5 -1 6 6 q1 -7 6 -6 q8 2 0 12 l-6 7 z" fill="#ff9eb5"/>' +
+        '<path d="M-12 10 h24 M-12 18 h16" stroke="#8fa3bf" stroke-width="2"/>';
+      var SMILEBROWS = '<path d="M-14 -62 q6 -5 12 0 M2 -62 q6 -5 12 0" stroke="#3a2e26" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6600, sub: '孫子親手畫了一張卡片送給爺爺：「爺爺，謝謝您每天接我放學！」',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -56, CARD2, '', 0, .9)) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.08, true) + hearts(420, 180)) },
+        { minDur: 6600, sub: '爺爺一看，眉毛舒展開、眼睛瞇成一條線，滿臉都是笑容！',
+          html: scene(P(430, 302, A('kid', 'happy') + SMILEBROWS +
+              '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.15) +
+            hearts(520, 180) + hearts(330, 190)) },
+        { minDur: 6600, sub: '「眉開眼笑」：眉眼舒展、滿臉笑容——高興全寫在臉上！',
+          html: scene(P(320, 302, A('kid', 'happy') + SMILEBROWS) +
+            P(500, 302, A('kid', 'happy') + SMILEBROWS, '', 0, .95) + hearts(410, 172)) },
+        { minDur: 6400, sub: '眉開眼笑：眉眼舒展，滿臉笑容。',
+          html: scene(P(400, 302, A('kid', 'happy') + SMILEBROWS, '', 0, 1.15) + hearts(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">眉開眼笑</text>') }
+      ];
+    },
+    /* 異口同聲 */
+    i222: function () {
+      function bub3(x, y, txt, dly) {
+        return P(x, y, '<g' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M-22 -13 a19 15 0 1 1 38 5 q-2 6 -9 7 l-9 8 l1 -8 q-18 -2 -19 -12 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/>' +
+          '<text x="-2" y="-2" text-anchor="middle" font-size="13" font-weight="bold" fill="#e85a4f">' + txt + '</text></g>');
+      }
+      return [
+        { minDur: 6800, sub: '老師問：「這個週末，要不要加開一次戶外教學呀？」',
+          html: scene(P(180, 302, A('kid', 'happy'), '', 0, 1.05) + qmark(240, 185) +
+            P(400, 302, A('kid', 'happy'), '', 0, .9) + P(520, 302, A('kid', 'happy'), '', .1, .88) + P(640, 302, A('kid', 'happy'), '', .2, .86)) },
+        { minDur: 6600, sub: '「要——！」全班不約而同，同一秒喊出同一個字，聲音大得屋頂都快掀了！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            P(480, 302, '<g class="st-cheer" style="animation-delay:.05s">' + A('kid', 'happy') + '</g>', '', 0, .92) +
+            P(600, 302, '<g class="st-cheer" style="animation-delay:.1s">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            bub3(360, 170, '要!', 0) + bub3(480, 155, '要!', .05) + bub3(600, 170, '要!', .1)) },
+        { minDur: 6600, sub: '大家不約而同說出同樣的話——這就是「異口同聲」！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', .1, .95) +
+            bub3(330, 172, '好!', 0) + bub3(470, 168, '好!', .05) + hearts(400, 230)) },
+        { minDur: 6400, sub: '異口同聲：大家不約而同說出同樣的話。',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(430, 302, A('kid', 'happy'), '', .05, .95) + P(560, 302, A('kid', 'happy'), '', .1, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">異口同聲</text>') }
+      ];
+    },
+    /* 川流不息 */
+    i223: function () {
+      function car2(x, y, color, dly) {
+        return P(x, y, '<g class="st-windln"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<rect x="-20" y="-14" width="40" height="12" rx="5" fill="' + color + '"/>' +
+          '<rect x="-11" y="-23" width="22" height="11" rx="4" fill="#e8f0f8"/>' +
+          '<circle cx="-11" cy="0" r="5.4" fill="#3a2e26"/><circle cx="11" cy="0" r="5.4" fill="#3a2e26"/></g>');
+      }
+      var ROAD = '<rect y="290" width="800" height="26" fill="#8b93a3"/><g stroke="#fff" stroke-width="3" stroke-dasharray="20 16"><line x1="0" y1="303" x2="800" y2="303"/></g>';
+      return [
+        { minDur: 6600, sub: '放學時間的馬路上，車一輛接著一輛，像河水一樣流動不停——',
+          html: scene(ROAD + car2(180, 292, '#e85a4f', 0) + car2(330, 292, '#5c82ba', .3) + car2(480, 292, '#6fae58', .6) + car2(630, 292, '#e0a458', .2) +
+            P(100, 302, A('kid', 'wow'), '', 0, .85)) },
+        { minDur: 6600, sub: '車站的人潮也是：進站的、出站的，一波接一波，從早到晚沒停過。',
+          html: scene(P(240, 302, A('kid', 'happy'), 'st-inL', 0, .92) + P(360, 302, A('kid', 'happy'), 'st-inL', .2, .88) +
+            P(500, 302, A('kid', 'happy'), 'st-inR', .1, .9, true) + P(630, 302, A('kid', 'happy'), 'st-inR', .3, .86, true)) },
+        { minDur: 6600, sub: '「川」就是河流——像河水一樣往來不斷，就叫「川流不息」！',
+          html: scene('<rect y="270" width="800" height="70" fill="#7fb2e0"/>' +
+            '<g class="st-wavemove"><path d="M-40 285 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>' +
+            P(300, 296, A('kid', 'happy'), '', 0, .95) + qmark(380, 190)) },
+        { minDur: 6400, sub: '川流不息：像河水流動不停，人車往來不斷。',
+          html: scene(ROAD + car2(240, 292, '#5c82ba', 0) + car2(420, 292, '#e85a4f', .3) + car2(600, 292, '#6fae58', .5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">川流不息</text>') }
+      ];
+    },
+    /* 風和日麗 */
+    i224: function () {
+      var KITE = '<path d="M0 0 L16 -20 L0 -40 L-16 -20 Z" fill="#ff9eb5" stroke="#e07ba3" stroke-width="2.4"/>' +
+        '<path d="M0 0 q4 12 -2 22 q-5 8 -1 16" stroke="#e07ba3" stroke-width="2" fill="none"/>';
+      return [
+        { minDur: 6600, sub: '今天的天氣真好：微風輕輕吹、太陽亮晶晶，天空藍得像洗過一樣！',
+          html: scene('<g stroke="#e8f4fb" stroke-width="5" fill="none" stroke-linecap="round" opacity=".9"><path class="st-windln" d="M100 130 q60 -14 120 0"/></g>' +
+            P(360, 302, A('kid', 'happy'), 'st-strut') + hearts(450, 190)) },
+        { minDur: 6600, sub: '這麼好的天氣，最適合野餐、放風箏——風箏乘著微風，越飛越高！',
+          html: scene(P(560, 140, KITE, 'st-zfloat', 0, 1.2) +
+            '<path d="M560 180 Q480 260 400 280" stroke="#c9bfa8" stroke-width="2" fill="none"/>' +
+            P(380, 302, A('kid', 'happy')) + hearts(300, 195)) },
+        { minDur: 6600, sub: '「風和日麗」：微風和暢、陽光明麗——形容晴朗美好的天氣！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-strut') + P(500, 302, A('kid', 'happy'), 'st-strut', .2, .93) +
+            P(640, 210, A('butterfly'), '', 0, .9) + hearts(420, 185)) },
+        { minDur: 6400, sub: '風和日麗：微風和暢，陽光明麗，天氣晴好。',
+          html: scene(P(540, 150, KITE, 'st-zfloat', 0, 1.1) + P(340, 302, A('kid', 'happy'), 'st-strut') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">風和日麗</text>') }
+      ];
     }
   };
 
