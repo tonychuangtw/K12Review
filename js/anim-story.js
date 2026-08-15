@@ -11269,6 +11269,156 @@
           html: scene(P(400, 302, A('kid', 'happy') + P(-30, -30, CANE, '', 0, 1), '', 0, 1.05) + hearts(500, 185) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">德高望重</text>') }
       ];
+    },
+    /* 志在千里 */
+    i079: function () {
+      var STABLE = '<g stroke="#a8734a" stroke-width="5"><line x1="-70" y1="0" x2="-70" y2="-60"/><line x1="70" y1="0" x2="70" y2="-60"/><line x1="-80" y1="-60" x2="80" y2="-60"/></g><path d="M-88 -60 h176 l-14 -20 h-148 z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/>';
+      return [
+        { minDur: 7000, sub: '曹操寫下〈龜雖壽〉：「老驥伏櫪，志在千里」——老馬雖然趴在馬廄裡，心卻奔向千里之外！',
+          html: scene(P(300, 302, STABLE, '', 0, 1) + P(300, 302, A('horse'), '', 0, .95) +
+            P(620, 130, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".9"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#6d7585">千里</text>') +
+            '<path d="M370 240 q120 -80 220 -100" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/>') },
+        { minDur: 6800, sub: '「烈士暮年，壯心不已」——有志氣的人就算年老，雄心壯志也不會熄滅！',
+          html: scene(P(400, 302, A('horse'), 'st-strut', 0, 1.1) + bang(520, 185) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="230" y1="240" x2="300" y2="240"/><line x1="200" y1="264" x2="280" y2="264"/></g>') },
+        { minDur: 6800, sub: '「志在千里」：志向遠大、抱負不凡——爺爺七十歲開始學畫，說要開畫展呢！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-42, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-8 8 l6 -12 l5 7 l5 -9" stroke="#548a40" stroke-width="2.4" fill="none"/>', '', 0, .95)) + hearts(470, 185)) },
+        { minDur: 6400, sub: '志在千里：志向遠大，抱負不凡。',
+          html: scene(P(400, 302, A('horse'), 'st-strut', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">志在千里</text>') }
+      ];
+    },
+    /* 初出茅廬 */
+    i080: function () {
+      var HUT = '<path d="M-64 -52 L0 -92 L64 -52 Z" fill="#c9b26a" stroke="#a8905a" stroke-width="2.6"/><rect x="-52" y="-52" width="104" height="52" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><rect x="-14" y="-34" width="28" height="34" fill="#8a6a44"/>';
+      return [
+        { minDur: 7000, sub: '諸葛亮受劉備三顧之恩，走出隱居的草廬出山相助——這是他人生第一場仗！',
+          html: scene(P(280, 302, HUT, '', 0, 1.05) +
+            P(420, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/>', 'st-inL', 0, 1) +
+            P(600, 302, A('kid', 'wow'), '', 0, .95, true) + hearts(520, 195)) },
+        { minDur: 6800, sub: '首戰博望坡，他設下火攻之計——燒得曹軍大敗而逃！人稱「初出茅廬第一功」！',
+          html: scene(P(430, 280, '<g class="st-flick"><path d="M0 10 Q-16 -12 0 -34 Q7 -20 14 -30 Q22 -10 10 6 Z" fill="#ff9d4d"/><path d="M2 6 Q-7 -8 2 -22 Q7 -13 11 -18 Q15 -5 8 4 Z" fill="#ffd166"/></g>', '', 0, 1.6) +
+            P(620, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .92) + sweat(660, 200) + bang(300, 200), 'night') },
+        { minDur: 6800, sub: '「初出茅廬」：剛踏出草廬——現在多指剛進社會、經驗還不足的新手，也可指初試身手！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-36, -54, '<rect x="-12" y="-9" width="24" height="18" rx="3" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/><line x1="0" y1="-9" x2="0" y2="-16" stroke="#6d4426" stroke-width="3"/>', '', 0, 1)) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(440, 188)) },
+        { minDur: 6400, sub: '初出茅廬：初入社會，經驗尚淺。',
+          html: scene(P(300, 302, HUT, '', 0, 1) + P(460, 302, A('kid', 'happy'), 'st-strut', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">初出茅廬</text>') }
+      ];
+    },
+    /* 乘風破浪 */
+    i081: function () {
+      var SEAW = '<rect y="262" width="800" height="78" fill="#5a7fa8"/>' +
+        '<g class="st-wavemove"><path d="M-40 272 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#8fb2d4" stroke-width="8" stroke-linecap="round" opacity=".9"/></g>';
+      var BOAT = '<path d="M-56 0 L56 0 L38 22 L-38 22 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="2.6"/><line x1="0" y1="0" x2="0" y2="-64" stroke="#8a5a33" stroke-width="4"/><path d="M0 -64 Q34 -44 0 -6 Z" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '南朝少年宗愨被問到志向，朗聲說：「願乘長風，破萬里浪！」',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -10" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) + bang(420, 175) +
+            P(600, 250, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".9"/><text x="0" y="8" text-anchor="middle" font-size="15" fill="#5a7fa8">萬里浪</text>')) },
+        { minDur: 6800, sub: '大船迎著長風、衝破巨浪往前飛馳——艱險擋不住奮勇前進的人！',
+          html: scene(SEAW + P(400, 262, '<g class="st-bob">' + BOAT + '</g>', '', 0, 1.1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="180" y1="160" x2="260" y2="160"/><line x1="150" y1="190" x2="240" y2="190"/></g>') },
+        { minDur: 6800, sub: '「乘風破浪」：乘勢前進、勇往直前——他後來真的成了平定四方的大將軍！',
+          html: scene(SEAW + P(430, 262, '<g class="st-bob">' + BOAT + P(6, -6, A('kid', 'happy'), '', 0, .7) + '</g>', '', 0, 1.15) + hearts(280, 180)) },
+        { minDur: 6400, sub: '乘風破浪：乘勢前進，勇往直前。',
+          html: scene(SEAW + P(400, 262, '<g class="st-bob">' + BOAT + '</g>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">乘風破浪</text>') }
+      ];
+    },
+    /* 志同道合 */
+    i082: function () {
+      return [
+        { minDur: 6800, sub: '小志想做環保機器人，社團博覽會上遇到小合——「我也是！」兩人眼睛都亮了！',
+          html: scene(P(310, 302, A('kid', 'wow')) + P(490, 302, A('kid', 'wow'), '', 0, 1, true) + bang(400, 180) +
+            P(400, 240, '<rect x="-24" y="-18" width="48" height="30" rx="5" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/><circle cx="-9" cy="-4" r="4" fill="#ffe9a0"/><circle cx="9" cy="-4" r="4" fill="#ffe9a0"/>')) },
+        { minDur: 6800, sub: '「志同道合」：志向相同、道路一致——目標一樣的人走在一起，力量加倍！',
+          html: scene('<path d="M180 280 q220 -40 440 0" stroke="#d9cfae" stroke-width="26" fill="none" stroke-linecap="round"/>' +
+            P(320, 268, A('kid', 'happy'), 'st-strut') + P(430, 264, A('kid', 'happy'), 'st-strut', .2) + hearts(380, 175)) },
+        { minDur: 6800, sub: '志同道合的夥伴一起熬夜改設計、彼此打氣——比賽拿下冠軍，友誼也更深了！',
+          html: scene(P(320, 302, A('kid', 'happy'), 'st-cheer') + P(480, 302, A('kid', 'happy'), 'st-cheer', .2, 1, true) +
+            P(400, 210, '<path d="M0 -22 l7 14 15 2 -11 11 3 15 -14 -8 -14 8 3 -15 -11 -11 15 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1.2) + notes(300, 190)) },
+        { minDur: 6400, sub: '志同道合：目標相同，理想一致。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, 1, true) + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">志同道合</text>') }
+      ];
+    },
+    /* 任重道遠 */
+    i083: function () {
+      var PACK = '<rect x="-20" y="-30" width="40" height="34" rx="6" fill="#8a5a33" stroke="#6d4426" stroke-width="2.6"/><path d="M-14 -30 q14 -12 28 0" stroke="#6d4426" stroke-width="4" fill="none"/>';
+      return [
+        { minDur: 7000, sub: '曾子說：「士不可以不弘毅，任重而道遠」——讀書人心胸要寬、意志要堅，因為擔子重、路又長！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            '<path d="M430 290 q140 -30 280 -90" stroke="#d9cfae" stroke-width="16" fill="none" stroke-linecap="round"/>' + hearts(430, 190)) },
+        { minDur: 6800, sub: '「仁以為己任，不亦重乎？死而後已，不亦遠乎？」——把仁德扛在肩上，一輩子走到底！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(0, -66, PACK, '', 0, 1), 'st-strut', 0, 1.02) + sweat(290, 195) +
+            '<path d="M460 290 q120 -26 240 -80" stroke="#d9cfae" stroke-width="16" fill="none" stroke-linecap="round"/>') },
+        { minDur: 6800, sub: '「任重道遠」：責任重大、路途遙遠——像環保、公益，都要一代一代長期努力！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(0, -66, PACK, '', 0, .9)) +
+            P(500, 302, A('kid', 'happy') + P(-36, -50, '<path d="M0 12 L0 -14 M0 -14 q-12 -14 -24 -6 q4 12 24 6 M0 -14 q12 -14 24 -6 q-4 12 -24 6" stroke="#548a40" stroke-width="3.4" fill="none"/>', '', 0, 1), '', 0, .98, true) + hearts(410, 185)) },
+        { minDur: 6400, sub: '任重道遠：責任重大，路途遠長。',
+          html: scene(P(340, 302, A('kid', 'angry') + P(0, -66, PACK, '', 0, 1), 'st-strut', 0, 1.02) +
+            '<path d="M440 292 q140 -30 280 -88" stroke="#d9cfae" stroke-width="16" fill="none" stroke-linecap="round"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">任重道遠</text>') }
+      ];
+    },
+    /* 卓爾不群 */
+    i084: function () {
+      return [
+        { minDur: 7000, sub: '《漢書》讚美河間獻王：「夫唯大雅，卓爾不群」——真正高雅的人，高高特立、與眾不同！',
+          html: scene(P(250, 306, A('kid', 'happy'), '', 0, .85) + P(340, 306, A('kid', 'happy'), '', 0, .85) + P(550, 306, A('kid', 'happy'), '', 0, .85, true) +
+            P(445, 275, '<rect x="-34" y="0" width="68" height="28" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(445, 275, A('kid', 'happy'), '', 0, 1) + bang(445, 165)) },
+        { minDur: 6800, sub: '眾人隨波逐流時，他堅持踏實治學、廣求真本——見識才學遠遠超出眾人！',
+          html: scene(P(445, 275, '<rect x="-34" y="0" width="68" height="28" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(445, 275, A('kid', 'happy') + P(-40, -56, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-8" y1="-8" x2="8" y2="-8"/><line x1="-8" y1="0" x2="8" y2="0"/></g>', '', 0, .95), '', 0, 1) + hearts(560, 190)) },
+        { minDur: 6800, sub: '「卓爾不群」：才德超群出眾——不是標新立異，而是實力和品格自然高人一等！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) +
+            P(400, 200, '<path d="M0 -22 l7 14 15 2 -11 11 3 15 -14 -8 -14 8 3 -15 -11 -11 15 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1.2) + hearts(290, 195)) },
+        { minDur: 6400, sub: '卓爾不群：傑出優秀，與眾不同。',
+          html: scene(P(280, 306, A('kid', 'happy'), '', 0, .85) + P(560, 306, A('kid', 'happy'), '', 0, .85, true) +
+            P(420, 275, '<rect x="-34" y="0" width="68" height="28" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') + P(420, 275, A('kid', 'happy'), '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">卓爾不群</text>') }
+      ];
+    },
+    /* 千錘百煉 */
+    i086: function () {
+      var ANVIL = '<path d="M-40 0 h80 v-12 h-24 l10 -14 h-52 l10 14 h-24 z" fill="#6d7585" stroke="#525a68" stroke-width="2.4"/>';
+      var BLADE = '<path d="M-26 -6 L26 -6 L34 0 L26 6 L-26 6 Z" fill="#c9d2de" stroke="#8b93a3" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '打鐵舖裡，鐵匠把燒紅的鐵塊放上鐵砧——鏗！鏗！一鎚又一鎚，反覆錘打！',
+          html: scene(P(430, 302, ANVIL, '', 0, 1.2) + P(430, 270, '<rect x="-22" y="-8" width="44" height="16" rx="3" fill="#ff9d4d"/>', '', 0, 1) +
+            P(300, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1.1)) + bang(430, 205), 'night') },
+        { minDur: 6800, sub: '錘了又煉、煉了又錘——千百次之後，粗鐵塊變成了一把閃亮的利劍！',
+          html: scene(P(430, 280, BLADE, '', 0, 1.5) +
+            '<g class="st-tw"><path d="M430 240 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' + hearts(300, 195)) },
+        { minDur: 6800, sub: '「千錘百煉」：反覆磨練才能完美——好文章也是改了又改，千錘百煉出來的！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-12" x2="10" y2="-12"/><line x1="-10" y1="-5" x2="10" y2="-5"/><line x1="-10" y1="2" x2="6" y2="2"/></g><path d="M-6 10 q6 5 12 0" stroke="#c96a5a" stroke-width="2" fill="none"/>', '', 0, .95)) + bang(470, 190)) },
+        { minDur: 6400, sub: '千錘百煉：歷經磨練，臻於完美。',
+          html: scene(P(400, 295, ANVIL, '', 0, 1.2) + P(400, 262, BLADE, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千錘百煉</text>') }
+      ];
+    },
+    /* 自強不息 */
+    i087: function () {
+      return [
+        { minDur: 7000, sub: '《易經》說：「天行健，君子以自強不息」——天體日夜運轉從不停歇，君子也要效法它！',
+          html: scene(P(230, 120, '<circle cx="0" cy="0" r="22" fill="#ffdd66" stroke="#f5b73e" stroke-width="3" class="st-rays" style="transform-origin:0px 0px"/>', '', 0, 1) +
+            P(570, 120, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#87a0c4"/>', '', 0, 1) +
+            '<path d="M280 120 q120 -60 240 0" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, 1)) },
+        { minDur: 6800, sub: '每天清晨跑步、晚上讀書——不論颳風下雨，一天也不間斷！',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="200" y1="30" x2="194" y2="52"/><line class="st-rain" style="animation-delay:.6s" x1="600" y1="24" x2="594" y2="46"/></g>' +
+            P(380, 302, A('kid', 'angry'), 'st-strut', 0, 1.02) + sweat(310, 192) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="250" y1="250" x2="320" y2="250"/></g>') },
+        { minDur: 6800, sub: '「自強不息」：自己奮發向上、永不停息——努力不是做給別人看，是對自己的承諾！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(500, 185) +
+            P(280, 200, '<path d="M0 -20 l6 12 13 2 -9 10 2 13 -12 -7 -12 7 2 -13 -9 -10 13 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '自強不息：奮發向上，永不停息。',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.05) +
+            P(230, 120, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">自強不息</text>') }
+      ];
     }
   };
 
