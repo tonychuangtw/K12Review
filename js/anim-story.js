@@ -4766,6 +4766,121 @@
           html: scene(P(400, 296, BIKE + P(-4, -32, A('kid', 'happy'), '', 0, .8), '', 0, 1.1) + hearts(520, 200) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">苦盡甘來</text>') }
       ];
+    },
+    /* 欣欣向榮 */
+    i029: function () {
+      function sprout(x, y, h, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<line x1="0" y1="0" x2="0" y2="' + (-h) + '" stroke="#5f8a46" stroke-width="4"/>' +
+          '<path d="M0 ' + (-h) + ' q-8 -8 -4 -14 M0 ' + (-h) + ' q8 -8 4 -14" stroke="#7cc47f" stroke-width="4" fill="none" stroke-linecap="round"/></g>');
+      }
+      var SHOP = '<rect x="-40" y="-44" width="80" height="44" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/>' +
+        '<path d="M-46 -44 h92 l-8 -14 h-76 z" fill="#e0a458" stroke="#c08838" stroke-width="2.4"/>' +
+        '<rect x="-12" y="-28" width="24" height="28" rx="3" fill="#8a5a33"/><text x="0" y="-48" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">書店</text>';
+      return [
+        { minDur: 6600, sub: '春天的菜園裡，種子冒出嫩芽：一天天長高、一天天變綠，生機蓬勃！',
+          html: scene(sprout(240, 320, 24, 0) + sprout(340, 322, 32, .3) + sprout(440, 318, 40, .5) + sprout(540, 322, 28, .2) +
+            P(660, 302, A('kid', 'happy'), '', 0, .95) + hearts(600, 210)) },
+        { minDur: 6600, sub: '小鎮也一樣：新書店開張、新公園啟用，處處熱熱鬧鬧、蒸蒸日上！',
+          html: scene(P(300, 302, SHOP) +
+            P(520, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            P(640, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .9) + hearts(430, 190)) },
+        { minDur: 6600, sub: '「欣欣向榮」：草木長得茂盛，也形容事業蓬勃發展、越來越好！',
+          html: scene(sprout(260, 320, 34, 0) + sprout(360, 318, 42, .3) +
+            P(540, 302, A('kid', 'happy')) + hearts(460, 200)) },
+        { minDur: 6400, sub: '欣欣向榮：興盛發展，蓬勃成長。',
+          html: scene(sprout(260, 320, 30, 0) + sprout(400, 318, 44, .3) + sprout(540, 322, 34, .5) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">欣欣向榮</text>') }
+      ];
+    },
+    /* 披荊斬棘 */
+    i030: function () {
+      function thornBush(x, y, sc) {
+        return P(x, y, '<g stroke="#7a6650" stroke-width="4" fill="none" stroke-linecap="round">' +
+          '<path d="M-20 0 q-8 -18 -22 -22 M-8 0 q0 -24 -10 -32 M6 0 q6 -20 18 -26 M18 0 q10 -12 24 -12"/>' +
+          '<path d="M-30 -14 l-5 -5 M-14 -22 l-5 -5 M14 -18 l5 -5 M30 -8 l6 -3" stroke-width="2.6"/></g>', '', 0, sc || 1);
+      }
+      var MACHETE = '<path d="M0 0 L28 -36 q7 -9 -1 -12 q-8 -2 -13 8 L0 0 z" fill="#c4cede" stroke="#8b93a3" stroke-width="2"/><rect x="-6" y="0" width="12" height="12" rx="3" fill="#8a5a33"/>';
+      return [
+        { minDur: 6800, sub: '探險隊走進荒野——前方長滿帶刺的荊棘，把路整個擋住了！',
+          html: scene(thornBush(430, 318, 1.2) + thornBush(560, 320, 1) + thornBush(650, 316, .9) +
+            P(240, 302, A('kid', 'wow')) + qmark(310, 185)) },
+        { minDur: 6800, sub: '隊長掄起刀開路，大家跟著劈開一叢又一叢——硬是走出了一條路！',
+          html: scene(thornBush(600, 318, 1) +
+            P(340, 302, A('kid', 'angry') + P(28, -46, MACHETE, 'st-hoe')) + bang(470, 230) +
+            P(200, 302, A('kid', 'happy'), '', .3, .9) +
+            '<path d="M120 316 q140 10 280 6" stroke="#e8dcc0" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="12 10"/>') },
+        { minDur: 6600, sub: '克服一重又一重的困難、開出新的道路——這就是「披荊斬棘」！',
+          html: scene(P(340, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(500, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .93) + hearts(420, 175)) },
+        { minDur: 6400, sub: '披荊斬棘：克服困難，勇往直前開創局面。',
+          html: scene(thornBush(560, 318, 1.1) + P(320, 302, A('kid', 'angry') + P(28, -46, MACHETE)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">披荊斬棘</text>') }
+      ];
+    },
+    /* 爭先恐後 */
+    i211: function () {
+      return [
+        { minDur: 6600, sub: '「叮——」下課鈴一響，大家爭先恐後衝向操場，誰都不想落在最後！',
+          html: scene(P(260, 302, A('kid', 'happy'), 'st-dashL', 0, 1) +
+            P(400, 302, A('kid', 'happy'), 'st-dashL', .1, .95) +
+            P(540, 302, A('kid', 'happy'), 'st-dashL', .2, .9) + bang(180, 200) + sweat(470, 195)) },
+        { minDur: 6800, sub: '排隊打飯也你擠我、我擠你，搶成一團——其實排好隊，反而更快呀！',
+          html: scene(P(330, 302, A('kid', 'wow')) + P(430, 302, A('kid', 'wow'), '', 0, .95, true) +
+            bang(385, 195) + sweat(280, 195) +
+            P(620, 302, A('kid', 'happy'), '', 0, .9) + hearts(680, 200)) },
+        { minDur: 6600, sub: '「爭先恐後」：爭著搶第一，唯恐落在後面。',
+          html: scene(P(280, 302, A('kid', 'happy'), 'st-dashL', 0, 1.02) +
+            P(430, 302, A('kid', 'happy'), 'st-dashL', .1, .95) + sweat(500, 195)) },
+        { minDur: 6400, sub: '爭先恐後：爭著搶先，唯恐落後。',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-dashL', 0, 1.05) + P(460, 302, A('kid', 'happy'), 'st-dashL', .15, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">爭先恐後</text>') }
+      ];
+    },
+    /* 一模一樣 */
+    i212: function () {
+      function portrait(x) {
+        return P(x, 280, '<rect x="-36" y="-46" width="72" height="88" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/>' +
+          '<circle cx="0" cy="-14" r="17" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>' +
+          '<path d="M-17 -18 Q-14 -32 0 -32 Q14 -32 17 -18 Q8 -25 0 -24 Q-8 -25 -17 -18 Z" fill="#6b4a32"/>' +
+          '<circle cx="-6" cy="-13" r="2.4" fill="#3a2e26"/><circle cx="6" cy="-13" r="2.4" fill="#3a2e26"/>' +
+          '<path d="M-4 -5 Q0 -2 4 -5" stroke="#3a2e26" stroke-width="1.8" fill="none" stroke-linecap="round"/>' +
+          '<circle cx="-10" cy="-6" r="2" fill="#ffb3a3"/><circle cx="10" cy="-6" r="2" fill="#ffb3a3"/>');
+      }
+      return [
+        { minDur: 6800, sub: '美術課畫自畫像。雙胞胎小雙和小胞交出作品——連畫出來的臉都一模一樣！',
+          html: scene(portrait(300) + portrait(500) +
+            P(150, 302, A('kid', 'happy'), '', 0, .9) + qmark(400, 170)) },
+        { minDur: 6600, sub: '老師左看右看，還是分不出誰是誰：「你們連笑起來的酒窩，都長在同一邊呀！」',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(440, 302, A('kid', 'happy'), '', 0, 1) +
+            P(620, 302, A('kid', 'wow'), '', 0, 1.02, true) + qmark(670, 185) + sweat(580, 200)) },
+        { minDur: 6600, sub: '「一模一樣」：完全相同，一點差別也沒有！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy')) + hearts(400, 172)) },
+        { minDur: 6400, sub: '一模一樣：完全相同，沒有差別。',
+          html: scene(portrait(310) + portrait(490) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一模一樣</text>') }
+      ];
+    },
+    /* 日積月累 */
+    i214: function () {
+      function card(x, y, txt, rot) {
+        return P(x, y, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(' + rot + ')"/>' +
+          '<text x="0" y="4" text-anchor="middle" font-size="10" fill="#5c82ba" transform="rotate(' + rot + ')">' + txt + '</text>');
+      }
+      return [
+        { minDur: 6600, sub: '小語每天背三個英文單字：一天一點點，從不間斷。',
+          html: scene(P(340, 302, A('kid', 'happy')) +
+            card(470, 270, 'cat', -6) + card(520, 285, 'sun', 5) + card(560, 265, 'run', -3) + hearts(270, 190)) },
+        { minDur: 6800, sub: '一年過去，她已經認得一千多個單字，開口說英語，讓大家嚇了一跳！',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            card(450, 250, 'apple', -5) + card(500, 268, 'book', 4) + card(548, 248, 'blue', -2) + card(478, 288, 'fish', 6) + card(540, 290, 'jump', -4) +
+            P(650, 302, A('kid', 'wow'), '', 0, .92) + bang(590, 190)) },
+        { minDur: 6800, sub: '長時間一點一滴地累積，就是「日積月累」——它和「積少成多」是好朋友！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -56, '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>')) + hearts(460, 185)) },
+        { minDur: 6400, sub: '日積月累：長時間一點一滴地累積。',
+          html: scene(card(300, 260, 'day', -5) + card(400, 245, 'by', 3) + card(500, 262, 'day', -3) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">日積月累</text>') }
+      ];
     }
   };
 
