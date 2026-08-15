@@ -6593,6 +6593,132 @@
           html: scene(P(400, 302, A('kid', 'happy') + P(0, -100, EGGTRAY, '', 0, 1.05), '', 0, 1.05) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">小心翼翼</text>') }
       ];
+    },
+    /* 白手起家 */
+    i822: function () {
+      var CART4 = '<rect x="-30" y="-24" width="60" height="18" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><circle cx="-16" cy="0" r="8" fill="#8a5a33"/><circle cx="16" cy="0" r="8" fill="#8a5a33"/><line x1="30" y1="-18" x2="48" y2="-10" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>';
+      var SHOP2 = '<rect x="-50" y="-50" width="100" height="50" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-56 -50 h112 l-9 -16 h-94 z" fill="#e0a458" stroke="#c08838" stroke-width="2.4"/><rect x="-14" y="-32" width="28" height="32" rx="3" fill="#8a5a33"/>';
+      return [
+        { minDur: 6800, sub: '爺爺年輕時全身上下只有一雙手：推著小推車沿街賣饅頭，天不亮就出門……',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-50, -6, CART4, '', 0, 1)) + sweat(300, 192), 'night') },
+        { minDur: 6800, sub: '省吃儉用幾十年，小推車變成小店面、小店面變成大商行——全靠自己的雙手打拚！',
+          html: scene(P(430, 302, SHOP2, '', 0, 1.1) +
+            P(250, 302, A('kid', 'happy')) + hearts(340, 195) + bang(540, 200)) },
+        { minDur: 6600, sub: '「白手起家」：不靠背景、不靠本錢，憑自己的努力創立事業——最令人敬佩！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'wow'), '', 0, .93) + hearts(430, 185)) },
+        { minDur: 6400, sub: '白手起家：憑自己的努力創立事業。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-50, -6, CART4, '', 0, .9)) + P(560, 302, SHOP2, '', 0, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">白手起家</text>') }
+      ];
+    },
+    /* 半斤八兩 */
+    i823: function () {
+      var SCALE = '<line x1="0" y1="0" x2="0" y2="-56" stroke="#8b93a3" stroke-width="5"/><line x1="-60" y1="-56" x2="60" y2="-56" stroke="#8b93a3" stroke-width="4"/>' +
+        '<path d="M-60 -56 l-12 22 h24 z" fill="none" stroke="#8b93a3" stroke-width="3"/><path d="M60 -56 l-12 22 h24 z" fill="none" stroke="#8b93a3" stroke-width="3"/>' +
+        '<rect x="-16" y="0" width="32" height="8" rx="3" fill="#8b93a3"/>';
+      return [
+        { minDur: 6800, sub: '古秤一斤是十六兩——所以「半斤」剛好就是「八兩」，兩邊放上秤，一樣重！',
+          html: scene(P(400, 290, SCALE, '', 0, 1.3) + qmark(520, 200) +
+            P(200, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6800, sub: '兩兄弟比賽釣魚：一個釣三條小魚、一個釣一條大魚——秤起來竟然一樣重，半斤八兩！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(40, -60, A('fish'), '', 0, .55)) +
+            P(500, 302, A('kid', 'happy') + P(-40, -60, A('fish'), '', 0, .75), '', 0, .98, true) + qmark(400, 180)) },
+        { minDur: 6800, sub: '「半斤八兩」：程度相當、不相上下——不過多用來笑雙方「一樣差」喔！',
+          html: scene(P(320, 302, A('kid', 'sad')) + P(490, 302, A('kid', 'sad'), '', 0, .98, true) +
+            sweat(280, 192) + sweat(530, 195) + qmark(405, 178)) },
+        { minDur: 6400, sub: '半斤八兩：彼此程度相當，不相上下。',
+          html: scene(P(400, 292, SCALE, '', 0, 1.35) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">半斤八兩</text>') }
+      ];
+    },
+    /* 舉世聞名 */
+    i824: function () {
+      var TOWER101 = '<path d="M-10 0 h20 l-2 -10 h-16 z M-9 -10 h18 l-2 -10 h-14 z M-8 -20 h16 l-2 -10 h-12 z M-7 -30 h14 l-2 -10 h-10 z M-6 -40 h12 l-2 -10 h-8 z M-5 -50 h10 l-1 -8 h-8 z" fill="#8fa8c9" stroke="#6d87ab" stroke-width="1.6"/><line x1="0" y1="-58" x2="0" y2="-72" stroke="#6d87ab" stroke-width="2.6"/>';
+      var GLOBE2 = '<circle cx="0" cy="0" r="30" fill="#7fb2e0" stroke="#5a8fc4" stroke-width="3"/><path d="M-18 -12 q9 -7 20 -2 q7 4 3 11 q-9 5 -18 0 q-9 -4 -5 -9 z" fill="#a5d47c"/>';
+      return [
+        { minDur: 6800, sub: '外國朋友一提到台灣就說：「我知道101大樓！還有夜市小吃！」——全世界都聽過！',
+          html: scene(P(300, 302, TOWER101, '', 0, 1.6) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(440, 190)) },
+        { minDur: 6600, sub: '「舉世」是全世界——名聲大到全世界都知道，就是「舉世聞名」！',
+          html: scene(P(400, 210, GLOBE2, '', 0, 1.4) + notes(500, 170) + hearts(300, 200)) },
+        { minDur: 6800, sub: '長城、金字塔、萬里長城……這些舉世聞名的奇景，吸引全球旅客朝聖！',
+          html: scene(P(430, 302, '<path d="M-120 0 l30 -20 l30 8 l30 -16 l30 10 l30 -12 l-6 -14 l-30 12 l-30 -10 l-30 16 l-30 -8 l-30 20 z" fill="#b0a390" stroke="#8a7a66" stroke-width="2.4"/>', '', 0, 1.1) +
+            P(220, 302, A('kid', 'wow'), '', 0, .93) + hearts(320, 200)) },
+        { minDur: 6400, sub: '舉世聞名：全世界都知道，名聲極大。',
+          html: scene(P(400, 220, GLOBE2, '', 0, 1.5) + notes(510, 180) +
+            '<text x="400" y="310" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">舉世聞名</text>') }
+      ];
+    },
+    /* 別有洞天 */
+    i825: function () {
+      var CAVE2 = '<path d="M-60 0 L-60 -40 Q-60 -110 0 -110 Q60 -110 60 -40 L60 0 Z" fill="#8a7a66"/><path d="M-26 0 Q-26 -52 0 -52 Q26 -52 26 0 Z" fill="#4a4238"/>';
+      function flower7(x, y, color, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<line x1="0" y1="0" x2="0" y2="-14" stroke="#5f8a46" stroke-width="3"/><circle cx="0" cy="-19" r="4.6" fill="' + color + '"/><circle cx="-5" cy="-15" r="4.6" fill="' + color + '"/><circle cx="5" cy="-15" r="4.6" fill="' + color + '"/></g>');
+      }
+      return [
+        { minDur: 6800, sub: '爬山時發現一個不起眼的小山洞——彎腰鑽進去，會有什麼呢？',
+          html: scene(P(500, 302, CAVE2) + P(320, 302, A('kid', 'wow'), 'st-inR') + qmark(390, 190)) },
+        { minDur: 6800, sub: '哇！洞的另一頭竟然是一片開滿花的山谷，還有瀑布和彩蝶——像另一個世界！',
+          html: scene(flower7(250, 320, '#ff9eb5', 0) + flower7(360, 318, '#ffd97a', .3) + flower7(470, 322, '#c9a8e0', .5) +
+            P(620, 250, '<path d="M0 -60 q-4 30 0 60 M12 -60 q4 30 0 60" stroke="#a8d4ee" stroke-width="6" fill="none" stroke-linecap="round"/>') +
+            P(560, 200, A('butterfly'), '', 0, .95) +
+            P(180, 302, A('kid', 'wow')) + hearts(280, 210) + bang(400, 170)) },
+        { minDur: 6600, sub: '「別有洞天」：另有一番美妙的境界——意想不到的驚喜世界！',
+          html: scene(P(500, 302, CAVE2, '', 0, .9) + flower7(250, 320, '#ff9eb5', 0) +
+            P(320, 302, A('kid', 'happy')) + hearts(400, 195)) },
+        { minDur: 6400, sub: '別有洞天：另有一番美妙的境界。',
+          html: scene(P(500, 302, CAVE2, '', 0, .95) + flower7(240, 320, '#ffd97a', 0) + flower7(330, 318, '#ff9eb5', .3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">別有洞天</text>') }
+      ];
+    },
+    /* 面黃肌瘦 */
+    i826: function () {
+      var THINKID = '<g class="st-bob"><rect x="-11" y="-14" width="9" height="14" rx="4" fill="#4a5b7d"/><rect x="2" y="-14" width="9" height="14" rx="4" fill="#4a5b7d"/>' +
+        '<rect x="-13" y="-44" width="26" height="34" rx="11" fill="#6fbf8e" stroke="#54a274" stroke-width="2.2"/>' +
+        '<circle cx="0" cy="-54" r="19" fill="#e8d5a0" stroke="#c9b880" stroke-width="2"/>' +
+        '<path d="M-19 -58 Q-16 -74 0 -74 Q16 -74 19 -58 Q10 -66 0 -65 Q-10 -66 -19 -58 Z" fill="#6b4a32"/>' +
+        '<circle cx="-6" cy="-53" r="2.6" fill="#3a2e26"/><circle cx="6" cy="-53" r="2.6" fill="#3a2e26"/>' +
+        '<path d="M-4 -42 Q0 -45 4 -42" stroke="#3a2e26" stroke-width="2" fill="none" stroke-linecap="round"/></g>';
+      return [
+        { minDur: 6800, sub: '故事書裡的孤兒臉色蠟黃、瘦得只剩皮包骨——長期吃不飽，營養不良……',
+          html: scene(P(360, 302, THINKID) + sweat(310, 200) +
+            P(560, 302, A('kid', 'sad'), '', 0, .95, true) + qmark(610, 190), 'night') },
+        { minDur: 6800, sub: '好心人送來熱粥和麵包，天天照顧——幾個月後，他的臉色紅潤、長高長壯了！',
+          html: scene(P(360, 302, A('kid', 'happy')) +
+            P(540, 302, A('kid', 'happy') + P(-38, -50, '<path d="M-16 -6 q0 12 16 12 q16 0 16 -12 z" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02, true) + hearts(450, 185)) },
+        { minDur: 6600, sub: '「面黃肌瘦」：臉色發黃、身體消瘦——營養均衡，才能頭好壯壯！',
+          html: scene(P(320, 302, THINKID) + P(520, 302, A('kid', 'happy'), '', 0, 1.02) +
+            '<path d="M400 250 L450 250" stroke="#548a40" stroke-width="4" stroke-linecap="round"/><path d="M450 250 l-10 -6 v12 z" fill="#548a40"/>') },
+        { minDur: 6400, sub: '面黃肌瘦：臉色發黃、身體消瘦，營養不良。',
+          html: scene(P(400, 302, THINKID, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">面黃肌瘦</text>') }
+      ];
+    },
+    /* 骨瘦如柴 */
+    i827: function () {
+      var FIREWOOD = '<g stroke="#a8734a" stroke-width="5" stroke-linecap="round"><line x1="-24" y1="8" x2="20" y2="-14"/><line x1="-20" y1="-2" x2="24" y2="10"/><line x1="-14" y1="14" x2="16" y2="-18"/></g>';
+      var THINCAT = '<g class="st-bob"><ellipse cx="0" cy="-18" rx="17" ry="11" fill="#e8c48f" stroke="#c9a066" stroke-width="2"/>' +
+        '<g stroke="#c9a066" stroke-width="1.6"><line x1="-10" y1="-24" x2="-10" y2="-12"/><line x1="-3" y1="-26" x2="-3" y2="-11"/><line x1="4" y1="-26" x2="4" y2="-11"/></g>' +
+        '<circle cx="-16" cy="-32" r="10" fill="#e8c48f" stroke="#c9a066" stroke-width="2"/>' +
+        '<path d="M-24 -40 l-3 -8 l7 4 z M-10 -41 l3 -8 l4 7 z" fill="#c9a066"/>' +
+        '<circle cx="-19" cy="-33" r="1.8" fill="#3a2e26"/>' +
+        '<path d="M14 -20 q10 2 8 12" stroke="#c9a066" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>';
+      return [
+        { minDur: 6800, sub: '巷口的流浪貓好幾天沒吃東西，瘦得肋骨一根根都看得見——像一把細柴！',
+          html: scene(P(400, 300, THINCAT, '', 0, 1.2) + sweat(350, 240) +
+            P(200, 302, A('kid', 'sad')) + qmark(270, 190), 'night') },
+        { minDur: 6800, sub: '小語每天帶飼料和水去餵牠——慢慢地，小貓毛色發亮、圓潤了起來！',
+          html: scene(P(480, 300, A('fox'), '', 0, .95) +
+            P(300, 302, A('kid', 'happy') + P(38, -30, '<path d="M-12 -6 q0 10 12 10 q12 0 12 -10 z" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2.4"/>', '', 0, .95)) + hearts(400, 190)) },
+        { minDur: 6600, sub: '「骨瘦如柴」：瘦得只剩骨頭、像木柴一樣——照顧小動物，人人有責！',
+          html: scene(P(320, 296, FIREWOOD, '', 0, 1.2) + P(520, 300, THINCAT, '', 0, 1) +
+            '<text x="410" y="240" text-anchor="middle" font-size="24" fill="#4a3200">＝</text>') },
+        { minDur: 6400, sub: '骨瘦如柴：瘦得只剩骨頭，像木柴一樣。',
+          html: scene(P(400, 300, THINCAT, '', 0, 1.2) + P(250, 300, FIREWOOD, '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">骨瘦如柴</text>') }
+      ];
     }
   };
 
