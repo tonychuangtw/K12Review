@@ -5203,6 +5203,125 @@
           html: scene(P(560, 110, FULLMOON) + flower3(240, 320, '#ff9eb5', 0) + flower3(350, 322, '#ffd97a', .3) +
             '<text x="400" y="240" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">花好月圓</text>', 'night') }
       ];
+    },
+    /* 秋高氣爽 */
+    i420: function () {
+      function mapleLeaf(x, y, dly) {
+        return P(x, y, '<g class="st-snow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M0 -10 L3 -3 L10 -6 L5 0 L10 6 L3 3 L0 10 L-3 3 L-10 6 L-5 0 L-10 -6 L-3 -3 Z" fill="#e0a458"/></g>');
+      }
+      return [
+        { minDur: 6600, sub: '秋天到了！天空又高又藍，空氣涼涼爽爽，深呼吸一口，全身都舒暢！',
+          html: scene(mapleLeaf(250, 130, 0) + mapleLeaf(450, 100, .5) + mapleLeaf(600, 150, .9) +
+            P(360, 302, A('kid', 'happy'), 'st-strut') + hearts(460, 195)) },
+        { minDur: 6600, sub: '這種天氣最適合爬山、遠足——站上山頂眺望，視野好得不得了！',
+          html: scene(P(620, 302, '<path d="M-120 0 L0 -140 L120 0 Z" fill="#a5c2b2"/>') +
+            P(300, 302, A('kid', 'happy'), 'st-strut') + P(430, 302, A('kid', 'happy'), 'st-strut', .2, .93) + mapleLeaf(200, 140, 0)) },
+        { minDur: 6600, sub: '「秋高氣爽」：秋天天空晴朗、氣候涼爽宜人！',
+          html: scene(mapleLeaf(280, 140, 0) + mapleLeaf(500, 110, .4) +
+            P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(490, 190)) },
+        { minDur: 6400, sub: '秋高氣爽：秋天天空晴朗，氣候涼爽宜人。',
+          html: scene(mapleLeaf(260, 130, 0) + mapleLeaf(430, 100, .4) + mapleLeaf(580, 150, .7) +
+            '<text x="400" y="270" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">秋高氣爽</text>') }
+      ];
+    },
+    /* 冰天雪地 */
+    i421: function () {
+      var SNOWSCAPE = '<g fill="#fff"><circle class="st-snow" cx="160" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1.2s" cx="330" cy="20" r="3.4"/><circle class="st-snow" style="animation-delay:.5s" cx="470" cy="36" r="4"/><circle class="st-snow" style="animation-delay:1.7s" cx="600" cy="24" r="3"/></g>' +
+        '<ellipse cx="400" cy="330" rx="420" ry="42" fill="#fff" opacity=".95"/>';
+      var SNOWMAN = '<circle cx="0" cy="-16" r="18" fill="#fff" stroke="#d5e4ee" stroke-width="2.6"/><circle cx="0" cy="-44" r="13" fill="#fff" stroke="#d5e4ee" stroke-width="2.6"/>' +
+        '<circle cx="-4" cy="-46" r="1.8" fill="#3a2e26"/><circle cx="4" cy="-46" r="1.8" fill="#3a2e26"/>' +
+        '<path d="M-1 -42 l-7 2 l7 2 z" fill="#f5a742"/>' +
+        '<path d="M-14 -56 a14 8 0 0 1 28 0 z" fill="#e85a4f"/>';
+      return [
+        { minDur: 6600, sub: '北方的冬天，放眼望去白茫茫一片：地上結冰、天上飄雪，呼出的氣都變成白霧！',
+          html: scene(SNOWSCAPE + P(360, 300, A('kid', 'wow')) + sweat(300, 195), 'night') },
+        { minDur: 6600, sub: '大家穿上厚外套，堆雪人、打雪仗——冰天雪地裡也有滿滿的樂趣！',
+          html: scene(SNOWSCAPE + P(500, 300, SNOWMAN, '', 0, 1.2) +
+            P(300, 300, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(400, 200)) },
+        { minDur: 6600, sub: '「冰天雪地」：冰雪遍布、非常寒冷的景象！',
+          html: scene(SNOWSCAPE + P(430, 300, SNOWMAN, '', 0, 1) + P(260, 300, A('kid', 'happy'))) },
+        { minDur: 6400, sub: '冰天雪地：冰雪遍布，非常寒冷的景象。',
+          html: scene(SNOWSCAPE + P(480, 300, SNOWMAN, '', 0, 1.15) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">冰天雪地</text>') }
+      ];
+    },
+    /* 寒風刺骨 */
+    i422: function () {
+      var WINDCOLD = '<g stroke="#d5e8f5" stroke-width="5" fill="none" stroke-linecap="round" opacity=".95">' +
+        '<path class="st-windln" d="M60 140 q60 -18 120 0 q30 9 52 -4"/><path class="st-windln" style="animation-delay:.6s" d="M120 190 q70 -16 130 2 q26 8 48 -6"/>' +
+        '<path class="st-windln" style="animation-delay:1s" d="M80 240 q60 -14 120 0"/></g>';
+      return [
+        { minDur: 6600, sub: '寒流來了！北風呼呼地吹，像小刀子一樣往骨頭裡鑽——好冷呀！',
+          html: scene(WINDCOLD + P(400, 302, A('kid', 'wow')) + sweat(340, 195) +
+            '<g fill="#fff"><circle class="st-snow" cx="250" cy="40" r="3.4"/><circle class="st-snow" style="animation-delay:.8s" cx="520" cy="30" r="3"/></g>') },
+        { minDur: 6600, sub: '大家縮著脖子、抱著手臂快步走，圍巾手套全都出動了！',
+          html: scene(WINDCOLD +
+            P(320, 302, A('kid', 'wow') + '<path d="M-16 -38 h32 l-4 10 h-24 z" fill="#e85a4f"/>', 'st-dashL') +
+            P(500, 302, A('kid', 'wow'), 'st-dashL', .2, .93) + sweat(420, 195)) },
+        { minDur: 6600, sub: '「寒風刺骨」：寒冷的風像刺進骨頭一樣——記得添衣保暖呀！',
+          html: scene(WINDCOLD + P(400, 302, A('kid', 'happy') + '<path d="M-16 -38 h32 l-4 10 h-24 z" fill="#e85a4f"/>') + hearts(490, 190)) },
+        { minDur: 6400, sub: '寒風刺骨：寒冷的風像刺進骨頭一樣。',
+          html: scene(WINDCOLD + P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">寒風刺骨</text>') }
+      ];
+    },
+    /* 春風滿面 */
+    i423: function () {
+      var SMILEBROWS = '<path d="M-14 -62 q6 -5 12 0 M2 -62 q6 -5 12 0" stroke="#3a2e26" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6600, sub: '比賽得獎的消息一公布，小晴一路春風滿面地走回教室——臉上的笑容藏都藏不住！',
+          html: scene(P(360, 302, A('kid', 'happy') + SMILEBROWS, 'st-strut', 0, 1.05) + hearts(460, 185) +
+            '<g stroke="#e8f4fb" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"><path class="st-windln" d="M150 180 q50 -12 100 0"/></g>') },
+        { minDur: 6600, sub: '同學們圍過來道賀，她笑得像春天的暖風拂過臉龐，又開心又溫柔。',
+          html: scene(P(360, 302, A('kid', 'happy') + SMILEBROWS) +
+            P(520, 302, A('kid', 'happy'), '', .2, .93) + P(230, 302, A('kid', 'happy'), '', .3, .9) + hearts(400, 170)) },
+        { minDur: 6600, sub: '「春風滿面」：滿臉笑容、心情愉快的樣子！',
+          html: scene(P(400, 302, A('kid', 'happy') + SMILEBROWS, '', 0, 1.1) + hearts(500, 185) + notes(300, 180)) },
+        { minDur: 6400, sub: '春風滿面：滿臉笑容，心情愉快的樣子。',
+          html: scene(P(400, 302, A('kid', 'happy') + SMILEBROWS, '', 0, 1.12) + hearts(490, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">春風滿面</text>') }
+      ];
+    },
+    /* 笑容可掬 */
+    i424: function () {
+      var SMILEBROWS = '<path d="M-14 -62 q6 -5 12 0 M2 -62 q6 -5 12 0" stroke="#3a2e26" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6600, sub: '巷口麵包店的老闆娘，見到每位客人都笑瞇瞇：「歡迎光臨，今天的麵包剛出爐喔！」',
+          html: scene(P(430, 302, '<rect x="-60" y="-30" width="120" height="30" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/><circle cx="-24" cy="-38" r="8" fill="#e8b84a"/><circle cx="2" cy="-40" r="8" fill="#e0a458"/><circle cx="28" cy="-38" r="8" fill="#c98f2a"/>') +
+            P(300, 302, A('kid', 'happy') + SMILEBROWS, '', 0, 1.05) +
+            P(620, 302, A('kid', 'happy'), 'st-inR', 0, .92) + hearts(500, 190)) },
+        { minDur: 6600, sub: '那笑容溫暖親切，好像雙手捧著送到你面前——大家都喜歡跟她買麵包！',
+          html: scene(P(400, 302, A('kid', 'happy') + SMILEBROWS, '', 0, 1.1) + hearts(480, 180) + hearts(320, 190)) },
+        { minDur: 6600, sub: '「掬」是用雙手捧起——笑容滿面、和藹可親，就是「笑容可掬」！',
+          html: scene(P(400, 302, A('kid', 'happy') + SMILEBROWS +
+              '<circle cx="-26" cy="-24" r="8" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/><circle cx="26" cy="-24" r="8" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>', '', 0, 1.08) + hearts(500, 190)) },
+        { minDur: 6400, sub: '笑容可掬：笑容滿面，和藹可親。',
+          html: scene(P(400, 302, A('kid', 'happy') + SMILEBROWS, '', 0, 1.12) + hearts(300, 190) + hearts(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">笑容可掬</text>') }
+      ];
+    },
+    /* 綠樹成蔭 */
+    i425: function () {
+      function bigTree(x, sc) {
+        return P(x, 302, '<rect x="-10" y="-52" width="20" height="52" rx="7" fill="#a8734a"/>' +
+          '<circle cx="0" cy="-76" r="34" fill="#7cc47f"/><circle cx="-28" cy="-58" r="22" fill="#8fd08f"/><circle cx="28" cy="-60" r="23" fill="#8fd08f"/>', '', 0, sc || 1);
+      }
+      var SHADE = '<ellipse cx="0" cy="0" rx="90" ry="14" fill="#5f8a46" opacity=".35"/>';
+      return [
+        { minDur: 6600, sub: '公園的大樹一棵挨著一棵，枝葉茂密，把陽光都篩成了細細碎碎的光點。',
+          html: scene(bigTree(200, 1.05) + bigTree(400, 1.15) + bigTree(600, 1) +
+            P(400, 322, SHADE)) },
+        { minDur: 6600, sub: '烈日當空也不怕——躲進樹蔭下，涼快又舒服，最適合乘涼、下棋、講故事！',
+          html: scene(bigTree(430, 1.25) + P(430, 322, SHADE) +
+            P(330, 302, A('kid', 'happy'), '', 0, .92) + P(520, 302, A('kid', 'happy'), '', .2, .9) + hearts(430, 210)) },
+        { minDur: 6600, sub: '「綠樹成蔭」：樹木茂密、樹蔭連成一片——夏天最棒的天然涼傘！',
+          html: scene(bigTree(250, 1.1) + bigTree(480, 1.2) + P(360, 322, SHADE) +
+            P(370, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6400, sub: '綠樹成蔭：樹木茂密，樹蔭遮蔽成片。',
+          html: scene(bigTree(260, 1.1) + bigTree(520, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">綠樹成蔭</text>') }
+      ];
     }
   };
 
