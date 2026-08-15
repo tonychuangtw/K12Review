@@ -8706,6 +8706,118 @@
           html: scene(P(340, 302, A('kid', 'sad')) + hearts(430, 185) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">戀戀不捨</text>') }
       ];
+    },
+    /* 朝思暮想 */
+    i477: function () {
+      var SUNICO2 = '<circle cx="0" cy="0" r="14" fill="#ffdd66" stroke="#f5b73e" stroke-width="2.6"/>';
+      var MOONICO2 = '<path d="M6 -12 A14 14 0 1 0 12 8 A11 11 0 1 1 6 -12 Z" fill="#f4f1de" stroke="#d8d4bd" stroke-width="2"/>';
+      var PUPPY = '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/>' + '<g transform="translate(0,12) scale(.55)"><ellipse cx="2" cy="-22" rx="26" ry="19" fill="#e8c48f" stroke="#c9a066" stroke-width="2"/><circle cx="-20" cy="-42" r="17" fill="#e8c48f" stroke="#c9a066" stroke-width="2"/><ellipse cx="-34" cy="-52" rx="7" ry="13" fill="#c9a066" transform="rotate(24 -34 -52)"/><circle cx="-25" cy="-44" r="2.6" fill="#3a2e26"/></g>';
+      return [
+        { minDur: 6800, sub: '小朝好想養一隻小狗——早上想、晚上也想，連上課發呆都在想牠的名字！',
+          html: scene(P(240, 130, SUNICO2) + P(560, 130, MOONICO2) +
+            P(400, 190, PUPPY, '', 0, 1.2) +
+            P(400, 302, A('kid', 'happy'), '', 0, 1.02) + hearts(500, 250)) },
+        { minDur: 6800, sub: '「朝」是早晨、「暮」是傍晚——從早到晚都在想念，就是「朝思暮想」！',
+          html: scene(P(260, 140, SUNICO2, '', 0, 1.1) + P(540, 140, MOONICO2, '', 0, 1.1) +
+            '<path d="M300 140 L500 140" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="9 8"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, 1.02) + hearts(400, 220)) },
+        { minDur: 6800, sub: '他用行動證明自己能負責：天天遛鄰居的狗、讀養狗手冊——爸媽終於點頭了！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(470, 300, A('dog'), '', 0, .95) + hearts(390, 190)) },
+        { minDur: 6400, sub: '朝思暮想：從早到晚都在想念。',
+          html: scene(P(250, 140, SUNICO2) + P(550, 140, MOONICO2) + P(400, 302, A('kid', 'happy'), '', 0, 1.02) + hearts(400, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">朝思暮想</text>') }
+      ];
+    },
+    /* 望眼欲穿 */
+    i478: function () {
+      var BIGEYE4 = '<path d="M-28 0 Q0 -22 28 0 Q0 22 -28 0 Z" fill="#fff" stroke="#4a3200" stroke-width="2.8"/><circle cx="0" cy="0" r="9" fill="#6b4a32"/><circle cx="3" cy="-3" r="2.8" fill="#fff"/>';
+      return [
+        { minDur: 6800, sub: '網購的天文望遠鏡三天前就出貨了——小望每十分鐘看一次門口，望到眼睛都痠了！',
+          html: scene(P(360, 302, A('kid', 'wow')) + P(430, 190, BIGEYE4, '', 0, 1.1) +
+            P(600, 302, '<rect x="-16" y="-40" width="32" height="40" rx="4" fill="#8a5a33"/>', '', 0, 1.1) + qmark(300, 190)) },
+        { minDur: 6800, sub: '「欲穿」是快要望穿了——盼望殷切到眼睛像要把門看出一個洞！',
+          html: scene(P(400, 200, BIGEYE4, '', 0, 1.5) +
+            '<path d="M450 200 q60 0 120 0" stroke="#ffd97a" stroke-width="4" stroke-dasharray="8 8"/>' +
+            P(620, 302, '<rect x="-16" y="-40" width="32" height="40" rx="4" fill="#8a5a33"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「叮咚！」包裹終於到了——小望衝出去抱著紙箱轉圈圈！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + P(-40, -60, '<rect x="-18" y="-16" width="36" height="26" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>', '', 0, 1) + '</g>') + bang(470, 195) + hearts(280, 192)) },
+        { minDur: 6400, sub: '望眼欲穿：盼望殷切，眼睛都要望穿了。',
+          html: scene(P(400, 210, BIGEYE4, '', 0, 1.6) +
+            '<text x="400" y="310" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">望眼欲穿</text>') }
+      ];
+    },
+    /* 如願以償 */
+    i479: function () {
+      var WISHSTAR = '<g class="st-tw"><path d="M0 -14 L3.5 -4 L14 -4 L6 3 L9 13 L0 7 L-9 13 L-6 3 L-14 -4 L-3.5 -4 Z" fill="#ffd97a"/></g>';
+      return [
+        { minDur: 6800, sub: '小願的願望清單第一條：加入學校合唱團——她練了整個暑假的發聲！',
+          html: scene(P(360, 302, A('kid', 'happy')) + notes(450, 170) +
+            P(280, 190, WISHSTAR, '', 0, 1.2) + hearts(500, 200)) },
+        { minDur: 6800, sub: '甄選那天她唱得又穩又亮——名單公布：錄取！願望實現了！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + bang(470, 190) +
+            P(540, 250, '<rect x="-30" y="-22" width="60" height="44" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-16 0 l8 9 l20 -18" stroke="#548a40" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1)) },
+        { minDur: 6600, sub: '「如願以償」：願望得到實現——「償」是實現，努力過的願望最甜！',
+          html: scene(P(400, 200, WISHSTAR, '', 0, 1.8) + hearts(500, 240) +
+            P(260, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6400, sub: '如願以償：願望得到實現。',
+          html: scene(P(400, 205, WISHSTAR, '', 0, 2) + P(260, 302, A('kid', 'happy'), '', 0, 1) + hearts(500, 240) +
+            '<text x="400" y="310" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">如願以償</text>') }
+      ];
+    },
+    /* 夢寐以求 */
+    i480: function () {
+      return [
+        { minDur: 6800, sub: '小夢的書桌貼滿太空海報——她連做夢都夢到自己穿太空衣、飄在太空站裡！',
+          html: scene(P(430, 180, '<circle cx="0" cy="0" r="64" fill="#fff" opacity=".9"/>' +
+              P(0, 20, A('kid', 'happy'), '', 0, .7) +
+              '<circle class="st-tw" cx="-34" cy="-30" r="3" fill="#5c82ba"/><circle class="st-tw" style="animation-delay:.5s" cx="30" cy="-38" r="4" fill="#5c82ba"/>') +
+            P(300, 302, '<ellipse cx="0" cy="-8" rx="34" ry="12" fill="#6fbf8e"/><circle cx="-28" cy="-16" r="13" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>') + zzz(230, 230), 'night') },
+        { minDur: 6800, sub: '「寐」是睡覺——連睡夢中都在追求，渴望到骨子裡了！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) +
+            P(400, 180, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><path d="M0 -12 L3 -3 L12 -3 L5 3 L8 12 L0 6 L-8 12 L-5 3 L-12 -3 L-3 -3 Z" fill="#ffd97a"/>') + hearts(500, 220), 'night') },
+        { minDur: 6800, sub: '為了夢寐以求的目標，她參加科學營、天天看星星——夢想因為行動而越來越近！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -60, '<rect x="-4" y="-24" width="8" height="30" rx="3" fill="#8b93a3" transform="rotate(40)"/><circle cx="14" cy="-26" r="7" fill="none" stroke="#8b93a3" stroke-width="3"/>', '', 0, 1)) +
+            '<circle class="st-tw" cx="240" cy="110" r="3" fill="#fff"/><circle class="st-tw" style="animation-delay:.6s" cx="520" cy="90" r="4" fill="#fff"/>' + hearts(470, 195), 'night') },
+        { minDur: 6400, sub: '夢寐以求：連睡夢中都在追求，渴望已久。',
+          html: scene(P(400, 200, '<circle cx="0" cy="0" r="34" fill="#fff" opacity=".92"/><path d="M0 -14 L3.5 -4 L14 -4 L6 3 L9 13 L0 7 L-9 13 L-6 3 L-14 -4 L-3.5 -4 Z" fill="#ffd97a"/>', '', 0, 1.3) +
+            '<text x="400" y="300" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">夢寐以求</text>', 'night') }
+      ];
+    },
+    /* 大失所望 */
+    i481: function () {
+      return [
+        { minDur: 6800, sub: '期待了一個月的煙火節——當天卻因為大雨取消了！小失盯著公告，整個人垮下來……',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3.4" stroke-linecap="round"><line class="st-rain" x1="180" y1="30" x2="174" y2="52"/><line class="st-rain" style="animation-delay:.4s" x1="360" y1="16" x2="354" y2="38"/><line class="st-rain" style="animation-delay:.8s" x1="520" y1="30" x2="514" y2="52"/></g>' +
+            P(430, 250, '<rect x="-40" y="-26" width="80" height="52" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="-4" text-anchor="middle" font-size="13" fill="#c96a5a">活動取消</text><path d="M-20 12 h40" stroke="#8fa3bf" stroke-width="2"/>') +
+            P(240, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') + sweat(300, 200), 'night') },
+        { minDur: 6800, sub: '期望越高、落空時越失落——「大失所望」就是希望完全落空的心情。',
+          html: scene(P(400, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.05) + sweat(340, 195) + qmark(470, 185)) },
+        { minDur: 6800, sub: '不過媽媽提議在家看紀錄片配爆米花——失望的夜晚，也能自己創造小驚喜！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, 1.02, true) +
+            P(410, 250, '<path d="M-14 -6 q0 -14 8 -16 q-2 8 2 10 q2 -10 8 -10 q6 0 6 8 q6 -4 8 2 q2 8 -6 10 l-4 8 h-16 z" fill="#ffe9a0" stroke="#e8b84a" stroke-width="2"/>', '', 0, 1.1) + hearts(410, 190)) },
+        { minDur: 6400, sub: '大失所望：非常失望。',
+          html: scene(P(400, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.08) + sweat(460, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大失所望</text>') }
+      ];
+    },
+    /* 出乎意料 */
+    i482: function () {
+      return [
+        { minDur: 6800, sub: '全班都以為最內向的小意不敢參加歌唱比賽——結果她不但報名，還一開口驚豔全場！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, A('kid', 'happy'), '', 0, 1.02) + notes(480, 170) + bang(300, 185) +
+            P(180, 302, A('kid', 'wow'), '', 0, .88) + P(620, 302, A('kid', 'wow'), '', .2, .88, true)) },
+        { minDur: 6800, sub: '結局和大家想的完全不一樣——超出原先的預料，就是「出乎意料」！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            P(310, 180, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="22" fill="#8fa3bf">A?</text>') +
+            '<path d="M350 180 L450 180" stroke="#c96a5a" stroke-width="3.4" stroke-linecap="round"/><path d="M450 180 l-10 -6 v12 z" fill="#c96a5a"/>' +
+            P(500, 180, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="22" font-weight="bold" fill="#e0a458">B!</text>')) },
+        { minDur: 6800, sub: '好書的結局、比賽的黑馬、朋友藏的驚喜——出乎意料的時刻，讓生活充滿趣味！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + bang(460, 188) + hearts(280, 192)) },
+        { minDur: 6400, sub: '出乎意料：超出原先的預料。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.08) + bang(490, 185) + qmark(310, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">出乎意料</text>') }
+      ];
     }
   };
 
