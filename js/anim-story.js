@@ -1308,6 +1308,145 @@
           html: scene(P(400, 302, A('kid', 'happy') + CROWN) + notes(480, 170) + hearts(320, 180) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">樂不思蜀</text>') }
       ];
+    },
+    /* 邯鄲學步 */
+    i368: function () {
+      var SIGN = '<line x1="0" y1="0" x2="0" y2="-84" stroke="#a8734a" stroke-width="6"/>' +
+        '<g><rect x="-6" y="-84" width="64" height="22" rx="4" fill="#e8dcc0" stroke="#a8734a" stroke-width="2.4"/>' +
+        '<text x="26" y="-68" text-anchor="middle" font-size="15" font-weight="bold" fill="#4a3200">邯鄲→</text></g>';
+      return [
+        { minDur: 6600, sub: '燕國有個少年，聽說趙國邯鄲人走路的姿勢特別優美，決定親自去學一學。',
+          html: scene(P(150, 302, SIGN) +
+            P(400, 302, A('kid', 'happy'), 'st-strut') + hearts(470, 180) + qmark(340, 170)) },
+        { minDur: 6800, sub: '到了邯鄲，他天天跟在路人後面模仿：學這個人的擺手、學那個人的抬腿，越學越亂。',
+          html: scene(P(250, 302, A('kid', 'happy'), 'st-strut') +
+            P(400, 302, A('kid', 'happy'), 'st-strut', .3, .95) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95) + sweat(600, 195) + qmark(520, 175)) },
+        { minDur: 6600, sub: '結果，邯鄲的走法沒學會，連自己原來怎麼走路，都忘得一乾二淨！',
+          html: scene(P(400, 302, '<g class="st-slump">' + A('kid', 'wow') + '</g>') +
+            sweat(350, 195) + sweat(450, 200) + qmark(400, 160)) },
+        { minDur: 6800, sub: '最後，他只好手腳並用、一路爬著回燕國，被人笑了上千年。',
+          html: scene(P(360, 296, '<g transform="rotate(76)">' + A('kid', 'wow') + '</g>') + sweat(320, 230) +
+            P(640, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .9) + hearts(690, 190)) },
+        { minDur: 6200, sub: '邯鄲學步：模仿別人不成，反而失去自己原有的本領。',
+          html: scene(P(360, 296, '<g transform="rotate(76)">' + A('kid', 'wow') + '</g>') + P(600, 302, A('kid', 'happy'), 'st-strut') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">邯鄲學步</text>') }
+      ];
+    },
+    /* 破釜沉舟 */
+    i268: function () {
+      var RIVER2 = '<rect y="262" width="800" height="78" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 272 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#6db3d9" stroke-width="8" stroke-linecap="round" opacity=".9"/></g>';
+      var BOAT2 = '<path d="M-60 0 L60 0 L44 20 L-44 20 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="3"/>';
+      var POT = '<path d="M-20 0 q-6 -20 4 -26 h32 q10 6 4 26 q-10 8 -20 8 q-10 0 -20 -8 z" transform="translate(-10,-8) scale(.9)" fill="#6d7585" stroke="#4a5462" stroke-width="2.4"/>';
+      var POTBROKEN = '<path d="M-22 0 l10 -22 l8 8 l6 -12 l10 20 q-8 8 -17 8 q-9 0 -17 -2 z" fill="#6d7585" stroke="#4a5462" stroke-width="2.4"/>' +
+        '<path d="M-30 6 l8 -10 l4 8 z M22 4 l6 -10 l5 9 z" fill="#6d7585"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 6600, sub: '秦軍重重圍住鉅鹿，項羽率領楚軍渡河救援。',
+          html: scene(RIVER2 + P(400, 268, BOAT2 + P(-20, 0, A('kid', 'angry'), '', 0, .8) + P(24, 0, A('kid', 'angry'), '', 0, .75)) ) },
+        { minDur: 7000, sub: '一過河，項羽就下令：砸破全部飯鍋、鑿沉所有渡船，每人只帶三天乾糧！',
+          html: scene(RIVER2 + '<ellipse cx="360" cy="330" rx="260" ry="30" fill="#b8e08e"/>' +
+            P(300, 320, POTBROKEN) + bang(300, 260) +
+            P(560, 286, '<g transform="rotate(-22)">' + BOAT2 + '</g>') +
+            P(200, 302, A('kid', 'angry') + P(24, -42, HAMMER))) },
+        { minDur: 7000, sub: '「退路沒有了！要活命，只有拚死向前！」楚軍個個以一當十，奮勇殺敵。',
+          html: scene(P(240, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut') +
+            P(390, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', .2, .9) +
+            P(530, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-strut', .4, .85) +
+            bang(650, 200) + bang(700, 260)) },
+        { minDur: 6600, sub: '九戰九勝！楚軍大破秦軍，解了鉅鹿之圍，項羽從此威震諸侯。',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + P(26, -50, SPEAR3) + '</g>') +
+            P(480, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + P(26, -50, SPEAR3) + '</g>', '', 0, .9) +
+            hearts(400, 160)) },
+        { minDur: 6200, sub: '破釜沉舟：下定決心，不留退路地拚到底。',
+          html: scene(P(280, 316, POTBROKEN, '', 0, 1.2) + P(540, 292, '<g transform="rotate(-18)">' + BOAT2 + '</g>', '', 0, .9) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">破釜沉舟</text>') }
+      ];
+    },
+    /* 程門立雪 */
+    i1037: function () {
+      var HOUSE2 = '<path d="M-100 -80 L0 -140 L100 -80 Z" fill="#8a5a33"/>' +
+        '<rect x="-84" y="-80" width="168" height="80" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/>' +
+        '<rect x="-24" y="-58" width="48" height="58" rx="4" fill="#8a5a33"/>';
+      var SNOWFX = '<g fill="#fff"><circle class="st-snow" cx="160" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1.2s" cx="330" cy="20" r="3.4"/>' +
+        '<circle class="st-snow" style="animation-delay:.5s" cx="470" cy="36" r="4"/><circle class="st-snow" style="animation-delay:1.7s" cx="600" cy="24" r="3"/>' +
+        '<circle class="st-snow" style="animation-delay:.8s" cx="240" cy="50" r="3.6"/><circle class="st-snow" style="animation-delay:1.4s" cx="540" cy="46" r="3.2"/></g>';
+      var SNOWDRIFT = '<ellipse cx="0" cy="0" rx="120" ry="18" fill="#fff" opacity=".95"/><ellipse cx="-60" cy="-4" rx="40" ry="12" fill="#fff"/><ellipse cx="60" cy="-4" rx="40" ry="12" fill="#fff"/>';
+      return [
+        { minDur: 6600, sub: '宋朝學者楊時和游酢，一起去拜見老師程頤，想請教學問。',
+          html: scene(P(560, 302, HOUSE2) +
+            P(220, 302, A('kid', 'happy'), 'st-inL') + P(330, 302, A('kid', 'happy'), 'st-inL', .3, .92)) },
+        { minDur: 6800, sub: '老師正閉著眼睛休息。兩人不敢打擾，恭恭敬敬地站在門外靜靜等候。',
+          html: scene(P(560, 302, HOUSE2) + zzz(570, 200) +
+            P(240, 302, A('kid', 'happy')) + P(350, 302, A('kid', 'happy'), '', 0, .92)) },
+        { minDur: 6800, sub: '天上下起了大雪，越下越大——他們仍然一動也不動地站著。',
+          html: scene(P(560, 302, HOUSE2) + SNOWFX + zzz(570, 200) +
+            P(240, 302, A('kid', 'happy')) + P(350, 302, A('kid', 'happy'), '', 0, .92) +
+            P(295, 318, '<ellipse cx="0" cy="0" rx="90" ry="10" fill="#fff" opacity=".9"/>'), 'night') },
+        { minDur: 7000, sub: '老師醒來開門一看：門外的雪，已經積了一尺深！兩人的誠心，從此傳為千古佳話。',
+          html: scene(P(560, 302, HOUSE2) + SNOWFX +
+            P(560, 302, A('kid', 'wow'), '', 0, .9) + qmark(600, 190) +
+            P(240, 302, A('kid', 'happy')) + P(350, 302, A('kid', 'happy'), '', 0, .92) +
+            P(295, 316, SNOWDRIFT) + hearts(300, 170), 'night') },
+        { minDur: 6200, sub: '程門立雪：尊敬師長，誠心求教。',
+          html: scene(P(560, 302, HOUSE2) + SNOWFX + P(280, 302, A('kid', 'happy')) + P(280, 318, '<ellipse cx="0" cy="0" rx="70" ry="12" fill="#fff" opacity=".95"/>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">程門立雪</text>', 'night') }
+      ];
+    },
+    /* 鑿壁偷光 */
+    i109: function () {
+      var BOOK = '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><line x1="-1" y1="-14" x2="-3" y2="11" stroke="#c9bfa8" stroke-width="2"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>';
+      var WALLMID = '<rect x="-10" y="-170" width="20" height="170" fill="#b0a390" stroke="#8a7a66" stroke-width="2"/>';
+      var GLOW = '<circle cx="0" cy="0" r="46" fill="#ffdd66" opacity=".35"/><circle cx="0" cy="0" r="24" fill="#ffdd66" opacity=".5"/><circle cx="0" cy="0" r="9" fill="#ffe9a0"/>';
+      var BEAM = '<path d="M0 0 L150 -34 L150 30 Z" fill="#ffe9a0" opacity=".55"/>';
+      return [
+        { minDur: 6800, sub: '漢朝的匡衡最愛讀書，家裡卻窮得點不起油燈。天一黑，書就讀不成了。',
+          html: scene(P(300, 302, A('kid', 'sad') + P(-40, -50, BOOK)) + sweat(260, 200) + qmark(360, 180), 'night') },
+        { minDur: 6800, sub: '隔壁人家燈火通明。匡衡靈機一動，悄悄在牆上鑿出一個小洞——',
+          html: scene(P(430, 302, WALLMID) + P(560, 200, GLOW) +
+            P(320, 302, A('kid', 'happy') + P(26, -42, HAMMER)) +
+            P(430, 220, '<g class="st-bang"><path d="M0-8 L2-2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2-2 Z" fill="#fff27a"/></g>'), 'night') },
+        { minDur: 6800, sub: '一道亮光從小洞透了過來！他就著這道光，捧著書一夜一夜地苦讀。',
+          html: scene(P(430, 302, WALLMID) + P(560, 200, GLOW) +
+            P(430, 220, '<g transform="scale(-1,1)">' + BEAM + '</g>') +
+            P(310, 302, A('kid', 'happy') + P(-40, -56, BOOK)), 'night') },
+        { minDur: 6600, sub: '勤學不倦的匡衡，後來成了大學問家，還當上了宰相！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + P(-40, -60, BOOK) + '</g>') +
+            P(580, 302, A('kid', 'happy'), '', 0, .9) + hearts(470, 170)) },
+        { minDur: 6200, sub: '鑿壁偷光：窮困中仍勤奮讀書。',
+          html: scene(P(430, 302, WALLMID) + P(430, 220, '<g transform="scale(-1,1)">' + BEAM + '</g>') + P(560, 200, GLOW) +
+            P(300, 302, A('kid', 'happy') + P(-40, -56, BOOK), '', 0, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">鑿壁偷光</text>', 'night') }
+      ];
+    },
+    /* 囊螢映雪 */
+    i108: function () {
+      var BOOK = '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><line x1="-1" y1="-14" x2="-3" y2="11" stroke="#c9bfa8" stroke-width="2"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>';
+      var FIREFLYBAG = '<path d="M-16 0 Q-20 -26 0 -30 Q20 -26 16 0 Z" fill="#e8f4d8" opacity=".85" stroke="#c9d8b0" stroke-width="2"/>' +
+        '<line x1="0" y1="-30" x2="0" y2="-40" stroke="#c9d8b0" stroke-width="2.4"/>' +
+        '<circle class="st-tw" cx="-6" cy="-14" r="2.6" fill="#d8f060"/><circle class="st-tw" style="animation-delay:.5s" cx="5" cy="-9" r="2.4" fill="#d8f060"/><circle class="st-tw" style="animation-delay:.9s" cx="2" cy="-20" r="2.2" fill="#d8f060"/>';
+      function fly(x, y, dly) { return '<circle class="st-tw" style="animation-delay:' + dly + 's" cx="' + x + '" cy="' + y + '" r="2.6" fill="#d8f060"/>'; }
+      var SNOWGROUND = '<ellipse cx="400" cy="330" rx="420" ry="40" fill="#fff" opacity=".95"/>';
+      return [
+        { minDur: 6800, sub: '晉朝的車胤家貧，買不起燈油。夏天夜裡，他抓來許多螢火蟲，裝進薄薄的紗袋——',
+          html: scene(fly(200, 160, 0) + fly(300, 120, .4) + fly(500, 150, .8) + fly(620, 110, .2) +
+            P(360, 302, A('kid', 'happy') + P(38, -60, FIREFLYBAG)), 'night') },
+        { minDur: 6600, sub: '靠著螢火蟲的微微亮光，他捧著書，一夜又一夜地苦讀。',
+          html: scene(P(430, 240, FIREFLYBAG, '', 0, 1.3) +
+            P(310, 302, A('kid', 'happy') + P(-40, -56, BOOK)), 'night') },
+        { minDur: 6800, sub: '同時代的孫康，則在冬天的夜裡坐到雪地旁，借著白雪反射的月光讀書。',
+          html: scene(SNOWGROUND +
+            '<g fill="#fff"><circle class="st-snow" cx="200" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1s" cx="420" cy="24" r="3.4"/><circle class="st-snow" style="animation-delay:.5s" cx="580" cy="40" r="4"/></g>' +
+            P(380, 296, A('kid', 'happy') + P(-40, -56, BOOK)), 'night') },
+        { minDur: 6600, sub: '兩個人都憑著這股勤勁，成了有大學問的人。「囊螢映雪」說的就是他們！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + P(38, -64, FIREFLYBAG, '', 0, .8) + '</g>') +
+            P(540, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + P(-40, -60, BOOK) + '</g>', '', 0, .95) +
+            hearts(430, 165)) },
+        { minDur: 6200, sub: '囊螢映雪：刻苦勤奮地讀書。',
+          html: scene(P(300, 250, FIREFLYBAG, '', 0, 1.2) + SNOWGROUND + P(560, 296, A('kid', 'happy') + P(-40, -56, BOOK), '', 0, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">囊螢映雪</text>', 'night') }
+      ];
     }
   };
 
