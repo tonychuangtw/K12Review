@@ -21723,6 +21723,166 @@
           html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/><path d="M-18 -58 q4 3 8 0 M10 -58 q4 3 8 0" stroke="#c9bfa8" stroke-width="2" fill="none"/>', '', 0, 1.08) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">蒼顏白髮</text>') }
       ];
+    },
+    /* 老態龍鍾 */
+    i194: function () {
+      return [
+        { minDur: 7000, sub: '陸游晚年詩句：「老態龍鍾疾未平」——「龍鍾」是行動遲緩不靈便的樣子！',
+          html: scene(P(400, 302, '<g transform="rotate(8)">' + A('kid', 'sad') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/></g>' + P(-32, -26, '<path d="M0 12 L0 -34 q0 -10 10 -10" stroke="#8a6a44" stroke-width="4.6" fill="none" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.05) + sweat(320, 195)) },
+        { minDur: 6800, sub: '「老態龍鍾」：年老體衰、步履蹣跚——但看見這樣的背影，記得的是他年輕時扛起的一切！',
+          html: scene(P(360, 302, '<g transform="rotate(8)">' + A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/></g>', 'st-strut', 0, 1) +
+            P(540, 220, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".85"/>' + P(0, 12, A('kid', 'angry'), '', 0, .4), 'st-zfloat', 0, 1.05) + hearts(450, 195)) },
+        { minDur: 6800, sub: '看到老態龍鍾的長輩：扶一把、慢下來陪他走——我們也會有需要人等的那天！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(500, 302, '<g transform="rotate(6)">' + A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/></g>', '', 0, .95, true) + hearts(430, 185)) },
+        { minDur: 6400, sub: '老態龍鍾：年邁體衰，行動遲緩。',
+          html: scene(P(400, 302, '<g transform="rotate(8)">' + A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/></g>' + P(-32, -26, '<path d="M0 12 L0 -34 q0 -10 10 -10" stroke="#8a6a44" stroke-width="4.6" fill="none" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">老態龍鍾</text>') }
+      ];
+    },
+    /* 矍鑠有神 */
+    i195: function () {
+      return [
+        { minDur: 7000, sub: '六十二歲的馬援請纓出征，披甲上馬顧盼生威——光武帝笑讚：「矍鑠哉是翁也！」',
+          html: scene(P(360, 296, A('horse'), '', 0, 1.05) +
+            P(360, 260, A('kid', 'angry') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', '', 0, .8) +
+            P(580, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + bang(470, 200)) },
+        { minDur: 6800, sub: '「矍鑠有神」：老而強健、目光炯炯——年齡從來擋不住一顆燃燒的心！',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/><g class="st-tw"><circle cx="-11" cy="-52" r="2.6" fill="#ffd97a"/><circle cx="11" cy="-52" r="2.6" fill="#ffd97a"/></g>', 'st-strut', 0, 1.08) + bang(510, 185) + hearts(300, 192)) },
+        { minDur: 6800, sub: '九十歲晨跑的爺爺、八十歲開畫展的奶奶——矍鑠是活出來的，不是天生的！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', 'st-dashL', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>' + P(38, -46, '<line x1="0" y1="8" x2="6" y2="-12" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/>', '', 0, 1), '', 0, .98, true) + hearts(430, 188)) },
+        { minDur: 6400, sub: '矍鑠有神：老當益壯，神采奕奕。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', 'st-strut', 0, 1.1) + bang(510, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">矍鑠有神</text>') }
+      ];
+    },
+    /* 精神煥發 */
+    i196: function () {
+      return [
+        { minDur: 6800, sub: '連假睡飽三天、爬了一座山回來——週一走進教室，整個人亮得發光！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.08) +
+            '<g class="st-rays" style="transform-origin:400px 200px"><g stroke="#ffe9a0" stroke-width="4" stroke-linecap="round" opacity=".8"><line x1="400" y1="160" x2="400" y2="142"/><line x1="438" y1="172" x2="452" y2="158"/><line x1="362" y1="172" x2="348" y2="158"/></g></g>' + hearts(510, 195)) },
+        { minDur: 6800, sub: '「精神煥發」：活力充沛、煥然一新——狀態好的人做什麼都又快又穩！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -12 l4 4 l7 -8 M-10 0 l4 4 l7 -8 M-10 12 l4 4 l7 -8"/></g>', '', 0, .95), 'st-cheer', 0, 1.02) + bang(470, 185)) },
+        { minDur: 6800, sub: '精神是保養出來的：規律睡眠、適度運動、留白時間——想煥發，先充電！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-hop', 0, 1.02) +
+            P(560, 220, '<rect x="-24" y="-14" width="48" height="28" rx="6" fill="#a5d47c" stroke="#7fa858" stroke-width="2.4"/><rect x="24" y="-6" width="6" height="12" rx="2" fill="#7fa858"/><rect x="-18" y="-8" width="26" height="16" rx="3" fill="#d9f0c0"/>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6400, sub: '精神煥發：神清氣爽，活力充沛。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.1) +
+            '<g class="st-rays" style="transform-origin:400px 195px"><g stroke="#ffe9a0" stroke-width="4" stroke-linecap="round" opacity=".8"><line x1="400" y1="158" x2="400" y2="140"/><line x1="436" y1="170" x2="450" y2="156"/><line x1="364" y1="170" x2="350" y2="156"/></g></g>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">精神煥發</text>') }
+      ];
+    },
+    /* 容光煥發 */
+    i197: function () {
+      return [
+        { minDur: 6800, sub: '姊姊收到錄取通知那天——臉上像打了光，連路人都多看兩眼！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<circle cx="-16" cy="-44" r="3" fill="#ffb3c1" opacity=".9"/><circle cx="16" cy="-44" r="3" fill="#ffb3c1" opacity=".9"/>', '', 0, 1.08) +
+            '<g class="st-tw"><path d="M320 190 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd97a"/><path d="M490 185 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd97a"/></g>' +
+            P(540, 250, '<rect x="-22" y="-15" width="44" height="30" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">錄取!</text>', '', 0, 1.1) + hearts(290, 195)) },
+        { minDur: 6800, sub: '「容光煥發」：氣色極好、光彩照人——心裡有光的人，臉上藏不住！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<circle cx="-16" cy="-44" r="3" fill="#ffb3c1" opacity=".9"/><circle cx="16" cy="-44" r="3" fill="#ffb3c1" opacity=".9"/>', '', 0, 1.1) +
+            P(400, 190, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.05) + hearts(510, 195)) },
+        { minDur: 6800, sub: '最好的保養品是好心情加好睡眠——由內而外的光，最持久！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">好心情</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">好睡眠</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '容光煥發：神采飛揚，光彩照人。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<circle cx="-16" cy="-44" r="3" fill="#ffb3c1" opacity=".9"/><circle cx="16" cy="-44" r="3" fill="#ffb3c1" opacity=".9"/>', '', 0, 1.1) +
+            '<g class="st-tw"><path d="M310 195 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd97a"/><path d="M490 190 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd97a"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">容光煥發</text>') }
+      ];
+    },
+    /* 丰采奕奕 */
+    i198: function () {
+      return [
+        { minDur: 6800, sub: '校慶主持人一站上台：站姿挺拔、笑容自信、聲音清亮——全場目光聚焦！',
+          html: scene(P(400, 280, '<rect x="-90" y="-16" width="180" height="16" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(400, 280, A('kid', 'happy') + '<path d="M28 -46 l14 -20" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1.05) +
+            '<g class="st-rays" style="transform-origin:400px 180px"><g stroke="#ffe9a0" stroke-width="4" stroke-linecap="round" opacity=".8"><line x1="400" y1="145" x2="400" y2="128"/><line x1="435" y1="158" x2="448" y2="145"/><line x1="365" y1="158" x2="352" y2="145"/></g></g>' +
+            P(230, 302, A('kid', 'wow'), '', 0, .88) + P(580, 302, A('kid', 'wow'), '', 0, .88, true) + hearts(510, 210)) },
+        { minDur: 6800, sub: '「奕奕」是光明煥發——「丰采奕奕」：神采飛揚、光彩熠熠！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.1) +
+            '<g class="st-tw"><path d="M310 200 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/><path d="M500 190 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>' + hearts(400, 175)) },
+        { minDur: 6800, sub: '丰采是準備堆出來的：練了一百次的台詞、熨平的衣領——自信自帶光芒！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#548a40">×100</text>', '', 0, .95)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '丰采奕奕：神采煥發，光彩動人。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.12) +
+            '<g class="st-tw"><path d="M310 195 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/><path d="M495 188 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">丰采奕奕</text>') }
+      ];
+    },
+    /* 眉清目秀 */
+    i199: function () {
+      return [
+        { minDur: 6800, sub: '戲曲裡描寫俊秀少年出場：眉毛清朗如遠山、眼睛明亮如秋水——眉清目秀！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-20 -60 q6 -5 12 -2 M8 -62 q6 -3 12 0" stroke="#5a4632" stroke-width="3" fill="none" stroke-linecap="round"/><g class="st-tw"><circle cx="-11" cy="-50" r="2" fill="#fff"/><circle cx="13" cy="-50" r="2" fill="#fff"/></g>', '', 0, 1.1) + hearts(500, 195)) },
+        { minDur: 6800, sub: '「眉清目秀」：面貌清秀——多形容少年少女的秀氣長相！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-20 -60 q6 -5 12 -2 M8 -62 q6 -3 12 0" stroke="#5a4632" stroke-width="3" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(500, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/>', '', 0, .98, true) + hearts(420, 185)) },
+        { minDur: 6800, sub: '長相是天生的、氣質是養成的——閱讀、運動、善良，讓清秀由外到內！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) + hearts(470, 190) +
+            P(580, 220, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.05)) },
+        { minDur: 6400, sub: '眉清目秀：眉目清朗，面容秀雅。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-20 -60 q6 -5 12 -2 M8 -62 q6 -3 12 0" stroke="#5a4632" stroke-width="3" fill="none" stroke-linecap="round"/>', '', 0, 1.1) + hearts(500, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">眉清目秀</text>') }
+      ];
+    },
+    /* 傾城傾國 */
+    i200: function () {
+      return [
+        { minDur: 7000, sub: '李延年那首名歌再現：「一顧傾人城，再顧傾人國」——李夫人的美傾倒了漢宮！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#e07a94" stroke-width="4" fill="none"/><circle cx="-14" cy="-44" r="2.6" fill="#ffb3c1"/><circle cx="14" cy="-44" r="2.6" fill="#ffb3c1"/>', '', 0, 1.08) +
+            P(240, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, .95) + hearts(320, 195) + bang(520, 190)) },
+        { minDur: 6800, sub: '「傾城傾國」與「傾國傾城」同義——絕世容貌讓全城全國為之傾倒！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#e07a94" stroke-width="4" fill="none"/>', '', 0, 1.05) +
+            P(250, 302, A('kid', 'wow'), '', 0, .88) + P(550, 302, A('kid', 'wow'), '', 0, .88, true) + hearts(400, 172)) },
+        { minDur: 6800, sub: '美貌會傾城，品格才傾心——內外兼修，魅力才完整！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(310, 200, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#e07a94">美貌</text>') +
+            P(490, 200, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">品格</text>') + hearts(400, 160)) },
+        { minDur: 6400, sub: '傾城傾國：絕代風華，舉世傾倒。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#e07a94" stroke-width="4" fill="none"/><circle cx="-14" cy="-44" r="2.6" fill="#ffb3c1"/><circle cx="14" cy="-44" r="2.6" fill="#ffb3c1"/>', '', 0, 1.1) + hearts(500, 190) + hearts(300, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">傾城傾國</text>') }
+      ];
+    },
+    /* 沆瀣一氣 */
+    i385: function () {
+      return [
+        { minDur: 7000, sub: '唐代趣聞：主考官崔「沆」錄取了考生崔「瀣」——時人笑：「座主門生，沆瀣一氣！」',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>' + P(0, -96, '<text x="0" y="0" text-anchor="middle" font-size="14" fill="#6d5335">沆</text>', '', 0, 1), '', 0, 1) +
+            P(500, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(0, -92, '<text x="0" y="0" text-anchor="middle" font-size="14" fill="#6d5335">瀣</text>', '', 0, 1), '', 0, .98, true) +
+            '<path d="M355 245 q45 -22 90 0" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="6 5"/>' + notes(620, 195)) },
+        { minDur: 6800, sub: '「沆瀣」本是夜間水氣——兩個名字連成一氣，被引申成「臭味相投的勾結」！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1, true) +
+            P(470, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>') +
+            '<g class="st-zfloat" opacity=".6"><path d="M370 235 q15 -10 30 0 q15 10 30 0" stroke="#8b93a3" stroke-width="4" fill="none"/></g>' + sweat(560, 195), 'night') },
+        { minDur: 6800, sub: '「沆瀣一氣」：勾結營私（貶義）——用它時注意：不能拿來形容正常的合作喔！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#c96a5a">貶義!</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">≠正常</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8b93a3">合作</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '沆瀣一氣：氣味相投，狼狽為奸。',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1, true) +
+            P(470, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>') +
+            '<g class="st-zfloat" opacity=".6"><path d="M370 238 q15 -10 30 0 q15 10 30 0" stroke="#8b93a3" stroke-width="4" fill="none"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">沆瀣一氣</text>') }
+      ];
+    },
+    /* 暴殄天物 */
+    i386: function () {
+      return [
+        { minDur: 7000, sub: '《尚書》討伐商紂的罪狀：「暴殄天物」——糟蹋上天生養的萬物（殄＝滅絕）！',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>' + P(38, -44, '<path d="M-10 8 h20 l-3 -18 h-14 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2" transform="rotate(24)"/>', '', 0, 1), '', 0, 1.05, true) +
+            P(540, 296, '<g fill="#c9a06c" opacity=".7"><circle cx="-14" cy="0" r="7"/><circle cx="4" cy="6" r="6"/><circle cx="18" cy="-2" r="7"/></g>', '', 0, 1.1) + sweat(430, 210)) },
+        { minDur: 6800, sub: '「暴殄天物」：任意糟蹋東西——滿桌剩菜整盤倒掉、白紙只畫一筆就丟……',
+          html: scene(P(400, 285, '<ellipse cx="0" cy="8" rx="60" ry="14" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><g fill="#c96a5a" opacity=".8"><circle cx="-24" cy="0" r="8"/><circle cx="4" cy="-4" r="7"/><circle cx="26" cy="2" r="8"/></g>', '', 0, 1.15) +
+            P(560, 260, '<path d="M-16 -20 h32 l-4 40 h-24 z" fill="#8b93a3" opacity=".8"/><path d="M-20 -20 h40" stroke="#6d7585" stroke-width="4"/>', '', 0, 1.05) + qmark(280, 220)) },
+        { minDur: 6800, sub: '珍惜是最基本的感恩——吃多少夾多少、物盡其用：每樣東西都來之不易！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -44, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1.02) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">吃多少</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">夾多少</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '暴殄天物：糟蹋萬物，不知珍惜。',
+          html: scene(P(400, 288, '<ellipse cx="0" cy="8" rx="56" ry="13" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><g fill="#c96a5a" opacity=".8"><circle cx="-22" cy="0" r="8"/><circle cx="4" cy="-4" r="7"/><circle cx="24" cy="2" r="8"/></g>', '', 0, 1.2) + qmark(510, 230) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">暴殄天物</text>') }
+      ];
     }
   };
 
