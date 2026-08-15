@@ -19043,6 +19043,161 @@
             P(405, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">推己及人</text>') }
       ];
+    },
+    /* 舉案齊眉 */
+    i943: function () {
+      var TRAY = '<rect x="-24" y="-6" width="48" height="8" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/><path d="M-10 -12 h20 v4 q0 6 -10 6 q-10 0 -10 -6 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="1.8"/>';
+      return [
+        { minDur: 7000, sub: '東漢梁鴻家貧志高——妻子孟光送飯時，把食案舉到與眉毛齊高，恭敬奉上！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/>' + P(30, -58, TRAY, '', 0, 1), '', 0, 1.02) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1, true) + hearts(430, 185)) },
+        { minDur: 6800, sub: '梁鴻也同樣敬重孟光——貧寒的日子裡，兩人把彼此放在心尖上！',
+          html: scene(P(400, 285, '<path d="M-50 -40 L0 -66 L50 -40 Z" fill="#c9b26a" stroke="#a8905a" stroke-width="2.4"/><rect x="-40" y="-40" width="80" height="40" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.4"/>', '', 0, .95) +
+            P(320, 302, A('kid', 'happy'), '', 0, .9) + P(480, 302, A('kid', 'happy'), '', 0, .9, true) +
+            P(400, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '「舉案齊眉」：夫妻相敬如賓——愛的長跑靠的不只是心動，更是日復一日的尊重！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(405, 178) + notes(560, 195)) },
+        { minDur: 6400, sub: '舉案齊眉：夫妻相敬，情深意重。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(30, -58, TRAY, '', 0, 1.05), '', 0, 1.02) +
+            P(520, 302, A('kid', 'happy'), '', 0, 1, true) + hearts(430, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">舉案齊眉</text>') }
+      ];
+    },
+    /* 相敬如賓 */
+    i944: function () {
+      return [
+        { minDur: 7000, sub: '晉國大夫路過冀野：農夫冀缺在田裡耕作，妻子送飯來——兩人恭敬得像招待貴賓！',
+          html: scene(P(320, 302, A('kid', 'angry') + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, 1, true) +
+            P(510, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/>' + P(-36, -46, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, .98) + hearts(420, 190)) },
+        { minDur: 6800, sub: '大夫深受感動，回朝就推薦冀缺做官——「能敬妻子的人，必能敬事！」',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'wow'), '', 0, .97, true) + bang(440, 182) + hearts(620, 195)) },
+        { minDur: 6800, sub: '「相敬如賓」：夫妻互敬如賓客——最親的人，最值得最好的態度！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>') +
+            P(480, 302, A('kid', 'happy') + '<path d="M-28 -50 q-10 -2 -14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .98, true) + hearts(405, 180)) },
+        { minDur: 6400, sub: '相敬如賓：互敬互重，和睦持家。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(405, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">相敬如賓</text>') }
+      ];
+    },
+    /* 勞燕分飛 */
+    i945: function () {
+      return [
+        { minDur: 7000, sub: '古樂府唱：「東飛伯勞西飛燕」——伯勞鳥向東、燕子向西，一年難得相見一面……',
+          html: scene(P(300, 180, A('bird'), 'st-fly', 0, 1, true) +
+            P(500, 200, A('bird'), 'st-fly', .3, .9) +
+            '<path d="M340 200 q60 20 120 10" stroke="#c9bfa8" stroke-width="2.6" fill="none" stroke-dasharray="6 5"/>' + sweat(400, 260), 'night') },
+        { minDur: 6800, sub: '「勞燕分飛」：情侶或夫妻離散——注意「勞」是伯勞鳥，不是辛勞的勞！',
+          html: scene(P(330, 302, A('kid', 'sad'), '', 0, 1, true) + P(480, 302, A('kid', 'sad')) +
+            '<line x1="405" y1="200" x2="405" y2="300" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/>' +
+            P(600, 210, '<rect x="-32" y="-16" width="64" height="32" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#c96a5a">勞=伯勞鳥</text>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '離散令人唏噓——但好好道別、各自安好，也是愛過的證明！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1, true) +
+            P(490, 302, A('kid', 'happy') + '<path d="M-28 -50 q-10 -2 -14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>') +
+            P(405, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#c9d6e8" stroke="#aab8cf" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '勞燕分飛：東西各飛，情人離散。',
+          html: scene(P(300, 185, A('bird'), 'st-fly', 0, 1, true) + P(500, 200, A('bird'), 'st-fly', .3, .9) +
+            '<text x="400" y="290" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">勞燕分飛</text>', 'night') }
+      ];
+    },
+    /* 涇渭分明 */
+    i946: function () {
+      var TWORIVERS = '<path d="M100 340 Q200 260 400 250 L400 340 Z" fill="#a8945a"/><path d="M700 340 Q600 260 400 250 L400 340 Z" fill="#5a8fbf"/><path d="M400 250 L400 340" stroke="#fff" stroke-width="2" stroke-dasharray="6 5"/>';
+      return [
+        { minDur: 7000, sub: '陝西的奇景：涇水濁、渭水清——兩河交會，一黃一藍涇渭分明，互不相混！',
+          html: scene(TWORIVERS +
+            P(240, 200, '<rect x="-24" y="-14" width="48" height="28" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#a8945a">涇濁</text>', '', 0, 1) +
+            P(560, 200, '<rect x="-24" y="-14" width="48" height="28" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#5a8fbf">渭清</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '《詩經》早就寫過這幕——「涇渭分明」：界線清楚、是非分明！',
+          html: scene(P(310, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.4"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#548a40">是</text>') +
+            P(490, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#c96a5a">非</text>') +
+            '<line x1="400" y1="200" x2="400" y2="295" stroke="#8b93a3" stroke-width="3"/>') },
+        { minDur: 6800, sub: '做人要涇渭分明的是原則——該拒絕的乾脆拒絕；但對人保持溫度，別把分明變刻薄！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">原則</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">分明</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '涇渭分明：清濁異流，是非分明。',
+          html: scene(TWORIVERS +
+            '<text x="400" y="120" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">涇渭分明</text>') }
+      ];
+    },
+    /* 壁壘分明 */
+    i947: function () {
+      var FORTS = P(260, 290, '<rect x="-50" y="-36" width="100" height="36" fill="#8b93a3" stroke="#6d7585" stroke-width="2.6"/><path d="M-50 -36 h16 v-10 h12 v10 h16 v-10 h12 v10 h16 v-10 h12 v10 h16" stroke="#6d7585" stroke-width="2.6" fill="none"/>', '', 0, 1) +
+        P(540, 290, '<rect x="-50" y="-36" width="100" height="36" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><path d="M-50 -36 h16 v-10 h12 v10 h16 v-10 h12 v10 h16 v-10 h12 v10 h16" stroke="#a8734a" stroke-width="2.6" fill="none"/>', '', 0, 1);
+      return [
+        { minDur: 6800, sub: '兩座軍營各築高牆，中間隔著壕溝——你是你、我是我，陣線清清楚楚！',
+          html: scene(FORTS +
+            '<path d="M380 300 q20 -10 40 0" stroke="#5a7fa8" stroke-width="8" fill="none"/>' +
+            P(260, 240, '<path d="M0 10 v-30 q14 4 24 -2 l-2 12 q-10 5 -22 0 z" fill="#c96a5a"/>', '', 0, 1) +
+            P(540, 240, '<path d="M0 10 v-30 q14 4 24 -2 l-2 12 q-10 5 -22 0 z" fill="#5a8fbf"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「壁壘分明」：立場或陣營對立明顯——辯論會正反兩方壁壘分明，各擁其理！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) +
+            P(500, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) +
+            '<line x1="400" y1="190" x2="400" y2="300" stroke="#8b93a3" stroke-width="4" stroke-dasharray="8 7"/>') },
+        { minDur: 6800, sub: '陣營分明沒關係——比完誰更有理，別忘了下場後握手：對立的是觀點，不是人！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M362 258 h76" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(405, 180)) },
+        { minDur: 6400, sub: '壁壘分明：陣線清楚，立場對立。',
+          html: scene(FORTS +
+            '<path d="M380 300 q20 -10 40 0" stroke="#5a7fa8" stroke-width="8" fill="none"/>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">壁壘分明</text>') }
+      ];
+    },
+    /* 車載斗量 */
+    i948: function () {
+      return [
+        { minDur: 7000, sub: '吳使趙咨出使魏國，魏文帝問：像你這樣的人才吳國有幾個？他答：「車載斗量，不可勝數！」',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05, true) +
+            P(520, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/><path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1, true) + bang(410, 182)) },
+        { minDur: 6800, sub: '「車載斗量」：多到要用車裝、用斗量——一句話既自謙又誇國，魏文帝也歎服！',
+          html: scene(P(300, 292, '<circle cx="-18" cy="14" r="12" fill="none" stroke="#5a4632" stroke-width="4"/><circle cx="22" cy="14" r="12" fill="none" stroke="#5a4632" stroke-width="4"/><rect x="-36" y="-14" width="72" height="20" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><g fill="#ffd97a"><circle cx="-18" cy="-20" r="6"/><circle cx="0" cy="-24" r="6"/><circle cx="18" cy="-20" r="6"/></g>', '', 0, 1.1) +
+            P(520, 285, '<path d="M-16 -14 L16 -14 L11 12 L-11 12 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><g fill="#ffd97a"><circle cx="-5" cy="-18" r="5"/><circle cx="7" cy="-20" r="5"/></g>', '', 0, 1.2) + bang(420, 220)) },
+        { minDur: 6800, sub: '今天多帶「不稀罕」意味：空有文憑者車載斗量——稀缺的是動手解決問題的人！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -52, '<rect x="-16" y="-13" width="32" height="26" rx="4" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/><path d="M-8 -3 l4 -6 4 4 5 -7" stroke="#a5d47c" stroke-width="2" fill="none"/>', '', 0, .95), 'st-cheer', 0, 1.02) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">會做事</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">最稀缺</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '車載斗量：多不勝數，不足為奇。',
+          html: scene(P(330, 292, '<circle cx="-18" cy="14" r="12" fill="none" stroke="#5a4632" stroke-width="4"/><circle cx="22" cy="14" r="12" fill="none" stroke="#5a4632" stroke-width="4"/><rect x="-36" y="-14" width="72" height="20" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><g fill="#ffd97a"><circle cx="-18" cy="-20" r="6"/><circle cx="0" cy="-24" r="6"/><circle cx="18" cy="-20" r="6"/></g>', '', 0, 1.1) +
+            P(520, 288, '<path d="M-16 -14 L16 -14 L11 12 L-11 12 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">車載斗量</text>') }
+      ];
+    },
+    /* 滄海一粟 */
+    i949: function () {
+      return [
+        { minDur: 7000, sub: '蘇軾夜遊赤壁感歎：「寄蜉蝣於天地，渺滄海之一粟」——人像大海裡的一粒小米！',
+          html: scene('<rect y="240" width="800" height="100" fill="#4a6d94"/>' +
+            '<g class="st-wavemove"><path d="M-40 254 q40 -20 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#7fa8d4" stroke-width="10" stroke-linecap="round"/></g>' +
+            P(400, 290, '<circle cx="0" cy="0" r="4" fill="#ffd97a"/>', 'st-bob', 0, 1.2) +
+            P(200, 150, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「滄海一粟」：渺小得微不足道——仰望星空時，地球也只是宇宙的一粒沙！',
+          html: scene('<g class="st-tw"><circle cx="220" cy="60" r="3" fill="#fff"/><circle cx="360" cy="40" r="2.4" fill="#fff"/><circle cx="520" cy="70" r="3" fill="#fff"/><circle cx="640" cy="45" r="2.4" fill="#fff"/></g>' +
+            P(400, 220, '<circle cx="0" cy="0" r="14" fill="#5a8fbf" stroke="#7fb2d4" stroke-width="2"/><path d="M-8 -4 q6 -4 10 2 M-2 6 q5 -2 8 2" stroke="#7fa858" stroke-width="2.4" fill="none"/>', '', 0, 1.2) +
+            P(260, 302, A('kid', 'wow'), '', 0, .95) + qmark(330, 250), 'night') },
+        { minDur: 6800, sub: '渺小不是消沉的理由——正因短暫渺小，每個當下才更值得用力活！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(500, 190) +
+            '<g class="st-tw"><circle cx="250" cy="80" r="3" fill="#ffd97a"/><circle cx="560" cy="60" r="2.6" fill="#ffd97a"/></g>', 'night') },
+        { minDur: 6400, sub: '滄海一粟：渺滄海之一粟，微乎其微。',
+          html: scene('<rect y="245" width="800" height="95" fill="#4a6d94"/>' +
+            '<g class="st-wavemove"><path d="M-40 258 q40 -18 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#7fa8d4" stroke-width="9" stroke-linecap="round"/></g>' +
+            P(400, 292, '<circle cx="0" cy="0" r="4" fill="#ffd97a"/>', 'st-bob', 0, 1.2) +
+            '<text x="400" y="110" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">滄海一粟</text>', 'night') }
+      ];
+    },
+    /* 曠日廢時 */
+    i950: function () {
+      return [
+        { minDur: 6800, sub: '辦一個活動要跑七個處室蓋十二個章——公文旅行一個月，活動日期都過了！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g fill="none" stroke="#c96a5a" stroke-width="2"><circle cx="-6" cy="-8" r="5"/><circle cx="8" cy="0" r="5"/><circle cx="-4" cy="10" r="5"/></g>', '', 0, .95), '', 0, 1.02) + sweat(290, 190) +
+            P(560, 220, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-13" stroke="#c96a5a" stroke-width="2.6"/><line x1="0" y1="0" x2="9" y2="5" stroke="#c96a5a" stroke-width="2.6"/>', 'st-tw', 0, 1.05)) },
+        { minDur: 6800, sub: '「曠日廢時」：拖延荒廢時日——與《戰國策》「曠日持久」同源，時間就這樣耗掉了！',
+          html: scene(P(400, 250, '<g><rect x="-70" y="-14" width="140" height="28" rx="5" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g fill="#c9bfa8"><circle cx="-48" cy="0" r="5"/><circle cx="-16" cy="0" r="5"/><circle cx="16" cy="0" r="5"/><circle cx="48" cy="0" r="5"/></g></g>', '', 0, 1.2) +
+            '<g class="st-zfloat" opacity=".6"><text x="540" y="200" font-size="15" fill="#8b93a3">一天…一週…一月…</text></g>' + sweat(280, 210)) },
+        { minDur: 6800, sub: '對付曠日廢時：簡化流程、訂死期限、一次會議做完決定——把時間還給做事的人！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-15" y="-11" width="30" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-8 0 l4 4 l8 -8" stroke="#548a40" stroke-width="2.4" fill="none"/>', '', 0, 1.05), 'st-cheer', 0, 1.02) + bang(470, 185) + hearts(280, 195)) },
+        { minDur: 6400, sub: '曠日廢時：遷延時日，虛耗光陰。',
+          html: scene(P(400, 255, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-17" stroke="#c96a5a" stroke-width="3"/><line x1="0" y1="0" x2="12" y2="6" stroke="#c96a5a" stroke-width="3"/>', 'st-tw', 0, 1.3) + sweat(500, 210) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">曠日廢時</text>') }
+      ];
     }
   };
 
