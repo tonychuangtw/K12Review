@@ -22989,6 +22989,198 @@
           html: scene(P(400, 302, A('kid', 'happy') + P(0, -34, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1), '', 0, 1.1) + hearts(500, 190) + hearts(300, 190) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">捨己為人</text>') }
       ];
+    },
+    /* 急公好義 */
+    i781: function () {
+      return [
+        { minDur: 7000, sub: '里長伯一年到頭閒不下來：修路燈、辦共餐、幫獨居長輩送藥——大小公事搶著做！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#d5cfc0"/>' + P(40, -44, '<path d="M-10 8 h20 l-3 -16 h-14 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1), 'st-dashL', 0, 1.02) +
+            P(580, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', '', 0, .95, true) + hearts(480, 195)) },
+        { minDur: 6800, sub: '「急公好義」（急＝熱心於）：熱心公益、愛好正義——公家的事比自家的事還上心！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#548a40">公益</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#548a40">優先</text>', '', 0, .95), 'st-cheer', 0, 1.05) + hearts(520, 190) +
+            P(270, 210, '<g class="st-tw"><path d="M0 0 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>', '', 0, 1)) },
+        { minDur: 6800, sub: '社區的花圃、班上的公用文具——沒人管的事有人主動扛起來，大家的日子就變好！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -40, '<path d="M0 8 q-2 -10 6 -12 M6 -4 q8 -2 10 4" stroke="#548a40" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="14" cy="-8" r="5" fill="#ff9eb5"/>', '', 0, 1)) +
+            P(540, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + hearts(440, 190)) },
+        { minDur: 6400, sub: '急公好義：熱心公事，樂善不倦。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(40, -44, '<path d="M-10 8 h20 l-3 -16 h-14 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, 1.1) + hearts(300, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">急公好義</text>') }
+      ];
+    },
+    /* 拔刀相助 */
+    i782: function () {
+      return [
+        { minDur: 7000, sub: '元代戲曲裡的俠客名句：「路見不平，拔刀相助！」——見人受欺，立刻出手！',
+          html: scene(P(300, 302, A('kid', 'sad'), '', 0, .95) +
+            P(430, 302, A('kid', 'angry') + '<path d="M-24 -44 l-10 -4" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1.02, true) +
+            P(600, 302, A('kid', 'angry') + '<path d="M28 -56 l14 -18 M42 -74 l6 -8" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/>', 'st-inR', 0, 1.05) + bang(500, 200) + sweat(240, 195)) },
+        { minDur: 6800, sub: '「拔刀相助」：見義勇為、出手幫忙——現代的「刀」是舉手、報告老師、撥110！',
+          html: scene(P(360, 302, A('kid', 'angry') + '<path d="M28 -56 l14 -14" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', 'st-strut', 0, 1.05) +
+            P(570, 250, '<rect x="-24" y="-16" width="48" height="32" rx="5" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">110</text>', 'st-tw', 0, 1) + hearts(280, 195)) },
+        { minDur: 6800, sub: '幫忙也要有智慧：先確保自己安全、找大人支援——莽撞的英雄常變成第二個傷者！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#5a8fbf">找支援</text>', '', 0, 1.1)) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', '', 0, 1, true) + hearts(470, 190)) },
+        { minDur: 6400, sub: '拔刀相助：路見不平，挺身而出。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M28 -56 l14 -18" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', 'st-strut', 0, 1.1) + bang(530, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">拔刀相助</text>') }
+      ];
+    },
+    /* 有志竟成 */
+    i783: function () {
+      return [
+        { minDur: 7200, sub: '耿弇當年獻的大策，人人都說難成——平定之後，光武帝讚他：「有志者事竟成也！」',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M28 -50 l16 -8" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#6d5335" stroke="#4a3a24" stroke-width="2"/>', '', 0, 1, true) + hearts(450, 190) + bang(620, 200)) },
+        { minDur: 6800, sub: '「有志竟成」（竟＝終於）：有決心的人終能成功——被笑不可能的計畫，做成了最響亮！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -6 l5 7 l12 -13" stroke="#548a40" stroke-width="3.2" fill="none" stroke-linecap="round"/>', '', 0, .95), 'st-cheer', 0, 1.05) +
+            '<g class="st-tw"><path d="M540 190 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>' + hearts(280, 195)) },
+        { minDur: 6800, sub: '志向不是嘴上說說——把大目標切成每天的小步，走著走著，終點就到了！',
+          html: scene(P(320, 302, A('kid', 'happy'), 'st-dashL', 0, 1.02) +
+            '<g opacity=".75"><circle cx="430" cy="290" r="6" fill="#548a40"/><circle cx="500" cy="278" r="6" fill="#548a40"/><circle cx="570" cy="262" r="6" fill="#548a40"/></g>' +
+            P(640, 230, '<path d="M0 16 L0 -18 M0 -18 L26 -10 L0 -2" stroke="#c96a5a" stroke-width="3.4" fill="#c96a5a"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '有志竟成：立志不移，事終能成。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.1) +
+            P(560, 230, '<path d="M0 16 L0 -20 M0 -20 L28 -11 L0 -2" stroke="#c96a5a" stroke-width="3.6" fill="#c96a5a"/>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">有志竟成</text>') }
+      ];
+    },
+    /* 精衛填海 */
+    i784: function () {
+      return [
+        { minDur: 7200, sub: '《山海經》：炎帝的女兒溺死東海，化成精衛鳥——立誓要把奪走她生命的大海填平！',
+          html: scene('<path d="M0 270 q100 -18 200 0 q100 18 200 0 q100 -18 200 0 l0 72 l-800 0 z" fill="#5a8fbf" opacity=".7" class="st-wavemove"/>' +
+            P(300, 150, A('bird'), 'st-fly', 0, 1.05, true) +
+            P(340, 180, '<circle cx="0" cy="0" r="6" fill="#8a6a44"/>', '', 0, 1), 'night') },
+        { minDur: 7000, sub: '一顆石子、一根樹枝，日復一日往海裡投——大海笑她傻，她不停也不辯！',
+          html: scene('<path d="M0 275 q100 -16 200 0 q100 16 200 0 q100 -16 200 0 l0 67 l-800 0 z" fill="#5a8fbf" opacity=".7" class="st-wavemove"/>' +
+            P(430, 140, A('bird') + '<circle cx="-24" cy="10" r="5" fill="#8a6a44"/>', 'st-fly', 0, 1.05, true) +
+            '<g opacity=".7"><circle cx="470" cy="250" r="4" fill="#8a6a44"/><circle cx="490" cy="266" r="3.4" fill="#8a6a44"/></g>' +
+            '<path d="M470 200 q6 30 14 52" stroke="#c9bfa8" stroke-width="2" stroke-dasharray="4 4" fill="none"/>') },
+        { minDur: 6800, sub: '「精衛填海」：意志堅定、不畏艱難奮鬥到底——治沙數十年的造林人，就是現代精衛！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(40, -44, '<path d="M0 10 L0 -16 M-8 -16 l8 -8 l8 8" stroke="#8a6a44" stroke-width="3.6" fill="none" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.02) +
+            P(540, 302, '<path d="M0 0 L0 -40" stroke="#8a6a44" stroke-width="5" stroke-linecap="round"/><circle cx="0" cy="-52" r="18" fill="#79b56a"/>', 'st-grow', 0, 1) +
+            P(620, 302, '<path d="M0 0 L0 -30" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><circle cx="0" cy="-40" r="13" fill="#8cc47c"/>', 'st-grow', 0, 1) + hearts(260, 195)) },
+        { minDur: 6400, sub: '精衛填海：銜石不輟，其志彌堅。',
+          html: scene('<path d="M0 278 q100 -16 200 0 q100 16 200 0 q100 -16 200 0 l0 64 l-800 0 z" fill="#5a8fbf" opacity=".7" class="st-wavemove"/>' +
+            P(400, 145, A('bird') + '<circle cx="-24" cy="10" r="5" fill="#8a6a44"/>', 'st-fly', 0, 1.1, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">精衛填海</text>') }
+      ];
+    },
+    /* 夸父追日 */
+    i785: function () {
+      return [
+        { minDur: 7200, sub: '《山海經》：巨人夸父立誓追上太陽——邁開大步「與日逐走」，直追進太陽落下的深谷！',
+          html: scene(P(620, 120, '<circle cx="0" cy="0" r="30" fill="#ffdd66"/><g stroke="#e8b93f" stroke-width="3" stroke-linecap="round"><line x1="-40" y1="0" x2="-48" y2="0"/><line x1="40" y1="0" x2="48" y2="0"/><line x1="0" y1="-40" x2="0" y2="-48"/></g>', '', 0, 1.05) +
+            P(300, 302, A('kid', 'angry') + P(38, -50, '<path d="M0 10 L0 -30 q0 -8 8 -8" stroke="#8a6a44" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1), 'st-dashL', 0, 1.35) + sweat(400, 200)) },
+        { minDur: 7000, sub: '渴極了，飲盡黃河渭水仍不夠——終於倒在半路；手杖落地，化成一片鄧林桃樹！',
+          html: scene(P(360, 296, '<g transform="rotate(-80)">' + A('kid', 'sad') + '</g>', '', 0, 1.15) +
+            P(560, 302, '<path d="M0 0 L0 -44" stroke="#8a6a44" stroke-width="5" stroke-linecap="round"/><circle cx="0" cy="-58" r="20" fill="#f4b8c1"/><circle cx="-16" cy="-46" r="14" fill="#f8ccd4"/><circle cx="16" cy="-46" r="14" fill="#f8ccd4"/>', 'st-grow', 0, 1.05) +
+            P(640, 302, '<path d="M0 0 L0 -34" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><circle cx="0" cy="-44" r="15" fill="#f4b8c1"/>', 'st-grow', 0, 1) + sweat(300, 250), 'night') },
+        { minDur: 6800, sub: '「夸父追日」有兩面：讚的是宏大志向與奮不顧身；戒的是不自量力——看語境判斷！',
+          html: scene(P(300, 250, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><text x="0" y="-3" text-anchor="middle" font-size="10" fill="#548a40">壯志</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#548a40">可敬</text>', '', 0, 1.05) +
+            P(500, 250, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><text x="0" y="-3" text-anchor="middle" font-size="10" fill="#c96a5a">量力</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#c96a5a">而為</text>', '', 0, 1.05) +
+            P(400, 302, A('kid', 'happy'), '', 0, .98) + qmark(600, 210)) },
+        { minDur: 6400, sub: '夸父追日：逐日而行，杖化鄧林。',
+          html: scene(P(600, 130, '<circle cx="0" cy="0" r="26" fill="#ffdd66"/>', '', 0, 1) +
+            P(320, 302, A('kid', 'angry'), 'st-dashL', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">夸父追日</text>') }
+      ];
+    },
+    /* 跛鱉千里 */
+    i787: function () {
+      return [
+        { minDur: 7000, sub: '《荀子》：「蹞步而不休，跛鱉千里」——跛腳的鱉只要不停下，半步半步也能走千里！',
+          html: scene(P(340, 300, A('turtle') + '<path d="M20 6 q6 4 4 10" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-linecap="round"/>', 'st-bob', 0, 1.1) +
+            '<path d="M420 302 q60 -6 120 0 q50 -5 100 0" stroke="#b59a6a" stroke-width="3" fill="none" stroke-dasharray="7 7" opacity=".6"/>' +
+            P(680, 260, '<path d="M0 14 L0 -16 M0 -16 L22 -9 L0 -2" stroke="#c96a5a" stroke-width="3" fill="#c96a5a"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '兔子在旁邊一下衝一下睡——鱉不理會，只管往前挪：牠的對手從來只有自己！',
+          html: scene(P(320, 300, A('turtle'), 'st-bob', 0, 1.05) +
+            P(540, 302, A('rabbit'), '', 0, 1) + zzz(600, 240) + hearts(250, 250)) },
+        { minDur: 6800, sub: '「跛鱉千里」：資質差但不懈怠，終能成功——比天分更可靠的，是不停的腳步！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#548a40">每天</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#548a40">一點</text>', '', 0, .95), '', 0, 1.02) +
+            P(560, 300, A('turtle'), 'st-bob', 0, .95) + hearts(470, 200)) },
+        { minDur: 6400, sub: '跛鱉千里：駸駸不休，千里可至。',
+          html: scene(P(400, 300, A('turtle'), 'st-bob', 0, 1.2) +
+            P(640, 260, '<path d="M0 14 L0 -16 M0 -16 L22 -9 L0 -2" stroke="#c96a5a" stroke-width="3" fill="#c96a5a"/>', '', 0, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">跛鱉千里</text>') }
+      ];
+    },
+    /* 駑馬十駕 */
+    i788: function () {
+      return [
+        { minDur: 7000, sub: '《荀子．勸學》：駿馬一日千里；駑馬拉車走十天——也到得了，「功在不舍」！',
+          html: scene(P(280, 296, A('horse') + '<g class="st-windln" opacity=".6"><path d="M-60 -20 q-16 -4 -30 2" stroke="#9db8d9" stroke-width="3" fill="none" stroke-linecap="round"/></g>', 'st-dashL', 0, 1.1, true) +
+            P(560, 298, A('horse') + '<path d="M30 -30 q8 8 4 16" stroke="#8a6a44" stroke-width="3" fill="none"/>', 'st-bob', 0, .95, true) + sweat(620, 240)) },
+        { minDur: 6800, sub: '「駑馬十駕」（駑＝劣）：劣馬走十天抵駿馬一日——勤，能補拙！',
+          html: scene(P(400, 298, A('horse'), 'st-bob', 0, 1.05, true) +
+            '<g opacity=".7"><g fill="#548a40" font-size="11" text-anchor="middle"><text x="280" y="220">第1天</text><text x="400" y="205">第5天</text><text x="520" y="220">第10天</text></g><path d="M250 240 q150 -40 300 0" stroke="#548a40" stroke-width="2.6" fill="none" stroke-dasharray="6 5"/></g>' +
+            P(620, 260, '<path d="M0 14 L0 -16 M0 -16 L22 -9 L0 -2" stroke="#c96a5a" stroke-width="3" fill="#c96a5a"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '自認不聰明？那就用時間換——別人讀一遍，我讀五遍；考場上分數不問你讀了幾遍！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><text x="0" y="4" text-anchor="middle" font-size="9" fill="#548a40">×5</text>', '', 0, .95), '', 0, 1.02) +
+            P(570, 250, '<rect x="-24" y="-16" width="48" height="32" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">100</text>', 'st-tw', 0, 1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '駑馬十駕：功在不舍，勤能補拙。',
+          html: scene(P(400, 298, A('horse'), 'st-bob', 0, 1.15, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">駑馬十駕</text>') }
+      ];
+    },
+    /* 笨鳥先飛 */
+    i789: function () {
+      return [
+        { minDur: 7000, sub: '關漢卿雜劇裡的話：「我似那靈禽在後，你這等笨鳥先飛」——飛得慢，就早點起飛！',
+          html: scene(P(300, 180, A('bird'), 'st-fly', 0, 1.05, true) +
+            P(560, 290, A('bird'), '', 0, 1) + zzz(610, 240) +
+            P(180, 140, '<circle cx="0" cy="0" r="16" fill="#ffdd66" opacity=".9"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「笨鳥先飛」：能力差就先行動、多用功——多作自謙：「我笨鳥先飛，先去準備了！」',
+          html: scene(P(340, 302, A('kid', 'happy') + P(0, -110, '<ellipse cx="0" cy="0" rx="42" ry="18" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#548a40">我先去讀書囉!</text>', '', 0, 1) + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.2"/>', '', 0, .95), '', 0, 1.02) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) + notes(620, 200)) },
+        { minDur: 6800, sub: '提早準備的複利驚人：別人考前抱佛腳，你已滾過三輪——起跑早，就是優勢！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><text x="0" y="4" text-anchor="middle" font-size="8" fill="#548a40">3輪✓</text>', '', 0, .95), 'st-cheer', 0, 1.02) +
+            P(560, 302, A('kid', 'wow') + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><text x="0" y="4" text-anchor="middle" font-size="8" fill="#c96a5a">第1頁</text>', '', 0, .95), '', 0, .98, true) + sweat(620, 195) + hearts(250, 195)) },
+        { minDur: 6400, sub: '笨鳥先飛：早起早行，以勤補拙。',
+          html: scene(P(400, 170, A('bird'), 'st-fly', 0, 1.15, true) +
+            P(600, 140, '<circle cx="0" cy="0" r="16" fill="#ffdd66" opacity=".9"/>', '', 0, 1) +
+            '<text x="400" y="270" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">笨鳥先飛</text>') }
+      ];
+    },
+    /* 懸崖勒馬 */
+    i790: function () {
+      return [
+        { minDur: 7000, sub: '馬蹄狂奔，前方竟是萬丈懸崖——騎士猛然勒住韁繩，馬在崖邊人立而起！',
+          html: scene('<path d="M0 302 L430 302 L430 200 L470 200 L470 340 L0 340 Z" fill="#b59a6a" opacity=".8"/><path d="M430 302 L430 200" stroke="#8f846a" stroke-width="4"/>' +
+            P(330, 296, '<g transform="rotate(-24)">' + A('horse') + '</g>', '', 0, 1.15, true) +
+            P(330, 240, A('kid', 'wow') + '<path d="M-28 -40 l-12 6" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .8) + sweat(240, 200) + bang(400, 250)) },
+        { minDur: 6800, sub: '「懸崖勒馬」：在危險邊緣及時醒悟回頭——再晚一步就摔下去，這一勒救了自己！',
+          html: scene('<path d="M0 302 L430 302 L430 200 L470 200 L470 340 L0 340 Z" fill="#b59a6a" opacity=".8"/>' +
+            P(280, 296, A('horse'), '', 0 , 1.05) +
+            P(280, 240, A('kid', 'happy'), '', 0, .78) +
+            '<path d="M330 270 q-30 14 -60 6" stroke="#548a40" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M282 270 l-12 6 12 8" stroke="#548a40" stroke-width="3" fill="none"/>' + hearts(200, 200)) },
+        { minDur: 6800, sub: '沉迷賭局、越滑越晚的手機、越說越過分的玩笑——發現不對勁的那刻，就是勒馬的時機！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-14" y="-24" width="28" height="48" rx="5" fill="#3a2e26"/><rect x="-10" y="-19" width="20" height="38" rx="2.6" fill="#fff"/><text x="0" y="4" text-anchor="middle" font-size="7" fill="#548a40">關機</text>', '', 0, .95)) + hearts(470, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#c96a5a">回頭</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#c96a5a">是岸</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '懸崖勒馬：臨危知返，回頭是岸。',
+          html: scene('<path d="M0 302 L430 302 L430 210 L470 210 L470 340 L0 340 Z" fill="#b59a6a" opacity=".8"/>' +
+            P(320, 296, '<g transform="rotate(-20)">' + A('horse') + '</g>', '', 0, 1.15, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">懸崖勒馬</text>') }
+      ];
+    },
+    /* 見賢思齊 */
+    i791: function () {
+      return [
+        { minDur: 7000, sub: '《論語》：「見賢思齊焉，見不賢而內自省也」——看見賢者，就想向他看齊！',
+          html: scene(P(520, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>' + P(0, -100, '<g class="st-tw"><path d="M0 0 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd97a"/></g>', '', 0, 1), '', 0, 1.05, true) +
+            P(300, 302, A('kid', 'wow') + '<path d="M28 -50 l16 -8" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .98) + hearts(400, 190)) },
+        { minDur: 6800, sub: '下半句同樣重要：見到不賢的，回頭照照自己——別人是鏡子，照見自己的長短！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(40, -46, '<rect x="-3" y="-22" width="6" height="44" rx="3" fill="#8a6a44"/><ellipse cx="0" cy="-34" rx="16" ry="20" fill="#dbe4f0" stroke="#9db8d9" stroke-width="2.4"/>', '', 0, 1), '', 0, 1.05) +
+            P(560, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#5a8fbf">內自省</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#5a8fbf">也</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '「見賢思齊」：以賢者為榜樣自我提升——羨慕別人的好，不如照著練成自己的好！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><text x="0" y="4" text-anchor="middle" font-size="8" fill="#548a40">筆記</text>', '', 0, .95), '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#d5cfc0"/>', '', 0, 1.02, true) +
+            '<path d="M380 250 l80 0" stroke="#548a40" stroke-width="3" stroke-dasharray="6 5"/><path d="M448 244 l12 6 -12 6" stroke="#548a40" stroke-width="2.6" fill="none"/>' + hearts(620, 200)) },
+        { minDur: 6400, sub: '見賢思齊：慕賢效賢，日進於善。',
+          html: scene(P(340, 302, A('kid', 'happy'), 'st-strut', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + P(0, -100, '<g class="st-tw"><path d="M0 0 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd97a"/></g>', '', 0, 1), '', 0, 1.05, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">見賢思齊</text>') }
+      ];
     }
   };
 
