@@ -11419,6 +11419,154 @@
             P(230, 120, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">自強不息</text>') }
       ];
+    },
+    /* 厚德載物 */
+    i088: function () {
+      var EARTH = '<path d="M-200 30 Q-100 -8 0 0 Q100 8 200 -4 L200 40 L-200 40 Z" fill="#a0885c"/><path d="M-200 30 Q-100 -8 0 0 Q100 8 200 -4" stroke="#8a744a" stroke-width="3" fill="none"/>';
+      return [
+        { minDur: 7000, sub: '《易經》說：「地勢坤，君子以厚德載物」——大地寬厚，承載著山川、河流和萬物生靈！',
+          html: scene(P(400, 300, EARTH, '', 0, 1.4) +
+            P(250, 268, TREE, '', 0, .8) + P(560, 276, A('horse'), '', 0, .7) + P(420, 282, A('bird'), '', 0, .8) +
+            P(180, 120, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '君子要學大地：德行深厚、心胸寬廣——承擔得起責任，也包容得下別人！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-30 -46 q-14 -8 -22 2 M30 -46 q14 -8 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.08) +
+            P(260, 302, A('kid', 'happy'), '', 0, .88) + P(540, 302, A('kid', 'happy'), '', 0, .88, true) + hearts(400, 175)) },
+        { minDur: 6800, sub: '同學犯錯，班長不嘲笑反而幫他補救——「厚德載物」：用寬厚的品德托住身邊的人！',
+          html: scene(P(340, 302, A('kid', 'sad')) + sweat(280, 195) +
+            P(500, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + hearts(420, 185)) },
+        { minDur: 6400, sub: '厚德載物：德行寬厚，承載萬物。',
+          html: scene(P(400, 300, EARTH, '', 0, 1.4) + P(300, 268, TREE, '', 0, .8) + P(520, 280, A('bird'), '', 0, .85) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">厚德載物</text>') }
+      ];
+    },
+    /* 寧靜致遠 */
+    i089: function () {
+      return [
+        { minDur: 7000, sub: '諸葛亮寫信告誡兒子：「非淡泊無以明志，非寧靜無以致遠」——心不靜，就走不遠！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/>' + P(-46, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-10" x2="9" y2="-10"/><line x1="-9" y1="-2" x2="9" y2="-2"/><line x1="-9" y1="6" x2="9" y2="6"/></g>', '', 0, .95), '', 0, 1.05) +
+            P(600, 120, '<circle cx="0" cy="0" r="20" fill="#f5f0dc"/><circle cx="8" cy="-4" r="16" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '窗外再吵，小遠靜下心讀書——像深潭的水，表面不起波瀾，才照得見遠方！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/></g>', '', 0, .95)) +
+            P(620, 240, '<g class="st-zfloat"><circle cx="0" cy="0" r="4" fill="#c9bfa8"/><circle cx="14" cy="-14" r="3" fill="#c9bfa8"/></g>', '', 0, 1) + notes(650, 200)) },
+        { minDur: 6800, sub: '「寧靜致遠」：淡泊寧靜，才能達到遠大目標——沉得住氣的人，走得最遠！',
+          html: scene('<path d="M180 280 q220 -50 440 -60" stroke="#d9cfae" stroke-width="16" fill="none" stroke-linecap="round"/>' +
+            P(300, 272, A('kid', 'happy'), 'st-strut', 0, .95) +
+            P(640, 200, '<path d="M0 -20 l6 12 13 2 -9 10 2 13 -12 -7 -12 7 2 -13 -9 -10 13 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '寧靜致遠：心靜不浮躁，方能成就遠大。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(600, 130, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#2c3550"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">寧靜致遠</text>', 'night') }
+      ];
+    },
+    /* 明德格物 */
+    i090: function () {
+      return [
+        { minDur: 7000, sub: '《大學》開篇說：「大學之道，在明明德」——求學第一件事，是把光明的德性擦亮！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(400, 190, '<circle cx="0" cy="0" r="24" fill="#ffe9a0" class="st-tw"/><path d="M0 -34 v-12 M24 -24 l9 -10 M-24 -24 l-9 -10 M34 0 h12 M-34 0 h-12" stroke="#e0b73f" stroke-width="3" stroke-linecap="round"/>')) },
+        { minDur: 6800, sub: '「致知在格物」——想獲得真知，就要窮究事物：多觀察、多實驗、多追問為什麼！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-40, -52, '<circle cx="0" cy="0" r="13" fill="none" stroke="#8b93a3" stroke-width="3.4"/><line x1="10" y1="10" x2="20" y2="20" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/>', '', 0, 1.1)) +
+            P(530, 285, '<path d="M0 0 q-3 -18 8 -26 q10 -6 8 -18" stroke="#548a40" stroke-width="3.4" fill="none"/><path d="M16 -44 C10 -56 24 -62 28 -50 C34 -60 44 -52 36 -44 Z" fill="#ff9eb5"/>', '', 0, 1.2) + qmark(300, 190)) },
+        { minDur: 6800, sub: '「明德格物」：修養品德＋探究學問，兩樣都要——很多學校拿它當校訓！',
+          html: scene(P(400, 260, '<rect x="-90" y="-30" width="180" height="52" rx="6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><text x="0" y="4" text-anchor="middle" font-size="26" fill="#6d5335">明德格物</text>') +
+            P(240, 302, A('kid', 'happy'), '', 0, .9) + P(560, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(400, 170)) },
+        { minDur: 6400, sub: '明德格物：彰明德性，窮究事理。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-40, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3.2"/><line x1="9" y1="9" x2="18" y2="18" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.05) +
+            P(400, 185, '<circle cx="0" cy="0" r="18" fill="#ffe9a0" class="st-tw"/>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">明德格物</text>') }
+      ];
+    },
+    /* 修身齊家 */
+    i091: function () {
+      var HOUSE = '<path d="M-50 -40 L0 -72 L50 -40 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><rect x="-40" y="-40" width="80" height="40" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-10" y="-24" width="20" height="24" fill="#8a6a44"/>';
+      return [
+        { minDur: 7000, sub: '《大學》的路線圖：修身、齊家、治國、平天下——第一步永遠是把自己修好！',
+          html: scene(P(240, 302, A('kid', 'happy'), '', 0, .95) +
+            P(400, 285, HOUSE, '', 0, .9) +
+            P(580, 270, '<path d="M-40 20 L0 -25 L40 20 Z" fill="#8fa3bf" opacity=".85"/><path d="M-16 20 L0 2 L16 20 Z" fill="#aab8cf"/>', '', 0, 1) +
+            '<g stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"><path d="M280 260 h60 M460 250 h60"/></g>') },
+        { minDur: 6800, sub: '先管好自己：作息規律、說到做到——自己都亂糟糟，怎麼幫別人？',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -54, '<circle cx="0" cy="0" r="15" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><line x1="0" y1="0" x2="0" y2="-9" stroke="#6d7585" stroke-width="2.4"/><line x1="0" y1="0" x2="6" y2="4" stroke="#6d7585" stroke-width="2.4"/>', '', 0, 1)) + hearts(470, 190)) },
+        { minDur: 6800, sub: '再照顧好家：幫忙家事、陪伴家人——「修身齊家」，由內而外一步步承擔！',
+          html: scene(P(400, 285, HOUSE, '', 0, 1.1) +
+            P(300, 302, A('kid', 'happy') + P(-34, -40, '<path d="M-12 -8 h24 v6 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) +
+            P(520, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(410, 180)) },
+        { minDur: 6400, sub: '修身齊家：先修己，再持家。',
+          html: scene(P(400, 285, HOUSE, '', 0, 1.05) + P(280, 302, A('kid', 'happy'), '', 0, .98) + hearts(500, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">修身齊家</text>') }
+      ];
+    },
+    /* 立德立功 */
+    i092: function () {
+      return [
+        { minDur: 7000, sub: '《左傳》講人生「三不朽」：最上是立德，其次立功，再次立言——三種流傳千古的方式！',
+          html: scene(P(260, 275, '<rect x="-34" y="0" width="68" height="28" rx="4" fill="#e0a458" stroke="#c9862f" stroke-width="2.4"/><text x="0" y="-10" text-anchor="middle" font-size="20" fill="#6d5335">德</text>') +
+            P(400, 285, '<rect x="-34" y="0" width="68" height="18" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><text x="0" y="-6" text-anchor="middle" font-size="20" fill="#6d5335">功</text>') +
+            P(540, 292, '<rect x="-34" y="0" width="68" height="10" rx="4" fill="#d9cfae" stroke="#b8a982" stroke-width="2.4"/><text x="0" y="-4" text-anchor="middle" font-size="20" fill="#6d5335">言</text>') +
+            P(180, 302, A('kid', 'wow'), '', 0, .9)) },
+        { minDur: 6800, sub: '立德：品行端正，讓人敬重；立功：做出實績，造福大家——兩樣都靠日積月累！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(0, -70, '<circle cx="0" cy="0" r="14" fill="#ffe9a0" class="st-tw"/>', '', 0, 1)) +
+            P(500, 302, A('kid', 'angry') + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, 1, true) + hearts(410, 185)) },
+        { minDur: 6800, sub: '「立德立功」：德業兼修、有所建樹——當個好人，也做成好事，兩者缺一不可！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(310, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="#c96a5a">德</text>') +
+            P(490, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="#548a40">功</text>') + hearts(400, 155)) },
+        { minDur: 6400, sub: '立德立功：建立品德與功績。',
+          html: scene(P(330, 275, '<rect x="-30" y="0" width="60" height="28" rx="4" fill="#e0a458" stroke="#c9862f" stroke-width="2.4"/><text x="0" y="-10" text-anchor="middle" font-size="20" fill="#6d5335">德</text>') +
+            P(470, 285, '<rect x="-30" y="0" width="60" height="18" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><text x="0" y="-6" text-anchor="middle" font-size="20" fill="#6d5335">功</text>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">立德立功</text>') }
+      ];
+    },
+    /* 發奮圖強 */
+    i093: function () {
+      return [
+        { minDur: 6800, sub: '段考成績出來，小強掉到全班倒數——他盯著成績單，握緊拳頭：「不能再這樣下去！」',
+          html: scene(P(380, 302, A('kid', 'angry') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="14" fill="#c96a5a">40</text>', '', 0, .95)) + bang(500, 185) + sweat(300, 192)) },
+        { minDur: 6800, sub: '訂讀書計畫、關掉遊戲、每天弄懂三個觀念——「發奮圖強」：振奮精神，謀求強盛！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -12 l4 4 l7 -8 M-10 0 l4 4 l7 -8"/></g>', '', 0, .95), '', 0, 1.02) +
+            P(560, 130, '<circle cx="0" cy="0" r="20" fill="#f5f0dc"/><circle cx="8" cy="-4" r="16" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '下次段考進步了三十名！老師在全班面前稱讚他迎頭趕上！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + bang(360, 175) + hearts(470, 190)) },
+        { minDur: 6400, sub: '發奮圖強：奮起努力，力求進步。',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.05) + bang(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">發奮圖強</text>') }
+      ];
+    },
+    /* 孜孜不倦 */
+    i094: function () {
+      return [
+        { minDur: 7000, sub: '《尚書》說：「惟日孜孜，無敢逸豫」——天天勤勉做事，不敢貪圖安逸！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-48, -46, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/><line x1="-9" y1="7" x2="9" y2="7"/></g>', '', 0, .95), '', 0, 1.02) +
+            P(180, 120, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '白天做實驗、晚上整理筆記——研究員孜孜不倦，一點也不覺得累，因為真心喜歡！',
+          html: scene(P(380, 302, A('kid', 'wow') + P(-42, -52, '<path d="M-8 -20 h16 M-5 -20 v14 l-9 18 q-3 8 5 8 h18 q8 0 5 -8 l-9 -18 v-14" stroke="#8b93a3" stroke-width="2.6" fill="none"/><path d="M-11 6 h22 l4 8 q2 6 -5 6 h-20 q-7 0 -5 -6 z" fill="#a5d47c" opacity=".8"/>', '', 0, 1.1)) +
+            '<g class="st-bub"><circle cx="420" cy="230" r="4" fill="#cfe0f0"/><circle cx="432" cy="216" r="3" fill="#cfe0f0"/></g>' + notes(300, 195)) },
+        { minDur: 6800, sub: '「孜孜不倦」：勤奮努力、毫不懈怠——持續的熱情，比一時的衝勁更可貴！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-11" x2="10" y2="-11"/><line x1="-10" y1="-3" x2="10" y2="-3"/><line x1="-10" y1="5" x2="10" y2="5"/></g>', '', 0, .95), '', 0, 1.05) +
+            P(600, 130, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#2c3550"/>', '', 0, 1) + hearts(280, 195), 'night') },
+        { minDur: 6400, sub: '孜孜不倦：勤勉努力，不知疲倦。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">孜孜不倦</text>') }
+      ];
+    },
+    /* 奮發有為 */
+    i095: function () {
+      return [
+        { minDur: 6800, sub: '社區公園又髒又舊，大家只會抱怨——小為說：「與其抱怨，不如動手改變！」',
+          html: scene(P(280, 302, A('kid', 'sad'), '', 0, .95) + sweat(230, 195) +
+            P(480, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -10" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) + bang(580, 180) +
+            P(650, 290, '<rect x="-16" y="-10" width="32" height="20" rx="3" fill="#8b93a3" opacity=".7"/><path d="M-8 -16 l4 6 M6 -18 l2 8" stroke="#8b93a3" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '他號召同學除草、漆椅子、種花——一個下午，公園煥然一新！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, .98, true) +
+            P(470, 302, A('kid', 'happy') + P(-36, -44, '<path d="M0 10 L0 -12 M0 -12 q-10 -12 -20 -5 q3 10 20 5 M0 -12 q10 -12 20 -5 q-3 10 -20 5" stroke="#548a40" stroke-width="3" fill="none"/><path d="M0 -22 C-5 -32 6 -36 8 -27 C14 -34 22 -27 15 -21 Z" fill="#ff9eb5"/>', '', 0, 1)) + hearts(390, 185)) },
+        { minDur: 6800, sub: '「奮發有為」：振奮而起、有所作為——年輕人不空等機會，捲起袖子就能改變世界！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-cheer', 0, 1.02) + P(520, 302, A('kid', 'happy'), 'st-cheer', .2, .98, true) +
+            P(260, 280, '<path d="M0 8 q-3 -14 6 -20 q8 -5 6 -14" stroke="#548a40" stroke-width="3" fill="none"/><path d="M12 -32 C6 -42 18 -47 21 -37 C27 -45 35 -37 28 -31 Z" fill="#ff9eb5"/>', '', 0, 1.2) + bang(440, 170)) },
+        { minDur: 6400, sub: '奮發有為：積極進取，大有作為。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.08) + bang(500, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">奮發有為</text>') }
+      ];
     }
   };
 
