@@ -12162,6 +12162,155 @@
             P(400, 220, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1.2) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">錙銖必較</text>') }
       ];
+    },
+    /* 唯利是圖 */
+    i538: function () {
+      var COIN1 = '<circle cx="0" cy="0" r="14" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/><rect x="-5" y="-5" width="10" height="10" fill="none" stroke="#e8b93f" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '奸商的眼裡只有一樣東西——錢！賣過期食品、偷工減料，只要能賺錢什麼都做！',
+          html: scene(P(400, 302, A('kid', 'angry') + P(-14, -62, '<g class="st-tw">' + COIN1 + '</g>', '', 0, .8) + P(14, -62, '<g class="st-tw" style="animation-delay:.3s">' + COIN1 + '</g>', '', 0, .8), '', 0, 1.05) +
+            P(560, 290, '<rect x="-24" y="-16" width="48" height="32" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#6d4426">過期</text>', '', 0, 1) + sweat(280, 195)) },
+        { minDur: 6800, sub: '《左傳》早有這句話：「唯利是視」——眼中只看得見利益，別的全都不顧！',
+          html: scene(P(400, 302, A('kid', 'angry') + P(-40, -56, '<circle cx="0" cy="0" r="13" fill="#fff" stroke="#3a2e26" stroke-width="2.4"/><text x="0" y="5" text-anchor="middle" font-size="14" fill="#e8b93f">$</text>', '', 0, 1.1) + P(40, -56, '<circle cx="0" cy="0" r="13" fill="#fff" stroke="#3a2e26" stroke-width="2.4"/><text x="0" y="5" text-anchor="middle" font-size="14" fill="#e8b93f">$</text>', '', 0, 1.1), '', 0, 1.05) + qmark(540, 190)) },
+        { minDur: 6800, sub: '「唯利是圖」：一心圖利、不顧道義——顧客受害、信用破產，最後生意也做不下去！',
+          html: scene(P(360, 302, A('kid', 'sad')) + sweat(300, 192) +
+            P(540, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + bang(450, 185)) },
+        { minDur: 6400, sub: '唯利是圖：只貪利益，不顧其他。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(0, -64, '<g class="st-tw">' + COIN1 + '</g>', '', 0, 1), '', 0, 1.05) + qmark(520, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">唯利是圖</text>') }
+      ];
+    },
+    /* 見利忘義 */
+    i539: function () {
+      return [
+        { minDur: 7000, sub: '漢初酈寄為了自保出賣好友呂祿——《漢書》評他：「夫賣友者，謂見利而忘義也！」',
+          html: scene(P(320, 302, A('kid', 'happy') + P(38, -50, '<circle cx="0" cy="0" r="12" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/><rect x="-4" y="-4" width="8" height="8" fill="none" stroke="#e8b93f" stroke-width="1.8"/>', '', 0, 1.1), '', 0, 1) +
+            P(540, 302, A('kid', 'sad'), '', 0, .97, true) + sweat(600, 192) + bang(420, 188)) },
+        { minDur: 6800, sub: '好朋友合力得獎，獎品卻被一人獨吞——為了一點利益，把情義踩在腳下！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(-40, -50, '<path d="M-14 8 h28 l-4 -22 h-20 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1), 'st-fleeR', 0, 1) +
+            P(560, 302, A('kid', 'sad'), '', 0, .97, true) + sweat(620, 192) + qmark(280, 190)) },
+        { minDur: 6800, sub: '「見利忘義」：見到利益就忘了道義——這種人不可深交，因為下一個被賣的可能就是你！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1) +
+            P(280, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="18" fill="#e8b93f">利</text>') +
+            '<path d="M310 225 h60" stroke="#c9bfa8" stroke-width="3"/><path d="M370 225 l-10 -7 v14 z" fill="#c9bfa8"/>' +
+            P(520, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".6"/><text x="0" y="7" text-anchor="middle" font-size="18" fill="#c9bfa8">義</text><line x1="-16" y1="-16" x2="16" y2="16" stroke="#c96a5a" stroke-width="3"/>')) },
+        { minDur: 6400, sub: '見利忘義：見利益而棄道義。',
+          html: scene(P(340, 302, A('kid', 'angry') + P(38, -50, '<circle cx="0" cy="0" r="12" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/>', '', 0, 1.1), '', 0, 1) +
+            P(540, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(600, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">見利忘義</text>') }
+      ];
+    },
+    /* 貪得無厭 */
+    i540: function () {
+      var TREASURE = '<rect x="-30" y="-18" width="60" height="30" rx="5" fill="#a8734a" stroke="#8a5a33" stroke-width="2.6"/><path d="M-30 -18 q30 -20 60 0" fill="#c9862f" stroke="#8a5a33" stroke-width="2.4"/><circle cx="-10" cy="-22" r="7" fill="#ffd97a" stroke="#e8b93f" stroke-width="1.8"/><circle cx="8" cy="-26" r="6" fill="#ffd97a" stroke="#e8b93f" stroke-width="1.8"/>';
+      return [
+        { minDur: 6800, sub: '寓言裡的貪心人挖到一箱金幣——不滿足！又要兩箱、四箱、八箱……',
+          html: scene(P(300, 290, TREASURE, '', 0, 1.1) +
+            P(480, 302, A('kid', 'angry') + '<path d="M-28 -56 l-18 -4 M28 -56 l18 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05, true) + qmark(560, 185)) },
+        { minDur: 6800, sub: '「貪惏無饜」——《左傳》說的：貪心像個無底洞，裝多少都填不滿！',
+          html: scene(P(400, 280, '<path d="M-60 -20 Q0 20 60 -20 L60 30 Q0 60 -60 30 Z" fill="#3a3550" opacity=".85"/><ellipse cx="0" cy="-20" rx="60" ry="16" fill="#575170"/>', '', 0, 1.1) +
+            P(400, 200, '<g class="st-rain"><circle cx="0" cy="0" r="7" fill="#ffd97a" stroke="#e8b93f" stroke-width="1.8"/></g>', '', 0, 1) +
+            P(250, 302, A('kid', 'wow'), '', 0, .92) + sweat(200, 195), 'night') },
+        { minDur: 6800, sub: '「貪得無厭」：貪心永不滿足——為了貪多反而失去一切，知足的人才真正富有！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -50, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) + hearts(450, 188) +
+            P(560, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#548a40">知足</text>')) },
+        { minDur: 6400, sub: '貪得無厭：貪心永遠不滿足。',
+          html: scene(P(400, 290, TREASURE, '', 0, 1.3) + qmark(520, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">貪得無厭</text>') }
+      ];
+    },
+    /* 得寸進尺 */
+    i541: function () {
+      var RULER = '<rect x="-70" y="-10" width="140" height="20" rx="3" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.4"/><g stroke="#8a744a" stroke-width="1.6"><line x1="-50" y1="-10" x2="-50" y2="-2"/><line x1="-30" y1="-10" x2="-30" y2="-2"/><line x1="-10" y1="-10" x2="-10" y2="-2"/><line x1="10" y1="-10" x2="10" y2="-2"/><line x1="30" y1="-10" x2="30" y2="-2"/><line x1="50" y1="-10" x2="50" y2="-2"/></g>';
+      return [
+        { minDur: 7000, sub: '戰國謀士范雎獻策秦王「遠交近攻」：得一寸土地就是王的一寸，得一尺就是王的一尺！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05, true) +
+            P(400, 250, RULER, '', 0, .9)) },
+        { minDur: 6800, sub: '後來意思變了：借橡皮擦給同學，他又要借尺、借筆、連筆記都要整本拿走——越要越多！',
+          html: scene(P(320, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .9)) + sweat(260, 192) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-28 -56 l-18 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02, true) + qmark(430, 182)) },
+        { minDur: 6800, sub: '「得寸進尺」：得到一點還想要更多——一味讓步只會助長貪心，該拒絕時要拒絕！',
+          html: scene(P(360, 302, A('kid', 'angry') + '<path d="M28 -56 l18 -2" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'wow'), '', 0, .97, true) +
+            P(450, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#c96a5a">不行</text>')) },
+        { minDur: 6400, sub: '得寸進尺：得到一點，還要更多。',
+          html: scene(P(400, 260, RULER, '', 0, 1.2) +
+            '<path d="M330 220 h140" stroke="#c96a5a" stroke-width="3.4"/><path d="M470 220 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">得寸進尺</text>') }
+      ];
+    },
+    /* 得隴望蜀 */
+    i542: function () {
+      var TWOMT = '<path d="M-160 40 L-80 -40 L0 40 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.4"/><path d="M20 40 L110 -60 L200 40 Z" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/><text x="-80" y="20" text-anchor="middle" font-size="18" fill="#3d5232">隴</text><text x="110" y="10" text-anchor="middle" font-size="18" fill="#3d4a63">蜀</text>';
+      return [
+        { minDur: 7000, sub: '東漢光武帝的軍隊平定了隴地——他卻在詔書裡感歎：「人苦不知足，既平隴，復望蜀！」',
+          html: scene(P(400, 300, TWOMT, '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '拿下隴地，眼睛又望向蜀地——人心啊，總是得到一塊還想要下一塊！',
+          html: scene(P(400, 300, TWOMT, '', 0, 1.05) +
+            P(270, 240, A('kid', 'wow'), '', 0, .85) +
+            '<path d="M320 210 q100 -70 180 -80" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/><path d="M500 130 l-14 0 l8 11 z" fill="#c9bfa8"/>') },
+        { minDur: 6800, sub: '「得隴望蜀」：貪心不足——剛加薪就嫌少、剛換新手機又盯著更新的——學著知足吧！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -50, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/>', '', 0, 1)) + qmark(470, 185) +
+            P(560, 250, '<rect x="-12" y="-18" width="24" height="34" rx="5" fill="#3a2e26" opacity=".5"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '得隴望蜀：得了隴地，又望蜀地。',
+          html: scene(P(400, 300, TWOMT, '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">得隴望蜀</text>') }
+      ];
+    },
+    /* 安貧樂道 */
+    i543: function () {
+      return [
+        { minDur: 7000, sub: '老教授住小屋、穿舊衣，滿屋子只有書——別人笑他清苦，他卻讀得津津有味！',
+          html: scene(P(400, 285, '<path d="M-50 -40 L0 -68 L50 -40 Z" fill="#c9b26a" stroke="#a8905a" stroke-width="2.4"/><rect x="-40" y="-40" width="80" height="40" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.4"/>', '', 0, 1) +
+            P(400, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .9), '', 0, .95) + notes(510, 195)) },
+        { minDur: 6800, sub: '《後漢書》稱這種人「安貧樂道，恬於進趣」——不追名逐利，心安理得做學問！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/></g>', '', 0, .95), '', 0, 1.02) + hearts(470, 188) +
+            P(600, 210, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「安貧樂道」：清貧不改其樂——真正的富足在心裡，不在口袋裡！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 188) +
+            P(290, 205, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '安貧樂道：安於清貧，樂守信念。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) + hearts(510, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">安貧樂道</text>') }
+      ];
+    },
+    /* 安分守己 */
+    i544: function () {
+      return [
+        { minDur: 6800, sub: '班上起鬨要翻牆蹺課去買飲料——小己搖搖頭：「這是違反校規的事，我不參加。」',
+          html: scene(P(280, 302, A('kid', 'happy'), '', 0, .95) + P(400, 302, A('kid', 'happy'), '', 0, .95) + qmark(340, 182) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 6 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/><path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true)) },
+        { minDur: 6800, sub: '該上課上課、該值日值日，自己的本分做好做滿——不越線、不惹事！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -44, '<path d="M0 -26 v40 M-10 -26 q10 8 20 0" stroke="#8a6a44" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1)) + hearts(470, 190) +
+            '<line x1="180" y1="302" x2="620" y2="302" stroke="#c9bfa8" stroke-width="3"/>') },
+        { minDur: 6800, sub: '「安分守己」：守住本分、不做逾越的事——平凡踏實，反而讓人放心信任！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 188) +
+            P(280, 205, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#548a40">本分</text>')) },
+        { minDur: 6400, sub: '安分守己：守本分，不逾矩。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) + hearts(500, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">安分守己</text>') }
+      ];
+    },
+    /* 循規蹈矩 */
+    i545: function () {
+      var COMPASS2 = '<path d="M0 -26 L-14 22 M0 -26 L14 22" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/><circle cx="0" cy="-26" r="5" fill="#6d7585"/>';
+      var SQUARE2 = '<path d="M-20 -20 L-20 20 L20 20" stroke="#a8734a" stroke-width="5" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 7000, sub: '「規」是畫圓的圓規、「矩」是畫方的角尺——工匠照著規矩，才畫得出正圓和正方！',
+          html: scene(P(300, 270, COMPASS2, '', 0, 1.2) + P(300, 270, '<circle cx="0" cy="10" r="34" fill="none" stroke="#c9bfa8" stroke-width="2.4" stroke-dasharray="6 5"/>', '', 0, 1.2) +
+            P(520, 270, SQUARE2, '', 0, 1.2) + P(520, 262, '<rect x="-26" y="-26" width="52" height="52" fill="none" stroke="#c9bfa8" stroke-width="2.4" stroke-dasharray="6 5"/>', '', 0, 1.2)) },
+        { minDur: 6800, sub: '「循規蹈矩」：照著規矩一步步走——排隊不插隊、紅燈停綠燈行，社會才有秩序！',
+          html: scene(P(280, 302, A('kid', 'happy'), 'st-strut', 0, .95) + P(400, 302, A('kid', 'happy'), 'st-strut', .2, .95) + P(520, 302, A('kid', 'happy'), 'st-strut', .4, .95) +
+            P(640, 250, '<rect x="-10" y="-30" width="20" height="52" rx="5" fill="#3a3550"/><circle cx="0" cy="-16" r="6" fill="#c96a5a"/><circle cx="0" cy="0" r="6" fill="#ffd97a"/><circle cx="0" cy="16" r="6" fill="#7fd47f" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '不過守規矩不等於死板——原則不能破，但方法可以靈活創新！',
+          html: scene(P(340, 302, A('kid', 'happy')) +
+            P(500, 302, A('kid', 'happy') + P(-40, -60, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/><line x1="0" y1="4" x2="0" y2="14" stroke="#e0b73f" stroke-width="3"/>', '', 0, 1), '', 0, .98, true) + hearts(420, 185)) },
+        { minDur: 6400, sub: '循規蹈矩：遵守規矩，不越軌。',
+          html: scene(P(310, 275, COMPASS2, '', 0, 1.1) + P(490, 275, SQUARE2, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">循規蹈矩</text>') }
+      ];
     }
   };
 
