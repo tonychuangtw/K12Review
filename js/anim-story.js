@@ -18434,6 +18434,158 @@
             P(400, 210, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1) + hearts(560, 200) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">群策群力</text>') }
       ];
+    },
+    /* 分崩離析 */
+    i660: function () {
+      return [
+        { minDur: 7000, sub: '孔子憂心地說：國家「分崩離析而不能守」——人心散了，城牆再高也守不住！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) + sweat(280, 190) +
+            P(560, 280, '<g fill="#c9bfa8" stroke="#a8a294" stroke-width="2.4"><path d="M-40 20 L-40 -20 L-14 -30 L-12 22 Z" transform="rotate(-8)"/><path d="M-4 24 L-2 -32 L22 -24 L24 20 Z" transform="rotate(6) translate(8 0)"/></g>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '曾經同心的社團，因為派系互鬥四分五裂——一個一個退社，最後只剩空教室……',
+          html: scene(P(280, 302, '<g class="st-fleeR">' + A('kid', 'sad') + '</g>', 'st-dashL', 0, .9, true) +
+            P(520, 302, '<g class="st-fleeR">' + A('kid', 'sad') + '</g>', 'st-dashL', .2, .9) +
+            P(400, 260, '<rect x="-40" y="-30" width="80" height="52" rx="4" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6" opacity=".7"/><path d="M-14 -30 L-6 22 M12 -30 L6 22" stroke="#a8a294" stroke-width="2.4"/>', '', 0, 1) + sweat(400, 190), 'night') },
+        { minDur: 6800, sub: '「分崩離析」：組織四分五裂——修復要從「重新對齊目標」開始：我們當初為什麼在一起？',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(410, 182) +
+            P(600, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">共同</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">目標</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '分崩離析：崩壞瓦解，四分五裂。',
+          html: scene(P(400, 280, '<g fill="#c9bfa8" stroke="#a8a294" stroke-width="2.4"><path d="M-44 22 L-44 -20 L-16 -32 L-14 24 Z" transform="rotate(-9)"/><path d="M-2 26 L0 -34 L26 -24 L28 22 Z" transform="rotate(7) translate(10 0)"/></g>', '', 0, 1.25) + bang(520, 220) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">分崩離析</text>') }
+      ];
+    },
+    /* 土崩瓦解 */
+    i661: function () {
+      return [
+        { minDur: 7000, sub: '《史記》評秦朝：積弊已深，「天下土崩瓦解」——像土堆坍塌、瓦片碎裂，一發不可收拾！',
+          html: scene(P(400, 285, '<path d="M-70 20 q10 -40 40 -46 q-4 20 10 24 q10 -16 24 -10 q-2 18 8 22 q14 -8 22 4 l-14 26 h-80 z" fill="#c9b98a" stroke="#a8945a" stroke-width="2.4"/><g fill="#8a8274"><path d="M50 -30 l16 8 -6 14 -16 -8 z" transform="rotate(20)"/><path d="M80 -10 l14 6 -5 12 -14 -6 z" transform="rotate(-14)"/></g>', '', 0, 1.15) + bang(540, 210) + sweat(260, 230)) },
+        { minDur: 6800, sub: '「土崩瓦解」：徹底崩潰——防線一破，兵敗如山倒；信任一垮，關係全面崩盤！',
+          html: scene(P(300, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .95) +
+            P(460, 302, '<g class="st-fleeR" style="animation-delay:.2s">' + A('kid', 'wow') + '</g>', 'st-dashL', .2, .92) + bang(380, 200) +
+            P(600, 280, '<g fill="#8a8274"><path d="M-16 -10 l14 6 -5 12 -14 -6 z" transform="rotate(18)"/><path d="M8 -2 l12 5 -4 10 -12 -5 z" transform="rotate(-10)"/></g>', '', 0, 1.1), 'night') },
+        { minDur: 6800, sub: '防止土崩瓦解要在平時：小裂縫馬上補、小心結馬上解——別等整面牆一起倒！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, 1)) +
+            P(520, 285, '<rect x="-40" y="-40" width="80" height="60" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><path d="M-10 -40 q4 20 -2 38" stroke="#a8a294" stroke-width="2" fill="none" stroke-dasharray="4 3"/>', '', 0, 1.05) + hearts(620, 220) + bang(430, 210)) },
+        { minDur: 6400, sub: '土崩瓦解：全面崩潰，不可收拾。',
+          html: scene(P(400, 288, '<path d="M-70 20 q10 -38 38 -44 q-3 18 10 22 q10 -14 22 -9 q-2 16 8 20 q13 -7 20 4 l-13 24 h-76 z" fill="#c9b98a" stroke="#a8945a" stroke-width="2.4"/>', '', 0, 1.2) + bang(530, 215) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">土崩瓦解</text>') }
+      ];
+    },
+    /* 支離破碎 */
+    i662: function () {
+      var SHARDS = '<g fill="#c9d6e8" stroke="#8fa3bf" stroke-width="2"><path d="M-50 0 L-30 -24 L-16 4 Z" transform="rotate(-12)"/><path d="M-6 8 L14 -20 L30 6 Z" transform="rotate(8)"/><path d="M34 -2 L52 -18 L58 8 Z" transform="rotate(-6)"/><path d="M-30 24 L-12 12 L-4 30 Z"/></g>';
+      return [
+        { minDur: 6800, sub: '花瓶摔在地上——碎成十幾片，怎麼拼都拼不回原來的樣子……',
+          html: scene(P(400, 285, SHARDS, '', 0, 1.4) +
+            P(230, 302, A('kid', 'wow'), '', 0, .95) + sweat(180, 190) + bang(400, 220)) },
+        { minDur: 6800, sub: '「支離破碎」：殘破零散、不成整體——企劃被東改一句西刪一段，改得支離破碎！',
+          html: scene(P(400, 260, '<rect x="-40" y="-30" width="80" height="60" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#c96a5a" stroke-width="2"><line x1="-26" y1="-14" x2="26" y2="-2"/><line x1="-26" y1="4" x2="20" y2="16"/><line x1="-20" y1="-24" x2="10" y2="22"/></g>', '', 0, 1.25) + sweat(520, 210) + qmark(280, 210)) },
+        { minDur: 6800, sub: '碎了不見得是終點——金繼工藝用金漆黏合碎片，裂痕反而成了最美的花紋！',
+          html: scene(P(400, 270, '<path d="M-24 -30 q24 -10 48 0 l-6 52 q-18 8 -36 0 z" fill="#c9d6e8" stroke="#8fa3bf" stroke-width="2.4"/><g stroke="#e8b93f" stroke-width="3" fill="none"><path d="M-12 -26 q8 18 -2 34 M14 -24 q-6 20 4 38"/></g>', '', 0, 1.3) +
+            '<g class="st-tw"><path d="M480 220 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>' + hearts(290, 210)) },
+        { minDur: 6400, sub: '支離破碎：殘破零散，難成整體。',
+          html: scene(P(400, 288, SHARDS, '', 0, 1.45) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">支離破碎</text>') }
+      ];
+    },
+    /* 四分五裂 */
+    i663: function () {
+      return [
+        { minDur: 7000, sub: '張儀警告魏王：魏國四面受敵，一步走錯就是「四分五裂之道」——被列強撕成碎片！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 250, '<rect x="-40" y="-30" width="80" height="60" rx="4" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><g stroke="#c96a5a" stroke-width="2.6" stroke-dasharray="5 4"><line x1="-40" y1="-4" x2="40" y2="4"/><line x1="-6" y1="-30" x2="4" y2="30"/><line x1="-40" y1="20" x2="40" y2="14"/></g>', '', 0, 1.1) + sweat(600, 200)) },
+        { minDur: 6800, sub: '「四分五裂」：分裂成許多部分——討論分組旅遊，五個人吵出六種意見！',
+          html: scene(P(240, 302, A('kid', 'angry'), '', 0, .9) + P(340, 302, A('kid', 'happy'), '', 0, .9) + P(440, 302, A('kid', 'wow'), '', 0, .9) + P(540, 302, A('kid', 'angry'), '', 0, .9, true) +
+            qmark(290, 188) + qmark(490, 182) + bang(390, 190)) },
+        { minDur: 6800, sub: '整合的方法：找最大公約數——把「都想要的部分」先定下來，分歧就縮小了！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(405, 200, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">共同點</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">先定</text>', '', 0, 1.05) + hearts(560, 200)) },
+        { minDur: 6400, sub: '四分五裂：分裂離散，不成一體。',
+          html: scene(P(400, 255, '<rect x="-44" y="-32" width="88" height="64" rx="4" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6"/><g stroke="#c96a5a" stroke-width="2.8" stroke-dasharray="5 4"><line x1="-44" y1="-4" x2="44" y2="4"/><line x1="-6" y1="-32" x2="4" y2="32"/><line x1="-44" y1="20" x2="44" y2="14"/></g>', '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">四分五裂</text>') }
+      ];
+    },
+    /* 貌合神離 */
+    i664: function () {
+      return [
+        { minDur: 7000, sub: '《素書》警語：「貌合心離者孤」——表面裝親近、內心各一套的人，終將孤立！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-8 -46 q8 4 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>') +
+            P(470, 302, A('kid', 'happy') + '<path d="M-8 -46 q8 4 16 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .98, true) +
+            P(330, 195, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".8"/><text x="0" y="6" text-anchor="middle" font-size="14" fill="#8b93a3">…</text>') +
+            P(470, 195, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".8"/><text x="0" y="6" text-anchor="middle" font-size="14" fill="#8b93a3">…</text>')) },
+        { minDur: 6800, sub: '「貌合神離」：表面和好、內心不合——合照時笑得燦爛，轉身各滑各的手機……',
+          html: scene(P(330, 302, A('kid', 'happy'), '', 0, 1, true) + P(470, 302, A('kid', 'happy')) +
+            P(330, 240, '<rect x="-9" y="-14" width="18" height="26" rx="3" fill="#3a2e26"/>', '', 0, .9) +
+            P(470, 240, '<rect x="-9" y="-14" width="18" height="26" rx="3" fill="#3a2e26"/>', '', 0, .9) +
+            '<line x1="400" y1="200" x2="400" y2="300" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/>') },
+        { minDur: 6800, sub: '感情要「神合」：說出真心話、處理真分歧——表面的和平，不如一次誠實的深談！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + notes(405, 182) + hearts(560, 195)) },
+        { minDur: 6400, sub: '貌合神離：表面和睦，內心相悖。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<line x1="400" y1="200" x2="400" y2="300" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">貌合神離</text>') }
+      ];
+    },
+    /* 同床異夢 */
+    i665: function () {
+      return [
+        { minDur: 7000, sub: '陳亮寫信說：「同床各做夢」——睡同一張床，一個夢見發財、一個夢見遠方！',
+          html: scene(P(400, 290, '<rect x="-90" y="-10" width="180" height="24" rx="6" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><rect x="-90" y="-26" width="40" height="18" rx="5" fill="#f4ecd8"/>', '', 0, 1.1) +
+            P(340, 262, '<g transform="rotate(90)">' + A('kid', 'happy') + '</g>', '', 0, .72) +
+            P(470, 262, '<g transform="rotate(90)">' + A('kid', 'happy') + '</g>', '', 0, .72) +
+            P(300, 180, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".9"/><circle cx="0" cy="0" r="9" fill="#ffd97a"/>', '', 0, 1) +
+            P(520, 175, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".9"/><path d="M-10 6 L0 -8 L10 6 Z" fill="#7a9a6a"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「同床異夢」：共事卻各懷打算——合資開店，一個想衝品質、一個只想撈快錢……',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .98, true) +
+            P(330, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">品質</text>') +
+            P(470, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#c96a5a">快錢</text>') + sweat(400, 250)) },
+        { minDur: 6800, sub: '合作前先對夢：目標、底線、分工白紙黑字談清楚——同床也要同夢，才走得遠！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(405, 200, '<rect x="-28" y="-16" width="56" height="32" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">共同目標</text>', '', 0, 1.05) + hearts(560, 200)) },
+        { minDur: 6400, sub: '同床異夢：貌似同心，各懷打算。',
+          html: scene(P(400, 292, '<rect x="-90" y="-10" width="180" height="24" rx="6" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>', '', 0, 1.1) +
+            P(340, 264, '<g transform="rotate(90)">' + A('kid', 'happy') + '</g>', '', 0, .72) +
+            P(470, 264, '<g transform="rotate(90)">' + A('kid', 'happy') + '</g>', '', 0, .72) +
+            P(300, 185, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".9"/><circle cx="0" cy="0" r="7" fill="#ffd97a"/>', '', 0, 1) +
+            P(520, 180, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".9"/><path d="M-8 5 L0 -7 L8 5 Z" fill="#7a9a6a"/>', '', 0, 1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">同床異夢</text>', 'night') }
+      ];
+    },
+    /* 爾虞我詐 */
+    i666: function () {
+      return [
+        { minDur: 7000, sub: '有趣的反轉：宋楚盟約原文是「我無爾詐，爾無我虞」——我不騙你、你不防我！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(400, 200, '<rect x="-40" y="-20" width="80" height="40" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#6d5335">我無爾詐</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#6d5335">爾無我虞</text>', '', 0, 1.05) + hearts(560, 195)) },
+        { minDur: 6800, sub: '後人反著用——「爾虞我詐」：你騙我、我防你！商場談判各藏一手，互相算計！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>' + P(-38, -50, '<rect x="-12" y="-9" width="24" height="18" rx="3" fill="#8b93a3" opacity=".8"/>', '', 0, .9)) +
+            P(470, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>' + P(38, -50, '<rect x="-12" y="-9" width="24" height="18" rx="3" fill="#8b93a3" opacity=".8"/>', '', 0, .9), '', 0, .98, true) +
+            qmark(400, 185) + sweat(260, 195) + sweat(540, 195)) },
+        { minDur: 6800, sub: '爾虞我詐或許能贏一局，贏不了一世——長久的生意，靠的還是那句「我無爾詐」！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M362 258 h76" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(410, 180)) },
+        { minDur: 6400, sub: '爾虞我詐：互相欺瞞，彼此算計。',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>') +
+            P(470, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .98, true) + qmark(400, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">爾虞我詐</text>') }
+      ];
+    },
+    /* 勾心鬥角 */
+    i667: function () {
+      var PALACE = '<g stroke="#c9762f" stroke-width="3" fill="none"><path d="M-70 0 q-14 -20 -34 -22 M70 0 q14 -20 34 -22 M-40 -24 q-10 -16 -26 -18 M40 -24 q10 -16 26 -18"/></g><rect x="-70" y="0" width="140" height="18" fill="#e0a458" stroke="#c9862f" stroke-width="2.4"/><path d="M-80 0 h160 l-16 -24 h-128 z" fill="#c96a5a" stroke="#a84f42" stroke-width="2.4"/>';
+      return [
+        { minDur: 7000, sub: '杜牧寫阿房宮：「各抱地勢，鉤心鬥角」——原是形容宮殿簷角交錯、結構精巧！',
+          html: scene(P(400, 275, PALACE, '', 0, 1.15) +
+            P(200, 302, A('kid', 'wow') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + hearts(280, 220)) },
+        { minDur: 6800, sub: '後來意思轉了——「勾心鬥角」：各用心機、明爭暗鬥！辦公室裡最累人的戲碼！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1, true) +
+            P(480, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>') +
+            '<g stroke="#8b93a3" stroke-width="2.6" stroke-dasharray="5 4"><path d="M350 240 q50 -30 100 0"/><path d="M350 260 q50 30 100 0"/></g>' + sweat(400, 190)) },
+        { minDur: 6800, sub: '把鬥角的力氣拿來做事——事實證明：專心把活做好的人，最後走得比誰都高！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -12 l4 4 l7 -8 M-10 0 l4 4 l7 -8"/></g>', '', 0, .95), 'st-cheer', 0, 1.02) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '勾心鬥角：明爭暗鬥，各懷心機。',
+          html: scene(P(400, 278, PALACE, '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">勾心鬥角</text>') }
+      ];
     }
   };
 
