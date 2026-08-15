@@ -11126,6 +11126,149 @@
           html: scene(P(400, 250, TICKET, '', 0, 1.9) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">有憑有據</text>') }
       ];
+    },
+    /* 不言而喻 */
+    i071: function () {
+      return [
+        { minDur: 7000, sub: '《孟子》說：君子的仁義存於心中，流露在臉上、舉止上——「四體不言而喻」，不必開口，人人都看得懂！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(450, 185) +
+            P(250, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="#c96a5a">仁</text>')) },
+        { minDur: 6800, sub: '看到同學抱著一大疊作業簿走來，小喻立刻上前開門——有些事不用說，一看就明白！',
+          html: scene(P(300, 302, A('kid', 'wow') + P(-34, -44, '<rect x="-18" y="-24" width="36" height="34" rx="3" fill="#f4d06f" stroke="#d9a93f" stroke-width="2.4"/><rect x="-18" y="-34" width="36" height="10" rx="3" fill="#7fb2e0"/>', '', 0, .95)) + sweat(360, 200) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-28 -60 l-14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + hearts(430, 185)) },
+        { minDur: 6800, sub: '「不言而喻」：道理明顯，不用說就能理解——真誠的行動，本身就是最好的說明！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 180) +
+            P(400, 235, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/><path d="M0 -30 v-12 M22 -22 l8 -9 M-22 -22 l-8 -9" stroke="#e0b73f" stroke-width="3" stroke-linecap="round"/>')) },
+        { minDur: 6400, sub: '不言而喻：不用說就能明白。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 218, '<circle cx="0" cy="0" r="18" fill="#ffe9a0" class="st-tw"/>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不言而喻</text>') }
+      ];
+    },
+    /* 才高八斗 */
+    i072: function () {
+      var DOU = function (x, d) { return P(x, 268, '<path d="M-16 -14 L16 -14 L11 12 L-11 12 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><ellipse cx="0" cy="-14" rx="16" ry="5" fill="#e8d9a8" stroke="#a8734a" stroke-width="2"/>', '', d, .78); };
+      return [
+        { minDur: 7000, sub: '南朝詩人謝靈運說：天下的才華共有一石（十斗），曹植一個人就獨占八斗！',
+          html: scene(P(200, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1) +
+            DOU(340, 0) + DOU(390, .1) + DOU(440, .2) + DOU(490, .3) + DOU(540, .4) + DOU(590, .5) + DOU(640, .6) + DOU(690, .7) + bang(520, 195)) },
+        { minDur: 6800, sub: '「我謝靈運得一斗，天下人共分剩下那一斗。」——曹植七步成詩，才華蓋世，人人歎服！',
+          html: scene(P(550, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#3a2e26"/>', '', 0, 1.08) + notes(640, 185) +
+            P(280, 302, A('kid', 'wow'), '', 0, .92) + hearts(400, 200)) },
+        { minDur: 6800, sub: '「才高八斗」：形容才華橫溢、聰慧傑出——後人就用這八斗，來稱讚才學極高的人！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-40, -60, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-8" y1="-10" x2="8" y2="-10"/><line x1="-8" y1="-3" x2="8" y2="-3"/><line x1="-8" y1="4" x2="8" y2="4"/></g>', '', 0, 1), '', 0, 1.05) + bang(510, 185) + notes(300, 190)) },
+        { minDur: 6400, sub: '才高八斗：才華橫溢，聰慧傑出。',
+          html: scene(DOU(300, 0) + DOU(350, .1) + DOU(400, .2) + DOU(450, .3) + DOU(500, .4) +
+            P(620, 302, A('kid', 'happy'), '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">才高八斗</text>') }
+      ];
+    },
+    /* 差強人意 */
+    i073: function () {
+      var SPEARQ = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 7000, sub: '東漢打了敗仗，眾將垂頭喪氣——只有大將吳漢照常整理兵器、操練士兵，一點不亂！',
+          html: scene(P(250, 306, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .92) +
+            P(370, 306, '<g class="st-slump" style="animation-delay:.2s">' + A('kid', 'sad') + '</g>', '', 0, .9) +
+            P(560, 302, A('kid', 'angry') + P(28, -50, SPEARQ), '', 0, 1.02) + bang(640, 195)) },
+        { minDur: 6800, sub: '光武帝讚歎：「吳公差強人意！」——大體上還能振奮人心，靠得住！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05) +
+            P(520, 302, A('kid', 'angry') + P(28, -50, SPEARQ), '', 0, 1, true) + hearts(410, 185)) },
+        { minDur: 6800, sub: '注意！「差強人意」是「大致還算滿意」——不是不滿意！考七十分可以說差強人意，別誤用！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -54, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#c96a5a">70</text>', '', 0, 1)) +
+            P(480, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="19" fill="#548a40">尚可</text>')) },
+        { minDur: 6400, sub: '差強人意：大致上還算令人滿意。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(28, -50, SPEARQ), '', 0, 1.05) + hearts(300, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">差強人意</text>') }
+      ];
+    },
+    /* 緣木求魚 */
+    i074: function () {
+      return [
+        { minDur: 7000, sub: '孟子問梁惠王：想用武力征服天下？那就像爬到樹上去抓魚——方向從根本上就錯了！',
+          html: scene(P(550, 302, TREE, '', 0, 1.2) +
+            P(535, 175, A('kid', 'wow'), '', 0, .82) + qmark(600, 120) +
+            P(240, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '樹上怎麼會有魚呢？魚在水裡呀！爬得再高、再努力，也一條都抓不到！',
+          html: scene(P(550, 302, TREE, '', 0, 1.2) + P(535, 175, A('kid', 'sad'), '', 0, .82) + sweat(590, 130) +
+            '<rect y="272" width="800" height="68" fill="#5a7fa8" opacity=".8"/>' +
+            P(180, 292, A('fish'), 'st-swim', 0, .9) + qmark(300, 250)) },
+        { minDur: 6800, sub: '「緣木求魚」：方法根本錯誤，絕不可能成功——不讀書卻想考好，就是緣木求魚！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-40, -60, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-8" y1="-8" x2="8" y2="-8"/><line x1="-8" y1="0" x2="8" y2="0"/><line x1="-8" y1="8" x2="8" y2="8"/></g>', '', 0, 1)) + hearts(430, 185) +
+            P(560, 240, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="#548a40">對路</text>')) },
+        { minDur: 6400, sub: '緣木求魚：方法錯誤，不可能成功。',
+          html: scene(P(550, 302, TREE, '', 0, 1.2) + P(535, 175, A('kid', 'wow'), '', 0, .82) + qmark(600, 122) +
+            '<text x="330" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">緣木求魚</text>') }
+      ];
+    },
+    /* 萬古長青 */
+    i075: function () {
+      var PINE = '<path d="M0 0 L0 -34" stroke="#7a5a3a" stroke-width="8" stroke-linecap="round"/><path d="M-34 -28 L0 -62 L34 -28 Z" fill="#3f7a4a"/><path d="M-28 -50 L0 -80 L28 -50 Z" fill="#4a8a55"/><path d="M-20 -70 L0 -94 L20 -70 Z" fill="#57996b"/>';
+      return [
+        { minDur: 6800, sub: '寒冬大雪，百花凋零、樹葉落光——只有松樹和柏樹，依然一身青翠挺立在風雪裡！',
+          html: scene('<g fill="#fff"><circle class="st-snow" cx="200" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1s" cx="420" cy="10" r="3.4"/><circle class="st-snow" style="animation-delay:2s" cx="620" cy="40" r="4"/></g>' +
+            P(300, 302, PINE, '', 0, 1.25) + P(500, 302, '<path d="M0 0 L0 -50 M0 -20 L20 -40 M0 -32 L-18 -50" stroke="#8b93a3" stroke-width="5" stroke-linecap="round" fill="none"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「萬古長青」：像松柏一樣，一萬年也青翠不變——形容精神、情誼永不衰退！',
+          html: scene(P(400, 302, PINE, '', 0, 1.4) + P(230, 130, '<circle cx="0" cy="0" r="22" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) + hearts(540, 190)) },
+        { minDur: 6800, sub: '畢業時大家在紀念冊寫下：「願我們的友誼萬古長青！」——像松樹一樣，永遠不變！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(620, 302, PINE, '', 0, 1.1) + hearts(390, 180)) },
+        { minDur: 6400, sub: '萬古長青：永遠不衰，常青不朽。',
+          html: scene(P(400, 302, PINE, '', 0, 1.45) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">萬古長青</text>') }
+      ];
+    },
+    /* 文質彬彬 */
+    i076: function () {
+      return [
+        { minDur: 7000, sub: '孔子說：太質樸就顯得粗野，太有文采又顯得浮誇——「文質彬彬，然後君子」！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(520, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="19" fill="#c96a5a">君子</text>') + hearts(420, 185)) },
+        { minDur: 6800, sub: '文采與質樸配合得剛剛好——像天平兩端平衡，不偏不倚，才是君子風度！',
+          html: scene(P(400, 285, '<line x1="0" y1="0" x2="0" y2="-56" stroke="#a8734a" stroke-width="5"/><line x1="-90" y1="-56" x2="90" y2="-56" stroke="#a8734a" stroke-width="4"/><path d="M-90 -56 l-14 22 h28 z M90 -56 l-14 22 h28 z" fill="#e0a458" stroke="#c9862f" stroke-width="2"/><text x="-90" y="-18" text-anchor="middle" font-size="16" fill="#6d5335">文</text><text x="90" y="-18" text-anchor="middle" font-size="16" fill="#6d5335">質</text>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '「文質彬彬」：溫文有禮、談吐斯文——新來的轉學生彬彬有禮，大家都喜歡他！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 8 28 0" stroke="#c96a5a" stroke-width="2.6" fill="none"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(450, 185)) },
+        { minDur: 6400, sub: '文質彬彬：文雅溫和，謙恭有禮。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) + hearts(500, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">文質彬彬</text>') }
+      ];
+    },
+    /* 韋編三絕 */
+    i077: function () {
+      var SLIPS = '<g stroke="#c9a06c" stroke-width="6" stroke-linecap="round"><line x1="-30" y1="-18" x2="-30" y2="18"/><line x1="-15" y1="-18" x2="-15" y2="18"/><line x1="0" y1="-18" x2="0" y2="18"/><line x1="15" y1="-18" x2="15" y2="18"/><line x1="30" y1="-18" x2="30" y2="18"/></g><path d="M-36 -8 h72 M-36 8 h72" stroke="#8a6a44" stroke-width="2.6" fill="none"/>';
+      return [
+        { minDur: 7000, sub: '孔子晚年迷上《易經》，竹簡書讀了一遍又一遍，白天讀、夜裡也讀！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-52, -46, SLIPS, '', 0, .9), '', 0, 1.05) +
+            P(620, 120, '<circle cx="0" cy="0" r="20" fill="#f5f0dc"/><circle cx="8" cy="-4" r="16" fill="#2c3550"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '翻得太勤——啪！串竹簡的牛皮繩竟然斷了！換上新繩，接著又讀……',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-52, -46, '<g stroke="#c9a06c" stroke-width="6" stroke-linecap="round"><line x1="-30" y1="-18" x2="-30" y2="18"/><line x1="-12" y1="-14" x2="-16" y2="22"/><line x1="4" y1="-20" x2="8" y2="16"/><line x1="26" y1="-14" x2="30" y2="20"/></g><path d="M-36 -8 h20 M-4 -6 h16" stroke="#8a6a44" stroke-width="2.6"/>', '', 0, .9), '', 0, 1.05) + bang(320, 190)) },
+        { minDur: 6800, sub: '就這樣皮繩斷了三次！「韋編三絕」——讀書勤奮到把書都翻爛了！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-52, -46, SLIPS, '', 0, .9), '', 0, 1.05) +
+            P(560, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="18" fill="#c96a5a">×3</text>') + hearts(280, 190)) },
+        { minDur: 6400, sub: '韋編三絕：勤奮讀書，刻苦不倦。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-52, -46, SLIPS, '', 0, .9), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">韋編三絕</text>') }
+      ];
+    },
+    /* 德高望重 */
+    i078: function () {
+      var CANE = '<path d="M0 12 L0 -34 q0 -10 10 -10" stroke="#8a6a44" stroke-width="4.6" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '老校長奉獻教育五十年：修圖書館、幫清寒學生付學費——全鎮的人提起他都豎起大拇指！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-30, -30, CANE, '', 0, 1), '', 0, 1.05) +
+            P(200, 302, A('kid', 'happy'), '', 0, .9) + P(600, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(400, 175)) },
+        { minDur: 6800, sub: '「德高望重」：品德崇高、聲望隆重——這份敬重，是幾十年善行一點一滴累積來的！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-30, -30, CANE, '', 0, 1), '', 0, 1.02) +
+            P(400, 200, '<circle cx="0" cy="0" r="24" fill="#ffe9a0" class="st-tw"/><path d="M0 -34 v-12 M24 -24 l9 -10 M-24 -24 l-9 -10" stroke="#e0b73f" stroke-width="3" stroke-linecap="round"/>') + hearts(540, 200)) },
+        { minDur: 6800, sub: '校慶典禮，大家起立鼓掌，請德高望重的老校長上台致詞——敬重是贏來的，不是要來的！',
+          html: scene(P(430, 280, '<rect x="-80" y="0" width="160" height="22" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(430, 280, A('kid', 'happy') + P(-30, -30, CANE, '', 0, 1), '', 0, .98) +
+            P(210, 302, A('kid', 'happy'), 'st-cheer', 0, .9) + P(640, 302, A('kid', 'happy'), 'st-cheer', .2, .9, true) + notes(320, 185)) },
+        { minDur: 6400, sub: '德高望重：道德高尚，聲望崇隆。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-30, -30, CANE, '', 0, 1), '', 0, 1.05) + hearts(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">德高望重</text>') }
+      ];
     }
   };
 
