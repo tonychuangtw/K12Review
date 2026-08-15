@@ -19946,6 +19946,160 @@
           html: scene(P(400, 250, '<rect x="-34" y="-21" width="68" height="42" rx="4" fill="#fff" opacity=".92"/><line x1="-20" y1="5" x2="20" y2="-9" stroke="#c96a5a" stroke-width="3"/><path d="M-20 12 q20 -5 40 -16" stroke="#ffd97a" stroke-width="5" fill="none"/>', '', 0, 1.3) + qmark(510, 205) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">文過飾非</text>') }
       ];
+    },
+    /* 穿鑿附會 */
+    i380: function () {
+      return [
+        { minDur: 7000, sub: '有人硬把「番茄」解成「翻茄」再編出一套故事——宋代學者最痛批這種解經法：穿鑿附會！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(520, 240, '<rect x="-36" y="-20" width="72" height="40" rx="4" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#c96a5a">硬掰的</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#c96a5a">解釋</text>', '', 0, 1.05) + qmark(430, 190)) },
+        { minDur: 6800, sub: '「穿鑿附會」：把不相干的事勉強牽合——鑿個洞硬塞進去，看似通、其實歪！',
+          html: scene(P(310, 250, '<circle cx="0" cy="0" r="22" fill="#7fb2e0" opacity=".9"/>', '', 0, 1.1) +
+            P(490, 250, '<rect x="-22" y="-22" width="44" height="44" rx="4" fill="#ffd97a" opacity=".9"/>', '', 0, 1.1) +
+            '<path d="M340 250 h110" stroke="#c96a5a" stroke-width="4" stroke-dasharray="6 5"/><text x="400" y="235" text-anchor="middle" font-size="13" fill="#c96a5a">硬接?</text>') },
+        { minDur: 6800, sub: '解讀要有證據：查出處、看原文、找旁證——說得通還要「站得住」！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1.05)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">證據✓</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '穿鑿附會：牽強比附，強作解人。',
+          html: scene(P(320, 252, '<circle cx="0" cy="0" r="22" fill="#7fb2e0" opacity=".9"/>', '', 0, 1.1) +
+            P(480, 252, '<rect x="-22" y="-22" width="44" height="44" rx="4" fill="#ffd97a" opacity=".9"/>', '', 0, 1.1) +
+            '<path d="M348 252 h104" stroke="#c96a5a" stroke-width="4" stroke-dasharray="6 5"/>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">穿鑿附會</text>') }
+      ];
+    },
+    /* 貽笑大方 */
+    i381: function () {
+      return [
+        { minDur: 7000, sub: '河伯以為黃河最大，順流到北海才傻眼——「吾長見笑於大方之家」：差點被行家笑死！',
+          html: scene('<rect y="262" width="800" height="78" fill="#5a7fa8"/>' +
+            '<g class="st-wavemove"><path d="M-40 274 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#8fb2d4" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>' +
+            P(300, 245, A('kid', 'wow'), '', 0, .95) + sweat(240, 190) + bang(500, 200)) },
+        { minDur: 6800, sub: '「貽笑大方」：外行舉動讓內行人笑話——多作自謙：「獻醜之作，恐貽笑大方！」',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-44, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(450, 188)) },
+        { minDur: 6800, sub: '怕貽笑大方就先做功課——但更重要的是：敢獻醜的人，進步永遠比嘲笑的人快！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', 'st-cheer', 0, 1.02) + bang(470, 185) + hearts(280, 195)) },
+        { minDur: 6400, sub: '貽笑大方：見笑於行家，自謙之語。',
+          html: scene('<rect y="268" width="800" height="72" fill="#5a7fa8"/>' +
+            P(320, 250, A('kid', 'wow'), '', 0, .98) + sweat(260, 195) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">貽笑大方</text>') }
+      ];
+    },
+    /* 剛愎自用 */
+    i382: function () {
+      return [
+        { minDur: 7000, sub: '《左傳》評楚將：「剛愎不仁，未肯用命」——固執倔強，聽不進任何命令與勸告！',
+          html: scene(P(430, 302, A('kid', 'angry') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/><path d="M-28 -56 l-14 -6 M28 -56 l14 -6" stroke="#ffe3c1" stroke-width="0"/>' + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, 1.08) +
+            P(240, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .92) +
+            '<line x1="330" y1="240" x2="360" y2="240" stroke="#c96a5a" stroke-width="3"/><line x1="345" y1="225" x2="345" y2="255" stroke="#c96a5a" stroke-width="3"/>') },
+        { minDur: 6800, sub: '「剛愎自用」：固執己見、不聽勸——所有建言一律駁回，最後撞牆才後悔！',
+          html: scene(P(430, 302, A('kid', 'angry'), '', 0, 1.05) +
+            P(250, 220, '<rect x="-30" y="-15" width="60" height="30" rx="4" fill="#fff" opacity=".7"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#8b93a3">建言A</text>', 'st-zfloat', 0, 1) +
+            P(280, 280, '<rect x="-30" y="-15" width="60" height="30" rx="4" fill="#fff" opacity=".7"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#8b93a3">建言B</text>', 'st-zfloat', .3, 1) +
+            '<line x1="350" y1="230" x2="380" y2="260" stroke="#c96a5a" stroke-width="3"/><line x1="380" y1="230" x2="350" y2="260" stroke="#c96a5a" stroke-width="3"/>') },
+        { minDur: 6800, sub: '堅持和固執只差一線：堅持的人聽完反對意見依然選擇；固執的人根本不聽！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(-38, -52, '<path d="M6 -8 q8 8 0 16" stroke="#8fa3bf" stroke-width="3" fill="none"/>', '', 0, 1.1)) +
+            P(500, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .98, true) + hearts(415, 182)) },
+        { minDur: 6400, sub: '剛愎自用：固執己見，拒納忠言。',
+          html: scene(P(430, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, 1.08) +
+            P(250, 302, A('kid', 'wow'), '', 0, .92) + qmark(310, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">剛愎自用</text>') }
+      ];
+    },
+    /* 動輒得咎 */
+    i383: function () {
+      return [
+        { minDur: 7000, sub: '韓愈自嘲仕途：「跋前躓後，動輒得咎」——往前絆倒、往後跌跤，做什麼都被怪罪！',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', 'st-bob', 0, 1.02) + sweat(290, 188) +
+            '<g stroke="#c96a5a" stroke-width="3" stroke-linecap="round"><path d="M480 220 l-24 10 M490 250 l-26 4 M480 280 l-24 -6"/></g>') },
+        { minDur: 6800, sub: '「動輒得咎」：一動就被責難——新人多做多錯、少做也錯，無所適從……',
+          html: scene(P(360, 302, A('kid', 'wow'), 'st-bob', 0, 1.02) + sweat(300, 188) +
+            P(540, 220, '<rect x="-34" y="-18" width="68" height="36" rx="4" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#c96a5a">做也錯</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#c96a5a">不做也錯</text>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '陷入動輒得咎時，先問清規則：「這件事的標準是什麼？」——把模糊變明確，指責就少了！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -60 l14 -20" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/>', '', 0, 1, true) +
+            P(430, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="11" fill="#548a40">標準?</text>') + hearts(620, 200)) },
+        { minDur: 6400, sub: '動輒得咎：處處受責，動則獲罪。',
+          html: scene(P(400, 302, A('kid', 'sad'), 'st-bob', 0, 1.05) + sweat(320, 188) +
+            '<g stroke="#c96a5a" stroke-width="3" stroke-linecap="round"><path d="M510 230 l-24 8 M520 265 l-26 2"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">動輒得咎</text>') }
+      ];
+    },
+    /* 尸位素餐 */
+    i384: function () {
+      return [
+        { minDur: 7000, sub: '朱雲當著皇帝面痛斥滿朝大臣：「皆尸位素餐！」——占著位子、白吃俸祿、不辦一事！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) + bang(400, 182) +
+            P(520, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1, true) + sweat(600, 190)) },
+        { minDur: 6800, sub: '「尸位」是空占位子、「素餐」是白吃飯——領薪不做事，最刺耳的罵法！',
+          html: scene(P(400, 285, '<rect x="-46" y="-14" width="92" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' + P(0, -28, '<g transform="rotate(10)">' + A('kid', 'happy') + '</g>', '', 0, .8) + P(44, -30, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, .9), '', 0, 1.1) + zzz(500, 210)) },
+        { minDur: 6800, sub: '在其位謀其政——接了幹部就把事做好；不想做，就把位子讓給想做的人！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -12 l4 4 l7 -8 M-10 0 l4 4 l7 -8"/></g>', '', 0, .95), 'st-cheer', 0, 1.02) + hearts(450, 188) + bang(280, 195)) },
+        { minDur: 6400, sub: '尸位素餐：竊位曠職，坐食俸祿。',
+          html: scene(P(400, 288, '<rect x="-44" y="-13" width="88" height="13" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' + P(0, -26, '<g transform="rotate(10)">' + A('kid', 'happy') + '</g>', '', 0, .8), '', 0, 1.1) + zzz(500, 215) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">尸位素餐</text>') }
+      ];
+    },
+    /* 撫今追昔 */
+    i686: function () {
+      return [
+        { minDur: 6800, sub: '百年校慶，白髮校友摸著老榕樹——「這棵樹，是我們畢業那年種的啊……」',
+          html: scene(P(500, 285, TREE, '', 0, 1.3) +
+            P(300, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) + hearts(400, 200)) },
+        { minDur: 6800, sub: '「撫今追昔」：撫視現在、追想從前——當年的小樹苗成蔭，當年的少年白頭！',
+          html: scene(P(300, 250, '<path d="M0 10 q-2 -12 4 -16" stroke="#7fa858" stroke-width="3" fill="none"/><text x="0" y="34" text-anchor="middle" font-size="10" fill="#8b93a3">昔</text>', '', 0, 1.2) +
+            '<path d="M345 245 h110" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/><path d="M455 245 l-12 -8 v16 z" fill="#c9bfa8"/>' +
+            P(530, 250, TREE + '<text x="0" y="34" text-anchor="middle" font-size="10" fill="#8b93a3">今</text>', '', 0, .85)) },
+        { minDur: 6800, sub: '感慨之後是感謝——謝謝當年栽樹的人，也記得為下一個百年栽新樹！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(34, -18, '<path d="M0 8 q-2 -10 4 -14 q4 -4 3 -9" stroke="#7fa858" stroke-width="2.6" fill="none"/>', '', 0, 1.1)) +
+            P(510, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95, true) + hearts(420, 185)) },
+        { minDur: 6400, sub: '撫今追昔：眼觀當下，心懷往昔。',
+          html: scene(P(500, 288, TREE, '', 0, 1.3) +
+            P(300, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1) + hearts(390, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">撫今追昔</text>') }
+      ];
+    },
+    /* 繼往開來 */
+    i687: function () {
+      return [
+        { minDur: 7000, sub: '朱熹讚先賢使命：「繼往聖，開來學」——接住過去聖人的學問，替後來的人開路！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(34, -40, '<circle cx="0" cy="-6" r="10" fill="#ffe9a0" class="st-tw"/>', '', 0, 1)) +
+            P(490, 302, A('kid', 'happy') + P(-36, -42, '<circle cx="0" cy="-4" r="9" fill="#ffe9a0" class="st-tw"/>', '', 0, 1), '', 0, .97, true) +
+            '<path d="M350 255 h90" stroke="#e0b73f" stroke-width="3" stroke-dasharray="6 5"/>' + hearts(420, 195)) },
+        { minDur: 6800, sub: '「繼往開來」：承續過去、開創未來——站上前人的肩膀，是為了看見更遠的路！',
+          html: scene('<g fill="#d9cfae" stroke="#b8a982" stroke-width="2"><rect x="240" y="272" width="100" height="30"/><rect x="340" y="242" width="100" height="60"/><rect x="440" y="212" width="100" height="90"/></g>' +
+            P(575, 212, A('kid', 'happy'), 'st-strut', 0, .95) +
+            '<path d="M600 180 q60 -30 100 -70" stroke="#548a40" stroke-width="4" fill="none" stroke-dasharray="9 8"/><path d="M700 110 l-14 2 l9 10 z" fill="#548a40"/>') },
+        { minDur: 6800, sub: '你今天學的每樣東西都是前人傳的火——學好它、更新它、傳下去，就是繼往開來！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95)) +
+            P(500, 302, A('kid', 'happy'), '', 0, .95, true) +
+            '<path d="M360 240 q70 -30 130 -6" stroke="#e0b73f" stroke-width="3" fill="none" stroke-dasharray="6 5"/>' + hearts(420, 185)) },
+        { minDur: 6400, sub: '繼往開來：承先人志，開後世路。',
+          html: scene('<g fill="#d9cfae" stroke="#b8a982" stroke-width="2"><rect x="260" y="275" width="94" height="27"/><rect x="354" y="248" width="94" height="54"/><rect x="448" y="220" width="94" height="82"/></g>' +
+            P(580, 220, A('kid', 'happy'), 'st-strut', 0, .95) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">繼往開來</text>') }
+      ];
+    },
+    /* 承先啟後 */
+    i688: function () {
+      return [
+        { minDur: 6800, sub: '布袋戲團第三代接班人：學會爺爺的口白、爸爸的操偶——再加進自己的聲光新編！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .9) +
+            P(420, 302, A('kid', 'happy'), '', 0, .95) +
+            P(540, 302, A('kid', 'happy') + P(38, -46, '<rect x="-11" y="-15" width="22" height="30" rx="6" fill="#c9b26a" stroke="#a8905a" stroke-width="2"/><circle cx="0" cy="-22" r="8" fill="#c9b26a" stroke="#a8905a" stroke-width="2"/>', '', 0, 1), '', 0, 1, true) +
+            '<path d="M330 255 h60 M450 255 h60" stroke="#e0b73f" stroke-width="3" stroke-dasharray="6 5"/>' + hearts(430, 195)) },
+        { minDur: 6800, sub: '「承先啟後」：承接前人、開啟後人——中間那棒最重要：接得穩，也傳得出！',
+          html: scene(P(400, 302, A('kid', 'angry') + P(-40, -44, '<rect x="-6" y="-22" width="12" height="44" rx="5" fill="#e0813f"/>', '', 0, 1), 'st-dashL', 0, 1.05) +
+            P(220, 302, A('kid', 'happy'), '', 0, .9) + P(600, 302, A('kid', 'happy') + '<path d="M-28 -50 q-10 -2 -14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .9, true) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="300" y1="250" x2="360" y2="250"/></g>') },
+        { minDur: 6800, sub: '每個世代都是橋——把上一代的好保存好、把下一代的路鋪平，文化就不斷流！',
+          html: scene('<path d="M150 302 q250 -80 500 0" stroke="#a8734a" stroke-width="10" fill="none"/><g stroke="#8a5a33" stroke-width="4"><line x1="250" y1="270" x2="250" y2="302"/><line x1="400" y1="262" x2="400" y2="302"/><line x1="550" y1="270" x2="550" y2="302"/></g>' +
+            P(400, 260, A('kid', 'happy'), 'st-strut', 0, .9) + hearts(500, 220)) },
+        { minDur: 6400, sub: '承先啟後：承接傳統，啟迪來者。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(-40, -44, '<rect x="-6" y="-22" width="12" height="44" rx="5" fill="#e0813f"/>', '', 0, 1), 'st-dashL', 0, 1.05) +
+            P(230, 302, A('kid', 'happy'), '', 0, .9) + P(590, 302, A('kid', 'happy'), '', 0, .9, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">承先啟後</text>') }
+      ];
     }
   };
 
