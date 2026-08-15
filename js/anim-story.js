@@ -15632,6 +15632,163 @@
             P(400, 200, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>', '', 0, 1) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">廣場無垢</text>') }
       ];
+    },
+    /* 坦蕩蕩 */
+    i128: function () {
+      return [
+        { minDur: 7000, sub: '孔子說：「君子坦蕩蕩，小人長戚戚」——君子心胸平坦寬廣，小人整天憂懼算計！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M-30 -46 q-14 -8 -22 2 M30 -46 q14 -8 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(560, 296, '<g transform="rotate(10)">' + A('kid', 'sad') + '</g>', '', 0, .92) + sweat(620, 195) + hearts(400, 185)) },
+        { minDur: 6800, sub: '沒作弊的人聽到「臨時抽查」也不心虛——心裡沒鬼，天塌下來都不怕！',
+          html: scene(P(340, 302, A('kid', 'happy'), '', 0, 1.02) + hearts(280, 192) +
+            P(540, 302, A('kid', 'wow'), 'st-bob', 0, .95, true) + sweat(600, 188) +
+            P(430, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#6d7585">抽查!</text>')) },
+        { minDur: 6800, sub: '「坦蕩蕩」：光明磊落、心胸開闊——想活得輕鬆，就把每件事做得經得起檢查！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.08) +
+            '<path d="M180 302 h440" stroke="#d9cfae" stroke-width="16" stroke-linecap="round"/>' +
+            P(200, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) + hearts(500, 190)) },
+        { minDur: 6400, sub: '坦蕩蕩：光明磊落，心胸開闊。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.08) +
+            '<path d="M180 302 h440" stroke="#d9cfae" stroke-width="16" stroke-linecap="round"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">坦蕩蕩</text>') }
+      ];
+    },
+    /* 芒刺在背 */
+    i129: function () {
+      return [
+        { minDur: 7000, sub: '漢宣帝剛即位，與大權在握的霍光同車——渾身不自在，「若有芒刺在背」！',
+          html: scene(P(400, 285, '<circle cx="-24" cy="16" r="13" fill="#5a4632"/><circle cx="24" cy="16" r="13" fill="#5a4632"/><rect x="-44" y="-14" width="88" height="26" rx="5" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><path d="M-38 -14 q38 -26 76 0" fill="#e0a458" stroke="#c9862f" stroke-width="2"/>', '', 0, 1.1) +
+            P(360, 250, '<g class="st-bob">' + A('kid', 'wow') + '</g>', '', 0, .72) +
+            P(445, 250, A('kid', 'angry'), '', 0, .78, true) + sweat(310, 210)) },
+        { minDur: 6800, sub: '背上像扎了細刺：坐也不是、動也不是——渾身不對勁，一分鐘像一小時！',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + '<g stroke="#a8945a" stroke-width="2.4" stroke-linecap="round"><line x1="-30" y1="-40" x2="-38" y2="-48"/><line x1="-32" y1="-24" x2="-41" y2="-30"/><line x1="-31" y1="-8" x2="-40" y2="-12"/></g></g>', '', 0, 1.08) + sweat(320, 185) + sweat(490, 185)) },
+        { minDur: 6800, sub: '「芒刺在背」：因畏忌而坐立難安——被嚴師盯著寫作業，大概就是這感覺！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), 'st-bob', 0, 1) + sweat(300, 188) +
+            P(560, 302, A('kid', 'angry') + P(-40, -56, '<circle cx="0" cy="0" r="10" fill="none" stroke="#3a2e26" stroke-width="3"/><circle cx="20" cy="0" r="10" fill="none" stroke="#3a2e26" stroke-width="3"/>', '', 0, 1), '', 0, 1, true)) },
+        { minDur: 6400, sub: '芒刺在背：畏忌不安，如坐針氈。',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + '<g stroke="#a8945a" stroke-width="2.4" stroke-linecap="round"><line x1="-30" y1="-40" x2="-38" y2="-48"/><line x1="-32" y1="-24" x2="-41" y2="-30"/></g></g>', '', 0, 1.08) + sweat(320, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">芒刺在背</text>') }
+      ];
+    },
+    /* 狼狽不堪 */
+    i130: function () {
+      return [
+        { minDur: 7000, sub: '傳說「狼」和「狽」是兩獸相依而行——狽的前腿短，必須搭在狼身上，一分開就摔倒！',
+          html: scene(P(340, 302, A('dog', 'happy'), '', 0, 1.05) +
+            P(430, 296, '<g transform="rotate(-10)">' + A('dog', 'wow') + '</g>', '', 0, .82) +
+            P(200, 302, A('kid', 'wow') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .92) + qmark(280, 195)) },
+        { minDur: 6800, sub: '放學遇到超大雷雨：傘開花、鞋進水、講義糊成一團——整個人像落湯雞！',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="220" y1="30" x2="208" y2="58"/><line class="st-rain" style="animation-delay:.4s" x1="430" y1="20" x2="418" y2="48"/><line class="st-rain" style="animation-delay:.8s" x1="620" y1="34" x2="608" y2="62"/></g>' +
+            P(400, 302, A('kid', 'sad') + P(-40, -54, '<path d="M-14 6 q14 -22 28 0 M0 6 v10" stroke="#8b93a3" stroke-width="3" fill="none"/><path d="M-14 6 l-4 -8 M14 6 l4 -8" stroke="#8b93a3" stroke-width="2.4"/>', '', 0, 1), '', 0, 1.02) + sweat(320, 188), 'night') },
+        { minDur: 6800, sub: '「狼狽不堪」：處境窘迫難堪到了極點——回家洗個熱水澡，明天又是新的一天！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-38, -46, '<path d="M-12 -6 h24 v5 q0 9 -12 9 q-12 0 -12 -9 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/><g class="st-zfloat" opacity=".7"><path d="M-4 -14 q3 -6 0 -10" stroke="#c9bfa8" stroke-width="2" fill="none"/></g>', '', 0, 1), '', 0, 1.05) + hearts(500, 190)) },
+        { minDur: 6400, sub: '狼狽不堪：窘迫難堪，十分尷尬。',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="240" y1="30" x2="228" y2="58"/><line class="st-rain" style="animation-delay:.5s" x1="580" y1="24" x2="568" y2="52"/></g>' +
+            P(400, 302, A('kid', 'sad'), '', 0, 1.05) + sweat(320, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">狼狽不堪</text>', 'night') }
+      ];
+    },
+    /* 峨眉山月 */
+    i132: function () {
+      var MOONHALF = '<path d="M0 -26 a26 26 0 0 1 0 52 a20 26 0 0 0 0 -52 z" fill="#f5f0dc"/>';
+      return [
+        { minDur: 7000, sub: '李白離開故鄉時寫下：「峨眉山月半輪秋，影入平羌江水流」——半輪秋月映在江水裡！',
+          html: scene(P(250, 270, '<path d="M-80 40 L0 -60 L80 40 Z" fill="#3d4a63" stroke="#2c3550" stroke-width="2.6"/>', '', 0, 1.1) +
+            P(560, 130, MOONHALF, '', 0, 1.2) +
+            '<rect y="282" width="800" height="58" fill="#2c3550"/><path d="M520 300 a40 10 0 0 1 80 0" fill="none" stroke="#f5f0dc" stroke-width="3" opacity=".6"/>', 'night') },
+        { minDur: 6800, sub: '船行千里，月亮一路相隨——思念的人看同一輪月，月色裡全是鄉愁！',
+          html: scene('<rect y="272" width="800" height="68" fill="#2c3550"/>' +
+            P(360, 272, '<g class="st-bob"><path d="M-44 0 L44 0 L30 16 L-30 16 Z" fill="#8a5a33" stroke="#6d4426" stroke-width="2.4"/>' + P(0, -8, A('kid', 'sad'), '', 0, .75) + '</g>', '', 0, 1.05) +
+            P(580, 120, MOONHALF, '', 0, 1.1) + notes(250, 200), 'night') },
+        { minDur: 6800, sub: '「峨眉山月」：形容清美月色、引人思鄉懷友——古人不能視訊，只能請月亮代傳思念！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) +
+            P(560, 130, MOONHALF, '', 0, 1.1) +
+            P(280, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1), 'night') },
+        { minDur: 6400, sub: '峨眉山月：月色清美，鄉愁悠悠。',
+          html: scene(P(280, 275, '<path d="M-70 35 L0 -50 L70 35 Z" fill="#3d4a63" stroke="#2c3550" stroke-width="2.6"/>', '', 0, 1.05) +
+            P(560, 125, MOONHALF, '', 0, 1.2) +
+            '<text x="400" y="230" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">峨眉山月</text>', 'night') }
+      ];
+    },
+    /* 月朦朧 */
+    i133: function () {
+      return [
+        { minDur: 6800, sub: '起霧的夜晚，月亮躲在薄雲後——輪廓柔柔的、光暈淡淡的，看不真切……',
+          html: scene(P(400, 140, '<circle cx="0" cy="0" r="30" fill="#f5f0dc" opacity=".7"/><circle cx="0" cy="0" r="42" fill="#f5f0dc" opacity=".25"/>', '', 0, 1.1) +
+            '<g class="st-cloud"><ellipse cx="420" cy="150" rx="70" ry="18" fill="#8b93a3" opacity=".45"/></g>' +
+            P(400, 302, A('kid', 'happy'), '', 0, .98), 'night') },
+        { minDur: 6800, sub: '「月朦朧」：月色迷濛不清——詩詞裡常用它營造柔和夢幻的氣氛：「月朦朧，鳥朦朧」！',
+          html: scene(P(400, 150, '<circle cx="0" cy="0" r="28" fill="#f5f0dc" opacity=".65"/><circle cx="0" cy="0" r="40" fill="#f5f0dc" opacity=".22"/>', '', 0, 1.15) +
+            P(600, 250, A('bird'), '', 0, .8) + notes(300, 210), 'night') },
+        { minDur: 6800, sub: '朦朧不是缺點，是另一種美——留一點看不清的空間，想像力才有地方飛！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) + hearts(490, 195) +
+            P(400, 150, '<circle cx="0" cy="0" r="26" fill="#f5f0dc" opacity=".65"/><circle cx="0" cy="0" r="38" fill="#f5f0dc" opacity=".22"/>', '', 0, 1.1), 'night') },
+        { minDur: 6400, sub: '月朦朧：月色迷濛，景象柔美。',
+          html: scene(P(400, 145, '<circle cx="0" cy="0" r="30" fill="#f5f0dc" opacity=".68"/><circle cx="0" cy="0" r="44" fill="#f5f0dc" opacity=".22"/>', '', 0, 1.15) +
+            '<text x="400" y="250" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">月朦朧</text>', 'night') }
+      ];
+    },
+    /* 清風明月 */
+    i134: function () {
+      return [
+        { minDur: 7000, sub: '南朝謝譓不隨便交友，他說：進我房間的只有清風，陪我喝酒的唯有明月！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(38, -44, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, .95), '', 0, 1.05) +
+            P(580, 130, '<circle cx="0" cy="0" r="22" fill="#f5f0dc"/>', '', 0, 1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="200" y1="200" x2="280" y2="200"/></g>', 'night') },
+        { minDur: 6800, sub: '蘇軾在赤壁也說：江上清風、山間明月，取之不盡——是天地共享的寶藏！',
+          html: scene('<rect y="272" width="800" height="68" fill="#2c3550"/>' +
+            P(580, 120, '<circle cx="0" cy="0" r="22" fill="#f5f0dc"/>', '', 0, 1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="180" y1="180" x2="270" y2="180"/><line x1="150" y1="215" x2="240" y2="215"/></g>' +
+            P(340, 272, '<g class="st-bob"><path d="M-40 0 L40 0 L28 14 L-28 14 Z" fill="#8a5a33"/>' + P(0, -8, A('kid', 'happy'), '', 0, .72) + '</g>', '', 0, 1.05), 'night') },
+        { minDur: 6800, sub: '「清風明月」：自然美景，也比喻高潔的品格——不慕名利的心，像風月一樣乾淨！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(300, 195) +
+            P(560, 135, '<circle cx="0" cy="0" r="20" fill="#f5f0dc"/>', '', 0, 1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="220" y1="200" x2="300" y2="200"/></g>', 'night') },
+        { minDur: 6400, sub: '清風明月：風月常在，襟懷高潔。',
+          html: scene(P(560, 125, '<circle cx="0" cy="0" r="22" fill="#f5f0dc"/>', '', 0, 1.1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="180" y1="190" x2="280" y2="190"/><line x1="160" y1="225" x2="250" y2="225"/></g>' +
+            '<text x="400" y="270" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">清風明月</text>', 'night') }
+      ];
+    },
+    /* 白雲蒼狗 */
+    i135: function () {
+      return [
+        { minDur: 7000, sub: '杜甫感歎：「天上浮雲如白衣，斯須改變如蒼狗」——雲剛像白衣，一轉眼變成了灰狗！',
+          html: scene('<g class="st-cloud"><path d="M240 110 q10 -26 40 -22 q8 -18 30 -12 q22 -8 30 12 q26 0 22 24 q-8 16 -30 12 h-70 q-24 0 -22 -14 z" fill="#fff" opacity=".95"/></g>' +
+            '<g class="st-cloud" style="animation-delay:1s"><path d="M500 100 q0 -18 22 -16 q4 -12 20 -8 q14 -10 24 2 q18 -2 16 16 q10 2 6 14 q-8 10 -24 6 l-10 8 q-10 6 -16 -2 l-30 0 q-14 -2 -8 -20 z" fill="#8b93a3" opacity=".9"/></g>' +
+            P(400, 302, A('kid', 'wow'), '', 0, 1) + qmark(470, 190)) },
+        { minDur: 6800, sub: '「白雲蒼狗」：世事像雲一樣變幻無常——今天的樣子，明天可能完全不同！',
+          html: scene(P(300, 150, '<ellipse cx="0" cy="0" rx="46" ry="18" fill="#fff" opacity=".9"/>', 'st-cloud', 0, 1.1) +
+            '<path d="M370 150 h60" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/><path d="M430 150 l-10 -7 v14 z" fill="#c9bfa8"/>' +
+            P(520, 150, A('dog', 'happy'), 'st-cloud', 0, .85)) },
+        { minDur: 6800, sub: '面對白雲蒼狗的世事，能抓住的是自己的本事和身邊的人——這兩樣別放手！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 180) +
+            '<g class="st-cloud"><ellipse cx="600" cy="110" rx="50" ry="17" fill="#fff" opacity=".85"/></g>') },
+        { minDur: 6400, sub: '白雲蒼狗：世事變幻，難以預料。',
+          html: scene(P(300, 140, '<ellipse cx="0" cy="0" rx="46" ry="18" fill="#fff" opacity=".9"/>', 'st-cloud', 0, 1.1) +
+            P(520, 145, A('dog', 'happy'), 'st-cloud', 0, .85) +
+            '<text x="400" y="270" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">白雲蒼狗</text>') }
+      ];
+    },
+    /* 風雨飄搖 */
+    i136: function () {
+      return [
+        { minDur: 7000, sub: '《詩經》裡母鳥哀鳴：我的巢高高掛在樹上，「風雨所漂搖」——隨時可能被吹落！',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="220" y1="30" x2="206" y2="60"/><line class="st-rain" style="animation-delay:.5s" x1="560" y1="24" x2="546" y2="54"/></g>' +
+            P(430, 285, '<g class="st-bob"><path d="M0 0 L0 -60 M0 -30 q-24 -14 -40 -6 M0 -40 q22 -16 38 -8" stroke="#7a5a3a" stroke-width="6" fill="none" stroke-linecap="round"/>' +
+            P(20, -60, '<path d="M-16 6 q0 -14 16 -14 q16 0 16 14 q-16 8 -32 0 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>' + P(0, -12, A('bird'), '', 0, .55), '', 0, 1) + '</g>', '', 0, 1.1), 'night') },
+        { minDur: 6800, sub: '「風雨飄搖」：在風雨中搖搖晃晃——形容局勢動盪：公司資金斷鏈、人心浮動！',
+          html: scene(P(400, 290, '<g class="st-bob"><rect x="-50" y="-56" width="100" height="56" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6" transform="rotate(-4)"/><text x="0" y="-24" text-anchor="middle" font-size="14" fill="#8a744a" transform="rotate(-4)">公司</text></g>', '', 0, 1.1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="180" y1="180" x2="270" y2="180"/><line x1="160" y1="215" x2="250" y2="215"/></g>' + sweat(560, 210), 'night') },
+        { minDur: 6800, sub: '風雨飄搖時最忌慌張——穩住核心、砍掉多餘、抱團取暖，撐過去就是晴天！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(430, 302, A('kid', 'happy'), '', 0, .97) + P(550, 302, A('kid', 'happy'), '', 0, .95, true) +
+            '<path d="M320 258 h210" stroke="#548a40" stroke-width="4" stroke-linecap="round"/>' +
+            P(180, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) + hearts(430, 185)) },
+        { minDur: 6400, sub: '風雨飄搖：局勢動盪，岌岌可危。',
+          html: scene('<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="240" y1="30" x2="226" y2="60"/><line class="st-rain" style="animation-delay:.6s" x1="580" y1="24" x2="566" y2="54"/></g>' +
+            P(400, 292, '<g class="st-bob"><rect x="-46" y="-52" width="92" height="52" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.6" transform="rotate(-4)"/></g>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">風雨飄搖</text>', 'night') }
+      ];
     }
   };
 
