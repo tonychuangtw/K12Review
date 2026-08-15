@@ -20700,6 +20700,154 @@
             P(250, 302, A('kid', 'happy'), '', 0, .88) + P(550, 302, A('kid', 'happy'), '', 0, .88, true) + hearts(400, 178) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">交口稱譽</text>') }
       ];
+    },
+    /* 餘音繞梁 */
+    i724: function () {
+      return [
+        { minDur: 7000, sub: '歌者韓娥賣唱後離開雍門——「餘音繞梁欐，三日不絕」：歌聲繞著屋梁三天不散！',
+          html: scene('<line x1="180" y1="140" x2="620" y2="140" stroke="#8a5a33" stroke-width="9"/>' +
+            P(360, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/><path d="M-8 -46 q8 6 16 0" stroke="#c96a5a" stroke-width="2.6" fill="none"/>', '', 0, 1.02) +
+            '<g class="st-zfloat"><path d="M320 170 q6 -10 14 -6 M420 160 q6 -10 14 -6 M500 175 q6 -10 14 -6" stroke="#e0b73f" stroke-width="3" fill="none"/></g>' + notes(450, 190)) },
+        { minDur: 6800, sub: '客人們聽完走了三天，耳邊還響著那歌聲——好音樂會在心裡住下來！',
+          html: scene(P(340, 302, A('kid', 'happy'), 'st-strut', 0, 1) +
+            P(340, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".85"/><path d="M-6 6 q0 -10 8 -10 l0 8 a3 3 0 1 1 -2 -3" fill="none" stroke="#e0b73f" stroke-width="2.4"/>', 'st-zfloat', 0, 1.05) + hearts(470, 200)) },
+        { minDur: 6800, sub: '「餘音繞梁」：歌聲美妙、回味難忘——藝術的最高境界：結束了還沒結束！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .95), '', 0, 1.05) + notes(500, 182) + hearts(300, 192) +
+            '<g class="st-zfloat" style="animation-delay:.4s"><path d="M540 200 q6 -10 14 -6" stroke="#e0b73f" stroke-width="3" fill="none"/></g>') },
+        { minDur: 6400, sub: '餘音繞梁：曲終韻在，三日不絕。',
+          html: scene('<line x1="200" y1="145" x2="600" y2="145" stroke="#8a5a33" stroke-width="8"/>' +
+            '<g class="st-zfloat"><path d="M320 175 q6 -10 14 -6 M430 165 q6 -10 14 -6 M520 180 q6 -10 14 -6" stroke="#e0b73f" stroke-width="3" fill="none"/></g>' +
+            '<text x="400" y="260" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">餘音繞梁</text>') }
+      ];
+    },
+    /* 萬人空巷 */
+    i725: function () {
+      return [
+        { minDur: 7000, sub: '蘇軾寫錢塘觀潮盛況：「萬人空巷鬥新妝」——全城的人都跑出來了，巷子空無一人！',
+          html: scene(P(200, 285, '<g fill="#e8d9a8" stroke="#b8a982" stroke-width="2"><rect x="-30" y="-40" width="60" height="40"/></g><text x="0" y="-48" text-anchor="middle" font-size="10" fill="#8b93a3">（巷內沒人）</text>', '', 0, 1) +
+            P(430, 302, A('kid', 'happy'), 'st-cheer', 0, .92) + P(520, 302, A('kid', 'happy'), 'st-cheer', .2, .95) + P(610, 302, A('kid', 'happy'), 'st-cheer', .4, .9, true) +
+            '<g class="st-wavemove"><path d="M400 250 q25 -12 50 0 t50 0 t50 0 t50 0" fill="none" stroke="#7fb2d4" stroke-width="6" stroke-linecap="round"/></g>') },
+        { minDur: 6800, sub: '注意正解：是「人們傾巢而出、巷子空了」——不是街上空蕩蕩沒人！常被誤用！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#548a40">巷空人出</text>', '', 0, 1.1)) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#c96a5a">≠街上</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#c96a5a">沒人</text>', '', 0, 1) + hearts(280, 195)) },
+        { minDur: 6800, sub: '「萬人空巷」：轟動一時——球隊凱旋遊行、天團開唱，全城出動夾道歡迎！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -74, '<path d="M-14 0 h28 l-4 10 h-20 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1), 'st-strut', 0, 1.05) +
+            P(240, 302, A('kid', 'happy'), 'st-cheer', 0, .88) + P(560, 302, A('kid', 'happy'), 'st-cheer', .2, .88, true) + bang(400, 172) + hearts(500, 190)) },
+        { minDur: 6400, sub: '萬人空巷：傾城而出，盛況空前。',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-cheer', 0, .9) + P(400, 302, A('kid', 'happy'), 'st-cheer', .2, .95) + P(500, 302, A('kid', 'happy'), 'st-cheer', .4, .9, true) + bang(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">萬人空巷</text>') }
+      ];
+    },
+    /* 擲地有聲 */
+    i726: function () {
+      return [
+        { minDur: 7000, sub: '孫綽寫完〈天台山賦〉自誇：「你試著扔到地上——會發出金石般的鏗鏘聲！」',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -60 l18 -12" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(500, 250, '<rect x="-16" y="-22" width="32" height="44" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4" transform="rotate(18)"/>', 'st-bob', 0, 1.1) + bang(560, 290)) },
+        { minDur: 6800, sub: '「擲地有聲」：文辭鏗鏘、言論有力——一篇好宣言字字砸得響，沒有一句空話！',
+          html: scene(P(400, 260, '<rect x="-40" y="-30" width="80" height="60" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#3a3550" stroke-width="2.4"><line x1="-26" y1="-14" x2="26" y2="-14"/><line x1="-26" y1="-2" x2="26" y2="-2"/><line x1="-26" y1="10" x2="18" y2="10"/></g>', '', 0, 1.2) + bang(520, 220) +
+            '<g class="st-tw"><path d="M290 220 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>') },
+        { minDur: 6800, sub: '想寫得擲地有聲：刪掉每一句可有可無的話——剩下的，句句都是骨頭！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#c96a5a" stroke-width="1.6"><line x1="-10" y1="-4" x2="10" y2="-4"/><line x1="-10" y1="0" x2="10" y2="-8"/></g><g stroke="#3a3550" stroke-width="2"><line x1="-10" y1="-14" x2="10" y2="-14"/><line x1="-10" y1="8" x2="10" y2="8"/></g>', '', 0, .95)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '擲地有聲：文辭鏗鏘，如金如石。',
+          html: scene(P(400, 265, '<rect x="-16" y="-22" width="32" height="44" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4" transform="rotate(14)"/>', 'st-bob', 0, 1.3) + bang(480, 290) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">擲地有聲</text>') }
+      ];
+    },
+    /* 鏗鏘有力 */
+    i727: function () {
+      return [
+        { minDur: 6800, sub: '「鏗鏘」是金石相擊的聲音——鐘一敲、磬一擊，響亮清越、餘韻鏗然！',
+          html: scene(P(340, 260, '<path d="M-20 -30 h40 l6 44 q-26 12 -52 0 z" fill="#8a9a6a" stroke="#6d7a52" stroke-width="2.6"/><line x1="0" y1="-30" x2="0" y2="-46" stroke="#6d7a52" stroke-width="4"/>', 'st-bob', 0, 1.15) +
+            P(500, 265, '<line x1="0" y1="0" x2="22" y2="-20" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><circle cx="26" cy="-24" r="6" fill="#6d4426"/>', '', 0, 1.1) + bang(420, 210) + notes(280, 200)) },
+        { minDur: 6800, sub: '「鏗鏘有力」：聲音響亮、言辭有力——畢業致詞一句「我們不散，只是出發」，全場動容！',
+          html: scene(P(400, 280, '<rect x="-90" y="-16" width="180" height="16" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(400, 280, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) + bang(400, 178) +
+            P(230, 302, A('kid', 'wow'), '', 0, .88) + P(580, 302, A('kid', 'wow'), '', 0, .88, true) + hearts(510, 210)) },
+        { minDur: 6800, sub: '鏗鏘來自信念——真心相信自己說的話，聲音自然有重量！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) + hearts(300, 192) +
+            P(540, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.05)) },
+        { minDur: 6400, sub: '鏗鏘有力：擲地金聲，言辭有力。',
+          html: scene(P(360, 262, '<path d="M-20 -30 h40 l6 44 q-26 12 -52 0 z" fill="#8a9a6a" stroke="#6d7a52" stroke-width="2.6"/>', 'st-bob', 0, 1.2) + bang(460, 230) + notes(280, 210) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鏗鏘有力</text>') }
+      ];
+    },
+    /* 振聾發聵 */
+    i728: function () {
+      return [
+        { minDur: 7000, sub: '袁枚讚一段議論：「此數言，振聾發聵」——這幾句話，連天生失聰的人都能被喚醒！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            '<g stroke="#e0b73f" stroke-width="3.4" fill="none"><path d="M420 230 q14 14 0 28 M440 220 q22 22 0 44 M460 210 q30 30 0 60"/></g>' +
+            P(580, 302, A('kid', 'wow'), '', 0, .95, true) + bang(640, 190)) },
+        { minDur: 6800, sub: '「振聾發聵」：言論驚醒麻木的人——一篇揭露真相的報導，讓全社會猛然清醒！',
+          html: scene(P(400, 260, '<rect x="-44" y="-30" width="88" height="60" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-44" y="-30" width="88" height="16" fill="#3a3550"/><text x="0" y="-18" text-anchor="middle" font-size="10" fill="#fff">真相！</text><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-30" y1="-2" x2="30" y2="-2"/><line x1="-30" y1="8" x2="30" y2="8"/><line x1="-30" y1="18" x2="20" y2="18"/></g>', '', 0, 1.2) + bang(520, 210) +
+            P(240, 302, A('kid', 'wow'), '', 0, .95)) },
+        { minDur: 6800, sub: '每個時代都需要敢說真話的聲音——也需要願意被喚醒的耳朵！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(500, 302, A('kid', 'happy') + P(-38, -52, '<path d="M6 -8 q8 8 0 16" stroke="#8fa3bf" stroke-width="3" fill="none"/>', '', 0, 1.1), '', 0, .98, true) + hearts(415, 182)) },
+        { minDur: 6400, sub: '振聾發聵：一語驚醒，發矇啟聵。',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            '<g stroke="#e0b73f" stroke-width="3.4" fill="none"><path d="M430 235 q14 14 0 28 M452 225 q22 22 0 44"/></g>' + bang(560, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">振聾發聵</text>') }
+      ];
+    },
+    /* 發人深省 */
+    i729: function () {
+      return [
+        { minDur: 7000, sub: '杜甫夜宿奉先寺：「欲覺聞晨鐘，令人發深省」——將醒未醒間，鐘聲敲進心裡！',
+          html: scene(P(300, 270, '<path d="M-24 -34 h48 l8 50 q-32 14 -64 0 z" fill="#8a9a6a" stroke="#6d7a52" stroke-width="2.6"/><line x1="0" y1="-34" x2="0" y2="-52" stroke="#6d7a52" stroke-width="4"/>', 'st-bob', 0, 1.1) + notes(400, 200) +
+            P(540, 296, '<g transform="rotate(90)">' + A('kid', 'happy') + '</g>', '', 0, .85) +
+            P(220, 130, '<circle cx="0" cy="0" r="18" fill="#ffb066" stroke="#e8944d" stroke-width="2.6"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「發人深省」：啟發深刻反省——看完那部紀錄片，全班安靜了一分鐘……',
+          html: scene(P(400, 260, '<rect x="-46" y="-32" width="92" height="64" rx="4" fill="#3a3550"/><rect x="-38" y="-24" width="76" height="48" rx="2" fill="#8fa3bf" opacity=".8"/>', '', 0, 1.15) +
+            P(240, 302, A('kid', 'happy'), '', 0, .9) + P(560, 302, A('kid', 'happy'), '', 0, .9, true) +
+            '<g class="st-zfloat" opacity=".5"><text x="400" y="180" text-anchor="middle" font-size="14" fill="#8b93a3">（沉思…）</text></g>') },
+        { minDur: 6800, sub: '好作品不給答案，給問題——把問號種進心裡，讓它自己長出改變！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="#548a40">?</text>', 'st-zfloat', 0, 1.1) + hearts(290, 200)) },
+        { minDur: 6400, sub: '發人深省：啟人深思，促人自省。',
+          html: scene(P(340, 272, '<path d="M-22 -32 h44 l7 46 q-29 13 -58 0 z" fill="#8a9a6a" stroke="#6d7a52" stroke-width="2.6"/>', 'st-bob', 0, 1.1) + notes(440, 210) +
+            P(540, 200, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="18" fill="#548a40">?</text>', 'st-zfloat', 0, 1.05) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">發人深省</text>') }
+      ];
+    },
+    /* 暮鼓晨鐘 */
+    i730: function () {
+      return [
+        { minDur: 7000, sub: '山寺的作息：清晨敲鐘喚醒僧眾、黃昏擊鼓提醒收心——日日警醒，不敢懈怠！',
+          html: scene(P(280, 265, '<path d="M-22 -32 h44 l7 46 q-29 13 -58 0 z" fill="#8a9a6a" stroke="#6d7a52" stroke-width="2.6"/><line x1="0" y1="-32" x2="0" y2="-48" stroke="#6d7a52" stroke-width="4"/>', 'st-bob', 0, 1.05) +
+            P(520, 268, '<ellipse cx="0" cy="-24" rx="26" ry="8" fill="#e8d9a8"/><path d="M-26 -24 v34 a26 10 0 0 0 52 0 v-34" fill="#c96a5a" stroke="#a84f42" stroke-width="2.6"/>', '', 0, 1.05) +
+            P(200, 130, '<circle cx="0" cy="0" r="17" fill="#ffdd66" stroke="#f5b73e" stroke-width="2.6"/>', '', 0, 1) +
+            P(600, 130, '<circle cx="0" cy="0" r="15" fill="#f5f0dc"/><circle cx="5" cy="-3" r="11" fill="#87a0c4"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「暮鼓晨鐘」：使人警醒的言論教誨——長輩的一句叮嚀，時時在耳邊迴響！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95, true) + notes(450, 185) + hearts(620, 200)) },
+        { minDur: 6800, sub: '給自己安排「鐘鼓」：晨起立目標、睡前三省吾身——自律的人自帶鐘聲！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -12 l4 4 l7 -8 M-10 0 l4 4 l7 -8 M-10 12 l4 4 l7 -8"/></g>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '暮鼓晨鐘：日日警醒，發人深省。',
+          html: scene(P(300, 268, '<path d="M-22 -32 h44 l7 46 q-29 13 -58 0 z" fill="#8a9a6a" stroke="#6d7a52" stroke-width="2.6"/>', 'st-bob', 0, 1.05) +
+            P(500, 270, '<ellipse cx="0" cy="-22" rx="24" ry="8" fill="#e8d9a8"/><path d="M-24 -22 v32 a24 9 0 0 0 48 0 v-32" fill="#c96a5a" stroke="#a84f42" stroke-width="2.6"/>', '', 0, 1.05) + notes(400, 200) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">暮鼓晨鐘</text>') }
+      ];
+    },
+    /* 當頭棒喝 */
+    i731: function () {
+      return [
+        { minDur: 7000, sub: '禪宗接引學人最猛的一招：德山禪師掄棒就打、臨濟禪師張口就喝——逼你當下醒悟！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(30, -60, '<line x1="0" y1="20" x2="8" y2="-24" stroke="#8a5a33" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05), '', 0, 1.05) + bang(460, 180) +
+            P(560, 302, A('kid', 'wow'), 'st-bob', 0, .97, true) + sweat(620, 190)) },
+        { minDur: 6800, sub: '「當頭棒喝」：使人立刻醒悟的嚴厲提醒——「你再這樣下去，就真的來不及了！」',
+          html: scene(P(340, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) + bang(450, 178) +
+            P(560, 302, A('kid', 'wow'), '', 0, .97, true) +
+            P(620, 195, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '被棒喝的當下很痛——但多年後最感謝的，常是那個當年敢罵醒你的人！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#ffe3c1" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(530, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '當頭棒喝：一棒一喝，立地醒悟。',
+          html: scene(P(360, 302, A('kid', 'happy') + P(30, -60, '<line x1="0" y1="20" x2="8" y2="-24" stroke="#8a5a33" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05), '', 0, 1.05) + bang(470, 182) +
+            P(570, 302, A('kid', 'wow'), 'st-bob', 0, .95, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">當頭棒喝</text>') }
+      ];
     }
   };
 
