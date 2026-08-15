@@ -4881,6 +4881,105 @@
           html: scene(card(300, 260, 'day', -5) + card(400, 245, 'by', 3) + card(500, 262, 'day', -3) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">日積月累</text>') }
       ];
+    },
+    /* 歡天喜地 */
+    i215: function () {
+      var TROPHY = '<path d="M-14 -34 h28 v10 q0 14 -14 16 q-14 -2 -14 -16 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.4"/>' +
+        '<path d="M-14 -30 q-12 0 -10 12 q2 8 10 6 M14 -30 q12 0 10 12 q-2 8 -10 6" stroke="#e8b84a" stroke-width="2.6" fill="none"/>' +
+        '<rect x="-4" y="-8" width="8" height="8" fill="#c98f2a"/><rect x="-12" y="0" width="24" height="6" rx="2.4" fill="#c98f2a"/>';
+      function confettiDots() {
+        return '<g><circle class="st-tw" cx="250" cy="140" r="4" fill="#ff9eb5"/><circle class="st-tw" style="animation-delay:.3s" cx="380" cy="110" r="4" fill="#ffd97a"/>' +
+          '<circle class="st-tw" style="animation-delay:.6s" cx="520" cy="145" r="4" fill="#a5c8ff"/><circle class="st-tw" style="animation-delay:.2s" cx="450" cy="90" r="3.4" fill="#a5d47c"/></g>';
+      }
+      return [
+        { minDur: 6600, sub: '好消息！我們班拿下整潔比賽冠軍！獎盃亮晶晶地捧回教室——',
+          html: scene(P(400, 290, TROPHY, '', 0, 1.3) + confettiDots() +
+            P(250, 302, A('kid', 'wow')) + bang(480, 210)) },
+        { minDur: 6600, sub: '大家又叫又跳、擊掌歡呼，整間教室都是笑聲！',
+          html: scene(confettiDots() +
+            P(260, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(420, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            P(570, 302, '<g class="st-cheer" style="animation-delay:.4s">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            hearts(340, 165) + notes(500, 160)) },
+        { minDur: 6600, sub: '高興得像天地都在跟著慶祝——這就是「歡天喜地」！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) +
+            confettiDots() + hearts(480, 185) + hearts(310, 190)) },
+        { minDur: 6400, sub: '歡天喜地：非常歡喜快樂。',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + P(520, 290, TROPHY, '', 0, 1) + confettiDots() +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">歡天喜地</text>') }
+      ];
+    },
+    /* 全神貫注 */
+    i216: function () {
+      var MODEL2 = '<rect x="-18" y="-14" width="36" height="14" rx="3" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2"/><rect x="-10" y="-26" width="20" height="12" rx="3" fill="#a5c8ff" stroke="#6d87ab" stroke-width="2"/>';
+      var TWEEZER = '<path d="M0 0 L14 -22 M2 2 L18 -18" stroke="#8b93a3" stroke-width="2.6" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '小宇組裝小小的飛機模型：捏著鑷子、屏住呼吸，眼睛一眨也不眨——',
+          html: scene(P(360, 302, A('kid', 'happy') + P(28, -40, TWEEZER)) +
+            P(480, 292, MODEL2, '', 0, 1) + qmark(280, 185)) },
+        { minDur: 6600, sub: '窗外的吵鬧聲、電視聲，他統統聽不見——全部精神都放在模型上！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(28, -40, TWEEZER)) + P(480, 292, MODEL2, '', 0, 1) +
+            notes(150, 160) + bang(120, 220) + '<circle cx="420" cy="250" r="120" fill="none" stroke="#ffd97a" stroke-width="3" stroke-dasharray="10 10" opacity=".7"/>') },
+        { minDur: 6600, sub: '把全部精神集中在一件事情上，就是「全神貫注」——做事最容易成功的祕訣！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(500, 280, MODEL2, '', 0, 1.2) + hearts(430, 185)) },
+        { minDur: 6400, sub: '全神貫注：全部精神集中在一件事上。',
+          html: scene(P(380, 302, A('kid', 'happy') + P(28, -40, TWEEZER), '', 0, 1.05) + P(510, 288, MODEL2, '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">全神貫注</text>') }
+      ];
+    },
+    /* 無憂無慮 */
+    i217: function () {
+      return [
+        { minDur: 6600, sub: '暑假第一天！小樂躺在草地上看雲，藍天白雲，微風輕輕吹——',
+          html: scene(P(400, 316, '<g transform="rotate(76)">' + A('kid', 'happy') + '</g>') +
+            '<g class="st-cloud"><ellipse cx="250" cy="100" rx="40" ry="16" fill="#fff"/><ellipse cx="222" cy="108" rx="22" ry="11" fill="#fff"/><ellipse cx="278" cy="108" rx="24" ry="12" fill="#fff"/></g>' +
+            hearts(500, 240)) },
+        { minDur: 6600, sub: '沒有考試、沒有煩惱，心裡輕飄飄的，像雲一樣自在。',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-strut') + P(560, 200, A('butterfly'), '', 0, .95) +
+            notes(280, 170) + hearts(470, 190)) },
+        { minDur: 6600, sub: '「無憂無慮」：沒有煩惱、沒有憂愁——最輕鬆快樂的樣子！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(490, 185) + notes(310, 175)) },
+        { minDur: 6400, sub: '無憂無慮：沒有煩惱和憂愁。',
+          html: scene(P(400, 316, '<g transform="rotate(76)">' + A('kid', 'happy') + '</g>') + hearts(500, 250) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">無憂無慮</text>') }
+      ];
+    },
+    /* 自由自在 */
+    i218: function () {
+      var SEA7 = '<rect y="262" width="800" height="78" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 274 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>';
+      return [
+        { minDur: 6600, sub: '小魚在水裡游來游去，想去哪就去哪；小鳥在天上飛高飛低，多麼快活！',
+          html: scene(SEA7 + P(300, 300, A('fish')) + P(480, 296, A('fish'), '', .3, .85, true) +
+            P(560, 150, A('bird')) + P(250, 130, A('bird'), '', .4, .85, true)) },
+        { minDur: 6600, sub: '假日的午後，騎著車在河堤上兜風——不受拘束、想快就快、想停就停！',
+          html: scene(P(400, 296, '<circle cx="-24" cy="0" r="16" fill="none" stroke="#5c82ba" stroke-width="4"/><circle cx="24" cy="0" r="16" fill="none" stroke="#5c82ba" stroke-width="4"/><path d="M-24 0 L-8 -22 L14 -22 L24 0 M-8 -22 L-2 0" stroke="#e85a4f" stroke-width="3.4" fill="none" stroke-linecap="round"/>' +
+              P(-4, -32, A('kid', 'happy'), '', 0, .8), 'st-strut') +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="120" y1="230" x2="210" y2="230"/></g>' + hearts(520, 200)) },
+        { minDur: 6600, sub: '「自由自在」：不受拘束、安然舒適的樣子！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-strut') + P(560, 170, A('bird')) + P(180, 200, A('butterfly'), '', .3, .9) + hearts(430, 185)) },
+        { minDur: 6400, sub: '自由自在：不受拘束、安然舒適的樣子。',
+          html: scene(SEA7 + P(320, 298, A('fish')) + P(540, 160, A('bird')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">自由自在</text>') }
+      ];
+    },
+    /* 垂頭喪氣 */
+    i220: function () {
+      return [
+        { minDur: 6600, sub: '球賽輸了……小威低著頭、拖著腳步走回家，連書包都好像變重了。',
+          html: scene(P(360, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.02) +
+            sweat(310, 198) + qmark(430, 185)) },
+        { minDur: 6600, sub: '低著頭、無精打采——這副失意沮喪的樣子，就是「垂頭喪氣」。',
+          html: scene(P(300, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') +
+            P(520, 302, A('kid', 'happy'), '', 0, .95, true) + qmark(440, 185)) },
+        { minDur: 6800, sub: '爸爸拍拍他的肩：「輸了再練就好！」小威抬起頭，決定明天繼續加油！',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(470, 302, A('kid', 'happy'), '', 0, 1.08, true) + hearts(390, 175) + bang(560, 200)) },
+        { minDur: 6400, sub: '垂頭喪氣：低著頭無精打采，失意沮喪。',
+          html: scene(P(380, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.05) + sweat(440, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">垂頭喪氣</text>') }
+      ];
     }
   };
 
