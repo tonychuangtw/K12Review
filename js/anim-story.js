@@ -23181,6 +23181,192 @@
             P(540, 302, A('kid', 'happy') + P(0, -100, '<g class="st-tw"><path d="M0 0 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd97a"/></g>', '', 0, 1), '', 0, 1.05, true) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">見賢思齊</text>') }
       ];
+    },
+    /* 三省吾身 */
+    i792: function () {
+      return [
+        { minDur: 7200, sub: '曾子每天問自己三件事：替人辦事盡心了嗎？跟朋友來往守信了嗎？老師教的複習了嗎？',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(570, 240, '<rect x="-34" y="-36" width="68" height="72" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g font-size="9" fill="#5a8fbf" text-anchor="middle"><text x="0" y="-18">忠乎?</text><text x="0" y="2">信乎?</text><text x="0" y="22">習乎?</text></g>', '', 0, 1.05), 'night') },
+        { minDur: 6800, sub: '「吾日三省吾身」——「三省」是多次反省：每天睡前把這一天攤開來檢查一遍！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(40, -46, '<rect x="-3" y="-22" width="6" height="44" rx="3" fill="#8a6a44"/><ellipse cx="0" cy="-34" rx="16" ry="20" fill="#dbe4f0" stroke="#9db8d9" stroke-width="2.4"/>', '', 0, 1), '', 0, 1.05) +
+            P(560, 150, '<circle cx="0" cy="0" r="24" fill="#ffe9a0" opacity=".95"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '反省不是自責——找到「明天可以怎麼做更好」的那一步，才算省完！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-46, -52, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-6" text-anchor="middle" font-size="8" fill="#c96a5a">今天:太急</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#548a40">明天:先聽</text>', '', 0, 1)) + hearts(470, 190) +
+            P(580, 230, '<g class="st-tw"><path d="M0 0 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '三省吾身：日日自省，步步向善。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#d5cfc0"/>', '', 0, 1.08) +
+            P(560, 150, '<circle cx="0" cy="0" r="22" fill="#ffe9a0" opacity=".95"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">三省吾身</text>', 'night') }
+      ];
+    },
+    /* 迷途知返 */
+    i793: function () {
+      return [
+        { minDur: 7000, sub: '陳珪寫信勸袁術：「若迷而知反，尚可以免」——迷了路，知道回頭還來得及！',
+          html: scene(P(430, 302, A('kid', 'sad') + '<path d="M28 -50 l14 -4" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1.02) +
+            '<path d="M200 302 q120 -10 240 0" stroke="#b59a6a" stroke-width="3" fill="none" stroke-dasharray="8 8" opacity=".6"/>' +
+            '<path d="M520 290 l60 -40" stroke="#8b93a3" stroke-width="3" stroke-dasharray="6 5" fill="none"/><g opacity=".7"><path d="M600 240 l16 24 -32 0 z" fill="#c96a5a"/><text x="600" y="258" text-anchor="middle" font-size="8" fill="#fff">!</text></g>' + qmark(360, 200), 'night') },
+        { minDur: 6800, sub: '他停下腳步、轉身往回走——走錯路不可恥，一路錯到底才可惜！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-fleeR', 0, 1.05, true) +
+            '<path d="M480 260 q-60 -20 -140 -10" stroke="#548a40" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M352 244 l-14 6 12 10" stroke="#548a40" stroke-width="3" fill="none"/>' +
+            P(220, 220, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「迷途知返」：犯錯後能醒悟改正——交錯朋友、走偏方向，回頭的那步最勇敢！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#548a40">回頭!</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(570, 302, A('kid', 'happy') + '<path d="M-28 -46 q-10 -2 -14 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .98, true)) },
+        { minDur: 6400, sub: '迷途知返：知錯而回，善莫大焉。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-fleeR', 0, 1.08, true) +
+            P(220, 220, '<circle cx="0" cy="0" r="18" fill="#ffe9a0" class="st-tw"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">迷途知返</text>') }
+      ];
+    },
+    /* 從善如流 */
+    i794: function () {
+      return [
+        { minDur: 7200, sub: '《左傳》：晉將欒書兩次採納部下的好建議，時人讚他「從善如流，宜哉」！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M-6 -56 q6 4 12 0" stroke="#3a2e26" stroke-width="2" fill="none"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy') + P(0, -110, '<ellipse cx="0" cy="0" rx="34" ry="16" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#548a40">建議如此…</text>', '', 0, 1), '', 0, .98, true) + hearts(440, 190)) },
+        { minDur: 6800, sub: '「從善如流」：接受好意見像水順流而下——不硬拗、不護短，聽到對的就改！',
+          html: scene('<path d="M150 250 q100 20 200 26 q120 8 300 2" stroke="#7fb2e0" stroke-width="10" fill="none" stroke-linecap="round" opacity=".6" class="st-wavemove"/>' +
+            P(360, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(560, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#5a8fbf">對的</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#5a8fbf">就改</text>', '', 0, 1) + hearts(280, 200)) },
+        { minDur: 6800, sub: '越厲害的人越聽得進話——面子是小水窪，把事做對才是大江大海！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><path d="M-8 -6 l4 6 l10 -12" stroke="#548a40" stroke-width="2.8" fill="none" stroke-linecap="round"/>', '', 0, .95)) +
+            P(540, 302, A('kid', 'happy') + '<path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1, true) + hearts(430, 185)) },
+        { minDur: 6400, sub: '從善如流：聞善即行，如水赴壑。',
+          html: scene('<path d="M150 255 q100 18 200 24 q120 8 300 2" stroke="#7fb2e0" stroke-width="10" fill="none" stroke-linecap="round" opacity=".6" class="st-wavemove"/>' +
+            P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">從善如流</text>') }
+      ];
+    },
+    /* 虛懷若谷 */
+    i795: function () {
+      return [
+        { minDur: 7000, sub: '《老子》形容修養深的人「曠兮其若谷」——胸懷像山谷，空闊得裝得下一切！',
+          html: scene('<path d="M0 302 L200 130 L400 302 Z" fill="#8fa87f" opacity=".55"/><path d="M400 302 L600 130 L800 302 Z" fill="#8fa87f" opacity=".55"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, .95) +
+            '<g class="st-cloud"><ellipse cx="400" cy="150" rx="30" ry="11" fill="#fff" opacity=".85"/></g>') },
+        { minDur: 6800, sub: '「虛懷若谷」：謙虛能容——山谷因為「空」，才裝得下風、雲和回聲！',
+          html: scene('<path d="M0 302 L200 140 L400 302 Z" fill="#8fa87f" opacity=".55"/><path d="M400 302 L600 140 L800 302 Z" fill="#8fa87f" opacity=".55"/>' +
+            P(400, 290, '<g class="st-zfloat"><circle cx="-40" cy="-60" r="10" fill="#dbe4f0" opacity=".8"/><circle cx="30" cy="-90" r="8" fill="#dbe4f0" opacity=".8"/><circle cx="0" cy="-40" r="12" fill="#dbe4f0" opacity=".8"/></g>', '', 0, 1) +
+            P(240, 302, A('kid', 'wow') + '<path d="M28 -50 l16 -8" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '杯子滿了倒不進新水——自認還不夠，才學得進東西：謙虛是學習的入場券！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(40, -44, '<path d="M-8 -8 h16 v6 q0 8 -8 8 q-8 0 -8 -8 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><path d="M-5 -5 h10" stroke="#7fb2e0" stroke-width="3"/>', '', 0, 1.05)) +
+            P(560, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#5a8fbf">留空間</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#5a8fbf">給新知</text>', '', 0, 1) + hearts(260, 195)) },
+        { minDur: 6400, sub: '虛懷若谷：谷虛能容，心虛能受。',
+          html: scene('<path d="M0 302 L200 135 L400 302 Z" fill="#8fa87f" opacity=".55"/><path d="M400 302 L600 135 L800 302 Z" fill="#8fa87f" opacity=".55"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">虛懷若谷</text>') }
+      ];
+    },
+    /* 浪子回頭 */
+    i796: function () {
+      return [
+        { minDur: 7000, sub: '整天遊蕩、輟學打混的哥哥，某夜看著熟睡的母親鬢邊白髮——忽然紅了眼眶……',
+          html: scene(P(320, 302, A('kid', 'sad') + '<path d="M-18 -84 l8 -10 6 8 8 -12 8 10" stroke="#8b93a3" stroke-width="3" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(560, 296, '<g transform="rotate(-86)">' + A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/></g>', '', 0, .95, true) + zzz(640, 250) +
+            P(380, 240, '<g class="st-tear"><path d="M0 0 q4 8 0 12 q-4 -4 0 -12" fill="#7fb2e0"/></g>', '', 0, 1.2), 'night') },
+        { minDur: 6800, sub: '隔天他剪了頭髮、背起書包重回學校——俗話說：「浪子回頭金不換！」',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-34, -40, '<rect x="-12" y="-16" width="24" height="32" rx="4" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, 1), 'st-dashL', 0, 1.05) +
+            P(620, 270, '<rect x="-30" y="-24" width="60" height="48" rx="4" fill="#e8d9b8" stroke="#b59a6a" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#8a5a33">學校</text>', '', 0, 1) + hearts(300, 195)) },
+        { minDur: 6800, sub: '「浪子回頭」：不務正業的人悔改向善——回頭的人最懂迷路的苦，也最珍惜正路！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><text x="0" y="4" text-anchor="middle" font-size="8" fill="#548a40">100</text>', '', 0, .95), 'st-cheer', 0, 1.05) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', '', 0, .98, true) + hearts(470, 190)) },
+        { minDur: 6400, sub: '浪子回頭：迷途一返，勝過真金。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-34, -40, '<rect x="-12" y="-16" width="24" height="32" rx="4" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, 1), 'st-strut', 0, 1.08) + hearts(520, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">浪子回頭</text>') }
+      ];
+    },
+    /* 功成不居 */
+    i797: function () {
+      return [
+        { minDur: 7000, sub: '《老子》的境界：「生而不有，為而不恃，功成而弗居」——做成了事，不占著功勞！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>' + P(-6, -30, '<path d="M0 0 q-10 6 -16 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.05) +
+            P(560, 250, '<path d="M-16 12 h32 l-4 -18 a12 14 0 0 0 -24 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/><text x="0" y="34" text-anchor="middle" font-size="9" fill="#8a5a33">獎盃</text>', '', 0, 1.05) +
+            '<path d="M430 270 l60 -10" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="5 4"/>') },
+        { minDur: 6800, sub: '隊長領了獎盃，轉手舉向全隊：「這是大家的！」——功成不居，把榮耀分出去！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -104, '<path d="M-14 10 h28 l-4 -16 a10 12 0 0 0 -20 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/>', 'st-tw', 0, 1), 'st-cheer', 0, 1.05) +
+            P(230, 302, A('kid', 'happy'), 'st-cheer', 0, .88) + P(570, 302, A('kid', 'happy'), 'st-cheer', 0, .88, true) + hearts(480, 190) + hearts(310, 190)) },
+        { minDur: 6800, sub: '搶功的人只贏一次，讓功的人贏得人心——下一仗，大家還想跟他一隊！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy') + '<path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .92) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-28 -46 q-16 -6 -22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .92, true) + hearts(400, 175)) },
+        { minDur: 6400, sub: '功成不居：為而不恃，讓而愈光。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -104, '<path d="M-14 10 h28 l-4 -16 a10 12 0 0 0 -20 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/>', 'st-tw', 0, 1), '', 0, 1.1) + hearts(500, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">功成不居</text>') }
+      ];
+    },
+    /* 居功厥偉 */
+    i798: function () {
+      return [
+        { minDur: 7000, sub: '校史室裡掛著老校長的照片：當年一磚一瓦募款建校——「對建校居功厥偉」！',
+          html: scene(P(430, 240, '<rect x="-34" y="-42" width="68" height="84" rx="3" fill="#fff" stroke="#c9a06c" stroke-width="3.4"/><circle cx="0" cy="-14" r="13" fill="#f4b878"/><path d="M-12 8 q12 -10 24 0 l0 22 h-24 z" fill="#5a8fbf"/>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'wow') + '<path d="M28 -50 l16 -8" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .98) + hearts(330, 200)) },
+        { minDur: 6800, sub: '「居功厥偉」（厥＝其）：功勞非常大——注意！它是稱讚語，不是「居功自傲」！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#548a40">稱讚語</text>', '', 0, 1.1)) +
+            P(580, 230, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="8" fill="#c96a5a">≠居功</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#c96a5a">自傲</text>', '', 0, 1) + qmark(270, 200)) },
+        { minDur: 6800, sub: '用法示範：「這次奪冠，守門員居功厥偉」——把最大的那份功勞，鄭重地記在他名下！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-24 -44 l-14 -6 M24 -44 l14 -6" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy'), 'st-cheer', 0, .9) + P(560, 302, A('kid', 'happy'), 'st-cheer', 0, .9, true) +
+            '<g class="st-tw"><path d="M400 180 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>' + hearts(480, 200)) },
+        { minDur: 6400, sub: '居功厥偉：厥功至偉，勳業昭然。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -104, '<path d="M-14 10 h28 l-4 -16 a10 12 0 0 0 -20 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/>', 'st-tw', 0, 1), 'st-cheer', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">居功厥偉</text>') }
+      ];
+    },
+    /* 汗馬功勞 */
+    i799: function () {
+      return [
+        { minDur: 7000, sub: '《韓非子》說戰士「必汗馬之勞」——戰馬馳騁沙場，汗水淋漓：功勞是跑出來的！',
+          html: scene(P(400, 296, A('horse') + '<g class="st-tw"><path d="M-30 -46 q-4 8 2 12 M20 -50 q-4 8 2 12" stroke="#7fb2e0" stroke-width="3" fill="none" stroke-linecap="round"/></g>', 'st-dashL', 0, 1.2, true) +
+            P(400, 252, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, .8) + sweat(300, 210)) },
+        { minDur: 6800, sub: '「汗馬功勞」：征戰或工作立下的大功——每一分戰果背後，都是浸透的汗！',
+          html: scene(P(360, 296, A('horse'), '', 0, 1.05, true) +
+            P(570, 250, '<path d="M-16 12 h32 l-4 -18 a12 14 0 0 0 -24 0 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/>', 'st-tw', 0, 1.05) +
+            '<path d="M440 270 l70 -12" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="5 4"/>' + sweat(280, 230)) },
+        { minDur: 6800, sub: '公司裡的老前輩、球隊的老隊長——別忘了對立下汗馬功勞的人說聲謝謝！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy') + '<path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M-4 -20 q4 4 8 0" stroke="#3a2e26" stroke-width="2" fill="none" transform="rotate(20)"/>', '', 0, .98, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '汗馬功勞：鞍馬勞頓，功在汗青。',
+          html: scene(P(400, 296, A('horse') + '<g class="st-tw"><path d="M-30 -46 q-4 8 2 12" stroke="#7fb2e0" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1.2, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">汗馬功勞</text>') }
+      ];
+    },
+    /* 功敗垂成 */
+    i800: function () {
+      return [
+        { minDur: 7200, sub: '《晉書》嘆謝玄：北伐節節勝利，眼看大功告成——他卻病逝軍中，「功敗垂成」！',
+          html: scene(P(340, 302, A('kid', 'sad') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', 'st-slump', 0, 1.02) +
+            P(580, 250, '<path d="M0 16 L0 -20 M0 -20 L28 -11 L0 -2" stroke="#c9bfa8" stroke-width="3.4" fill="#c9bfa8" opacity=".7"/><text x="0" y="36" text-anchor="middle" font-size="9" fill="#8b93a3">就差一步</text>', '', 0, 1.05) + sweat(260, 200), 'night') },
+        { minDur: 6800, sub: '「功敗垂成」（垂＝將近）：在即將成功時失敗——帶著深深的惋惜！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-46, -54, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-11 10 L-4 -2 L3 4 L11 -12" stroke="#548a40" stroke-width="2.8" fill="none" stroke-linecap="round"/><path d="M8 -12 L11 -12 L11 -8" stroke="#c96a5a" stroke-width="2.4" fill="none"/><path d="M11 -12 l6 22" stroke="#c96a5a" stroke-width="2.8" stroke-linecap="round"/>', '', 0, 1)) + sweat(450, 195) + qmark(560, 200)) },
+        { minDur: 6800, sub: '馬拉松最後一公里最容易鬆懈——越接近終點，越要穩住：別讓百步倒在九十九！',
+          html: scene(P(360, 302, A('kid', 'angry'), 'st-dashL', 0, 1.05) +
+            P(620, 270, '<path d="M0 16 L0 -20 M0 -20 L28 -11 L0 -2" stroke="#c96a5a" stroke-width="3.4" fill="#c96a5a"/><text x="0" y="34" text-anchor="middle" font-size="9" fill="#8a5a33">終點</text>', '', 0, 1.05) +
+            P(490, 230, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="8" fill="#c96a5a">最後1km</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#c96a5a">別鬆!</text>', '', 0, 1) + sweat(300, 200)) },
+        { minDur: 6400, sub: '功敗垂成：垂成之功，一簣之差。',
+          html: scene(P(400, 302, A('kid', 'sad'), 'st-slump', 0, 1.05) +
+            P(600, 250, '<path d="M0 16 L0 -20 M0 -20 L28 -11 L0 -2" stroke="#c9bfa8" stroke-width="3.4" fill="#c9bfa8" opacity=".7"/>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">功敗垂成</text>') }
+      ];
+    },
+    /* 紙醉金迷 */
+    i983: function () {
+      return [
+        { minDur: 7200, sub: '《清異錄》記唐末孟斧的居室：器物全貼金紙、滿室金光——客人歎：「令人金迷紙醉！」',
+          html: scene(P(430, 250, '<rect x="-70" y="-50" width="140" height="100" rx="5" fill="#ffe9a0" stroke="#e8b93f" stroke-width="3"/><g fill="#ffd97a" stroke="#e8b93f" stroke-width="2"><rect x="-52" y="-32" width="30" height="24" rx="3"/><rect x="-10" y="-32" width="30" height="24" rx="3"/><rect x="30" y="-32" width="22" height="24" rx="3"/><rect x="-52" y="4" width="36" height="28" rx="3"/><rect x="-2" y="4" width="42" height="28" rx="3"/></g>', '', 0, 1.05) +
+            '<g class="st-tw"><path d="M310 180 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/><path d="M560 175 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>' +
+            P(230, 302, A('kid', 'wow'), '', 0, .95) + bang(290, 210)) },
+        { minDur: 6800, sub: '「紙醉金迷」：奢靡浮華、燈紅酒綠的生活——金光閃閃的房間，住著空蕩蕩的心！',
+          html: scene(P(400, 302, A('kid', 'sad') + '<g class="st-tw"><path d="M-40 -70 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd97a"/><path d="M34 -76 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd97a"/></g>', '', 0, 1.05) + qmark(500, 195) +
+            P(560, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#8b93a3">心裡</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#8b93a3">空空</text>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '貶義詞，別當讚美用——真正的富足是需要的不多、想要的更少！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#c96a5a">貶義!</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">簡單</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">就好</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '紙醉金迷：金迷紙醉，奢靡無度。',
+          html: scene(P(400, 250, '<rect x="-64" y="-46" width="128" height="92" rx="5" fill="#ffe9a0" stroke="#e8b93f" stroke-width="3"/><g fill="#ffd97a" stroke="#e8b93f" stroke-width="2"><rect x="-46" y="-28" width="30" height="24" rx="3"/><rect x="-2" y="-28" width="30" height="24" rx="3"/><rect x="-46" y="6" width="40" height="26" rx="3"/></g>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">紙醉金迷</text>', 'night') }
+      ];
     }
   };
 
