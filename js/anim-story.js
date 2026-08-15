@@ -12611,6 +12611,152 @@
           html: scene(P(400, 285, GAVEL, '', 0, 1.5) + bang(510, 225) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">繩之以法</text>') }
       ];
+    },
+    /* 天網恢恢 */
+    i563: function () {
+      var BIGNET = '<g stroke="#8fa3bf" stroke-width="2" fill="none" opacity=".8"><path d="M100 60 Q400 -20 700 60 M60 140 Q400 60 740 140 M40 230 Q400 150 760 230"/><path d="M150 40 Q120 160 90 280 M300 16 Q290 140 280 290 M400 10 Q400 140 400 300 M500 16 Q510 140 520 290 M650 40 Q680 160 710 280"/></g>';
+      return [
+        { minDur: 7000, sub: '《老子》說：「天網恢恢，疏而不失」——天道像一張廣大的網，網目雖疏，卻什麼都漏不掉！',
+          html: scene(BIGNET + P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95), 'night') },
+        { minDur: 6800, sub: '做壞事的人以為神不知鬼不覺——逃到天涯海角，還是被這張大網罩住！',
+          html: scene(BIGNET + P(430, 302, '<g class="st-fleeR">' + A('kid', 'angry') + '</g>', 'st-dashL', 0, .95) + sweat(360, 195), 'night') },
+        { minDur: 6800, sub: '「天網恢恢，疏而不漏」：作惡者終究逃不過制裁——所以走正路，永遠是最聰明的選擇！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 180) +
+            P(620, 200, '<circle cx="0" cy="0" r="20" fill="#ffe9a0" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '天網恢恢：天道如網，惡者難逃。',
+          html: scene(BIGNET +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">天網恢恢</text>', 'night') }
+      ];
+    },
+    /* 水到渠成 */
+    i564: function () {
+      return [
+        { minDur: 7000, sub: '蘇軾寫信給朋友說：別提前煩惱，「水到渠成，不須預慮」——水流到了，溝渠自然成形！',
+          html: scene('<path d="M120 260 q140 -14 280 0 q140 14 280 0" stroke="#7fb2d4" stroke-width="14" fill="none" stroke-linecap="round"/>' +
+            '<g class="st-windln" stroke="#a8d0e8" stroke-width="4" stroke-linecap="round"><line x1="200" y1="258" x2="270" y2="256"/><line x1="420" y1="262" x2="500" y2="262"/></g>' +
+            P(250, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .98)) },
+        { minDur: 6800, sub: '每天背十個單字、練一篇短文——不急著求結果，實力一天天累積！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-11" x2="10" y2="-11"/><line x1="-10" y1="-3" x2="10" y2="-3"/><line x1="-10" y1="5" x2="10" y2="5"/></g>', '', 0, .95), '', 0, 1.02) +
+            P(560, 250, '<g stroke="#548a40" stroke-width="4"><line x1="-24" y1="20" x2="-24" y2="4"/><line x1="0" y1="20" x2="0" y2="-8"/><line x1="24" y1="20" x2="24" y2="-22"/></g>', '', 0, 1.1) + hearts(280, 195)) },
+        { minDur: 6800, sub: '「水到渠成」：條件成熟，事情自然成功——檢定考當天，他輕鬆過關，一點也不意外！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + bang(500, 180) +
+            P(280, 200, '<rect x="-24" y="-16" width="48" height="32" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#548a40">合格</text>', '', 0, 1.05)) },
+        { minDur: 6400, sub: '水到渠成：條件成熟，自然成功。',
+          html: scene('<path d="M120 265 q140 -14 280 0 q140 14 280 0" stroke="#7fb2d4" stroke-width="14" fill="none" stroke-linecap="round"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">水到渠成</text>') }
+      ];
+    },
+    /* 順水推舟 */
+    i565: function () {
+      var BOAT2 = '<path d="M-44 0 L44 0 L30 18 L-30 18 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="2.6"/>';
+      return [
+        { minDur: 6800, sub: '船伕撐船最省力的方法：順著水流的方向推——水幫著你走，一篙頂十篙！',
+          html: scene('<rect y="262" width="800" height="78" fill="#5a7fa8"/>' +
+            '<g class="st-wavemove"><path d="M-40 272 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#8fb2d4" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>' +
+            P(380, 262, '<g class="st-bob">' + BOAT2 + P(0, -8, A('kid', 'happy') + '<line x1="24" y1="-40" x2="40" y2="20" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/>', '', 0, .8) + '</g>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '同學提議週末去圖書館複習，小舟本來就想去——「好啊好啊！」順著話就答應了！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(500, 302, A('kid', 'happy'), 'st-cheer', 0, .98, true) + hearts(410, 182)) },
+        { minDur: 6800, sub: '「順水推舟」：順著情勢或別人的話行事——借力使力，事情辦得又快又漂亮！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + bang(500, 188) +
+            P(280, 205, '<path d="M-14 8 q14 -18 28 0" stroke="#548a40" stroke-width="3.4" fill="none"/><path d="M14 8 l-3 -9 l9 2 z" fill="#548a40"/>', '', 0, 1.2)) },
+        { minDur: 6400, sub: '順水推舟：順勢行事，借力使力。',
+          html: scene('<rect y="268" width="800" height="72" fill="#5a7fa8"/>' +
+            P(400, 268, '<g class="st-bob">' + BOAT2 + '</g>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">順水推舟</text>') }
+      ];
+    },
+    /* 如虎添翼 */
+    i566: function () {
+      var WING = '<path d="M0 0 q-18 -22 -44 -18 q10 8 8 16 q12 -2 16 6 q10 -4 20 -4 z" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '《韓非子》警告：「毋為虎傅翼」——別給老虎加上翅膀，否則牠會飛進城裡挑人吃！',
+          html: scene(P(400, 302, A('tiger') + P(-20, -46, '<g class="st-flap">' + WING + '</g>', '', 0, 1.2), '', 0, 1.15) +
+            P(200, 302, A('kid', 'wow'), '', 0, .9) + sweat(150, 192)) },
+        { minDur: 6800, sub: '老虎本來就威猛，再添一對翅膀——地上跑、天上飛，誰擋得住！',
+          html: scene(P(400, 220, A('tiger') + P(-20, -40, '<g class="st-flap">' + WING + '</g>', '', 0, 1.3), 'st-fly', 0, 1.1) + bang(550, 160) +
+            '<g class="st-cloud"><ellipse cx="220" cy="120" rx="50" ry="18" fill="#fff" opacity=".85"/></g>') },
+        { minDur: 6800, sub: '「如虎添翼」：強者又得助力，更加厲害——王牌球隊簽下明星外援，如虎添翼！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -56, '<circle cx="0" cy="0" r="12" fill="#e0813f" stroke="#b85f24" stroke-width="2"/><path d="M-12 0 h24 M0 -12 v24" stroke="#b85f24" stroke-width="1.6"/>', '', 0, 1)) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05, true) + bang(430, 180) + hearts(600, 195)) },
+        { minDur: 6400, sub: '如虎添翼：強者更得助力。',
+          html: scene(P(400, 302, A('tiger') + P(-20, -46, '<g class="st-flap">' + WING + '</g>', '', 0, 1.2), '', 0, 1.15) + bang(530, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">如虎添翼</text>') }
+      ];
+    },
+    /* 如日中天 */
+    i567: function () {
+      var NOONSUN = '<g class="st-rays" style="transform-origin:0px 0px"><g stroke="#ffcf4d" stroke-width="4" stroke-linecap="round"><line x1="0" y1="-34" x2="0" y2="-46"/><line x1="24" y1="-24" x2="33" y2="-33"/><line x1="34" y1="0" x2="46" y2="0"/><line x1="24" y1="24" x2="33" y2="33"/><line x1="0" y1="34" x2="0" y2="46"/><line x1="-24" y1="24" x2="-33" y2="33"/><line x1="-34" y1="0" x2="-46" y2="0"/><line x1="-24" y1="-24" x2="-33" y2="-33"/></g></g><circle cx="0" cy="0" r="26" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>';
+      return [
+        { minDur: 6800, sub: '正午十二點，太陽爬到天空正中央——光芒最盛、影子最短，一天裡最亮的時刻！',
+          html: scene(P(400, 110, NOONSUN, '', 0, 1.1) +
+            P(400, 302, A('kid', 'happy'), '', 0, 1) +
+            '<ellipse cx="400" cy="306" rx="26" ry="6" fill="#3a2e26" opacity=".25"/>') },
+        { minDur: 6800, sub: '「如日中天」：事業聲望正達頂峰——歌手連開十場演唱會場場完售，人氣如日中天！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), 'st-cheer', 0, 1.05) + notes(500, 180) +
+            P(240, 302, A('kid', 'happy'), 'st-cheer', .2, .88) + P(560, 302, A('kid', 'happy'), 'st-cheer', .4, .88, true) + hearts(400, 165)) },
+        { minDur: 6800, sub: '站上頂峰更要謙虛——太陽過了正午就西斜，唯有持續努力才能常保光芒！',
+          html: scene(P(560, 140, '<circle cx="0" cy="0" r="22" fill="#ffb066" stroke="#e8944d" stroke-width="3"/>', '', 0, 1) +
+            P(320, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1) + hearts(420, 195)) },
+        { minDur: 6400, sub: '如日中天：聲勢正達頂峰。',
+          html: scene(P(400, 120, NOONSUN, '', 0, 1.15) + P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1) +
+            '<text x="400" y="220" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">如日中天</text>') }
+      ];
+    },
+    /* 如釋重負 */
+    i568: function () {
+      var BIGPACK = '<rect x="-24" y="-36" width="48" height="40" rx="6" fill="#8a5a33" stroke="#6d4426" stroke-width="2.8"/><path d="M-16 -36 q16 -14 32 0" stroke="#6d4426" stroke-width="4" fill="none"/>';
+      return [
+        { minDur: 7000, sub: '《穀梁傳》記載：魯昭公出奔離國，百姓「如釋重負」——像放下了壓在肩上的重擔！',
+          html: scene(P(320, 302, A('kid', 'sad') + P(0, -70, BIGPACK, '', 0, 1), '', 0, 1) + sweat(250, 190) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95, true)) },
+        { minDur: 6800, sub: '重擔卸下的那一刻——腰挺直了、腳步輕了，連呼吸都順暢了！',
+          html: scene(P(500, 290, BIGPACK, '', 0, 1.1) +
+            P(330, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(260, 190) +
+            '<g class="st-zfloat" opacity=".7"><path d="M400 230 q4 -8 0 -14 M414 226 q4 -8 0 -14" stroke="#c9bfa8" stroke-width="2.4" fill="none"/></g>') },
+        { minDur: 6800, sub: '「如釋重負」：緊張或負擔解除後的輕鬆——考完最後一科走出考場，就是這種感覺！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-hop', 0, 1.05) + notes(500, 185) + hearts(300, 190) +
+            P(620, 250, '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4" transform="rotate(12)"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '如釋重負：如卸重擔，一身輕鬆。',
+          html: scene(P(560, 292, BIGPACK, '', 0, 1.1) +
+            P(360, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + hearts(280, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">如釋重負</text>') }
+      ];
+    },
+    /* 如坐針氈 */
+    i569: function () {
+      var CUSHION = '<path d="M-40 0 q40 -18 80 0 q-40 18 -80 0 z" fill="#c96a5a" stroke="#a84f42" stroke-width="2.4"/><g stroke="#8b93a3" stroke-width="2" stroke-linecap="round"><line x1="-20" y1="-6" x2="-16" y2="-16"/><line x1="0" y1="-8" x2="0" y2="-18"/><line x1="20" y1="-6" x2="16" y2="-16"/></g>';
+      return [
+        { minDur: 7000, sub: '晉朝杜錫常勸諫太子，太子懷恨在心——竟命人在他的氈墊裡偷偷插滿了針！',
+          html: scene(P(430, 290, CUSHION, '', 0, 1.3) +
+            P(240, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .98) + qmark(560, 220)) },
+        { minDur: 6800, sub: '杜錫一坐下去——哎呀！針扎得他坐也不是、站也不是，一刻都安穩不了！',
+          html: scene(P(430, 280, CUSHION, '', 0, 1.3) +
+            P(430, 250, '<g class="st-bob">' + A('kid', 'wow') + '</g>', '', 0, .95) + bang(340, 200) + sweat(520, 195)) },
+        { minDur: 6800, sub: '「如坐針氈」：心神不寧、坐立難安——等放榜、等面試結果，都是這種煎熬！',
+          html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + '</g>', '', 0, 1.02) + sweat(320, 188) + qmark(480, 182) +
+            P(600, 210, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-10" stroke="#6d7585" stroke-width="2.4"/><line x1="0" y1="0" x2="7" y2="3" stroke="#6d7585" stroke-width="2.4"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '如坐針氈：心神不寧，坐立難安。',
+          html: scene(P(400, 290, CUSHION, '', 0, 1.4) + sweat(510, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">如坐針氈</text>') }
+      ];
+    },
+    /* 如履薄冰 */
+    i570: function () {
+      var ICEFLOOR = '<rect y="272" width="800" height="68" fill="#cfe8f5"/><g stroke="#9cc4dc" stroke-width="2"><path d="M180 272 l40 30 M420 272 l-30 40 M600 272 l36 34"/></g>';
+      return [
+        { minDur: 7000, sub: '《詩經》說：「戰戰兢兢，如臨深淵，如履薄冰」——像站在深淵邊、走在薄冰上！',
+          html: scene(ICEFLOOR + P(300, 274, A('kid', 'wow'), '', 0, .95) + sweat(240, 175), 'night') },
+        { minDur: 6800, sub: '冰面薄得會咔咔響——每一步都放輕、放慢，全神貫注，一點都不敢大意！',
+          html: scene(ICEFLOOR + P(400, 274, A('kid', 'wow'), 'st-bob', 0, .98) +
+            '<g class="st-flick" stroke="#7fa8c4" stroke-width="2.4" fill="none"><path d="M430 292 l24 10 M436 300 l18 14"/></g>' + sweat(330, 180), 'night') },
+        { minDur: 6800, sub: '「如履薄冰」：戒慎恐懼、小心翼翼——處理重要任務時，就要有這種謹慎！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/></g>', '', 0, .95), '', 0, 1.02) + hearts(510, 190)) },
+        { minDur: 6400, sub: '如履薄冰：戒慎恐懼，小心翼翼。',
+          html: scene(ICEFLOOR + P(400, 274, A('kid', 'wow'), '', 0, 1) + sweat(330, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">如履薄冰</text>', 'night') }
+      ];
     }
   };
 
