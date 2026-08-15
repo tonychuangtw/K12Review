@@ -21382,6 +21382,180 @@
           html: scene(P(400, 260, '<rect x="-40" y="-30" width="80" height="60" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-26" y1="-14" x2="26" y2="-14"/></g><text x="0" y="10" text-anchor="middle" font-size="13" fill="#c9bfa8">……？</text>', '', 0, 1.25) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">掛一漏萬</text>') }
       ];
+    },
+    /* 蝸牛角上爭何事 */
+    i176: function () {
+      var SNAIL = '<path d="M-6 8 a14 14 0 1 1 14 -14 a10 10 0 1 1 -10 10 a6 6 0 1 0 6 -6" fill="none" stroke="#c9a06c" stroke-width="4"/><path d="M-24 14 q10 8 34 6 q10 0 12 -8" stroke="#a8b86a" stroke-width="5" fill="none" stroke-linecap="round"/><g stroke="#a8b86a" stroke-width="2.6" stroke-linecap="round"><line x1="18" y1="0" x2="24" y2="-10"/><line x1="24" y1="2" x2="31" y2="-6"/></g>';
+      return [
+        { minDur: 7000, sub: '《莊子》寓言：蝸牛左角有個觸氏國、右角有個蠻氏國——為搶地盤大戰，伏屍數萬！',
+          html: scene(P(400, 280, SNAIL, '', 0, 1.8) + bang(470, 210) +
+            P(230, 302, A('kid', 'wow') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + qmark(300, 230)) },
+        { minDur: 6800, sub: '白居易借它勸世：「蝸牛角上爭何事，石火光中寄此身」——人生短如火花，爭那麼小幹嘛！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(38, -44, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, .95), '', 0, 1.05) +
+            '<g class="st-tw"><path d="M540 200 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" fill="#ffd166"/></g>' + hearts(280, 195)) },
+        { minDur: 6800, sub: '為了一句話絕交、為了小位子內鬥——拉高視角看，都是蝸角之爭：格局大了，氣就消了！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(410, 182) +
+            P(600, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">格局</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">放大</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '蝸牛角上爭何事：所爭至微，不值計較。',
+          html: scene(P(400, 285, SNAIL, '', 0, 1.9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="40" font-weight="bold" fill="#4a3200">蝸牛角上爭何事</text>') }
+      ];
+    },
+    /* 滄海遺珠 */
+    i177: function () {
+      var PEARL2 = '<circle cx="0" cy="0" r="14" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2.6"/><circle cx="-4" cy="-4" r="4" fill="#fff"/>';
+      return [
+        { minDur: 7000, sub: '名相狄仁傑年輕時被小吏誣告——考官閻立本一審反而驚歎：「你真是滄海遺珠啊！」',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1) +
+            P(540, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05, true) + bang(440, 182)) },
+        { minDur: 6800, sub: '「滄海遺珠」：採珠人漏掉的珍珠——被埋沒的人才，光芒只是暫時被海水蓋住！',
+          html: scene('<rect y="252" width="800" height="88" fill="#4a6d94"/>' +
+            '<g class="st-wavemove"><path d="M-40 264 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#7fa8d4" stroke-width="7" stroke-linecap="round"/></g>' +
+            P(400, 300, '<g class="st-tw">' + PEARL2 + '</g>', '', 0, 1.3), 'night') },
+        { minDur: 6800, sub: '落選不代表不行——持續磨亮自己，遺珠終會被看見：狄仁傑後來成了一代名相！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-cheer', 0, 1.02) + hearts(470, 190) +
+            P(580, 250, '<g class="st-tw">' + PEARL2 + '</g>', '', 0, 1.2) + bang(280, 195)) },
+        { minDur: 6400, sub: '滄海遺珠：明珠蒙塵，人才見遺。',
+          html: scene('<rect y="258" width="800" height="82" fill="#4a6d94"/>' +
+            P(400, 302, '<g class="st-tw">' + PEARL2 + '</g>', '', 0, 1.4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">滄海遺珠</text>', 'night') }
+      ];
+    },
+    /* 木秀於林 */
+    i178: function () {
+      return [
+        { minDur: 7000, sub: '李康〈運命論〉的名句：「木秀於林，風必摧之」——高出樹林的樹，最先被風吹折！',
+          html: scene(P(400, 296, '<path d="M0 0 L0 -90" stroke="#7a5a3a" stroke-width="8" stroke-linecap="round"/><circle cx="0" cy="-100" r="24" fill="#7fba6a"/>', '', 0, 1.05) +
+            P(260, 300, TREE, '', 0, .8) + P(540, 300, TREE, '', 0, .8) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="4" stroke-linecap="round"><line x1="150" y1="170" x2="250" y2="170"/><line x1="120" y1="200" x2="220" y2="200"/></g>') },
+        { minDur: 6800, sub: '「木秀於林」：才能超群易遭嫉妒打擊——成績太亮眼，冷言冷語也跟著來……',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -74, '<path d="M-12 0 h24 l-3 8 h-18 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1), '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .9) +
+            '<g stroke="#8b93a3" stroke-width="2.4" stroke-linecap="round"><path d="M300 240 l40 10"/></g>' + sweat(480, 190)) },
+        { minDur: 6800, sub: '解方不是藏拙——是紮深根：實力厚、態度謙，風再大也吹不倒！',
+          html: scene(P(400, 296, '<path d="M0 0 L0 -80" stroke="#7a5a3a" stroke-width="8" stroke-linecap="round"/><circle cx="0" cy="-90" r="22" fill="#7fba6a"/>' +
+            '<g stroke="#8a6a44" stroke-width="3.4" fill="none"><path d="M0 0 q-26 12 -52 14 M0 0 q26 12 52 14 M0 0 q0 16 0 22"/></g>', '', 0, 1.1) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="170" y1="180" x2="260" y2="180"/></g>' + hearts(560, 210)) },
+        { minDur: 6400, sub: '木秀於林：秀出於眾，風必摧之。',
+          html: scene(P(400, 298, '<path d="M0 0 L0 -88" stroke="#7a5a3a" stroke-width="8" stroke-linecap="round"/><circle cx="0" cy="-98" r="23" fill="#7fba6a"/>', '', 0, 1.05) +
+            P(270, 300, TREE, '', 0, .78) + P(530, 300, TREE, '', 0, .78) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="4" stroke-linecap="round"><line x1="150" y1="175" x2="245" y2="175"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">木秀於林</text>') }
+      ];
+    },
+    /* 堆垛如山 */
+    i179: function () {
+      var PAPERSTACK = '<g fill="#fff" stroke="#c9bfa8" stroke-width="2"><rect x="-40" y="-6" width="80" height="12" rx="2"/><rect x="-38" y="-20" width="76" height="12" rx="2"/><rect x="-40" y="-34" width="80" height="12" rx="2"/><rect x="-36" y="-48" width="72" height="12" rx="2"/><rect x="-38" y="-62" width="76" height="12" rx="2"/></g>';
+      return [
+        { minDur: 6800, sub: '收假第一天，老師桌上的作業堆得比人高——像一座紙山，搖搖欲墜！',
+          html: scene(P(480, 296, PAPERSTACK, 'st-bob', 0, 1.4) +
+            P(260, 302, A('kid', 'wow') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .98) + sweat(200, 190)) },
+        { minDur: 6800, sub: '「堆垛如山」：堆積如山、數量極多——文件、包裹、待洗的衣服，都可以這樣形容！',
+          html: scene(P(300, 292, PAPERSTACK, '', 0, 1.1) +
+            P(520, 290, '<g fill="#c9a06c" stroke="#a8734a" stroke-width="2"><rect x="-30" y="-14" width="28" height="26" rx="3"/><rect x="2" y="-20" width="28" height="32" rx="3"/><rect x="-16" y="-40" width="28" height="24" rx="3"/></g>', '', 0, 1.15) + sweat(410, 220)) },
+        { minDur: 6800, sub: '面對如山的工作別嚇傻——分堆、排序、一次搬一疊：山是一張一張消掉的！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(-40, -50, '<g fill="#fff" stroke="#c9bfa8" stroke-width="1.8"><rect x="-14" y="-8" width="28" height="10" rx="2"/><rect x="-13" y="-19" width="26" height="10" rx="2"/></g>', '', 0, 1)) +
+            P(540, 296, '<g fill="#fff" stroke="#c9bfa8" stroke-width="2"><rect x="-30" y="-6" width="60" height="10" rx="2"/><rect x="-28" y="-18" width="56" height="10" rx="2"/></g>', '', 0, 1.1) + hearts(280, 195) + bang(450, 230)) },
+        { minDur: 6400, sub: '堆垛如山：積壓成山，數量繁多。',
+          html: scene(P(400, 296, PAPERSTACK, '', 0, 1.45) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">堆垛如山</text>') }
+      ];
+    },
+    /* 寸寸肝腸 */
+    i180: function () {
+      return [
+        { minDur: 7000, sub: '古樂府的悲音：離人望著遠去的船帆，覺得肝腸一寸一寸地斷裂……',
+          html: scene('<rect y="272" width="800" height="68" fill="#5a7fa8"/>' +
+            P(560, 260, '<g class="st-bob"><path d="M-30 0 L30 0 L20 12 L-20 12 Z" fill="#8a5a33"/><line x1="0" y1="0" x2="0" y2="-40" stroke="#8a5a33" stroke-width="3"/><path d="M0 -40 Q22 -26 0 -4 Z" fill="#f4ecd8"/></g>', '', 0, 1) +
+            P(250, 302, A('kid', 'sad') + '<g class="st-tear"><path d="M-10 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「寸寸肝腸」：肝腸似寸寸斷——比「傷心」更痛的層級：連身體都跟著揪！',
+          html: scene(P(400, 250, '<path d="M-40 0 q10 -20 26 -12 q4 -16 22 -10 q16 6 10 22" stroke="#c96a5a" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="14 8"/>', '', 0, 1.3) + sweat(520, 210), 'night') },
+        { minDur: 6800, sub: '至痛無法速癒——允許自己慢慢來：把每一寸痛，交給每一天的時間！',
+          html: scene(P(340, 302, A('kid', 'sad'), '', 0, 1) +
+            P(510, 302, A('kid', 'happy') + '<path d="M-28 -46 q-16 4 -22 14" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, .98, true) + hearts(430, 185) +
+            P(620, 210, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-10" stroke="#6d7585" stroke-width="2.2"/><line x1="0" y1="0" x2="7" y2="3" stroke="#6d7585" stroke-width="2.2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '寸寸肝腸：肝腸寸斷，悲慟至極。',
+          html: scene(P(400, 255, '<path d="M-40 0 q10 -20 26 -12 q4 -16 22 -10 q16 6 10 22" stroke="#c96a5a" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="14 8"/>', '', 0, 1.35) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">寸寸肝腸</text>', 'night') }
+      ];
+    },
+    /* 涕零如麻 */
+    i181: function () {
+      return [
+        { minDur: 6800, sub: '畢業典禮唱到驪歌那句——全班哭成一片，眼淚像斷線的珠子止不住……',
+          html: scene(P(300, 302, A('kid', 'sad') + '<g class="st-tear"><path d="M-10 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, .95) +
+            P(430, 302, A('kid', 'sad') + '<g class="st-tear" style="animation-delay:.3s"><path d="M-10 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, .98) +
+            P(560, 302, A('kid', 'sad') + '<g class="st-tear" style="animation-delay:.6s"><path d="M-10 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, .95, true) + notes(400, 185)) },
+        { minDur: 6800, sub: '「涕零如麻」（零＝落下）：眼淚紛紛如亂麻——哭到停不下來的傷心！',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1.05) +
+            '<g class="st-rain" stroke="#7fb2d4" stroke-width="3" stroke-linecap="round"><line x1="370" y1="240" x2="368" y2="252"/><line x1="400" y1="235" x2="398" y2="247"/><line x1="430" y1="240" x2="428" y2="252"/></g>' +
+            P(560, 240, '<rect x="-28" y="-15" width="56" height="30" rx="4" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#8b93a3">零=落下</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '捨不得就大方哭——哭完抱一個、約好再相聚：眼淚是感情的證明，不丟臉！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M362 258 h76" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(400, 178)) },
+        { minDur: 6400, sub: '涕零如麻：淚下如雨，泣不成聲。',
+          html: scene(P(400, 302, A('kid', 'sad') + '<g class="st-tear"><path d="M-10 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1.08) +
+            '<g class="st-rain" stroke="#7fb2d4" stroke-width="3" stroke-linecap="round"><line x1="370" y1="238" x2="368" y2="250"/><line x1="430" y1="238" x2="428" y2="250"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">涕零如麻</text>') }
+      ];
+    },
+    /* 肝膽相照 */
+    i182: function () {
+      return [
+        { minDur: 7000, sub: '《史記》寫謀士剖心置腹的勸說：「披腹心，輸肝膽」——把心肝掏出來給你看！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) +
+            P(490, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(410, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#c96a5a" class="st-tw"/>', '', 0, 1.2)) },
+        { minDur: 6800, sub: '「肝膽相照」：赤誠相待、毫無保留——真朋友敢在你面前露出弱點，也接得住你的！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(340, 200, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#c96a5a"/>', '', 0, 1) +
+            P(470, 200, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#c96a5a"/>', '', 0, 1) +
+            '<path d="M360 200 h90" stroke="#ff9eb5" stroke-width="2.6" stroke-dasharray="5 5"/>') },
+        { minDur: 6800, sub: '肝膽相照的交情怎麼來？從你先真誠開始——真心換真心，虛偽換敷衍！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>') +
+            P(490, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(415, 182)) },
+        { minDur: 6400, sub: '肝膽相照：赤誠相見，生死可托。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(400, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#c96a5a" class="st-tw"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">肝膽相照</text>') }
+      ];
+    },
+    /* 骨肉之親 */
+    i183: function () {
+      return [
+        { minDur: 6800, sub: '颱風夜停電，一家人擠在客廳點蠟燭說故事——擠一點，心反而更近！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95) +
+            P(400, 302, A('kid', 'happy'), '', 0, .9) + P(490, 302, A('kid', 'happy'), '', 0, .88, true) +
+            P(590, 270, '<g class="st-flick"><path d="M0 8 Q-6 -4 0 -14 Q3 -8 6 -12 Q9 -2 4 6 Z" fill="#ffd166"/></g><rect x="-4" y="8" width="8" height="16" fill="#f4ecd8"/>', '', 0, 1.1) + hearts(400, 190), 'night') },
+        { minDur: 6800, sub: '「骨肉之親」：父母子女兄弟至親——血濃於水：全世界背棄你時，家還開著燈！',
+          html: scene(P(400, 285, '<path d="M-50 -40 L0 -68 L50 -40 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><rect x="-40" y="-40" width="80" height="40" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-10" y="-26" width="20" height="14" rx="2" fill="#ffe9a0"/>', '', 0, 1.1) + hearts(520, 220), 'night') },
+        { minDur: 6800, sub: '至親也要用心經營——一句晚安、一頓共進的晚餐，都是在給「家」充電！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>') +
+            P(480, 302, A('kid', 'happy'), '', 0, .93, true) +
+            P(400, 250, '<path d="M-14 -6 h28 v5 q0 9 -14 9 q-14 0 -14 -9 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1.1) + hearts(400, 185)) },
+        { minDur: 6400, sub: '骨肉之親：至親骨肉，血濃於水。',
+          html: scene(P(400, 288, '<path d="M-46 -38 L0 -64 L46 -38 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.4"/><rect x="-36" y="-38" width="72" height="38" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-9" y="-24" width="18" height="13" rx="2" fill="#ffe9a0"/>', '', 0, 1.1) + hearts(510, 220) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">骨肉之親</text>', 'night') }
+      ];
+    },
+    /* 親密無間 */
+    i184: function () {
+      return [
+        { minDur: 7000, sub: '《漢書》讚君臣相得：「親暱亡間」——親近得沒有一絲縫隙！',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(450, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M368 258 h50" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(400, 178)) },
+        { minDur: 6800, sub: '「親密無間」：關係極親密——雙胞胎姊妹一個眼神就懂彼此，連笑點都同步！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/>') +
+            P(455, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/>', '', 0, .98, true) +
+            notes(400, 178) + hearts(540, 195)) },
+        { minDur: 6800, sub: '無間不是零隱私——再親也尊重彼此的空間：信任才是最強的黏著劑！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(410, 182) +
+            P(600, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">信任</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '親密無間：情同一體，毫無隔閡。',
+          html: scene(P(345, 302, A('kid', 'happy')) + P(455, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M372 258 h56" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(400, 176) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">親密無間</text>') }
+      ];
     }
   };
 
