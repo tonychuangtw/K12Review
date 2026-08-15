@@ -10536,6 +10536,107 @@
           html: scene(P(400, 255, '<path d="M-24 0 Q-28 -26 0 -32 Q28 -26 24 0 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>', '', 0, 1.5) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">深藏不露</text>') }
       ];
+    },
+    /* 老當益壯 */
+    i866: function () {
+      var BEARD = '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>';
+      return [
+        { minDur: 7200, sub: '東漢名將馬援62歲還請命出征！皇帝說他老了，他當場披甲上馬、威風凜凜——皇帝笑讚：「矍鑠哉，是翁也！」',
+          html: scene(P(360, 302, A('horse') + P(4, -34, A('kid', 'angry'), '', 0, .72), '', 0, 1.05) +
+            P(600, 302, A('kid', 'wow') + '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>', '', 0, .95, true) + hearts(500, 190)) },
+        { minDur: 7000, sub: '他常說：「大丈夫立志，窮當益堅，老當益壯！」——年紀越大，志氣反而更旺盛！',
+          html: scene(P(360, 302, A('kid', 'angry') + BEARD, '', 0, 1.08) + bang(470, 188) + hearts(280, 192)) },
+        { minDur: 6800, sub: '公園裡九十歲的爺爺天天打太極、七十歲的奶奶跑完馬拉松——老當益壯的精神最帥氣！',
+          html: scene(P(300, 302, A('kid', 'happy') + BEARD, 'st-strut') +
+            P(500, 302, A('kid', 'happy') + BEARD, 'st-dashL', .2, .97) + hearts(410, 188)) },
+        { minDur: 6400, sub: '老當益壯：年紀雖大，志氣體力更旺盛。',
+          html: scene(P(400, 302, A('kid', 'angry') + BEARD, '', 0, 1.08) + bang(490, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">老當益壯</text>') }
+      ];
+    },
+    /* 寶刀未老 */
+    i867: function () {
+      var SWORD4 = '<line x1="0" y1="0" x2="30" y2="-46" stroke="#c4cede" stroke-width="5.5" stroke-linecap="round"/><line x1="5" y1="-13" x2="16" y2="-5" stroke="#c98f2a" stroke-width="4.4" stroke-linecap="round"/><g class="st-tw"><path d="M32 -52 L34 -47 L39 -45 L34 -43 L32 -38 L30 -43 L25 -45 L30 -47 Z" fill="#fff"/></g>';
+      var BEARD2 = '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>';
+      return [
+        { minDur: 7000, sub: '《三國演義》裡的老將黃忠年近七十，有人笑他老——他拉開硬弓、舞起大刀：「我的寶刀可沒老！」',
+          html: scene(P(360, 302, A('kid', 'angry') + BEARD2 + P(28, -44, SWORD4, 'st-hoe', 0, .9)) +
+            P(580, 302, A('kid', 'wow'), '', 0, .93) + sweat(540, 195) + bang(470, 185)) },
+        { minDur: 6800, sub: '定軍山一戰，他陣斬敵方大將夏侯淵——用戰功證明：薑是老的辣！',
+          html: scene(P(360, 302, A('kid', 'angry') + BEARD2 + P(28, -44, SWORD4, '', 0, 1)) + bang(500, 190) + hearts(270, 192)) },
+        { minDur: 6800, sub: '「寶刀未老」：年紀大了、本領絲毫不減——退休教練一出手就投進三分球，寶刀未老！',
+          html: scene(P(360, 302, A('kid', 'happy') + BEARD2 + P(38, -70, '<circle cx="0" cy="0" r="12" fill="#e0a458" stroke="#c08838" stroke-width="2.4"/>', '', 0, 1)) + bang(500, 180) + hearts(280, 192)) },
+        { minDur: 6400, sub: '寶刀未老：年紀雖大，本領不減。',
+          html: scene(P(400, 300, SWORD4, '', 0, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">寶刀未老</text>') }
+      ];
+    },
+    /* 心悅誠服 */
+    i868: function () {
+      return [
+        { minDur: 7000, sub: '孟子說：「以德服人者，中心悅而誠服也」——用品德讓人信服，別人才會打從心裡佩服！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(560, 302, A('kid', 'happy'), '', 0, .93) + hearts(470, 188)) },
+        { minDur: 6800, sub: '新班長不擺架子：值日生缺人他先做、同學吵架他公平調解——大家心悅誠服地支持他！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(20, -34, '<path d="M-14 0 q7 -8 14 0 q7 8 14 0" stroke="#ffd97a" stroke-width="7" fill="none" stroke-linecap="round"/>', '', 0, .9)) +
+            P(200, 302, A('kid', 'happy'), '', 0, .9) + P(560, 302, A('kid', 'happy'), '', .2, .9) + hearts(400, 172)) },
+        { minDur: 6800, sub: '「心悅誠服」：高興又真誠地佩服——靠實力和品格贏來的服氣，最持久！',
+          html: scene(P(400, 200, '<path d="M0 5 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 5 Z" fill="#ff7b9c"/><path d="M-6 34 l5 5 l10 -10" stroke="#548a40" stroke-width="3.4" fill="none" stroke-linecap="round"/>', '', 0, 1.4) +
+            P(260, 302, A('kid', 'happy'), '', 0, .95) + hearts(500, 250)) },
+        { minDur: 6400, sub: '心悅誠服：打從心裡真誠佩服。',
+          html: scene(P(400, 210, '<path d="M0 5 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 5 Z" fill="#ff7b9c"/>', '', 0, 1.6) +
+            '<text x="400" y="310" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">心悅誠服</text>') }
+      ];
+    },
+    /* 心安理得 */
+    i869: function () {
+      return [
+        { minDur: 6800, sub: '考試沒考好，但小安一題題都是自己寫的——分數不高，心裡卻踏實安穩！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="13" fill="#e0a458">75</text>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6800, sub: '隔壁作弊拿了高分，整天提心吊膽怕被發現——分數高，心裡卻七上八下！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="13" fill="#c96a5a">98</text>', '', 0, .95)) + sweat(300, 190) + sweat(450, 192)) },
+        { minDur: 6800, sub: '「心安理得」：自認做得合情合理，心裡坦然——正大光明的人，睡覺都香！',
+          html: scene(P(360, 302, '<ellipse cx="0" cy="-8" rx="34" ry="12" fill="#6fbf8e"/><circle cx="-28" cy="-16" r="13" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>') +
+            zzz(450, 210) + hearts(280, 220), 'night') },
+        { minDur: 6400, sub: '心安理得：做得合情合理，心裡坦然。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) + hearts(490, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">心安理得</text>') }
+      ];
+    },
+    /* 精神抖擻 */
+    i870: function () {
+      return [
+        { minDur: 6800, sub: '早睡早起的小抖，晨光中大步走進校園：背挺直、眼發亮、聲音宏亮地喊「早安」！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', 'st-strut', 0, 1.05) +
+            P(560, 302, A('kid', 'happy'), '', 0, .93) + hearts(470, 188) + bang(280, 195)) },
+        { minDur: 6800, sub: '「抖擻」是振作、奮發——把精神像抖被子一樣抖開來，整個人神采飛揚！',
+          html: scene(P(400, 302, '<g class="st-hop">' + A('kid', 'happy') + '</g>', '', 0, 1.08) +
+            P(500, 190, '<g class="st-tw"><path d="M0 -10 L2.5 -2.5 L10 0 L2.5 2.5 L0 10 L-2.5 2.5 L-10 0 L-2.5 -2.5 Z" fill="#ffd97a"/></g>') +
+            P(300, 180, '<g class="st-tw"><path d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#ffd97a"/></g>', '', .3)) },
+        { minDur: 6800, sub: '運動員入場精神抖擻、儀隊踢正步精神抖擻——飽滿的精氣神，感染全場！',
+          html: scene(P(280, 302, A('kid', 'angry'), 'st-strut', 0, .97) + P(400, 302, A('kid', 'angry'), 'st-strut', .05, .97) +
+            P(520, 302, A('kid', 'angry'), 'st-strut', .1, .97) + notes(400, 170)) },
+        { minDur: 6400, sub: '精神抖擻：精神振奮、充滿活力。',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.08) + bang(490, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">精神抖擻</text>') }
+      ];
+    },
+    /* 神采奕奕 */
+    i871: function () {
+      var GLOWFACE = '<g class="st-rays" style="transform-origin:0px -54px"><g stroke="#ffd97a" stroke-width="2.6" stroke-linecap="round"><line x1="-32" y1="-70" x2="-28" y2="-66"/><line x1="32" y1="-70" x2="28" y2="-66"/><line x1="0" y1="-88" x2="0" y2="-83"/></g></g>';
+      return [
+        { minDur: 6800, sub: '上台領獎的小奕：眼睛亮晶晶、笑容燦爛、整張臉像會發光——容光四射！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, A('kid', 'happy') + GLOWFACE, '', 0, 1.05) + hearts(500, 200)) },
+        { minDur: 6800, sub: '「奕奕」是光明煥發的樣子——精神好到從臉上透出光來，就是「神采奕奕」！',
+          html: scene(P(400, 302, A('kid', 'happy') + GLOWFACE, '', 0, 1.1) +
+            P(300, 180, '<g class="st-tw"><path d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#ffd97a"/></g>') + hearts(500, 190)) },
+        { minDur: 6600, sub: '它和「精神抖擻」「容光煥發」是一家人——睡飽、運動、心情好，人人神采奕奕！',
+          html: scene(P(320, 302, A('kid', 'happy') + GLOWFACE) + P(490, 302, A('kid', 'happy'), '', .2, .97) + hearts(405, 180)) },
+        { minDur: 6400, sub: '神采奕奕：精神煥發、容光四射。',
+          html: scene(P(400, 302, A('kid', 'happy') + GLOWFACE, '', 0, 1.12) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">神采奕奕</text>') }
+      ];
     }
   };
 
