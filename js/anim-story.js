@@ -10430,6 +10430,112 @@
           html: scene(P(300, 300, '<g class="st-hop">' + A('chicken') + '</g>', '', 0, .95) + P(500, 300, '<g class="st-hop">' + A('dog') + '</g>', '', .2, .95) + bang(400, 190) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">雞犬不寧</text>') }
       ];
+    },
+    /* 雞鳴狗盜 */
+    i859: function () {
+      return [
+        { minDur: 7200, sub: '孟嘗君被秦王軟禁！門客中有人裝狗鑽進倉庫，偷回已獻出的白狐裘，賄賂寵妃求情放行——',
+          html: scene(P(300, 302, '<g transform="rotate(38)">' + A('kid', 'happy') + '</g>', '', 0, .9) +
+            P(470, 290, '<path d="M-22 -34 q22 -12 44 0 l-5 44 q-17 7 -34 0 z" fill="#f4f1e8" stroke="#d5cfc0" stroke-width="2.4"/><circle cx="-8" cy="-24" r="5" fill="#fff"/><circle cx="8" cy="-18" r="5" fill="#fff"/>', '', 0, 1) + sweat(380, 230), 'night') },
+        { minDur: 7200, sub: '逃到函谷關時城門未開——另一位門客學雞叫，引得全城公雞齊鳴！守軍以為天亮，開門放行！',
+          html: scene(P(300, 302, A('kid', 'happy')) + notes(380, 170) +
+            P(500, 300, A('chicken'), '', 0, .95) + P(620, 300, A('chicken'), '', .2, .9) + notes(560, 190) + bang(200, 190), 'night') },
+        { minDur: 6800, sub: '「雞鳴狗盜」：學雞叫、裝狗偷的小技倆——指微不足道的小本領，但關鍵時刻也可能救命！',
+          html: scene(P(300, 300, A('chicken'), '', 0, .95) + P(500, 300, A('dog'), '', .2, .95) + qmark(400, 190)) },
+        { minDur: 6400, sub: '雞鳴狗盜：微不足道的小技倆。',
+          html: scene(P(300, 300, A('chicken')) + P(500, 300, A('dog'), '', .2, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">雞鳴狗盜</text>') }
+      ];
+    },
+    /* 魚目混珠 */
+    i860: function () {
+      var PEARL2 = '<circle cx="0" cy="0" r="12" fill="#f4f1ea" stroke="#d5cfc0" stroke-width="2"/><circle cx="-4" cy="-4" r="3.4" fill="#fff"/>';
+      var FISHEYE = '<circle cx="0" cy="0" r="11" fill="#c9d6e8" stroke="#8b93a3" stroke-width="2"/><circle cx="0" cy="0" r="5" fill="#6d7585"/>';
+      return [
+        { minDur: 6800, sub: '珠寶攤上一盤「珍珠」——仔細看，裡面竟混著幾顆灰灰的魚眼睛冒充！',
+          html: scene(P(400, 290, '<ellipse cx="0" cy="8" rx="60" ry="14" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>' +
+              P(-30, -6, PEARL2, '', 0, .9) + P(0, -10, PEARL2, '', 0, .9) + P(30, -5, FISHEYE, '', 0, .9)) +
+            P(220, 302, A('kid', 'wow')) + qmark(300, 200)) },
+        { minDur: 6800, sub: '「魚目混珠」：拿魚眼冒充珍珠、以假亂真——買東西睜大眼睛，別上當！',
+          html: scene(P(320, 240, PEARL2, '', 0, 1.6) +
+            '<text x="400" y="248" text-anchor="middle" font-size="24" fill="#c96a5a">≠</text>' +
+            P(480, 240, FISHEYE, '', 0, 1.6)) },
+        { minDur: 6800, sub: '網路上真假訊息也常魚目混珠——查來源、看證據，練出分辨真偽的火眼金睛！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<circle cx="0" cy="0" r="16" fill="none" stroke="#8b93a3" stroke-width="4"/><line x1="12" y1="12" x2="24" y2="24" stroke="#8b93a3" stroke-width="4.6" stroke-linecap="round"/>', '', 0, .9)) + bang(470, 190)) },
+        { minDur: 6400, sub: '魚目混珠：以假亂真。',
+          html: scene(P(330, 245, PEARL2, '', 0, 1.5) + P(470, 245, FISHEYE, '', 0, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">魚目混珠</text>') }
+      ];
+    },
+    /* 笑裡藏刀 */
+    i862: function () {
+      var DAGGER3 = '<line x1="0" y1="0" x2="16" y2="-24" stroke="#c4cede" stroke-width="4.4" stroke-linecap="round"/><line x1="3" y1="-8" x2="11" y2="-2" stroke="#c98f2a" stroke-width="3.2" stroke-linecap="round"/>';
+      return [
+        { minDur: 7000, sub: '唐朝的李義府見人總是笑瞇瞇，說話輕聲細語——背地裡卻狠毒陷害得罪他的人！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-34, -30, DAGGER3, '', 0, .9)) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(460, 190)) },
+        { minDur: 6800, sub: '人們說他「笑中有刀」，外號「李貓」——笑容裡藏著刀，比板著臉更可怕！',
+          html: scene(P(400, 220, '<path d="M-30 0 q30 26 60 0" stroke="#3a2e26" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.4) +
+            P(430, 250, DAGGER3, '', 0, 1.5) + sweat(300, 210), 'night') },
+        { minDur: 6800, sub: '「笑裡藏刀」和「口蜜腹劍」是雙胞胎——提醒我們：識人要看行為，不能只看笑臉！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(550, 188)) },
+        { minDur: 6400, sub: '笑裡藏刀：外表和善、內心陰險。',
+          html: scene(P(360, 230, '<path d="M-26 0 q26 22 52 0" stroke="#3a2e26" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.4) +
+            P(480, 255, DAGGER3, '', 0, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">笑裡藏刀</text>') }
+      ];
+    },
+    /* 兩面三刀 */
+    i863: function () {
+      return [
+        { minDur: 6800, sub: '在你面前說「我們最要好」，轉頭卻跟別人說你壞話——當面一套、背後一套！',
+          html: scene(P(300, 302, A('kid', 'happy')) + hearts(370, 188) +
+            P(520, 302, A('kid', 'happy'), '', 0, .95, true) +
+            P(620, 210, '<path d="M-20 -10 a17 13 0 1 1 34 4 q-2 5 -8 6 l-7 6 l1 -6 q-16 -2 -20 -10 z" fill="#e0f0fa" stroke="#8fc0e0" stroke-width="2"/><text x="-2" y="-2" text-anchor="middle" font-size="9" fill="#c96a5a">壞話</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '「兩面三刀」：耍兩面手法、挑撥是非——這種人遲早會被看穿，失去所有信任！',
+          html: scene(P(400, 240, '<g transform="rotate(0)"><path d="M-30 -20 L0 -34 L30 -20 L30 14 L0 28 L-30 14 Z" fill="#c9d6e8" stroke="#8b93a3" stroke-width="2.4"/><path d="M0 -34 L0 28 M-30 -20 L30 14 M30 -20 L-30 14" stroke="#8b93a3" stroke-width="1.6"/></g>', '', 0, 1.3) + qmark(510, 200) + sweat(300, 210)) },
+        { minDur: 6800, sub: '真誠的人只有一張臉——心裡怎麼想、嘴上怎麼說、背後怎麼做，都一致！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(460, 188) +
+            P(400, 195, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><path d="M-8 0 l5 6 l12 -12" stroke="#548a40" stroke-width="3.6" fill="none" stroke-linecap="round"/>')) },
+        { minDur: 6400, sub: '兩面三刀：當面一套、背後一套。',
+          html: scene(P(340, 240, '<path d="M-24 0 q24 20 48 0" stroke="#3a2e26" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.2) +
+            P(470, 240, '<path d="M-24 8 q24 -20 48 0" stroke="#3a2e26" stroke-width="4" fill="none" stroke-linecap="round"/>', '', .3, 1.2) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">兩面三刀</text>') }
+      ];
+    },
+    /* 不自量力 */
+    i864: function () {
+      return [
+        { minDur: 7000, sub: '春秋時的小國息國，不掂掂自己的實力，出兵攻打大國鄭國——結果慘敗而歸！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>', '', 0, 1), '', 0, .8) +
+            P(540, 302, '<rect x="-70" y="-80" width="140" height="80" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/><path d="M-70 -80 h20 v-13 h20 v13 h20 v-13 h20 v13 h20 v-13 h20 v13 h20" fill="none" stroke="#8a7a66" stroke-width="3"/>', '', 0, 1.05) + bang(430, 220)) },
+        { minDur: 6800, sub: '沒學會蛙式就想挑戰橫渡日月潭、才學一週圍棋就找段位高手單挑——都是不自量力！',
+          html: scene(P(360, 302, A('kid', 'wow')) + sweat(300, 190) +
+            '<rect y="286" width="800" height="54" fill="#7fb2e0"/>' + qmark(450, 190)) },
+        { minDur: 6800, sub: '和「螳臂當車」一樣的提醒：先認清自己的實力，一步步變強，再挑戰大目標！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-42, -54, '<rect x="-14" y="-18" width="28" height="36" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>', '', 0, .95)) +
+            '<path d="M380 260 L460 230 L540 200" stroke="#548a40" stroke-width="4.6" fill="none" stroke-linecap="round"/><path d="M540 200 l-12 -3 l6 11 z" fill="#548a40"/>') },
+        { minDur: 6400, sub: '不自量力：不衡量自己能力去做辦不到的事。',
+          html: scene(P(320, 302, A('kid', 'angry'), '', 0, .85) + P(540, 302, '<rect x="-60" y="-70" width="120" height="70" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/>', '', 0, 1.05) + sweat(380, 220) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不自量力</text>') }
+      ];
+    },
+    /* 深藏不露 */
+    i865: function () {
+      return [
+        { minDur: 6800, sub: '巷口修單車的阿伯話不多——有天電視台來採訪，大家才知道他是前自由車國手！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-50, -6, '<circle cx="-14" cy="0" r="13" fill="none" stroke="#5c82ba" stroke-width="3.4"/><circle cx="18" cy="0" r="13" fill="none" stroke="#5c82ba" stroke-width="3.4"/>', '', 0, 1)) +
+            P(560, 302, A('kid', 'wow'), '', 0, .93) + bang(470, 190)) },
+        { minDur: 6800, sub: '「深藏不露」：把真本領深深藏起來、不炫耀——低調的高手最令人敬佩！',
+          html: scene(P(400, 250, '<path d="M-24 0 Q-28 -26 0 -32 Q28 -26 24 0 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><g class="st-tw"><path d="M0 -44 L2 -38 L8 -36 L2 -34 L0 -28 L-2 -34 L-8 -36 L-2 -38 Z" fill="#ffd97a"/></g>', '', 0, 1.4) +
+            P(250, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6800, sub: '真人不露相、露相非真人——實力不用天天掛嘴邊，需要時自然會發光！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(460, 190, '<g class="st-tw"><path d="M0 -12 L3 -3 L12 -3 L5 3 L8 12 L0 6 L-8 12 L-5 3 L-12 -3 L-3 -3 Z" fill="#ffd97a"/></g>', '', 0, 1.2) + hearts(280, 192)) },
+        { minDur: 6400, sub: '深藏不露：把本領深藏不顯露。',
+          html: scene(P(400, 255, '<path d="M-24 0 Q-28 -26 0 -32 Q28 -26 24 0 Z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>', '', 0, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">深藏不露</text>') }
+      ];
     }
   };
 
