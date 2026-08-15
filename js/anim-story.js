@@ -4663,6 +4663,109 @@
             bub2(260, 170, '…', 0) + bub2(400, 140, '…!', .3) + bub2(540, 170, '?!', .6) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">七嘴八舌</text>') }
       ];
+    },
+    /* 百般刁難 */
+    i021: function () {
+      var CHESS = '<rect x="-24" y="-24" width="48" height="48" rx="5" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#a89878" stroke-width="1.8"><line x1="-24" y1="-8" x2="24" y2="-8"/><line x1="-24" y1="8" x2="24" y2="8"/><line x1="-8" y1="-24" x2="-8" y2="24"/><line x1="8" y1="-24" x2="8" y2="24"/></g><circle cx="-16" cy="-16" r="5" fill="#3a2e26"/><circle cx="16" cy="0" r="5" fill="#fff" stroke="#c9bfa8"/>';
+      return [
+        { minDur: 6800, sub: '小新想加入棋社，學長卻故意出難題：「想進來？先連贏我三盤再說！」',
+          html: scene(P(430, 260, CHESS, '', 0, .95) +
+            P(280, 302, A('kid', 'sad')) + sweat(230, 195) +
+            P(560, 302, A('kid', 'angry'), '', 0, 1.02, true) + bang(480, 185)) },
+        { minDur: 6800, sub: '一下又說要先背棋譜、一下又叫他天天擦棋盤——用各種辦法故意為難人，就是「百般刁難」。',
+          html: scene(P(300, 302, A('kid', 'sad') + P(-30, -24, '<path d="M-14 0 q7 -8 14 0 q7 8 14 0" stroke="#ffd97a" stroke-width="7" fill="none" stroke-linecap="round"/>', '', 0, .8)) +
+            sweat(250, 195) + qmark(370, 180) +
+            P(560, 302, A('kid', 'happy'), '', 0, 1, true)) },
+        { minDur: 6800, sub: '老師知道了，對學長說：「社團應該歡迎新同學，不該刁難。」大家握手言和，一起下棋！',
+          html: scene(P(430, 260, CHESS, '', 0, .9) +
+            P(280, 302, A('kid', 'happy')) + P(560, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(420, 190)) },
+        { minDur: 6400, sub: '百般刁難：用各種辦法故意為難別人。',
+          html: scene(P(300, 302, A('kid', 'sad')) + P(540, 302, A('kid', 'angry'), '', 0, 1.02, true) + qmark(420, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">百般刁難</text>') }
+      ];
+    },
+    /* 齊頭並進 */
+    i023: function () {
+      var ROPE = '<line x1="-140" y1="-20" x2="140" y2="-20" stroke="#a8734a" stroke-width="7" stroke-linecap="round"/><circle cx="0" cy="-20" r="8" fill="#e85a4f"/>';
+      return [
+        { minDur: 6800, sub: '拔河比賽前，兩排隊員肩並著肩練習齊步走——「一、二！一、二！」步伐整整齊齊。',
+          html: scene(P(240, 302, A('kid', 'happy'), 'st-strut', 0, .95) +
+            P(360, 302, A('kid', 'happy'), 'st-strut', .05, .95) +
+            P(480, 302, A('kid', 'happy'), 'st-strut', .1, .95) +
+            P(600, 302, A('kid', 'happy'), 'st-strut', .15, .95) + notes(420, 165)) },
+        { minDur: 6800, sub: '功課也能齊頭並進：數學、國語每天各練一點點，兩科一起穩穩進步！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -56, '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#a5c8ff" stroke="#5c82ba" stroke-width="2" transform="rotate(-8)"/>')) +
+            P(500, 302, A('kid', 'happy') + P(-40, -56, '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#a5d47c" stroke="#7cab6e" stroke-width="2" transform="rotate(-8)"/>'), '', .2, .97) +
+            '<path d="M330 220 L420 190 M530 220 L620 190" stroke="#548a40" stroke-width="4" stroke-linecap="round"/><path d="M420 190 l-12 -2 v12 z M620 190 l-12 -2 v12 z" fill="#548a40"/>') },
+        { minDur: 6600, sub: '同時往前走、互相配合不掉隊——這就是「齊頭並進」！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-strut') + P(430, 302, A('kid', 'happy'), 'st-strut', .05, .97) +
+            P(560, 302, A('kid', 'happy'), 'st-strut', .1, .95) + hearts(430, 175)) },
+        { minDur: 6400, sub: '齊頭並進：同時向前進行，協調一致。',
+          html: scene(P(280, 302, A('kid', 'happy'), 'st-strut') + P(420, 302, A('kid', 'happy'), 'st-strut', .05, .97) +
+            P(560, 302, A('kid', 'happy'), 'st-strut', .1, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">齊頭並進</text>') }
+      ];
+    },
+    /* 安居樂業 */
+    i026: function () {
+      var HOUSE4 = '<path d="M-40 -34 L0 -60 L40 -34 Z" fill="#8a5a33"/><rect x="-32" y="-34" width="64" height="34" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-9" y="-24" width="18" height="24" rx="3" fill="#8a5a33"/>';
+      var TABLE3 = '<ellipse cx="0" cy="-10" rx="44" ry="14" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><line x1="-30" y1="0" x2="-30" y2="10" stroke="#a8734a" stroke-width="4"/><line x1="30" y1="0" x2="30" y2="10" stroke="#a8734a" stroke-width="4"/>' +
+        '<circle cx="-14" cy="-13" r="6" fill="#fff" stroke="#c9bfa8" stroke-width="1.6"/><circle cx="10" cy="-15" r="6" fill="#fff" stroke="#c9bfa8" stroke-width="1.6"/>';
+      return [
+        { minDur: 6800, sub: '小鎮上，人們住得安安穩穩：白天開店的開店、種田的種田，各自忙著自己的事。',
+          html: scene(P(180, 302, HOUSE4) + P(650, 302, HOUSE4, '', 0, .9) +
+            P(340, 302, A('kid', 'happy') + P(16, -30, HOE, 'st-hoe')) +
+            P(520, 302, A('kid', 'happy'), '', .2, .95)) },
+        { minDur: 6800, sub: '傍晚，一家人圍著飯桌吃飯，笑聲不斷——住得安心、做事順心，就是最幸福的日子。',
+          html: scene(P(430, 302, TABLE3, '', 0, 1.1) +
+            P(280, 302, A('kid', 'happy'), '', 0, .95) + P(580, 302, A('kid', 'happy'), '', .2, .95, true) +
+            hearts(430, 200), 'night') },
+        { minDur: 6600, sub: '「安居樂業」：安定地居住、快樂地工作——人人都嚮往的生活！',
+          html: scene(P(220, 302, HOUSE4) + P(600, 302, HOUSE4, '', 0, .92) +
+            P(410, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .97) + hearts(480, 185)) },
+        { minDur: 6400, sub: '安居樂業：住得安心，工作順利，生活滿足。',
+          html: scene(P(250, 302, HOUSE4, '', 0, 1.05) + P(480, 302, A('kid', 'happy') + P(16, -30, HOE)) + hearts(560, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">安居樂業</text>') }
+      ];
+    },
+    /* 頑強不屈 */
+    i027: function () {
+      var STONE4 = '<path d="M-30 0 q-8 -24 10 -30 q20 -8 34 6 q12 12 2 24 z" fill="#b0b4bf" stroke="#8b93a3" stroke-width="2.6"/>';
+      var GRASS2 = '<g class="st-grow"><path d="M0 0 q-6 -22 -14 -28 M0 0 q4 -26 12 -32 M0 0 q0 -30 -2 -36" stroke="#5f8a46" stroke-width="4.6" fill="none" stroke-linecap="round"/></g>';
+      var MT4 = '<path d="M-150 0 L0 -180 L150 0 Z" fill="#8fb0a0"/><path d="M0 -180 L-24 -150 L0 -140 L26 -148 Z" fill="#eef4f0"/>';
+      var SNOWFX = '<g fill="#fff"><circle class="st-snow" cx="200" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1s" cx="400" cy="24" r="3.4"/><circle class="st-snow" style="animation-delay:.5s" cx="560" cy="40" r="4"/></g>';
+      return [
+        { minDur: 6800, sub: '牆角的小草被大石頭壓住了——它彎著腰、側著身，硬是從石縫裡鑽了出來，朝著陽光生長！',
+          html: scene(P(430, 316, STONE4, '', 0, 1.2) + P(490, 318, GRASS2, '', 0, 1.2) +
+            P(220, 302, A('kid', 'wow')) + hearts(300, 200)) },
+        { minDur: 6800, sub: '登山隊遇上風雪也不放棄，頂著寒風，一步一步朝山頂前進！',
+          html: scene(P(560, 302, MT4) + SNOWFX +
+            P(300, 302, A('kid', 'angry'), 'st-strut', 0, .95) + P(420, 302, A('kid', 'angry'), 'st-strut', .2, .9) + sweat(350, 200)) },
+        { minDur: 6600, sub: '再大的困難都壓不倒、不低頭認輸——這就是「頑強不屈」！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'angry') + '</g>', '', 0, 1.02) + bang(490, 190) + hearts(310, 190)) },
+        { minDur: 6400, sub: '頑強不屈：堅定不屈，不肯低頭認輸。',
+          html: scene(P(360, 316, STONE4, '', 0, 1.1) + P(420, 318, GRASS2, '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">頑強不屈</text>') }
+      ];
+    },
+    /* 苦盡甘來 */
+    i028: function () {
+      var BIKE = '<circle cx="-24" cy="0" r="16" fill="none" stroke="#5c82ba" stroke-width="4"/><circle cx="24" cy="0" r="16" fill="none" stroke="#5c82ba" stroke-width="4"/>' +
+        '<path d="M-24 0 L-8 -22 L14 -22 L24 0 M-8 -22 L-2 0 M14 -22 L10 -30 M-8 -22 L-14 -30 L-4 -30" stroke="#e85a4f" stroke-width="3.4" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '學騎腳踏車，小真摔了一次又一次，膝蓋都破皮了……好想放棄。',
+          html: scene(P(430, 306, '<g transform="rotate(-16)">' + BIKE + '</g>') +
+            P(300, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>') + bang(380, 230) + sweat(250, 200)) },
+        { minDur: 6800, sub: '她擦擦眼淚、忍著痛繼續練——終於！車輪穩穩地滑出去，風在耳邊唱起歌來！',
+          html: scene(P(400, 296, BIKE + P(-4, -32, A('kid', 'happy'), '', 0, .8), 'st-strut') +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="120" y1="240" x2="210" y2="240"/></g>' + hearts(520, 200)) },
+        { minDur: 6600, sub: '辛苦到了盡頭，甜美的果實就來了——這就是「苦盡甘來」！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95) + hearts(450, 175)) },
+        { minDur: 6400, sub: '苦盡甘來：辛苦過後，得到甜蜜的回報。',
+          html: scene(P(400, 296, BIKE + P(-4, -32, A('kid', 'happy'), '', 0, .8), '', 0, 1.1) + hearts(520, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">苦盡甘來</text>') }
+      ];
     }
   };
 
