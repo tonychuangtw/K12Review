@@ -8368,6 +8368,118 @@
           html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.08) + qmark(320, 180) + qmark(480, 182) + sweat(400, 158) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">六神無主</text>') }
       ];
+    },
+    /* 七上八下 */
+    i272: function () {
+      var BUCKETS = '<g stroke="#6d87ab" stroke-width="2.4"><path d="M-30 -18 L-27 0 Q-20 4 -13 0 L-10 -18 Z" fill="#8fa8c9"/><path d="M10 -34 L13 -16 Q20 -12 27 -16 L30 -34 Z" fill="#8fa8c9"/></g>' +
+        '<path d="M-30 -18 q10 -10 20 0 M10 -34 q10 -10 20 0" stroke="#6d87ab" stroke-width="2.4" fill="none"/>';
+      return [
+        { minDur: 6800, sub: '古人說：心裡像掛了十五個吊桶打水——七個往上、八個往下，晃來晃去定不下來！',
+          html: scene(P(400, 250, BUCKETS, 'st-zfloat', 0, 1.6) +
+            P(220, 302, A('kid', 'wow'), '', 0, .95) + sweat(290, 195)) },
+        { minDur: 6800, sub: '抽籤決定演講順序前、等待面試結果時——心裡七上八下，怦怦跳個不停！',
+          html: scene(P(360, 302, A('kid', 'wow')) + sweat(300, 190) +
+            P(480, 200, '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#ff7b9c"/>', 'st-zfloat', 0, 1.2) + qmark(560, 185)) },
+        { minDur: 6600, sub: '「七上八下」：心裡忐忑不安——和「忐忑不安」「提心吊膽」是一家人！',
+          html: scene(P(400, 245, BUCKETS, 'st-zfloat', 0, 1.5) + P(250, 302, A('kid', 'wow'), '', 0, .95)) },
+        { minDur: 6400, sub: '七上八下：心裡忐忑不安。',
+          html: scene(P(400, 250, BUCKETS, 'st-zfloat', 0, 1.7) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">七上八下</text>') }
+      ];
+    },
+    /* 九牛一毛 */
+    i273: function () {
+      return [
+        { minDur: 6800, sub: '九頭牛身上的毛有幾百萬根——拔掉其中一根，牛連感覺都沒有！',
+          html: scene(P(220, 300, A('ox'), '', 0, .9) + P(360, 302, A('ox'), '', .1, .95) + P(500, 300, A('ox'), '', .2, .9) + P(630, 302, A('ox'), '', .3, .85) +
+            P(430, 200, '<path d="M0 0 q-2 -10 2 -16" stroke="#7e94a8" stroke-width="2.6" fill="none" stroke-linecap="round"/>', '', 0, 1.4) + qmark(500, 170)) },
+        { minDur: 7000, sub: '這出自司馬遷的信：他說自己若死去，對朝廷就像九牛去一毛——用來形容微不足道的一小部分！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) +
+            P(560, 302, A('kid', 'wow'), '', 0, .92) + qmark(610, 190)) },
+        { minDur: 6800, sub: '大海裡的一滴水、沙灘上的一粒沙——「九牛一毛」：極大數量中微不足道的一部分！',
+          html: scene('<rect y="262" width="800" height="78" fill="#7fb2e0"/>' +
+            P(360, 200, '<path d="M0 0 q-6 10 0 15 q6 -5 0 -15 z" fill="#8fc6ff"/>', '', 0, 1.6) + qmark(450, 190)) },
+        { minDur: 6400, sub: '九牛一毛：極大數量中微不足道的一部分。',
+          html: scene(P(260, 300, A('ox'), '', 0, .95) + P(420, 302, A('ox'), '', .1, .9) + P(570, 300, A('ox'), '', .2, .85) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">九牛一毛</text>') }
+      ];
+    },
+    /* 十萬火急 */
+    i274: function () {
+      var FIRE4 = '<g class="st-flick"><path d="M0 -8 q-16 -20 0 -38 q3 11 11 15 q9 -9 7 -18 q13 16 2 34 q-9 11 -20 7 z" fill="#ff9c40"/><path d="M2 -10 q-8 -11 0 -22 q7 9 9 13 q3 9 -9 9 z" fill="#ffd166"/></g>';
+      return [
+        { minDur: 6800, sub: '古代送軍情的文書上蓋著大字：「十萬火急」——驛馬日夜狂奔，一刻都不能耽誤！',
+          html: scene(P(360, 302, A('horse') + P(4, -34, A('kid', 'angry'), '', 0, .7), 'st-dashL', 0, 1.05) +
+            P(560, 250, '<rect x="-30" y="-20" width="60" height="40" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="13" font-weight="bold" fill="#e85a4f">十萬火急</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '救護車鳴笛飛馳、消防隊衝向火場——現代的十萬火急，分秒必爭搶救生命！',
+          html: scene(P(360, 292, '<rect x="-44" y="-24" width="88" height="30" rx="6" fill="#fff" stroke="#c94a3f" stroke-width="3"/><rect x="-38" y="-18" width="24" height="14" rx="2" fill="#aee3f5"/><path d="M14 -14 h16 M22 -22 v16" stroke="#e85a4f" stroke-width="4"/><circle cx="-24" cy="8" r="8" fill="#3a2e26"/><circle cx="24" cy="8" r="8" fill="#3a2e26"/><circle cx="0" cy="-32" r="6" fill="#e85a4f"/>', 'st-dashL') +
+            P(600, 300, FIRE4, '', 0, 1.1) + bang(500, 200)) },
+        { minDur: 6600, sub: '「十萬火急」：緊急到了極點——這種時刻，效率就是一切！',
+          html: scene(P(400, 300, FIRE4, '', 0, 1.4) + bang(510, 220) +
+            P(240, 302, A('kid', 'wow'), 'st-dashL', 0, .95) + sweat(300, 195)) },
+        { minDur: 6400, sub: '十萬火急：事情緊急到了極點。',
+          html: scene(P(400, 300, FIRE4, '', 0, 1.3) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">十萬火急</text>') }
+      ];
+    },
+    /* 百發百中 */
+    i275: function () {
+      var TARGET3 = '<circle cx="0" cy="-50" r="30" fill="#fff" stroke="#c96a5a" stroke-width="4"/><circle cx="0" cy="-50" r="18" fill="none" stroke="#c96a5a" stroke-width="4"/><circle cx="0" cy="-50" r="6" fill="#c96a5a"/><line x1="0" y1="-20" x2="0" y2="0" stroke="#a8734a" stroke-width="5"/>' +
+        '<g stroke="#8a5a33" stroke-width="3.4"><line x1="-2" y1="-52" x2="-24" y2="-60"/><line x1="2" y1="-48" x2="-20" y2="-42"/><line x1="0" y1="-56" x2="-22" y2="-70"/></g>';
+      var BOW3 = '<path d="M0 -46 q32 24 0 46" fill="none" stroke="#a8734a" stroke-width="6" stroke-linecap="round"/><line x1="0" y1="-46" x2="0" y2="0" stroke="#d9cbb0" stroke-width="2.6"/>';
+      return [
+        { minDur: 7000, sub: '春秋神箭手養由基，能在百步之外射中楊柳葉——射一百次、中一百次！',
+          html: scene(P(560, 300, TARGET3, '', 0, 1.1) +
+            P(240, 302, A('kid', 'happy') + P(30, -40, BOW3, '', 0, .8)) + bang(480, 200)) },
+        { minDur: 6800, sub: '罰球線上的神射手、每題必答對的搶答王——「百發百中」就是次次命中！',
+          html: scene(P(300, 302, A('kid', 'happy')) + bang(400, 185) +
+            P(560, 300, TARGET3, '', 0, .95) + hearts(220, 195)) },
+        { minDur: 6600, sub: '也能形容料事精準：氣象爺爺說「明天有雨」——百發百中，記得帶傘！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) +
+            '<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="500" y1="150" x2="494" y2="172"/><line class="st-rain" style="animation-delay:.4s" x1="560" y1="140" x2="554" y2="162"/></g>' + hearts(270, 192)) },
+        { minDur: 6400, sub: '百發百中：料事或做事極有把握，次次命中。',
+          html: scene(P(500, 300, TARGET3, '', 0, 1.2) + P(260, 302, A('kid', 'happy') + P(30, -40, BOW3, '', 0, .85)) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">百發百中</text>') }
+      ];
+    },
+    /* 千鈞一髮 */
+    i276: function () {
+      var WEIGHT = '<path d="M-30 0 h60 l-8 -34 h-44 z" fill="#6d7585" stroke="#4a5462" stroke-width="2.6"/><text x="0" y="-10" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">千鈞</text>';
+      return [
+        { minDur: 6800, sub: '想像一下：三萬斤的重物，只用一根頭髮吊著——隨時會斷，危險到了極點！',
+          html: scene(P(400, 120, '<line x1="0" y1="0" x2="0" y2="60" stroke="#3a2e26" stroke-width="1.4"/>') +
+            P(400, 215, WEIGHT, '', 0, 1.3) + sweat(490, 160) + bang(300, 170)) },
+        { minDur: 6800, sub: '球滾到馬路上，弟弟追了出去——千鈞一髮之際，媽媽一把拉住他！車呼嘯而過……',
+          html: scene('<rect y="290" width="800" height="26" fill="#8b93a3"/>' +
+            P(360, 288, A('kid', 'wow'), '', 0, .9) +
+            P(470, 288, A('kid', 'happy') + '<circle cx="-26" cy="-40" r="8.5" fill="#ffe3c1" stroke="#eec39a" stroke-width="2"/>', '', 0, 1.05) +
+            P(150, 292, '<g class="st-windln"><rect x="-22" y="-16" width="44" height="14" rx="5" fill="#e85a4f"/><circle cx="-12" cy="0" r="6" fill="#3a2e26"/><circle cx="12" cy="0" r="6" fill="#3a2e26"/></g>') + bang(260, 240)) },
+        { minDur: 6600, sub: '「千鈞一髮」：情況危急到極點——那一瞬間的反應，決定一切！',
+          html: scene(P(400, 130, '<line x1="0" y1="0" x2="0" y2="55" stroke="#3a2e26" stroke-width="1.4"/>') + P(400, 220, WEIGHT, '', 0, 1.2) + sweat(490, 165)) },
+        { minDur: 6400, sub: '千鈞一髮：情況危急到了極點。',
+          html: scene(P(400, 125, '<line x1="0" y1="0" x2="0" y2="60" stroke="#3a2e26" stroke-width="1.4"/>') + P(400, 220, WEIGHT, '', 0, 1.3) +
+            '<text x="400" y="310" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千鈞一髮</text>') }
+      ];
+    },
+    /* 萬無一失 */
+    i277: function () {
+      var CHECKLIST = '<rect x="-22" y="-30" width="44" height="60" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/>' +
+        '<g stroke="#548a40" stroke-width="2.6"><path d="M-14 -18 l4 4 l8 -8 M-14 -2 l4 4 l8 -8 M-14 14 l4 4 l8 -8"/></g>' +
+        '<g stroke="#8fa3bf" stroke-width="2"><line x1="2" y1="-16" x2="16" y2="-16"/><line x1="2" y1="0" x2="16" y2="0"/><line x1="2" y1="16" x2="16" y2="16"/></g>';
+      return [
+        { minDur: 6800, sub: '露營前一晚，領隊把裝備清單核對三遍：帳篷✓、手電筒✓、急救包✓、備用電池✓——',
+          html: scene(P(430, 268, CHECKLIST, '', 0, 1.3) +
+            P(250, 302, A('kid', 'happy')) + hearts(340, 205)) },
+        { minDur: 6800, sub: '連「如果下雨怎麼辦」「有人受傷怎麼辦」都先想好對策——把每個萬一都堵住！',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(430, 190, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#5c82ba">雨?</text>') +
+            P(520, 210, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#c96a5a">傷?</text>', '', .3) + hearts(240, 200)) },
+        { minDur: 6600, sub: '「萬無一失」：準備周全到一萬次也不出一次差錯——謹慎的人最令人放心！',
+          html: scene(P(400, 265, CHECKLIST, '', 0, 1.25) + hearts(520, 220) + bang(280, 210)) },
+        { minDur: 6400, sub: '萬無一失：非常周全，絕不出差錯。',
+          html: scene(P(400, 268, CHECKLIST, '', 0, 1.35) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">萬無一失</text>') }
+      ];
     }
   };
 
