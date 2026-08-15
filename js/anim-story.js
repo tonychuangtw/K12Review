@@ -16557,6 +16557,154 @@
           html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-28 -56 l-14 -8 M28 -56 l14 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', 'st-bob', 0, 1.1) + bang(500, 185) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">摩拳擦掌</text>') }
       ];
+    },
+    /* 蓄勢待發 */
+    i624: function () {
+      var BOWARROW = '<path d="M-6 -40 Q30 0 -6 40" stroke="#8a5a33" stroke-width="5" fill="none"/><line x1="-6" y1="-40" x2="-6" y2="40" stroke="#c9bfa8" stroke-width="2.4"/><line x1="-6" y1="0" x2="-34" y2="0" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M-34 0 l10 -5 v10 z" fill="#8b93a3" transform="rotate(180 -34 0)"/>';
+      return [
+        { minDur: 6800, sub: '弓拉滿、箭在弦——獵人屏住呼吸，等最好的一瞬間才鬆手！',
+          html: scene(P(340, 290, A('kid', 'angry') + P(40, -40, BOWARROW, '', 0, 1.1), '', 0, 1.02) +
+            P(620, 250, A('rabbit'), '', 0, .85, true) + sweat(280, 195)) },
+        { minDur: 6800, sub: '「蓄勢待發」：積蓄力量、等待時機——不是不動，是把每一分力都存進發條！',
+          html: scene(P(400, 270, '<path d="M0 0 a26 26 0 1 1 26 26" stroke="#8b93a3" stroke-width="6" fill="none"/><path d="M26 26 l-12 -4 l6 12 z" fill="#6d7585"/>', '', 0, 1.4) + bang(530, 220) +
+            P(260, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">儲力</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '新產品上市前先磨到完美、選手賽前默默苦練——鳴槍那刻，全世界看到爆發！',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-dashL', 0, 1.08) + bang(510, 185) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="240" y1="250" x2="330" y2="250"/></g>' + hearts(300, 195)) },
+        { minDur: 6400, sub: '蓄勢待發：養精蓄銳，伺機而動。',
+          html: scene(P(380, 285, BOWARROW, '', 0, 1.6) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">蓄勢待發</text>') }
+      ];
+    },
+    /* 整裝待發 */
+    i625: function () {
+      return [
+        { minDur: 6800, sub: '登山隊清晨集合：背包上肩、鞋帶繫緊、路線圖再確認一次——裝備妥當！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(0, -66, '<rect x="-20" y="-28" width="40" height="34" rx="6" fill="#c96a5a" stroke="#a84f42" stroke-width="2.6"/><path d="M-12 -28 q12 -12 24 0" stroke="#a84f42" stroke-width="4" fill="none"/>', '', 0, 1)) +
+            P(450, 302, A('kid', 'angry') + P(0, -66, '<rect x="-20" y="-28" width="40" height="34" rx="6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.6"/>', '', 0, 1), '', 0, .98) +
+            P(600, 280, '<path d="M-40 30 L0 -20 L40 30 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.4"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「整裝待發」：行裝整理好、隨時能出發——準備充分的人，路上少一半麻煩！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-15" y="-11" width="30" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><g stroke="#548a40" stroke-width="1.8"><path d="M-9 -4 l3 3 l5 -6 M-9 4 l3 3 l5 -6"/></g>', '', 0, 1.1), '', 0, 1.05) + hearts(500, 190)) },
+        { minDur: 6800, sub: '出發！朝著山頂一步步前進——好的開始藏在前一晚整理好的背包裡！',
+          html: scene(P(320, 302, A('kid', 'angry') + P(0, -66, '<rect x="-18" y="-26" width="36" height="30" rx="6" fill="#c96a5a" stroke="#a84f42" stroke-width="2.4"/>', '', 0, 1), 'st-strut', 0, 1) +
+            P(450, 296, A('kid', 'angry') + P(0, -64, '<rect x="-18" y="-26" width="36" height="30" rx="6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, 1), 'st-strut', .2, .95) +
+            P(620, 270, '<path d="M-44 34 L0 -24 L44 34 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.4"/>', '', 0, 1.05) + hearts(390, 190)) },
+        { minDur: 6400, sub: '整裝待發：行裝已整，隨時出發。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(0, -66, '<rect x="-20" y="-28" width="40" height="34" rx="6" fill="#c96a5a" stroke="#a84f42" stroke-width="2.6"/>', '', 0, 1), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">整裝待發</text>') }
+      ];
+    },
+    /* 旗開得勝 */
+    i626: function () {
+      var WARFLAG = '<line x1="0" y1="14" x2="0" y2="-58" stroke="#a8734a" stroke-width="4.6" stroke-linecap="round"/><path d="M0 -58 q22 6 40 -2 q-4 12 2 22 q-22 8 -42 0 z" fill="#c96a5a" stroke="#a84f42" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '戲曲吉祥話：「旗開得勝，馬到成功」——軍旗一展開就打勝仗，最好的彩頭！',
+          html: scene(P(320, 302, A('kid', 'angry') + P(26, -50, WARFLAG, '', 0, 1), 'st-strut', 0, 1.05) +
+            P(540, 296, A('horse'), 'st-strut', .2, .95) + bang(430, 185)) },
+        { minDur: 6800, sub: '聯賽開幕戰——全隊士氣如虹，首戰就以三比零漂亮拿下！',
+          html: scene(P(350, 302, A('kid', 'happy') + P(38, -56, '<circle cx="0" cy="0" r="11" fill="#fff" stroke="#3a2e26" stroke-width="2"/><path d="M-4 -8 l8 4 -8 4 z" fill="#3a2e26"/>', '', 0, 1), 'st-cheer', 0, 1.02) +
+            P(520, 240, '<rect x="-40" y="-20" width="80" height="40" rx="4" fill="#2f4f3f"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="#fff">3:0</text>', '', 0, 1.05) + bang(300, 180) + hearts(620, 200)) },
+        { minDur: 6800, sub: '「旗開得勝」：一開始就成功——第一仗打得漂亮，後面的仗就更有信心！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(26, -50, WARFLAG, '', 0, .95), 'st-cheer', 0, 1.05) + hearts(300, 190) + bang(520, 185)) },
+        { minDur: 6400, sub: '旗開得勝：首戰告捷，出師大利。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(26, -50, WARFLAG, '', 0, 1), 'st-strut', 0, 1.08) + bang(520, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">旗開得勝</text>') }
+      ];
+    },
+    /* 銳不可當 */
+    i627: function () {
+      return [
+        { minDur: 7000, sub: '《後漢書》形容精兵「其鋒不可當」——刀鋒所指，誰擋誰退！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(30, -56, '<line x1="0" y1="12" x2="0" y2="-30" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/><path d="M0 -42 l-6 14 h12 z" fill="#c9d2de"/>', '', 0, 1.1), 'st-strut', 0, 1.08) +
+            P(600, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .9) + sweat(660, 195) + bang(480, 190)) },
+        { minDur: 6800, sub: '「銳不可當」：氣勢威猛、無法抵擋——主隊一波 15:0 攻勢，對手連暫停都來不及喊！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(38, -56, '<circle cx="0" cy="0" r="11" fill="#e0813f" stroke="#b85f24" stroke-width="2"/>', '', 0, 1), 'st-dashL', 0, 1.08) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="200" y1="250" x2="290" y2="250"/></g>' +
+            P(580, 302, A('kid', 'wow'), '', 0, .92, true) + sweat(640, 190) + bang(460, 182)) },
+        { minDur: 6800, sub: '注意寫法：抵「當」的當，不寫成阻「擋」的擋——古語的「當」就是抵擋！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#548a40">當✓</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#c96a5a">擋✗</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '銳不可當：鋒銳威猛，勢不可擋。',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-dashL', 0, 1.1) + bang(510, 185) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="240" y1="250" x2="330" y2="250"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">銳不可當</text>') }
+      ];
+    },
+    /* 乘勝追擊 */
+    i628: function () {
+      return [
+        { minDur: 7000, sub: '兵家名言「乘勝逐北」——打了勝仗別停下，趁敵人潰逃時一路追擊，擴大戰果！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1), 'st-dashL', 0, 1.05) +
+            P(540, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', .2, .92) + sweat(600, 192) + bang(420, 188)) },
+        { minDur: 6800, sub: '「乘勝追擊」：趁勝勢繼續進取——連答對三題手感正熱，一鼓作氣把難題全解了！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -12 l4 4 l7 -8 M-10 -2 l4 4 l7 -8 M-10 8 l4 4 l7 -8"/></g>', '', 0, .95), 'st-cheer', 0, 1.02) + bang(470, 185) + hearts(280, 192)) },
+        { minDur: 6800, sub: '氣勢是流動的資源——狀態好的時候多推進一步，勝利會滾出更多勝利！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-dashL', 0, 1.05) +
+            '<g fill="#ffd97a" stroke="#e8b93f" stroke-width="2"><path d="M270 250 l5 10 10 2 -8 8 2 11 -9 -5 -9 5 2 -11 -8 -8 10 -2 z"/><path d="M480 220 l5 10 10 2 -8 8 2 11 -9 -5 -9 5 2 -11 -8 -8 10 -2 z"/><path d="M600 190 l5 10 10 2 -8 8 2 11 -9 -5 -9 5 2 -11 -8 -8 10 -2 z"/></g>') },
+        { minDur: 6400, sub: '乘勝追擊：趁勝進取，擴大戰果。',
+          html: scene(P(360, 302, A('kid', 'angry'), 'st-dashL', 0, 1.08) + bang(470, 185) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="220" y1="255" x2="310" y2="255"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">乘勝追擊</text>') }
+      ];
+    },
+    /* 反敗為勝 */
+    i629: function () {
+      return [
+        { minDur: 6800, sub: '第九局下半，落後三分、兩人出局——全場都以為比賽結束了……',
+          html: scene(P(360, 302, A('kid', 'sad') + P(38, -50, '<line x1="0" y1="12" x2="0" y2="-26" stroke="#c9a06c" stroke-width="5" stroke-linecap="round"/>', '', 0, 1), '', 0, 1) + sweat(300, 188) +
+            P(560, 240, '<rect x="-42" y="-20" width="84" height="40" rx="4" fill="#2f4f3f"/><text x="0" y="8" text-anchor="middle" font-size="17" fill="#fff">2:5</text>', '', 0, 1.05), 'night') },
+        { minDur: 6800, sub: '滿壘！一棒揮出——球飛越全場！再見全壘打，四分逆轉！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(38, -56, '<line x1="0" y1="12" x2="14" y2="-24" stroke="#c9a06c" stroke-width="5" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.05) +
+            P(560, 160, '<circle cx="0" cy="0" r="8" fill="#fff" stroke="#c96a5a" stroke-width="2"/>', 'st-fly', 0, 1.1) + bang(430, 200) +
+            '<path d="M400 260 q90 -70 170 -100" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>', 'night') },
+        { minDur: 6800, sub: '「反敗為勝」：從敗局翻轉成勝利——比賽沒到最後一秒，永遠別說輸！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) +
+            P(560, 240, '<rect x="-42" y="-20" width="84" height="40" rx="4" fill="#2f4f3f"/><text x="0" y="8" text-anchor="middle" font-size="17" fill="#ffd97a">6:5</text>', '', 0, 1.05) + bang(360, 175) + hearts(250, 190)) },
+        { minDur: 6400, sub: '反敗為勝：扭轉頹勢，逆轉獲勝。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.08) + bang(400, 172) +
+            P(580, 240, '<rect x="-40" y="-19" width="80" height="38" rx="4" fill="#2f4f3f"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#ffd97a">6:5</text>', '', 0, 1.05) +
+            '<text x="330" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">反敗為勝</text>') }
+      ];
+    },
+    /* 轉危為安 */
+    i630: function () {
+      return [
+        { minDur: 7000, sub: '劉向讚戰國策士：「出奇策異智，轉危為安，運亡為存」——一計扭轉存亡！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1, true) + bang(430, 182)) },
+        { minDur: 6800, sub: '露營爐火不慎燒到帳篷邊——領隊立刻壓低身子拉開瓦斯、用水撲熄——十秒解除危機！',
+          html: scene(P(430, 290, '<path d="M-60 30 L0 -30 L60 30 Z" fill="#8a5a33"/><g class="st-flick"><path d="M-50 26 q-6 -14 4 -22 q4 8 10 4 q4 10 -4 16 z" fill="#ff9d4d"/></g>', '', 0, 1.05) +
+            P(260, 302, A('kid', 'angry') + P(34, -44, '<path d="M-10 -6 q10 -8 20 0 l-4 10 q-6 4 -12 0 z" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2"/><g class="st-rain"><circle cx="6" cy="10" r="3" fill="#7fb2d4"/></g>', '', 0, 1), '', 0, 1) + bang(360, 220), 'night') },
+        { minDur: 6800, sub: '「轉危為安」：化解危機、恢復平安——關鍵是冷靜：慌張只會把危機變災難！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(410, 182) +
+            P(600, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">冷靜</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '轉危為安：化解危機，重歸平安。',
+          html: scene(P(300, 245, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#c96a5a">危</text>') +
+            '<path d="M340 245 h110" stroke="#548a40" stroke-width="4"/><path d="M450 245 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(510, 245, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.4"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#548a40">安</text>') +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">轉危為安</text>') }
+      ];
+    },
+    /* 化險為夷 */
+    i631: function () {
+      return [
+        { minDur: 7000, sub: '「夷」是平坦——「化險為夷」：把驚險的路化成平地，走過去若無其事！',
+          html: scene('<path d="M120 300 L240 240 L360 290 L480 230 L620 280" stroke="#8b93a3" stroke-width="6" fill="none" stroke-linecap="round"/>' +
+            '<path d="M120 302 h500" stroke="#a5d47c" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 8"/>' +
+            P(200, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6800, sub: '航班遇亂流引擎異常——機長冷靜廣播、按程序處置，平穩降落備用機場！',
+          html: scene(P(400, 200, '<path d="M-50 8 L50 8 L70 0 L50 -8 L-30 -8 L-50 -20 L-58 -16 L-44 -2 Z" fill="#c9d6e8" stroke="#8fa3bf" stroke-width="2.4"/><circle cx="30" cy="0" r="4" fill="#8fa3bf"/>', 'st-fly', 0, 1.3) +
+            '<g class="st-cloud"><ellipse cx="240" cy="140" rx="50" ry="16" fill="#8b93a3" opacity=".6"/></g>' +
+            '<path d="M200 302 h400" stroke="#8b93a3" stroke-width="8" stroke-linecap="round"/>' + sweat(560, 160), 'night') },
+        { minDur: 6800, sub: '「化險為夷」：使危險化為平安——安全落地那刻，全機掌聲雷動！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-cheer', 0, .95) + P(430, 302, A('kid', 'happy'), 'st-cheer', .2, .95) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/><rect x="-20" y="-80" width="40" height="5" rx="2" fill="#2c3550"/>', '', 0, 1, true) + bang(400, 180) + hearts(500, 195)) },
+        { minDur: 6400, sub: '化險為夷：轉危成安，履險如夷。',
+          html: scene('<path d="M120 300 L240 240 L360 290 L480 230 L620 280" stroke="#8b93a3" stroke-width="5" fill="none" stroke-linecap="round" opacity=".5"/>' +
+            '<path d="M120 302 h500" stroke="#a5d47c" stroke-width="7" stroke-linecap="round"/>' +
+            P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">化險為夷</text>') }
+      ];
     }
   };
 
