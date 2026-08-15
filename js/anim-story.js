@@ -8257,6 +8257,117 @@
           html: scene(P(360, 250, HONEY2, '', 0, 2) + P(480, 260, HONEY2, '', .3, 1.6) + qmark(560, 220) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">甜言蜜語</text>') }
       ];
+    },
+    /* 厚積薄發 */
+    i068: function () {
+      var BOOKS3 = '<g stroke-width="2"><rect x="-30" y="-12" width="60" height="12" rx="2.6" fill="#c9762f" stroke="#a85a1e"/><rect x="-27" y="-24" width="54" height="12" rx="2.6" fill="#5c82ba" stroke="#46689a"/><rect x="-29" y="-36" width="58" height="12" rx="2.6" fill="#6fae58" stroke="#548a40"/><rect x="-25" y="-48" width="50" height="12" rx="2.6" fill="#e0a458" stroke="#c08838"/><rect x="-27" y="-60" width="54" height="12" rx="2.6" fill="#c9a8e0" stroke="#a884c4"/></g>';
+      return [
+        { minDur: 7000, sub: '蘇軾說：「博觀而約取，厚積而薄發」——像蓄水一樣大量累積學問，出手時只取最精華的一點！',
+          html: scene(P(430, 302, BOOKS3, '', 0, 1.3) +
+            P(240, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + hearts(330, 205)) },
+        { minDur: 6800, sub: '竹子前四年只長三公分——第五年起每天長三十公分！因為前四年根在地下蔓延了幾百公尺！',
+          html: scene(P(430, 302, '<g class="st-grow"><line x1="0" y1="0" x2="0" y2="-140" stroke="#5f9a4a" stroke-width="9" stroke-linecap="round"/><g stroke="#4a7a38" stroke-width="2.6"><line x1="-6" y1="-46" x2="6" y2="-46"/><line x1="-6" y1="-92" x2="6" y2="-92"/></g><path d="M0 -140 q-14 -10 -26 -8 M0 -140 q14 -10 26 -8" stroke="#6fae58" stroke-width="4" fill="none" stroke-linecap="round"/></g>' +
+              '<g stroke="#a8734a" stroke-width="3.4" fill="none" stroke-linecap="round" opacity=".7"><path d="M0 4 q-40 14 -80 10 M0 6 q40 12 84 8 M0 8 q-20 20 -18 30"/></g>') +
+            P(220, 302, A('kid', 'wow'), '', 0, .92) + bang(560, 190)) },
+        { minDur: 6800, sub: '「厚積薄發」：長期累積，爆發時力量驚人——現在的每一分努力都在扎根！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -56, BOOKS3, '', 0, .7)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '厚積薄發：長期累積，爆發時力量強大。',
+          html: scene(P(400, 302, BOOKS3, '', 0, 1.35) + bang(520, 220) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">厚積薄發</text>') }
+      ];
+    },
+    /* 海納百川 */
+    i069: function () {
+      var SEA9 = '<rect y="252" width="800" height="88" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 264 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#6db3d9" stroke-width="9" stroke-linecap="round" opacity=".9"/></g>';
+      var RIVERS = '<path d="M100 180 q40 40 90 74 M700 180 q-40 40 -90 74 M400 160 q0 50 0 92" stroke="#a8d4ee" stroke-width="8" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '一百條江河，從四面八方奔流入海——大海從不挑剔，全部容納！',
+          html: scene(SEA9 + RIVERS + qmark(250, 130)) },
+        { minDur: 7000, sub: '林則徐寫過對聯：「海納百川，有容乃大」——心胸像大海一樣，才能容得下各種不同的意見！',
+          html: scene(SEA9 +
+            P(300, 296, A('kid', 'happy')) + P(480, 296, A('kid', 'happy'), '', .2, .95) + hearts(390, 210)) },
+        { minDur: 6800, sub: '討論時聽得進反對的聲音、交朋友不分你我他——「海納百川」的度量最受歡迎！',
+          html: scene(P(280, 302, A('kid', 'happy')) + P(420, 302, A('kid', 'happy'), '', .1, .95) + P(560, 302, A('kid', 'happy'), '', .2, .93) + hearts(420, 178)) },
+        { minDur: 6400, sub: '海納百川：寬容開放，包容各方。',
+          html: scene(SEA9 + RIVERS +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">海納百川</text>') }
+      ];
+    },
+    /* 百尺竿頭 */
+    i070: function () {
+      var POLE2 = '<line x1="0" y1="0" x2="0" y2="-170" stroke="#a8734a" stroke-width="7"/><g stroke="#8a5a33" stroke-width="2.4"><line x1="-6" y1="-34" x2="6" y2="-34"/><line x1="-6" y1="-68" x2="6" y2="-68"/><line x1="-6" y1="-102" x2="6" y2="-102"/><line x1="-6" y1="-136" x2="6" y2="-136"/></g>';
+      return [
+        { minDur: 7000, sub: '雜技高手爬上百尺高竿的頂端，全場喝采——師父卻說：「百尺竿頭，更進一步！」',
+          html: scene(P(430, 302, POLE2) + P(430, 132, A('kid', 'happy'), '', 0, .7) +
+            P(220, 302, A('kid', 'wow'), '', 0, .9) + hearts(300, 210)) },
+        { minDur: 6800, sub: '已經到頂了還怎麼進步？——放開手、向上跳！超越顛峰，境界才能再開闊！',
+          html: scene(P(430, 302, POLE2) + P(430, 90, '<g class="st-hop">' + A('kid', 'happy') + '</g>', '', 0, .7) + bang(530, 80)) },
+        { minDur: 6800, sub: '「百尺竿頭」：已達最高點，還要更進一步——第一名之後，仍然天天練習的人最了不起！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.02) + hearts(460, 185) +
+            '<path d="M280 250 L380 210 L480 170 L580 130" stroke="#548a40" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M580 130 l-13 -3 l7 12 z" fill="#548a40"/>') },
+        { minDur: 6400, sub: '百尺竿頭：已達高點，更進一步。',
+          html: scene(P(400, 302, POLE2) + P(400, 130, A('kid', 'happy'), '', 0, .7) +
+            '<text x="400" y="60" text-anchor="middle" font-size="48" font-weight="bold" fill="#4a3200">百尺竿頭</text>') }
+      ];
+    },
+    /* 四通八達 */
+    i269: function () {
+      var ROADS = '<g stroke="#8b93a3" stroke-width="14"><line x1="0" y1="240" x2="800" y2="240"/><line x1="400" y1="120" x2="400" y2="340"/><line x1="150" y1="130" x2="650" y2="335"/><line x1="650" y1="130" x2="150" y2="335"/></g>' +
+        '<g stroke="#fff" stroke-width="2.4" stroke-dasharray="12 10"><line x1="0" y1="240" x2="800" y2="240"/><line x1="400" y1="120" x2="400" y2="340"/></g>';
+      return [
+        { minDur: 6800, sub: '站上天橋看路口：東西南北的大路、斜向的快速道路，四面八方都能走！',
+          html: scene(ROADS + P(150, 302, A('kid', 'wow'), '', 0, .9) + hearts(230, 210)) },
+        { minDur: 6800, sub: '高鐵、捷運、公車、渡輪——台灣的交通四通八達，想去哪裡都方便！',
+          html: scene(P(300, 292, '<rect x="-40" y="-20" width="80" height="26" rx="6" fill="#e0a458" stroke="#c08838" stroke-width="2.6"/><circle cx="-22" cy="8" r="7" fill="#3a2e26"/><circle cx="22" cy="8" r="7" fill="#3a2e26"/><rect x="-32" y="-14" width="18" height="12" rx="2" fill="#aee3f5"/><rect x="-8" y="-14" width="18" height="12" rx="2" fill="#aee3f5"/>', 'st-strut') +
+            P(560, 292, '<rect x="-46" y="-16" width="92" height="22" rx="10" fill="#c9d6e8" stroke="#8b93a3" stroke-width="2.6"/><rect x="-36" y="-10" width="20" height="10" rx="2" fill="#5c82ba"/><rect x="-8" y="-10" width="20" height="10" rx="2" fill="#5c82ba"/>', 'st-strut', .3)) },
+        { minDur: 6600, sub: '「四通八達」：交通便利、各方通行無阻——也形容人脈或資訊流通廣！',
+          html: scene(ROADS + bang(400, 90)) },
+        { minDur: 6400, sub: '四通八達：交通便利，各方通行無阻。',
+          html: scene(ROADS +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">四通八達</text>') }
+      ];
+    },
+    /* 五花八門 */
+    i270: function () {
+      return [
+        { minDur: 6800, sub: '社團博覽會上：魔術社、烘焙社、機器人社、街舞社、天文社……攤位一個比一個精彩！',
+          html: scene(P(240, 302, '<rect x="-40" y="-30" width="80" height="30" rx="4" fill="#e85a4f" stroke="#c94a3f" stroke-width="2.6"/>') +
+            P(400, 302, '<rect x="-40" y="-30" width="80" height="30" rx="4" fill="#5c82ba" stroke="#46689a" stroke-width="2.6"/>') +
+            P(560, 302, '<rect x="-40" y="-30" width="80" height="30" rx="4" fill="#6fae58" stroke="#548a40" stroke-width="2.6"/>') +
+            P(320, 302, A('kid', 'wow'), '', 0, .9) + hearts(470, 230)) },
+        { minDur: 6800, sub: '夜市小吃也是五花八門：蚵仔煎、地瓜球、木瓜牛奶——選擇多到不知道吃哪個！',
+          html: scene(P(300, 290, '<circle cx="0" cy="0" r="12" fill="#ffd97a"/>', '', 0, 1.1) +
+            P(400, 285, '<circle cx="0" cy="0" r="10" fill="#e0a458"/>', '', .2, 1.1) +
+            P(500, 292, '<rect x="-10" y="-14" width="20" height="24" rx="6" fill="#ff9eb5"/>', '', .4, 1.1) +
+            P(220, 302, A('kid', 'happy')) + qmark(360, 200) + hearts(560, 220)) },
+        { minDur: 6600, sub: '「五花八門」：花樣繁多、變化多端——目不暇給的豐富世界！',
+          html: scene(P(280, 260, '<circle cx="0" cy="0" r="14" fill="#ff9eb5"/>', '', 0, 1) + P(380, 245, '<rect x="-12" y="-12" width="24" height="24" rx="4" fill="#a5c8ff"/>', '', .2, 1) +
+            P(480, 262, '<path d="M0 -14 L12 8 L-12 8 Z" fill="#a5d47c"/>', '', .4, 1) + P(560, 248, '<circle cx="0" cy="0" r="11" fill="#ffd97a"/>', '', .5, 1) + hearts(420, 300)) },
+        { minDur: 6400, sub: '五花八門：花樣繁多，變化多端。',
+          html: scene(P(280, 255, '<circle cx="0" cy="0" r="14" fill="#ff9eb5"/>') + P(400, 240, '<rect x="-12" y="-12" width="24" height="24" rx="4" fill="#a5c8ff"/>') +
+            P(520, 258, '<path d="M0 -14 L12 8 L-12 8 Z" fill="#a5d47c"/>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">五花八門</text>') }
+      ];
+    },
+    /* 六神無主 */
+    i271: function () {
+      return [
+        { minDur: 6800, sub: '書包不見了！明明放在椅子上——小主急得原地打轉：找老師？回教室？打電話？完全亂了方寸！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            qmark(310, 180) + qmark(400, 155) + qmark(490, 180) + sweat(340, 195) + sweat(460, 198)) },
+        { minDur: 6800, sub: '「六神」是古人說掌管心肝脾肺腎膽的神——六神都沒了主意，就是慌到極點！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            P(290, 190, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="12" fill="#c96a5a">?</text>') +
+            P(360, 165, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="12" fill="#e0a458">?</text>', '', .1) +
+            P(440, 165, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="12" fill="#548a40">?</text>', '', .2) +
+            P(510, 190, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-size="12" fill="#5c82ba">?</text>', '', .3)) },
+        { minDur: 6800, sub: '深呼吸、按順序想：最後在哪裡看到它？——冷靜下來，果然在體育館找回書包！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -46, '<rect x="-14" y="-16" width="28" height="20" rx="4" fill="#5c82ba" stroke="#46689a" stroke-width="2.4"/>', '', 0, 1)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '六神無主：驚慌失措，拿不定主意。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.08) + qmark(320, 180) + qmark(480, 182) + sweat(400, 158) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">六神無主</text>') }
+      ];
     }
   };
 
