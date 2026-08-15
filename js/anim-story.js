@@ -23367,6 +23367,191 @@
           html: scene(P(400, 250, '<rect x="-64" y="-46" width="128" height="92" rx="5" fill="#ffe9a0" stroke="#e8b93f" stroke-width="3"/><g fill="#ffd97a" stroke="#e8b93f" stroke-width="2"><rect x="-46" y="-28" width="30" height="24" rx="3"/><rect x="-2" y="-28" width="30" height="24" rx="3"/><rect x="-46" y="6" width="40" height="26" rx="3"/></g>', '', 0, 1.1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">紙醉金迷</text>', 'night') }
       ];
+    },
+    /* 醉生夢死 */
+    i984: function () {
+      return [
+        { minDur: 7000, sub: '程頤感嘆：再聰明的人若困在成見裡，「醉生夢死，不自覺也」——渾渾噩噩還不自知！',
+          html: scene(P(400, 296, '<g transform="rotate(-80)">' + A('kid', 'sad') + '</g>', '', 0, 1.05) + zzz(490, 240) +
+            P(280, 290, '<path d="M-8 -12 a8 12 0 0 1 16 0 l-2 16 h-12 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2" transform="rotate(24)"/>', '', 0, 1.05), 'night') },
+        { minDur: 6800, sub: '「醉生夢死」：像醉著、夢著一樣糊塗過日子——一天滑掉、一週晃掉、一年空掉……',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-40, -40, '<rect x="-12" y="-20" width="24" height="40" rx="4" fill="#3a2e26"/><rect x="-8" y="-15" width="16" height="30" rx="2" fill="#9db8d9"/>', '', 0, 1), 'st-bob', 0, 1.02) +
+            P(560, 240, '<g opacity=".75" font-size="11" fill="#dbe4f0" text-anchor="middle"><text x="0" y="-14">一天…</text><text x="0" y="2">一週…</text><text x="0" y="18">一年…</text></g>', 'st-zfloat', 0, 1) + zzz(280, 220), 'night') },
+        { minDur: 6800, sub: '醒過來的方法很簡單：訂一個小目標、今天就動手——有目標的日子，每天都醒著！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-46, -52, '<rect x="-18" y="-14" width="36" height="28" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-1" text-anchor="middle" font-size="8" fill="#548a40">今天:跑</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#548a40">3圈</text>', '', 0, 1), 'st-cheer', 0, 1.05) + hearts(470, 190) +
+            P(580, 160, '<circle cx="0" cy="0" r="20" fill="#ffdd66"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '醉生夢死：渾噩度日，虛擲光陰。',
+          html: scene(P(400, 296, '<g transform="rotate(-80)">' + A('kid', 'sad') + '</g>', '', 0, 1.08) + zzz(500, 240) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">醉生夢死</text>', 'night') }
+      ];
+    },
+    /* 揮霍無度 */
+    i985: function () {
+      return [
+        { minDur: 7000, sub: '他中了獎金，立刻大買特買：名牌、大餐、最新手機——鈔票像揮手一樣撒出去！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -14 M-28 -56 l-16 -14" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', 'st-cheer', 0, 1.05) +
+            '<g class="st-zfloat"><g fill="#a5d47c" stroke="#7fa858" stroke-width="1.6"><rect x="470" y="180" width="30" height="16" rx="2"/><rect x="530" y="150" width="30" height="16" rx="2" transform="rotate(14 545 158)"/><rect x="250" y="170" width="30" height="16" rx="2" transform="rotate(-12 265 178)"/></g></g>' + notes(600, 220)) },
+        { minDur: 6800, sub: '「揮霍無度」：花錢隨意、毫無節制——錢包比想像中淺，很快就見底了！',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-38, -36, '<path d="M-12 -10 h24 l-3 20 h-18 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/><g class="st-tw"><path d="M-4 -16 q4 -6 8 0" stroke="#8b93a3" stroke-width="2" fill="none"/></g>', '', 0, 1.1), '', 0, 1.05) + sweat(500, 190) + qmark(290, 195)) },
+        { minDur: 6800, sub: '相對詞是「量入為出」——先分配再花：儲蓄、需要、想要，各給一格！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-46, -52, '<rect x="-18" y="-16" width="36" height="32" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-18 -5 h36 M-6 -16 v32 M6 -16 v32" stroke="#c9bfa8" stroke-width="1.8"/><g font-size="6" fill="#548a40" text-anchor="middle"><text x="-12" y="8">存</text><text x="0" y="8">需</text><text x="12" y="8">想</text></g>', '', 0, 1.05)) + hearts(450, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">量入</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">為出</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '揮霍無度：散財如土，坐耗千金。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -14" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1.08) +
+            '<g class="st-zfloat"><g fill="#a5d47c" stroke="#7fa858" stroke-width="1.6"><rect x="480" y="185" width="30" height="16" rx="2"/><rect x="280" y="175" width="30" height="16" rx="2" transform="rotate(-12 295 183)"/></g></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">揮霍無度</text>') }
+      ];
+    },
+    /* 坐吃山空 */
+    i986: function () {
+      return [
+        { minDur: 7000, sub: '元雜劇《東堂老》的警句：「坐吃山空，立吃地陷」——光吃不賺，金山也會吃光！',
+          html: scene(P(500, 302, '<path d="M-90 0 L0 -100 L90 0 Z" fill="#e8b93f" opacity=".9"/><g fill="#ffd97a"><circle cx="-20" cy="-40" r="8"/><circle cx="20" cy="-56" r="7"/><circle cx="0" cy="-20" r="9"/></g>', '', 0, 1.05) +
+            P(260, 302, A('kid', 'happy') + P(38, -40, '<path d="M-8 -6 h16 v4 q0 8 -8 8 q-8 0 -8 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1.02)) },
+        { minDur: 6800, sub: '一年後：金山變小丘、小丘變平地——只出不進，再厚的家底也撐不住！',
+          html: scene(P(520, 302, '<path d="M-40 0 L0 -34 L40 0 Z" fill="#e8b93f" opacity=".7"/>', '', 0, 1) +
+            P(280, 302, A('kid', 'wow') + P(-38, -36, '<path d="M-12 -10 h24 l-3 20 h-18 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1), '', 0, 1.02) + sweat(380, 195) + qmark(600, 240)) },
+        { minDur: 6800, sub: '「坐吃山空」的解方是開源——失業了就快找工作、有收入才有底氣！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(-44, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><text x="0" y="0" text-anchor="middle" font-size="7" fill="#5a8fbf">履歷</text>', '', 0, .95), 'st-dashL', 0, 1.02) +
+            P(600, 270, '<rect x="-28" y="-22" width="56" height="44" rx="4" fill="#e8d9b8" stroke="#b59a6a" stroke-width="2.6"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#8a5a33">公司</text>', '', 0, 1) + bang(280, 200)) },
+        { minDur: 6400, sub: '坐吃山空：坐食無源，金山亦盡。',
+          html: scene(P(480, 302, '<path d="M-50 0 L0 -44 L50 0 Z" fill="#e8b93f" opacity=".7"/>', '', 0, 1.05) +
+            P(280, 302, A('kid', 'sad') + P(38, -40, '<path d="M-8 -6 h16 v4 q0 8 -8 8 q-8 0 -8 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">坐吃山空</text>') }
+      ];
+    },
+    /* 入不敷出 */
+    i987: function () {
+      return [
+        { minDur: 7000, sub: '月底記帳：收入一小疊、支出一大疊——「敷」是足夠：收入不夠付支出！',
+          html: scene(P(300, 280, '<rect x="-26" y="-10" width="52" height="20" rx="3" fill="#a5d47c" stroke="#7fa858" stroke-width="2.4"/><text x="0" y="-20" text-anchor="middle" font-size="10" fill="#548a40">收入</text>', '', 0, 1.05) +
+            P(500, 250, '<g fill="#f4a8a8" stroke="#d98a8a" stroke-width="2.4"><rect x="-26" y="20" width="52" height="20" rx="3"/><rect x="-26" y="-4" width="52" height="20" rx="3"/><rect x="-26" y="-28" width="52" height="20" rx="3"/></g><text x="0" y="-40" text-anchor="middle" font-size="10" fill="#c96a5a">支出</text>', '', 0, 1.05) +
+            P(400, 302, A('kid', 'wow'), '', 0, .95) + sweat(340, 210)) },
+        { minDur: 6800, sub: '「入不敷出」：收入不夠支出——注意寫法：「敷」不能寫成「膚」！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-46, -54, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-6" text-anchor="middle" font-size="10" fill="#c96a5a">-3000</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#8b93a3">本月</text>', '', 0, 1)) + sweat(450, 195) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#5a8fbf">敷≠膚</text><text x="0" y="11" text-anchor="middle" font-size="8" fill="#8b93a3">敷=足夠</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '記帳是照妖鏡：先看見錢流去哪，才砍得掉不必要的洞——收支平衡是理財第一課！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-14" y="-24" width="28" height="48" rx="5" fill="#3a2e26"/><rect x="-10" y="-19" width="20" height="38" rx="2.6" fill="#fff"/><text x="0" y="4" text-anchor="middle" font-size="6" fill="#548a40">記帳</text>', '', 0, .95)) + hearts(470, 190) +
+            P(570, 240, '<line x1="0" y1="0" x2="0" y2="-40" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><line x1="-30" y1="-38" x2="30" y2="-38" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><circle cx="-30" cy="-26" r="9" fill="#a5d47c"/><circle cx="30" cy="-26" r="9" fill="#f4a8a8"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '入不敷出：支逾所入，捉襟見肘。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-38, -36, '<path d="M-12 -10 h24 l-3 20 h-18 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1.05), '', 0, 1.08) + sweat(500, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">入不敷出</text>') }
+      ];
+    },
+    /* 流離失所 */
+    i988: function () {
+      return [
+        { minDur: 7000, sub: '大地震過後，房屋倒塌——一家人抱著僅存的包袱，站在瓦礫前不知何去何從……',
+          html: scene(P(520, 296, '<g fill="#b5a988" stroke="#8f846a" stroke-width="2.4"><path d="M-50 0 l18 -30 l24 8 l-10 22 z"/><rect x="0" y="-18" width="34" height="18" rx="2" transform="rotate(12 17 -9)"/><path d="M28 -2 l20 -22 l14 12 l-16 12 z"/></g>', '', 0, 1.05) +
+            P(280, 302, A('kid', 'sad') + P(-34, -40, '<circle cx="0" cy="0" r="11" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>', '', 0, 1), '', 0, 1) +
+            P(350, 302, A('kid', 'sad'), '', 0, .8) + sweat(240, 200), 'night') },
+        { minDur: 6800, sub: '「流離失所」：因災禍戰亂失去安身之處——它比「搬家」沉重得多：是無家可歸！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-34, -40, '<circle cx="0" cy="0" r="11" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>', '', 0, 1), 'st-dashL', 0, 1) +
+            '<g class="st-rain" opacity=".55"><g stroke="#9db8d9" stroke-width="2.6" stroke-linecap="round"><line x1="260" y1="120" x2="252" y2="142"/><line x1="430" y1="100" x2="422" y2="122"/><line x1="580" y1="130" x2="572" y2="152"/></g></g>' + qmark(500, 200), 'night') },
+        { minDur: 6800, sub: '收容所的熱湯、捐出的毛毯——對流離失所的人來說，一點溫暖就是一整個家！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(40, -40, '<path d="M-10 -4 a10 8 0 0 0 20 0 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><g class="st-tw"><path d="M-2 -12 q3 -6 0 -10" stroke="#dbe4f0" stroke-width="2.4" fill="none"/></g>', '', 0, 1)) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-20 -30 q20 10 40 0 l0 22 q-20 8 -40 0 z" fill="#e07a94" opacity=".8"/>', '', 0, .98, true) + hearts(440, 185)) },
+        { minDur: 6400, sub: '流離失所：離散無依，何處為家。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-34, -40, '<circle cx="0" cy="0" r="11" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>', '', 0, 1), 'st-dashL', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">流離失所</text>', 'night') }
+      ];
+    },
+    /* 民不聊生 */
+    i989: function () {
+      return [
+        { minDur: 7200, sub: '《史記》寫秦末：苛稅勞役壓得「財匱力盡，民不聊生」——百姓連活下去都難！',
+          html: scene(P(300, 302, '<g transform="rotate(6)">' + A('kid', 'sad') + '</g>' + P(0, -60, '<path d="M-20 0 q20 -14 40 0 l-4 10 h-32 z" fill="#8a6a44"/>', '', 0, 1), '', 0, .98) +
+            P(450, 302, '<g transform="rotate(-6)">' + A('kid', 'sad') + '</g>', '', 0, .92) +
+            P(590, 302, A('kid', 'sad'), 'st-slump', 0, .95) + sweat(360, 200) + sweat(530, 205), 'night') },
+        { minDur: 6800, sub: '「民不聊生」（聊＝賴）：人民無以維生——形容政治敗壞、民生凋敝到極點！',
+          html: scene(P(400, 285, '<ellipse cx="0" cy="8" rx="56" ry="12" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="10" fill="#8b93a3">（空的）</text>', '', 0, 1.1) +
+            P(260, 302, A('kid', 'sad'), '', 0, .95) + sweat(320, 200) + qmark(540, 210), 'night') },
+        { minDur: 6800, sub: '相對詞是「安居樂業、國泰民安」——政治的好壞，最終都寫在百姓的飯碗裡！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -40, '<path d="M-8 -6 h16 v4 q0 8 -8 8 q-8 0 -8 -8 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><g class="st-tw"><path d="M0 -10 q3 -6 0 -10" stroke="#dbe4f0" stroke-width="2.2" fill="none"/></g>', '', 0, 1)) +
+            P(560, 230, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#548a40">相對:</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#548a40">安居樂業</text>', '', 0, 1) + hearts(260, 195)) },
+        { minDur: 6400, sub: '民不聊生：民生凋敝，苦不堪言。',
+          html: scene(P(400, 302, '<g transform="rotate(6)">' + A('kid', 'sad') + '</g>', 'st-slump', 0, 1.05) + sweat(500, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">民不聊生</text>', 'night') }
+      ];
+    },
+    /* 國泰民安 */
+    i990: function () {
+      return [
+        { minDur: 7000, sub: '《夢粱錄》記杭州民俗：歲末祭祀，全城祈求「國泰民安」——最樸素也最大的心願！',
+          html: scene(P(400, 250, '<rect x="-44" y="-30" width="88" height="60" rx="4" fill="#c96a5a" stroke="#a8544a" stroke-width="3"/><path d="M-54 -30 L0 -58 L54 -30 Z" fill="#8a5a33" stroke="#6d4526" stroke-width="2.6"/><text x="0" y="8" text-anchor="middle" font-size="12" fill="#ffe9a0">國泰民安</text>', '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy') + '<path d="M-8 -34 l8 6 8 -6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .95) +
+            P(550, 302, A('kid', 'happy') + '<path d="M-8 -34 l8 6 8 -6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, .95, true) + hearts(400, 190)) },
+        { minDur: 6800, sub: '「國泰民安」：國家太平、人民安樂——菜市場的喧鬧、放學路上的笑聲，就是它的樣子！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-hop', 0, .95) +
+            P(420, 302, A('kid', 'happy'), '', 0, .9) +
+            P(540, 302, A('kid', 'happy') + P(-38, -40, '<path d="M-10 8 h20 l-3 -16 h-14 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/><g fill="#a5d47c"><circle cx="-4" cy="-12" r="4"/><circle cx="4" cy="-14" r="4"/></g>', '', 0, 1), '', 0, .95, true) + notes(360, 190) + hearts(620, 200)) },
+        { minDur: 6800, sub: '太平不是理所當然——是無數人守著崗位換來的：珍惜平凡日子，就是惜福！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#5a8fbf" stroke="#4a7aa8" stroke-width="2"/>', '', 0, .95) +
+            P(460, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#c96a5a" stroke="#a8544a" stroke-width="2"/>', '', 0, .95) +
+            P(600, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', '', 0, .95, true) + hearts(400, 185)) },
+        { minDur: 6400, sub: '國泰民安：家國安泰，歲月靜好。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) +
+            P(600, 150, '<circle cx="0" cy="0" r="20" fill="#ffdd66"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">國泰民安</text>') }
+      ];
+    },
+    /* 風調雨順 */
+    i991: function () {
+      return [
+        { minDur: 7000, sub: '《六韜》說武王克商後天下大治：「風調雨順」——風來得柔、雨下得巧，正合農時！',
+          html: scene('<g class="st-rain" opacity=".5"><g stroke="#9db8d9" stroke-width="2.4" stroke-linecap="round"><line x1="300" y1="120" x2="294" y2="138"/><line x1="420" y1="105" x2="414" y2="123"/><line x1="540" y1="125" x2="534" y2="143"/></g></g>' +
+            P(400, 302, '<g fill="none" stroke="#79b56a" stroke-width="4" stroke-linecap="round"><path d="M-60 0 q-4 -20 -10 -26"/><path d="M0 0 q0 -24 -4 -30"/><path d="M60 0 q4 -20 10 -26"/></g>', 'st-grow', 0, 1.1) +
+            P(250, 302, A('kid', 'happy') + '<path d="M-8 -80 a20 12 0 0 1 40 0 z" fill="#e8b93f" transform="translate(-12 0)"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '「風調雨順」：氣候適宜、年成有望——農夫看天吃飯，最懂這四個字的珍貴！',
+          html: scene(P(560, 150, '<circle cx="0" cy="0" r="22" fill="#ffdd66"/>', '', 0, 1) +
+            '<g class="st-cloud"><ellipse cx="280" cy="130" rx="34" ry="12" fill="#dbe4f0"/></g>' +
+            P(400, 302, '<g fill="#e8ce7a"><path d="M-70 0 q-4 -26 -12 -34 l4 -3 q10 10 14 37 z"/><path d="M-20 0 q-2 -30 -8 -38 l4 -3 q8 10 10 41 z"/><path d="M30 0 q0 -28 -6 -36 l5 -3 q7 12 7 39 z"/><path d="M75 0 q2 -24 -4 -32 l5 -2 q6 10 5 34 z"/></g>', '', 0, 1.1) + hearts(250, 220)) },
+        { minDur: 6800, sub: '它常和「國泰民安、五穀豐登」連用——賀年紅包袋上的老朋友，寫的是共同的盼望！',
+          html: scene(P(400, 250, '<rect x="-34" y="-46" width="68" height="92" rx="5" fill="#c96a5a" stroke="#a8544a" stroke-width="2.6"/><text x="0" y="-16" text-anchor="middle" font-size="12" fill="#ffe9a0">風調</text><text x="0" y="4" text-anchor="middle" font-size="12" fill="#ffe9a0">雨順</text><circle cx="0" cy="26" r="10" fill="#ffd97a"/>', '', 0, 1.1) +
+            P(250, 302, A('kid', 'happy'), '', 0, .95) + P(550, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(480, 200)) },
+        { minDur: 6400, sub: '風調雨順：天時相佑，歲歲有成。',
+          html: scene('<g class="st-rain" opacity=".45"><g stroke="#9db8d9" stroke-width="2.4" stroke-linecap="round"><line x1="300" y1="115" x2="294" y2="133"/><line x1="500" y1="110" x2="494" y2="128"/></g></g>' +
+            P(400, 302, '<g fill="none" stroke="#79b56a" stroke-width="4" stroke-linecap="round"><path d="M-50 0 q-4 -20 -10 -26"/><path d="M10 0 q0 -24 -4 -30"/><path d="M60 0 q4 -20 10 -26"/></g>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">風調雨順</text>') }
+      ];
+    },
+    /* 五穀豐登 */
+    i992: function () {
+      return [
+        { minDur: 7000, sub: '秋收時節：稻穗低頭、玉米飽滿、豆莢鼓脹——「登」是成熟收成：五穀都熟啦！',
+          html: scene(P(300, 302, '<g fill="#e8ce7a"><path d="M-20 0 q-2 -30 -8 -38 l4 -3 q8 10 10 41 z"/><path d="M10 0 q0 -28 -6 -36 l5 -3 q7 12 7 39 z"/></g>', '', 0, 1.1) +
+            P(430, 296, '<g fill="#ffd97a" stroke="#e8b93f" stroke-width="2"><ellipse cx="0" cy="-14" rx="12" ry="22"/></g><g fill="#a5d47c"><path d="M-10 -34 q10 -10 20 0 l-10 6 z"/></g>', '', 0, 1.05) +
+            P(540, 298, '<g fill="#a5d47c" stroke="#7fa858" stroke-width="2"><path d="M-8 0 q-6 -20 4 -28 q10 8 4 28 z"/></g>', '', 0, 1.05) +
+            P(650, 296, '<circle cx="0" cy="-12" r="14" fill="#e8985a"/>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '「五穀豐登」：各種糧食大豐收——《孟子》「五穀不登」就是反過來的荒年！',
+          html: scene(P(400, 290, '<path d="M-50 10 q-8 -34 10 -42 l80 0 q18 8 10 42 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><g fill="#ffe9a0"><circle cx="-24" cy="-34" r="9"/><circle cx="0" cy="-40" r="10"/><circle cx="24" cy="-34" r="9"/></g>', '', 0, 1.15) +
+            P(250, 302, A('kid', 'happy'), 'st-cheer', 0, .95) + P(560, 302, A('kid', 'happy'), 'st-cheer', 0, .95, true) + hearts(400, 190)) },
+        { minDur: 6800, sub: '豐收的背後是春耕夏耘——種下、照顧、等待：所有的「登」都是時間加汗水！',
+          html: scene(P(320, 302, A('kid', 'angry') + P(34, -40, HOE, 'st-hoe', 0, .8) + '<path d="M-8 -80 a20 12 0 0 1 40 0 z" fill="#e8b93f" transform="translate(-12 0)"/>', '', 0, 1.02) + sweat(420, 195) +
+            P(580, 160, '<circle cx="0" cy="0" r="20" fill="#ffdd66"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '五穀豐登：倉廩充實，歲物豐成。',
+          html: scene(P(400, 290, '<path d="M-50 10 q-8 -34 10 -42 l80 0 q18 8 10 42 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><g fill="#ffe9a0"><circle cx="-24" cy="-34" r="9"/><circle cx="0" cy="-40" r="10"/><circle cx="24" cy="-34" r="9"/></g>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">五穀豐登</text>') }
+      ];
+    },
+    /* 泰然自若 */
+    i993: function () {
+      return [
+        { minDur: 7200, sub: '李廣中伏被圍，部下大亂——他「意氣自若」：整隊、布陣、談笑如常，穩住了全軍！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#6d5335" stroke="#4a3a24" stroke-width="2"/>', '', 0, 1.08) +
+            P(240, 302, A('kid', 'wow'), 'st-bob', 0, .9) + P(560, 302, A('kid', 'wow'), 'st-bob', 0, .9, true) + sweat(300, 195) + sweat(620, 195)) },
+        { minDur: 6800, sub: '「泰然自若」：鎮定安然、一如平常——慌的人先輸一半，穩的人才看得見出路！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<g class="st-tw" opacity=".6"><path d="M250 240 q-14 -8 -10 -22 M550 240 q14 -8 10 -22" stroke="#9db8d9" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>' +
+            P(560, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#5a8fbf">深呼吸</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#5a8fbf">再判斷</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '考卷比想像難、上台忘詞——先穩三秒：能做的先做，鎮定本身就是實力！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-46, -54, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-4" text-anchor="middle" font-size="8" fill="#548a40">會的</text><text x="0" y="8" text-anchor="middle" font-size="8" fill="#548a40">先寫</text>', '', 0, 1)) + hearts(470, 190) +
+            P(580, 230, '<g class="st-tw"><path d="M0 0 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>', '', 0, 1.05)) },
+        { minDur: 6400, sub: '泰然自若：處之泰然，神色不動。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.1) +
+            '<g class="st-tw" opacity=".55"><path d="M270 235 q-14 -8 -10 -22 M530 235 q14 -8 10 -22" stroke="#9db8d9" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">泰然自若</text>') }
+      ];
     }
   };
 
