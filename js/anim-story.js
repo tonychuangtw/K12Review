@@ -8480,6 +8480,123 @@
           html: scene(P(400, 268, CHECKLIST, '', 0, 1.35) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">萬無一失</text>') }
       ];
+    },
+    /* 應接不暇 */
+    i278: function () {
+      return [
+        { minDur: 6800, sub: '園遊會的攤位擠滿客人：這桌要點餐、那桌要結帳、後面還在喊補貨——忙到轉不過身！',
+          html: scene(P(430, 302, '<rect x="-60" y="-30" width="120" height="30" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>') +
+            P(360, 302, A('kid', 'wow'), '', 0, .98) + sweat(320, 190) +
+            P(180, 302, A('kid', 'happy'), '', 0, .88) + P(600, 302, A('kid', 'happy'), '', .2, .88, true) +
+            qmark(250, 185) + qmark(550, 182)) },
+        { minDur: 7000, sub: '這個詞出自《世說新語》：山陰道上山川互相輝映，美景一個接一個，讓人「應接不暇」！',
+          html: scene(P(150, 302, '<path d="M-90 0 L0 -110 L90 0 Z" fill="#8fb0a0"/>') +
+            '<rect y="286" width="800" height="54" fill="#7fb2e0"/>' +
+            P(560, 302, '<path d="M-90 0 L0 -100 L90 0 Z" fill="#a5c2b2"/>') +
+            P(350, 296, A('kid', 'wow'), '', 0, .95) + hearts(430, 210)) },
+        { minDur: 6600, sub: '「應接不暇」：事物繁多，來不及應付或欣賞——忙碌時、看美景時都能用！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + sweat(330, 190) +
+            bang(280, 200) + qmark(490, 182) + notes(520, 210)) },
+        { minDur: 6400, sub: '應接不暇：事物繁多，來不及應付。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.08) + sweat(330, 190) + qmark(480, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">應接不暇</text>') }
+      ];
+    },
+    /* 目不暇給 */
+    i279: function () {
+      function fw(x, y, color, dly) {
+        return P(x, y, '<g class="st-tw"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<g stroke="' + color + '" stroke-width="2.6" stroke-linecap="round"><line x1="0" y1="-16" x2="0" y2="-8"/><line x1="0" y1="8" x2="0" y2="16"/><line x1="-16" y1="0" x2="-8" y2="0"/><line x1="8" y1="0" x2="16" y2="0"/><line x1="-11" y1="-11" x2="-6" y2="-6"/><line x1="6" y1="6" x2="11" y2="11"/><line x1="11" y1="-11" x2="6" y2="-6"/><line x1="-6" y1="6" x2="-11" y2="11"/></g></g>');
+      }
+      return [
+        { minDur: 6800, sub: '跨年煙火秀開始！左邊金色瀑布、右邊紫色流星、正中央開出大牡丹——看哪邊都捨不得眨眼！',
+          html: scene(fw(250, 130, '#ffd97a', 0) + fw(430, 90, '#c9a8e0', .3) + fw(590, 140, '#ff9eb5', .6) +
+            P(400, 302, A('kid', 'wow'), '', 0, .95) + hearts(480, 230), 'night') },
+        { minDur: 6800, sub: '「暇」是空閒——美好的東西太多，眼睛忙到沒有空閒，就是「目不暇給」！',
+          html: scene(fw(300, 120, '#a5c8ff', 0) + fw(500, 100, '#ffd97a', .4) +
+            P(400, 220, '<path d="M-24 0 Q0 -20 24 0 Q0 20 -24 0 Z" fill="#fff" stroke="#4a3200" stroke-width="2.8"/><circle cx="0" cy="0" r="8" fill="#6b4a32"/>', '', 0, 1.2), 'night') },
+        { minDur: 6600, sub: '逛水族館也是目不暇給：熱帶魚、水母、企鵝——處處是驚喜！',
+          html: scene('<rect y="240" width="800" height="100" fill="#7fb2e0" opacity=".7"/>' +
+            P(280, 290, A('fish'), '', 0, .95) + P(450, 275, A('fish'), '', .3, .8, true) + P(580, 295, A('fish'), '', .5, .9) +
+            P(150, 302, A('kid', 'wow'), '', 0, .92) + hearts(220, 220)) },
+        { minDur: 6400, sub: '目不暇給：美好事物太多，眼睛看不過來。',
+          html: scene(fw(280, 130, '#ffd97a', 0) + fw(450, 100, '#ff9eb5', .3) + fw(600, 140, '#a5c8ff', .6) +
+            '<text x="400" y="280" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">目不暇給</text>', 'night') }
+      ];
+    },
+    /* 美不勝收 */
+    i280: function () {
+      function flower9(x, y, color, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '><line x1="0" y1="0" x2="0" y2="-14" stroke="#5f8a46" stroke-width="3"/><circle cx="0" cy="-19" r="4.6" fill="' + color + '"/><circle cx="-5" cy="-15" r="4.6" fill="' + color + '"/><circle cx="5" cy="-15" r="4.6" fill="' + color + '"/><circle cx="0" cy="-15" r="3" fill="#ffe066"/></g>');
+      }
+      var RAINBOW2 = '<g fill="none" stroke-width="6"><path d="M220 230 A180 180 0 0 1 580 230" stroke="#e85a4f"/><path d="M231 230 A169 169 0 0 1 569 230" stroke="#ffb14d"/><path d="M242 230 A158 158 0 0 1 558 230" stroke="#ffe066"/><path d="M253 230 A147 147 0 0 1 547 230" stroke="#a5d47c"/></g>';
+      return [
+        { minDur: 6800, sub: '春天的陽明山：滿山櫻花、雲海翻騰，山腳還掛著一道彩虹——美景多到看不完！',
+          html: scene(RAINBOW2 + flower9(260, 318, '#ff9eb5', 0) + flower9(370, 320, '#f7a8c4', .3) + flower9(480, 318, '#ff9eb5', .5) +
+            P(160, 302, A('kid', 'wow'), '', 0, .92) + hearts(240, 215)) },
+        { minDur: 6600, sub: '相機拍了三百張還捨不得停——「勝」是盡的意思：美得欣賞不盡！',
+          html: scene(flower9(300, 320, '#ff9eb5', 0) + flower9(420, 318, '#c9a8e0', .3) +
+            P(540, 302, A('kid', 'happy') + P(-40, -56, '<rect x="-16" y="-12" width="32" height="22" rx="4" fill="#3a2e26"/><circle cx="0" cy="-1" r="7" fill="#8fa3bf"/>', '', 0, .95)) + hearts(430, 230)) },
+        { minDur: 6600, sub: '「美不勝收」：美好的事物多得看不完——大自然是最慷慨的畫家！',
+          html: scene(RAINBOW2 + flower9(300, 320, '#ffd97a', 0) + flower9(500, 318, '#ff9eb5', .4) + hearts(400, 260)) },
+        { minDur: 6400, sub: '美不勝收：美好的事物多得看不完。',
+          html: scene(RAINBOW2 + flower9(280, 320, '#ff9eb5', 0) + flower9(420, 318, '#c9a8e0', .3) + flower9(540, 322, '#ffd97a', .5) +
+            '<text x="400" y="300" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">美不勝收</text>') }
+      ];
+    },
+    /* 嘆為觀止 */
+    i281: function () {
+      return [
+        { minDur: 7000, sub: '春秋時吳國公子季札欣賞樂舞，看到最精彩處讚嘆：「觀止矣！」——看到這裡就是頂點，不必再看別的了！',
+          html: scene(P(400, 288, '<rect x="-90" y="0" width="180" height="14" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>') +
+            P(400, 288, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1) + notes(480, 180) +
+            P(200, 302, A('kid', 'wow') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95) + hearts(280, 200)) },
+        { minDur: 6800, sub: '故宮的翠玉白菜、雲門的舞作、煙火大會的壓軸——精彩到讓人由衷讚嘆！',
+          html: scene(P(430, 260, '<path d="M-10 20 q-14 -6 -12 -26 q2 -16 12 -22 q4 -2 8 0 q10 6 12 22 q2 20 -12 26 q-4 2 -8 0 z" fill="#8fd0c0" stroke="#5aa896" stroke-width="2.4"/><path d="M-6 -24 q6 -8 12 0" stroke="#a5d47c" stroke-width="4" fill="none"/>', '', 0, 1.4) +
+            P(240, 302, A('kid', 'wow'), '', 0, .95) + hearts(330, 210) + bang(560, 200)) },
+        { minDur: 6600, sub: '「嘆為觀止」：讚嘆所見美好到了極點——最高等級的讚美！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + hearts(490, 188) + bang(300, 195)) },
+        { minDur: 6400, sub: '嘆為觀止：讚嘆所見事物美好到極點。',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'wow') + '</g>', '', 0, 1.05) + hearts(490, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">嘆為觀止</text>') }
+      ];
+    },
+    /* 迥然不同 */
+    i282: function () {
+      return [
+        { minDur: 6800, sub: '雙胞胎的房間一開門就分得出來：哥哥貼滿球星海報、弟弟擺滿星空模型——風格完全兩個世界！',
+          html: scene(P(240, 300, '<rect x="-70" y="-90" width="140" height="90" rx="6" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><rect x="-50" y="-70" width="36" height="26" rx="3" fill="#e0a458"/><circle cx="20" cy="-40" r="12" fill="#e85a4f"/>') +
+            P(560, 300, '<rect x="-70" y="-90" width="140" height="90" rx="6" fill="#31406b" stroke="#c9bfa8" stroke-width="3"/><circle class="st-tw" cx="-30" cy="-60" r="3" fill="#fff"/><circle class="st-tw" style="animation-delay:.5s" cx="20" cy="-44" r="4" fill="#fff"/><path d="M30 -70 A16 16 0 1 0 40 -48 A12 12 0 1 1 30 -70 Z" fill="#f4f1de"/>') + qmark(400, 170)) },
+        { minDur: 6800, sub: '「迥」是相差很遠——差距大到一眼就看出來，完全不一樣！',
+          html: scene(P(300, 260, '<circle cx="0" cy="0" r="30" fill="#ffd97a" stroke="#e8b84a" stroke-width="3"/>') +
+            P(500, 260, '<rect x="-26" y="-26" width="52" height="52" rx="6" fill="#5c82ba" stroke="#46689a" stroke-width="3"/>') +
+            '<text x="400" y="270" text-anchor="middle" font-size="26" fill="#4a3200">≠</text>') },
+        { minDur: 6800, sub: '同一題作文，兩人寫出迥然不同的故事——不同不是壞事，每個人本來就獨一無二！',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(410, 182)) },
+        { minDur: 6400, sub: '迥然不同：相差很大，完全不一樣。',
+          html: scene(P(300, 255, '<circle cx="0" cy="0" r="28" fill="#ffd97a" stroke="#e8b84a" stroke-width="3"/>') +
+            P(500, 255, '<rect x="-24" y="-24" width="48" height="48" rx="6" fill="#5c82ba" stroke="#46689a" stroke-width="3"/>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">迥然不同</text>') }
+      ];
+    },
+    /* 截然不同 */
+    i283: function () {
+      return [
+        { minDur: 6800, sub: '一刀切下去，界線分明——左邊是白天的沙灘、右邊是夜晚的雪山，涇渭分明！',
+          html: scene('<rect width="400" height="340" fill="#aee3f5" opacity=".3"/><rect x="400" width="400" height="340" fill="#31406b" opacity=".5"/>' +
+            '<line x1="400" y1="60" x2="400" y2="340" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>' +
+            P(200, 302, A('kid', 'happy'), '', 0, .95) + P(600, 302, A('kid', 'wow'), '', 0, .95)) },
+        { minDur: 6800, sub: '「截」是切斷——像刀切一樣分得清清楚楚，完全不同！',
+          html: scene(P(400, 240, '<line x1="0" y1="-60" x2="0" y2="60" stroke="#8b93a3" stroke-width="5"/><path d="M0 -70 l-8 14 h16 z" fill="#8b93a3"/>' +
+              '<circle cx="-70" cy="0" r="26" fill="#ffd97a"/><rect x="44" y="-26" width="52" height="52" rx="6" fill="#c9a8e0"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '賽前緊張到胃痛、賽後開心到飛起——同一天心情截然不同，像換了一個人！',
+          html: scene(P(300, 302, A('kid', 'wow')) + sweat(250, 192) +
+            P(520, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .98) + hearts(590, 188)) },
+        { minDur: 6400, sub: '截然不同：界線分明，完全不同。',
+          html: scene('<line x1="400" y1="120" x2="400" y2="320" stroke="#8b93a3" stroke-width="4" stroke-dasharray="12 10"/>' +
+            P(290, 250, '<circle cx="0" cy="0" r="26" fill="#ffd97a"/>') + P(510, 250, '<rect x="-24" y="-24" width="48" height="48" rx="6" fill="#5c82ba"/>') +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">截然不同</text>') }
+      ];
     }
   };
 
