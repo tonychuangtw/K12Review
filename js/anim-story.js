@@ -15223,6 +15223,137 @@
           html: scene(P(400, 260, '<path d="M0 -36 q32 6 32 36 q0 30 -32 36 q-32 -6 -32 -36 q0 -30 32 -36 z" fill="#a5d4b8" stroke="#6faa8a" stroke-width="2.6"/><circle cx="-7" cy="-8" r="7" fill="#fff" opacity=".7"/>', '', 0, 1.3) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">渾然天成</text>') }
       ];
+    },
+    /* 風起雲湧 */
+    i1110: function () {
+      return [
+        { minDur: 7000, sub: '蘇軾夜遊赤壁：「山鳴谷應，風起水湧」——大風颳起、江水翻湧，天地都動了起來！',
+          html: scene('<g class="st-cloud"><ellipse cx="260" cy="80" rx="80" ry="26" fill="#8b93a3" opacity=".8"/><ellipse cx="480" cy="60" rx="90" ry="30" fill="#6d7585" opacity=".9"/></g>' +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="4" stroke-linecap="round"><line x1="180" y1="160" x2="280" y2="160"/><line x1="150" y1="195" x2="260" y2="195"/></g>' +
+            '<rect y="262" width="800" height="78" fill="#4a6d94"/><g class="st-wavemove"><path d="M-40 274 q30 -16 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#7fa8d4" stroke-width="8" stroke-linecap="round"/></g>', 'night') },
+        { minDur: 6800, sub: '「風起雲湧」：新事物接連興起、聲勢浩大——一家接一家的新公司像雨後春筍冒出來！',
+          html: scene(P(260, 290, '<rect x="-24" y="-40" width="48" height="40" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/>', 'st-grow', 0, 1) +
+            P(400, 290, '<rect x="-24" y="-56" width="48" height="56" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', 'st-grow', .2, 1) +
+            P(540, 290, '<rect x="-24" y="-70" width="48" height="70" fill="#a5b8d4" stroke="#7d92b5" stroke-width="2.4"/>', 'st-grow', .4, 1) + bang(400, 190)) },
+        { minDur: 6800, sub: '身在風起雲湧的時代——與其怕浪，不如學會乘風：把變化當成機會！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="220" y1="200" x2="300" y2="200"/><line x1="500" y1="220" x2="580" y2="220"/></g>' + hearts(500, 185)) },
+        { minDur: 6400, sub: '風起雲湧：風潮迭起，聲勢浩大。',
+          html: scene('<g class="st-cloud"><ellipse cx="300" cy="90" rx="80" ry="26" fill="#8b93a3" opacity=".8"/><ellipse cx="500" cy="70" rx="90" ry="30" fill="#6d7585" opacity=".9"/></g>' +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="4" stroke-linecap="round"><line x1="200" y1="180" x2="300" y2="180"/></g>' +
+            '<text x="400" y="260" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">風起雲湧</text>', 'night') }
+      ];
+    },
+    /* 波瀾壯闊 */
+    i1111: function () {
+      var BIGSEA = '<rect y="220" width="800" height="120" fill="#4a6d94"/>' +
+        '<g class="st-wavemove"><path d="M-40 236 q40 -26 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#7fa8d4" stroke-width="13" stroke-linecap="round"/></g>' +
+        '<g class="st-wavemove" style="animation-delay:.6s"><path d="M-70 274 q40 -18 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#9cc0e0" stroke-width="9" stroke-linecap="round" opacity=".8"/></g>';
+      return [
+        { minDur: 7000, sub: '鮑照寫江上見聞給妹妹：「波路壯闊」——江面遼闊無邊、波濤盛大，讓人屏息！',
+          html: scene(BIGSEA + P(180, 150, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「波瀾壯闊」：規模宏大、氣勢雄壯——多用來形容歷史、事業和大場面！',
+          html: scene(BIGSEA +
+            P(400, 150, '<rect x="-52" y="-18" width="104" height="36" rx="5" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="15" fill="#4a6d94">大時代</text>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '讀波瀾壯闊的歷史，會發現：大浪都是由無數小水滴組成——每個人都是浪潮的一部分！',
+          html: scene(BIGSEA + P(300, 160, A('kid', 'happy'), '', 0, .8) + P(450, 160, A('kid', 'happy'), '', 0, .8, true) + hearts(380, 120)) },
+        { minDur: 6400, sub: '波瀾壯闊：氣勢雄渾，規模宏大。',
+          html: scene(BIGSEA +
+            '<text x="400" y="120" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">波瀾壯闊</text>') }
+      ];
+    },
+    /* 雷霆萬鈞 */
+    i1112: function () {
+      return [
+        { minDur: 7000, sub: '賈山寫道：雷霆擊中的，沒有不折斷的；萬鈞壓下的，沒有不粉碎的！',
+          html: scene('<g class="st-cloud"><ellipse cx="350" cy="70" rx="90" ry="28" fill="#3a3550"/><ellipse cx="500" cy="60" rx="80" ry="26" fill="#2c2840"/></g>' +
+            '<path d="M420 100 L398 145 L418 145 L390 200" stroke="#ffe36b" stroke-width="6" fill="none"/>' +
+            P(250, 290, TREE, '', 0, 1) + bang(390, 220) + sweat(200, 240), 'night') },
+        { minDur: 6800, sub: '「鈞」是三十斤——萬鈞就是三十萬斤的重壓！雷霆加萬鈞：威力大到無可抵擋！',
+          html: scene(P(400, 275, '<path d="M-60 30 h120 l-14 -60 h-92 z" fill="#6d7585" stroke="#525a68" stroke-width="3"/><text x="0" y="6" text-anchor="middle" font-size="20" fill="#fff">萬鈞</text>', '', 0, 1.2) +
+            '<path d="M400 130 L385 165 L398 165 L380 205" stroke="#ffe36b" stroke-width="5" fill="none"/>' + bang(510, 200), 'night') },
+        { minDur: 6800, sub: '「雷霆萬鈞」：行動猛烈迅速、不可抵擋——檢調以雷霆萬鈞之勢掃蕩弊案，一夕收網！',
+          html: scene(P(340, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#3d4a63"/><rect x="-20" y="-80" width="40" height="5" rx="2" fill="#2c3550"/>', 'st-strut', 0, 1.05) + bang(450, 182) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + sweat(620, 190)) },
+        { minDur: 6400, sub: '雷霆萬鈞：威力猛烈，勢不可擋。',
+          html: scene('<g class="st-cloud"><ellipse cx="400" cy="80" rx="90" ry="28" fill="#3a3550"/></g>' +
+            '<path d="M400 110 L380 155 L398 155 L372 210" stroke="#ffe36b" stroke-width="6" fill="none"/>' + bang(500, 190) +
+            '<text x="400" y="280" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">雷霆萬鈞</text>', 'night') }
+      ];
+    },
+    /* 逆來順受 */
+    i1129: function () {
+      return [
+        { minDur: 6800, sub: '學長總把打掃全推給小受，還嫌他掃不乾淨——他每次都低頭默默照做……',
+          html: scene(P(500, 302, A('kid', 'angry') + '<path d="M-28 -56 l-18 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08, true) +
+            P(300, 296, '<g transform="rotate(8)">' + A('kid', 'sad') + '</g>' + P(30, -30, '<path d="M0 -26 v40 M-10 -26 q10 8 20 0" stroke="#8a6a44" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1), '', 0, .95) + sweat(240, 192)) },
+        { minDur: 6800, sub: '「逆來順受」：對欺壓默默忍受、不反抗——但一味隱忍，只會讓對方變本加厲！',
+          html: scene(P(320, 296, '<g transform="rotate(10)">' + A('kid', 'sad') + '</g>', '', 0, .95) + sweat(260, 195) +
+            P(520, 302, A('kid', 'angry'), 'st-strut', 0, 1.1, true) + bang(430, 188)) },
+        { minDur: 6800, sub: '委屈不該吞下去：告訴老師、找爸媽談——勇敢說「不」，是保護自己的第一步！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) + bang(440, 182) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1, true) + hearts(620, 195)) },
+        { minDur: 6400, sub: '逆來順受：橫逆欺壓，一味忍受。',
+          html: scene(P(360, 296, '<g transform="rotate(10)">' + A('kid', 'sad') + '</g>', '', 0, 1) + sweat(300, 192) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">逆來順受</text>') }
+      ];
+    },
+    /* 針鋒相對 */
+    i1131: function () {
+      var NEEDLES = '<g stroke="#8b93a3" stroke-width="4" stroke-linecap="round"><line x1="-70" y1="0" x2="-8" y2="0"/><line x1="70" y1="0" x2="8" y2="0"/></g><path d="M-8 0 l-6 -4 v8 z M8 0 l6 -4 v8 z" fill="#6d7585"/>';
+      return [
+        { minDur: 7000, sub: '禪宗語錄說好的問答「如針鋒相投」——針尖對針尖，分毫不差！',
+          html: scene(P(400, 250, NEEDLES, '', 0, 1.4) + bang(400, 200) +
+            P(200, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '後來形容激烈對立：辯論會上正反雙方你來我往，一句頂一句，互不相讓！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M28 -56 l16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>') +
+            P(500, 302, A('kid', 'angry') + '<path d="M-28 -56 l-16 -4" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) +
+            bang(400, 180) + '<g stroke="#c96a5a" stroke-width="3" stroke-linecap="round"><path d="M370 240 l-20 -4 M430 240 l20 -4"/></g>') },
+        { minDur: 6800, sub: '「針鋒相對」：尖銳對立、寸步不讓——對事激辯可以，對人身攻擊就失格了！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(400, 200, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">對事</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#c96a5a">不對人</text>') + hearts(560, 195)) },
+        { minDur: 6400, sub: '針鋒相對：尖銳對立，互不相讓。',
+          html: scene(P(400, 255, NEEDLES, '', 0, 1.4) + bang(400, 205) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">針鋒相對</text>') }
+      ];
+    },
+    /* 血肉相連 */
+    i1132: function () {
+      return [
+        { minDur: 6800, sub: '離鄉三十年的老兵回到故鄉——踩上家鄉的土地，眼淚一下子就掉下來了……',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><g class="st-tear"><path d="M-12 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, 1.05) +
+            P(600, 285, '<path d="M-40 30 L0 -10 L40 30 Z" fill="#c9762f"/><rect x="-30" y="30" width="60" height="18" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1) + hearts(300, 195)) },
+        { minDur: 6800, sub: '「血肉相連」：像血和肉一樣連在一起——親情、鄉土，是分不開、剪不斷的牽絆！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(400, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#c96a5a" class="st-tw"/>', '', 0, 1.2) +
+            '<path d="M355 260 h90" stroke="#c96a5a" stroke-width="5" stroke-linecap="round"/>') },
+        { minDur: 6800, sub: '一方有難、八方支援——因為同島一命，我們與彼此血肉相連！',
+          html: scene(P(280, 302, A('kid', 'happy'), '', 0, .92) + P(400, 302, A('kid', 'happy'), '', 0, .95) + P(520, 302, A('kid', 'happy'), '', 0, .92, true) +
+            '<path d="M300 258 h200" stroke="#c96a5a" stroke-width="4" stroke-linecap="round"/>' + hearts(400, 178)) },
+        { minDur: 6400, sub: '血肉相連：關係緊密，不可分割。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(400, 200, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#c96a5a" class="st-tw"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">血肉相連</text>') }
+      ];
+    },
+    /* 翹首以盼 */
+    i1133: function () {
+      return [
+        { minDur: 6800, sub: '遊子今天回國！爸媽提早兩小時到機場，踮著腳、伸長脖子望向出口……',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', 'st-bob', 0, 1) +
+            P(400, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/>', 'st-bob', .2, .98) +
+            P(600, 275, '<rect x="-40" y="-30" width="80" height="60" rx="4" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#fff">出口</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '「翹首以盼」：抬起頭殷切盼望——每一班出來的旅客，都讓他們心跳快一拍！',
+          html: scene(P(340, 302, A('kid', 'happy'), 'st-bob', 0, 1.02) + qmark(420, 182) +
+            P(400, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '出口人影一閃——「回來了！」一家人抱成一團，等待的每一分鐘都值得！',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(450, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(555, 302, A('kid', 'happy') + P(-34, -40, '<rect x="-12" y="-9" width="24" height="18" rx="3" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/>', '', 0, .9), 'st-inR', 0, .95, true) + hearts(440, 178)) },
+        { minDur: 6400, sub: '翹首以盼：引領遠望，殷切期待。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-bob', 0, 1.05) +
+            P(400, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">翹首以盼</text>') }
+      ];
     }
   };
 
