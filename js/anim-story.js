@@ -16857,6 +16857,149 @@
             P(530, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(440, 185) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">諄諄教誨</text>') }
       ];
+    },
+    /* 言猶在耳 */
+    i641: function () {
+      return [
+        { minDur: 7000, sub: '《左傳》記載：國君雖已去世，他臨終的囑託「言猶在耳」——話音彷彿還在耳邊迴盪！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(540, 220, '<path d="M0 -12 q12 12 0 24" stroke="#8fa3bf" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M12 -20 q20 20 0 40" stroke="#8fa3bf" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".6"/>', '', 0, 1.3)) },
+        { minDur: 6800, sub: '畢業那天老師說：「別怕失敗，怕的是不開始。」——多年後遇到難關，這句話又響起來！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.02) +
+            P(400, 190, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#6d7585">別怕失敗</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#6d7585">怕不開始</text>', 'st-zfloat', 0, 1.1) + hearts(290, 200)) },
+        { minDur: 6800, sub: '「言猶在耳」：對別人的話記憶猶新——真正走進心裡的話，時間帶不走！',
+          html: scene(P(340, 302, A('kid', 'happy')) +
+            P(530, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .95, true) + hearts(440, 185) +
+            P(280, 205, '<path d="M0 -12 q10 12 0 24" stroke="#8fa3bf" stroke-width="3" fill="none" stroke-linecap="round"/>', '', 0, 1.2)) },
+        { minDur: 6400, sub: '言猶在耳：話音縈繞，記憶猶新。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(520, 210, '<path d="M0 -14 q14 14 0 28" stroke="#8fa3bf" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M14 -22 q22 22 0 44" stroke="#8fa3bf" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".6"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">言猶在耳</text>') }
+      ];
+    },
+    /* 銘記在心 */
+    i642: function () {
+      return [
+        { minDur: 6800, sub: '古人把重要的功勳誓言鑄在青銅器上——「銘」文千年不滅，代代讀得到！',
+          html: scene(P(400, 280, '<path d="M-40 -30 h80 l6 44 q-46 16 -92 0 z" fill="#8a9a6a" stroke="#6d7a52" stroke-width="3"/><g stroke="#5a6644" stroke-width="1.8"><line x1="-20" y1="-14" x2="20" y2="-14"/><line x1="-20" y1="-2" x2="20" y2="-2"/><line x1="-20" y1="10" x2="14" y2="10"/></g><path d="M-40 -30 q-14 -4 -12 -18 M40 -30 q14 -4 12 -18" stroke="#6d7a52" stroke-width="5" fill="none"/>', '', 0, 1.2) +
+            P(220, 302, A('kid', 'wow'), '', 0, .92)) },
+        { minDur: 6800, sub: '「銘記在心」：像刻銘文一樣記在心裡——教練的最後叮嚀，他一輩子帶在身上！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/><text x="0" y="18" text-anchor="middle" font-size="9" fill="#a84f60">記</text>', '', 0, 1.2) + hearts(290, 200)) },
+        { minDur: 6800, sub: '值得銘記的不只教訓，還有恩情——把幫過你的人記在心裡，有機會就回報！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(410, 180) +
+            P(600, 210, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '銘記在心：深深記住，永不忘懷。',
+          html: scene(P(400, 250, '<path d="M0 10 C-12 -10 -34 2 -18 22 L0 38 L18 22 C34 2 12 -10 0 10 Z" fill="#ff9eb5" class="st-tw"/><text x="0" y="24" text-anchor="middle" font-size="12" fill="#a84f60">記</text>', '', 0, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">銘記在心</text>') }
+      ];
+    },
+    /* 刻骨銘心 */
+    i643: function () {
+      return [
+        { minDur: 7000, sub: '李白致謝恩人：「深荷王公之德，銘刻心骨」——這份恩德刻進骨頭、記入心底！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/><path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1, true) + hearts(440, 188)) },
+        { minDur: 6800, sub: '有些時刻一生只有一次：第一次站上大舞台、拿到錄取通知那晚——畫面清晰得像昨天！',
+          html: scene(P(400, 280, '<rect x="-90" y="-16" width="180" height="16" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(400, 280, A('kid', 'happy'), 'st-cheer', 0, 1) +
+            '<g class="st-rays" style="transform-origin:400px 180px"><g stroke="#ffe9a0" stroke-width="4" stroke-linecap="round" opacity=".8"><line x1="400" y1="150" x2="400" y2="132"/><line x1="437" y1="163" x2="450" y2="150"/><line x1="363" y1="163" x2="350" y2="150"/></g></g>' + hearts(540, 210)) },
+        { minDur: 6800, sub: '「刻骨銘心」：感受深刻、永難忘懷——好的壞的都算：深刻的傷，痊癒後就是最深的課！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#c96a5a" class="st-tw"/><line x1="-5" y1="8" x2="6" y2="18" stroke="#a84f42" stroke-width="2.4"/>', '', 0, 1.2) + hearts(290, 200)) },
+        { minDur: 6400, sub: '刻骨銘心：感受至深，終生難忘。',
+          html: scene(P(400, 250, '<path d="M0 10 C-12 -10 -34 2 -18 22 L0 38 L18 22 C34 2 12 -10 0 10 Z" fill="#c96a5a" class="st-tw"/><line x1="-6" y1="10" x2="7" y2="22" stroke="#a84f42" stroke-width="2.6"/>', '', 0, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">刻骨銘心</text>') }
+      ];
+    },
+    /* 感恩戴德 */
+    i644: function () {
+      return [
+        { minDur: 6800, sub: '大水沖走了農舍，鄰村人家收留他們一家過冬——臨別時全家深深鞠躬道謝！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(530, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1, true) + hearts(430, 185)) },
+        { minDur: 6800, sub: '「戴」是尊奉——「感恩戴德」：把恩德頂在頭上敬奉，深深感激！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -76, '<path d="M0 8 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1), '', 0, 1.05) + hearts(500, 195)) },
+        { minDur: 6800, sub: '多年後他們家境好轉——每年冬天都載一車自種的米，送到當年收留他們的人家！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(38, -46, '<path d="M-14 -8 L-14 -20 L14 -20 L14 -8 Q0 0 -14 -8 Z" fill="#e8d9a8" stroke="#b8a982" stroke-width="2"/><text x="0" y="-24" text-anchor="middle" font-size="9" fill="#8a744a">米</text>', '', 0, 1.1)) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .97, true) + hearts(420, 182)) },
+        { minDur: 6400, sub: '感恩戴德：感念恩惠，尊奉德澤。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -76, '<path d="M0 8 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1), '', 0, 1.05) + hearts(500, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">感恩戴德</text>') }
+      ];
+    },
+    /* 結草銜環 */
+    i645: function () {
+      return [
+        { minDur: 7000, sub: '「結草」：魏顆沒讓父親的愛妾殉葬——戰場上，妾的亡父把草打結絆倒敵將報恩！',
+          html: scene(P(500, 296, '<g stroke="#a8b86a" stroke-width="3.4" stroke-linecap="round"><path d="M-20 8 q-4 -16 4 -24 M-4 10 q0 -18 6 -26 M12 8 q4 -14 -2 -22"/></g><path d="M-14 -6 q10 8 20 0" stroke="#6d7a52" stroke-width="3" fill="none"/>', '', 0, 1.2) +
+            P(340, 296, '<g transform="rotate(20)">' + A('kid', 'wow') + '</g>', '', 0, 1) + bang(420, 230)) },
+        { minDur: 6800, sub: '「銜環」：楊寶救了受傷的黃雀——黃雀化為童子銜來四枚白玉環答謝！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(40, -50, A('bird'), '', 0, .7)) +
+            P(540, 250, '<g class="st-tw"><circle cx="-18" cy="0" r="9" fill="none" stroke="#e8e2d5" stroke-width="4"/><circle cx="6" cy="-6" r="9" fill="none" stroke="#e8e2d5" stroke-width="4"/><circle cx="28" cy="2" r="9" fill="none" stroke="#e8e2d5" stroke-width="4"/></g>', '', 0, 1.1) + hearts(420, 190)) },
+        { minDur: 6800, sub: '「結草銜環」：至死不忘報恩——兩個故事合成一句話：恩情比生死更長！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(400, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.2) + hearts(560, 200)) },
+        { minDur: 6400, sub: '結草銜環：生死不渝，誓報大恩。',
+          html: scene(P(300, 296, '<g stroke="#a8b86a" stroke-width="3.4" stroke-linecap="round"><path d="M-16 8 q-4 -14 4 -22 M0 10 q0 -16 6 -24"/></g><path d="M-12 -4 q10 8 20 0" stroke="#6d7a52" stroke-width="3" fill="none"/>', '', 0, 1.2) +
+            P(520, 250, '<g class="st-tw"><circle cx="-14" cy="0" r="9" fill="none" stroke="#e8e2d5" stroke-width="4"/><circle cx="12" cy="-5" r="9" fill="none" stroke="#e8e2d5" stroke-width="4"/></g>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">結草銜環</text>') }
+      ];
+    },
+    /* 知恩圖報 */
+    i646: function () {
+      return [
+        { minDur: 6800, sub: '窮學生靠鄉親湊的學費讀完大學——他把每一筆都記在小本子上！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff7e8" stroke="#d8cbb0" stroke-width="2.4"/><g stroke="#a8945a" stroke-width="1.6"><line x1="-10" y1="-10" x2="10" y2="-10"/><line x1="-10" y1="-2" x2="10" y2="-2"/><line x1="-10" y1="6" x2="10" y2="6"/></g>', '', 0, .95), '', 0, 1.02) +
+            P(230, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .9) + hearts(300, 190)) },
+        { minDur: 6800, sub: '「知恩圖報」：受人恩惠，設法報答——功成名就後，他回鄉蓋了圖書館和獎學金！',
+          html: scene(P(400, 285, '<rect x="-70" y="-50" width="140" height="50" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><path d="M-80 -50 h160 l-16 -22 h-128 z" fill="#c9762f"/><text x="0" y="-24" text-anchor="middle" font-size="12" fill="#6d4426">圖書館</text>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy'), 'st-cheer', 0, .92) + P(570, 302, A('kid', 'happy'), 'st-cheer', .2, .92, true) + hearts(400, 190)) },
+        { minDur: 6800, sub: '報恩不用等飛黃騰達——一句謝謝、一次幫忙、把善意傳給下一個人，都是回報！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M490 240 q60 -26 120 0" stroke="#ff9eb5" stroke-width="3.4" fill="none" stroke-dasharray="7 7"/>' + hearts(410, 180)) },
+        { minDur: 6400, sub: '知恩圖報：受恩必報，不忘所自。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(410, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">知恩圖報</text>') }
+      ];
+    },
+    /* 忘恩負義 */
+    i647: function () {
+      return [
+        { minDur: 6800, sub: '創業低谷時，老友借錢又出力幫他撐過來——公司做大後，他卻連老友的電話都不接了……',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9762f"/>' + P(-38, -50, '<rect x="-9" y="-14" width="18" height="26" rx="3" fill="#3a2e26"/><line x1="-6" y1="-8" x2="6" y2="4" stroke="#c96a5a" stroke-width="2.4"/>', '', 0, 1), '', 0, 1.05, true) +
+            P(560, 302, A('kid', 'sad') + P(-38, -48, '<rect x="-9" y="-14" width="18" height="26" rx="3" fill="#3a2e26"/><g class="st-zfloat" opacity=".7"><path d="M0 -22 q3 -5 0 -9" stroke="#8b93a3" stroke-width="2" fill="none"/></g>', '', 0, 1), '', 0, .95) + sweat(620, 192)) },
+        { minDur: 6800, sub: '「忘恩負義」：忘了恩惠、背棄道義——語本《漢書》「背恩忘義」，最讓人心寒的四個字！',
+          html: scene(P(400, 250, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#c9d6e8" stroke="#aab8cf" stroke-width="2"/><line x1="-18" y1="-6" x2="18" y2="26" stroke="#c96a5a" stroke-width="3.4"/>', '', 0, 1.4) + sweat(520, 210) + qmark(280, 210)) },
+        { minDur: 6800, sub: '相反的是「知恩圖報」——人心是存摺：辜負一次，信任歸零；報答一次，情義加倍！',
+          html: scene(P(310, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#c96a5a">忘恩</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#c96a5a">負義</text>') +
+            P(490, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.4"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#548a40">知恩</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#548a40">圖報</text>') + hearts(490, 190)) },
+        { minDur: 6400, sub: '忘恩負義：辜負恩惠，背棄道義。',
+          html: scene(P(400, 250, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#c9d6e8" stroke="#aab8cf" stroke-width="2"/><line x1="-18" y1="-6" x2="18" y2="26" stroke="#c96a5a" stroke-width="3.4"/>', '', 0, 1.4) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">忘恩負義</text>') }
+      ];
+    },
+    /* 落葉歸根 */
+    i648: function () {
+      var FALLLEAF = '<path d="M0 0 q-10 -14 -2 -26 q3 -5 7 -1 q9 12 -1 27 z" fill="#e0a458" stroke="#c9862f" stroke-width="1.8"/>';
+      return [
+        { minDur: 7000, sub: '禪語說：「葉落歸根」——葉子在枝頭再高再遠，最後總會落回樹根的土裡！',
+          html: scene(P(500, 285, TREE, '', 0, 1.25) +
+            P(420, 200, '<g class="st-snow">' + FALLLEAF + '</g>', '', 0, 1.2) +
+            P(560, 240, '<g class="st-snow" style="animation-delay:1.2s">' + FALLLEAF + '</g>', '', 0, 1)) },
+        { minDur: 6800, sub: '在國外打拚四十年的老僑胞，晚年賣掉一切回到故鄉小鎮——「我想聽著鄉音老去。」',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(34, -30, '<path d="M0 -26 v40 M-10 -26 q10 8 20 0" stroke="#8a6a44" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1), 'st-strut', 0, 1) +
+            P(600, 285, '<path d="M-40 30 L0 -10 L40 30 Z" fill="#c9762f"/><rect x="-30" y="30" width="60" height="18" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1) + hearts(480, 200)) },
+        { minDur: 6800, sub: '「落葉歸根」：最終回到本源故鄉——走得再遠，根的方向永遠認得！',
+          html: scene(P(400, 285, TREE, '', 0, 1.3) +
+            P(400, 316, '<ellipse cx="0" cy="0" rx="60" ry="8" fill="#a0885c" opacity=".6"/>', '', 0, 1) +
+            P(330, 290, FALLLEAF, '', 0, 1) + P(470, 292, FALLLEAF, '', 0, .9) + hearts(540, 220)) },
+        { minDur: 6400, sub: '落葉歸根：回歸本源，重返故土。',
+          html: scene(P(400, 285, TREE, '', 0, 1.3) +
+            P(320, 230, '<g class="st-snow">' + FALLLEAF + '</g>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">落葉歸根</text>') }
+      ];
     }
   };
 
