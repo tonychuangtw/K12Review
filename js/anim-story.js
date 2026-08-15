@@ -4255,6 +4255,111 @@
           html: scene(crowd(302, .85, 6, 0) + crowd(262, .6, 7, .3) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">人山人海</text>', 'night') }
       ];
+    },
+    /* 車水馬龍 */
+    i411: function () {
+      function car(x, y, color, dly) {
+        return P(x, y, '<g class="st-windln"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<rect x="-22" y="-16" width="44" height="14" rx="5" fill="' + color + '"/>' +
+          '<rect x="-12" y="-26" width="24" height="12" rx="4" fill="#e8f0f8"/>' +
+          '<circle cx="-12" cy="0" r="6" fill="#3a2e26"/><circle cx="12" cy="0" r="6" fill="#3a2e26"/></g>');
+      }
+      var ROAD = '<rect y="290" width="800" height="26" fill="#8b93a3"/><g stroke="#fff" stroke-width="3" stroke-dasharray="20 16"><line x1="0" y1="303" x2="800" y2="303"/></g>';
+      return [
+        { minDur: 6600, sub: '站上天橋往下看：大街上的車一輛接著一輛，像流水一樣沒停過——',
+          html: scene(ROAD + car(200, 292, '#e85a4f', 0) + car(360, 292, '#5c82ba', .3) + car(520, 292, '#6fae58', .6) + car(660, 292, '#e0a458', .2) +
+            P(120, 302, A('kid', 'wow'), '', 0, .9)) },
+        { minDur: 6600, sub: '古時候則是馬車來來往往：車如流水、馬如游龍，好不熱鬧！',
+          html: scene(P(260, 302, A('horse'), 'st-strut') +
+            P(430, 302, A('horse'), 'st-strut', .3, .9) + P(590, 302, A('horse'), 'st-strut', .5, .85) + notes(400, 175)) },
+        { minDur: 6600, sub: '「車水馬龍」就是形容車馬往來不絕、街市熱鬧繁華的樣子！',
+          html: scene(ROAD + car(260, 292, '#e0a458', 0) + car(450, 292, '#e85a4f', .4) +
+            P(620, 302, A('horse'), 'st-strut', 0, .85) + hearts(350, 200)) },
+        { minDur: 6400, sub: '車水馬龍：車馬往來不絕，熱鬧繁華。',
+          html: scene(ROAD + car(240, 292, '#5c82ba', 0) + car(430, 292, '#e85a4f', .3) + car(610, 292, '#6fae58', .5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">車水馬龍</text>') }
+      ];
+    },
+    /* 良師益友 */
+    i412: function () {
+      var BOOK = '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>';
+      return [
+        { minDur: 6800, sub: '王老師教小新功課，也教他做人的道理；小新有心事，老師也總是耐心地聽。',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, .95) +
+            P(520, 302, A('kid', 'happy') + P(-40, -56, BOOK), '', 0, 1.08, true) + hearts(410, 175)) },
+        { minDur: 6800, sub: '好朋友阿哲總在他遇到困難時伸出手，也會直接說出他的缺點，幫他變得更好。',
+          html: scene(P(320, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .97, true) +
+            hearts(400, 172) + bang(560, 200)) },
+        { minDur: 6600, sub: '讓人受益的好老師、好朋友——就是「良師益友」，一定要好好珍惜！',
+          html: scene(P(240, 302, A('kid', 'happy'), '', 0, 1.05) + P(400, 302, A('kid', 'happy'), '', .2, .95) +
+            P(550, 302, A('kid', 'happy'), '', .4, .95) + hearts(400, 165)) },
+        { minDur: 6400, sub: '良師益友：使人受益的好老師與好朋友。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -56, BOOK)) + P(520, 302, A('kid', 'happy'), '', 0, .95) + hearts(420, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">良師益友</text>') }
+      ];
+    },
+    /* 一言為定 */
+    i413: function () {
+      var PINKY = '<path d="M-20 -6 q10 -14 20 0 q10 14 20 0" stroke="#ffe3c1" stroke-width="9" fill="none" stroke-linecap="round"/>';
+      var BIKE = '<circle cx="-24" cy="0" r="16" fill="none" stroke="#5c82ba" stroke-width="4"/><circle cx="24" cy="0" r="16" fill="none" stroke="#5c82ba" stroke-width="4"/>' +
+        '<path d="M-24 0 L-8 -22 L14 -22 L24 0 M-8 -22 L-2 0" stroke="#e85a4f" stroke-width="3.4" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '「週六早上七點，公園門口見，一起去騎車！」「好——一言為定！」兩人勾勾手指。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, 1, true) +
+            P(400, 210, PINKY, '', 0, 1.2) + hearts(400, 160)) },
+        { minDur: 6600, sub: '週六一大早，兩個人果然都準時出現——說好的事，絕不改變！',
+          html: scene(P(120, 302, TREE, '', 0, 1.1) +
+            P(320, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(470, 302, '<g class="st-cheer" style="animation-delay:.3s">' + A('kid', 'happy') + '</g>', '', 0, .95) +
+            P(620, 300, BIKE, '', 0, 1) + hearts(400, 175)) },
+        { minDur: 6600, sub: '「一言為定」：一句話說定，就不再改變——守信用的人，最棒！',
+          html: scene(P(400, 210, PINKY, '', 0, 1.4) +
+            P(300, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(400, 260)) },
+        { minDur: 6400, sub: '一言為定：一句話說定，不再改變。',
+          html: scene(P(400, 220, PINKY, '', 0, 1.6) + hearts(500, 190) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一言為定</text>') }
+      ];
+    },
+    /* 百依百順 */
+    i414: function () {
+      return [
+        { minDur: 6800, sub: '小狗胖胖對主人百依百順：叫牠坐下就坐下、叫牠握手就伸出前腳，乖得不得了！',
+          html: scene(P(300, 302, A('kid', 'happy') +
+              '<path d="M18 -40 q14 2 20 10" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>') +
+            P(500, 300, A('dog'), '', 0, 1.05) + hearts(410, 190)) },
+        { minDur: 6800, sub: '可是對人就不能凡事百依百順——同學慫恿你做不對的事，要勇敢說「不」！',
+          html: scene(P(300, 302, A('kid', 'angry') +
+              '<path d="M18 -60 q14 -4 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>') +
+            bang(400, 180) + P(540, 302, A('kid', 'wow'), '', 0, .95, true) + sweat(580, 200)) },
+        { minDur: 6600, sub: '「百依百順」就是凡事都依從對方——用對地方是乖巧，用錯地方就變成沒主見了。',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(500, 300, A('dog'), '', 0, .95) + qmark(410, 185)) },
+        { minDur: 6400, sub: '百依百順：凡事都依從對方。',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(520, 300, A('dog'), '', 0, 1.05) + hearts(430, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">百依百順</text>') }
+      ];
+    },
+    /* 一石二鳥 */
+    i801: function () {
+      var STONE3 = '<circle cx="0" cy="0" r="7" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>';
+      var SHIRT = '<path d="M-12 -20 L-22 -12 L-16 -4 L-12 -8 L-12 12 L12 12 L12 -8 L16 -4 L22 -12 L12 -20 Q0 -14 -12 -20 Z" fill="#a5c8ff" stroke="#5c82ba" stroke-width="2"/>';
+      var LINE2 = '<line x1="-120" y1="0" x2="120" y2="0" stroke="#8b93a3" stroke-width="3"/>';
+      return [
+        { minDur: 6800, sub: '傳說有位好射手，一顆石子擲出去——咻！竟然同時打下了兩隻鳥！',
+          html: scene(P(430, 150, STONE3, '', 0, 1.2) + bang(480, 110) +
+            P(380, 160, '<g class="st-faint">' + A('bird') + '</g>', '', 0, .95) +
+            P(520, 170, '<g class="st-faint" style="animation-delay:.2s">' + A('bird') + '</g>', '', 0, .9, true) +
+            P(220, 302, A('kid', 'happy'))) },
+        { minDur: 6800, sub: '就像幫媽媽晾衣服：家事做完了，還順便晒晒太陽做運動——一件事、兩個收穫！',
+          html: scene(P(430, 220, LINE2 + P(-60, 4, SHIRT, '', 0, .9) + P(40, 4, SHIRT, '', .2, .85)) +
+            P(240, 302, A('kid', 'happy')) + hearts(330, 185)) },
+        { minDur: 6600, sub: '「一石二鳥」和「一舉兩得」意思相近：做一件事，同時得到兩種好處！',
+          html: scene(P(400, 180, STONE3, '', 0, 1.1) +
+            P(330, 200, A('bird'), '', 0, .85) + P(480, 210, A('bird'), '', .2, .8, true) +
+            P(240, 302, A('kid', 'happy')) + hearts(400, 260)) },
+        { minDur: 6400, sub: '一石二鳥：做一件事同時得到兩種好處。',
+          html: scene(P(400, 190, STONE3, '', 0, 1.3) + P(320, 210, A('bird'), '', 0, .9) + P(490, 220, A('bird'), '', .2, .85, true) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一石二鳥</text>') }
+      ];
     }
   };
 
