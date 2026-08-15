@@ -17648,6 +17648,161 @@
           html: scene(P(400, 302, '<g class="st-bob">' + A('kid', 'wow') + P(0, -56, '<path d="M-10 -18 q10 -8 20 0 l-3 22 q-7 5 -14 0 z" fill="#7fd4d4" stroke="#4aa8a8" stroke-width="2.4"/>', '', 0, 1) + '</g>', '', 0, 1.08) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">翼翼小心</text>') }
       ];
+    },
+    /* 枝葉扶蘇 */
+    i147: function () {
+      var BIGTREE = '<path d="M0 0 L0 -56" stroke="#7a5a3a" stroke-width="9" stroke-linecap="round"/><path d="M0 -30 q-26 -12 -40 -4 M0 -42 q26 -14 42 -6" stroke="#7a5a3a" stroke-width="5" fill="none"/><circle cx="-38" cy="-52" r="24" fill="#6faa5a"/><circle cx="0" cy="-72" r="30" fill="#7fba6a"/><circle cx="40" cy="-56" r="25" fill="#8fc47a"/><circle cx="-14" cy="-46" r="20" fill="#7fba6a"/>';
+      return [
+        { minDur: 7000, sub: '《詩經》唱道：「山有扶蘇」——山上的樹枝葉繁茂、迎風舒展，生機蓬勃！',
+          html: scene(P(400, 300, BIGTREE, '', 0, 1.2) +
+            P(200, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            P(620, 250, A('bird'), 'st-fly', 0, .8)) },
+        { minDur: 6800, sub: '「枝葉扶蘇」：家族或事業繁盛——老店開枝散葉，三代人把一間舖子開成一片天！',
+          html: scene(P(400, 300, BIGTREE, '', 0, 1.1) +
+            P(240, 302, A('kid', 'happy'), '', 0, .88) + P(560, 302, A('kid', 'happy'), '', 0, .88, true) + hearts(400, 175)) },
+        { minDur: 6800, sub: '枝葉要茂盛，靠的是底下的根——家業興旺的根，是一代代傳下來的信用和手藝！',
+          html: scene(P(400, 300, BIGTREE, '', 0, 1.1) +
+            '<g stroke="#8a6a44" stroke-width="3.4" fill="none"><path d="M400 302 q-30 16 -60 20 M400 302 q30 16 60 20 M400 302 q0 20 0 26"/></g>' + hearts(540, 210)) },
+        { minDur: 6400, sub: '枝葉扶蘇：枝繁葉茂，家業興盛。',
+          html: scene(P(400, 300, BIGTREE, '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">枝葉扶蘇</text>') }
+      ];
+    },
+    /* 根深葉茂 */
+    i148: function () {
+      return [
+        { minDur: 7000, sub: '張九齡說：「根深則葉茂」——看得見的繁茂，來自看不見的深根！',
+          html: scene(P(400, 285, TREE, '', 0, 1.3) +
+            '<g stroke="#8a6a44" stroke-width="4" fill="none" opacity=".85"><path d="M400 302 q-40 14 -80 16 M400 302 q40 14 80 16 M400 302 q-16 22 -30 30 M400 302 q16 22 30 30"/></g>') },
+        { minDur: 6800, sub: '兩棵樹比一比：淺根的颱風一來就倒，深根的枝葉越長越旺！',
+          html: scene(P(260, 296, '<g transform="rotate(18)"><path d="M0 0 L0 -44" stroke="#a8945a" stroke-width="6" stroke-linecap="round"/><circle cx="0" cy="-52" r="16" fill="#d9c05a" opacity=".8"/></g>', '', 0, 1) + sweat(200, 230) +
+            P(540, 288, TREE, '', 0, 1.2) +
+            '<g stroke="#8a6a44" stroke-width="3.4" fill="none" opacity=".85"><path d="M540 302 q-30 14 -60 16 M540 302 q30 14 60 16"/></g>' + hearts(620, 220)) },
+        { minDur: 6800, sub: '「根深葉茂」：基礎穩固才能興旺——單字文法是根、素養是葉，根淺的知識風一吹就散！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.02) + hearts(470, 190) +
+            P(600, 290, '<path d="M0 8 q-2 -12 5 -17 q5 -5 4 -11" stroke="#7fa858" stroke-width="3" fill="none"/><path d="M9 -24 q7 -7 13 -1 q-2 8 -8 9 q-6 0 -5 -8 z" fill="#a5d47c"/>', '', 0, 1.3)) },
+        { minDur: 6400, sub: '根深葉茂：根基深厚，枝葉繁盛。',
+          html: scene(P(400, 288, TREE, '', 0, 1.3) +
+            '<g stroke="#8a6a44" stroke-width="4" fill="none" opacity=".85"><path d="M400 302 q-40 14 -80 16 M400 302 q40 14 80 16"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">根深葉茂</text>') }
+      ];
+    },
+    /* 勢如破竹 */
+    i149: function () {
+      return [
+        { minDur: 7000, sub: '杜預伐吳勢頭正盛：「譬如破竹，數節之後，皆迎刃而解」——不趁勝更待何時！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(540, 302, '<g stroke="#7fa858" stroke-width="8" stroke-linecap="round"><line x1="-10" y1="20" x2="-18" y2="-60"/><line x1="10" y1="20" x2="18" y2="-60"/></g>', '', 0, 1.2) + bang(430, 195)) },
+        { minDur: 6800, sub: '「勢如破竹」：像劈竹一路裂開——連下五城、連勝十場，擋都擋不住！',
+          html: scene(P(360, 302, A('kid', 'angry'), 'st-dashL', 0, 1.08) +
+            '<g fill="#ffd97a" stroke="#e8b93f" stroke-width="2"><path d="M460 250 l5 10 10 2 -8 8 2 11 -9 -5 -9 5 2 -11 -8 -8 10 -2 z"/><path d="M560 220 l5 10 10 2 -8 8 2 11 -9 -5 -9 5 2 -11 -8 -8 10 -2 z"/><path d="M650 190 l5 10 10 2 -8 8 2 11 -9 -5 -9 5 2 -11 -8 -8 10 -2 z"/></g>' +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="220" y1="250" x2="310" y2="250"/></g>') },
+        { minDur: 6800, sub: '氣勢是滾出來的：把第一節劈開（最難的那步做掉），後面就一路順下去！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -12 l4 4 l7 -8"/></g><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-10" y1="0" x2="10" y2="0"/><line x1="-10" y1="8" x2="10" y2="8"/></g>', '', 0, .95), 'st-cheer', 0, 1.02) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '勢如破竹：節節勝利，銳不可當。',
+          html: scene(P(430, 302, '<g stroke="#7fa858" stroke-width="8" stroke-linecap="round"><line x1="-10" y1="20" x2="-18" y2="-60"/><line x1="10" y1="20" x2="18" y2="-60"/></g>', '', 0, 1.2) + bang(430, 200) +
+            P(260, 302, A('kid', 'angry'), 'st-dashL', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">勢如破竹</text>') }
+      ];
+    },
+    /* 所向披靡 */
+    i150: function () {
+      var GRASSFLAT = '<g stroke="#a8b86a" stroke-width="3.4" stroke-linecap="round"><path d="M-60 10 q14 -6 26 -2 M-24 12 q14 -6 26 -2 M12 10 q14 -6 26 -2 M46 12 q14 -6 26 -2"/></g>';
+      return [
+        { minDur: 7000, sub: '垓下突圍，項羽大吼一聲策馬衝下——「漢軍皆披靡」：像草被狂風壓倒一片！',
+          html: scene(P(300, 296, A('horse'), 'st-dashL', 0, 1.1) +
+            P(520, 300, GRASSFLAT, '', 0, 1.2) +
+            P(620, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .88) + bang(430, 210), 'night') },
+        { minDur: 6800, sub: '「披靡」是草木倒伏——「所向披靡」：力量所到之處，無人能擋！',
+          html: scene(P(360, 302, A('kid', 'angry'), 'st-dashL', 0, 1.1) +
+            P(540, 300, GRASSFLAT, '', 0, 1.3) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="200" y1="250" x2="300" y2="250"/></g>' + bang(480, 220)) },
+        { minDur: 6800, sub: '球隊十連勝所向披靡——但教練提醒：最強的時候，正是最該檢討細節的時候！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -56, '<circle cx="0" cy="0" r="11" fill="#e0813f" stroke="#b85f24" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c96a5a"/><path d="M-28 -56 l-16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + bang(440, 182) + hearts(620, 200)) },
+        { minDur: 6400, sub: '所向披靡：兵鋒所指，無人可擋。',
+          html: scene(P(340, 296, A('horse'), 'st-dashL', 0, 1.1) +
+            P(540, 300, GRASSFLAT, '', 0, 1.3) + bang(470, 215) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">所向披靡</text>') }
+      ];
+    },
+    /* 旭日東昇 */
+    i151: function () {
+      var SUNRISE2 = '<rect y="252" width="800" height="88" fill="#5a7fa8"/><circle cx="400" cy="252" r="44" fill="#ffb066" stroke="#e8944d" stroke-width="3"/><g stroke="#ffd97a" stroke-width="4" stroke-linecap="round"><line x1="400" y1="188" x2="400" y2="170"/><line x1="340" y1="205" x2="328" y2="192"/><line x1="460" y1="205" x2="472" y2="192"/></g>';
+      return [
+        { minDur: 7000, sub: '《詩經》的清晨：「旭日始旦」——朝陽從東方的海平線一寸寸升起，天色由灰轉金！',
+          html: scene(SUNRISE2) },
+        { minDur: 6800, sub: '「旭日東昇」：充滿朝氣、前途光明——形容蒸蒸日上的人和事業，滿滿的希望感！',
+          html: scene(SUNRISE2 + P(200, 302, A('kid', 'happy'), 'st-cheer', 0, .95) + hearts(280, 210)) },
+        { minDur: 6800, sub: '每天都有一次旭日東昇——昨天不管多糟，太陽照樣升起，今天永遠可以重新開始！',
+          html: scene(SUNRISE2 + P(250, 302, A('kid', 'happy'), 'st-strut', 0, .98) +
+            P(600, 200, '<path d="M0 -18 l6 11 12 2 -9 9 2 12 -11 -6 -11 6 2 -12 -9 -9 12 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '旭日東昇：朝陽初升，前途光明。',
+          html: scene(SUNRISE2 +
+            '<text x="400" y="110" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">旭日東昇</text>') }
+      ];
+    },
+    /* 滄桑歲月 */
+    i152: function () {
+      return [
+        { minDur: 7000, sub: '《神仙傳》裡仙人說：我已三次看見滄海變成桑田——「滄桑」就是天翻地覆的變遷！',
+          html: scene(P(300, 250, '<rect x="-60" y="-14" width="120" height="28" rx="6" fill="#5a7fa8"/><g class="st-wavemove"><path d="M-52 -4 q13 -6 26 0 t26 0 t26 0 t26 0" fill="none" stroke="#8fb2d4" stroke-width="4"/></g>', '', 0, 1.05) +
+            '<path d="M370 250 h60" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/><path d="M430 250 l-10 -7 v14 z" fill="#c9bfa8"/>' +
+            P(520, 255, '<g stroke="#7fa858" stroke-width="3.4" stroke-linecap="round"><path d="M-24 14 q-2 -18 6 -26 M-4 16 q0 -20 8 -28 M18 14 q4 -16 -2 -24"/></g>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '老照片裡的稻田，如今是捷運站；當年的小學生，已是白髮爺爺——歲月改寫了一切！',
+          html: scene(P(280, 260, '<rect x="-40" y="-50" width="80" height="100" rx="3" fill="#f5f0e0" stroke="#d8cbb0" stroke-width="2.6"/><g stroke="#a8b86a" stroke-width="2.6"><path d="M-24 20 q-2 -12 4 -18 M-6 22 q0 -14 6 -20 M14 20 q3 -11 -2 -17"/></g>', '', 0, 1) +
+            P(540, 265, '<rect x="-30" y="-56" width="60" height="76" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.6"/><g fill="#d9e8f5"><rect x="-20" y="-44" width="14" height="12"/><rect x="6" y="-44" width="14" height="12"/><rect x="-20" y="-24" width="14" height="12"/><rect x="6" y="-24" width="14" height="12"/></g>', '', 0, 1.05) + qmark(410, 200)) },
+        { minDur: 6800, sub: '「滄桑歲月」：世事變遷的悠悠歲月——走過滄桑的人，皺紋裡都是故事！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M-20 -58 q4 3 8 0 M12 -58 q4 3 8 0" stroke="#c9bfa8" stroke-width="2" fill="none"/>', '', 0, 1.05) +
+            P(280, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1) + notes(520, 195)) },
+        { minDur: 6400, sub: '滄桑歲月：世事變遷，歲月悠悠。',
+          html: scene(P(300, 255, '<rect x="-50" y="-12" width="100" height="24" rx="6" fill="#5a7fa8"/>', '', 0, 1) +
+            '<path d="M362 255 h56" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/><path d="M418 255 l-10 -7 v14 z" fill="#c9bfa8"/>' +
+            P(490, 258, '<g stroke="#7fa858" stroke-width="3.2" stroke-linecap="round"><path d="M-18 12 q-2 -14 5 -21 M0 14 q0 -16 7 -23"/></g>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">滄桑歲月</text>') }
+      ];
+    },
+    /* 蒼涼悲壯 */
+    i153: function () {
+      return [
+        { minDur: 7000, sub: '邊塞詩的畫面：大漠孤煙、長河落日——蒼涼的天地間，戍卒的身影顯得悲壯！',
+          html: scene('<rect y="270" width="800" height="70" fill="#c9b98a"/>' +
+            P(560, 150, '<circle cx="0" cy="0" r="26" fill="#e0813f" stroke="#c96a30" stroke-width="3"/>', '', 0, 1) +
+            '<line x1="250" y1="270" x2="250" y2="150" stroke="#8b93a3" stroke-width="5" opacity=".6"/>' +
+            P(400, 302, A('kid', 'sad') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1), '', 0, .95), 'night') },
+        { minDur: 6800, sub: '「蒼涼悲壯」：淒涼而激昂——風蕭蕭兮易水寒，明知不歸仍向前，這種美讓人起雞皮疙瘩！',
+          html: scene('<rect y="272" width="800" height="68" fill="#4a6d94"/>' +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="180" y1="180" x2="280" y2="180"/><line x1="150" y1="215" x2="250" y2="215"/></g>' +
+            P(430, 302, A('kid', 'sad'), 'st-strut', 0, 1) +
+            P(220, 302, A('kid', 'sad'), '', 0, .9) + sweat(280, 210), 'night') },
+        { minDur: 6800, sub: '讀蒼涼悲壯的詩，學的是那股氣：環境再難，也把該走的路走完！',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.05) +
+            '<g fill="#fff"><circle class="st-snow" cx="240" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1.2s" cx="580" cy="22" r="3.6"/></g>' + hearts(500, 195), 'night') },
+        { minDur: 6400, sub: '蒼涼悲壯：沉鬱激昂，動人心魄。',
+          html: scene('<rect y="272" width="800" height="68" fill="#c9b98a"/>' +
+            P(560, 150, '<circle cx="0" cy="0" r="24" fill="#e0813f" stroke="#c96a30" stroke-width="3"/>', '', 0, 1) +
+            P(360, 302, A('kid', 'sad') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1), '', 0, .98) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">蒼涼悲壯</text>', 'night') }
+      ];
+    },
+    /* 惟妙惟肖 */
+    i154: function () {
+      return [
+        { minDur: 6800, sub: '素描課上，小肖畫同學的肖像——連嘴角的小痣、睫毛的弧度都分毫不差！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-44, -46, '<line x1="0" y1="10" x2="6" y2="-12" stroke="#3a2e26" stroke-width="3" stroke-linecap="round"/>', '', 0, 1)) +
+            P(520, 260, '<rect x="-34" y="-44" width="68" height="88" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><circle cx="0" cy="-14" r="16" fill="#ffe3c1"/><circle cx="-5" cy="-18" r="2" fill="#3a2e26"/><circle cx="5" cy="-18" r="2" fill="#3a2e26"/><path d="M-5 -8 q5 4 10 0" stroke="#c96a5a" stroke-width="1.6" fill="none"/><circle cx="8" cy="-6" r="1.2" fill="#8a6a44"/>', '', 0, 1.1) + bang(620, 210)) },
+        { minDur: 6800, sub: '「惟妙惟肖」：描繪逼真傳神（同「維妙維肖」）——畫像和本人放在一起，簡直雙胞胎！',
+          html: scene(P(320, 302, A('kid', 'happy')) +
+            P(500, 265, '<rect x="-32" y="-42" width="64" height="84" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="3"/>' + P(0, 30, A('kid', 'happy'), '', 0, .45), '', 0, 1.05) +
+            '<path d="M360 240 q50 -26 100 0" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>' + hearts(420, 185)) },
+        { minDur: 6800, sub: '畫得像靠觀察：不是看「大概的樣子」，是盯著每個細節問「它究竟長怎樣？」',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-42, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1.05)) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="11" fill="#548a40">細節</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '惟妙惟肖：逼真傳神，栩栩如生。',
+          html: scene(P(320, 302, A('kid', 'happy')) +
+            P(500, 268, '<rect x="-32" y="-42" width="64" height="84" rx="3" fill="#fff" stroke="#e8b93f" stroke-width="3"/>' + P(0, 30, A('kid', 'happy'), '', 0, .45), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">惟妙惟肖</text>') }
+      ];
     }
   };
 
