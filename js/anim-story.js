@@ -23552,6 +23552,222 @@
             '<g class="st-tw" opacity=".55"><path d="M270 235 q-14 -8 -10 -22 M530 235 q14 -8 10 -22" stroke="#9db8d9" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>' +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">泰然自若</text>') }
       ];
+    },
+    /* 處變不驚 */
+    i994: function () {
+      return [
+        { minDur: 7000, sub: '演講到一半突然停電，全場騷動——主持人拿起手電筒微笑：「正好來玩個猜謎！」',
+          html: scene(P(400, 302, A('kid', 'happy') + P(38, -46, '<rect x="-4" y="-4" width="8" height="18" rx="3" fill="#8b93a3"/><path d="M-4 -4 L-12 -18 L12 -18 L4 -4 Z" fill="#ffe9a0" opacity=".9"/>', '', 0, 1), '', 0, 1.05) +
+            P(240, 302, A('kid', 'wow'), '', 0, .9) + P(560, 302, A('kid', 'wow'), '', 0, .9, true) + sweat(620, 200), 'night') },
+        { minDur: 6800, sub: '「處變不驚」（處讀ㄔㄨˇ）：面對突發變故，冷靜沉著不慌亂！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(570, 230, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="9" fill="#5a8fbf">處ㄔㄨˇ</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#8b93a3">三聲</text>', '', 0, 1) +
+            '<g class="st-tw" opacity=".6"><path d="M260 235 q-14 -8 -10 -22" stroke="#9db8d9" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>') },
+        { minDur: 6800, sub: '領導者的價值在變局裡看——你一穩，大家就穩：慌亂會傳染，鎮定也會！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-24 -44 l-14 -2 M24 -44 l14 -2" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy'), '', 0, .9) + P(550, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(400, 185)) },
+        { minDur: 6400, sub: '處變不驚：臨變彌定，愈險愈靜。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(38, -46, '<rect x="-4" y="-4" width="8" height="18" rx="3" fill="#8b93a3"/><path d="M-4 -4 L-12 -18 L12 -18 L4 -4 Z" fill="#ffe9a0" opacity=".9"/>', '', 0, 1), '', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">處變不驚</text>', 'night') }
+      ];
+    },
+    /* 大義凜然 */
+    i995: function () {
+      return [
+        { minDur: 7200, sub: '文天祥被俘，元人威逼利誘勸降——他昂首而立，一字一句：「唯有以死報國！」',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#6d5335" stroke="#4a3a24" stroke-width="2"/><path d="M-8 -34 l8 4 8 -4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', 'st-strut', 0, 1.1) +
+            P(240, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/>', '', 0, .95) + bang(520, 190), 'night') },
+        { minDur: 6800, sub: '「大義凜然」：堅守正義、嚴正不可侵犯——凜然是讓人不敢逼視的正氣！',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.1) +
+            '<g class="st-rays" style="transform-origin:400px 195px"><g stroke="#ffe9a0" stroke-width="4" stroke-linecap="round" opacity=".75"><line x1="400" y1="158" x2="400" y2="140"/><line x1="436" y1="170" x2="450" y2="156"/><line x1="364" y1="170" x2="350" y2="156"/></g></g>' + hearts(280, 195)) },
+        { minDur: 6800, sub: '正氣不必等大場面——拒絕作弊、擋下霸凌的那一刻，你也是大義凜然！',
+          html: scene(P(360, 302, A('kid', 'angry') + '<path d="M28 -50 l16 -6" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(560, 302, A('kid', 'sad'), '', 0, .92, true) + sweat(620, 200) +
+            P(270, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="5" text-anchor="middle" font-size="11" fill="#c96a5a">不行!</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '大義凜然：正氣凜凜，不可犯也。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-8 -34 l8 4 8 -4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', 'st-strut', 0, 1.12) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">大義凜然</text>', 'night') }
+      ];
+    },
+    /* 威武不屈 */
+    i996: function () {
+      return [
+        { minDur: 7200, sub: '孟子的大丈夫三句：「富貴不能淫，貧賤不能移，威武不能屈」——這是第三句！',
+          html: scene(P(400, 250, '<rect x="-70" y="-46" width="140" height="92" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><g font-size="11" fill="#5a4632" text-anchor="middle"><text x="0" y="-22">富貴不能淫</text><text x="0" y="0">貧賤不能移</text><text x="0" y="22" fill="#c96a5a">威武不能屈</text></g>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#d5cfc0"/>', '', 0, .95) + hearts(580, 220)) },
+        { minDur: 6800, sub: '刀架在面前也不低頭——「威武不屈」：武力威嚇，壓不彎有節之人的脊梁！',
+          html: scene(P(430, 302, A('kid', 'angry') + '<path d="M-8 -34 l8 4 8 -4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', 'st-strut', 0, 1.08) +
+            P(250, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/><path d="M28 -56 l14 -16" stroke="#8b93a3" stroke-width="5" stroke-linecap="round"/>', '', 0, .98) + bang(340, 200), 'night') },
+        { minDur: 6800, sub: '真正的強大不是打贏誰，是嚇不倒——原則這種東西，一讓就會一直讓！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#5a8fbf">守原則</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 230, '<line x1="0" y1="18" x2="0" y2="-22" stroke="#548a40" stroke-width="6" stroke-linecap="round"/><g fill="#79b56a"><ellipse cx="-8" cy="-26" rx="9" ry="4" transform="rotate(-24 -8 -26)"/><ellipse cx="8" cy="-30" rx="9" ry="4" transform="rotate(24 8 -30)"/></g>', '', 0, 1.05)) },
+        { minDur: 6400, sub: '威武不屈：鐵骨錚錚，是謂丈夫。',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.12) + bang(280, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">威武不屈</text>', 'night') }
+      ];
+    },
+    /* 視死如歸 */
+    i997: function () {
+      return [
+        { minDur: 7200, sub: '管仲論將才：戰鼓一響，「三軍之士視死如歸」——士兵們看待赴死，如同回家般坦然！',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#6d5335" stroke="#4a3a24" stroke-width="2"/>', 'st-strut', 0, 1) +
+            P(420, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#6d5335" stroke="#4a3a24" stroke-width="2"/>', 'st-strut', 0, 1) +
+            P(600, 260, '<circle cx="0" cy="0" r="22" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/><path d="M-10 -6 q10 8 20 0 M-10 6 q10 8 20 0" stroke="#8a5a33" stroke-width="2.4" fill="none"/>', 'st-hammer', 0, 1) + bang(540, 200), 'night') },
+        { minDur: 6800, sub: '「視死如歸」：為理想或職責無懼犧牲——不是不怕，是有比怕更重要的事！',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#c96a5a" stroke="#a8544a" stroke-width="2"/>', 'st-strut', 0, 1.08) +
+            P(560, 230, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="8" fill="#c96a5a">有比怕</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#c96a5a">更重要的</text>', '', 0, 1) + hearts(270, 195), 'night') },
+        { minDur: 6800, sub: '衝進火場的消防員、守在防疫最前線的醫護——視死如歸的精神，就在我們身邊！',
+          html: scene(P(320, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#c96a5a" stroke="#a8544a" stroke-width="2"/>', 'st-dashL', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M-6 -70 h12 M0 -76 v12" stroke="#c96a5a" stroke-width="2.4"/>', '', 0, 1, true) + hearts(430, 190)) },
+        { minDur: 6400, sub: '視死如歸：捨生赴義，何懼之有。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#c96a5a" stroke="#a8544a" stroke-width="2"/>', 'st-strut', 0, 1.1) + hearts(520, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">視死如歸</text>', 'night') }
+      ];
+    },
+    /* 混淆是非 */
+    i998: function () {
+      return [
+        { minDur: 7000, sub: '網路上一段影片被剪頭去尾：好心扶人的畫面，被配上「肇事逃逸」的標題……',
+          html: scene(P(360, 250, '<rect x="-44" y="-30" width="88" height="60" rx="5" fill="#3a2e26"/><rect x="-38" y="-24" width="76" height="42" rx="3" fill="#fff"/><path d="M-8 -10 L10 -3 L-8 4 Z" fill="#c96a5a"/><rect x="-38" y="18" width="76" height="10" fill="#c96a5a"/><text x="0" y="26" text-anchor="middle" font-size="7" fill="#fff">肇事逃逸?!</text>', '', 0, 1.1) +
+            P(580, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(640, 200) + sweat(280, 210)) },
+        { minDur: 6800, sub: '「混淆是非」：故意把對說成錯、錯說成對——攪渾了水，好摸走真相！',
+          html: scene(P(320, 240, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="14" fill="#548a40">是</text>') +
+            P(480, 240, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="14" fill="#c96a5a">非</text>') +
+            '<g class="st-tw"><path d="M340 220 q60 40 120 0 M340 260 q60 -40 120 0" stroke="#8b93a3" stroke-width="3.4" fill="none" stroke-dasharray="6 5"/></g>' +
+            P(400, 302, A('kid', 'sad'), '', 0, .95) + sweat(480, 290)) },
+        { minDur: 6800, sub: '防混淆三步：查來源、看全文、等一等——別讓自己的轉發，成為攪水的手！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-46, -54, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g font-size="7" fill="#5a8fbf" text-anchor="middle"><text x="0" y="-10">查來源</text><text x="0" y="2">看全文</text><text x="0" y="14">等一等</text></g>', '', 0, 1)) + hearts(470, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="4" text-anchor="middle" font-size="14" fill="#5a8fbf">🔍</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '混淆是非：顛倒黑白，淆亂視聽。',
+          html: scene(P(320, 240, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#548a40">是</text>') +
+            P(480, 240, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="13" fill="#c96a5a">非</text>') +
+            '<g class="st-tw"><path d="M340 222 q60 36 120 0 M340 258 q60 -36 120 0" stroke="#8b93a3" stroke-width="3.4" fill="none" stroke-dasharray="6 5"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">混淆是非</text>') }
+      ];
+    },
+    /* 否極泰來 */
+    i1000: function () {
+      return [
+        { minDur: 7200, sub: '《易經》裡「否」卦閉塞不通、「泰」卦通達安泰——物極必反：否到了頭，泰就來了！',
+          html: scene(P(300, 240, '<circle cx="0" cy="0" r="30" fill="#8b93a3" opacity=".85"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#fff">否</text><text x="0" y="44" text-anchor="middle" font-size="9" fill="#8b93a3">ㄆㄧˇ</text>', '', 0, 1.05) +
+            P(500, 240, '<circle cx="0" cy="0" r="30" fill="#ffd97a" class="st-tw"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#8a5a33">泰</text>', '', 0, 1.05) +
+            '<path d="M340 240 q60 -30 120 0" stroke="#548a40" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M448 232 l12 8 -14 4" stroke="#548a40" stroke-width="3" fill="none"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6800, sub: '連續失敗大半年的球隊，在谷底仍天天苦練——新球季開幕戰，終於贏回第一勝！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(38, -46, '<circle cx="0" cy="-6" r="10" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/><path d="M-7 -13 q7 7 14 0 M0 -16 v14" stroke="#c96a5a" stroke-width="1.6" fill="none"/>', '', 0, 1), 'st-cheer', 0, 1.05) +
+            P(230, 302, A('kid', 'happy'), 'st-cheer', 0, .9) + P(560, 302, A('kid', 'happy'), 'st-cheer', 0, .9, true) + bang(460, 190) + hearts(300, 185)) },
+        { minDur: 6800, sub: '「否極泰來」（否讀ㄆㄧˇ，常考音！）：厄運到頭、好運將至——撐過谷底就是上坡！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#c96a5a">ㄆㄧˇ</text>', '', 0, 1.1)) +
+            '<path d="M470 285 q40 -5 60 -30 q20 -26 60 -35" stroke="#548a40" stroke-width="3.6" fill="none" stroke-linecap="round"/><path d="M578 214 L590 220 L580 228" stroke="#548a40" stroke-width="3.2" fill="none"/>' + hearts(280, 195)) },
+        { minDur: 6400, sub: '否極泰來：冬盡春回，運轉時來。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.08) +
+            P(560, 160, '<circle cx="0" cy="0" r="22" fill="#ffdd66" class="st-tw"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">否極泰來</text>') }
+      ];
+    },
+    /* 抽絲剝繭 */
+    i1040: function () {
+      return [
+        { minDur: 7000, sub: '繅絲的老手藝：先剝開繭殼、找到絲頭，再一寸寸抽——急不得，亂不得！',
+          html: scene(P(430, 280, '<ellipse cx="0" cy="0" rx="26" ry="20" fill="#fdf6e0" stroke="#d9c9a8" stroke-width="2.6"/><path d="M26 -4 q40 -8 80 -30" stroke="#fff" stroke-width="2.6" fill="none"/>', '', 0, 1.1) +
+            P(280, 302, A('kid', 'happy') + '<path d="M28 -50 l18 -8" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「抽絲剝繭」：由外而內、層層深入地分析——像偵探辦案：一條線索牽出下一條！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(40, -46, '<circle cx="0" cy="-4" r="12" fill="none" stroke="#5a8fbf" stroke-width="3.4"/><line x1="9" y1="5" x2="18" y2="14" stroke="#5a8fbf" stroke-width="3.4" stroke-linecap="round"/>', '', 0, 1)) +
+            '<g opacity=".8"><circle cx="520" cy="250" r="8" fill="#ffd97a"/><circle cx="580" cy="220" r="8" fill="#ffd97a"/><circle cx="640" cy="190" r="8" fill="#ffd97a"/><path d="M528 246 L572 224 M588 216 L632 194" stroke="#e8b93f" stroke-width="2.4"/></g>') },
+        { minDur: 6800, sub: '程式抓蟲、數學解題都用得上——把大問題拆小、逐一排除，頭緒自然出現！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-46, -54, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#3a2e26"/><g font-size="7" fill="#8cc47c"><text x="-13" y="-8">if(x)</text><text x="-13" y="4">bug?</text><text x="-13" y="16">fix!</text></g>', '', 0, 1)) + hearts(470, 190) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">拆小</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">排除</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '抽絲剝繭：層層深入，理出頭緒。',
+          html: scene(P(400, 280, '<ellipse cx="0" cy="0" rx="26" ry="20" fill="#fdf6e0" stroke="#d9c9a8" stroke-width="2.6"/><path d="M26 -4 q50 -10 100 -40" stroke="#fff" stroke-width="2.6" fill="none"/>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">抽絲剝繭</text>') }
+      ];
+    },
+    /* 童山濯濯 */
+    i1076: function () {
+      return [
+        { minDur: 7200, sub: '孟子講牛山：樹木本來茂美，但天天砍伐、牛羊啃食——變得光禿禿，「若彼濯濯也」！',
+          html: scene('<path d="M120 302 Q400 90 680 302 Z" fill="#c9a878" opacity=".9"/>' +
+            P(300, 290, '<ellipse cx="0" cy="0" rx="5" ry="9" fill="#8a6a44"/>', '', 0, 1) + P(460, 270, '<ellipse cx="0" cy="0" rx="5" ry="9" fill="#8a6a44"/>', '', 0, 1) +
+            P(560, 296, A('goat'), '', 0, .9, true) +
+            P(200, 302, A('kid', 'sad') + '<path d="M28 -50 l16 -10" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '「童山濯濯」：光禿無草木的山（童＝禿；濯濯＝光潔）——也拿來戲稱人的光頭！',
+          html: scene('<path d="M150 302 Q400 110 650 302 Z" fill="#c9a878" opacity=".9"/>' +
+            P(560, 302, A('kid', 'happy') + '<circle cx="0" cy="-58" r="17" fill="#ffe3c1"/><g class="st-tw"><path d="M-12 -78 l3 5 5 2 -5 2 -3 5 -3 -5 -5 -2 5 -2 z" fill="#ffd97a"/></g>', '', 0, 1, true) + notes(640, 220) +
+            P(250, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6800, sub: '孟子的重點是保育：不是山長不出樹，是砍太兇——給山休息，綠意就會回來！',
+          html: scene('<path d="M150 302 Q400 130 650 302 Z" fill="#a8c48a" opacity=".85"/>' +
+            P(340, 280, '<path d="M0 0 L0 -26" stroke="#8a6a44" stroke-width="4" stroke-linecap="round"/><circle cx="0" cy="-34" r="12" fill="#79b56a"/>', 'st-grow', 0, 1) +
+            P(470, 262, '<path d="M0 0 L0 -20" stroke="#8a6a44" stroke-width="3.4" stroke-linecap="round"/><circle cx="0" cy="-27" r="9" fill="#8cc47c"/>', 'st-grow', 0, 1) +
+            P(220, 302, A('kid', 'happy') + P(40, -44, '<path d="M0 10 L0 -16 M-8 -16 l8 -8 l8 8" stroke="#8a6a44" stroke-width="3.6" fill="none" stroke-linecap="round"/>', '', 0, 1), '', 0, .98) + hearts(600, 240)) },
+        { minDur: 6400, sub: '童山濯濯：山無草木，光禿蕭然。',
+          html: scene('<path d="M120 302 Q400 100 680 302 Z" fill="#c9a878" opacity=".9"/>' +
+            P(500, 296, A('goat'), '', 0, .9, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">童山濯濯</text>') }
+      ];
+    },
+    /* 雲譎波詭 */
+    i1144: function () {
+      return [
+        { minDur: 7200, sub: '揚雄〈甘泉賦〉形容宮殿：「大廈雲譎波詭」——樓宇奇巧如雲彩翻湧、波濤變幻！',
+          html: scene(P(400, 250, '<g fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"><rect x="-70" y="-4" width="140" height="56" rx="4"/><rect x="-50" y="-36" width="100" height="32" rx="4"/><path d="M-84 -4 L0 -30 L84 -4 Z" fill="#c96a5a" stroke="#a8544a"/><path d="M-60 -36 L0 -58 L60 -36 Z" fill="#c96a5a" stroke="#a8544a"/></g>', '', 0, 1.05) +
+            '<g class="st-cloud"><ellipse cx="240" cy="130" rx="36" ry="13" fill="#dbe4f0"/><ellipse cx="580" cy="115" rx="30" ry="11" fill="#e8eef8"/></g>' +
+            P(230, 302, A('kid', 'wow') + '<path d="M28 -56 l14 -14" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '後世轉用來形容局勢：「雲譎波詭」——像雲和浪一樣變幻莫測、詭異難料！',
+          html: scene('<g class="st-cloud"><ellipse cx="300" cy="140" rx="40" ry="14" fill="#8b93a3" opacity=".8"/><ellipse cx="500" cy="120" rx="34" ry="12" fill="#6d7585" opacity=".8"/></g>' +
+            '<path d="M120 270 q70 -26 140 0 q70 26 140 0 q70 -26 140 0 l0 50 l-420 0 z" fill="#5a7a9a" opacity=".7" class="st-wavemove"/>' +
+            P(300, 240, A('kid', 'wow'), 'st-bob', 0, .9) + qmark(500, 200), 'night') },
+        { minDur: 6800, sub: '書面語，多用於局勢——「國際政局雲譎波詭」；也寫作「波譎雲詭」，一樣通！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-46, -54, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-6" text-anchor="middle" font-size="8" fill="#5a8fbf">國際版</text><text x="0" y="8" text-anchor="middle" font-size="7" fill="#8b93a3">頭條</text>', '', 0, 1)) +
+            P(580, 230, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="8" fill="#8a5a33">亦作波譎</text><text x="0" y="10" text-anchor="middle" font-size="8" fill="#8a5a33">雲詭</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '雲譎波詭：雲波萬變，莫測高深。',
+          html: scene('<g class="st-cloud"><ellipse cx="300" cy="130" rx="40" ry="14" fill="#8b93a3" opacity=".8"/><ellipse cx="520" cy="115" rx="34" ry="12" fill="#6d7585" opacity=".8"/></g>' +
+            '<path d="M120 275 q70 -24 140 0 q70 24 140 0 q70 -24 140 0 l0 45 l-420 0 z" fill="#5a7a9a" opacity=".7" class="st-wavemove"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">雲譎波詭</text>', 'night') }
+      ];
+    },
+    /* 一鱗半爪 */
+    i1172: function () {
+      return [
+        { minDur: 7200, sub: '《談龍錄》論詩：神龍騰雲，只露一片鱗、半隻爪——但見者自知，龍的首尾完好無缺！',
+          html: scene('<g class="st-cloud"><ellipse cx="400" cy="160" rx="150" ry="40" fill="#dbe4f0" opacity=".9"/><ellipse cx="260" cy="190" rx="80" ry="26" fill="#e8eef8" opacity=".9"/><ellipse cx="560" cy="185" rx="90" ry="28" fill="#e8eef8" opacity=".9"/></g>' +
+            P(430, 165, '<g fill="#79a86a" stroke="#5a8a4a" stroke-width="2"><path d="M-20 0 a14 14 0 0 1 28 0 a14 14 0 0 1 -28 0" opacity=".95"/><path d="M60 18 q10 6 6 16 l-6 -2 q-4 -8 -12 -10 z"/></g>', '', 0, 1.1) +
+            P(240, 302, A('kid', 'wow') + '<path d="M28 -56 l14 -14" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .95)) },
+        { minDur: 6800, sub: '「一鱗半爪」（爪讀ㄓㄠˇ）：只露出的零星片段——看得到一角，看不到全貌！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-46, -54, '<rect x="-18" y="-22" width="36" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8b93a3" stroke-width="2"><line x1="-11" y1="-12" x2="11" y2="-12"/><line x1="-11" y1="-2" x2="2" y2="-2"/></g><text x="0" y="14" text-anchor="middle" font-size="7" fill="#c96a5a">(下略)</text>', '', 0, 1)) + qmark(460, 195) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#5a8fbf">爪ㄓㄠˇ</text><text x="0" y="11" text-anchor="middle" font-size="8" fill="#8b93a3">常考音</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '看新聞只讀標題、聽故事只聽一半——憑一鱗半爪就下結論，最容易冤枉整條龍！',
+          html: scene(P(340, 302, A('kid', 'sad') + P(0, -110, '<ellipse cx="0" cy="0" rx="38" ry="17" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#c96a5a">我看標題就懂!</text>', '', 0, 1), '', 0, 1) +
+            P(560, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="8" fill="#548a40">看全貌</text>', '', 0, 1.05), '', 0, 1, true) + sweat(420, 195)) },
+        { minDur: 6400, sub: '一鱗半爪：片羽吉光，難窺全龍。',
+          html: scene('<g class="st-cloud"><ellipse cx="400" cy="170" rx="150" ry="38" fill="#dbe4f0" opacity=".9"/></g>' +
+            P(430, 172, '<g fill="#79a86a" stroke="#5a8a4a" stroke-width="2"><path d="M-20 0 a14 14 0 0 1 28 0 a14 14 0 0 1 -28 0" opacity=".95"/><path d="M60 14 q10 6 6 16 l-6 -2 q-4 -8 -12 -10 z"/></g>', '', 0, 1.1) +
+            '<text x="400" y="272" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一鱗半爪</text>') }
+      ];
+    },
+    /* 判若雲泥 */
+    i1200: function () {
+      return [
+        { minDur: 7200, sub: '杜甫送別詩：「夫子欻通貴，雲泥相望懸」——朋友顯貴如雲在天，自己如泥在地！',
+          html: scene('<g class="st-cloud"><ellipse cx="560" cy="110" rx="44" ry="15" fill="#fff"/><ellipse cx="590" cy="100" rx="28" ry="11" fill="#e8eef8"/></g>' +
+            P(560, 130, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, .8) +
+            '<ellipse cx="250" cy="300" rx="70" ry="12" fill="#7a6a50" opacity=".8"/>' +
+            P(250, 296, A('kid', 'sad'), '', 0, .95) +
+            '<path d="M320 250 q90 -60 180 -100" stroke="#c9bfa8" stroke-width="2.6" fill="none" stroke-dasharray="6 6"/>') },
+        { minDur: 6800, sub: '「判若雲泥」：相差如天上雲、地上泥——形容兩者高下差距懸殊！',
+          html: scene(P(300, 250, '<circle cx="0" cy="0" r="28" fill="#fff" opacity=".95"/><g class="st-cloud"><ellipse cx="0" cy="-2" rx="16" ry="7" fill="#dbe4f0"/></g><text x="0" y="20" text-anchor="middle" font-size="9" fill="#5a8fbf">雲</text>', '', 0, 1.1) +
+            P(500, 250, '<circle cx="0" cy="0" r="28" fill="#fff" opacity=".95"/><ellipse cx="0" cy="0" rx="15" ry="9" fill="#8a6a44"/><text x="0" y="20" text-anchor="middle" font-size="9" fill="#8a5a33">泥</text>', '', 0, 1.1) +
+            '<path d="M350 250 h100" stroke="#c96a5a" stroke-width="3" stroke-dasharray="6 5"/>' +
+            P(400, 302, A('kid', 'wow'), '', 0, .95)) },
+        { minDur: 6800, sub: '翻新前後的球場、練習一年前後的琴聲——判若雲泥的差距，都是累積出來的！',
+          html: scene(P(300, 302, A('kid', 'sad') + P(40, -40, QIN, '', 0, .5) + P(0, -100, '<text x="0" y="0" text-anchor="middle" font-size="12" fill="#8b93a3">♪?</text>', '', 0, 1), '', 0, .95) +
+            P(540, 302, A('kid', 'happy') + P(40, -40, QIN, '', 0, .5), '', 0, 1.02, true) + notes(620, 190) + hearts(460, 195) +
+            '<path d="M370 250 l60 0" stroke="#548a40" stroke-width="3" stroke-linecap="round"/><path d="M418 244 l12 6 -12 6" stroke="#548a40" stroke-width="2.6" fill="none"/>') },
+        { minDur: 6400, sub: '判若雲泥：雲泥之隔，天壤之別。',
+          html: scene('<g class="st-cloud"><ellipse cx="550" cy="120" rx="42" ry="14" fill="#fff"/></g>' +
+            '<ellipse cx="260" cy="300" rx="60" ry="11" fill="#7a6a50" opacity=".8"/>' +
+            '<path d="M310 270 q90 -60 190 -130" stroke="#c9bfa8" stroke-width="2.6" fill="none" stroke-dasharray="6 6"/>' +
+            '<text x="400" y="220" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">判若雲泥</text>') }
+      ];
     }
   };
 
