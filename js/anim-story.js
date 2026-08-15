@@ -10750,6 +10750,115 @@
           html: scene(P(400, 302, A('kid', 'happy') + '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-62" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>', '', 0, 1.05) + bang(500, 185) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">直言不諱</text>') }
       ];
+    },
+    /* 暢所欲言 */
+    i878: function () {
+      function bub10(x, y, dly) {
+        return P(x, y, '<g class="st-zfloat"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M-20 -11 a17 13 0 1 1 34 4 q-2 5 -7 6 l-7 6 l1 -6 q-16 -2 -21 -10 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/></g>');
+      }
+      return [
+        { minDur: 6800, sub: '班會的「無敵發言時間」：想說什麼都可以！同學們一個接一個舉手，教室裡意見滿天飛！',
+          html: scene(P(280, 302, A('kid', 'happy'), '', 0, .93) + P(400, 302, A('kid', 'happy'), '', .1, .95) + P(520, 302, A('kid', 'happy'), '', .2, .93) +
+            bub10(280, 175, 0) + bub10(400, 150, .2) + bub10(520, 172, .4) + hearts(400, 230)) },
+        { minDur: 6800, sub: '「暢所欲言」：痛痛快快把想說的話全說出來——沒有顧忌、暢快淋漓！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-62" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>', '', 0, 1.05) +
+            notes(490, 180) + bub10(320, 172, 0)) },
+        { minDur: 6800, sub: '能讓大家暢所欲言的班級，一定有安心的氣氛——不怕說錯、只怕不說！',
+          html: scene(P(300, 302, A('kid', 'happy')) + P(430, 302, A('kid', 'happy'), '', .1, .95) + P(560, 302, A('kid', 'happy'), '', .2, .93) + hearts(430, 178)) },
+        { minDur: 6400, sub: '暢所欲言：痛快說出想說的話。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + bub10(310, 172, 0) + bub10(480, 168, .3) + notes(400, 155) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">暢所欲言</text>') }
+      ];
+    },
+    /* 信口開河 */
+    i879: function () {
+      return [
+        { minDur: 6800, sub: '「我叔叔認識大明星！」「我家有一百台遊戲機！」——小河張口就來，話像開了閘的河水漫出來！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<path d="M420 200 q60 10 130 40 M420 210 q50 24 110 60" stroke="#7fb2e0" stroke-width="8" fill="none" stroke-linecap="round" opacity=".7"/>' +
+            P(580, 302, A('kid', 'wow'), '', 0, .92) + qmark(630, 188)) },
+        { minDur: 6800, sub: '「信口開河」：隨口亂說、漫無邊際、不負責任——和「信口雌黃」是親戚！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + qmark(320, 182) + qmark(480, 178) + sweat(400, 158)) },
+        { minDur: 6800, sub: '謊話很快被拆穿，大家漸漸不信他說的話——說話負責任，信用才能累積！',
+          html: scene(P(340, 302, A('kid', 'sad')) + sweat(290, 192) +
+            P(540, 302, '<g class="st-fleeR">' + A('kid', 'happy') + '</g>', 'st-dashL', 0, .92)) },
+        { minDur: 6400, sub: '信口開河：隨口亂說，不負責任。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<path d="M450 210 q60 16 120 50" stroke="#7fb2e0" stroke-width="8" fill="none" stroke-linecap="round" opacity=".7"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">信口開河</text>') }
+      ];
+    },
+    /* 進退兩難 */
+    i880: function () {
+      return [
+        { minDur: 6800, sub: '爬到岩壁中段，小難往上看好陡、往下看好高——上也不是、下也不是，卡住了！',
+          html: scene(P(560, 302, '<path d="M-40 0 L-20 -180 L60 -180 L40 0 Z" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/>') +
+            P(545, 180, A('kid', 'wow'), '', 0, .8) + sweat(500, 150) + qmark(600, 120)) },
+        { minDur: 6800, sub: '「進退兩難」：前進不行、後退也不行——騎虎難下的親戚，處境非常尷尬！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            '<path d="M300 240 l-60 0 M500 240 l60 0" stroke="#c96a5a" stroke-width="5" stroke-linecap="round"/><path d="M240 240 l12 -8 v16 z M560 240 l-12 -8 v16 z" fill="#c96a5a"/>' +
+            '<text x="300" y="220" text-anchor="middle" font-size="15" fill="#c96a5a">退?</text><text x="500" y="220" text-anchor="middle" font-size="15" fill="#c96a5a">進?</text>' + sweat(400, 160)) },
+        { minDur: 6800, sub: '教練在下面喊：「深呼吸！右手抓穩、左腳跨一步！」——冷靜下來一步步化解，脫困了！',
+          html: scene(P(560, 302, '<path d="M-40 0 L-20 -180 L60 -180 L40 0 Z" fill="#b0a390" stroke="#8a7a66" stroke-width="3"/>') +
+            P(555, 120, A('kid', 'happy'), '', 0, .8) + bang(620, 90) +
+            P(300, 302, A('kid', 'happy')) + hearts(400, 200)) },
+        { minDur: 6400, sub: '進退兩難：前進後退都不行，處境尷尬。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) + qmark(310, 182) + qmark(490, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">進退兩難</text>') }
+      ];
+    },
+    /* 學富五車 */
+    i1019: function () {
+      var BOOKCART = '<rect x="-30" y="-24" width="60" height="18" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><circle cx="-16" cy="0" r="8" fill="#8a5a33"/><circle cx="16" cy="0" r="8" fill="#8a5a33"/>' +
+        '<g stroke-width="1.6"><rect x="-24" y="-38" width="14" height="14" fill="#e8dcc0" stroke="#c9bfa8"/><rect x="-8" y="-40" width="14" height="16" fill="#c9762f" stroke="#a85a1e"/><rect x="8" y="-38" width="14" height="14" fill="#5c82ba" stroke="#46689a"/></g>';
+      return [
+        { minDur: 7000, sub: '《莊子》說名家惠施「其書五車」——他的藏書要用五輛車才載得完！古代的書是竹簡，五車可不得了！',
+          html: scene(P(240, 296, BOOKCART, '', 0, 1) + P(400, 298, BOOKCART, '', .15, 1) + P(560, 296, BOOKCART, '', .3, 1) +
+            P(120, 302, A('kid', 'wow'), '', 0, .88) + qmark(180, 200)) },
+        { minDur: 6800, sub: '「學富五車」：學識淵博、讀書極多——形容有大學問的人！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-44, -56, '<g stroke-width="2"><rect x="-20" y="-10" width="40" height="10" rx="2" fill="#c9762f" stroke="#a85a1e"/><rect x="-18" y="-20" width="36" height="10" rx="2" fill="#5c82ba" stroke="#46689a"/><rect x="-19" y="-30" width="38" height="10" rx="2" fill="#6fae58" stroke="#548a40"/></g>', '', 0, 1)) + hearts(470, 190)) },
+        { minDur: 6800, sub: '現代不用五車竹簡——一顆愛讀書的心，就能裝下整座圖書館！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) +
+            P(520, 200, '<path d="M0 5 C-7 -5 -19 2 -10 12 L0 20 L10 12 C19 2 7 -5 0 5 Z" fill="#ff7b9c"/>', '', 0, 1.2) + hearts(280, 192)) },
+        { minDur: 6400, sub: '學富五車：學識淵博，讀書很多。',
+          html: scene(P(280, 296, BOOKCART, '', 0, 1.05) + P(440, 298, BOOKCART, '', .15, 1.05) + P(600, 296, BOOKCART, '', .3, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">學富五車</text>') }
+      ];
+    },
+    /* 奮發圖強 */
+    i1020: function () {
+      return [
+        { minDur: 6800, sub: '段考成績掉到低谷——小強沒有氣餒，訂下讀書計畫表：每天六點半起床、錯題本天天複習！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(-44, -50, '<rect x="-16" y="-22" width="32" height="44" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#548a40" stroke-width="2"><path d="M-10 -14 l3 3 l6 -6 M-10 -2 l3 3 l6 -6 M-10 10 l3 3 l6 -6"/></g>', '', 0, .95)) + bang(460, 190)) },
+        { minDur: 6800, sub: '「奮發圖強」：振作精神、努力謀求強盛進步——跌倒不可怕，趴著不起來才可怕！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'angry') + '</g>', '', 0, 1.05) +
+            '<path d="M280 260 L380 230 L480 200 L580 160" stroke="#548a40" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M580 160 l-13 -3 l7 12 z" fill="#548a40"/>') },
+        { minDur: 6800, sub: '期末成績單發下來——進步了三十名！奮發的汗水，從不白流！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(520, 260, '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-8 0 l5 6 l12 -12" stroke="#548a40" stroke-width="3.4" fill="none" stroke-linecap="round"/>', '', 0, 1) + hearts(280, 192)) },
+        { minDur: 6400, sub: '奮發圖強：振作精神，努力求進步。',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'angry') + '</g>', '', 0, 1.05) + bang(490, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">奮發圖強</text>') }
+      ];
+    },
+    /* 力爭上游 */
+    i1021: function () {
+      var RIVERUP = '<path d="M100 320 q150 -30 300 -60 q150 -30 300 -80" stroke="#7fb2e0" stroke-width="22" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '鮭魚洄游：頂著急流、躍過瀑布，拚命往上游前進——目標是出生的源頭！',
+          html: scene(RIVERUP +
+            P(300, 280, '<g transform="rotate(-24)">' + A('fish') + '</g>', '', 0, 1) +
+            P(500, 230, '<g transform="rotate(-24)">' + A('fish') + '</g>', '', .3, .9) + bang(600, 170)) },
+        { minDur: 6800, sub: '「力爭上游」：像逆流而上的魚——努力向上、求取進步，不甘落於人後！',
+          html: scene(RIVERUP + P(400, 250, '<g transform="rotate(-24)">' + A('fish') + '</g>', '', 0, 1.1) + sweat(340, 220) + hearts(500, 190)) },
+        { minDur: 6800, sub: '排名可以爭、品格更要爭——各方面都力爭上游，做最好的自己！',
+          html: scene(P(360, 302, A('kid', 'angry'), 'st-strut', 0, 1.02) +
+            '<path d="M280 260 L400 220 L520 180" stroke="#548a40" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M520 180 l-13 -3 l7 12 z" fill="#548a40"/>' + hearts(470, 230)) },
+        { minDur: 6400, sub: '力爭上游：努力向上，求取進步。',
+          html: scene(RIVERUP + P(400, 245, '<g transform="rotate(-24)">' + A('fish') + '</g>', '', 0, 1.15) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">力爭上游</text>') }
+      ];
     }
   };
 
