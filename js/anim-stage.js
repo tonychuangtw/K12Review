@@ -195,6 +195,29 @@
         blush(-15, -27) + blush(15, -27) +
         '<path d="M-14 -6 q-8 4 -13 1 M14 -6 q8 4 13 1" stroke="#6da844" stroke-width="5" fill="none" stroke-linecap="round"/></g>';
     },
+    deer: function () {
+      return '<g class="st-bob">' +
+        '<ellipse cx="0" cy="-26" rx="28" ry="19" fill="#d4a86a" stroke="#b3854a" stroke-width="2"/>' +
+        '<circle cx="6" cy="-32" r="4" fill="#f2e3c8"/><circle cx="16" cy="-24" r="4" fill="#f2e3c8"/><circle cx="-6" cy="-18" r="4" fill="#f2e3c8"/>' +
+        '<rect x="-22" y="-14" width="9" height="14" rx="4" fill="#b3854a"/><rect x="13" y="-14" width="9" height="14" rx="4" fill="#b3854a"/>' +
+        '<circle cx="-24" cy="-48" r="15" fill="#d4a86a" stroke="#b3854a" stroke-width="2"/>' +
+        '<ellipse cx="-36" cy="-42" rx="9" ry="7" fill="#e8c89a"/>' +
+        '<circle cx="-38" cy="-44" r="1.8" fill="#7a5230"/>' +
+        '<path d="M-32 -60 q-2 -10 -10 -12 M-32 -60 q-8 -4 -8 -14 M-18 -62 q2 -10 10 -12 M-18 -62 q8 -4 8 -14" stroke="#8a6a42" stroke-width="3.4" fill="none" stroke-linecap="round"/>' +
+        eye(-28, -50) + blush(-33, -41) + '</g>';
+    },
+    donkey: function () {
+      return '<g class="st-bob">' +
+        '<ellipse cx="0" cy="-26" rx="29" ry="20" fill="#a9aab3" stroke="#84858f" stroke-width="2"/>' +
+        '<rect x="-23" y="-14" width="10" height="14" rx="4" fill="#84858f"/><rect x="13" y="-14" width="10" height="14" rx="4" fill="#84858f"/>' +
+        '<g class="st-tailwag"><path d="M27 -32 q14 6 12 22" stroke="#84858f" stroke-width="6" fill="none" stroke-linecap="round"/></g>' +
+        '<circle cx="-25" cy="-48" r="15" fill="#a9aab3" stroke="#84858f" stroke-width="2"/>' +
+        '<ellipse cx="-37" cy="-42" rx="9" ry="7" fill="#c8c9d1"/>' +
+        '<circle cx="-39" cy="-44" r="1.8" fill="#5a5b64"/>' +
+        '<ellipse cx="-34" cy="-66" rx="5.5" ry="14" fill="#a9aab3" stroke="#84858f" stroke-width="2" transform="rotate(-14 -34 -66)"/>' +
+        '<ellipse cx="-18" cy="-67" rx="5.5" ry="14" fill="#a9aab3" stroke="#84858f" stroke-width="2" transform="rotate(8 -18 -67)"/>' +
+        eye(-29, -50) + blush(-34, -41) + '</g>';
+    },
     fox: function () {
       return '<g class="st-bob">' +
         '<ellipse cx="2" cy="-22" rx="24" ry="18" fill="#f0925e" stroke="#d1713c" stroke-width="2"/>' +
@@ -221,7 +244,7 @@
     [/兔/, 'rabbit'], [/[馬駒驥騮騏]/, 'horse'], [/牛/, 'ox'], [/[虎豹獅]/, 'tiger'],
     [/[魚鯉鮒鱉鰲]/, 'fish'], [/[鳥雀燕鴉鵲鶯雁鵬鳩雛鶴鷺鳳凰鴻]/, 'bird'], [/雞/, 'chicken'],
     [/[狗犬]/, 'dog'], [/龍/, 'dragon'], [/蛇/, 'snake'], [/羊/, 'goat'], [/[猴猿]/, 'monkey'],
-    [/鼠/, 'mouse'], [/龜/, 'turtle'], [/[狐狼豺貓]/, 'fox'], [/[蛙蟾]/, 'frog'], [/[蝶蜂蟬蟻蟲螳螂]/, 'butterfly']
+    [/鼠/, 'mouse'], [/龜/, 'turtle'], [/[狐狼豺貓]/, 'fox'], [/[蛙蟾]/, 'frog'], [/鹿/, 'deer'], [/[驢騾]/, 'donkey'], [/[蝶蜂蟬蟻蟲螳螂]/, 'butterfly']
   ];
 
   function pick(term) {

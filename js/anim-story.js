@@ -1046,6 +1046,132 @@
           html: scene(P(400, 250, JADE, '', 0, 1.6) + P(200, 302, A('kid', 'happy')) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">完璧歸趙</text>') }
       ];
+    },
+    /* 杞人憂天 */
+    i350: function () {
+      return [
+        { minDur: 6800, sub: '杞國有個人，整天擔心天會塌下來、地會陷下去，愁得吃不下飯、睡不著覺。',
+          html: scene(P(360, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') +
+            sweat(320, 200) + qmark(420, 170) + zzz(500, 230), 'night') },
+        { minDur: 7000, sub: '朋友來開導他：「天不過是一大團氣，你一舉一動都在氣裡活動，它怎麼會塌下來呢？」',
+          html: scene(P(280, 302, A('kid', 'happy') +
+              '<path d="M18 -70 q10 -14 4 -24" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>') +
+            P(540, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(590, 185)) },
+        { minDur: 7000, sub: '他又問：「那太陽、月亮、星星，不會掉下來砸到人嗎？」朋友說：「那些只是會發光的氣，掉下來也砸不傷人呀！」',
+          html: scene(P(280, 302, A('kid', 'happy')) +
+            P(540, 302, A('kid', 'wow'), '', 0, .95, true) + qmark(500, 180), 'night') },
+        { minDur: 6600, sub: '杞人這才放下心來，開開心心吃飯睡覺。天下本無事，庸人自擾之呀！',
+          html: scene(P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(460, 170)) },
+        { minDur: 6200, sub: '杞人憂天：毫無必要的憂慮。',
+          html: scene(P(360, 302, A('kid', 'sad')) + qmark(410, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">杞人憂天</text>') }
+      ];
+    },
+    /* 指鹿為馬 */
+    i370: function () {
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      return [
+        { minDur: 7200, sub: '秦朝宰相趙高想篡權，先試探誰站在他那邊：他牽來一頭鹿獻給皇帝，卻說：「這是一匹好馬！」',
+          html: scene(P(430, 300, A('deer')) +
+            P(250, 302, A('kid', 'happy')) +
+            P(640, 302, A('kid', 'wow') + CROWN, '', 0, .95, true) + qmark(690, 185)) },
+        { minDur: 6800, sub: '皇帝笑說：「宰相弄錯了吧？這明明是一頭鹿呀！」趙高不回答，轉頭問滿朝大臣。',
+          html: scene(P(430, 300, A('deer')) +
+            P(640, 302, A('kid', 'happy') + CROWN, '', 0, .95, true) +
+            P(250, 302, A('kid', 'angry')) +
+            P(120, 302, A('kid', 'happy'), '', 0, .8) + qmark(160, 200)) },
+        { minDur: 7200, sub: '大臣們怕趙高的權勢——有的低頭不敢出聲，有的違心地說「是馬」，只有少數人照實說「是鹿」。',
+          html: scene(P(430, 300, A('deer'), '', 0, .9) +
+            P(150, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .85) + sweat(180, 210) +
+            P(270, 302, A('kid', 'wow'), '', 0, .85) + sweat(300, 205) +
+            P(640, 302, A('kid', 'angry'), '', 0, .85) + bang(600, 180)) },
+        { minDur: 6800, sub: '事後，說實話的大臣都被趙高陷害了。從此朝廷裡，再也沒有人敢說真話……',
+          html: scene(P(300, 302, A('kid', 'angry')) +
+            P(560, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .9) + sweat(600, 205), 'night') },
+        { minDur: 6200, sub: '指鹿為馬：顛倒是非，混淆黑白。',
+          html: scene(P(280, 300, A('deer')) + P(560, 302, A('horse'), '', 0, .95) + qmark(420, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">指鹿為馬</text>') }
+      ];
+    },
+    /* 黔驢技窮 */
+    i399: function () {
+      return [
+        { minDur: 6600, sub: '黔地本來沒有驢子。有人用船運來一頭驢，放養在山腳下。',
+          html: scene(P(660, 302, '<path d="M-110 0 L0 -130 L110 0 Z" fill="#8fb0a0"/>') +
+            P(340, 300, A('donkey'), 'st-inL')) },
+        { minDur: 6800, sub: '老虎第一次見到驢，以為是什麼神獸，嚇得躲在樹林裡，偷偷觀察牠。',
+          html: scene(P(340, 300, A('donkey')) +
+            P(640, 302, TREE, '', 0, 1.2) + P(700, 302, A('tiger'), '', 0, .85) + sweat(680, 215)) },
+        { minDur: 7000, sub: '有一天驢子放聲大叫，老虎嚇了一大跳！但看久了，發現牠好像也沒什麼別的本事。',
+          html: scene(P(340, 300, A('donkey')) + bang(400, 200) + notes(300, 160) +
+            P(600, 302, A('tiger')) + sweat(640, 210) + qmark(560, 180)) },
+        { minDur: 7200, sub: '老虎故意衝撞挑釁，驢子氣得抬起後腿猛踢——原來這就是牠全部的本領！老虎大喜，撲上去把驢吃掉了。',
+          html: scene(P(320, 300, A('donkey') +
+              '<line x1="24" y1="-10" x2="46" y2="-30" stroke="#84858f" stroke-width="8" stroke-linecap="round" class="st-hoe"/>') +
+            P(520, 302, '<g class="st-cheer">' + A('tiger') + '</g>') + bang(430, 200)) },
+        { minDur: 6200, sub: '黔驢技窮：有限的本領用完了，再也無計可施。',
+          html: scene(P(300, 300, A('donkey')) + P(540, 302, A('tiger')) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">黔驢技窮</text>') }
+      ];
+    },
+    /* 買櫝還珠 */
+    i936: function () {
+      var BOX = '<rect x="-34" y="-40" width="68" height="40" rx="7" fill="#c9762f" stroke="#a85a1e" stroke-width="3"/>' +
+        '<rect x="-34" y="-46" width="68" height="10" rx="5" fill="#e8b84a" stroke="#c98f2a" stroke-width="2"/>' +
+        '<circle cx="-18" cy="-22" r="5" fill="#8fd0c0"/><circle cx="0" cy="-18" r="5" fill="#ff9eb5"/><circle cx="18" cy="-24" r="5" fill="#a5c8ff"/>' +
+        '<path d="M-26 -10 q10 -6 20 0 q10 6 20 0" stroke="#ffd97a" stroke-width="2.4" fill="none"/>';
+      var PEARL = '<circle cx="0" cy="0" r="12" fill="#f4f1ea" stroke="#d5cfc0" stroke-width="2"/><circle cx="-4" cy="-4" r="3.4" fill="#fff"/>';
+      return [
+        { minDur: 7000, sub: '楚國商人要賣一顆珍珠，特地做了個華麗至極的木盒：香木雕花、鑲玉綴寶，把珍珠放在裡面。',
+          html: scene(P(430, 300, BOX, '', 0, 1.1) + P(430, 252, PEARL) +
+            P(200, 302, A('kid', 'happy'))) },
+        { minDur: 6600, sub: '鄭國人一看，眼睛都亮了——他盯著的，卻是那個漂亮盒子！',
+          html: scene(P(430, 300, BOX, '', 0, 1.1) +
+            P(640, 302, A('kid', 'wow'), '', 0, 1, true) + hearts(560, 190) + hearts(660, 160)) },
+        { minDur: 7000, sub: '他付了大錢，開開心心把盒子抱回家，卻把珍珠退還給商人：「珠子你留著吧！」',
+          html: scene(P(560, 302, '<g class="st-fleeR">' + A('kid', 'happy') + P(-34, -60, BOX, '', 0, .6) + '</g>', 'st-dashL', 0, 1, true) +
+            P(240, 302, A('kid', 'wow') + P(34, -66, PEARL, '', 0, .9)) + qmark(190, 180)) },
+        { minDur: 6800, sub: '華麗的包裝迷住了他的眼，真正貴重的珍珠反而被退了回來——取捨完全顛倒了呀！',
+          html: scene(P(300, 302, A('kid', 'wow') + P(34, -66, PEARL, '', 0, .9)) +
+            sweat(250, 200) + qmark(360, 175)) },
+        { minDur: 6200, sub: '買櫝還珠：取捨失當、捨本逐末。',
+          html: scene(P(320, 296, BOX, '', 0, 1.15) + P(520, 260, PEARL, '', 0, 1.3) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">買櫝還珠</text>') }
+      ];
+    },
+    /* 鷸蚌相爭 */
+    i1086: function () {
+      function clam(open) {
+        var s = '<path d="M-24 0 q0 -22 24 -22 q24 0 24 22 z" fill="#c9a8b8" stroke="#a8869a" stroke-width="2.4"' +
+          (open ? ' transform="rotate(-28)"' : '') + '/>';
+        s += '<path d="M-24 0 q24 10 48 0 q-6 10 -24 10 q-18 0 -24 -10 z" fill="#b895a8" stroke="#a8869a" stroke-width="2.4"/>';
+        if (open) s += '<circle cx="4" cy="-6" r="5" fill="#ffd0dc"/>';
+        return s;
+      }
+      var RIVERBANK = '<rect y="278" width="800" height="62" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 286 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>' +
+        '<ellipse cx="330" cy="316" rx="220" ry="34" fill="#e8d5a8"/>';
+      return [
+        { minDur: 6800, sub: '河蚌張開殼，在河灘上舒服地晒太陽。一隻鷸鳥飛來，一口啄住牠的肉！',
+          html: scene(RIVERBANK + P(330, 306, clam(true), '', 0, 1.2) +
+            P(300, 296, A('bird'), '', 0, 1.05) + bang(350, 230)) },
+        { minDur: 6400, sub: '河蚌立刻「啪」地合起殼來，把鷸的長嘴緊緊夾住！',
+          html: scene(RIVERBANK + P(330, 306, clam(false), '', 0, 1.2) +
+            P(300, 288, A('bird'), '', 0, 1.05) + bang(310, 240) + sweat(260, 230)) },
+        { minDur: 7400, sub: '鷸說：「今天不下雨、明天不下雨，你就渴死了！」蚌說：「今天不放你、明天不放你，你就餓死了！」誰也不肯讓誰。',
+          html: scene(RIVERBANK + P(330, 306, clam(false), '', 0, 1.2) +
+            P(300, 288, A('bird'), '', 0, 1.05) + qmark(250, 200) + qmark(400, 220) + sweat(330, 190)) },
+        { minDur: 6600, sub: '就在牠們僵持不下的時候，一個漁夫走了過來，輕輕鬆鬆把鷸和蚌一起抓走了！',
+          html: scene(RIVERBANK +
+            P(500, 302, '<g class="st-cheer">' + A('kid', 'happy') +
+              P(-40, -60, clam(false), '', 0, .6) + P(40, -70, A('bird'), '', 0, .55) + '</g>', 'st-inR') +
+            hearts(580, 180)) },
+        { minDur: 6400, sub: '鷸蚌相爭，漁翁得利：雙方僵持不下，反而讓第三者得到好處。',
+          html: scene(RIVERBANK + P(260, 306, clam(false), '', 0, 1.1) + P(230, 290, A('bird')) +
+            P(560, 302, A('kid', 'happy')) +
+            '<text x="400" y="80" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">鷸蚌相爭</text>') }
+      ];
     }
   };
 
