@@ -7630,6 +7630,136 @@
           html: scene(P(400, 225, '<circle cx="0" cy="0" r="50" fill="#fff" opacity=".92"/><g class="st-tw"><path d="M0 -18 L3 -7 L14 -5 L5 2 L7 13 L0 6 L-7 13 L-5 2 L-14 -5 L-3 -7 Z" fill="#ffd97a"/></g>') +
             '<text x="400" y="320" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">記憶猶新</text>') }
       ];
+    },
+    /* 煥然一新 */
+    i463: function () {
+      function room2(x, fresh) {
+        return P(x, 300, '<rect x="-70" y="-90" width="140" height="90" rx="6" fill="' + (fresh ? '#fdfbf4' : '#e0d8c4') + '" stroke="#c9bfa8" stroke-width="3"/>' +
+          (fresh
+            ? '<rect x="-52" y="-72" width="44" height="30" rx="4" fill="#aee3f5" stroke="#8fd0e8" stroke-width="2.4"/><rect x="12" y="-72" width="40" height="42" rx="4" fill="#a5d47c" stroke="#7cab6e" stroke-width="2.4"/><g class="st-tw"><path d="M-10 -20 L-8 -14 L-2 -12 L-8 -10 L-10 -4 L-12 -10 L-18 -12 L-12 -14 Z" fill="#ffd97a"/></g>'
+            : '<path d="M-52 -70 q14 10 30 4 M6 -66 q16 8 34 2" stroke="#b8ae9c" stroke-width="4" fill="none"/><circle cx="-20" cy="-30" r="8" fill="#b8ae9c" opacity=".6"/>'));
+      }
+      return [
+        { minDur: 6800, sub: '社區活動中心又舊又暗：牆壁斑駁、窗戶灰濛濛——大家決定一起動手改造！',
+          html: scene(room2(430, false) + P(220, 302, A('kid', 'happy') + P(20, -34, '<path d="M-14 0 q7 -8 14 0 q7 8 14 0" stroke="#ffd97a" stroke-width="7" fill="none" stroke-linecap="round"/>', '', 0, .9)) + sweat(300, 200)) },
+        { minDur: 6800, sub: '刷上新油漆、換上亮窗簾、擺上綠盆栽——整個空間亮了起來，完全變了一個樣！',
+          html: scene(room2(430, true) + bang(560, 200) +
+            P(220, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(310, 195)) },
+        { minDur: 6600, sub: '「煥然一新」：面貌完全改變、呈現嶄新氣象——動手改變，處處都能發光！',
+          html: scene(room2(400, true) + hearts(540, 220) + P(200, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6400, sub: '煥然一新：面貌完全改變，嶄新氣象。',
+          html: scene(room2(400, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">煥然一新</text>') }
+      ];
+    },
+    /* 五彩繽紛 */
+    i464: function () {
+      function confetti2(x, y, color, dly) {
+        return P(x, y, '<rect class="st-snow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + ' x="-4" y="-6" width="8" height="12" rx="2" fill="' + color + '" transform="rotate(20)"/>');
+      }
+      function balloon2(x, y, color, dly) {
+        return P(x, y, '<ellipse cx="0" cy="-14" rx="11" ry="14" fill="' + color + '"/><line x1="0" y1="0" x2="0" y2="16" stroke="#8b93a3" stroke-width="1.6"/>', 'st-zfloat', dly);
+      }
+      return [
+        { minDur: 6800, sub: '園遊會開幕！彩帶從天而降：紅的、藍的、金的、綠的，在陽光下閃閃發亮——',
+          html: scene(confetti2(220, 120, '#ff8a80', 0) + confetti2(340, 90, '#a5c8ff', .3) + confetti2(460, 130, '#ffd97a', .6) +
+            confetti2(560, 100, '#a5d47c', .2) + confetti2(650, 140, '#c9a8e0', .5) +
+            P(360, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') + hearts(460, 200)) },
+        { minDur: 6600, sub: '氣球五顏六色、攤位旗海飄揚——整個操場繽紛得像打翻了調色盤！',
+          html: scene(balloon2(250, 200, '#ff9eb5', 0) + balloon2(420, 170, '#a5c8ff', .3) + balloon2(580, 210, '#ffd97a', .6) +
+            P(340, 302, A('kid', 'happy'), '', 0, .97) + hearts(450, 240)) },
+        { minDur: 6600, sub: '「五彩繽紛」：色彩繁多而絢麗——熱鬧歡樂的場面最適合它！',
+          html: scene(confetti2(260, 130, '#ff8a80', 0) + confetti2(400, 100, '#ffd97a', .3) + confetti2(540, 135, '#a5c8ff', .5) +
+            balloon2(320, 210, '#a5d47c', .2) + balloon2(490, 200, '#c9a8e0', .4) + hearts(400, 260)) },
+        { minDur: 6400, sub: '五彩繽紛：色彩繁多而絢麗。',
+          html: scene(confetti2(240, 130, '#ff8a80', 0) + confetti2(380, 100, '#a5c8ff', .2) + confetti2(520, 130, '#ffd97a', .4) + confetti2(640, 105, '#a5d47c', .6) +
+            '<text x="400" y="270" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">五彩繽紛</text>') }
+      ];
+    },
+    /* 爭奇鬥豔 */
+    i465: function () {
+      function fancyflower(x, y, color, petals, dly) {
+        var s = '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '><line x1="0" y1="0" x2="0" y2="-18" stroke="#5f8a46" stroke-width="3.4"/>';
+        for (var i = 0; i < petals; i++) {
+          var a = (i * 360 / petals) * Math.PI / 180;
+          s += '<circle cx="' + (Math.sin(a) * 8).toFixed(1) + '" cy="' + (-22 + Math.cos(a) * 8).toFixed(1) + '" r="6" fill="' + color + '"/>';
+        }
+        return P(x, y, s + '<circle cx="0" cy="-22" r="4.4" fill="#ffe066"/></g>');
+      }
+      return [
+        { minDur: 6800, sub: '花展會場上，玫瑰開得豔、牡丹開得大、蘭花姿態最優雅——每一種花都使出渾身解數！',
+          html: scene(fancyflower(240, 318, '#e85a4f', 6, 0) + fancyflower(400, 320, '#ff9eb5', 8, .3) + fancyflower(560, 318, '#c9a8e0', 5, .5) +
+            P(140, 302, A('kid', 'wow'), '', 0, .9) + hearts(320, 230)) },
+        { minDur: 6600, sub: '你比奇特、我比豔麗，互不相讓——就像選美大賽一樣熱鬧！',
+          html: scene(fancyflower(300, 318, '#ffd97a', 7, 0) + fancyflower(470, 320, '#e85a4f', 6, .3) +
+            bang(390, 220) + P(620, 210, A('butterfly'), '', 0, .95)) },
+        { minDur: 6600, sub: '「爭奇鬥豔」：競相展現奇特豔麗——百花如此，各展所長的人也是！',
+          html: scene(fancyflower(260, 318, '#ff9eb5', 6, 0) + fancyflower(410, 320, '#c9a8e0', 8, .2) + fancyflower(560, 318, '#ffd97a', 5, .4) +
+            hearts(410, 250)) },
+        { minDur: 6400, sub: '爭奇鬥豔：競相展現奇特豔麗。',
+          html: scene(fancyflower(280, 318, '#e85a4f', 6, 0) + fancyflower(430, 320, '#ff9eb5', 8, .2) + fancyflower(570, 318, '#c9a8e0', 5, .4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">爭奇鬥豔</text>') }
+      ];
+    },
+    /* 生機盎然 */
+    i466: function () {
+      function sprout3(x, y, h, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '><line x1="0" y1="0" x2="0" y2="' + (-h) + '" stroke="#5f8a46" stroke-width="4"/><path d="M0 ' + (-h) + ' q-8 -8 -4 -14 M0 ' + (-h) + ' q8 -8 4 -14" stroke="#7cc47f" stroke-width="4" fill="none" stroke-linecap="round"/></g>');
+      }
+      return [
+        { minDur: 6800, sub: '雨後的稻田邊：秧苗抽高、青蛙鳴叫、白鷺鷥飛過、蜻蜓點水——處處是生命力！',
+          html: scene(sprout3(240, 320, 26, 0) + sprout3(330, 318, 32, .3) +
+            P(450, 300, A('frog'), '', 0, .95) + P(580, 160, A('bird')) + notes(520, 200) +
+            P(660, 210, A('butterfly'), '', .3, .9)) },
+        { minDur: 6600, sub: '校園的生態池也生機盎然：小魚穿梭、蝌蚪擺尾、睡蓮開花！',
+          html: scene('<ellipse cx="400" cy="300" rx="260" ry="40" fill="#7fb2e0"/>' +
+            P(320, 296, A('fish'), '', 0, .9) + P(500, 292, A('fish'), '', .3, .8, true) +
+            P(420, 270, '<circle cx="0" cy="0" r="8" fill="#ff9eb5"/><ellipse cx="-14" cy="6" rx="12" ry="5" fill="#5f8a46"/><ellipse cx="14" cy="6" rx="12" ry="5" fill="#5f8a46"/>') + hearts(400, 210)) },
+        { minDur: 6600, sub: '「盎然」是洋溢的樣子——充滿生命力與活力，就是「生機盎然」！',
+          html: scene(sprout3(300, 320, 30, 0) + sprout3(420, 318, 36, .3) + sprout3(540, 322, 28, .5) +
+            P(650, 210, A('butterfly'), '', 0, .92) + hearts(430, 250)) },
+        { minDur: 6400, sub: '生機盎然：充滿生命力與活力。',
+          html: scene(sprout3(280, 320, 30, 0) + sprout3(400, 318, 38, .2) + sprout3(520, 322, 30, .4) + P(630, 300, A('frog'), '', 0, .9) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">生機盎然</text>') }
+      ];
+    },
+    /* 枝繁葉茂 */
+    i467: function () {
+      var LUSHTREE = '<rect x="-12" y="-64" width="24" height="64" rx="8" fill="#a8734a"/>' +
+        '<circle cx="0" cy="-96" r="42" fill="#7cc47f"/><circle cx="-36" cy="-74" r="28" fill="#8fd08f"/><circle cx="36" cy="-76" r="29" fill="#8fd08f"/><circle cx="0" cy="-64" r="24" fill="#6fae58"/>' +
+        '<path d="M-8 -64 q-14 -8 -26 -4 M8 -66 q14 -10 26 -6" stroke="#8a5a33" stroke-width="4" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '校門口的老榕樹一百歲了：枝幹粗壯、分枝一層又一層，葉子密得連陽光都穿不透！',
+          html: scene(P(400, 302, LUSHTREE, '', 0, 1.2) +
+            P(200, 302, A('kid', 'wow'), '', 0, .92) + hearts(280, 210)) },
+        { minDur: 6600, sub: '夏天全班擠在樹下乘涼，小鳥在枝頭築巢——大樹是大家的好朋友！',
+          html: scene(P(400, 302, LUSHTREE, '', 0, 1.15) +
+            P(280, 302, A('kid', 'happy'), '', 0, .9) + P(520, 302, A('kid', 'happy'), '', .2, .88) +
+            P(430, 180, A('bird'), '', 0, .8) + notes(500, 150)) },
+        { minDur: 6600, sub: '「枝繁葉茂」：枝葉繁多茂盛——也祝福家族興旺、事業蓬勃！',
+          html: scene(P(400, 302, LUSHTREE, '', 0, 1.2) + hearts(540, 220)) },
+        { minDur: 6400, sub: '枝繁葉茂：枝葉繁多茂盛。',
+          html: scene(P(400, 302, LUSHTREE, '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">枝繁葉茂</text>') }
+      ];
+    },
+    /* 碩果僅存 */
+    i468: function () {
+      var BARETREE = '<rect x="-9" y="-56" width="18" height="56" rx="7" fill="#a8734a"/>' +
+        '<path d="M-4 -56 q-16 -10 -22 -26 M4 -56 q16 -10 22 -26 M0 -58 q-2 -18 0 -30" stroke="#8a5a33" stroke-width="4.6" fill="none" stroke-linecap="round"/>';
+      var APPLE2 = '<circle cx="0" cy="0" r="11" fill="#e85a4f" stroke="#c94a3f" stroke-width="2"/><path d="M0 -10 q2 -6 6 -7" stroke="#548a40" stroke-width="2.4" fill="none"/>';
+      return [
+        { minDur: 6800, sub: '颱風過後的果園一片狼藉——滿樹的蘋果掉光了，只剩最高的枝頭上，孤零零掛著一顆！',
+          html: scene(P(400, 302, BARETREE, '', 0, 1.2) + P(390, 190, APPLE2, '', 0, 1.1) +
+            P(200, 302, A('kid', 'sad'), '', 0, .95) + sweat(260, 200)) },
+        { minDur: 6800, sub: '果農小心翼翼把它摘下：「這是今年僅存的珍寶呀！」',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -64, APPLE2, '', 0, 1)) + hearts(470, 190)) },
+        { minDur: 6600, sub: '「碩果僅存」：大果子只剩這一顆——比喻留存下來的珍貴人或物！',
+          html: scene(P(400, 250, APPLE2, '', 0, 2) + hearts(500, 210) + P(240, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6400, sub: '碩果僅存：留存下來的珍貴人或物。',
+          html: scene(P(400, 302, BARETREE, '', 0, 1.15) + P(390, 195, APPLE2, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">碩果僅存</text>') }
+      ];
     }
   };
 
