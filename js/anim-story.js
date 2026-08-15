@@ -9143,6 +9143,132 @@
           html: scene(P(300, 300, A('fox'), '', 0, .9) + P(500, 280, FURCOAT, '', 0, 1.2) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">集腋成裘</text>') }
       ];
+    },
+    /* 沉魚落雁 */
+    i842: function () {
+      return [
+        { minDur: 7000, sub: '傳說西施在溪邊浣紗，魚兒看見她的倒影，看呆了忘記游水，沉到了水底——「沉魚」！',
+          html: scene('<rect y="270" width="800" height="70" fill="#7fb2e0"/>' +
+            P(300, 296, A('kid', 'happy') + '<path d="M-24 -60 Q-20 -84 0 -84 Q20 -84 24 -60 L20 -40 Q0 -50 -20 -40 Z" fill="#6b4a32"/>', '', 0, 1) +
+            P(500, 310, '<g transform="rotate(30)">' + A('fish') + '</g>', '', 0, .9) + hearts(400, 200)) },
+        { minDur: 7000, sub: '王昭君出塞彈琵琶，天上的大雁聽得入迷，忘了拍翅膀，跌落下來——「落雁」！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -34, QIN, '', 0, .8)) + notes(400, 180) +
+            P(560, 240, '<g class="st-faint">' + A('bird') + '</g>', '', 0, .95) + hearts(240, 195)) },
+        { minDur: 6800, sub: '「沉魚落雁」：連魚和雁都被美貌震住——形容女子容貌極美的最高級讚嘆！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(460, 185) + hearts(280, 190) +
+            P(560, 200, A('bird'), '', 0, .9)) },
+        { minDur: 6400, sub: '沉魚落雁：形容女子容貌極美。',
+          html: scene('<rect y="286" width="800" height="54" fill="#7fb2e0"/>' +
+            P(360, 296, A('kid', 'happy')) + P(540, 200, A('bird'), '', 0, .9) + hearts(450, 240) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">沉魚落雁</text>') }
+      ];
+    },
+    /* 目中無人 */
+    i843: function () {
+      return [
+        { minDur: 6800, sub: '球技最好的小目越來越驕傲：隊友傳球不接、教練指導不聽——眼裡好像只有自己！',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-16 -70 q16 -8 32 0" stroke="#3a2e26" stroke-width="2.4" fill="none"/>', 'st-strut', 0, 1.08) +
+            P(220, 302, A('kid', 'sad'), '', 0, .9) + sweat(270, 198) + P(580, 302, A('kid', 'sad'), '', .2, .9) + qmark(630, 190)) },
+        { minDur: 6800, sub: '結果比賽單打獨鬥、頻頻失誤，隊伍輸了球——「目中無人」讓人失去朋友也失去勝利！',
+          html: scene(P(400, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.02) + sweat(340, 195) + bang(500, 200)) },
+        { minDur: 6800, sub: '他真誠道歉、學會傳球合作——下一場，全隊贏得漂亮，友誼也回來了！',
+          html: scene(P(300, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(470, 302, '<g class="st-cheer" style="animation-delay:.2s">' + A('kid', 'happy') + '</g>', '', 0, .95) + hearts(390, 175)) },
+        { minDur: 6400, sub: '目中無人：驕傲自大，看不起人。',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.08) + qmark(490, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">目中無人</text>') }
+      ];
+    },
+    /* 大言不慚 */
+    i844: function () {
+      function bub9(x, y, txt, dly) {
+        return P(x, y, '<g' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M-30 -14 a26 18 0 1 1 52 6 q-2 7 -10 8 l-10 9 l1 -9 q-26 -2 -33 -14 z" fill="#fff" stroke="#c9bfa8" stroke-width="2.2"/>' +
+          '<text x="-4" y="-3" text-anchor="middle" font-size="11" fill="#c96a5a">' + txt + '</text></g>');
+      }
+      return [
+        { minDur: 6800, sub: '小慚拍胸脯保證：「明天的一千五百公尺，我隨便跑都第一！」——其實他一次都沒練過。',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.05) + bub9(430, 175, '我隨便都第一!', 0) +
+            P(580, 302, A('kid', 'wow'), '', 0, .92) + qmark(630, 190)) },
+        { minDur: 6800, sub: '比賽當天他跑到一半就喘不動，最後倒數第一……說大話卻不臉紅，就是「大言不慚」！',
+          html: scene(P(400, 302, A('kid', 'wow')) + sweat(340, 188) + sweat(460, 190) +
+            P(200, 296, A('kid', 'happy'), 'st-dashL', 0, .9)) },
+        { minDur: 6800, sub: '真本事不用吹——把「說到」變「做到」，才最有說服力！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-dashL', 0, 1.02) + sweat(300, 192) + hearts(470, 190)) },
+        { minDur: 6400, sub: '大言不慚：說大話而毫不害臊。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + bub9(480, 175, '超簡單啦!', 0) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">大言不慚</text>') }
+      ];
+    },
+    /* 自吹自擂 */
+    i845: function () {
+      var TRUMPET = '<path d="M0 0 L26 -10 L26 6 Z" fill="#e0a458" stroke="#c08838" stroke-width="2.2"/><rect x="-14" y="-7" width="16" height="10" rx="4" fill="#c08838"/>';
+      var DRUM2 = '<ellipse cx="0" cy="-22" rx="18" ry="7" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.2"/><path d="M-18 -22 L-18 -2 Q0 6 18 -2 L18 -22" fill="#c96a5a" stroke="#a84a3f" stroke-width="2.2"/>';
+      return [
+        { minDur: 6800, sub: '「我畫畫全校最強！書法也是我第一！跑步更不用說！」——小擂一個人又吹喇叭又打鼓！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(30, -46, TRUMPET, '', 0, 1) + P(-40, -20, DRUM2, '', 0, .9)) +
+            notes(470, 170) + P(600, 302, A('kid', 'wow'), '', 0, .9) + sweat(650, 195)) },
+        { minDur: 6800, sub: '自己吹捧自己——聽的人卻默默走開了……「自吹自擂」只會讓人反感！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(30, -46, TRUMPET, '', 0, .95)) + notes(410, 175) +
+            P(580, 302, '<g class="st-fleeR">' + A('kid', 'happy') + '</g>', 'st-dashL', 0, .9)) },
+        { minDur: 6800, sub: '真正的高手讓作品說話——畫得好，大家自然看得見！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-46, -56, '<rect x="-20" y="-16" width="40" height="30" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-12 6 L0 -8 L12 6 Z" fill="#a5c2b2"/><circle cx="8" cy="-8" r="4" fill="#ffdd66"/>', '', 0, 1)) +
+            P(540, 302, A('kid', 'happy'), '', 0, .95) + hearts(450, 185)) },
+        { minDur: 6400, sub: '自吹自擂：自我吹噓誇耀。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(30, -46, TRUMPET, '', 0, 1.1) + P(-42, -20, DRUM2, '', 0, .95), '', 0, 1.05) + notes(510, 175) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">自吹自擂</text>') }
+      ];
+    },
+    /* 心猿意馬 */
+    i846: function () {
+      return [
+        { minDur: 6800, sub: '寫作業的小意，心思像猴子上躥下跳、又像馬兒到處亂跑——一下想玩遊戲、一下想吃冰！',
+          html: scene(P(400, 302, A('kid', 'wow')) +
+            P(260, 190, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/>' + P(0, 22, A('monkey'), '', 0, .5)) +
+            P(540, 190, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/>' + P(0, 22, A('horse'), '', 0, .5), '', .3) + sweat(340, 195)) },
+        { minDur: 6800, sub: '「心猿意馬」：心思浮動、定不下來——這是佛經裡的比喻，把亂跑的心比作猿和馬！',
+          html: scene(P(300, 300, A('monkey'), 'st-hop', 0, 1) + P(520, 302, A('horse'), 'st-dashL', .2, .95) + qmark(410, 185)) },
+        { minDur: 6800, sub: '把猿和馬「拴」起來的方法：關掉干擾、設定小目標——先專心十五分鐘就好！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '心猿意馬：心思浮動不定，難以專注。',
+          html: scene(P(280, 300, A('monkey'), 'st-hop', 0, .95) + P(520, 302, A('horse'), 'st-strut', .2, .9) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">心猿意馬</text>') }
+      ];
+    },
+    /* 心灰意冷 */
+    i847: function () {
+      return [
+        { minDur: 6800, sub: '連續三次落選籃球校隊——小灰把球收進櫃子：「我大概真的不行吧……」',
+          html: scene(P(360, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.02) +
+            P(520, 290, '<circle cx="0" cy="0" r="14" fill="#e0a458" stroke="#c08838" stroke-width="2.4"/><path d="M-14 0 h28 M0 -14 v28" stroke="#c08838" stroke-width="1.8"/>', '', 0, .95) + sweat(300, 195), 'night') },
+        { minDur: 6800, sub: '心像熄滅的爐灰、意念冷冰冰——「心灰意冷」是最低潮的時刻……',
+          html: scene(P(400, 250, '<path d="M-20 8 l12 -6 l14 8 l12 -8 M-18 14 l32 -2" stroke="#8b93a3" stroke-width="4.6" stroke-linecap="round"/><path d="M-6 -6 q-4 -10 2 -16 q4 8 8 10 q3 6 -6 8 z" fill="#b0b4bf" opacity=".6"/>', '', 0, 1.4) +
+            P(250, 302, A('kid', 'sad'), '', 0, .95) + sweat(310, 198), 'night') },
+        { minDur: 6800, sub: '教練找他談心：「你的防守是全隊最拚的！」一句肯定，重新點燃了爐火——再試一次！',
+          html: scene(P(300, 302, A('kid', 'happy')) +
+            P(470, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05, true) +
+            P(400, 200, '<g class="st-flick"><path d="M0 -8 q-10 -14 0 -26 q2 8 8 10 q6 -6 4 -12 q9 10 2 22 q-6 8 -14 6 z" fill="#ff9c40"/></g>', '', 0, 1.1) + hearts(390, 250)) },
+        { minDur: 6400, sub: '心灰意冷：灰心失望到了極點。',
+          html: scene(P(400, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.05) + sweat(460, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">心灰意冷</text>', 'night') }
+      ];
+    },
+    /* 喜形於色 */
+    i848: function () {
+      var SMILEBROWS2 = '<path d="M-14 -62 q6 -5 12 0 M2 -62 q6 -5 12 0" stroke="#3a2e26" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '抽獎抽到頭獎的那一刻——小色想裝鎮定，嘴角卻一直上揚、眼睛瞇成月牙！',
+          html: scene(P(360, 302, A('kid', 'happy') + SMILEBROWS2, '', 0, 1.08) + hearts(460, 185) +
+            P(560, 250, '<rect x="-26" y="-20" width="52" height="40" rx="4" fill="#ffe066" stroke="#e8b84a" stroke-width="2.6"/><text x="0" y="6" text-anchor="middle" font-size="14" font-weight="bold" fill="#8a5a33">頭獎</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '喜悅寫在臉上、藏都藏不住——「喜形於色」！全班一看他的表情就知道好事發生了。',
+          html: scene(P(400, 302, A('kid', 'happy') + SMILEBROWS2, '', 0, 1.1) +
+            P(220, 302, A('kid', 'happy'), '', 0, .88) + P(580, 302, A('kid', 'happy'), '', .2, .88) + hearts(400, 172)) },
+        { minDur: 6600, sub: '「形」是表現、「色」是臉色——心裡的高興表現在臉色上！',
+          html: scene(P(400, 302, A('kid', 'happy') + SMILEBROWS2, '', 0, 1.1) + hearts(490, 185) + notes(310, 185)) },
+        { minDur: 6400, sub: '喜形於色：喜悅表現在臉上，藏不住高興。',
+          html: scene(P(400, 302, A('kid', 'happy') + SMILEBROWS2, '', 0, 1.12) + hearts(490, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">喜形於色</text>') }
+      ];
     }
   };
 
