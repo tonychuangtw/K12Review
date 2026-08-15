@@ -20249,6 +20249,151 @@
             P(400, 190, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">未卜先知</text>') }
       ];
+    },
+    /* 料事如神 */
+    i697: function () {
+      return [
+        { minDur: 6800, sub: '軍師鋪開地圖：「敵軍三日內必走山道，在此設伏！」——三天後果然一如所料！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -46 l14 -20 M42 -66 q10 -4 14 4" stroke="#e8e2d5" stroke-width="4" fill="none" stroke-linecap="round"/>' + P(-46, -50, '<rect x="-18" y="-13" width="36" height="26" rx="3" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.4"/><path d="M-10 -5 q8 6 20 -2 M-12 4 h22" stroke="#8a744a" stroke-width="1.6" fill="none"/>', '', 0, .95), '', 0, 1.05) +
+            P(560, 302, A('kid', 'wow') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1, true) + bang(460, 182)) },
+        { minDur: 6800, sub: '「料事如神」：預測準得像神——其實是情報蒐集加邏輯推演，神機來自苦功！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(300, 205, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">情報</text>', '', 0, 1) +
+            P(400, 180, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">推演</text>', '', 0, 1.05) +
+            P(500, 205, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">驗證</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '想練預測力：先寫下自己的判斷，事後對答案——判斷有紀錄，眼光才會進步！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-4" text-anchor="middle" font-size="9" fill="#6d7585">預測</text><path d="M-8 8 l4 4 l8 -8" stroke="#548a40" stroke-width="2" fill="none"/>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '料事如神：明見萬里，屢測屢中。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-46, -50, '<rect x="-18" y="-13" width="36" height="26" rx="3" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) + bang(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">料事如神</text>') }
+      ];
+    },
+    /* 運籌帷幄 */
+    i698: function () {
+      var TENT = '<path d="M-70 30 L0 -40 L70 30 Z" fill="#c9b26a" stroke="#a8905a" stroke-width="2.6"/><path d="M-14 30 L0 6 L14 30 Z" fill="#8a6a44"/>';
+      return [
+        { minDur: 7000, sub: '劉邦論功行賞時說：「運籌策帷帳之中，決勝於千里之外，吾不如子房（張良）！」',
+          html: scene(P(340, 290, TENT, '', 0, 1.15) +
+            P(340, 285, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .68) +
+            P(580, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/><path d="M-28 -56 l-16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1, true) + hearts(470, 210)) },
+        { minDur: 6800, sub: '「帷幄」是軍帳、「籌」是算籌——張良足不出帳，勝負已在他的算籌之間定了！',
+          html: scene(P(400, 290, TENT, '', 0, 1.3) +
+            P(400, 282, '<g stroke="#c9a06c" stroke-width="4" stroke-linecap="round"><line x1="-16" y1="-8" x2="-16" y2="8"/><line x1="-5" y1="-8" x2="-5" y2="8"/><line x1="6" y1="-8" x2="6" y2="8"/><line x1="17" y1="-8" x2="17" y2="8"/></g>', '', 0, 1)) },
+        { minDur: 6800, sub: '「運籌帷幄」：在後方策劃指揮——檯前的勝利，都是檯後千百次的沙盤推演！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-46, -52, '<rect x="-18" y="-13" width="36" height="26" rx="3" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.4"/><g fill="#c96a5a"><circle cx="-8" cy="-4" r="2.6"/><circle cx="6" cy="2" r="2.6"/></g>', '', 0, .95), '', 0, 1.02) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '運籌帷幄：帷幄運籌，決勝千里。',
+          html: scene(P(400, 292, TENT, '', 0, 1.3) +
+            P(400, 284, A('kid', 'happy'), '', 0, .6) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">運籌帷幄</text>') }
+      ];
+    },
+    /* 決勝千里 */
+    i699: function () {
+      return [
+        { minDur: 7000, sub: '與「運籌帷幄」同出一典——人在帳中，勝負卻在千里之外的戰場上分曉！',
+          html: scene(P(250, 290, '<path d="M-50 24 L0 -30 L50 24 Z" fill="#c9b26a" stroke="#a8905a" stroke-width="2.4"/>', '', 0, 1.05) +
+            '<path d="M310 260 q140 -40 280 -30" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/><path d="M590 230 l-14 -1 l8 11 z" fill="#c9bfa8"/>' +
+            P(640, 280, '<g stroke="#c96a5a" stroke-width="3"><path d="M-14 8 l8 -18 M0 10 l0 -20 M14 8 l-8 -18"/></g>' + bang(0, -30), '', 0, 1)) },
+        { minDur: 6800, sub: '「決勝千里」：謀略高明、遠程掌控全局——好的布局，開賽前就贏了一半！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-46, -52, '<rect x="-18" y="-13" width="36" height="26" rx="3" fill="#e8d9a8" stroke="#b8a982" stroke-width="2.4"/><path d="M-10 -5 h20 M-10 3 h14" stroke="#8a744a" stroke-width="1.6"/>', '', 0, .95), '', 0, 1.02) +
+            P(580, 220, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1) + hearts(280, 195)) },
+        { minDur: 6800, sub: '現代版：遠端指揮救災、跨國經營團隊——資訊與信任到位，距離不是問題！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-13" width="32" height="26" rx="4" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/><path d="M-8 -3 l4 -6 4 4 5 -7" stroke="#a5d47c" stroke-width="2" fill="none"/>', '', 0, .95)) +
+            '<path d="M380 240 q100 -30 200 -20" stroke="#7fb2e0" stroke-width="3" fill="none" stroke-dasharray="6 5"/>' +
+            P(600, 302, A('kid', 'angry') + P(30, -56, '<g class="st-hammer">' + HAMMER + '</g>', '', 0, .9), '', 0, .92) + hearts(470, 195)) },
+        { minDur: 6400, sub: '決勝千里：帷幄之謀，千里之勝。',
+          html: scene(P(260, 292, '<path d="M-46 22 L0 -28 L46 22 Z" fill="#c9b26a" stroke="#a8905a" stroke-width="2.4"/>', '', 0, 1.05) +
+            '<path d="M320 262 q130 -36 260 -28" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/>' + bang(620, 250) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">決勝千里</text>') }
+      ];
+    },
+    /* 壯士斷腕 */
+    i701: function () {
+      return [
+        { minDur: 7000, sub: '古語：「蝮蛇螫手，壯士解腕」——被毒蛇咬到手，勇士立刻斷腕，不讓毒攻心！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(38, -20, '<path d="M0 0 q14 -6 22 4 q-4 10 -14 8" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2"/><circle cx="22" cy="2" r="2" fill="#3a2e26"/>', '', 0, 1.1), '', 0, 1.05) + bang(470, 190) + sweat(290, 188)) },
+        { minDur: 6800, sub: '「壯士斷腕」：忍痛捨局部、保全大局——公司裁掉最燒錢的部門，才救回整體！',
+          html: scene(P(400, 260, '<g fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"><rect x="-70" y="-20" width="40" height="40" rx="4"/><rect x="-20" y="-20" width="40" height="40" rx="4"/></g><rect x="30" y="-20" width="40" height="40" rx="4" fill="#c9bfa8" stroke="#a8a294" stroke-width="2.4" opacity=".6"/><line x1="24" y1="-28" x2="76" y2="28" stroke="#c96a5a" stroke-width="4"/>', '', 0, 1.2) + sweat(540, 210)) },
+        { minDur: 6800, sub: '斷腕的痛是真的——但拖延的代價更大：捨得，是「捨」了才「得」！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) + hearts(470, 190) +
+            P(580, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">捨了</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">才得</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '壯士斷腕：當機立斷，棄小保大。',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.08) + bang(500, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">壯士斷腕</text>') }
+      ];
+    },
+    /* 縱橫捭闔 */
+    i702: function () {
+      return [
+        { minDur: 7000, sub: '戰國縱橫家的舞台：蘇秦聯六國「合縱」抗秦，張儀替秦國「連橫」拆散——口舌即刀劍！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/><path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) +
+            P(500, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/><path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02, true) + bang(400, 182)) },
+        { minDur: 6800, sub: '「捭」是開、「闔」是合——《鬼谷子》的談判心法：該開誠布公就開、該閉口保留就合！',
+          html: scene(P(310, 250, '<rect x="-26" y="-26" width="52" height="52" rx="4" fill="#fff" opacity=".92"/><path d="M-12 0 h24 M0 -12 v24" stroke="#548a40" stroke-width="3"/><text x="0" y="-32" text-anchor="middle" font-size="12" fill="#548a40">捭=開</text>') +
+            P(490, 250, '<rect x="-26" y="-26" width="52" height="52" rx="4" fill="#fff" opacity=".92"/><rect x="-12" y="-12" width="24" height="24" fill="#8b93a3"/><text x="0" y="-32" text-anchor="middle" font-size="12" fill="#6d7585">闔=合</text>')) },
+        { minDur: 6800, sub: '「縱橫捭闔」：靈活運用聯合與分化——外交桌上的功夫：結盟、斡旋、進退有據！',
+          html: scene(P(280, 302, A('kid', 'happy'), '', 0, .92) + P(400, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1) + P(520, 302, A('kid', 'happy'), '', 0, .92, true) +
+            '<path d="M310 255 h60 M430 255 h60" stroke="#548a40" stroke-width="3.4"/>' + hearts(400, 180)) },
+        { minDur: 6400, sub: '縱橫捭闔：開闔有度，折衝樽俎。',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(490, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02, true) + bang(405, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">縱橫捭闔</text>') }
+      ];
+    },
+    /* 孤注一擲 */
+    i703: function () {
+      return [
+        { minDur: 7000, sub: '《宋史》典故：賭徒快輸光時，把剩下的錢全押一注——這叫「孤注」，成敗在此一擲！',
+          html: scene(P(400, 285, '<rect x="-60" y="-14" width="120" height="28" rx="5" fill="#2f4f3f" stroke="#1e3a2c" stroke-width="2.6"/>' + P(0, -26, '<g fill="#ffd97a"><circle cx="-14" cy="0" r="8"/><circle cx="2" cy="-4" r="8"/><circle cx="16" cy="2" r="8"/></g>', '', 0, 1), '', 0, 1.15) +
+            P(240, 302, A('kid', 'wow') + '<path d="M28 -60 l18 -14" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .98) + sweat(180, 190), 'night') },
+        { minDur: 6800, sub: '「孤注一擲」：押上所有本錢冒險一搏——王欽若還用它譏諷寇準拿皇帝當賭注！',
+          html: scene(P(360, 302, A('kid', 'wow'), 'st-bob', 0, 1.02) + sweat(300, 188) +
+            P(540, 240, '<g fill="#ffd97a" stroke="#e8b93f" stroke-width="2"><circle cx="0" cy="0" r="16"/></g><text x="0" y="6" text-anchor="middle" font-size="12" fill="#a8791e">全部</text>', 'st-bob', 0, 1.15) + qmark(620, 200)) },
+        { minDur: 6800, sub: '有時要敢押，但別把「全部」押進去——留一條退路，輸了還能再站起來！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-15" y="-11" width="30" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">留退路</text>', '', 0, 1.1)) + hearts(470, 190) +
+            P(580, 220, '<path d="M-16 8 q8 -22 32 -14" stroke="#548a40" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.05)) },
+        { minDur: 6400, sub: '孤注一擲：傾其所有，冒險一搏。',
+          html: scene(P(400, 288, '<rect x="-56" y="-13" width="112" height="26" rx="5" fill="#2f4f3f" stroke="#1e3a2c" stroke-width="2.6"/>' + P(0, -24, '<g fill="#ffd97a"><circle cx="-12" cy="0" r="8"/><circle cx="4" cy="-4" r="8"/></g>', '', 0, 1), '', 0, 1.15) + sweat(510, 230) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">孤注一擲</text>', 'night') }
+      ];
+    },
+    /* 背城借一 */
+    i704: function () {
+      var CITYWALL = '<rect x="-90" y="-40" width="180" height="40" fill="#8b93a3" stroke="#6d7585" stroke-width="2.6"/><path d="M-90 -40 h20 v-12 h16 v12 h20 v-12 h16 v12 h20 v-12 h16 v12 h20 v-12 h16 v12 h20" stroke="#6d7585" stroke-width="2.6" fill="none"/>';
+      return [
+        { minDur: 7000, sub: '齊國戰敗求和時放話：「請收合餘燼，背城借一」——收拾殘兵，背靠城牆再打最後一仗！',
+          html: scene(P(400, 302, CITYWALL, '', 0, 1.05) +
+            P(340, 292, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, .95), '', 0, .95) +
+            P(470, 294, A('kid', 'angry'), '', 0, .9) + bang(250, 230), 'night') },
+        { minDur: 6800, sub: '「背城借一」：作最後的奮鬥——季後賽最後一戰，落後的球隊背城借一全力搶分！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(38, -56, '<circle cx="0" cy="0" r="11" fill="#e0813f" stroke="#b85f24" stroke-width="2"/>', '', 0, 1), 'st-dashL', 0, 1.05) + bang(450, 185) +
+            P(580, 240, '<rect x="-40" y="-19" width="80" height="38" rx="4" fill="#2f4f3f"/><text x="0" y="8" text-anchor="middle" font-size="15" fill="#fff">最終戰</text>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '被逼到牆角不一定是絕境——沒有退路的人反而最專注：把最後一戰打成代表作！',
+          html: scene(P(400, 302, A('kid', 'angry'), 'st-cheer', 0, 1.08) + bang(400, 172) + hearts(510, 195) +
+            P(280, 200, '<path d="M0 -18 l6 11 12 2 -9 9 2 12 -11 -6 -11 6 2 -12 -9 -9 12 -2 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '背城借一：背水最後，決一死戰。',
+          html: scene(P(400, 302, CITYWALL, '', 0, 1.08) +
+            P(370, 292, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, .95), '', 0, .95) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">背城借一</text>', 'night') }
+      ];
+    },
+    /* 義無反顧 */
+    i705: function () {
+      return [
+        { minDur: 7000, sub: '司馬相如檄文寫勇士出征：「義不反顧，計不旋踵」——為道義向前，腳跟都不回轉！',
+          html: scene(P(360, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-44" stroke="#a8734a" stroke-width="4"/><path d="M0 -44 q16 4 30 -2 l-2 14 q-14 6 -28 0 z" fill="#c96a5a"/>', '', 0, 1), 'st-strut', 0, 1.05) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="220" y1="250" x2="300" y2="250"/></g>' + bang(480, 190)) },
+        { minDur: 6800, sub: '「義無反顧」：為道義勇往直前——消防員逆著逃生的人流衝進火場，沒有一絲遲疑！',
+          html: scene(P(300, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .92, true) +
+            P(480, 302, A('kid', 'angry') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c96a5a"/>', 'st-dashL', 0, 1.05) +
+            P(640, 280, '<g class="st-flick"><path d="M0 10 Q-14 -14 0 -36 Q6 -22 14 -30 Q22 -8 10 8 Z" fill="#ff9d4d"/></g>', '', 0, 1.2) + sweat(240, 190), 'night') },
+        { minDur: 6800, sub: '反顧的人在算得失，無反顧的人只問對錯——認定是對的事，就走到底！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + hearts(500, 190) +
+            P(280, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '義無反顧：義之所在，勇往直前。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-44" stroke="#a8734a" stroke-width="4"/><path d="M0 -44 q16 4 30 -2 l-2 14 q-14 6 -28 0 z" fill="#c96a5a"/>', '', 0, 1), 'st-strut', 0, 1.08) + bang(510, 188) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">義無反顧</text>') }
+      ];
     }
   };
 
