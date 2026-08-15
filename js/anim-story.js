@@ -20547,6 +20547,159 @@
           html: scene(P(400, 255, '<circle cx="0" cy="0" r="28" fill="#c9d6e8" opacity=".5"/><circle cx="0" cy="0" r="17" fill="#a8c4de" opacity=".6"/><circle cx="0" cy="0" r="8" fill="#7fa8d4" opacity=".8"/>', 'st-zfloat', 0, 1.35) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">潛移默化</text>') }
       ];
+    },
+    /* 近朱者赤 */
+    i715: function () {
+      return [
+        { minDur: 7000, sub: '傅玄告誡太子：「近朱者赤，近墨者黑」——挨著硃砂會染紅，挨著墨會染黑！',
+          html: scene(P(300, 250, '<circle cx="0" cy="0" r="24" fill="#c96a5a"/>', '', 0, 1.1) +
+            P(360, 255, '<circle cx="0" cy="0" r="16" fill="#e8a498"/>', '', 0, 1) +
+            P(500, 250, '<circle cx="0" cy="0" r="24" fill="#3a3550"/>', '', 0, 1.1) +
+            P(440, 255, '<circle cx="0" cy="0" r="16" fill="#8a879a"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '和自律的朋友同組，你不知不覺早睡早起；和愛抱怨的人相處，你也開始怨天尤人……',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95)) +
+            P(420, 302, A('kid', 'happy'), '', 0, .95) + hearts(360, 185) +
+            P(580, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .92, true) + sweat(640, 195)) },
+        { minDur: 6800, sub: '「近朱者赤」：環境與朋友塑造你——選朋友就是選未來的自己！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">慎選</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">朋友</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '近朱者赤：擇善而處，同化於境。',
+          html: scene(P(320, 252, '<circle cx="0" cy="0" r="24" fill="#c96a5a"/>', '', 0, 1.1) +
+            P(385, 256, '<circle cx="0" cy="0" r="16" fill="#e8a498"/>', '', 0, 1) +
+            P(490, 252, '<circle cx="0" cy="0" r="24" fill="#3a3550"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">近朱者赤</text>') }
+      ];
+    },
+    /* 蓬生麻中 */
+    i716: function () {
+      return [
+        { minDur: 7000, sub: '《荀子》觀察：「蓬生麻中，不扶而直」——彎彎的蓬草長進筆直的麻田，不用扶自己就直了！',
+          html: scene(P(400, 300, '<g stroke="#7fa858" stroke-width="4" stroke-linecap="round"><line x1="-60" y1="10" x2="-60" y2="-60"/><line x1="-30" y1="10" x2="-30" y2="-66"/><line x1="30" y1="10" x2="30" y2="-64"/><line x1="60" y1="10" x2="60" y2="-58"/></g><path d="M0 10 q-2 -30 2 -58" stroke="#a8b86a" stroke-width="4" fill="none" stroke-linecap="round"/>', '', 0, 1.2)) },
+        { minDur: 6800, sub: '轉到讀書風氣好的班級，原本散漫的小蓬也跟著自習——環境把人「撐」直了！',
+          html: scene(P(280, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2.4"/>', '', 0, .95), '', 0, .95) +
+            P(400, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#a5d47c" stroke="#7fa858" stroke-width="2.4"/>', '', 0, .95), '', 0, .98) +
+            P(520, 302, A('kid', 'happy') + P(-42, -46, '<rect x="-14" y="-18" width="28" height="36" rx="2.6" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/>', '', 0, .95), '', 0, .95, true) + hearts(400, 180)) },
+        { minDur: 6800, sub: '「蓬生麻中」：好環境使人自然向善——選對圈子，成長就有順風！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) + hearts(500, 190) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3" stroke-linecap="round"><line x1="230" y1="250" x2="310" y2="250"/></g>') },
+        { minDur: 6400, sub: '蓬生麻中：得境之正，不扶自直。',
+          html: scene(P(400, 300, '<g stroke="#7fa858" stroke-width="4" stroke-linecap="round"><line x1="-60" y1="10" x2="-60" y2="-60"/><line x1="-30" y1="10" x2="-30" y2="-66"/><line x1="30" y1="10" x2="30" y2="-64"/><line x1="60" y1="10" x2="60" y2="-58"/></g><line x1="0" y1="10" x2="0" y2="-58" stroke="#a8b86a" stroke-width="4" stroke-linecap="round"/>', '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">蓬生麻中</text>') }
+      ];
+    },
+    /* 斷機教子 */
+    i718: function () {
+      var LOOM2 = '<g stroke="#8a5a33" stroke-width="4"><line x1="-34" y1="20" x2="-34" y2="-30"/><line x1="34" y1="20" x2="34" y2="-30"/><line x1="-40" y1="-30" x2="40" y2="-30"/></g><g stroke="#e8e2d5" stroke-width="2"><line x1="-26" y1="-24" x2="-26" y2="12"/><line x1="-13" y1="-24" x2="-13" y2="12"/><line x1="0" y1="-24" x2="0" y2="12"/><line x1="13" y1="-24" x2="13" y2="12"/><line x1="26" y1="-24" x2="26" y2="12"/></g><rect x="-30" y="-6" width="60" height="8" fill="#c9a06c"/>';
+      return [
+        { minDur: 7000, sub: '孟子逃學回家——孟母一句話不罵，拿起剪刀「喀嚓」剪斷織布機上的布！',
+          html: scene(P(320, 290, LOOM2, '', 0, 1.15) +
+            P(320, 288, '<line x1="-20" y1="-2" x2="20" y2="-2" stroke="#c96a5a" stroke-width="3"/>', '', 0, 1.15) + bang(400, 230) +
+            P(540, 302, A('kid', 'wow'), '', 0, .98, true) + sweat(600, 190)) },
+        { minDur: 6800, sub: '「布是一線線織的，斷了就前功盡棄——你的學業中斷，跟這匹布有什麼兩樣！」',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-18 -70 q18 -12 36 0" stroke="#5a4632" stroke-width="4" fill="none"/><path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(530, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95, true) + sweat(600, 190) + hearts(430, 195)) },
+        { minDur: 6800, sub: '孟子從此發憤不輟，終成亞聖——「斷機教子」：學習不可半途而廢！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -48, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) + hearts(510, 190) + bang(290, 195)) },
+        { minDur: 6400, sub: '斷機教子：斷布示警，力戒中輟。',
+          html: scene(P(350, 292, LOOM2, '', 0, 1.2) +
+            P(350, 290, '<line x1="-20" y1="-2" x2="20" y2="-2" stroke="#c96a5a" stroke-width="3"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">斷機教子</text>') }
+      ];
+    },
+    /* 曲高和寡 */
+    i719: function () {
+      return [
+        { minDur: 7000, sub: '宋玉說：有人唱通俗的〈下里巴人〉，跟著唱的數千人；唱〈陽春白雪〉，只剩數十人……',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1) + notes(400, 185) +
+            P(500, 302, A('kid', 'happy'), 'st-cheer', 0, .85) + P(570, 302, A('kid', 'happy'), 'st-cheer', .2, .82) + P(640, 302, A('kid', 'happy'), 'st-cheer', .4, .8, true)) },
+        { minDur: 6800, sub: '「其曲彌高，其和彌寡」——曲子越高深，能唱和的越少：知音本來就稀有！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1) + notes(420, 180) +
+            P(560, 302, A('kid', 'happy'), '', 0, .9, true) + qmark(640, 220) +
+            '<g class="st-zfloat" opacity=".5"><text x="480" y="240" font-size="13" fill="#8b93a3">（只剩一人聽懂）</text></g>') },
+        { minDur: 6800, sub: '「曲高和寡」：作品高深難有知音——不必為此降格：懂的人少，不代表價值低！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1.02) + notes(460, 182) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95, true) + hearts(620, 195)) },
+        { minDur: 6400, sub: '曲高和寡：曲彌高者，和彌寡也。',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .95), '', 0, 1.05) + notes(460, 182) +
+            P(580, 302, A('kid', 'happy'), '', 0, .88, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">曲高和寡</text>') }
+      ];
+    },
+    /* 陽春白雪 */
+    i720: function () {
+      return [
+        { minDur: 7000, sub: '〈陽春〉〈白雪〉是戰國最高雅的樂曲——聽懂的人少，卻是藝術的高峰！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .95), '', 0, 1.05) + notes(500, 180) +
+            '<g fill="#fff"><circle class="st-snow" cx="260" cy="40" r="4"/><circle class="st-snow" style="animation-delay:1.2s" cx="560" cy="30" r="3.4"/></g>' +
+            P(250, 290, '<path d="M0 8 q-3 -14 6 -20 q8 -5 6 -14" stroke="#548a40" stroke-width="3" fill="none"/><path d="M12 -28 C6 -38 18 -43 21 -33 C27 -41 35 -33 28 -27 Z" fill="#ff9eb5"/>', '', 0, 1.2)) },
+        { minDur: 6800, sub: '「陽春白雪」：高雅不通俗的文藝——古典樂、崑曲、實驗劇場，都常被這樣形容！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1) + notes(440, 180) +
+            P(560, 250, '<rect x="-30" y="-22" width="60" height="44" rx="4" fill="#fff" opacity=".92"/><text x="0" y="-2" text-anchor="middle" font-size="10" fill="#6d7585">古典</text><text x="0" y="11" text-anchor="middle" font-size="10" fill="#6d7585">崑曲</text>', '', 0, 1.05)) },
+        { minDur: 6800, sub: '高雅與通俗不必打架——聽流行也聽古典的人，世界大一倍！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .85)) +
+            P(490, 302, A('kid', 'happy') + P(38, -50, '<path d="M-8 -12 a8 8 0 1 1 0 16 M-8 -12 v16 M-8 -12 q8 -4 14 2" stroke="#8b93a3" stroke-width="2.6" fill="none"/>', '', 0, 1), '', 0, .98, true) + notes(410, 182) + hearts(560, 195)) },
+        { minDur: 6400, sub: '陽春白雪：高雅之樂，和者蓋寡。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .95), '', 0, 1.05) + notes(500, 182) +
+            '<g fill="#fff"><circle class="st-snow" cx="280" cy="40" r="4"/><circle class="st-snow" style="animation-delay:1.4s" cx="540" cy="30" r="3.4"/></g>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">陽春白雪</text>') }
+      ];
+    },
+    /* 下里巴人 */
+    i721: function () {
+      return [
+        { minDur: 7000, sub: '同一場對答裡：唱起通俗的〈下里〉〈巴人〉——滿城數千人跟著大合唱，熱鬧翻天！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1) + notes(430, 178) +
+            P(220, 302, A('kid', 'happy'), 'st-cheer', 0, .88) + P(520, 302, A('kid', 'happy'), 'st-cheer', .2, .9) + P(630, 302, A('kid', 'happy'), 'st-cheer', .4, .85, true) + notes(570, 195)) },
+        { minDur: 6800, sub: '「下里巴人」：通俗的大眾文藝——夜市的那卡西、KTV金曲，就是現代版！',
+          html: scene(P(300, 302, A('kid', 'happy') + P(-36, -44, '<rect x="-4" y="-26" width="8" height="30" rx="3" fill="#3a2e26"/><circle cx="0" cy="-32" r="6" fill="#8b93a3"/>', '', 0, 1), 'st-bob', 0, 1) +
+            P(470, 302, A('kid', 'happy'), 'st-cheer', 0, .95) + P(590, 302, A('kid', 'happy'), 'st-cheer', .2, .92, true) + notes(400, 180) + hearts(530, 190)) },
+        { minDur: 6800, sub: '通俗不等於低俗——能讓千萬人共鳴的作品，自有它了不起的功力！',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + notes(500, 185) + hearts(300, 190) + bang(400, 172)) },
+        { minDur: 6400, sub: '下里巴人：通俗之曲，和者數千。',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1.02) +
+            P(520, 302, A('kid', 'happy'), 'st-cheer', 0, .9) + P(620, 302, A('kid', 'happy'), 'st-cheer', .2, .88, true) + notes(440, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">下里巴人</text>') }
+      ];
+    },
+    /* 雅俗共賞 */
+    i722: function () {
+      return [
+        { minDur: 6800, sub: '廟口布袋戲開演：教授看門道、阿嬤看熱鬧、小孩看武打——全場都入迷！',
+          html: scene(P(400, 275, '<rect x="-60" y="-40" width="120" height="52" rx="4" fill="#c96a5a" stroke="#a84f42" stroke-width="2.6"/><rect x="-46" y="-28" width="92" height="34" rx="3" fill="#f4ecd8"/>' + P(0, -10, '<rect x="-9" y="-13" width="18" height="24" rx="5" fill="#c9b26a" stroke="#a8905a" stroke-width="1.8"/><circle cx="0" cy="-19" r="7" fill="#c9b26a" stroke="#a8905a" stroke-width="1.8"/>', 'st-hop', 0, 1), '', 0, 1.1) +
+            P(230, 302, A('kid', 'happy') + '<path d="M-18 -78 a18 10 0 0 1 36 0 z" fill="#c9bfa8"/>', '', 0, .9) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .9, true) + hearts(400, 190)) },
+        { minDur: 6800, sub: '「雅俗共賞」：高雅與通俗的人都能欣賞——各取所需、各得其樂，最高明的作品！',
+          html: scene(P(310, 245, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#6d7585">雅</text>') +
+            P(490, 245, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#c96a5a">俗</text>') +
+            P(400, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1) +
+            '<path d="M340 245 h120" stroke="#548a40" stroke-width="3.4"/>') },
+        { minDur: 6800, sub: '創作的功力就在這：深的有層次、淺的有樂趣——像好電影，小孩笑、大人哭！',
+          html: scene(P(330, 302, A('kid', 'happy'), 'st-cheer', 0, .95) + P(480, 302, A('kid', 'happy') + '<g class="st-tear"><path d="M-10 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>', '', 0, .98, true) +
+            notes(400, 178) + hearts(560, 195)) },
+        { minDur: 6400, sub: '雅俗共賞：老少咸宜，人人稱好。',
+          html: scene(P(400, 278, '<rect x="-56" y="-38" width="112" height="50" rx="4" fill="#c96a5a" stroke="#a84f42" stroke-width="2.6"/><rect x="-42" y="-26" width="84" height="32" rx="3" fill="#f4ecd8"/>' + P(0, -8, '<rect x="-8" y="-12" width="16" height="22" rx="5" fill="#c9b26a" stroke="#a8905a" stroke-width="1.8"/><circle cx="0" cy="-17" r="6" fill="#c9b26a" stroke="#a8905a" stroke-width="1.8"/>', 'st-hop', 0, 1), '', 0, 1.1) + hearts(530, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">雅俗共賞</text>') }
+      ];
+    },
+    /* 交口稱譽 */
+    i723: function () {
+      return [
+        { minDur: 7000, sub: '韓愈寫柳宗元年少成名：朝中要人「交口薦譽之」——眾口同聲推薦稱讚！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -74, '<path d="M-12 0 h24 l-3 8 h-18 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1), '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .9) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .9, true) + hearts(400, 175)) },
+        { minDur: 6800, sub: '「交口稱譽」：人人讚不絕口——新開的早餐店，街坊鄰居見面都在推薦！',
+          html: scene(P(400, 285, '<rect x="-56" y="-46" width="112" height="46" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-44" y="-66" width="88" height="16" rx="4" fill="#c96a5a"/>', '', 0, 1.05) +
+            P(240, 302, A('kid', 'happy'), '', 0, .9) + P(560, 302, A('kid', 'happy'), '', 0, .9, true) +
+            notes(300, 190) + hearts(500, 190)) },
+        { minDur: 6800, sub: '口碑是最好的廣告——把每位客人服務好，他們的嘴就是你的招牌！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(38, -46, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1.02) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-28 -56 l-16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .97, true) + hearts(450, 185)) },
+        { minDur: 6400, sub: '交口稱譽：眾口一辭，齊聲讚揚。',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -74, '<path d="M-12 0 h24 l-3 8 h-18 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1), '', 0, 1.05) +
+            P(250, 302, A('kid', 'happy'), '', 0, .88) + P(550, 302, A('kid', 'happy'), '', 0, .88, true) + hearts(400, 178) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">交口稱譽</text>') }
+      ];
     }
   };
 
