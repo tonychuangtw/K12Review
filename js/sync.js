@@ -151,6 +151,15 @@
       pill.className = "chip sync-login";
       pill.textContent = "登入";
       pill.title = "Google 登入，跨裝置同步進度";
+      // GSI 載入後，透明的官方按鈕會蓋在 pill 上接走點擊；
+      // 沒載入（App 內建瀏覽器常擋 accounts.google.com）時 pill 仍可點，給指引
+      pill.addEventListener("click", function () {
+        if (window.google && google.accounts && google.accounts.id) {
+          google.accounts.id.prompt();
+        } else {
+          alert("這個 App 內建瀏覽器擋住了 Google 登入元件。\n請用右下角選單選「用 Safari／瀏覽器開啟」，再登入即可同步進度。");
+        }
+      });
       var slot = document.createElement("div");
       slot.className = "gsi-slot";
       wrap.appendChild(pill);
@@ -184,6 +193,7 @@
     ui = document.createElement("div");
     ui.className = "sync-ui";
     controls.appendChild(ui);
+    renderUi(); // 先畫出登入鈕：GSI 被擋（App 內建瀏覽器）時入口也不能消失（2026-08-15 Tony 回報）
 
     var s = document.createElement("script");
     s.src = "https://accounts.google.com/gsi/client";
