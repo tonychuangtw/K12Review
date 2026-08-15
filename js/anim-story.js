@@ -446,6 +446,163 @@
           html: scene(RIVER + P(400, 262, BOAT + P(-58, 12, MARK) + P(20, -24, A('kid', 'happy'), '', 0, .9)) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">刻舟求劍</text>') }
       ];
+    },
+    /* 愚公移山 */
+    i042: function () {
+      function mt(w, h, fill) {
+        return '<path d="M-' + w + ' 0 L0 -' + h + ' L' + w + ' 0 Z" fill="' + fill + '"/>' +
+          '<path d="M0 -' + h + ' L-' + Math.round(w * .18) + ' -' + Math.round(h * .78) + ' L0 -' + Math.round(h * .7) + ' L' + Math.round(w * .18) + ' -' + Math.round(h * .76) + ' Z" fill="#eef4f0"/>';
+      }
+      var MTS = P(300, 302, mt(150, 190, '#8fb0a0')) + P(520, 302, mt(130, 150, '#a5c2b2'));
+      return [
+        { minDur: 6600, sub: '愚公家門口擋著兩座大山，一家人出門，都得繞好遠好遠的路。',
+          html: scene(MTS +
+            '<path d="M120 310 q120 24 300 20 q220 -6 330 -18" stroke="#e8dcc0" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="14 12"/>' +
+            P(110, 296, A('kid', 'sad'), 'st-inL', 0, .95) + sweat(140, 210) + qmark(80, 190)) },
+        { minDur: 6800, sub: '愚公召集全家：「我們一起把山移走吧！」大家拿起鋤頭，一擔一擔把石土挑走。',
+          html: scene(MTS +
+            P(110, 302, A('kid', 'happy') + P(16, -30, HOE, 'st-hoe')) +
+            P(660, 302, A('kid', 'happy') + P(16, -30, HOE, 'st-hoe'), '', .4, .9) +
+            P(720, 320, '<ellipse cx="0" cy="0" rx="22" ry="9" fill="#b0a390"/><ellipse cx="-6" cy="-6" rx="8" ry="5" fill="#9c8468"/><ellipse cx="8" cy="-5" rx="7" ry="5" fill="#8a7a66"/>')) },
+        { minDur: 7400, sub: '智叟笑他：「你這麼老了，怎麼可能移得完？」愚公說：「我還有兒子、孫子，子子孫孫挖下去，總有一天挖得完！」',
+          html: scene(MTS +
+            P(110, 302, A('kid', 'wow'), '', 0, .95) + qmark(80, 190) +
+            P(690, 302, '<g class="st-cheer">' + A('kid', 'happy') + P(16, -30, HOE, 'st-hoe') + '</g>', '', 0, .95, true)) },
+        { minDur: 6600, sub: '天帝被愚公的決心感動了，派天神把兩座大山，一座一座背走了！',
+          html: scene(P(280, 160, '<g class="st-fly">' + mt(110, 130, '#8fb0a0') + '</g>') +
+            P(560, 120, '<g class="st-fly" style="animation-delay:.5s">' + mt(90, 104, '#a5c2b2') + '</g>') +
+            P(200, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(600, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', .3, .9) + hearts(400, 220)) },
+        { minDur: 6000, sub: '愚公移山：比喻意志堅強，終能成功。',
+          html: scene(P(650, 302, mt(110, 130, '#a5c2b2')) + P(250, 302, A('kid', 'happy') + P(16, -30, HOE, 'st-hoe')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">愚公移山</text>') }
+      ];
+    },
+    /* 杯弓蛇影 */
+    i044: function () {
+      var WALLBG = '<rect x="-200" y="-190" width="400" height="190" rx="8" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="4"/>';
+      var BOW = '<path d="M0 -42 q30 22 0 42" fill="none" stroke="#a8734a" stroke-width="6" stroke-linecap="round"/>' +
+        '<line x1="0" y1="-42" x2="0" y2="0" stroke="#d9cbb0" stroke-width="2.4"/>';
+      var TABLE = '<rect x="-64" y="-34" width="128" height="12" rx="5" fill="#c9a06c" stroke="#a8734a" stroke-width="3"/>' +
+        '<line x1="-50" y1="-22" x2="-50" y2="0" stroke="#a8734a" stroke-width="6"/><line x1="50" y1="-22" x2="50" y2="0" stroke="#a8734a" stroke-width="6"/>';
+      function cup(withSnake) {
+        var s = '<path d="M-14 0 L-10 -22 L10 -22 L14 0 Z" fill="#e8f0f8" stroke="#9fb4c7" stroke-width="2.4"/>' +
+          '<ellipse cx="0" cy="-22" rx="10" ry="3.6" fill="#c8dcc8"/>';
+        if (withSnake) s += '<path d="M-6 -22 q3 -4 6 0 q3 4 6 0" fill="none" stroke="#5a7a48" stroke-width="2.6" stroke-linecap="round"/>';
+        return s;
+      }
+      return [
+        { minDur: 6600, sub: '主人請朋友到家裡喝酒。牆上掛著一張弓，弓的影子，正好落在朋友的酒杯裡。',
+          html: scene(P(400, 300, WALLBG + P(60, -120, BOW) + P(0, 0, TABLE) + P(-20, -34, cup(true), '', 0, .9)) +
+            P(160, 302, A('kid', 'happy')) + P(640, 302, A('kid', 'happy'), '', 0, .95, true)) },
+        { minDur: 6600, sub: '朋友舉杯正要喝，忽然看見杯子裡好像有一條小蛇在游動，嚇了一大跳！',
+          html: scene(P(400, 300, WALLBG + P(60, -120, BOW) + P(0, 0, TABLE)) +
+            P(620, 302, A('kid', 'wow') + P(-34, -62, cup(true), '', 0, 1.3), '', 0, 1, true) +
+            sweat(560, 200) + bang(430, 190)) },
+        { minDur: 7000, sub: '他硬著頭皮把酒喝下肚，回家越想越害怕：「我把蛇喝進肚子裡了！」竟然嚇得生了病。',
+          html: scene(P(560, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>') +
+            sweat(600, 210) + zzz(500, 190) +
+            P(300, 180, '<g class="st-zfloat"><path d="M-12 0 q6 -8 12 0 q6 8 12 0" fill="none" stroke="#9ccc65" stroke-width="4" stroke-linecap="round"/></g>') +
+            qmark(350, 150), 'night') },
+        { minDur: 7000, sub: '主人知道後請他再來，指著牆說：「杯裡哪有蛇？那是弓的影子呀！」朋友一看，病立刻就好了。',
+          html: scene(P(400, 300, WALLBG + P(60, -120, BOW) + P(0, 0, TABLE) + P(-20, -34, cup(false), '', 0, .9) +
+              '<line x1="60" y1="-118" x2="-16" y2="-40" stroke="#ffd97a" stroke-width="3" stroke-dasharray="7 7"/>') +
+            P(160, 302, A('kid', 'happy')) + P(640, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .95, true) +
+            hearts(690, 200)) },
+        { minDur: 6000, sub: '杯弓蛇影：比喻過度疑心，自相驚擾。',
+          html: scene(P(400, 280, TABLE + P(0, -34, cup(true), '', 0, 1.2) + P(90, -80, BOW)) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">杯弓蛇影</text>') }
+      ];
+    },
+    /* 濫竽充數 */
+    i237: function () {
+      var YU = '<g stroke="#a8734a" stroke-width="3.6" stroke-linecap="round">' +
+        '<line x1="-9" y1="-34" x2="-9" y2="-58"/><line x1="-3" y1="-34" x2="-3" y2="-64"/>' +
+        '<line x1="3" y1="-34" x2="3" y2="-60"/><line x1="9" y1="-34" x2="9" y2="-54"/></g>' +
+        '<path d="M-14 -34 h28 q2 12 -14 12 q-16 0 -14 -12 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>';
+      var CROWN = '<path d="M-13 -88 l5 8 l8 -9 l8 9 l5 -8 v11 h-26 z" fill="#ffd97a" stroke="#e8b84a" stroke-width="2"/>';
+      function player(x, sc, dly, fake) {
+        return P(x, 302, A('kid', fake ? 'wow' : 'happy') + P(26, -20, YU) + (fake ? sweat(-26, -90) : ''), '', dly, sc);
+      }
+      return [
+        { minDur: 7000, sub: '齊宣王愛聽吹竽，一定要三百人一起大合奏。南郭先生根本不會吹，也混了進去領賞。',
+          html: scene(P(120, 302, A('kid', 'happy') + CROWN) +
+            player(320, .85, 0) + player(440, .85, .2) + player(560, .85, .4) +
+            player(680, .85, 0, true) + notes(430, 160)) },
+        { minDur: 6800, sub: '合奏時，他捧著竽裝模作樣，跟著搖頭晃腦，日子過得舒舒服服。',
+          html: scene(P(120, 302, A('kid', 'happy') + CROWN) + hearts(170, 190) +
+            player(340, .9, 0) + player(480, .9, .3) + notes(400, 150) +
+            P(640, 302, '<g class="st-cheer">' + A('kid', 'happy') + P(26, -20, YU) + '</g>', '', 0, .9)) },
+        { minDur: 6400, sub: '後來齊宣王去世，新王即位。新王的口味不一樣——他喜歡聽人一個一個獨奏！',
+          html: scene(P(120, 302, A('kid', 'angry') + CROWN) +
+            player(430, 1, 0) + notes(480, 150) +
+            P(660, 302, A('kid', 'wow') + P(26, -20, YU), '', 0, .85) + sweat(630, 200)) },
+        { minDur: 6600, sub: '快輪到南郭先生獨奏了——他一個音也吹不出來，只好連夜收拾包袱，偷偷逃走了。',
+          html: scene(P(500, 302, '<g class="st-fleeR">' + A('kid', 'wow') +
+              P(-30, -70, '<circle cx="0" cy="0" r="12" fill="#e8c48f" stroke="#c9a066" stroke-width="2.4"/><line x1="8" y1="-8" x2="22" y2="-22" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/>') +
+              '</g>', 'st-dashL') + sweat(460, 200) + zzz(150, 180), 'night') },
+        { minDur: 6000, sub: '濫竽充數：沒有真本領的人，混在行家中充數。',
+          html: scene(P(300, 302, A('kid', 'happy') + P(26, -20, YU)) + P(520, 302, A('kid', 'wow') + P(26, -20, YU), '', 0, .9) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">濫竽充數</text>') }
+      ];
+    },
+    /* 塞翁失馬 */
+    i245: function () {
+      return [
+        { minDur: 6600, sub: '邊塞的老翁養了一匹馬。有一天，馬兒忽然跑掉了，鄰居都來安慰他。',
+          html: scene(P(620, 302, A('horse'), 'st-fleeR') +
+            P(200, 302, A('kid', 'happy')) + P(330, 302, A('kid', 'sad'), '', 0, .9) + sweat(360, 205)) },
+        { minDur: 6200, sub: '老翁卻不著急：「馬跑掉了，怎麼知道不是好事呢？」大家聽得一頭霧水。',
+          html: scene(P(200, 302, A('kid', 'happy')) + P(330, 302, A('kid', 'wow'), '', 0, .9) +
+            qmark(370, 185) + qmark(250, 165)) },
+        { minDur: 6800, sub: '過了幾個月，那匹馬自己回來了，身邊還跟著一匹駿馬！鄰居們都跑來道賀。',
+          html: scene(P(520, 302, A('horse'), 'st-inR') + P(660, 302, A('horse'), 'st-inR', .3, .9) +
+            P(200, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>') +
+            P(330, 302, A('kid', 'happy'), '', 0, .9) + hearts(420, 180)) },
+        { minDur: 7000, sub: '老翁又說：「白白得了一匹馬，怎麼知道不是壞事呢？」果然，兒子騎新馬時摔了下來，跌斷了腿。',
+          html: scene(P(540, 302, A('horse')) +
+            P(400, 306, '<g class="st-faint">' + A('kid', 'wow') + '</g>') + bang(430, 230) +
+            P(180, 302, A('kid', 'happy')) + sweat(370, 230)) },
+        { minDur: 7400, sub: '後來戰爭爆發，年輕人都被徵召上戰場；兒子卻因為腿傷留在家裡，保住了性命。禍福，真的說不準呀！',
+          html: scene(P(120, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -52 l-7 14 h14 z" fill="#8b93a3"/>'), 'st-fleeR', 0, .9) +
+            P(230, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -52 l-7 14 h14 z" fill="#8b93a3"/>'), 'st-fleeR', .3, .85) +
+            P(560, 302, A('kid', 'happy')) + P(680, 302, A('horse'), '', 0, .9) + hearts(620, 190)) },
+        { minDur: 6200, sub: '塞翁失馬：禍福無常，壞事也可能帶來好結果。',
+          html: scene(P(280, 302, A('kid', 'happy')) + P(520, 302, A('horse')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">塞翁失馬</text>') }
+      ];
+    },
+    /* 葉公好龍 */
+    i1007: function () {
+      function drgPic(x, y, sc) {
+        return P(x, y, '<path d="M-24 6 q13 -16 31 -7 q13 7 5 16 q-6 7 -18 3" fill="none" stroke="#e8b84a" stroke-width="6" stroke-linecap="round"/>' +
+          '<circle cx="-26" cy="3" r="7" fill="#e8b84a"/><circle cx="-28" cy="2" r="2" fill="#3a2e26"/>' +
+          '<path d="M-31 -4 l-2 -6 l5 4 z" fill="#c98f2a"/>', '', 0, sc || 1);
+      }
+      var HOUSE = '<rect x="-190" y="-180" width="380" height="180" rx="8" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="4"/>' +
+        '<rect x="60" y="-120" width="90" height="70" rx="6" fill="#aee3f5" stroke="#a8734a" stroke-width="5"/>' +
+        '<line x1="105" y1="-120" x2="105" y2="-50" stroke="#a8734a" stroke-width="4"/>';
+      return [
+        { minDur: 6800, sub: '葉公最愛龍了：衣服上繡著龍、柱子上刻著龍、牆上畫滿了龍。',
+          html: scene(P(400, 300, HOUSE + drgPic(-110, -130, .95) + drgPic(-30, -70, .85) + drgPic(-120, -40, .8)) +
+            P(620, 302, A('kid', 'happy') +
+              '<path d="M-12 -30 q6 -6 14 -2 q6 4 2 9" fill="none" stroke="#e8b84a" stroke-width="3" stroke-linecap="round"/>') +
+            hearts(560, 180)) },
+        { minDur: 6400, sub: '天上的真龍聽說了，很感動：「他這麼喜歡我，我去拜訪他吧！」',
+          html: scene(P(340, 150, A('dragon'), '', 0, 1.2) + hearts(420, 100) +
+            P(400, 340, '<ellipse cx="0" cy="0" rx="420" ry="40" fill="#c9dff0" opacity=".5"/>')) },
+        { minDur: 7000, sub: '真龍把頭探進窗戶，尾巴拖到廳堂——葉公一看是真龍，嚇得臉色發白，轉頭就逃！',
+          html: scene(P(400, 300, HOUSE + drgPic(-110, -130, .95) + drgPic(-120, -40, .8)) +
+            P(500, 218, A('dragon'), '', 0, 1.1) + bang(560, 140) +
+            P(250, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL') + sweat(300, 200)) },
+        { minDur: 6400, sub: '真龍失望地飛走了。原來葉公喜歡的，只是畫上的假龍，不是真的龍呀！',
+          html: scene(P(400, 300, HOUSE + drgPic(-30, -70, .85)) +
+            P(240, 140, A('dragon'), 'st-fleeR') + sweat(300, 120) +
+            P(640, 302, A('kid', 'sad'), '', 0, .95, true) + qmark(690, 190)) },
+        { minDur: 6200, sub: '葉公好龍：比喻表面上愛好某事物，其實並非真的愛好。',
+          html: scene(P(300, 190, A('dragon')) + P(540, 302, A('kid', 'happy')) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">葉公好龍</text>') }
+      ];
     }
   };
 
