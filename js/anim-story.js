@@ -13580,6 +13580,165 @@
           html: scene(P(380, 302, A('kid', 'sad') + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, 1.02, true) + sweat(300, 188) + qmark(500, 190) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">勞而無功</text>') }
       ];
+    },
+    /* 刻苦銘心 */
+    i110: function () {
+      return [
+        { minDur: 7000, sub: '李白寫信說恩情「銘刻心骨」——像用刀刻進骨頭一樣，一輩子都忘不了！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -50, '<rect x="-16" y="-12" width="32" height="24" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-10 -4 h20 M-10 4 h14" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95), '', 0, 1.05) +
+            P(540, 220, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/><line x1="-6" y1="8" x2="6" y2="16" stroke="#e07a94" stroke-width="2.4"/>', '', 0, 1.2)) },
+        { minDur: 6800, sub: '迷路的夜裡，陌生店家借了電話又送熱湯——那份溫暖，小銘刻苦銘心記到現在！',
+          html: scene(P(320, 302, A('kid', 'sad'), '', 0, .95) +
+            P(520, 302, A('kid', 'happy') + P(-38, -46, '<path d="M-14 -6 h28 v5 q0 9 -14 9 q-14 0 -14 -9 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/><g class="st-zfloat" opacity=".7"><path d="M-4 -14 q3 -6 0 -10" stroke="#c9bfa8" stroke-width="2" fill="none"/></g>', '', 0, 1), '', 0, 1, true) + hearts(420, 185), 'night') },
+        { minDur: 6800, sub: '「刻苦銘心」（今多作刻骨銘心）：感受或恩情深刻難忘——重大的教訓也一樣，記牢就不再犯！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 200, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.3) + hearts(290, 200)) },
+        { minDur: 6400, sub: '刻苦銘心：深刻難忘，永記於心。',
+          html: scene(P(400, 245, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/><line x1="-7" y1="9" x2="7" y2="18" stroke="#e07a94" stroke-width="2.6"/>', '', 0, 1.8) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">刻苦銘心</text>') }
+      ];
+    },
+    /* 一葉知秋 */
+    i111: function () {
+      var LEAFY = '<path d="M0 0 q-10 -14 -2 -26 q3 -5 7 -1 q9 12 -1 27 z" fill="#e0a458" stroke="#c9862f" stroke-width="1.8"/>';
+      return [
+        { minDur: 7000, sub: '《淮南子》說：「見一葉落而知歲之將暮」——看到一片葉子落下，就知道一年快到盡頭了！',
+          html: scene(P(550, 285, TREE, '', 0, 1.2) +
+            P(460, 200, '<g class="st-snow">' + LEAFY + '</g>', '', 0, 1.2) +
+            P(250, 302, A('kid', 'wow') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「一葉知秋」：從細微的跡象，推知整體的趨勢——小徵兆裡藏著大訊息！',
+          html: scene(P(400, 250, LEAFY, '', 0, 2) +
+            P(560, 210, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="17" fill="#c9862f">秋!</text>') +
+            '<path d="M440 245 h70" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="7 6"/><path d="M510 245 l-10 -7 v14 z" fill="#c9bfa8"/>') },
+        { minDur: 6800, sub: '店裡常客悄悄變少、留言開始出現抱怨——聰明的老闆一葉知秋，馬上檢討改進！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -8 l5 8 l5 -6 l7 10" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .95)) + qmark(470, 185) +
+            P(580, 220, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '一葉知秋：見微知著，洞燭先機。',
+          html: scene(P(400, 245, '<g class="st-snow">' + LEAFY + '</g>', '', 0, 2) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一葉知秋</text>') }
+      ];
+    },
+    /* 由淺入深 */
+    i112: function () {
+      var POOLSTEP = '<rect y="282" width="800" height="58" fill="#7fb2d4"/><path d="M120 282 h140 v14 h140 v16 h140 v14 h140" stroke="#5a8fbf" stroke-width="3" fill="none"/>';
+      return [
+        { minDur: 6800, sub: '學游泳先在淺水池站穩、練打水——再一階一階往深水區前進！',
+          html: scene(POOLSTEP + P(220, 284, A('kid', 'happy'), '', 0, .9) +
+            '<path d="M300 260 q120 -20 260 10" stroke="#548a40" stroke-width="3" fill="none" stroke-dasharray="8 7"/><path d="M560 270 l-13 -5 l6 12 z" fill="#548a40"/>') },
+        { minDur: 6800, sub: '「由淺入深」：從簡單開始，逐漸深入——課本也是這樣編的：先加減、再乘除、再方程式！',
+          html: scene(P(260, 270, '<rect x="-26" y="-20" width="52" height="40" rx="4" fill="#a5d47c" stroke="#7fa858" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#3d5232">1+1</text>', '', 0, 1) +
+            P(400, 260, '<rect x="-26" y="-22" width="52" height="44" rx="4" fill="#ffd97a" stroke="#e8b93f" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#6d5335">9×9</text>', '', 0, 1) +
+            P(540, 250, '<rect x="-26" y="-24" width="52" height="48" rx="4" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.4"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#7a3d52">x²</text>', '', 0, 1)) },
+        { minDur: 6800, sub: '一開始就跳深水區只會嗆水——按部就班打好基礎，難題自然迎刃而解！',
+          html: scene(POOLSTEP + P(560, 284, A('kid', 'happy'), 'st-cheer', 0, .95) + hearts(480, 230) + bang(640, 240)) },
+        { minDur: 6400, sub: '由淺入深：從易到難，循序漸進。',
+          html: scene(POOLSTEP + P(300, 284, A('kid', 'happy'), 'st-strut', 0, .92) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">由淺入深</text>') }
+      ];
+    },
+    /* 廢寢忘食 */
+    i114: function () {
+      return [
+        { minDur: 6800, sub: '小食迷上機器人專題：白天焊電路、晚上寫程式——媽媽喊吃飯喊了三遍都沒聽到！',
+          html: scene(P(380, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-13" width="32" height="26" rx="4" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/><circle cx="-6" cy="-3" r="3.4" fill="#ffe9a0"/><circle cx="6" cy="-3" r="3.4" fill="#ffe9a0"/>', '', 0, .95), '', 0, 1.02) +
+            P(600, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/><path d="M-28 -56 l-14 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .95, true) +
+            P(660, 230, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '夜深了還在調整程式——連床都忘了睡，滿腦子只有轉個不停的齒輪！',
+          html: scene(P(380, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-13" width="32" height="26" rx="4" fill="#8fa3bf" stroke="#6d7f9c" stroke-width="2.4"/><circle cx="-6" cy="-3" r="3.4" fill="#ffe9a0"/><circle cx="6" cy="-3" r="3.4" fill="#ffe9a0"/>', '', 0, .95), '', 0, 1.02) +
+            P(620, 130, '<circle cx="0" cy="0" r="20" fill="#f5f0dc"/><circle cx="8" cy="-4" r="16" fill="#2c3550"/>', '', 0, 1) + notes(280, 195), 'night') },
+        { minDur: 6800, sub: '「廢寢忘食」：投入到忘了吃飯睡覺——這股熱情很棒，但也要記得照顧身體喔！',
+          html: scene(P(360, 302, A('kid', 'happy'), '', 0, 1.02) + hearts(470, 188) +
+            P(580, 220, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#548a40">吃飯!</text>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '廢寢忘食：專注投入，忘了寢食。',
+          html: scene(P(400, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1.05) +
+            P(620, 135, '<circle cx="0" cy="0" r="18" fill="#f5f0dc"/><circle cx="7" cy="-3" r="14" fill="#2c3550"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">廢寢忘食</text>', 'night') }
+      ];
+    },
+    /* 見風轉舵 */
+    i115: function () {
+      var RUDDER = '<path d="M-40 0 L40 0 L28 16 L-28 16 Z" fill="#a8734a" stroke="#8a5a33" stroke-width="2.4"/><line x1="30" y1="0" x2="42" y2="-18" stroke="#6d4426" stroke-width="4" stroke-linecap="round"/>';
+      return [
+        { minDur: 6800, sub: '船伕看風向轉舵，本是駕船的本領——但用在做人上，就變了味！',
+          html: scene('<rect y="268" width="800" height="72" fill="#5a7fa8"/>' +
+            P(400, 268, '<g class="st-bob">' + RUDDER + '</g>', '', 0, 1.2) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="200" y1="170" x2="280" y2="170"/><line x1="180" y1="200" x2="260" y2="200"/></g>') },
+        { minDur: 6800, sub: '班上投票，小舵先說支持 A 案——看 B 案人多，立刻改口：「其實我一直挺 B！」',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-14 -50 q14 6 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, 1.02) +
+            P(280, 200, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#7fb2e0">A</text>') +
+            '<path d="M310 200 h70" stroke="#c9bfa8" stroke-width="3" stroke-dasharray="6 5"/><path d="M380 200 l-10 -7 v14 z" fill="#c9bfa8"/>' +
+            P(420, 200, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92" stroke="#c96a5a" stroke-width="2"/><text x="0" y="7" text-anchor="middle" font-size="16" fill="#c96a5a">B</text>') + sweat(500, 190)) },
+        { minDur: 6800, sub: '「見風轉舵」：看勢頭改立場、投機取巧——牆頭草兩邊倒，最後誰也不信任他！',
+          html: scene(P(400, 302, A('kid', 'sad'), '', 0, 1) + sweat(330, 190) +
+            P(250, 302, A('kid', 'angry') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .92) +
+            P(560, 302, A('kid', 'angry') + '<path d="M-14 -50 q14 4 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .92, true)) },
+        { minDur: 6400, sub: '見風轉舵：看勢轉向，投機善變。',
+          html: scene('<rect y="272" width="800" height="68" fill="#5a7fa8"/>' +
+            P(400, 272, '<g class="st-bob">' + RUDDER + '</g>', '', 0, 1.2) +
+            '<g class="st-windln" stroke="#cfe0f0" stroke-width="3.4" stroke-linecap="round"><line x1="220" y1="180" x2="300" y2="180"/></g>' +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">見風轉舵</text>') }
+      ];
+    },
+    /* 臨陣退縮 */
+    i116: function () {
+      return [
+        { minDur: 6800, sub: '演講比賽輪到小縮上台了——他在後台越想越怕：「我還是棄權好了……」',
+          html: scene(P(400, 280, '<rect x="-120" y="-20" width="240" height="20" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(240, 302, A('kid', 'wow') + '<path d="M-24 -60 l-8 -12 M24 -60 l8 -12" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .98) + sweat(180, 188) +
+            P(520, 260, '<rect x="-10" y="-24" width="20" height="34" rx="4" fill="#3a2e26"/><circle cx="0" cy="-30" r="7" fill="#8b93a3"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「臨陣退縮」：到了陣前卻膽怯逃避——練了一個月的稿子，就這樣白費了嗎？',
+          html: scene(P(430, 302, '<g class="st-fleeR">' + A('kid', 'sad') + '</g>', 'st-dashL', 0, .98, true) + sweat(500, 190) +
+            P(240, 280, '<rect x="-70" y="-16" width="140" height="16" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>', '', 0, 1) + qmark(320, 220)) },
+        { minDur: 6800, sub: '老師拍拍他：「緊張很正常，上台講出第一句就贏了！」他深呼吸，走了上去——全場掌聲！',
+          html: scene(P(400, 280, '<rect x="-120" y="-20" width="240" height="20" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>') +
+            P(400, 280, A('kid', 'happy') + P(-36, -44, '<rect x="-4" y="-26" width="8" height="30" rx="3" fill="#3a2e26"/><circle cx="0" cy="-32" r="6" fill="#8b93a3"/>', '', 0, 1), '', 0, 1) +
+            P(220, 302, A('kid', 'happy'), 'st-cheer', 0, .88) + P(600, 302, A('kid', 'happy'), 'st-cheer', .2, .88, true) + bang(400, 175)) },
+        { minDur: 6400, sub: '臨陣退縮：關鍵時刻，膽怯逃避。',
+          html: scene(P(450, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, 1) + sweat(520, 190) +
+            P(250, 280, '<rect x="-70" y="-16" width="140" height="16" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">臨陣退縮</text>') }
+      ];
+    },
+    /* 背水一戰 */
+    i117: function () {
+      var RIVERB = '<rect x="560" y="180" width="240" height="160" fill="#5a7fa8"/><g class="st-wavemove"><path d="M560 200 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#8fb2d4" stroke-width="5" opacity=".9"/></g>';
+      return [
+        { minDur: 7000, sub: '韓信攻趙，故意背著河水布陣——兵法大忌！趙軍看了都笑他不懂打仗！',
+          html: scene(RIVERB +
+            P(430, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1), '', 0, 1.02, true) +
+            P(200, 302, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .95) + qmark(280, 185)) },
+        { minDur: 6800, sub: '身後就是河，退一步就掉進水裡——士兵們無路可退，人人拚死作戰！',
+          html: scene(RIVERB +
+            P(400, 302, A('kid', 'angry') + P(26, -50, '<line x1="0" y1="10" x2="0" y2="-40" stroke="#a8734a" stroke-width="4"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, 1), 'st-strut', 0, 1.02, true) +
+            P(500, 302, A('kid', 'angry'), '', 0, .95, true) + bang(300, 190) + sweat(560, 210)) },
+        { minDur: 6800, sub: '「陷之死地而後生」——絕境反而激出全力，韓信大破趙軍！這就是「背水一戰」！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', 'st-cheer', 0, 1.05) + bang(360, 175) +
+            P(560, 302, A('kid', 'happy'), 'st-cheer', .2, .95, true) + hearts(470, 195)) },
+        { minDur: 6400, sub: '背水一戰：斷了退路，全力一搏。',
+          html: scene(RIVERB +
+            P(400, 302, A('kid', 'angry'), 'st-strut', 0, 1.05, true) + bang(300, 190) +
+            '<text x="340" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">背水一戰</text>') }
+      ];
+    },
+    /* 十年寒窗 */
+    i118: function () {
+      var COLDWIN = '<rect x="-34" y="-40" width="68" height="80" rx="4" fill="#2c3550" stroke="#575170" stroke-width="3"/><line x1="0" y1="-40" x2="0" y2="40" stroke="#575170" stroke-width="2.6"/><line x1="-34" y1="0" x2="34" y2="0" stroke="#575170" stroke-width="2.6"/>';
+      return [
+        { minDur: 7000, sub: '古人說：「十年窗下無人問」——書生在寒冷的窗下苦讀十年，沒有一個人聞問……',
+          html: scene(P(560, 250, COLDWIN, '', 0, 1.1) +
+            P(360, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-46, -46, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1) +
+            '<g fill="#fff"><circle class="st-snow" cx="220" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1.2s" cx="640" cy="24" r="3.6"/></g>' +
+            P(240, 260, '<g class="st-flick"><path d="M0 8 Q-6 -4 0 -14 Q3 -8 6 -12 Q9 -2 4 6 Z" fill="#ffd166"/></g><rect x="-4" y="8" width="8" height="16" fill="#f4ecd8"/>', '', 0, 1), 'night') },
+        { minDur: 6800, sub: '「一舉成名天下知」——金榜題名那天，全天下都知道了他的名字！',
+          html: scene(P(400, 270, '<rect x="-60" y="-40" width="120" height="80" rx="4" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="3"/><text x="0" y="-10" text-anchor="middle" font-size="20" fill="#c96a5a">金榜</text><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-40" y1="8" x2="40" y2="8"/><line x1="-40" y1="22" x2="40" y2="22"/></g>', '', 0, 1.1) +
+            P(220, 302, A('kid', 'happy'), 'st-cheer', 0, .98) + bang(300, 190) + hearts(560, 210)) },
+        { minDur: 6800, sub: '「十年寒窗」：長年刻苦讀書——沒有人是一夜成功的，檯面下都是多年的累積！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.8"><line x1="-10" y1="-11" x2="10" y2="-11"/><line x1="-10" y1="-3" x2="10" y2="-3"/><line x1="-10" y1="5" x2="10" y2="5"/></g>', '', 0, .95), '', 0, 1.05) + hearts(510, 190)) },
+        { minDur: 6400, sub: '十年寒窗：長年苦讀，厚積薄發。',
+          html: scene(P(560, 255, COLDWIN, '', 0, 1.1) +
+            P(360, 302, A('kid', 'happy') + P(-46, -46, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.4"/>', '', 0, .95), '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">十年寒窗</text>', 'night') }
+      ];
     }
   };
 
