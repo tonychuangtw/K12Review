@@ -5788,6 +5788,121 @@
           html: scene(P(280, 302, A('ox'), '', 0, .95) + P(500, 302, BOOKPILE2, '', 0, 1.7) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">汗牛充棟</text>') }
       ];
+    },
+    /* 坐以待斃 */
+    i035: function () {
+      var RAFT = '<g stroke="#a8734a" stroke-width="8" stroke-linecap="round"><line x1="-44" y1="0" x2="44" y2="0"/><line x1="-44" y1="-9" x2="44" y2="-9"/></g>';
+      return [
+        { minDur: 6800, sub: '洪水慢慢漲上來了！有人卻只坐在原地發呆：「反正逃不掉，等著吧……」',
+          html: scene('<rect y="286" width="800" height="54" fill="#7fb2e0"/>' +
+            P(360, 296, '<g class="st-slump">' + A('kid', 'sad') + '</g>') + sweat(310, 200) + qmark(430, 185)) },
+        { minDur: 6800, sub: '另一個人立刻動手：綁木筏、堆沙包、找高地——絕不坐著等災難上門！',
+          html: scene('<rect y="292" width="800" height="48" fill="#7fb2e0"/>' +
+            P(340, 296, A('kid', 'angry') + P(24, -42, HAMMER)) + P(520, 300, RAFT) + bang(440, 230)) },
+        { minDur: 6800, sub: '「坐以待斃」：不主動想辦法，被動地等著失敗——遇到危難，行動才有生機！',
+          html: scene(P(280, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, .95) + sweat(320, 200) +
+            P(540, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, .98) + hearts(610, 190)) },
+        { minDur: 6400, sub: '坐以待斃：不主動行動，被動等待失敗。',
+          html: scene(P(380, 302, '<g class="st-slump">' + A('kid', 'sad') + '</g>', '', 0, 1.05) + qmark(450, 182) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">坐以待斃</text>') }
+      ];
+    },
+    /* 臨危不懼 */
+    i036: function () {
+      var FIRE3 = '<g class="st-flick"><path d="M0 -8 q-16 -20 0 -38 q3 11 11 15 q9 -9 7 -18 q13 16 2 34 q-9 11 -20 7 z" fill="#ff9c40"/><path d="M2 -10 q-8 -11 0 -22 q7 9 9 13 q3 9 -9 9 z" fill="#ffd166"/></g>';
+      return [
+        { minDur: 6800, sub: '教室旁的垃圾桶突然冒出火苗！同學們嚇得四散，班長卻鎮定地大喊：「別慌，走安全門！」',
+          html: scene(P(560, 300, FIRE3, '', 0, 1.1) +
+            P(300, 302, A('kid', 'happy')) + bang(480, 230) +
+            P(180, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', 'st-dashL', 0, .9) + sweat(240, 195)) },
+        { minDur: 6800, sub: '他一邊指揮大家排隊離開，一邊請老師拿滅火器——整個過程冷靜又有條理！',
+          html: scene(P(300, 302, A('kid', 'happy') +
+              '<path d="M18 -60 q14 -4 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>') +
+            P(470, 302, A('kid', 'happy'), 'st-inR', .2, .93) + P(600, 302, A('kid', 'happy'), 'st-inR', .4, .9) + hearts(390, 180)) },
+        { minDur: 6600, sub: '「臨危不懼」：面對危險不慌不怕、勇敢沉著——關鍵時刻最可靠的品格！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.08) + hearts(490, 185) + bang(300, 195)) },
+        { minDur: 6400, sub: '臨危不懼：面臨危險不害怕，勇敢沉著。',
+          html: scene(P(560, 300, FIRE3, '', 0, .95) + P(340, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">臨危不懼</text>') }
+      ];
+    },
+    /* 臨危授命 */
+    i037: function () {
+      var BATON2 = '<rect x="-4" y="-20" width="8" height="26" rx="4" fill="#e0a458" stroke="#c08838" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '接力賽最後一棒的選手突然扭傷了腳！教練看向替補的小捷：「現在，只能靠你了！」',
+          html: scene(P(300, 306, '<g class="st-faint">' + A('kid', 'sad') + '</g>', '', 0, .95) + sweat(340, 210) +
+            P(500, 302, A('kid', 'happy'), '', 0, 1.02, true) +
+            P(640, 302, A('kid', 'wow'), '', 0, .95) + qmark(690, 188)) },
+        { minDur: 6800, sub: '小捷深吸一口氣接過棒子——在最危急的時刻，接下最重要的任務！',
+          html: scene(P(400, 302, A('kid', 'angry') + P(30, -50, BATON2), '', 0, 1.05) + bang(500, 190) + hearts(300, 190)) },
+        { minDur: 6800, sub: '「臨危授命」：在危急時刻接受重任——被託付的人，責任重大也光榮！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(30, -50, BATON2), 'st-dashL', 0, 1.05) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="120" y1="240" x2="210" y2="240"/></g>' + hearts(500, 195)) },
+        { minDur: 6400, sub: '臨危授命：在危急時刻接受重要職責。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(30, -50, BATON2), '', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">臨危授命</text>') }
+      ];
+    },
+    /* 明眼人 */
+    i038: function () {
+      var BIGEYE3 = '<path d="M-28 0 Q0 -22 28 0 Q0 22 -28 0 Z" fill="#fff" stroke="#4a3200" stroke-width="2.8"/><circle cx="0" cy="0" r="9" fill="#6b4a32"/><circle cx="3" cy="-3" r="2.8" fill="#fff"/>';
+      var VASEFAKE = '<path d="M-10 0 Q-15 -10 -10 -22 Q-5 -28 -7 -34 L7 -34 Q5 -28 10 -22 Q15 -10 10 0 Z" fill="#8fd0c0" stroke="#5aa896" stroke-width="2.4"/><path d="M-4 -18 l8 8 M4 -18 l-8 8" stroke="#c96a5a" stroke-width="1.8"/>';
+      return [
+        { minDur: 6800, sub: '市場上有人喊：「祖傳青花瓷，便宜賣！」圍觀的人議論紛紛，看不出真假。',
+          html: scene(P(430, 296, VASEFAKE, '', 0, 1.3) +
+            P(260, 302, A('kid', 'happy')) + P(600, 302, A('kid', 'wow'), '', .2, .93, true) + qmark(520, 190)) },
+        { minDur: 6800, sub: '一位懂行的老先生瞄了一眼就搖頭：「釉色不對，這是新做的仿品。」——行家一出手，就知有沒有！',
+          html: scene(P(430, 296, VASEFAKE, '', 0, 1.1) +
+            P(280, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>') + bang(360, 195)) },
+        { minDur: 6600, sub: '「明眼人」：有眼光、有見識的人——一眼就能看出門道！',
+          html: scene(P(400, 200, BIGEYE3, '', 0, 1.4) + P(280, 302, A('kid', 'happy')) + hearts(490, 240)) },
+        { minDur: 6400, sub: '明眼人：有眼光、有見識的人。',
+          html: scene(P(400, 210, BIGEYE3, '', 0, 1.6) +
+            '<text x="400" y="310" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">明眼人</text>') }
+      ];
+    },
+    /* 鳳毛麟角 */
+    i049: function () {
+      var PHOENIXFEATHER = '<path d="M0 0 q-12 -22 0 -44 q12 22 0 44 z" fill="#f7a8c4" stroke="#e07ba3" stroke-width="2"/><line x1="0" y1="0" x2="0" y2="-40" stroke="#e07ba3" stroke-width="1.6"/>' +
+        '<circle cx="0" cy="-48" r="4" fill="#ffd97a"/>';
+      var SPARK = '<g class="st-tw"><path d="M0 -10 L2.5 -2.5 L10 0 L2.5 2.5 L0 10 L-2.5 2.5 L-10 0 L-2.5 -2.5 Z" fill="#ffd97a"/></g>';
+      return [
+        { minDur: 6800, sub: '傳說中，鳳凰的羽毛、麒麟的角，一百年也難見到一次——是世上最稀有的寶物！',
+          html: scene(P(360, 250, PHOENIXFEATHER, '', 0, 1.5) + P(500, 230, SPARK) + P(280, 210, SPARK) +
+            P(180, 302, A('kid', 'wow'), '', 0, .92) + hearts(260, 210)) },
+        { minDur: 6800, sub: '就像全國比賽的金牌選手、百年一遇的天才——人群中極少極少的佼佼者！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(0, -104, '<circle cx="0" cy="0" r="12" fill="#ffd97a" stroke="#e8b84a" stroke-width="2.6"/><text x="0" y="4" text-anchor="middle" font-size="11" font-weight="bold" fill="#8a5a33">1</text>', '', 0, 1.1), '', 0, 1.05) +
+            P(220, 302, A('kid', 'happy'), '', 0, .85) + P(580, 302, A('kid', 'happy'), '', .2, .85) + hearts(400, 165)) },
+        { minDur: 6600, sub: '「鳳毛麟角」：極為罕見、稀有難得的人或物！',
+          html: scene(P(400, 250, PHOENIXFEATHER, '', 0, 1.3) + P(300, 220, SPARK) + P(500, 225, SPARK) + hearts(400, 300)) },
+        { minDur: 6400, sub: '鳳毛麟角：極為罕見，稀有難得。',
+          html: scene(P(400, 255, PHOENIXFEATHER, '', 0, 1.5) + P(290, 220, SPARK) + P(510, 218, SPARK) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">鳳毛麟角</text>') }
+      ];
+    },
+    /* 萬紫千紅 */
+    i225: function () {
+      function flower5(x, y, color, dly) {
+        return P(x, y, '<g class="st-grow"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<line x1="0" y1="0" x2="0" y2="-16" stroke="#5f8a46" stroke-width="3"/>' +
+          '<circle cx="0" cy="-22" r="5" fill="' + color + '"/><circle cx="-6" cy="-18" r="5" fill="' + color + '"/><circle cx="6" cy="-18" r="5" fill="' + color + '"/><circle cx="0" cy="-14" r="5" fill="' + color + '"/><circle cx="0" cy="-18" r="3.4" fill="#ffe066"/></g>');
+      }
+      return [
+        { minDur: 6800, sub: '春天的花博會場一望無際：紫的、紅的、粉的、黃的……上千種花同時盛開！',
+          html: scene(flower5(180, 320, '#c9a8e0', 0) + flower5(260, 318, '#e85a4f', .2) + flower5(340, 322, '#ff9eb5', .4) +
+            flower5(420, 318, '#ffd97a', .1) + flower5(500, 322, '#c9a8e0', .3) + flower5(580, 318, '#e85a4f', .5) + flower5(660, 320, '#a5c8ff', .6) +
+            P(120, 302, A('kid', 'wow'), '', 0, .9)) },
+        { minDur: 6600, sub: '宋朝朱熹的詩說：「萬紫千紅總是春」——滿眼繽紛，就是春天的顏色！',
+          html: scene(flower5(240, 320, '#c9a8e0', 0) + flower5(360, 318, '#e85a4f', .3) + flower5(480, 322, '#ff9eb5', .5) +
+            P(620, 302, A('kid', 'happy') + P(-40, -56, '<rect x="-20" y="-14" width="40" height="26" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2" transform="rotate(-8)"/><path d="M-14 -7 h10 M-14 -1 h10 M4 -8 h10 M4 -2 h10" stroke="#8fa3bf" stroke-width="1.8" transform="rotate(-8)"/>', '', 0, .95)) + hearts(430, 240)) },
+        { minDur: 6600, sub: '「萬紫千紅」：百花齊放、色彩絢麗——形容繁盛美好的景象！',
+          html: scene(flower5(220, 320, '#e85a4f', 0) + flower5(330, 318, '#c9a8e0', .2) + flower5(440, 322, '#ffd97a', .4) + flower5(550, 318, '#ff9eb5', .6) +
+            P(660, 210, A('butterfly'), '', 0, .9) + hearts(400, 250)) },
+        { minDur: 6400, sub: '萬紫千紅：百花齊放，色彩絢麗繁盛。',
+          html: scene(flower5(230, 320, '#c9a8e0', 0) + flower5(340, 318, '#e85a4f', .2) + flower5(450, 322, '#ff9eb5', .4) + flower5(560, 318, '#ffd97a', .6) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">萬紫千紅</text>') }
+      ];
     }
   };
 
