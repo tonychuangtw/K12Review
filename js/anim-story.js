@@ -22065,6 +22065,194 @@
           html: scene(P(400, 285, '<ellipse cx="0" cy="8" rx="86" ry="15" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><g fill="#e8b93f" stroke="#c99a1e" stroke-width="1.6"><path d="M-50 -4 l4 -14 h10 l4 14 z"/><path d="M0 -8 l4 -14 h10 l4 14 z"/><path d="M44 -2 l4 -14 h10 l4 14 z"/></g>', '', 0, 1.15) + notes(400, 190) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">觥籌交錯</text>') }
       ];
+    },
+    /* 諱莫如深 */
+    i397: function () {
+      return [
+        { minDur: 7000, sub: '《穀梁傳》解釋史書為何不寫某些事：「諱莫如深，深則隱」——瞞得越深，越是隻字不提！',
+          html: scene(P(340, 302, A('kid', 'sad') + '<path d="M-14 -46 h28" stroke="#c96a5a" stroke-width="3" stroke-linecap="round"/><path d="M28 -50 q10 2 12 8" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 260, '<rect x="-26" y="-18" width="52" height="36" rx="4" fill="#8a6a44" stroke="#6d5335" stroke-width="2.6"/><rect x="-8" y="-4" width="16" height="10" rx="2" fill="#e8b93f"/><circle cx="0" cy="1" r="2.4" fill="#6d5335"/>', '', 0, 1.05) + qmark(240, 200)) },
+        { minDur: 6800, sub: '同學問起那件事，他立刻岔開話題、嘴巴閉得像上了鎖——對此諱莫如深！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(0, -110, '<ellipse cx="0" cy="0" rx="30" ry="15" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="12" fill="#8b93a3">那件事?</text>', '', 0, 1)) +
+            P(520, 302, A('kid', 'sad') + '<path d="M-12 -46 h24" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/><rect x="-6" y="-50" width="12" height="9" rx="2" fill="#e8b93f" stroke="#c99a1e" stroke-width="1.6"/>', '', 0, 1, true) + sweat(600, 200)) },
+        { minDur: 6800, sub: '「諱莫如深」：把事情瞞得極緊、絕口不提——通常是重大隱情，用時多帶負面色彩！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#c96a5a">絕口不提</text>', '', 0, 1.1)) +
+            P(570, 250, '<rect x="-24" y="-16" width="48" height="32" rx="4" fill="#8a6a44" stroke="#6d5335" stroke-width="2.4"/><rect x="-7" y="-3" width="14" height="9" rx="2" fill="#e8b93f"/>', '', 0, 1) + qmark(280, 200)) },
+        { minDur: 6400, sub: '諱莫如深：守口如瓶，深藏不露。',
+          html: scene(P(400, 302, A('kid', 'sad') + '<path d="M-12 -46 h24" stroke="#8b93a3" stroke-width="4" stroke-linecap="round"/><rect x="-6" y="-50" width="12" height="9" rx="2" fill="#e8b93f" stroke="#c99a1e" stroke-width="1.6"/>', '', 0, 1.08) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">諱莫如深</text>') }
+      ];
+    },
+    /* 飲鴆止渴 */
+    i398: function () {
+      return [
+        { minDur: 7000, sub: '《後漢書》霍諝的比喻：「止渴於鴆毒，未入腸胃，已絕咽喉」——鴆羽泡的酒有劇毒！',
+          html: scene(P(400, 302, A('kid', 'sad') + '<path d="M-4 -34 q4 6 8 0" stroke="#c96a5a" stroke-width="2.6" fill="none"/>' + P(40, -44, '<path d="M-8 -12 a8 12 0 0 1 16 0 l-2 18 h-12 z" fill="#7a5aa0" stroke="#5a3a80" stroke-width="2"/><text x="0" y="-20" text-anchor="middle" font-size="12" fill="#5a3a80">☠</text>', '', 0, 1.05), '', 0, 1.05) + sweat(300, 195)) },
+        { minDur: 6800, sub: '渴是解了，毒也下肚了——「飲鴆止渴」：只顧眼前的急，招來更大的禍！',
+          html: scene(P(400, 302, '<g transform="rotate(8)">' + A('kid', 'sad') + '</g>', 'st-slump', 0, 1.02) +
+            P(400, 200, '<g class="st-zfloat"><path d="M0 6 C-5 -3 -14 2 -8 9 L0 14 L8 9 C14 2 5 -3 0 6 Z" fill="#7a5aa0" opacity=".7"/></g>', '', 0, 1) + sweat(500, 210) + qmark(290, 200), 'night') },
+        { minDur: 6800, sub: '借高利貸還債、熬夜狂灌能量飲拚考試——都是現代版飲鴆止渴：眼前爽快，後患更大！',
+          html: scene(P(340, 302, A('kid', 'sad') + P(-46, -52, '<rect x="-18" y="-14" width="36" height="28" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#c96a5a">高利貸</text><text x="0" y="10" text-anchor="middle" font-size="9" fill="#c96a5a">利滾利</text>', '', 0, 1)) + sweat(450, 195) +
+            P(580, 230, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="9" fill="#548a40">從根本</text><text x="0" y="11" text-anchor="middle" font-size="9" fill="#548a40">解決</text>', '', 0, 1)) },
+        { minDur: 6400, sub: '飲鴆止渴：只圖眼前，禍在後頭。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(40, -44, '<path d="M-8 -12 a8 12 0 0 1 16 0 l-2 18 h-12 z" fill="#7a5aa0" stroke="#5a3a80" stroke-width="2"/>', '', 0, 1.05), '', 0, 1.08) + sweat(300, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">飲鴆止渴</text>') }
+      ];
+    },
+    /* 顛沛流離 */
+    i400: function () {
+      return [
+        { minDur: 7000, sub: '戰亂年代，一家人背著包袱離開家園——路上跌倒了，爬起來繼續走……',
+          html: scene(P(320, 302, A('kid', 'sad') + P(-34, -40, '<circle cx="0" cy="0" r="12" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/><path d="M0 -12 q0 -8 8 -8" stroke="#a8734a" stroke-width="3" fill="none"/>', '', 0, 1), 'st-dashL', 0, 1) +
+            P(480, 302, A('kid', 'sad'), 'st-dashL', 0, .85) +
+            P(600, 296, '<g transform="rotate(-70)">' + A('kid', 'sad') + '</g>', '', 0, .9) + sweat(620, 250), 'night') },
+        { minDur: 6800, sub: '「顛沛」是跌倒困頓、「流離」是流轉離散——「顛沛流離」：生活困苦、四處流浪！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-34, -40, '<circle cx="0" cy="0" r="12" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>', '', 0, 1), 'st-dashL', 0, 1) +
+            '<path d="M180 302 q60 -8 120 0 q80 -10 160 0 q60 -6 160 0" stroke="#b59a6a" stroke-width="3" fill="none" stroke-dasharray="8 8" opacity=".6"/>' +
+            '<g class="st-rain" opacity=".55"><g stroke="#9db8d9" stroke-width="2.6" stroke-linecap="round"><line x1="250" y1="120" x2="242" y2="142"/><line x1="420" y1="100" x2="412" y2="122"/><line x1="560" y1="130" x2="552" y2="152"/></g></g>', 'night') },
+        { minDur: 6800, sub: '杜甫一生逢安史之亂，顛沛流離仍寫詩記民苦——珍惜安穩的日子，也體諒流離的人！',
+          html: scene(P(360, 302, A('kid', 'sad') + '<path d="M-4 -40 q4 -3 8 0" stroke="#8b93a3" stroke-width="2" fill="none"/>' + P(38, -44, '<path d="M0 10 L0 -14 M-6 -14 h12" stroke="#5a4632" stroke-width="2.6" stroke-linecap="round"/>', '', 0, 1), '', 0, 1) +
+            P(560, 250, '<rect x="-22" y="-16" width="44" height="32" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8b93a3" stroke-width="2"><line x1="-13" y1="-6" x2="13" y2="-6"/><line x1="-13" y1="2" x2="13" y2="2"/><line x1="-13" y1="10" x2="4" y2="10"/></g>', '', 0, 1) + hearts(280, 200), 'night') },
+        { minDur: 6400, sub: '顛沛流離：困頓漂泊，流轉四方。',
+          html: scene(P(400, 302, A('kid', 'sad') + P(-34, -40, '<circle cx="0" cy="0" r="12" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>', '', 0, 1), 'st-dashL', 0, 1.05) +
+            '<path d="M200 302 q80 -10 180 0 q100 -10 220 0" stroke="#8b93a3" stroke-width="3" fill="none" stroke-dasharray="8 8" opacity=".6"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">顛沛流離</text>', 'night') }
+      ];
+    },
+    /* 空谷足音 */
+    i732: function () {
+      return [
+        { minDur: 7000, sub: '《莊子》說：獨居空谷的人，久不見人跡——忽然聽見腳步聲，跫然而喜！',
+          html: scene('<path d="M0 302 L140 150 L260 302 Z" fill="#8fa87f" opacity=".55"/><path d="M540 302 L680 140 L800 302 Z" fill="#8fa87f" opacity=".55"/>' +
+            P(400, 302, A('kid', 'sad'), '', 0, 1) +
+            '<g opacity=".75"><text x="560" y="230" text-anchor="middle" font-size="15" fill="#6d5335" class="st-tw">叩…叩…</text></g>') },
+        { minDur: 6800, sub: '他豎起耳朵、眼睛一亮——空寂山谷裡的腳步聲，多麼難得、多麼珍貴！',
+          html: scene('<path d="M0 302 L140 150 L260 302 Z" fill="#8fa87f" opacity=".55"/><path d="M540 302 L680 140 L800 302 Z" fill="#8fa87f" opacity=".55"/>' +
+            P(360, 302, A('kid', 'wow') + '<path d="M28 -56 q8 -4 10 -12" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', 'st-cheer', 0, 1.02) +
+            P(600, 302, A('kid', 'happy'), 'st-inR', 0, .92, true) + hearts(470, 190)) },
+        { minDur: 6800, sub: '「空谷足音」：難得的音信、言論或人物——滿場客套話中的一句真誠諍言，正是空谷足音！',
+          html: scene(P(320, 302, A('kid', 'happy') + P(0, -112, '<ellipse cx="0" cy="0" rx="32" ry="16" fill="#ffe9a0"/><text x="0" y="5" text-anchor="middle" font-size="10" fill="#8a5a33">真心話</text>', '', 0, 1)) +
+            P(530, 302, A('kid', 'wow'), '', 0, .98, true) + bang(610, 195) + hearts(420, 185)) },
+        { minDur: 6400, sub: '空谷足音：跫然可喜，彌足珍貴。',
+          html: scene('<path d="M0 302 L140 150 L260 302 Z" fill="#8fa87f" opacity=".55"/><path d="M540 302 L680 140 L800 302 Z" fill="#8fa87f" opacity=".55"/>' +
+            P(400, 302, A('kid', 'happy'), 'st-cheer', 0, 1.05) + notes(500, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">空谷足音</text>') }
+      ];
+    },
+    /* 如雷貫耳 */
+    i733: function () {
+      return [
+        { minDur: 7000, sub: '戲曲裡初次拜會名士的開場白：「久聞先生大名，如雷貫耳！」——名聲像雷聲傳進耳裡！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M28 -46 q14 -4 20 2" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(540, 302, A('kid', 'happy') + '<path d="M-16 -78 a16 12 0 0 1 32 0 q-16 8 -32 0 z" fill="#f5f0e0"/>', '', 0, 1.02, true) +
+            P(430, 160, '<path d="M0 0 L-10 18 L-2 18 L-8 38 L10 12 L2 12 Z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-flick"/>', '', 0, 1.1) + hearts(250, 195)) },
+        { minDur: 6800, sub: '「如雷貫耳」（貫＝穿）：名聲極大——是恭維對方的客氣話，多用在初見面！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            P(400, 170, '<path d="M0 0 L-10 18 L-2 18 L-8 38 L10 12 L2 12 Z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1) +
+            '<g opacity=".7" stroke="#e8b93f" stroke-width="2.6" fill="none"><path d="M360 210 q-14 10 0 22"/><path d="M440 210 q14 10 0 22"/></g>' + bang(540, 200)) },
+        { minDur: 6800, sub: '注意對象：如雷貫耳是敬語，稱讚別人名氣用——說自己「大名如雷貫耳」就鬧笑話啦！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(0, -112, '<ellipse cx="0" cy="0" rx="36" ry="17" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#c96a5a">我名聲如雷…</text>', '', 0, 1), '', 0, 1.02) +
+            P(540, 302, A('kid', 'wow'), '', 0, .95, true) + sweat(610, 195) + qmark(440, 200)) },
+        { minDur: 6400, sub: '如雷貫耳：盛名遠播，久仰久仰。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M28 -46 q14 -4 20 2" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1.08) +
+            P(530, 170, '<path d="M0 0 L-10 18 L-2 18 L-8 38 L10 12 L2 12 Z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2" class="st-tw"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">如雷貫耳</text>') }
+      ];
+    },
+    /* 遺臭萬年 */
+    i735: function () {
+      return [
+        { minDur: 7000, sub: '《晉書》記桓溫的野心話：「既不能流芳後世，不足復遺臭萬載邪！」——寧可惡名傳萬年？',
+          html: scene(P(400, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#6d5335" stroke="#4a3a24" stroke-width="2"/>' + P(0, -112, '<ellipse cx="0" cy="0" rx="40" ry="18" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#8b93a3">遺臭萬載又何妨!</text>', '', 0, 1), '', 0, 1.05) + qmark(260, 200), 'night') },
+        { minDur: 6800, sub: '「遺臭萬年」：惡名永遠流傳、被人唾罵——史書上的奸臣，罵名一背就是千年！',
+          html: scene(P(400, 260, '<rect x="-30" y="-40" width="60" height="80" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="-14" text-anchor="middle" font-size="12" fill="#3a2e26">史冊</text><text x="0" y="8" text-anchor="middle" font-size="10" fill="#c96a5a">奸臣傳</text>', '', 0, 1.1) +
+            '<g class="st-zfloat" opacity=".65"><path d="M360 190 q8 -14 0 -26 M400 185 q8 -14 0 -26 M440 190 q8 -14 0 -26" stroke="#8fa87f" stroke-width="3" fill="none"/></g>' +
+            P(240, 302, A('kid', 'sad') + '<path d="M-24 -44 l-8 -4" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/><path d="M-8 -48 q8 -4 16 0" stroke="#3a2e26" stroke-width="2" fill="none"/>', '', 0, .95) + sweat(310, 200)) },
+        { minDur: 6800, sub: '相對詞是「流芳百世」——名聲怎麼留，全看自己怎麼活：一善一惡，天差地遠！',
+          html: scene(P(300, 250, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><text x="0" y="-3" text-anchor="middle" font-size="10" fill="#548a40">流芳</text><text x="0" y="10" text-anchor="middle" font-size="10" fill="#548a40">百世</text>', '', 0, 1.05) + hearts(300, 195) +
+            P(500, 250, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><text x="0" y="-3" text-anchor="middle" font-size="10" fill="#c96a5a">遺臭</text><text x="0" y="10" text-anchor="middle" font-size="10" fill="#c96a5a">萬年</text>', '', 0, 1.05) + sweat(560, 210) +
+            P(400, 302, A('kid', 'wow'), '', 0, .95)) },
+        { minDur: 6400, sub: '遺臭萬年：惡名千載，人人唾罵。',
+          html: scene(P(400, 260, '<rect x="-28" y="-38" width="56" height="76" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="0" text-anchor="middle" font-size="10" fill="#c96a5a">罵名</text>', '', 0, 1.1) +
+            '<g class="st-zfloat" opacity=".65"><path d="M360 195 q8 -14 0 -26 M440 195 q8 -14 0 -26" stroke="#8fa87f" stroke-width="3" fill="none"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">遺臭萬年</text>') }
+      ];
+    },
+    /* 後患無窮 */
+    i736: function () {
+      return [
+        { minDur: 7000, sub: '考試作弊被抓到，老師沒重罰只口頭勸——他心存僥倖，下次膽子更大了……',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><rect x="-10" y="-8" width="20" height="12" rx="2" fill="#ffe9a0"/>', '', 0, .95), '', 0, 1) +
+            P(560, 302, A('kid', 'sad') + '<path d="M-28 -56 l-14 -4" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1, true) + sweat(450, 195)) },
+        { minDur: 6800, sub: '小錯不改養成習慣、越滾越大——「後患無窮」：留下的禍患沒有盡頭！',
+          html: scene(P(300, 302, A('kid', 'sad'), '', 0, 1) +
+            '<g class="st-tw"><circle cx="440" cy="270" r="14" fill="#8b93a3" opacity=".55"/><circle cx="500" cy="255" r="20" fill="#8b93a3" opacity=".65"/><circle cx="575" cy="235" r="28" fill="#8b93a3" opacity=".75"/></g>' +
+            '<path d="M420 285 q80 -30 160 -55" stroke="#c96a5a" stroke-width="3" fill="none" stroke-dasharray="6 5"/>' + sweat(360, 200)) },
+        { minDur: 6800, sub: '漏水不修淹全屋、姑息壞習慣毀學業——問題要趁小處理，別讓它後患無窮！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(40, -44, '<path d="M0 10 L0 -12 M-8 -12 h16 l-2 -8 h-12 z" stroke="#6d7585" stroke-width="3" fill="#8b93a3"/>', '', 0, 1), '', 0, 1.02) +
+            P(560, 260, '<path d="M-14 -20 q14 -10 28 0 l-4 30 h-20 z" fill="#7fb2e0" opacity=".8"/><g class="st-tw"><circle cx="0" cy="18" r="4" fill="#7fb2e0"/></g>', '', 0, 1) + hearts(280, 200)) },
+        { minDur: 6400, sub: '後患無窮：禍根不除，貽害無盡。',
+          html: scene(P(300, 302, A('kid', 'sad'), '', 0, 1) +
+            '<g class="st-tw"><circle cx="450" cy="268" r="14" fill="#8b93a3" opacity=".55"/><circle cx="515" cy="250" r="22" fill="#8b93a3" opacity=".65"/><circle cx="595" cy="228" r="30" fill="#8b93a3" opacity=".75"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">後患無窮</text>') }
+      ];
+    },
+    /* 養虎遺患 */
+    i737: function () {
+      return [
+        { minDur: 7200, sub: '楚漢相爭，劉邦想收兵西歸——張良、陳平急諫：「今釋弗擊，此所謂養虎自遺患也！」',
+          html: scene(P(300, 302, A('kid', 'angry') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1) +
+            P(460, 302, A('kid', 'wow') + '<path d="M28 -50 l16 -6" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, .95) +
+            P(640, 300, A('tiger'), '', 0, .95, true) + qmark(380, 190)) },
+        { minDur: 7000, sub: '把小老虎當寵物養——養著養著長出利爪獠牙，回頭就撲向主人！',
+          html: scene(P(340, 302, A('kid', 'wow'), 'st-fleeR', 0, 1) +
+            P(540, 300, A('tiger'), 'st-dashL', 0, 1.25, true) + bang(450, 195) + sweat(280, 190)) },
+        { minDur: 6800, sub: '「養虎遺患」：縱容敵人或壞事，給自己留後患——該處理的問題別心軟拖延！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#c96a5a">別姑息</text>', '', 0, 1.1)) +
+            P(580, 300, A('tiger'), '', 0, .9, true) + qmark(500, 210)) },
+        { minDur: 6400, sub: '養虎遺患：姑息縱敵，反受其害。',
+          html: scene(P(500, 300, A('tiger'), 'st-strut', 0, 1.3, true) +
+            P(260, 302, A('kid', 'wow'), '', 0, .95) + sweat(330, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">養虎遺患</text>') }
+      ];
+    },
+    /* 放虎歸山 */
+    i738: function () {
+      return [
+        { minDur: 7200, sub: '劉巴諫劉璋：「若使劉備討張魯，是放虎於山林也！」——放他走，就再也制不住了！',
+          html: scene(P(280, 302, A('kid', 'wow') + '<path d="M28 -50 l18 -6" stroke="#ffe3c1" stroke-width="5" stroke-linecap="round"/>', '', 0, 1) +
+            '<path d="M520 302 L660 170 L800 302 Z" fill="#8fa87f" opacity=".6"/>' +
+            P(560, 300, A('tiger'), 'st-strut', 0, 1.1, true) + qmark(400, 190)) },
+        { minDur: 7000, sub: '老虎一進山林如魚得水——養精蓄銳之後，遲早回頭反撲！',
+          html: scene('<path d="M480 302 L640 160 L800 302 Z" fill="#8fa87f" opacity=".6"/>' +
+            P(620, 290, A('tiger') + '<g class="st-tw"><circle cx="-16" cy="-40" r="2.6" fill="#ffd97a"/><circle cx="2" cy="-40" r="2.6" fill="#ffd97a"/></g>', '', 0, 1.15, true) +
+            P(260, 302, A('kid', 'sad') + '<path d="M-4 -40 q4 -3 8 0" stroke="#8b93a3" stroke-width="2" fill="none"/>', '', 0, .95) + sweat(330, 195), 'night') },
+        { minDur: 6800, sub: '「放虎歸山」：放走敵人、留下禍根——和「養虎遺患」是一對，差在一個放、一個養！',
+          html: scene(P(300, 250, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><text x="0" y="-3" text-anchor="middle" font-size="10" fill="#c96a5a">放虎</text><text x="0" y="10" text-anchor="middle" font-size="10" fill="#c96a5a">歸山</text>', '', 0, 1.05) +
+            P(500, 250, '<circle cx="0" cy="0" r="30" fill="#fff" opacity=".92"/><text x="0" y="-3" text-anchor="middle" font-size="10" fill="#c96a5a">養虎</text><text x="0" y="10" text-anchor="middle" font-size="10" fill="#c96a5a">遺患</text>', '', 0, 1.05) +
+            P(400, 302, A('kid', 'happy'), '', 0, .98) + qmark(600, 210)) },
+        { minDur: 6400, sub: '放虎歸山：縱敵歸巢，禍根重生。',
+          html: scene('<path d="M500 302 L650 165 L800 302 Z" fill="#8fa87f" opacity=".6"/>' +
+            P(600, 292, A('tiger'), 'st-strut', 0, 1.1, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">放虎歸山</text>') }
+      ];
+    },
+    /* 斬草除根 */
+    i739: function () {
+      return [
+        { minDur: 7000, sub: '《左傳》教人除惡如農夫除草：「絕其本根，勿使能殖」——只割葉子，春風一吹又長回來！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(40, -44, '<path d="M0 10 L0 -16 M-8 -16 l8 -8 l8 8" stroke="#8a6a44" stroke-width="3.6" fill="none" stroke-linecap="round"/>', '', 0, 1), '', 0, 1) +
+            P(540, 300, '<g fill="none" stroke="#7fa858" stroke-width="3.6" stroke-linecap="round"><path d="M-14 0 q-4 -18 -12 -24"/><path d="M0 0 q0 -22 -2 -28"/><path d="M14 0 q6 -16 12 -24"/></g>', '', 0, 1.1) + qmark(450, 200)) },
+        { minDur: 6800, sub: '他改用鋤頭連根挖起——「斬草除根」：徹底剷除，不留一點復發的機會！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(34, -40, HOE, 'st-hoe', 0, .8), '', 0, 1.02) +
+            P(540, 296, '<g class="st-tw"><path d="M0 0 q-6 10 -18 12 M0 0 q8 10 18 10 M0 0 q0 -14 -4 -20" stroke="#a8734a" stroke-width="3.4" fill="none" stroke-linecap="round"/><circle cx="0" cy="0" r="6" fill="#8a6a44"/></g>', '', 0, 1.05) + bang(460, 210)) },
+        { minDur: 6800, sub: '戒壞習慣刪掉整個誘因、掃毒連源頭一起端——做事要斬草除根，才不會後患無窮！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-11" width="32" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="9" fill="#548a40">除源頭</text>', '', 0, 1.1), 'st-cheer', 0, 1.02) +
+            P(570, 250, '<rect x="-22" y="-15" width="44" height="30" rx="4" fill="#8b93a3" opacity=".8"/><path d="M-12 -8 L12 8 M12 -8 L-12 8" stroke="#fff" stroke-width="3" stroke-linecap="round"/>', '', 0, 1) + hearts(280, 195)) },
+        { minDur: 6400, sub: '斬草除根：絕其本根，永絕後患。',
+          html: scene(P(400, 302, A('kid', 'angry') + P(34, -40, HOE, 'st-hoe', 0, .8), '', 0, 1.08) + bang(520, 210) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">斬草除根</text>') }
+      ];
     }
   };
 
