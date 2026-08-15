@@ -7306,6 +7306,119 @@
           html: scene(P(400, 296, DONATEBOX, '', 0, 1.3) + P(360, 240, COIN, '', 0, 1.05) + hearts(500, 220) +
             '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">樂善好施</text>') }
       ];
+    },
+    /* 專心致志 */
+    i257: function () {
+      var GOBOARD = '<rect x="-24" y="-24" width="48" height="48" rx="5" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.6"/><g stroke="#a89878" stroke-width="1.6"><line x1="-24" y1="-8" x2="24" y2="-8"/><line x1="-24" y1="8" x2="24" y2="8"/><line x1="-8" y1="-24" x2="-8" y2="24"/><line x1="8" y1="-24" x2="8" y2="24"/></g><circle cx="-16" cy="-16" r="4.6" fill="#3a2e26"/><circle cx="8" cy="0" r="4.6" fill="#fff" stroke="#c9bfa8"/>';
+      return [
+        { minDur: 7000, sub: '《孟子》裡的故事：兩個學生跟棋王弈秋學下棋。一個專心致志，句句聽進心裡——',
+          html: scene(P(430, 260, GOBOARD, '', 0, 1.1) +
+            P(260, 302, A('kid', 'happy')) +
+            P(590, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02, true)) },
+        { minDur: 7000, sub: '另一個人在座位上，心卻想著「天上有大雁飛來，我要拿弓箭射牠」——同一位老師，學出兩種結果！',
+          html: scene(P(430, 260, GOBOARD, '', 0, 1) +
+            P(260, 302, A('kid', 'happy')) +
+            P(550, 150, A('bird')) +
+            P(620, 302, A('kid', 'wow'), '', 0, .95) + qmark(670, 190)) },
+        { minDur: 6800, sub: '「專心致志」：心思專一、全神投入——學任何本領，專心是第一步！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, GOBOARD, '', 0, .7)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '專心致志：心思專一，全神投入。',
+          html: scene(P(400, 260, GOBOARD, '', 0, 1.25) + P(240, 302, A('kid', 'happy'), '', 0, .95) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">專心致志</text>') }
+      ];
+    },
+    /* 聚精會神 */
+    i258: function () {
+      var MICROSCOPE = '<rect x="-16" y="0" width="40" height="8" rx="3" fill="#8b93a3"/><line x1="0" y1="0" x2="8" y2="-30" stroke="#6d7585" stroke-width="5"/><rect x="2" y="-44" width="12" height="18" rx="3" fill="#8b93a3" transform="rotate(16 8 -35)"/><circle cx="-2" cy="-4" r="5" fill="#c9d6e8"/>';
+      return [
+        { minDur: 6800, sub: '自然課用顯微鏡觀察洋蔥細胞——小研眼睛貼著鏡頭，一格一格仔細看，大氣都不敢出！',
+          html: scene(P(430, 296, MICROSCOPE, '', 0, 1.3) +
+            P(300, 302, A('kid', 'happy')) + qmark(220, 190)) },
+        { minDur: 6800, sub: '全教室安安靜靜，每個人都把精神集中在鏡頭裡的小世界——連下課鈴都沒聽到！',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, .95) + P(460, 302, A('kid', 'happy'), '', .2, .93) +
+            P(560, 296, MICROSCOPE, '', 0, 1) + notes(180, 170)) },
+        { minDur: 6600, sub: '「聚精會神」：把精神集中在一起——和「專心致志」是好朋友！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) +
+            '<circle cx="400" cy="240" r="90" fill="none" stroke="#ffd97a" stroke-width="3" stroke-dasharray="10 10" opacity=".7"/>' + hearts(500, 195)) },
+        { minDur: 6400, sub: '聚精會神：集中精神，專心一意。',
+          html: scene(P(360, 302, A('kid', 'happy')) + P(500, 296, MICROSCOPE, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">聚精會神</text>') }
+      ];
+    },
+    /* 突飛猛進 */
+    i259: function () {
+      var CHART = '<g stroke="#8b93a3" stroke-width="3"><line x1="-60" y1="30" x2="60" y2="30"/><line x1="-60" y1="30" x2="-60" y2="-50"/></g>' +
+        '<path d="M-52 22 L-20 12 L8 -8 L52 -44" stroke="#548a40" stroke-width="5" fill="none" stroke-linecap="round"/>' +
+        '<path d="M52 -44 l-14 -2 l8 12 z" fill="#548a40"/>';
+      return [
+        { minDur: 6800, sub: '小躍原本五十公尺要跑十二秒。暑假天天練起跑、擺臂、衝刺——',
+          html: scene(P(340, 302, A('kid', 'angry'), 'st-dashL') + sweat(280, 190) +
+            '<g stroke="#c9dff0" stroke-width="5" stroke-linecap="round" opacity=".9"><line class="st-windln" x1="120" y1="240" x2="200" y2="240"/></g>') },
+        { minDur: 6800, sub: '開學一測：九秒八！進步得又快又猛，教練都嚇一跳——「你是坐火箭進步的嗎？」',
+          html: scene(P(430, 250, CHART, '', 0, 1.2) + bang(560, 190) +
+            P(220, 302, A('kid', 'wow'), '', 0, .95) + hearts(300, 200)) },
+        { minDur: 6600, sub: '「突飛猛進」：像飛一樣快速進步——用對方法加上努力，人人都能突飛猛進！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1.05) + bang(490, 185) + hearts(300, 192)) },
+        { minDur: 6400, sub: '突飛猛進：進步非常快速。',
+          html: scene(P(400, 255, CHART, '', 0, 1.35) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">突飛猛進</text>') }
+      ];
+    },
+    /* 一鼓作氣 */
+    i260: function () {
+      var WARDRUM = '<ellipse cx="0" cy="-30" rx="24" ry="9" fill="#e8dcc0" stroke="#c9bfa8" stroke-width="2.4"/>' +
+        '<path d="M-24 -30 L-24 -4 Q0 6 24 -4 L24 -30" fill="#c96a5a" stroke="#a84a3f" stroke-width="2.4"/>' +
+        '<line x1="-12" y1="-46" x2="-3" y2="-34" stroke="#a8734a" stroke-width="3.6" stroke-linecap="round"/><line x1="14" y1="-48" x2="5" y2="-34" stroke="#a8734a" stroke-width="3.6" stroke-linecap="round"/>';
+      var SPEAR3 = '<line x1="0" y1="10" x2="0" y2="-46" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -58 l-7 14 h14 z" fill="#8b93a3"/>';
+      return [
+        { minDur: 7200, sub: '《左傳》曹劌論戰：齊軍擂第一通鼓，士氣最旺；第二通鼓就弱了；第三通鼓，力氣全洩光！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(36, -40, WARDRUM, '', 0, .9)) + bang(400, 185) +
+            P(560, 302, A('kid', 'angry') + P(26, -50, SPEAR3), '', 0, .93) + notes(470, 165)) },
+        { minDur: 7200, sub: '曹劌等齊軍擂完三通鼓才下令出擊——魯軍趁著第一股銳氣，一口氣衝垮了敵人！',
+          html: scene(P(300, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-dashL') +
+            P(430, 302, A('kid', 'angry') + P(26, -50, SPEAR3), 'st-dashL', .15, .93) + bang(580, 200) +
+            P(660, 302, '<g class="st-fleeR">' + A('kid', 'wow') + '</g>', '', 0, .88)) },
+        { minDur: 6800, sub: '「一鼓作氣」：趁勁頭最足時一口氣做完——寫作業也是，一鼓作氣寫完再玩最痛快！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 -12 h18 M-9 -4 h18 M-9 4 h18" stroke="#8fa3bf" stroke-width="1.8"/>', '', 0, .95)) + bang(470, 190) + hearts(280, 192)) },
+        { minDur: 6400, sub: '一鼓作氣：趁著勁頭一口氣把事情做完。',
+          html: scene(P(400, 300, WARDRUM, '', 0, 1.5) + bang(510, 220) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一鼓作氣</text>') }
+      ];
+    },
+    /* 千辛萬苦 */
+    i261: function () {
+      var MTBIG2 = '<path d="M480 302 L640 130 L800 302 Z" fill="#8fb0a0"/>';
+      return [
+        { minDur: 6800, sub: '登山隊翻山越嶺：頂著烈日、冒著風雨、踩過碎石坡——一路吃盡苦頭！',
+          html: scene(MTBIG2 +
+            P(280, 302, A('kid', 'angry'), 'st-strut', 0, .95) + P(400, 302, A('kid', 'sad'), 'st-strut', .2, .9) +
+            sweat(330, 195) + sweat(450, 200) +
+            '<g stroke="#8fc6ff" stroke-width="3" stroke-linecap="round"><line class="st-rain" x1="180" y1="30" x2="174" y2="52"/></g>') },
+        { minDur: 6800, sub: '歷經千辛萬苦，終於站上頂峰——雲海在腳下翻騰，一切辛苦都值得！',
+          html: scene('<ellipse cx="300" cy="250" rx="240" ry="34" fill="#fff" opacity=".85"/><ellipse cx="560" cy="270" rx="220" ry="30" fill="#fff" opacity=".8"/>' +
+            P(400, 240, '<g class="st-cheer">' + A('kid', 'happy') + '</g>', '', 0, 1) + hearts(500, 180) + bang(300, 190)) },
+        { minDur: 6600, sub: '「千辛萬苦」：經歷許許多多的艱難困苦——通往成功的路，本來就不平坦！',
+          html: scene(MTBIG2 + P(300, 302, A('kid', 'happy'), 'st-strut') + sweat(250, 192) + hearts(400, 195)) },
+        { minDur: 6400, sub: '千辛萬苦：經歷極多的艱難困苦。',
+          html: scene(MTBIG2 + P(300, 302, A('kid', 'angry'), 'st-strut', 0, 1.02) + sweat(250, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千辛萬苦</text>') }
+      ];
+    },
+    /* 不屈不撓 */
+    i262: function () {
+      return [
+        { minDur: 6800, sub: '發明大王愛迪生做燈泡，失敗了上千次——有人笑他，他說：「我只是找到了一千種不能用的材料！」',
+          html: scene(P(360, 302, A('kid', 'happy') + P(0, -110, '<circle cx="0" cy="-14" r="16" fill="#ffe066" stroke="#e8b84a" stroke-width="2.6"/><rect x="-7" y="0" width="14" height="9" rx="3" fill="#b8ae9c"/>', '', 0, 1)) +
+            P(580, 302, A('kid', 'wow'), '', 0, .93, true) + qmark(630, 190)) },
+        { minDur: 6800, sub: '再失敗也不彎腰、不放棄，一次次重新站起來——終於，燈泡亮了，照亮全世界！',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'happy') + '</g>' +
+              P(0, -116, '<circle cx="0" cy="-14" r="16" fill="#ffe066" stroke="#e8b84a" stroke-width="2.6"/><g class="st-rays" style="transform-origin:0px -14px"><g stroke="#ffd97a" stroke-width="3" stroke-linecap="round"><line x1="0" y1="-38" x2="0" y2="-32"/><line x1="-22" y1="-14" x2="-16" y2="-14"/><line x1="22" y1="-14" x2="16" y2="-14"/></g></g>', '', 0, 1)) + bang(510, 190) + hearts(290, 192)) },
+        { minDur: 6600, sub: '「不屈不撓」：意志堅定，遇到挫折也不屈服——跌倒幾次不重要，站起來就好！',
+          html: scene(P(400, 302, A('kid', 'angry'), '', 0, 1.05) + bang(490, 188) + hearts(300, 192)) },
+        { minDur: 6400, sub: '不屈不撓：意志堅定，遇挫折也不屈服。',
+          html: scene(P(400, 302, '<g class="st-cheer">' + A('kid', 'angry') + '</g>', '', 0, 1.05) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">不屈不撓</text>') }
+      ];
     }
   };
 
