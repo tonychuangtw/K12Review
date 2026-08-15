@@ -19499,6 +19499,154 @@
           html: scene(P(400, 288, '<rect x="-52" y="-42" width="104" height="42" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/><rect x="-40" y="-60" width="80" height="15" rx="4" fill="#c96a5a"/>', '', 0, 1.05) + qmark(510, 230) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">浪得虛名</text>') }
       ];
+    },
+    /* 生死相許 */
+    i161: function () {
+      return [
+        { minDur: 7000, sub: '元好問聽獵人說：捕殺一隻大雁後，另一隻悲鳴不去、投地而死——寫下千古一問！',
+          html: scene(P(340, 200, A('bird'), 'st-fly', 0, 1) +
+            P(480, 290, '<g transform="rotate(30)">' + A('bird') + '</g>', '', 0, .95) + sweat(420, 240) +
+            P(220, 302, A('kid', 'sad') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .95), 'night') },
+        { minDur: 6800, sub: '「問世間，情是何物，直教生死相許」——雁猶如此，何況人心！',
+          html: scene(P(400, 250, '<path d="M0 10 C-12 -10 -34 2 -18 22 L0 38 L18 22 C34 2 12 -10 0 10 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.4) +
+            P(240, 302, A('kid', 'sad'), '', 0, .95) +
+            '<g class="st-tw"><circle cx="560" cy="120" r="3" fill="#fff"/><circle cx="620" cy="160" r="2.4" fill="#fff"/></g>', 'night') },
+        { minDur: 6800, sub: '「生死相許」：感情忠貞不渝——最深的愛不在誓言的字數，在共度的每一天！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(405, 190, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.2)) },
+        { minDur: 6400, sub: '生死相許：忠貞不渝，至死靡他。',
+          html: scene(P(340, 210, A('bird'), 'st-fly', 0, .95) + P(470, 215, A('bird'), 'st-fly', .3, .95, true) +
+            P(405, 260, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">生死相許</text>', 'night') }
+      ];
+    },
+    /* 海誓山盟 */
+    i162: function () {
+      return [
+        { minDur: 6800, sub: '戀人指著高山大海立誓：「等山倒了、海枯了，我們的心才會變！」',
+          html: scene(P(250, 270, '<path d="M-70 32 L0 -40 L70 32 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6"/>', '', 0, 1.05) +
+            '<rect x="400" y="272" width="400" height="68" fill="#5a7fa8"/>' +
+            P(400, 302, A('kid', 'happy'), '', 0, .95) + P(500, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(450, 190)) },
+        { minDur: 6800, sub: '「海誓山盟」：像山海一樣永恆的誓約——古人相信最重的承諾要有天地作證！',
+          html: scene(P(310, 245, '<path d="M-40 24 L0 -24 L40 24 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.4"/>', '', 0, 1.1) +
+            P(490, 250, '<rect x="-40" y="-12" width="80" height="24" rx="6" fill="#5a7fa8"/><g class="st-wavemove"><path d="M-32 -2 q8 -5 16 0 t16 0 t16 0" fill="none" stroke="#8fb2d4" stroke-width="3.4"/></g>', '', 0, 1.1) +
+            P(400, 190, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '誓言好聽，兌現才難——山盟海誓的最好版本，是把「我愛你」過成每天的小事！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(38, -44, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) +
+            P(490, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(415, 182)) },
+        { minDur: 6400, sub: '海誓山盟：指山盟誓，永矢弗諼。',
+          html: scene(P(300, 250, '<path d="M-40 24 L0 -24 L40 24 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.4"/>', '', 0, 1.15) +
+            P(500, 255, '<rect x="-40" y="-12" width="80" height="24" rx="6" fill="#5a7fa8"/>', '', 0, 1.15) +
+            P(400, 190, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.2) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">海誓山盟</text>') }
+      ];
+    },
+    /* 矢志不渝 */
+    i163: function () {
+      return [
+        { minDur: 6800, sub: '「渝」是改變——小渝立志研究螢火蟲保育，同學笑他冷門，他一笑置之！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -56 l16 -6" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            '<g class="st-tw"><circle cx="540" cy="200" r="4" fill="#d7ff8a"/><circle cx="580" cy="230" r="3.4" fill="#d7ff8a"/><circle cx="510" cy="250" r="3" fill="#d7ff8a"/></g>' +
+            P(230, 302, A('kid', 'happy') + '<path d="M-14 -48 q14 8 28 0" stroke="#c96a5a" stroke-width="2.4" fill="none"/>', '', 0, .92) + qmark(290, 190), 'night') },
+        { minDur: 6800, sub: '十年後他成了螢火蟲棲地復育的推手——當年的冷門，如今是熱血的事業！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-cheer', 0, 1.02) +
+            '<g class="st-tw"><circle cx="300" cy="180" r="4" fill="#d7ff8a"/><circle cx="450" cy="150" r="4" fill="#d7ff8a"/><circle cx="540" cy="200" r="3.4" fill="#d7ff8a"/><circle cx="240" cy="240" r="3" fill="#d7ff8a"/></g>' + hearts(500, 220), 'night') },
+        { minDur: 6800, sub: '「矢志不渝」：志向堅定不改——路遠不怕，怕的是半路換方向，哪條都走不遠！',
+          html: scene(P(360, 302, A('kid', 'happy'), 'st-strut', 0, 1.02) +
+            '<path d="M430 280 q100 -30 190 -90" stroke="#548a40" stroke-width="4" fill="none" stroke-dasharray="9 8"/><path d="M620 190 l-14 0 l8 11 z" fill="#548a40"/>' + hearts(280, 195)) },
+        { minDur: 6400, sub: '矢志不渝：立志如矢，終始不移。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.05) +
+            '<g class="st-tw"><circle cx="540" cy="200" r="4" fill="#d7ff8a"/><circle cx="580" cy="240" r="3.4" fill="#d7ff8a"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">矢志不渝</text>', 'night') }
+      ];
+    },
+    /* 一往情深 */
+    i164: function () {
+      return [
+        { minDur: 7000, sub: '桓子野每次聽到清亮的歌聲，就忍不住連呼「奈何！」——謝安笑說：「子野可謂一往有深情！」',
+          html: scene(P(340, 302, A('kid', 'wow') + '<path d="M-28 -56 l-14 -8 M28 -56 l14 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) + notes(440, 180) +
+            P(560, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, .97, true) + hearts(620, 195)) },
+        { minDur: 6800, sub: '「一往情深」：感情專注深摯——被一件事深深打動，忍不住全心投入！',
+          html: scene(P(400, 302, A('kid', 'happy') + P(-40, -46, QIN, '', 0, .9), '', 0, 1.05) + notes(500, 182) +
+            P(280, 200, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '對人、對藝術、對天文——一往情深的人眼裡有光：熱愛本身就是天賦！',
+          html: scene(P(340, 302, A('kid', 'wow') + P(-40, -52, '<circle cx="0" cy="-6" r="14" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="0" y1="8" x2="0" y2="30" stroke="#8b93a3" stroke-width="3.4"/>', '', 0, 1)) +
+            '<g class="st-tw"><circle cx="540" cy="100" r="3" fill="#fff"/><circle cx="610" cy="140" r="2.6" fill="#fff"/><circle cx="480" cy="150" r="3" fill="#fff"/></g>' + hearts(260, 195), 'night') },
+        { minDur: 6400, sub: '一往情深：情之所鍾，深摯不移。',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + notes(500, 185) +
+            P(400, 195, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">一往情深</text>') }
+      ];
+    },
+    /* 柔腸百結 */
+    i165: function () {
+      return [
+        { minDur: 6800, sub: '離別前夜，她替遠行的家人收拾行囊——摺一件衣服，心就揪一下……',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-42, -44, '<rect x="-16" y="-10" width="32" height="20" rx="3" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2"/>', '', 0, 1)) +
+            P(560, 290, '<rect x="-24" y="-30" width="48" height="38" rx="6" fill="#8a5a33" stroke="#6d4426" stroke-width="2.6"/><path d="M-16 -30 q16 -14 32 0" stroke="#6d4426" stroke-width="4" fill="none"/>', '', 0, 1.05) + sweat(290, 195), 'night') },
+        { minDur: 6800, sub: '「柔腸百結」：柔軟的心腸糾成上百個結——說不出口的牽掛，全纏在心裡！',
+          html: scene(P(400, 250, '<path d="M-60 0 C-40 -30 -20 30 0 0 C20 -30 40 30 60 0" stroke="#ff9eb5" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="-30" cy="-2" r="6" fill="none" stroke="#e07a94" stroke-width="3"/><circle cx="30" cy="-2" r="6" fill="none" stroke="#e07a94" stroke-width="3"/>', '', 0, 1.3) + sweat(520, 210)) },
+        { minDur: 6800, sub: '把牽掛說出口吧——一句「路上小心，到了打給我」，勝過心裡打一百個結！',
+          html: scene(P(330, 302, A('kid', 'happy') + '<path d="M28 -50 q10 -2 14 6" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>') +
+            P(490, 302, A('kid', 'happy') + P(0, -66, '<rect x="-18" y="-24" width="36" height="30" rx="6" fill="#8a5a33" stroke="#6d4426" stroke-width="2.4"/>', '', 0, .9), '', 0, .98, true) + hearts(415, 182)) },
+        { minDur: 6400, sub: '柔腸百結：愁思鬱結，百轉千迴。',
+          html: scene(P(400, 255, '<path d="M-60 0 C-40 -30 -20 30 0 0 C20 -30 40 30 60 0" stroke="#ff9eb5" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="-30" cy="-2" r="6" fill="none" stroke="#e07a94" stroke-width="3"/><circle cx="30" cy="-2" r="6" fill="none" stroke="#e07a94" stroke-width="3"/>', '', 0, 1.4) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">柔腸百結</text>') }
+      ];
+    },
+    /* 傷心欲絕 */
+    i166: function () {
+      return [
+        { minDur: 6800, sub: '養了十二年的老狗走了——她抱著項圈坐在牠常趴的角落，眼淚停不下來……',
+          html: scene(P(360, 302, A('kid', 'sad') + '<g class="st-tear"><path d="M-12 -46 q-2 6 0 9" stroke="#7fb2d4" stroke-width="3" fill="none" stroke-linecap="round"/></g>' + P(-40, -40, '<circle cx="0" cy="0" r="11" fill="none" stroke="#c96a5a" stroke-width="3.4"/><circle cx="0" cy="11" r="2.6" fill="#e8b93f"/>', '', 0, 1), '', 0, 1.02) +
+            P(560, 296, '<ellipse cx="0" cy="8" rx="30" ry="8" fill="#c9bfa8" opacity=".5"/>', '', 0, 1.1) + sweat(290, 195), 'night') },
+        { minDur: 6800, sub: '「傷心欲絕」：悲痛到極點——像心被掏空一塊，連呼吸都疼……',
+          html: scene(P(400, 250, '<path d="M0 10 C-12 -10 -34 2 -18 22 L0 38 L18 22 C34 2 12 -10 0 10 Z" fill="#c9d6e8" stroke="#aab8cf" stroke-width="2.4"/><path d="M-4 4 l10 16" stroke="#8b93a3" stroke-width="3"/>', '', 0, 1.4) + sweat(520, 210), 'night') },
+        { minDur: 6800, sub: '大悲傷需要時間——哭出來、說出來、寫下來，讓愛過的證據陪你慢慢痊癒！',
+          html: scene(P(340, 302, A('kid', 'sad'), '', 0, 1) +
+            P(510, 302, A('kid', 'happy') + '<path d="M-28 -46 q-16 4 -22 14" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, .98, true) + hearts(430, 185)) },
+        { minDur: 6400, sub: '傷心欲絕：悲慟至極，肝腸寸斷。',
+          html: scene(P(400, 255, '<path d="M0 10 C-12 -10 -34 2 -18 22 L0 38 L18 22 C34 2 12 -10 0 10 Z" fill="#c9d6e8" stroke="#aab8cf" stroke-width="2.4"/><path d="M-4 4 l10 16" stroke="#8b93a3" stroke-width="3"/>', '', 0, 1.45) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">傷心欲絕</text>', 'night') }
+      ];
+    },
+    /* 相思成災 */
+    i167: function () {
+      return [
+        { minDur: 6800, sub: '爸爸外派半年——妹妹每天在月曆畫一個圈，數著他回家的日子……',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g fill="none" stroke="#c96a5a" stroke-width="1.6"><circle cx="-8" cy="-8" r="4"/><circle cx="4" cy="-8" r="4"/><circle cx="-8" cy="4" r="4"/></g>', '', 0, .95), '', 0, 1.02) +
+            P(600, 130, '<circle cx="0" cy="0" r="16" fill="#f5f0dc"/><circle cx="6" cy="-3" r="12" fill="#2c3550"/>', '', 0, 1) + sweat(290, 195), 'night') },
+        { minDur: 6800, sub: '「相思成災」：思念深重成了災——上課想、吃飯想，連夢裡都在機場等他！',
+          html: scene(P(400, 250, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.3) +
+            P(280, 210, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" opacity=".7"/>', 'st-zfloat', 0, 1) +
+            P(520, 210, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" opacity=".7"/>', 'st-zfloat', .3, 1) + sweat(400, 300)) },
+        { minDur: 6800, sub: '思念不必硬扛——每天視訊十分鐘、寫小卡集成一本——重逢那天一起拆！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-40, -50, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/>' + P(0, -2, A('kid', 'happy'), '', 0, .22), '', 0, 1.05)) + hearts(450, 188) + notes(560, 195)) },
+        { minDur: 6400, sub: '相思成災：思念滿溢，難以自抑。',
+          html: scene(P(400, 255, '<path d="M0 8 C-10 -8 -28 2 -15 18 L0 30 L15 18 C28 2 10 -8 0 8 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.4) +
+            P(290, 215, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" opacity=".7"/>', 'st-zfloat', 0, 1) +
+            P(510, 215, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" opacity=".7"/>', 'st-zfloat', .3, 1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">相思成災</text>') }
+      ];
+    },
+    /* 萬千思緒 */
+    i168: function () {
+      return [
+        { minDur: 6800, sub: '考完最後一科的深夜——躺在床上睡不著：放榜、志願、暑假、未來……全在腦中打轉！',
+          html: scene(P(400, 296, '<rect x="-90" y="-10" width="180" height="24" rx="6" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>' + P(0, -22, '<g transform="rotate(90)">' + A('kid', 'wow') + '</g>', '', 0, .8), '', 0, 1.05) +
+            P(280, 180, '<circle cx="0" cy="0" r="16" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#6d7585">放榜?</text>', 'st-zfloat', 0, 1) +
+            P(420, 150, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#6d7585">志願?</text>', 'st-zfloat', .3, 1) +
+            P(550, 185, '<circle cx="0" cy="0" r="15" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="9" fill="#6d7585">未來?</text>', 'st-zfloat', .6, 1), 'night') },
+        { minDur: 6800, sub: '「萬千思緒」：心緒紛繁——腦袋像同時開了一百個分頁，每個都在響！',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            '<g class="st-zfloat"><circle cx="300" cy="200" r="10" fill="#c9d6e8" opacity=".8"/><circle cx="360" cy="170" r="13" fill="#c9d6e8" opacity=".8"/><circle cx="440" cy="160" r="11" fill="#c9d6e8" opacity=".8"/><circle cx="500" cy="195" r="9" fill="#c9d6e8" opacity=".8"/></g>' + sweat(320, 188)) },
+        { minDur: 6800, sub: '整理思緒的方法：全部寫下來——落在紙上的煩惱，就從一團亂變成一張清單！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-10" y1="-12" x2="10" y2="-12"/><line x1="-10" y1="-4" x2="10" y2="-4"/><line x1="-10" y1="4" x2="10" y2="4"/></g>', '', 0, .95)) + hearts(470, 190)) },
+        { minDur: 6400, sub: '萬千思緒：心潮起伏，思緒如麻。',
+          html: scene(P(400, 302, A('kid', 'wow'), '', 0, 1.05) +
+            '<g class="st-zfloat"><circle cx="310" cy="200" r="10" fill="#c9d6e8" opacity=".8"/><circle cx="380" cy="170" r="13" fill="#c9d6e8" opacity=".8"/><circle cx="460" cy="165" r="11" fill="#c9d6e8" opacity=".8"/><circle cx="520" cy="200" r="9" fill="#c9d6e8" opacity=".8"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">萬千思緒</text>') }
+      ];
     }
   };
 
