@@ -20100,6 +20100,155 @@
             P(230, 302, A('kid', 'happy'), '', 0, .9) + P(590, 302, A('kid', 'happy'), '', 0, .9, true) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">承先啟後</text>') }
       ];
+    },
+    /* 高屋建瓴 */
+    i689: function () {
+      return [
+        { minDur: 7000, sub: '《史記》形容關中形勝：像站在高屋頂上倒一瓶水——「居高屋之上建瓴水」，勢不可擋！',
+          html: scene(P(400, 285, '<path d="M-60 -50 L0 -84 L60 -50 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.6"/><rect x="-48" y="-50" width="96" height="50" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/>', '', 0, 1.05) +
+            P(430, 190, '<path d="M-8 -14 h16 l-3 20 h-10 z" fill="#7fb2e0" stroke="#5a8fbf" stroke-width="2" transform="rotate(120)"/><g class="st-rain"><circle cx="14" cy="16" r="3.4" fill="#7fb2d4"/></g>', '', 0, 1.1) +
+            '<path d="M450 210 q30 50 40 92" stroke="#7fb2d4" stroke-width="4" fill="none"/>') },
+        { minDur: 6800, sub: '「高屋建瓴」：居高臨下、見識高遠——好的分析先站上制高點：看全局，再談細節！',
+          html: scene(P(300, 240, '<path d="M-40 30 L0 -30 L40 30 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.4"/>' + P(0, -40, A('kid', 'happy'), '', 0, .6), '', 0, 1.1) +
+            '<path d="M360 220 q120 -20 240 -10" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="8 7"/>' +
+            P(560, 280, '<g fill="#c9d6e8" opacity=".8"><rect x="-40" y="-20" width="24" height="40"/><rect x="-8" y="-32" width="24" height="52"/><rect x="24" y="-14" width="24" height="34"/></g>', '', 0, 1)) },
+        { minDur: 6800, sub: '寫報告也一樣：先一句話講清全局結論，再展開細節——高屋建瓴，聽眾秒懂！',
+          html: scene(P(360, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) +
+            P(540, 220, '<rect x="-34" y="-20" width="68" height="40" rx="4" fill="#fff" opacity=".92"/><text x="0" y="-3" text-anchor="middle" font-size="10" fill="#548a40">結論先行</text><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-20" y1="8" x2="20" y2="8"/></g>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6400, sub: '高屋建瓴：居高臨下，勢不可擋。',
+          html: scene(P(400, 288, '<path d="M-56 -46 L0 -78 L56 -46 Z" fill="#c9762f" stroke="#a85a1e" stroke-width="2.6"/><rect x="-44" y="-46" width="88" height="46" fill="#f4ecd8" stroke="#c9bfa8" stroke-width="2.6"/>', '', 0, 1.1) +
+            '<path d="M448 210 q28 48 38 88" stroke="#7fb2d4" stroke-width="4" fill="none"/>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">高屋建瓴</text>') }
+      ];
+    },
+    /* 提綱挈領 */
+    i690: function () {
+      return [
+        { minDur: 7000, sub: '荀子教人抓重點：像提起皮裘的領子一抖——千萬根毛自然全順了！',
+          html: scene(P(400, 270, '<path d="M-30 -36 h60 l-6 62 q-24 10 -48 0 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><path d="M-20 -36 q20 -14 40 0" stroke="#8a5a33" stroke-width="5" fill="none"/><g stroke="#a8734a" stroke-width="1.4" opacity=".7"><line x1="-18" y1="-16" x2="-16" y2="16"/><line x1="-6" y1="-14" x2="-5" y2="18"/><line x1="6" y1="-14" x2="5" y2="18"/><line x1="18" y1="-16" x2="16" y2="16"/></g>', '', 0, 1.2) +
+            P(250, 240, '<path d="M0 0 q10 -14 24 -10" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '「提綱挈領」：抓住要領——複習不是重讀課本，是先畫出章節骨架，再填血肉！',
+          html: scene(P(400, 250, '<line x1="0" y1="-40" x2="0" y2="40" stroke="#548a40" stroke-width="5"/><g stroke="#7fa858" stroke-width="3"><line x1="0" y1="-24" x2="50" y2="-38"/><line x1="0" y1="0" x2="55" y2="-4"/><line x1="0" y1="24" x2="50" y2="34"/><line x1="0" y1="-24" x2="-50" y2="-34"/><line x1="0" y1="8" x2="-52" y2="12"/></g>', '', 0, 1.2) +
+            P(220, 302, A('kid', 'happy'), '', 0, .95) + hearts(300, 220)) },
+        { minDur: 6800, sub: '會抓綱領的人講話最省力：三句話講完別人三十句的內容，聽眾還記得住！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -60 l16 -8" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, 1.02) + bang(440, 182) +
+            P(560, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(620, 195)) },
+        { minDur: 6400, sub: '提綱挈領：執其要領，事半功倍。',
+          html: scene(P(400, 255, '<line x1="0" y1="-40" x2="0" y2="40" stroke="#548a40" stroke-width="5"/><g stroke="#7fa858" stroke-width="3"><line x1="0" y1="-24" x2="50" y2="-38"/><line x1="0" y1="0" x2="55" y2="-4"/><line x1="0" y1="24" x2="50" y2="34"/><line x1="0" y1="-24" x2="-50" y2="-34"/></g>', '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">提綱挈領</text>') }
+      ];
+    },
+    /* 綱舉目張 */
+    i691: function () {
+      var NET = '<path d="M-60 -30 q60 -16 120 0" stroke="#8a5a33" stroke-width="5" fill="none"/><g stroke="#a8905a" stroke-width="1.8" fill="none"><path d="M-52 -26 q-6 30 6 54 M-26 -30 q-4 34 2 58 M0 -32 q0 36 0 60 M26 -30 q4 34 -2 58 M52 -26 q6 30 -6 54"/><path d="M-56 -8 h112 M-52 14 h104 M-44 36 h88"/></g>';
+      return [
+        { minDur: 7000, sub: '《呂氏春秋》：「壹引其綱，萬目皆張」——拉起漁網的總繩，千百個網眼自動張開！',
+          html: scene(P(400, 260, NET, '', 0, 1.3) +
+            P(240, 200, '<path d="M0 0 q14 -10 28 -6" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.1)) },
+        { minDur: 6800, sub: '「綱舉目張」：抓住關鍵，其餘自然理順——解決主要矛盾，小問題跟著消失！',
+          html: scene(P(310, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92" stroke="#548a40" stroke-width="2.6"/><text x="0" y="8" text-anchor="middle" font-size="16" fill="#548a40">綱</text>') +
+            '<g stroke="#c9bfa8" stroke-width="2.4"><line x1="340" y1="230" x2="450" y2="200"/><line x1="345" y1="245" x2="460" y2="245"/><line x1="340" y1="260" x2="450" y2="290"/></g>' +
+            P(490, 200, '<circle cx="0" cy="0" r="14" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="11" fill="#8b93a3">目</text>') +
+            P(500, 245, '<circle cx="0" cy="0" r="14" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="11" fill="#8b93a3">目</text>') +
+            P(490, 290, '<circle cx="0" cy="0" r="14" fill="#fff" opacity=".85"/><text x="0" y="5" text-anchor="middle" font-size="11" fill="#8b93a3">目</text>')) },
+        { minDur: 6800, sub: '班務混亂先立好值日制度、成績下滑先固定作息——找到那條「綱」，一拉全順！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<rect x="-15" y="-11" width="30" height="22" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="10" fill="#548a40">關鍵</text>', '', 0, 1.1)) + hearts(470, 190) + bang(280, 195)) },
+        { minDur: 6400, sub: '綱舉目張：執綱而引，萬目俱張。',
+          html: scene(P(400, 262, NET, '', 0, 1.35) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">綱舉目張</text>') }
+      ];
+    },
+    /* 居高臨下 */
+    i692: function () {
+      return [
+        { minDur: 7000, sub: '兵法常識：占領高地的軍隊往下攻，又快又猛——仰攻的一方吃盡苦頭！',
+          html: scene(P(300, 240, '<path d="M-70 60 L0 -40 L70 60 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6"/>' + P(0, -50, A('kid', 'angry') + P(26, -46, '<line x1="0" y1="10" x2="0" y2="-36" stroke="#a8734a" stroke-width="4"/><path d="M0 -46 l-6 12 h12 z" fill="#8b93a3"/>', '', 0, .9), '', 0, .7), '', 0, 1.1) +
+            P(560, 302, A('kid', 'wow'), '', 0, .95, true) + sweat(620, 190)) },
+        { minDur: 6800, sub: '「居高臨下」：占據有利位置——但用在說話態度就變貶義：擺高姿態訓人，誰聽得進去！',
+          html: scene(P(340, 260, '<rect x="-40" y="0" width="80" height="42" fill="#c9a06c" stroke="#a8734a" stroke-width="2.4"/>' + P(0, -10, A('kid', 'angry') + '<path d="M28 -50 l16 -2" stroke="#ffe3c1" stroke-width="6" stroke-linecap="round"/>', '', 0, .85), '', 0, 1.05) +
+            P(540, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(600, 192)) },
+        { minDur: 6800, sub: '地形要居高、待人要平視——蹲下來和對方同高說話，才真正走進人心！',
+          html: scene(P(340, 302, A('kid', 'happy') + '<path d="M28 -46 q16 -6 22 4" stroke="#ffe3c1" stroke-width="5" fill="none" stroke-linecap="round"/>', '', 0, 1) +
+            P(500, 302, A('kid', 'happy'), '', 0, .95, true) + hearts(420, 185)) },
+        { minDur: 6400, sub: '居高臨下：據高制低，形勢有利。',
+          html: scene(P(320, 245, '<path d="M-70 58 L0 -40 L70 58 Z" fill="#7a9a6a" stroke="#5a7a4a" stroke-width="2.6"/>' + P(0, -48, A('kid', 'angry'), '', 0, .68), '', 0, 1.1) +
+            P(560, 302, A('kid', 'wow'), '', 0, .92, true) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">居高臨下</text>') }
+      ];
+    },
+    /* 見微知著 */
+    i693: function () {
+      return [
+        { minDur: 7000, sub: '韓非子說聖人的本事：「見微以知萌，見端以知末」——看到一點苗頭，就推知結局！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>' + P(-42, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1), '', 0, 1.05) +
+            P(500, 292, '<path d="M0 8 q-2 -10 4 -14" stroke="#7fa858" stroke-width="2.6" fill="none"/>', '', 0, 1.3) +
+            '<path d="M530 270 q60 -30 110 -60" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>' +
+            P(660, 195, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".85"/>' + P(0, 10, TREE, '', 0, .3), '', 0, 1)) },
+        { minDur: 6800, sub: '紂王用了一雙象牙筷，箕子就預見奢靡亡國——歷史上最有名的見微知著！',
+          html: scene(P(340, 302, A('kid', 'wow') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02) +
+            P(520, 250, '<g stroke="#f5f0e0" stroke-width="4" stroke-linecap="round"><line x1="-6" y1="-22" x2="-2" y2="22"/><line x1="6" y1="-22" x2="2" y2="22"/></g>', '', 0, 1.2) + sweat(280, 190) + qmark(600, 210)) },
+        { minDur: 6800, sub: '「見微知著」：小徵兆看出大趨勢——銷量微降、常客變少，敏銳的人立刻警覺！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-9 6 l5 -8 l5 4 l6 -8" stroke="#c96a5a" stroke-width="2.2" fill="none"/>', '', 0, .95)) + bang(470, 188) +
+            P(580, 220, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.05)) },
+        { minDur: 6400, sub: '見微知著：睹始知終，明察秋毫。',
+          html: scene(P(340, 295, '<path d="M0 8 q-2 -10 4 -14" stroke="#7fa858" stroke-width="3" fill="none"/>', '', 0, 1.4) +
+            '<path d="M380 272 q80 -40 150 -70" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>' +
+            P(570, 190, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".85"/>' + P(0, 12, TREE, '', 0, .35), '', 0, 1.05) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">見微知著</text>') }
+      ];
+    },
+    /* 洞若觀火 */
+    i694: function () {
+      return [
+        { minDur: 7000, sub: '《尚書》裡商王盤庚說：「予若觀火」——民情我看得像看火一樣清楚明白！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-16 -76 l3 -10 h26 l3 10 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1.05) +
+            P(520, 275, '<ellipse cx="0" cy="12" rx="26" ry="8" fill="#3a2e26"/><g class="st-flick"><path d="M0 8 Q-14 -14 0 -36 Q6 -22 14 -30 Q22 -8 10 6 Z" fill="#ff9d4d"/><path d="M2 4 Q-6 -8 2 -22 Q7 -14 11 -18 Q14 -4 8 2 Z" fill="#ffd166"/></g>', '', 0, 1.2), 'night') },
+        { minDur: 6800, sub: '「洞若觀火」：觀察透澈——資深裁判掃一眼就知道誰假摔，騙不了他！',
+          html: scene(P(340, 302, A('kid', 'angry') + P(-40, -56, '<circle cx="0" cy="0" r="10" fill="none" stroke="#3a2e26" stroke-width="3"/><circle cx="20" cy="0" r="10" fill="none" stroke="#3a2e26" stroke-width="3"/><line x1="10" y1="0" x2="10" y2="0" stroke="#3a2e26" stroke-width="3"/>', '', 0, 1)) +
+            P(540, 296, '<g transform="rotate(14)">' + A('kid', 'wow') + '</g>', '', 0, .95, true) + sweat(600, 200) + bang(440, 190)) },
+        { minDur: 6800, sub: '透澈來自經驗與數據：看得多、記得牢、比得準——眼力是練出來的火眼金睛！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1.05)) + hearts(470, 190) +
+            P(580, 220, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.05)) },
+        { minDur: 6400, sub: '洞若觀火：明察透澈，瞭如指掌。',
+          html: scene(P(400, 278, '<ellipse cx="0" cy="12" rx="28" ry="9" fill="#3a2e26"/><g class="st-flick"><path d="M0 8 Q-15 -15 0 -38 Q6 -23 15 -32 Q23 -8 10 6 Z" fill="#ff9d4d"/><path d="M2 4 Q-7 -9 2 -24 Q7 -15 12 -19 Q15 -4 8 2 Z" fill="#ffd166"/></g>', '', 0, 1.3) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">洞若觀火</text>', 'night') }
+      ];
+    },
+    /* 洞燭機先 */
+    i695: function () {
+      return [
+        { minDur: 6800, sub: '大雨還沒來，燕子先低飛、螞蟻先搬家——大自然裡處處是「機先」的訊號！',
+          html: scene(P(340, 220, A('bird'), 'st-fly', 0, .9) +
+            P(520, 296, '<g fill="#3a2e26"><ellipse cx="-10" cy="0" rx="5" ry="3.4"/><ellipse cx="0" cy="-2" rx="5" ry="3.4"/><ellipse cx="10" cy="0" rx="5" ry="3.4"/></g>', 'st-strut', 0, 1.2) +
+            '<g class="st-cloud"><ellipse cx="560" cy="80" rx="70" ry="22" fill="#8b93a3" opacity=".7"/></g>') },
+        { minDur: 6800, sub: '「洞燭機先」：像燭火照亮般預見徵兆——高手下棋，你的三步後他早看完了！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<g class="st-flick"><path d="M0 -8 Q-5 -16 0 -24 Q3 -18 6 -21 Q8 -12 4 -8 Z" fill="#ffd166"/></g><rect x="-3" y="-8" width="6" height="14" fill="#f4ecd8"/>', '', 0, 1.1)) +
+            P(540, 220, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="-1" text-anchor="middle" font-size="10" fill="#548a40">三步後</text><text x="0" y="12" text-anchor="middle" font-size="10" fill="#548a40">的局</text>', '', 0, 1.05) + hearts(280, 195)) },
+        { minDur: 6800, sub: '洞燭機先靠兩件事：盯緊變化的訊號、敢在別人猶豫時先動——提早半步就是贏！',
+          html: scene(P(360, 302, A('kid', 'angry'), 'st-dashL', 0, 1.02) + bang(470, 185) +
+            P(600, 302, A('kid', 'wow'), 'st-bob', 0, .92, true) + qmark(660, 195)) },
+        { minDur: 6400, sub: '洞燭機先：燭照先機,料事在前。',
+          html: scene(P(400, 260, '<g class="st-flick"><path d="M0 -10 Q-7 -22 0 -34 Q4 -25 9 -29 Q12 -14 6 -10 Z" fill="#ffd166"/></g><rect x="-4" y="-10" width="8" height="20" fill="#f4ecd8"/><ellipse cx="0" cy="12" rx="14" ry="5" fill="#c9a06c"/>', '', 0, 1.5) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">洞燭機先</text>') }
+      ];
+    },
+    /* 未卜先知 */
+    i696: function () {
+      return [
+        { minDur: 7000, sub: '古人遇大事先占卜問吉凶——但有智慧的人不用龜甲蓍草，就能料中結果！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(530, 260, '<path d="M-20 -14 a20 16 0 0 1 40 0 q-6 16 -20 16 q-14 0 -20 -16 z" fill="#c9b26a" stroke="#a8905a" stroke-width="2.4"/><path d="M-8 -10 h16 M0 -18 v16" stroke="#a8905a" stroke-width="1.8"/>', '', 0, 1.15) + qmark(430, 200)) },
+        { minDur: 6800, sub: '「未卜先知」：不用占卜就預先知道——媽媽總在你開口前就知道你要什麼，簡直未卜先知！',
+          html: scene(P(340, 302, A('kid', 'wow'), '', 0, 1) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-40, -50, '<path d="M-12 -6 h24 v5 q0 8 -12 8 q-12 0 -12 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1), '', 0, 1, true) + bang(430, 185) + hearts(600, 195)) },
+        { minDur: 6800, sub: '「先知」的真相是用心：觀察習慣、記住偏好、推想需要——了解夠深，就像會讀心！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(490, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(410, 190, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.1)) },
+        { minDur: 6400, sub: '未卜先知：不占而知，料事如神。',
+          html: scene(P(400, 262, '<path d="M-22 -15 a22 17 0 0 1 44 0 q-7 17 -22 17 q-15 0 -22 -17 z" fill="#c9b26a" stroke="#a8905a" stroke-width="2.6"/><path d="M-9 -11 h18 M0 -20 v18" stroke="#a8905a" stroke-width="2"/>', '', 0, 1.4) +
+            P(400, 190, '<path d="M0 -14 a14 14 0 1 1 -1 0 z" fill="#ffe9a0" class="st-tw"/>', '', 0, 1.1) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">未卜先知</text>') }
+      ];
     }
   };
 
