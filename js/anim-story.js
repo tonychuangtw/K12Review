@@ -6356,6 +6356,125 @@
           html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + qmark(330, 182) + bang(490, 188) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千方百計</text>') }
       ];
+    },
+    /* 千言萬語 */
+    i439: function () {
+      var LETTER = '<rect x="-20" y="-14" width="40" height="28" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-20 -14 L0 2 L20 -14" stroke="#c9bfa8" stroke-width="2" fill="none"/>';
+      function bub5(x, y, dly) {
+        return P(x, y, '<g class="st-zfloat"' + (dly ? ' style="animation-delay:' + dly + 's"' : '') + '>' +
+          '<path d="M-18 -11 a15 12 0 1 1 30 4 q-2 5 -8 6 l-7 6 l1 -6 q-14 -2 -16 -10 z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><text x="-2" y="-2" text-anchor="middle" font-size="10" fill="#8a7a4a">…</text></g>');
+      }
+      return [
+        { minDur: 6800, sub: '好朋友要出國念書了。送別的時候，小瑄有好多好多話想說——卻不知從哪句開始……',
+          html: scene(P(300, 302, A('kid', 'sad')) + bub5(250, 180, 0) + bub5(340, 155, .3) + bub5(420, 185, .6) +
+            P(540, 302, A('kid', 'sad'), '', 0, .97, true) + sweat(580, 198)) },
+        { minDur: 6800, sub: '最後她把千言萬語寫成長長的一封信，塞進朋友的行李：「到了要看喔！」',
+          html: scene(P(300, 302, A('kid', 'happy') + P(38, -56, LETTER, '', 0, 1)) +
+            P(520, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(420, 180)) },
+        { minDur: 6600, sub: '「千言萬語」：想說的話多得說不完——濃濃的情意都在裡面！',
+          html: scene(P(400, 260, LETTER, '', 0, 1.6) + hearts(500, 220) + bub5(280, 200, 0)) },
+        { minDur: 6400, sub: '千言萬語：要說的話非常多。',
+          html: scene(bub5(280, 200, 0) + bub5(400, 170, .3) + bub5(520, 205, .6) +
+            '<text x="400" y="290" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">千言萬語</text>') }
+      ];
+    },
+    /* 萬水千山 */
+    i440: function () {
+      var MTS2 = '<path d="M-20 252 L140 110 L300 252 Z" fill="#8fb0a0"/><path d="M220 252 L400 140 L580 252 Z" fill="#a5c2b2" opacity=".9"/><path d="M500 252 L640 160 L800 252 Z" fill="#8fb0a0" opacity=".85"/>';
+      var RIVERB = '<rect y="252" width="800" height="88" fill="#7fb2e0"/>' +
+        '<g class="st-wavemove"><path d="M-40 266 q30 -10 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#a8d4ee" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>';
+      return [
+        { minDur: 6800, sub: '唐僧取經的路上：翻過一座山又一座山、渡過一條河又一條河……',
+          html: scene(MTS2 + RIVERB +
+            P(300, 296, A('kid', 'happy'), 'st-strut', 0, .95) + P(420, 296, A('horse'), 'st-strut', .2, .9) + sweat(350, 210)) },
+        { minDur: 6600, sub: '「萬水千山」：一萬條河、一千座山——形容路途遙遠、艱難險阻！',
+          html: scene(MTS2 + RIVERB + qmark(400, 120)) },
+        { minDur: 6800, sub: '外婆住在遠方，但再遠也擋不住想念——放假時跨過萬水千山也要去看她！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-strut') +
+            P(560, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.02, true) + hearts(440, 180)) },
+        { minDur: 6400, sub: '萬水千山：路途遙遠險阻。',
+          html: scene(MTS2 + RIVERB +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">萬水千山</text>') }
+      ];
+    },
+    /* 三令五申 */
+    i441: function () {
+      return [
+        { minDur: 6800, sub: '游泳課前，老師一再叮嚀：「不准跑跳！不准推人！沒教練不准下水！」說了一遍又一遍。',
+          html: scene(P(300, 302, A('kid', 'happy') +
+              '<path d="M18 -60 q14 -4 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.05) +
+            P(500, 302, A('kid', 'happy'), '', 0, .92) + P(610, 302, A('kid', 'happy'), '', .2, .9) +
+            bang(390, 180) + '<rect y="286" width="800" height="54" fill="#7fb2e0"/>') },
+        { minDur: 7000, sub: '這典故來自孫子練兵：他三令五申說明軍令，違令者依法處置——號令一出，人人遵守！',
+          html: scene(P(300, 302, A('kid', 'angry')) + bang(380, 182) +
+            P(500, 302, A('kid', 'happy'), 'st-strut', .1, .92) + P(610, 302, A('kid', 'happy'), 'st-strut', .2, .9)) },
+        { minDur: 6600, sub: '「三令五申」：一再命令告誡——重要的規矩，多說幾次才記得牢！',
+          html: scene(P(360, 302, A('kid', 'happy')) +
+            P(280, 190, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".9"/><text x="0" y="7" text-anchor="middle" font-size="17" fill="#c96a5a">1</text>') +
+            P(400, 165, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".9"/><text x="0" y="7" text-anchor="middle" font-size="17" fill="#e0a458">2</text>', '', .2) +
+            P(520, 190, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".9"/><text x="0" y="7" text-anchor="middle" font-size="17" fill="#548a40">3</text>', '', .4)) },
+        { minDur: 6400, sub: '三令五申：一再命令告誡。',
+          html: scene(P(360, 302, A('kid', 'angry'), '', 0, 1.05) + bang(450, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">三令五申</text>') }
+      ];
+    },
+    /* 四平八穩 */
+    i442: function () {
+      var TABLE4 = '<rect x="-50" y="-30" width="100" height="10" rx="4" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/>' +
+        '<line x1="-40" y1="-20" x2="-40" y2="0" stroke="#a8734a" stroke-width="5"/><line x1="40" y1="-20" x2="40" y2="0" stroke="#a8734a" stroke-width="5"/>' +
+        '<line x1="-20" y1="-20" x2="-20" y2="0" stroke="#a8734a" stroke-width="5"/><line x1="20" y1="-20" x2="20" y2="0" stroke="#a8734a" stroke-width="5"/>';
+      return [
+        { minDur: 6800, sub: '木匠師傅做的桌子四隻腳一樣長，怎麼搖都不晃——放在哪裡都平平穩穩！',
+          html: scene(P(430, 302, TABLE4, '', 0, 1.3) +
+            P(240, 302, A('kid', 'happy')) + hearts(330, 200)) },
+        { minDur: 6800, sub: '寫字也講究四平八穩：橫平豎直、方方正正，看起來特別端正舒服！',
+          html: scene(P(430, 260, '<rect x="-30" y="-30" width="60" height="60" rx="4" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><text x="0" y="12" text-anchor="middle" font-size="36" font-weight="bold" fill="#3a2e26">正</text>') +
+            P(240, 302, A('kid', 'happy') + P(24, -44, '<line x1="0" y1="0" x2="14" y2="-34" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 0 q-3 6 -1 11 q4 -2 5 -8 z" fill="#3a2e26"/>'))) },
+        { minDur: 6800, sub: '「四平八穩」：穩妥周全——不過太求穩、不敢創新，有時也會錯過好機會喔！',
+          html: scene(P(400, 302, TABLE4, '', 0, 1.1) + qmark(520, 210) + P(240, 302, A('kid', 'happy'), '', 0, .95)) },
+        { minDur: 6400, sub: '四平八穩：穩妥周全，也指保守不出錯。',
+          html: scene(P(400, 302, TABLE4, '', 0, 1.35) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">四平八穩</text>') }
+      ];
+    },
+    /* 五體投地 */
+    i443: function () {
+      function kneelKid(x, sc) {
+        return P(x, 316, '<g transform="rotate(72)">' + A('kid', 'happy') + '</g>', '', 0, sc || 1);
+      }
+      return [
+        { minDur: 6800, sub: '魔術社的學長變出一連串神奇戲法，台下的小軍看得下巴都要掉了——',
+          html: scene(P(500, 302, A('kid', 'happy') +
+              '<g class="st-wave"><line x1="18" y1="-38" x2="30" y2="-58" stroke="#ffe3c1" stroke-width="9" stroke-linecap="round"/></g>', '', 0, 1.05) +
+            bang(580, 180) + P(280, 302, A('kid', 'wow')) + sweat(230, 192)) },
+        { minDur: 6800, sub: '「五體」是雙手、雙膝加頭——全部貼到地上行大禮，表示佩服到了極點！',
+          html: scene(kneelKid(300, 1) + P(540, 302, A('kid', 'happy'), '', 0, 1.02, true) + hearts(430, 200)) },
+        { minDur: 6600, sub: '「我對你佩服得五體投地！」——最高等級的讚嘆，就是這句！',
+          html: scene(kneelKid(280, .95) + kneelKid(400, .9) + P(580, 302, A('kid', 'happy'), '', 0, 1.05, true) + hearts(500, 190)) },
+        { minDur: 6400, sub: '五體投地：佩服到了極點。',
+          html: scene(kneelKid(320, 1) + P(560, 302, A('kid', 'happy'), '', 0, 1.05, true) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">五體投地</text>') }
+      ];
+    },
+    /* 七拼八湊 */
+    i444: function () {
+      var ROBOT = '<rect x="-18" y="-40" width="36" height="28" rx="5" fill="#8fa8c9" stroke="#6d87ab" stroke-width="2.6"/>' +
+        '<rect x="-12" y="-58" width="24" height="18" rx="4" fill="#c9d6e8" stroke="#6d87ab" stroke-width="2.4"/>' +
+        '<circle cx="-5" cy="-50" r="2.6" fill="#3a2e26"/><circle cx="5" cy="-50" r="2.6" fill="#3a2e26"/>' +
+        '<rect x="-26" y="-36" width="8" height="18" rx="3" fill="#e0a458"/><rect x="18" y="-36" width="8" height="18" rx="3" fill="#a5d47c"/>' +
+        '<rect x="-14" y="-12" width="10" height="12" rx="3" fill="#c96a5a"/><rect x="4" y="-12" width="10" height="12" rx="3" fill="#ffd97a"/>';
+      return [
+        { minDur: 6800, sub: '勞作比賽前一晚才動工！小組把紙箱、瓶蓋、吸管、舊玩具全搬出來，東拼一塊、西湊一片……',
+          html: scene(P(430, 296, ROBOT, '', 0, 1.2) +
+            P(250, 302, A('kid', 'wow')) + P(600, 302, A('kid', 'wow'), '', .2, .93, true) + sweat(320, 195)) },
+        { minDur: 6800, sub: '拼出來的機器人歪歪扭扭：手一長一短、頭還會掉下來——勉強湊合的東西就是不牢靠！',
+          html: scene(P(430, 296, ROBOT, '', 0, 1.15) + bang(520, 210) + sweat(350, 200) + qmark(300, 185)) },
+        { minDur: 6800, sub: '「七拼八湊」：把零碎的東西勉強湊在一起——想做出好作品，還是要提早準備！',
+          html: scene(P(400, 296, ROBOT, '', 0, 1.1) + P(230, 302, A('kid', 'happy'), '', 0, .95) + hearts(320, 195)) },
+        { minDur: 6400, sub: '七拼八湊：把零碎的東西勉強湊在一起。',
+          html: scene(P(400, 296, ROBOT, '', 0, 1.25) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">七拼八湊</text>') }
+      ];
     }
   };
 
