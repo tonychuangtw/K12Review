@@ -12011,6 +12011,157 @@
           html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 178) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">相見恨晚</text>') }
       ];
+    },
+    /* 不打不相識 */
+    i530: function () {
+      return [
+        { minDur: 7000, sub: '《水滸傳》裡的好漢常常是這樣認識的：話不投機先打一架——打完發現對方是條好漢！',
+          html: scene(P(330, 302, A('kid', 'angry')) + P(470, 302, A('kid', 'angry'), '', 0, 1, true) + bang(400, 185) +
+            '<g class="st-zfloat"><circle cx="360" cy="215" r="4" fill="#c9bfa8"/><circle cx="440" cy="208" r="5" fill="#c9bfa8"/></g>') },
+        { minDur: 6800, sub: '「好身手！」「你也不賴！」——不打不相識，兩人惺惺相惜，當場結為好友！',
+          html: scene(P(330, 302, A('kid', 'wow')) + P(470, 302, A('kid', 'wow'), '', 0, 1, true) +
+            hearts(400, 178) + bang(260, 195) + bang(540, 195)) },
+        { minDur: 6800, sub: '球場上搶球吵了一架，賽後互相道歉——反而發現彼此都熱愛籃球，成了最好的隊友！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(38, -56, '<circle cx="0" cy="0" r="12" fill="#e0813f" stroke="#b85f24" stroke-width="2"/><path d="M-12 0 h24 M0 -12 v24" stroke="#b85f24" stroke-width="1.6"/>', '', 0, 1)) +
+            P(490, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(420, 182)) },
+        { minDur: 6400, sub: '不打不相識：衝突之後反成朋友。',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 178) + bang(250, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="50" font-weight="bold" fill="#4a3200">不打不相識</text>') }
+      ];
+    },
+    /* 化干戈為玉帛 */
+    i531: function () {
+      var GE = '<line x1="0" y1="12" x2="0" y2="-44" stroke="#a8734a" stroke-width="4" stroke-linecap="round"/><path d="M0 -44 h18 l-4 8 h-14 z" fill="#8b93a3"/><path d="M0 -52 l-6 12 h12 z" fill="#8b93a3"/>';
+      var SILK = '<rect x="-20" y="-10" width="40" height="20" rx="4" fill="#ff9eb5" stroke="#e07a94" stroke-width="2"/><path d="M-20 -2 h40 M-20 4 h40" stroke="#e07a94" stroke-width="1.4"/>';
+      return [
+        { minDur: 7000, sub: '《淮南子》記載：大禹不靠武力靠德行——天下萬國帶著玉器絲帛來朝見，不再兵戎相見！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(500, 302, A('kid', 'happy') + P(-36, -46, SILK, '', 0, .9), 'st-inR', 0, .95, true) +
+            P(610, 302, A('kid', 'happy') + P(-36, -46, '<path d="M-8 -12 q8 -8 16 0 q-2 10 -8 12 q-6 -2 -8 -12 z" fill="#7fd4d4" stroke="#4aa8a8" stroke-width="2"/>', '', 0, .9), 'st-inR', .2, .9, true) + hearts(400, 185)) },
+        { minDur: 6800, sub: '「干戈」是兵器、「玉帛」是禮物——放下武器、換上禮物，敵人變朋友！',
+          html: scene(P(300, 250, GE, '', 0, 1.2) +
+            '<path d="M360 245 h80" stroke="#548a40" stroke-width="4"/><path d="M440 245 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(510, 250, SILK, '', 0, 1.3) + hearts(510, 195)) },
+        { minDur: 6800, sub: '「化干戈為玉帛」：把衝突化為和平——兩家公司從打官司變成合作夥伴，握手言歡！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) +
+            '<path d="M362 260 h76" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(400, 180)) },
+        { minDur: 6400, sub: '化干戈為玉帛：化衝突為和平。',
+          html: scene(P(280, 250, GE, '', 0, 1.1) +
+            '<path d="M340 245 h70" stroke="#548a40" stroke-width="4"/><path d="M410 245 l-12 -8 v16 z" fill="#548a40"/>' +
+            P(490, 250, SILK, '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="46" font-weight="bold" fill="#4a3200">化干戈為玉帛</text>') }
+      ];
+    },
+    /* 握手言和 */
+    i532: function () {
+      return [
+        { minDur: 6800, sub: '足球決賽踢得火爆，兩隊球員互不相讓，場上劍拔弩張！',
+          html: scene(P(320, 302, A('kid', 'angry') + P(38, -56, '<circle cx="0" cy="0" r="11" fill="#fff" stroke="#3a2e26" stroke-width="2"/><path d="M-4 -8 l8 4 -8 4 z" fill="#3a2e26"/>', '', 0, 1)) +
+            P(490, 302, A('kid', 'angry'), '', 0, 1, true) + bang(410, 185) + sweat(250, 192)) },
+        { minDur: 6800, sub: '終場哨響——兩隊隊長走向彼此，伸出手：「打得好，是場精彩的比賽！」',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(460, 302, A('kid', 'happy'), '', 0, .99, true) +
+            '<path d="M372 258 h56" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(400, 182)) },
+        { minDur: 6800, sub: '「握手言和」：停止爭執、恢復友好——場上是對手，場下是朋友，這就是運動家精神！',
+          html: scene(P(300, 302, A('kid', 'happy'), 'st-cheer') + P(430, 302, A('kid', 'happy'), 'st-cheer', .2, .98, true) +
+            P(560, 302, A('kid', 'happy'), 'st-cheer', .4, .95, true) + notes(400, 175) + hearts(520, 190)) },
+        { minDur: 6400, sub: '握手言和：和解，恢復友好。',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(460, 302, A('kid', 'happy'), '', 0, .99, true) +
+            '<path d="M372 258 h56" stroke="#ffe3c1" stroke-width="7" stroke-linecap="round"/>' + hearts(400, 180) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">握手言和</text>') }
+      ];
+    },
+    /* 冰釋前嫌 */
+    i533: function () {
+      var ICEB = '<path d="M-26 -30 L26 -30 L32 26 L-32 26 Z" fill="#cfe8f5" stroke="#9cc4dc" stroke-width="2.6" opacity=".92"/><path d="M-10 -30 L-2 26 M12 -30 L6 26" stroke="#9cc4dc" stroke-width="1.6"/>';
+      return [
+        { minDur: 6800, sub: '小冰和小嫌因為誤會半年不說話——見面就別開頭，心裡像隔著一塊冰！',
+          html: scene(P(310, 302, A('kid', 'sad'), '', 0, 1, true) + P(490, 302, A('kid', 'sad')) +
+            P(400, 262, ICEB, '', 0, 1.1) + sweat(250, 195)) },
+        { minDur: 6800, sub: '班遊被分到同一組，聊開才發現當初全是誤會——話說開了，心裡的冰慢慢融化……',
+          html: scene(P(320, 302, A('kid', 'wow')) + P(480, 302, A('kid', 'wow'), '', 0, 1, true) +
+            P(400, 268, '<path d="M-20 -14 L20 -14 L26 20 L-26 20 Z" fill="#cfe8f5" stroke="#9cc4dc" stroke-width="2.4" opacity=".6"/><g fill="#7fb2d4"><circle class="st-rain" cx="-8" cy="26" r="3"/><circle class="st-rain" style="animation-delay:.5s" cx="10" cy="26" r="3"/></g>', '', 0, 1.1) +
+            P(170, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「冰釋前嫌」：過去的嫌隙像冰遇暖融化，一點不剩——和好如初，比以前更要好！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(470, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(400, 178) +
+            '<g fill="#7fb2d4" opacity=".6"><circle cx="400" cy="260" r="4"/><circle cx="416" cy="266" r="3"/></g>') },
+        { minDur: 6400, sub: '冰釋前嫌：舊怨如冰消融。',
+          html: scene(P(400, 262, ICEB, '', 0, 1.1) +
+            P(180, 130, '<circle cx="0" cy="0" r="20" fill="#ffdd66" stroke="#f5b73e" stroke-width="3"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">冰釋前嫌</text>') }
+      ];
+    },
+    /* 既往不咎 */
+    i534: function () {
+      return [
+        { minDur: 7000, sub: '孔子說：「成事不說，遂事不諫，既往不咎」——已經過去的事，就不要再責怪了！',
+          html: scene(P(320, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1.05) +
+            P(520, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="17" fill="#6d7585">過去</text>', '', 0, 1) +
+            '<path d="M560 210 q40 -30 60 -60" stroke="#c9bfa8" stroke-width="3" fill="none" stroke-dasharray="7 6"/>') },
+        { minDur: 6800, sub: '弟弟打破花瓶主動認錯——媽媽說：「誠實認錯就好，媽媽既往不咎，下次小心！」',
+          html: scene(P(320, 302, A('kid', 'sad') + P(40, -20, '<path d="M-10 0 l4 -12 M0 2 l0 -14 M10 0 l-4 -12" stroke="#9cc4dc" stroke-width="2.6" stroke-linecap="round"/><path d="M-14 4 q14 8 28 0" stroke="#7f9cb5" stroke-width="3" fill="none"/>', '', 0, 1)) + sweat(260, 195) +
+            P(520, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.02, true) + hearts(430, 185)) },
+        { minDur: 6800, sub: '「既往不咎」：對過去的錯不再追究——給人改過的機會，也給關係一個新的開始！',
+          html: scene(P(330, 302, A('kid', 'happy')) + P(480, 302, A('kid', 'happy'), '', 0, 1, true) + hearts(410, 180) +
+            P(200, 200, '<path d="M0 -16 l5 10 11 1 -8 8 2 11 -10 -6 -10 6 2 -11 -8 -8 11 -1 z" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '既往不咎：過去之錯，不再追究。',
+          html: scene(P(340, 302, A('kid', 'sad')) + P(500, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1.02, true) + hearts(420, 185) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">既往不咎</text>') }
+      ];
+    },
+    /* 寬宏大量 */
+    i535: function () {
+      return [
+        { minDur: 6800, sub: '同學不小心把墨水灑在小量剛畫好的海報上——全班都以為他要發火了！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-6 -4 q8 -10 14 2 q6 10 -4 12 q-12 2 -10 -14 z" fill="#3a3550"/>', '', 0, .95)) +
+            P(560, 302, A('kid', 'sad'), '', 0, .97, true) + sweat(610, 192) + bang(280, 190)) },
+        { minDur: 6800, sub: '他卻笑了：「沒關係，正好把墨漬畫成一隻貓！」——把意外變成了創意！',
+          html: scene(P(380, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-18" y="-24" width="36" height="48" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><path d="M-6 -4 q8 -10 14 2 q6 10 -4 12 q-12 2 -10 -14 z" fill="#3a3550"/><path d="M-4 -10 l4 -7 3 7 M8 -8 l4 -7 3 7" stroke="#3a3550" stroke-width="2" fill="none"/>', '', 0, .95)) + hearts(490, 188) +
+            P(580, 302, A('kid', 'happy'), '', 0, .95, true)) },
+        { minDur: 6800, sub: '「寬宏大量」：度量寬大、能容人——不記小過，人緣自然好，自己也快樂！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-30 -46 q-14 -8 -22 2 M30 -46 q14 -8 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.08) +
+            P(260, 302, A('kid', 'happy'), '', 0, .88) + P(540, 302, A('kid', 'happy'), '', 0, .88, true) + hearts(400, 172)) },
+        { minDur: 6400, sub: '寬宏大量：度量寬大，能容人。',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-30 -46 q-14 -8 -22 2 M30 -46 q14 -8 22 2" stroke="#ffe3c1" stroke-width="6" fill="none" stroke-linecap="round"/>', '', 0, 1.1) + hearts(510, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">寬宏大量</text>') }
+      ];
+    },
+    /* 斤斤計較 */
+    i536: function () {
+      var SCALE2 = '<line x1="0" y1="0" x2="0" y2="-50" stroke="#a8734a" stroke-width="4.6"/><line x1="-70" y1="-50" x2="70" y2="-50" stroke="#a8734a" stroke-width="4"/><path d="M-70 -50 l-12 20 h24 z M70 -50 l-12 20 h24 z" fill="#e0a458" stroke="#c9862f" stroke-width="2"/>';
+      return [
+        { minDur: 6800, sub: '分組買飲料，小斤拿著計算機算到小數點：「你多喝了半口，要多付一塊三毛錢！」',
+          html: scene(P(360, 302, A('kid', 'angry') + P(-42, -52, '<rect x="-13" y="-17" width="26" height="34" rx="3" fill="#8b93a3" stroke="#6d7585" stroke-width="2"/><rect x="-9" y="-13" width="18" height="10" rx="1.6" fill="#d9e8d0"/>', '', 0, 1)) +
+            P(540, 302, A('kid', 'wow'), '', 0, .97, true) + sweat(600, 190) + qmark(280, 185)) },
+        { minDur: 6800, sub: '「斤斤計較」：一斤一斤算個不停——對瑣碎小事過分計較，朋友都嫌累！',
+          html: scene(P(400, 290, SCALE2, '', 0, 1.15) +
+            P(260, 302, A('kid', 'sad'), '', 0, .92) + sweat(210, 195) + qmark(560, 200)) },
+        { minDur: 6800, sub: '朋友之間你請一次、我請一次，不必算得清清楚楚——大方一點，感情才長久！',
+          html: scene(P(330, 302, A('kid', 'happy') + P(38, -50, '<path d="M-10 -6 h20 v4 q0 8 -10 8 q-10 0 -10 -8 z" fill="#e8e2d5" stroke="#c9bfa8" stroke-width="2"/>', '', 0, 1)) +
+            P(490, 302, A('kid', 'happy'), '', 0, .98, true) + hearts(420, 182)) },
+        { minDur: 6400, sub: '斤斤計較：小事過分計較。',
+          html: scene(P(400, 290, SCALE2, '', 0, 1.15) + qmark(540, 195) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">斤斤計較</text>') }
+      ];
+    },
+    /* 錙銖必較 */
+    i537: function () {
+      var COINS = '<circle cx="-14" cy="0" r="11" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/><rect x="-18" y="-4" width="8" height="8" fill="none" stroke="#e8b93f" stroke-width="1.6"/><circle cx="14" cy="4" r="9" fill="#ffd97a" stroke="#e8b93f" stroke-width="2"/>';
+      return [
+        { minDur: 7000, sub: '「錙」和「銖」是古代最小的重量單位——輕得像幾粒米，一般人根本不放在眼裡！',
+          html: scene(P(400, 270, '<line x1="0" y1="0" x2="0" y2="-44" stroke="#a8734a" stroke-width="4"/><line x1="-56" y1="-44" x2="56" y2="-44" stroke="#a8734a" stroke-width="3.4"/><path d="M-56 -44 l-10 16 h20 z M56 -44 l-10 16 h20 z" fill="#e0a458" stroke="#c9862f" stroke-width="2"/><circle cx="-56" cy="-20" r="3" fill="#8b93a3"/>', '', 0, 1.2) +
+            P(240, 302, A('kid', 'wow') + P(-38, -52, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1)) + qmark(320, 190)) },
+        { minDur: 6800, sub: '守財奴連一分一毫都要爭：「這枚銅板是我的！那半張紙也要算錢！」——一毛不拔！',
+          html: scene(P(400, 302, A('kid', 'angry') + P(-40, -40, COINS, '', 0, 1.1)) +
+            P(560, 302, A('kid', 'sad'), '', 0, .95, true) + sweat(620, 195) + bang(300, 188)) },
+        { minDur: 6800, sub: '「錙銖必較」：極小的利益都要計較——比「斤斤計較」更誇張，計較到極點！',
+          html: scene(P(340, 240, '<circle cx="0" cy="0" r="24" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#6d7585">斤斤</text>') +
+            P(470, 240, '<circle cx="0" cy="0" r="28" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="14" fill="#c96a5a">錙銖!</text>') +
+            '<path d="M372 240 h56" stroke="#c9bfa8" stroke-width="3"/><path d="M428 240 l-10 -7 v14 z" fill="#c9bfa8"/>') },
+        { minDur: 6400, sub: '錙銖必較：分毫之利，必爭必較。',
+          html: scene(P(400, 290, COINS, '', 0, 1.5) +
+            P(400, 220, '<circle cx="0" cy="0" r="12" fill="none" stroke="#8b93a3" stroke-width="3"/><line x1="9" y1="9" x2="17" y2="17" stroke="#8b93a3" stroke-width="3.6" stroke-linecap="round"/>', '', 0, 1.2) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">錙銖必較</text>') }
+      ];
     }
   };
 
