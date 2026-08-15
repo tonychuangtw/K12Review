@@ -13425,6 +13425,161 @@
             P(490, 200, '<circle cx="0" cy="0" r="28" fill="#fff" opacity=".92"/>' + P(0, 6, A('fish'), '', 0, .65), '', 0, 1.1) +
             '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">誇大其詞</text>') }
       ];
+    },
+    /* 舍本逐末 */
+    i100: function () {
+      return [
+        { minDur: 7000, sub: '《呂氏春秋》談治國：「舍本而事末」——丟下根本的農耕，只顧枝末的買賣，國家就危險了！',
+          html: scene(P(280, 302, A('kid', 'happy') + '<path d="M-10 -34 q10 8 20 0 l0 6 q-10 8 -20 0 z" fill="#d5cfc0"/>', '', 0, 1) +
+            P(500, 285, TREE, '', 0, 1.15) +
+            P(500, 200, '<circle cx="0" cy="0" r="4" fill="#c96a5a"/><circle cx="24" cy="-8" r="4" fill="#c96a5a"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '「本」是樹根、「末」是枝梢——不澆樹根卻拚命擦亮葉子，樹遲早枯死！',
+          html: scene(P(400, 285, TREE, '', 0, 1.25) +
+            P(560, 240, A('kid', 'wow') + P(-34, -12, '<path d="M-8 -8 q8 -6 16 0" stroke="#8b93a3" stroke-width="3" fill="none"/>', '', 0, 1), '', 0, .85) +
+            P(300, 300, '<path d="M-14 0 q14 12 28 0" stroke="#a8734a" stroke-width="3.4" fill="none" stroke-dasharray="5 5"/>', '', 0, 1.2) + qmark(250, 240)) },
+        { minDur: 6800, sub: '「舍本逐末」：只背題目不懂原理、只修圖不練拍照——抓錯重點，努力全白費！',
+          html: scene(P(360, 302, A('kid', 'wow') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="6" text-anchor="middle" font-size="12" fill="#c96a5a">背!背!</text>', '', 0, .95)) + sweat(290, 190) +
+            P(560, 220, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#548a40">原理?</text>')) },
+        { minDur: 6400, sub: '舍本逐末：棄根本，逐枝節。',
+          html: scene(P(400, 285, TREE, '', 0, 1.25) + qmark(530, 200) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">舍本逐末</text>') }
+      ];
+    },
+    /* 歷久彌新 */
+    i101: function () {
+      var OLDBOOK = '<rect x="-20" y="-26" width="40" height="52" rx="3" fill="#c9a06c" stroke="#a8734a" stroke-width="2.6"/><line x1="-8" y1="-26" x2="-8" y2="26" stroke="#a8734a" stroke-width="2"/><path d="M0 -8 q6 -6 10 0 q-4 8 -10 4 z" fill="#e8b93f"/>';
+      return [
+        { minDur: 6800, sub: '阿公書櫃裡那本翻到起毛邊的老故事書——孫子拿起來讀，照樣笑得咯咯響！',
+          html: scene(P(300, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, 1) +
+            P(480, 302, A('kid', 'happy') + P(-40, -46, OLDBOOK, '', 0, .9), '', 0, .95, true) + hearts(400, 185) + notes(560, 200)) },
+        { minDur: 6800, sub: '「歷久彌新」：「彌」是更加——經過長久歲月，反而越讀越有味道、越來越新鮮！',
+          html: scene(P(400, 270, OLDBOOK, '', 0, 1.6) +
+            '<g class="st-tw"><path d="M470 220 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>' + hearts(300, 210)) },
+        { minDur: 6800, sub: '經典之所以是經典：唐詩、童話、老歌——每一代人讀，都能讀出新的感動！',
+          html: scene(P(260, 302, A('kid', 'happy'), '', 0, .9) + P(400, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>', '', 0, .98) + P(540, 302, A('kid', 'happy'), '', 0, .9, true) +
+            P(400, 200, OLDBOOK, '', 0, 1) + hearts(490, 175) + notes(300, 180)) },
+        { minDur: 6400, sub: '歷久彌新：經久不衰，愈久愈新。',
+          html: scene(P(400, 275, OLDBOOK, '', 0, 1.6) +
+            '<g class="st-tw"><path d="M470 225 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#ffd97a"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">歷久彌新</text>') }
+      ];
+    },
+    /* 與時俱進 */
+    i102: function () {
+      return [
+        { minDur: 6800, sub: '老教授從粉筆黑板，到投影片，再到線上互動課——教了四十年，教法一直在更新！',
+          html: scene(P(300, 270, '<rect x="-40" y="-30" width="80" height="60" rx="4" fill="#2f4f3f" stroke="#1e3a2c" stroke-width="2.6"/><path d="M-24 -8 h48 M-24 6 h32" stroke="#fff" stroke-width="2"/>', '', 0, .95) +
+            P(500, 270, '<rect x="-40" y="-28" width="80" height="52" rx="4" fill="#3a3550" stroke="#2c2840" stroke-width="2.6"/><rect x="-32" y="-20" width="64" height="36" rx="2" fill="#7fb2e0"/>', '', 0, .95) +
+            '<path d="M352 265 h80" stroke="#548a40" stroke-width="4"/><path d="M432 265 l-12 -8 v16 z" fill="#548a40"/>') },
+        { minDur: 6800, sub: '「與時俱進」：跟著時代一起前進——工具在變、環境在變，方法也要跟著變！',
+          html: scene(P(400, 302, A('kid', 'happy') + '<path d="M-12 -32 q12 10 24 0 l0 8 q-12 10 -24 0 z" fill="#e8e2d5"/>' + P(-42, -50, '<rect x="-10" y="-16" width="20" height="30" rx="4" fill="#3a2e26"/><rect x="-7" y="-12" width="14" height="20" rx="2" fill="#7fb2e0"/>', '', 0, 1), 'st-strut', 0, 1.05) +
+            P(560, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-11" stroke="#6d7585" stroke-width="2.6"/><line x1="0" y1="0" x2="8" y2="4" stroke="#6d7585" stroke-width="2.6"/>', '', 0, 1) + hearts(280, 195)) },
+        { minDur: 6800, sub: '但別忘了：工具會過時，用心教學的初心不會——傳統的好加上創新的巧，才是真進步！',
+          html: scene(P(340, 302, A('kid', 'happy')) + P(500, 302, A('kid', 'happy'), '', 0, .98, true) +
+            P(420, 195, '<path d="M0 6 C-8 -6 -22 2 -12 14 L0 24 L12 14 C22 2 8 -6 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1.2)) },
+        { minDur: 6400, sub: '與時俱進：跟隨時代，不斷創新。',
+          html: scene(P(400, 302, A('kid', 'happy'), 'st-strut', 0, 1.08) +
+            P(560, 210, '<circle cx="0" cy="0" r="18" fill="#fff" opacity=".92"/><line x1="0" y1="0" x2="0" y2="-10" stroke="#6d7585" stroke-width="2.4"/><line x1="0" y1="0" x2="7" y2="3" stroke="#6d7585" stroke-width="2.4"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">與時俱進</text>') }
+      ];
+    },
+    /* 因人而異 */
+    i103: function () {
+      return [
+        { minDur: 6800, sub: '同一套讀書法：小異早起背書效果好，小因卻是夜貓子，晚上讀才有精神！',
+          html: scene(P(280, 302, A('kid', 'happy') + P(-40, -56, '<circle cx="0" cy="0" r="12" fill="#ffdd66" stroke="#f5b73e" stroke-width="2.4"/>', '', 0, 1)) +
+            P(520, 302, A('kid', 'happy') + P(40, -56, '<circle cx="0" cy="0" r="11" fill="#f5f0dc"/><circle cx="4" cy="-2" r="9" fill="#3a3550"/>', '', 0, 1), '', 0, .98, true) + notes(400, 185)) },
+        { minDur: 6800, sub: '「因人而異」：依各人情況而不同——體質、興趣、步調都不一樣，沒有萬用公式！',
+          html: scene(P(300, 302, A('kid', 'happy'), '', 0, .95) + P(430, 302, A('kid', 'happy'), '', 0, 1.05) + P(560, 302, A('kid', 'happy'), '', 0, .88, true) +
+            P(300, 210, '<circle cx="0" cy="0" r="14" fill="#7fb2e0"/>', '', 0, 1) + P(430, 200, '<rect x="-12" y="-12" width="24" height="24" rx="4" fill="#ff9eb5"/>', '', 0, 1) + P(560, 212, '<path d="M0 -14 l12 22 h-24 z" fill="#a5d47c"/>', '', 0, 1)) },
+        { minDur: 6800, sub: '所以別硬套別人的方法——多試幾種，找到最適合「自己」的那一種！',
+          html: scene(P(400, 302, A('kid', 'happy'), '', 0, 1.05) + hearts(500, 190) +
+            P(280, 205, '<circle cx="0" cy="0" r="22" fill="#fff" opacity=".92"/><text x="0" y="8" text-anchor="middle" font-size="14" fill="#548a40">適合我</text>')) },
+        { minDur: 6400, sub: '因人而異：依人不同，各有差異。',
+          html: scene(P(310, 302, A('kid', 'happy'), '', 0, .95) + P(490, 302, A('kid', 'happy'), '', 0, 1.05, true) +
+            P(310, 208, '<circle cx="0" cy="0" r="13" fill="#7fb2e0"/>', '', 0, 1) + P(490, 202, '<path d="M0 -13 l11 20 h-22 z" fill="#a5d47c"/>', '', 0, 1) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">因人而異</text>') }
+      ];
+    },
+    /* 錦上添花 */
+    i104: function () {
+      var SILKF = '<rect x="-44" y="-28" width="88" height="56" rx="5" fill="#ff9eb5" stroke="#e07a94" stroke-width="2.6"/><path d="M-30 -12 q6 -10 14 -2 q8 -8 12 2 q-8 12 -13 6 q-8 8 -13 -6 z" fill="#ffd97a"/><circle cx="20" cy="12" r="6" fill="#a5d47c"/>';
+      return [
+        { minDur: 7000, sub: '王安石詩句「麗唱仍添錦上花」——華美的錦緞上，再繡上幾朵花，美上加美！',
+          html: scene(P(400, 265, SILKF, '', 0, 1.4) +
+            P(220, 302, A('kid', 'wow'), '', 0, .95) + hearts(300, 210) +
+            '<g class="st-tw"><path d="M520 210 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>') },
+        { minDur: 6800, sub: '「錦上添花」：好上加好——冠軍隊又簽下明星球員，實力更上一層樓！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(0, -74, '<path d="M-14 0 h28 l-4 10 h-20 z" fill="#e8b93f" stroke="#c99a1e" stroke-width="2"/>', '', 0, 1), 'st-cheer', 0, 1.02) +
+            P(520, 302, A('kid', 'happy') + P(38, -56, '<path d="M0 -14 l4 9 10 1 -7 7 2 10 -9 -5 -9 5 2 -10 -7 -7 10 -1 z" fill="#ffd97a"/>', '', 0, 1.1), 'st-inR', 0, 1, true) + bang(430, 180)) },
+        { minDur: 6800, sub: '不過記住它的好朋友：順境時的錦上添花人人會，困境時的「雪中送炭」更珍貴！',
+          html: scene(P(300, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#e07a94">添花</text>') +
+            P(500, 245, '<circle cx="0" cy="0" r="26" fill="#fff" opacity=".92"/><text x="0" y="7" text-anchor="middle" font-size="13" fill="#c96a5a">送炭</text>') +
+            P(500, 190, '<path d="M0 6 C-6 -4 -16 2 -9 10 L0 16 L9 10 C16 2 6 -4 0 6 Z" fill="#ff9eb5" class="st-tw"/>', '', 0, 1)) },
+        { minDur: 6400, sub: '錦上添花：好上加好，美上加美。',
+          html: scene(P(400, 270, SILKF, '', 0, 1.45) +
+            '<g class="st-tw"><path d="M510 215 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#fff"/></g>' +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">錦上添花</text>') }
+      ];
+    },
+    /* 雪中送炭 */
+    i105: function () {
+      var CHARCOAL = '<path d="M-14 8 h28 l-4 -18 h-20 z" fill="#8a5a33" stroke="#6d4426" stroke-width="2"/><g fill="#3a2e26"><ellipse cx="-5" cy="-12" rx="6" ry="4"/><ellipse cx="6" cy="-14" rx="6" ry="4"/></g><g class="st-flick"><path d="M0 -22 q3 -6 0 -10" stroke="#ff9d4d" stroke-width="3" fill="none"/></g>';
+      return [
+        { minDur: 7000, sub: '大雪天，宋太宗想到城裡的貧民沒柴取暖——派人挨家挨戶送去炭火和米糧！',
+          html: scene('<g fill="#fff"><circle class="st-snow" cx="200" cy="30" r="4"/><circle class="st-snow" style="animation-delay:1s" cx="440" cy="14" r="3.6"/><circle class="st-snow" style="animation-delay:2s" cx="640" cy="36" r="4"/></g>' +
+            P(320, 302, A('kid', 'happy') + P(-38, -46, CHARCOAL, '', 0, .95), 'st-inL', 0, 1) +
+            P(540, 302, A('kid', 'sad') + '<path d="M-24 -30 q-6 8 0 14 M24 -30 q6 8 0 14" stroke="#9cc4dc" stroke-width="3" fill="none"/>', '', 0, .95, true) + sweat(600, 195), 'night') },
+        { minDur: 6800, sub: '寒風裡收到一盆炭火——那份暖，比什麼山珍海味都珍貴！',
+          html: scene('<g fill="#fff"><circle class="st-snow" cx="260" cy="26" r="4"/><circle class="st-snow" style="animation-delay:1.4s" cx="560" cy="20" r="3.6"/></g>' +
+            P(400, 290, CHARCOAL, '', 0, 1.5) +
+            P(300, 302, A('kid', 'happy'), '', 0, .9) + P(500, 302, A('kid', 'happy'), '', 0, .9, true) + hearts(400, 200), 'night') },
+        { minDur: 6800, sub: '「雪中送炭」：急難時伸出援手——同學住院時的一疊筆記，就是最好的炭火！',
+          html: scene(P(340, 302, A('kid', 'happy') + P(-42, -50, '<rect x="-15" y="-19" width="30" height="38" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><g stroke="#8fa3bf" stroke-width="1.6"><line x1="-9" y1="-9" x2="9" y2="-9"/><line x1="-9" y1="-1" x2="9" y2="-1"/></g>', '', 0, .95)) +
+            P(520, 302, A('kid', 'sad') + P(34, -30, '<path d="M-8 4 q8 -12 16 0" stroke="#fff" stroke-width="5" fill="none"/>', '', 0, 1), '', 0, .97, true) + hearts(430, 185)) },
+        { minDur: 6400, sub: '雪中送炭：困境中的及時援助。',
+          html: scene('<g fill="#fff"><circle class="st-snow" cx="240" cy="28" r="4"/><circle class="st-snow" style="animation-delay:1.2s" cx="580" cy="18" r="3.6"/></g>' +
+            P(400, 290, CHARCOAL, '', 0, 1.5) + hearts(500, 220) +
+            '<text x="400" y="90" text-anchor="middle" font-size="52" font-weight="bold" fill="#eef4ff">雪中送炭</text>', 'night') }
+      ];
+    },
+    /* 瓜田李下 */
+    i106: function () {
+      var MELON = '<path d="M-60 12 q0 -10 12 -10 q6 -8 16 -4 q10 -6 16 2 q12 -2 12 10 z" fill="#7fa858"/><ellipse cx="-30" cy="6" rx="14" ry="10" fill="#5a8a3a"/><ellipse cx="10" cy="8" rx="12" ry="9" fill="#5a8a3a"/>';
+      var PLUMT = '<path d="M0 0 L0 -48" stroke="#7a5a3a" stroke-width="7" stroke-linecap="round"/><circle cx="-20" cy="-58" r="18" fill="#6faa5a"/><circle cx="14" cy="-66" r="20" fill="#7fba6a"/><circle cx="-4" cy="-48" r="4.6" fill="#c95a8a"/><circle cx="18" cy="-52" r="4.6" fill="#c95a8a"/>';
+      return [
+        { minDur: 7000, sub: '古樂府〈君子行〉：「瓜田不納履」——走過瓜田，鞋掉了也別彎腰提，免得被當成偷瓜！',
+          html: scene(P(300, 300, MELON, '', 0, 1.3) +
+            P(470, 302, A('kid', 'happy') + '<path d="M-20 6 l-8 -4" stroke="#8a5a33" stroke-width="4" stroke-linecap="round"/>', 'st-strut', 0, 1) + qmark(560, 200)) },
+        { minDur: 6800, sub: '「李下不正冠」——李樹下也別舉手整帽子，免得像在伸手摘李子！',
+          html: scene(P(540, 302, PLUMT, '', 0, 1.3) +
+            P(360, 302, A('kid', 'happy'), 'st-strut', 0, 1) +
+            P(280, 210, '<circle cx="0" cy="0" r="20" fill="#fff" opacity=".92"/><line x1="-10" y1="-10" x2="10" y2="10" stroke="#c96a5a" stroke-width="3"/><path d="M-6 2 q6 -8 12 -2" stroke="#6d7585" stroke-width="2.4" fill="none"/>')) },
+        { minDur: 6800, sub: '「瓜田李下」：容易引起嫌疑的場合要避開——管班費就全程公開帳目，清清白白！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-44, -50, '<rect x="-16" y="-20" width="32" height="40" rx="3" fill="#fff" stroke="#c9bfa8" stroke-width="2.4"/><text x="0" y="4" text-anchor="middle" font-size="12" fill="#548a40">帳目</text>', '', 0, .95)) +
+            P(540, 302, A('kid', 'happy'), '', 0, .97, true) + hearts(450, 188)) },
+        { minDur: 6400, sub: '瓜田李下：避開嫌疑之地。',
+          html: scene(P(260, 300, MELON, '', 0, 1.1) + P(570, 302, PLUMT, '', 0, 1.15) +
+            P(410, 302, A('kid', 'happy'), 'st-strut', 0, .98) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">瓜田李下</text>') }
+      ];
+    },
+    /* 勞而無功 */
+    i107: function () {
+      return [
+        { minDur: 7000, sub: '《管子》說：勉強做不可能的事、教聽不進的人——「謂之勞而無功」，白忙一場！',
+          html: scene(P(340, 302, A('kid', 'wow') + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, 1, true) + sweat(270, 188) +
+            P(540, 290, '<path d="M-30 16 L-20 -14 L8 -24 L28 -10 L34 16 Z" fill="#8b93a3" stroke="#6d7585" stroke-width="2.6"/>', '', 0, 1.2) + qmark(620, 230)) },
+        { minDur: 6800, sub: '往石頭地裡拚命撒種——汗流了一整天，一根芽都長不出來！',
+          html: scene(P(360, 302, A('kid', 'sad') + P(-40, -40, '<path d="M-10 -6 q10 -8 20 0 l-4 10 q-6 4 -12 0 z" fill="#c9a06c" stroke="#a8734a" stroke-width="2"/>', '', 0, 1)) + sweat(300, 188) +
+            '<g fill="#8b93a3"><circle cx="470" cy="296" r="6"/><circle cx="520" cy="300" r="8"/><circle cx="570" cy="294" r="5"/></g>' + qmark(520, 250)) },
+        { minDur: 6800, sub: '「勞而無功」：方向錯了，再努力也白費——先確認方向對不對，再全力衝刺！',
+          html: scene(P(360, 302, A('kid', 'happy') + P(-42, -52, '<circle cx="0" cy="0" r="15" fill="#fff" stroke="#c9bfa8" stroke-width="2.6"/><path d="M0 -9 L3 0 L10 2 L3 4 L0 11 L-3 4 L-10 2 L-3 0 Z" fill="#c96a5a"/>', '', 0, 1)) + hearts(470, 188) +
+            '<path d="M480 250 h90" stroke="#548a40" stroke-width="4"/><path d="M570 250 l-12 -8 v16 z" fill="#548a40"/>') },
+        { minDur: 6400, sub: '勞而無功：費力辛勞，卻無成效。',
+          html: scene(P(380, 302, A('kid', 'sad') + P(30, -50, HOE, '', 0, 1, true), 'st-hoe', 0, 1.02, true) + sweat(300, 188) + qmark(500, 190) +
+            '<text x="400" y="80" text-anchor="middle" font-size="52" font-weight="bold" fill="#4a3200">勞而無功</text>') }
+      ];
     }
   };
 
