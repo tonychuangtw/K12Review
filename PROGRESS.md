@@ -12,7 +12,8 @@ STATUS: in-progress
 
 ## 下一步（每批做完就記錄、commit push、回報 Tony）
 - [ ] 閱讀繼續每日一批（各年級 1 篇/批，id 從 r211 接續連號；文言/白話輪替平衡——批1文言在7/9/11、批2在8/10/12，下批回到7/9/11；選材避開既有標題——現有標題清單用 python 解析 reading.js 印出）
-- [ ] LanExamMock 英檢站閱讀也要輪流加（Tony 閱讀優先方針涵蓋兩站；新增 reading wave 檔要同步加進 js/loader.js 的 BANK_FILES）
+- [x] 2026-08-16 LanExamMock 閱讀 wave7：五級各 +3 篇 MC（15 篇／90 題），rmc 25→28，loader 已加 reading-mc-w7.js，v18，commit 30600eb
+- [ ] LanExamMock 下輪：reading-mc-w8.js（同樣五級各 3 篇，id 用 <level>-rmc8-0N；記得同步 loader BANK_FILES + versions.js；test 要求每篇 ≥250 字、剛好 6 題、選項 4 個不重複、同級標題不可重複）
 - [ ] 閱讀量足後其次：俚語/字音/字形續擴；⚠️ 新增成語成本高（需 deep+配圖+劇情動畫全套），無 Tony 指示先不動
 
 ## 守則備忘
