@@ -18,7 +18,7 @@ STATUS: in-progress
 
 ## 進度
 - [x] 字形 chars：660/660 ✅ 全部完成
-- [ ] 字音 phonics：0/660
+- [x] 字音 phonics：660/660 ✅ 全部完成
 - [ ] 成語 idioms：0/1200
 - 每批 30 題；每 5 批 commit push 一次
 
