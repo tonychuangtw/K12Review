@@ -337,6 +337,11 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
     #fff;
   touch-action: none;
 }
+/* 手寫題公布答案後在同一個格子裡顯示正解字 */
+.wq-panel.wq-done {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8rem; line-height: 1; color: #1a1c22; font-weight: 500;
+}
 .wrong-item.wb-click { cursor: pointer; }
 .wrong-item.wb-click:hover { border-color: var(--accent); }
 .wrong-item.wb-click .wb-row b::after { content: ' ▸'; color: var(--dim); font-weight: normal; }

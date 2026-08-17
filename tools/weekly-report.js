@@ -40,6 +40,8 @@ function reportForUser(state, label, total) {
   const days = lastNDays(7);
   const daily = state.daily || {};
   const gen = state.gen || {};   // 一般學習（自主練習）逐日彙整，2026-08-12 起記錄
+  const reviews = state.review || [];   // 總結測驗歷次成績（2026-08-17 起不再混入自主練習）
+  const dwell = state.dwell || {};      // 每題看解析的停留時間（2026-08-17 起記錄）
   const lines = [];
   if (total > 1) lines.push(`👤 ${label}`);
 
@@ -49,13 +51,16 @@ function reportForUser(state, label, total) {
     const g = gen[d];
     const wd = '日一二三四五六'[new Date(d + 'T00:00:00').getDay()];
     const genTxt = g && g.n ? `📖 自主練 ${g.n} 題（對 ${g.ok}）` : '';
+    const rv = reviews.filter((h) => h.date === d);
+    const rvTxt = rv.length ? `📋 總結測驗 ${rv.map((h) => h.score + '分').join('、')}` : '';
+    const extra = [genTxt, rvTxt].filter(Boolean).join(' · ');
     if (g && g.n) genN += g.n;
-    if (!r || !r.done) { return `  ${d.slice(5)}(${wd}) ` + (genTxt || '❌ 未完成'); }
+    if (!r || !r.done) { return `  ${d.slice(5)}(${wd}) ` + (extra || '❌ 未完成'); }
     doneN++;
     const pct = r.total ? Math.round(100 * r.firstOk / r.total) : 0;
     const mins = Math.max(1, Math.round((r.ms || 0) / 60000));
     return `  ${d.slice(5)}(${wd}) ✅ 首次答對 ${r.firstOk}/${r.total}（${pct}%）· ${mins}分` +
-      (r.rounds > 1 ? ` · 重做${r.rounds - 1}輪` : '') + (genTxt ? ` · ${genTxt}` : '');
+      (r.rounds > 1 ? ` · 重做${r.rounds - 1}輪` : '') + (extra ? ` · ${extra}` : '');
   });
   lines.push(`本週每日練習完成 ${doneN}/7 天` + (genN ? ` · 自主練習共 ${genN} 題` : ''));
   lines.push(...dayLines);
@@ -92,6 +97,14 @@ function reportForUser(state, label, total) {
 
   // 錯題本現況
   if (Array.isArray(state.wrong)) lines.push(`錯題本待複習：${state.wrong.length} 題`);
+
+  // 看解析的專心度（做太快＝沒看解析，2026-08-17 Tony 要求）
+  let dwN = 0, dwMs = 0;
+  days.forEach((d) => { const w = dwell[d]; if (w && w.n) { dwN += w.n; dwMs += w.ms || 0; } });
+  if (dwN) {
+    const sec = Math.round(dwMs / dwN / 100) / 10;
+    lines.push(`看解析平均停留：${sec} 秒／題` + (sec < 4 ? '（偏快，建議陪著看一次解析）' : ''));
+  }
 
   // 本週仿寫
   const wlog = state.writingLog || {};

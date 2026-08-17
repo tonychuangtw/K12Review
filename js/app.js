@@ -295,7 +295,9 @@
       var k = bareKey(w.t, w.id, null);
       if (seen[k]) return;
       seen[k] = true;
-      mbItems.push({ t: w.t, id: w.id, rev: true });
+      var mb = { t: w.t, id: w.id, rev: true };
+      if (w.t === 'chars' && w.wr) mb.hw = true;   // 手寫來源的字形錯題 → 考卷上也用手寫作答
+      mbItems.push(mb);
     });
     var pool = [];
     (daysEntries || []).forEach(function (dayList) {
@@ -307,6 +309,7 @@
         var it = { t: e.t, id: e.id };
         if (e.syn) it.syn = true;
         if (e.qi != null) it.qi = e.qi;
+        if (e.hw) it.hw = true;             // 手寫練習做過的字，重考時仍出手寫題
         pool.push(it);
       });
     });
@@ -517,8 +520,10 @@
     if (!ok) {
       rec.id = q.item.id;
       rec.q = String(q.question || '').slice(0, 90);
-      rec.chosen = String(q.options[idx] == null ? '' : q.options[idx]).slice(0, 60);
-      rec.correct = String(q.options[q.correct] == null ? '' : q.options[q.correct]).slice(0, 60);
+      rec.chosen = q.hw ? '（手寫的筆順／字形寫錯）'
+        : String(q.options[idx] == null ? '' : q.options[idx]).slice(0, 60);
+      rec.correct = q.hw ? String(q.item.answer)
+        : String(q.options[q.correct] == null ? '' : q.options[q.correct]).slice(0, 60);
     }
     state.answers.push(rec);
     var cut = Date.now() - 30 * 86400000;
@@ -778,6 +783,7 @@
   var quiz = null; // {entries, i, score, mode, round, firstTry, wrongNow, startedAt, combo}
   var CAT_NAME = {
     idioms: '成語', slang: '俚語諺語', phonics: '字音辨正', chars: '字形辨正', reading: '閱讀測驗', custom: '自創題庫',
+    write: '手寫',
     english: '英文', math: '數學', science: '自然', social: '社會'
   };
   var SUBJECT_CATS = ['english', 'math', 'science', 'social'];
@@ -856,6 +862,11 @@
     var e = quiz.entries[quiz.i];
     var q = buildEntryQ(e);
     if (!q) { quiz.i++; if (quiz.i < quiz.entries.length) return renderQ(); return finishRound(); }
+    if (hwEntry(e)) {
+      q.hw = true;   // 手寫來源的字形題：測驗裡也用手寫作答
+      q.question = q.item.sentence + '\n括號中讀「' +
+        (state.phon === 'zhuyin' ? q.item.zhuyin : q.item.pinyin) + '」— 請在下面的格子裡手寫這個字';
+    }
     quiz.snaps.push({ q: q, e: e, no: quiz.i + 1, round: quiz.round, answered: null });
     paintSnap(quiz.snaps.length - 1);
   }
@@ -882,7 +893,22 @@
     $('quizQuestion').textContent = q.question;
     var box = $('quizOptions');
     box.innerHTML = '';
-    q.options.forEach(function (opt, idx) {
+    if (q.hw) {
+      // 手寫題：未作答→開手寫格；已作答／回顧→顯示正解字
+      box.classList.add('hidden');
+      if (!snap.answered) hqLoad(snap, q);
+      else {
+        hqCancel();
+        $('quizHwWrap').classList.remove('hidden');
+        var pan = $('quizHwPanel');
+        pan.className = 'wq-panel wq-done';
+        pan.textContent = q.item.answer;
+      }
+    } else {
+      box.classList.remove('hidden');
+      hqCancel();
+    }
+    if (!q.hw) q.options.forEach(function (opt, idx) {
       var b = document.createElement('button');
       b.className = 'q-opt';
       b.textContent = opt;
@@ -917,7 +943,7 @@
     }
     // 用猜的按鈕：只在「最新一題、已答且答對」時顯示（規則：答錯自動進錯題本，不需此鈕）
     var gBtn = $('quizGuess');
-    if (latest && snap.answered && snap.answered.ok && q.type !== 'reading') {
+    if (latest && snap.answered && snap.answered.ok && q.type !== 'reading' && !q.hw) {
       gBtn.textContent = '🤔 這題用猜的（加入複習）';
       gBtn.disabled = false;
       gBtn.classList.remove('hidden');
@@ -956,11 +982,203 @@
   // 作答結果的回饋文字（answer 與 paintSnap 共用）
   function feedbackText(ans, q) {
     var head;
+    if (q.hw) {
+      head = ans.ok ? '✓ 一次就一筆不錯地寫對了！'
+                    : '✗ 第一次沒寫對（已列入錯題本安排複習），剛才已重寫到全對。';
+      return head + '\n' + q.explain;
+    }
     if (ans.ok) head = '✓ 答對了！';
     else if (ans.secondOk) head = '第一次沒選對，第二次答對了 ✓（此題以答錯計，已加入錯題本安排複習）';
     else if (ans.secondIdx != null) head = '✗ 還是不對，正確答案已標示。（已自動加入錯題本安排複習）';
     else head = '✗ 答錯了。（已自動加入錯題本安排複習）';
     return head + '\n' + q.explain;
+  }
+
+  /* ---------- 測驗裡的手寫題（Tony 2026-08-17 指示）----------
+     手寫練習寫錯的字進錯題本後，混進每日練習／總結測驗時一樣要用手寫作答，不改成選擇題。
+     判定沿用手寫練習的規則：第一次一筆全對才算對，寫錯先看示範再重寫到全對才過關；
+     成績與錯題本一律以第一次為準。罕用字沒有筆順資料時才退回選擇題。 */
+
+  var hqWriter = null;
+  // 這個字形題是否該用手寫出題：entry 明確標了 hw，或錯題本裡這題是手寫來源（wr）
+  function hwEntry(e) {
+    if (e.t !== 'chars') return false;
+    if (e.hw) return true;
+    return (state.wrong || []).some(function (w) {
+      return w.t === 'chars' && w.id === e.id && w.wr;
+    });
+  }
+  function hqCancel() {
+    if (hqWriter) { try { hqWriter.cancelQuiz(); } catch (er) {} hqWriter = null; }
+    $('quizHwPanel').innerHTML = '';
+    $('quizHwWrap').classList.add('hidden');
+    $('quizHwBtns').classList.add('hidden');
+    $('quizHwStatus').classList.add('hidden');
+  }
+  function hqStatus(msg, cls) {
+    var el = $('quizHwStatus');
+    el.textContent = msg;
+    el.className = 'q-feedback' + (cls ? ' ' + cls : '');
+    el.classList.remove('hidden');
+  }
+  // 沒有筆順資料 → 這題退回選擇題
+  function hqFallback(snap, q) {
+    q.hw = false;
+    hqCancel();
+    if (quiz.cur === q) paintSnap(quiz.view);
+  }
+  function hqLoad(snap, q) {
+    hqCancel();
+    $('quizOptions').classList.add('hidden');
+    if (snap.hwData) { hqRun(snap, q, snap.hwData); return; }
+    if (!W.HanziWriter || typeof fetch === 'undefined') { hqFallback(snap, q); return; }
+    hqStatus('筆順資料載入中…', '');
+    fetch('strokes/u' + q.item.answer.codePointAt(0).toString(16) + '.json')
+      .then(function (r) { if (!r.ok) throw new Error('404'); return r.json(); })
+      .then(function (data) {
+        if (quiz.cur !== q) return;
+        snap.hwData = data;
+        hqRun(snap, q, data);
+      })
+      .catch(function () { if (quiz.cur === q) hqFallback(snap, q); });
+  }
+  function hqRun(snap, q, data) {
+    if (hqWriter) { try { hqWriter.cancelQuiz(); } catch (er) {} hqWriter = null; }
+    $('quizHwWrap').classList.remove('hidden');
+    $('quizHwBtns').classList.remove('hidden');
+    var panel = $('quizHwPanel');
+    panel.className = 'wq-panel';
+    panel.innerHTML = '';
+    var spd = strokeOpts();
+    hqWriter = HanziWriter.create(panel, q.item.answer, {
+      width: 260, height: 260, padding: 14,
+      showCharacter: false, showOutline: false, showHintAfterMisses: 3,
+      strokeColor: '#1a1c22', drawingColor: '#2c66d9', drawingWidth: 10,
+      highlightColor: '#e0b64b',
+      strokeAnimationSpeed: spd.speed, delayBetweenStrokes: spd.delay,
+      charDataLoader: function (c, done) { done(data); }
+    });
+    hqWriter.quiz({
+      leniency: 1.4,
+      onComplete: function (sum) { hqDone(snap, q, sum.totalMistakes); }
+    });
+    hqStatus(snap.hwTried
+      ? '照剛剛的示範再寫一次，單次全對才能進下一題！'
+      : '這題要手寫：直接在格子裡一筆一筆寫（連續寫錯 3 筆會出現提示筆畫）', '');
+  }
+  function hqDemoThenRetry(snap, q) {
+    if (!hqWriter) { hqRun(snap, q, snap.hwData); return; }
+    try { hqWriter.cancelQuiz(); } catch (er) {}
+    hqWriter.animateCharacter({ onComplete: function () {
+      setTimeout(function () { if (quiz.cur === q) hqRun(snap, q, snap.hwData); }, 2000);
+    } });
+  }
+  function hqDone(snap, q, mistakes) {
+    var ok = mistakes === 0;
+    if (!snap.hwJudged) {
+      snap.hwJudged = true;
+      snap.hwFirstOk = ok;
+      hwRecordFirst(snap, q, ok);
+    }
+    if (ok) {
+      hqCancel();
+      snap.answered = { idx: null, ok: !!snap.hwFirstOk, secondIdx: null, secondOk: null, hw: true };
+      paintSnap(quiz.view);
+      gateNext(q, snap.answered.ok);
+      return;
+    }
+    snap.hwTried = true;
+    hqStatus('✗ 有 ' + mistakes + ' 筆寫錯（已列入錯題本）。先看一次正確筆順，再重寫到全對才過關！', 'bad');
+    hqDemoThenRetry(snap, q);
+  }
+  // 手寫題的第一次結果：成績、統計、錯題本比照選擇題（錯題標 wr=1，之後仍出手寫）
+  function hwRecordFirst(snap, q, ok) {
+    var e = snap.e;
+    if (ok) quiz.score++;
+    quiz.combo = ok ? quiz.combo + 1 : 0;
+    if (quiz.combo > quiz.best) quiz.best = quiz.combo;
+    $('quizCombo').textContent = quiz.combo >= 3 ? '🔥' + quiz.combo : '';
+    var k = entryKey(e);
+    if (quiz.firstTry[k] === undefined) {
+      quiz.firstTry[k] = ok;
+      logAnswer(q, null, ok);
+      logGen(q, e, ok);
+    }
+    if (ok) touchWrongOnCorrect('chars', q.item.id);
+    else {
+      quiz.wrongNow.push(e);
+      if (quiz.round === 1) addWrong('chars', q.item.id, true);
+    }
+    bumpStat('chars', ok);
+    if (quiz.mode !== 'daily') $('quizScore').textContent = '得分 ' + quiz.score;
+    if (quiz.mode === 'daily') saveDailyRun(quiz.i + 1);
+  }
+  $('quizHwDemo').addEventListener('click', function () {
+    var snap = quiz && quiz.snaps[quiz.snaps.length - 1];
+    if (!snap || !snap.q || !snap.q.hw || snap.answered) return;
+    if (!snap.hwJudged) { snap.hwJudged = true; snap.hwFirstOk = false; hwRecordFirst(snap, snap.q, false); }
+    snap.hwTried = true;
+    hqStatus('看完示範後要重寫到全對才能過關（這題已算答錯，列入錯題本）。', 'bad');
+    hqDemoThenRetry(snap, snap.q);
+  });
+
+  /* ---------- 自主練習／總結測驗的當日紀錄 ----------
+     每日練習有自己的 state.daily 紀錄，總結測驗記在 state.review，
+     兩者都不能混進「自主練習」(state.gen)，否則家長檢視會把當天考的每日練習內容
+     全都算成自主練習（Tony 2026-08-17 回報）。 */
+  function logGen(q, e, ok) {
+    if (quiz.mode === 'daily' || quiz.mode === 'review') return;
+    var gref = null;
+    if (!e.rev) {
+      gref = { t: q.type, id: q.item.id };
+      if (e.qi != null) gref.qi = e.qi;
+      if (q.hw) gref.hw = 1;
+    }
+    bumpGen(q.hw ? 'write' : q.type, ok, gref);
+  }
+
+  /* ---------- 解析停留（Tony 2026-08-17：做太快＝沒看解析）----------
+     公布答案後先鎖住「下一題」幾秒，秒數依解析長度加權、答錯的鎖久一點；
+     同時記錄每題實際停留時間，家長檢視看得到「解析平均停留幾秒」。 */
+  var gate = { timer: null, shownAt: 0, logged: true };
+  function gateSeconds(q, ok) {
+    var len = String(q.explain || '').length;
+    return (ok ? 3 : 6) + Math.min(6, Math.floor(len / 60));
+  }
+  function clearGate() {
+    if (gate.timer) { clearInterval(gate.timer); gate.timer = null; }
+  }
+  function gateNext(q, ok) {
+    clearGate();
+    gate.shownAt = Date.now();
+    gate.logged = false;
+    var btn = $('quizNext');
+    var left = gateSeconds(q, ok);
+    btn.disabled = true;
+    btn.textContent = '📖 先看解析（' + left + '）';
+    gate.timer = setInterval(function () {
+      left--;
+      if (left <= 0) {
+        clearGate();
+        btn.disabled = false;
+        btn.textContent = '下一題';
+      } else btn.textContent = '📖 先看解析（' + left + '）';
+    }, 1000);
+  }
+  // 離開解析畫面時記一筆停留秒數（每日 30 天內）
+  function logDwell() {
+    clearGate();
+    if (gate.logged || !gate.shownAt) return;
+    gate.logged = true;
+    var ms = Math.min(Date.now() - gate.shownAt, 180000);
+    gate.shownAt = 0;
+    var d = (state.dwell = state.dwell || {});
+    var rec = d[today()] || (d[today()] = { n: 0, ms: 0 });
+    rec.n++;
+    rec.ms += ms;
+    var days = Object.keys(d).sort();
+    while (days.length > 30) delete d[days.shift()];
+    save();
   }
 
   function answer(idx, btn) {
@@ -978,15 +1196,7 @@
       var firstEncounter = quiz.firstTry[k] === undefined;
       if (firstEncounter) quiz.firstTry[k] = ok;
       if (firstEncounter) logAnswer(q, idx, ok);
-      if (firstEncounter && quiz.mode !== 'daily') {
-        // 總結測驗（review）與錯題複習混入題（e.rev）照樣計入當日題數，但不進出題 refs
-        var gref = null;
-        if (quiz.mode !== 'review' && !e.rev) {
-          gref = { t: q.type, id: q.item.id };
-          if (e.qi != null) gref.qi = e.qi;
-        }
-        bumpGen(q.type, ok, gref);
-      }
+      if (firstEncounter) logGen(q, e, ok);   // 每日練習與總結測驗不算自主練習
       if (firstEncounter && quiz.mode === 'drill') {
         state.drillPos = state.drillPos || {};
         state.drillPos[quiz.drillKey] = quiz.drillBase + quiz.i + 1;
@@ -1043,6 +1253,7 @@
     if (q.type === 'idioms') maybeAnimBtn(fb, q.item);
     $('quizNext').textContent = '下一題';
     $('quizNext').classList.remove('hidden');
+    gateNext(q, snap.answered.ok);   // 解析先看幾秒才能按下一題
     if (quiz.mode !== 'daily') $('quizScore').textContent = '得分 ' + quiz.score;
     if (quiz.mode === 'daily') saveDailyRun(quiz.i + 1);
   }
@@ -1102,6 +1313,7 @@
   }
 
   $('quizNext').addEventListener('click', function () {
+    logDwell();
     // 回顧模式：往前走回最新一題
     if (quiz.view != null && quiz.view < quiz.snaps.length - 1) { paintSnap(quiz.view + 1); return; }
     quiz.i++;
@@ -1109,10 +1321,13 @@
     else renderQ();
   });
   $('quizPrev').addEventListener('click', function () {
+    logDwell();
     var k = (quiz.view == null ? quiz.snaps.length - 1 : quiz.view) - 1;
     if (k >= 0) paintSnap(k);
   });
   $('quizExit').addEventListener('click', function () {
+    logDwell();
+    hqCancel();
     function leave() {
       if (quiz && quiz.mode === 'search') { show('search'); return; }
       show('home');
@@ -1424,7 +1639,11 @@
     // 錯題到期複習：最多 3 題混入今日練習
     var t = today();
     state.wrong.filter(function (w) { return (w.due || t) <= t; }).slice(0, 3)
-      .forEach(function (w) { entries.push({ t: w.t, id: w.id, rev: true }); });
+      .forEach(function (w) {
+        var e = { t: w.t, id: w.id, rev: true };
+        if (w.t === 'chars' && w.wr) e.hw = true;   // 手寫錯的字混進每日練習時一樣手寫
+        entries.push(e);
+      });
     beginQuiz(entries, 'daily', null);
     quiz.total = entries.length;
     quiz.weakBoost = ws ? ws.weak : null;
@@ -1693,7 +1912,7 @@
     wr.judged = true;
     if (ok) { wr.score++; touchWrongOnCorrect('chars', it.id); $('writeScore').textContent = '寫對 ' + wr.score; }
     else addWrong('chars', it.id, true);
-    bumpGen('write', ok, { t: 'chars', id: it.id });
+    bumpGen('write', ok, { t: 'chars', id: it.id, hw: 1 });
     bumpStat('write', ok);
   }
   function wqStart(it, data) {
@@ -1850,7 +2069,7 @@
     if (!wr.judged) {
       wr.judged = true;
       if (ok) { wr.score++; touchWrongOnCorrect('chars', it.id); }
-      bumpGen('write', ok, { t: 'chars', id: it.id });
+      bumpGen('write', ok, { t: 'chars', id: it.id, hw: 1 });
       bumpStat('write', ok);
       if (!ok) addWrong('chars', it.id, true);
     }
@@ -2285,9 +2504,11 @@
   }
 
   // 家長檢視：近 14 天每日練習完成狀況，點日期看細節；dailyOverride/genOverride = 跨帳號檢視時傳入對方資料
-  function renderDailyCal(body, dailyOverride, genOverride) {
+  function renderDailyCal(body, dailyOverride, genOverride, reviewOverride, dwellOverride) {
     var daily = dailyOverride || state.daily || {};
     var gen = genOverride || state.gen || {};
+    var reviews = reviewOverride || state.review || [];
+    var dwell = dwellOverride || state.dwell || {};
     var head = document.createElement('h3');
     head.className = 'prog-h3';
     head.textContent = '👨‍👩‍👧 家長檢視 — 每日學習紀錄';
@@ -2302,7 +2523,8 @@
       if (daily[k] && daily[k].done) week++;
     }
     hint.textContent = '連續完成 ' + ds + ' 天 · 最近 7 天完成 ' + week + ' 天。' +
-      '✅=每日練習完成、📖=當天有自主練習（刷題/單元/錯題重練/手寫）。點日期看做了什麼、錯了什麼。';
+      '✅=每日練習完成、📖=當天有自主練習（刷題/單元/錯題重練/手寫）、📋=當天考過總結測驗。' +
+      '點日期看做了什麼、錯了什麼、解析看多久。';
     body.appendChild(hint);
     var cal = document.createElement('div');
     cal.className = 'daily-cal';
@@ -2314,12 +2536,14 @@
         var key = fmtDate(d);
         var rec = daily[key];
         var gRec = gen[key];
+        var rvRec = reviews.filter(function (h) { return h.date === key; });
+        var dRec = dwell[key];
         var studied = gRec && gRec.n > 0;
         var cell = document.createElement('button');
-        cell.className = 'cal-cell' + (rec && rec.done ? ' done' : studied ? ' gen' : offset === 0 ? ' today' : '');
+        cell.className = 'cal-cell' + (rec && rec.done ? ' done' : studied || rvRec.length ? ' gen' : offset === 0 ? ' today' : '');
         cell.innerHTML = '<small>' + (d.getMonth() + 1) + '/' + d.getDate() + '</small>' +
-          (rec && rec.done ? '✅' : studied ? '📖' : offset === 0 ? '⬜' : '❌');
-        cell.addEventListener('click', function () { showDayDetail(detail, key, rec, gRec); });
+          (rec && rec.done ? '✅' : studied ? '📖' : rvRec.length ? '📋' : offset === 0 ? '⬜' : '❌');
+        cell.addEventListener('click', function () { showDayDetail(detail, key, rec, gRec, rvRec, dRec); });
         cal.appendChild(cell);
       })(j);
     }
@@ -2336,11 +2560,28 @@
     return '📖 自主練習 ' + gRec.n + ' 題，答對 ' + gRec.ok + (cats ? '（' + cats + '）' : '');
   }
 
-  function showDayDetail(box, key, rec, gRec) {
+  // 總結測驗當日摘要：「📋 總結測驗 85 分（答對 17/20，考 3 天份）」，可能一天考多次
+  function rvDayText(rvRec) {
+    return (rvRec || []).map(function (h) {
+      return '📋 總結測驗 ' + h.score + ' 分（答對 ' + h.ok + '/' + h.n +
+        '，考 ' + (h.days || []).length + ' 天份）';
+    }).join('<br>');
+  }
+  // 解析停留：做題太快＝沒看解析，這裡讓家長看得到平均秒數
+  function dwellDayText(dRec) {
+    if (!dRec || !dRec.n) return '';
+    var sec = dRec.ms / dRec.n / 1000;
+    return '📖 解析平均停留 ' + (Math.round(sec * 10) / 10) + ' 秒／題（' + dRec.n + ' 題）' +
+      (sec < 4 ? ' ⚠️ 偏快，可能沒看解析' : '');
+  }
+
+  function showDayDetail(box, key, rec, gRec, rvRec, dRec) {
     box.classList.remove('hidden');
+    var extra = (gRec && gRec.n ? '<br>' + genDayText(gRec) : '') +
+      ((rvRec || []).length ? '<br>' + rvDayText(rvRec) : '') +
+      (dwellDayText(dRec) ? '<br>' + dwellDayText(dRec) : '');
     if (!rec || !rec.done) {
-      box.innerHTML = '<b>' + key + '</b><br>這一天沒有完成每日練習。' +
-        (gRec && gRec.n ? '<br>' + genDayText(gRec) : '');
+      box.innerHTML = '<b>' + key + '</b><br>這一天沒有完成每日練習。' + extra;
       return;
     }
     var mins = Math.max(1, Math.round(rec.ms / 60000));
@@ -2350,7 +2591,7 @@
       '✅ 完成於 ' + ('0' + fin.getHours()).slice(-2) + ':' + ('0' + fin.getMinutes()).slice(-2) +
       ' · 用時約 ' + mins + ' 分鐘<br>' +
       '第一次答對 ' + rec.firstOk + ' / ' + rec.total + '（' + pct + '%）· 錯題重做 ' + (rec.rounds - 1) + ' 輪後全對';
-    if (gRec && gRec.n) html += '<br>' + genDayText(gRec);
+    html += extra;
     if (rec.wrong && rec.wrong.length) {
       html += '<br><br><b>當天答錯過的題目：</b>';
       rec.wrong.forEach(function (w) {
@@ -2413,11 +2654,18 @@
     b0.textContent = '🔥 每日練習連續完成 ' + dailyStreak(daily, today()) + ' 天';
     var gen = st.gen || {};
     var genToday = gen[today()];
+    var rvAll = st.review || [];
+    var rvToday = rvAll.filter(function (h) { return h.date === today(); });
+    var dwellAll = st.dwell || {};
+    var dwToday = dwellAll[today()];
     var s1 = document.createElement('span');
     s1.textContent = (todayRec && todayRec.done
       ? '✅ 今日已完成（第一次答對 ' + todayRec.firstOk + ' / ' + todayRec.total + '）'
       : '⬜ 今日每日練習還沒完成') +
-      (genToday && genToday.n ? ' · 📖 今日自主練習 ' + genToday.n + ' 題' : '');
+      (genToday && genToday.n ? ' · 📖 今日自主練習 ' + genToday.n + ' 題' : '') +
+      (rvToday.length ? ' · 📋 今日總結測驗 ' + rvToday.map(function (h) { return h.score + ' 分'; }).join('、') : '') +
+      (dwToday && dwToday.n ? ' · 📖 解析平均停留 ' +
+        (Math.round(dwToday.ms / dwToday.n / 100) / 10) + ' 秒／題' : '');
     var s2 = document.createElement('span');
     s2.textContent = '年級設定：' + gradesLabel(st.grades || []) +
       (ownerEmail ? ' · 檢視對象：' + ownerEmail : '');
@@ -2425,27 +2673,37 @@
     body.appendChild(head);
 
     // 三格數字
-    var ok7 = 0, tot7 = 0, done7 = 0, gen7 = 0;
+    var ok7 = 0, tot7 = 0, done7 = 0, gen7 = 0, rv7 = 0, dwN = 0, dwMs = 0;
+    var day7 = {};
     for (var i = 0; i < 7; i++) {
       var d7 = new Date(); d7.setDate(d7.getDate() - i);
       var k7 = fmtDate(d7);
+      day7[k7] = true;
       var r7 = daily[k7];
       if (r7 && r7.done) { done7++; ok7 += r7.firstOk || 0; tot7 += r7.total || 0; }
       var g7 = gen[k7];
       if (g7 && g7.n) { gen7 += g7.n; ok7 += g7.ok || 0; tot7 += g7.n; }
+      var w7 = dwellAll[k7];
+      if (w7 && w7.n) { dwN += w7.n; dwMs += w7.ms || 0; }
     }
+    rvAll.forEach(function (h) {
+      if (!day7[h.date]) return;
+      rv7++; ok7 += h.ok || 0; tot7 += h.n || 0;
+    });
     var wrongArr = st.wrong || [];
     var dueN = wrongArr.filter(function (w) { return (w.due || '') <= today(); }).length;
     var tiles = document.createElement('div');
     tiles.className = 'pt-tiles';
     tiles.innerHTML =
-      tile(tot7 ? Math.round(100 * ok7 / tot7) + '%' : '—', '近7天首次答對率（含自主練習）') +
-      tile(done7 + '/7' + (gen7 ? ' +📖' + gen7 : ''), '近7天每日練習完成' + (gen7 ? '＋自主練題數' : '')) +
+      tile(tot7 ? Math.round(100 * ok7 / tot7) + '%' : '—', '近7天首次答對率（每日＋自主＋總結測驗）') +
+      tile(done7 + '/7' + (gen7 ? ' +📖' + gen7 : '') + (rv7 ? ' +📋' + rv7 : ''),
+           '近7天每日練習完成' + (gen7 ? '＋自主練題數' : '') + (rv7 ? '＋總結測驗次數' : '')) +
+      tile(dwN ? (Math.round(dwMs / dwN / 100) / 10) + 's' : '—', '近7天平均看解析秒數／題') +
       tile(String(wrongArr.length), '錯題本累積（' + dueN + ' 題到期）');
     body.appendChild(tiles);
 
     // 近 14 天完成格（沿用進度頁的月曆，可點日期看細節）
-    renderDailyCal(body, daily, gen);
+    renderDailyCal(body, daily, gen, rvAll, dwellAll);
 
     // 各類正確率（近 30 天，來自逐題作答紀錄）
     h3('📊 各類正確率（近 30 天）');
