@@ -147,6 +147,33 @@ await session(8731, 9331, { blockWriter: true, seed: seedWrong(['c001', 'c002', 
     await js(`JSON.stringify((JSON.parse(localStorage.getItem('chinese-review-v1')).gen) || {})`));
 });
 
+/* ---------- 1b. 只考錯題本的錯題測驗 ---------- */
+console.log('錯題測驗（只考錯題本）');
+await session(8734, 9334, { blockWriter: true, seed: seedWrong(['c001', 'c002', 'c003', 'c004', 'c005', 'c006', 'c007', 'c008']) }, async (js) => {
+  await js(`document.querySelector('.card[data-go="review"]').click()`);
+  await sleep(300);
+  await js(`document.getElementById('rvWrongOnly').click()`);
+  await sleep(700);
+  check('不挑日期也能出錯題考卷', await js(`!document.getElementById('view-quiz').classList.contains('hidden')`));
+  check('題數＝錯題本題數（8 題）',
+    /\/ 8/.test(await js(`document.getElementById('quizProgress').textContent`)),
+    await js(`document.getElementById('quizProgress').textContent`));
+  check('錯題測驗的題目也走手寫', await js(`!document.getElementById('quizHwWrap').classList.contains('hidden')`));
+  // 全部答完 → 應記成 📕 錯題測驗
+  for (let i = 0; i < 8; i++) {
+    await js(`window.__hw.onComplete({ totalMistakes: 0 })`);
+    await sleep(200);
+    await js(`(function(){var b=document.getElementById('quizNext');b.disabled=false;b.click();})()`);
+    await sleep(250);
+  }
+  check('考完記成錯題測驗成績', await js(`(function () {
+    var h = (JSON.parse(localStorage.getItem('chinese-review-v1')).review) || [];
+    return h.length === 1 && h[0].wrongOnly === 1 && h[0].n === 8;})()`),
+    await js(`JSON.stringify((JSON.parse(localStorage.getItem('chinese-review-v1')).review) || [])`));
+  check('結果畫面標示錯題測驗', /錯題測驗結束/.test(await js(`document.getElementById('quizResult').textContent`)),
+    await js(`document.getElementById('quizResult').textContent.slice(0, 40)`));
+});
+
 /* ---------- 2. 真的 hanzi-writer：筆順資料抓得到、格子畫得出來 ---------- */
 console.log('手寫題進測驗（真 hanzi-writer）');
 await session(8732, 9332, { blockWriter: false, seed: seedWrong(['c001', 'c002', 'c003', 'c004', 'c005', 'c006']) }, async (js) => {

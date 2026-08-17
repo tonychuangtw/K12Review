@@ -634,7 +634,8 @@
     if (dueN) $('cnt-wrong').textContent = state.wrong.length + ' 題待複習 · ' + dueN + ' 題到期';
     $('cnt-writing').textContent = '每日一句 · 仿寫';
     var rvLast = (state.review || [])[(state.review || []).length - 1];
-    $('cnt-review').textContent = rvLast ? '上次 ' + rvLast.score + ' 分 · 挑日期出考卷' : '挑日期出考卷 · 滿分100';
+    $('cnt-review').textContent = rvLast ? '上次 ' + rvLast.score + ' 分 · 挑日期或只考錯題本'
+      : '挑日期出考卷／只考錯題本 · 滿分100';
     var uDone = Object.keys(state.units || {}).length;
     $('cnt-units').textContent = uDone ? '已完成 ' + uDone + ' 個單元' : '先教後考 · 逐關解鎖';
     $('cnt-drill').textContent = '照順序一題不漏';
@@ -1759,7 +1760,8 @@
     } else {
       hist.slice(-8).reverse().forEach(function (h) {
         html += '<div class="prog-row"><b>' + h.score + ' 分</b><span>' + h.date +
-          ' · 答對 ' + h.ok + '/' + h.n + ' · 考 ' + h.days.length + ' 天份' +
+          ' · 答對 ' + h.ok + '/' + h.n +
+          (h.wrongOnly ? ' · 📕 錯題測驗' : ' · 考 ' + h.days.length + ' 天份') +
           (h.gradesTxt ? ' · ' + h.gradesTxt : '') + '</span></div>';
       });
     }
@@ -1778,6 +1780,26 @@
     quiz.reviewDays = days;
   }
 
+  // 錯題測驗（Tony 2026-08-17）：隔幾天單獨驗收錯題本，不挑日期。
+  // 優先出今天到期的、再依錯的次數排，最多 20 題；手寫來源的字形錯題照樣出手寫題。
+  function startWrongTest() {
+    var t = today();
+    var pool = (state.wrong || []).slice().sort(function (a, b) {
+      var ad = (a.due || t) <= t ? 0 : 1, bd = (b.due || t) <= t ? 0 : 1;
+      if (ad !== bd) return ad - bd;
+      if ((b.n || 0) !== (a.n || 0)) return (b.n || 0) - (a.n || 0);
+      return (b.lastWrong || 0) - (a.lastWrong || 0);
+    }).slice(0, 20);
+    if (pool.length < 3) {
+      UIDialog.alert('錯題本目前不到 3 題，先做幾回練習累積錯題再來考。');
+      return;
+    }
+    var entries = composeReview([], pool, pool.length, pool.length, Math.random);
+    beginQuiz(entries, 'review', null);
+    quiz.reviewDays = [];
+    quiz.wrongOnly = true;
+  }
+
   function completeReview() {
     var total = 0, firstOk = 0;
     Object.keys(quiz.firstTry).forEach(function (k) { total++; if (quiz.firstTry[k]) firstOk++; });
@@ -1785,17 +1807,20 @@
     var ms = Date.now() - quiz.startedAt;
     state.review = state.review || [];
     state.review.push({ date: today(), ts: Date.now(), days: quiz.reviewDays || [], n: total,
-                        ok: firstOk, score: score, ms: ms, gradesTxt: gradesLabel(state.grades) });
+                        ok: firstOk, score: score, ms: ms, gradesTxt: gradesLabel(state.grades),
+                        wrongOnly: quiz.wrongOnly ? 1 : 0 });
     if (state.review.length > 30) state.review = state.review.slice(-30);
     save();
     document.querySelector('#view-quiz .quiz-card').classList.add('hidden');
     var mins = Math.max(1, Math.round(ms / 60000));
-    var verdict = score >= 90 ? '💯 太棒了，這幾天的內容記得很牢！'
+    var wo = quiz.wrongOnly;
+    var verdict = score >= 90 ? (wo ? '💯 太棒了，錯過的題目幾乎都記住了！' : '💯 太棒了，這幾天的內容記得很牢！')
       : score >= 75 ? '👍 掌握得不錯，答錯的題目已排入錯題複習。'
-      : score >= 60 ? '🟡 及格邊緣——這幾天的內容要再複習一下。'
-      : '❌ 分數偏低，之前的練習可能沒有用心做。錯題已排入複習，建議把這幾天的內容重新讀過。';
+      : score >= 60 ? (wo ? '🟡 及格邊緣——這些錯題還沒真正記牢，再練一輪。' : '🟡 及格邊緣——這幾天的內容要再複習一下。')
+      : (wo ? '❌ 分數偏低，這些錯題等於還沒學會。建議先看解析、再用手寫／單題重練一遍。'
+            : '❌ 分數偏低，之前的練習可能沒有用心做。錯題已排入複習，建議把這幾天的內容重新讀過。');
     var r = $('quizResult');
-    r.innerHTML = '📋 總結測驗結束<br>' +
+    r.innerHTML = (wo ? '📕 錯題測驗結束<br>' : '📋 總結測驗結束<br>') +
       '<b style="font-size:2rem">' + score + '</b><small> / 100 分</small><br>' +
       '答對 ' + firstOk + ' / ' + total + ' 題 · 用時約 ' + mins + ' 分鐘<br>' +
       verdict + '<br>' +
@@ -1838,6 +1863,7 @@
 
   $('reviewExit').addEventListener('click', function () { show('home'); });
   $('rvStart').addEventListener('click', startReviewTest);
+  $('rvWrongOnly').addEventListener('click', function () { if (!needLogin()) startWrongTest(); });
   $('rvLast7').addEventListener('click', function () {
     var d = new Date(); d.setDate(d.getDate() - 6);
     var cut = fmtDate(d);
@@ -2563,8 +2589,8 @@
   // 總結測驗當日摘要：「📋 總結測驗 85 分（答對 17/20，考 3 天份）」，可能一天考多次
   function rvDayText(rvRec) {
     return (rvRec || []).map(function (h) {
-      return '📋 總結測驗 ' + h.score + ' 分（答對 ' + h.ok + '/' + h.n +
-        '，考 ' + (h.days || []).length + ' 天份）';
+      return (h.wrongOnly ? '📕 錯題測驗 ' : '📋 總結測驗 ') + h.score + ' 分（答對 ' + h.ok + '/' + h.n +
+        (h.wrongOnly ? '，只考錯題本' : '，考 ' + (h.days || []).length + ' 天份') + '）';
     }).join('<br>');
   }
   // 解析停留：做題太快＝沒看解析，這裡讓家長看得到平均秒數
