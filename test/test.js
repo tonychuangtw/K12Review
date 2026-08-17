@@ -8,7 +8,11 @@ const root = path.join(__dirname, '..');
 for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'custom']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
+for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars']) {
+  eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
+}
 global.window.APP_DATA = window.APP_DATA;
+global.window.APP_CHECKS = window.APP_CHECKS;
 eval(fs.readFileSync(path.join(root, 'js/app.js'), 'utf8'));
 const PURE = window.PURE;
 const D = window.APP_DATA;
@@ -251,6 +255,40 @@ console.log('全科架構 / 自創分冊分課 / 解析強化');
     .filter(ch => !fs.existsSync(path.join(strokeDir, 'u' + ch.codePointAt(0).toString(16) + '.json')));
   ok(lackStroke.length === 0,
     `手寫字筆順資料齊全（缺 ${lackStroke.length} 字${lackStroke.length ? '：' + lackStroke.join('') : ''}）`);
+}
+
+/* ---------- 解析確認題（js/data/checks-*.js） ---------- */
+console.log('解析確認題');
+{
+  const CHK = window.APP_CHECKS || {};
+  const byId = {};
+  ['idioms', 'phonics', 'chars'].forEach(c => D[c].forEach(it => { byId[it.id] = c; }));
+  const ids = Object.keys(CHK);
+  const bad = [];
+  ids.forEach(id => {
+    const k = CHK[id];
+    if (!byId[id]) return bad.push(id + ' 對不到題庫題目');
+    if (!k || typeof k.q !== 'string' || k.q.length < 6) return bad.push(id + ' 題目太短');
+    if (!Array.isArray(k.o) || k.o.length !== 4) return bad.push(id + ' 選項不是 4 個');
+    if (new Set(k.o).size !== 4) return bad.push(id + ' 選項重複');
+    if (k.o.some(o => typeof o !== 'string' || !o.length)) return bad.push(id + ' 選項有空值');
+    if (!Number.isInteger(k.a) || k.a < 0 || k.a > 3) return bad.push(id + ' 答案索引錯誤');
+    // 確認題不能只是把原題答案再問一次：字形／字音題的正解不可等於原題答案本身
+    const src = D[byId[id]].find(x => x.id === id);
+    if (byId[id] === 'chars' && k.o[k.a] === src.answer) bad.push(id + ' 正解與原題答案相同（等於再問一次原題）');
+  });
+  ok(bad.length === 0, `確認題格式正確（問題 ${bad.length} 筆${bad.length ? '：' + bad.slice(0, 5).join('；') : ''}）`);
+  const cover = {};
+  ['idioms', 'phonics', 'chars'].forEach(c => {
+    cover[c] = D[c].filter(it => CHK[it.id]).length;
+  });
+  const dist = [0, 0, 0, 0];
+  ids.forEach(id => dist[CHK[id].a]++);
+  ok(!ids.length || Math.max(...dist) / ids.length < 0.5, `確認題答案位置分散（${dist.join('/')}）`);
+  console.log(`    覆蓋率：成語 ${cover.idioms}/${D.idioms.length}、字音 ${cover.phonics}/${D.phonics.length}、字形 ${cover.chars}/${D.chars.length}`);
+  const total = cover.idioms + cover.phonics + cover.chars;
+  const need = D.idioms.length + D.phonics.length + D.chars.length;
+  if (process.env.CHK_FULL) ok(total === need, `確認題全數覆蓋（${total}/${need}）`);
 }
 
 console.log(failed ? `\n${failed} 項失敗` : '\n全部通過');

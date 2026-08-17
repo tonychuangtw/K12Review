@@ -9,6 +9,7 @@
     if (!Array.isArray(DATA[k])) DATA[k] = [];
   });
   var SUBJECTS = W.APP_SUBJECTS || [{ key: 'chinese', name: '國語', icon: '📖', ready: true, desc: '' }];
+  var CHECKS = W.APP_CHECKS || {};   // 解析確認題（js/data/checks-*.js）
 
   /* ---------- 純函式（node 測試用，經 window.PURE 匯出） ---------- */
 
@@ -847,6 +848,9 @@
     beginQuiz(entries, 'normal', 'reading');
   }
 
+  // 測試用小掛鉤（test/browser-smoke.mjs 需要知道現在考的是哪一題）
+  W.QuizDebug = { id: function () { return (quiz && quiz.cur) ? quiz.cur.item.id : null; } };
+
   function beginQuiz(entries, mode, cat) {
     quiz = {
       entries: entries, i: 0, score: 0, mode: mode, cat: cat,
@@ -888,6 +892,7 @@
       (quiz.mode === 'review' ? '📋 總結測驗 · ' : '') +
       (e.rev ? (quiz.mode === 'review' ? '📕 來自錯題本 · ' : '🔁 錯題複習 · ') : '') +
       CAT_NAME[q.type] + (q.item.grade ? ' · ' + gradeLabel(q.item.grade) : '');
+    hideChk();
     var pas = $('quizPassage');
     if (q.passage) { pas.textContent = q.passage; pas.classList.remove('hidden'); }
     else pas.classList.add('hidden');
@@ -1085,7 +1090,7 @@
       hqCancel();
       snap.answered = { idx: null, ok: !!snap.hwFirstOk, secondIdx: null, secondOk: null, hw: true };
       paintSnap(quiz.view);
-      gateNext(q, snap.answered.ok);
+      afterReveal(q, snap.answered.ok);
       return;
     }
     snap.hwTried = true;
@@ -1182,6 +1187,81 @@
     save();
   }
 
+  /* ---------- 解析確認題（Tony 2026-08-17 定案 (c) 完整版）----------
+     公布解析後追問一題「解析裡才有答案」的確認題，答對才能進下一題。
+     答錯 ⇒ 原題重新排入錯題本（複習日拉到隔天、連對次數歸零），不另外生成新錯題；
+     原題答對但確認題答錯也會進錯題本（會選但說不出為什麼＝還沒懂）。
+     沒有確認題資料的題目退回「解析鎖倒數」。 */
+
+  function chkOf(q) {
+    return (q && q.item && !q.item._noChk) ? CHECKS[q.item.id] : null;
+  }
+  // 原題降級：確認題錯了就當這題還沒精熟
+  function demoteWrong(t, id) {
+    var w = (state.wrong || []).find(function (x) { return x.t === t && x.id === id; });
+    if (!w) { addWrong(t, id); return; }
+    w.ok = 0;
+    w.due = nextDueDays(today(), 1);
+    save();
+  }
+  function bumpChkStat(ok) {
+    var c = (state.chk = state.chk || {});
+    var rec = c[today()] || (c[today()] = { n: 0, ok: 0 });
+    rec.n++;
+    if (ok) rec.ok++;
+    var days = Object.keys(c).sort();
+    while (days.length > 30) delete c[days.shift()];
+    save();
+  }
+  function hideChk() {
+    $('quizChk').classList.add('hidden');
+    $('quizChkFb').classList.add('hidden');
+    $('quizChkOpts').innerHTML = '';
+  }
+  // 公布解析之後：有確認題就問，沒有就用倒數鎖
+  function afterReveal(q, ok) {
+    var chk = chkOf(q);
+    if (!chk) { gateNext(q, ok); return; }
+    showChk(q, chk);
+  }
+  function showChk(q, chk) {
+    var box = $('quizChk');
+    box.classList.remove('hidden');
+    $('quizChkQ').textContent = chk.q;
+    $('quizChkFb').classList.add('hidden');
+    var opts = $('quizChkOpts');
+    opts.innerHTML = '';
+    $('quizNext').classList.add('hidden');   // 答完確認題才出現
+    chk.o.forEach(function (text, i) {
+      var b = document.createElement('button');
+      b.className = 'q-opt';
+      b.textContent = text;
+      b.addEventListener('click', function () { answerChk(q, chk, i); });
+      opts.appendChild(b);
+    });
+  }
+  function answerChk(q, chk, idx) {
+    var ok = idx === chk.a;
+    var btns = $('quizChkOpts').querySelectorAll('.q-opt');
+    Array.prototype.forEach.call(btns, function (b, i) {
+      b.disabled = true;
+      if (i === chk.a) b.classList.add('correct');
+      if (i === idx && !ok) b.classList.add('wrongpick');
+    });
+    var fb = $('quizChkFb');
+    fb.textContent = ok
+      ? '✓ 沒錯，這就是解析講的重點。'
+      : '✗ 這一點在剛剛的解析裡——原本那題已重新排入錯題本，明天會再考一次。' +
+        (chk.exp ? '\n' + chk.exp : '');
+    fb.className = 'q-feedback ' + (ok ? 'good' : 'bad');
+    fb.classList.remove('hidden');
+    bumpChkStat(ok);
+    if (!ok && q.type !== 'reading') demoteWrong(q.type, q.item.id);
+    $('quizNext').textContent = '下一題';
+    $('quizNext').classList.remove('hidden');
+    if (quiz.mode === 'daily') saveDailyRun(quiz.i + 1);
+  }
+
   function answer(idx, btn) {
     var q = quiz.cur, e = quiz.curEntry;
     var snap = quiz.snaps[quiz.snaps.length - 1];
@@ -1254,7 +1334,7 @@
     if (q.type === 'idioms') maybeAnimBtn(fb, q.item);
     $('quizNext').textContent = '下一題';
     $('quizNext').classList.remove('hidden');
-    gateNext(q, snap.answered.ok);   // 解析先看幾秒才能按下一題
+    afterReveal(q, snap.answered.ok);   // 有確認題就問一題，沒有就用倒數鎖
     if (quiz.mode !== 'daily') $('quizScore').textContent = '得分 ' + quiz.score;
     if (quiz.mode === 'daily') saveDailyRun(quiz.i + 1);
   }
@@ -2603,9 +2683,15 @@
 
   function showDayDetail(box, key, rec, gRec, rvRec, dRec) {
     box.classList.remove('hidden');
+    var cRec = (state.chk || {})[key];
+    var chkTxt = cRec && cRec.n
+      ? '📝 解析確認題 ' + cRec.ok + '/' + cRec.n + ' 答對' +
+        (cRec.ok / cRec.n < 0.6 ? ' ⚠️ 解析沒讀懂' : '')
+      : '';
     var extra = (gRec && gRec.n ? '<br>' + genDayText(gRec) : '') +
       ((rvRec || []).length ? '<br>' + rvDayText(rvRec) : '') +
-      (dwellDayText(dRec) ? '<br>' + dwellDayText(dRec) : '');
+      (dwellDayText(dRec) ? '<br>' + dwellDayText(dRec) : '') +
+      (chkTxt ? '<br>' + chkTxt : '');
     if (!rec || !rec.done) {
       box.innerHTML = '<b>' + key + '</b><br>這一天沒有完成每日練習。' + extra;
       return;
@@ -2699,7 +2785,7 @@
     body.appendChild(head);
 
     // 三格數字
-    var ok7 = 0, tot7 = 0, done7 = 0, gen7 = 0, rv7 = 0, dwN = 0, dwMs = 0;
+    var ok7 = 0, tot7 = 0, done7 = 0, gen7 = 0, rv7 = 0, dwN = 0, dwMs = 0, chkN = 0, chkOk = 0;
     var day7 = {};
     for (var i = 0; i < 7; i++) {
       var d7 = new Date(); d7.setDate(d7.getDate() - i);
@@ -2711,6 +2797,8 @@
       if (g7 && g7.n) { gen7 += g7.n; ok7 += g7.ok || 0; tot7 += g7.n; }
       var w7 = dwellAll[k7];
       if (w7 && w7.n) { dwN += w7.n; dwMs += w7.ms || 0; }
+      var c7 = (st.chk || {})[k7];
+      if (c7 && c7.n) { chkN += c7.n; chkOk += c7.ok || 0; }
     }
     rvAll.forEach(function (h) {
       if (!day7[h.date]) return;
@@ -2725,6 +2813,7 @@
       tile(done7 + '/7' + (gen7 ? ' +📖' + gen7 : '') + (rv7 ? ' +📋' + rv7 : ''),
            '近7天每日練習完成' + (gen7 ? '＋自主練題數' : '') + (rv7 ? '＋總結測驗次數' : '')) +
       tile(dwN ? (Math.round(dwMs / dwN / 100) / 10) + 's' : '—', '近7天平均看解析秒數／題') +
+      tile(chkN ? Math.round(100 * chkOk / chkN) + '%' : '—', '近7天解析確認題答對率（' + chkN + ' 題）') +
       tile(String(wrongArr.length), '錯題本累積（' + dueN + ' 題到期）');
     body.appendChild(tiles);
 

@@ -121,6 +121,13 @@
     </div>
     <div id="quizHwStatus" class="q-feedback hidden"></div>
     <div id="quizFeedback" class="q-feedback hidden"></div>
+    <!-- 解析確認題：看完解析要答一題確認，答錯的題會重新排入錯題本 -->
+    <div id="quizChk" class="chk-box hidden">
+      <div class="chk-head">📖 解析確認題（答對才能進下一題）</div>
+      <div id="quizChkQ" class="chk-q"></div>
+      <div id="quizChkOpts" class="q-options"></div>
+      <div id="quizChkFb" class="q-feedback hidden"></div>
+    </div>
     <div class="write-btns">
       <button id="quizPrev" class="btn-ghost hidden">← 上一題</button>
       <button id="quizGuess" class="btn-ghost hidden"></button>
@@ -365,6 +372,9 @@
 <script src="js/data/chars.js"></script>
 <script src="js/data/reading.js"></script>
 <script src="js/data/writing.js"></script>
+<script src="js/data/checks-idioms.js"></script>
+<script src="js/data/checks-phonics.js"></script>
+<script src="js/data/checks-chars.js"></script>
 <!-- custom.js（自創題庫 20MB+）改由 app.js 背景載入，避免手機開站白屏 -->
 <script src="js/data/subjects.js"></script>
 <script src="js/dialog.js"></script>

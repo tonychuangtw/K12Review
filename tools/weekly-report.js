@@ -101,6 +101,12 @@ function reportForUser(state, label, total) {
   // 看解析的專心度（做太快＝沒看解析，2026-08-17 Tony 要求）
   let dwN = 0, dwMs = 0;
   days.forEach((d) => { const w = dwell[d]; if (w && w.n) { dwN += w.n; dwMs += w.ms || 0; } });
+  let ckN = 0, ckOk = 0;
+  days.forEach((d) => { const c = (state.chk || {})[d]; if (c && c.n) { ckN += c.n; ckOk += c.ok || 0; } });
+  if (ckN) {
+    const pct = Math.round(100 * ckOk / ckN);
+    lines.push(`解析確認題：答對 ${ckOk}/${ckN}（${pct}%）` + (pct < 60 ? '（解析多半沒讀懂，建議陪讀）' : ''));
+  }
   if (dwN) {
     const sec = Math.round(dwMs / dwN / 100) / 10;
     lines.push(`看解析平均停留：${sec} 秒／題` + (sec < 4 ? '（偏快，建議陪著看一次解析）' : ''));

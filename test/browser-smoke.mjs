@@ -111,37 +111,80 @@ await session(8731, 9331, { blockWriter: true, seed: seedWrong(['c001', 'c002', 
   check('題目文字要求手寫', /手寫這個字/.test(await js(`document.getElementById('quizQuestion').textContent`)));
   check('手寫題不顯示「用猜的」', await js(`document.getElementById('quizGuess').classList.contains('hidden')`));
 
+  // 第 1 題：一次寫對 → 出解析確認題（這批題目都有 chk 資料）
   await js(`window.__hw.onComplete({ totalMistakes: 0 })`);
   await sleep(300);
   const fb = await js(`document.getElementById('quizFeedback').textContent`);
   check('一次寫對→公布解析', /一次就一筆不錯地寫對/.test(fb) && /正確答案/.test(fb), fb.slice(0, 50));
   check('答完在格子裡顯示正解字', (await js(`document.getElementById('quizHwPanel').textContent`)).length === 1);
-  check('下一題先被解析鎖鎖住',
-    await js(`document.getElementById('quizNext').disabled === true`) &&
-    /先看解析/.test(await js(`document.getElementById('quizNext').textContent`)));
-  check('鎖住期間按下一題不會跳題',
-    await js(`(function(){var n=document.getElementById('quizProgress').textContent;
-      document.getElementById('quizNext').click();
-      return document.getElementById('quizProgress').textContent === n;})()`));
-  await sleep(10000);
-  check('倒數結束自動解鎖', await js(`document.getElementById('quizNext').disabled === false &&
-    document.getElementById('quizNext').textContent === '下一題'`));
+  check('解析後出現確認題', await js(`!document.getElementById('quizChk').classList.contains('hidden')`));
+  check('確認題有 4 個選項', await js(`document.querySelectorAll('#quizChkOpts .q-opt').length === 4`));
+  check('確認題答完前不給下一題', await js(`document.getElementById('quizNext').classList.contains('hidden')`));
+  // 答對確認題
+  await js(`(function(){var a = window.APP_CHECKS[window.QuizDebug.id()].a;
+    document.querySelectorAll('#quizChkOpts .q-opt')[a].click();})()`);
+  await sleep(300);
+  check('確認題答對→解鎖下一題', await js(`!document.getElementById('quizNext').classList.contains('hidden')`) &&
+    /沒錯/.test(await js(`document.getElementById('quizChkFb').textContent`)));
+  check('確認題答對有記進 state.chk', await js(`(function(){
+    var c = (JSON.parse(localStorage.getItem('chinese-review-v1')).chk) || {};
+    var k = Object.keys(c)[0]; return !!k && c[k].n === 1 && c[k].ok === 1;})()`));
 
   await js(`document.getElementById('quizNext').click()`);
   await sleep(400);
-  check('解析停留有寫進 state.dwell', await js(`(function(){
-    var d = (JSON.parse(localStorage.getItem('chinese-review-v1')).dwell) || {};
-    var k = Object.keys(d)[0]; return !!k && d[k].n >= 1 && d[k].ms > 0;})()`));
-
+  // 第 2 題：寫錯 → 重寫到全對 → 確認題故意答錯
   await js(`window.__hw.onComplete({ totalMistakes: 2 })`);
   await sleep(400);
   check('寫錯要求重寫到全對', /重寫到全對/.test(await js(`document.getElementById('quizHwStatus').textContent`)));
   await sleep(2600);
   check('示範完重開手寫格', await js(`window.__hw.quizzes >= 3`));
+  const id2 = await js(`window.QuizDebug.id()`);
   await js(`window.__hw.onComplete({ totalMistakes: 0 })`);
   await sleep(300);
   check('第一次寫錯的題目標明已進錯題本',
     /第一次沒寫對/.test(await js(`document.getElementById('quizFeedback').textContent`)));
+  await js(`(function(){var a = window.APP_CHECKS[window.QuizDebug.id()].a;
+    var bad = [0,1,2,3].filter(function(i){return i !== a;})[0];
+    document.querySelectorAll('#quizChkOpts .q-opt')[bad].click();})()`);
+  await sleep(300);
+  check('確認題答錯→告知重排錯題本', /重新排入錯題本/.test(await js(`document.getElementById('quizChkFb').textContent`)),
+    await js(`document.getElementById('quizChkFb').textContent`));
+  check('確認題答錯→原題複習日拉到明天、連對歸零', await js(`(function(){
+    var s = JSON.parse(localStorage.getItem('chinese-review-v1'));
+    var w = (s.wrong || []).filter(function (x) { return x.id === ${JSON.stringify(id2)}; })[0];
+    if (!w) return false;
+    var d = new Date(); d.setDate(d.getDate() + 1);
+    var p = function (n) { return (n < 10 ? '0' : '') + n; };
+    var tmr = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+    return w.ok === 0 && w.due === tmr;})()`),
+    await js(`JSON.stringify((JSON.parse(localStorage.getItem('chinese-review-v1')).wrong || []).slice(0, 3))`));
+  check('確認題答錯也記進 state.chk', await js(`(function(){
+    var c = (JSON.parse(localStorage.getItem('chinese-review-v1')).chk) || {};
+    var k = Object.keys(c)[0]; return !!k && c[k].n === 2 && c[k].ok === 1;})()`));
+
+  // 第 3 題：沒有確認題資料時退回「解析鎖倒數」
+  await js(`document.getElementById('quizNext').click()`);
+  await sleep(400);
+  await js(`delete window.APP_CHECKS[window.QuizDebug.id()]`);
+  await js(`window.__hw.onComplete({ totalMistakes: 0 })`);
+  await sleep(300);
+  check('沒有確認題→退回解析鎖倒數',
+    await js(`document.getElementById('quizChk').classList.contains('hidden')`) &&
+    await js(`document.getElementById('quizNext').disabled === true`) &&
+    /先看解析/.test(await js(`document.getElementById('quizNext').textContent`)),
+    await js(`document.getElementById('quizNext').textContent`));
+  check('鎖住期間按下一題不會跳題',
+    await js(`(function(){var n=document.getElementById('quizProgress').textContent;
+      document.getElementById('quizNext').click();
+      return document.getElementById('quizProgress').textContent === n;})()`));
+  await sleep(11000);
+  check('倒數結束自動解鎖', await js(`document.getElementById('quizNext').disabled === false &&
+    document.getElementById('quizNext').textContent === '下一題'`));
+  await js(`document.getElementById('quizNext').click()`);
+  await sleep(400);
+  check('解析停留有寫進 state.dwell', await js(`(function(){
+    var d = (JSON.parse(localStorage.getItem('chinese-review-v1')).dwell) || {};
+    var k = Object.keys(d)[0]; return !!k && d[k].n >= 1 && d[k].ms > 0;})()`));
   check('總結測驗不算成自主練習（state.gen 空的）',
     await js(`Object.keys((JSON.parse(localStorage.getItem('chinese-review-v1')).gen) || {}).length === 0`),
     await js(`JSON.stringify((JSON.parse(localStorage.getItem('chinese-review-v1')).gen) || {})`));
@@ -162,7 +205,14 @@ await session(8734, 9334, { blockWriter: true, seed: seedWrong(['c001', 'c002', 
   // 全部答完 → 應記成 📕 錯題測驗
   for (let i = 0; i < 8; i++) {
     await js(`window.__hw.onComplete({ totalMistakes: 0 })`);
-    await sleep(200);
+    await sleep(250);
+    // 有確認題就答對它，沒有就直接解鎖
+    await js(`(function(){
+      var chk = window.APP_CHECKS[window.QuizDebug.id()];
+      if (chk && !document.getElementById('quizChk').classList.contains('hidden')) {
+        document.querySelectorAll('#quizChkOpts .q-opt')[chk.a].click();
+      }})()`);
+    await sleep(250);
     await js(`(function(){var b=document.getElementById('quizNext');b.disabled=false;b.click();})()`);
     await sleep(250);
   }

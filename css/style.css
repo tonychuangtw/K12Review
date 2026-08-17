@@ -337,6 +337,13 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
     #fff;
   touch-action: none;
 }
+/* 解析確認題 */
+.chk-box {
+  border: 2px dashed var(--accent); border-radius: 12px; padding: 0.9rem;
+  margin-top: 0.8rem; background: var(--panel);
+}
+.chk-head { font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
+.chk-q { font-size: 1rem; line-height: 1.7; white-space: pre-wrap; margin-bottom: 0.6rem; }
 /* 手寫題公布答案後在同一個格子裡顯示正解字 */
 .wq-panel.wq-done {
   display: flex; align-items: center; justify-content: center;
