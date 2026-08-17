@@ -252,6 +252,8 @@ await session(8733, 9333, { blockWriter: false, seed: seedWrong(['c001']) }, asy
   await sleep(900);
   check('每日練習開得起來', await js(`!document.getElementById('view-quiz').classList.contains('hidden')`));
   if (!await js(`!document.getElementById('quizHwWrap').classList.contains('hidden')`)) {
+    // 這題先拿掉確認題資料，測「沒有確認題 → 退回解析鎖倒數」這條路
+    await js(`delete window.APP_CHECKS[window.QuizDebug.id()]`);
     await js(`document.querySelector('#quizOptions .q-opt').click()`);
     await sleep(400);
     if (/再想一次/.test(await js(`document.getElementById('quizFeedback').textContent`))) {
@@ -259,9 +261,11 @@ await session(8733, 9333, { blockWriter: false, seed: seedWrong(['c001']) }, asy
         .filter(function (b) { return !b.disabled; })[0].click()`);
       await sleep(400);
     }
-    check('選擇題也有解析鎖',
+    check('選擇題沒有確認題資料時退回解析鎖',
+      await js(`document.getElementById('quizChk').classList.contains('hidden')`) &&
       await js(`document.getElementById('quizNext').disabled === true`) &&
-      /先看解析/.test(await js(`document.getElementById('quizNext').textContent`)));
+      /先看解析/.test(await js(`document.getElementById('quizNext').textContent`)),
+      await js(`document.getElementById('quizNext').textContent`));
     await sleep(13000);
     check('選擇題解析鎖會解開', await js(`document.getElementById('quizNext').disabled === false`));
     await js(`document.getElementById('quizNext').click()`);
@@ -269,6 +273,30 @@ await session(8733, 9333, { blockWriter: false, seed: seedWrong(['c001']) }, asy
     check('每日練習不算成自主練習（state.gen 空的）',
       await js(`Object.keys((JSON.parse(localStorage.getItem('chinese-review-v1')).gen) || {}).length === 0`),
       await js(`JSON.stringify((JSON.parse(localStorage.getItem('chinese-review-v1')).gen) || {})`));
+
+    // 下一題（有確認題資料）→ 公布解析後應該出確認題，答對才放行
+    if (await js(`document.getElementById('quizHwWrap').classList.contains('hidden')
+      && !!window.APP_CHECKS[window.QuizDebug.id()]`)) {
+      await js(`document.querySelector('#quizOptions .q-opt').click()`);
+      await sleep(400);
+      if (/再想一次/.test(await js(`document.getElementById('quizFeedback').textContent`))) {
+        await js(`Array.prototype.slice.call(document.querySelectorAll('#quizOptions .q-opt'))
+          .filter(function (b) { return !b.disabled; })[0].click()`);
+        await sleep(400);
+      }
+      check('選擇題有確認題資料時追問確認題',
+        await js(`!document.getElementById('quizChk').classList.contains('hidden')`) &&
+        await js(`document.getElementById('quizNext').classList.contains('hidden')`),
+        await js(`JSON.stringify({chk: document.getElementById('quizChk').className,
+          next: document.getElementById('quizNext').className})`));
+      await js(`(function(){var a = window.APP_CHECKS[window.QuizDebug.id()].a;
+        document.querySelectorAll('#quizChkOpts .q-opt')[a].click();})()`);
+      await sleep(300);
+      check('確認題答對→放行下一題',
+        await js(`!document.getElementById('quizNext').classList.contains('hidden')
+          && document.getElementById('quizNext').disabled === false`),
+        await js(`document.getElementById('quizChkFb').textContent`));
+    }
   }
 
   await js(`document.getElementById('quizExit').click()`);

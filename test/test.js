@@ -288,7 +288,8 @@ console.log('解析確認題');
   console.log(`    覆蓋率：成語 ${cover.idioms}/${D.idioms.length}、字音 ${cover.phonics}/${D.phonics.length}、字形 ${cover.chars}/${D.chars.length}`);
   const total = cover.idioms + cover.phonics + cover.chars;
   const need = D.idioms.length + D.phonics.length + D.chars.length;
-  if (process.env.CHK_FULL) ok(total === need, `確認題全數覆蓋（${total}/${need}）`);
+  // 2026-08-17 起 100% 覆蓋是硬性門檻：新增成語／字音／字形題時，要一併寫 js/data/checks-*.js 的確認題
+  ok(total === need, `確認題全數覆蓋（${total}/${need}）`);
 }
 
 console.log(failed ? `\n${failed} 項失敗` : '\n全部通過');

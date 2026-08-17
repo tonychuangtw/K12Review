@@ -28,6 +28,7 @@
 - 改到前端行為（測驗流程、手寫題、家長檢視）再跑 `node test/browser-smoke.mjs`：無 npm 依賴，用 CDP 驅動 playwright 快取裡的 chrome-headless-shell 真的點過一遍（找不到 shell 會自動跳過）。⚠️ 不要用 `node -e "require('tools/weekly-report.js')"` 檢查語法——那支 require 進去就會真的發週報給 Tony，要檢查語法用 `node --check`
 - 加題直接改 `js/data/*.js`，遵守檔頭既有 schema；id 連號不重複、grade 1-12、繁體台灣用字
 - ⚠️ **新增字形題（chars.js）後必跑 `node tools/fetch-strokes.js` 補筆順資料**，否則手寫練習顯示答案時沒有一筆一劃的動畫（2026-08-13 Tony 回報；test.js 已加守門，缺字會測試失敗）
+- ⚠️ **新增成語／字音／字形題後必須同時寫「解析確認題」**到 `js/data/checks-{idioms,phonics,chars}.js`（`{q, o:[4], a}`，答案只能在該題自己的 deep 解析裡找得到），2026-08-17 起 `test/test.js` 要求 100% 覆蓋，漏寫會測試失敗
 - 注音規則：一聲不標調號、輕聲 ˙ 前置、詞注音字間空格；拼音含聲調符號
 - 字音以教育部《國語一字多音審訂表》審訂音為準
 - push 到 main 即自動上 Pages，無需其他部署步驟
