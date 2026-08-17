@@ -17,7 +17,7 @@ STATUS: in-progress
 - 工具：`scratchpad/dump.js <cat> <from> <count>` 傾印欄位；`scratchpad/addchk.py <cat> <batch.json>` 併檔（自動排序去重）
 
 ## 進度
-- [ ] 字形 chars：12/660（c001–c012 完成，續接 c013）
+- [x] 字形 chars：660/660 ✅ 全部完成
 - [ ] 字音 phonics：0/660
 - [ ] 成語 idioms：0/1200
 - 每批 30 題；每 5 批 commit push 一次
