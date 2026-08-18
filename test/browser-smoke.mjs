@@ -181,6 +181,12 @@ await session(8731, 9331, { blockWriter: true, seed: seedWrong(['c001', 'c002', 
     await js(`(function(){var h=document.getElementById('quizGateHint');
       return !h.classList.contains('hidden') && /秒/.test(h.textContent);})()`),
     await js(`document.getElementById('quizGateHint').textContent`));
+  check('鎖住期間按下一題會跳出完整解析',
+    await js(`(function(){var m=document.querySelector('.dlg-overlay .dlg-msg');
+      return !!m && /完整解析/.test(m.textContent) && /正解/.test(m.textContent);})()`),
+    await js(`(document.querySelector('.dlg-overlay .dlg-msg')||{}).textContent`));
+  await js(`document.querySelector('.dlg-overlay .dlg-primary').click()`);
+  check('關掉解析彈窗', await js(`!document.querySelector('.dlg-overlay')`));
   await sleep(11000);
   check('倒數結束自動解鎖', await js(`!document.getElementById('quizNext').classList.contains('locked') &&
     document.getElementById('quizNext').disabled === false &&

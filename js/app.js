@@ -1189,21 +1189,27 @@
     }, 1000);
   }
   function gateHintText() {
-    return '⏳ 解析還沒看完呢，再 ' + gate.left + ' 秒就可以進下一題。';
+    return '⏳ 再 ' + gate.left + ' 秒就可以進下一題。';
   }
-  // 倒數期間按下按鈕：捲回解析並說明還剩幾秒，不要沒反應
+  // 倒數期間按「📖 先看解析」：跳出完整解析（Tony 2026-08-18：按了就要出現完整的解析）
   function gateNudge() {
     var hint = $('quizGateHint');
     hint.textContent = gateHintText();
     hint.classList.remove('hidden');
-    var fb = $('quizFeedback');
-    if (fb && !fb.classList.contains('hidden') && fb.scrollIntoView) {
-      fb.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    var btn = $('quizNext');
-    btn.classList.remove('nudge');
-    void btn.offsetWidth;   // 重跑動畫
-    btn.classList.add('nudge');
+    showFullExp();
+  }
+  // 完整解析彈窗：這一題的題目、正解與全部解析文字（閱讀題含原文）
+  function showFullExp() {
+    var snap = quiz && quiz.snaps[quiz.snaps.length - 1];
+    var q = snap && snap.q;
+    if (!q) return;
+    var out = [];
+    if (q.passage) out.push(q.passage, '');
+    out.push('【題目】' + q.question);
+    var ansText = q.hw ? q.item.answer : (q.options ? q.options[q.correct] : '');
+    if (ansText) out.push('【正解】' + ansText);
+    out.push('', '【完整解析】', q.explain || '（這題沒有額外解析）');
+    UIDialog.alert(out.join('\n'));
   }
   // 離開解析畫面時記一筆停留秒數（每日 30 天內）
   function logDwell() {

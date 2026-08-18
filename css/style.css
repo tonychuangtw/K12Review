@@ -242,14 +242,8 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
   background: var(--accent); color: #fff; border: none; border-radius: 10px;
   padding: 0.8rem; font-size: 1rem; cursor: pointer;
 }
-/* 解析鎖：外觀是「還不能按」，但事件照收，按下去會給提示 */
-.btn-primary.locked { background: var(--panel2); color: var(--dim); cursor: default; }
-.btn-primary.nudge { animation: gate-shake 0.35s; }
-@keyframes gate-shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}
+/* 解析鎖：外觀是「還不能進下一題」，但事件照收，按下去會跳出完整解析 */
+.btn-primary.locked { background: var(--panel2); color: var(--dim); }
 .gate-hint {
   margin-top: 0.5rem; text-align: center;
   font-size: 0.85rem; line-height: 1.6; color: var(--dim);
@@ -722,6 +716,9 @@ body.anim-lock { overflow: hidden; }
   padding: 1.1rem 1.2rem; max-width: 360px; width: 100%;
   box-shadow: 0 10px 40px rgba(0, 0, 0, .45);
 }
-.dlg-msg { font-size: .95rem; line-height: 1.7; white-space: pre-line; margin-bottom: 1rem; }
+.dlg-msg {
+  font-size: .95rem; line-height: 1.7; white-space: pre-line; margin-bottom: 1rem;
+  max-height: 70vh; overflow-y: auto;   /* 完整解析可能很長，讓它自己捲 */
+}
 .dlg-btns { display: flex; gap: .6rem; justify-content: flex-end; }
 .dlg-btns .chip.dlg-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
