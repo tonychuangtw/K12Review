@@ -5,7 +5,7 @@ window.APP_SUBJECTS = [
   { key: 'chinese', name: '國語', icon: '📖', ready: true,  desc: '成語・俚語・字音・字形・閱讀' },
   { key: 'english', name: '英文', icon: '🔤', ready: false, desc: '題庫建置中' },
   { key: 'math',    name: '數學', icon: '🔢', ready: false, desc: '題庫建置中' },
-  { key: 'science', name: '自然', icon: '🔬', ready: false, desc: '題庫建置中' },
+  { key: 'science', name: '自然', icon: '🔬', ready: true,  desc: '五上・動物／聲光／天文／燃燒' },
   { key: 'social',  name: '社會', icon: '🌏', ready: true,  desc: '五上・地理／歷史／公民' }
 ];
 // 非國語科目題庫（先空著）。schema（選擇題，比照 custom）：
@@ -13,5 +13,5 @@ window.APP_SUBJECTS = [
 //   q:"題目文字", options:["A","B","C","D"], answer:0, exp:"解說" }
 window.APP_DATA.english = [];
 window.APP_DATA.math = [];
-window.APP_DATA.science = [];
+// science 的題庫在 js/data/science.js 與 science-custom.js
 // social 的題庫在 js/data/social.js（在這支之後載入）
