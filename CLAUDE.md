@@ -31,7 +31,7 @@
 - ⚠️ **新增成語／字音／字形題後必須同時寫「解析確認題」**到 `js/data/checks-{idioms,phonics,chars}.js`（`{q, o:[4], a}`，答案只能在該題自己的 deep 解析裡找得到），2026-08-17 起 `test/test.js` 要求 100% 覆蓋，漏寫會測試失敗
 - 注音規則：一聲不標調號、輕聲 ˙ 前置、詞注音字間空格；拼音含聲調符號
 - 字音以教育部《國語一字多音審訂表》審訂音為準
-- push 到 main 即自動上 Pages，無需其他部署步驟
+- push 到 main 即自動上 Pages（2026-08-18 起走 GitHub Actions `.github/workflows/pages.yml`＋`.nojekyll`；舊的 legacy Jekyll builder 當天起每次都 duration=0 直接失敗，改成 Actions 後恢復。部署約 4-8 分鐘，用 `gh run list --repo tonychuangtw/K12Review` 查狀態）
 - 日期一律用 app.js 的 `fmtDate`（本地時區），不要用 `toISOString`（UTC 會差 8 小時）
 
 ## 2026-08-02 之後的擴充
@@ -60,6 +60,15 @@
 - 依序刷題進度存 state.drillPos[cat|grades]，自創題庫 key 為 'custom'
 - 內容擴充 roadmap（Tony 2026-08-02 定案，每日分批）：閱讀 54→102 篇（小學各8/國中各10/高中各8，優先）；成語 800→1000；字音 420→600；字形 400→600；俚語 320→400；成語 wordExp 逐字解析從小二往上補到全 800 條（小一已完成）；配圖目標全 800 條。動畫暫緩（成本高，Tony 同意先圖+逐字解析）
 - 筆順動畫：js/vendor/hanzi-writer.min.js + strokes/uXXXX.json（來源 hanzi-writer-data，Arphic 授權見 strokes/README.md）；新增字形題後跑一次下載腳本補字（參考 git log f3972f1 的做法）；載不到的字自動隱藏面板
+
+## 2026-08-18 各科雙題庫架構（Tony 定案，新科目一律照此）
+
+國語以外的每一科都有**兩套題庫，不可混用**：
+- `js/data/<科目>.js`（`APP_DATA.<科目>`，id `o0001`／`n0001` 這種）＝**依教育部課綱自編的原創題**，用在每日練習、單元學習、依序刷題（等同國語的成語/字音/字形那套）
+- `js/data/<科目>-custom.js`（`APP_DATA.<科目>Custom`，id 前綴 `oc`/`nc`/`ec`/`mc`）＝家長提供的題本轉檔，只給首頁「自創題庫（依課練習）」用
+- 前端對應：`CUSTOM_CATS` / `mainCat()` / `bankCat()` / `isBankCat()`（js/app.js）；各科紀錄分開（daily key 加 `|科目`、review 記 `subj`、units key 加科目前綴、錯題本依科目過濾）
+- 原創題每題要寫「✅正解為什麼對＋❌其他選項為什麼不對＋📚課綱重點」，答案位置要打散（test.js 有守門）
+- 題本轉檔規格與已完成範圍見 `PROGRESS.md`
 
 ## 2026-08-03 全科版擴充（Tony 定案）
 
