@@ -335,8 +335,10 @@ console.log('社會科');
 await session(8734, 9334, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
   phon: 'zhuyin', grades: [5], stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], subject: 'social' }));` },
 async (js) => {
-  check('社會題庫載得到', await js(`(window.APP_DATA.social || []).length > 100`),
+  check('社會原創題庫載得到', await js(`(window.APP_DATA.social || []).length >= 50`),
     String(await js(`(window.APP_DATA.social || []).length`)));
+  check('社會自創題庫載得到', await js(`(window.APP_DATA.socialCustom || []).length > 500`),
+    String(await js(`(window.APP_DATA.socialCustom || []).length`)));
   await sleep(300);
   await js(`document.getElementById('homeLink').click()`);
   await sleep(300);
@@ -360,9 +362,11 @@ async (js) => {
   check('依課練習開得起來（社會題）',
     await js(`!document.getElementById('view-quiz').classList.contains('hidden')
       && document.querySelectorAll('#quizOptions .q-opt').length >= 2`));
-  check('題號屬於社會題庫', await js(`(window.QuizDebug.id() || '').charAt(0) === 'o'`),
+  check('依課練習出的是自創題庫的題', await js(`(window.QuizDebug.id() || '').indexOf('oc') === 0`),
     String(await js(`window.QuizDebug.id()`)));
-  await js(`(function(){ var it = window.APP_DATA.social.filter(function(x){return x.id===window.QuizDebug.id();})[0];
+  await js(`(function(){ var id = window.QuizDebug.id();
+    var bank = id.indexOf('oc') === 0 ? window.APP_DATA.socialCustom : window.APP_DATA.social;
+    var it = bank.filter(function(x){return x.id===id;})[0];
     document.querySelectorAll('#quizOptions .q-opt')[it.answer].click(); })()`);
   await sleep(400);
   check('社會題答對後出現解析',
@@ -397,16 +401,18 @@ async (js) => {
   await sleep(200);
   await js(`document.querySelector('.card[data-go="daily"]').click()`);
   await sleep(600);
-  check('社會每日練習開得起來',
+  check('社會每日練習出的是課綱自編題',
     await js(`!document.getElementById('view-quiz').classList.contains('hidden')
-      && (window.QuizDebug.id() || '').charAt(0) === 'o'`),
+      && /^o\\d/.test(window.QuizDebug.id() || '')`),
     String(await js(`window.QuizDebug.id()`)));
   check('每日紀錄帶科目後綴', await js(`(function(){
     var d = (JSON.parse(localStorage.getItem('chinese-review-v1')).daily) || {};
     return Object.keys(d).some(function (k) { return k.indexOf('|social') > 0; });})()`),
     await js(`JSON.stringify(Object.keys((JSON.parse(localStorage.getItem('chinese-review-v1')).daily) || {}))`));
   // 故意答錯 → 進錯題本，切回國語後錯題本不該出現社會題
-  await js(`(function(){ var it = window.APP_DATA.social.filter(function(x){return x.id===window.QuizDebug.id();})[0];
+  await js(`(function(){ var id = window.QuizDebug.id();
+    var bank = id.indexOf('oc') === 0 ? window.APP_DATA.socialCustom : window.APP_DATA.social;
+    var it = bank.filter(function(x){return x.id===id;})[0];
     var wrong = it.answer === 0 ? 1 : 0;
     document.querySelectorAll('#quizOptions .q-opt')[wrong].click(); })()`);
   await sleep(400);
@@ -414,7 +420,7 @@ async (js) => {
   await sleep(400);
   check('社會答錯進錯題本', await js(`(function(){
     var w = (JSON.parse(localStorage.getItem('chinese-review-v1')).wrong) || [];
-    return w.some(function (x) { return x.t === 'social'; });})()`),
+    return w.some(function (x) { return x.t === 'social' || x.t === 'socialCustom'; });})()`),
     await js(`JSON.stringify((JSON.parse(localStorage.getItem('chinese-review-v1')).wrong) || [])`));
   await js(`document.getElementById('homeLink').click()`);
   await sleep(200);

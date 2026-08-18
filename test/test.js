@@ -5,7 +5,7 @@ const path = require('path');
 
 global.window = {};
 const root = path.join(__dirname, '..');
-for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'custom', 'social']) {
+for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'custom', 'social', 'social-custom']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
 for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars']) {
@@ -38,7 +38,7 @@ for (const [cat, items] of Object.entries(D)) {
   if (cat !== 'custom') ok(items.every(i => i.grade >= 1 && i.grade <= 12), `${cat} grade 都在 1-12`);
 }
 // 題庫型題目（自創題庫、社會等各科題庫）共用同一組轉檔品質守門
-for (const [bankName, bank] of [['自創題庫', D.custom], ['社會題庫', D.social]]) {
+for (const [bankName, bank] of [['自創題庫', D.custom], ['社會題庫', D.social], ['社會自創題庫', D.socialCustom]]) {
 ok(bank.every(c => c.q && Array.isArray(c.options) && c.options.length >= 2 && c.answer >= 0 && c.answer < c.options.length),
   bankName + '欄位合法（目前 ' + bank.length + ' 題）');
 {
@@ -241,14 +241,23 @@ console.log('全科架構 / 自創分冊分課 / 解析強化');
     const n = D[k].filter(i => i.deep && i.deep.length >= 30).length;
     ok(n === D[k].length, `${k} 深度解析全數覆蓋（${n}/${D[k].length}）`);
   }
-  for (const [bn, bank] of [['自創題庫', D.custom], ['社會題庫', D.social]]) {
+  for (const [bn, bank] of [['自創題庫', D.custom], ['社會題庫', D.social], ['社會自創題庫', D.socialCustom]]) {
     const noExp = bank.filter(c => !c.exp || c.exp.trim().length < 2).length;
     ok(noExp === 0, `${bn}解析零缺漏（缺 ${noExp} 題）`);
     ok(bank.every(c => ['易', '中', '難'].includes(c.diff) && c.qtype), bn + '難易度/題型欄位完整');
   }
   // 社會題庫：每題都要標冊/課，單元學習與依課練習才切得出範圍
-  ok(D.social.every(c => c.book && c.lesson && c.id.charAt(0) === 'o'),
-    `社會題庫冊/課/id 前綴完整（${D.social.length} 題）`);
+  ok(D.social.every(c => c.book && c.lesson && /^o\d/.test(c.id)),
+    `社會原創題庫冊/單元/id 前綴完整（${D.social.length} 題）`);
+  ok(D.socialCustom.every(c => c.book && c.lesson && c.id.indexOf('oc') === 0),
+    `社會自創題庫冊/課/id 前綴完整（${D.socialCustom.length} 題）`);
+  // 原創題庫：正解不可以都排在同一個位置（答案位置要分散）
+  {
+    const pos = [0, 0, 0, 0];
+    D.social.forEach(c => { if (c.options.length === 4) pos[c.answer]++; });
+    const tot = pos.reduce((a, b) => a + b, 0);
+    ok(tot === 0 || Math.max(...pos) <= tot * 0.45, `社會原創題答案位置分散（${pos.join('/')}）`);
+  }
 
   // 手寫練習筆順資料覆蓋率:新增字形題後若忘了補 strokes/,這裡會擋下來
   // 補字法見 memory/chinese-stroke-data.md（hanzi-writer-data CDN）

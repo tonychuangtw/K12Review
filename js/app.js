@@ -5,7 +5,8 @@
   var W = (typeof window !== 'undefined') ? window : this;
   var DATA = W.APP_DATA || {};
   ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'custom',
-   'english', 'math', 'science', 'social'].forEach(function (k) {
+   'english', 'math', 'science', 'social',
+   'englishCustom', 'mathCustom', 'scienceCustom', 'socialCustom'].forEach(function (k) {
     if (!Array.isArray(DATA[k])) DATA[k] = [];
   });
   var SUBJECTS = W.APP_SUBJECTS || [{ key: 'chinese', name: '國語', icon: '📖', ready: true, desc: '' }];
@@ -587,8 +588,10 @@
   function curSubj() { return state.subject || 'chinese'; }
   function isChinese() { return curSubj() === 'chinese'; }
   // 「依課練習」用的題庫：國語＝自創題庫，其他科＝該科題庫
-  function bankCat() { return isChinese() ? 'custom' : curSubj(); }
+  function bankCat() { return CUSTOM_CATS[curSubj()] || 'custom'; }
   function bankReady() { return isChinese() ? W.__customReady : true; }
+  // 科目的原創題庫（每日練習／單元學習／依序刷題用）
+  function mainCat() { return isChinese() ? null : curSubj(); }
   // 每日練習/總結測驗紀錄的 key：國語沿用純日期（相容舊資料），其他科加 |科目
   function subjKey(date) { return isChinese() ? date : date + '|' + curSubj(); }
   // 只取目前科目的每日紀錄（日曆、連續天數用），key 一律還原成純日期
@@ -627,7 +630,7 @@
     var cards = document.querySelector('#view-home .cards');
     var ph = $('homePlaceholder');
     var cn = subj.key === 'chinese';
-    var bank = cn ? [] : (DATA[subj.key] || []);
+    var bank = cn ? [] : (DATA[subj.key] || []).concat(DATA[CUSTOM_CATS[subj.key]] || []);
     // 國語專屬的卡片（成語、字音、手寫那些）只在國語出現；其餘功能各科共用
     document.querySelectorAll('#view-home .card[data-cn]').forEach(function (c) {
       c.classList.toggle('hidden', !cn);
@@ -659,9 +662,11 @@
       $('cnt-review').textContent = sRv ? '上次 ' + sRv.score + ' 分 · 挑日期或只考錯題本'
         : '挑日期出考卷／只考錯題本 · 滿分100';
       var sUnits = Object.keys(state.units || {}).filter(function (k) { return k.indexOf(subj.key + '-') === 0; }).length;
-      $('cnt-units').textContent = sUnits ? '已完成 ' + sUnits + ' 個單元' : '先讀重點再測驗 · 逐關解鎖';
       $('cnt-drill').textContent = '照順序一題不漏';
-      $('cnt-custom').textContent = bank.length + ' 題 · 分冊分課';
+      var mainN = (DATA[subj.key] || []).length, custN = (DATA[CUSTOM_CATS[subj.key]] || []).length;
+      $('cnt-custom').textContent = custN ? custN + ' 題 · 分冊分課' : '傳 Word 檔給我建題';
+      $('cnt-units').textContent = sUnits ? '已完成 ' + sUnits + ' 個單元'
+        : (mainN ? '課綱自編 ' + mainN + ' 題 · 先看重點再測驗' : '先讀重點再測驗 · 逐關解鎖');
       renderGradeBtn();
       return;
     }
@@ -834,9 +839,16 @@
   var CAT_NAME = {
     idioms: '成語', slang: '俚語諺語', phonics: '字音辨正', chars: '字形辨正', reading: '閱讀測驗', custom: '自創題庫',
     write: '手寫',
-    english: '英文', math: '數學', science: '自然', social: '社會'
+    english: '英文', math: '數學', science: '自然', social: '社會',
+    englishCustom: '英文自創題庫', mathCustom: '數學自創題庫',
+    scienceCustom: '自然自創題庫', socialCustom: '社會自創題庫'
   };
   var SUBJECT_CATS = ['english', 'math', 'science', 'social'];
+  // 各科的「自創題庫」（家長提供的題本轉檔）與科目本身的原創題庫分開放：
+  // 原創題（依教育部課綱自編）＝ DATA[科目]，用在每日練習／單元學習／依序刷題；
+  // 題本轉檔＝ DATA[科目+'Custom']，用在「自創題庫（依課練習）」。（Tony 2026-08-18 定案）
+  var CUSTOM_CATS = { chinese: 'custom', english: 'englishCustom', math: 'mathCustom', science: 'scienceCustom', social: 'socialCustom' };
+  var ID_PREFIX2 = { ec: 'englishCustom', mc: 'mathCustom', nc: 'scienceCustom', oc: 'socialCustom' };
 
   function buildQ(type, item, p) {
     if (type === 'idioms') return buildIdiomQ(item, p);
@@ -846,6 +858,8 @@
   }
 
   function quizCatOf(item) {
+    var p2 = ID_PREFIX2[item.id.slice(0, 2)];
+    if (p2) return p2;
     var c = item.id.charAt(0);
     return c === 'i' ? 'idioms' : c === 's' ? 'slang' : c === 'p' ? 'phonics' : c === 'r' ? 'reading' :
       c === 'x' ? 'custom' : c === 'e' ? 'english' : c === 'm' ? 'math' : c === 'n' ? 'science' : c === 'o' ? 'social' : 'chars';
@@ -856,7 +870,7 @@
   function buildEntryQ(e) {
     var it = findItem(e.t, e.id);
     if (!it) return null;
-    if (e.t === 'custom' || SUBJECT_CATS.indexOf(e.t) >= 0) {
+    if (isBankCat(e.t)) {
       var q = buildCustomQ(it);
       q.type = e.t;
       return q;
@@ -1476,7 +1490,7 @@
         else startDrill(cat, dBook, dLesson);
       }
       else if (cat === 'reading') startReading();
-      else if (SUBJECT_CATS.indexOf(cat) >= 0) startSubjectQuiz(cat);
+      else if (isBankCat(cat)) startSubjectQuiz(cat);
       else startQuiz(cat, null);
     });
   }
@@ -1619,7 +1633,9 @@
       { t: 'custom', fields: function (it) { return [it.q, it.tag, it.lesson, it.book]; } }
     ];
     SUBJECT_CATS.forEach(function (k) {
-      if ((DATA[k] || []).length) defs.push({ t: k, fields: function (it) { return [it.q, it.tag, it.lesson, it.book]; } });
+      [k, CUSTOM_CATS[k]].forEach(function (c) {
+        if ((DATA[c] || []).length) defs.push({ t: c, fields: function (it) { return [it.q, it.tag, it.lesson, it.book]; } });
+      });
     });
     return defs;
   }
@@ -1758,7 +1774,8 @@
   function dailyRec() { return (state.daily = state.daily || {})[subjKey(today())]; }
   // 這筆 ref（自主練習/每日練習出過的題）屬不屬於目前科目
   function refIsCur(r) {
-    return isChinese() ? SUBJECT_CATS.indexOf(r.t) < 0 : r.t === curSubj();
+    if (isChinese()) return SUBJECT_CATS.indexOf(r.t) < 0 && !/Custom$/.test(r.t || '');
+    return r.t === curSubj() || r.t === bankCat();
   }
 
   // 中途進度續做（2026-08-08）：每答完一題把「還剩哪些題、答到第幾題」寫進 state.dailyRun，
@@ -1809,7 +1826,8 @@
       entries = composeDaily(DATA, state.grades, today() + '|' + state.grades.join(','), counts);
     } else {
       // 題庫型科目：同日同科出同一組（種子＝日期|科目），依冊/課順序不重複抽 20 題
-      entries = composeDailyBank(DATA[bankCat()] || [], today() + '|' + curSubj(), 20);
+      var dBank = (DATA[mainCat()] || []).length ? DATA[mainCat()] : (DATA[bankCat()] || []);
+      entries = composeDailyBank(dBank, today() + '|' + curSubj(), 20);
     }
     if (entries.length < 5) { UIDialog.alert(isChinese() ? '所選年級題目不足，請多勾幾個年級。' : '這一科題目不足。'); return; }
     // 記下今天實際出了哪些題（總結測驗依此精確重組當日題組）
@@ -3267,7 +3285,8 @@
   var DRILL_CHUNK = 20;
 
   // 題庫型科目（自創題庫、社會等）照冊/課/篩選走，國語各類別照年級走
-  function isBankCat(cat) { return cat === 'custom' || SUBJECT_CATS.indexOf(cat) >= 0; }
+  // 題庫型類別＝{q, options, answer, exp} 這種 schema（各科原創題庫與各科自創題庫都是）
+  function isBankCat(cat) { return cat === 'custom' || /Custom$/.test(cat || '') || SUBJECT_CATS.indexOf(cat) >= 0; }
   function drillPool(cat, book, lesson) {
     var bank = DATA[cat] || [];
     if (isBankCat(cat)) return customFilter(book ? customPool(bank, book, lesson) : bank);
@@ -3289,7 +3308,10 @@
     list.appendChild(hint);
     var cats = isChinese() ? ['idioms', 'slang', 'phonics', 'chars'] : [];
     if (isChinese()) { if (DATA.custom.length) cats.push('custom'); }
-    else cats.push(bankCat());
+    else {
+      if ((DATA[mainCat()] || []).length) cats.push(mainCat());
+      if ((DATA[bankCat()] || []).length) cats.push(bankCat());
+    }
     state.drillPos = state.drillPos || {};
     cats.forEach(function (cat) {
       var pool = drillPool(cat);
@@ -3380,7 +3402,7 @@
     var row = $('unitGradeRow');
     row.innerHTML = '';
     var cn = isChinese();
-    var bank = cn ? null : (DATA[bankCat()] || []);
+    var bank = cn ? null : ((DATA[mainCat()] || []).length ? DATA[mainCat()] : (DATA[bankCat()] || []));
     if (cn) {
       for (var g = 1; g <= 12; g++) {
         (function (g) {
@@ -3407,6 +3429,9 @@
     list.innerHTML = '';
     var units = cn ? buildUnits(DATA, state.unitGrade, UNIT_SIZES[unitSize()])
                    : buildBankUnits(bank, state.unitBook, unitSize());
+    if (!cn) $('unitsHint').textContent = (DATA[mainCat()] || []).length
+      ? '依教育部課綱自編的題目，先看重點卡再測驗。（家長提供的題本在首頁「自創題庫」）'
+      : '目前用自創題庫的題目編單元。';
     state.units = state.units || {};
     if (!units.length) { list.innerHTML = '<div class="empty">' + (cn ? '這個年級目前沒有教材。' : '這一冊目前沒有題目。') + '</div>'; return; }
     units.forEach(function (u, i) {
