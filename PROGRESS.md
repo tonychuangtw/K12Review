@@ -21,7 +21,8 @@ STATUS: in-progress
 - id = `o` + 原題號（可回溯原檔）；grade 5；book `五上`；lesson `第N單元 X.課名`（TASA 為 `TASA 綜合測驗`）
 - qtype 用原題型；diff 取原難易度；src 記卷別（題庫/習作/素養題/強化演練/TASA）
 - exp＝原「詳解」一字不動保留在最前 ＋ `✅ 正解：…` ＋ `📚 知識點：…` ＋ 出處
-- 解析器：scratchpad `social/parse.py`（產 items.json）、`conv1.py`（批1）、`emit.py`（產 social.js，含手工修正表 FIX）
+- 解析器：**已移進 repo `tools/tikuconv/`**（social/ 與 sci/ 兩套，用法見該目錄 README）。
+  題本原檔與 `items.json` 有版權不進 repo，重跑前要先把 items.json 放回對應目錄
 - ⚠️ 原題本自身的瑕疵（例：o1505000857 兩個選項都是「法律」）在 emit.py 的 FIX 表逐題修，不要改解析器
 
 ## 批次進度
