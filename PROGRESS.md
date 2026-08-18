@@ -2,6 +2,11 @@
 
 STATUS: in-progress
 
+> **下一步（2026-08-18 21:15 台北，例行重啟後接續完這一輪）**
+> 1. 等 Tony 回覆「有圖的題怎麼處理」（見文末批5），沒回覆前不要動有圖的題
+> 2. 可以先做、不用等回覆的：自然批2c（題組題 19 ＋批2a 跳過的原題）
+> 3. 之後：五下、六年級題本比照本檔流程（腳本在 `tools/tikuconv/`）
+
 來源：Tony 2026-08-18 Telegram 傳的 `五上社會題本檔案-20260818T135214Z-1-001.zip`
 （本機解壓在 scratchpad `social/`；原始 zip 在 `~/.claude/channels/telegram-chinese/inbox/1787061366316-AgADtiUAAn4xIVQ.zip`，
 副檔名寫 .doc 其實是 docx，用 `zipfile` + `word/document.xml` 解析，**不要**用 tools/doc-extract.py）
@@ -54,7 +59,9 @@ STATUS: in-progress
 ## 分卷 zip 解壓（自然題本，.zip + .z01）
 
 `zip`/`7z` 本機都沒有。做法：`cat sci.z01 sci.zip > combined.zip`，然後**自己讀中央目錄**（掃 `PK\x01\x02`，取 disk_number_start 與相對位移，`base=[0, len(z01)]` 換算絕對位置）逐筆解壓；檔名多為 Big5，要依 flag bit 11 決定用 utf8 還是 big5 解碼。直接用 `zipfile.extractall` 會 BadZipFile（它把 CD 位移當單卷處理）。腳本在 scratchpad `sci/`。
-- [ ] 批5 有圖的題（看圖回答問題 42、連連看 34、題組題 56、其他有圖 15）→ 先抽 `word/media` 圖檔判讀，能文字化的文字化，純圖形連連看可能整批不收（要回報 Tony）
+- [ ] 批5 有圖的題（社會：看圖回答問題 42、連連看 34、題組題 56、其他 15；自然另有 363 題）
+  - **2026-08-18 已用 Telegram 問 Tony 三選一**：(1)整批不收 (2)前端支援題目顯圖 (3)只挑圖能用文字描述清楚的手動轉。
+    我建議 (3)。**收到他回覆再動工**，不要自己選一種做下去
 
 ## 前端狀態（已完成，2026-08-18 v42）
 
