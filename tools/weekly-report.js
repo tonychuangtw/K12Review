@@ -34,11 +34,36 @@ function lastNDays(n) {
   return out;
 }
 
-const CAT_NAME = { idioms: '成語', slang: '俚語諺語', phonics: '字音', chars: '字形', reading: '閱讀', write: '手寫' };
+const CAT_NAME = {
+  idioms: '成語', slang: '俚語諺語', phonics: '字音', chars: '字形', reading: '閱讀', write: '手寫',
+  custom: '自創題庫', chinese: '國語', english: '英文', math: '數學', science: '自然', social: '社會',
+  englishCustom: '英文自創題庫', mathCustom: '數學自創題庫', scienceCustom: '自然自創題庫', socialCustom: '社會自創題庫',
+};
+
+// 各科的每日練習紀錄 key 是「日期|科目」（國語沿用純日期），家長週報一律跨科合併看。
+// rec.subjs 記當天練了哪幾科，數字加總。（2026-08-18）
+function mergeDaily(map) {
+  const out = {};
+  Object.keys(map || {}).forEach((k) => {
+    const [date, subj = 'chinese'] = k.split('|');
+    const r = map[k];
+    if (!r) return;
+    const m = out[date] || (out[date] = { done: false, firstOk: 0, total: 0, ms: 0, rounds: 1, wrong: [], subjs: [] });
+    if (!r.done) return;
+    m.done = true;
+    m.subjs.push(subj);
+    m.firstOk += r.firstOk || 0;
+    m.total += r.total || 0;
+    m.ms += r.ms || 0;
+    m.rounds = Math.max(m.rounds, r.rounds || 1);
+    (r.wrong || []).forEach((w) => m.wrong.push(w));
+  });
+  return out;
+}
 
 function reportForUser(state, label, total) {
   const days = lastNDays(7);
-  const daily = state.daily || {};
+  const daily = mergeDaily(state.daily || {});
   const gen = state.gen || {};   // 一般學習（自主練習）逐日彙整，2026-08-12 起記錄
   const reviews = state.review || [];   // 總結測驗歷次成績（2026-08-17 起不再混入自主練習）
   const dwell = state.dwell || {};      // 每題看解析的停留時間（2026-08-17 起記錄）
@@ -59,7 +84,8 @@ function reportForUser(state, label, total) {
     doneN++;
     const pct = r.total ? Math.round(100 * r.firstOk / r.total) : 0;
     const mins = Math.max(1, Math.round((r.ms || 0) / 60000));
-    return `  ${d.slice(5)}(${wd}) ✅ 首次答對 ${r.firstOk}/${r.total}（${pct}%）· ${mins}分` +
+    const subjTxt = r.subjs && r.subjs.length ? `［${r.subjs.map((s) => CAT_NAME[s] || s).join('、')}］` : '';
+    return `  ${d.slice(5)}(${wd}) ✅${subjTxt} 首次答對 ${r.firstOk}/${r.total}（${pct}%）· ${mins}分` +
       (r.rounds > 1 ? ` · 重做${r.rounds - 1}輪` : '') + (extra ? ` · ${extra}` : '');
   });
   lines.push(`本週每日練習完成 ${doneN}/7 天` + (genN ? ` · 自主練習共 ${genN} 題` : ''));

@@ -603,6 +603,28 @@
     });
     return out;
   }
+  // 家長／週報視角：把各科的每日紀錄依日期併成一筆（key 還原成純日期）。
+  // 家長要看的是「今天有沒有練」，不是單一科目，所以跨科加總；rec.subjs 記錄當天練了哪幾科。
+  function mergeDailyAll(map) {
+    var out = {};
+    Object.keys(map || {}).forEach(function (k) {
+      var p = k.split('|'), date = p[0], subj = p[1] || 'chinese', r = map[k];
+      if (!r) return;
+      var m = out[date] || (out[date] = { done: false, firstOk: 0, total: 0, ms: 0, rounds: 1, wrong: [], subjs: [] });
+      if (!r.done) return;
+      m.done = true;
+      m.subjs.push(subj);
+      m.firstOk += r.firstOk || 0;
+      m.total += r.total || 0;
+      m.ms += r.ms || 0;
+      m.rounds = Math.max(m.rounds, r.rounds || 1);
+      m.grade = m.grade || r.grade;
+      m.gradesTxt = m.gradesTxt || r.gradesTxt;
+      m.finishedAt = Math.max(m.finishedAt || 0, r.finishedAt || 0);
+      (r.wrong || []).forEach(function (w) { m.wrong.push(w); });
+    });
+    return out;
+  }
 
   // 科目選擇頁
   function renderSubjects() {
@@ -839,7 +861,7 @@
   var CAT_NAME = {
     idioms: '成語', slang: '俚語諺語', phonics: '字音辨正', chars: '字形辨正', reading: '閱讀測驗', custom: '自創題庫',
     write: '手寫',
-    english: '英文', math: '數學', science: '自然', social: '社會',
+    chinese: '國語', english: '英文', math: '數學', science: '自然', social: '社會',
     englishCustom: '英文自創題庫', mathCustom: '數學自創題庫',
     scienceCustom: '自然自創題庫', socialCustom: '社會自創題庫'
   };
@@ -2740,11 +2762,12 @@
   }
 
   // 家長檢視：近 14 天每日練習完成狀況，點日期看細節；dailyOverride/genOverride = 跨帳號檢視時傳入對方資料
-  function renderDailyCal(body, dailyOverride, genOverride, reviewOverride, dwellOverride) {
+  function renderDailyCal(body, dailyOverride, genOverride, reviewOverride, dwellOverride, chkOverride) {
     var daily = dailyOverride || state.daily || {};
     var gen = genOverride || state.gen || {};
     var reviews = reviewOverride || state.review || [];
     var dwell = dwellOverride || state.dwell || {};
+    var chk = chkOverride || state.chk || {};
     var head = document.createElement('h3');
     head.className = 'prog-h3';
     head.textContent = '👨‍👩‍👧 家長檢視 — 每日學習紀錄';
@@ -2779,7 +2802,7 @@
         cell.className = 'cal-cell' + (rec && rec.done ? ' done' : studied || rvRec.length ? ' gen' : offset === 0 ? ' today' : '');
         cell.innerHTML = '<small>' + (d.getMonth() + 1) + '/' + d.getDate() + '</small>' +
           (rec && rec.done ? '✅' : studied ? '📖' : rvRec.length ? '📋' : offset === 0 ? '⬜' : '❌');
-        cell.addEventListener('click', function () { showDayDetail(detail, key, rec, gRec, rvRec, dRec); });
+        cell.addEventListener('click', function () { showDayDetail(detail, key, rec, gRec, rvRec, dRec, chk[key]); });
         cal.appendChild(cell);
       })(j);
     }
@@ -2811,9 +2834,9 @@
       (sec < 4 ? ' ⚠️ 偏快，可能沒看解析' : '');
   }
 
-  function showDayDetail(box, key, rec, gRec, rvRec, dRec) {
+  function showDayDetail(box, key, rec, gRec, rvRec, dRec, cRecIn) {
     box.classList.remove('hidden');
-    var cRec = (state.chk || {})[key];
+    var cRec = cRecIn || (state.chk || {})[key];
     var chkTxt = cRec && cRec.n
       ? '📝 解析確認題 ' + cRec.ok + '/' + cRec.n + ' 答對' +
         (cRec.ok / cRec.n < 0.6 ? ' ⚠️ 解析沒讀懂' : '')
@@ -2829,7 +2852,9 @@
     var mins = Math.max(1, Math.round(rec.ms / 60000));
     var fin = new Date(rec.finishedAt);
     var pct = rec.total ? Math.round(100 * rec.firstOk / rec.total) : 0;
-    var html = '<b>' + key + '</b>（' + (rec.gradesTxt || gradeLabel(rec.grade)) + '）<br>' +
+    var subjTxt = (rec.subjs || []).length
+      ? '（' + rec.subjs.map(function (s) { return CAT_NAME[s] || s; }).join('、') + '）' : '';
+    var html = '<b>' + key + '</b>' + subjTxt + '（' + (rec.gradesTxt || gradeLabel(rec.grade)) + '）<br>' +
       '✅ 完成於 ' + ('0' + fin.getHours()).slice(-2) + ':' + ('0' + fin.getMinutes()).slice(-2) +
       ' · 用時約 ' + mins + ' 分鐘<br>' +
       '第一次答對 ' + rec.firstOk + ' / ' + rec.total + '（' + pct + '%）· 錯題重做 ' + (rec.rounds - 1) + ' 輪後全對';
@@ -2870,7 +2895,8 @@
     var body = $('parentBody');
     body.innerHTML = '';
     renderParentCloud(body, ownerEmail);
-    var daily = st.daily || {};
+    // 各科的每日練習紀錄 key 是「日期|科目」，家長頁一律合併看（2026-08-18）
+    var daily = mergeDailyAll(st.daily || {});
     var todayRec = daily[today()];
 
     function h3(t) {
@@ -2948,7 +2974,7 @@
     body.appendChild(tiles);
 
     // 近 14 天完成格（沿用進度頁的月曆，可點日期看細節）
-    renderDailyCal(body, daily, gen, rvAll, dwellAll);
+    renderDailyCal(body, daily, gen, rvAll, dwellAll, st.chk || {});
 
     // 各類正確率（近 30 天，來自逐題作答紀錄）
     h3('📊 各類正確率（近 30 天）');

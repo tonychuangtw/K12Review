@@ -442,5 +442,40 @@ async (js) => {
     (await js(`document.getElementById('wrongList').textContent`)).slice(0, 60));
 });
 
+/* ---------- 5. 家長儀表板跨科合併（daily key 帶科目後綴也要看得到） ---------- */
+console.log('家長儀表板跨科合併');
+const SEED_MULTI = `(function(){
+  var d = new Date(), p = function (n) { return (n < 10 ? '0' : '') + n; };
+  var t = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+  var mk = function (firstOk, total) {
+    return { done: true, firstOk: firstOk, total: total, ms: 600000, rounds: 1, grade: 5,
+      gradesTxt: '五年級', finishedAt: Date.now(), wrong: [] };
+  };
+  var daily = {}; daily[t] = mk(18, 20); daily[t + '|social'] = mk(8, 10);
+  localStorage.setItem('chinese-review-v1', JSON.stringify({
+    phon: 'zhuyin', grades: [5], stats: {}, streak: { last: '', days: 0 },
+    leitner: {}, wrong: [], subject: 'chinese', daily: daily }));
+})();`;
+await session(8735, 9335, { blockWriter: true, seed: SEED_MULTI }, async (js) => {
+  await js(`document.querySelector('.card[data-go="progress"]').click()`);
+  await sleep(300);
+  await js(`document.querySelector('#progBody .pt-open').click()`);
+  await sleep(400);
+  const head = await js(`document.querySelector('#parentBody .pt-head').textContent`);
+  check('家長頁把各科每日練習加總（18+8 / 20+10）', /26 \/ 30/.test(head), head.slice(0, 120));
+  check('家長頁認得帶科目的紀錄＝今日已完成', /今日已完成/.test(head), head.slice(0, 80));
+  // 點今天那格看細節：應列出國語與社會兩科
+  await js(`(function(){ var c = document.querySelectorAll('#parentBody .cal-cell');
+    c[c.length - 1].click(); })()`);
+  await sleep(300);
+  const detail = await js(`document.querySelector('#parentBody .daily-detail').textContent`);
+  check('日細節列出當天練了哪幾科', /國語/.test(detail) && /社會/.test(detail), detail.slice(0, 120));
+  // 進度頁（單科視角）仍只算目前科目：國語 18/20
+  await js(`document.getElementById('parentExit').click()`);
+  await sleep(300);
+  const cal = await js(`document.querySelector('#progBody .daily-cal').textContent`);
+  check('進度頁日曆仍是單科視角（今日有完成）', /✅/.test(cal), cal.slice(-20));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);
