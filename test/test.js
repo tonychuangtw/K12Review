@@ -5,7 +5,7 @@ const path = require('path');
 
 global.window = {};
 const root = path.join(__dirname, '..');
-for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'custom']) {
+for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'custom', 'social']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
 for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars']) {
@@ -37,41 +37,43 @@ for (const [cat, items] of Object.entries(D)) {
   ok(ids.size === items.length, `${cat} id 不重複`);
   if (cat !== 'custom') ok(items.every(i => i.grade >= 1 && i.grade <= 12), `${cat} grade 都在 1-12`);
 }
-ok(D.custom.every(c => c.q && Array.isArray(c.options) && c.options.length >= 2 && c.answer >= 0 && c.answer < c.options.length),
-  '自創題庫欄位合法（目前 ' + D.custom.length + ' 題）');
-// 轉檔常見瑕疵：選項空白／殘留 Word 控制字元／選項重複（會變成無唯一解）
+// 題庫型題目（自創題庫、社會等各科題庫）共用同一組轉檔品質守門
+for (const [bankName, bank] of [['自創題庫', D.custom], ['社會題庫', D.social]]) {
+ok(bank.every(c => c.q && Array.isArray(c.options) && c.options.length >= 2 && c.answer >= 0 && c.answer < c.options.length),
+  bankName + '欄位合法（目前 ' + bank.length + ' 題）');
 {
   // 陣列空洞（批次接檔時多打一個逗號會造成，filter/forEach 會跳過而測不出來）
   let holes = 0;
-  for (let i = 0; i < D.custom.length; i++) if (!(i in D.custom)) holes++;
-  ok(holes === 0, '自創題庫陣列無空洞（空洞 ' + holes + ' 處）');
+  for (let i = 0; i < bank.length; i++) if (!(i in bank)) holes++;
+  ok(holes === 0, bankName + '陣列無空洞（空洞 ' + holes + ' 處）');
   // 完全重複題（題幹+選項+答案全同）。「承上題」子題會跨課共用題幹，不算重複
   {
     const seen = new Map(), dup = [];
-    D.custom.forEach(c => {
+    bank.forEach(c => {
       if (/承上題/.test(c.q)) return;
       const k = c.q.trim() + '||' + c.options.join('|') + '||' + c.answer;
       if (seen.has(k)) dup.push(c.id + '/' + seen.get(k)); else seen.set(k, c.id);
     });
-    ok(dup.length === 0, '自創題庫無完全重複題（重複 ' + dup.length + ' 題'
+    ok(dup.length === 0, bankName + '無完全重複題（重複 ' + dup.length + ' 題'
       + (dup.length ? '：' + dup.slice(0, 5).join(',') : '') + '）');
   }
   const CTRL = /[\u0000-\u001f]/;
-  const badOpt = D.custom.filter(c => c.options.some(o => typeof o !== 'string' || !o.trim() || CTRL.test(o))
+  const badOpt = bank.filter(c => c.options.some(o => typeof o !== 'string' || !o.trim() || CTRL.test(o))
     || new Set(c.options).size !== c.options.length);
-  ok(badOpt.length === 0, '自創題庫選項無空白/控制字元/重複（壞題 ' + badOpt.length + ' 題'
+  ok(badOpt.length === 0, bankName + '選項無空白/控制字元/重複（壞題 ' + badOpt.length + ' 題'
     + (badOpt.length ? '：' + badOpt.slice(0, 5).map(c => c.id).join(',') : '') + '）');
   // 注音的「ㄧ」必須用 U+3127，不可誤植成漢字「一」（畫面看似正確，但比對、搜尋都會失效）
   const BAD_YI = /\u4e00(?=[\u02ca\u02c7\u02cb\u02d9\u311a-\u3125])|(?<=[\u3105-\u3119])\u4e00/;
-  const badYi = D.custom.filter(c => BAD_YI.test(c.q) || BAD_YI.test(c.exp || '') || c.options.some(o => BAD_YI.test(o)));
-  ok(badYi.length === 0, '自創題庫注音「ㄧ」未誤植成漢字「一」（壞題 ' + badYi.length + ' 題'
+  const badYi = bank.filter(c => BAD_YI.test(c.q) || BAD_YI.test(c.exp || '') || c.options.some(o => BAD_YI.test(o)));
+  ok(badYi.length === 0, bankName + '注音「ㄧ」未誤植成漢字「一」（壞題 ' + badYi.length + ' 題'
     + (badYi.length ? '：' + badYi.slice(0, 5).map(c => c.id).join(',') : '') + '）');
   const CTRL_NL = /[\u0000-\u0009\u000b-\u001f]/; // 題幹/解析允許換行
-  const badTxt = D.custom.filter(c => CTRL_NL.test(c.q) || CTRL_NL.test(c.exp || '')
+  const badTxt = bank.filter(c => CTRL_NL.test(c.q) || CTRL_NL.test(c.exp || '')
     || /eq \\o\(/.test(c.q) || /eq \\o\(/.test(c.exp || ''));
-  ok(badTxt.length === 0, '自創題庫題幹/解析無殘留 Word 功能變數碼（壞題 ' + badTxt.length + ' 題'
+  ok(badTxt.length === 0, bankName + '題幹/解析無殘留 Word 功能變數碼（壞題 ' + badTxt.length + ' 題'
     + (badTxt.length ? '：' + badTxt.slice(0, 5).map(c => c.id).join(',') : '') + '）');
-}
+}}
+
 ok(D.idioms.every(i => i.term && i.meaning && i.example && ZY_WORD.test(i.zhuyin) && i.pinyin),
   '成語欄位完整、注音格式正確');
 ok(D.slang.every(i => i.term && i.meaning && i.example && ['俚語', '諺語', '歇後語'].includes(i.kind)),
@@ -239,9 +241,14 @@ console.log('全科架構 / 自創分冊分課 / 解析強化');
     const n = D[k].filter(i => i.deep && i.deep.length >= 30).length;
     ok(n === D[k].length, `${k} 深度解析全數覆蓋（${n}/${D[k].length}）`);
   }
-  const noExp = D.custom.filter(c => !c.exp || c.exp.trim().length < 2).length;
-  ok(noExp === 0, `自創題庫解析零缺漏（缺 ${noExp} 題）`);
-  ok(D.custom.every(c => ['易', '中', '難'].includes(c.diff) && c.qtype), '自創題庫難易度/題型欄位完整');
+  for (const [bn, bank] of [['自創題庫', D.custom], ['社會題庫', D.social]]) {
+    const noExp = bank.filter(c => !c.exp || c.exp.trim().length < 2).length;
+    ok(noExp === 0, `${bn}解析零缺漏（缺 ${noExp} 題）`);
+    ok(bank.every(c => ['易', '中', '難'].includes(c.diff) && c.qtype), bn + '難易度/題型欄位完整');
+  }
+  // 社會題庫：每題都要標冊/課，單元學習與依課練習才切得出範圍
+  ok(D.social.every(c => c.book && c.lesson && c.id.charAt(0) === 'o'),
+    `社會題庫冊/課/id 前綴完整（${D.social.length} 題）`);
 
   // 手寫練習筆順資料覆蓋率:新增字形題後若忘了補 strokes/,這裡會擋下來
   // 補字法見 memory/chinese-stroke-data.md（hanzi-writer-data CDN）

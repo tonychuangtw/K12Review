@@ -330,5 +330,111 @@ await session(8733, 9333, { blockWriter: false, seed: seedWrong(['c001']) }, asy
   }
 });
 
+/* ---------- 4. 社會科（題庫型科目）：依課練習／單元學習／每日練習／錯題本 ---------- */
+console.log('社會科');
+await session(8734, 9334, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grades: [5], stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], subject: 'social' }));` },
+async (js) => {
+  check('社會題庫載得到', await js(`(window.APP_DATA.social || []).length > 100`),
+    String(await js(`(window.APP_DATA.social || []).length`)));
+  await sleep(300);
+  await js(`document.getElementById('homeLink').click()`);
+  await sleep(300);
+  check('國語專屬卡片在社會科隱藏',
+    await js(`document.querySelector('.card[data-go="idioms"]').classList.contains('hidden')
+      && !document.querySelector('.card[data-go="units"]').classList.contains('hidden')
+      && !document.querySelector('.card[data-go="daily"]').classList.contains('hidden')`));
+  check('自創題庫卡改名為依課練習',
+    await js(`document.querySelector('.card[data-go="custom"] .card-title').textContent === '依課練習'`),
+    await js(`document.querySelector('.card[data-go="custom"] .card-title').textContent`));
+
+  // 依課練習：冊/課列表 → 開始刷題 → 作答
+  await js(`document.querySelector('.card[data-go="custom"]').click()`);
+  await sleep(400);
+  check('依課練習列出冊與課',
+    await js(`document.querySelectorAll('#customBooks .chip').length >= 1
+      && document.querySelectorAll('#customList .unit-item').length >= 3`),
+    await js(`document.querySelectorAll('#customList .unit-item').length + ' 列'`));
+  await js(`document.querySelectorAll('#customList .unit-item')[0].click()`);
+  await sleep(500);
+  check('依課練習開得起來（社會題）',
+    await js(`!document.getElementById('view-quiz').classList.contains('hidden')
+      && document.querySelectorAll('#quizOptions .q-opt').length >= 2`));
+  check('題號屬於社會題庫', await js(`(window.QuizDebug.id() || '').charAt(0) === 'o'`),
+    String(await js(`window.QuizDebug.id()`)));
+  await js(`(function(){ var it = window.APP_DATA.social.filter(function(x){return x.id===window.QuizDebug.id();})[0];
+    document.querySelectorAll('#quizOptions .q-opt')[it.answer].click(); })()`);
+  await sleep(400);
+  check('社會題答對後出現解析',
+    /正解/.test(await js(`document.getElementById('quizFeedback').textContent`)),
+    (await js(`document.getElementById('quizFeedback').textContent`)).slice(0, 60));
+  check('社會題沒有確認題資料時走解析鎖',
+    await js(`document.getElementById('quizNext').classList.contains('locked')`));
+  await js(`window.QuizDebug.unlock(); document.getElementById('quizExit').click()`);
+  await sleep(300);
+  await js(`(function(){ var b = document.querySelector('.dlg-primary'); if (b) b.click(); })()`);
+  await sleep(300);
+
+  // 單元學習：非國語改用「冊」分組，教學卡是重點卡
+  await js(`document.getElementById('homeLink').click()`);
+  await sleep(200);
+  await js(`document.querySelector('.card[data-go="units"]').click()`);
+  await sleep(400);
+  check('社會單元學習切得出單元',
+    await js(`document.querySelectorAll('#unitList .unit-item').length >= 5`),
+    String(await js(`document.querySelectorAll('#unitList .unit-item').length`)));
+  await js(`document.querySelectorAll('#unitList .unit-item')[0].click()`);
+  await sleep(300);
+  check('社會教學卡顯示重點',
+    /重點/.test(await js(`document.getElementById('lessonTag').textContent`)) &&
+    (await js(`document.getElementById('lessonBody').textContent`)).length > 10,
+    await js(`document.getElementById('lessonTag').textContent`));
+  await js(`document.getElementById('lessonExit').click()`);
+  await sleep(200);
+
+  // 每日練習：同日同科出同一組題，紀錄寫在 <日期>|social
+  await js(`document.getElementById('homeLink').click()`);
+  await sleep(200);
+  await js(`document.querySelector('.card[data-go="daily"]').click()`);
+  await sleep(600);
+  check('社會每日練習開得起來',
+    await js(`!document.getElementById('view-quiz').classList.contains('hidden')
+      && (window.QuizDebug.id() || '').charAt(0) === 'o'`),
+    String(await js(`window.QuizDebug.id()`)));
+  check('每日紀錄帶科目後綴', await js(`(function(){
+    var d = (JSON.parse(localStorage.getItem('chinese-review-v1')).daily) || {};
+    return Object.keys(d).some(function (k) { return k.indexOf('|social') > 0; });})()`),
+    await js(`JSON.stringify(Object.keys((JSON.parse(localStorage.getItem('chinese-review-v1')).daily) || {}))`));
+  // 故意答錯 → 進錯題本，切回國語後錯題本不該出現社會題
+  await js(`(function(){ var it = window.APP_DATA.social.filter(function(x){return x.id===window.QuizDebug.id();})[0];
+    var wrong = it.answer === 0 ? 1 : 0;
+    document.querySelectorAll('#quizOptions .q-opt')[wrong].click(); })()`);
+  await sleep(400);
+  await js(`document.getElementById('quizExit').click(); (function(){ var b = document.querySelector('.dlg-primary'); if (b) b.click(); })()`);
+  await sleep(400);
+  check('社會答錯進錯題本', await js(`(function(){
+    var w = (JSON.parse(localStorage.getItem('chinese-review-v1')).wrong) || [];
+    return w.some(function (x) { return x.t === 'social'; });})()`),
+    await js(`JSON.stringify((JSON.parse(localStorage.getItem('chinese-review-v1')).wrong) || [])`));
+  await js(`document.getElementById('homeLink').click()`);
+  await sleep(200);
+  await js(`document.querySelector('.card[data-go="wrongbook"]').click()`);
+  await sleep(400);
+  const wbSocial = await js(`document.getElementById('wrongList').textContent.length`);
+  check('社會錯題本看得到題目', wbSocial > 10, String(wbSocial));
+  // 切回國語 → 錯題本應該是空的（各科分開）
+  await js(`(function(){ var s = JSON.parse(localStorage.getItem('chinese-review-v1')); s.subject = 'chinese';
+    localStorage.setItem('chinese-review-v1', JSON.stringify(s)); })()`);
+  await js(`location.reload()`);
+  await sleep(2500);
+  await js(`document.getElementById('homeLink').click()`);
+  await sleep(200);
+  await js(`document.querySelector('.card[data-go="wrongbook"]').click()`);
+  await sleep(400);
+  check('切回國語後錯題本不含社會題',
+    /沒有錯題/.test(await js(`document.getElementById('wrongList').textContent`)),
+    (await js(`document.getElementById('wrongList').textContent`)).slice(0, 60));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);

@@ -6,7 +6,7 @@ window.APP_SUBJECTS = [
   { key: 'english', name: '英文', icon: '🔤', ready: false, desc: '題庫建置中' },
   { key: 'math',    name: '數學', icon: '🔢', ready: false, desc: '題庫建置中' },
   { key: 'science', name: '自然', icon: '🔬', ready: false, desc: '題庫建置中' },
-  { key: 'social',  name: '社會', icon: '🌏', ready: false, desc: '題庫建置中' }
+  { key: 'social',  name: '社會', icon: '🌏', ready: true,  desc: '五上・地理／歷史／公民' }
 ];
 // 非國語科目題庫（先空著）。schema（選擇題，比照 custom）：
 // { id:"e001"(英)/"m001"(數)/"n001"(自)/"o001"(社), grade:1-12, book:"五上", lesson:"第1課",
@@ -14,4 +14,4 @@ window.APP_SUBJECTS = [
 window.APP_DATA.english = [];
 window.APP_DATA.math = [];
 window.APP_DATA.science = [];
-window.APP_DATA.social = [];
+// social 的題庫在 js/data/social.js（在這支之後載入）

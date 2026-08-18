@@ -284,6 +284,14 @@
     return entries;
   }
 
+  // 題庫型科目（社會等）的每日練習：同日同科同一組題（種子＝日期|科目），依題庫順序抽 n 題
+  function composeDailyBank(bank, seed, n) {
+    var rng = rngFromString(seed);
+    return seededPick(bank || [], n || 20, rng).map(function (it) {
+      return { t: quizCatOf(it), id: it.id };
+    });
+  }
+
   // 總結測驗組卷：從所選日期的每日練習題目（daysEntries = [[{t,id,syn?,qi?}...]...]）
   // 收集題池（去重、排除當日混入的錯題複習題），混入至多 mbShare 題錯題本題（標 rev），
   // 共出 total 題。閱讀同篇子題永遠連續出現（成塊洗牌）。rng 可傳 Math.random（真隨機）。
@@ -544,7 +552,7 @@
   function labelOf(t, id) {
     var it = findItem(t, id);
     if (!it) return id;
-    if (t === 'custom') return (it.q || '').slice(0, 18) + '…';
+    if (isBankCat(t)) return (it.q || '').slice(0, 18) + '…';
     return it.term || (it.word ? it.word : it.answer || it.title || id);
   }
 
@@ -572,6 +580,27 @@
     return SUBJECTS.find(function (s) { return s.key === key; }) || SUBJECTS[0];
   }
 
+  /* ---------- 科目通用（2026-08-18 Tony：社會等科目也要單元學習那些功能）----------
+     國語以外的科目，題庫 schema 同自創題庫（{q,options,answer,exp,book,lesson,diff,qtype}），
+     所以「依課練習／依序刷題／單元學習／每日練習／總結測驗／錯題本」全部沿用同一套流程，
+     差別只在題庫來源（bankCat）與紀錄的 key 要帶科目，免得各科紀錄互相蓋掉。 */
+  function curSubj() { return state.subject || 'chinese'; }
+  function isChinese() { return curSubj() === 'chinese'; }
+  // 「依課練習」用的題庫：國語＝自創題庫，其他科＝該科題庫
+  function bankCat() { return isChinese() ? 'custom' : curSubj(); }
+  function bankReady() { return isChinese() ? W.__customReady : true; }
+  // 每日練習/總結測驗紀錄的 key：國語沿用純日期（相容舊資料），其他科加 |科目
+  function subjKey(date) { return isChinese() ? date : date + '|' + curSubj(); }
+  // 只取目前科目的每日紀錄（日曆、連續天數用），key 一律還原成純日期
+  function subjMap(map) {
+    var out = {};
+    Object.keys(map || {}).forEach(function (k) {
+      var p = k.split('|');
+      if ((p[1] || 'chinese') === curSubj()) out[p[0]] = map[k];
+    });
+    return out;
+  }
+
   // 科目選擇頁
   function renderSubjects() {
     var box = $('subjectCards');
@@ -597,26 +626,45 @@
     $('subjectBtn').textContent = subj.icon + ' ' + subj.name + ' ▾';
     var cards = document.querySelector('#view-home .cards');
     var ph = $('homePlaceholder');
-    var isChinese = subj.key === 'chinese';
-    cards.classList.toggle('hidden', !isChinese);
-    $('phonToggle').classList.toggle('hidden', !isChinese);
-    if (!isChinese) {
-      var bank = DATA[subj.key] || [];
+    var cn = subj.key === 'chinese';
+    var bank = cn ? [] : (DATA[subj.key] || []);
+    // 國語專屬的卡片（成語、字音、手寫那些）只在國語出現；其餘功能各科共用
+    document.querySelectorAll('#view-home .card[data-cn]').forEach(function (c) {
+      c.classList.toggle('hidden', !cn);
+    });
+    cards.classList.toggle('hidden', !cn && !bank.length);
+    $('phonToggle').classList.toggle('hidden', !cn);
+    $('homeSearch').textContent = cn ? '🔍 搜尋成語、字詞、文章關鍵字…' : '🔍 搜尋' + subj.name + '題目關鍵字…';
+    var bankCard = document.querySelector('.card[data-go="custom"] .card-title');
+    if (bankCard) bankCard.textContent = cn ? '自創題庫' : '依課練習';
+    if (!cn && !bank.length) {
       ph.classList.remove('hidden');
-      ph.innerHTML = subj.icon + ' ' + subj.name + '科' +
-        (bank.length ? '共 ' + bank.length + ' 題' : '題庫建置中') +
-        '<br><small>' + (bank.length ? '' : '架構已就緒——把題庫（Word 檔等）傳到 Telegram，轉檔後就能在這裡練習。') + '</small>';
-      if (bank.length) {
-        var go = document.createElement('button');
-        go.className = 'btn-primary';
-        go.textContent = '開始練習';
-        go.addEventListener('click', function () { if (needLogin()) return; startSubjectQuiz(subj.key); });
-        ph.appendChild(go);
-      }
+      ph.innerHTML = subj.icon + ' ' + subj.name + '科題庫建置中' +
+        '<br><small>架構已就緒——把題庫（Word 檔等）傳到 Telegram，轉檔後就能在這裡練習。</small>';
       renderGradeBtn();
       return;
     }
     ph.classList.add('hidden');
+    if (!cn) {
+      var sRec = (state.daily || {})[subjKey(today())];
+      var sCard = document.querySelector('.card[data-go="daily"]');
+      $('cnt-daily').textContent = sRec && sRec.done ? '今天完成了 ✅' : '今天還沒做';
+      if (sCard) sCard.classList.toggle('daily-done', !!(sRec && sRec.done));
+      var sDs = dailyStreak(subjMap(state.daily || {}), today());
+      $('cnt-streak').textContent = sDs ? '每日練習連續 ' + sDs + ' 天' : '開始累積吧';
+      var sWrong = state.wrong.filter(function (w) { return w.t === subj.key; });
+      var sDue = sWrong.filter(function (w) { return (w.due || '') <= today(); }).length;
+      $('cnt-wrong').textContent = sWrong.length + ' 題待複習' + (sDue ? ' · ' + sDue + ' 題到期' : '');
+      var sRv = (state.review || []).filter(function (h) { return (h.subj || 'chinese') === subj.key; }).pop();
+      $('cnt-review').textContent = sRv ? '上次 ' + sRv.score + ' 分 · 挑日期或只考錯題本'
+        : '挑日期出考卷／只考錯題本 · 滿分100';
+      var sUnits = Object.keys(state.units || {}).filter(function (k) { return k.indexOf(subj.key + '-') === 0; }).length;
+      $('cnt-units').textContent = sUnits ? '已完成 ' + sUnits + ' 個單元' : '先讀重點再測驗 · 逐關解鎖';
+      $('cnt-drill').textContent = '照順序一題不漏';
+      $('cnt-custom').textContent = bank.length + ' 題 · 分冊分課';
+      renderGradeBtn();
+      return;
+    }
     $('cnt-idioms').textContent = pool('idioms').length + ' 題可練';
     $('cnt-slang').textContent = pool('slang').length + ' 題可練';
     $('cnt-phonics').textContent = pool('phonics').length + ' 題可練';
@@ -1707,14 +1755,18 @@
 
   /* ---------- 每日練習 ---------- */
 
-  function dailyRec() { return (state.daily = state.daily || {})[today()]; }
+  function dailyRec() { return (state.daily = state.daily || {})[subjKey(today())]; }
+  // 這筆 ref（自主練習/每日練習出過的題）屬不屬於目前科目
+  function refIsCur(r) {
+    return isChinese() ? SUBJECT_CATS.indexOf(r.t) < 0 : r.t === curSubj();
+  }
 
   // 中途進度續做（2026-08-08）：每答完一題把「還剩哪些題、答到第幾題」寫進 state.dailyRun，
   // 隨雲端同步 → 換裝置（或關掉分頁）都能從上次的題號繼續，不會從第 1 題重來。
   function saveDailyRun(nextI) {
     if (!quiz || quiz.mode !== 'daily') return;
     state.dailyRun = {
-      date: today(), entries: quiz.entries, i: nextI, score: quiz.score,
+      date: today(), subj: curSubj(), entries: quiz.entries, i: nextI, score: quiz.score,
       round: quiz.round, firstTry: quiz.firstTry, wrongNow: quiz.wrongNow,
       elapsed: Date.now() - quiz.startedAt
     };
@@ -1740,27 +1792,35 @@
     var rec = dailyRec();
     if (rec && rec.done) { showDailySummary(rec); return; }
     var run = state.dailyRun;
-    if (run && run.date === today() && Array.isArray(run.entries) && run.entries.length) {
+    if (run && run.date === today() && (run.subj || 'chinese') === curSubj() &&
+        Array.isArray(run.entries) && run.entries.length) {
       resumeDaily(run);
       return;
     }
     // 弱點加權：正確率最低的類別 +2 題、最高的 -2 題
-    var ws = weakStrong(state.stats);
-    var counts = { idioms: 6, slang: 4, phonics: 6, chars: 6 };
-    if (ws) {
-      counts[ws.weak] += 2;
-      if (counts[ws.strong] > 3) counts[ws.strong] -= 2;
+    var ws = isChinese() ? weakStrong(state.stats) : null;
+    var entries;
+    if (isChinese()) {
+      var counts = { idioms: 6, slang: 4, phonics: 6, chars: 6 };
+      if (ws) {
+        counts[ws.weak] += 2;
+        if (counts[ws.strong] > 3) counts[ws.strong] -= 2;
+      }
+      entries = composeDaily(DATA, state.grades, today() + '|' + state.grades.join(','), counts);
+    } else {
+      // 題庫型科目：同日同科出同一組（種子＝日期|科目），依冊/課順序不重複抽 20 題
+      entries = composeDailyBank(DATA[bankCat()] || [], today() + '|' + curSubj(), 20);
     }
-    var entries = composeDaily(DATA, state.grades, today() + '|' + state.grades.join(','), counts);
-    if (entries.length < 5) { UIDialog.alert('所選年級題目不足，請多勾幾個年級。'); return; }
+    if (entries.length < 5) { UIDialog.alert(isChinese() ? '所選年級題目不足，請多勾幾個年級。' : '這一科題目不足。'); return; }
     // 記下今天實際出了哪些題（總結測驗依此精確重組當日題組）
-    var recPrev = state.daily[today()] || {};
+    var dk = subjKey(today());
+    var recPrev = state.daily[dk] || {};
     recPrev.refs = entries.slice();
-    state.daily[today()] = recPrev;
+    state.daily[dk] = recPrev;
     save();
     // 錯題到期複習：最多 3 題混入今日練習
     var t = today();
-    state.wrong.filter(function (w) { return (w.due || t) <= t; }).slice(0, 3)
+    state.wrong.filter(function (w) { return (w.due || t) <= t && refIsCur(w); }).slice(0, 3)
       .forEach(function (w) {
         var e = { t: w.t, id: w.id, rev: true };
         if (w.t === 'chars' && w.wr) e.hw = true;   // 手寫錯的字混進每日練習時一樣手寫
@@ -1783,8 +1843,8 @@
     });
     var ms = Date.now() - quiz.startedAt;
     state.dailyRun = null;   // 今日已完成，清掉中途進度
-    var keepRefs = (state.daily[today()] || {}).refs;
-    state.daily[today()] = {
+    var keepRefs = (state.daily[subjKey(today())] || {}).refs;
+    state.daily[subjKey(today())] = {
       done: true, grade: state.grades[state.grades.length - 1], gradesTxt: gradesLabel(state.grades),
       total: total, firstOk: firstOk, rounds: quiz.round,
       ms: ms, finishedAt: Date.now(), wrong: wrongList, refs: keepRefs
@@ -1792,7 +1852,7 @@
     save();
     document.querySelector('#view-quiz .quiz-card').classList.add('hidden');
     var mins = Math.max(1, Math.round(ms / 60000));
-    var streak = dailyStreak(state.daily, today());
+    var streak = dailyStreak(subjMap(state.daily), today());
     var r = $('quizResult');
     r.innerHTML = '🎉 今日練習完成！<br>' +
       '<b style="font-size:1.6rem">' + firstOk + ' / ' + total + '</b><small> 第一次就答對</small><br>' +
@@ -1817,6 +1877,7 @@
       '<button class="btn-ghost" id="quizHome">回首頁</button>';
     r.classList.remove('hidden');
     $('quizAgain').addEventListener('click', function () {
+      if (!isChinese()) { startSubjectQuiz(curSubj()); return; }
       var items = shuffle(pool('idioms').concat(pool('phonics')).concat(pool('chars'))).slice(0, 10);
       startQuiz('mixed', items);
     });
@@ -1829,18 +1890,23 @@
   // 每日練習新紀錄有 refs 可精確重組；舊紀錄沒存就用同日種子＋預設配額近似重組
   // （年級設定與當時不同會有出入）；只做過自主練習的日子就只考自主練習內容。
   function reviewEntriesForDate(date) {
-    var rec = (state.daily || {})[date] || {};
+    var rec = (state.daily || {})[subjKey(date)] || {};
     var out = [];
     if (rec.refs && rec.refs.length) out = rec.refs.slice();
-    else if (rec.done) out = composeDaily(DATA, state.grades, date + '|' + state.grades.join(','), null);
+    else if (rec.done && isChinese()) out = composeDaily(DATA, state.grades, date + '|' + state.grades.join(','), null);
     var g = (state.gen || {})[date];
-    if (g && g.refs && g.refs.length) out = out.concat(g.refs);
+    if (g && g.refs && g.refs.length) out = out.concat(g.refs.filter(refIsCur));
     return out;
   }
 
   function showReview() {
-    var daily = state.daily || {};
-    var gen = state.gen || {};
+    var daily = subjMap(state.daily || {});
+    var gen = {};
+    Object.keys(state.gen || {}).forEach(function (d) {
+      var rec = state.gen[d];
+      var refs = (rec.refs || []).filter(refIsCur);
+      if (refs.length) gen[d] = { n: refs.length, refs: refs };
+    });
     var box = $('rvDays');
     box.innerHTML = '';
     var days = [];
@@ -1874,7 +1940,7 @@
 
   function renderReviewHistory() {
     var el = $('rvHistory');
-    var hist = state.review || [];
+    var hist = (state.review || []).filter(function (h) { return (h.subj || 'chinese') === curSubj(); });
     var html = '<h3 class="prog-h3">📊 歷次成績</h3>';
     if (!hist.length) {
       html += '<div class="prog-hint">還沒考過總結測驗。</div>';
@@ -1895,7 +1961,8 @@
     var includeMb = $('rvMb').checked;
     if (!days.length && !includeMb) { UIDialog.alert('至少勾選一天，或勾選「混入錯題本題目」。'); return; }
     var daysEntries = days.map(reviewEntriesForDate);
-    var entries = composeReview(daysEntries, includeMb ? state.wrong : [], 20, 6, Math.random);
+    var mb = includeMb ? (state.wrong || []).filter(refIsCur) : [];
+    var entries = composeReview(daysEntries, mb, 20, 6, Math.random);
     if (entries.length < 5) { UIDialog.alert('可出的題目太少，請多勾幾天。'); return; }
     beginQuiz(entries, 'review', null);
     quiz.reviewDays = days;
@@ -1905,7 +1972,7 @@
   // 優先出今天到期的、再依錯的次數排，最多 20 題；手寫來源的字形錯題照樣出手寫題。
   function startWrongTest() {
     var t = today();
-    var pool = (state.wrong || []).slice().sort(function (a, b) {
+    var pool = (state.wrong || []).filter(refIsCur).sort(function (a, b) {
       var ad = (a.due || t) <= t ? 0 : 1, bd = (b.due || t) <= t ? 0 : 1;
       if (ad !== bd) return ad - bd;
       if ((b.n || 0) !== (a.n || 0)) return (b.n || 0) - (a.n || 0);
@@ -1927,7 +1994,7 @@
     var score = total ? Math.round(100 * firstOk / total) : 0;
     var ms = Date.now() - quiz.startedAt;
     state.review = state.review || [];
-    state.review.push({ date: today(), ts: Date.now(), days: quiz.reviewDays || [], n: total,
+    state.review.push({ date: today(), ts: Date.now(), subj: curSubj(), days: quiz.reviewDays || [], n: total,
                         ok: firstOk, score: score, ms: ms, gradesTxt: gradesLabel(state.grades),
                         wrongOnly: quiz.wrongOnly ? 1 : 0 });
     if (state.review.length > 30) state.review = state.review.slice(-30);
@@ -2361,10 +2428,11 @@
     else if (wb.time === '7d') cut = now - 7 * 86400000;
     else if (wb.time === '30d') cut = now - 30 * 86400000;
     return state.wrong.filter(function (w) {
+      if (!refIsCur(w)) return false;   // 錯題本只看目前科目的題（切科目就換一本）
       if (wb.cat !== 'all' && w.t !== wb.cat) return false;
       if ((w.lastWrong || w.added || 0) < cut) return false;
       if (wb.lesson !== 'all') {
-        if (w.t !== 'custom') return false;
+        if (!isBankCat(w.t)) return false;
         var itL = findItem(w.t, w.id);
         if (!itL || ((itL.book || '未分類') + '|' + (itL.lesson || '未分類')) !== wb.lesson) return false;
       }
@@ -2403,8 +2471,9 @@
     });
     var cats = [['all', '全類別']];
     Object.keys(CAT_NAME).forEach(function (c) {
-      if (state.wrong.some(function (w) { return w.t === c; })) cats.push([c, CAT_NAME[c]]);
+      if (state.wrong.some(function (w) { return w.t === c && refIsCur(w); })) cats.push([c, CAT_NAME[c]]);
     });
+    if (cats.length === 2) cats = [];   // 只有一類（例：社會）就不用顯示類別列
     cats.forEach(function (t) {
       var b = document.createElement('button');
       b.className = 'chip' + (wb.cat === t[0] ? ' active' : '');
@@ -2415,7 +2484,7 @@
     // 課別篩選（自創題庫的冊·課，有錯題才顯示）
     var lessons = {};
     state.wrong.forEach(function (w) {
-      if (w.t !== 'custom') return;
+      if (!isBankCat(w.t) || !refIsCur(w)) return;
       var it = findItem(w.t, w.id);
       if (!it) return;
       var key = (it.book || '未分類') + '|' + (it.lesson || '未分類');
@@ -2594,10 +2663,10 @@
     pbtn.textContent = '👨‍🏫 家長／老師儀表板';
     pbtn.addEventListener('click', function () { showParent(); });
     body.appendChild(pbtn);
-    var rows = [
+    var rows = isChinese() ? [
       ['成語', 'idioms'], ['俚語諺語', 'slang'], ['字音辨正', 'phonics'],
       ['字形辨正', 'chars'], ['手寫練習', 'write']
-    ];
+    ] : [[CAT_NAME[curSubj()], curSubj()]];
     rows.forEach(function (r) {
       var s = state.stats[r[1]] || { n: 0, ok: 0 };
       var pct = s.n ? Math.round(100 * s.ok / s.n) : 0;
@@ -2606,25 +2675,27 @@
       div.innerHTML = '<b>' + r[0] + '</b><span>' + s.n + ' 題 · 正確率 ' + pct + '%</span>';
       body.appendChild(div);
     });
-    var extra = document.createElement('div');
-    extra.className = 'prog-row';
-    var boxes = [0, 0, 0];
-    Object.keys(state.leitner).forEach(function (id) { boxes[state.leitner[id].box - 1]++; });
-    extra.innerHTML = '<b>字卡</b><span>盒1×' + boxes[0] + ' 盒2×' + boxes[1] + ' 盒3×' + boxes[2] + '</span>';
-    body.appendChild(extra);
-    // 弱點分析
-    var ws = weakStrong(state.stats);
-    var weakDiv = document.createElement('div');
-    weakDiv.className = 'prog-hint';
-    if (ws) {
-      weakDiv.textContent = '📊 弱點分析：「' + CAT_NAME[ws.weak] + '」正確率最低（' +
-        Math.round(ws.weakRate * 100) + '%），每日練習已自動對它加重出題。';
-    } else {
-      weakDiv.textContent = '📊 弱點分析：各類作答量還不夠或表現平均，累積更多作答後會自動對最弱類別加重出題。';
+    if (isChinese()) {
+      var extra = document.createElement('div');
+      extra.className = 'prog-row';
+      var boxes = [0, 0, 0];
+      Object.keys(state.leitner).forEach(function (id) { boxes[state.leitner[id].box - 1]++; });
+      extra.innerHTML = '<b>字卡</b><span>盒1×' + boxes[0] + ' 盒2×' + boxes[1] + ' 盒3×' + boxes[2] + '</span>';
+      body.appendChild(extra);
+      // 弱點分析
+      var ws = weakStrong(state.stats);
+      var weakDiv = document.createElement('div');
+      weakDiv.className = 'prog-hint';
+      if (ws) {
+        weakDiv.textContent = '📊 弱點分析：「' + CAT_NAME[ws.weak] + '」正確率最低（' +
+          Math.round(ws.weakRate * 100) + '%），每日練習已自動對它加重出題。';
+      } else {
+        weakDiv.textContent = '📊 弱點分析：各類作答量還不夠或表現平均，累積更多作答後會自動對最弱類別加重出題。';
+      }
+      body.appendChild(weakDiv);
     }
-    body.appendChild(weakDiv);
-    renderDailyCal(body);
-    renderReviewScores(body);
+    renderDailyCal(body, subjMap(state.daily || {}));
+    renderReviewScores(body, (state.review || []).filter(function (h) { return (h.subj || 'chinese') === curSubj(); }));
   }
 
   // 家長檢視：歷次總結測驗成績（滿分 100）；histOverride = 跨帳號檢視時傳入對方資料
@@ -3078,12 +3149,18 @@
 
   /* ---------- 自創題庫（分冊分課選範圍） ---------- */
 
-  var customSel = { book: null, diffs: [], qtypes: [] }; // diffs/qtypes 可複選，空陣列＝全部
+  // 每個科目各記自己的選取（book/難易度/題型），切科目不會互相干擾
+  var customSelAll = {};
+  function curSel() {
+    var k = bankCat();
+    return (customSelAll[k] = customSelAll[k] || { book: null, diffs: [], qtypes: [] });
+  }
 
   function customFilter(pool) {
+    var sel = curSel();
     return pool.filter(function (it) {
-      if (customSel.diffs.length && customSel.diffs.indexOf(it.diff || '中') < 0) return false;
-      if (customSel.qtypes.length && customSel.qtypes.indexOf(it.qtype || '綜合') < 0) return false;
+      if (sel.diffs.length && sel.diffs.indexOf(it.diff || '中') < 0) return false;
+      if (sel.qtypes.length && sel.qtypes.indexOf(it.qtype || '綜合') < 0) return false;
       return true;
     });
   }
@@ -3094,23 +3171,27 @@
   }
 
   function showCustom() {
-    if (!DATA.custom.length) {
-      if (!W.__customReady) { setStatusToast('📦 題庫還在背景載入中，請稍候幾秒再點一次'); return; }
-      UIDialog.alert('自創題庫還沒有題目。請把 Word 題庫檔傳到 Telegram，轉檔後會自動分冊分課出現在這裡。');
+    var cat = bankCat();
+    var bank = DATA[cat] || [];
+    var sel = curSel();
+    if (!bank.length) {
+      if (!bankReady()) { setStatusToast('📦 題庫還在背景載入中，請稍候幾秒再點一次'); return; }
+      UIDialog.alert('這一科還沒有題目。請把 Word 題庫檔傳到 Telegram，轉檔後會自動分冊分課出現在這裡。');
       return;
     }
     show('custom');
-    var books = customBooks(DATA.custom);
-    if (!customSel.book || !books.some(function (b) { return b.book === customSel.book; })) {
-      customSel.book = books[0].book;
+    $('customTitle').textContent = cat === 'custom' ? '📂 自創題庫' : '📂 ' + CAT_NAME[cat] + '・依課練習';
+    var books = customBooks(bank);
+    if (!sel.book || !books.some(function (b) { return b.book === sel.book; })) {
+      sel.book = books[0].book;
     }
     var row = $('customBooks');
     row.innerHTML = '';
     books.forEach(function (b) {
       var btn = document.createElement('button');
-      btn.className = 'chip' + (customSel.book === b.book ? ' active' : '');
+      btn.className = 'chip' + (sel.book === b.book ? ' active' : '');
       btn.textContent = b.book;
-      btn.addEventListener('click', function () { customSel.book = b.book; showCustom(); });
+      btn.addEventListener('click', function () { sel.book = b.book; showCustom(); });
       row.appendChild(btn);
     });
     // 難易度篩選（可複選；「全部難度」清空選取）
@@ -3118,11 +3199,11 @@
     drow.innerHTML = '';
     [[null, '全部難度'], ['易', '易'], ['中', '中'], ['難', '難']].forEach(function (o) {
       var b = document.createElement('button');
-      b.className = 'chip' + ((o[0] === null ? !customSel.diffs.length : customSel.diffs.indexOf(o[0]) >= 0) ? ' active' : '');
+      b.className = 'chip' + ((o[0] === null ? !sel.diffs.length : sel.diffs.indexOf(o[0]) >= 0) ? ' active' : '');
       b.textContent = o[1];
       b.addEventListener('click', function () {
-        if (o[0] === null) customSel.diffs = [];
-        else toggleSel(customSel.diffs, o[0]);
+        if (o[0] === null) sel.diffs = [];
+        else toggleSel(sel.diffs, o[0]);
         showCustom();
       });
       drow.appendChild(b);
@@ -3131,18 +3212,18 @@
     var trow = $('customTypes');
     trow.innerHTML = '';
     var typesHere = [];
-    customPool(DATA.custom, customSel.book, null).forEach(function (it) {
+    customPool(bank, sel.book, null).forEach(function (it) {
       var t = it.qtype || '綜合';
       if (typesHere.indexOf(t) < 0) typesHere.push(t);
     });
-    customSel.qtypes = customSel.qtypes.filter(function (t) { return typesHere.indexOf(t) >= 0; });
+    sel.qtypes = sel.qtypes.filter(function (t) { return typesHere.indexOf(t) >= 0; });
     [[null, '全部題型']].concat(typesHere.map(function (t) { return [t, t]; })).forEach(function (o) {
       var b = document.createElement('button');
-      b.className = 'chip' + ((o[0] === null ? !customSel.qtypes.length : customSel.qtypes.indexOf(o[0]) >= 0) ? ' active' : '');
+      b.className = 'chip' + ((o[0] === null ? !sel.qtypes.length : sel.qtypes.indexOf(o[0]) >= 0) ? ' active' : '');
       b.textContent = o[1];
       b.addEventListener('click', function () {
-        if (o[0] === null) customSel.qtypes = [];
-        else toggleSel(customSel.qtypes, o[0]);
+        if (o[0] === null) sel.qtypes = [];
+        else toggleSel(sel.qtypes, o[0]);
         showCustom();
       });
       trow.appendChild(b);
@@ -3150,11 +3231,11 @@
     var list = $('customList');
     list.innerHTML = '';
     state.drillPos = state.drillPos || {};
-    var cur = books.find(function (b) { return b.book === customSel.book; });
+    var cur = books.find(function (b) { return b.book === sel.book; });
     var rows = cur.lessons.map(function (l) { return { label: l, lesson: l }; });
     rows.push({ label: '整冊全部', lesson: null });
     rows.forEach(function (r) {
-      var p = customFilter(customPool(DATA.custom, cur.book, r.lesson));
+      var p = customFilter(customPool(bank, cur.book, r.lesson));
       var key = customDrillKey(cur.book, r.lesson);
       var pos = Math.min(state.drillPos[key] || 0, p.length);
       var pct = p.length ? Math.round(100 * pos / p.length) : 0;
@@ -3165,18 +3246,19 @@
         '<div class="drill-track"><div class="drill-bar" style="width:' + pct + '%"></div></div>';
       div.addEventListener('click', function () {
         if (!p.length) { setStatusToast('這個範圍沒有符合篩選的題目'); return; }
-        startDrill('custom', cur.book, r.lesson);
+        startDrill(cat, cur.book, r.lesson);
       });
       list.appendChild(div);
     });
   }
   $('customExit').addEventListener('click', function () { show('home'); });
 
-  function customDrillKey(book, lesson) {
+  function customDrillKey(book, lesson, catArg) {
     // 舊 key 'custom'（全庫）沿用；有選冊/課/難度/題型才加後綴（複選排序後串接）
-    var d = customSel.diffs.slice().sort().join(',');
-    var t = customSel.qtypes.slice().sort().join(',');
-    return 'custom' + (book ? '|' + book : '') + (lesson ? '|' + lesson : '') +
+    var sel = curSel();
+    var d = sel.diffs.slice().sort().join(',');
+    var t = sel.qtypes.slice().sort().join(',');
+    return (catArg || bankCat()) + (book ? '|' + book : '') + (lesson ? '|' + lesson : '') +
       (d ? '|d:' + d : '') + (t ? '|t:' + t : '');
   }
 
@@ -3184,12 +3266,15 @@
 
   var DRILL_CHUNK = 20;
 
+  // 題庫型科目（自創題庫、社會等）照冊/課/篩選走，國語各類別照年級走
+  function isBankCat(cat) { return cat === 'custom' || SUBJECT_CATS.indexOf(cat) >= 0; }
   function drillPool(cat, book, lesson) {
-    if (cat === 'custom') return customFilter(book ? customPool(DATA.custom, book, lesson) : DATA.custom);
-    return filterByGrades(DATA[cat] || [], state.grades);
+    var bank = DATA[cat] || [];
+    if (isBankCat(cat)) return customFilter(book ? customPool(bank, book, lesson) : bank);
+    return filterByGrades(bank, state.grades);
   }
   function drillKey(cat, book, lesson) {
-    return cat === 'custom' ? customDrillKey(book, lesson) : cat + '|' + state.grades.join(',');
+    return isBankCat(cat) ? customDrillKey(book, lesson, cat) : cat + '|' + state.grades.join(',');
   }
 
   function showDrill() {
@@ -3198,10 +3283,13 @@
     list.innerHTML = '';
     var hint = document.createElement('div');
     hint.className = 'prog-hint';
-    hint.textContent = '照題庫順序一題不漏地刷（目前年級範圍：' + gradesLabel(state.grades) + '），一批 ' + DRILL_CHUNK + ' 題，進度自動記住。';
+    hint.textContent = isChinese()
+      ? '照題庫順序一題不漏地刷（目前年級範圍：' + gradesLabel(state.grades) + '），一批 ' + DRILL_CHUNK + ' 題，進度自動記住。'
+      : '照題庫順序一題不漏地刷，一批 ' + DRILL_CHUNK + ' 題，進度自動記住（要挑冊/課請用「依課練習」）。';
     list.appendChild(hint);
-    var cats = ['idioms', 'slang', 'phonics', 'chars'];
-    if (DATA.custom.length) cats.push('custom');
+    var cats = isChinese() ? ['idioms', 'slang', 'phonics', 'chars'] : [];
+    if (isChinese()) { if (DATA.custom.length) cats.push('custom'); }
+    else cats.push(bankCat());
     state.drillPos = state.drillPos || {};
     cats.forEach(function (cat) {
       var pool = drillPool(cat);
@@ -3220,7 +3308,7 @@
 
   function startDrill(cat, book, lesson) {
     var pool = drillPool(cat, book, lesson);
-    if (!pool.length) { UIDialog.alert(cat === 'custom' ? '自創題庫還沒有題目。請把 Word 題庫檔傳到 Telegram，轉檔後就會出現。' : '這個年級範圍沒有題目。'); return; }
+    if (!pool.length) { UIDialog.alert(isBankCat(cat) ? '這個範圍還沒有題目。請把 Word 題庫檔傳到 Telegram，轉檔後就會出現。' : '這個年級範圍沒有題目。'); return; }
     state.drillPos = state.drillPos || {};
     var key = drillKey(cat, book, lesson);
     var pos = state.drillPos[key] || 0;
@@ -3232,10 +3320,11 @@
       quiz.drillTotal = pool.length;
       quiz.drillBook = book || null;
       quiz.drillLesson = lesson || null;
-      quiz.drillDesc = cat === 'custom'
+      var sel = curSel();
+      quiz.drillDesc = isBankCat(cat)
         ? [book, lesson,
-           customSel.diffs.length ? '難度:' + customSel.diffs.join('/') : '',
-           customSel.qtypes.length ? '題型:' + customSel.qtypes.join('/') : ''].filter(Boolean).join(' ') || '自創題庫'
+           sel.diffs.length ? '難度:' + sel.diffs.join('/') : '',
+           sel.qtypes.length ? '題型:' + sel.qtypes.join('/') : ''].filter(Boolean).join(' ') || CAT_NAME[cat]
         : CAT_NAME[cat] + '（' + gradesLabel(state.grades) + '）';
     }
     if (pos >= pool.length) {
@@ -3261,7 +3350,17 @@
   function unitSize() { return state.unitSize || 14; }
   function unitKey(g, i) {
     var s = unitSize();
+    if (!isChinese()) return curSubj() + '-' + (state.unitBook || '') + '-s' + s + '-u' + i;
     return s === 14 ? 'g' + g + '-u' + i : 'g' + g + '-s' + s + '-u' + i;
+  }
+  // 題庫型科目的單元：同一冊照 id 序切成每單元 unitSize 題（跨課會標出課名）
+  function buildBankUnits(bank, book, size) {
+    var p = customPool(bank, book, null);
+    var units = [];
+    for (var i = 0; i < p.length; i += size) {
+      units.push(p.slice(i, i + size).map(function (it) { return { t: quizCatOf(it), id: it.id }; }));
+    }
+    return units;
   }
 
   function showUnits() {
@@ -3269,7 +3368,9 @@
     if (!state.unitGrade) state.unitGrade = state.grades[state.grades.length - 1] || 5;
     var srow = $('unitSizeRow');
     srow.innerHTML = '';
-    [[10, '小單元 10 條'], [14, '標準 14 條'], [21, '大單元 21 條']].forEach(function (opt) {
+    var unitWord = isChinese() ? ' 條' : ' 題';
+    [[10, '小單元 10'], [14, '標準 14'], [21, '大單元 21']].forEach(function (opt) {
+      opt = [opt[0], opt[1] + unitWord];
       var b = document.createElement('button');
       b.className = 'chip' + (unitSize() === opt[0] ? ' active' : '');
       b.textContent = opt[1];
@@ -3278,27 +3379,50 @@
     });
     var row = $('unitGradeRow');
     row.innerHTML = '';
-    for (var g = 1; g <= 12; g++) {
-      (function (g) {
+    var cn = isChinese();
+    var bank = cn ? null : (DATA[bankCat()] || []);
+    if (cn) {
+      for (var g = 1; g <= 12; g++) {
+        (function (g) {
+          var b = document.createElement('button');
+          b.className = 'chip' + (g === state.unitGrade ? ' active' : '');
+          b.textContent = gradeLabel(g);
+          b.addEventListener('click', function () { state.unitGrade = g; save(); showUnits(); });
+          row.appendChild(b);
+        })(g);
+      }
+    } else {
+      // 非國語科目：單元照「冊」切（例：五上）
+      var books = customBooks(bank);
+      if (!books.some(function (b) { return b.book === state.unitBook; })) state.unitBook = books.length ? books[0].book : '';
+      books.forEach(function (bk) {
         var b = document.createElement('button');
-        b.className = 'chip' + (g === state.unitGrade ? ' active' : '');
-        b.textContent = gradeLabel(g);
-        b.addEventListener('click', function () { state.unitGrade = g; save(); showUnits(); });
+        b.className = 'chip' + (bk.book === state.unitBook ? ' active' : '');
+        b.textContent = bk.book;
+        b.addEventListener('click', function () { state.unitBook = bk.book; save(); showUnits(); });
         row.appendChild(b);
-      })(g);
+      });
     }
     var list = $('unitList');
     list.innerHTML = '';
-    var units = buildUnits(DATA, state.unitGrade, UNIT_SIZES[unitSize()]);
+    var units = cn ? buildUnits(DATA, state.unitGrade, UNIT_SIZES[unitSize()])
+                   : buildBankUnits(bank, state.unitBook, unitSize());
     state.units = state.units || {};
-    if (!units.length) { list.innerHTML = '<div class="empty">這個年級目前沒有教材。</div>'; return; }
+    if (!units.length) { list.innerHTML = '<div class="empty">' + (cn ? '這個年級目前沒有教材。' : '這一冊目前沒有題目。') + '</div>'; return; }
     units.forEach(function (u, i) {
       var done = !!state.units[unitKey(state.unitGrade, i)];
       var locked = i > 0 && !state.units[unitKey(state.unitGrade, i - 1)];
+      var lessons = [];
+      if (!cn) u.forEach(function (e) {
+        var it = findItem(e.t, e.id);
+        var l = it && (it.lesson || it.tag);
+        if (l && lessons.indexOf(l) < 0) lessons.push(l);
+      });
       var div = document.createElement('button');
       div.className = 'unit-item' + (done ? ' done' : locked ? ' locked' : '');
       div.innerHTML = '<b>' + (done ? '✅' : locked ? '🔒' : '▶️') + ' 第 ' + (i + 1) + ' 單元</b>' +
-        '<small>' + u.length + ' 個詞條 · ' + (done ? '已完成，可重新練習' : locked ? '完成上一單元後解鎖' : '教學 → 測驗全對過關') + '</small>';
+        '<small>' + (cn ? u.length + ' 個詞條' : u.length + ' 題 · ' + lessons.join('、')) + ' · ' +
+        (done ? '已完成，可重新練習' : locked ? '完成上一單元後解鎖' : cn ? '教學 → 測驗全對過關' : '看重點 → 測驗全對過關') + '</small>';
       if (!locked) div.addEventListener('click', function () { startLesson(state.unitGrade, i, u); });
       list.appendChild(div);
     });
@@ -3315,7 +3439,8 @@
     var L = lessonState;
     var e = L.items[L.i];
     var it = findItem(e.t, e.id);
-    $('lessonInfo').textContent = gradeLabel(L.grade) + ' 第' + (L.unitIdx + 1) + '單元 · ' + (L.i + 1) + '/' + L.items.length;
+    $('lessonInfo').textContent = (isChinese() ? gradeLabel(L.grade) : (state.unitBook || CAT_NAME[bankCat()])) +
+      ' 第' + (L.unitIdx + 1) + '單元 · ' + (L.i + 1) + '/' + L.items.length;
     $('lessonTag').textContent = '📖 教學 · ' + CAT_NAME[e.t];
     var body = $('lessonBody');
     body.innerHTML = '';
@@ -3345,13 +3470,19 @@
       line('lesson-term', it.word);
       line('lesson-zy', '「' + it.target + '」讀 ' + (z ? it.zhuyin : it.pinyin));
       if (it.note) line('lesson-meaning', '💡 ' + it.note);
+    } else if (isBankCat(e.t)) {
+      // 題庫型科目（社會等）：重點卡＝題目＋正解＋解析，看完再考同一批題
+      $('lessonTag').textContent = '📖 重點 · ' + [it.book, it.lesson].filter(Boolean).join(' ');
+      line('lesson-meaning', it.q);
+      line('lesson-term', it.options[it.answer]);
+      if (it.exp) line('lesson-extra', it.exp);
     } else {
       line('lesson-term', it.answer);
       line('lesson-zy', z ? it.zhuyin : it.pinyin);
       if (it.note) line('lesson-meaning', '💡 ' + it.note);
       line('lesson-example', '例：' + it.sentence.split('（　）').join(it.answer));
     }
-    var dx = deepExp(it);
+    var dx = isBankCat(e.t) ? '' : deepExp(it);
     if (dx) line('lesson-extra', dx.replace(/^\n/, ''));
     $('lessonPrev').disabled = L.i === 0;
     $('lessonNext').textContent = L.i === L.items.length - 1 ? '開始單元測驗 ✍️' : '下一個 →';

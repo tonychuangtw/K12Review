@@ -42,19 +42,19 @@
       <span class="card-icon">📋</span><span class="card-title">總結測驗</span>
       <span class="card-sub" id="cnt-review"></span>
     </button>
-    <button class="card" data-go="idioms">
+    <button class="card" data-cn="1" data-go="idioms">
       <span class="card-icon">📜</span><span class="card-title">成語</span>
       <span class="card-sub" id="cnt-idioms"></span>
     </button>
-    <button class="card" data-go="slang">
+    <button class="card" data-cn="1" data-go="slang">
       <span class="card-icon">🗣️</span><span class="card-title">俚語諺語</span>
       <span class="card-sub" id="cnt-slang"></span>
     </button>
-    <button class="card" data-go="phonics">
+    <button class="card" data-cn="1" data-go="phonics">
       <span class="card-icon">🔊</span><span class="card-title">字音辨正</span>
       <span class="card-sub" id="cnt-phonics"></span>
     </button>
-    <button class="card" data-go="chars">
+    <button class="card" data-cn="1" data-go="chars">
       <span class="card-icon">✍️</span><span class="card-title">字形辨正</span>
       <span class="card-sub" id="cnt-chars"></span>
     </button>
@@ -70,19 +70,19 @@
       <span class="card-icon">🧭</span><span class="card-title">單元學習</span>
       <span class="card-sub" id="cnt-units"></span>
     </button>
-    <button class="card" data-go="reading">
+    <button class="card" data-cn="1" data-go="reading">
       <span class="card-icon">📖</span><span class="card-title">閱讀測驗</span>
       <span class="card-sub" id="cnt-reading"></span>
     </button>
-    <button class="card" data-go="write">
+    <button class="card" data-cn="1" data-go="write">
       <span class="card-icon">🖌️</span><span class="card-title">手寫練習</span>
       <span class="card-sub">看注音寫國字</span>
     </button>
-    <button class="card" data-go="flash">
+    <button class="card" data-cn="1" data-go="flash">
       <span class="card-icon">🗂️</span><span class="card-title">字卡複習</span>
       <span class="card-sub" id="cnt-flash"></span>
     </button>
-    <button class="card" data-go="writing">
+    <button class="card" data-cn="1" data-go="writing">
       <span class="card-icon">🖋️</span><span class="card-title">寫作素材</span>
       <span class="card-sub" id="cnt-writing"></span>
     </button>
@@ -239,7 +239,7 @@
 <section id="view-custom" class="view hidden">
   <div class="quiz-head">
     <button class="btn-ghost" id="customExit">✕ 返回</button>
-    <span>自創題庫</span>
+    <span id="customTitle">自創題庫</span>
     <span></span>
   </div>
   <div id="customBooks" class="gp-quick unit-grades"></div>
@@ -379,6 +379,7 @@
 <script src="js/data/checks-chars.js"></script>
 <!-- custom.js（自創題庫 20MB+）改由 app.js 背景載入，避免手機開站白屏 -->
 <script src="js/data/subjects.js"></script>
+<script src="js/data/social.js"></script>
 <script src="js/dialog.js"></script>
 <script src="js/versions.js"></script>
 <script src="js/anim-stage.js"></script>
