@@ -849,7 +849,10 @@
   }
 
   // 測試用小掛鉤（test/browser-smoke.mjs 需要知道現在考的是哪一題）
-  W.QuizDebug = { id: function () { return (quiz && quiz.cur) ? quiz.cur.item.id : null; } };
+  W.QuizDebug = {
+    id: function () { return (quiz && quiz.cur) ? quiz.cur.item.id : null; },
+    unlock: function () { clearGate(); }   // 測試用：跳過解析鎖倒數
+  };
 
   function beginQuiz(entries, mode, cat) {
     quiz = {
@@ -864,6 +867,7 @@
   }
 
   function renderQ() {
+    clearGate();   // 換題一定解鎖，避免上一題的倒數殘留把按鈕卡死
     var e = quiz.entries[quiz.i];
     var q = buildEntryQ(e);
     if (!q) { quiz.i++; if (quiz.i < quiz.entries.length) return renderQ(); return finishRound(); }
@@ -1146,30 +1150,60 @@
   /* ---------- 解析停留（Tony 2026-08-17：做太快＝沒看解析）----------
      公布答案後先鎖住「下一題」幾秒，秒數依解析長度加權、答錯的鎖久一點；
      同時記錄每題實際停留時間，家長檢視看得到「解析平均停留幾秒」。 */
-  var gate = { timer: null, shownAt: 0, logged: true };
+  var gate = { timer: null, shownAt: 0, logged: true, left: 0 };
   function gateSeconds(q, ok) {
     var len = String(q.explain || '').length;
     return (ok ? 3 : 6) + Math.min(6, Math.floor(len / 60));
   }
+  // 鎖住＝按鈕仍可按（disabled 的按鈕收不到 click，按下去毫無反應；Tony 2026-08-18 回報）
   function clearGate() {
     if (gate.timer) { clearInterval(gate.timer); gate.timer = null; }
+    gate.left = 0;
+    var btn = $('quizNext');
+    btn.disabled = false;
+    btn.classList.remove('locked');
+    btn.removeAttribute('aria-disabled');
+    var hint = $('quizGateHint');
+    hint.classList.add('hidden');
+    hint.textContent = '';
   }
   function gateNext(q, ok) {
     clearGate();
     gate.shownAt = Date.now();
     gate.logged = false;
     var btn = $('quizNext');
-    var left = gateSeconds(q, ok);
-    btn.disabled = true;
-    btn.textContent = '📖 先看解析（' + left + '）';
+    gate.left = gateSeconds(q, ok);
+    btn.classList.add('locked');
+    btn.setAttribute('aria-disabled', 'true');
+    btn.textContent = '📖 先看解析（' + gate.left + '）';
     gate.timer = setInterval(function () {
-      left--;
-      if (left <= 0) {
+      gate.left--;
+      if (gate.left <= 0) {
         clearGate();
-        btn.disabled = false;
         btn.textContent = '下一題';
-      } else btn.textContent = '📖 先看解析（' + left + '）';
+      } else {
+        btn.textContent = '📖 先看解析（' + gate.left + '）';
+        var hint = $('quizGateHint');
+        if (!hint.classList.contains('hidden')) hint.textContent = gateHintText();
+      }
     }, 1000);
+  }
+  function gateHintText() {
+    return '⏳ 解析還沒看完呢，再 ' + gate.left + ' 秒就可以進下一題。';
+  }
+  // 倒數期間按下按鈕：捲回解析並說明還剩幾秒，不要沒反應
+  function gateNudge() {
+    var hint = $('quizGateHint');
+    hint.textContent = gateHintText();
+    hint.classList.remove('hidden');
+    var fb = $('quizFeedback');
+    if (fb && !fb.classList.contains('hidden') && fb.scrollIntoView) {
+      fb.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    var btn = $('quizNext');
+    btn.classList.remove('nudge');
+    void btn.offsetWidth;   // 重跑動畫
+    btn.classList.add('nudge');
   }
   // 離開解析畫面時記一筆停留秒數（每日 30 天內）
   function logDwell() {
@@ -1394,6 +1428,7 @@
   }
 
   $('quizNext').addEventListener('click', function () {
+    if (gate.timer) { gateNudge(); return; }   // 解析鎖倒數中：給提示，不放行
     logDwell();
     // 回顧模式：往前走回最新一題
     if (quiz.view != null && quiz.view < quiz.snaps.length - 1) { paintSnap(quiz.view + 1); return; }

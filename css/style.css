@@ -242,6 +242,18 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
   background: var(--accent); color: #fff; border: none; border-radius: 10px;
   padding: 0.8rem; font-size: 1rem; cursor: pointer;
 }
+/* 解析鎖：外觀是「還不能按」，但事件照收，按下去會給提示 */
+.btn-primary.locked { background: var(--panel2); color: var(--dim); cursor: default; }
+.btn-primary.nudge { animation: gate-shake 0.35s; }
+@keyframes gate-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+.gate-hint {
+  margin-top: 0.5rem; text-align: center;
+  font-size: 0.85rem; line-height: 1.6; color: var(--dim);
+}
 .btn-good, .btn-bad {
   flex: 1; border: none; border-radius: 10px; padding: 0.8rem;
   font-size: 1rem; cursor: pointer; color: #fff;

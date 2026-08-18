@@ -170,15 +170,21 @@ await session(8731, 9331, { blockWriter: true, seed: seedWrong(['c001', 'c002', 
   await sleep(300);
   check('沒有確認題→退回解析鎖倒數',
     await js(`document.getElementById('quizChk').classList.contains('hidden')`) &&
-    await js(`document.getElementById('quizNext').disabled === true`) &&
+    await js(`document.getElementById('quizNext').classList.contains('locked')`) &&
     /先看解析/.test(await js(`document.getElementById('quizNext').textContent`)),
     await js(`document.getElementById('quizNext').textContent`));
-  check('鎖住期間按下一題不會跳題',
+  // 鎖住的按鈕不設 disabled（disabled 收不到 click＝按了完全沒反應），改成按下去給提示
+  check('鎖住期間按下一題不會跳題、但會給提示',
     await js(`(function(){var n=document.getElementById('quizProgress').textContent;
       document.getElementById('quizNext').click();
-      return document.getElementById('quizProgress').textContent === n;})()`));
+      return document.getElementById('quizProgress').textContent === n;})()`) &&
+    await js(`(function(){var h=document.getElementById('quizGateHint');
+      return !h.classList.contains('hidden') && /秒/.test(h.textContent);})()`),
+    await js(`document.getElementById('quizGateHint').textContent`));
   await sleep(11000);
-  check('倒數結束自動解鎖', await js(`document.getElementById('quizNext').disabled === false &&
+  check('倒數結束自動解鎖', await js(`!document.getElementById('quizNext').classList.contains('locked') &&
+    document.getElementById('quizNext').disabled === false &&
+    document.getElementById('quizGateHint').classList.contains('hidden') &&
     document.getElementById('quizNext').textContent === '下一題'`));
   await js(`document.getElementById('quizNext').click()`);
   await sleep(400);
@@ -213,7 +219,7 @@ await session(8734, 9334, { blockWriter: true, seed: seedWrong(['c001', 'c002', 
         document.querySelectorAll('#quizChkOpts .q-opt')[chk.a].click();
       }})()`);
     await sleep(250);
-    await js(`(function(){var b=document.getElementById('quizNext');b.disabled=false;b.click();})()`);
+    await js(`(function(){window.QuizDebug.unlock();document.getElementById('quizNext').click();})()`);
     await sleep(250);
   }
   check('考完記成錯題測驗成績', await js(`(function () {
@@ -263,11 +269,12 @@ await session(8733, 9333, { blockWriter: false, seed: seedWrong(['c001']) }, asy
     }
     check('選擇題沒有確認題資料時退回解析鎖',
       await js(`document.getElementById('quizChk').classList.contains('hidden')`) &&
-      await js(`document.getElementById('quizNext').disabled === true`) &&
+      await js(`document.getElementById('quizNext').classList.contains('locked')`) &&
       /先看解析/.test(await js(`document.getElementById('quizNext').textContent`)),
       await js(`document.getElementById('quizNext').textContent`));
     await sleep(13000);
-    check('選擇題解析鎖會解開', await js(`document.getElementById('quizNext').disabled === false`));
+    check('選擇題解析鎖會解開', await js(`!document.getElementById('quizNext').classList.contains('locked')
+      && document.getElementById('quizNext').disabled === false`));
     await js(`document.getElementById('quizNext').click()`);
     await sleep(400);
     check('每日練習不算成自主練習（state.gen 空的）',
