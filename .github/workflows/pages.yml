@@ -1,0 +1,29 @@
+# GitHub Pages 部署（2026-08-18 改用 Actions）：
+# 舊的 legacy Jekyll builder 從 08-18 起每次 push 都 duration=0 直接 "Page build failed"，
+# 改成官方 static 部署流程，push 到 main 一樣自動上線（純靜態複製，不跑 Jekyll）。
+name: Deploy static site to Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - id: deployment
+        uses: actions/deploy-pages@v4
