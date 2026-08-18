@@ -53,5 +53,5 @@ STATUS: in-progress
 
 ## 待辦（前端）
 
-- [ ] `tools/weekly-report.js` 目前只讀純日期的 daily key，社會的 `|social` 紀錄沒進週報
-- [ ] 家長儀表板（跨帳號檢視）的日曆同樣只認純日期 key
+- [x] `tools/weekly-report.js` 跨科合併（`mergeDaily`，每天那行標出練了哪幾科）
+- [x] 家長儀表板（跨帳號檢視）改用 `mergeDailyAll`；順手修掉家長檢視別人帳號時誤用本機 `state.chk` 的 bug；browser-smoke 新增「家長儀表板跨科合併」段（v44）
