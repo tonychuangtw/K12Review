@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 580" width="560" height="580" role="img" aria-labelledby="t d">
+  <title id="t">用仙后座尋找北極星</title>
+  <desc id="d">仙后座是五顆亮星排成的 W（或 M）形。從中央那顆星往「W 開口的反方向」延長，就會找到北極星；圖中甲、乙、丙三顆星裡，位在這條延長線上的是丙。</desc>
+  <style>
+    .nm  { font: 700 20px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #cfe0ff; }
+    .cd  { font: 800 22px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #f6c14b; }
+  </style>
+  <rect width="560" height="580" fill="#0f1730"/>
+
+  <!-- 仙后座 W -->
+  <polyline fill="none" stroke="#cfe0ff" stroke-width="2.5" stroke-linejoin="round"
+    points="100,300 170,230 245,290 320,220 395,300"/>
+  <g fill="#ffffff">
+    <circle cx="100" cy="300" r="7"/><circle cx="170" cy="230" r="7"/>
+    <circle cx="245" cy="290" r="8"/><circle cx="320" cy="220" r="7"/><circle cx="395" cy="300" r="7"/>
+  </g>
+  <text class="nm" x="150" y="188">仙后座</text>
+
+  <!-- 三顆候選星 -->
+  <circle cx="90" cy="470" r="8" fill="#f6c14b"/>
+  <text class="cd" x="66" y="504">甲</text>
+  <circle cx="430" cy="430" r="8" fill="#f6c14b"/>
+  <text class="cd" x="452" y="438">乙</text>
+  <circle cx="245" cy="500" r="9" fill="#f6c14b"/>
+  <text class="cd" x="266" y="508">丙</text>
+</svg>
