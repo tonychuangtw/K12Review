@@ -19,10 +19,11 @@ Tony 提供的五上社會／自然題本（.doc 其實是 docx）→ `js/data/s
 | `conv4.py` | 批4a：配合題 → 逐格單選 |
 | `conv4b.py` | 批4b-1：填填看 93 題（選項與解析人工撰寫） |
 | `conv4c.py` | 批4b-2：回答問題 80 題（題幹改寫成單選，誘答人工撰寫） |
+| `conv11.py`～`conv13.py` | 批6：當初被守門條件擋下的無圖題（勾選／圈圈看／回答／活用、配合題、題組題）逐題人工改寫 |
 | `emit.py` | `batch*.json` → `js/data/social-custom.js`（含去重與檔頭題數） |
 | `orig1.py`／`orig2.py`／`emit-orig.py` | 依課綱自編的**原創題**（`js/data/social.js`），與題本無關 |
 
-重跑：`python3 emit.py batch1.json batch2.json batch3.json batch3b.json batch4a.json batch4b1.json batch4b2.json`
+重跑：`python3 emit.py batch1.json batch2.json batch3.json batch3b.json batch4a.json batch4b1.json batch4b2.json batch5a.json … batch5i.json`（batch5a-5f 是有圖題批次、5g-5i 是批6）
 
 ## 自然（sci/）
 
@@ -33,9 +34,10 @@ Tony 提供的五上社會／自然題本（.doc 其實是 docx）→ `js/data/s
 | `convsci2.py` | 批2a：勾選題／活用題 → **複選改單選**（問「哪一項符合／不符合」） |
 | `conv2b.py` | 批2b：填填看 → 分類題／是非題／填空題（人工撰寫） |
 | `conv2c.py` | 批2b-2：回答問題 → 單選（人工撰寫） |
+| `conv23.py`～`conv26.py` | 批6：當初被守門條件擋下的無圖題，依單元逐題人工改寫（1→4 單元） |
 | `emit.py` | `sci*.json` → `js/data/science-custom.js` |
 
-重跑：`python3 emit.py sci1.json sci2a.json sci2b.json sci2c.json`
+重跑：`python3 emit.py sci1.json sci2a.json sci2b.json sci2c.json sci2d.json sci2e.json sci5.json … sci25.json`（sci5-21 有圖題、sci22-25 是批6）
 
 ## 共用
 
