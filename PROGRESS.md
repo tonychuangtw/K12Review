@@ -76,9 +76,13 @@ STATUS: in-progress
       `renderFig()` 顯示、點圖放大（lightbox）；搜尋結果展開也會顯示。
       `test/test.js` 檢查 img 指到的檔案真的存在＋路徑格式；browser-smoke 新增「題目附圖」段
 - [ ] **② 精確示意圖 → 自己畫 SVG**（不外包給生圖模型：標示會畫錯、中文字會亂寫）。
-      已完成：`img/sci/sun-seasons.svg`（太陽四季運行軌跡圖，一張服務 3 個原題 → 12 題，conv7.py）。
-      待畫：太陽觀測器紀錄圖、太陽高度角折線圖、樹影圖、月相、實驗裝置、鐵琴／排笛長短圖…
-      畫完用 `node tools/svg-preview.mjs <svg> <out.png>` 截圖自己看過再收
+      已完成 5 張 → 看圖題 **32 題**（conv7.py）：
+      · `sun-seasons.svg` 太陽四季運行軌跡圖（服務 3 個原題）
+      · `sun-altitude-year.svg` 每月 20 日中午太陽高度角折線圖（服務 5 個原題）
+      · `sunobs-{ne-20,nw-45,nw-52}.svg` 太陽觀測器紀錄圖（服務 6 個原題）——參數化產生器
+        `tools/tikuconv/mkfig_sunobs.py`，給「影子方位＋高度角」就畫出俯視方位盤＋側視夾角兩格
+      待畫：樹影圖、月相、實驗裝置（廣口瓶／鋼絲絨）、鐵琴與排笛長短圖、動物口部特徵圖…
+      畫完一定要用 `node tools/svg-preview.mjs <svg> <out.png>` 截圖自己看過再收（驗證器只檢查顏色，不檢查版面）
 - [ ] **③ 純情境插畫 → gen-image.sh 請 Gemini 重畫**（動物、史前生活想像圖之類，圖只是氣氛）
 
 ## 前端狀態（已完成，2026-08-18 v42）
