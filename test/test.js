@@ -265,6 +265,23 @@ console.log('全科架構 / 自創分冊分課 / 解析強化');
     }
   }
 
+  // 題目附圖：img 欄位指到的檔案一定要真的在 repo 裡，不然前端會是一塊破圖
+  {
+    const fs2 = require('fs');
+    const path2 = require('path');
+    const root = path2.join(__dirname, '..');
+    const withImg = [];
+    for (const bank of [D.custom, D.social, D.socialCustom, D.science, D.scienceCustom,
+                        D.idioms, D.slang, D.phonics, D.chars, D.reading]) {
+      (bank || []).forEach(c => { if (c && c.img) withImg.push(c); });
+    }
+    const missing = withImg.filter(c => !fs2.existsSync(path2.join(root, c.img)));
+    ok(missing.length === 0,
+      `題目附圖檔案齊全（${withImg.length} 題有圖，缺 ${missing.length}${missing.length ? '：' + missing.slice(0, 5).map(c => c.id + '→' + c.img).join('、') : ''}）`);
+    const badPath = withImg.filter(c => !/^img\/[\w./-]+\.(svg|webp|png|jpg)$/.test(c.img));
+    ok(badPath.length === 0, `題目附圖路徑格式正確（壞 ${badPath.length} 題）`);
+  }
+
   // 手寫練習筆順資料覆蓋率:新增字形題後若忘了補 strokes/,這裡會擋下來
   // 補字法見 memory/chinese-stroke-data.md（hanzi-writer-data CDN）
   const fs = require('fs');

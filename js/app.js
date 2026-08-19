@@ -985,6 +985,7 @@
     if (q.passage) { pas.textContent = q.passage; pas.classList.remove('hidden'); }
     else pas.classList.add('hidden');
     $('quizQuestion').textContent = q.question;
+    renderFig($('quizFig'), q.item);
     var box = $('quizOptions');
     box.innerHTML = '';
     if (q.hw) {
@@ -1048,6 +1049,36 @@
       };
     } else gBtn.classList.add('hidden');
     $('quizPrev').classList.toggle('hidden', k === 0);
+  }
+
+  /* 題目附圖（2026-08-19）：題本裡「看圖回答」「題組」這類題目本來就要看圖才答得出來，
+     資料的 img 欄位放圖檔路徑（SVG 或 webp），點圖可以放大看。載不到就整個拿掉，不留破圖。 */
+  function renderFig(box, item) {
+    box.innerHTML = '';
+    if (!item || !item.img) { box.classList.add('hidden'); return; }
+    box.classList.remove('hidden');
+    var img = document.createElement('img');
+    img.className = 'q-fig-img';
+    img.alt = '題目附圖';
+    img.src = item.img;
+    img.onerror = function () { box.classList.add('hidden'); box.innerHTML = ''; };
+    img.addEventListener('click', function () { showLightbox(item.img); });
+    box.appendChild(img);
+    var hint = document.createElement('small');
+    hint.className = 'q-fig-hint';
+    hint.textContent = '（點圖可放大）';
+    box.appendChild(hint);
+  }
+
+  function showLightbox(src) {
+    var ov = document.createElement('div');
+    ov.className = 'lightbox';
+    var im = document.createElement('img');
+    im.src = src;
+    im.alt = '';
+    ov.appendChild(im);
+    ov.addEventListener('click', function () { ov.remove(); });
+    document.body.appendChild(ov);
   }
 
   function maybeImg(container, type, id) {
@@ -1724,6 +1755,12 @@
       detail.className = 's-detail';
       detail.textContent = searchDetailText(t, it);
       if (t === 'idioms') maybeImg(detail, 'idioms', it.id);
+      if (it.img) {
+        var fig = document.createElement('div');
+        fig.className = 'q-fig';
+        detail.appendChild(fig);
+        renderFig(fig, it);
+      }
       var acts = document.createElement('div');
       acts.className = 's-actions';
       var go = document.createElement('button');

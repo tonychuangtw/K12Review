@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" width="760" height="430" role="img" aria-labelledby="t d">
+  <title id="t">太陽四季運行軌跡圖</title>
+  <desc id="d">在臺灣觀察，夏至太陽由東偏北升起、西偏北落下，中午高度角最大；春分秋分由正東升起、正西落下；冬至由東偏南升起、西偏南落下，中午高度角最小。</desc>
+  <style>
+    .lbl { font: 600 20px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #1d2430; }
+    .dir { font: 700 22px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #3b4657; }
+    .sm  { font: 500 16px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #5b6577; }
+    .arc { fill: none; stroke-width: 3.5; stroke-linecap: round; }
+  </style>
+  <rect width="760" height="430" fill="#ffffff"/>
+
+  <!-- 地平面 -->
+  <ellipse cx="380" cy="300" rx="320" ry="70" fill="#eef2f7" stroke="#9aa7b8" stroke-width="2"/>
+  <!-- 東西向、南北向的參考線 -->
+  <line x1="60" y1="300" x2="700" y2="300" stroke="#c3ccd8" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <line x1="380" y1="230" x2="380" y2="370" stroke="#c3ccd8" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- 三條軌跡：夏至（高）、春分秋分（中）、冬至（低） -->
+  <path class="arc" d="M84,273 Q380,-153 676,273" stroke="#e2622f"/>
+  <path class="arc" d="M60,300 Q380,-80 700,300" stroke="#2f9e56"/>
+  <path class="arc" d="M84,327 Q380,3 676,327" stroke="#2f6fe2"/>
+
+  <!-- 各軌跡最高點的太陽 -->
+  <circle cx="380" cy="60" r="15" fill="#f6c14b" stroke="#e2622f" stroke-width="2.5"/>
+  <circle cx="380" cy="110" r="14" fill="#f6c14b" stroke="#2f9e56" stroke-width="2.5"/>
+  <circle cx="380" cy="165" r="13" fill="#f6c14b" stroke="#2f6fe2" stroke-width="2.5"/>
+  <text class="lbl" x="404" y="55" fill="#e2622f">夏至（中午最高）</text>
+  <text class="lbl" x="404" y="105" fill="#2f9e56">春分、秋分</text>
+  <text class="lbl" x="404" y="160" fill="#2f6fe2">冬至（中午最低）</text>
+
+  <!-- 日出側 -->
+  <circle cx="84" cy="273" r="9" fill="#f6c14b" stroke="#e2622f" stroke-width="2"/>
+  <circle cx="60" cy="300" r="9" fill="#f6c14b" stroke="#2f9e56" stroke-width="2"/>
+  <circle cx="84" cy="327" r="9" fill="#f6c14b" stroke="#2f6fe2" stroke-width="2"/>
+  <text class="sm" x="96" y="258" fill="#e2622f">日出・東偏北</text>
+  <text class="sm" x="78" y="295" fill="#2f9e56">日出・東</text>
+  <text class="sm" x="96" y="352" fill="#2f6fe2">日出・東偏南</text>
+
+  <!-- 日落側 -->
+  <circle cx="676" cy="273" r="9" fill="#f6c14b" stroke="#e2622f" stroke-width="2"/>
+  <circle cx="700" cy="300" r="9" fill="#f6c14b" stroke="#2f9e56" stroke-width="2"/>
+  <circle cx="676" cy="327" r="9" fill="#f6c14b" stroke="#2f6fe2" stroke-width="2"/>
+  <text class="sm" x="556" y="258" fill="#e2622f">日落・西偏北</text>
+  <text class="sm" x="598" y="295" fill="#2f9e56">日落・西</text>
+  <text class="sm" x="556" y="352" fill="#2f6fe2">日落・西偏南</text>
+
+  <!-- 方位 -->
+  <text class="dir" x="14" y="308">東</text>
+  <text class="dir" x="722" y="308">西</text>
+  <text class="dir" x="368" y="222">北</text>
+  <text class="dir" x="368" y="398">南</text>
+
+  <!-- 觀察者 -->
+  <g stroke="#3b4657" stroke-width="3" fill="none" stroke-linecap="round">
+    <circle cx="380" cy="286" r="7" fill="#3b4657" stroke="none"/>
+    <line x1="380" y1="293" x2="380" y2="312"/>
+    <line x1="380" y1="298" x2="369" y2="307"/>
+    <line x1="380" y1="298" x2="391" y2="307"/>
+    <line x1="380" y1="312" x2="371" y2="324"/>
+    <line x1="380" y1="312" x2="389" y2="324"/>
+  </g>
+</svg>

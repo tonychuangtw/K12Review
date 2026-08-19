@@ -442,6 +442,41 @@ async (js) => {
     (await js(`document.getElementById('wrongList').textContent`)).slice(0, 60));
 });
 
+/* ---------- 6. 題目附圖（img 欄位）：搜尋看得到、做題時也看得到 ---------- */
+console.log('題目附圖');
+await session(8736, 9336, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grades: [5], stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], subject: 'science' }));` },
+async (js) => {
+  const withImg = await js(`(window.APP_DATA.scienceCustom || []).filter(function (x) { return x.img; }).length`);
+  check('自然題庫有附圖的題', withImg > 0, String(withImg));
+  await js(`document.getElementById('homeLink').click()`);
+  await sleep(200);
+  await js(`document.getElementById('homeSearch').click()`);
+  await sleep(300);
+  await js(`(function(){ var i = document.getElementById('searchInput');
+    i.value = '太陽四季運行軌跡圖'; i.dispatchEvent(new Event('input')); })()`);
+  await sleep(500);
+  const hits = await js(`document.querySelectorAll('#searchResults .s-item').length`);
+  check('搜尋找得到附圖的題', hits > 0, String(hits));
+  await js(`document.querySelector('#searchResults .s-item').click()`);
+  await sleep(400);
+  check('搜尋結果展開後看得到附圖',
+    await js(`!!document.querySelector('#searchResults .q-fig-img')`),
+    await js(`document.querySelector('#searchResults .s-detail') ? 'detail 有開但沒圖' : 'detail 沒開'`));
+  await js(`(function(){ var b = Array.prototype.slice.call(document.querySelectorAll('#searchResults button'))
+    .filter(function (x) { return /做這題/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(500);
+  check('做題畫面顯示題目附圖',
+    await js(`!document.getElementById('quizFig').classList.contains('hidden')
+      && !!document.querySelector('#quizFig .q-fig-img')`));
+  await js(`document.querySelector('#quizFig .q-fig-img').click()`);
+  await sleep(200);
+  check('點圖可放大（lightbox）', await js(`!!document.querySelector('.lightbox img')`));
+  await js(`document.querySelector('.lightbox').click()`);
+  await sleep(200);
+  check('點一下關掉 lightbox', await js(`!document.querySelector('.lightbox')`));
+});
+
 /* ---------- 5. 家長儀表板跨科合併（daily key 帶科目後綴也要看得到） ---------- */
 console.log('家長儀表板跨科合併');
 const SEED_MULTI = `(function(){

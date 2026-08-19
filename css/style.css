@@ -58,6 +58,19 @@ body {
 .qbar-track { height: 4px; background: var(--panel2); border-radius: 2px; margin-bottom: 0.8rem; }
 .qbar { height: 100%; width: 0; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
 .q-img { display: block; max-width: 200px; width: 100%; border-radius: 10px; margin-top: 0.6rem; }
+/* 題目附圖（看圖回答、題組等）：白底才看得清楚線稿，點圖可放大 */
+.q-fig { margin: 0.6rem 0 0.2rem; text-align: center; }
+.q-fig-img {
+  display: block; margin: 0 auto; max-width: 100%; max-height: 46vh;
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 0.4rem; cursor: zoom-in;
+}
+.q-fig-hint { display: block; color: var(--dim); font-size: 0.75rem; margin-top: 0.25rem; }
+.lightbox {
+  position: fixed; inset: 0; z-index: 90; background: rgba(0, 0, 0, 0.88);
+  display: flex; align-items: center; justify-content: center; padding: 1rem; cursor: zoom-out;
+}
+.lightbox img { max-width: 100%; max-height: 100%; background: #fff; border-radius: 8px; padding: 0.5rem; }
 .prog-h3 { margin: 1.2rem 0 0.4rem; font-size: 1rem; }
 .prog-hint { color: var(--dim); font-size: 0.85rem; margin-bottom: 0.6rem; }
 .daily-cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.35rem; }
