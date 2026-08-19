@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" width="620" height="300" font-family="'Noto Sans TC','PingFang TC',sans-serif">
+  <rect width="620" height="300" fill="#ffffff"/>
+  <g>
+    <g transform="translate(60,0)"><rect x="0" y="60" width="52" height="190" rx="8" fill="none" stroke="#8a97a3" stroke-width="3"/><rect x="3" y="90" width="46" height="157" rx="6" fill="#7fc4e8"/><text x="26" y="278" font-size="18" text-anchor="middle" fill="#333">1</text></g>
+    <g transform="translate(150,0)"><rect x="0" y="60" width="52" height="190" rx="8" fill="none" stroke="#8a97a3" stroke-width="3"/><rect x="3" y="118" width="46" height="129" rx="6" fill="#7fc4e8"/><text x="26" y="278" font-size="18" text-anchor="middle" fill="#333">2</text></g>
+    <g transform="translate(240,0)"><rect x="0" y="60" width="52" height="190" rx="8" fill="none" stroke="#8a97a3" stroke-width="3"/><rect x="3" y="146" width="46" height="101" rx="6" fill="#7fc4e8"/><text x="26" y="278" font-size="18" text-anchor="middle" fill="#333">3</text></g>
+    <g transform="translate(330,0)"><rect x="0" y="60" width="52" height="190" rx="8" fill="none" stroke="#8a97a3" stroke-width="3"/><rect x="3" y="174" width="46" height="73" rx="6" fill="#7fc4e8"/><text x="26" y="278" font-size="18" text-anchor="middle" fill="#333">4</text></g>
+    <g transform="translate(420,0)"><rect x="0" y="60" width="52" height="190" rx="8" fill="none" stroke="#8a97a3" stroke-width="3"/><rect x="3" y="202" width="46" height="45" rx="6" fill="#7fc4e8"/><text x="26" y="278" font-size="18" text-anchor="middle" fill="#333">5</text></g>
+  </g>
+  <text x="310" y="34" font-size="18" text-anchor="middle" fill="#555">試管排笛（管內水位高低不同，管口用嘴吹氣）</text>
+</svg>
