@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 450" width="760" height="450" role="img" aria-labelledby="t d">
+  <title id="t">嘉義地區每月 20 日中午 12 時的太陽高度角折線圖</title>
+  <desc id="d">6 月 20 日最大約 90 度，12 月 20 日最小約 43 度；由冬到夏逐漸變大、由夏到冬逐漸變小，一年重複一次。</desc>
+  <style>
+    .ttl  { font: 700 21px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #1d2430; }
+    .ax   { font: 500 16px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #5b6577; }
+    .axl  { font: 600 15px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #3b4657; }
+    .val  { font: 700 17px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #1d2430; }
+  </style>
+  <rect width="760" height="450" fill="#ffffff"/>
+  <text class="ttl" x="30" y="30">嘉義地區每月 20 日中午 12 時的太陽高度角</text>
+
+  <!-- 格線（退到背景） -->
+  <g stroke="#e3e8ef" stroke-width="1">
+    <line x1="80" y1="70" x2="730" y2="70"/>
+    <line x1="80" y1="120" x2="730" y2="120"/>
+    <line x1="80" y1="170" x2="730" y2="170"/>
+    <line x1="80" y1="220" x2="730" y2="220"/>
+    <line x1="80" y1="270" x2="730" y2="270"/>
+    <line x1="80" y1="320" x2="730" y2="320"/>
+  </g>
+  <line x1="80" y1="370" x2="730" y2="370" stroke="#9aa7b8" stroke-width="1.5"/>
+  <line x1="80" y1="70" x2="80" y2="370" stroke="#9aa7b8" stroke-width="1.5"/>
+  <g class="ax" text-anchor="end">
+    <text x="70" y="76">90°</text>
+    <text x="70" y="126">80°</text>
+    <text x="70" y="176">70°</text>
+    <text x="70" y="226">60°</text>
+    <text x="70" y="276">50°</text>
+    <text x="70" y="326">40°</text>
+    <text x="70" y="376">30°</text>
+  </g>
+  <text class="axl" x="24" y="56">太陽高度角</text>
+  <text class="axl" x="80" y="424">月分（每月 20 日中午 12 時測量）</text>
+
+  <!-- 資料線 -->
+  <polyline fill="none" stroke="#e2622f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"
+    points="80,290 139,245 198,190 257,130 316,88 375,70 434,85 493,125 552,185 611,240 670,285 730,305"/>
+  <g fill="#ffffff" stroke="#e2622f" stroke-width="3">
+    <circle cx="80" cy="290" r="5"/><circle cx="139" cy="245" r="5"/><circle cx="198" cy="190" r="5"/>
+    <circle cx="257" cy="130" r="5"/><circle cx="316" cy="88" r="5"/><circle cx="375" cy="70" r="6.5"/>
+    <circle cx="434" cy="85" r="5"/><circle cx="493" cy="125" r="5"/><circle cx="552" cy="185" r="5"/>
+    <circle cx="611" cy="240" r="5"/><circle cx="670" cy="285" r="5"/><circle cx="730" cy="305" r="6.5"/>
+  </g>
+  <!-- 只在最高、最低兩點直接標數值 -->
+  <text class="val" x="375" y="56" text-anchor="middle">90°（一年中最大）</text>
+  <text class="val" x="722" y="332" text-anchor="end">43°（一年中最小）</text>
+
+  <!-- 月分刻度 -->
+  <g class="ax" text-anchor="middle">
+    <text x="80" y="394">1</text><text x="139" y="394">2</text><text x="198" y="394">3</text>
+    <text x="257" y="394">4</text><text x="316" y="394">5</text><text x="375" y="394">6</text>
+    <text x="434" y="394">7</text><text x="493" y="394">8</text><text x="552" y="394">9</text>
+    <text x="611" y="394">10</text><text x="670" y="394">11</text><text x="730" y="394">12</text>
+  </g>
+</svg>
