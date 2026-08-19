@@ -104,6 +104,10 @@ STATUS: in-progress
    海岸線與島鏈更完整（含朝鮮半島）。gemini（約 30 秒）適合情境插畫那種不要求精準的圖
 2. 底圖轉 webp 放 `img/<科目>/_base-<名字>.webp`
 3. 標籤用 HTML 疊：抄 `tools/tikuconv/mkfig_taiwan.html`（絕對定位 + 白色描邊文字）
+   ⚠ **地名位置一律用經緯度換算，不要目測**（2026-08-19 Tony 抓到馬祖被擺到中國內陸）：
+   先把底圖套 50px 紅色格線截圖，量兩個好認的點（例：富貴角、鵝鑾鼻）當校正點，
+   算出 px/度，再把每個地名的實際經緯度換算成像素座標。公式寫在 mkfig_taiwan.html 檔頭。
+   社會科地圖畫錯位置＝教錯，這一步不能省
 4. `node tools/svg-preview.mjs tools/tikuconv/mkfig_<名字>.html <out.png> <寬> <高>`
 5. `cwebp -q 88 <out.png> -o img/<科目>/<名字>.webp`，資料的 img 欄位指這支
 ⛔ **codex CLI 沒有生圖能力**（2026-08-13 查證，shared.md §13 已修正舊規則）。

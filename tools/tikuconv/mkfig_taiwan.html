@@ -2,7 +2,15 @@
 <!-- 臺灣位置與周邊島嶼圖：底圖由 gen-image.sh --gpt（ChatGPT 網頁的 gpt-image）產生，
      中文標籤用這支 HTML 疊上去再截圖（模型寫的中文會缺筆畫，所以底圖一律要求「不要文字」）。
      產圖：node tools/svg-preview.mjs tools/tikuconv/mkfig_taiwan.html <out.png> 900 900
-           cwebp -q 88 <out.png> -o img/social/taiwan-location.webp -->
+           cwebp -q 88 <out.png> -o img/social/taiwan-location.webp
+
+     ⚠ 社會科的地圖，島嶼位置錯了會教錯（Tony 2026-08-19 抓到馬祖擺到內陸）。
+     標籤座標一律用經緯度換算，不要目測：
+       校正點（在底圖上量出來的）：富貴角 121.53E,25.30N → (462,350)
+                                   鵝鑾鼻 120.85E,21.90N → (408,595)
+       換算：x = 462 + (lon - 121.53) * 72
+             y = 350 + (25.30 - lat) * 72          （每度約 72px，用澎湖交叉驗證過）
+     量校正點的方法：把底圖套上 50px 紅色格線截圖（見 git 歷史的 _grid.html）再讀座標。 -->
 <style>
   html,body{margin:0;padding:0}
   .wrap{position:relative;width:900px;height:900px;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif}
@@ -28,11 +36,12 @@
   <div class="l sea"  style="left:352px;top:420px">臺灣海峽</div>
   <div class="l sea"  style="left:450px;top:645px">巴士海峽</div>
   <div class="l sea"  style="left:180px;top:702px">南海</div>
-  <div class="dot" style="left:258px;top:291px"></div><div class="l isle" style="left:222px;top:291px">馬祖</div>
-  <div class="dot" style="left:240px;top:424px"></div><div class="l isle" style="left:204px;top:424px">金門</div>
-  <div class="dot" style="left:322px;top:480px"></div><div class="l isle" style="left:292px;top:504px">澎湖群島</div>
-  <div class="dot" style="left:477px;top:378px"></div><div class="l isle" style="left:516px;top:374px">龜山島</div>
-  <div class="dot" style="left:455px;top:536px"></div><div class="l isle" style="left:492px;top:534px">綠島</div>
-  <div class="dot" style="left:470px;top:584px"></div><div class="l isle" style="left:507px;top:586px">蘭嶼</div>
-  <div class="dot" style="left:392px;top:563px"></div><div class="l isle" style="left:356px;top:578px">琉球嶼</div>
+  <!-- 島嶼位置＝用實際經緯度換算（見檔頭校正公式），不是目測擺的 -->
+  <div class="dot" style="left:347px;top:289px"></div><div class="l isle" style="left:311px;top:289px">馬祖</div>
+  <div class="dot" style="left:231px;top:413px"></div><div class="l isle" style="left:198px;top:413px">金門</div>
+  <div class="dot" style="left:321px;top:475px"></div><div class="l isle" style="left:291px;top:499px">澎湖群島</div>
+  <div class="dot" style="left:491px;top:383px"></div><div class="l isle" style="left:530px;top:381px">龜山島</div>
+  <div class="dot" style="left:459px;top:540px"></div><div class="l isle" style="left:496px;top:538px">綠島</div>
+  <div class="dot" style="left:462px;top:585px"></div><div class="l isle" style="left:499px;top:587px">蘭嶼</div>
+  <div class="dot" style="left:378px;top:563px"></div><div class="l isle" style="left:344px;top:580px">琉球嶼</div>
 </div>
