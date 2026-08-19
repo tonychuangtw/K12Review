@@ -43,3 +43,23 @@ Tony 提供的五上社會／自然題本（.doc 其實是 docx）→ `js/data/s
   同時把正解位置打散（手寫時容易全部擺第一個）。
   用法：`node tools/tikuconv/append.js <新題.json> js/data/social.js o 4`
 - 轉完一律跑 `node test/test.js`（會擋掉沒有解析、選項重複、答案位置過度集中等問題）。
+
+## 地圖產生器（HTML 疊字版）
+
+| 檔案 | 產出 | 說明 |
+| --- | --- | --- |
+| `mkfig_taiwan.html` | `img/social/taiwan-location.webp` | 臺灣位置與周邊島嶼（鄰國、四周海域、7 個離島） |
+| `mkfig_rivers.html` | `img/social/taiwan-rivers.webp` | 主要河川分布圖（標名稱，教學用） |
+| `mkfig_rivers_quiz.html` | `img/social/taiwan-rivers-quiz.webp` | 同上但只留 ①～④ 編號，給判讀題用 |
+| `_grid_rivers.html` | — | 把底圖套 100px 紅色格線截圖，用來量校正點的座標 |
+
+底圖（`img/social/_base-*.webp`）由 `claude-shared/tools/gen-image.sh --gpt` 產生，
+提示詞一定要寫「不要出現任何文字」——模型寫的中文會缺筆畫。
+**標籤座標一律用經緯度換算，不准目測**（換算公式寫在各 html 檔頭）；
+換算後落在海裡的點，再沿同緯度貼到底圖上畫出來的那條河的出海口（可目視驗證的地物）。
+
+產圖：
+```bash
+node tools/svg-preview.mjs tools/tikuconv/mkfig_rivers.html /tmp/o.png 1024 1536
+cwebp -q 86 /tmp/o.png -o img/social/taiwan-rivers.webp
+```

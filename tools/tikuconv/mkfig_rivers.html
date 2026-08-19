@@ -1,0 +1,42 @@
+<!doctype html><meta charset="utf-8">
+<!-- 臺灣主要河川分布圖：底圖由 gen-image.sh --gpt 產生（要求「不要文字」，模型寫的中文會缺筆畫），
+     中文標籤用這支 HTML 疊上去再截圖。
+     產圖：node tools/svg-preview.mjs tools/tikuconv/mkfig_rivers.html <out.png> 1024 1536
+           cwebp -q 86 <out.png> -o img/social/taiwan-rivers.webp
+
+     ⚠ 標籤位置一律用經緯度換算，不准目測（Tony 2026-08-19 定案）。
+     校正點（用 50/100px 格線量出來，見 tools/tikuconv/_grid_rivers.html）：
+       富貴角 121.53E,25.30N → (665,33)      鵝鑾鼻 120.85E,21.90N → (380,1445)
+     換算：x = 665 + (lon - 121.53) * 419
+           y =  33 + (25.30 - lat) * 415
+     注意：底圖是插畫不是投影圖，離島（澎湖、綠島）畫得比實際近，本圖只標本島河川；
+           換算出的點若落在海裡，再沿同一緯度往島上「貼到畫出來的那條河的出海口」（可目視驗證的地物），
+           不是憑感覺挪位置。 -->
+<style>
+  html,body{margin:0;padding:0}
+  .w{position:relative;width:1024px;height:1536px;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif}
+  .w img{display:block;width:1024px;height:1536px}
+  .l{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-weight:800;font-size:26px;
+     color:#0b4f75;text-shadow:0 0 6px #fff,0 0 6px #fff,0 0 6px #fff,0 0 6px #fff}
+  .num{position:absolute;transform:translate(-50%,-50%);width:38px;height:38px;line-height:36px;
+       border-radius:50%;background:#fff;border:3px solid #c2410c;color:#c2410c;
+       font-weight:900;font-size:22px;text-align:center;box-sizing:border-box}
+  .t{position:absolute;left:50%;transform:translateX(-50%);top:24px;font-size:34px;font-weight:900;
+     color:#1f3d5c;text-shadow:0 0 8px #fff,0 0 8px #fff,0 0 8px #fff}
+</style>
+<div class="w">
+  <img src="/img/social/_base-rivers-gpt.webp" alt="">
+  <div class="t" style="left:auto;right:30px;transform:none;top:1470px">臺灣主要河川分布圖</div>
+  <!-- 淡水河口 121.41E,25.18N -->
+  <div class="num" style="left:615px;top:83px">1</div>
+  <div class="l"   style="left:470px;top:120px">淡水河</div>
+  <!-- 立霧溪口 121.69E,24.16N -->
+  <div class="num" style="left:732px;top:506px">2</div>
+  <div class="l"   style="left:855px;top:506px">立霧溪</div>
+  <!-- 濁水溪口 120.24E,23.84N -->
+  <div class="num" style="left:158px;top:655px">3</div>
+  <div class="l"   style="left:88px;top:600px">濁水溪</div>
+  <!-- 高屏溪口 120.44E,22.48N -->
+  <div class="num" style="left:208px;top:1203px">4</div>
+  <div class="l"   style="left:208px;top:1252px">高屏溪</div>
+</div>

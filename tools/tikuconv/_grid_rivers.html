@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8">
+<style>html,body{margin:0}.w{position:relative;width:1024px;height:1536px}
+.w img{display:block;width:1024px;height:1536px}
+.g{position:absolute;inset:0;background-image:repeating-linear-gradient(to right,#f00 0 1px,transparent 1px 100px),repeating-linear-gradient(to bottom,#f00 0 1px,transparent 1px 100px)}
+.n{position:absolute;font:12px monospace;color:#c00;background:#fff8}</style>
+<div class="w"><img src="/img/social/_base-rivers-gpt.webp"><div class="g"></div>
+<script>
+let h='';for(let x=0;x<1024;x+=100)h+=`<div class="n" style="left:${x+2}px;top:2px">${x}</div>`;
+for(let y=0;y<1536;y+=100)h+=`<div class="n" style="left:2px;top:${y+2}px">${y}</div>`;
+document.querySelector('.w').insertAdjacentHTML('beforeend',h);
+</script></div>
