@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470" role="img" aria-labelledby="t d">
+  <title id="t">北斗七星與北極星</title>
+  <desc id="d">北斗七星像一個杓子，杓口的第 1、2 顆星連線向外延長約五倍，就會找到北極星。</desc>
+  <style>
+    .nm  { font: 700 20px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #1d2430; }
+    .num { font: 700 19px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #2f6fe2; }
+    .hint{ font: 500 15px "Noto Sans TC", "Microsoft JhengHei", sans-serif; fill: #5b6577; }
+  </style>
+  <rect width="640" height="470" fill="#0f1730"/>
+
+  <!-- 指極線：第 2 顆 → 第 1 顆 → 延長到北極星 -->
+  <line x1="178" y1="231" x2="462" y2="420" stroke="#f6c14b" stroke-width="2" stroke-dasharray="8 7" opacity="0.9"/>
+
+  <!-- 北斗七星連線 -->
+  <polyline fill="none" stroke="#cfe0ff" stroke-width="2.5" stroke-linejoin="round"
+    points="170,225 110,185 120,120 185,105 255,80 325,60 395,35"/>
+  <line x1="170" y1="225" x2="185" y2="105" stroke="#cfe0ff" stroke-width="2.5"/>
+
+  <!-- 七顆星 -->
+  <g fill="#ffffff">
+    <circle cx="170" cy="225" r="7"/><circle cx="110" cy="185" r="7"/><circle cx="120" cy="120" r="7"/>
+    <circle cx="185" cy="105" r="6"/><circle cx="255" cy="80" r="6"/><circle cx="325" cy="60" r="6"/>
+    <circle cx="395" cy="35" r="6"/>
+  </g>
+  <g class="num" fill="#8fc0ff">
+    <text x="182" y="248">1</text><text x="80" y="196">2</text><text x="90" y="118">3</text>
+    <text x="178" y="88">4</text><text x="248" y="63">5</text><text x="318" y="43">6</text>
+    <text x="405" y="30">7</text>
+  </g>
+  <text class="nm" x="430" y="95" fill="#cfe0ff">北斗七星</text>
+
+  <!-- 北極星 -->
+  <circle cx="470" cy="425" r="9" fill="#f6c14b"/>
+  <text class="nm" x="490" y="432" fill="#f6c14b">北極星</text>
+  <text class="hint" x="36" y="432" fill="#f6c14b">把第 1、2 顆星的連線向外延長約 5 倍，就能找到北極星</text>
+</svg>
