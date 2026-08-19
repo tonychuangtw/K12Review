@@ -98,13 +98,18 @@ STATUS: in-progress
 | 情境插畫（動物、生活想像圖） | Gemini | 只是氣氛，重畫也順便避開題本插圖版權 |
 
 **地圖流程（一律照這個做）**：
-1. `gen-image.sh "<地圖描述>，整張圖不要出現任何文字、字母或標籤" --out <名字> --to <暫存目錄>`
-   —— 一定要交代「不要文字」，模型寫的中文會缺筆畫、地名會寫錯
+1. `gen-image.sh "<地圖描述>，整張圖不要出現任何文字、字母或標籤" --gpt --out <名字> --to <暫存目錄>`
+   —— 一定要交代「不要文字」，模型寫的中文會缺筆畫、地名會寫錯。
+   **地圖用 `--gpt`（ChatGPT 網頁的 gpt-image，約 100 秒）**：實測比 gemini 版更像教科書地圖、
+   海岸線與島鏈更完整（含朝鮮半島）。gemini（約 30 秒）適合情境插畫那種不要求精準的圖
 2. 底圖轉 webp 放 `img/<科目>/_base-<名字>.webp`
 3. 標籤用 HTML 疊：抄 `tools/tikuconv/mkfig_taiwan.html`（絕對定位 + 白色描邊文字）
 4. `node tools/svg-preview.mjs tools/tikuconv/mkfig_<名字>.html <out.png> <寬> <高>`
 5. `cwebp -q 88 <out.png> -o img/<科目>/<名字>.webp`，資料的 img 欄位指這支
-⛔ codex 沒有生圖能力（2026-08-13 查證），圖一律走 Gemini。
+⛔ **codex CLI 沒有生圖能力**（2026-08-13 查證，shared.md §13 已修正舊規則）。
+但 gpt-image 本身是可以用的 —— 走 `gen-image.sh --gpt`，它在 scout 上用 camofox 開 Tony 的
+ChatGPT Plus 網頁介面產圖（$0 API 費）。Tony 2026-08-19 提到「codex 是用 gpt-image」，
+指的就是舊版 shared.md 那條寫錯的規則（2026-08-04 寫的），路徑是 ChatGPT 網頁不是 codex。
 
 ### 有圖題剩餘量（2026-08-19 台北 17:10 盤點）
 
