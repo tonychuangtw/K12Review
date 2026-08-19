@@ -1,0 +1,38 @@
+<!doctype html><meta charset="utf-8">
+<!-- 地圖底圖由 gen-image.sh（Gemini）產生，文字標籤用程式疊上去：
+     模型畫的中文字會歪掉，所以底圖一律要求「不要任何文字」，標籤在這裡加。
+     產圖：node tools/svg-preview.mjs tools/tikuconv/mkfig_taiwan.html <out.png> 1024 559
+     再用 cwebp 轉成 img/social/taiwan-location.webp -->
+<style>
+  html,body{margin:0;padding:0}
+  .wrap{position:relative;width:1024px;height:559px;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif}
+  .wrap img{display:block;width:1024px;height:559px}
+  .l{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;
+     text-shadow:0 0 4px #fff,0 0 4px #fff,0 0 4px #fff,0 0 4px #fff}
+  .land{font-weight:800;font-size:26px;color:#5b4523}
+  .tw{font-weight:900;font-size:30px;color:#8a3b12}
+  .sea{font-weight:700;font-size:23px;color:#12587f}
+  .isle{font-weight:700;font-size:16px;color:#6b4a1e}
+  .dot{position:absolute;width:11px;height:11px;margin:-6px 0 0 -6px;border-radius:50%;
+       background:#f0a92e;border:2px solid #8a3b12;box-sizing:border-box}
+</style>
+<div class="wrap">
+  <img src="/img/social/_base-taiwan.webp" alt="">
+  <div class="l tw"   style="left:525px;top:285px">臺灣</div>
+  <div class="l land" style="left:150px;top:205px">中國</div>
+  <div class="l land" style="left:806px;top:66px">日本</div>
+  <div class="l land" style="left:534px;top:505px">菲律賓</div>
+  <div class="l sea"  style="left:600px;top:95px">東海</div>
+  <div class="l isle" style="left:648px;top:24px">↑ 再往北是南韓（韓國）</div>
+  <div class="l sea"  style="left:880px;top:330px">太平洋</div>
+  <div class="l sea"  style="left:405px;top:196px">臺灣海峽</div>
+  <div class="l sea"  style="left:512px;top:420px">巴士海峽</div>
+  <div class="l sea"  style="left:196px;top:432px">南海</div>
+  <div class="dot" style="left:405px;top:134px"></div><div class="l isle" style="left:443px;top:134px">馬祖</div>
+  <div class="dot" style="left:360px;top:236px"></div><div class="l isle" style="left:330px;top:236px">金門</div>
+  <div class="dot" style="left:428px;top:286px"></div><div class="l isle" style="left:404px;top:307px">澎湖群島</div>
+  <div class="dot" style="left:576px;top:211px"></div><div class="l isle" style="left:614px;top:206px">龜山島</div>
+  <div class="dot" style="left:572px;top:335px"></div><div class="l isle" style="left:606px;top:333px">綠島</div>
+  <div class="dot" style="left:586px;top:370px"></div><div class="l isle" style="left:620px;top:372px">蘭嶼</div>
+  <div class="dot" style="left:474px;top:362px"></div><div class="l isle" style="left:432px;top:376px">琉球嶼</div>
+</div>

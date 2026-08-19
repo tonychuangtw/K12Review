@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-"""批5-3：社會看圖題 → 單選＋自繪 SVG（臺灣位置與周邊島嶼示意圖）
+"""批5-3：社會看圖題 → 單選＋臺灣位置與周邊島嶼地圖
 
 原題是「在地圖代號上填國家／海洋／島嶼名稱」，線上沒辦法填圖，因此改成看圖選答：
 圖上標了鄰國、四周海域與周邊島嶼，題目改問方位關係（東北邊是誰、西邊隔什麼海峽…），
-既要看圖也要懂概念。圖：img/social/taiwan-location.svg（自繪，不是題本掃描圖）。
+既要看圖也要懂概念。圖：img/social/taiwan-location.webp —— 底圖由 gen-image.sh（Gemini）畫（Tony 2026-08-19：
+地圖類不要自己用向量畫，很醜），中文標籤用 tools/tikuconv/mkfig_taiwan.html 疊上去再截圖。
 """
 import json, collections
 from conv1 import SRC, lesson_of, sortkey
@@ -12,7 +13,7 @@ from conv3 import kps_of, tail
 its = {i['no']: i for i in json.load(open('items.json'))}
 out = []
 used = collections.Counter()
-MAP = 'img/social/taiwan-location.svg'
+MAP = 'img/social/taiwan-location.webp'
 
 def q(no, question, opts, ai, why, img=MAP):
     it = its[no]
