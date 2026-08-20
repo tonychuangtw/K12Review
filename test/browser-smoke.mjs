@@ -512,5 +512,48 @@ await session(8735, 9335, { blockWriter: true, seed: SEED_MULTI }, async (js) =>
   check('進度頁日曆仍是單科視角（今日有完成）', /✅/.test(cal), cal.slice(-20));
 });
 
+/* ---------- 7. 數學／英文（只有原創題庫、自創題庫還空著）：卡片要出得來、每日練習要出原創題 ---------- */
+for (const [subj, label, idRe, port] of [['math', '數學', '^m\\d', 8738], ['english', '英文', '^e\\d', 8740]]) {
+  console.log(label + '科');
+  await session(port, port + 600, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+    phon: 'zhuyin', grades: [5], stats: {}, streak: { last: '', days: 0 }, leitner: [], wrong: [], subject: '${subj}' }));` },
+  async (js) => {
+    check(label + '原創題庫載得到', await js(`(window.APP_DATA.${subj} || []).length >= 100`),
+      String(await js(`(window.APP_DATA.${subj} || []).length`)));
+    check(label + '自創題庫是空的（還沒收到題本）',
+      await js(`Array.isArray(window.APP_DATA.${subj}Custom) && window.APP_DATA.${subj}Custom.length === 0`));
+    await js(`document.getElementById('homeLink').click()`);
+    await sleep(300);
+    // 有原創題就不該再顯示「題庫建置中」，功能卡要出得來
+    check(label + '首頁不再顯示題庫建置中',
+      await js(`document.getElementById('homePlaceholder').classList.contains('hidden')`),
+      await js(`document.getElementById('homePlaceholder').textContent.slice(0, 40)`));
+    check(label + '功能卡出得來',
+      await js(`!document.querySelector('#view-home .cards').classList.contains('hidden')`));
+    check(label + '國語專屬卡片有隱藏',
+      await js(`Array.prototype.every.call(document.querySelectorAll('#view-home .card[data-cn]'),
+        function (c) { return c.classList.contains('hidden'); })`));
+    // 每日練習出的必須是原創題庫的題（id 前綴）
+    await js(`document.querySelector('.card[data-go="daily"]').click()`);
+    await sleep(600);
+    check(label + '每日練習出的是課綱自編題',
+      await js(`!document.getElementById('view-quiz').classList.contains('hidden')
+        && /${idRe}/.test(window.QuizDebug.id() || '')`),
+      String(await js(`window.QuizDebug.id()`)));
+    check('每日紀錄帶 |' + subj + ' 後綴', await js(`(function(){
+      var d = (JSON.parse(localStorage.getItem('chinese-review-v1')).daily) || {};
+      return Object.keys(d).some(function (k) { return k.indexOf('|${subj}') > 0; });})()`),
+      await js(`JSON.stringify(Object.keys((JSON.parse(localStorage.getItem('chinese-review-v1')).daily) || {}))`));
+    // 單元學習：7 個單元都要切得出來
+    await js(`document.getElementById('homeLink').click()`);
+    await sleep(200);
+    await js(`document.querySelector('.card[data-go="units"]').click()`);
+    await sleep(400);
+    check(label + '單元學習切得出 7 個單元',
+      await js(`document.querySelectorAll('#unitList .unit-item').length >= 7`),
+      String(await js(`document.querySelectorAll('#unitList .unit-item').length`)));
+  });
+}
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);
