@@ -15,18 +15,30 @@
     <button id="themeBtn" class="chip" title="選擇色系">🎨</button>
     <button id="subjectBtn" class="chip" title="切換科目"></button>
     <button id="phonToggle" class="chip" title="切換注音/拼音">注音</button>
-    <button id="gradeBtn" class="chip" title="選擇年級（可多選）"></button>
+    <button id="gradeBtn" class="chip" title="學習範圍：主要年級＋加練年級"></button>
   </div>
 </header>
+<!-- 學習範圍：年級以前藏在右上角小晶片，常常被忘記勾（2026-08-20 Tony）。改成標題列下方整條，隨處可點。 -->
+<button id="rangeBar" class="range-bar hidden"></button>
 <div id="gradePanel" class="grade-panel hidden"></div>
 <div id="themePanel" class="theme-panel hidden"></div>
 
 <main>
+<!-- 第一次進站：問一次年級就好（先學段、再年級），之後不再問 -->
+<section id="view-welcome" class="view hidden">
+  <div class="wc-wrap">
+    <div class="wc-title">你現在幾年級？</div>
+    <div class="wc-sub">選好之後，網站只會出這個年級的題目。之後隨時可以在上方的「學習範圍」換。</div>
+    <div id="wcStages" class="wc-stages"></div>
+    <div id="wcGrades" class="wc-grades"></div>
+  </div>
+</section>
+
 <!-- 科目選擇（進站先選年級+科目） -->
 <section id="view-subject" class="view hidden">
   <div class="quiz-head"><span></span><span>選擇科目</span><span></span></div>
   <div id="subjectCards"></div>
-  <div class="prog-hint">年級在右上角選（可多選），隨時可換。科目卡上的題數＝你目前年級的題數；科目裡的題都是依課綱自編的，家長匯入的題本放在最下面的「匯入題庫」。</div>
+  <div class="prog-hint">上方那條「📚 目前：…」就是學習範圍，隨時可點著換年級。科目卡上的題數＝你目前年級的題數；科目裡的題都是依課綱自編的，家長匯入的題本放在最下面的「匯入題庫」。</div>
 </section>
 
 <!-- 首頁 -->
@@ -331,7 +343,7 @@
   </div>
   <div class="quiz-card help-guide">
     <h3 class="prog-h3">📖 第一次使用</h3>
-    <p><b>1 · 選年級和科目</b>：右上角「年級」可多選（勾自己年級＋以下年級最順），進站先選科目。</p>
+    <p><b>1 · 選年級和科目</b>：第一次進站會問一次年級，之後標題列下方的「📚 目前：…」隨時可以換。主要年級只有一個（決定科目清單與課程進度），想複習舊年級就在同一個面板裡打開「加練其他年級」多勾幾個。選好年級後先選科目。</p>
     <p><b>2 · 登入同步</b>：用 Google 帳號登入，手機、平板、電腦進度互通。</p>
     <p><b>3 · 每天做「每日練習」</b>：每天 25 題（成語＋俚語＋字音＋字形＋閱讀），答錯的題會重做到全對。同一天題目固定，換日更新，累積連續天數 🔥。</p>
     <p><b>4 · 隔幾天考「總結測驗」</b>：勾選要考哪幾天，系統從那幾天做過的題目抽 20 題出考卷（滿分 100），檢驗是不是真的記住了；成績會保留給家長看。</p>

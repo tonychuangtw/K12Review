@@ -3,15 +3,15 @@
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。
      換一家 CLI 進來接手時看不到對話紀錄，只看得到這份檔 —— 欄位請隨進度更新。 -->
 
-STATUS: in-progress
-OBJECTIVE: 年級選擇改版——把年級從右上角小晶片改成常駐「學習範圍」，主要年級單選＋加練年級多選（Tony 22:12：「常常會忘記勾年級，目錄看起來很奇怪，右上角小小的並不明顯」）
-NEXT_ACTION: 等 Tony 回覆是否照下方「年級改版提案」做。他點頭就動工：js/app.js 的 state.grades → {grade 主, extra[]} 遷移 + 常駐範圍列 + 首次進站選年級 + 科目清單依學段自動生成 + 單元目錄依年級分段
+STATUS: done
+OBJECTIVE: 修 Tony 2026-08-20 晚上回報的 UI 問題（五點）＋年級選擇改版（常駐學習範圍列、主要年級單選）
+NEXT_ACTION: 全部完成上線（v51 + v52）。後續若要再動導覽，規則寫在 CLAUDE.md「2026-08-20 導覽與命名」那節
 VALIDATION: `node test/test.js` 與 `node test/zy-check.js` 全綠；動到前端行為所以 `node test/browser-smoke.mjs` 必跑
 BLOCKERS: 無
-PATHS: js/app.js（show/navStack、renderSubjects、renderHome、showCustom）、index.html（view-subject／首頁卡片）、css/style.css、js/versions.js
-UPDATED: 2026-08-20 22:20 台北
+PATHS: js/app.js（show/navStack、renderSubjects、renderHome、showCustom、學習範圍那段）、index.html（view-welcome／#rangeBar／view-subject）、css/style.css、js/versions.js
+UPDATED: 2026-08-20 23:10 台北
 
-## 年級改版提案（2026-08-20 22:20 送出，等 Tony 回覆）
+## 年級改版（2026-08-20 22:26 Tony 「好. 做」）✅ 已完成上線（v52）
 
 Tony：「常常會忘記勾年級，進去之後看目錄看起來會很奇怪，不夠直覺；但每次進去要先勾年級才看得到科目也很奇怪，
 而且勾年級的地方在右上角小小的並不明顯。」→ 有問過 codex（他指示的），兩邊結論一致：年級要常駐、主要年級單選。
@@ -22,7 +22,13 @@ Tony：「常常會忘記勾年級，進去之後看目錄看起來會很奇怪�
    （多選是「目錄看起來很奇怪」的根因：國一國二單元混成一長串）
 4. 科目清單依主要年級的學段自動生成（小學 5 科／高中 12 科），不用使用者自己判斷
 5. 科目頁與測驗頁標題顯示「數學 › 小五」；多選加練年級時，單元目錄依年級分段標題
-6. 代價：`state.grades`（12 格 checkbox）→ `state.grade` + `state.extraGrades`，要寫一次遷移（紀錄不能掉）
+6. 代價：`state.grades`（12 格 checkbox）→ `state.grade`（主）+ `state.extra`（加練），已寫遷移
+   （舊資料主要年級＝原本最高的那個，其餘轉加練，過濾範圍與紀錄完全不變）
+
+實作重點：`syncGrades()` 維持 `state.grades = 主 ∪ 加練`（全站舊過濾邏輯不用改）；
+`#rangeBar` 常駐、`RANGE_HIDDEN_VIEWS` 決定哪些頁不顯示；`view-welcome` 只在 `!state.onboarded` 出現；
+smoke test 第 9 節（學習範圍）涵蓋新舊使用者兩種情境。第 5 點的「科目頁與測驗頁顯示年級」
+在測驗是靠 quizTag 既有的「· 小五」尾綴，單元目錄則因為冊名（五上/六上）已含年級，未另加分段標題。
 
 ## 2026-08-20 UI 五點修正（Tony 22:04 訊息，截圖轉述）✅ 已完成上線（commit 77b1127, v51）
 

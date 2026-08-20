@@ -462,7 +462,7 @@
     try { s = JSON.parse(localStorage.getItem(LS_KEY)); } catch (e) {}
     if (!s || typeof s !== 'object') {
       s = {
-        phon: 'zhuyin', grades: [1, 2, 3, 4, 5],
+        phon: 'zhuyin', grade: 5, extra: [], grades: [5], onboarded: false,
         stats: {}, streak: { last: '', days: 0 }, wrong: [], leitner: {}
       };
     }
@@ -472,6 +472,13 @@
       s.grades = [];
       if (s.cumulative === false) s.grades = [g];
       else for (var i = 1; i <= g; i++) s.grades.push(i);
+    }
+    // 2026-08-20 年級改版：主要年級（單選，決定科目與課程進度）＋加練年級（多選）。
+    // 舊資料的多選年級以「最高的那個」當主要年級，其餘轉成加練，實際過濾範圍完全不變。
+    if (!s.grade || s.grades.indexOf(s.grade) < 0 || !Array.isArray(s.extra)) {
+      s.grade = s.grades.slice().sort(function (a, b) { return a - b; }).pop();
+      s.extra = s.grades.filter(function (x) { return x !== s.grade; });
+      s.onboarded = true;              // 舊使用者不用再被問一次年級
     }
     // 錯題排程遷移
     (s.wrong || []).forEach(function (w) {
@@ -576,7 +583,7 @@
 
   /* ---------- 視圖切換 ---------- */
 
-  var views = ['subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'drill', 'custom', 'review', 'help', 'search'];
+  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'drill', 'custom', 'review', 'help', 'search'];
   // 手機返回手勢／瀏覽器上一頁（2026-08-20 Tony：「很多選進去後都不能回前一頁」）
   // 這是單頁站，本來按返回會直接離站。做法：navStack 與 history 條目一一對應——
   // 前進 pushState，退回一律交給 history.go（畫面在 popstate 裡才更新），
@@ -599,6 +606,12 @@
     });
     // 回到首頁／科目頁就離開匯入題庫模式（返回手勢走這裡，不是只有 ✕ 按鈕）
     if (name === 'home' || name === 'subject') importMode = false;
+    // 學習範圍列：除了測驗與第一次選年級，其他頁都常駐（Tony：右上角那顆太小、常忘記勾）
+    $('rangeBar').classList.toggle('hidden', RANGE_HIDDEN_VIEWS.indexOf(name) >= 0);
+    $('gradePanel').classList.add('hidden');
+    // 還沒選年級前，右上角那排（科目／注音／年級）先不要出現，畫面只有一件事要做
+    document.querySelector('.topbar-controls').classList.toggle('hidden', name === 'welcome');
+    if (name === 'welcome') W.__welcomeRender();
     if (name === 'home') renderHome();
     if (name === 'subject') renderSubjects();
   }
@@ -751,12 +764,10 @@
       UIDialog.alert(s.name + '的題庫還在建置中。把題本（Word 檔等）傳到 Telegram，轉檔後就會出現在這裡。');
       return;
     }
-    UIDialog.confirm('「' + s.name + '」是 ' + gradesLabel(gs) + ' 的科目，你目前勾的年級（' +
-      gradesLabel(state.grades) + '）沒有題目。\n要幫你把年級改成 ' + gradesLabel(gs) + ' 嗎？',
+    UIDialog.confirm('「' + s.name + '」是 ' + gradesLabel(gs) + ' 的科目，你目前的學習範圍（' +
+      gradesLabel(state.grades) + '）沒有題目。\n要幫你把主要年級改成 ' + gradeLabel(gs[0]) + ' 嗎？',
       function () {
-        state.grades = gs.slice();
-        save();
-        renderGradeBtn();
+        setPrimaryGrade(gs[0]);
         enterSubject(s.key);
       });
   }
@@ -846,18 +857,13 @@
       var gs = subjGrades(subj.key);
       ph.classList.remove('hidden');
       ph.innerHTML = gs.length
-        ? subj.icon + ' ' + subj.name + '目前勾的年級（' + gradesLabel(state.grades) + '）沒有題目' +
+        ? subj.icon + ' ' + subj.name + '在目前的學習範圍（' + gradesLabel(state.grades) + '）沒有題目' +
           '<br><small>' + subj.name + '的題庫是 ' + gradesLabel(gs) + '（共 ' + subjCount(subj.key, gs) + ' 題）。</small>' +
-          '<br><button class="chip" id="phGradeFix">切到 ' + gradesLabel(gs) + '</button>'
+          '<br><button class="chip" id="phGradeFix">切到 ' + gradeLabel(gs[0]) + '</button>'
         : subj.icon + ' ' + subj.name + '科題庫建置中' +
           '<br><small>架構已就緒——把題庫（Word 檔等）傳到 Telegram，轉檔後就能在這裡練習。</small>';
       var fix = $('phGradeFix');
-      if (fix) fix.addEventListener('click', function () {
-        state.grades = gs.slice();
-        save();
-        renderGradeBtn();
-        renderHome();
-      });
+      if (fix) fix.addEventListener('click', function () { setPrimaryGrade(gs[0]); });
       renderGradeBtn();
       return;
     }
@@ -910,57 +916,173 @@
     renderGradeBtn();
   }
 
-  // 年級多選面板
-  function renderGradeBtn() { $('gradeBtn').textContent = gradesLabel(state.grades) + ' ▾'; }
+  /* ---------- 學習範圍：主要年級（單選）＋加練年級（多選）----------
+     2026-08-20 Tony：「常常會忘記勾年級，進去之後看目錄看起來會很奇怪，
+     而且勾年級的地方在右上角小小的並不明顯。」
+     → 主要年級單選（決定科目清單與課程進度，目錄不會再把好幾個年級混成一長串），
+       想複習低年級用「加練其他年級」；入口改成標題列下方整條的「學習範圍」。
+     state.grades 仍是實際過濾用的年級陣列＝主要年級 ∪ 加練年級，全站舊邏輯不用改。 */
+  var STAGES = [{ name: '國小', from: 1, to: 6 }, { name: '國中', from: 7, to: 9 }, { name: '高中', from: 10, to: 12 }];
+  function syncGrades() {
+    var out = [state.grade];
+    (state.extra || []).forEach(function (g) { if (out.indexOf(g) < 0) out.push(g); });
+    state.grades = out.sort(function (a, b) { return a - b; });
+  }
+  function setPrimaryGrade(g) {
+    state.grade = g;
+    state.extra = (state.extra || []).filter(function (x) { return x !== g; });
+    state.unitGrade = g;        // 單元學習跟著主要年級走，不用再自己切一次
+    state.unitBook = '';        // 冊重算（換年級後原本那一冊多半不在範圍裡了）
+    syncGrades();
+    save();
+    afterGradeChange();
+  }
+  function toggleExtraGrade(g) {
+    if (g === state.grade) return;
+    state.extra = state.extra || [];
+    var i = state.extra.indexOf(g);
+    if (i >= 0) state.extra.splice(i, 1); else state.extra.push(g);
+    syncGrades();
+    save();
+    afterGradeChange();
+  }
+  function afterGradeChange() {
+    renderGradeBtn();
+    renderRangeBar();
+    renderGradePanel();
+    refreshView();
+  }
+  // 換年級後把目前這一頁重畫（不新增 history 條目）
+  function refreshView() {
+    var v = curView();
+    if (v === 'home') renderHome();
+    else if (v === 'subject') renderSubjects();
+    else if (v === 'units') showUnits();
+    else if (v === 'drill') showDrill();
+    else if (v === 'custom') showCustom();
+    else if (v === 'wrongbook') showWrongbook();
+    else if (v === 'progress') showProgress();
+    else renderHome();
+  }
+  function renderGradeBtn() { $('gradeBtn').textContent = gradeLabel(state.grade) + ' ▾'; }
+  // 常駐的學習範圍列（測驗中不顯示，免得做到一半題目被換掉）
+  var RANGE_HIDDEN_VIEWS = ['quiz', 'write', 'flash', 'welcome'];
+  function renderRangeBar() {
+    var extra = (state.extra || []).slice().sort(function (a, b) { return a - b; });
+    $('rangeBar').innerHTML = '<span class="rb-main">📚 目前：<b>' + gradeLabel(state.grade) + '</b></span>' +
+      (extra.length ? '<span class="rb-extra">加練 ' + extra.map(gradeLabel).join('、') + '</span>' : '') +
+      '<span class="rb-go">換年級 ›</span>';
+  }
+  function renderGradePanel() {
+    var panel = $('gradePanel');
+    panel.innerHTML = '';
+    var t1 = document.createElement('div');
+    t1.className = 'gp-title';
+    t1.textContent = '主要年級（決定科目與課程進度）';
+    panel.appendChild(t1);
+    STAGES.forEach(function (st) {
+      var row = document.createElement('div');
+      row.className = 'gp-quick';
+      var lab = document.createElement('span');
+      lab.className = 'gp-stage';
+      lab.textContent = st.name;
+      row.appendChild(lab);
+      for (var g = st.from; g <= st.to; g++) {
+        (function (g) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'chip' + (state.grade === g ? ' active' : '');
+          b.textContent = gradeLabel(g);
+          b.addEventListener('click', function () { setPrimaryGrade(g); });
+          row.appendChild(b);
+        })(g);
+      }
+      panel.appendChild(row);
+    });
+    var t2 = document.createElement('button');
+    t2.type = 'button';
+    t2.className = 'gp-more';
+    var open = !!state.extraOpen || (state.extra || []).length > 0;
+    t2.textContent = (open ? '▾' : '＋') + ' 加練其他年級（複習舊的、預習新的）';
+    t2.addEventListener('click', function () { state.extraOpen = !open; save(); renderGradePanel(); });
+    panel.appendChild(t2);
+    if (open) {
+      var grid = document.createElement('div');
+      grid.className = 'gp-grid';
+      for (var g2 = 1; g2 <= 12; g2++) {
+        (function (g) {
+          var lab = document.createElement('label');
+          var cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.value = g;
+          cb.checked = state.grades.indexOf(g) >= 0;
+          cb.disabled = g === state.grade;         // 主要年級一定在範圍內，不能取消
+          cb.addEventListener('change', function () { toggleExtraGrade(g); });
+          lab.appendChild(cb);
+          lab.appendChild(document.createTextNode(gradeLabel(g) + (g === state.grade ? '（主要）' : '')));
+          grid.appendChild(lab);
+        })(g2);
+      }
+      panel.appendChild(grid);
+    }
+    var done = document.createElement('button');
+    done.type = 'button';
+    done.className = 'chip gp-done';
+    done.textContent = '完成';
+    done.addEventListener('click', function () { panel.classList.add('hidden'); });
+    panel.appendChild(done);
+  }
   (function initGradePanel() {
     var panel = $('gradePanel');
-    var quick = [['全部', 1, 12], ['國小', 1, 6], ['國中', 7, 9], ['高中', 10, 12]];
-    var qrow = document.createElement('div');
-    qrow.className = 'gp-quick';
-    quick.forEach(function (q) {
-      var b = document.createElement('button');
-      b.className = 'chip'; b.type = 'button'; b.textContent = q[0];
-      b.addEventListener('click', function () {
-        state.grades = [];
-        for (var i = q[1]; i <= q[2]; i++) state.grades.push(i);
-        save(); syncChecks(); renderHome();
-      });
-      qrow.appendChild(b);
-    });
-    panel.appendChild(qrow);
-    var grid = document.createElement('div');
-    grid.className = 'gp-grid';
-    var boxes = [];
-    for (var g = 1; g <= 12; g++) {
-      (function (g) {
-        var lab = document.createElement('label');
-        var cb = document.createElement('input');
-        cb.type = 'checkbox'; cb.value = g;
-        cb.addEventListener('change', function () {
-          var set = state.grades.filter(function (x) { return x !== g; });
-          if (cb.checked) set.push(g);
-          if (!set.length) { cb.checked = true; return; } // 至少留一個
-          state.grades = set.sort(function (a, b) { return a - b; });
-          save(); renderHome();
-        });
-        lab.appendChild(cb);
-        lab.appendChild(document.createTextNode(gradeLabel(g)));
-        grid.appendChild(lab);
-        boxes.push(cb);
-      })(g);
-    }
-    panel.appendChild(grid);
-    function syncChecks() {
-      boxes.forEach(function (cb) { cb.checked = state.grades.indexOf(parseInt(cb.value, 10)) >= 0; });
-    }
-    syncChecks();
-    $('gradeBtn').addEventListener('click', function (e) {
+    function toggle(e) {
       e.stopPropagation();
-      syncChecks();
+      renderGradePanel();
       panel.classList.toggle('hidden');
-    });
+    }
+    $('gradeBtn').addEventListener('click', toggle);
+    $('rangeBar').addEventListener('click', toggle);
     panel.addEventListener('click', function (e) { e.stopPropagation(); });
     document.addEventListener('click', function () { panel.classList.add('hidden'); });
+  })();
+
+  // 第一次進站：先選學段、再選年級（只問這一次）
+  (function initWelcome() {
+    var stage = null;
+    function render() {
+      var sr = $('wcStages');
+      sr.innerHTML = '';
+      STAGES.forEach(function (st) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'wc-btn' + (stage === st ? ' active' : '');
+        b.textContent = st.name;
+        b.addEventListener('click', function () { stage = st; render(); });
+        sr.appendChild(b);
+      });
+      var gr = $('wcGrades');
+      gr.innerHTML = '';
+      if (!stage) return;
+      for (var g = stage.from; g <= stage.to; g++) {
+        (function (g) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'wc-btn wc-grade';
+          b.textContent = gradeLabel(g);
+          b.addEventListener('click', function () {
+            state.grade = g;
+            state.extra = [];
+            state.onboarded = true;
+            syncGrades();
+            save();
+            renderGradeBtn();
+            renderRangeBar();
+            show('subject');
+          });
+          gr.appendChild(b);
+        })(g);
+      }
+    }
+    W.__welcomeRender = render;
   })();
 
   $('phonToggle').addEventListener('click', function () {
@@ -3727,7 +3849,7 @@
 
   function showUnits() {
     show('units');
-    if (!state.unitGrade) state.unitGrade = state.grades[state.grades.length - 1] || 5;
+    if (!state.unitGrade) state.unitGrade = state.grade || state.grades[state.grades.length - 1] || 5;
     var srow = $('unitSizeRow');
     srow.innerHTML = '';
     srow.classList.toggle('hidden', lessonUnits());   // 課綱單元制：單元由課本單元決定，不給改題數
@@ -3976,6 +4098,10 @@
     s.onerror = function () { setStatusToast('⚠️ 題庫載入失敗，請重新整理頁面'); };
     document.body.appendChild(s);
   })();
+  syncGrades();
+  save();               // 把年級遷移的結果寫回去，免得每次開站都重算一次
+  renderRangeBar();
   renderHome();
-  show('subject'); // 每次進站都先選科目（2026-08-04 Tony：一致性）
+  // 第一次進站先問年級（只問這一次），之後每次進站都先選科目（2026-08-04 Tony：一致性）
+  show(state.onboarded ? 'subject' : 'welcome');
 })();

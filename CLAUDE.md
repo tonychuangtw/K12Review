@@ -75,6 +75,11 @@
 - **「自創題庫」對外一律叫「匯入題庫」**（家長匯入的題本），且**獨立在科目選擇頁最外層**跟科目並列：進去先選科目（`#customSubjs` 晶片列）→ 冊 → 課。科目內頁**不再有**「自創題庫／依課練習」卡，科目裡就只有依課綱自編的原創題（`importMode` / `importCat()` / `state.importSubj`）
 - **科目選擇頁**分三組（`SUBJ_GROUPS`：共同科目／自然領域／社會領域），且只列目前勾選年級真的有題的科目，其餘收在「顯示全部科目」（`state.allSubj`）後面
 - **科目卡的題數一律是「目前年級的題數」**（`subjCount(key, state.grades)`）。⛔ 不要顯示全庫題數——外面寫 432 題、進去卻依年級過濾成空白，就是 Tony 2026-08-20 回報的 bug。點到年級不符的科目要問要不要一鍵切年級（`askSwitchGrades`）
+- **年級＝「學習範圍」**（2026-08-20 晚，Tony：「常常會忘記勾年級…右上角小小的並不明顯」）：
+  `state.grade` 主要年級（單選，決定科目清單／單元目錄／課程進度）＋ `state.extra` 加練年級（多選），
+  `state.grades` 仍是實際過濾用的陣列＝兩者聯集（`syncGrades()`，全站舊邏輯照用，不要繞過它直接改 grades）。
+  入口是標題列下方常駐的 `#rangeBar`（測驗中隱藏，見 `RANGE_HIDDEN_VIEWS`），右上角小晶片保留。
+  第一次進站走 `view-welcome` 問一次年級（`state.onboarded`）。舊資料在 `load()` 遷移：主要年級＝原本最高的那個，其餘轉加練，範圍不變
 - **返回鍵**：`show()` 與 `history` 一一對應（`navStack`＋`popstate`），前進 pushState、退回走 `history.go`。加新頁只要照常呼叫 `show()` 就有返回鍵；中途離開要收尾的頁登記在 `NAV_CLEAN`
 
 ## 2026-08-03 全科版擴充（Tony 定案）

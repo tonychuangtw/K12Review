@@ -582,13 +582,9 @@ for (const [subj, label, idRe, port] of [['math', '數學', '^m\\d', 8738], ['en
       var grades = (window.APP_DATA.${subj} || []).map(function (x) { return x.grade; });
       var other = 0; for (var i = 1; i <= 12; i++) if (grades.indexOf(i) < 0) { other = i; break; }
       if (!other) return -1;                       // 12 個年級都有題了就跳過這項
-      var cb = document.querySelectorAll('#gradePanel .gp-grid input');
-      var toggle = function (n) { var b = cb[n - 1]; b.checked = !b.checked;
-        b.dispatchEvent(new Event('change')); };
-      if (!cb[other - 1].checked) toggle(other);      // 先加選沒題目的年級
-      for (var j = 1; j <= 12; j++) {                 // 再把其餘已勾選的年級一一取消
-        if (j !== other && cb[j - 1].checked) toggle(j);
-      }
+      document.getElementById('rangeBar').click();     // 開「學習範圍」面板
+      var chips = document.querySelectorAll('#gradePanel .gp-quick .chip');
+      chips[other - 1].click();                        // 主要年級換成沒題目的那一個
       return other; })()`);
     if (g > 0) {
       await sleep(400);
@@ -649,8 +645,8 @@ async (js) => {
   check('切年級後進得去生物且不是空白頁',
     await js(view) === 'home' &&
     await js(`document.getElementById('homePlaceholder').classList.contains('hidden')`) &&
-    await js(`JSON.parse(localStorage.getItem('chinese-review-v1')).grades.join(',') === '10,11,12'`),
-    await js(`String(JSON.parse(localStorage.getItem('chinese-review-v1')).grades)`));
+    await js(`JSON.parse(localStorage.getItem('chinese-review-v1')).grade === 10`),
+    await js(`String(JSON.parse(localStorage.getItem('chinese-review-v1')).grade)`));
 
   // 返回鍵：首頁 → 單元學習 → 返回應回首頁，再返回回科目頁（不是直接離站）
   await js(`document.querySelector('.card[data-go="units"]').click()`);
@@ -671,6 +667,94 @@ async (js) => {
   await js(`history.back()`);
   await sleep(400);
   check('測驗中按返回退回首頁', await js(view) === 'home', String(await js(view)));
+});
+
+/* ---------- 9. 學習範圍：第一次進站選年級、常駐範圍列、主要年級＋加練年級 ---------- */
+console.log('學習範圍');
+const VIEW = `(function(){ var v = ['welcome','subject','home','quiz','units','custom'];
+  for (var i = 0; i < v.length; i++) if (!document.getElementById('view-' + v[i]).classList.contains('hidden')) return v[i];
+  return null; })()`;
+// 9a. 全新使用者（localStorage 空的）
+await session(8744, 9344, { blockWriter: true, seed: `localStorage.removeItem('chinese-review-v1');` },
+async (js) => {
+  check('第一次進站先問年級', await js(VIEW) === 'welcome', String(await js(VIEW)));
+  check('選年級時不顯示學習範圍列',
+    await js(`document.getElementById('rangeBar').classList.contains('hidden')`));
+  check('先選學段（三個）', await js(`document.querySelectorAll('#wcStages .wc-btn').length === 3`),
+    String(await js(`document.querySelectorAll('#wcStages .wc-btn').length`)));
+  check('還沒選學段就沒有年級鈕', await js(`document.querySelectorAll('#wcGrades .wc-btn').length === 0`));
+  await js(`document.querySelectorAll('#wcStages .wc-btn')[1].click()`);   // 國中
+  await sleep(200);
+  check('選了國中出現三個年級', await js(`document.querySelectorAll('#wcGrades .wc-btn').length === 3`),
+    await js(`Array.prototype.map.call(document.querySelectorAll('#wcGrades .wc-btn'),
+      function (x) { return x.textContent; }).join(',')`));
+  await js(`document.querySelectorAll('#wcGrades .wc-btn')[0].click()`);   // 國一
+  await sleep(400);
+  check('選完年級進科目頁', await js(VIEW) === 'subject', String(await js(VIEW)));
+  check('主要年級記成國一、範圍只有國一',
+    await js(`(function(){ var s = JSON.parse(localStorage.getItem('chinese-review-v1'));
+      return s.grade === 7 && s.grades.join(',') === '7' && s.onboarded === true; })()`),
+    await js(`JSON.stringify(JSON.parse(localStorage.getItem('chinese-review-v1')).grades)`));
+  check('學習範圍列常駐且寫著國一',
+    await js(`!document.getElementById('rangeBar').classList.contains('hidden')`) &&
+    /國一/.test(await js(`document.getElementById('rangeBar').textContent`)),
+    await js(`document.getElementById('rangeBar').textContent`));
+  // 範圍列點下去＝開年級面板；改主要年級後科目卡跟著換
+  await js(`document.getElementById('rangeBar').click()`);
+  await sleep(200);
+  check('點範圍列打得開年級面板',
+    await js(`!document.getElementById('gradePanel').classList.contains('hidden')
+      && document.querySelectorAll('#gradePanel .gp-quick .chip').length === 12`),
+    String(await js(`document.querySelectorAll('#gradePanel .gp-quick .chip').length`)));
+  await js(`document.querySelectorAll('#gradePanel .gp-quick .chip')[9].click()`);   // 高一
+  await sleep(300);
+  check('改主要年級後範圍列與科目卡跟著換',
+    /高一/.test(await js(`document.getElementById('rangeBar').textContent`)) &&
+    await js(`Array.prototype.map.call(document.querySelectorAll('#subjectCards .card-title'),
+      function (x) { return x.textContent; }).indexOf('物理') >= 0`),
+    await js(`document.getElementById('rangeBar').textContent`));
+  // 加練年級：多勾一個年級，範圍要含兩個年級，但主要年級不變
+  await js(`document.querySelector('#gradePanel .gp-more').click()`);
+  await sleep(200);
+  await js(`(function(){ var cb = document.querySelectorAll('#gradePanel .gp-grid input');
+    cb[10].checked = true; cb[10].dispatchEvent(new Event('change')); })()`);   // 加練高二
+  await sleep(300);
+  check('加練年級加得進去、主要年級不變',
+    await js(`(function(){ var s = JSON.parse(localStorage.getItem('chinese-review-v1'));
+      return s.grade === 10 && s.grades.join(',') === '10,11'; })()`),
+    await js(`JSON.stringify([JSON.parse(localStorage.getItem('chinese-review-v1')).grade,
+      JSON.parse(localStorage.getItem('chinese-review-v1')).grades])`));
+  check('範圍列標出加練的年級', /加練/.test(await js(`document.getElementById('rangeBar').textContent`)),
+    await js(`document.getElementById('rangeBar').textContent`));
+  check('主要年級那格不能取消（一定在範圍內）',
+    await js(`document.querySelectorAll('#gradePanel .gp-grid input')[9].disabled === true`));
+});
+// 9b. 舊使用者（多選年級的舊資料）：不再被問年級，範圍照舊
+await session(8745, 9345, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grades: [3, 4, 5], stats: {}, streak: { last: '', days: 0 },
+  leitner: {}, wrong: [], subject: 'chinese' }));` },
+async (js) => {
+  check('舊使用者不會被重問年級', await js(VIEW) === 'subject', String(await js(VIEW)));
+  check('舊的多選年級轉成「主要小五＋加練小三小四」，過濾範圍不變',
+    await js(`(function(){ var s = JSON.parse(localStorage.getItem('chinese-review-v1'));
+      return s.grade === 5 && s.extra.slice().sort().join(',') === '3,4' && s.grades.join(',') === '3,4,5'; })()`),
+    await js(`JSON.stringify(JSON.parse(localStorage.getItem('chinese-review-v1')).grades)`));
+  check('範圍列同時寫出主要年級與加練年級',
+    /小五/.test(await js(`document.getElementById('rangeBar').textContent`)) &&
+    /加練/.test(await js(`document.getElementById('rangeBar').textContent`)),
+    await js(`document.getElementById('rangeBar').textContent`));
+  // 測驗中不顯示範圍列
+  await js(`document.getElementById('homeLink').click()`);
+  await sleep(300);
+  await js(`document.querySelector('.card[data-go="daily"]').click()`);
+  await sleep(700);
+  check('測驗中不顯示學習範圍列',
+    await js(VIEW) === 'quiz' && await js(`document.getElementById('rangeBar').classList.contains('hidden')`),
+    String(await js(VIEW)));
+  await js(`history.back()`);
+  await sleep(400);
+  check('離開測驗後範圍列回來',
+    await js(`!document.getElementById('rangeBar').classList.contains('hidden')`));
 });
 
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
