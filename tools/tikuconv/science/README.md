@@ -13,6 +13,7 @@
 | n3.jsonl / n3b.jsonl … n9.jsonl / n9b.jsonl | 三上 / 三下 … 九上 / 九下（各 9 單元） |
 | n5-add1.jsonl / n5-add2.jsonl | 五上加題（2026-08-20，補到每單元 24 題） |
 | n5b-add1〜add3.jsonl | 五下加題（2026-08-21，補到每單元 24 題） |
+| n6-add1 / n6-add2.jsonl | 六上加題（2026-08-21，補到每單元 24 題） |
 
 重建：
 
