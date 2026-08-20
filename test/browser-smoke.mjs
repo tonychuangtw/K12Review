@@ -552,6 +552,28 @@ for (const [subj, label, idRe, port] of [['math', '數學', '^m\\d', 8738], ['en
     check(label + '單元學習切得出 7 個單元',
       await js(`document.querySelectorAll('#unitList .unit-item').length >= 7`),
       String(await js(`document.querySelectorAll('#unitList .unit-item').length`)));
+    // 年級過濾：切到還沒有題目的年級，不可以把別的年級的題端出來
+    await js(`document.getElementById('homeLink').click()`);
+    await sleep(200);
+    const g = await js(`(function(){
+      var grades = (window.APP_DATA.${subj} || []).map(function (x) { return x.grade; });
+      var other = 0; for (var i = 1; i <= 12; i++) if (grades.indexOf(i) < 0) { other = i; break; }
+      if (!other) return -1;                       // 12 個年級都有題了就跳過這項
+      var cb = document.querySelectorAll('#gradePanel .gp-grid input');
+      var pick = function (n) { var b = cb[n - 1]; b.checked = !b.checked;
+        b.dispatchEvent(new Event('change')); };
+      pick(other);                                  // 先加選沒題目的年級
+      (window.APP_DATA.${subj} || []).map(function (x) { return x.grade; })
+        .filter(function (v, i, a) { return a.indexOf(v) === i; })
+        .forEach(function (have) { if (have !== other) pick(have); });   // 再把有題目的年級取消
+      return other; })()`);
+    if (g > 0) {
+      await sleep(400);
+      check(label + '沒題目的年級不會端出別年級的題',
+        await js(`document.getElementById('homePlaceholder')
+          && !document.getElementById('homePlaceholder').classList.contains('hidden')`),
+        await js(`String((window.APP_DATA.${subj} || []).length) + ' 題但年級不符'`));
+    }
   });
 }
 
