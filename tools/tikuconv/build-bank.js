@@ -33,6 +33,21 @@ for (const f of files) {
 }
 if (renumber) rows.forEach((r, i) => { r.id = renumber + String(i + 1).padStart(4, '0'); });
 
+// 正解位置打散成 25/25/25/25：把 options 環狀旋轉，讓正解落到 i%4。
+// 安全前提是解析引用的是選項「文字」而不是「第幾個」（本專案規格如此）；
+// 保險起見，出現「第一則／第二個選項」這種位置指涉的題目一律跳過。
+// 在這裡做而不回寫 jsonl，來源檔才能保持人寫的原樣。
+const POS_REF = /第[一二三四1-4](?:則|個選項|句話是)|上列第|以上皆|以下皆/;
+rows.forEach((r, i) => {
+  if (r.options.length !== 4) return;
+  if (POS_REF.test(r.exp || '') || r.options.some(o => POS_REF.test(o))) return;
+  const shift = (i % 4 - r.answer + 4) % 4;
+  if (!shift) return;
+  const a = r.options.slice();
+  r.options = a.map((_, k) => a[(k - shift + 4) % 4]);
+  r.answer = i % 4;
+});
+
 const ids = new Set(rows.map(r => r.id));
 if (ids.size !== rows.length) throw new Error('id 重複（' + (rows.length - ids.size) + ' 筆）');
 
