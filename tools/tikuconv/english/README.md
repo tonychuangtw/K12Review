@@ -30,7 +30,8 @@ node tools/tikuconv/build-bank.js english js/data/english.js $EF/header.txt --re
   $EF/e8b-add1.jsonl $EF/e8b-add2.jsonl \
   $EF/e9-add1.jsonl $EF/e9-add2.jsonl $EF/e9-add3.jsonl \
   $EF/e9b-add1.jsonl $EF/e9b-add2.jsonl \
-  $EF/e4-add1.jsonl $EF/e4-add2.jsonl
+  $EF/e4-add1.jsonl $EF/e4-add2.jsonl \
+  $EF/e4b-add1.jsonl $EF/e4b-add2.jsonl
 node test/test.js
 ```
 
