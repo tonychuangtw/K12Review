@@ -70,6 +70,13 @@
 - 原創題每題要寫「✅正解為什麼對＋❌其他選項為什麼不對＋📚課綱重點」，答案位置要打散（test.js 有守門）
 - 題本轉檔規格與已完成範圍見 `PROGRESS.md`
 
+## 2026-08-20 導覽與命名（Tony 五點回報後定案）
+
+- **「自創題庫」對外一律叫「匯入題庫」**（家長匯入的題本），且**獨立在科目選擇頁最外層**跟科目並列：進去先選科目（`#customSubjs` 晶片列）→ 冊 → 課。科目內頁**不再有**「自創題庫／依課練習」卡，科目裡就只有依課綱自編的原創題（`importMode` / `importCat()` / `state.importSubj`）
+- **科目選擇頁**分三組（`SUBJ_GROUPS`：共同科目／自然領域／社會領域），且只列目前勾選年級真的有題的科目，其餘收在「顯示全部科目」（`state.allSubj`）後面
+- **科目卡的題數一律是「目前年級的題數」**（`subjCount(key, state.grades)`）。⛔ 不要顯示全庫題數——外面寫 432 題、進去卻依年級過濾成空白，就是 Tony 2026-08-20 回報的 bug。點到年級不符的科目要問要不要一鍵切年級（`askSwitchGrades`）
+- **返回鍵**：`show()` 與 `history` 一一對應（`navStack`＋`popstate`），前進 pushState、退回走 `history.go`。加新頁只要照常呼叫 `show()` 就有返回鍵；中途離開要收尾的頁登記在 `NAV_CLEAN`
+
 ## 2026-08-03 全科版擴充（Tony 定案）
 
 - 全科架構：進站先選科目（js/data/subjects.js 的 APP_SUBJECTS：國語/英文/數學/自然/社會），state.subject 記住；國語以外先有架構、題庫空著（schema 同 custom，id 前綴 e/m/n/o），有題後首頁自動出現「開始練習」

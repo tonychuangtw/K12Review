@@ -219,7 +219,16 @@
     };
   }
 
-  // 自創題庫分冊分課：冊→[課]，沒標 book 的歸「未分類」
+  // 冊名（一上、五下、十一上…）→ 排序用的序號，好讓冊照年級排而不是照題目出現順序
+  //（2026-08-20 Tony：匯入題庫「進去後能夠自己選哪個科目哪個年級」）
+  var BOOK_GRADE = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9, 十: 10 };
+  function bookOrder(book) {
+    var m = /^(十[一二])?([一二三四五六七八九十])?(上|下)$/.exec(book || '');
+    if (!m) return 9999;                                   // 會考、基測、特招、未分類 → 排最後
+    var g = m[1] ? (m[1] === '十一' ? 11 : 12) : BOOK_GRADE[m[2]];
+    return g * 2 + (m[3] === '下' ? 1 : 0);
+  }
+  // 匯入題庫分冊分課：冊→[課]，沒標 book 的歸「未分類」
   function customBooks(pool) {
     var books = [], seen = {};
     pool.forEach(function (it) {
@@ -228,6 +237,7 @@
       var l = it.lesson || '未分課';
       if (!seen[b].ls[l]) { seen[b].ls[l] = true; seen[b].lessons.push(l); }
     });
+    books.sort(function (a, b) { return bookOrder(a.book) - bookOrder(b.book); });
     return books;
   }
 
@@ -567,12 +577,66 @@
   /* ---------- 視圖切換 ---------- */
 
   var views = ['subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'drill', 'custom', 'review', 'help', 'search'];
-  function show(name) {
+  // 手機返回手勢／瀏覽器上一頁（2026-08-20 Tony：「很多選進去後都不能回前一頁」）
+  // 這是單頁站，本來按返回會直接離站。做法：navStack 與 history 條目一一對應——
+  // 前進 pushState，退回一律交給 history.go（畫面在 popstate 裡才更新），
+  // 於是「返回手勢」＝畫面上的「✕ 返回」，退到最外層才真的離站。
+  var navStack = [], navBusy = false;
+  // 中途離開某些頁要收尾（測驗計時、手寫畫布），按返回鍵跟按 ✕ 一樣要清乾淨
+  var NAV_CLEAN = {
+    quiz: function () { logDwell(); hqCancel(); },
+    write: function () { wqCancel(); }
+  };
+  function curView() {
+    for (var i = 0; i < views.length; i++) {
+      if (!document.getElementById('view-' + views[i]).classList.contains('hidden')) return views[i];
+    }
+    return null;
+  }
+  function render(name) {
     views.forEach(function (v) {
       document.getElementById('view-' + v).classList.toggle('hidden', v !== name);
     });
+    // 回到首頁／科目頁就離開匯入題庫模式（返回手勢走這裡，不是只有 ✕ 按鈕）
+    if (name === 'home' || name === 'subject') importMode = false;
     if (name === 'home') renderHome();
     if (name === 'subject') renderSubjects();
+  }
+  function show(name) {
+    if (navBusy) { render(name); return; }
+    if (!navStack.length) {                       // 進站第一頁＝最外層，不佔 history 條目
+      navStack = [name];
+      try { history.replaceState({ d: 1 }, ''); } catch (e) {}
+      render(name); return;
+    }
+    if (navStack[navStack.length - 1] === name) { render(name); return; }
+    var i = navStack.lastIndexOf(name);
+    if (i >= 0) {                                 // 回到堆疊裡原本就有的頁 → 走 history 退回
+      navBusy = true;
+      try { history.go(i - (navStack.length - 1)); } catch (e) { navBusy = false; }
+      setTimeout(function () {                    // history.go 沒觸發 popstate 時的保險
+        if (!navBusy) return;
+        navBusy = false;
+        navStack = navStack.slice(0, i + 1);
+        render(name);
+      }, 300);
+      return;
+    }
+    navStack.push(name);
+    try { history.pushState({ d: navStack.length }, ''); } catch (e) {}
+    render(name);
+  }
+  if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener('popstate', function (e) {
+      var d = (e.state && e.state.d) || 1;
+      if (d > navStack.length) d = navStack.length;   // 只退不進
+      var from = curView();
+      if (NAV_CLEAN[from]) { try { NAV_CLEAN[from](); } catch (err) {} }
+      navStack = navStack.slice(0, Math.max(1, d));
+      navBusy = true;
+      render(navStack[navStack.length - 1] || 'subject');
+      navBusy = false;
+    });
   }
   function $(id) { return document.getElementById(id); }
 
@@ -590,9 +654,12 @@
      差別只在題庫來源（bankCat）與紀錄的 key 要帶科目，免得各科紀錄互相蓋掉。 */
   function curSubj() { return state.subject || 'chinese'; }
   function isChinese() { return curSubj() === 'chinese'; }
-  // 「依課練習」用的題庫：國語＝自創題庫，其他科＝該科題庫
-  function bankCat() { return CUSTOM_CATS[curSubj()] || 'custom'; }
-  function bankReady() { return isChinese() ? W.__customReady : true; }
+  // 匯入題庫（家長給的題本轉檔）2026-08-20 起是最外層的獨立入口，不綁「目前科目」，
+  // 選了哪一科記在 state.importSubj；importMode 期間 bankCat() 就指到那一科的匯入庫。
+  var importMode = false;
+  function importCat() { return CUSTOM_CATS[state.importSubj || 'chinese'] || 'custom'; }
+  function bankCat() { return importMode ? importCat() : (CUSTOM_CATS[curSubj()] || 'custom'); }
+  function bankReady(cat) { return (cat || bankCat()) === 'custom' ? W.__customReady : true; }
   // 科目的原創題庫（每日練習／單元學習／依序刷題用）
   function mainCat() { return isChinese() ? null : curSubj(); }
   // 原創題庫已擴充到各年級，每日練習／單元學習／依序刷題一律先照勾選的年級過濾，
@@ -641,24 +708,122 @@
     return out;
   }
 
-  // 科目選擇頁
+  /* ---------- 科目選擇頁（2026-08-20 Tony：「首頁科目卡這樣太亂」）----------
+     12 張卡平鋪太亂，改成三組帶標題；而且**只列目前勾選年級真的有題的科目**
+     （勾小學就不會看到物理化學），其餘收在「顯示全部科目」後面。
+     配套修掉 Tony 回報的「外面看都 432 題、點進去空的」：卡上的題數一律是
+     「目前年級的題數」，不是全庫題數；點到本年級沒題的科目會問要不要一鍵切年級。 */
+  var SUBJ_GROUPS = [
+    { title: '共同科目', keys: ['chinese', 'english', 'math'] },
+    { title: '自然領域', keys: ['science', 'physics', 'chemistry', 'biology', 'earth'] },
+    { title: '社會領域', keys: ['social', 'history', 'geography', 'civics'] }
+  ];
+  var CHINESE_CATS = ['idioms', 'slang', 'phonics', 'chars', 'reading'];
+  function subjBanks(key) {
+    return key === 'chinese' ? CHINESE_CATS.map(function (c) { return DATA[c] || []; }) : [DATA[key] || []];
+  }
+  // 某科在指定年級有幾題（國語＝成語/俚語/字音/字形/閱讀加總）
+  function subjCount(key, grades) {
+    return subjBanks(key).reduce(function (n, bank) {
+      return n + filterByGrades(bank, grades).length;
+    }, 0);
+  }
+  // 某科題庫涵蓋哪些年級（算過就記著，資料是靜態的）
+  var _subjGrades = {};
+  function subjGrades(key) {
+    if (_subjGrades[key]) return _subjGrades[key];
+    var gs = [];
+    subjBanks(key).forEach(function (bank) {
+      bank.forEach(function (it) { if (it.grade && gs.indexOf(it.grade) < 0) gs.push(it.grade); });
+    });
+    gs.sort(function (a, b) { return a - b; });
+    return (_subjGrades[key] = gs);
+  }
+  function enterSubject(key) {
+    state.subject = key;
+    save();
+    show('home');
+  }
+  // 本年級沒題的科目：問要不要把年級切到該科有題的範圍，不要讓他點進去看到空白
+  function askSwitchGrades(s) {
+    var gs = subjGrades(s.key);
+    if (!gs.length) {
+      UIDialog.alert(s.name + '的題庫還在建置中。把題本（Word 檔等）傳到 Telegram，轉檔後就會出現在這裡。');
+      return;
+    }
+    UIDialog.confirm('「' + s.name + '」是 ' + gradesLabel(gs) + ' 的科目，你目前勾的年級（' +
+      gradesLabel(state.grades) + '）沒有題目。\n要幫你把年級改成 ' + gradesLabel(gs) + ' 嗎？',
+      function () {
+        state.grades = gs.slice();
+        save();
+        renderGradeBtn();
+        enterSubject(s.key);
+      });
+  }
+  function subjCard(s) {
+    var n = subjCount(s.key, state.grades), gs = subjGrades(s.key);
+    var b = document.createElement('button');
+    b.className = 'card' + (state.subject === s.key ? ' daily-done' : '') + (n ? '' : ' card-dim');
+    var sub = n ? n + ' 題 · ' + gradesLabel(state.grades.filter(function (g) { return gs.indexOf(g) >= 0; }))
+      : (gs.length ? '這個年級沒有題 · 適用 ' + gradesLabel(gs) : '題庫建置中');
+    b.innerHTML = '<span class="card-icon">' + s.icon + '</span><span class="card-title">' + s.name + '</span>' +
+      '<span class="card-sub">' + sub + '</span>';
+    b.addEventListener('click', function () {
+      if (!n) { askSwitchGrades(s); return; }
+      enterSubject(s.key);
+    });
+    return b;
+  }
   function renderSubjects() {
     var box = $('subjectCards');
     box.innerHTML = '';
-    SUBJECTS.forEach(function (s) {
-      var b = document.createElement('button');
-      b.className = 'card' + (state.subject === s.key ? ' daily-done' : '');
-      var bank = s.key === 'chinese' ? null : DATA[s.key];
-      var sub = s.key === 'chinese' ? s.desc : (bank && bank.length ? bank.length + ' 題' : s.desc);
-      b.innerHTML = '<span class="card-icon">' + s.icon + '</span><span class="card-title">' + s.name + '</span>' +
-        '<span class="card-sub">' + sub + '</span>';
-      b.addEventListener('click', function () {
-        state.subject = s.key;
-        save();
-        show('home');
+    var hidden = 0;
+    SUBJ_GROUPS.forEach(function (g) {
+      var wrap = document.createElement('div');
+      wrap.className = 'cards';
+      g.keys.forEach(function (key) {
+        var s = SUBJECTS.find(function (x) { return x.key === key; });
+        if (!s) return;
+        if (!subjCount(key, state.grades) && !state.allSubj) { hidden++; return; }
+        wrap.appendChild(subjCard(s));
       });
-      box.appendChild(b);
+      if (!wrap.children.length) return;
+      var h = document.createElement('div');
+      h.className = 'subj-group';
+      h.textContent = g.title;
+      box.appendChild(h);
+      box.appendChild(wrap);
     });
+    // 有科目被年級篩掉時給個開關，不要讓人以為科目不見了
+    if (hidden || state.allSubj) {
+      var t = document.createElement('button');
+      t.className = 'chip subj-toggle';
+      t.textContent = state.allSubj ? '只顯示這個年級的科目' : '＋ 顯示全部科目（' + hidden + ' 科不在這個年級）';
+      t.addEventListener('click', function () {
+        state.allSubj = !state.allSubj;
+        save();
+        renderSubjects();
+      });
+      box.appendChild(t);
+    }
+    // 匯入題庫獨立在最外層，跟科目並列（2026-08-20 Tony：跟我自己出的題分清楚）
+    var ih = document.createElement('div');
+    ih.className = 'subj-group';
+    ih.textContent = '家長匯入';
+    box.appendChild(ih);
+    var iwrap = document.createElement('div');
+    iwrap.className = 'cards';
+    var ib = document.createElement('button');
+    ib.className = 'card card-wide';
+    var itotal = importSubjects().reduce(function (n, x) { return n + x.n; }, 0);
+    ib.innerHTML = '<span class="card-icon">📦</span><span class="card-title">匯入題庫</span>' +
+      '<span class="card-sub">' + (itotal ? itotal.toLocaleString() + ' 題 · 依冊、依課練習' : '傳題本給我轉檔') + '</span>';
+    ib.addEventListener('click', function () {
+      if (needLogin()) return;
+      showImport();
+    });
+    iwrap.appendChild(ib);
+    box.appendChild(iwrap);
   }
 
   function renderHome() {
@@ -675,12 +840,24 @@
     cards.classList.toggle('hidden', !cn && !bank.length);
     $('phonToggle').classList.toggle('hidden', !cn);
     $('homeSearch').textContent = cn ? '🔍 搜尋成語、字詞、文章關鍵字…' : '🔍 搜尋' + subj.name + '題目關鍵字…';
-    var bankCard = document.querySelector('.card[data-go="custom"] .card-title');
-    if (bankCard) bankCard.textContent = cn ? '自創題庫' : '依課練習';
     if (!cn && !bank.length) {
+      // 空白頁要講清楚是「年級不對」還是「真的沒題」，並給一鍵切年級（2026-08-20 Tony：
+      // 「外面看都 432 題，點進去都空的」——就是勾的年級與該科涵蓋年級對不上）
+      var gs = subjGrades(subj.key);
       ph.classList.remove('hidden');
-      ph.innerHTML = subj.icon + ' ' + subj.name + '科題庫建置中' +
-        '<br><small>架構已就緒——把題庫（Word 檔等）傳到 Telegram，轉檔後就能在這裡練習。</small>';
+      ph.innerHTML = gs.length
+        ? subj.icon + ' ' + subj.name + '目前勾的年級（' + gradesLabel(state.grades) + '）沒有題目' +
+          '<br><small>' + subj.name + '的題庫是 ' + gradesLabel(gs) + '（共 ' + subjCount(subj.key, gs) + ' 題）。</small>' +
+          '<br><button class="chip" id="phGradeFix">切到 ' + gradesLabel(gs) + '</button>'
+        : subj.icon + ' ' + subj.name + '科題庫建置中' +
+          '<br><small>架構已就緒——把題庫（Word 檔等）傳到 Telegram，轉檔後就能在這裡練習。</small>';
+      var fix = $('phGradeFix');
+      if (fix) fix.addEventListener('click', function () {
+        state.grades = gs.slice();
+        save();
+        renderGradeBtn();
+        renderHome();
+      });
       renderGradeBtn();
       return;
     }
@@ -700,8 +877,7 @@
         : '挑日期出考卷／只考錯題本 · 滿分100';
       var sUnits = Object.keys(state.units || {}).filter(function (k) { return k.indexOf(subj.key + '-') === 0; }).length;
       $('cnt-drill').textContent = '照順序一題不漏';
-      var mainN = mainPool().length, custN = (DATA[CUSTOM_CATS[subj.key]] || []).length;
-      $('cnt-custom').textContent = custN ? custN + ' 題 · 分冊分課' : '傳 Word 檔給我建題';
+      var mainN = mainPool().length;
       $('cnt-units').textContent = sUnits ? '已完成 ' + sUnits + ' 個單元'
         : (mainN ? '課綱自編 ' + mainN + ' 題 · 先看重點再測驗' : '先讀重點再測驗 · 逐關解鎖');
       renderGradeBtn();
@@ -730,7 +906,6 @@
     var uDone = Object.keys(state.units || {}).length;
     $('cnt-units').textContent = uDone ? '已完成 ' + uDone + ' 個單元' : '先教後考 · 逐關解鎖';
     $('cnt-drill').textContent = '照順序一題不漏';
-    $('cnt-custom').textContent = DATA.custom.length ? DATA.custom.length + ' 題' : '傳 Word 檔給我建題';
     $('phonToggle').textContent = state.phon === 'zhuyin' ? '注音' : '拼音';
     renderGradeBtn();
   }
@@ -874,16 +1049,16 @@
 
   var quiz = null; // {entries, i, score, mode, round, firstTry, wrongNow, startedAt, combo}
   var CAT_NAME = {
-    idioms: '成語', slang: '俚語諺語', phonics: '字音辨正', chars: '字形辨正', reading: '閱讀測驗', custom: '自創題庫',
+    idioms: '成語', slang: '俚語諺語', phonics: '字音辨正', chars: '字形辨正', reading: '閱讀測驗', custom: '匯入題庫',
     write: '手寫',
     chinese: '國語', english: '英文', math: '數學', science: '自然', social: '社會',
     physics: '物理', chemistry: '化學', biology: '生物', earth: '地球科學',
     history: '歷史', geography: '地理', civics: '公民與社會',
-    englishCustom: '英文自創題庫', mathCustom: '數學自創題庫',
-    scienceCustom: '自然自創題庫', socialCustom: '社會自創題庫',
-    physicsCustom: '物理自創題庫', chemistryCustom: '化學自創題庫',
-    biologyCustom: '生物自創題庫', earthCustom: '地球科學自創題庫',
-    historyCustom: '歷史自創題庫', geographyCustom: '地理自創題庫', civicsCustom: '公民與社會自創題庫'
+    englishCustom: '英文匯入題庫', mathCustom: '數學匯入題庫',
+    scienceCustom: '自然匯入題庫', socialCustom: '社會匯入題庫',
+    physicsCustom: '物理匯入題庫', chemistryCustom: '化學匯入題庫',
+    biologyCustom: '生物匯入題庫', earthCustom: '地球科學匯入題庫',
+    historyCustom: '歷史匯入題庫', geographyCustom: '地理匯入題庫', civicsCustom: '公民與社會匯入題庫'
   };
   // 高中的自然／社會依 108 課綱分科（Tony 2026-08-20 定案「高中要拆」）：
   // 自然 → 物理/化學/生物/地球科學；社會 → 歷史/地理/公民與社會。國中維持領域合科。
@@ -1574,7 +1749,7 @@
       if (search) { show('search'); return; }
       if (retry) showWrongbook();
       else if (drill) {
-        if ((state.drillPos[dKey] || 0) >= quiz.drillTotal) { if (cat === 'custom') showCustom(); else showDrill(); }
+        if ((state.drillPos[dKey] || 0) >= quiz.drillTotal) { if (importMode) showCustom(); else showDrill(); }
         else startDrill(cat, dBook, dLesson);
       }
       else if (cat === 'reading') startReading();
@@ -1602,6 +1777,7 @@
     hqCancel();
     function leave() {
       if (quiz && quiz.mode === 'search') { show('search'); return; }
+      if (importMode) { showCustom(); return; }   // 從匯入題庫進來的，退回匯入題庫
       show('home');
     }
     if (quiz && quiz.mode === 'daily' && !((state.daily || {})[today()] || {}).done) {
@@ -1733,7 +1909,7 @@
     var box = $('searchResults');
     box.innerHTML = '';
     if (!kw) {
-      $('searchHint').textContent = '搜尋全部年級的成語、俚語諺語、字音、字形、閱讀與自創題庫。點結果先看解析，再按「做這題」。';
+      $('searchHint').textContent = '搜尋全部年級的成語、俚語諺語、字音、字形、閱讀與匯入題庫。點結果先看解析，再按「做這題」。';
       return;
     }
     var low = kw.toLowerCase();
@@ -3286,17 +3462,60 @@
     if (i >= 0) arr.splice(i, 1); else arr.push(v);
   }
 
+  // 有哪幾科可以選（含還沒匯入的，Tony：「每科都要預留」），順序照科目卡
+  function importSubjects() {
+    var order = [];
+    SUBJ_GROUPS.forEach(function (g) { g.keys.forEach(function (k) { order.push(k); }); });
+    return order.map(function (k) {
+      var s = SUBJECTS.find(function (x) { return x.key === k; });
+      return s ? { key: k, name: s.name, icon: s.icon, n: (DATA[CUSTOM_CATS[k]] || []).length } : null;
+    }).filter(Boolean);
+  }
+  // 匯入題庫入口（最外層）：先選科目，再選冊/課
+  function showImport(key) {
+    importMode = true;
+    var list = importSubjects();
+    if (key) state.importSubj = key;
+    if (!state.importSubj || !list.some(function (x) { return x.key === state.importSubj; })) {
+      var first = list.filter(function (x) { return x.n; })[0] || list[0];
+      state.importSubj = first.key;
+    }
+    save();
+    showCustom();
+  }
+
   function showCustom() {
     var cat = bankCat();
     var bank = DATA[cat] || [];
     var sel = curSel();
     if (!bank.length) {
-      if (!bankReady()) { setStatusToast('📦 題庫還在背景載入中，請稍候幾秒再點一次'); return; }
-      UIDialog.alert('這一科還沒有題目。請把 Word 題庫檔傳到 Telegram，轉檔後會自動分冊分課出現在這裡。');
-      return;
+      if (!bankReady(cat)) { setStatusToast('📦 題庫還在背景載入中，請稍候幾秒再點一次'); return; }
+      if (!importMode) {
+        UIDialog.alert('這一科還沒有題目。請把 Word 題庫檔傳到 Telegram，轉檔後會自動分冊分課出現在這裡。');
+        return;
+      }
     }
     show('custom');
-    $('customTitle').textContent = cat === 'custom' ? '📂 自創題庫' : '📂 ' + CAT_NAME[cat] + '・依課練習';
+    $('customTitle').textContent = importMode ? '📦 匯入題庫' : '📂 ' + CAT_NAME[cat] + '・依課練習';
+    // 科目列（只有匯入題庫模式才有；沒匯入的科目照樣列出來，點了說明怎麼給題）
+    var srow = $('customSubjs');
+    srow.innerHTML = '';
+    srow.classList.toggle('hidden', !importMode);
+    if (importMode) {
+      importSubjects().forEach(function (x) {
+        var b = document.createElement('button');
+        b.className = 'chip' + (state.importSubj === x.key ? ' active' : '') + (x.n ? '' : ' chip-dim');
+        b.textContent = x.icon + ' ' + x.name + (x.n ? '（' + x.n + '）' : '（未匯入）');
+        b.addEventListener('click', function () { showImport(x.key); });
+        srow.appendChild(b);
+      });
+    }
+    if (!bank.length) {   // 匯入題庫模式：這一科還沒題，科目列留著讓他換一科
+      ['customBooks', 'customDiffs', 'customTypes'].forEach(function (id) { $(id).innerHTML = ''; });
+      $('customList').innerHTML = '<div class="empty">這一科還沒有匯入題本。<br>' +
+        '<small>把題本（Word／PDF）傳到 Telegram，轉檔後會自動分冊分課出現在這裡。</small></div>';
+      return;
+    }
     var books = customBooks(bank);
     if (!sel.book || !books.some(function (b) { return b.book === sel.book; })) {
       sel.book = books[0].book;
@@ -3367,7 +3586,10 @@
       list.appendChild(div);
     });
   }
-  $('customExit').addEventListener('click', function () { show('home'); });
+  $('customExit').addEventListener('click', function () {
+    if (importMode) { importMode = false; show('subject'); return; }   // 匯入題庫是從科目頁進來的
+    show('home');
+  });
 
   function customDrillKey(book, lesson, catArg) {
     // 舊 key 'custom'（全庫）沿用；有選冊/課/難度/題型才加後綴（複選排序後串接）
@@ -3405,14 +3627,12 @@
     hint.textContent = isChinese()
       ? '照題庫順序一題不漏地刷（目前年級範圍：' + gradesLabel(state.grades) + '），一批 ' + DRILL_CHUNK + ' 題，進度自動記住。'
       : '照題庫順序一題不漏地刷（課綱自編題的年級範圍：' + gradesLabel(state.grades) +
-        '），一批 ' + DRILL_CHUNK + ' 題，進度自動記住（要挑冊/課請用「依課練習」）。';
+        '），一批 ' + DRILL_CHUNK + ' 題，進度自動記住（家長匯入的題本要挑冊/課，請回科目頁用「匯入題庫」）。';
     list.appendChild(hint);
+    // 科目裡只刷「依課綱自編」的原創題；家長匯入的題本一律走最外層的「匯入題庫」
+    //（2026-08-20 Tony：自創題庫和我叫你自創的題目怕搞混）
     var cats = isChinese() ? ['idioms', 'slang', 'phonics', 'chars'] : [];
-    if (isChinese()) { if (DATA.custom.length) cats.push('custom'); }
-    else {
-      if (mainPool().length) cats.push(mainCat());
-      if ((DATA[bankCat()] || []).length) cats.push(bankCat());
-    }
+    if (!isChinese() && mainPool().length) cats.push(mainCat());
     state.drillPos = state.drillPos || {};
     cats.forEach(function (cat) {
       var pool = drillPool(cat);
@@ -3553,7 +3773,7 @@
                    : buildBankUnits(bank, state.unitBook, unitSize(), byLesson);
     if (!cn) $('unitsHint').textContent = byLesson
       ? '照課綱單元編排，每 ' + EXAM_UNITS + ' 個單元對應一次段考。先看重點卡，測驗全對才過關。'
-      : '目前用自創題庫的題目編單元（題本沒有課綱單元，照題號順序切）。';
+      : '目前用匯入題庫的題目編單元（題本沒有課綱單元，照題號順序切）。';
     state.units = state.units || {};
     if (!units.length) { list.innerHTML = '<div class="empty">' + (cn ? '這個年級目前沒有教材。' : '這一冊目前沒有題目。') + '</div>'; return; }
     var lastExam = -1;
@@ -3746,10 +3966,12 @@
     s.onload = function () {
       W.__customReady = true;
       renderHome();
+      var vs = $('view-subject');
+      if (vs && !vs.classList.contains('hidden')) renderSubjects();   // 匯入題庫的題數要補上
       var vc = $('view-custom'), vd = $('view-drill');
       if (vc && !vc.classList.contains('hidden')) showCustom();
       else if (vd && !vd.classList.contains('hidden')) showDrill();
-      setStatusToast('📦 自創題庫載入完成（' + (DATA.custom || []).length + ' 題）');
+      setStatusToast('📦 匯入題庫載入完成（' + (DATA.custom || []).length + ' 題）');
     };
     s.onerror = function () { setStatusToast('⚠️ 題庫載入失敗，請重新整理頁面'); };
     document.body.appendChild(s);

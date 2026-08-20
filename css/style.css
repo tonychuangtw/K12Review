@@ -219,6 +219,16 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
 .card-title { font-size: 1.05rem; font-weight: 600; }
 .card-sub { font-size: 0.8rem; color: var(--dim); }
 
+/* 科目選擇頁：分組標題＋本年級沒題的科目淡化（2026-08-20 Tony：科目卡太亂） */
+.subj-group {
+  color: var(--dim); font-size: 0.82rem; letter-spacing: 0.05em;
+  margin: 1.1rem 0 0.5rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border);
+}
+.subj-group:first-child { margin-top: 0; }
+.card-dim { opacity: 0.5; }
+.subj-toggle { margin-top: 0.9rem; }
+.chip-dim { opacity: 0.55; }
+
 .quiz-head {
   display: flex; align-items: center; justify-content: space-between;
   margin-bottom: 0.8rem; color: var(--dim); font-size: 0.9rem;

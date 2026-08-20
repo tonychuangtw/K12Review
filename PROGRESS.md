@@ -3,13 +3,26 @@
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。
      換一家 CLI 進來接手時看不到對話紀錄，只看得到這份檔 —— 欄位請隨進度更新。 -->
 
-STATUS: done
-OBJECTIVE: K12Review 題庫從「只有五上」擴到 1–12 年級全科，每冊 9 單元（3 段考 × 3 單元）、每單元 8 題
-NEXT_ACTION: 全 12 年級 12 科原創題庫已全部完成並上線（合計 9,486 題）。後續若要加題，做法不變：`tools/tikuconv/<科>/` 寫一冊一個 jsonl → `node tools/tikuconv/build-bank.js` 併進 js/data → 跑測試 → commit（逐題人工撰寫，⛔ 不可交 subagent）
-VALIDATION: `node test/test.js` 與 `node test/zy-check.js` 全綠；動到前端行為再跑 `node test/browser-smoke.mjs`
+STATUS: in-progress
+OBJECTIVE: 修 Tony 2026-08-20 22:04 回報的 5 點 UI 問題（科目卡太亂／不能回上一頁／匯入題庫要獨立到最外層／點進科目是空的）
+NEXT_ACTION: 見下方「2026-08-20 UI 五點修正」清單，依序做完 → `node test/test.js`＋`node test/browser-smoke.mjs` → js/versions.js 加 v51 → commit push → 回報 Tony
+VALIDATION: `node test/test.js` 與 `node test/zy-check.js` 全綠；動到前端行為所以 `node test/browser-smoke.mjs` 必跑
 BLOCKERS: 無
-PATHS: js/data/*.js（各科題庫）、tools/tikuconv/（來源 jsonl + build-bank.js）、test/test.js、CLAUDE.md（本線守則）
-UPDATED: 2026-08-20 20:20 台北
+PATHS: js/app.js（show/navStack、renderSubjects、renderHome、showCustom）、index.html（view-subject／首頁卡片）、css/style.css、js/versions.js
+UPDATED: 2026-08-20 22:20 台北
+
+## 2026-08-20 UI 五點修正（Tony 22:04 訊息，截圖轉述）
+
+1. **首頁科目卡太亂** → 科目選擇頁改分三組（共同科目：國語/英文/數學；自然領域：自然+高中物化生地科；
+   社會領域：社會+高中史地公），並依勾選年級只顯示有題的科目，另給「顯示全部科目」開關
+2. **很多頁進去後不能回上一頁** → 加 History API（navStack + popstate），返回手勢＝畫面上的「✕ 返回」【已做】
+3. **匯入題庫每科要預留；社會/自然的看不到** → 資料其實都在（社會 2444、自然 2554，都標五上），
+   是被第 4 點的空頁邏輯擋住；其餘各科 `*-custom.js` 已預留空殼
+4. **各科「外面 432 題、點進去空的」** → 卡片顯示的是全部題數，進去後卻依勾選年級過濾。
+   高中 7 科只有 10–12 年級的題，勾小學年級時 mainPool()=0 → 顯示「題庫建置中」。
+   修法：卡片改顯示「目前年級的題數」＋標適用年段；點到沒題的科目時問要不要一鍵切年級
+5. **「自創題庫」更名「匯入題庫」並拉到最外層**（與科目並列），進去先選科目→冊(年級)→課；
+   各科目內頁不再放「依課練習」卡，科目裡就只有課綱原創題
 
 ## 全年級擴充（2026-08-20，Tony「你只做了五上. 各年級都要. 每科都一樣」）
 

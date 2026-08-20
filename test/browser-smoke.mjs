@@ -346,23 +346,38 @@ async (js) => {
     await js(`document.querySelector('.card[data-go="idioms"]').classList.contains('hidden')
       && !document.querySelector('.card[data-go="units"]').classList.contains('hidden')
       && !document.querySelector('.card[data-go="daily"]').classList.contains('hidden')`));
-  check('自創題庫卡改名為依課練習',
-    await js(`document.querySelector('.card[data-go="custom"] .card-title').textContent === '依課練習'`),
-    await js(`document.querySelector('.card[data-go="custom"] .card-title').textContent`));
+  check('科目內頁沒有匯入題庫的卡（匯入題庫已移到最外層）',
+    await js(`!document.querySelector('.card[data-go="custom"]')`));
 
-  // 依課練習：冊/課列表 → 開始刷題 → 作答
-  await js(`document.querySelector('.card[data-go="custom"]').click()`);
+  // 匯入題庫（最外層）：選科目 → 冊/課列表 → 開始刷題 → 作答
+  await js(`document.getElementById('subjectBtn').click()`);
+  await sleep(300);
+  check('科目頁分組列出科目',
+    await js(`document.querySelectorAll('#subjectCards .subj-group').length >= 2
+      && document.querySelectorAll('#subjectCards .card').length >= 3`),
+    await js(`document.querySelectorAll('#subjectCards .subj-group').length + ' 組 / ' +
+      document.querySelectorAll('#subjectCards .card').length + ' 卡'`));
+  await js(`(function(){ var cs = document.querySelectorAll('#subjectCards .card');
+    cs[cs.length - 1].click(); })()`);   // 最後一張＝匯入題庫
   await sleep(400);
-  check('依課練習列出冊與課',
+  check('匯入題庫開得起來、列出科目列',
+    await js(`!document.getElementById('view-custom').classList.contains('hidden')
+      && document.querySelectorAll('#customSubjs .chip').length >= 5`),
+    await js(`document.querySelectorAll('#customSubjs .chip').length + ' 科'`));
+  await js(`(function(){ var b = Array.prototype.filter.call(
+    document.querySelectorAll('#customSubjs .chip'),
+    function (x) { return x.textContent.indexOf('社會') >= 0; })[0]; b.click(); })()`);
+  await sleep(400);
+  check('匯入題庫列出冊與課',
     await js(`document.querySelectorAll('#customBooks .chip').length >= 1
       && document.querySelectorAll('#customList .unit-item').length >= 3`),
     await js(`document.querySelectorAll('#customList .unit-item').length + ' 列'`));
   await js(`document.querySelectorAll('#customList .unit-item')[0].click()`);
   await sleep(500);
-  check('依課練習開得起來（社會題）',
+  check('匯入題庫開得起來（社會題）',
     await js(`!document.getElementById('view-quiz').classList.contains('hidden')
       && document.querySelectorAll('#quizOptions .q-opt').length >= 2`));
-  check('依課練習出的是自創題庫的題', await js(`(window.QuizDebug.id() || '').indexOf('oc') === 0`),
+  check('匯入題庫出的是匯入的題', await js(`(window.QuizDebug.id() || '').indexOf('oc') === 0`),
     String(await js(`window.QuizDebug.id()`)));
   await js(`(function(){ var id = window.QuizDebug.id();
     var bank = id.indexOf('oc') === 0 ? window.APP_DATA.socialCustom : window.APP_DATA.social;
@@ -584,6 +599,79 @@ for (const [subj, label, idRe, port] of [['math', '數學', '^m\\d', 8738], ['en
     }
   });
 }
+
+/* ---------- 8. 返回鍵／科目頁分組與年級（2026-08-20 Tony 回報的 5 點） ---------- */
+console.log('返回鍵與科目頁');
+await session(8742, 9342, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grades: [5], stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], subject: 'chinese' }));` },
+async (js) => {
+  const view = `(function(){ var v = ['subject','home','quiz','units','custom','drill','wrongbook','progress'];
+    for (var i = 0; i < v.length; i++) if (!document.getElementById('view-' + v[i]).classList.contains('hidden')) return v[i];
+    return null; })()`;
+  check('進站停在科目頁', await js(view) === 'subject', String(await js(view)));
+
+  // 科目頁：五年級只列有題的科目，高中分科要被收起來
+  check('科目卡分組顯示',
+    await js(`document.querySelectorAll('#subjectCards .subj-group').length >= 2`),
+    String(await js(`document.querySelectorAll('#subjectCards .subj-group').length`)));
+  check('五年級看不到高中分科（物理等）',
+    await js(`document.querySelectorAll('#subjectCards .card').length <= 7`),
+    await js(`Array.prototype.map.call(document.querySelectorAll('#subjectCards .card-title'),
+      function (x) { return x.textContent; }).join(',')`));
+  check('科目卡題數是「這個年級的題數」，不是全庫題數',
+    await js(`(function(){ var c = document.querySelectorAll('#subjectCards .card');
+      for (var i = 0; i < c.length; i++) {
+        if (c[i].querySelector('.card-title').textContent !== '數學') continue;
+        var n = (window.APP_DATA.math || []).filter(function (x) { return x.grade === 5; }).length;
+        return c[i].querySelector('.card-sub').textContent.indexOf(n + ' 題') === 0;
+      } return false; })()`),
+    await js(`Array.prototype.map.call(document.querySelectorAll('#subjectCards .card-sub'),
+      function (x) { return x.textContent; }).join(' | ')`));
+  // 「顯示全部科目」開關 → 高中分科出現且淡化
+  await js(`document.querySelector('#subjectCards .subj-toggle').click()`);
+  await sleep(200);
+  check('顯示全部科目後高中分科出現且淡化',
+    await js(`(function(){ var c = document.querySelectorAll('#subjectCards .card');
+      for (var i = 0; i < c.length; i++) {
+        if (c[i].querySelector('.card-title').textContent !== '生物') continue;
+        return c[i].classList.contains('card-dim');
+      } return false; })()`));
+  // 點沒題的科目 → 問要不要切年級 → 確定後切到高中並進入該科
+  await js(`(function(){ var c = document.querySelectorAll('#subjectCards .card');
+    for (var i = 0; i < c.length; i++) {
+      if (c[i].querySelector('.card-title').textContent === '生物') { c[i].click(); return; } } })()`);
+  await sleep(300);
+  check('點本年級沒題的科目會問要不要切年級',
+    /生物/.test(await js(`(document.querySelector('.dlg-msg') || {}).textContent || ''`)),
+    await js(`(document.querySelector('.dlg-msg') || {}).textContent || '(沒有對話框)'`));
+  await js(`document.querySelector('.dlg-primary').click()`);
+  await sleep(400);
+  check('切年級後進得去生物且不是空白頁',
+    await js(view) === 'home' &&
+    await js(`document.getElementById('homePlaceholder').classList.contains('hidden')`) &&
+    await js(`JSON.parse(localStorage.getItem('chinese-review-v1')).grades.join(',') === '10,11,12'`),
+    await js(`String(JSON.parse(localStorage.getItem('chinese-review-v1')).grades)`));
+
+  // 返回鍵：首頁 → 單元學習 → 返回應回首頁，再返回回科目頁（不是直接離站）
+  await js(`document.querySelector('.card[data-go="units"]').click()`);
+  await sleep(400);
+  check('進得了單元學習', await js(view) === 'units', String(await js(view)));
+  await js(`history.back()`);
+  await sleep(400);
+  check('按返回退回首頁（不是離站）', await js(view) === 'home', String(await js(view)));
+  await js(`history.back()`);
+  await sleep(400);
+  check('再按返回退回科目頁', await js(view) === 'subject', String(await js(view)));
+  // 返回鍵也要能離開測驗（從首頁進測驗，返回就回首頁）
+  await js(`document.getElementById('homeLink').click()`);
+  await sleep(300);
+  await js(`document.querySelector('.card[data-go="daily"]').click()`);
+  await sleep(700);
+  check('每日練習開得起來', await js(view) === 'quiz', String(await js(view)));
+  await js(`history.back()`);
+  await sleep(400);
+  check('測驗中按返回退回首頁', await js(view) === 'home', String(await js(view)));
+});
 
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);
