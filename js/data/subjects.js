@@ -6,7 +6,16 @@ window.APP_SUBJECTS = [
   { key: 'english', name: '英文', icon: '🔤', ready: true,  desc: '五上・發音／be動詞／時態／字彙' },
   { key: 'math',    name: '數學', icon: '🔢', ready: true,  desc: '五上・因倍數／分數／小數／面積' },
   { key: 'science', name: '自然', icon: '🔬', ready: true,  desc: '五上・動物／聲光／天文／燃燒' },
-  { key: 'social',  name: '社會', icon: '🌏', ready: true,  desc: '五上・地理／歷史／公民' }
+  { key: 'social',  name: '社會', icon: '🌏', ready: true,  desc: '五上・地理／歷史／公民' },
+  // 高中分科（Tony 2026-08-20 定案「高中要拆」）：自然拆成物理/化學/生物/地科，
+  // 社會拆成歷史/地理/公民與社會。國中維持「自然」「社會」領域合科。
+  { key: 'physics',   name: '物理',     icon: '⚛️', ready: false, desc: '高中・題庫建置中' },
+  { key: 'chemistry', name: '化學',     icon: '🧪', ready: false, desc: '高中・題庫建置中' },
+  { key: 'biology',   name: '生物',     icon: '🧬', ready: false, desc: '高中・題庫建置中' },
+  { key: 'earth',     name: '地球科學', icon: '🌎', ready: false, desc: '高中・題庫建置中' },
+  { key: 'history',   name: '歷史',     icon: '📜', ready: false, desc: '高中・題庫建置中' },
+  { key: 'geography', name: '地理',     icon: '🗺️', ready: false, desc: '高中・題庫建置中' },
+  { key: 'civics',    name: '公民與社會', icon: '⚖️', ready: false, desc: '高中・題庫建置中' }
 ];
 // 非國語科目題庫（先空著）。schema（選擇題，比照 custom）：
 // { id:"e001"(英)/"m001"(數)/"n001"(自)/"o001"(社), grade:1-12, book:"五上", lesson:"第1課",

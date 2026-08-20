@@ -5,7 +5,11 @@ const path = require('path');
 
 global.window = {};
 const root = path.join(__dirname, '..');
-for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'custom', 'social', 'social-custom', 'science', 'science-custom', 'english', 'english-custom', 'math', 'math-custom']) {
+for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'custom', 'social', 'social-custom', 'science', 'science-custom', 'english', 'english-custom', 'math', 'math-custom',
+                 'physics', 'physics-custom', 'chemistry', 'chemistry-custom',
+                 'biology', 'biology-custom', 'earth', 'earth-custom',
+                 'history', 'history-custom', 'geography', 'geography-custom',
+                 'civics', 'civics-custom']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
 for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars']) {
@@ -38,7 +42,9 @@ for (const [cat, items] of Object.entries(D)) {
   if (cat !== 'custom') ok(items.every(i => i.grade >= 1 && i.grade <= 12), `${cat} grade 都在 1-12`);
 }
 // 題庫型題目（自創題庫、社會等各科題庫）共用同一組轉檔品質守門
-for (const [bankName, bank] of [['自創題庫', D.custom], ['社會題庫', D.social], ['社會自創題庫', D.socialCustom], ['自然題庫', D.science], ['自然自創題庫', D.scienceCustom], ['英文題庫', D.english], ['英文自創題庫', D.englishCustom], ['數學題庫', D.math], ['數學自創題庫', D.mathCustom]]) {
+for (const [bankName, bank] of [['自創題庫', D.custom], ['社會題庫', D.social], ['社會自創題庫', D.socialCustom], ['自然題庫', D.science], ['自然自創題庫', D.scienceCustom], ['英文題庫', D.english], ['英文自創題庫', D.englishCustom], ['數學題庫', D.math], ['數學自創題庫', D.mathCustom], 
+      ['物理題庫', D.physics], ['化學題庫', D.chemistry], ['生物題庫', D.biology], ['地科題庫', D.earth], 
+      ['歷史題庫', D.history], ['地理題庫', D.geography], ['公民題庫', D.civics]]) {
 ok(bank.every(c => c.q && Array.isArray(c.options) && c.options.length >= 2 && c.answer >= 0 && c.answer < c.options.length),
   bankName + '欄位合法（目前 ' + bank.length + ' 題）');
 {
@@ -241,7 +247,9 @@ console.log('全科架構 / 自創分冊分課 / 解析強化');
     const n = D[k].filter(i => i.deep && i.deep.length >= 30).length;
     ok(n === D[k].length, `${k} 深度解析全數覆蓋（${n}/${D[k].length}）`);
   }
-  for (const [bn, bank] of [['自創題庫', D.custom], ['社會題庫', D.social], ['社會自創題庫', D.socialCustom], ['自然題庫', D.science], ['自然自創題庫', D.scienceCustom], ['英文題庫', D.english], ['英文自創題庫', D.englishCustom], ['數學題庫', D.math], ['數學自創題庫', D.mathCustom]]) {
+  for (const [bn, bank] of [['自創題庫', D.custom], ['社會題庫', D.social], ['社會自創題庫', D.socialCustom], ['自然題庫', D.science], ['自然自創題庫', D.scienceCustom], ['英文題庫', D.english], ['英文自創題庫', D.englishCustom], ['數學題庫', D.math], ['數學自創題庫', D.mathCustom], 
+      ['物理題庫', D.physics], ['化學題庫', D.chemistry], ['生物題庫', D.biology], ['地科題庫', D.earth], 
+      ['歷史題庫', D.history], ['地理題庫', D.geography], ['公民題庫', D.civics]]) {
     const noExp = bank.filter(c => !c.exp || c.exp.trim().length < 2).length;
     ok(noExp === 0, `${bn}解析零缺漏（缺 ${noExp} 題）`);
     ok(bank.every(c => ['易', '中', '難'].includes(c.diff) && c.qtype), bn + '難易度/題型欄位完整');
@@ -263,9 +271,25 @@ console.log('全科架構 / 自創分冊分課 / 解析強化');
     `數學原創題庫冊/單元/id 前綴完整（${D.math.length} 題）`);
   ok(D.mathCustom.every(c => c.book && c.lesson && c.id.indexOf('mc') === 0),
     `數學自創題庫冊/課/id 前綴完整（${D.mathCustom.length} 題）`);
+  // 高中分科：原創題 2 碼前綴、自創題 3 碼前綴（見 js/app.js 的 ID_PREFIX）
+  for (const [bn, bank, pfx, cbank, cpfx] of [
+    ['物理', D.physics, 'ph', D.physicsCustom, 'phc'],
+    ['化學', D.chemistry, 'ch', D.chemistryCustom, 'chc'],
+    ['生物', D.biology, 'bi', D.biologyCustom, 'bic'],
+    ['地球科學', D.earth, 'es', D.earthCustom, 'esc'],
+    ['歷史', D.history, 'hi', D.historyCustom, 'hic'],
+    ['地理', D.geography, 'ge', D.geographyCustom, 'gec'],
+    ['公民與社會', D.civics, 'ci', D.civicsCustom, 'cic']]) {
+    ok(bank.every(c => c.book && c.lesson && c.id.indexOf(pfx) === 0 && /\d/.test(c.id[pfx.length])),
+      `${bn}原創題庫冊/單元/id 前綴 ${pfx} 完整（${bank.length} 題）`);
+    ok(cbank.every(c => c.book && c.lesson && c.id.indexOf(cpfx) === 0),
+      `${bn}自創題庫冊/課/id 前綴 ${cpfx} 完整（${cbank.length} 題）`);
+  }
   // 原創題庫：正解不可以都排在同一個位置（答案位置要分散）
   {
-    for (const [bn, bank] of [['社會', D.social], ['自然', D.science], ['英文', D.english], ['數學', D.math]]) {
+    for (const [bn, bank] of [['社會', D.social], ['自然', D.science], ['英文', D.english], ['數學', D.math],
+                              ['物理', D.physics], ['化學', D.chemistry], ['生物', D.biology], ['地科', D.earth],
+                              ['歷史', D.history], ['地理', D.geography], ['公民', D.civics]]) {
       const pos = [0, 0, 0, 0];
       bank.forEach(c => { if (c.options.length === 4) pos[c.answer]++; });
       const tot = pos.reduce((a, b) => a + b, 0);

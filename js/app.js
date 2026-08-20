@@ -6,7 +6,10 @@
   var DATA = W.APP_DATA || {};
   ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'custom',
    'english', 'math', 'science', 'social',
-   'englishCustom', 'mathCustom', 'scienceCustom', 'socialCustom'].forEach(function (k) {
+   'physics', 'chemistry', 'biology', 'earth', 'history', 'geography', 'civics',
+   'englishCustom', 'mathCustom', 'scienceCustom', 'socialCustom',
+   'physicsCustom', 'chemistryCustom', 'biologyCustom', 'earthCustom',
+   'historyCustom', 'geographyCustom', 'civicsCustom'].forEach(function (k) {
     if (!Array.isArray(DATA[k])) DATA[k] = [];
   });
   var SUBJECTS = W.APP_SUBJECTS || [{ key: 'chinese', name: '國語', icon: '📖', ready: true, desc: '' }];
@@ -874,15 +877,33 @@
     idioms: '成語', slang: '俚語諺語', phonics: '字音辨正', chars: '字形辨正', reading: '閱讀測驗', custom: '自創題庫',
     write: '手寫',
     chinese: '國語', english: '英文', math: '數學', science: '自然', social: '社會',
+    physics: '物理', chemistry: '化學', biology: '生物', earth: '地球科學',
+    history: '歷史', geography: '地理', civics: '公民與社會',
     englishCustom: '英文自創題庫', mathCustom: '數學自創題庫',
-    scienceCustom: '自然自創題庫', socialCustom: '社會自創題庫'
+    scienceCustom: '自然自創題庫', socialCustom: '社會自創題庫',
+    physicsCustom: '物理自創題庫', chemistryCustom: '化學自創題庫',
+    biologyCustom: '生物自創題庫', earthCustom: '地球科學自創題庫',
+    historyCustom: '歷史自創題庫', geographyCustom: '地理自創題庫', civicsCustom: '公民與社會自創題庫'
   };
-  var SUBJECT_CATS = ['english', 'math', 'science', 'social'];
+  // 高中的自然／社會依 108 課綱分科（Tony 2026-08-20 定案「高中要拆」）：
+  // 自然 → 物理/化學/生物/地球科學；社會 → 歷史/地理/公民與社會。國中維持領域合科。
+  var SUBJECT_CATS = ['english', 'math', 'science', 'social',
+    'physics', 'chemistry', 'biology', 'earth', 'history', 'geography', 'civics'];
   // 各科的「自創題庫」（家長提供的題本轉檔）與科目本身的原創題庫分開放：
   // 原創題（依教育部課綱自編）＝ DATA[科目]，用在每日練習／單元學習／依序刷題；
   // 題本轉檔＝ DATA[科目+'Custom']，用在「自創題庫（依課練習）」。（Tony 2026-08-18 定案）
-  var CUSTOM_CATS = { chinese: 'custom', english: 'englishCustom', math: 'mathCustom', science: 'scienceCustom', social: 'socialCustom' };
-  var ID_PREFIX2 = { ec: 'englishCustom', mc: 'mathCustom', nc: 'scienceCustom', oc: 'socialCustom' };
+  var CUSTOM_CATS = { chinese: 'custom', english: 'englishCustom', math: 'mathCustom',
+    science: 'scienceCustom', social: 'socialCustom', physics: 'physicsCustom',
+    chemistry: 'chemistryCustom', biology: 'biologyCustom', earth: 'earthCustom',
+    history: 'historyCustom', geography: 'geographyCustom', civics: 'civicsCustom' };
+  // id 前綴 → 題庫（依長度由長到短比對，3 碼是自創題庫、2 碼是高中分科原創題庫）
+  var ID_PREFIX = {
+    phc: 'physicsCustom', chc: 'chemistryCustom', bic: 'biologyCustom', esc: 'earthCustom',
+    hic: 'historyCustom', gec: 'geographyCustom', cic: 'civicsCustom',
+    ph: 'physics', ch: 'chemistry', bi: 'biology', es: 'earth',
+    hi: 'history', ge: 'geography', ci: 'civics',
+    ec: 'englishCustom', mc: 'mathCustom', nc: 'scienceCustom', oc: 'socialCustom'
+  };
 
   function buildQ(type, item, p) {
     if (type === 'idioms') return buildIdiomQ(item, p);
@@ -892,7 +913,9 @@
   }
 
   function quizCatOf(item) {
-    var p2 = ID_PREFIX2[item.id.slice(0, 2)];
+    var p3 = ID_PREFIX[item.id.slice(0, 3)];
+    if (p3) return p3;
+    var p2 = ID_PREFIX[item.id.slice(0, 2)];
     if (p2) return p2;
     var c = item.id.charAt(0);
     return c === 'i' ? 'idioms' : c === 's' ? 'slang' : c === 'p' ? 'phonics' : c === 'r' ? 'reading' :
