@@ -735,3 +735,12 @@ body.anim-lock { overflow: hidden; }
 }
 .dlg-btns { display: flex; gap: .6rem; justify-content: flex-end; }
 .dlg-btns .chip.dlg-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* 單元學習的段考分隔（課綱單元制：一學期三次段考，每次三個單元） */
+.exam-head {
+  margin: 1rem 0 0.4rem; padding: 0.35rem 0.6rem;
+  font-size: 0.85rem; font-weight: 700; color: var(--dim);
+  border-left: 3px solid var(--accent); background: var(--card);
+  border-radius: 0 6px 6px 0;
+}
+.exam-head:first-child { margin-top: 0.2rem; }

@@ -3450,24 +3450,44 @@
   function unitSize() { return state.unitSize || 14; }
   function unitKey(g, i) {
     var s = unitSize();
-    if (!isChinese()) return curSubj() + '-' + (state.unitBook || '') + '-s' + s + '-u' + i;
+    // 原創題庫走課綱單元制（單元由 lesson 決定，與 unitSize 無關），key 不帶 s
+    if (!isChinese()) return curSubj() + '-' + (state.unitBook || '') +
+      (lessonUnits() ? '' : '-s' + s) + '-u' + i;
     return s === 14 ? 'g' + g + '-u' + i : 'g' + g + '-s' + s + '-u' + i;
   }
-  // 題庫型科目的單元：同一冊照 id 序切成每單元 unitSize 題（跨課會標出課名）
-  function buildBankUnits(bank, book, size) {
+  // 目前這一科的單元學習是否走「課綱單元制」：有原創題庫時就是
+  // （Tony 2026-08-20：單元學習＝教學後測驗，要照課本單元分細一點，一學期 3 次段考 × 3 單元）
+  function lessonUnits() { return !isChinese() && mainPool().length > 0; }
+  // 題庫型科目的單元：
+  //   原創題庫 → 依 lesson（課綱單元）分組，出現順序即單元順序
+  //   自創題庫（題本轉檔沒有課綱單元）→ 沿用「同一冊照 id 序每 size 題切一單元」
+  function buildBankUnits(bank, book, size, byLesson) {
     var p = customPool(bank, book, null);
     var units = [];
+    if (byLesson) {
+      var seen = {};
+      p.forEach(function (it) {
+        var k = it.lesson || '未分單元';
+        if (!seen[k]) { seen[k] = { name: k, items: [] }; units.push(seen[k]); }
+        seen[k].items.push({ t: quizCatOf(it), id: it.id });
+      });
+      return units.map(function (u) { var a = u.items; a.name = u.name; return a; });
+    }
     for (var i = 0; i < p.length; i += size) {
       units.push(p.slice(i, i + size).map(function (it) { return { t: quizCatOf(it), id: it.id }; }));
     }
     return units;
   }
+  // 段考分組：每 EXAM_UNITS 個單元一次段考
+  var EXAM_UNITS = 3;
+  var EXAM_NAME = ['第一次段考', '第二次段考', '第三次段考', '第四次段考', '第五次段考'];
 
   function showUnits() {
     show('units');
     if (!state.unitGrade) state.unitGrade = state.grades[state.grades.length - 1] || 5;
     var srow = $('unitSizeRow');
     srow.innerHTML = '';
+    srow.classList.toggle('hidden', lessonUnits());   // 課綱單元制：單元由課本單元決定，不給改題數
     var unitWord = isChinese() ? ' 條' : ' 題';
     [[10, '小單元 10'], [14, '標準 14'], [21, '大單元 21']].forEach(function (opt) {
       opt = [opt[0], opt[1] + unitWord];
@@ -3505,26 +3525,46 @@
     }
     var list = $('unitList');
     list.innerHTML = '';
+    var byLesson = lessonUnits();
     var units = cn ? buildUnits(DATA, state.unitGrade, UNIT_SIZES[unitSize()])
-                   : buildBankUnits(bank, state.unitBook, unitSize());
-    if (!cn) $('unitsHint').textContent = mainPool().length
-      ? '依教育部課綱自編的題目，先看重點卡再測驗。（家長提供的題本在首頁「自創題庫」）'
-      : '目前用自創題庫的題目編單元。';
+                   : buildBankUnits(bank, state.unitBook, unitSize(), byLesson);
+    if (!cn) $('unitsHint').textContent = byLesson
+      ? '照課綱單元編排，每 ' + EXAM_UNITS + ' 個單元對應一次段考。先看重點卡，測驗全對才過關。'
+      : '目前用自創題庫的題目編單元（題本沒有課綱單元，照題號順序切）。';
     state.units = state.units || {};
     if (!units.length) { list.innerHTML = '<div class="empty">' + (cn ? '這個年級目前沒有教材。' : '這一冊目前沒有題目。') + '</div>'; return; }
+    var lastExam = -1;
     units.forEach(function (u, i) {
       var done = !!state.units[unitKey(state.unitGrade, i)];
       var locked = i > 0 && !state.units[unitKey(state.unitGrade, i - 1)];
+      // 課綱單元制：每 EXAM_UNITS 個單元插一條段考分隔（一學期三次段考）
+      if (byLesson) {
+        var ex = Math.floor(i / EXAM_UNITS);
+        if (ex !== lastExam) {
+          lastExam = ex;
+          var doneN = 0;
+          for (var k = ex * EXAM_UNITS; k < Math.min((ex + 1) * EXAM_UNITS, units.length); k++) {
+            if (state.units[unitKey(state.unitGrade, k)]) doneN++;
+          }
+          var nUnits = Math.min((ex + 1) * EXAM_UNITS, units.length) - ex * EXAM_UNITS;
+          var h = document.createElement('div');
+          h.className = 'exam-head';
+          h.textContent = '📝 ' + (EXAM_NAME[ex] || ('第 ' + (ex + 1) + ' 次段考')) +
+            '　' + doneN + '/' + nUnits + ' 單元完成';
+          list.appendChild(h);
+        }
+      }
       var lessons = [];
       if (!cn) u.forEach(function (e) {
         var it = findItem(e.t, e.id);
         var l = it && (it.lesson || it.tag);
         if (l && lessons.indexOf(l) < 0) lessons.push(l);
       });
+      var title = byLesson && u.name ? u.name : '第 ' + (i + 1) + ' 單元';
       var div = document.createElement('button');
       div.className = 'unit-item' + (done ? ' done' : locked ? ' locked' : '');
-      div.innerHTML = '<b>' + (done ? '✅' : locked ? '🔒' : '▶️') + ' 第 ' + (i + 1) + ' 單元</b>' +
-        '<small>' + (cn ? u.length + ' 個詞條' : u.length + ' 題 · ' + lessons.join('、')) + ' · ' +
+      div.innerHTML = '<b>' + (done ? '✅' : locked ? '🔒' : '▶️') + ' ' + title + '</b>' +
+        '<small>' + (cn ? u.length + ' 個詞條' : u.length + ' 題' + (byLesson ? '' : ' · ' + lessons.join('、'))) + ' · ' +
         (done ? '已完成，可重新練習' : locked ? '完成上一單元後解鎖' : cn ? '教學 → 測驗全對過關' : '看重點 → 測驗全對過關') + '</small>';
       if (!locked) div.addEventListener('click', function () { startLesson(state.unitGrade, i, u); });
       list.appendChild(div);
@@ -3543,7 +3583,7 @@
     var e = L.items[L.i];
     var it = findItem(e.t, e.id);
     $('lessonInfo').textContent = (isChinese() ? gradeLabel(L.grade) : (state.unitBook || CAT_NAME[bankCat()])) +
-      ' 第' + (L.unitIdx + 1) + '單元 · ' + (L.i + 1) + '/' + L.items.length;
+      ' · ' + (L.items.name || ('第' + (L.unitIdx + 1) + '單元')) + ' · ' + (L.i + 1) + '/' + L.items.length;
     $('lessonTag').textContent = '📖 教學 · ' + CAT_NAME[e.t];
     var body = $('lessonBody');
     body.innerHTML = '';

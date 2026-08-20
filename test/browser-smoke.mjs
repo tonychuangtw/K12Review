@@ -549,9 +549,17 @@ for (const [subj, label, idRe, port] of [['math', '數學', '^m\\d', 8738], ['en
     await sleep(200);
     await js(`document.querySelector('.card[data-go="units"]').click()`);
     await sleep(400);
-    check(label + '單元學習切得出 7 個單元',
+    check(label + '單元學習切得出課綱單元',
       await js(`document.querySelectorAll('#unitList .unit-item').length >= 7`),
       String(await js(`document.querySelectorAll('#unitList .unit-item').length`)));
+    check(label + '單元照段考分組（每 3 單元一次段考）',
+      await js(`document.querySelectorAll('#unitList .exam-head').length >= 2
+        && /段考/.test(document.querySelector('#unitList .exam-head').textContent)`),
+      await js(`document.querySelectorAll('#unitList .exam-head').length + ' 個段考標題'`));
+    check(label + '單元標題用課綱單元名稱（不是「第 N 單元」而已）',
+      await js(`/單元/.test(document.querySelector('#unitList .unit-item b').textContent)
+        && document.querySelector('#unitList .unit-item b').textContent.length > 8`),
+      await js(`document.querySelector('#unitList .unit-item b').textContent`));
     // 年級過濾：切到還沒有題目的年級，不可以把別的年級的題端出來
     await js(`document.getElementById('homeLink').click()`);
     await sleep(200);
@@ -560,12 +568,12 @@ for (const [subj, label, idRe, port] of [['math', '數學', '^m\\d', 8738], ['en
       var other = 0; for (var i = 1; i <= 12; i++) if (grades.indexOf(i) < 0) { other = i; break; }
       if (!other) return -1;                       // 12 個年級都有題了就跳過這項
       var cb = document.querySelectorAll('#gradePanel .gp-grid input');
-      var pick = function (n) { var b = cb[n - 1]; b.checked = !b.checked;
+      var toggle = function (n) { var b = cb[n - 1]; b.checked = !b.checked;
         b.dispatchEvent(new Event('change')); };
-      pick(other);                                  // 先加選沒題目的年級
-      (window.APP_DATA.${subj} || []).map(function (x) { return x.grade; })
-        .filter(function (v, i, a) { return a.indexOf(v) === i; })
-        .forEach(function (have) { if (have !== other) pick(have); });   // 再把有題目的年級取消
+      if (!cb[other - 1].checked) toggle(other);      // 先加選沒題目的年級
+      for (var j = 1; j <= 12; j++) {                 // 再把其餘已勾選的年級一一取消
+        if (j !== other && cb[j - 1].checked) toggle(j);
+      }
       return other; })()`);
     if (g > 0) {
       await sleep(400);
