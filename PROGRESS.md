@@ -1,6 +1,15 @@
 # 進度：全年級全科題庫（K12Review 全科擴充）
 
+<!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。
+     換一家 CLI 進來接手時看不到對話紀錄，只看得到這份檔 —— 欄位請隨進度更新。 -->
+
 STATUS: in-progress
+OBJECTIVE: K12Review 題庫從「只有五上」擴到 1–12 年級全科，每冊 9 單元（3 段考 × 3 單元）、每單元 8 題
+NEXT_ACTION: 做高中分科題庫，順序為 數學十上～十二下 → 英文 → 物理/化學/生物/地科 → 歷史/地理/公民。做法固定：scratchpad 寫一冊一個 jsonl → `node tools/tikuconv/build-bank.js` 併進 js/data → 跑測試 → commit（逐題人工撰寫，⛔ 不可交 subagent）
+VALIDATION: `node test/test.js` 與 `node test/zy-check.js` 全綠；動到前端行為再跑 `node test/browser-smoke.mjs`
+BLOCKERS: 無
+PATHS: js/data/*.js（各科題庫）、tools/tikuconv/（來源 jsonl + build-bank.js）、test/test.js、CLAUDE.md（本線守則）
+UPDATED: 2026-08-20 19:32 台北
 
 ## 全年級擴充（2026-08-20，Tony「你只做了五上. 各年級都要. 每科都一樣」）
 
