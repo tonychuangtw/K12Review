@@ -67,3 +67,12 @@ rows.forEach(r => {
   if (seen.has(k)) console.log('⚠ 完全重複題', r.id, seen.get(k));
   seen.set(k, r.id);
 });
+
+// 爛誘答守門：選項本身不能是「以外都不對」「這裡沒有別的字」這種湊數字串，
+// 那種選項一看就知道不是答案，等於把四選一變成三選一。
+const BAD_OPT = /以外都不對|以外的(寫法|答案|字)|這裡沒有|都不對$|沒有這個選項|不是有效/;
+let bad = 0;
+rows.forEach(r => r.options.forEach(o => {
+  if (BAD_OPT.test(o)) { console.log('⚠ 爛誘答', r.id, r.book, '｜', o); bad++; }
+}));
+if (bad) console.log('⚠ 共 ' + bad + ' 個爛誘答要改');
