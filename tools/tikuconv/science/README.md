@@ -40,7 +40,9 @@ node tools/tikuconv/build-bank.js science js/data/science.js tools/tikuconv/scie
   tools/tikuconv/science/n7-add1.jsonl \
   tools/tikuconv/science/n7-add2.jsonl \
   tools/tikuconv/science/n7b-add1.jsonl \
-  tools/tikuconv/science/n7b-add2.jsonl
+  tools/tikuconv/science/n7b-add2.jsonl \
+  tools/tikuconv/science/n8-add1.jsonl \
+  tools/tikuconv/science/n8-add2.jsonl
 node test/test.js
 ```
 
