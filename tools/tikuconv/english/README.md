@@ -23,11 +23,12 @@ node tools/tikuconv/build-bank.js english js/data/english.js $EF/header.txt --re
   $EF/e7.jsonl $EF/e7b.jsonl $EF/e8.jsonl $EF/e8b.jsonl $EF/e9.jsonl $EF/e9b.jsonl \
   $EF/e10.jsonl $EF/e10b.jsonl $EF/e11.jsonl $EF/e11b.jsonl $EF/e12.jsonl $EF/e12b.jsonl \
   $EF/e5-add1.jsonl $EF/e5b-add1.jsonl $EF/e5b-add2.jsonl \
-  $EF/e6-add1.jsonl $EF/e6-add2.jsonl $EF/e6b-add1.jsonl $EF/e6b-add2.jsonl
+  $EF/e6-add1.jsonl $EF/e6-add2.jsonl $EF/e6b-add1.jsonl $EF/e6b-add2.jsonl \
+  $EF/e7-add1.jsonl $EF/e7-add2.jsonl
 node test/test.js
 ```
 
-重建後先看 build-bank 印出的分冊統計（應為 24 冊、目前 2304 題），再 `git diff --stat`
+重建後先看 build-bank 印出的分冊統計（應為 24 冊、目前 2448 題），再 `git diff --stat`
 確認只有新增沒有大量刪除，然後才 commit。
 
 ⚠️ **加題一律開新的 `<冊>-addN.jsonl`，並放在重建指令的最後面**：`--renumber` 照
@@ -40,3 +41,4 @@ node test/test.js
 | e5b-add1 / e5b-add2.jsonl | 五下加題（2026-08-21，補到每單元 24 題） |
 | e6-add1 / e6-add2.jsonl | 六上加題（2026-08-21，補到每單元 24 題） |
 | e6b-add1 / e6b-add2.jsonl | 六下加題（2026-08-21，補到每單元 24 題） |
+| e7-add1 / e7-add2.jsonl | 七上加題（2026-08-21，補到每單元 24 題） |

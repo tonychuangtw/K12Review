@@ -24,7 +24,9 @@ node tools/tikuconv/build-bank.js social js/data/social.js tools/tikuconv/social
   tools/tikuconv/social/o6-add1.jsonl \
   tools/tikuconv/social/o6-add2.jsonl \
   tools/tikuconv/social/o6b-add1.jsonl \
-  tools/tikuconv/social/o6b-add2.jsonl
+  tools/tikuconv/social/o6b-add2.jsonl \
+  tools/tikuconv/social/o7-add1.jsonl \
+  tools/tikuconv/social/o7-add2.jsonl
 node test/test.js
 ```
 
