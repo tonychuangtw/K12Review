@@ -32,7 +32,11 @@ node tools/tikuconv/build-bank.js social js/data/social.js tools/tikuconv/social
   tools/tikuconv/social/o8-add1.jsonl \
   tools/tikuconv/social/o8-add2.jsonl \
   tools/tikuconv/social/o8b-add1.jsonl \
-  tools/tikuconv/social/o8b-add2.jsonl
+  tools/tikuconv/social/o8b-add2.jsonl \
+  tools/tikuconv/social/o9-add1.jsonl \
+  tools/tikuconv/social/o9-add2.jsonl \
+  tools/tikuconv/social/o9b-add1.jsonl \
+  tools/tikuconv/social/o9b-add2.jsonl
 node test/test.js
 ```
 
