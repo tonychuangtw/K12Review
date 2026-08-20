@@ -56,12 +56,14 @@ node tools/tikuconv/build-bank.js math js/data/math.js $MF/header.txt --renumber
   $MF/m9b-add1.jsonl \
   $MF/m9b-add2.jsonl \
   $MF/m4-add1.jsonl \
-  $MF/m4-add2.jsonl
+  $MF/m4-add2.jsonl \
+  $MF/m4b-add1.jsonl \
+  $MF/m4b-add2.jsonl
 node test/test.js
 ```
 
 ⛔ 24 冊一個都不能漏（漏掉的冊會整批消失）。重建後先看 build-bank 印出的分冊統計
-（應為 24 冊、目前 3312 題），再 `git diff --stat` 確認只有新增沒有大量刪除，然後才 commit。
+（應為 24 冊、目前 3456 題），再 `git diff --stat` 確認只有新增沒有大量刪除，然後才 commit。
 
 build-bank.js 會順便報：每冊的題數與單元數（不足 9 單元會標 ⚠）、答案位置分布、
 id 重複、完全重複題。撰寫規格見 `PROGRESS.md`（一冊 9 單元 = 3 段考 × 3 單元）。
