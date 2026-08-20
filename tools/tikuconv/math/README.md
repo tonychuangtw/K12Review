@@ -21,14 +21,33 @@
 重建：
 
 ```bash
-node tools/tikuconv/build-bank.js math js/data/math.js tools/tikuconv/math/header.txt --renumber m \
-  tools/tikuconv/math/m1.jsonl  tools/tikuconv/math/m1b.jsonl \
-  tools/tikuconv/math/m2.jsonl  tools/tikuconv/math/m2b.jsonl \
-  tools/tikuconv/math/m3.jsonl  tools/tikuconv/math/m3b.jsonl \
-  tools/tikuconv/math/m4.jsonl  tools/tikuconv/math/m4b.jsonl \
-  tools/tikuconv/math/m5.jsonl  tools/tikuconv/math/m5b.jsonl tools/tikuconv/math/m6.jsonl
+MF=tools/tikuconv/math
+node tools/tikuconv/build-bank.js math js/data/math.js $MF/header.txt --renumber m \
+  $MF/m1.jsonl $MF/m1b.jsonl \
+  $MF/m2.jsonl $MF/m2b.jsonl \
+  $MF/m3.jsonl $MF/m3b.jsonl \
+  $MF/m4.jsonl $MF/m4b.jsonl \
+  $MF/m5.jsonl $MF/m5b.jsonl \
+  $MF/m6.jsonl $MF/m6b.jsonl \
+  $MF/m7.jsonl $MF/m7b.jsonl \
+  $MF/m8.jsonl $MF/m8b.jsonl \
+  $MF/m9.jsonl $MF/m9b.jsonl \
+  $MF/m10.jsonl $MF/m10b.jsonl \
+  $MF/m11.jsonl $MF/m11b.jsonl \
+  $MF/m12.jsonl $MF/m12b.jsonl \
+  $MF/m5-add1.jsonl \
+  $MF/m5-add2.jsonl \
+  $MF/m5b-add1.jsonl \
+  $MF/m5b-add2.jsonl \
+  $MF/m6-add1.jsonl \
+  $MF/m6-add2.jsonl \
+  $MF/m6b-add1.jsonl \
+  $MF/m6b-add2.jsonl
 node test/test.js
 ```
+
+⛔ 24 冊一個都不能漏（漏掉的冊會整批消失）。重建後先看 build-bank 印出的分冊統計
+（應為 24 冊、目前 2304 題），再 `git diff --stat` 確認只有新增沒有大量刪除，然後才 commit。
 
 build-bank.js 會順便報：每冊的題數與單元數（不足 9 單元會標 ⚠）、答案位置分布、
 id 重複、完全重複題。撰寫規格見 `PROGRESS.md`（一冊 9 單元 = 3 段考 × 3 單元）。

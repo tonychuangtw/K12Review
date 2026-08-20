@@ -27,7 +27,16 @@ node tools/tikuconv/build-bank.js science js/data/science.js tools/tikuconv/scie
   tools/tikuconv/science/n7.jsonl tools/tikuconv/science/n7b.jsonl \
   tools/tikuconv/science/n8.jsonl tools/tikuconv/science/n8b.jsonl \
   tools/tikuconv/science/n9.jsonl tools/tikuconv/science/n9b.jsonl \
-  tools/tikuconv/science/n5-add1.jsonl tools/tikuconv/science/n5-add2.jsonl
+  tools/tikuconv/science/n5-add1.jsonl \
+  tools/tikuconv/science/n5-add2.jsonl \
+  tools/tikuconv/science/n5b-add1.jsonl \
+  tools/tikuconv/science/n5b-add2.jsonl \
+  tools/tikuconv/science/n5b-add3.jsonl \
+  tools/tikuconv/science/n6-add1.jsonl \
+  tools/tikuconv/science/n6-add2.jsonl \
+  tools/tikuconv/science/n6b-add1.jsonl \
+  tools/tikuconv/science/n6b-add2.jsonl \
+  tools/tikuconv/science/n6b-add3.jsonl
 node test/test.js
 ```
 
