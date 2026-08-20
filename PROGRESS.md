@@ -3,13 +3,32 @@
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。
      換一家 CLI 進來接手時看不到對話紀錄，只看得到這份檔 —— 欄位請隨進度更新。 -->
 
-STATUS: done
-OBJECTIVE: 修 Tony 2026-08-20 晚上回報的 UI 問題（五點）＋年級選擇改版（常駐學習範圍列、主要年級單選）
-NEXT_ACTION: 全部完成上線（v51 + v52）。後續若要再動導覽，規則寫在 CLAUDE.md「2026-08-20 導覽與命名」那節
-VALIDATION: `node test/test.js` 與 `node test/zy-check.js` 全綠；動到前端行為所以 `node test/browser-smoke.mjs` 必跑
+STATUS: in-progress
+OBJECTIVE: 把每個課綱單元的題數從 8～18 題補到 **每單元 24 題**（一次段考 3 單元＝72 題），Tony 2026-08-20：「題庫太少了，每個月考三個單元才一點點題目」「先24題」
+NEXT_ACTION: 照下方「加題進度表」往下做。目前做到：數學五上 ✅（216 題）。下一個是**自然五上**（120→216，缺 96 題）：
+  在 `tools/tikuconv/science/` 新增 `n5-add1.jsonl`（一行一題，欄位照該目錄既有 jsonl），
+  再用 `tools/tikuconv/science/README.md` 的重建指令、**把 add 檔放在最後面**重建 js/data/science.js
+VALIDATION: `node test/test.js` 全綠；抽查 build-bank.js 輸出的「每冊題數/單元數」是否 216 題 / 9 單元
 BLOCKERS: 無
-PATHS: js/app.js（show/navStack、renderSubjects、renderHome、showCustom、學習範圍那段）、index.html（view-welcome／#rangeBar／view-subject）、css/style.css、js/versions.js
-UPDATED: 2026-08-20 23:10 台北
+PATHS: tools/tikuconv/<科>/（來源 jsonl + README 重建指令）、js/data/<科>.js、test/test.js
+UPDATED: 2026-08-20 23:55 台北
+
+## 加題進度表（目標：每單元 24 題）
+
+⛔ 逐題人工撰寫，**不可交 subagent 量產**（2026-08-02 四個 agent 全交假貨）。
+⛔ 加題一律開新的 `<冊>-addN.jsonl`，**放在 build 指令最後面**（--renumber 是照檔案順序編號，
+   加在尾巴既有題目 id 才不會位移；id 一變使用者的錯題本就對到別題）。
+
+| 科目 | 範圍 | 現況 | 狀態 |
+| --- | --- | --- | --- |
+| 數學 | 五上 | 216 題（9 單元 × 24） | ✅ 2026-08-20 |
+| 自然 | 五上 | 120 題，缺 96 | ⬜ 下一個 |
+| 社會 | 五上 | 152 題，缺 64 | ⬜ |
+| 英文 | 五上 | 126 題，缺 90 | ⬜ |
+| 各科 | 五下 | 各 72 題，各缺 144 | ⬜ |
+| 各科 | 其餘年級 | 每冊 72 題 | ⬜ 依年級由近而遠 |
+
+全部補到 24 題／單元約需再寫 1.6 萬題，一批一批做、做完一批就 commit 上線。
 
 ## 年級改版（2026-08-20 22:26 Tony 「好. 做」）✅ 已完成上線（v52）
 
