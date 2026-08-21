@@ -22,6 +22,7 @@
 
 ## 改動守則
 
+- **灌題庫／加題／匯入題庫轉檔一律照 `docs/bank-maintain-sop.md` 的 SOP 做**（2026-08-21 Tony 定案：這類例行工作寫成規則後交低階模型執行；SOP 內含硬規則、驗證步驟與模型分工表）
 - 版本紀錄（2026-08-07 Tony 定案，本線所有案子皆同）：每站都有 ℹ️ 使用說明＋版本紀錄頁，資料在各 repo `js/versions.js`（APP_VERSIONS，新版在最上面）。**每次有感的功能改版都要在最上方加一條 vN 條目**（K12Review／LanExamMock／MathReviewWu 皆已建置；新案子上線時一併做這頁）
 
 - 改完必跑 `node test/test.js`（資料完整性 + 題目生成邏輯）和 `node test/zy-check.js`
