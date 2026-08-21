@@ -1802,6 +1802,220 @@
     paint();
   };
 
+  /* ── 正負籌碼（intchips）─────────────────────────────────────────────
+     正 1 和負 1 配成一對就互相抵消，剩下的就是答案。
+     整數加減最直觀的模型：(-5) + 3 為什麼是 -2，看得到。
+     spec: { a, b, edit }                                                  */
+  REG.intchips = function (host, spec) {
+    var a = spec.a == null ? -5 : spec.a, b = spec.b == null ? 3 : spec.b;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 160', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function chip(cx, cy, pos, dim) {
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: 11, 'fill-opacity': dim ? '.18' : '.85' },
+        'fill:' + (pos ? 'var(--good)' : 'var(--bad)') +
+        ';stroke:' + (pos ? 'var(--good)' : 'var(--bad)') + ';stroke-width:2'));
+      svg.appendChild(txt(cx, cy + 5, pos ? '＋' : '−',
+        'fill:' + (dim ? 'var(--dim)' : 'var(--text)') + ';font-size:13px;font-weight:700;text-anchor:middle'));
+    }
+    function row(vals, y, label) {
+      svg.appendChild(txt(20, y + 5, label, 'fill:var(--dim);font-size:12px'));
+      var n = Math.abs(vals), pos = vals >= 0;
+      for (var i = 0; i < n && i < 10; i++) chip(72 + i * 24, y, pos, false);
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      a = clamp(a, -9, 9); b = clamp(b, -9, 9);
+      row(a, 26, (a < 0 ? '(' + a + ')' : '＋' + a));
+      row(b, 62, (b < 0 ? '(' + b + ')' : '＋' + b));
+      // 抵消後剩下的
+      var sum = a + b, cancel = Math.min(Math.abs(a), Math.abs(b));
+      var mixed = (a < 0) !== (b < 0);
+      svg.appendChild(el('line', { x1: 12, y1: 84, x2: 308, y2: 84 }, 'stroke:var(--border);stroke-width:1.5'));
+      svg.appendChild(txt(20, 115, '結果', 'fill:var(--dim);font-size:12px'));
+      var n2 = Math.abs(sum);
+      for (var j = 0; j < n2 && j < 10; j++) chip(72 + j * 24, 110, sum >= 0, false);
+      if (!n2) svg.appendChild(txt(72, 115, '0（全部抵消）', 'fill:var(--dim);font-size:13px'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main',
+        '(' + a + ') ＋ (' + b + ') ＝ ' + sum));
+      read.appendChild(div('wg-read-sub', mixed && cancel
+        ? '一正一負配成 ' + cancel + ' 對，互相抵消變成 0，剩下 ' + (sum === 0 ? '0' : sum) + '（誰的絕對值大就跟誰同號）'
+        : '同號相加，個數直接相加，符號不變'));
+    }
+    if (spec.edit !== false) {
+      var sa = stepper('第一個數', function () { return a; }, function (v) { a = v; }, -9, 9,
+        function () { sa.sync(); paint(); });
+      var sb = stepper('第二個數', function () { return b; }, function (v) { b = v; }, -9, 9,
+        function () { sb.sync(); paint(); });
+      box.appendChild(sa.el); box.appendChild(sb.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 質因數分解與公因倍數（primefac）─────────────────────────────────
+     一個數 → 質因數連乘；兩個數 → 共同的部分是最大公因數，
+     全部湊起來是最小公倍數。
+     spec: { n, m, edit }（只給 n 就只做分解）                              */
+  REG.primefac = function (host, spec) {
+    var n = clamp(spec.n == null ? 12 : spec.n, 2, 200);
+    var m = spec.m == null ? 0 : clamp(spec.m, 0, 200);
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 140', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function fac(x) {
+      var r = [], d = 2;
+      while (d * d <= x) { while (x % d === 0) { r.push(d); x /= d; } d++; }
+      if (x > 1) r.push(x);
+      return r;
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var fn = fac(n), fm = m >= 2 ? fac(m) : null;
+      function drawRow(label, arr, y, common) {
+        // 右對齊：三位數的標籤才不會被畫布左邊切掉
+        svg.appendChild(txt(60, y + 5, label, 'fill:var(--dim);font-size:12px;text-anchor:end'));
+        var x = 66;
+        // ⚠️ 逐「個」配對，不是逐「值」：12 = 2×2×3 和 18 = 2×3×3 的共同部分是
+        // 一個 2 和一個 3，多出來的那個 2、那個 3 不能也標綠（否則 GCD 會被看成 36）
+        var pool = common ? common.slice() : null;
+        arr.forEach(function (p, i) {
+          var isC = false;
+          if (pool) { var pi = pool.indexOf(p); if (pi >= 0) { pool.splice(pi, 1); isC = true; } }
+          var w = String(p).length > 1 ? 32 : 26;
+          svg.appendChild(el('rect', { x: x, y: y - 14, width: w, height: 28, rx: 6, 'fill-opacity': '.18' },
+            'fill:' + (isC ? 'var(--good)' : 'var(--accent)') +
+            ';stroke:' + (isC ? 'var(--good)' : 'var(--accent)') + ';stroke-width:2'));
+          svg.appendChild(txt(x + w / 2, y + 5, String(p),
+            'fill:var(--text);font-size:14px;font-weight:700;text-anchor:middle'));
+          x += w + 6;
+          if (i < arr.length - 1) { svg.appendChild(txt(x - 3, y + 5, '×', 'fill:var(--dim);font-size:12px;text-anchor:middle')); x += 6; }
+        });
+      }
+      if (!fm) {
+        drawRow(n + ' ＝', fn, 50, null);
+        read.innerHTML = '';
+        read.appendChild(div('wg-read-main', n + ' ＝ ' + fn.join(' × ')));
+        read.appendChild(div('wg-read-sub',
+          '把一個數一直拆到只剩質數為止，這叫質因數分解。每個數的分解結果是唯一的。'));
+        return;
+      }
+      // 共同質因數（取次數較少的那個）
+      var ca = fn.slice(), common = [], lcm = fn.slice();
+      fm.forEach(function (p) {
+        var i = ca.indexOf(p);
+        if (i >= 0) { common.push(p); ca.splice(i, 1); }
+        else lcm.push(p);
+      });
+      drawRow(n + ' ＝', fn, 34, common);
+      drawRow(m + ' ＝', fm, 78, common);
+      var g = common.reduce(function (x, y) { return x * y; }, 1);
+      var l = lcm.reduce(function (x, y) { return x * y; }, 1);
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', '最大公因數 ' + g + '　最小公倍數 ' + l));
+      read.appendChild(div('wg-read-sub',
+        '綠色是兩邊「共同」的質因數，乘起來就是最大公因數（' +
+        (common.length ? common.join(' × ') + ' ＝ ' + g : '沒有共同質因數，所以是 1') +
+        '）；把兩邊的質因數不重複地全湊起來，就是最小公倍數 ' + l + '。'));
+    }
+    if (spec.edit !== false) {
+      var lo = 2, hi = 100;
+      var sn = stepper('第一個數', function () { return n; }, function (v) { n = v; }, lo, hi,
+        function () { sn.sync(); paint(); });
+      box.appendChild(sn.el);
+      if (m >= 2) {
+        var sm = stepper('第二個數', function () { return m; }, function (v) { m = v; }, lo, hi,
+          function () { sm.sync(); paint(); });
+        box.appendChild(sm.el);
+      }
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 代數磚（algetile）───────────────────────────────────────────────
+     長條＝x、小方塊＝1。同一種才能合併，這就是「同類項」。
+     spec: { x, c, x2, c2, mode: 'collect' | 'distribute', k }             */
+  REG.algetile = function (host, spec) {
+    var mode = spec.mode === 'distribute' ? 'distribute' : 'collect';
+    var x1 = spec.x == null ? 2 : spec.x, c1 = spec.c == null ? 3 : spec.c;
+    var x2 = spec.x2 == null ? 1 : spec.x2, c2 = spec.c2 == null ? 2 : spec.c2;
+    var k = spec.k == null ? 3 : spec.k;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 160', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    // 磚的寬度依數量自動縮放，展開成 6x+3 時才不會衝出畫布右邊
+    function tiles(nx, nc, y, label) {
+      svg.appendChild(txt(20, y + 5, label, 'fill:var(--dim);font-size:12px'));
+      var x0 = 70, right = 314, avail = right - x0;
+      var need = nx * 39 + (nx ? 8 : 0) + nc * 24;
+      var k = need > avail ? avail / need : 1;
+      var xw = 34 * k, xg = 39 * k, cw = 20 * k, cg = 24 * k;
+      var x = x0;
+      for (var i = 0; i < nx; i++) {
+        svg.appendChild(el('rect', { x: x, y: y - 12, width: xw, height: 24, rx: 4, 'fill-opacity': '.2' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(txt(x + xw / 2, y + 5, 'x',
+          'fill:var(--text);font-size:13px;font-style:italic;text-anchor:middle'));
+        x += xg;
+      }
+      x += nx ? 8 * k : 0;
+      for (var j = 0; j < nc; j++) {
+        svg.appendChild(el('rect', { x: x, y: y - 10, width: cw, height: 20, rx: 4, 'fill-opacity': '.2' },
+          'fill:var(--good);stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(x + cw / 2, y + 5, '1', 'fill:var(--text);font-size:12px;text-anchor:middle'));
+        x += cg;
+      }
+    }
+    function term(nx, nc) {
+      var s = [];
+      if (nx) s.push((nx === 1 ? '' : nx) + 'x');
+      if (nc) s.push(String(nc));
+      return s.join(' ＋ ') || '0';
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      if (mode === 'collect') {
+        tiles(x1, c1, 30, term(x1, c1));
+        tiles(x2, c2, 72, term(x2, c2));
+        svg.appendChild(el('line', { x1: 12, y1: 96, x2: 308, y2: 96 }, 'stroke:var(--border);stroke-width:1.5'));
+        tiles(x1 + x2, c1 + c2, 124, '合併');
+        read.appendChild(div('wg-read-main',
+          '(' + term(x1, c1) + ') ＋ (' + term(x2, c2) + ') ＝ ' + term(x1 + x2, c1 + c2)));
+        read.appendChild(div('wg-read-sub',
+          '長條只能和長條合併、小方塊只能和小方塊合併——這就是「同類項才能合併」。' +
+          'x 和 1 是不同的東西，' + (x1 + x2) + 'x 和 ' + (c1 + c2) + ' 不能再併成一項。'));
+      } else {
+        tiles(x1, c1, 34, term(x1, c1));
+        svg.appendChild(txt(20, 76, '×' + k, 'fill:var(--dim);font-size:12px'));
+        svg.appendChild(el('line', { x1: 12, y1: 92, x2: 308, y2: 92 }, 'stroke:var(--border);stroke-width:1.5'));
+        tiles(x1 * k, c1 * k, 124, '展開');
+        read.appendChild(div('wg-read-main',
+          k + '(' + term(x1, c1) + ') ＝ ' + term(x1 * k, c1 * k)));
+        read.appendChild(div('wg-read-sub',
+          '括號外的 ' + k + ' 要乘進去給「每一項」——' + k + ' 組相同的磚，長條變 ' +
+          (x1 * k) + ' 條、小方塊變 ' + (c1 * k) + ' 個。只乘第一項是最常見的錯。'));
+      }
+    }
+    if (spec.edit !== false) {
+      var sx = stepper('x 的個數', function () { return x1; }, function (v) { x1 = v; }, 0, 5,
+        function () { sx.sync(); paint(); });
+      var sc = stepper('1 的個數', function () { return c1; }, function (v) { c1 = v; }, 0, 6,
+        function () { sc.sync(); paint(); });
+      box.appendChild(sx.el); box.appendChild(sc.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },

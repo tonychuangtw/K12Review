@@ -380,7 +380,8 @@ console.log('解析確認題');
                    'protractor', 'lines', 'triangle', 'quad', 'exprsteps', 'rounding',
                    'factors', 'polygon', 'areaformula', 'cuboid', 'symmetry', 'netbox',
                    'circlearea', 'ratiobar', 'piechart', 'dotplot', 'balance', 'cylinder',
-                   'tenframe', 'numbond', 'counters', 'compare'];  // 與 js/widgets.js 的 REG 同步
+                   'tenframe', 'numbond', 'counters', 'compare',
+                   'intchips', 'primefac', 'algetile'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

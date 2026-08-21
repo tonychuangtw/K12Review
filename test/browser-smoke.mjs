@@ -776,17 +776,26 @@ async (js) => {
   const badged = await js(`(function(){ var n = 0;
     document.querySelectorAll('#unitList .unit-item').forEach(function (b) { if (b.querySelector('.unit-badge')) n++; });
     return n; })()`);
-  check('分數單元標出「教材」徽章', badged === 1, '有徽章的單元數 = ' + badged);
+  // 期望值從 APP_LESSONS 讀，不要寫死——每補一冊概念卡這個數字就會變
+  const decks = await js(`Object.keys(window.APP_LESSONS || {})
+    .filter(function (k) { return k.indexOf('math|三上|') === 0; }).length`);
+  check('有教材的單元都標出「教材」徽章', badged === decks && badged > 0,
+    '有徽章 ' + badged + ' 個 / 有教材 ' + decks + ' 個');
   // Tony 2026-08-21：「全部都不要鎖，以後不用再鎖」——一個都沒做過時也不能有鎖頭
   check('單元一律不上鎖（沒有 🔒、沒有 locked）', await js(`(function(){
     var bad = 0;
     document.querySelectorAll('#unitList .unit-item').forEach(function (b) {
       if (b.classList.contains('locked') || /🔒/.test(b.textContent)) bad++; });
     return bad; })()`) === 0);
+  // 記下點的是哪一個單元，後面的期望值（卡數、正解位置）都從它的資料算，不寫死
   await js(`(function(){ var t = null;
     document.querySelectorAll('#unitList .unit-item').forEach(function (b) {
       if (b.querySelector('.unit-badge')) t = b; });
-    if (t) t.click(); })()`);
+    if (t) {
+      var name = t.querySelector('b').textContent.replace(/^[✅▶️]+\\s*/, '').replace(/\\s*教材\\s*$/, '').trim();
+      window.__smokeDeck = window.APP_LESSONS['math|三上|' + name] || null;
+      t.click();
+    } })()`);
   await sleep(500);
   check('點有教材的單元進到概念卡（不是題目劇透）', await js(VIEW2) === 'concept', String(await js(VIEW2)));
   check('概念卡畫出互動元件（SVG）',
@@ -795,20 +804,22 @@ async (js) => {
     await js(`document.querySelectorAll('#conceptCheck .ck-opt').length`) === 4);
   check('還沒答對前「下一個」不是主要按鈕',
     await js(`document.getElementById('conceptNext').className`) === 'btn-ghost');
-  // 答錯 → 出現針對該迷思的說明
-  await js(`(function(){ var o = document.querySelectorAll('#conceptCheck .ck-opt');
-    for (var i = 0; i < o.length; i++) if (i !== 1) { o[i].click(); return; } })()`);
+  // 答錯 → 出現針對該迷思的說明（正解是第幾個從資料讀，不寫死）
+  await js(`(function(){ var a = window.__smokeDeck.cards[0].check.answer;
+    var o = document.querySelectorAll('#conceptCheck .ck-opt');
+    for (var i = 0; i < o.length; i++) if (i !== a) { o[i].click(); return; } })()`);
   await sleep(200);
   const ngText = await js(`(document.querySelector('#conceptCheck .ck-fb') || {}).textContent || ''`);
   check('答錯給的是針對迷思的解釋，不是只說錯', /❌/.test(ngText) && ngText.length > 12, ngText.slice(0, 40));
   // 答對 → 綠燈、可以往下
-  await js(`document.querySelectorAll('#conceptCheck .ck-opt')[1].click()`);
+  await js(`document.querySelectorAll('#conceptCheck .ck-opt')[window.__smokeDeck.cards[0].check.answer].click()`);
   await sleep(200);
   check('答對後標綠並解鎖下一步',
     await js(`/✅/.test((document.querySelector('#conceptCheck .ck-fb') || {}).textContent || '')`) &&
     await js(`document.getElementById('conceptNext').className`) === 'btn-primary');
   const nCards = await js(`document.querySelectorAll('#conceptDots .cdot').length`);
-  check('概念卡張數與資料一致（7 張）', nCards === 7, String(nCards));
+  const wantCards = await js(`window.__smokeDeck.cards.length`);
+  check('概念卡張數與資料一致', nCards === wantCards, nCards + ' / 應為 ' + wantCards);
   for (let i = 0; i < nCards - 1; i++) { await js(`document.getElementById('conceptNext').click()`); await sleep(150); }
   check('最後一張的按鈕變成進測驗',
     /測驗/.test(await js(`document.getElementById('conceptNext').textContent`)),

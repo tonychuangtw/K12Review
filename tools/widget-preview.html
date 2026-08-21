@@ -82,7 +82,12 @@ var DEMOS = [
   ['數個數（幾個一數）', { type: 'counters', n: 12, group: 5 }],
   ['比長短（起點對齊）', { type: 'compare', items: [{ label: '鉛筆', len: 6 }, { label: '橡皮擦', len: 2 }, { label: '尺', len: 9 }] }],
   ['比長短（起點沒對齊，會看錯）', { type: 'compare', align: false, items: [{ label: '甲', len: 7 }, { label: '乙', len: 6 }] }],
-  ['比高矮', { type: 'compare', vertical: true, items: [{ label: '小明', len: 8 }, { label: '小華', len: 9 }] }]
+  ['比高矮', { type: 'compare', vertical: true, items: [{ label: '小明', len: 8 }, { label: '小華', len: 9 }] }],
+  ['正負籌碼（抵消）', { type: 'intchips', a: -5, b: 3 }],
+  ['質因數分解', { type: 'primefac', n: 60 }],
+  ['最大公因數與最小公倍數', { type: 'primefac', n: 12, m: 18 }],
+  ['代數磚（合併同類項）', { type: 'algetile', mode: 'collect', x: 2, c: 3, x2: 1, c2: 2 }],
+  ['代數磚（分配律展開）', { type: 'algetile', mode: 'distribute', x: 2, c: 1, k: 3 }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {
