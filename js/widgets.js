@@ -2016,6 +2016,348 @@
     paint();
   };
 
+  /* ── 排列與組合（counting）────────────────────────────────────────────
+     spec: { kind:'tree'|'perm'|'comb', groups:[{label,n}], n, r }        */
+  REG.counting = function (host, spec) {
+    var kind = spec.kind || 'perm';
+    var box = div('wg');
+    var read = div('wg-read');
+    if (kind === 'tree') {
+      var gs = spec.groups || [{ label: '上衣', n: 2 }, { label: '褲子', n: 3 }];
+      var total = gs.reduce(function (a, g) { return a * g.n; }, 1);
+      var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+      var xs = [[160]], y = 26;
+      svg.appendChild(el('circle', { cx: 160, cy: y, r: 5 }, 'fill:var(--dim)'));
+      gs.forEach(function (g, gi) {
+        var prev = xs[gi], next = [], y2 = y + 44 * (gi + 1);
+        var cnt = prev.length * g.n, i = 0;
+        prev.forEach(function (px) {
+          for (var k = 0; k < g.n; k++) {
+            var nx = 20 + (280 / (cnt + 1)) * (++i);
+            next.push(nx);
+            svg.appendChild(el('line', { x1: px, y1: y2 - 44 + 6, x2: nx, y2: y2 - 6 },
+              'stroke:var(--border);stroke-width:1.5'));
+            svg.appendChild(el('circle', { cx: nx, cy: y2, r: 5 },
+              'fill:var(--' + (gi === gs.length - 1 ? 'good' : 'accent') + ')'));
+          }
+        });
+        svg.appendChild(txt(16, y2, g.label, 'font-size:10px;fill:var(--dim)'));
+        xs.push(next);
+      });
+      box.appendChild(svg);
+      read.appendChild(div('wg-read-main',
+        gs.map(function (g) { return g.n; }).join(' × ') + ' ＝ ' + total + ' 種'));
+      read.appendChild(div('wg-read-sub',
+        '乘法原理：一件事分成幾個步驟完成，每個步驟的選擇數「相乘」。' +
+        '⚠ 如果是「只能選其中一種」（例如買蛋糕『或』派），那要用加法原理相加，不是相乘。'));
+    } else {
+      var n = spec.n == null ? 4 : spec.n, r = spec.r == null ? 2 : spec.r;
+      var LET = 'ABCDEFGH'.slice(0, n).split('');
+      var list = [], i2, j2;
+      for (i2 = 0; i2 < n; i2++) {
+        for (j2 = 0; j2 < n; j2++) {
+          if (i2 === j2) continue;
+          if (kind === 'comb' && i2 > j2) continue;
+          list.push(LET[i2] + LET[j2]);
+        }
+      }
+      var wrap = div('wg-chips');
+      list.forEach(function (s) { wrap.appendChild(div('wg-chip on', s)); });
+      box.appendChild(wrap);
+      function fact(k) { return k <= 1 ? 1 : k * fact(k - 1); }
+      var P = fact(n) / fact(n - r), C = P / fact(r);
+      read.appendChild(div('wg-read-main', kind === 'comb'
+        ? 'C(' + n + ', ' + r + ') ＝ ' + C + ' 種（不管順序）'
+        : 'P(' + n + ', ' + r + ') ＝ ' + P + ' 種（順序不同算不同）'));
+      read.appendChild(div('wg-read-sub',
+        '排列 P(n, r) ＝ n × (n−1) × … 連乘 r 個；組合 C(n, r) ＝ P(n, r) ÷ r!。' +
+        '差別只有一件事：AB 和 BA 算不算同一種。選班長和副班長（有職位）→ 排列；' +
+        '選兩個人去打掃（沒差別）→ 組合。所以組合數一定比排列數少。'));
+    }
+    box.appendChild(read);
+    host.appendChild(box);
+  };
+
+  /* ── 平面向量（vector）────────────────────────────────────────────────
+     spec: { a:[x,y], b:[x,y], mode:'add'|'sub'|'scale'|'dot', k, min, max } */
+  REG.vector = function (host, spec) {
+    var a = spec.a || [3, 1], b = spec.b || [1, 3];
+    var mode = spec.mode || 'add', k = spec.k == null ? 2 : spec.k;
+    var lo = spec.min == null ? -5 : spec.min, hi = spec.max == null ? 5 : spec.max;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 300', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function neg(v) { return v < 0 ? '−' + (-v) : String(v); }
+    function arrow(g, from, to, color, label) {
+      var x1 = g.X(from[0]), y1 = g.Y(from[1]), x2 = g.X(to[0]), y2 = g.Y(to[1]);
+      var ang = Math.atan2(y2 - y1, x2 - x1), L = 10;
+      svg.appendChild(el('line', { x1: x1, y1: y1, x2: x2, y2: y2 },
+        'stroke:var(--' + color + ');stroke-width:3'));
+      svg.appendChild(el('polygon', { points:
+        x2 + ',' + y2 + ' ' + (x2 - L * Math.cos(ang - 0.4)) + ',' + (y2 - L * Math.sin(ang - 0.4)) +
+        ' ' + (x2 - L * Math.cos(ang + 0.4)) + ',' + (y2 - L * Math.sin(ang + 0.4)) },
+        'fill:var(--' + color + ')'));
+      if (label) svg.appendChild(txt((x1 + x2) / 2 + 14, (y1 + y2) / 2 - 10, label,
+        'font-size:12px;font-weight:700;fill:var(--' + color + ')'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var g = drawPlane(svg, lo, hi, { quad: false });
+      var O = [0, 0], sum = [a[0] + b[0], a[1] + b[1]], dif = [a[0] - b[0], a[1] - b[1]];
+      if (mode === 'scale') {
+        arrow(g, O, [a[0] * k, a[1] * k], 'good', String(k) + 'a');
+        arrow(g, O, a, 'accent', 'a');
+        read.appendChild(div('wg-read-main',
+          k + ' × (' + a[0] + ', ' + a[1] + ') ＝ (' + (a[0] * k) + ', ' + (a[1] * k) + ')'));
+        read.appendChild(div('wg-read-sub',
+          '乘一個正數只改變「長度」不改變方向（' + k + ' 倍長）；乘負數會變成反方向。' +
+          '兩個向量平行 ⟺ 其中一個是另一個的倍數。'));
+      } else if (mode === 'sub') {
+        arrow(g, O, a, 'accent', 'a');
+        arrow(g, O, b, 'good', 'b');
+        arrow(g, b, a, 'bad', 'a − b');
+        read.appendChild(div('wg-read-main',
+          '(' + a[0] + ', ' + a[1] + ') − (' + b[0] + ', ' + b[1] + ') ＝ (' + neg(dif[0]) + ', ' + neg(dif[1]) + ')'));
+        read.appendChild(div('wg-read-sub',
+          'a − b 就是「從 b 的箭頭指向 a 的箭頭」那一支。分量各自相減即可。' +
+          '記法：終點減起點——向量 AB ＝ B 的坐標 − A 的坐標。'));
+      } else if (mode === 'dot') {
+        arrow(g, O, a, 'accent', 'a');
+        arrow(g, O, b, 'good', 'b');
+        var dot = a[0] * b[0] + a[1] * b[1];
+        var la = Math.hypot(a[0], a[1]), lb = Math.hypot(b[0], b[1]);
+        var th = Math.acos(clamp(dot / (la * lb), -1, 1)) * 180 / Math.PI;
+        read.appendChild(div('wg-read-main',
+          'a · b ＝ ' + a[0] + '×' + b[0] + ' ＋ ' + a[1] + '×' + b[1] + ' ＝ ' + dot +
+          '　夾角約 ' + (+th.toFixed(1)) + '°'));
+        read.appendChild(div('wg-read-sub',
+          '內積 ＝ 對應分量相乘再相加，算出來是一個「數」不是向量。' +
+          '也等於 |a||b|cos θ，所以內積 > 0 是銳角、＝ 0 是直角（互相垂直）、< 0 是鈍角。'));
+      } else {
+        arrow(g, O, a, 'accent', 'a');
+        arrow(g, a, sum, 'good', 'b');
+        arrow(g, O, sum, 'bad', 'a ＋ b');
+        read.appendChild(div('wg-read-main',
+          '(' + a[0] + ', ' + a[1] + ') ＋ (' + b[0] + ', ' + b[1] + ') ＝ (' + sum[0] + ', ' + sum[1] + ')'));
+        read.appendChild(div('wg-read-sub',
+          '三角形法則：把 b 的起點接到 a 的箭頭上，從原點到最後的箭頭就是 a ＋ b。' +
+          '計算上就是分量各自相加。兩個力同時作用時，合力就是這樣算出來的。'));
+      }
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['add', '加法'], ['sub', '減法'], ['scale', '係數倍'], ['dot', '內積']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 二次曲線（conic）─────────────────────────────────────────────────
+     spec: { kind:'parabola'|'ellipse'|'hyperbola', a, b, pick }          */
+  REG.conic = function (host, spec) {
+    var kind = spec.kind || 'ellipse';
+    var A = spec.a == null ? 5 : spec.a, B = spec.b == null ? 4 : spec.b;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 220', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var cx = 160, cy = 110, u = 20;
+    function X(x) { return cx + x * u; }
+    function Y(y) { return cy - y * u; }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('line', { x1: 12, y1: cy, x2: 308, y2: cy }, 'stroke:var(--dim);stroke-width:1.5'));
+      svg.appendChild(el('line', { x1: cx, y1: 10, x2: cx, y2: 210 }, 'stroke:var(--dim);stroke-width:1.5'));
+      var pts = [], i, t;
+      if (kind === 'ellipse') {
+        svg.appendChild(el('ellipse', { cx: cx, cy: cy, rx: A * u, ry: B * u },
+          'fill:none;stroke:var(--accent);stroke-width:3'));
+        var c1 = Math.sqrt(Math.abs(A * A - B * B));
+        [c1, -c1].forEach(function (f) {
+          svg.appendChild(el('circle', { cx: X(f), cy: cy, r: 5 }, 'fill:var(--bad)'));
+        });
+        svg.appendChild(txt(X(c1), cy + 18, '焦點', 'font-size:10px;fill:var(--bad)'));
+        read.appendChild(div('wg-read-main',
+          'x²/' + (A * A) + ' ＋ y²/' + (B * B) + ' ＝ 1　→　a ＝ ' + A + '、b ＝ ' + B +
+          '、c ＝ ' + (+c1.toFixed(2)) + '（焦點 (±' + (+c1.toFixed(2)) + ', 0)）'));
+        read.appendChild(div('wg-read-sub',
+          '橢圓：到「兩個焦點」的距離和固定。關係式是 a² ＝ b² ＋ c²（長軸的一半最大）。' +
+          '長軸長 ＝ 2a ＝ ' + (2 * A) + '、短軸長 ＝ 2b ＝ ' + (2 * B) +
+          '。離心率 e ＝ c/a，介於 0 和 1 之間；e 越接近 0 越圓（e ＝ 0 就是圓）。'));
+      } else if (kind === 'hyperbola') {
+        [1, -1].forEach(function (s) {
+          pts = [];
+          for (i = 0; i <= 60; i++) {
+            t = -1.6 + 3.2 * i / 60;
+            var x = s * A * Math.cosh(t), y = B * Math.sinh(t);
+            if (Math.abs(x) < 9 && Math.abs(y) < 5.5) pts.push(X(x).toFixed(1) + ',' + Y(y).toFixed(1));
+          }
+          if (pts.length > 1) svg.appendChild(el('polyline', { points: pts.join(' ') },
+            'fill:none;stroke:var(--accent);stroke-width:3'));
+        });
+        [1, -1].forEach(function (s) {                    // 漸近線 y = ±(b/a)x
+          svg.appendChild(el('line', { x1: X(-7), y1: Y(-s * B / A * 7), x2: X(7), y2: Y(s * B / A * 7) },
+            'stroke:var(--good);stroke-width:1.5;stroke-dasharray:5 4'));
+        });
+        var c2 = Math.sqrt(A * A + B * B);
+        [c2, -c2].forEach(function (f) {
+          svg.appendChild(el('circle', { cx: X(f), cy: cy, r: 5 }, 'fill:var(--bad)'));
+        });
+        read.appendChild(div('wg-read-main',
+          'x²/' + (A * A) + ' − y²/' + (B * B) + ' ＝ 1　漸近線 y ＝ ±(' + B + '/' + A + ')x'));
+        read.appendChild(div('wg-read-sub',
+          '雙曲線：到兩焦點的距離「差」固定。它有兩支，越往外越貼近綠色的漸近線但永遠碰不到。' +
+          '⚠ 這裡的關係式是 c² ＝ a² ＋ b²（和橢圓不一樣，別記混）。'));
+      } else {
+        var p = A / 4;                                     // y² = 4px
+        pts = [];
+        for (i = -60; i <= 60; i++) {
+          var yy = i * 0.09, xx = yy * yy / (4 * p);
+          if (xx < 8) pts.push(X(xx).toFixed(1) + ',' + Y(yy).toFixed(1));
+        }
+        svg.appendChild(el('polyline', { points: pts.join(' ') },
+          'fill:none;stroke:var(--accent);stroke-width:3'));
+        svg.appendChild(el('circle', { cx: X(p), cy: cy, r: 5 }, 'fill:var(--bad)'));
+        svg.appendChild(txt(X(p) + 6, cy - 14, '焦點', 'font-size:10px;fill:var(--bad)'));
+        svg.appendChild(el('line', { x1: X(-p), y1: 14, x2: X(-p), y2: 206 },
+          'stroke:var(--good);stroke-width:1.5;stroke-dasharray:5 4'));
+        svg.appendChild(txt(X(-p) - 22, 26, '準線', 'font-size:10px;fill:var(--good)'));
+        read.appendChild(div('wg-read-main',
+          'y² ＝ ' + (4 * p) + 'x　→　焦點 (' + (+p.toFixed(2)) + ', 0)、準線 x ＝ −' + (+p.toFixed(2))));
+        read.appendChild(div('wg-read-sub',
+          '拋物線：到「焦點」和到「準線」的距離永遠相等。' +
+          '從焦點射出的光碰到拋物面會全部平行射出——手電筒、探照燈、衛星天線都用這個性質。'));
+      }
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['parabola', '拋物線'], ['ellipse', '橢圓'], ['hyperbola', '雙曲線']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { kind = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 矩陣（matrix）────────────────────────────────────────────────────
+     spec: { A, B, op:'add'|'mul'|'det'|'show' }                          */
+  REG.matrix = function (host, spec) {
+    var A = spec.A || [[1, 2], [3, 4]], B = spec.B || [[5, 6], [7, 8]];
+    var op = spec.op || 'add';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 130', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function drawM(m, x0, y0, color) {
+      var rows = m.length, cols = m[0].length, w = 34, h = 28;
+      var W = cols * w, H = rows * h;
+      svg.appendChild(el('path', { d: 'M' + (x0 + 6) + ',' + y0 + ' L' + x0 + ',' + y0 +
+        ' L' + x0 + ',' + (y0 + H) + ' L' + (x0 + 6) + ',' + (y0 + H) },
+        'fill:none;stroke:var(--' + color + ');stroke-width:2'));
+      svg.appendChild(el('path', { d: 'M' + (x0 + W - 6) + ',' + y0 + ' L' + (x0 + W) + ',' + y0 +
+        ' L' + (x0 + W) + ',' + (y0 + H) + ' L' + (x0 + W - 6) + ',' + (y0 + H) },
+        'fill:none;stroke:var(--' + color + ');stroke-width:2'));
+      m.forEach(function (row, i) {
+        row.forEach(function (v, j) {
+          svg.appendChild(txt(x0 + j * w + w / 2, y0 + i * h + h / 2, String(v), 'font-size:13px'));
+        });
+      });
+      return W;
+    }
+    var y0 = 34;
+    if (op === 'det') {
+      drawM(A, 40, y0, 'accent');
+      var d = A[0][0] * A[1][1] - A[0][1] * A[1][0];
+      svg.appendChild(txt(190, y0 + 28, '行列式 ＝ ' + A[0][0] + '×' + A[1][1] + ' − ' +
+        A[0][1] + '×' + A[1][0] + ' ＝ ' + d, 'font-size:12px;fill:var(--accent)'));
+      read.appendChild(div('wg-read-main', 'det ＝ ad − bc ＝ ' + d));
+      read.appendChild(div('wg-read-sub',
+        '行列式是「主對角線相乘減去副對角線相乘」。它等於這個矩陣把單位正方形變成的平行四邊形面積。' +
+        (d === 0 ? '行列式是 0 → 沒有反方陣（圖形被壓扁成一條線，回不去了）。'
+                 : '行列式不是 0 → 存在反方陣（乘法反元素）。')));
+    } else if (op === 'mul') {
+      var C = A.map(function (row) {
+        return B[0].map(function (_, j) {
+          return row.reduce(function (s, v, k) { return s + v * B[k][j]; }, 0);
+        });
+      });
+      var w1 = drawM(A, 12, y0, 'accent');
+      svg.appendChild(txt(12 + w1 + 12, y0 + 28, '×', 'font-size:14px'));
+      var w2 = drawM(B, 12 + w1 + 26, y0, 'good');
+      svg.appendChild(txt(12 + w1 + w2 + 38, y0 + 28, '＝', 'font-size:14px'));
+      drawM(C, 12 + w1 + w2 + 52, y0, 'bad');
+      read.appendChild(div('wg-read-main', '第 i 列 × 第 j 行，對應相乘再相加'));
+      read.appendChild(div('wg-read-sub',
+        '左邊矩陣的「列」配右邊矩陣的「行」：' + A[0][0] + '×' + B[0][0] + ' ＋ ' +
+        A[0][1] + '×' + B[1][0] + ' ＝ ' + C[0][0] + '（左上角）。' +
+        '⚠ 相乘的條件是「左邊的行數 ＝ 右邊的列數」，而且 AB 通常不等於 BA。'));
+    } else {
+      var S = A.map(function (row, i) {
+        return row.map(function (v, j) { return v + B[i][j]; });
+      });
+      var wa = drawM(A, 12, y0, 'accent');
+      svg.appendChild(txt(12 + wa + 12, y0 + 28, '＋', 'font-size:14px'));
+      var wb = drawM(B, 12 + wa + 26, y0, 'good');
+      svg.appendChild(txt(12 + wa + wb + 38, y0 + 28, '＝', 'font-size:14px'));
+      drawM(S, 12 + wa + wb + 52, y0, 'bad');
+      read.appendChild(div('wg-read-main', '同位置的元素相加'));
+      read.appendChild(div('wg-read-sub',
+        '矩陣加法很單純：對應位置各自相加，大小必須完全一樣才能加。' +
+        '（乘法就不是這樣了——那是「列配行」相乘再相加。）'));
+    }
+    host.appendChild(box);
+  };
+
+  /* ── 線性規劃（linprog）───────────────────────────────────────────────
+     spec: { vertices:[[x,y],..], f:[p,q] }   目標函數 f ＝ px ＋ qy      */
+  REG.linprog = function (host, spec) {
+    var V = spec.vertices || [[0, 0], [4, 0], [2, 2], [0, 3]];
+    var f = spec.f || [2, 3];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 220', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var maxX = Math.max.apply(null, V.map(function (p) { return p[0]; })) + 1;
+    var maxY = Math.max.apply(null, V.map(function (p) { return p[1]; })) + 1;
+    var L = 34, B0 = 180, u = Math.min((296 - L) / maxX, (B0 - 20) / maxY);
+    function X(x) { return L + x * u; }
+    function Y(y) { return B0 - y * u; }
+    svg.appendChild(el('line', { x1: L, y1: B0, x2: 306, y2: B0 }, 'stroke:var(--text);stroke-width:2'));
+    svg.appendChild(el('line', { x1: L, y1: B0, x2: L, y2: 14 }, 'stroke:var(--text);stroke-width:2'));
+    svg.appendChild(el('polygon', { points: V.map(function (p) { return X(p[0]) + ',' + Y(p[1]); }).join(' ') },
+      'fill:color-mix(in srgb, var(--accent) 20%, transparent);stroke:var(--accent);stroke-width:2'));
+    var vals = V.map(function (p) { return f[0] * p[0] + f[1] * p[1]; });
+    var best = vals.indexOf(Math.max.apply(null, vals));
+    V.forEach(function (p, i) {
+      svg.appendChild(el('circle', { cx: X(p[0]), cy: Y(p[1]), r: i === best ? 7 : 5 },
+        'fill:var(--' + (i === best ? 'bad' : 'good') + ')'));
+      svg.appendChild(txt(X(p[0]) + 22, Y(p[1]) - 12, '(' + p[0] + ',' + p[1] + ')→' + vals[i],
+        'font-size:10px;fill:var(--' + (i === best ? 'bad' : 'dim') + ')'));
+    });
+    svg.appendChild(txt(300, B0 + 14, 'x', 'font-size:11px;fill:var(--dim)'));
+    svg.appendChild(txt(L - 14, 20, 'y', 'font-size:11px;fill:var(--dim)'));
+    box.appendChild(read);
+    read.appendChild(div('wg-read-main',
+      '目標函數 f ＝ ' + f[0] + 'x ＋ ' + f[1] + 'y　→　最大值 ' + vals[best] +
+      '，在頂點 (' + V[best][0] + ', ' + V[best][1] + ')'));
+    read.appendChild(div('wg-read-sub',
+      '限制條件圍出來的區域叫可行解區域。目標函數的等值線是一組平行線，' +
+      '把它往目標方向平移，最後離開可行域的地方一定是「頂點」——' +
+      '所以只要把每個頂點代進去比大小就好，不用檢查區域裡的每一個點。'));
+    host.appendChild(box);
+  };
+
   /* ── 指數與對數互換（logexp）──────────────────────────────────────────
      log 只是「指數換一種問法」：a^x = b ⟺ log_a b = x。
      spec: { a, x, edit }                                                 */
