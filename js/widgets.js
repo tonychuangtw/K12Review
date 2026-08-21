@@ -1068,6 +1068,250 @@
     paint();
   };
 
+  /* ── 因數（factors）───────────────────────────────────────────────────
+     「12 能排成幾種完整的長方形」＝ 12 有哪些因數。因數配對一目了然。
+     spec: { n, edit }                                                     */
+  REG.factors = function (host, spec) {
+    var n = spec.n || 12;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      n = clamp(n, 1, 36);
+      var fs = [];
+      for (var i = 1; i <= n; i++) if (n % i === 0) fs.push(i);
+      // 畫出所有「幾排 × 每排幾個」的排法（因數配對）
+      var pairs = fs.filter(function (f) { return f * f <= n; });
+      var x = 8, y = 12, maxH = 0;
+      pairs.forEach(function (r) {
+        var c = n / r, cell = Math.min(9, 70 / c);
+        var w = c * cell, h = r * cell;
+        if (x + w + 12 > 312) { x = 8; y += maxH + 24; maxH = 0; }
+        for (var a = 0; a < r; a++) for (var b = 0; b < c; b++) {
+          svg.appendChild(el('rect', { x: x + b * cell, y: y + a * cell, width: cell - 1, height: cell - 1 },
+            'fill:var(--accent)'));
+        }
+        svg.appendChild(txt(x + w / 2, y + h + 10, r + '×' + c, 'font-size:11px;fill:var(--dim)'));
+        maxH = Math.max(maxH, h);
+        x += w + 16;
+      });
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', n + ' 的因數：' + fs.join('、') + '（共 ' + fs.length + ' 個）'));
+      read.appendChild(div('wg-read-sub', fs.length === 2
+        ? n + ' 只有 1 和自己兩個因數，是「質數」。'
+        : '每一種長方形排法就是一組因數配對，例如 ' + pairs[pairs.length - 1] + '×' + (n / pairs[pairs.length - 1]) + '。'));
+    }
+    if (spec.edit !== false) {
+      var st = stepper('數字', function () { return n; }, function (v) { n = v; }, 1, 36, function () { st.sync(); paint(); });
+      box.appendChild(st.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 多邊形（polygon）─────────────────────────────────────────────────
+     邊數 → 可以切成幾個三角形 → 內角和。切三角形的線會畫出來。
+     spec: { sides, edit }                                                 */
+  REG.polygon = function (host, spec) {
+    var n = spec.sides || 5;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var NAMES = { 3: '三角形', 4: '四邊形', 5: '五邊形', 6: '六邊形', 7: '七邊形', 8: '八邊形' };
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      n = clamp(n, 3, 8);
+      var cx = 160, cy = 85, R = 68, pts = [];
+      for (var i = 0; i < n; i++) {
+        var a = (i * 360 / n - 90) * Math.PI / 180;
+        pts.push([cx + R * Math.cos(a), cy + R * Math.sin(a)]);
+      }
+      svg.appendChild(el('polygon', { points: pts.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ') },
+        'fill:color-mix(in srgb, var(--accent) 20%, transparent);stroke:var(--accent);stroke-width:3'));
+      // 從第一個頂點拉對角線，切成 n-2 個三角形
+      for (var k = 2; k < n - 1; k++) {
+        svg.appendChild(el('line', { x1: pts[0][0], y1: pts[0][1], x2: pts[k][0], y2: pts[k][1] },
+          'stroke:var(--bad);stroke-width:1.5;stroke-dasharray:4 3'));
+      }
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main',
+        (NAMES[n] || n + ' 邊形') + '：可以切成 ' + (n - 2) + ' 個三角形'));
+      read.appendChild(div('wg-read-sub',
+        '內角和 ＝ 180° × ' + (n - 2) + ' ＝ ' + (180 * (n - 2)) + '°'));
+    }
+    if (spec.edit !== false) {
+      var st = stepper('幾個邊', function () { return n; }, function (v) { n = v; }, 3, 8, function () { st.sync(); paint(); });
+      box.appendChild(st.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 面積公式的由來（areaformula）─────────────────────────────────────
+     平行四邊形剪一刀就變長方形、三角形是平行四邊形的一半——公式不是背來的。
+     spec: { shape: 'parallelogram'|'triangle'|'trapezoid' }               */
+  REG.areaformula = function (host, spec) {
+    var shape = spec.shape || 'parallelogram';
+    var stage = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    box.appendChild(svg);
+    var note = div('wg-note');
+    box.appendChild(note);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var fill = 'fill:color-mix(in srgb, var(--accent) 25%, transparent);stroke:var(--accent);stroke-width:2.5';
+      if (shape === 'parallelogram') {
+        if (stage === 0) {
+          svg.appendChild(el('polygon', { points: '80,30 260,30 220,110 40,110' }, fill));
+          note.textContent = '平行四邊形。底 × 高 是怎麼來的？';
+        } else if (stage === 1) {
+          svg.appendChild(el('polygon', { points: '80,30 260,30 220,110 40,110' }, fill));
+          svg.appendChild(el('line', { x1: 80, y1: 30, x2: 80, y2: 110 },
+            'stroke:var(--bad);stroke-width:2;stroke-dasharray:5 3'));
+          note.textContent = '沿著高剪一刀，左邊會出現一個三角形。';
+        } else {
+          svg.appendChild(el('polygon', { points: '80,30 260,30 260,110 80,110' }, fill));
+          svg.appendChild(el('line', { x1: 80, y1: 30, x2: 80, y2: 110 }, 'stroke:var(--bad);stroke-width:2'));
+          note.textContent = '把那個三角形搬到右邊，就變成長方形了 → 面積 ＝ 底 × 高';
+        }
+      } else if (shape === 'triangle') {
+        if (stage === 0) {
+          svg.appendChild(el('polygon', { points: '60,110 260,110 150,30' }, fill));
+          note.textContent = '三角形。為什麼公式要「÷ 2」？';
+        } else if (stage === 1) {
+          svg.appendChild(el('polygon', { points: '60,110 260,110 150,30' }, fill));
+          svg.appendChild(el('polygon', { points: '60,110 150,30 350,30' },
+            'fill:color-mix(in srgb, var(--good) 25%, transparent);stroke:var(--good);stroke-width:2.5;stroke-dasharray:5 3'));
+          note.textContent = '複製一個一模一樣的，倒過來拼上去。';
+        } else {
+          svg.appendChild(el('polygon', { points: '60,110 260,110 350,30 150,30' },
+            'fill:color-mix(in srgb, var(--good) 22%, transparent);stroke:var(--good);stroke-width:2.5'));
+          svg.appendChild(el('polygon', { points: '60,110 260,110 150,30' }, fill));
+          note.textContent = '兩個拼成一個平行四邊形 → 三角形是它的一半 ＝ 底 × 高 ÷ 2';
+        }
+      } else {
+        if (stage === 0) {
+          svg.appendChild(el('polygon', { points: '110,30 210,30 260,110 60,110' }, fill));
+          note.textContent = '梯形。(上底＋下底) × 高 ÷ 2 是怎麼來的？';
+        } else if (stage === 1) {
+          svg.appendChild(el('polygon', { points: '110,30 210,30 260,110 60,110' }, fill));
+          svg.appendChild(el('polygon', { points: '210,30 110,30 60,110 260,110' },
+            'fill:color-mix(in srgb, var(--good) 20%, transparent);stroke:var(--good);stroke-width:2;stroke-dasharray:5 3'));
+          note.textContent = '一樣複製一個倒過來拼。';
+        } else {
+          svg.appendChild(el('polygon', { points: '60,110 260,110 310,30 110,30' },
+            'fill:color-mix(in srgb, var(--good) 22%, transparent);stroke:var(--good);stroke-width:2.5'));
+          note.textContent = '拼成平行四邊形，它的底是「上底＋下底」→ 梯形面積要再 ÷ 2';
+        }
+      }
+      note.className = 'wg-note' + (stage === 2 ? ' ok' : '');
+    }
+    var ctrl = div('wg-ctrl');
+    ctrl.appendChild(btn('下一步 ▶', function () { stage = clamp(stage + 1, 0, 2); paint(); }));
+    ctrl.appendChild(btn('重來', function () { stage = 0; paint(); }));
+    box.appendChild(ctrl);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 長方體（cuboid）──────────────────────────────────────────────────
+     體積＝長×寬×高，用堆積木的方式看「一層幾個 × 幾層」。
+     spec: { l, w, h, edit }                                               */
+  REG.cuboid = function (host, spec) {
+    var L = spec.l || 4, W = spec.w || 3, H = spec.h || 2;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      L = clamp(L, 1, 6); W = clamp(W, 1, 5); H = clamp(H, 1, 5);
+      var u = Math.min(26, 150 / (L + W * 0.5), 110 / (H + W * 0.5));
+      var ox = 160 - (L * u + W * u * 0.5) / 2, oy = 140;
+      // 等角投影：由後往前、由下往上畫，前面的方塊蓋住後面的
+      for (var y = W - 1; y >= 0; y--) {
+        for (var z = 0; z < H; z++) {
+          for (var x = 0; x < L; x++) {
+            var px = ox + x * u + y * u * 0.5, py = oy - z * u - y * u * 0.4;
+            svg.appendChild(el('polygon', {
+              points: [px, py, px + u, py, px + u, py - u, px, py - u].join(',')
+            }, 'fill:color-mix(in srgb, var(--accent) 55%, transparent);stroke:var(--border);stroke-width:1'));
+            svg.appendChild(el('polygon', {
+              points: [px, py - u, px + u, py - u, px + u * 1.5, py - u * 1.4, px + u * 0.5, py - u * 1.4].join(',')
+            }, 'fill:color-mix(in srgb, var(--accent) 80%, transparent);stroke:var(--border);stroke-width:1'));
+            svg.appendChild(el('polygon', {
+              points: [px + u, py, px + u * 1.5, py - u * 0.4, px + u * 1.5, py - u * 1.4, px + u, py - u].join(',')
+            }, 'fill:color-mix(in srgb, var(--accent) 35%, transparent);stroke:var(--border);stroke-width:1'));
+          }
+        }
+      }
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main',
+        '體積 ＝ ' + L + ' × ' + W + ' × ' + H + ' ＝ ' + (L * W * H) + ' 立方公分'));
+      read.appendChild(div('wg-read-sub',
+        '一層有 ' + L + '×' + W + ' ＝ ' + (L * W) + ' 個小方塊，疊了 ' + H + ' 層。'));
+    }
+    if (spec.edit !== false) {
+      var sl = stepper('長', function () { return L; }, function (v) { L = v; }, 1, 6, function () { sl.sync(); paint(); });
+      var sw = stepper('寬', function () { return W; }, function (v) { W = v; }, 1, 5, function () { sw.sync(); paint(); });
+      var sh = stepper('高', function () { return H; }, function (v) { H = v; }, 1, 5, function () { sh.sync(); paint(); });
+      box.appendChild(sl.el); box.appendChild(sw.el); box.appendChild(sh.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 線對稱（symmetry）────────────────────────────────────────────────
+     spec: { shape: 'heart'|'butterfly'|'tree'|'none', axis }              */
+  REG.symmetry = function (host, spec) {
+    var SHAPES = {
+      heart: { d: 'M0,20 C0,0 -30,0 -30,-18 C-30,-38 0,-42 0,-20 C0,-42 30,-38 30,-18 C30,0 0,0 0,20 Z', name: '愛心', sym: true },
+      tree: { d: 'M0,40 L0,10 M-32,10 L32,10 L0,-40 Z', name: '樹', sym: true },
+      flag: { d: 'M-30,-35 L30,-20 L-30,-5 Z M-30,-35 L-30,40', name: '旗子', sym: false }
+    };
+    var kind = spec.shape || 'heart';
+    var folded = false;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 160', class: 'wg-svg' });
+    box.appendChild(svg);
+    var note = div('wg-note');
+    box.appendChild(note);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var sh = SHAPES[kind];
+      var g = el('g', { transform: 'translate(160,85)' });
+      g.appendChild(el('path', { d: sh.d },
+        'fill:color-mix(in srgb, var(--accent) 30%, transparent);stroke:var(--accent);stroke-width:2.5'));
+      if (folded) {                                   // 對摺：右半邊蓋一層半透明，看左右合不合
+        g.appendChild(el('rect', { x: 0, y: -60, width: 70, height: 120 },
+          'fill:color-mix(in srgb, var(--good) 30%, transparent)'));
+      }
+      svg.appendChild(g);
+      svg.appendChild(el('line', { x1: 160, y1: 15, x2: 160, y2: 155 },
+        'stroke:var(--bad);stroke-width:2;stroke-dasharray:6 4'));
+      svg.appendChild(txt(196, 24, '對稱軸', 'font-size:11px;fill:var(--bad)'));
+      note.textContent = sh.sym
+        ? '沿著紅線對摺，左右兩邊完全重疊 → ' + sh.name + '是線對稱圖形 ✅'
+        : sh.name + '沿著這條線對摺，左右不會重疊 → 這條不是它的對稱軸 ❌';
+      note.className = 'wg-note ' + (sh.sym ? 'ok' : 'ng');
+    }
+    var ctrl = div('wg-ctrl');
+    ctrl.appendChild(btn('對摺看看', function () { folded = !folded; paint(); }));
+    Object.keys(SHAPES).forEach(function (k) {
+      ctrl.appendChild(btn(SHAPES[k].name, function () { kind = k; folded = false; paint(); }));
+    });
+    box.appendChild(ctrl);
+    host.appendChild(box);
+    paint();
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },

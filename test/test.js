@@ -377,7 +377,8 @@ console.log('解析確認題');
   const WIDGETS = ['fracbar', 'fraccircle', 'fraccompare', 'placevalue', 'column',
                    'array', 'grouping', 'angle', 'circleparts', 'clock', 'numberline',
                    'areagrid', 'decimalgrid', 'bargraph',
-                   'protractor', 'lines', 'triangle', 'quad', 'exprsteps', 'rounding'];  // 與 js/widgets.js 的 REG 同步
+                   'protractor', 'lines', 'triangle', 'quad', 'exprsteps', 'rounding',
+                   'factors', 'polygon', 'areaformula', 'cuboid', 'symmetry'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

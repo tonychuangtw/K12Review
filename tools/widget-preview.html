@@ -58,7 +58,13 @@ var DEMOS = [
       { expr: '12 + 8 × 3', hint: '有乘法也有加法：先算乘法那一段。' },
       { expr: '12 + 24', hint: '8 × 3 = 24，換進來。' },
       { expr: '= 36', hint: '最後才算加法，答案是 36。' }] }],
-  ['四捨五入', { type: 'rounding', value: 368, unit: 100 }]
+  ['四捨五入', { type: 'rounding', value: 368, unit: 100 }],
+  ['因數（長方形排法）', { type: 'factors', n: 12 }],
+  ['多邊形內角和', { type: 'polygon', sides: 5 }],
+  ['面積公式的由來（平行四邊形）', { type: 'areaformula', shape: 'parallelogram' }],
+  ['面積公式的由來（三角形）', { type: 'areaformula', shape: 'triangle' }],
+  ['長方體體積', { type: 'cuboid', l: 4, w: 3, h: 2 }],
+  ['線對稱', { type: 'symmetry', shape: 'heart' }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {
