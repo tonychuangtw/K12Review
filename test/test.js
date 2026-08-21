@@ -381,7 +381,8 @@ console.log('解析確認題');
                    'factors', 'polygon', 'areaformula', 'cuboid', 'symmetry', 'netbox',
                    'circlearea', 'ratiobar', 'piechart', 'dotplot', 'balance', 'cylinder',
                    'tenframe', 'numbond', 'counters', 'compare',
-                   'intchips', 'primefac', 'algetile'];  // 與 js/widgets.js 的 REG 同步
+                   'intchips', 'primefac', 'algetile',
+                   'coordplane', 'linegraph', 'ineqline', 'proportion', 'linechart'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

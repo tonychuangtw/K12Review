@@ -87,7 +87,22 @@ var DEMOS = [
   ['質因數分解', { type: 'primefac', n: 60 }],
   ['最大公因數與最小公倍數', { type: 'primefac', n: 12, m: 18 }],
   ['代數磚（合併同類項）', { type: 'algetile', mode: 'collect', x: 2, c: 3, x2: 1, c2: 2 }],
-  ['代數磚（分配律展開）', { type: 'algetile', mode: 'distribute', x: 2, c: 1, k: 3 }]
+  ['代數磚（分配律展開）', { type: 'algetile', mode: 'distribute', x: 2, c: 1, k: 3 }],
+  ['直角坐標平面（可移動點）', { type: 'coordplane', x: 3, y: 2 }],
+  ['直角坐標平面（對稱點）', { type: 'coordplane', x: 3, y: 2, showSym: 'x' }],
+  ['直角坐標平面（只標點，不可調）', { type: 'coordplane', edit: false, points: [{ x: -3, y: 2, label: 'A' }, { x: 4, y: -1, label: 'B' }] }],
+  ['線型函數 y = ax + b', { type: 'linegraph', a: 2, b: 1 }],
+  ['線型函數（a 為負）', { type: 'linegraph', a: -1, b: 3 }],
+  ['不等式的解（空心端點）', { type: 'ineqline', op: '>', value: 2 }],
+  ['不等式的解（實心端點）', { type: 'ineqline', op: '<=', value: 5, min: -2, max: 10 }],
+  ['正比', { type: 'proportion', mode: 'direct', k: 3 }],
+  ['反比', { type: 'proportion', mode: 'inverse', k: 12 }],
+  ['折線圖', { type: 'linechart', unit: '℃', data: [
+      { label: '一', value: 22 }, { label: '二', value: 25 }, { label: '三', value: 24 },
+      { label: '四', value: 28 }, { label: '五', value: 26 }] }],
+  ['折線圖（縱軸不從 0 開始）', { type: 'linechart', zero: false, unit: '℃', data: [
+      { label: '一', value: 22 }, { label: '二', value: 25 }, { label: '三', value: 24 },
+      { label: '四', value: 28 }, { label: '五', value: 26 }] }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {

@@ -2016,6 +2016,306 @@
     paint();
   };
 
+  /* ── 折線圖（linechart）───────────────────────────────────────────────
+     和 bargraph 用同一組資料就看得出差別：長條比多少、折線看「怎麼變」。
+     spec: { data:[{label,value}], unit, zero:false }                      */
+  REG.linechart = function (host, spec) {
+    var data = spec.data || [];
+    var unit = spec.unit || '';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    var vals = data.map(function (d) { return d.value; });
+    var hi = Math.max.apply(null, vals.concat([1]));
+    var lo = spec.zero === false ? Math.min.apply(null, vals) : 0;
+    if (hi === lo) hi = lo + 1;
+    var L = 34, R = 306, T = 20, B = 132;
+    function X(i) { return data.length < 2 ? (L + R) / 2 : L + i / (data.length - 1) * (R - L); }
+    function Y(v) { return B - (v - lo) / (hi - lo) * (B - T); }
+    svg.appendChild(el('line', { x1: L, y1: B, x2: R, y2: B }, 'stroke:var(--text);stroke-width:2'));
+    svg.appendChild(el('line', { x1: L, y1: B, x2: L, y2: T }, 'stroke:var(--text);stroke-width:2'));
+    svg.appendChild(txt(L - 16, Y(hi), String(hi), 'font-size:10px;fill:var(--dim)'));
+    svg.appendChild(txt(L - 16, Y(lo), String(lo), 'font-size:10px;fill:var(--dim)'));
+    svg.appendChild(el('polyline',
+      { points: data.map(function (d, i) { return X(i) + ',' + Y(d.value); }).join(' ') },
+      'fill:none;stroke:var(--accent);stroke-width:3'));
+    data.forEach(function (d, i) {
+      svg.appendChild(el('circle', { cx: X(i), cy: Y(d.value), r: 4 }, 'fill:var(--accent)'));
+      svg.appendChild(txt(X(i), Y(d.value) - 14, String(d.value), 'font-size:11px;fill:var(--accent)'));
+      svg.appendChild(txt(X(i), B + 14, d.label, 'font-size:11px;fill:var(--dim)'));
+    });
+    box.appendChild(svg);
+    var up = 0, down = 0, i2;
+    for (i2 = 1; i2 < data.length; i2++) {
+      if (data[i2].value > data[i2 - 1].value) up++; else if (data[i2].value < data[i2 - 1].value) down++;
+    }
+    box.appendChild(div('wg-read-sub',
+      '折線圖看的是「變化」：線往上升代表增加（' + up + ' 段），往下降代表減少（' + down + ' 段）。' +
+      (spec.zero === false ? '⚠ 這張圖的縱軸不是從 0 開始，起伏看起來會比實際誇張。'
+                           : '縱軸從 0 開始，起伏才不會被放大。') +
+      (unit ? '單位：' + unit + '。' : '')));
+    host.appendChild(box);
+  };
+
+  /* ── 坐標平面的共用底圖 ────────────────────────────────────────────────
+     coordplane 與 linegraph 共用：畫格線、兩軸、刻度、象限名稱，
+     回傳 X()／Y() 兩個把數值換成畫布座標的函式。                          */
+  function drawPlane(svg, lo, hi, opt) {
+    var L = 30, R = 290, T = 20, B = 280;
+    function X(v) { return L + (v - lo) / (hi - lo) * (R - L); }
+    function Y(v) { return B - (v - lo) / (hi - lo) * (B - T); }
+    var i;
+    for (i = Math.ceil(lo); i <= hi; i++) {                 // 格線
+      svg.appendChild(el('line', { x1: X(i), y1: T, x2: X(i), y2: B },
+        'stroke:var(--border);stroke-width:1'));
+      svg.appendChild(el('line', { x1: L, y1: Y(i), x2: R, y2: Y(i) },
+        'stroke:var(--border);stroke-width:1'));
+    }
+    if (opt && opt.quad !== false) {                        // 象限名稱（淡淡的當背景）
+      var qs = [['第一象限', hi * 0.55, hi * 0.8], ['第二象限', lo * 0.55, hi * 0.8],
+                ['第三象限', lo * 0.55, lo * 0.8], ['第四象限', hi * 0.55, lo * 0.8]];
+      qs.forEach(function (q) {
+        svg.appendChild(txt(X(q[1]), Y(q[2]), q[0], 'font-size:12px;fill:var(--dim);opacity:.65'));
+      });
+    }
+    svg.appendChild(el('line', { x1: L, y1: Y(0), x2: R, y2: Y(0) },      // x 軸
+      'stroke:var(--text);stroke-width:2'));
+    svg.appendChild(el('line', { x1: X(0), y1: B, x2: X(0), y2: T },      // y 軸
+      'stroke:var(--text);stroke-width:2'));
+    svg.appendChild(txt(R + 12, Y(0), 'x', 'font-size:13px;fill:var(--dim);font-style:italic'));
+    svg.appendChild(txt(X(0), T - 10, 'y', 'font-size:13px;fill:var(--dim);font-style:italic'));
+    svg.appendChild(txt(X(0) - 10, Y(0) + 12, '0', 'font-size:11px;fill:var(--dim)'));
+    for (i = Math.ceil(lo); i <= hi; i++) {                 // 刻度數字
+      if (i === 0) continue;
+      svg.appendChild(txt(X(i), Y(0) + 12, String(i), 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(X(0) - 12, Y(i), String(i), 'font-size:10px;fill:var(--dim)'));
+    }
+    return { X: X, Y: Y, L: L, R: R, T: T, B: B };
+  }
+  function quadName(x, y) {
+    if (x === 0 && y === 0) return '原點';
+    if (x === 0) return 'y 軸上（不屬於任何象限）';
+    if (y === 0) return 'x 軸上（不屬於任何象限）';
+    return x > 0 ? (y > 0 ? '第一象限' : '第四象限') : (y > 0 ? '第二象限' : '第三象限');
+  }
+
+  /* ── 直角坐標平面（coordplane）────────────────────────────────────────
+     點怎麼標、象限怎麼分、對稱點在哪。
+     spec: { min, max, x, y, edit, points:[{x,y,label}], showSym:'x'|'y'|'o' } */
+  REG.coordplane = function (host, spec) {
+    var lo = spec.min == null ? -5 : spec.min, hi = spec.max == null ? 5 : spec.max;
+    var px = spec.x == null ? 3 : spec.x, py = spec.y == null ? 2 : spec.y;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 300', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function dot(g, x, y, label, color) {
+      svg.appendChild(el('circle', { cx: g.X(x), cy: g.Y(y), r: 6 }, 'fill:var(--' + color + ')'));
+      // 標籤預設放右邊，靠近右緣時改放左邊，免得被畫布切掉
+      var right = g.X(x) + 26 + 30 < 320;
+      // 點在 x 軸下方時標籤改放下面，免得壓到軸上的刻度數字
+      svg.appendChild(txt(g.X(x) + (right ? 30 : -30), g.Y(y) + (y < 0 ? 16 : -12),
+        (label ? label + ' ' : '') + '(' + x + ', ' + y + ')',
+        'font-size:12px;font-weight:700;fill:var(--' + color + ')'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var g = drawPlane(svg, lo, hi, { quad: spec.quad });
+      (spec.points || []).forEach(function (p) { dot(g, p.x, p.y, p.label, 'good'); });
+      if (spec.edit !== false) {
+        // 從原點先走 x 再走 y：坐標怎麼「找到」的路徑畫出來
+        svg.appendChild(el('line', { x1: g.X(0), y1: g.Y(0), x2: g.X(px), y2: g.Y(0) },
+          'stroke:var(--accent);stroke-width:2;stroke-dasharray:4 3'));
+        svg.appendChild(el('line', { x1: g.X(px), y1: g.Y(0), x2: g.X(px), y2: g.Y(py) },
+          'stroke:var(--accent);stroke-width:2;stroke-dasharray:4 3'));
+        dot(g, px, py, 'P', 'accent');
+        if (spec.showSym) {
+          var sx = spec.showSym === 'y' || spec.showSym === 'o' ? -px : px;
+          var sy = spec.showSym === 'x' || spec.showSym === 'o' ? -py : py;
+          dot(g, sx, sy, 'P′', 'bad');
+        }
+        read.innerHTML = '';
+        read.appendChild(div('wg-read-main', 'P (' + px + ', ' + py + ')　→　' + quadName(px, py)));
+        read.appendChild(div('wg-read-sub',
+          '先看第一個數：往右走 ' + px + '（負的往左）；再看第二個數：往上走 ' + py +
+          '（負的往下）。順序寫反就變成不同的點。'));
+      } else { read.textContent = ''; }
+    }
+    if (spec.edit !== false) {
+      var sx2 = stepper('x（左右）', function () { return px; }, function (v) { px = v; }, lo, hi,
+        function () { sx2.sync(); paint(); });
+      var sy2 = stepper('y（上下）', function () { return py; }, function (v) { py = v; }, lo, hi,
+        function () { sy2.sync(); paint(); });
+      box.appendChild(sx2.el); box.appendChild(sy2.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 線型函數圖形（linegraph）─────────────────────────────────────────
+     y = ax + b 的 a 決定斜度與方向、b 決定和 y 軸交在哪，調一調就看得出來。
+     spec: { a, b, min, max, edit }                                        */
+  REG.linegraph = function (host, spec) {
+    var lo = spec.min == null ? -5 : spec.min, hi = spec.max == null ? 5 : spec.max;
+    var a = spec.a == null ? 2 : spec.a, b = spec.b == null ? 1 : spec.b;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 300', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function fmt(a2, b2) {
+      return 'y ＝ ' + (a2 === 1 ? '' : a2 === -1 ? '−' : a2) + 'x' +
+        (b2 === 0 ? '' : b2 > 0 ? ' ＋ ' + b2 : ' − ' + (-b2));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var g = drawPlane(svg, lo, hi, { quad: false });
+      var pts = [], i, x, y;
+      for (i = 0; i <= 200; i++) {                       // 只畫落在畫面內的那一段
+        x = lo + (hi - lo) * i / 200; y = a * x + b;
+        if (y >= lo && y <= hi) pts.push(g.X(x).toFixed(1) + ',' + g.Y(y).toFixed(1));
+      }
+      if (pts.length > 1) {
+        svg.appendChild(el('polyline', { points: pts.join(' ') },
+          'fill:none;stroke:var(--accent);stroke-width:3'));
+      }
+      if (b >= lo && b <= hi) {                           // 與 y 軸的交點
+        svg.appendChild(el('circle', { cx: g.X(0), cy: g.Y(b), r: 6 }, 'fill:var(--good)'));
+        svg.appendChild(txt(g.X(0) + 34, g.Y(b) - 12, '(0, ' + b + ')',
+          'font-size:12px;font-weight:700;fill:var(--good)'));
+      }
+      var xi = a === 0 ? null : -b / a;                    // 與 x 軸的交點
+      if (xi != null && xi >= lo && xi <= hi) {
+        svg.appendChild(el('circle', { cx: g.X(xi), cy: g.Y(0), r: 6 }, 'fill:var(--bad)'));
+        // 標在軸的下方（刻度數字再往下一點），才不會和 (0, b) 的標籤疊在一起
+        svg.appendChild(txt(g.X(xi), g.Y(0) + 26, '(' + (+xi.toFixed(2)) + ', 0)',
+          'font-size:12px;font-weight:700;fill:var(--bad)'));
+      }
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', fmt(a, b)));
+      read.appendChild(div('wg-read-sub',
+        (a === 0 ? 'a ＝ 0：圖形是一條水平線（y 永遠是 ' + b + '）。'
+          : a > 0 ? 'a ＝ ' + a + ' 是正的 → 由左下往右上；x 每加 1，y 就加 ' + a + '。'
+                  : 'a ＝ ' + a + ' 是負的 → 由左上往右下；x 每加 1，y 就減 ' + (-a) + '。') +
+        '　b ＝ ' + b + ' → 圖形和 y 軸交在 (0, ' + b + ')。'));
+    }
+    if (spec.edit !== false) {
+      var sa2 = stepper('a（斜度）', function () { return a; }, function (v) { a = v; }, -5, 5,
+        function () { sa2.sync(); paint(); });
+      var sb2 = stepper('b（和 y 軸交點）', function () { return b; }, function (v) { b = v; }, lo, hi,
+        function () { sb2.sync(); paint(); });
+      box.appendChild(sa2.el); box.appendChild(sb2.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 不等式的解（ineqline）────────────────────────────────────────────
+     解不是一個數而是一整段：端點實心／空心、箭頭往哪邊，看圖最清楚。
+     spec: { op:'>'|'>='|'<'|'<=', value, min, max, label }                */
+  REG.ineqline = function (host, spec) {
+    var op = spec.op || '>';
+    var v = spec.value == null ? 2 : spec.value;
+    var lo = spec.min == null ? -5 : spec.min, hi = spec.max == null ? 8 : spec.max;
+    var nm = spec.label || 'x';
+    var right = op === '>' || op === '>=';
+    var closed = op === '>=' || op === '<=';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 110', class: 'wg-svg' });
+    box.appendChild(svg);
+    function X(t) { return 20 + (t - lo) / (hi - lo) * 280; }
+    svg.appendChild(el('line', { x1: 14, y1: 55, x2: 306, y2: 55 }, 'stroke:var(--text);stroke-width:2'));
+    for (var i = Math.ceil(lo); i <= hi; i++) {
+      svg.appendChild(el('line', { x1: X(i), y1: 48, x2: X(i), y2: 62 }, 'stroke:var(--text);stroke-width:1.5'));
+      svg.appendChild(txt(X(i), 76, String(i), 'font-size:11px;fill:var(--dim)'));
+    }
+    svg.appendChild(el('line', { x1: X(v), y1: 55, x2: right ? 300 : 20, y2: 55 },   // 解的那一段
+      'stroke:var(--accent);stroke-width:6;stroke-linecap:round;opacity:.85'));
+    var tipX = right ? 306 : 14;                                                      // 箭頭
+    svg.appendChild(el('polygon',
+      { points: tipX + ',55 ' + (right ? 294 : 26) + ',48 ' + (right ? 294 : 26) + ',62' },
+      'fill:var(--accent)'));
+    svg.appendChild(el('circle', { cx: X(v), cy: 55, r: 8 },
+      closed ? 'fill:var(--accent)' : 'fill:var(--bg);stroke:var(--accent);stroke-width:3'));
+    svg.appendChild(txt(X(v), 26, nm + ' ' + (op === '>=' ? '≥' : op === '<=' ? '≤' : op) + ' ' + v,
+      'font-size:14px;font-weight:700;fill:var(--accent)'));
+    box.appendChild(svg);
+    box.appendChild(div('wg-read-main',
+      '解：所有比 ' + v + (right ? '大' : '小') + '的數' + (closed ? '，而且包含 ' + v + ' 本身' : '（' + v + ' 不算）')));
+    box.appendChild(div('wg-read-sub',
+      (closed ? '≥ 和 ≤ 的端點畫「實心」●，因為那個數本身也是解。'
+              : '> 和 < 的端點畫「空心」○，因為剛好等於那個數不算解。') +
+      '塗色（箭頭那一邊）就是解的範圍，代表有無限多個答案，不是只有一個。'));
+    host.appendChild(box);
+  };
+
+  /* ── 正比與反比（proportion）──────────────────────────────────────────
+     正比：y ÷ x 固定，圖形是通過原點的直線；
+     反比：x × y 固定，圖形是往兩端彎過去的曲線。
+     spec: { mode:'direct'|'inverse', k, xs:[..], labelX, labelY, edit }   */
+  REG.proportion = function (host, spec) {
+    var inv = spec.mode === 'inverse';
+    var k = spec.k == null ? (inv ? 12 : 3) : spec.k;
+    var xs = spec.xs || (inv ? [1, 2, 3, 4, 6] : [1, 2, 3, 4, 5]);
+    var lx = spec.labelX || 'x', ly = spec.labelY || 'y';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 260', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function f(x) { return inv ? k / x : k * x; }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      // 上半：對照表
+      var n = xs.length, cw = Math.min(46, 240 / n), x0 = 160 - n * cw / 2;
+      svg.appendChild(txt(x0 - 26, 24, lx, 'font-size:12px;fill:var(--dim)'));
+      svg.appendChild(txt(x0 - 26, 52, ly, 'font-size:12px;fill:var(--dim)'));
+      xs.forEach(function (x, i) {
+        var cx = x0 + i * cw + cw / 2;
+        svg.appendChild(el('rect', { x: x0 + i * cw, y: 10, width: cw - 2, height: 28, rx: 4 },
+          'fill:var(--panel2);stroke:var(--border)'));
+        svg.appendChild(el('rect', { x: x0 + i * cw, y: 38, width: cw - 2, height: 28, rx: 4 },
+          'fill:var(--accent);fill-opacity:.18;stroke:var(--border)'));
+        svg.appendChild(txt(cx, 24, String(x), 'font-size:13px'));
+        svg.appendChild(txt(cx, 52, String(+f(x).toFixed(2)), 'font-size:13px'));
+      });
+      // 下半：圖形
+      var L = 40, R = 300, T = 90, B = 232;
+      var xmax = Math.max.apply(null, xs) + 1;
+      var ymax = Math.max.apply(null, xs.map(f)) * 1.15;
+      function X(x) { return L + x / xmax * (R - L); }
+      function Y(y) { return B - y / ymax * (B - T); }
+      svg.appendChild(el('line', { x1: L, y1: B, x2: R, y2: B }, 'stroke:var(--text);stroke-width:2'));
+      svg.appendChild(el('line', { x1: L, y1: B, x2: L, y2: T }, 'stroke:var(--text);stroke-width:2'));
+      svg.appendChild(txt(R - 6, B + 14, lx, 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(L - 14, T + 4, ly, 'font-size:11px;fill:var(--dim)'));
+      var pts = [], i, x;
+      for (i = 0; i <= 120; i++) {
+        x = (inv ? 0.4 : 0) + (xmax - (inv ? 0.4 : 0)) * i / 120;
+        if (f(x) <= ymax) pts.push(X(x).toFixed(1) + ',' + Y(f(x)).toFixed(1));
+      }
+      svg.appendChild(el('polyline', { points: pts.join(' ') },
+        'fill:none;stroke:var(--accent);stroke-width:3'));
+      xs.forEach(function (x2) {
+        svg.appendChild(el('circle', { cx: X(x2), cy: Y(f(x2)), r: 4 }, 'fill:var(--good)'));
+      });
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', inv
+        ? lx + ' × ' + ly + ' 每一組都等於 ' + k + '（固定）→ 成反比'
+        : ly + ' ÷ ' + lx + ' 每一組都等於 ' + k + '（固定）→ 成正比'));
+      read.appendChild(div('wg-read-sub', inv
+        ? '一個變 2 倍，另一個就變成一半，乘積不變；圖形是一條彎向兩軸的曲線，永遠碰不到軸。'
+        : '一個變 2 倍，另一個也變 2 倍，相除的商不變；圖形是一條通過原點 (0, 0) 的直線。'));
+    }
+    if (spec.edit !== false) {
+      var sk = stepper(inv ? '乘積固定為' : '每 1 個 x 對應的 y', function () { return k; },
+        function (v) { k = v; }, 1, 24, function () { sk.sync(); paint(); });
+      box.appendChild(sk.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },
