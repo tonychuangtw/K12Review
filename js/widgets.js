@@ -975,7 +975,8 @@
       trapezoid: { pts: [[120, 40], [220, 40], [265, 130], [55, 130]], name: '梯形', desc: '只有一組對邊平行' },
       rhombus: { pts: [[160, 30], [235, 80], [160, 130], [85, 80]], name: '菱形', desc: '四邊等長，但角不一定是直角' }
     };
-    var kind = spec.kind || 'square';
+    // 打錯 kind 不要整張卡沒圖，退回正方形（symmetry 也是同樣的守則）
+    var kind = Q[spec.kind] ? spec.kind : 'square';
     var box = div('wg');
     var svg = el('svg', { viewBox: '0 0 320 155', class: 'wg-svg' });
     box.appendChild(svg);
@@ -1611,6 +1612,191 @@
       var sr = stepper('半徑', function () { return r; }, function (v) { r = v; }, 1, 8, function () { sr.sync(); paint(); });
       var sh = stepper('高', function () { return h; }, function (v) { h = v; }, 1, 10, function () { sh.sync(); paint(); });
       box.appendChild(sr.el); box.appendChild(sh.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 十格框（tenframe）─────────────────────────────────────────────────
+     低年級數感的基本教具：一排 5 格、兩排共 10 格。點格子加減，
+     一眼看出「幾就是 5 和幾」「離 10 還差幾」。
+     spec: { n, frames（1 或 2，預設看 n 決定）, edit }                     */
+  REG.tenframe = function (host, spec) {
+    var frames = spec.frames || ((spec.n || 0) > 10 ? 2 : 1);
+    var cap = frames * 10;
+    var n = clamp(spec.n == null ? 7 : spec.n, 0, cap);
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 ' + (frames * 70 + 10), class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var cw = 30, x0 = 25;
+      for (var f = 0; f < frames; f++) {
+        var y0 = 10 + f * 70;
+        for (var i = 0; i < 10; i++) {
+          var cx = x0 + (i % 5) * cw, cy = y0 + Math.floor(i / 5) * cw;
+          var idx = f * 10 + i;
+          svg.appendChild(el('rect', { x: cx, y: cy, width: cw, height: cw },
+            'fill:var(--panel2);stroke:var(--border);stroke-width:1.5'));
+          if (idx < n) {
+            svg.appendChild(el('circle', { cx: cx + cw / 2, cy: cy + cw / 2, r: 10 },
+              'fill:' + (idx < 5 || (f === 1 && idx < 15) ? 'var(--accent)' : 'var(--good)')));
+          }
+        }
+        svg.appendChild(el('rect', { x: x0, y: y0, width: cw * 5, height: cw * 2 },
+          'fill:none;stroke:var(--text);stroke-width:2.5'));
+      }
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', '目前 ' + n + ' 個'));
+      var sub;
+      if (n <= 10) {
+        sub = n >= 5 ? n + ' ＝ 5 ＋ ' + (n - 5) + '，離 10 還差 ' + (10 - n) + ' 個'
+                     : n + ' 個，離 5 還差 ' + (5 - n) + '、離 10 還差 ' + (10 - n) + ' 個';
+      } else {
+        sub = n + ' ＝ 10 ＋ ' + (n - 10) + '（一個滿的十格框加 ' + (n - 10) + ' 個）';
+      }
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.edit !== false) {
+      var st = stepper('幾個', function () { return n; }, function (v) { n = v; }, 0, cap,
+        function () { st.sync(); paint(); });
+      box.appendChild(st.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 數的合成分解（numbond）───────────────────────────────────────────
+     上面一個總數，下面兩個部分。拉滑桿改變其中一部分，另一部分自動配。
+     看得出「10 可以拆成 1和9、2和8…」，也就是加減互逆的起點。
+     spec: { whole, part, edit }                                           */
+  REG.numbond = function (host, spec) {
+    var whole = spec.whole || 10;
+    var part = clamp(spec.part == null ? 4 : spec.part, 0, whole);
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function bubble(cx, cy, r, text, color) {
+      // ⚠️ 不要寫 'fill:var(--x)22' 這種帶透明度後綴的寫法——CSS 變數不能這樣接 alpha，
+      // 整條宣告會失效變成黑色，淺色主題就看不到字了。要淡色就用 fill-opacity。
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: r, 'fill-opacity': '.15' },
+        'fill:' + color + ';stroke:' + color + ';stroke-width:2.5'));
+      svg.appendChild(txt(cx, cy + 7, String(text), 'fill:' + color + ';font-size:22px;font-weight:700;text-anchor:middle'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var other = whole - part;
+      svg.appendChild(el('line', { x1: 160, y1: 55, x2: 90, y2: 105 }, 'stroke:var(--border);stroke-width:3'));
+      svg.appendChild(el('line', { x1: 160, y1: 55, x2: 230, y2: 105 }, 'stroke:var(--border);stroke-width:3'));
+      bubble(160, 40, 30, whole, 'var(--text)');
+      bubble(90, 125, 28, part, 'var(--accent)');
+      bubble(230, 125, 28, other, 'var(--good)');
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', whole + ' ＝ ' + part + ' ＋ ' + other));
+      read.appendChild(div('wg-read-sub',
+        '反過來也成立：' + whole + ' − ' + part + ' ＝ ' + other + '、' +
+        whole + ' − ' + other + ' ＝ ' + part + '（加法和減法是一體兩面）'));
+    }
+    if (spec.edit !== false) {
+      var sp = stepper('左邊幾個', function () { return part; }, function (v) { part = v; }, 0, whole,
+        function () { sp.sync(); paint(); });
+      box.appendChild(sp.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 數個數（counters）────────────────────────────────────────────────
+     一堆東西，可以選擇「幾個一數」把它們框起來，看出跳著數比一個一個數快。
+     spec: { n, group, edit }                                              */
+  REG.counters = function (host, spec) {
+    var n = clamp(spec.n == null ? 12 : spec.n, 1, 40);
+    var group = clamp(spec.group == null ? 5 : spec.group, 1, 10);
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var per = 10, r = 9;
+      for (var i = 0; i < n; i++) {
+        var cx = 20 + (i % per) * 29, cy = 24 + Math.floor(i / per) * 30;
+        var full = Math.floor(i / group) % 2 === 0;
+        svg.appendChild(el('circle', { cx: cx, cy: cy, r: r },
+          'fill:' + (full ? 'var(--accent)' : 'var(--good)')));
+        if ((i + 1) % group === 0 || i === n - 1) {
+          svg.appendChild(txt(cx, cy + 24, String(i + 1),
+            'fill:var(--dim);font-size:11px;text-anchor:middle'));
+        }
+      }
+      var q = Math.floor(n / group), rem = n % group;
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', '總共 ' + n + ' 個'));
+      read.appendChild(div('wg-read-sub', group === 1
+        ? '一個一個數：1、2、3…' + n + '，慢但不會錯'
+        : group + ' 個一數：' + Array.from({ length: q }, function (_, k) { return (k + 1) * group; }).join('、') +
+          (rem ? '，再加 ' + rem + ' 個 → ' + n : ' → ' + n) + '（跳著數比較快）'));
+    }
+    if (spec.edit !== false) {
+      var sn = stepper('總共幾個', function () { return n; }, function (v) { n = v; }, 1, 40,
+        function () { sn.sync(); paint(); });
+      var sg = stepper('幾個一數', function () { return group; }, function (v) { group = v; }, 1, 10,
+        function () { sg.sync(); paint(); });
+      box.appendChild(sn.el); box.appendChild(sg.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 比長短／比高矮（compare）─────────────────────────────────────────
+     兩條（或三條）長度不同的東西並排，對齊同一個起點才能比。
+     spec: { items: [{label, len}], vertical, align（false = 故意不對齊）}  */
+  REG.compare = function (host, spec) {
+    var items = spec.items || [{ label: '甲', len: 6 }, { label: '乙', len: 9 }];
+    var align = spec.align !== false;
+    var vertical = !!spec.vertical;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var max = 0;
+      items.forEach(function (it) { if (it.len > max) max = it.len; });
+      var cols = ['var(--accent)', 'var(--good)', 'var(--bad)'];
+      if (vertical) {
+        items.forEach(function (it, i) {
+          var h = it.len / max * 100;
+          var x = 50 + i * 80, base = align ? 125 : 125 - i * 12;
+          svg.appendChild(el('rect', { x: x, y: base - h, width: 40, height: h, rx: 4 },
+            'fill:' + cols[i % 3] + ';opacity:.85'));
+          svg.appendChild(txt(x + 20, base + 16, it.label, 'fill:var(--dim);font-size:13px;text-anchor:middle'));
+        });
+        svg.appendChild(el('line', { x1: 20, y1: 125, x2: 300, y2: 125 },
+          'stroke:var(--border);stroke-width:2' + (align ? '' : ';stroke-dasharray:5 4')));
+      } else {
+        items.forEach(function (it, i) {
+          var w = it.len / max * 220;
+          var y = 30 + i * 42, x = align ? 60 : 60 + i * 20;
+          svg.appendChild(el('rect', { x: x, y: y, width: w, height: 24, rx: 4 },
+            'fill:' + cols[i % 3] + ';opacity:.85'));
+          svg.appendChild(txt(x - 8, y + 17, it.label, 'fill:var(--dim);font-size:13px;text-anchor:end'));
+        });
+        svg.appendChild(el('line', { x1: 60, y1: 18, x2: 60, y2: 30 + items.length * 42 },
+          'stroke:var(--border);stroke-width:2' + (align ? '' : ';stroke-dasharray:5 4')));
+      }
+      var sorted = items.slice().sort(function (a, b) { return b.len - a.len; });
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', sorted[0].label + ' 最' + (vertical ? '高' : '長')));
+      read.appendChild(div('wg-read-sub', align
+        ? '起點對齊了，直接看誰伸得比較遠就知道'
+        : '⚠️ 起點沒有對齊，這樣比會看錯——比長短一定要從同一條線開始'));
     }
     host.appendChild(box);
     paint();

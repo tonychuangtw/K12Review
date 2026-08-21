@@ -75,7 +75,14 @@ var DEMOS = [
   ['資料點圖（平均/中位/眾數）', { type: 'dotplot', values: [2, 3, 3, 4, 18] }],
   ['天平解方程式', { type: 'balance', a: 3, b: 5, c: 26 }],
   ['圓柱體積', { type: 'cylinder', r: 3, h: 5, mode: 'volume' }],
-  ['圓柱表面積', { type: 'cylinder', r: 3, h: 5, mode: 'surface' }]
+  ['圓柱表面積', { type: 'cylinder', r: 3, h: 5, mode: 'surface' }],
+  ['十格框', { type: 'tenframe', n: 7 }],
+  ['十格框（兩排，20以內）', { type: 'tenframe', n: 14, frames: 2 }],
+  ['數的合成分解', { type: 'numbond', whole: 10, part: 4 }],
+  ['數個數（幾個一數）', { type: 'counters', n: 12, group: 5 }],
+  ['比長短（起點對齊）', { type: 'compare', items: [{ label: '鉛筆', len: 6 }, { label: '橡皮擦', len: 2 }, { label: '尺', len: 9 }] }],
+  ['比長短（起點沒對齊，會看錯）', { type: 'compare', align: false, items: [{ label: '甲', len: 7 }, { label: '乙', len: 6 }] }],
+  ['比高矮', { type: 'compare', vertical: true, items: [{ label: '小明', len: 8 }, { label: '小華', len: 9 }] }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {
