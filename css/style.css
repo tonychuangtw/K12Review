@@ -864,6 +864,13 @@ body.anim-lock { overflow: hidden; }
   font-size: 0.7rem; font-weight: 700; vertical-align: middle;
   color: #fff; background: var(--accent); border-radius: 999px;
 }
+/* 機率元件：把樣本空間一顆一顆列出來，符合條件的塗色 */
+.wg-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin: 0.4rem 0; }
+.wg-chip {
+  padding: 0.3rem 0.6rem; border-radius: 10px; font-size: 0.95rem; font-weight: 700;
+  background: var(--panel2); color: var(--dim); border: 1px solid var(--border);
+}
+.wg-chip.on { background: var(--good); color: #fff; border-color: var(--good); }
 .wg-read { margin-top: 0.6rem; line-height: 1.7; }
 .wg-read-main { font-size: 1.05rem; font-weight: 700; color: var(--accent); }
 .wg-read-sub { font-size: 0.85rem; color: var(--dim); margin-top: 0.25rem; line-height: 1.6; }

@@ -126,7 +126,13 @@ var DEMOS = [
   ['直線與圓的位置關係', { type: 'circleline', mode: 'tangent' }],
   ['圓外一點的兩條切線', { type: 'circleline', mode: 'twotangents' }],
   ['三角形的四心', { type: 'tricenters', kind: 'centroid' }],
-  ['拋物線 y = a(x − h)² + k', { type: 'parabola', a: 1, h: 0, k: 0 }]
+  ['拋物線 y = a(x − h)² + k', { type: 'parabola', a: 1, h: 0, k: 0 }],
+  ['立體圖形（圓錐）', { type: 'solid', kind: 'cone', r: 3, h: 4, l: 5 }],
+  ['立體圖形（球）', { type: 'solid', kind: 'sphere', r: 4 }],
+  ['機率：兩顆骰子的樣本空間', { type: 'probtable', kind: 'dice2', cond: 'same' }],
+  ['機率：硬幣', { type: 'probtable', kind: 'coin', n: 2, cond: 'atleastone' }],
+  ['機率：取球', { type: 'probtable', kind: 'balls', pick: '藍' }],
+  ['離散程度（平均一樣、標準差不同）', { type: 'spread' }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {

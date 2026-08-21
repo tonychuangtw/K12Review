@@ -2016,6 +2016,261 @@
     paint();
   };
 
+  /* ── 立體圖形（solid）─────────────────────────────────────────────────
+     圓錐、球、柱體、錐體的表面積與體積：圖上標出 r、h、母線，公式當場算給你看。
+     spec: { kind:'cone'|'sphere'|'prism'|'pyramid', r, h, l }            */
+  REG.solid = function (host, spec) {
+    var kind = spec.kind || 'cone';
+    var r = spec.r == null ? 3 : spec.r, h = spec.h == null ? 4 : spec.h;
+    var l = spec.l == null ? Math.round(Math.sqrt(r * r + h * h) * 100) / 100 : spec.l;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var cx = 150, base = 155, rx = 54, ry = 16, H = 96;
+    function ellipse(cy, dashTop) {
+      svg.appendChild(el('ellipse', { cx: cx, cy: cy, rx: rx, ry: ry, 'fill-opacity': '.18' },
+        'fill:var(--accent);stroke:var(--accent);stroke-width:2' + (dashTop ? ';stroke-dasharray:4 3' : '')));
+    }
+    function dim(x1, y1, x2, y2, label) {
+      svg.appendChild(el('line', { x1: x1, y1: y1, x2: x2, y2: y2 },
+        'stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3'));
+      svg.appendChild(txt((x1 + x2) / 2 + 12, (y1 + y2) / 2, label, 'font-size:11px;fill:var(--good)'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (kind === 'sphere') {
+        svg.appendChild(el('circle', { cx: cx, cy: 100, r: 62, 'fill-opacity': '.18' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(el('ellipse', { cx: cx, cy: 100, rx: 62, ry: 18 },
+          'fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:4 3'));
+        svg.appendChild(el('line', { x1: cx, y1: 100, x2: cx + 62, y2: 100 },
+          'stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3'));
+        svg.appendChild(txt(cx + 31, 88, 'r ＝ ' + r, 'font-size:11px;fill:var(--good)'));
+        main = '表面積 ＝ 4πr² ＝ ' + (4 * r * r) + 'π　體積 ＝ (4/3)πr³ ＝ ' +
+          (+(4 * r * r * r / 3).toFixed(2)) + 'π';
+        sub = '球沒有底面也沒有邊，兩個公式只跟 r 有關。表面積是「4 個大圓面積」，很好記；' +
+          '體積的 4/3 記不起來就想成「同半徑圓柱體積的三分之二」。';
+      } else if (kind === 'prism') {
+        var p = [[cx - 60, base], [cx + 60, base], [cx + 20, base - 34]];
+        var top = p.map(function (q) { return [q[0], q[1] - H]; });
+        [p, top].forEach(function (t) {
+          svg.appendChild(el('polygon', { points: t.map(function (q) { return q.join(','); }).join(' ') },
+            'fill:color-mix(in srgb, var(--accent) 16%, transparent);stroke:var(--accent);stroke-width:2'));
+        });
+        p.forEach(function (q, i) {
+          svg.appendChild(el('line', { x1: q[0], y1: q[1], x2: top[i][0], y2: top[i][1] },
+            'stroke:var(--accent);stroke-width:2'));
+        });
+        dim(cx + 66, base, cx + 66, base - H, 'h ＝ ' + h);
+        main = '體積 ＝ 底面積 × 高';
+        sub = '所有「柱體」都是同一個公式：把底面一層一層疊上去，疊 h 層。' +
+          '三角柱、長方體、圓柱都適用，差別只在底面積怎麼算。';
+      } else if (kind === 'pyramid') {
+        var q0 = [[cx - 58, base], [cx + 58, base], [cx + 30, base - 30], [cx - 86, base - 30]];
+        svg.appendChild(el('polygon', { points: q0.map(function (q) { return q.join(','); }).join(' ') },
+          'fill:color-mix(in srgb, var(--accent) 16%, transparent);stroke:var(--accent);stroke-width:2'));
+        var apex = [cx - 14, base - 30 - H];
+        q0.forEach(function (q) {
+          svg.appendChild(el('line', { x1: q[0], y1: q[1], x2: apex[0], y2: apex[1] },
+            'stroke:var(--accent);stroke-width:2'));
+        });
+        svg.appendChild(el('line', { x1: apex[0], y1: apex[1], x2: apex[0], y2: base - 15 },
+          'stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3'));
+        svg.appendChild(txt(apex[0] - 22, (apex[1] + base - 15) / 2, 'h ＝ ' + h,
+          'font-size:11px;fill:var(--good)'));
+        main = '體積 ＝ 底面積 × 高 ÷ 3';
+        sub = '所有「錐體」都要除以 3。把錐體裝滿水倒進同底同高的柱體，' +
+          '剛好要倒三次才會滿——這就是 ÷ 3 的由來。';
+      } else {
+        ellipse(base);
+        var apex2 = [cx, base - H];
+        [-rx, rx].forEach(function (o) {
+          svg.appendChild(el('line', { x1: cx + o, y1: base, x2: apex2[0], y2: apex2[1] },
+            'stroke:var(--accent);stroke-width:2'));
+        });
+        // 三個標示各據一方：r 在底下、h 在軸的左邊、l 貼著斜邊，免得疊在一起
+        svg.appendChild(el('line', { x1: cx, y1: base, x2: cx + rx, y2: base },
+          'stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3'));
+        svg.appendChild(txt(cx + rx / 2, base + 22, 'r ＝ ' + r, 'font-size:11px;fill:var(--good)'));
+        svg.appendChild(el('line', { x1: cx, y1: base, x2: cx, y2: base - H },
+          'stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3'));
+        svg.appendChild(txt(cx - 22, base - H / 2, 'h ＝ ' + h, 'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(cx + rx / 2 + 26, base - H / 2, 'l ＝ ' + l,
+          'font-size:11px;fill:var(--bad)'));
+        main = '側面積 ＝ πrl ＝ ' + (r * l) + 'π　　體積 ＝ πr²h ÷ 3 ＝ ' +
+          (+(r * r * h / 3).toFixed(2)) + 'π';
+        sub = '圓錐的側面攤開來是一個「扇形」，弧長剛好等於底面圓周，所以側面積 ＝ πrl（l 是母線，' +
+          '也就是斜邊）。⚠ 側面積用的是母線 l，體積用的是高 h，兩個不一樣，別代錯。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 機率（probtable）─────────────────────────────────────────────────
+     把「所有可能」全部畫出來，再把符合條件的塗色——機率就是塗色的比例。
+     spec: { kind:'dice2'|'dice1'|'coin'|'balls', cond, want, balls, pick, n } */
+  REG.probtable = function (host, spec) {
+    var kind = spec.kind || 'dice2';
+    var box = div('wg');
+    var read = div('wg-read');
+    function frac(a, b) {
+      if (a === 0) return '0';
+      var g = (function (x, y) { while (y) { var t = x % y; x = y; y = t; } return x || 1; })(a, b);
+      return (a / g) + '/' + (b / g);
+    }
+    if (kind === 'dice2') {
+      var CONDS = {
+        same: [function (i, j) { return i === j; }, '兩顆點數相同'],
+        sum12: [function (i, j) { return i + j === 12; }, '點數和為 12'],
+        sum7: [function (i, j) { return i + j === 7; }, '點數和為 7'],
+        sumeven: [function (i, j) { return (i + j) % 2 === 0; }, '點數和為偶數'],
+        sumge10: [function (i, j) { return i + j >= 10; }, '點數和 ≥ 10']
+      };
+      var cd = CONDS[spec.cond] || CONDS.same;
+      var svg = el('svg', { viewBox: '0 0 320 230', class: 'wg-svg' });
+      var S = 28, X0 = 40, Y0 = 34, hit = 0;
+      for (var i = 1; i <= 6; i++) {
+        svg.appendChild(txt(X0 + (i - 0.5) * S, Y0 - 12, String(i), 'font-size:11px;fill:var(--dim)'));
+        svg.appendChild(txt(X0 - 14, Y0 + (i - 0.5) * S, String(i), 'font-size:11px;fill:var(--dim)'));
+        for (var j = 1; j <= 6; j++) {
+          var on = cd[0](i, j);
+          if (on) hit++;
+          svg.appendChild(el('rect',
+            { x: X0 + (i - 1) * S, y: Y0 + (j - 1) * S, width: S - 2, height: S - 2, rx: 4,
+              'fill-opacity': on ? '.55' : '.12' },
+            'fill:var(--' + (on ? 'good' : 'dim') + ');stroke:var(--border)'));
+          svg.appendChild(txt(X0 + (i - 0.5) * S - 1, Y0 + (j - 0.5) * S - 1, String(i + j),
+            'font-size:10px;fill:var(--' + (on ? 'text' : 'dim') + ')'));
+        }
+      }
+      svg.appendChild(txt(160, 218, '格子裡的數字是兩顆的點數和', 'font-size:11px;fill:var(--dim)'));
+      box.appendChild(svg);
+      read.appendChild(div('wg-read-main',
+        cd[1] + '　→　' + hit + ' / 36 ＝ ' + frac(hit, 36)));
+      read.appendChild(div('wg-read-sub',
+        '兩顆骰子一共 6 × 6 ＝ 36 種結果（第一顆 6 種，每一種配第二顆 6 種）。' +
+        '把符合條件的格子數一數，除以 36 就是機率。⚠ 「和為 7」和「和為 12」的機率差很多，' +
+        '因為湊得出來的組合數不一樣，不能以為每個點數和都一樣容易出現。'));
+    } else if (kind === 'coin') {
+      var n = spec.n || 2, total = Math.pow(2, n), outs = [], k;
+      for (k = 0; k < total; k++) {
+        var s = '';
+        for (var b = n - 1; b >= 0; b--) s += ((k >> b) & 1) ? '反' : '正';
+        outs.push(s);
+      }
+      var COND = spec.cond || 'allheads';
+      var ok2 = function (s2) {
+        return COND === 'allheads' ? s2.indexOf('反') < 0 : s2.indexOf('正') >= 0;
+      };
+      var wrap = div('wg-chips');
+      var hit2 = 0;
+      outs.forEach(function (s3) {
+        var on2 = ok2(s3);
+        if (on2) hit2++;
+        var c = div('wg-chip' + (on2 ? ' on' : ''), s3);
+        wrap.appendChild(c);
+      });
+      box.appendChild(wrap);
+      read.appendChild(div('wg-read-main',
+        (COND === 'allheads' ? '全部都是正面' : '至少出現一個正面') +
+        '　→　' + hit2 + ' / ' + total + ' ＝ ' + frac(hit2, total)));
+      read.appendChild(div('wg-read-sub',
+        n + ' 枚硬幣一共 2' + (n === 2 ? '²' : '³') + ' ＝ ' + total + ' 種結果，每一種機率都一樣。' +
+        '⚠ 「正反」和「反正」是兩種不同的結果，不能只算一次——這是機率題最常見的錯。'));
+    } else if (kind === 'balls') {
+      var balls = spec.balls || [{ label: '紅', n: 2 }, { label: '綠', n: 3 }, { label: '藍', n: 5 }];
+      var tot = balls.reduce(function (a, b2) { return a + b2.n; }, 0);
+      var COLORS = ['bad', 'good', 'accent', 'dim'];
+      var svg2 = el('svg', { viewBox: '0 0 320 110', class: 'wg-svg' });
+      var idx = 0;
+      balls.forEach(function (g2, gi) {
+        for (var t = 0; t < g2.n; t++) {
+          var col = idx % 10, row = Math.floor(idx / 10);
+          svg2.appendChild(el('circle', { cx: 24 + col * 30, cy: 30 + row * 34, r: 12,
+            'fill-opacity': (spec.pick && spec.pick !== g2.label) ? '.2' : '.8' },
+            'fill:var(--' + COLORS[gi % 4] + ');stroke:var(--' + COLORS[gi % 4] + ');stroke-width:2'));
+          svg2.appendChild(txt(24 + col * 30, 30 + row * 34, g2.label, 'font-size:11px'));
+          idx++;
+        }
+      });
+      box.appendChild(svg2);
+      var want = spec.pick || balls[balls.length - 1].label;
+      var cnt = balls.filter(function (g3) { return g3.label === want; })
+        .reduce(function (a, b3) { return a + b3.n; }, 0);
+      read.appendChild(div('wg-read-main',
+        '取到「' + want + '」的機率 ＝ ' + cnt + ' / ' + tot + ' ＝ ' + frac(cnt, tot)));
+      read.appendChild(div('wg-read-sub',
+        '機率 ＝ 符合條件的個數 ÷ 全部的個數。分母是「全部的球」' + tot +
+        ' 顆，不是其他顏色的球數——這是分母最容易寫錯的地方。'));
+    } else {
+      var want2 = spec.want || [5, 6];
+      var svg3 = el('svg', { viewBox: '0 0 320 90', class: 'wg-svg' });
+      for (var f = 1; f <= 6; f++) {
+        var on3 = want2.indexOf(f) >= 0;
+        svg3.appendChild(el('rect', { x: 14 + (f - 1) * 50, y: 24, width: 42, height: 42, rx: 8,
+          'fill-opacity': on3 ? '.5' : '.12' },
+          'fill:var(--' + (on3 ? 'good' : 'dim') + ');stroke:var(--border);stroke-width:2'));
+        svg3.appendChild(txt(35 + (f - 1) * 50, 45, String(f), 'font-size:15px;font-weight:700'));
+      }
+      box.appendChild(svg3);
+      read.appendChild(div('wg-read-main',
+        '符合條件的有 ' + want2.length + ' 面　→　' + frac(want2.length, 6)));
+      read.appendChild(div('wg-read-sub',
+        '一顆公正骰子有 6 種結果、每一種機會均等。機率 ＝ 符合的面數 ÷ 6。' +
+        '不可能發生的事（例如出現 7 點）機率是 0，一定發生的事機率是 1。'));
+    }
+    box.appendChild(read);
+    host.appendChild(box);
+  };
+
+  /* ── 離散程度（spread）────────────────────────────────────────────────
+     兩組平均一樣的資料擺在一起，看「散開的程度」差在哪。
+     spec: { a:[..], b:[..], labelA, labelB }                             */
+  REG.spread = function (host, spec) {
+    var A = spec.a || [78, 79, 80, 81, 82], B = spec.b || [62, 71, 80, 89, 98];
+    var la = spec.labelA || '甲', lb = spec.labelB || '乙';
+    function mean(v) { return v.reduce(function (a, b) { return a + b; }, 0) / v.length; }
+    function sd(v) {
+      var m = mean(v);
+      return Math.sqrt(v.reduce(function (a, b) { return a + (b - m) * (b - m); }, 0) / v.length);
+    }
+    var all = A.concat(B), lo = Math.min.apply(null, all), hi = Math.max.apply(null, all);
+    var span = Math.max(hi - lo, 1);
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    function X(v) { return 26 + (v - lo) / span * 268; }
+    [[A, 46, la, 'accent'], [B, 106, lb, 'good']].forEach(function (row) {
+      svg.appendChild(el('line', { x1: 20, y1: row[1] + 16, x2: 300, y2: row[1] + 16 },
+        'stroke:var(--border);stroke-width:1.5'));
+      svg.appendChild(txt(14, row[1], row[2], 'font-size:11px;fill:var(--dim)'));
+      row[0].forEach(function (v) {
+        svg.appendChild(el('circle', { cx: X(v), cy: row[1] + 16, r: 5 },
+          'fill:var(--' + row[3] + ')'));
+      });
+      var m = mean(row[0]);
+      svg.appendChild(el('line', { x1: X(m), y1: row[1] - 4, x2: X(m), y2: row[1] + 30 },
+        'stroke:var(--bad);stroke-width:2;stroke-dasharray:4 3'));
+      svg.appendChild(txt(X(m), row[1] - 12, '平均 ' + (+m.toFixed(1)),
+        'font-size:10px;fill:var(--bad)'));
+    });
+    box.appendChild(svg);
+    box.appendChild(div('wg-read-main',
+      la + '：平均 ' + (+mean(A).toFixed(1)) + '、標準差 ' + (+sd(A).toFixed(2)) + '　　' +
+      lb + '：平均 ' + (+mean(B).toFixed(1)) + '、標準差 ' + (+sd(B).toFixed(2))));
+    box.appendChild(div('wg-read-sub',
+      '兩組的平均可能一模一樣，但「散開的程度」差很多。標準差就是在量這件事：' +
+      '每一筆離平均多遠，平方後平均再開根號。標準差小 ＝ 大家擠在平均附近（穩定）；' +
+      '標準差大 ＝ 有高有低（起伏大）。全部一樣的資料標準差是 0。'));
+    host.appendChild(box);
+  };
+
   /* ── 相似三角形（similar）─────────────────────────────────────────────
      邊長變 k 倍時，周長也是 k 倍，但面積是 k² 倍——這是最常錯的地方。
      spec: { k, edit }                                                    */
