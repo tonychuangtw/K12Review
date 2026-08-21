@@ -384,7 +384,8 @@ console.log('解析確認題');
                    'intchips', 'primefac', 'algetile',
                    'coordplane', 'linegraph', 'ineqline', 'proportion', 'linechart',
                    'areamodel', 'crossmult', 'pythagoras', 'boxplot',
-                   'seq', 'cutangles', 'triangleangles', 'congruent', 'quaddiag'];  // 與 js/widgets.js 的 REG 同步
+                   'seq', 'cutangles', 'triangleangles', 'congruent', 'quaddiag',
+                   'similar', 'circleangles', 'circleline', 'tricenters', 'parabola'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

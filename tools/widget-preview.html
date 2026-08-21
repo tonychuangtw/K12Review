@@ -118,7 +118,15 @@ var DEMOS = [
   ['平行線被截（同位角／內錯角／同側內角）', { type: 'cutangles', deg: 65, show: 'co' }],
   ['三角形內角和與外角', { type: 'triangleangles', a: 50, b: 70 }],
   ['全等判定', { type: 'congruent', kind: 'SSS' }],
-  ['四邊形的對角線', { type: 'quaddiag', kind: 'parallelogram' }]
+  ['四邊形的對角線', { type: 'quaddiag', kind: 'parallelogram' }],
+  ['相似三角形（周長比／面積比）', { type: 'similar', k: 2 }],
+  ['圓心角與圓周角', { type: 'circleangles', mode: 'inscribed', deg: 80 }],
+  ['直徑所對的圓周角', { type: 'circleangles', mode: 'semicircle' }],
+  ['圓內接四邊形', { type: 'circleangles', mode: 'cyclicquad' }],
+  ['直線與圓的位置關係', { type: 'circleline', mode: 'tangent' }],
+  ['圓外一點的兩條切線', { type: 'circleline', mode: 'twotangents' }],
+  ['三角形的四心', { type: 'tricenters', kind: 'centroid' }],
+  ['拋物線 y = a(x − h)² + k', { type: 'parabola', a: 1, h: 0, k: 0 }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {

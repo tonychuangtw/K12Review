@@ -2016,6 +2016,352 @@
     paint();
   };
 
+  /* ── 相似三角形（similar）─────────────────────────────────────────────
+     邊長變 k 倍時，周長也是 k 倍，但面積是 k² 倍——這是最常錯的地方。
+     spec: { k, edit }                                                    */
+  REG.similar = function (host, spec) {
+    var k = spec.k == null ? 2 : spec.k;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var u = 26, big = Math.min(k, 3);
+      function draw(ox, oy, s, color, name) {
+        var p = [[ox, oy], [ox + 3 * u * s, oy], [ox + 0.9 * u * s, oy - 2 * u * s]];
+        svg.appendChild(el('polygon', { points: p.map(function (q) { return q.join(','); }).join(' ') },
+          'fill:color-mix(in srgb, var(--' + color + ') 16%, transparent);stroke:var(--' + color +
+          ');stroke-width:2.5'));
+        svg.appendChild(txt(ox + 1.5 * u * s, oy + 14, (3 * s).toFixed(s === 1 ? 0 : 1),
+          'font-size:11px;fill:var(--dim)'));
+        svg.appendChild(txt(ox - 14, oy - u * s, name, 'font-size:11px;fill:var(--dim)'));
+      }
+      draw(24, 150, 1, 'accent', '△ABC');
+      draw(150, 150, big, 'good', '△DEF');
+      read.appendChild(div('wg-read-main',
+        '對應邊比 1 : ' + k + '　→　周長比 1 : ' + k + '　面積比 1 : ' + (k * k)));
+      read.appendChild(div('wg-read-sub',
+        '長度變 ' + k + ' 倍，「長 × 寬」就變 ' + k + ' × ' + k + ' ＝ ' + (k * k) +
+        ' 倍，所以面積比是邊長比的平方。反過來：知道面積比是 ' + (k * k) +
+        '，邊長比要開根號才是 ' + k + '。'));
+    }
+    if (spec.edit !== false) {
+      var sk = stepper('放大倍數', function () { return k; }, function (v) { k = v; }, 2, 5,
+        function () { sk.sync(); paint(); });
+      box.appendChild(sk.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 圓周角（circleangles）────────────────────────────────────────────
+     spec: { mode:'inscribed'|'semicircle'|'cyclicquad', deg, pick }      */
+  REG.circleangles = function (host, spec) {
+    var mode = spec.mode || 'inscribed';
+    var deg = spec.deg == null ? 80 : spec.deg;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var cx = 160, cy = 95, R = 72;
+    function P(t) { return [cx + R * Math.cos(t * Math.PI / 180), cy - R * Math.sin(t * Math.PI / 180)]; }
+    function seg(p, q, style) {
+      svg.appendChild(el('line', { x1: p[0], y1: p[1], x2: q[0], y2: q[1] }, style));
+    }
+    function dot(p, label, color) {
+      svg.appendChild(el('circle', { cx: p[0], cy: p[1], r: 4 }, 'fill:var(--' + color + ')'));
+      if (label) svg.appendChild(txt(p[0] + (p[0] > cx ? 14 : -14), p[1] + (p[1] > cy ? 12 : -12),
+        label, 'font-size:11px;fill:var(--' + color + ')'));
+    }
+    function ang(p, a, b) {                       // ∠apb 的度數
+      var v1 = [a[0] - p[0], a[1] - p[1]], v2 = [b[0] - p[0], b[1] - p[1]];
+      var d = (v1[0] * v2[0] + v1[1] * v2[1]) /
+        (Math.hypot(v1[0], v1[1]) * Math.hypot(v2[0], v2[1]));
+      return Math.round(Math.acos(clamp(d, -1, 1)) * 180 / Math.PI);
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: R },
+        'fill:none;stroke:var(--text);stroke-width:2'));
+      var LINE = 'stroke:var(--accent);stroke-width:2';
+      var THIN = 'stroke:var(--good);stroke-width:2';
+      if (mode === 'semicircle') {
+        var A = P(180), B = P(0), Q = P(64);
+        seg(A, B, LINE); seg(A, Q, THIN); seg(B, Q, THIN);
+        dot(A, 'A', 'accent'); dot(B, 'B', 'accent'); dot(Q, 'P', 'good');
+        svg.appendChild(el('circle', { cx: cx, cy: cy, r: 3 }, 'fill:var(--dim)'));
+        svg.appendChild(txt(Q[0], Q[1] + 22, ang(Q, A, B) + '°',
+          'font-size:13px;font-weight:700;fill:var(--good)'));
+        read.appendChild(div('wg-read-main', '直徑所對的圓周角 ＝ 90°'));
+        read.appendChild(div('wg-read-sub',
+          'AB 是直徑，圓心角是 180°，圓周角是它的一半 → 90°。' +
+          '不管 P 移到圓上哪裡（只要不和 A、B 重合），這個角永遠是直角，所以看到直徑就想到直角三角形。'));
+      } else if (mode === 'cyclicquad') {
+        var ts = [115, 195, 320, 35], p = ts.map(P);
+        seg(p[0], p[1], LINE); seg(p[1], p[2], LINE); seg(p[2], p[3], LINE); seg(p[3], p[0], LINE);
+        'ABCD'.split('').forEach(function (n, i) { dot(p[i], n, 'accent'); });
+        var a0 = ang(p[0], p[3], p[1]), a2 = ang(p[2], p[1], p[3]);
+        svg.appendChild(txt(p[0][0] + 18, p[0][1] + 18, a0 + '°',
+          'font-size:12px;font-weight:700;fill:var(--good)'));
+        svg.appendChild(txt(p[2][0] - 18, p[2][1] - 16, a2 + '°',
+          'font-size:12px;font-weight:700;fill:var(--good)'));
+        read.appendChild(div('wg-read-main',
+          '對角相加：' + a0 + '° ＋ ' + a2 + '° ＝ ' + (a0 + a2) + '°'));
+        read.appendChild(div('wg-read-sub',
+          '四個頂點都在圓上的四邊形叫圓內接四邊形，它的兩組對角都互補（相加 180°）。' +
+          '因為這兩個角分別對著圓的兩段弧，兩段合起來剛好是一整圈 360°，各取一半就是 180°。'));
+      } else {
+        var A2 = P(270 - deg / 2), B2 = P(270 + deg / 2), Q1 = P(90), Q2 = P(40);
+        seg(A2, [cx, cy], LINE); seg(B2, [cx, cy], LINE);
+        seg(A2, Q1, THIN); seg(B2, Q1, THIN);
+        seg(A2, Q2, 'stroke:var(--bad);stroke-width:2');
+        seg(B2, Q2, 'stroke:var(--bad);stroke-width:2');
+        svg.appendChild(el('circle', { cx: cx, cy: cy, r: 3 }, 'fill:var(--accent)'));
+        svg.appendChild(txt(cx, cy - 14, deg + '°（圓心角）',
+          'font-size:12px;font-weight:700;fill:var(--accent)'));
+        dot(A2, 'A', 'dim'); dot(B2, 'B', 'dim');
+        svg.appendChild(txt(Q1[0], Q1[1] + 20, ang(Q1, A2, B2) + '°',
+          'font-size:12px;font-weight:700;fill:var(--good)'));
+        svg.appendChild(txt(Q2[0] - 16, Q2[1] + 18, ang(Q2, A2, B2) + '°',
+          'font-size:12px;font-weight:700;fill:var(--bad)'));
+        read.appendChild(div('wg-read-main',
+          '圓心角 ' + deg + '°　→　圓周角 ' + (deg / 2) + '°（一半）'));
+        read.appendChild(div('wg-read-sub',
+          '綠色和紅色的圓周角對的是同一段弧 AB，所以兩個角一樣大，都是圓心角的一半。' +
+          '頂點在圓上哪裡都不影響——這就是「同弧上的圓周角相等」。'));
+      }
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['inscribed', '圓心角與圓周角'], ['semicircle', '直徑對直角'], ['cyclicquad', '圓內接四邊形']]
+        .forEach(function (m) { row.appendChild(btn(m[1], function () { mode = m[0]; paint(); })); });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 直線與圓（circleline）────────────────────────────────────────────
+     spec: { mode:'apart'|'tangent'|'secant'|'twotangents', pick }        */
+  REG.circleline = function (host, spec) {
+    var mode = spec.mode || 'tangent';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var cx = 150, cy = 80, R = 58;
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: R },
+        'fill:none;stroke:var(--text);stroke-width:2'));
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: 3 }, 'fill:var(--dim)'));
+      svg.appendChild(txt(cx - 12, cy - 10, 'O', 'font-size:11px;fill:var(--dim)'));
+      if (mode === 'twotangents') {
+        var Px = 290, Py = 80;
+        var d = Px - cx, L = Math.sqrt(d * d - R * R);
+        var a = Math.asin(R / d);                       // 切線與 OP 的夾角
+        [1, -1].forEach(function (s) {
+          var t = Math.atan2(0, -1) + s * a;             // 從 P 指向切點的方向
+          var tx = Px + L * Math.cos(t), ty = Py + L * Math.sin(t);
+          svg.appendChild(el('line', { x1: Px, y1: Py, x2: tx, y2: ty },
+            'stroke:var(--accent);stroke-width:2.5'));
+          svg.appendChild(el('line', { x1: cx, y1: cy, x2: tx, y2: ty },
+            'stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3'));
+          svg.appendChild(el('circle', { cx: tx, cy: ty, r: 4 }, 'fill:var(--good)'));
+        });
+        svg.appendChild(el('circle', { cx: Px, cy: Py, r: 4 }, 'fill:var(--bad)'));
+        svg.appendChild(txt(Px + 12, Py, 'P', 'font-size:11px;fill:var(--bad)'));
+        read.appendChild(div('wg-read-main', '圓外一點可以畫出兩條切線，切線長相等'));
+        read.appendChild(div('wg-read-sub',
+          '兩條切線長 PA ＝ PB，因為兩個直角三角形（半徑⊥切線、共用 OP、半徑等長）RHS 全等。' +
+          '虛線是半徑，它和切線在切點永遠垂直。'));
+      } else {
+        var d2 = mode === 'apart' ? R + 26 : mode === 'tangent' ? R : R - 30;
+        var y = cy + d2;
+        svg.appendChild(el('line', { x1: 20, y1: y, x2: 300, y2: y },
+          'stroke:var(--accent);stroke-width:2.5'));
+        svg.appendChild(el('line', { x1: cx, y1: cy, x2: cx, y2: y },
+          'stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3'));
+        svg.appendChild(txt(cx + 22, cy + d2 / 2, 'd', 'font-size:11px;fill:var(--good)'));
+        if (mode !== 'apart') {
+          var half = Math.sqrt(R * R - d2 * d2);
+          [-half, half].forEach(function (o) {
+            if (mode === 'tangent' && o < 0) return;
+            svg.appendChild(el('circle', { cx: cx + o, cy: y, r: 4 }, 'fill:var(--bad)'));
+          });
+        }
+        var INFO = {
+          apart: ['相離：沒有交點（d > r）', '圓心到直線的距離比半徑大，直線整條在圓外面。'],
+          tangent: ['相切：只有 1 個交點（d ＝ r）', '這條直線叫切線，碰到的那一點叫切點。半徑到切點的連線與切線垂直——這是切線最重要的性質。'],
+          secant: ['相割：有 2 個交點（d < r）', '直線穿過圓，切出的那一段線段叫弦。從圓心對弦畫垂線，會剛好平分這條弦。']
+        }[mode];
+        read.appendChild(div('wg-read-main', INFO[0]));
+        read.appendChild(div('wg-read-sub', INFO[1] +
+          '　判斷方法一律是比較「圓心到直線的距離 d」和「半徑 r」誰大。'));
+      }
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['apart', '相離'], ['tangent', '相切'], ['secant', '相割'], ['twotangents', '兩條切線']]
+        .forEach(function (m) { row.appendChild(btn(m[1], function () { mode = m[0]; paint(); })); });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 三角形的四心（tricenters）────────────────────────────────────────
+     spec: { kind:'circum'|'incenter'|'centroid'|'ortho', pick }          */
+  REG.tricenters = function (host, spec) {
+    var kind = spec.kind || 'centroid';
+    var box = div('wg');
+    // 畫布留高一點：鈍角三角形的外接圓半徑很大，太扁的三角形圓會被切掉
+    var svg = el('svg', { viewBox: '0 0 320 210', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var A = [90, 145], B = [225, 145], C = [135, 55];
+    function mid(p, q) { return [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2]; }
+    function dist(p, q) { return Math.hypot(p[0] - q[0], p[1] - q[1]); }
+    function foot(p, q, r) {                       // r 到直線 pq 的垂足
+      var dx = q[0] - p[0], dy = q[1] - p[1];
+      var t = ((r[0] - p[0]) * dx + (r[1] - p[1]) * dy) / (dx * dx + dy * dy);
+      return [p[0] + t * dx, p[1] + t * dy];
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var a = dist(B, C), b = dist(A, C), c = dist(A, B);
+      var P, extra = [], main, sub;
+      if (kind === 'centroid') {
+        P = [(A[0] + B[0] + C[0]) / 3, (A[1] + B[1] + C[1]) / 3];
+        extra = [[A, mid(B, C)], [B, mid(A, C)], [C, mid(A, B)]];
+        main = '重心＝三條「中線」的交點';
+        sub = '中線是頂點連到對邊中點的線段。重心把每條中線分成 2 : 1（靠近頂點的那段是遠端的兩倍），' +
+              '它也是三角形的平衡點，用手指頂在重心可以把紙片撐起來。';
+      } else if (kind === 'incenter') {
+        P = [(a * A[0] + b * B[0] + c * C[0]) / (a + b + c),
+             (a * A[1] + b * B[1] + c * C[1]) / (a + b + c)];
+        var s = (a + b + c) / 2;
+        var area = Math.abs((B[0] - A[0]) * (C[1] - A[1]) - (C[0] - A[0]) * (B[1] - A[1])) / 2;
+        svg.appendChild(el('circle', { cx: P[0], cy: P[1], r: area / s },
+          'fill:none;stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3'));
+        extra = [[A, P], [B, P], [C, P]];
+        main = '內心＝三條「角平分線」的交點';
+        sub = '內心到三邊的距離都相等，所以能畫出一個剛好內切三角形的圓（內切圓）。' +
+              '內心一定落在三角形內部，不管三角形長什麼樣。';
+      } else if (kind === 'circum') {
+        var d = 2 * (A[0] * (B[1] - C[1]) + B[0] * (C[1] - A[1]) + C[0] * (A[1] - B[1]));
+        var ux = ((A[0] * A[0] + A[1] * A[1]) * (B[1] - C[1]) +
+                  (B[0] * B[0] + B[1] * B[1]) * (C[1] - A[1]) +
+                  (C[0] * C[0] + C[1] * C[1]) * (A[1] - B[1])) / d;
+        var uy = ((A[0] * A[0] + A[1] * A[1]) * (C[0] - B[0]) +
+                  (B[0] * B[0] + B[1] * B[1]) * (A[0] - C[0]) +
+                  (C[0] * C[0] + C[1] * C[1]) * (B[0] - A[0])) / d;
+        P = [ux, uy];
+        svg.appendChild(el('circle', { cx: P[0], cy: P[1], r: dist(P, A) },
+          'fill:none;stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3'));
+        extra = [[mid(A, B), P], [mid(B, C), P], [mid(A, C), P]];
+        main = '外心＝三邊「垂直平分線」的交點';
+        sub = '外心到三個頂點的距離都相等，所以能畫出通過三頂點的圓（外接圓）。' +
+              '銳角三角形的外心在內部、直角三角形在斜邊中點、鈍角三角形跑到外面。';
+      } else {
+        var fa = foot(B, C, A), fb = foot(A, C, B), fc = foot(A, B, C);
+        // 兩條高的交點
+        var d1 = [fa[0] - A[0], fa[1] - A[1]], d2b = [fb[0] - B[0], fb[1] - B[1]];
+        var t = ((B[0] - A[0]) * d2b[1] - (B[1] - A[1]) * d2b[0]) / (d1[0] * d2b[1] - d1[1] * d2b[0]);
+        P = [A[0] + t * d1[0], A[1] + t * d1[1]];
+        extra = [[A, fa], [B, fb], [C, fc]];
+        main = '垂心＝三條「高」的交點';
+        sub = '高是從頂點垂直畫到對邊（或它的延長線）的線段。鈍角三角形的垂心會跑到三角形外面去。';
+      }
+      extra.forEach(function (e) {
+        svg.appendChild(el('line', { x1: e[0][0], y1: e[0][1], x2: e[1][0], y2: e[1][1] },
+          'stroke:var(--accent);stroke-width:1.5;stroke-dasharray:5 3'));
+      });
+      svg.appendChild(el('polygon', { points: [A, B, C].map(function (p) { return p.join(','); }).join(' ') },
+        'fill:color-mix(in srgb, var(--accent) 12%, transparent);stroke:var(--accent);stroke-width:2.5'));
+      svg.appendChild(el('circle', { cx: P[0], cy: P[1], r: 5 }, 'fill:var(--bad)'));
+      svg.appendChild(txt(P[0] + 16, P[1] - 10, main.slice(0, 2),
+        'font-size:12px;font-weight:700;fill:var(--bad)'));
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['circum', '外心'], ['incenter', '內心'], ['centroid', '重心'], ['ortho', '垂心']]
+        .forEach(function (m) { row.appendChild(btn(m[1], function () { kind = m[0]; paint(); })); });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 拋物線（parabola）────────────────────────────────────────────────
+     y = a(x − h)² + k：a 決定開口、(h, k) 就是頂點。
+     spec: { a, h, k, edit, min, max }                                    */
+  REG.parabola = function (host, spec) {
+    var lo = spec.min == null ? -6 : spec.min, hi = spec.max == null ? 6 : spec.max;
+    var a = spec.a == null ? 1 : spec.a, h = spec.h == null ? 0 : spec.h, k = spec.k == null ? 0 : spec.k;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 300', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var g = drawPlane(svg, lo, hi, { quad: false });
+      var pts = [], i, x, y;
+      for (i = 0; i <= 240; i++) {
+        x = lo + (hi - lo) * i / 240; y = a * (x - h) * (x - h) + k;
+        if (y >= lo && y <= hi) pts.push(g.X(x).toFixed(1) + ',' + g.Y(y).toFixed(1));
+        else pts.push(null);
+      }
+      var run = [];
+      pts.concat([null]).forEach(function (p) {
+        if (p) { run.push(p); return; }
+        if (run.length > 1) svg.appendChild(el('polyline', { points: run.join(' ') },
+          'fill:none;stroke:var(--accent);stroke-width:3'));
+        run = [];
+      });
+      svg.appendChild(el('line', { x1: g.X(h), y1: g.T, x2: g.X(h), y2: g.B },
+        'stroke:var(--dim);stroke-width:1.5;stroke-dasharray:5 4'));
+      svg.appendChild(txt(g.X(h) + 30, g.T + 12, 'x ＝ ' + h, 'font-size:11px;fill:var(--dim)'));
+      if (k >= lo && k <= hi) {
+        svg.appendChild(el('circle', { cx: g.X(h), cy: g.Y(k), r: 6 }, 'fill:var(--bad)'));
+        svg.appendChild(txt(g.X(h) + 36, g.Y(k) + (a > 0 ? 16 : -16), '(' + h + ', ' + k + ')',
+          'font-size:12px;font-weight:700;fill:var(--bad)'));
+      }
+      read.appendChild(div('wg-read-main',
+        'y ＝ ' + (a === 1 ? '' : a === -1 ? '−' : a) + '(x ' + (h >= 0 ? '− ' + h : '＋ ' + (-h)) + ')²' +
+        (k === 0 ? '' : k > 0 ? ' ＋ ' + k : ' − ' + (-k))));
+      read.appendChild(div('wg-read-sub',
+        (a > 0 ? 'a ＝ ' + a + ' > 0 → 開口向上，頂點是最低點，函數有「最小值」' + k
+               : 'a ＝ ' + a + ' < 0 → 開口向下，頂點是最高點，函數有「最大值」' + k) +
+        '。頂點 (' + h + ', ' + k + ')，對稱軸是直線 x ＝ ' + h +
+        '。⚠ 括號裡是「x − h」，所以 (x − 3)² 的頂點在 x ＝ 3（往右），不是 −3。'));
+    }
+    if (spec.edit !== false) {
+      var sa = stepper('a（開口）', function () { return a; }, function (v) { a = v || 1; }, -3, 3,
+        function () { sa.sync(); paint(); });
+      var sh = stepper('h（左右）', function () { return h; }, function (v) { h = v; }, -4, 4,
+        function () { sh.sync(); paint(); });
+      var sk = stepper('k（上下）', function () { return k; }, function (v) { k = v; }, -4, 4,
+        function () { sk.sync(); paint(); });
+      box.appendChild(sa.el); box.appendChild(sh.el); box.appendChild(sk.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   /* ── 數列（seq）───────────────────────────────────────────────────────
      把每一項排出來，項與項之間標出「加多少」或「乘多少」，規律就看得見。
      spec: { a1, d, n, kind:'arith'|'geo'|'sq'|'fib', sum:bool, edit }     */
