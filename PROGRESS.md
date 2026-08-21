@@ -8,22 +8,28 @@ OBJECTIVE: 讓「完全沒學過的人」也能靠單元學習自學。原本的
   （對沒學過的人等於劇透，不是教學）；改成 **概念卡（說明＋互動元件＋立即檢核）→ 單元測驗**。
   Tony 2026-08-21：「最好是有圖有動畫、互動式，讓完全沒接觸過的人快速精熟」「先做一個，我覺得好再往下做」
 NEXT_ACTION: Tony 2026-08-21 看過原型後說「有了這樣很好，把其它也都做一做」。
-  **已完成：互動元件庫 81 種 + 數學小學 12 冊＋國中 6 冊＋十上～十二上共 23 冊 207 單元（1243 張概念卡）。**
-  下一步：十二下（數學最後一冊）→ 再回頭做其他科（自然／社會／英文）
+  **數學科已全數完成：互動元件庫 81 種 + 全 24 冊 216 單元 1,297 張概念卡（2026-08-22，v54）。**
+  下一步：換科目做。建議順序＝自然（三上～九下 14 冊）→ 社會（14 冊）→ 英文（24 冊）→ 高中分科 7 科。
+  做法同數學：先看該冊 9 個單元名與既有題目（tools/tikuconv/<科>/），每單元 6 張卡，
+  能用既有 81 種元件就用（自然的力學、電路、天文可能要新增元件；社會多用地圖與時間軸；
+  英文可能要新增「句型結構」類元件）。
+  ⚠ 換科目時要多做三件事（只寫 js/data/lessons-<科>.js 不會生效）：
+    1. `index.html` 加一行 `<script src="js/data/lessons-<科>.js?v=...">`
+    2. `test/test.js` 頂端的 `for (const f of ['lessons-math'])` 陣列要加進去
+    3. 跑 `python3 tools/stamp-version.py <新戳記>` 再 commit
   💡 寫完一冊的除錯技巧：用這段找出所有過短的誤答分支再逐條補
-  `node -e "global.window={};require('./js/data/lessons-math.js');..."`（見 git log 的用法）
-  做法：先看該冊 9 個單元名與既有題目（tools/tikuconv/math/m<N>.jsonl），
-  每單元寫 6～7 張卡放進 `js/data/lessons-math.js`，用既有元件；
-  需要新元件（例如小數用數線、面積用方格、體積用積木）再擴 js/widgets.js。
-  規格與驗收步驟見 `docs/bank-maintain-sop.md` 流程 D；元件長相看 tools/widget-preview.html。
+  `node -e "global.window={};require('./js/data/lessons-math.js');const L=window.APP_LESSONS;`
+  `Object.keys(L).filter(k=>k.includes('八上')).forEach(...)"`（完整寫法見 git log）
+  規格與驗收步驟見 `docs/bank-maintain-sop.md` 流程 D；元件長相看 tools/widget-preview.html
+  （已含 81 種元件的預覽，寫卡前先開這頁挑元件最快）。
 VALIDATION: `node test/test.js` 全綠；`node test/browser-smoke.mjs` 的「概念卡（單元教學層）」段全過
   （會實際點過：徽章→概念卡→互動元件→答錯給迷思解釋→答對解鎖→接單元測驗）
 BLOCKERS: 無
-PATHS: js/widgets.js（互動元件庫，81 種）、tools/widget-preview.html（元件預覽頁）、
+PATHS: js/widgets.js（互動元件庫，81 種；數學已用滿，其他科可能要再擴）、tools/widget-preview.html（元件預覽頁）、
   js/data/lessons-math.js（概念卡資料）、
   js/app.js（conceptDeck/startConcept/renderConceptCard）、index.html 的 #view-concept、
   css/style.css 末段「概念卡」區、test/browser-smoke.mjs 第 10 段
-UPDATED: 2026-08-22 06:16 台北
+UPDATED: 2026-08-22 06:24 台北
 
 ## 已完工：全年級全科題庫（每單元 24 題）
 
