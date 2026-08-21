@@ -1274,9 +1274,11 @@
     var SHAPES = {
       heart: { d: 'M0,20 C0,0 -30,0 -30,-18 C-30,-38 0,-42 0,-20 C0,-42 30,-38 30,-18 C30,0 0,0 0,20 Z', name: '愛心', sym: true },
       tree: { d: 'M0,40 L0,10 M-32,10 L32,10 L0,-40 Z', name: '樹', sym: true },
-      flag: { d: 'M-30,-35 L30,-20 L-30,-5 Z M-30,-35 L-30,40', name: '旗子', sym: false }
+      flag: { d: 'M-30,-35 L30,-20 L-30,-5 Z M-30,-35 L-30,40', name: '旗子', sym: false },
+      butterfly: { d: 'M0,-25 L0,25 M0,-10 C-40,-45 -55,-5 -22,12 C-10,18 -4,6 0,-2 C4,6 10,18 22,12 C55,-5 40,-45 0,-10 Z',
+                   name: '蝴蝶', sym: true }
     };
-    var kind = spec.shape || 'heart';
+    var kind = SHAPES[spec.shape] ? spec.shape : 'heart';   // 打錯字時回退，不要整張卡沒圖
     var folded = false;
     var box = div('wg');
     var svg = el('svg', { viewBox: '0 0 320 160', class: 'wg-svg' });
@@ -1308,6 +1310,51 @@
       ctrl.appendChild(btn(SHAPES[k].name, function () { kind = k; folded = false; paint(); }));
     });
     box.appendChild(ctrl);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 長方體展開圖（netbox）────────────────────────────────────────────
+     6 個面攤平之後，哪一面對到哪一面？表面積 ＝ 三組面各兩個。
+     spec: { l, w, h, edit }                                              */
+  REG.netbox = function (host, spec) {
+    var L = spec.l || 4, W = spec.w || 3, H = spec.h || 2;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      L = clamp(L, 1, 6); W = clamp(W, 1, 5); H = clamp(H, 1, 5);
+      var u = Math.min(22, 250 / (L * 2 + W * 2), 150 / (H * 2 + W));
+      var ox = 160 - (L * 2 + W * 2) * u / 2, oy = 20;
+      // 十字形展開：上W / 左H 前L 右H 後L（中列）/ 下W
+      function face(x, y, w, h, color, label) {
+        svg.appendChild(el('rect', { x: x, y: y, width: w * u, height: h * u },
+          'fill:color-mix(in srgb, var(--' + color + ') 30%, transparent);stroke:var(--' + color + ');stroke-width:2'));
+        if (w * u > 26 && h * u > 16) {
+          svg.appendChild(txt(x + w * u / 2, y + h * u / 2, label, 'font-size:10px;fill:var(--dim)'));
+        }
+      }
+      var midY = oy + W * u;
+      face(ox + H * u, oy, L, W, 'good', '上');                       // 上
+      face(ox, midY, H, H, 'accent', '左');                            // 左
+      face(ox + H * u, midY, L, H, 'accent', '前');                    // 前
+      face(ox + (H + L) * u, midY, H, H, 'accent', '右');              // 右
+      face(ox + (H + L + H) * u, midY, L, H, 'accent', '後');          // 後
+      face(ox + H * u, midY + H * u, L, W, 'good', '下');              // 下
+      var area = 2 * (L * W + L * H + W * H);
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', '表面積 ＝ 2 × (' + L + '×' + W + ' ＋ ' + L + '×' + H + ' ＋ ' + W + '×' + H + ') ＝ ' + area + ' 平方公分'));
+      read.appendChild(div('wg-read-sub', '長方體有三組面，每組兩個一樣大（上下、前後、左右）。'));
+    }
+    if (spec.edit !== false) {
+      var sl = stepper('長', function () { return L; }, function (v) { L = v; }, 1, 6, function () { sl.sync(); paint(); });
+      var sw = stepper('寬', function () { return W; }, function (v) { W = v; }, 1, 5, function () { sw.sync(); paint(); });
+      var sh = stepper('高', function () { return H; }, function (v) { H = v; }, 1, 5, function () { sh.sync(); paint(); });
+      box.appendChild(sl.el); box.appendChild(sw.el); box.appendChild(sh.el);
+    }
     host.appendChild(box);
     paint();
   };
