@@ -15,6 +15,7 @@
 | n5b-add1〜add3.jsonl | 五下加題（2026-08-21，補到每單元 24 題） |
 | n6-add1 / n6-add2.jsonl | 六上加題（2026-08-21，補到每單元 24 題） |
 | n6b-add1〜add3.jsonl | 六下加題（2026-08-21，補到每單元 24 題） |
+| n3-add1〜add3.jsonl | 三上加題（2026-08-21，補到每單元 24 題） |
 
 重建：
 
@@ -52,7 +53,10 @@ node tools/tikuconv/build-bank.js science js/data/science.js tools/tikuconv/scie
   tools/tikuconv/science/n4-add1.jsonl \
   tools/tikuconv/science/n4-add2.jsonl \
   tools/tikuconv/science/n4b-add1.jsonl \
-  tools/tikuconv/science/n4b-add2.jsonl
+  tools/tikuconv/science/n4b-add2.jsonl \
+  tools/tikuconv/science/n3-add1.jsonl \
+  tools/tikuconv/science/n3-add2.jsonl \
+  tools/tikuconv/science/n3-add3.jsonl
 node test/test.js
 ```
 
