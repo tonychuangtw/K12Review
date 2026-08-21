@@ -8,8 +8,8 @@ OBJECTIVE: 讓「完全沒學過的人」也能靠單元學習自學。原本的
   （對沒學過的人等於劇透，不是教學）；改成 **概念卡（說明＋互動元件＋立即檢核）→ 單元測驗**。
   Tony 2026-08-21：「最好是有圖有動畫、互動式，讓完全沒接觸過的人快速精熟」「先做一個，我覺得好再往下做」
 NEXT_ACTION: Tony 2026-08-21 看過原型後說「有了這樣很好，把其它也都做一做」。
-  **已完成：互動元件庫 61 種 + 數學小學 12 冊＋國中 6 冊共 18 冊 162 單元（973 張概念卡）。**
-  下一步：高中十上 → 十下 → 十一上 → 十一下 → 十二上 → 十二下 → 再回頭做其他科（自然／社會／英文）
+  **已完成：互動元件庫 64 種 + 數學小學 12 冊＋國中 6 冊＋十上共 19 冊 171 單元（1027 張概念卡）。**
+  下一步：十下 → 十一上 → 十一下 → 十二上 → 十二下 → 再回頭做其他科（自然／社會／英文）
   💡 寫完一冊的除錯技巧：用這段找出所有過短的誤答分支再逐條補
   `node -e "global.window={};require('./js/data/lessons-math.js');..."`（見 git log 的用法）
   做法：先看該冊 9 個單元名與既有題目（tools/tikuconv/math/m<N>.jsonl），
@@ -19,11 +19,11 @@ NEXT_ACTION: Tony 2026-08-21 看過原型後說「有了這樣很好，把其它
 VALIDATION: `node test/test.js` 全綠；`node test/browser-smoke.mjs` 的「概念卡（單元教學層）」段全過
   （會實際點過：徽章→概念卡→互動元件→答錯給迷思解釋→答對解鎖→接單元測驗）
 BLOCKERS: 無
-PATHS: js/widgets.js（互動元件庫，61 種）、tools/widget-preview.html（元件預覽頁）、
+PATHS: js/widgets.js（互動元件庫，64 種）、tools/widget-preview.html（元件預覽頁）、
   js/data/lessons-math.js（概念卡資料）、
   js/app.js（conceptDeck/startConcept/renderConceptCard）、index.html 的 #view-concept、
   css/style.css 末段「概念卡」區、test/browser-smoke.mjs 第 10 段
-UPDATED: 2026-08-22 08:45 台北
+UPDATED: 2026-08-22 09:40 台北
 
 ## 已完工：全年級全科題庫（每單元 24 題）
 
