@@ -2016,6 +2016,174 @@
     paint();
   };
 
+  /* ── 指數與對數互換（logexp）──────────────────────────────────────────
+     log 只是「指數換一種問法」：a^x = b ⟺ log_a b = x。
+     spec: { a, x, edit }                                                 */
+  REG.logexp = function (host, spec) {
+    var a = spec.a == null ? 2 : spec.a, x = spec.x == null ? 5 : spec.x;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var b = Math.pow(a, x);
+      svg.appendChild(el('rect', { x: 14, y: 24, width: 136, height: 46, rx: 10, 'fill-opacity': '.18' },
+        'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+      svg.appendChild(txt(82, 47, a + '^' + x + ' ＝ ' + b, 'font-size:15px;font-weight:700'));
+      svg.appendChild(txt(82, 84, '指數式', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(el('rect', { x: 170, y: 24, width: 136, height: 46, rx: 10, 'fill-opacity': '.18' },
+        'fill:var(--good);stroke:var(--good);stroke-width:2'));
+      svg.appendChild(txt(238, 47, 'log' + a + ' ' + b + ' ＝ ' + x, 'font-size:15px;font-weight:700'));
+      svg.appendChild(txt(238, 84, '對數式', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(160, 47, '⟷', 'font-size:16px;fill:var(--dim)'));
+      // 冪次表：看得出「指數變 1，數字就乘 a 倍」
+      var n = 6, w = 46, x0 = 160 - n * w / 2;
+      for (var i = 0; i < n; i++) {
+        var on = i === x;
+        svg.appendChild(el('rect', { x: x0 + i * w + 2, y: 108, width: w - 4, height: 40, rx: 6,
+          'fill-opacity': on ? '.4' : '.12' },
+          'fill:var(--' + (on ? 'accent' : 'dim') + ');stroke:var(--border)'));
+        svg.appendChild(txt(x0 + i * w + w / 2, 122, a + '^' + i, 'font-size:11px;fill:var(--dim)'));
+        svg.appendChild(txt(x0 + i * w + w / 2, 140, String(Math.pow(a, i)), 'font-size:13px;font-weight:700'));
+      }
+      read.appendChild(div('wg-read-main',
+        '「' + a + ' 的幾次方會等於 ' + b + '？」答案 ' + x + '　→　log' + a + ' ' + b + ' ＝ ' + x));
+      read.appendChild(div('wg-read-sub',
+        'log 不是新東西，它問的就是「指數是多少」。所以 log' + a + ' 1 永遠是 0（任何數 0 次方都是 1）、' +
+        'log' + a + ' ' + a + ' 永遠是 1。表格裡指數每加 1，數字就乘 ' + a +
+        ' 倍——這也是為什麼「相乘」在對數裡會變成「相加」。'));
+    }
+    if (spec.edit !== false) {
+      var sa = stepper('底數 a', function () { return a; }, function (v) { a = clamp(v, 2, 5); },
+        2, 5, function () { sa.sync(); paint(); });
+      var sx = stepper('指數 x', function () { return x; }, function (v) { x = v; }, 0, 5,
+        function () { sx.sync(); paint(); });
+      box.appendChild(sa.el); box.appendChild(sx.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 三角比（trig）────────────────────────────────────────────────────
+     sin、cos、tan 就是直角三角形的三組邊長比值。
+     spec: { deg, edit }                                                  */
+  REG.trig = function (host, spec) {
+    var deg = spec.deg == null ? 30 : spec.deg;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 175', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var EXACT = { 30: ['1/2', '√3/2', '1/√3'], 45: ['√2/2', '√2/2', '1'], 60: ['√3/2', '1/2', '√3'] };
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var t = deg * Math.PI / 180, L = 190;
+      var A = [60, 140], B = [60 + L * Math.cos(t), 140], C = [B[0], 140 - L * Math.sin(t)];
+      svg.appendChild(el('polygon', { points: A.join(',') + ' ' + B.join(',') + ' ' + C.join(',') },
+        'fill:color-mix(in srgb, var(--accent) 14%, transparent);stroke:var(--accent);stroke-width:2.5'));
+      svg.appendChild(el('rect', { x: B[0] - 12, y: B[1] - 12, width: 12, height: 12 },
+        'fill:none;stroke:var(--dim);stroke-width:1.5'));
+      svg.appendChild(el('path', { d: 'M' + (A[0] + 30) + ',140 A 30 30 0 0 0 ' +
+        (A[0] + 30 * Math.cos(t)) + ',' + (140 - 30 * Math.sin(t)) },
+        'fill:none;stroke:var(--bad);stroke-width:2'));
+      svg.appendChild(txt(A[0] + 42, 128, deg + '°', 'font-size:12px;font-weight:700;fill:var(--bad)'));
+      svg.appendChild(txt((A[0] + B[0]) / 2, 156, '鄰邊', 'font-size:11px;fill:var(--good)'));
+      svg.appendChild(txt(B[0] + 24, (B[1] + C[1]) / 2, '對邊', 'font-size:11px;fill:var(--good)'));
+      svg.appendChild(txt((A[0] + C[0]) / 2 - 16, (A[1] + C[1]) / 2 - 10, '斜邊',
+        'font-size:11px;fill:var(--good)'));
+      var s = Math.sin(t), c = Math.cos(t), tn = Math.tan(t);
+      var ex = EXACT[deg];
+      read.appendChild(div('wg-read-main',
+        'sin ' + deg + '° ＝ ' + (+s.toFixed(4)) + '　cos ' + deg + '° ＝ ' + (+c.toFixed(4)) +
+        '　tan ' + deg + '° ＝ ' + (+tn.toFixed(4))));
+      read.appendChild(div('wg-read-sub',
+        'sin ＝ 對邊 ÷ 斜邊、cos ＝ 鄰邊 ÷ 斜邊、tan ＝ 對邊 ÷ 鄰邊（記法：SOH-CAH-TOA）。' +
+        (ex ? '這是特殊角，精確值是 sin ＝ ' + ex[0] + '、cos ＝ ' + ex[1] + '、tan ＝ ' + ex[2] + '。' : '') +
+        '比值只跟「角度」有關，三角形放大縮小都不會變——因為那是相似三角形。'));
+    }
+    if (spec.edit !== false) {
+      var row = div('wg-ctrl');
+      [30, 45, 60].forEach(function (d) {
+        row.appendChild(btn(d + '°', function () { deg = d; paint(); }));
+      });
+      box.appendChild(row);
+      var sd = stepper('角度', function () { return deg; }, function (v) { deg = clamp(v, 5, 85); },
+        5, 85, function () { sd.sync(); paint(); });
+      box.appendChild(sd.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 正弦定理與餘弦定理（triglaw）─────────────────────────────────────
+     spec: { mode:'cos'|'sin', b, c, A, B, a }
+       cos：已知兩邊 b、c 與夾角 A → 求對邊 a
+       sin：已知兩角 A、B 與一邊 a → 求 b                                 */
+  REG.triglaw = function (host, spec) {
+    var mode = spec.mode || 'cos';
+    var b = spec.b == null ? 3 : spec.b, c = spec.c == null ? 5 : spec.c;
+    var A = spec.A == null ? (mode === 'cos' ? 120 : 30) : spec.A;
+    var B = spec.B == null ? 45 : spec.B, aa = spec.a == null ? 2 : spec.a;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var s1, s2, ang, third, main, sub;
+      if (mode === 'cos') {
+        s1 = b; s2 = c; ang = A;
+        third = Math.sqrt(b * b + c * c - 2 * b * c * Math.cos(A * Math.PI / 180));
+        main = 'a² ＝ ' + b + '² ＋ ' + c + '² − 2×' + b + '×' + c + '×cos ' + A + '°　→　a ＝ ' +
+          (+third.toFixed(3));
+        sub = '餘弦定理是畢氏定理的加強版：夾角剛好 90° 時 cos 90° ＝ 0，最後一項消失，' +
+          '就變回 a² ＝ b² ＋ c²。夾角是鈍角時 cos 為負，那一項變成「加」，所以對邊會更長。' +
+          '用時機：已知「兩邊夾一角」求第三邊，或已知三邊求角。';
+      } else {
+        var C2 = 180 - A - B;
+        s1 = aa; ang = A;
+        var bb = aa * Math.sin(B * Math.PI / 180) / Math.sin(A * Math.PI / 180);
+        s2 = bb; third = C2;
+        main = 'a / sin A ＝ b / sin B　→　b ＝ ' + aa + ' × sin ' + B + '° ÷ sin ' + A + '° ＝ ' +
+          (+bb.toFixed(3));
+        sub = '正弦定理說：每一邊除以它對角的 sin，答案都一樣（而且都等於外接圓直徑 2R）。' +
+          '用時機：已知「兩角一邊」或「兩邊與其中一邊的對角」。⚠ 邊要配「它對面的角」，配錯就全錯。';
+      }
+      // 依邊長比例畫出三角形（cos 模式用夾角 A；sin 模式用算出的兩邊與夾角 C）
+      var u = 110 / Math.max(s1, s2, 3);
+      var th = (mode === 'cos' ? A : 180 - A - B) * Math.PI / 180;
+      var P0 = [80, 145];
+      var P1 = [P0[0] + s2 * u, P0[1]];
+      var P2 = [P0[0] + s1 * u * Math.cos(th), P0[1] - s1 * u * Math.sin(th)];
+      svg.appendChild(el('polygon', { points: P0.join(',') + ' ' + P1.join(',') + ' ' + P2.join(',') },
+        'fill:color-mix(in srgb, var(--accent) 14%, transparent);stroke:var(--accent);stroke-width:2.5'));
+      svg.appendChild(txt((P0[0] + P1[0]) / 2, P0[1] + 16,
+        mode === 'cos' ? 'c ＝ ' + c : 'b ＝ ' + (+s2.toFixed(2)), 'font-size:11px;fill:var(--good)'));
+      svg.appendChild(txt((P0[0] + P2[0]) / 2 - 22, (P0[1] + P2[1]) / 2,
+        mode === 'cos' ? 'b ＝ ' + b : 'a ＝ ' + aa, 'font-size:11px;fill:var(--good)'));
+      svg.appendChild(txt((P1[0] + P2[0]) / 2 + 20, (P1[1] + P2[1]) / 2 - 8,
+        mode === 'cos' ? 'a ＝ ?' : 'c', 'font-size:11px;fill:var(--bad)'));
+      svg.appendChild(txt(P0[0] + 26, P0[1] - 12,
+        (mode === 'cos' ? A : 180 - A - B) + '°', 'font-size:12px;font-weight:700;fill:var(--bad)'));
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      row.appendChild(btn('餘弦定理', function () { mode = 'cos'; paint(); }));
+      row.appendChild(btn('正弦定理', function () { mode = 'sin'; paint(); }));
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   /* ── 立體圖形（solid）─────────────────────────────────────────────────
      圓錐、球、柱體、錐體的表面積與體積：圖上標出 r、h、母線，公式當場算給你看。
      spec: { kind:'cone'|'sphere'|'prism'|'pyramid', r, h, l }            */
