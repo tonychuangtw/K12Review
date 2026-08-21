@@ -12,7 +12,7 @@ NEXT_ACTION: 無 —— 2026-08-21 全部完成。數學與英文各 24 冊（�
 VALIDATION: `node test/test.js` 全綠；抽查 build-bank.js 輸出的「每冊題數/單元數」是否 216 題 / 9 單元
 BLOCKERS: 無
 PATHS: tools/tikuconv/<科>/（來源 jsonl + README 重建指令）、js/data/<科>.js、test/test.js
-UPDATED: 2026-08-21 12:50 台北
+UPDATED: 2026-08-21 12:29 台北
 
 ## 加題進度表（目標：每單元 24 題）
 
