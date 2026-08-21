@@ -153,7 +153,11 @@ var DEMOS = [
   ['線性變換（旋轉／伸縮／鏡射／推移）', { type: 'lintrans', kind: 'rot90' }],
   ['常態分布與 68–95–99.7', { type: 'normaldist', mean: 75, sd: 5, shade: 1, mark: 85 }],
   ['散布圖與迴歸直線', { type: 'scatter' }],
-  ['條件機率（文氏圖）', { type: 'condprob', total: 40, a: 18, b: 20, both: 8, labelA: '喜歡數學', labelB: '男生' }]
+  ['條件機率（文氏圖）', { type: 'condprob', total: 40, a: 18, b: 20, both: 8, labelA: '喜歡數學', labelB: '男生' }],
+  ['導數：割線變切線', { type: 'deriv', x0: 1, h: 1 }],
+  ['函數圖形與導數（極值／反曲點／漸近線）', { type: 'curveplot', fn: 'cubic' }],
+  ['定積分與黎曼和', { type: 'integralarea', n: 4 }],
+  ['複數平面（點／極式／相乘＝旋轉）', { type: 'complexplane', re: 3, im: 4 }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {

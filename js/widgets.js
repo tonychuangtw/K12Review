@@ -2016,6 +2016,266 @@
     paint();
   };
 
+  /* ── 導數：割線變切線（deriv）─────────────────────────────────────────
+     h 越小，割線越貼近切線；斜率的極限就是導數。
+     spec: { x0, h }（畫的是 y ＝ x²）                                     */
+  REG.deriv = function (host, spec) {
+    var x0 = spec.x0 == null ? 1 : spec.x0;
+    var h = spec.h == null ? 1 : spec.h;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 220', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var L = 24, B = 190, u = 46;
+    function X(x) { return L + x * u; }
+    function Y(y) { return B - y * u * 0.42; }
+    function f(x) { return x * x; }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('line', { x1: L, y1: B, x2: 310, y2: B }, 'stroke:var(--text);stroke-width:2'));
+      svg.appendChild(el('line', { x1: L, y1: B, x2: L, y2: 14 }, 'stroke:var(--text);stroke-width:2'));
+      var pts = [], i, x;
+      for (i = 0; i <= 120; i++) {
+        x = 6 * i / 120;
+        if (Y(f(x)) > 10) pts.push(X(x).toFixed(1) + ',' + Y(f(x)).toFixed(1));
+      }
+      svg.appendChild(el('polyline', { points: pts.join(' ') },
+        'fill:none;stroke:var(--accent);stroke-width:3'));
+      var x1 = x0 + h, m = (f(x1) - f(x0)) / h;
+      // 割線畫長一點
+      var ex = 2.2;
+      svg.appendChild(el('line', { x1: X(x0 - ex), y1: Y(f(x0) - m * ex),
+        x2: X(x1 + ex), y2: Y(f(x1) + m * ex) }, 'stroke:var(--bad);stroke-width:2.5'));
+      [[x0, f(x0)], [x1, f(x1)]].forEach(function (p) {
+        svg.appendChild(el('circle', { cx: X(p[0]), cy: Y(p[1]), r: 5 }, 'fill:var(--good)'));
+      });
+      svg.appendChild(txt(X(x0) - 16, Y(f(x0)) + 16, 'x', 'font-size:11px;fill:var(--good)'));
+      svg.appendChild(txt(X(x1) + 20, Y(f(x1)) - 12, 'x＋h', 'font-size:11px;fill:var(--good)'));
+      read.appendChild(div('wg-read-main',
+        'h ＝ ' + h + ' 時，割線斜率 ＝ (f(' + (+x1.toFixed(2)) + ') − f(' + x0 + ')) ÷ ' + h +
+        ' ＝ ' + (+m.toFixed(3)) + '　（切線斜率 ＝ ' + (2 * x0) + '）'));
+      read.appendChild(div('wg-read-sub',
+        '兩點連線叫割線，斜率就是「平均變化率」。把 h 越調越小，第二個點滑向第一個點，' +
+        '割線就越來越貼近「切線」。這個極限值就是導數 f′(' + x0 + ') ＝ ' + (2 * x0) +
+        '，代表那一瞬間的變化率（瞬時速度就是這樣定義的）。'));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [1, 0.5, 0.2, 0.05].forEach(function (v) {
+        row.appendChild(btn('h ＝ ' + v, function () { h = v; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 函數圖形與導數（curveplot）───────────────────────────────────────
+     spec: { fn:'cubic'|'quad'|'rational', pick }                         */
+  REG.curveplot = function (host, spec) {
+    var F = {
+      cubic: {
+        f: function (x) { return x * x * x - 3 * x; }, lo: -2.6, hi: 2.6, ylo: -5, yhi: 5,
+        marks: [{ x: -1, label: '極大 (−1, 2)', c: 'bad' }, { x: 1, label: '極小 (1, −2)', c: 'bad' },
+                { x: 0, label: '反曲點 (0, 0)', c: 'good' }],
+        name: 'y ＝ x³ − 3x',
+        desc: 'f′(x) ＝ 3x² − 3 ＝ 0 → x ＝ ±1，這兩點就是極值：x ＝ −1 由增轉減（極大）、' +
+          'x ＝ 1 由減轉增（極小）。f″(x) ＝ 6x ＝ 0 → x ＝ 0 是反曲點（凹向在這裡翻轉）。'
+      },
+      quad: {
+        f: function (x) { return x * x - 6 * x; }, lo: -1, hi: 7, ylo: -10, yhi: 8,
+        marks: [{ x: 3, label: '頂點 (3, −9)', c: 'bad' }],
+        name: 'y ＝ x² − 6x',
+        desc: 'f′(x) ＝ 2x − 6：x < 3 時 f′ < 0（遞減）、x > 3 時 f′ > 0（遞增），' +
+          '所以 x ＝ 3 是最低點。f″(x) ＝ 2 > 0 恆成立 → 整條曲線都凹向上。'
+      },
+      rational: {
+        f: function (x) { return (2 * x + 1) / (x - 3); }, lo: -4, hi: 9, ylo: -8, yhi: 10,
+        marks: [], name: 'y ＝ (2x ＋ 1)/(x − 3)',
+        desc: 'x ＝ 3 會讓分母為 0 → 垂直漸近線；x 很大時分子分母都由最高次主導，' +
+          'y 趨近 2/1 ＝ 2 → 水平漸近線 y ＝ 2。分式函數先找這兩條線，圖形就八九不離十了。'
+      }
+    };
+    var kind = F[spec.fn] ? spec.fn : 'cubic';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 230', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var g = F[kind];
+      function X(x) { return 20 + (x - g.lo) / (g.hi - g.lo) * 280; }
+      function Y(y) { return 210 - (y - g.ylo) / (g.yhi - g.ylo) * 190; }
+      svg.appendChild(el('line', { x1: 14, y1: Y(0), x2: 310, y2: Y(0) },
+        'stroke:var(--dim);stroke-width:1.5'));
+      if (g.lo < 0 && g.hi > 0) svg.appendChild(el('line', { x1: X(0), y1: 12, x2: X(0), y2: 216 },
+        'stroke:var(--dim);stroke-width:1.5'));
+      var run = [], i, x, y;
+      for (i = 0; i <= 300; i++) {
+        x = g.lo + (g.hi - g.lo) * i / 300; y = g.f(x);
+        if (y > g.ylo && y < g.yhi && isFinite(y)) run.push(X(x).toFixed(1) + ',' + Y(y).toFixed(1));
+        else { if (run.length > 1) svg.appendChild(el('polyline', { points: run.join(' ') },
+          'fill:none;stroke:var(--accent);stroke-width:3')); run = []; }
+      }
+      if (run.length > 1) svg.appendChild(el('polyline', { points: run.join(' ') },
+        'fill:none;stroke:var(--accent);stroke-width:3'));
+      if (kind === 'rational') {
+        svg.appendChild(el('line', { x1: X(3), y1: 12, x2: X(3), y2: 216 },
+          'stroke:var(--bad);stroke-width:1.5;stroke-dasharray:5 4'));
+        svg.appendChild(txt(X(3) + 24, 24, 'x ＝ 3', 'font-size:10px;fill:var(--bad)'));
+        svg.appendChild(el('line', { x1: 14, y1: Y(2), x2: 310, y2: Y(2) },
+          'stroke:var(--good);stroke-width:1.5;stroke-dasharray:5 4'));
+        svg.appendChild(txt(280, Y(2) - 10, 'y ＝ 2', 'font-size:10px;fill:var(--good)'));
+      }
+      g.marks.forEach(function (m) {
+        svg.appendChild(el('circle', { cx: X(m.x), cy: Y(g.f(m.x)), r: 5 },
+          'fill:var(--' + m.c + ')'));
+        svg.appendChild(txt(X(m.x) + 44, Y(g.f(m.x)) - 12, m.label,
+          'font-size:10px;fill:var(--' + m.c + ')'));
+      });
+      read.appendChild(div('wg-read-main', g.name));
+      read.appendChild(div('wg-read-sub', g.desc));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['cubic', '三次函數'], ['quad', '二次函數'], ['rational', '分式函數']].forEach(function (k) {
+        row.appendChild(btn(k[1], function () { kind = k[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 定積分與黎曼和（integralarea）────────────────────────────────────
+     spec: { n, a, b }（畫的是 y ＝ x²）                                   */
+  REG.integralarea = function (host, spec) {
+    var n = spec.n == null ? 4 : spec.n;
+    var a = spec.a == null ? 0 : spec.a, b = spec.b == null ? 3 : spec.b;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function f(x) { return x * x; }
+    var L = 26, B = 170, W = 268, H = 140, ymax = f(b) * 1.05;
+    function X(x) { return L + (x - a) / (b - a) * W; }
+    function Y(y) { return B - y / ymax * H; }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var dx = (b - a) / n, sum = 0, i, xm;
+      for (i = 0; i < n; i++) {
+        xm = a + (i + 0.5) * dx;                       // 中點法
+        sum += f(xm) * dx;
+        svg.appendChild(el('rect', { x: X(a + i * dx), y: Y(f(xm)),
+          width: W / n - 1, height: B - Y(f(xm)), 'fill-opacity': '.3' },
+          'fill:var(--good);stroke:var(--good);stroke-width:1'));
+      }
+      var pts = [];
+      for (i = 0; i <= 120; i++) {
+        var x = a + (b - a) * i / 120;
+        pts.push(X(x).toFixed(1) + ',' + Y(f(x)).toFixed(1));
+      }
+      svg.appendChild(el('polyline', { points: pts.join(' ') },
+        'fill:none;stroke:var(--accent);stroke-width:3'));
+      svg.appendChild(el('line', { x1: L - 6, y1: B, x2: 310, y2: B }, 'stroke:var(--text);stroke-width:2'));
+      svg.appendChild(el('line', { x1: L, y1: B + 6, x2: L, y2: 14 }, 'stroke:var(--text);stroke-width:2'));
+      svg.appendChild(txt(X(b), B + 14, String(b), 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(X(a), B + 14, String(a), 'font-size:11px;fill:var(--dim)'));
+      var exact = (b * b * b - a * a * a) / 3;
+      read.appendChild(div('wg-read-main',
+        n + ' 個長方形的總面積 ≈ ' + (+sum.toFixed(4)) + '　（精確值 ' + (+exact.toFixed(4)) + '）'));
+      read.appendChild(div('wg-read-sub',
+        '把曲線下方切成一條一條長方形，寬 ＝ (b − a) ÷ n、高 ＝ 該處的函數值，加起來就是近似面積。' +
+        'n 越大越準——長方形無限多時的極限，就是定積分 ∫x² dx ＝ x³/3。' +
+        '所以 ∫(0→3) x² dx ＝ 27/3 ＝ 9。'));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [2, 4, 8, 20].forEach(function (k) {
+        row.appendChild(btn(k + ' 條', function () { n = k; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 複數平面（complexplane）──────────────────────────────────────────
+     spec: { re, im, mode:'point'|'mult', re2, im2 }                      */
+  REG.complexplane = function (host, spec) {
+    var re = spec.re == null ? 3 : spec.re, im = spec.im == null ? 4 : spec.im;
+    var re2 = spec.re2 == null ? 0 : spec.re2, im2 = spec.im2 == null ? 1 : spec.im2;
+    var mode = spec.mode || 'point';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 230', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var cx = 130, cy = 150, u = 30;
+    function X(x) { return cx + x * u; }
+    function Y(y) { return cy - y * u; }
+    function neg(v) { return v < 0 ? '−' + (-v) : String(v); }
+    function cstr(a, b) {
+      if (a === 0 && b !== 0) return (b === 1 ? 'i' : b === -1 ? '−i' : neg(b) + 'i');
+      return neg(a) + (b >= 0 ? ' ＋ ' + (b === 1 ? '' : b) + 'i' : ' − ' + (b === -1 ? '' : -b) + 'i');
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('line', { x1: 14, y1: cy, x2: 310, y2: cy }, 'stroke:var(--dim);stroke-width:1.5'));
+      svg.appendChild(el('line', { x1: cx, y1: 14, x2: cx, y2: 220 }, 'stroke:var(--dim);stroke-width:1.5'));
+      svg.appendChild(txt(302, cy - 12, '實軸', 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(cx + 26, 20, '虛軸', 'font-size:10px;fill:var(--dim)'));
+      function dot(a, b, color, label) {
+        svg.appendChild(el('line', { x1: cx, y1: cy, x2: X(a), y2: Y(b) },
+          'stroke:var(--' + color + ');stroke-width:2.5'));
+        svg.appendChild(el('circle', { cx: X(a), cy: Y(b), r: 5 }, 'fill:var(--' + color + ')'));
+        svg.appendChild(txt(X(a) + 36, Y(b) - 12, label,
+          'font-size:11px;font-weight:700;fill:var(--' + color + ')'));
+      }
+      if (mode === 'mult') {
+        var pr = re * re2 - im * im2, pi = re * im2 + im * re2;
+        dot(re, im, 'accent', cstr(re, im));
+        dot(re2, im2, 'good', cstr(re2, im2));
+        dot(pr, pi, 'bad', cstr(pr, pi));
+        var r1 = Math.hypot(re, im), r2 = Math.hypot(re2, im2);
+        var t1 = Math.atan2(im, re) * 180 / Math.PI, t2 = Math.atan2(im2, re2) * 180 / Math.PI;
+        read.appendChild(div('wg-read-main',
+          '(' + cstr(re, im) + ')(' + cstr(re2, im2) + ') ＝ ' + cstr(pr, pi)));
+        read.appendChild(div('wg-read-sub',
+          '複數相乘 ＝ 「模相乘、輻角相加」：' + (+r1.toFixed(2)) + ' × ' + (+r2.toFixed(2)) +
+          ' ＝ ' + (+(r1 * r2).toFixed(2)) + '；' + (+t1.toFixed(1)) + '° ＋ ' + (+t2.toFixed(1)) +
+          '° ＝ ' + (+(t1 + t2).toFixed(1)) + '°。所以乘以 i 就是「逆時針轉 90°」——' +
+          '這也是為什麼 i² ＝ −1（轉兩次 90° 就指向負實軸）。'));
+      } else {
+        dot(re, im, 'accent', cstr(re, im));
+        svg.appendChild(el('line', { x1: X(re), y1: Y(im), x2: X(re), y2: cy },
+          'stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3'));
+        var r = Math.hypot(re, im), th = Math.atan2(im, re) * 180 / Math.PI;
+        read.appendChild(div('wg-read-main',
+          cstr(re, im) + '　模 r ＝ ' + (+r.toFixed(3)) + '　輻角 θ ≈ ' + (+th.toFixed(1)) + '°'));
+        read.appendChild(div('wg-read-sub',
+          '複數 a ＋ bi 對應平面上的點 (a, b)：實部是橫坐標、虛部是縱坐標。' +
+          '模 ＝ √(a² ＋ b²) 是它到原點的距離；輻角是和正實軸的夾角。' +
+          '極式寫成 r(cos θ ＋ i sin θ)，乘除和次方用極式最好算（棣美弗定理）。'));
+      }
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      row.appendChild(btn('點與極式', function () { mode = 'point'; paint(); }));
+      row.appendChild(btn('相乘＝旋轉', function () { mode = 'mult'; paint(); }));
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   /* ── 線性變換（lintrans）──────────────────────────────────────────────
      矩陣乘上圖形＝把圖形旋轉／伸縮／鏡射。
      spec: { m:[[a,b],[c,d]], kind:'rot90'|'scale2'|'flipx'|'shear', pick } */
