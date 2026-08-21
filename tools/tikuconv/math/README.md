@@ -23,6 +23,7 @@
 | m2b-add1 / m2b-add2 / m2b-add3.jsonl | 二下加題（2026-08-21，補到每單元 24 題） | — |
 | m1-add1 / m1-add2 / m1-add3.jsonl | 一上加題（2026-08-21，補到每單元 24 題） | — |
 | m1b-add1 / m1b-add2 / m1b-add3.jsonl | 一下加題（2026-08-21，補到每單元 24 題） | — |
+| m10-add1 / m10-add2 / m10-add3.jsonl | 十上加題（2026-08-21，補到每單元 24 題） | — |
 
 重建：
 
@@ -82,7 +83,10 @@ node tools/tikuconv/build-bank.js math js/data/math.js $MF/header.txt --renumber
   $MF/m1-add3.jsonl \
   $MF/m1b-add1.jsonl \
   $MF/m1b-add2.jsonl \
-  $MF/m1b-add3.jsonl
+  $MF/m1b-add3.jsonl \
+  $MF/m10-add1.jsonl \
+  $MF/m10-add2.jsonl \
+  $MF/m10-add3.jsonl
 node test/test.js
 ```
 
