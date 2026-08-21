@@ -703,6 +703,129 @@
     paint();
   };
 
+  /* ── 方格圖形：周長與面積（areagrid）───────────────────────────────────
+     同一張圖同時顯示「繞一圈的長度」與「鋪滿幾個方格」，
+     這兩個最常被搞混的量放在一起看才分得清。
+     spec: { w, h, edit, show:'both'|'perimeter'|'area' }                  */
+  REG.areagrid = function (host, spec) {
+    var w = spec.w || 5, h = spec.h || 4;
+    var show = spec.show || 'both';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      w = clamp(w, 1, 12); h = clamp(h, 1, 8);
+      var cell = Math.min(260 / w, 110 / h, 26);
+      var x0 = 160 - w * cell / 2, y0 = 20;
+      for (var r = 0; r < h; r++) {
+        for (var c = 0; c < w; c++) {
+          svg.appendChild(el('rect',
+            { x: x0 + c * cell, y: y0 + r * cell, width: cell, height: cell },
+            'fill:' + (show === 'perimeter' ? 'var(--panel2)' : 'color-mix(in srgb, var(--accent) 35%, transparent)') +
+            ';stroke:var(--border);stroke-width:1'));
+        }
+      }
+      if (show !== 'area') {                            // 周長：外框描粗
+        svg.appendChild(el('rect', { x: x0, y: y0, width: w * cell, height: h * cell },
+          'fill:none;stroke:var(--bad);stroke-width:4'));
+      }
+      svg.appendChild(txt(x0 + w * cell / 2, y0 + h * cell + 16, '長 ' + w + ' 公分', 'font-size:13px;fill:var(--dim)'));
+      svg.appendChild(txt(x0 - 26, y0 + h * cell / 2, '寬' + h, 'font-size:13px;fill:var(--dim)'));
+      read.innerHTML = '';
+      if (show !== 'area') {
+        read.appendChild(div('wg-read-main', '周長（紅線繞一圈）＝ (' + w + '＋' + h + ') × 2 ＝ ' + ((w + h) * 2) + ' 公分'));
+      }
+      if (show !== 'perimeter') {
+        read.appendChild(div('wg-read-main', '面積（藍格子有幾個）＝ ' + w + ' × ' + h + ' ＝ ' + (w * h) + ' 平方公分'));
+      }
+      if (show === 'both') {
+        read.appendChild(div('wg-read-sub', '周長算的是「邊」的長度，單位是公分；面積算的是「裡面」的格子數，單位是平方公分。'));
+      }
+    }
+    if (spec.edit !== false) {
+      var sw = stepper('長', function () { return w; }, function (v) { w = v; }, 1, 12, function () { sw.sync(); paint(); });
+      var sh = stepper('寬', function () { return h; }, function (v) { h = v; }, 1, 8, function () { sh.sync(); paint(); });
+      box.appendChild(sw.el); box.appendChild(sh.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 小數方格（decimalgrid）───────────────────────────────────────────
+     0.1 是「把 1 平分成 10 份的 1 份」——和分數接得起來。
+     spec: { cells: 10|100, filled, edit }                                 */
+  REG.decimalgrid = function (host, spec) {
+    var cells = spec.cells === 100 ? 100 : 10;
+    var filled = spec.filled == null ? 3 : spec.filled;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: cells === 100 ? '0 0 320 180' : '0 0 320 90', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      filled = clamp(filled, 0, cells);
+      var cols = cells === 100 ? 10 : 10, rows = cells / cols;
+      var cw = cells === 100 ? 15 : 28, ch = cells === 100 ? 15 : 46;
+      var x0 = 160 - cols * cw / 2, y0 = 14;
+      for (var i = 0; i < cells; i++) {
+        var r = Math.floor(i / cols), c = i % cols;
+        var rect = el('rect', { x: x0 + c * cw, y: y0 + r * ch, width: cw, height: ch },
+          'fill:' + (i < filled ? 'var(--accent)' : 'var(--panel2)') +
+          ';stroke:var(--border);stroke-width:1;cursor:' + (spec.edit ? 'pointer' : 'default'));
+        if (spec.edit) (function (idx) {
+          rect.addEventListener('click', function () { filled = (filled === idx + 1) ? idx : idx + 1; paint(); });
+        })(i);
+        svg.appendChild(rect);
+      }
+      var dec = cells === 10 ? (filled / 10).toFixed(1) : (filled / 100).toFixed(2);
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', '塗了 ' + filled + '/' + cells + '　寫成小數是 ' + dec));
+      read.appendChild(div('wg-read-sub', cells === 10
+        ? '把 1 平分成 10 份，取 ' + filled + ' 份 ＝ ' + filled + '/10 ＝ ' + dec
+        : '把 1 平分成 100 份，取 ' + filled + ' 份 ＝ ' + filled + '/100 ＝ ' + dec));
+    }
+    if (spec.edit) box.appendChild(div('wg-hint', '👆 點格子塗色，看小數怎麼變'));
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 長條圖（bargraph）────────────────────────────────────────────────
+     統計圖表單元用；也可給自然／社會的資料判讀題。
+     spec: { data:[{label,value}], unit }                                  */
+  REG.bargraph = function (host, spec) {
+    var data = spec.data || [];
+    var unit = spec.unit || '';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    var maxV = Math.max.apply(null, data.map(function (d) { return d.value; }).concat([1]));
+    var n = data.length, bw = Math.min(240 / Math.max(n, 1), 46);
+    var x0 = 160 - n * bw / 2, base = 130;
+    svg.appendChild(el('line', { x1: 20, y1: base, x2: 300, y2: base }, 'stroke:var(--text);stroke-width:2'));
+    data.forEach(function (d, i) {
+      var hgt = d.value / maxV * 100;
+      svg.appendChild(el('rect',
+        { x: x0 + i * bw + 5, y: base - hgt, width: bw - 10, height: hgt, rx: 3 },
+        'fill:var(--accent)'));
+      svg.appendChild(txt(x0 + i * bw + bw / 2, base - hgt - 10, String(d.value),
+        'font-size:13px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(x0 + i * bw + bw / 2, base + 16, d.label, 'font-size:13px;fill:var(--dim)'));
+    });
+    if (unit) svg.appendChild(txt(30, 16, '單位：' + unit, 'font-size:12px;fill:var(--dim)'));
+    box.appendChild(svg);
+    var top = data.slice().sort(function (a, b) { return b.value - a.value; });
+    if (top.length >= 2) {
+      box.appendChild(div('wg-read-sub',
+        '最多的是「' + top[0].label + '」' + top[0].value + unit +
+        '，最少的是「' + top[top.length - 1].label + '」' + top[top.length - 1].value + unit +
+        '，相差 ' + (top[0].value - top[top.length - 1].value) + unit + '。'));
+    }
+    host.appendChild(box);
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },
