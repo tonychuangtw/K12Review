@@ -245,6 +245,28 @@
   </div>
 </section>
 
+<!-- 概念卡：有教材的單元走這條（說明＋互動元件＋立即檢核 → 單元測驗） -->
+<section id="view-concept" class="view hidden">
+  <div class="quiz-head">
+    <button class="btn-ghost" id="conceptExit">✕ 離開</button>
+    <span id="conceptInfo"></span>
+    <span></span>
+  </div>
+  <div id="conceptDots" class="concept-dots"></div>
+  <div class="quiz-card">
+    <div id="conceptStep" class="q-tag"></div>
+    <div id="conceptTitle" class="concept-title"></div>
+    <div id="conceptBody" class="concept-body"></div>
+    <div id="conceptViz" class="concept-viz"></div>
+    <div id="conceptTip" class="concept-tip hidden"></div>
+    <div id="conceptCheck" class="concept-check"></div>
+    <div class="write-btns">
+      <button id="conceptPrev" class="btn-ghost">← 上一個</button>
+      <button id="conceptNext" class="btn-ghost">下一個 →</button>
+    </div>
+  </div>
+</section>
+
 <!-- 匯入題庫（分科分冊分課；也給科目內的「依課練習」共用） -->
 <section id="view-custom" class="view hidden">
   <div class="quiz-head">
@@ -412,8 +434,10 @@
 <script src="js/data/geography-custom.js"></script>
 <script src="js/data/civics.js"></script>
 <script src="js/data/civics-custom.js"></script>
+<script src="js/data/lessons-math.js"></script>
 <script src="js/dialog.js"></script>
 <script src="js/versions.js"></script>
+<script src="js/widgets.js"></script>
 <script src="js/anim-stage.js"></script>
 <script src="js/anim-story.js"></script>
 <script src="js/anim.js"></script>

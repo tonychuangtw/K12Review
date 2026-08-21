@@ -15,6 +15,9 @@ for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'c
 for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
+for (const f of ['lessons-math']) {          // 概念卡（單元教學層）
+  eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
+}
 global.window.APP_DATA = window.APP_DATA;
 global.window.APP_CHECKS = window.APP_CHECKS;
 eval(fs.readFileSync(path.join(root, 'js/app.js'), 'utf8'));
@@ -362,6 +365,48 @@ console.log('解析確認題');
   const need = D.idioms.length + D.phonics.length + D.chars.length;
   // 2026-08-17 起 100% 覆蓋是硬性門檻：新增成語／字音／字形題時，要一併寫 js/data/checks-*.js 的確認題
   ok(total === need, `確認題全數覆蓋（${total}/${need}）`);
+}
+
+/* ---------- 概念卡（單元學習的教材層，js/data/lessons-*.js） ----------
+   低階模型照 docs/bank-maintain-sop.md 流程 D 寫概念卡時，這段是守門：
+   單元名對不上題庫的 lesson 就永遠不會出現在網站上，這是最容易犯又最難發現的錯。 */
+{
+  console.log('\n概念卡（單元教學層）');
+  const LES = window.APP_LESSONS || {};
+  const keys = Object.keys(LES);
+  const WIDGETS = ['fracbar', 'fraccircle', 'fraccompare'];   // 與 js/widgets.js 的 REG 同步
+  const bad = [];
+  keys.forEach(k => {
+    const [subj, book, lesson] = k.split('|');
+    const bank = D[subj];
+    if (!Array.isArray(bank)) return bad.push(k + '：找不到題庫 ' + subj);
+    // 單元名必須與題庫的 book+lesson 一字不差，否則前端對不上
+    if (!bank.some(it => it.book === book && it.lesson === lesson)) {
+      return bad.push(k + '：題庫裡沒有這個冊／單元（單元名要一字不差）');
+    }
+    const deck = LES[k];
+    if (!deck || !Array.isArray(deck.cards) || !deck.cards.length) return bad.push(k + '：沒有 cards');
+    if (deck.cards.length > 8) bad.push(k + '：概念卡 ' + deck.cards.length + ' 張，超過 8 張學生會累');
+    deck.cards.forEach((c, i) => {
+      const tag = k + ' 第' + (i + 1) + '張';
+      if (!c.title || !c.body) return bad.push(tag + '：缺 title 或 body');
+      if (c.viz && WIDGETS.indexOf(c.viz.type) < 0) bad.push(tag + '：未知的元件 ' + c.viz.type);
+      if (!c.check) return;
+      const q = c.check;
+      if (!Array.isArray(q.options) || q.options.length !== 4) return bad.push(tag + '：檢核題選項不是 4 個');
+      if (new Set(q.options).size !== 4) bad.push(tag + '：檢核題選項重複');
+      if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer > 3) return bad.push(tag + '：檢核題答案索引錯誤');
+      // 誤答分支是這套設計最值錢的部分：每個誘答都要寫「你為什麼會這樣想」
+      if (!Array.isArray(q.why) || q.why.length !== 4) return bad.push(tag + '：why 不是 4 格');
+      q.why.forEach((w, j) => {
+        if (j === q.answer) return;                       // 正解那格放 null
+        if (typeof w !== 'string' || w.length < 8) bad.push(tag + ' 選項' + j + '：誤答分支沒寫或太短');
+      });
+    });
+  });
+  ok(bad.length === 0, `概念卡格式與單元名正確（問題 ${bad.length} 筆${bad.length ? '：' + bad.slice(0, 5).join('；') : ''}）`);
+  const nCards = keys.reduce((n, k) => n + ((LES[k].cards || []).length), 0);
+  console.log(`    目前 ${keys.length} 個單元有教材、共 ${nCards} 張概念卡`);
 }
 
 console.log(failed ? `\n${failed} 項失敗` : '\n全部通過');

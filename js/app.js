@@ -583,7 +583,7 @@
 
   /* ---------- 視圖切換 ---------- */
 
-  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'drill', 'custom', 'review', 'help', 'search'];
+  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'drill', 'custom', 'review', 'help', 'search'];
   // 手機返回手勢／瀏覽器上一頁（2026-08-20 Tony：「很多選進去後都不能回前一頁」）
   // 這是單頁站，本來按返回會直接離站。做法：navStack 與 history 條目一一對應——
   // 前進 pushState，退回一律交給 history.go（畫面在 popstate 裡才更新），
@@ -3926,18 +3926,146 @@
         if (l && lessons.indexOf(l) < 0) lessons.push(l);
       });
       var title = byLesson && u.name ? u.name : '第 ' + (i + 1) + ' 單元';
+      var hasDeck = !!conceptDeck(u.name);       // 有概念卡＝這單元有真正的教材，不只是題目
       var div = document.createElement('button');
       div.className = 'unit-item' + (done ? ' done' : locked ? ' locked' : '');
-      div.innerHTML = '<b>' + (done ? '✅' : locked ? '🔒' : '▶️') + ' ' + title + '</b>' +
+      var how = done ? '已完成，可重新練習' : locked ? '完成上一單元後解鎖'
+              : hasDeck ? '📘 互動教學 → 測驗全對過關'
+              : cn ? '教學 → 測驗全對過關' : '看重點 → 測驗全對過關';
+      div.innerHTML = '<b>' + (done ? '✅' : locked ? '🔒' : '▶️') + ' ' + title +
+        (hasDeck ? ' <span class="unit-badge">教材</span>' : '') + '</b>' +
         '<small>' + (cn ? u.length + ' 個詞條' : u.length + ' 題' + (byLesson ? '' : ' · ' + lessons.join('、'))) + ' · ' +
-        (done ? '已完成，可重新練習' : locked ? '完成上一單元後解鎖' : cn ? '教學 → 測驗全對過關' : '看重點 → 測驗全對過關') + '</small>';
+        how + '</small>';
       if (!locked) div.addEventListener('click', function () { startLesson(state.unitGrade, i, u); });
       list.appendChild(div);
     });
   }
   $('unitsExit').addEventListener('click', function () { show('home'); });
 
+  /* ── 概念卡（教材層）────────────────────────────────────────────────────
+     單元學習原本是「先把題目連答案看一遍，再考同一批題」——對已經學過的人是複習，
+     對沒學過的人只是劇透。有概念卡的單元改走這條：
+       概念卡（說明＋互動元件＋立即檢核，答錯就地解釋迷思）→ 單元測驗
+     資料在 js/data/lessons-<科>.js，沒寫概念卡的單元自動走原本的重點卡流程。   */
+  function conceptDeck(name) {
+    var L = W.APP_LESSONS;
+    if (!L || isChinese() || !name || !state.unitBook) return null;
+    return L[mainCat() + '|' + state.unitBook + '|' + name] || null;
+  }
+  var conceptState = null;
+
+  function startConcept(grade, unitIdx, items, deck) {
+    conceptState = { grade: grade, unitIdx: unitIdx, items: items, deck: deck, i: 0, ok: {} };
+    show('concept');
+    renderConceptCard();
+  }
+
+  function renderConceptCard() {
+    var C = conceptState;
+    if (!C) return;
+    var card = C.deck.cards[C.i], last = C.i === C.deck.cards.length - 1;
+    $('conceptInfo').textContent = (state.unitBook || '') + ' · ' + (C.items.name || '單元教學');
+    renderConceptDots();
+    $('conceptStep').textContent = '📘 教學 ' + (C.i + 1) + '/' + C.deck.cards.length;
+    $('conceptTitle').textContent = card.title || '';
+    var body = $('conceptBody');
+    body.innerHTML = '';
+    String(card.body || '').split('\n').forEach(function (p) {
+      if (p.trim()) body.appendChild(Object.assign(document.createElement('p'), { textContent: p }));
+    });
+    var viz = $('conceptViz');
+    if (card.viz && W.Widgets) W.Widgets.render(viz, card.viz); else viz.innerHTML = '';
+    var tip = $('conceptTip');
+    tip.textContent = card.tip || '';
+    tip.classList.toggle('hidden', !card.tip);
+    renderConceptCheck(card, last);
+    $('conceptPrev').disabled = C.i === 0;
+  }
+
+  function renderConceptCheck(card, last) {
+    var C = conceptState, host = $('conceptCheck'), next = $('conceptNext');
+    host.innerHTML = '';
+    // 答對檢核前不硬鎖（鎖了只會讓人挫折），但按鈕保持低調，答對才變成主要按鈕
+    function setNext(done) {
+      next.textContent = last ? (done ? '開始單元測驗 ✍️' : '直接去測驗 ✍️') : '下一個 →';
+      next.className = done ? 'btn-primary' : 'btn-ghost';
+    }
+    if (!card.check) { setNext(true); return; }
+    var q = card.check, answered = !!C.ok[C.i];
+    setNext(answered);
+    host.appendChild(Object.assign(document.createElement('div'),
+      { className: 'ck-q', textContent: '✏️ 換你試試：' + q.q }));
+    var fb = document.createElement('div');
+    fb.className = 'ck-fb hidden';
+    var opts = document.createElement('div');
+    opts.className = 'ck-opts';
+    q.options.forEach(function (text, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'ck-opt';
+      b.textContent = text;
+      b.addEventListener('click', function () {
+        if (b.classList.contains('wrong')) return;
+        var right = i === q.answer;
+        if (right) {
+          b.classList.add('right');
+          opts.querySelectorAll('.ck-opt').forEach(function (o) { o.disabled = true; });
+          C.ok[C.i] = true;
+          fb.className = 'ck-fb ok';
+          fb.textContent = '✅ 答對了！' + ((q.why && q.why[i]) || '這個觀念你抓到了，繼續往下。');
+          setNext(true);
+          renderConceptDots();
+        } else {
+          b.classList.add('wrong');
+          fb.className = 'ck-fb ng';
+          fb.textContent = '❌ ' + ((q.why && q.why[i]) || '再想一次，回頭看看上面的圖。');
+        }
+      });
+      opts.appendChild(b);
+    });
+    host.appendChild(opts);
+    host.appendChild(fb);
+    if (answered) {
+      opts.querySelectorAll('.ck-opt').forEach(function (o, i) {
+        o.disabled = true;
+        if (i === q.answer) o.classList.add('right');
+      });
+      fb.className = 'ck-fb ok';
+      fb.textContent = '✅ 這張你已經答對了。';
+    }
+  }
+  function renderConceptDots() {
+    var C = conceptState, dots = $('conceptDots');
+    if (!C || !dots) return;
+    dots.innerHTML = '';
+    C.deck.cards.forEach(function (_, k) {
+      var d = document.createElement('span');
+      d.className = 'cdot' + (k === C.i ? ' cur' : C.ok[k] ? ' ok' : k < C.i ? ' seen' : '');
+      dots.appendChild(d);
+    });
+  }
+
+  function conceptToQuiz() {
+    var C = conceptState;
+    var entries = shuffle(C.items.slice());
+    beginQuiz(entries, 'unit', null);
+    quiz.total = entries.length;
+    quiz.unitKey = unitKey(C.grade, C.unitIdx);
+  }
+  $('conceptPrev').addEventListener('click', function () {
+    if (conceptState && conceptState.i > 0) { conceptState.i--; renderConceptCard(); window.scrollTo(0, 0); }
+  });
+  $('conceptNext').addEventListener('click', function () {
+    var C = conceptState;
+    if (!C) return;
+    if (C.i < C.deck.cards.length - 1) { C.i++; renderConceptCard(); window.scrollTo(0, 0); return; }
+    conceptToQuiz();
+  });
+  $('conceptExit').addEventListener('click', function () { showUnits(); });
+
   function startLesson(grade, unitIdx, items) {
+    var deck = conceptDeck(items && items.name);
+    if (deck && deck.cards && deck.cards.length) { startConcept(grade, unitIdx, items, deck); return; }
     lessonState = { grade: grade, unitIdx: unitIdx, items: items, i: 0 };
     show('lesson');
     renderLessonCard();

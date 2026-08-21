@@ -757,5 +757,64 @@ async (js) => {
     await js(`!document.getElementById('rangeBar').classList.contains('hidden')`));
 });
 
+/* ---------- 10. 概念卡：有教材的單元走「教學→立即檢核→測驗」 ---------- */
+console.log('概念卡（單元教學層）');
+const VIEW2 = `(function(){ var v = ['welcome','subject','home','quiz','units','concept','lesson'];
+  for (var i = 0; i < v.length; i++) if (!document.getElementById('view-' + v[i]).classList.contains('hidden')) return v[i];
+  return null; })()`;
+// 第 8 單元被前 7 單元鎖著 → 前 7 單元直接種成已完成。
+// ⚠️ 種在 seed 裡，不要「改完 localStorage 再 reload」：seed 是
+// Page.addScriptToEvaluateOnNewDocument，每次載入都會重跑並把改動蓋回去。
+// key 格式見 app.js unitKey()：非國語課綱單元制 = <科>-<冊>-u<索引>
+await session(8746, 9346, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 3, extra: [], grades: [3], onboarded: true, subject: 'math',
+  unitGrade: 3, unitBook: '三上', stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [],
+  units: { 'math-三上-u0': true, 'math-三上-u1': true, 'math-三上-u2': true, 'math-三上-u3': true,
+           'math-三上-u4': true, 'math-三上-u5': true, 'math-三上-u6': true } }));` },
+async (js) => {
+  await js(`document.getElementById('homeLink').click()`);
+  await sleep(300);
+  await js(`document.querySelector('.card[data-go="units"]').click()`);
+  await sleep(600);
+  check('數學三上進得了單元學習', await js(VIEW2) === 'units', String(await js(VIEW2)));
+  const badged = await js(`(function(){ var n = 0;
+    document.querySelectorAll('#unitList .unit-item').forEach(function (b) { if (b.querySelector('.unit-badge')) n++; });
+    return n; })()`);
+  check('分數單元標出「教材」徽章', badged === 1, '有徽章的單元數 = ' + badged);
+  await js(`(function(){ var t = null;
+    document.querySelectorAll('#unitList .unit-item').forEach(function (b) {
+      if (b.querySelector('.unit-badge')) t = b; });
+    if (t) t.click(); })()`);
+  await sleep(500);
+  check('點有教材的單元進到概念卡（不是題目劇透）', await js(VIEW2) === 'concept', String(await js(VIEW2)));
+  check('概念卡畫出互動元件（SVG）',
+    await js(`!!document.querySelector('#conceptViz svg')`));
+  check('第一張卡有立即檢核題',
+    await js(`document.querySelectorAll('#conceptCheck .ck-opt').length`) === 4);
+  check('還沒答對前「下一個」不是主要按鈕',
+    await js(`document.getElementById('conceptNext').className`) === 'btn-ghost');
+  // 答錯 → 出現針對該迷思的說明
+  await js(`(function(){ var o = document.querySelectorAll('#conceptCheck .ck-opt');
+    for (var i = 0; i < o.length; i++) if (i !== 1) { o[i].click(); return; } })()`);
+  await sleep(200);
+  const ngText = await js(`(document.querySelector('#conceptCheck .ck-fb') || {}).textContent || ''`);
+  check('答錯給的是針對迷思的解釋，不是只說錯', /❌/.test(ngText) && ngText.length > 12, ngText.slice(0, 40));
+  // 答對 → 綠燈、可以往下
+  await js(`document.querySelectorAll('#conceptCheck .ck-opt')[1].click()`);
+  await sleep(200);
+  check('答對後標綠並解鎖下一步',
+    await js(`/✅/.test((document.querySelector('#conceptCheck .ck-fb') || {}).textContent || '')`) &&
+    await js(`document.getElementById('conceptNext').className`) === 'btn-primary');
+  const nCards = await js(`document.querySelectorAll('#conceptDots .cdot').length`);
+  check('概念卡張數與資料一致（7 張）', nCards === 7, String(nCards));
+  for (let i = 0; i < nCards - 1; i++) { await js(`document.getElementById('conceptNext').click()`); await sleep(150); }
+  check('最後一張的按鈕變成進測驗',
+    /測驗/.test(await js(`document.getElementById('conceptNext').textContent`)),
+    await js(`document.getElementById('conceptNext').textContent`));
+  await js(`document.getElementById('conceptNext').click()`);
+  await sleep(600);
+  check('概念卡看完接單元測驗', await js(VIEW2) === 'quiz', String(await js(VIEW2)));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);

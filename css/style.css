@@ -792,3 +792,76 @@ body.anim-lock { overflow: hidden; }
   border-radius: 0 6px 6px 0;
 }
 .exam-head:first-child { margin-top: 0.2rem; }
+
+/* ── 概念卡（單元教學層）與互動元件 ────────────────────────────────────────
+   2026-08-21：單元學習從「題目劇透 → 測驗」改成「概念卡 → 立即檢核 → 測驗」，
+   有教材的單元才走這條（js/data/lessons-<科>.js）。元件樣式一律吃 CSS 變數，
+   四種主題（深色／light／forest／sakura／sunny）都要對。 */
+.concept-dots { display: flex; gap: 0.3rem; justify-content: center; margin: 0.2rem 0 0.6rem; }
+.cdot {
+  width: 22px; height: 4px; border-radius: 999px;
+  background: var(--border); transition: background .2s;
+}
+.cdot.seen { background: var(--dim); }
+.cdot.ok { background: var(--good); }
+.cdot.cur { background: var(--accent); }
+
+.concept-title { font-size: 1.15rem; font-weight: 700; margin: 0.2rem 0 0.6rem; }
+.concept-body p { line-height: 1.85; margin-bottom: 0.5rem; font-size: 1rem; }
+.concept-viz { margin: 0.9rem 0 0.3rem; }
+.concept-tip {
+  font-size: 0.85rem; color: var(--dim); line-height: 1.6;
+  border-left: 3px solid var(--accent); padding: 0.3rem 0 0.3rem 0.6rem; margin: 0.5rem 0 0.2rem;
+}
+.concept-check { margin-top: 1rem; border-top: 1px dashed var(--border); padding-top: 0.9rem; }
+.ck-q { font-weight: 600; line-height: 1.7; margin-bottom: 0.7rem; }
+.ck-opts { display: flex; flex-direction: column; gap: 0.45rem; }
+.ck-opt {
+  text-align: left; padding: 0.7rem 0.9rem; font-size: 0.95rem; line-height: 1.6;
+  background: var(--panel2); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px; cursor: pointer;
+}
+.ck-opt:disabled { cursor: default; opacity: 0.75; }
+.ck-opt.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 18%, var(--panel2)); opacity: 1; }
+.ck-opt.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 14%, var(--panel2)); }
+.ck-fb { margin-top: 0.7rem; padding: 0.7rem 0.9rem; border-radius: 10px; line-height: 1.75; font-size: 0.93rem; }
+.ck-fb.ok { background: color-mix(in srgb, var(--good) 14%, var(--panel)); border: 1px solid var(--good); }
+.ck-fb.ng { background: color-mix(in srgb, var(--bad) 12%, var(--panel)); border: 1px solid var(--bad); }
+
+/* 互動元件（js/widgets.js） */
+.wg { text-align: center; }
+.wg-svg { width: 100%; max-width: 340px; height: auto; display: block; margin: 0 auto; }
+.wg-svg-pie { max-width: 180px; }
+.wg-svg-sm { max-width: 260px; }
+.wg-labrow { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.5rem; }
+.wg-labtext { color: var(--dim); font-size: 0.9rem; }
+.wg-frac { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.15; min-width: 2rem; }
+.wg-frac-n { font-size: 1.25rem; font-weight: 700; padding: 0 0.35rem; }
+.wg-frac-d { font-size: 1.25rem; font-weight: 700; padding: 0 0.35rem; border-top: 2px solid var(--text); }
+.wg-ctrl { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.7rem; flex-wrap: wrap; }
+.wg-ctrl-label { color: var(--dim); font-size: 0.88rem; }
+.wg-btn {
+  min-width: 44px; min-height: 40px; padding: 0.3rem 0.8rem;
+  background: var(--panel2); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px;
+  font-size: 1rem; cursor: pointer;
+}
+.wg-btn:active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.wg-val { min-width: 1.8rem; font-size: 1.15rem; font-weight: 700; }
+.wg-hint { color: var(--dim); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.6; }
+.wg-note { margin-top: 0.6rem; font-size: 0.9rem; line-height: 1.7; }
+.wg-note.ok { color: var(--good); }
+.wg-note.ng { color: var(--bad); }
+.wg-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; justify-content: center; }
+.wg-row .wg-svg { flex: 1 1 auto; min-width: 0; margin: 0; }   /* 窄螢幕上長條要讓得出空間給分數與按鈕 */
+.wg-ctrl-sm { margin-top: 0; gap: 0.3rem; }
+.wg-ctrl-sm .wg-btn { min-width: 38px; min-height: 34px; padding: 0.2rem 0.5rem; }
+.wg-verdict {
+  margin-top: 0.5rem; font-size: 1rem; font-weight: 700; color: var(--accent);
+  line-height: 1.6;
+}
+.unit-badge {
+  display: inline-block; margin-left: 0.35rem; padding: 0.05rem 0.4rem;
+  font-size: 0.7rem; font-weight: 700; vertical-align: middle;
+  color: #fff; background: var(--accent); border-radius: 999px;
+}

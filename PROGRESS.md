@@ -1,18 +1,30 @@
-# 進度：全年級全科題庫（K12Review 全科擴充）
+# 進度：K12Review（題庫擴充已完工／單元學習教材層進行中）
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。
      換一家 CLI 進來接手時看不到對話紀錄，只看得到這份檔 —— 欄位請隨進度更新。 -->
 
-STATUS: done
-OBJECTIVE: 把每個課綱單元的題數從 8～18 題補到 **每單元 24 題**（一次段考 3 單元＝72 題），Tony 2026-08-20：「題庫太少了，每個月考三個單元才一點點題目」「先24題」
-NEXT_ACTION: 無 —— 2026-08-21 全部完成。數學與英文各 24 冊（一上～十二下）全數 216 題/冊（各 5184 題），
-  自然/社會 三上～九下 各 216 題/冊（高中無此兩科題庫）。四科合計 16,417 題。
-  （註：8cd3b8c 的 commit 訊息誤植英文總題數 4608，當時正確為 4320）
-  之後若再加題：新增 `<冊>-addN.jsonl` 放在該科 README 重建指令**最後面**，重建後跑 node test/test.js 再 commit
-VALIDATION: `node test/test.js` 全綠；抽查 build-bank.js 輸出的「每冊題數/單元數」是否 216 題 / 9 單元
+STATUS: in-progress
+OBJECTIVE: 讓「完全沒學過的人」也能靠單元學習自學。原本的單元學習是把題目連答案先看一遍再考同一批題
+  （對沒學過的人等於劇透，不是教學）；改成 **概念卡（說明＋互動元件＋立即檢核）→ 單元測驗**。
+  Tony 2026-08-21：「最好是有圖有動畫、互動式，讓完全沒接觸過的人快速精熟」「先做一個，我覺得好再往下做」
+NEXT_ACTION: **等 Tony 試用原型後決定要不要往下推**。原型＝數學三上第8單元「分數的初步認識」7 張概念卡。
+  他說好就照同一套往下做：先補完小學數學（一冊 9 單元 × 24 冊路線太長，建議先做三上～六下的高迷思單元），
+  同時把互動元件庫從 3 種擴到 8～10 種（數線、位值積木、天平、函數繪圖器、電路、地圖、句子拼塊…）。
+  寫新概念卡的規格與驗收步驟見 `docs/bank-maintain-sop.md` 流程 D。
+VALIDATION: `node test/test.js` 全綠；`node test/browser-smoke.mjs` 的「概念卡（單元教學層）」段全過
+  （會實際點過：徽章→概念卡→互動元件→答錯給迷思解釋→答對解鎖→接單元測驗）
 BLOCKERS: 無
-PATHS: tools/tikuconv/<科>/（來源 jsonl + README 重建指令）、js/data/<科>.js、test/test.js
-UPDATED: 2026-08-21 12:29 台北
+PATHS: js/widgets.js（互動元件庫）、js/data/lessons-math.js（概念卡資料）、
+  js/app.js（conceptDeck/startConcept/renderConceptCard）、index.html 的 #view-concept、
+  css/style.css 末段「概念卡」區、test/browser-smoke.mjs 第 10 段
+UPDATED: 2026-08-21 16:20 台北
+
+## 已完工：全年級全科題庫（每單元 24 題）
+
+2026-08-21 全部完成。數學與英文各 24 冊（一上～十二下）全數 216 題/冊（各 5184 題），
+自然/社會 三上～九下 各 216 題/冊（高中無此兩科題庫）。四科合計 16,417 題。
+（註：8cd3b8c 的 commit 訊息誤植英文總題數 4608，當時正確為 4320）
+之後若再加題：新增 `<冊>-addN.jsonl` 放在該科 README 重建指令**最後面**，重建後跑 node test/test.js 再 commit。
 
 ## 加題進度表（目標：每單元 24 題）
 
