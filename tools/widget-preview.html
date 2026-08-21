@@ -149,7 +149,11 @@ var DEMOS = [
   ['三角函數圖形 y = a sin(bx) + c', { type: 'trigwave', a: 1, b: 1, c: 0 }],
   ['數列的極限', { type: 'limit', values: [2, 1.5, 1.33, 1.25, 1.2, 1.17, 1.14, 1.13], limit: 1 }],
   ['無窮等比級數的和', { type: 'limit', mode: 'sum', a1: 4, r: 0.5, n: 8 }],
-  ['空間坐標與平面法向量', { type: 'space3d', point: [2, 3, 2], mode: 'point' }]
+  ['空間坐標與平面法向量', { type: 'space3d', point: [2, 3, 2], mode: 'point' }],
+  ['線性變換（旋轉／伸縮／鏡射／推移）', { type: 'lintrans', kind: 'rot90' }],
+  ['常態分布與 68–95–99.7', { type: 'normaldist', mean: 75, sd: 5, shade: 1, mark: 85 }],
+  ['散布圖與迴歸直線', { type: 'scatter' }],
+  ['條件機率（文氏圖）', { type: 'condprob', total: 40, a: 18, b: 20, both: 8, labelA: '喜歡數學', labelB: '男生' }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {

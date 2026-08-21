@@ -2016,6 +2016,201 @@
     paint();
   };
 
+  /* ── 線性變換（lintrans）──────────────────────────────────────────────
+     矩陣乘上圖形＝把圖形旋轉／伸縮／鏡射。
+     spec: { m:[[a,b],[c,d]], kind:'rot90'|'scale2'|'flipx'|'shear', pick } */
+  REG.lintrans = function (host, spec) {
+    var K = {
+      rot90: { m: [[0, -1], [1, 0]], name: '逆時針旋轉 90°',
+        desc: '(1, 0) 會被送到 (0, 1)、(0, 1) 會被送到 (−1, 0)。矩陣的兩行就是「兩個基本向量被送到哪裡」。' },
+      scale2: { m: [[2, 0], [0, 2]], name: '放大 2 倍（伸縮）',
+        desc: '對角線是 2、其餘是 0：x 和 y 都變成 2 倍，圖形等比例放大，面積變成 4 倍（行列式 ＝ 4）。' },
+      flipx: { m: [[1, 0], [0, -1]], name: '對 x 軸鏡射',
+        desc: 'y 坐標變號、x 不動，圖形上下翻。行列式是 −1：面積不變但方向反過來了。' },
+      shear: { m: [[1, 1], [0, 1]], name: '推移（剪切）',
+        desc: '正方形被推成平行四邊形：越上面推得越多。行列式仍是 1，所以面積沒變。' }
+    };
+    var kind = K[spec.kind] ? spec.kind : 'rot90';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 220', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var cx = 150, cy = 130, u = 34;
+    function P(p) { return [cx + p[0] * u, cy - p[1] * u]; }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var m = K[kind].m;
+      svg.appendChild(el('line', { x1: 20, y1: cy, x2: 300, y2: cy }, 'stroke:var(--dim);stroke-width:1.5'));
+      svg.appendChild(el('line', { x1: cx, y1: 16, x2: cx, y2: 210 }, 'stroke:var(--dim);stroke-width:1.5'));
+      var sq = [[0, 0], [1, 0], [1, 1], [0, 1]];
+      svg.appendChild(el('polygon', { points: sq.map(function (p) { return P(p).join(','); }).join(' ') },
+        'fill:color-mix(in srgb, var(--dim) 25%, transparent);stroke:var(--dim);stroke-width:2;stroke-dasharray:4 3'));
+      var img = sq.map(function (p) {
+        return [m[0][0] * p[0] + m[0][1] * p[1], m[1][0] * p[0] + m[1][1] * p[1]];
+      });
+      svg.appendChild(el('polygon', { points: img.map(function (p) { return P(p).join(','); }).join(' ') },
+        'fill:color-mix(in srgb, var(--accent) 25%, transparent);stroke:var(--accent);stroke-width:2.5'));
+      svg.appendChild(txt(P([0.5, 0.5])[0], P([0.5, 0.5])[1], '原', 'font-size:11px;fill:var(--dim)'));
+      var det = m[0][0] * m[1][1] - m[0][1] * m[1][0];
+      function mm(v) { return v < 0 ? '−' + (-v) : String(v); }
+      read.appendChild(div('wg-read-main',
+        K[kind].name + '　矩陣 [[' + m[0].map(mm).join(', ') + '], [' + m[1].map(mm).join(', ') +
+        ']]，行列式 ＝ ' + mm(det)));
+      read.appendChild(div('wg-read-sub', K[kind].desc +
+        '　行列式的絕對值 ＝ 面積放大的倍數；負的代表圖形被翻面了。'));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['rot90', '旋轉 90°'], ['scale2', '放大 2 倍'], ['flipx', 'x 軸鏡射'], ['shear', '推移']]
+        .forEach(function (k) { row.appendChild(btn(k[1], function () { kind = k[0]; paint(); })); });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 常態分布（normaldist）────────────────────────────────────────────
+     spec: { mean, sd, mark, shade:1|2|3 }                                */
+  REG.normaldist = function (host, spec) {
+    var mu = spec.mean == null ? 75 : spec.mean, sd = spec.sd == null ? 5 : spec.sd;
+    var shade = spec.shade == null ? 1 : spec.shade;
+    var mark = spec.mark;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var L = 20, R = 300, B = 140;
+    function X(z) { return (L + R) / 2 + z * 40; }
+    function Yv(z) { return B - Math.exp(-z * z / 2) * 96; }
+    var PCT = { 1: '68%', 2: '95%', 3: '99.7%' };
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var pts = [], i, z;
+      for (i = 0; i <= 120; i++) {
+        z = -3.4 + 6.8 * i / 120;
+        pts.push(X(z).toFixed(1) + ',' + Yv(z).toFixed(1));
+      }
+      var area = [X(-shade) + ',' + B];
+      for (i = 0; i <= 60; i++) {
+        z = -shade + 2 * shade * i / 60;
+        area.push(X(z).toFixed(1) + ',' + Yv(z).toFixed(1));
+      }
+      area.push(X(shade) + ',' + B);
+      svg.appendChild(el('polygon', { points: area.join(' ') },
+        'fill:color-mix(in srgb, var(--accent) 30%, transparent);stroke:none'));
+      svg.appendChild(el('polyline', { points: pts.join(' ') },
+        'fill:none;stroke:var(--accent);stroke-width:3'));
+      svg.appendChild(el('line', { x1: L, y1: B, x2: R, y2: B }, 'stroke:var(--text);stroke-width:2'));
+      [-3, -2, -1, 0, 1, 2, 3].forEach(function (k) {
+        svg.appendChild(el('line', { x1: X(k), y1: B - 4, x2: X(k), y2: B + 4 },
+          'stroke:var(--dim);stroke-width:1.5'));
+        svg.appendChild(txt(X(k), B + 16, (k === 0 ? 'μ' : (k > 0 ? '＋' : '−') + Math.abs(k) + 'σ'),
+          'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(txt(X(k), B + 30, String(mu + k * sd), 'font-size:10px;fill:var(--dim)'));
+      });
+      if (mark != null) {
+        var zz = (mark - mu) / sd;
+        svg.appendChild(el('line', { x1: X(zz), y1: 20, x2: X(zz), y2: B },
+          'stroke:var(--bad);stroke-width:2'));
+        svg.appendChild(txt(X(zz), 14, mark + '（Z ＝ ' + (+zz.toFixed(2)) + '）',
+          'font-size:11px;font-weight:700;fill:var(--bad)'));
+      }
+      read.appendChild(div('wg-read-main',
+        '平均 ' + mu + '、標準差 ' + sd + '：落在 μ ± ' + shade + 'σ 之間的資料約占 ' + PCT[shade]));
+      read.appendChild(div('wg-read-sub',
+        '常態分布是中間高、兩邊低的鐘形曲線，對稱於平均數。' +
+        '68–95–99.7 法則：±1σ 約 68%、±2σ 約 95%、±3σ 約 99.7%。' +
+        'Z 分數 ＝ (資料 − 平均) ÷ 標準差，代表「離平均幾個標準差」，可以拿來比較不同科目的成績。'));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [1, 2, 3].forEach(function (k) {
+        row.appendChild(btn('±' + k + 'σ', function () { shade = k; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 散布圖與相關（scatter）───────────────────────────────────────────
+     spec: { points:[[x,y],..], line:bool, r }                            */
+  REG.scatter = function (host, spec) {
+    var P = spec.points || [[1, 2], [2, 3.5], [3, 4], [4, 6], [5, 6.5], [6, 8]];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    var xs = P.map(function (p) { return p[0]; }), ys = P.map(function (p) { return p[1]; });
+    var xlo = Math.min.apply(null, xs), xhi = Math.max.apply(null, xs);
+    var ylo = Math.min.apply(null, ys), yhi = Math.max.apply(null, ys);
+    function X(x) { return 34 + (x - xlo) / Math.max(xhi - xlo, 1) * 254; }
+    function Y(y) { return 140 - (y - ylo) / Math.max(yhi - ylo, 1) * 108; }
+    svg.appendChild(el('line', { x1: 28, y1: 146, x2: 300, y2: 146 }, 'stroke:var(--text);stroke-width:2'));
+    svg.appendChild(el('line', { x1: 28, y1: 146, x2: 28, y2: 16 }, 'stroke:var(--text);stroke-width:2'));
+    var n = P.length;
+    var mx = xs.reduce(function (a, b) { return a + b; }, 0) / n;
+    var my = ys.reduce(function (a, b) { return a + b; }, 0) / n;
+    var sxy = 0, sxx = 0, syy = 0;
+    P.forEach(function (p) {
+      sxy += (p[0] - mx) * (p[1] - my); sxx += (p[0] - mx) * (p[0] - mx);
+      syy += (p[1] - my) * (p[1] - my);
+    });
+    var r = sxy / Math.sqrt(sxx * syy || 1), b1 = sxy / (sxx || 1), b0 = my - b1 * mx;
+    if (spec.line !== false) {
+      svg.appendChild(el('line', { x1: X(xlo), y1: Y(b0 + b1 * xlo), x2: X(xhi), y2: Y(b0 + b1 * xhi) },
+        'stroke:var(--bad);stroke-width:2.5'));
+    }
+    P.forEach(function (p) {
+      svg.appendChild(el('circle', { cx: X(p[0]), cy: Y(p[1]), r: 5 }, 'fill:var(--accent)'));
+    });
+    box.appendChild(svg);
+    box.appendChild(div('wg-read-main',
+      '相關係數 r ≈ ' + (+r.toFixed(3)) + '　迴歸直線 y ＝ ' + (+b1.toFixed(2)) + 'x ' +
+      (b0 >= 0 ? '＋ ' + (+b0.toFixed(2)) : '− ' + (+Math.abs(b0).toFixed(2)))));
+    box.appendChild(div('wg-read-sub',
+      'r 介於 −1 和 1：接近 1 是強正相關（一起變大）、接近 −1 是強負相關（一個大另一個小）、' +
+      '接近 0 表示看不出線性關係。迴歸直線用來「預測」：把 x 代進去得到 y 的估計值。' +
+      '⚠ 相關不等於因果——冰淇淋銷量和溺水人數高度相關，但兇手是夏天。'));
+    host.appendChild(box);
+  };
+
+  /* ── 條件機率（condprob）──────────────────────────────────────────────
+     spec: { a, b, both, total, labelA, labelB }                          */
+  REG.condprob = function (host, spec) {
+    var total = spec.total == null ? 40 : spec.total;
+    var both = spec.both == null ? 8 : spec.both;
+    var a = spec.a == null ? 18 : spec.a, b = spec.b == null ? 20 : spec.b;
+    var la = spec.labelA || 'A', lb = spec.labelB || 'B';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    svg.appendChild(el('rect', { x: 10, y: 12, width: 300, height: 130, rx: 10 },
+      'fill:none;stroke:var(--dim);stroke-width:1.5'));
+    svg.appendChild(txt(28, 24, '全體 ' + total, 'font-size:10px;fill:var(--dim)'));
+    svg.appendChild(el('circle', { cx: 130, cy: 78, r: 56, 'fill-opacity': '.22' },
+      'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+    svg.appendChild(el('circle', { cx: 196, cy: 78, r: 56, 'fill-opacity': '.22' },
+      'fill:var(--good);stroke:var(--good);stroke-width:2'));
+    svg.appendChild(txt(96, 78, String(a - both), 'font-size:14px;font-weight:700'));
+    svg.appendChild(txt(163, 78, String(both), 'font-size:14px;font-weight:700'));
+    svg.appendChild(txt(230, 78, String(b - both), 'font-size:14px;font-weight:700'));
+    svg.appendChild(txt(90, 30, la, 'font-size:12px;fill:var(--accent)'));
+    svg.appendChild(txt(238, 30, lb, 'font-size:12px;fill:var(--good)'));
+    svg.appendChild(txt(163, 156, '兩個都不是的有 ' + (total - a - b + both) + ' 個',
+      'font-size:10px;fill:var(--dim)'));
+    box.appendChild(svg);
+    box.appendChild(div('wg-read-main',
+      'P(' + la + '|' + lb + ') ＝ ' + both + ' ÷ ' + b + ' ＝ ' + (+(both / b).toFixed(3)) +
+      '　（而 P(' + la + ') ＝ ' + a + ' ÷ ' + total + ' ＝ ' + (+(a / total).toFixed(3)) + '）'));
+    box.appendChild(div('wg-read-sub',
+      '條件機率 P(A|B) 的意思是「已知 B 發生了，A 也發生的機率」——' +
+      '重點是分母從「全體」縮小成「B 的範圍」。公式：P(A|B) ＝ P(A∩B) ÷ P(B)。' +
+      '如果 P(A|B) ＝ P(A)（知道 B 沒有改變 A 的機率），就說兩事件獨立。'));
+    host.appendChild(box);
+  };
+
   /* ── 單位圓（unitcircle）──────────────────────────────────────────────
      用單位圓定義三角函數：x 坐標就是 cos、y 坐標就是 sin，角度可以超過 90°。
      spec: { deg, edit }                                                  */

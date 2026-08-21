@@ -389,7 +389,8 @@ console.log('解析確認題');
                    'solid', 'probtable', 'spread',
                    'logexp', 'trig', 'triglaw',
                    'counting', 'vector', 'conic', 'matrix', 'linprog',
-                   'unitcircle', 'trigwave', 'limit', 'space3d'];  // 與 js/widgets.js 的 REG 同步
+                   'unitcircle', 'trigwave', 'limit', 'space3d',
+                   'lintrans', 'normaldist', 'scatter', 'condprob'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');
