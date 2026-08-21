@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互動元件預覽（開發用）</title>
+<!-- 開發用預覽頁：把 js/widgets.js 目前支援的每一種元件都畫一次。
+     用法：從 repo 根目錄起一個靜態 server，開 /tools/widget-preview.html
+       python3 -m http.server 8000    →  http://127.0.0.1:8000/tools/widget-preview.html
+     寫概念卡時想知道某個 viz.type 長什麼樣、有哪些參數，開這頁最快。 -->
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  body { padding: 1rem; }
+  h2 { font-size: 1rem; margin: 1.6rem 0 .4rem; color: var(--accent); }
+  .spec { font-size: .78rem; color: var(--dim); font-family: monospace;
+          margin-bottom: .5rem; word-break: break-all; }
+  .demo { background: var(--panel); border: 1px solid var(--border);
+          border-radius: 12px; padding: .9rem; }
+</style>
+</head>
+<body>
+<h1 style="font-size:1.2rem">互動元件預覽</h1>
+<div class="prog-hint">概念卡的 <code>viz</code> 欄位可用的型別。改 js/widgets.js 後重新整理這頁就能看到效果。</div>
+<div id="all"></div>
+
+<script src="../js/widgets.js"></script>
+<script>
+var DEMOS = [
+  ['分數長條（可塗色）', { type: 'fracbar', parts: 8, shade: 3, editShade: true }],
+  ['分數長條（可改份數）', { type: 'fracbar', parts: 4, shade: 1, editParts: [2, 10] }],
+  ['分數長條（平分 vs 亂切）', { type: 'fracbar', parts: 2, shade: 1, toggleEqual: true }],
+  ['分數圓餅', { type: 'fraccircle', parts: 6, shade: 2, editShade: true }],
+  ['兩分數比大小', { type: 'fraccompare', a: { parts: 4, shade: 1 }, b: { parts: 8, shade: 1 }, edit: true }],
+  ['位值積木', { type: 'placevalue', value: 3456, max: 9999 }],
+  ['直式加法（逐步進位）', { type: 'column', a: 2345, b: 1876, op: '+' }],
+  ['直式減法（逐步借位）', { type: 'column', a: 5000, b: 2350, op: '-' }],
+  ['乘法陣列（拆成整十＋個位）', { type: 'array', rows: 4, cols: 23, split: true, edit: true }],
+  ['分堆除法（商與餘數）', { type: 'grouping', total: 17, per: 5 }],
+  ['角度', { type: 'angle', deg: 45 }],
+  ['圓的各部位', { type: 'circleparts' }],
+  ['時鐘', { type: 'clock', h: 8, m: 20, edit: true }],
+  ['時鐘（經過時間）', { type: 'clock', h: 8, m: 20, addMin: 45 }],
+  ['數線', { type: 'numberline', min: 0, max: 20, step: 1, value: 7 }],
+  ['數線（標記點、不可調）', { type: 'numberline', min: 0, max: 1, step: 0.25, edit: false,
+                              marks: [{ v: 0.25, label: '1/4' }, { v: 0.75, label: '3/4' }] }]
+];
+var all = document.getElementById('all');
+DEMOS.forEach(function (d) {
+  var h = document.createElement('h2'); h.textContent = d[0]; all.appendChild(h);
+  var s = document.createElement('div'); s.className = 'spec'; s.textContent = JSON.stringify(d[1]); all.appendChild(s);
+  var box = document.createElement('div'); box.className = 'demo'; all.appendChild(box);
+  if (!window.Widgets.render(box, d[1])) box.textContent = '⚠️ 這個元件畫不出來';
+});
+</script>
+</body>
+</html>

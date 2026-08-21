@@ -864,3 +864,10 @@ body.anim-lock { overflow: hidden; }
   font-size: 0.7rem; font-weight: 700; vertical-align: middle;
   color: #fff; background: var(--accent); border-radius: 999px;
 }
+.wg-read { margin-top: 0.6rem; line-height: 1.7; }
+.wg-read-main { font-size: 1.05rem; font-weight: 700; color: var(--accent); }
+.wg-read-sub { font-size: 0.85rem; color: var(--dim); margin-top: 0.25rem; line-height: 1.6; }
+.wg-range { width: 100%; max-width: 280px; accent-color: var(--accent); height: 2rem; }
+.wg-clocks { display: flex; align-items: center; justify-content: center; gap: 0.4rem; flex-wrap: wrap; }
+.wg-clocks .wg-svg-pie { max-width: 145px; }
+.wg-arrow { font-size: 1.3rem; color: var(--dim); }

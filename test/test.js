@@ -374,7 +374,8 @@ console.log('解析確認題');
   console.log('\n概念卡（單元教學層）');
   const LES = window.APP_LESSONS || {};
   const keys = Object.keys(LES);
-  const WIDGETS = ['fracbar', 'fraccircle', 'fraccompare'];   // 與 js/widgets.js 的 REG 同步
+  const WIDGETS = ['fracbar', 'fraccircle', 'fraccompare', 'placevalue', 'column',
+                   'array', 'grouping', 'angle', 'circleparts', 'clock', 'numberline'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');
