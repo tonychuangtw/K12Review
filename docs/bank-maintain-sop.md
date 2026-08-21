@@ -138,9 +138,22 @@
     check: { q: '換你試試的問題', options: [4 個], answer: 索引,
              why: ['選到第0個要說的話', null, '…', '…'] } }             // 正解那格放 null
   ```
-- 目前可用的 `viz.type`（定義在 `js/widgets.js`，spec 欄位看該檔開頭註解）：
-  `fracbar`（長條分數）、`fraccircle`（圓形分數）、`fraccompare`（兩分數比大小）。
+- 目前可用的 `viz.type` 有 **81 種**（定義在 `js/widgets.js`，每個元件上方的註解寫了它的 spec 欄位）。
+  ⛔ 不要憑記憶猜型別名稱：**開 `tools/widget-preview.html`**（`python3 -m http.server` 後瀏覽）
+  就能看到每一種元件長什麼樣、spec 怎麼寫，挑好再抄。
+  概略分類：分數與數（fracbar/fraccircle/fraccompare/placevalue/tenframe/numbond/counters/decimalgrid）、
+  計算（column/array/grouping/exprsteps/rounding/factors/primefac/algetile/crossmult/areamodel）、
+  幾何（angle/protractor/lines/triangle/quad/polygon/areagrid/areaformula/cuboid/netbox/symmetry/
+  circleparts/circlearea/cylinder/solid/pythagoras/triangleangles/cutangles/congruent/quaddiag/
+  tricenters/circleangles/circleline/similar/coordplane/linegraph/parabola/conic/space3d/lintrans）、
+  數列與極限（seq/limit）、統計機率（bargraph/linechart/piechart/dotplot/boxplot/spread/probtable/
+  normaldist/scatter/condprob/counting）、高中專用（logexp/trig/triglaw/unitcircle/trigwave/
+  vector/matrix/linprog/complexplane/deriv/curveplot/integralarea）、其他（clock/numberline/
+  compare/intchips/balance/ratiobar/ineqline/proportion）。
   **新元件要寫程式 → 交高階模型**；用既有元件寫概念卡 → 低階模型可做。
+- **換科目時**（例如開始寫自然科的 `js/data/lessons-science.js`）還要做三件事，
+  只寫資料檔不會生效：① `index.html` 加 script 標籤 ② `test/test.js` 頂端的
+  `for (const f of ['lessons-math'])` 陣列加進去 ③ 跑 `python3 tools/stamp-version.py`。
 
 ### 寫概念卡的硬規則
 
