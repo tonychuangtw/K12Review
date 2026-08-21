@@ -32,6 +32,7 @@
 - ⚠️ **新增成語／字音／字形題後必須同時寫「解析確認題」**到 `js/data/checks-{idioms,phonics,chars}.js`（`{q, o:[4], a}`，答案只能在該題自己的 deep 解析裡找得到），2026-08-17 起 `test/test.js` 要求 100% 覆蓋，漏寫會測試失敗
 - 注音規則：一聲不標調號、輕聲 ˙ 前置、詞注音字間空格；拼音含聲調符號
 - 字音以教育部《國語一字多音審訂表》審訂音為準
+- ⚠️ **改到 `js/` 或 `css/` 的內容，push 前一定要跑 `python3 tools/stamp-version.py`**（把 index.html 裡本站 js/css 的 `?v=` 換成今天），否則使用者手機會拿到快取的舊檔——GitHub Pages 回 `Cache-Control: max-age=600`，2026-08-21 Tony 回報「我看還是有鎖」就是這個原因（程式已改好、線上檔案也對，只是他手機拿到舊的 app.js）。同一天上第二次版就傳參數：`python3 tools/stamp-version.py 20260821b`
 - push 到 main 即自動上 Pages（2026-08-18 起走 GitHub Actions `.github/workflows/pages.yml`＋`.nojekyll`；舊的 legacy Jekyll builder 當天起每次都 duration=0 直接失敗，改成 Actions 後恢復。部署約 4-8 分鐘，用 `gh run list --repo tonychuangtw/K12Review` 查狀態）
 - 日期一律用 app.js 的 `fmtDate`（本地時區），不要用 `toISOString`（UTC 會差 8 小時）
 

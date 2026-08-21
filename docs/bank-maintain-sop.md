@@ -155,8 +155,10 @@
 ### 驗收
 
 1. `node test/test.js` 全綠（概念卡不影響題庫測試，但別把資料檔寫壞）
-2. `node test/browser-smoke.mjs` 的「概念卡（單元教學層）」段全過（**約 3 分鐘，不要用 120 秒 timeout 砍它**）
+2. `node test/browser-smoke.mjs` 的「概念卡（單元教學層）」段全過（**全套約 5 分鐘，不要用 120 秒 timeout 砍它**）
 3. 手動看一次：單元列表該單元有「教材」徽章、點進去是概念卡不是題目
+4. ⚠️ **動到 js/ 或 css/ 就要 `python3 tools/stamp-version.py` 再 commit**——
+   不換 `?v=` 版本戳，使用者手機會拿到快取的舊檔，看起來就像「改了沒效果」
 
 ## 4. 模型等級分工（Tony 2026-08-21 決策背景）
 
