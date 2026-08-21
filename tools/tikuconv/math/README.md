@@ -28,6 +28,7 @@
 | m11-add1 / m11-add2 / m11-add3.jsonl | 十一上加題（2026-08-21，補到每單元 24 題） | — |
 | m11b-add1 / m11b-add2 / m11b-add3.jsonl | 十一下加題（2026-08-21，補到每單元 24 題） | — |
 | m12-add1 / m12-add2 / m12-add3.jsonl | 十二上加題（2026-08-21，補到每單元 24 題） | — |
+| m12b-add1 / m12b-add2 / m12b-add3.jsonl | 十二下加題（2026-08-21，補到每單元 24 題） | — |
 
 重建：
 
@@ -102,7 +103,10 @@ node tools/tikuconv/build-bank.js math js/data/math.js $MF/header.txt --renumber
   $MF/m11b-add3.jsonl \
   $MF/m12-add1.jsonl \
   $MF/m12-add2.jsonl \
-  $MF/m12-add3.jsonl
+  $MF/m12-add3.jsonl \
+  $MF/m12b-add1.jsonl \
+  $MF/m12b-add2.jsonl \
+  $MF/m12b-add3.jsonl
 node test/test.js
 ```
 
