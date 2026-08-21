@@ -1359,6 +1359,263 @@
     paint();
   };
 
+  /* ── 圓周長與圓面積（circlearea）───────────────────────────────────────
+     圓面積公式的由來：把圓切成很多扇形，交錯排開會逼近一個長方形
+     （長 ＝ 半個圓周 ＝ πr、寬 ＝ r）→ 面積 ＝ πr²。
+     spec: { r, mode: 'circumference'|'area' }                            */
+  REG.circlearea = function (host, spec) {
+    var r = spec.r || 5;
+    var mode = spec.mode || 'area';
+    var stage = 0;                                     // area 模式的推導步驟
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      r = clamp(r, 1, 12);
+      var R = 60, cx = 160, cy = 80;
+      if (mode === 'circumference' || stage === 0) {
+        svg.appendChild(el('circle', { cx: cx, cy: cy, r: R },
+          'fill:color-mix(in srgb, var(--accent) 18%, transparent);stroke:var(--accent);stroke-width:3'));
+        svg.appendChild(el('line', { x1: cx, y1: cy, x2: cx + R, y2: cy }, 'stroke:var(--bad);stroke-width:2.5'));
+        svg.appendChild(txt(cx + R / 2, cy - 12, '半徑 ' + r, 'font-size:12px;fill:var(--bad)'));
+        svg.appendChild(el('circle', { cx: cx, cy: cy, r: 3 }, 'fill:var(--text)'));
+      } else if (stage === 1) {
+        // 切成 12 個扇形
+        for (var i = 0; i < 12; i++) {
+          var a0 = i * Math.PI / 6, a1 = a0 + Math.PI / 6;
+          svg.appendChild(el('path', { d: pieSlice(cx, cy, R, a0, a1) },
+            'fill:color-mix(in srgb, var(--accent) ' + (i % 2 ? 30 : 18) + '%, transparent);stroke:var(--accent);stroke-width:1.5'));
+        }
+      } else {
+        // 交錯排成近似長方形
+        var w = 22, n = 12;
+        for (var k = 0; k < n; k++) {
+          var up = k % 2 === 0;
+          var x = 40 + k * w;
+          svg.appendChild(el('path', {
+            d: up ? 'M' + x + ',120 L' + (x + w) + ',120 L' + (x + w / 2) + ',45 Z'
+                  : 'M' + x + ',45 L' + (x + w) + ',45 L' + (x + w / 2) + ',120 Z'
+          }, 'fill:color-mix(in srgb, var(--accent) ' + (up ? 30 : 18) + '%, transparent);stroke:var(--accent);stroke-width:1.2'));
+        }
+        svg.appendChild(el('line', { x1: 40, y1: 135, x2: 40 + n * w, y2: 135 },
+          'stroke:var(--bad);stroke-width:2'));
+        svg.appendChild(txt(160, 148, '長 ≈ 半個圓周 ＝ π × 半徑', 'font-size:11px;fill:var(--bad)'));
+        svg.appendChild(el('line', { x1: 30, y1: 45, x2: 30, y2: 120 }, 'stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(16, 82, '寬', 'font-size:11px;fill:var(--good)'));
+      }
+      var C = (2 * 3.14 * r).toFixed(2), A = (3.14 * r * r).toFixed(2);
+      read.innerHTML = '';
+      if (mode === 'circumference') {
+        read.appendChild(div('wg-read-main', '圓周長 ＝ 直徑 × π ＝ ' + (r * 2) + ' × 3.14 ＝ ' + C));
+        read.appendChild(div('wg-read-sub', '也可以寫成 2 × 半徑 × π。π（圓周率）約等於 3.14。'));
+      } else {
+        read.appendChild(div('wg-read-main', '圓面積 ＝ 半徑 × 半徑 × π ＝ ' + r + '×' + r + '×3.14 ＝ ' + A));
+        read.appendChild(div('wg-read-sub',
+          stage === 0 ? '按「下一步」看公式怎麼推出來的。'
+          : stage === 1 ? '把圓切成很多個小扇形…'
+          : '交錯排開就接近一個長方形：長 ＝ πr、寬 ＝ r → 面積 ＝ πr²'));
+      }
+    }
+    var ctrl = div('wg-ctrl');
+    if (mode === 'area') {
+      ctrl.appendChild(btn('下一步 ▶', function () { stage = clamp(stage + 1, 0, 2); paint(); }));
+      ctrl.appendChild(btn('重來', function () { stage = 0; paint(); }));
+    }
+    if (spec.edit !== false) {
+      var st = stepper('半徑', function () { return r; }, function (v) { r = v; }, 1, 12, function () { st.sync(); paint(); });
+      box.appendChild(st.el);
+    }
+    if (ctrl.childNodes.length) box.appendChild(ctrl);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 比與比值（ratiobar）──────────────────────────────────────────────
+     spec: { a, b, labelA, labelB, edit }                                  */
+  REG.ratiobar = function (host, spec) {
+    var a = spec.a || 3, b = spec.b || 4;
+    var la = spec.labelA || '甲', lb = spec.labelB || '乙';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 110', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      a = clamp(a, 1, 10); b = clamp(b, 1, 10);
+      var u = Math.min(26, 260 / Math.max(a, b));
+      [[a, 15, 'accent', la], [b, 60, 'good', lb]].forEach(function (row) {
+        for (var i = 0; i < row[0]; i++) {
+          svg.appendChild(el('rect', { x: 40 + i * u, y: row[1], width: u - 2, height: 32, rx: 3 },
+            'fill:var(--' + row[2] + ')'));
+        }
+        svg.appendChild(txt(22, row[1] + 16, row[3], 'font-size:13px;fill:var(--dim)'));
+      });
+      var g = (function (x, y) { while (y) { var t = x % y; x = y; y = t; } return x; })(a, b);
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', la + ' : ' + lb + ' ＝ ' + a + ' : ' + b +
+        (g > 1 ? '（最簡 ' + (a / g) + ' : ' + (b / g) + '）' : '')));
+      read.appendChild(div('wg-read-sub',
+        '比值 ＝ ' + a + ' ÷ ' + b + ' ＝ ' + (a / b).toFixed(2) + '　（比值是一個數，比是兩個量的關係）'));
+    }
+    if (spec.edit !== false) {
+      var sa = stepper(la, function () { return a; }, function (v) { a = v; }, 1, 10, function () { sa.sync(); paint(); });
+      var sb = stepper(lb, function () { return b; }, function (v) { b = v; }, 1, 10, function () { sb.sync(); paint(); });
+      box.appendChild(sa.el); box.appendChild(sb.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 圓形圖（piechart）────────────────────────────────────────────────
+     spec: { data: [{label, value}] }                                      */
+  REG.piechart = function (host, spec) {
+    var data = spec.data || [];
+    var total = data.reduce(function (s2, d) { return s2 + d.value; }, 0) || 1;
+    var COLORS = ['var(--accent)', 'var(--good)', 'var(--bad)', 'var(--dim)', 'var(--panel2)'];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    var cx = 100, cy = 90, R = 72, a = -Math.PI / 2;
+    data.forEach(function (d, i) {
+      var a2 = a + d.value / total * Math.PI * 2;
+      svg.appendChild(el('path', { d: pieSlice(cx, cy, R, a, a2) },
+        'fill:' + COLORS[i % COLORS.length] + ';stroke:var(--bg);stroke-width:2'));
+      a = a2;
+    });
+    data.forEach(function (d, i) {
+      var y = 30 + i * 24;
+      svg.appendChild(el('rect', { x: 200, y: y - 8, width: 14, height: 14, rx: 3 },
+        'fill:' + COLORS[i % COLORS.length]));
+      svg.appendChild(el('text', { x: 220, y: y + 4 }, 'font-size:12px;fill:var(--text)'))
+        .appendChild(document.createTextNode(
+          d.label + ' ' + Math.round(d.value / total * 100) + '%'));
+    });
+    box.appendChild(svg);
+    box.appendChild(div('wg-read-sub', '圓形圖看的是「各部分佔整體的比例」，全部加起來一定是 100%。'));
+    host.appendChild(box);
+  };
+
+  /* ── 資料點圖：平均數／中位數／眾數（dotplot）─────────────────────────
+     spec: { values: [..] }                                                */
+  REG.dotplot = function (host, spec) {
+    var vals = (spec.values || [2, 3, 3, 4, 8]).slice().sort(function (x, y) { return x - y; });
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 130', class: 'wg-svg' });
+    var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+    var span = Math.max(hi - lo, 1);
+    function X(v) { return 30 + (v - lo) / span * 260; }
+    svg.appendChild(el('line', { x1: 20, y1: 95, x2: 305, y2: 95 }, 'stroke:var(--text);stroke-width:2'));
+    var seen = {};
+    vals.forEach(function (v) {
+      seen[v] = (seen[v] || 0) + 1;
+      svg.appendChild(el('circle', { cx: X(v), cy: 88 - (seen[v] - 1) * 15, r: 6 }, 'fill:var(--accent)'));
+    });
+    [lo, hi].concat(vals).filter(function (v, i, arr) { return arr.indexOf(v) === i; }).forEach(function (v) {
+      svg.appendChild(txt(X(v), 110, String(v), 'font-size:11px;fill:var(--dim)'));
+    });
+    var sum = vals.reduce(function (s2, v) { return s2 + v; }, 0);
+    var mean = sum / vals.length;
+    var mid = vals.length % 2 ? vals[(vals.length - 1) / 2]
+                              : (vals[vals.length / 2 - 1] + vals[vals.length / 2]) / 2;
+    var best = null, bestN = 0;
+    Object.keys(seen).forEach(function (k) { if (seen[k] > bestN) { bestN = seen[k]; best = k; } });
+    svg.appendChild(el('line', { x1: X(mean), y1: 20, x2: X(mean), y2: 95 },
+      'stroke:var(--bad);stroke-width:2;stroke-dasharray:4 3'));
+    svg.appendChild(txt(X(mean), 14, '平均 ' + (+mean.toFixed(2)), 'font-size:11px;fill:var(--bad)'));
+    box.appendChild(svg);
+    box.appendChild(div('wg-read-main', '平均數 ' + (+mean.toFixed(2)) +
+      '　中位數 ' + mid + '　眾數 ' + best));
+    box.appendChild(div('wg-read-sub',
+      '平均數會被極端值拉走；中位數是排序後正中間的那個；眾數是出現最多次的。'));
+    host.appendChild(box);
+  };
+
+  /* ── 天平解方程式（balance）───────────────────────────────────────────
+     「兩邊同加同減」為什麼可以？因為天平要保持平衡。
+     spec: { a, b, c }  代表 ax + b = c                                    */
+  REG.balance = function (host, spec) {
+    var A = spec.a || 3, B = spec.b || 5, C = spec.c || 26;
+    var step = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    box.appendChild(svg);
+    var note = div('wg-note');
+    box.appendChild(note);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var left, right, lbl;
+      if (step === 0) { left = A + 'x ＋ ' + B; right = String(C); lbl = '天平兩邊一樣重。目標：讓左邊只剩 x。'; }
+      else if (step === 1) { left = A + 'x'; right = String(C - B); lbl = '兩邊同時拿掉 ' + B + '（同減），天平還是平的。'; }
+      else { left = 'x'; right = String((C - B) / A); lbl = '兩邊同時除以 ' + A + '（同除），得到 x ＝ ' + ((C - B) / A) + '。'; }
+      // 天平
+      svg.appendChild(el('line', { x1: 30, y1: 60, x2: 290, y2: 60 }, 'stroke:var(--text);stroke-width:4'));
+      svg.appendChild(el('path', { d: 'M160,60 L145,120 L175,120 Z' }, 'fill:var(--dim)'));
+      [[90, left, 'accent'], [230, right, 'good']].forEach(function (p) {
+        svg.appendChild(el('line', { x1: p[0], y1: 60, x2: p[0], y2: 80 }, 'stroke:var(--text);stroke-width:2'));
+        svg.appendChild(el('rect', { x: p[0] - 52, y: 80, width: 104, height: 34, rx: 8 },
+          'fill:color-mix(in srgb, var(--' + p[2] + ') 25%, transparent);stroke:var(--' + p[2] + ');stroke-width:2'));
+        svg.appendChild(txt(p[0], 97, p[1], 'font-size:17px;font-weight:700'));
+      });
+      note.textContent = lbl;
+      note.className = 'wg-note' + (step === 2 ? ' ok' : '');
+    }
+    var ctrl = div('wg-ctrl');
+    ctrl.appendChild(btn('下一步 ▶', function () { step = clamp(step + 1, 0, 2); paint(); }));
+    ctrl.appendChild(btn('重來', function () { step = 0; paint(); }));
+    box.appendChild(ctrl);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 圓柱（cylinder）──────────────────────────────────────────────────
+     spec: { r, h, mode:'volume'|'surface' }                               */
+  REG.cylinder = function (host, spec) {
+    var r = spec.r || 3, h = spec.h || 5;
+    var mode = spec.mode || 'volume';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      r = clamp(r, 1, 8); h = clamp(h, 1, 10);
+      var rx = 12 + r * 5, ry = rx * 0.34, H = 20 + h * 9;
+      var cx = mode === 'surface' ? 90 : 160, cy = 145 - H;
+      svg.appendChild(el('path', { d: 'M' + (cx - rx) + ',' + cy + ' L' + (cx - rx) + ',' + (cy + H) +
+        ' A' + rx + ',' + ry + ' 0 0,0 ' + (cx + rx) + ',' + (cy + H) + ' L' + (cx + rx) + ',' + cy + ' Z' },
+        'fill:color-mix(in srgb, var(--accent) 25%, transparent);stroke:var(--accent);stroke-width:2'));
+      svg.appendChild(el('ellipse', { cx: cx, cy: cy, rx: rx, ry: ry },
+        'fill:color-mix(in srgb, var(--accent) 45%, transparent);stroke:var(--accent);stroke-width:2'));
+      if (mode === 'surface') {                        // 側面展開成長方形
+        svg.appendChild(el('rect', { x: 175, y: cy, width: 120, height: H },
+          'fill:color-mix(in srgb, var(--good) 22%, transparent);stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(235, cy + H / 2, '側面攤平', 'font-size:12px;fill:var(--good)'));
+        svg.appendChild(txt(235, cy - 10, '長 ＝ 圓周長', 'font-size:11px;fill:var(--good)'));
+      }
+      var base = (3.14 * r * r).toFixed(2);
+      read.innerHTML = '';
+      if (mode === 'volume') {
+        read.appendChild(div('wg-read-main', '體積 ＝ 底面積 × 高 ＝ ' + base + ' × ' + h + ' ＝ ' + (base * h).toFixed(2)));
+        read.appendChild(div('wg-read-sub', '所有柱體都一樣：底面積 × 高。底面是什麼形狀都不影響這個規則。'));
+      } else {
+        var side = (2 * 3.14 * r * h).toFixed(2);
+        read.appendChild(div('wg-read-main', '表面積 ＝ 兩個底 ＋ 側面 ＝ ' + (base * 2).toFixed(2) + ' ＋ ' + side));
+        read.appendChild(div('wg-read-sub', '側面攤平是長方形：長＝底面圓周長、寬＝高。'));
+      }
+    }
+    if (spec.edit !== false) {
+      var sr = stepper('半徑', function () { return r; }, function (v) { r = v; }, 1, 8, function () { sr.sync(); paint(); });
+      var sh = stepper('高', function () { return h; }, function (v) { h = v; }, 1, 10, function () { sh.sync(); paint(); });
+      box.appendChild(sr.el); box.appendChild(sh.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },

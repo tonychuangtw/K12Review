@@ -378,7 +378,8 @@ console.log('解析確認題');
                    'array', 'grouping', 'angle', 'circleparts', 'clock', 'numberline',
                    'areagrid', 'decimalgrid', 'bargraph',
                    'protractor', 'lines', 'triangle', 'quad', 'exprsteps', 'rounding',
-                   'factors', 'polygon', 'areaformula', 'cuboid', 'symmetry', 'netbox'];  // 與 js/widgets.js 的 REG 同步
+                   'factors', 'polygon', 'areaformula', 'cuboid', 'symmetry', 'netbox',
+                   'circlearea', 'ratiobar', 'piechart', 'dotplot', 'balance', 'cylinder'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');
