@@ -2016,6 +2016,253 @@
     paint();
   };
 
+  /* ── 單位圓（unitcircle）──────────────────────────────────────────────
+     用單位圓定義三角函數：x 坐標就是 cos、y 坐標就是 sin，角度可以超過 90°。
+     spec: { deg, edit }                                                  */
+  REG.unitcircle = function (host, spec) {
+    var deg = spec.deg == null ? 30 : spec.deg;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 250', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var cx = 160, cy = 125, R = 92;
+    function fmtN(v) { v = +v.toFixed(3); return v < 0 ? '−' + (-v) : String(v); }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var t = deg * Math.PI / 180;
+      var px = cx + R * Math.cos(t), py = cy - R * Math.sin(t);
+      svg.appendChild(el('line', { x1: cx - 120, y1: cy, x2: cx + 120, y2: cy },
+        'stroke:var(--dim);stroke-width:1.5'));
+      svg.appendChild(el('line', { x1: cx, y1: cy - 118, x2: cx, y2: cy + 118 },
+        'stroke:var(--dim);stroke-width:1.5'));
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: R },
+        'fill:none;stroke:var(--text);stroke-width:2'));
+      svg.appendChild(el('path', { d: 'M' + (cx + 26) + ',' + cy + ' A 26 26 0 ' +
+        (deg > 180 ? 1 : 0) + ' 0 ' + (cx + 26 * Math.cos(t)) + ',' + (cy - 26 * Math.sin(t)) },
+        'fill:none;stroke:var(--bad);stroke-width:2'));
+      svg.appendChild(el('line', { x1: cx, y1: cy, x2: px, y2: py },
+        'stroke:var(--accent);stroke-width:2.5'));
+      svg.appendChild(el('line', { x1: px, y1: py, x2: px, y2: cy },
+        'stroke:var(--good);stroke-width:2;stroke-dasharray:4 3'));
+      svg.appendChild(el('line', { x1: px, y1: cy, x2: cx, y2: cy },
+        'stroke:var(--bad);stroke-width:2;stroke-dasharray:4 3'));
+      svg.appendChild(el('circle', { cx: px, cy: py, r: 5 }, 'fill:var(--accent)'));
+      svg.appendChild(txt(px + (px > cx ? 40 : -40), py - 14,
+        '(cos, sin)', 'font-size:11px;fill:var(--accent)'));
+      svg.appendChild(txt((px + cx) / 2, cy + 16, 'cos', 'font-size:11px;fill:var(--bad)'));
+      svg.appendChild(txt(px + (px > cx ? 20 : -20), (py + cy) / 2, 'sin',
+        'font-size:11px;fill:var(--good)'));
+      var rad = deg / 180;
+      var q = deg % 360;
+      var quad = q === 0 || q === 90 || q === 180 || q === 270 ? '軸上'
+        : q < 90 ? '第一象限' : q < 180 ? '第二象限' : q < 270 ? '第三象限' : '第四象限';
+      read.appendChild(div('wg-read-main',
+        deg + '° ＝ ' + (+rad.toFixed(3)) + 'π 弧度　cos ＝ ' + fmtN(Math.cos(t)) +
+        '　sin ＝ ' + fmtN(Math.sin(t))));
+      read.appendChild(div('wg-read-sub',
+        '單位圓（半徑 1）上的點，x 坐標就是 cos θ、y 坐標就是 sin θ。' +
+        '這樣定義的好處：角度可以超過 90°，甚至是負的。目前在' + quad +
+        '，所以 cos ' + (Math.cos(t) >= 0 ? '為正' : '為負') + '、sin ' +
+        (Math.sin(t) >= 0 ? '為正' : '為負') + '。' +
+        '弧度換算：180° ＝ π 弧度，所以「度 × π ÷ 180」就是弧度。'));
+    }
+    if (spec.edit !== false) {
+      var row = div('wg-ctrl');
+      [30, 90, 150, 210, 300].forEach(function (d) {
+        row.appendChild(btn(d + '°', function () { deg = d; paint(); }));
+      });
+      box.appendChild(row);
+      var r2 = div('wg-ctrl');
+      r2.appendChild(slider(0, 360, deg, 5, function (v) { deg = v; paint(); }));
+      box.appendChild(r2);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 三角函數的圖形（trigwave）────────────────────────────────────────
+     y = a·sin(bx) + c：a 管振幅、b 管週期、c 管上下平移。
+     spec: { a, b, c, fn:'sin'|'cos', edit }                              */
+  REG.trigwave = function (host, spec) {
+    var a = spec.a == null ? 1 : spec.a, b = spec.b == null ? 1 : spec.b;
+    var c = spec.c == null ? 0 : spec.c, fn = spec.fn || 'sin';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var L = 26, R = 306, MID = 100, AMP = 34;
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('line', { x1: L, y1: MID, x2: R, y2: MID },
+        'stroke:var(--dim);stroke-width:1.5'));
+      svg.appendChild(el('line', { x1: L, y1: 16, x2: L, y2: 184 },
+        'stroke:var(--dim);stroke-width:1.5'));
+      // 橫軸走兩個 2π
+      var span = 4 * Math.PI, pts = [], i, x, y;
+      for (i = 0; i <= 300; i++) {
+        x = span * i / 300;
+        y = a * (fn === 'cos' ? Math.cos(b * x) : Math.sin(b * x)) + c;
+        pts.push((L + (R - L) * i / 300).toFixed(1) + ',' + (MID - y * AMP).toFixed(1));
+      }
+      svg.appendChild(el('polyline', { points: pts.join(' ') },
+        'fill:none;stroke:var(--accent);stroke-width:3'));
+      if (c !== 0) {
+        svg.appendChild(el('line', { x1: L, y1: MID - c * AMP, x2: R, y2: MID - c * AMP },
+          'stroke:var(--good);stroke-width:1.5;stroke-dasharray:5 4'));
+        svg.appendChild(txt(R - 24, MID - c * AMP - 10, '中線 y ＝ ' + c,
+          'font-size:10px;fill:var(--good)'));
+      }
+      [1, 2, 3, 4].forEach(function (k) {
+        var xx = L + (R - L) * (k * Math.PI) / span;
+        svg.appendChild(txt(xx, MID + 14, k === 1 ? 'π' : k + 'π', 'font-size:10px;fill:var(--dim)'));
+      });
+      var period = 2 / Math.abs(b);
+      read.appendChild(div('wg-read-main',
+        'y ＝ ' + (a === 1 ? '' : a) + fn + '(' + (b === 1 ? '' : b) + 'x)' +
+        (c === 0 ? '' : c > 0 ? ' ＋ ' + c : ' − ' + (-c)) +
+        '　振幅 ' + Math.abs(a) + '　週期 ' + (period === 1 ? '' : +period.toFixed(2)) + 'π'));
+      read.appendChild(div('wg-read-sub',
+        '振幅 |a| ＝ 上下擺動的幅度（最大值 ' + (Math.abs(a) + c) + '、最小值 ' + (c - Math.abs(a)) +
+        '）；週期 ＝ 2π ÷ |b|，b 越大波越密；c 把整條線上下平移（中線變成 y ＝ ' + c + '）。' +
+        'sin 從中線出發、cos 從最高點出發，兩者相差 π/2 的平移。'));
+    }
+    if (spec.edit !== false) {
+      var sa = stepper('a 振幅', function () { return a; }, function (v) { a = v || 1; }, -3, 3,
+        function () { sa.sync(); paint(); });
+      var sb = stepper('b 週期', function () { return b; }, function (v) { b = v || 1; }, 1, 4,
+        function () { sb.sync(); paint(); });
+      var sc = stepper('c 平移', function () { return c; }, function (v) { c = v; }, -2, 2,
+        function () { sc.sync(); paint(); });
+      box.appendChild(sa.el); box.appendChild(sb.el); box.appendChild(sc.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 極限與無窮級數（limit）───────────────────────────────────────────
+     spec: { values:[..], limit, mode:'terms'|'sum', a1, r, n, label }    */
+  REG.limit = function (host, spec) {
+    var mode = spec.mode || 'terms';
+    var vals, lim, note;
+    if (mode === 'sum') {
+      var a1 = spec.a1 == null ? 4 : spec.a1, r = spec.r == null ? 0.5 : spec.r;
+      var n = spec.n == null ? 8 : spec.n, s = 0;
+      vals = [];
+      for (var i = 0; i < n; i++) { s += a1 * Math.pow(r, i); vals.push(s); }
+      lim = a1 / (1 - r);
+      note = '無窮等比級數：只要公比 |r| < 1，一直加下去會越來越靠近 a₁ ÷ (1 − r) ＝ ' +
+        a1 + ' ÷ (1 − ' + r + ') ＝ ' + (+lim.toFixed(3)) +
+        '。每次加的量越來越小，所以總和不會爆掉——這就是「收斂」。' +
+        '⚠ |r| ≥ 1 的話越加越大，沒有和（發散）。';
+    } else {
+      vals = spec.values || [2, 1.5, 1.33, 1.25, 1.2, 1.17, 1.14, 1.13];
+      lim = spec.limit == null ? 1 : spec.limit;
+      note = spec.note || '把 n 一直加大，數列的值會越來越靠近某一個數，那個數就是極限。' +
+        '越靠近但不一定真的等於它——重點是「要多近就能多近」。';
+    }
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 160', class: 'wg-svg' });
+    var lo = Math.min.apply(null, vals.concat([lim])) - 0.3;
+    var hi = Math.max.apply(null, vals.concat([lim])) + 0.3;
+    function X(i) { return 30 + (i + 0.5) * (276 / vals.length); }
+    function Y(v) { return 130 - (v - lo) / (hi - lo) * 100; }
+    svg.appendChild(el('line', { x1: 24, y1: 130, x2: 306, y2: 130 }, 'stroke:var(--text);stroke-width:2'));
+    svg.appendChild(el('line', { x1: 24, y1: 130, x2: 24, y2: 16 }, 'stroke:var(--text);stroke-width:2'));
+    svg.appendChild(el('line', { x1: 24, y1: Y(lim), x2: 306, y2: Y(lim) },
+      'stroke:var(--bad);stroke-width:2;stroke-dasharray:5 4'));
+    svg.appendChild(txt(276, Y(lim) - 10, '極限 ' + (+lim.toFixed(3)),
+      'font-size:11px;fill:var(--bad)'));
+    vals.forEach(function (v, i) {
+      svg.appendChild(el('circle', { cx: X(i), cy: Y(v), r: 4 }, 'fill:var(--accent)'));
+      if (i < 6) svg.appendChild(txt(X(i), Y(v) - 12, String(+v.toFixed(2)),
+        'font-size:9px;fill:var(--dim)'));
+      svg.appendChild(txt(X(i), 144, String(i + 1), 'font-size:9px;fill:var(--dim)'));
+    });
+    box.appendChild(svg);
+    box.appendChild(div('wg-read-main', mode === 'sum'
+      ? '部分和越來越靠近 ' + (+lim.toFixed(3))
+      : '數列越來越靠近 ' + (+lim.toFixed(3))));
+    box.appendChild(div('wg-read-sub', note));
+    host.appendChild(box);
+  };
+
+  /* ── 空間坐標與平面（space3d）─────────────────────────────────────────
+     spec: { point:[x,y,z], mode:'point'|'plane', normal:[a,b,c] }        */
+  REG.space3d = function (host, spec) {
+    var P = spec.point || [2, 3, 2];
+    var mode = spec.mode || 'point';
+    var N = spec.normal || [2, 3, -1];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 220', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var O = [120, 150], u = 26;
+    function co(v) { return Math.abs(v) === 1 ? (v < 0 ? '−' : '') : String(v); }   // 係數 1 不寫出來
+    // 等角投影：x 往左下、y 往右、z 往上
+    function pt(x, y, z) {
+      return [O[0] - x * u * 0.6 + y * u, O[1] + x * u * 0.34 - z * u];
+    }
+    function line(p, q, style) {
+      svg.appendChild(el('line', { x1: p[0], y1: p[1], x2: q[0], y2: q[1] }, style));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var AX = 'stroke:var(--dim);stroke-width:2';
+      line(pt(0, 0, 0), pt(4, 0, 0), AX); line(pt(0, 0, 0), pt(0, 5, 0), AX);
+      line(pt(0, 0, 0), pt(0, 0, 4), AX);
+      svg.appendChild(txt(pt(4.4, 0, 0)[0], pt(4.4, 0, 0)[1], 'x', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(pt(0, 5.4, 0)[0], pt(0, 5.4, 0)[1], 'y', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(pt(0, 0, 4.4)[0], pt(0, 0, 4.4)[1], 'z', 'font-size:11px;fill:var(--dim)'));
+      if (mode === 'plane') {
+        var quad = [pt(3, 0, 0), pt(0, 3, 0), pt(-1.4, 0, 2.4), pt(1.6, -3, 2.4)];
+        svg.appendChild(el('polygon', { points: quad.map(function (q) { return q.join(','); }).join(' ') },
+          'fill:color-mix(in srgb, var(--accent) 22%, transparent);stroke:var(--accent);stroke-width:2'));
+        var c0 = pt(0.8, 0, 1.2), c1 = pt(0.8 + N[0] * 0.5, N[1] * 0.5, 1.2 + N[2] * 0.5);
+        line(c0, c1, 'stroke:var(--bad);stroke-width:3');
+        svg.appendChild(el('circle', { cx: c1[0], cy: c1[1], r: 4 }, 'fill:var(--bad)'));
+        svg.appendChild(txt(c1[0] + 26, c1[1] - 8, '法向量', 'font-size:11px;fill:var(--bad)'));
+        read.appendChild(div('wg-read-main',
+          '平面 ' + co(N[0]) + 'x ＋ ' + co(N[1]) + 'y ' +
+          (N[2] < 0 ? '− ' + co(-N[2]) : '＋ ' + co(N[2])) +
+          'z ＋ d ＝ 0 的法向量 ＝ (' + N.join(', ') + ')'));
+        read.appendChild(div('wg-read-sub',
+          '平面方程式 ax ＋ by ＋ cz ＋ d ＝ 0 裡，x、y、z 的係數直接就是法向量（垂直於平面的方向）。' +
+          '兩平面平行 ⟺ 法向量平行；兩平面垂直 ⟺ 法向量互相垂直（內積 0）。' +
+          '點到平面的距離 ＝ |ax₀＋by₀＋cz₀＋d| ÷ √(a²＋b²＋c²)，和平面版的點到直線公式長得一樣。'));
+      } else {
+        line(pt(0, 0, 0), pt(P[0], P[1], 0), 'stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3');
+        line(pt(P[0], P[1], 0), pt(P[0], P[1], P[2]),
+          'stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3');
+        line(pt(0, 0, 0), pt(P[0], P[1], P[2]), 'stroke:var(--accent);stroke-width:2.5');
+        var q2 = pt(P[0], P[1], P[2]);
+        svg.appendChild(el('circle', { cx: q2[0], cy: q2[1], r: 5 }, 'fill:var(--accent)'));
+        svg.appendChild(txt(q2[0] + 34, q2[1] - 10, '(' + P.join(', ') + ')',
+          'font-size:11px;font-weight:700;fill:var(--accent)'));
+        var d = Math.sqrt(P[0] * P[0] + P[1] * P[1] + P[2] * P[2]);
+        read.appendChild(div('wg-read-main',
+          '到原點的距離 ＝ √(' + (P[0] * P[0]) + ' ＋ ' + (P[1] * P[1]) + ' ＋ ' + (P[2] * P[2]) +
+          ') ＝ ' + (+d.toFixed(3))));
+        read.appendChild(div('wg-read-sub',
+          '空間坐標 (x, y, z)：先在地面走 x 和 y，再往上走 z（虛線就是這條路徑）。' +
+          '距離公式只是平面版多加一項：√(x² ＋ y² ＋ z²)，一樣是畢氏定理用兩次。'));
+      }
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      row.appendChild(btn('空間中的點', function () { mode = 'point'; paint(); }));
+      row.appendChild(btn('平面與法向量', function () { mode = 'plane'; paint(); }));
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   /* ── 排列與組合（counting）────────────────────────────────────────────
      spec: { kind:'tree'|'perm'|'comb', groups:[{label,n}], n, r }        */
   REG.counting = function (host, spec) {

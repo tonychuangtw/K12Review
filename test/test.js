@@ -388,7 +388,8 @@ console.log('解析確認題');
                    'similar', 'circleangles', 'circleline', 'tricenters', 'parabola',
                    'solid', 'probtable', 'spread',
                    'logexp', 'trig', 'triglaw',
-                   'counting', 'vector', 'conic', 'matrix', 'linprog'];  // 與 js/widgets.js 的 REG 同步
+                   'counting', 'vector', 'conic', 'matrix', 'linprog',
+                   'unitcircle', 'trigwave', 'limit', 'space3d'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

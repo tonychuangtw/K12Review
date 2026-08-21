@@ -144,7 +144,12 @@ var DEMOS = [
   ['二次曲線（拋物線／橢圓／雙曲線）', { type: 'conic', kind: 'ellipse', a: 5, b: 4 }],
   ['矩陣乘法', { type: 'matrix', op: 'mul' }],
   ['行列式', { type: 'matrix', op: 'det', A: [[2, 1], [1, 1]] }],
-  ['線性規劃', { type: 'linprog', vertices: [[0, 0], [4, 0], [2, 2], [0, 3]], f: [2, 3] }]
+  ['線性規劃', { type: 'linprog', vertices: [[0, 0], [4, 0], [2, 2], [0, 3]], f: [2, 3] }],
+  ['單位圓（可拖角度）', { type: 'unitcircle', deg: 30 }],
+  ['三角函數圖形 y = a sin(bx) + c', { type: 'trigwave', a: 1, b: 1, c: 0 }],
+  ['數列的極限', { type: 'limit', values: [2, 1.5, 1.33, 1.25, 1.2, 1.17, 1.14, 1.13], limit: 1 }],
+  ['無窮等比級數的和', { type: 'limit', mode: 'sum', a1: 4, r: 0.5, n: 8 }],
+  ['空間坐標與平面法向量', { type: 'space3d', point: [2, 3, 2], mode: 'point' }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {
