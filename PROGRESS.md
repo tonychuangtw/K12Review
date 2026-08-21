@@ -23,7 +23,7 @@ PATHS: js/widgets.js（互動元件庫，64 種）、tools/widget-preview.html�
   js/data/lessons-math.js（概念卡資料）、
   js/app.js（conceptDeck/startConcept/renderConceptCard）、index.html 的 #view-concept、
   css/style.css 末段「概念卡」區、test/browser-smoke.mjs 第 10 段
-UPDATED: 2026-08-22 09:40 台北
+UPDATED: 2026-08-22 05:35 台北
 
 ## 已完工：全年級全科題庫（每單元 24 題）
 
