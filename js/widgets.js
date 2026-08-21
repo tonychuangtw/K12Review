@@ -2016,6 +2016,246 @@
     paint();
   };
 
+  /* ── 面積模型（areamodel）─────────────────────────────────────────────
+     乘法公式與配方法的「為什麼」：把式子畫成一塊一塊的面積就看得懂。
+     spec: { mode:'square'|'rect'|'complete', a, b, c, d, edit }
+       square   (a + b)² = a² + 2ab + b²
+       rect     (a + b)(c + d) = ac + ad + bc + bd
+       complete x² + bx 要補上 (b/2)² 才會變成完整的正方形                */
+  REG.areamodel = function (host, spec) {
+    var mode = spec.mode || 'square';
+    var a = spec.a == null ? 3 : spec.a, b = spec.b == null ? 2 : spec.b;
+    var c = spec.c == null ? 3 : spec.c, d = spec.d == null ? 4 : spec.d;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 230', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    // 格子太小就改用短標籤（只寫面積），不然字會凸出格子外
+    function cell(x, y, w, h, label, color, dashed, shortLabel) {
+      svg.appendChild(el('rect', { x: x, y: y, width: w, height: h, 'fill-opacity': '.18' },
+        'fill:var(--' + color + ');stroke:var(--' + color + ');stroke-width:2' +
+        (dashed ? ';stroke-dasharray:5 4' : '')));
+      var show = (shortLabel && w < label.length * 9 + 8) ? shortLabel : label;
+      svg.appendChild(txt(x + w / 2, y + h / 2, show,
+        'font-size:' + (w < 40 ? 11 : 13) + 'px;font-weight:700'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var X = 46, Y = 24, S = 168;                       // 整塊的左上角與邊長
+      if (mode === 'complete') {
+        var half = b / 2;
+        var w1 = S * 0.64, w2 = S * 0.36;
+        cell(X, Y, w1, w1, 'x²', 'accent');
+        cell(X + w1, Y, w2, w1, half + 'x', 'good');
+        cell(X, Y + w1, w1, w2, half + 'x', 'good');
+        cell(X + w1, Y + w1, w2, w2, half + '² ＝ ' + (half * half), 'bad', true,
+          String(half * half));
+        svg.appendChild(txt(X + w1 / 2, Y - 10, 'x', 'font-size:12px;fill:var(--dim)'));
+        svg.appendChild(txt(X + w1 + w2 / 2, Y - 10, String(half), 'font-size:12px;fill:var(--dim)'));
+        svg.appendChild(txt(X - 16, Y + w1 / 2, 'x', 'font-size:12px;fill:var(--dim)'));
+        svg.appendChild(txt(X - 16, Y + w1 + w2 / 2, String(half), 'font-size:12px;fill:var(--dim)'));
+        read.appendChild(div('wg-read-main',
+          'x² ＋ ' + b + 'x ＋ ' + (half * half) + ' ＝ (x ＋ ' + half + ')²'));
+        read.appendChild(div('wg-read-sub',
+          '把 ' + b + 'x 拆成兩條 ' + half + 'x 貼在正方形的兩邊，右下角就缺一塊 ' +
+          half + ' × ' + half + ' ＝ ' + (half * half) + '。補上它才湊成一個完整的正方形——' +
+          '這就是配方法「加上一次項係數一半的平方」的由來。'));
+      } else if (mode === 'rect') {
+        var r1 = S * (a / (a + b)), r2 = S - r1;
+        var c1 = S * (c / (c + d)), c2 = S - c1;
+        cell(X, Y, c1, r1, String(a * c), 'accent');
+        cell(X + c1, Y, c2, r1, String(a * d), 'good');
+        cell(X, Y + r1, c1, r2, String(b * c), 'good');
+        cell(X + c1, Y + r1, c2, r2, String(b * d), 'bad');
+        svg.appendChild(txt(X + c1 / 2, Y - 10, String(c), 'font-size:12px;fill:var(--dim)'));
+        svg.appendChild(txt(X + c1 + c2 / 2, Y - 10, String(d), 'font-size:12px;fill:var(--dim)'));
+        svg.appendChild(txt(X - 16, Y + r1 / 2, String(a), 'font-size:12px;fill:var(--dim)'));
+        svg.appendChild(txt(X - 16, Y + r1 + r2 / 2, String(b), 'font-size:12px;fill:var(--dim)'));
+        read.appendChild(div('wg-read-main',
+          '(' + a + ' ＋ ' + b + ')(' + c + ' ＋ ' + d + ') ＝ ' +
+          (a * c) + ' ＋ ' + (a * d) + ' ＋ ' + (b * c) + ' ＋ ' + (b * d) +
+          ' ＝ ' + ((a + b) * (c + d))));
+        read.appendChild(div('wg-read-sub',
+          '整塊長方形的面積，等於四小塊加起來。每一項都要乘到——漏掉一塊，面積就少一塊。'));
+      } else {
+        var s1 = S * (a / (a + b)), s2 = S - s1;
+        cell(X, Y, s1, s1, a + '² ＝ ' + (a * a), 'accent', false, String(a * a));
+        cell(X + s1, Y, s2, s1, String(a * b), 'good');
+        cell(X, Y + s1, s1, s2, String(a * b), 'good');
+        cell(X + s1, Y + s1, s2, s2, b + '² ＝ ' + (b * b), 'bad', false, String(b * b));
+        svg.appendChild(txt(X + s1 / 2, Y - 10, String(a), 'font-size:12px;fill:var(--dim)'));
+        svg.appendChild(txt(X + s1 + s2 / 2, Y - 10, String(b), 'font-size:12px;fill:var(--dim)'));
+        svg.appendChild(txt(X - 16, Y + s1 / 2, String(a), 'font-size:12px;fill:var(--dim)'));
+        svg.appendChild(txt(X - 16, Y + s1 + s2 / 2, String(b), 'font-size:12px;fill:var(--dim)'));
+        read.appendChild(div('wg-read-main',
+          '(' + a + ' ＋ ' + b + ')² ＝ ' + (a * a) + ' ＋ 2×' + (a * b) + ' ＋ ' + (b * b) +
+          ' ＝ ' + ((a + b) * (a + b))));
+        read.appendChild(div('wg-read-sub',
+          '中間有「兩塊」' + a + ' × ' + b + ' 的長方形，這就是公式裡 2ab 的來源。' +
+          '直接寫成 a² ＋ b²（' + (a * a + b * b) + '）會少掉這兩塊。'));
+      }
+    }
+    if (spec.edit !== false && mode !== 'complete') {
+      var sa = stepper('a', function () { return a; }, function (v) { a = v; }, 1, 8,
+        function () { sa.sync(); paint(); });
+      var sb = stepper('b', function () { return b; }, function (v) { b = v; }, 1, 8,
+        function () { sb.sync(); paint(); });
+      box.appendChild(sa.el); box.appendChild(sb.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 十字交乘（crossmult）─────────────────────────────────────────────
+     (a1x + b1)(a2x + b2)：直的相乘得二次項與常數項，交叉相乘相加得一次項。
+     spec: { a1, b1, a2, b2 }                                             */
+  REG.crossmult = function (host, spec) {
+    var a1 = spec.a1 == null ? 1 : spec.a1, b1 = spec.b1 == null ? 2 : spec.b1;
+    var a2 = spec.a2 == null ? 1 : spec.a2, b2 = spec.b2 == null ? 3 : spec.b2;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    // 負數一律用數學減號並加括號，免得畫面出現「3 ＋ -5」這種讀不順的式子
+    function num(v) { return v < 0 ? '−' + (-v) : String(v); }
+    function par(v) { return v < 0 ? '(−' + (-v) + ')' : String(v); }
+    var X1 = 70, X2 = 180, Y1 = 40, Y2 = 105;
+    svg.appendChild(el('line', { x1: X1 + 16, y1: Y1 + 10, x2: X2 - 16, y2: Y2 - 10 },
+      'stroke:var(--good);stroke-width:2'));
+    svg.appendChild(el('line', { x1: X2 - 16, y1: Y1 + 10, x2: X1 + 16, y2: Y2 - 10 },
+      'stroke:var(--good);stroke-width:2'));
+    svg.appendChild(txt(X1, Y1, num(a1), 'font-size:17px;font-weight:700;fill:var(--accent)'));
+    svg.appendChild(txt(X2, Y1, num(b1), 'font-size:17px;font-weight:700;fill:var(--accent)'));
+    svg.appendChild(txt(X1, Y2, num(a2), 'font-size:17px;font-weight:700;fill:var(--accent)'));
+    svg.appendChild(txt(X2, Y2, num(b2), 'font-size:17px;font-weight:700;fill:var(--accent)'));
+    svg.appendChild(txt(X1, 16, '　x 的係數', 'font-size:11px;fill:var(--dim)'));
+    svg.appendChild(txt(X2, 16, '常數項', 'font-size:11px;fill:var(--dim)'));
+    svg.appendChild(txt(262, Y1, '→ ' + num(a1 * b2), 'font-size:13px;fill:var(--good)'));
+    svg.appendChild(txt(262, Y2, '→ ' + num(a2 * b1), 'font-size:13px;fill:var(--good)'));
+    svg.appendChild(txt(262, 138, '和 ＝ ' + num(a1 * b2 + a2 * b1),
+      'font-size:13px;font-weight:700;fill:var(--good)'));
+    box.appendChild(svg);
+    function term(k, s) {
+      if (k === 0) return '';
+      return (k > 0 ? ' ＋ ' : ' − ') + (Math.abs(k) === 1 && s ? '' : Math.abs(k)) + s;
+    }
+    var A = a1 * a2, B = a1 * b2 + a2 * b1, C = b1 * b2;
+    box.appendChild(div('wg-read-main',
+      (A === 1 ? 'x²' : A + 'x²') + term(B, 'x') + term(C, '') + ' ＝ (' +
+      (a1 === 1 ? '' : a1) + 'x' + term(b1, '') + ')(' + (a2 === 1 ? '' : a2) + 'x' + term(b2, '') + ')'));
+    box.appendChild(div('wg-read-sub',
+      '左邊兩個直的相乘 ' + par(a1) + ' × ' + par(a2) + ' ＝ ' + num(A) + '（二次項係數）；' +
+      '右邊兩個直的相乘 ' + par(b1) + ' × ' + par(b2) + ' ＝ ' + num(C) + '（常數項）；' +
+      '交叉相乘再相加 ' + par(a1 * b2) + ' ＋ ' + par(a2 * b1) + ' ＝ ' + num(B) +
+      '（一次項係數）。三個都對上才算分解成功。'));
+    host.appendChild(box);
+  };
+
+  /* ── 畢氏定理（pythagoras）────────────────────────────────────────────
+     兩股上的正方形面積加起來，剛好等於斜邊上正方形的面積。
+     spec: { a, b, edit }                                                 */
+  REG.pythagoras = function (host, spec) {
+    var a = spec.a == null ? 3 : spec.a, b = spec.b == null ? 4 : spec.b;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 240', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var c2 = a * a + b * b, c = Math.sqrt(c2);
+      var u = 96 / Math.max(a, b);                        // 每一單位長多少像素
+      var A = 138, B = 150;                               // 直角頂點
+      var P = { x: A, y: B - a * u };                     // 上端點（垂直股 a）
+      var Q = { x: A + b * u, y: B };                     // 右端點（水平股 b）
+      // 兩股上的正方形
+      svg.appendChild(el('rect', { x: A - a * u, y: B - a * u, width: a * u, height: a * u,
+        'fill-opacity': '.18' }, 'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+      // 正方形太小就把面積標到外面，不然字會凸出方塊外被切掉
+      svg.appendChild(txt(A - a * u / 2, a * u < 62 ? B - a * u - 10 : B - a * u / 2,
+        a + '² ＝ ' + (a * a), 'font-size:12px;font-weight:700'));
+      svg.appendChild(el('rect', { x: A, y: B, width: b * u, height: b * u, 'fill-opacity': '.18' },
+        'fill:var(--good);stroke:var(--good);stroke-width:2'));
+      svg.appendChild(txt(A + b * u / 2, b * u < 62 ? B + b * u + 12 : B + b * u / 2,
+        b + '² ＝ ' + (b * b), 'font-size:12px;font-weight:700'));
+      // 三角形本體
+      svg.appendChild(el('polygon', { points: A + ',' + B + ' ' + P.x + ',' + P.y + ' ' + Q.x + ',' + Q.y },
+        'fill:var(--panel2);stroke:var(--text);stroke-width:2'));
+      svg.appendChild(el('rect', { x: A, y: B - 12, width: 12, height: 12 },
+        'fill:none;stroke:var(--dim);stroke-width:1.5'));      // 直角記號
+      // 股長標在三角形內側（標外面會壓到兩個正方形）
+      svg.appendChild(txt(A + 14, B - a * u / 2, String(a), 'font-size:12px;fill:var(--dim)'));
+      svg.appendChild(txt(A + b * u / 2, B - 12, String(b), 'font-size:12px;fill:var(--dim)'));
+      svg.appendChild(txt((P.x + Q.x) / 2 + 16, (P.y + Q.y) / 2 - 10,
+        'c ＝ ' + (+c.toFixed(3)), 'font-size:13px;font-weight:700;fill:var(--bad)'));
+      read.appendChild(div('wg-read-main',
+        a + '² ＋ ' + b + '² ＝ ' + (a * a) + ' ＋ ' + (b * b) + ' ＝ ' + c2 +
+        '　→　c ＝ √' + c2 + ' ＝ ' + (+c.toFixed(3))));
+      read.appendChild(div('wg-read-sub',
+        '藍色和綠色兩個正方形的面積加起來，剛好等於斜邊上正方形的面積。' +
+        '⚠ 斜邊是 c 不是 c²，最後別忘了開根號' +
+        (Number.isInteger(c) ? '。這組剛好是整數，叫做畢氏三元數。' : '。這組開出來不是整數，保留根號比較準。')));
+    }
+    if (spec.edit !== false) {
+      var sa = stepper('股 a', function () { return a; }, function (v) { a = v; }, 1, 12,
+        function () { sa.sync(); paint(); });
+      var sb = stepper('股 b', function () { return b; }, function (v) { b = v; }, 1, 12,
+        function () { sb.sync(); paint(); });
+      box.appendChild(sa.el); box.appendChild(sb.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 盒狀圖（boxplot）─────────────────────────────────────────────────
+     五數綜合：最小值、Q1、中位數、Q3、最大值；盒子的長度就是四分位距。
+     spec: { values: [..] }                                               */
+  REG.boxplot = function (host, spec) {
+    var v = (spec.values || [12, 15, 18, 22, 25, 28, 35]).slice()
+      .sort(function (x, y) { return x - y; });
+    function med(arr) {
+      var n = arr.length;
+      return n % 2 ? arr[(n - 1) / 2] : (arr[n / 2 - 1] + arr[n / 2]) / 2;
+    }
+    var n = v.length, half = Math.floor(n / 2);
+    var q1 = med(v.slice(0, half));                     // 奇數筆時不含中位數本身
+    var q2 = med(v);
+    var q3 = med(v.slice(n - half));
+    var lo = v[0], hi = v[n - 1], span = Math.max(hi - lo, 1);
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 140', class: 'wg-svg' });
+    function X(t) { return 24 + (t - lo) / span * 272; }
+    var Y = 58, H = 44;
+    svg.appendChild(el('line', { x1: X(lo), y1: Y + H / 2, x2: X(q1), y2: Y + H / 2 },
+      'stroke:var(--text);stroke-width:2'));                                   // 左鬚
+    svg.appendChild(el('line', { x1: X(q3), y1: Y + H / 2, x2: X(hi), y2: Y + H / 2 },
+      'stroke:var(--text);stroke-width:2'));                                   // 右鬚
+    [lo, hi].forEach(function (t) {
+      svg.appendChild(el('line', { x1: X(t), y1: Y + 8, x2: X(t), y2: Y + H - 8 },
+        'stroke:var(--text);stroke-width:2'));
+    });
+    svg.appendChild(el('rect', { x: X(q1), y: Y, width: Math.max(X(q3) - X(q1), 2), height: H, rx: 4,
+      'fill-opacity': '.2' }, 'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+    svg.appendChild(el('line', { x1: X(q2), y1: Y, x2: X(q2), y2: Y + H },
+      'stroke:var(--bad);stroke-width:3'));
+    [[lo, '最小'], [q1, 'Q1'], [q2, '中位數'], [q3, 'Q3'], [hi, '最大']].forEach(function (m, i) {
+      svg.appendChild(txt(X(m[0]), i % 2 ? 26 : 40, m[1] + ' ' + m[0],
+        'font-size:11px;fill:var(--dim)'));
+    });
+    svg.appendChild(el('line', { x1: X(q1), y1: Y + H + 14, x2: X(q3), y2: Y + H + 14 },
+      'stroke:var(--good);stroke-width:2'));
+    svg.appendChild(txt((X(q1) + X(q3)) / 2, Y + H + 28, 'IQR ＝ ' + (q3 - q1),
+      'font-size:12px;font-weight:700;fill:var(--good)'));
+    box.appendChild(svg);
+    box.appendChild(div('wg-read-main',
+      '最小 ' + lo + '　Q1 ' + q1 + '　中位數 ' + q2 + '　Q3 ' + q3 + '　最大 ' + hi));
+    box.appendChild(div('wg-read-sub',
+      '盒子裝的是「中間那一半」的資料（從 Q1 到 Q3），盒子越短代表中間這半群人越集中。' +
+      '兩邊的鬚延伸到最小值與最大值，看得出資料整體散得多開。'));
+    host.appendChild(box);
+  };
+
   /* ── 折線圖（linechart）───────────────────────────────────────────────
      和 bargraph 用同一組資料就看得出差別：長條比多少、折線看「怎麼變」。
      spec: { data:[{label,value}], unit, zero:false }                      */

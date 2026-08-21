@@ -102,7 +102,14 @@ var DEMOS = [
       { label: '四', value: 28 }, { label: '五', value: 26 }] }],
   ['折線圖（縱軸不從 0 開始）', { type: 'linechart', zero: false, unit: '℃', data: [
       { label: '一', value: 22 }, { label: '二', value: 25 }, { label: '三', value: 24 },
-      { label: '四', value: 28 }, { label: '五', value: 26 }] }]
+      { label: '四', value: 28 }, { label: '五', value: 26 }] }],
+  ['面積模型 (a+b)²', { type: 'areamodel', mode: 'square', a: 3, b: 2 }],
+  ['面積模型 (a+b)(c+d)', { type: 'areamodel', mode: 'rect', a: 1, b: 2, c: 1, d: 3 }],
+  ['面積模型（配方法補角落）', { type: 'areamodel', mode: 'complete', b: 6 }],
+  ['十字交乘', { type: 'crossmult', a1: 1, b1: 2, a2: 1, b2: 3 }],
+  ['十字交乘（二次項係數不是 1）', { type: 'crossmult', a1: 2, b1: 3, a2: 1, b2: 1 }],
+  ['畢氏定理', { type: 'pythagoras', a: 3, b: 4 }],
+  ['盒狀圖', { type: 'boxplot', values: [12, 15, 18, 22, 25, 28, 35] }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {
