@@ -871,3 +871,4 @@ body.anim-lock { overflow: hidden; }
 .wg-clocks { display: flex; align-items: center; justify-content: center; gap: 0.4rem; flex-wrap: wrap; }
 .wg-clocks .wg-svg-pie { max-width: 145px; }
 .wg-arrow { font-size: 1.3rem; color: var(--dim); }
+.wg-expr { font-size: 1.35rem; font-weight: 700; letter-spacing: .02em; margin: .8rem 0 .2rem; line-height: 1.7; }

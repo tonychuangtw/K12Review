@@ -267,7 +267,7 @@
     var max = spec.max || 9999;
     var digits = String(max).length;                  // 3 位或 4 位
     var val = clamp(spec.value == null ? 0 : spec.value, 0, max);
-    var NAMES = ['個', '十', '百', '千', '萬'];
+    var NAMES = ['個', '十', '百', '千', '萬', '十萬', '百萬', '千萬', '億'];
     var box = div('wg');
     var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
     box.appendChild(svg);
@@ -296,7 +296,8 @@
             { x: 10 + colW * i + 11, y: 104 - (k + 1) * (bh + 2), width: bw, height: bh, rx: 2 },
             'fill:var(--accent)'));
         }
-        svg.appendChild(txt(cx, 122, NAMES[idx], 'fill:var(--dim);font-size:13px'));
+        svg.appendChild(txt(cx, 122, NAMES[idx] || '',
+          'fill:var(--dim);font-size:' + ((NAMES[idx] || '').length > 1 ? 10 : 13) + 'px'));
         svg.appendChild(txt(cx, 140, String(d), 'font-weight:700;font-size:18px'));
       }
       read.textContent = val.toLocaleString('en-US') + '　讀作：' + zhNum(val);
@@ -824,6 +825,247 @@
         '，相差 ' + (top[0].value - top[top.length - 1].value) + unit + '。'));
     }
     host.appendChild(box);
+  };
+
+  /* ── 量角器（protractor）──────────────────────────────────────────────
+     角度的「測量」和角度的「分類」是兩件事：這個元件重點在刻度怎麼讀。
+     spec: { deg, edit }                                                   */
+  REG.protractor = function (host, spec) {
+    var deg = spec.deg == null ? 60 : spec.deg;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var cx = 160, cy = 155, R = 120;
+      // 半圓量角器
+      svg.appendChild(el('path', { d: 'M' + (cx - R) + ',' + cy + ' A' + R + ',' + R + ' 0 0,1 ' + (cx + R) + ',' + cy + ' Z' },
+        'fill:color-mix(in srgb, var(--panel2) 80%, transparent);stroke:var(--border);stroke-width:2'));
+      for (var d = 0; d <= 180; d += 10) {
+        var a = (180 - d) * Math.PI / 180;
+        var big = d % 30 === 0;
+        svg.appendChild(el('line', {
+          x1: cx + (R - (big ? 14 : 7)) * Math.cos(a), y1: cy - (R - (big ? 14 : 7)) * Math.sin(a),
+          x2: cx + R * Math.cos(a), y2: cy - R * Math.sin(a)
+        }, 'stroke:var(--dim);stroke-width:1'));
+        if (big) svg.appendChild(txt(cx + (R - 26) * Math.cos(a), cy - (R - 26) * Math.sin(a),
+          String(d), 'font-size:10px;fill:var(--dim)'));
+      }
+      // 被量的角：一邊貼齊底線（0 度），另一邊轉到 deg
+      svg.appendChild(el('line', { x1: cx, y1: cy, x2: cx + R, y2: cy }, 'stroke:var(--text);stroke-width:3'));
+      var a2 = (180 - (180 - deg)) * Math.PI / 180;
+      svg.appendChild(el('line', { x1: cx, y1: cy, x2: cx + R * Math.cos(a2), y2: cy - R * Math.sin(a2) },
+        'stroke:var(--accent);stroke-width:3'));
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: 4 }, 'fill:var(--bad)'));
+      svg.appendChild(txt(cx, cy + 20, '中心點對準頂點', 'font-size:11px;fill:var(--bad)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', '這個角是 ' + deg + '°'));
+      read.appendChild(div('wg-read-sub', '量角器中心對準頂點、其中一邊對準 0，再讀另一邊指到的刻度。'));
+    }
+    if (spec.edit !== false) {
+      var row = div('wg-ctrl');
+      row.appendChild(slider(0, 180, deg, 5, function (v) { deg = v; paint(); }));
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 兩直線的關係（lines）─────────────────────────────────────────────
+     spec: { kind: 'perpendicular'|'parallel'|'intersect', pick }          */
+  REG.lines = function (host, spec) {
+    var KINDS = [
+      ['perpendicular', '垂直', '相交成 90°，用小方框標記'],
+      ['parallel', '平行', '永遠不會相交，距離處處相等'],
+      ['intersect', '相交（不垂直）', '交於一點，但夾角不是 90°']
+    ];
+    var kind = spec.kind || 'perpendicular';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var st = 'stroke:var(--accent);stroke-width:3';
+      if (kind === 'parallel') {
+        svg.appendChild(el('line', { x1: 30, y1: 50, x2: 290, y2: 50 }, st));
+        svg.appendChild(el('line', { x1: 30, y1: 105, x2: 290, y2: 105 }, st));
+        [70, 160, 250].forEach(function (x) {
+          svg.appendChild(el('line', { x1: x, y1: 50, x2: x, y2: 105 },
+            'stroke:var(--dim);stroke-width:1;stroke-dasharray:3 3'));
+          svg.appendChild(txt(x + 14, 78, '同寬', 'font-size:10px;fill:var(--dim)'));
+        });
+      } else if (kind === 'perpendicular') {
+        svg.appendChild(el('line', { x1: 30, y1: 100, x2: 290, y2: 100 }, st));
+        svg.appendChild(el('line', { x1: 160, y1: 20, x2: 160, y2: 140 }, st));
+        svg.appendChild(el('path', { d: 'M160,78 L182,78 L182,100' },
+          'fill:none;stroke:var(--bad);stroke-width:2'));
+        svg.appendChild(txt(196, 88, '90°', 'font-size:13px;fill:var(--bad);font-weight:700'));
+      } else {
+        svg.appendChild(el('line', { x1: 30, y1: 110, x2: 290, y2: 110 }, st));
+        svg.appendChild(el('line', { x1: 70, y1: 20, x2: 250, y2: 140 }, st));
+        svg.appendChild(txt(196, 96, '不是 90°', 'font-size:12px;fill:var(--dim)'));
+      }
+      var k = KINDS.filter(function (x) { return x[0] === kind; })[0];
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', k[1]));
+      read.appendChild(div('wg-read-sub', k[2]));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      KINDS.forEach(function (k) {
+        row.appendChild(btn(k[1], function () { kind = k[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 三角形分類（triangle）────────────────────────────────────────────
+     spec: { kind, pick }   kind: equilateral|isosceles|scalene|right|obtuse */
+  REG.triangle = function (host, spec) {
+    var T = {
+      equilateral: { pts: [[160, 30], [90, 130], [230, 130]], name: '正三角形（等邊三角形）', desc: '三邊都一樣長，三個角也都是 60°' },
+      isosceles: { pts: [[160, 25], [105, 130], [215, 130]], name: '等腰三角形', desc: '有兩邊一樣長，兩個底角也相等' },
+      scalene: { pts: [[120, 30], [70, 130], [240, 130]], name: '不等邊三角形', desc: '三邊都不一樣長' },
+      right: { pts: [[80, 30], [80, 130], [230, 130]], name: '直角三角形', desc: '有一個角是 90°（用小方框標記）' },
+      obtuse: { pts: [[110, 40], [60, 130], [260, 130]], name: '鈍角三角形', desc: '有一個角比 90° 大' }
+    };
+    var kind = spec.kind || 'equilateral';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 160', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var t = T[kind];
+      svg.appendChild(el('polygon', { points: t.pts.map(function (p) { return p.join(','); }).join(' ') },
+        'fill:color-mix(in srgb, var(--accent) 25%, transparent);stroke:var(--accent);stroke-width:3'));
+      if (kind === 'right') {
+        svg.appendChild(el('path', { d: 'M80,112 L98,112 L98,130' }, 'fill:none;stroke:var(--bad);stroke-width:2'));
+      }
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', t.name));
+      read.appendChild(div('wg-read-sub', t.desc + '　（任何三角形的三個角加起來都是 180°）'));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['equilateral', '正三角形'], ['isosceles', '等腰'], ['scalene', '不等邊'],
+       ['right', '直角'], ['obtuse', '鈍角']].forEach(function (k) {
+        row.appendChild(btn(k[1], function () { kind = k[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 四邊形分類（quad）───────────────────────────────────────────────
+     spec: { kind, pick }   kind: square|rect|parallelogram|trapezoid|rhombus */
+  REG.quad = function (host, spec) {
+    var Q = {
+      square: { pts: [[110, 30], [210, 30], [210, 130], [110, 130]], name: '正方形', desc: '四邊等長、四個角都是直角' },
+      rect: { pts: [[70, 45], [250, 45], [250, 125], [70, 125]], name: '長方形', desc: '對邊等長、四個角都是直角' },
+      parallelogram: { pts: [[100, 40], [260, 40], [220, 130], [60, 130]], name: '平行四邊形', desc: '兩組對邊分別平行且等長，但角不一定是直角' },
+      trapezoid: { pts: [[120, 40], [220, 40], [265, 130], [55, 130]], name: '梯形', desc: '只有一組對邊平行' },
+      rhombus: { pts: [[160, 30], [235, 80], [160, 130], [85, 80]], name: '菱形', desc: '四邊等長，但角不一定是直角' }
+    };
+    var kind = spec.kind || 'square';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 155', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var q = Q[kind];
+      svg.appendChild(el('polygon', { points: q.pts.map(function (p) { return p.join(','); }).join(' ') },
+        'fill:color-mix(in srgb, var(--good) 22%, transparent);stroke:var(--good);stroke-width:3'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', q.name));
+      read.appendChild(div('wg-read-sub', q.desc));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['square', '正方形'], ['rect', '長方形'], ['parallelogram', '平行四邊形'],
+       ['trapezoid', '梯形'], ['rhombus', '菱形']].forEach(function (k) {
+        row.appendChild(btn(k[1], function () { kind = k[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 四則運算順序（exprsteps）─────────────────────────────────────────
+     一步一步標出「這一步先算哪裡」，先乘除後加減、有括號先算括號。
+     spec: { steps: [{ expr, hint }] }   最後一步就是答案                   */
+  REG.exprsteps = function (host, spec) {
+    var steps = spec.steps || [];
+    var i = 0;
+    var box = div('wg');
+    var line = div('wg-expr');
+    var note = div('wg-note');
+    box.appendChild(line); box.appendChild(note);
+    function paint() {
+      line.textContent = steps[i] ? steps[i].expr : '';
+      note.textContent = steps[i] ? steps[i].hint : '';
+      note.className = 'wg-note' + (i === steps.length - 1 ? ' ok' : '');
+    }
+    var ctrl = div('wg-ctrl');
+    ctrl.appendChild(btn('下一步 ▶', function () { i = clamp(i + 1, 0, steps.length - 1); paint(); }));
+    ctrl.appendChild(btn('重來', function () { i = 0; paint(); }));
+    box.appendChild(ctrl);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 四捨五入（rounding）──────────────────────────────────────────────
+     在數線上看「離哪一個整十／整百比較近」，比背口訣好懂。
+     spec: { value, unit }   unit = 10 | 100 | 1000                        */
+  REG.rounding = function (host, spec) {
+    var v = spec.value == null ? 368 : spec.value;
+    var unit = spec.unit || 100;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 110', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var lo = Math.floor(v / unit) * unit, hi = lo + unit, mid = lo + unit / 2;
+      function X(x) { return 30 + (x - lo) / unit * 260; }
+      svg.appendChild(el('line', { x1: 20, y1: 60, x2: 300, y2: 60 }, 'stroke:var(--text);stroke-width:2'));
+      [[lo, String(lo)], [mid, String(mid)], [hi, String(hi)]].forEach(function (m, k) {
+        svg.appendChild(el('line', { x1: X(m[0]), y1: 52, x2: X(m[0]), y2: 68 },
+          'stroke:var(--' + (k === 1 ? 'dim' : 'text') + ');stroke-width:2'));
+        svg.appendChild(txt(X(m[0]), 82, m[1], 'font-size:12px;fill:var(--dim)'));
+      });
+      svg.appendChild(txt(X(mid), 34, '中間點', 'font-size:11px;fill:var(--dim)'));
+      var near = (v - lo) >= unit / 2 ? hi : lo;
+      svg.appendChild(el('circle', { cx: X(v), cy: 60, r: 7 }, 'fill:var(--accent)'));
+      svg.appendChild(txt(X(v), 22, String(v), 'font-size:14px;fill:var(--accent);font-weight:700'));
+      svg.appendChild(el('line', { x1: X(v), y1: 60, x2: X(near), y2: 60 },
+        'stroke:var(--good);stroke-width:5;stroke-linecap:round'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', v + ' 四捨五入到最接近的 ' + unit + ' ＝ ' + near));
+      read.appendChild(div('wg-read-sub', (v - lo) >= unit / 2
+        ? '過了中間點（' + mid + '），所以進到 ' + hi + '（五入）'
+        : '還沒到中間點（' + mid + '），所以退回 ' + lo + '（四捨）'));
+    }
+    if (spec.edit !== false) {
+      var lo0 = Math.floor(v / unit) * unit;
+      var row = div('wg-ctrl');
+      row.appendChild(slider(lo0, lo0 + unit, v, Math.max(1, unit / 100), function (x) { v = x; paint(); }));
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
   };
 
   window.Widgets = {

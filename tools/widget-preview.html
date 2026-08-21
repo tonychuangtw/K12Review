@@ -49,7 +49,16 @@ var DEMOS = [
   ['小數方格（百等分）', { type: 'decimalgrid', cells: 100, filled: 25 }],
   ['長條圖', { type: 'bargraph', unit: '人', data: [
       { label: '搭車', value: 12 }, { label: '走路', value: 8 },
-      { label: '腳踏車', value: 5 }, { label: '家長載', value: 15 }] }]
+      { label: '腳踏車', value: 5 }, { label: '家長載', value: 15 }] }],
+  ['量角器', { type: 'protractor', deg: 60 }],
+  ['兩直線的關係', { type: 'lines', kind: 'perpendicular' }],
+  ['三角形分類', { type: 'triangle', kind: 'equilateral' }],
+  ['四邊形分類', { type: 'quad', kind: 'parallelogram' }],
+  ['四則運算順序', { type: 'exprsteps', steps: [
+      { expr: '12 + 8 × 3', hint: '有乘法也有加法：先算乘法那一段。' },
+      { expr: '12 + 24', hint: '8 × 3 = 24，換進來。' },
+      { expr: '= 36', hint: '最後才算加法，答案是 36。' }] }],
+  ['四捨五入', { type: 'rounding', value: 368, unit: 100 }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {
