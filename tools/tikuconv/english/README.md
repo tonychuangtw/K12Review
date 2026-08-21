@@ -42,7 +42,8 @@ node tools/tikuconv/build-bank.js english js/data/english.js $EF/header.txt --re
   $EF/e10b-add1.jsonl $EF/e10b-add2.jsonl $EF/e10b-add3.jsonl \
   $EF/e11-add1.jsonl $EF/e11-add2.jsonl $EF/e11-add3.jsonl \
   $EF/e11b-add1.jsonl $EF/e11b-add2.jsonl $EF/e11b-add3.jsonl \
-  $EF/e12-add1.jsonl $EF/e12-add2.jsonl $EF/e12-add3.jsonl
+  $EF/e12-add1.jsonl $EF/e12-add2.jsonl $EF/e12-add3.jsonl \
+  $EF/e12b-add1.jsonl $EF/e12b-add2.jsonl $EF/e12b-add3.jsonl
 node test/test.js
 ```
 
@@ -76,4 +77,5 @@ node test/test.js
 | e11-add1〜add3.jsonl | 十一上加題（2026-08-21，補到每單元 24 題） |
 | e11b-add1〜add3.jsonl | 十一下加題（2026-08-21，補到每單元 24 題） |
 | e12-add1〜add3.jsonl | 十二上加題（2026-08-21，補到每單元 24 題） |
+| e12b-add1〜add3.jsonl | 十二下加題（2026-08-21，補到每單元 24 題） |
 | e9b-add1 / e9b-add2.jsonl | 九下加題（2026-08-21，補到每單元 24 題） |
