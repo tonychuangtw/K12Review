@@ -8,8 +8,8 @@ OBJECTIVE: 讓「完全沒學過的人」也能靠單元學習自學。原本的
   （對沒學過的人等於劇透，不是教學）；改成 **概念卡（說明＋互動元件＋立即檢核）→ 單元測驗**。
   Tony 2026-08-21：「最好是有圖有動畫、互動式，讓完全沒接觸過的人快速精熟」「先做一個，我覺得好再往下做」
 NEXT_ACTION: Tony 2026-08-21 看過原型後說「有了這樣很好，把其它也都做一做」。
-  **已完成：互動元件庫 36 種 + 數學一上、三上～六下共 9 冊 81 單元（487 張概念卡）。**
-  下一步照這個順序往下做，一冊一批：一下 → 二上 → 二下 → 國中 → 高中…
+  **已完成：互動元件庫 36 種 + 數學一上一下、三上～六下共 10 冊 90 單元（541 張概念卡）。**
+  下一步照這個順序往下做，一冊一批：二上 → 二下 → 國中 → 高中…
   💡 寫完一冊的除錯技巧：用這段找出所有過短的誤答分支再逐條補
   `node -e "global.window={};require('./js/data/lessons-math.js');..."`（見 git log 的用法）
   做法：先看該冊 9 個單元名與既有題目（tools/tikuconv/math/m<N>.jsonl），
@@ -23,7 +23,7 @@ PATHS: js/widgets.js（互動元件庫，36 種）、tools/widget-preview.html�
   js/data/lessons-math.js（概念卡資料）、
   js/app.js（conceptDeck/startConcept/renderConceptCard）、index.html 的 #view-concept、
   css/style.css 末段「概念卡」區、test/browser-smoke.mjs 第 10 段
-UPDATED: 2026-08-21 23:10 台北
+UPDATED: 2026-08-21 23:35 台北
 
 ## 已完工：全年級全科題庫（每單元 24 題）
 
