@@ -885,7 +885,7 @@
       $('cnt-drill').textContent = '照順序一題不漏';
       var mainN = mainPool().length;
       $('cnt-units').textContent = sUnits ? '已完成 ' + sUnits + ' 個單元'
-        : (mainN ? '課綱自編 ' + mainN + ' 題 · 先看重點再測驗' : '先讀重點再測驗 · 逐關解鎖');
+        : (mainN ? '課綱自編 ' + mainN + ' 題 · 先看重點再測驗' : '先讀重點再測驗 · 任選單元');
       renderGradeBtn();
       return;
     }
@@ -910,7 +910,7 @@
     $('cnt-review').textContent = rvLast ? '上次 ' + rvLast.score + ' 分 · 挑日期或只考錯題本'
       : '挑日期出考卷／只考錯題本 · 滿分100';
     var uDone = Object.keys(state.units || {}).length;
-    $('cnt-units').textContent = uDone ? '已完成 ' + uDone + ' 個單元' : '先教後考 · 逐關解鎖';
+    $('cnt-units').textContent = uDone ? '已完成 ' + uDone + ' 個單元' : '先教後考 · 任選單元';
     $('cnt-drill').textContent = '照順序一題不漏';
     $('phonToggle').textContent = state.phon === 'zhuyin' ? '注音' : '拼音';
     renderGradeBtn();
@@ -3803,7 +3803,7 @@
     go(pos);
   }
 
-  /* ---------- 單元學習（先教後考，逐關解鎖） ---------- */
+  /* ---------- 單元學習（先教後考；2026-08-21 起單元不上鎖，任選） ---------- */
 
   var lessonState = null; // {grade, unitIdx, items, i}
 
@@ -3894,14 +3894,16 @@
     var units = cn ? buildUnits(DATA, state.unitGrade, UNIT_SIZES[unitSize()])
                    : buildBankUnits(bank, state.unitBook, unitSize(), byLesson);
     if (!cn) $('unitsHint').textContent = byLesson
-      ? '照課綱單元編排，每 ' + EXAM_UNITS + ' 個單元對應一次段考。先看重點卡，測驗全對才過關。'
+      ? '照課綱單元編排，每 ' + EXAM_UNITS + ' 個單元對應一次段考。任何單元都可以直接進去，測驗全對就打勾。'
       : '目前用匯入題庫的題目編單元（題本沒有課綱單元，照題號順序切）。';
     state.units = state.units || {};
     if (!units.length) { list.innerHTML = '<div class="empty">' + (cn ? '這個年級目前沒有教材。' : '這一冊目前沒有題目。') + '</div>'; return; }
     var lastExam = -1;
     units.forEach(function (u, i) {
       var done = !!state.units[unitKey(state.unitGrade, i)];
-      var locked = i > 0 && !state.units[unitKey(state.unitGrade, i - 1)];
+      // 2026-08-21 Tony 定案：「全部都不要鎖，以後不用再鎖」——單元一律可以直接進去，
+      // 想從哪個單元開始（例如這次段考的範圍）就從哪個開始，不用先把前面全部打完。
+      // ✅ 標記保留，那是「做過了」的紀錄，不是通行證。
       // 課綱單元制：每 EXAM_UNITS 個單元插一條段考分隔（一學期三次段考）
       if (byLesson) {
         var ex = Math.floor(i / EXAM_UNITS);
@@ -3928,15 +3930,15 @@
       var title = byLesson && u.name ? u.name : '第 ' + (i + 1) + ' 單元';
       var hasDeck = !!conceptDeck(u.name);       // 有概念卡＝這單元有真正的教材，不只是題目
       var div = document.createElement('button');
-      div.className = 'unit-item' + (done ? ' done' : locked ? ' locked' : '');
-      var how = done ? '已完成，可重新練習' : locked ? '完成上一單元後解鎖'
+      div.className = 'unit-item' + (done ? ' done' : '');
+      var how = done ? '已完成，可重新練習'
               : hasDeck ? '📘 互動教學 → 測驗全對過關'
               : cn ? '教學 → 測驗全對過關' : '看重點 → 測驗全對過關';
-      div.innerHTML = '<b>' + (done ? '✅' : locked ? '🔒' : '▶️') + ' ' + title +
+      div.innerHTML = '<b>' + (done ? '✅' : '▶️') + ' ' + title +
         (hasDeck ? ' <span class="unit-badge">教材</span>' : '') + '</b>' +
         '<small>' + (cn ? u.length + ' 個詞條' : u.length + ' 題' + (byLesson ? '' : ' · ' + lessons.join('、'))) + ' · ' +
         how + '</small>';
-      if (!locked) div.addEventListener('click', function () { startLesson(state.unitGrade, i, u); });
+      div.addEventListener('click', function () { startLesson(state.unitGrade, i, u); });
       list.appendChild(div);
     });
   }
@@ -4145,7 +4147,7 @@
     var r = $('quizResult');
     r.innerHTML = '🎉 單元完成！<br><b style="font-size:1.6rem">' + quiz.total + ' 題全部答對</b><br>' +
       (quiz.round > 1 ? '錯題重做 ' + (quiz.round - 1) + ' 輪後過關' : '一次全對，太強了！') +
-      '<br>下一單元已解鎖<br><button class="btn-primary" id="quizAgain">回單元列表</button>';
+      '<br>這個單元打勾了<br><button class="btn-primary" id="quizAgain">回單元列表</button>';
     r.classList.remove('hidden');
     confetti();
     $('quizAgain').addEventListener('click', function () { showUnits(); });

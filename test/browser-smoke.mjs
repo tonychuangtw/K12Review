@@ -762,15 +762,11 @@ console.log('概念卡（單元教學層）');
 const VIEW2 = `(function(){ var v = ['welcome','subject','home','quiz','units','concept','lesson'];
   for (var i = 0; i < v.length; i++) if (!document.getElementById('view-' + v[i]).classList.contains('hidden')) return v[i];
   return null; })()`;
-// 第 8 單元被前 7 單元鎖著 → 前 7 單元直接種成已完成。
-// ⚠️ 種在 seed 裡，不要「改完 localStorage 再 reload」：seed 是
-// Page.addScriptToEvaluateOnNewDocument，每次載入都會重跑並把改動蓋回去。
-// key 格式見 app.js unitKey()：非國語課綱單元制 = <科>-<冊>-u<索引>
+// 全新使用者（一個單元都沒做過）：2026-08-21 起單元不上鎖，第 8 單元要能直接點進去
 await session(8746, 9346, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
   phon: 'zhuyin', grade: 3, extra: [], grades: [3], onboarded: true, subject: 'math',
   unitGrade: 3, unitBook: '三上', stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [],
-  units: { 'math-三上-u0': true, 'math-三上-u1': true, 'math-三上-u2': true, 'math-三上-u3': true,
-           'math-三上-u4': true, 'math-三上-u5': true, 'math-三上-u6': true } }));` },
+  units: {} }));` },
 async (js) => {
   await js(`document.getElementById('homeLink').click()`);
   await sleep(300);
@@ -781,6 +777,12 @@ async (js) => {
     document.querySelectorAll('#unitList .unit-item').forEach(function (b) { if (b.querySelector('.unit-badge')) n++; });
     return n; })()`);
   check('分數單元標出「教材」徽章', badged === 1, '有徽章的單元數 = ' + badged);
+  // Tony 2026-08-21：「全部都不要鎖，以後不用再鎖」——一個都沒做過時也不能有鎖頭
+  check('單元一律不上鎖（沒有 🔒、沒有 locked）', await js(`(function(){
+    var bad = 0;
+    document.querySelectorAll('#unitList .unit-item').forEach(function (b) {
+      if (b.classList.contains('locked') || /🔒/.test(b.textContent)) bad++; });
+    return bad; })()`) === 0);
   await js(`(function(){ var t = null;
     document.querySelectorAll('#unitList .unit-item').forEach(function (b) {
       if (b.querySelector('.unit-badge')) t = b; });

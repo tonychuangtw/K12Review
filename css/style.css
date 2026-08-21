@@ -178,7 +178,6 @@ body {
 .unit-item b { display: block; margin-bottom: 0.2rem; }
 .unit-item small { color: var(--dim); }
 .unit-item.done { border-color: var(--good); }
-.unit-item.locked { opacity: 0.5; cursor: not-allowed; }
 .lesson-body { text-align: center; padding: 0.5rem 0 1rem; }
 .lesson-term { font-size: 2rem; font-weight: 700; margin-bottom: 0.3rem; }
 .lesson-zy { color: var(--accent); font-size: 1.05rem; margin-bottom: 0.8rem; }
