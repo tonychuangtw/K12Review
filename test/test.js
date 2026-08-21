@@ -383,7 +383,8 @@ console.log('解析確認題');
                    'tenframe', 'numbond', 'counters', 'compare',
                    'intchips', 'primefac', 'algetile',
                    'coordplane', 'linegraph', 'ineqline', 'proportion', 'linechart',
-                   'areamodel', 'crossmult', 'pythagoras', 'boxplot'];  // 與 js/widgets.js 的 REG 同步
+                   'areamodel', 'crossmult', 'pythagoras', 'boxplot',
+                   'seq', 'cutangles', 'triangleangles', 'congruent', 'quaddiag'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

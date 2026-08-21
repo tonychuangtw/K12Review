@@ -109,7 +109,16 @@ var DEMOS = [
   ['十字交乘', { type: 'crossmult', a1: 1, b1: 2, a2: 1, b2: 3 }],
   ['十字交乘（二次項係數不是 1）', { type: 'crossmult', a1: 2, b1: 3, a2: 1, b2: 1 }],
   ['畢氏定理', { type: 'pythagoras', a: 3, b: 4 }],
-  ['盒狀圖', { type: 'boxplot', values: [12, 15, 18, 22, 25, 28, 35] }]
+  ['盒狀圖', { type: 'boxplot', values: [12, 15, 18, 22, 25, 28, 35] }],
+  ['等差數列（可調公差）', { type: 'seq', a1: 3, d: 4, n: 6, edit: true }],
+  ['等差級數（高斯配對）', { type: 'seq', a1: 1, d: 1, n: 6, sum: true }],
+  ['等比數列', { type: 'seq', kind: 'geo', a1: 2, d: 3, n: 5 }],
+  ['平方數列', { type: 'seq', kind: 'sq', n: 7 }],
+  ['費氏數列', { type: 'seq', kind: 'fib', n: 7 }],
+  ['平行線被截（同位角／內錯角／同側內角）', { type: 'cutangles', deg: 65, show: 'co' }],
+  ['三角形內角和與外角', { type: 'triangleangles', a: 50, b: 70 }],
+  ['全等判定', { type: 'congruent', kind: 'SSS' }],
+  ['四邊形的對角線', { type: 'quaddiag', kind: 'parallelogram' }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {

@@ -2016,6 +2016,306 @@
     paint();
   };
 
+  /* ── 數列（seq）───────────────────────────────────────────────────────
+     把每一項排出來，項與項之間標出「加多少」或「乘多少」，規律就看得見。
+     spec: { a1, d, n, kind:'arith'|'geo'|'sq'|'fib', sum:bool, edit }     */
+  REG.seq = function (host, spec) {
+    var kind = spec.kind || 'arith';
+    var a1 = spec.a1 == null ? 3 : spec.a1;
+    var d = spec.d == null ? 4 : spec.d;
+    var n = Math.min(spec.n == null ? 6 : spec.n, 8);
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 120', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function terms() {
+      var t = [], i;
+      if (kind === 'geo') { t.push(a1); for (i = 1; i < n; i++) t.push(t[i - 1] * d); }
+      else if (kind === 'sq') { for (i = 1; i <= n; i++) t.push(i * i); }
+      else if (kind === 'fib') { t = [1, 1]; for (i = 2; i < n; i++) t.push(t[i - 1] + t[i - 2]); }
+      else { for (i = 0; i < n; i++) t.push(a1 + i * d); }
+      return t.slice(0, n);
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var t = terms(), w = 300 / t.length, i;
+      for (i = 0; i < t.length; i++) {
+        var cx = 10 + w * (i + 0.5);
+        svg.appendChild(el('rect', { x: cx - w / 2 + 4, y: 42, width: w - 8, height: 34, rx: 6,
+          'fill-opacity': '.18' }, 'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(txt(cx, 59, String(t[i]), 'font-size:13px;font-weight:700'));
+        svg.appendChild(txt(cx, 90, '第' + (i + 1) + '項', 'font-size:10px;fill:var(--dim)'));
+        if (i) {
+          var gap = kind === 'geo' ? '×' + d
+            : kind === 'sq' || kind === 'fib' ? '＋' + (t[i] - t[i - 1])
+            : (d >= 0 ? '＋' + d : '−' + (-d));
+          svg.appendChild(txt(cx - w / 2, 26, gap, 'font-size:11px;fill:var(--good)'));
+          svg.appendChild(el('path', { d: 'M' + (cx - w + 6) + ',34 Q' + (cx - w / 2) + ',14 ' +
+            (cx - 6) + ',34' }, 'fill:none;stroke:var(--good);stroke-width:1.5'));
+        }
+      }
+      if (spec.sum) {
+        var s = t.reduce(function (p, q) { return p + q; }, 0);
+        read.appendChild(div('wg-read-main',
+          '前 ' + t.length + ' 項的和 ＝ (' + t[0] + ' ＋ ' + t[t.length - 1] + ') × ' +
+          t.length + ' ÷ 2 ＝ ' + s));
+        read.appendChild(div('wg-read-sub',
+          '把數列頭尾配對：第 1 項＋最後一項、第 2 項＋倒數第 2 項…每一對的和都一樣是 ' +
+          (t[0] + t[t.length - 1]) + '。共有「項數 ÷ 2」對，這就是等差級數求和公式的由來。'));
+      } else if (kind === 'arith') {
+        read.appendChild(div('wg-read-main',
+          '首項 ' + a1 + '，公差 ' + d + '　→　第 n 項 ＝ ' + a1 + ' ＋ (n − 1) × ' + (d < 0 ? '(' + d + ')' : d)));
+        read.appendChild(div('wg-read-sub',
+          '每一項都比前一項多 ' + d + '（' + (d < 0 ? '公差是負的，所以越來越小' : '公差是正的，所以越來越大') +
+          '）。要跳到第 n 項，是「加了 n − 1 次」不是 n 次——這是最常算錯的地方。'));
+      } else if (kind === 'geo') {
+        read.appendChild(div('wg-read-main', '每一項都是前一項的 ' + d + ' 倍（等比數列）'));
+        read.appendChild(div('wg-read-sub',
+          '等差是「一直加同一個數」，等比是「一直乘同一個數」。細菌分裂、對折紙張都是等比。'));
+      } else if (kind === 'sq') {
+        read.appendChild(div('wg-read-main', '第 n 項 ＝ n²（平方數列）'));
+        read.appendChild(div('wg-read-sub',
+          '相鄰兩項的差是 3、5、7、9…（差本身是等差），所以它不是等差數列。'));
+      } else {
+        read.appendChild(div('wg-read-main', '每一項 ＝ 前兩項相加（費氏數列）'));
+        read.appendChild(div('wg-read-sub',
+          '1、1、2、3、5、8、13…規律不在「差」而在「怎麼生出來的」。找規律時，差看不出來就換個角度想。'));
+      }
+    }
+    if (spec.edit && kind === 'arith') {
+      var sd = stepper('公差', function () { return d; }, function (v) { d = v; }, -9, 9,
+        function () { sd.sync(); paint(); });
+      box.appendChild(sd.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 平行線被截（cutangles）───────────────────────────────────────────
+     同位角、內錯角、同側內角三種關係，按鈕切換高亮哪一組。
+     spec: { deg, show:'co'|'alt'|'same', pick }                          */
+  REG.cutangles = function (host, spec) {
+    var deg = spec.deg == null ? 65 : spec.deg;
+    var show = spec.show || 'co';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var NAMES = { co: '同位角', alt: '內錯角', same: '同側內角' };
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var y1 = 55, y2 = 130, ux = 130, dx = ux + (y2 - y1) / Math.tan(deg * Math.PI / 180);
+      svg.appendChild(el('line', { x1: 16, y1: y1, x2: 304, y2: y1 },
+        'stroke:var(--text);stroke-width:2.5'));
+      svg.appendChild(el('line', { x1: 16, y1: y2, x2: 304, y2: y2 },
+        'stroke:var(--text);stroke-width:2.5'));
+      var ex = (y1 - 30) / Math.tan(deg * Math.PI / 180);
+      svg.appendChild(el('line', { x1: ux - ex, y1: 30, x2: dx + ex, y2: y2 + (y1 - 30) },
+        'stroke:var(--accent);stroke-width:2.5'));
+      svg.appendChild(txt(300, y1 - 10, 'L1', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(300, y2 - 10, 'L2', 'font-size:11px;fill:var(--dim)'));
+      var a = deg, b = 180 - deg;
+      // 每個交點的四個角：[右下, 左下, 右上, 左上]
+      var spots = [
+        [ux + 24, y1 + 16, a, 'U右下'], [ux - 26, y1 + 16, b, 'U左下'],
+        [ux + 26, y1 - 14, b, 'U右上'], [ux - 24, y1 - 14, a, 'U左上'],
+        [dx + 24, y2 + 16, a, 'L右下'], [dx - 26, y2 + 16, b, 'L左下'],
+        [dx + 26, y2 - 14, b, 'L右上'], [dx - 24, y2 - 14, a, 'L左上']
+      ];
+      var hi = show === 'co' ? [0, 4] : show === 'alt' ? [0, 7] : [0, 6];
+      spots.forEach(function (s, i) {
+        var on = hi.indexOf(i) >= 0;
+        if (on) svg.appendChild(el('circle', { cx: s[0], cy: s[1] - 4, r: 13, 'fill-opacity': '.25' },
+          'fill:var(--good);stroke:var(--good);stroke-width:1.5'));
+        svg.appendChild(txt(s[0], s[1] - 4, s[2] + '°',
+          'font-size:11px;' + (on ? 'font-weight:700;fill:var(--good)' : 'fill:var(--dim)')));
+      });
+      var pair = [spots[hi[0]][2], spots[hi[1]][2]];
+      read.appendChild(div('wg-read-main', NAMES[show] + '：' + pair[0] + '° 與 ' + pair[1] + '°　' +
+        (show === 'same' ? '和 ＝ 180°（互補）' : '相等')));
+      read.appendChild(div('wg-read-sub',
+        show === 'co' ? '同位角＝在截線同一側、而且都在兩條平行線的同一邊（一個在上線的右下、一個在下線的右下）。兩線平行時同位角相等。'
+        : show === 'alt' ? '內錯角＝都在兩條平行線「之間」，但分別在截線的兩側，長得像 Z 字。兩線平行時內錯角相等。'
+        : '同側內角＝都在兩線之間、而且在截線的同一側，長得像 ㄈ 字。兩線平行時它們互補，加起來 180°。'));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      ['co', 'alt', 'same'].forEach(function (k) {
+        row.appendChild(btn(NAMES[k], function () { show = k; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 三角形的角（triangleangles）──────────────────────────────────────
+     內角和 180°，以及「外角＝不相鄰兩內角和」。
+     spec: { a, b, edit, ext:bool }                                       */
+  REG.triangleangles = function (host, spec) {
+    var a = spec.a == null ? 50 : spec.a, b = spec.b == null ? 70 : spec.b;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      a = clamp(a, 20, 120); b = clamp(b, 20, 120);
+      if (a + b > 150) b = 150 - a;
+      var c = 180 - a - b;
+      var x1 = 60, x2 = 230, y0 = 140;                    // 底邊兩端
+      var ta = Math.tan(a * Math.PI / 180), tb = Math.tan(b * Math.PI / 180);
+      var px = (x1 * ta + x2 * tb) / (ta + tb);
+      var py = y0 - ta * (px - x1);
+      svg.appendChild(el('line', { x1: x2, y1: y0, x2: 300, y2: y0 },
+        'stroke:var(--dim);stroke-width:2;stroke-dasharray:5 4'));   // 底邊延長線
+      svg.appendChild(el('polygon', { points: x1 + ',' + y0 + ' ' + x2 + ',' + y0 + ' ' + px + ',' + py },
+        'fill:color-mix(in srgb, var(--accent) 16%, transparent);stroke:var(--accent);stroke-width:2.5'));
+      svg.appendChild(txt(x1 + 26, y0 - 12, a + '°', 'font-size:12px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(x2 - 26, y0 - 12, b + '°', 'font-size:12px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(px, py + 22, c + '°', 'font-size:12px;font-weight:700;fill:var(--accent)'));
+      if (spec.ext !== false) {
+        svg.appendChild(txt(x2 + 30, y0 - 14, (180 - b) + '°',
+          'font-size:12px;font-weight:700;fill:var(--bad)'));
+        svg.appendChild(txt(x2 + 46, y0 + 14, '外角', 'font-size:10px;fill:var(--bad)'));
+      }
+      read.appendChild(div('wg-read-main',
+        a + '° ＋ ' + b + '° ＋ ' + c + '° ＝ 180°' +
+        (spec.ext !== false ? '　外角 ' + (180 - b) + '° ＝ ' + a + '° ＋ ' + c + '°' : '')));
+      read.appendChild(div('wg-read-sub',
+        '三角形內角和永遠是 180°，所以知道兩個角就能算出第三個。' +
+        (spec.ext !== false ? '把底邊延長出去形成的「外角」，等於和它不相鄰的那兩個內角相加——因為外角＋相鄰內角＝180°，內角和也是 180°。' : '')));
+    }
+    if (spec.edit !== false) {
+      var sa = stepper('左下角', function () { return a; }, function (v) { a = v; }, 20, 120,
+        function () { sa.sync(); paint(); });
+      var sb = stepper('右下角', function () { return b; }, function (v) { b = v; }, 20, 120,
+        function () { sb.sync(); paint(); });
+      box.appendChild(sa.el); box.appendChild(sb.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 全等判定（congruent）─────────────────────────────────────────────
+     兩個三角形並排，把「已知相等」的邊與角標出來。
+     spec: { kind:'SSS'|'SAS'|'ASA'|'AAS'|'RHS', pick }                   */
+  REG.congruent = function (host, spec) {
+    var K = {
+      SSS: { s: [0, 1, 2], a: [], name: 'SSS（邊邊邊）', desc: '三組對應邊都相等 → 兩個三角形全等。三邊定了，形狀就只有一種。' },
+      SAS: { s: [0, 1], a: [1], name: 'SAS（邊角邊）', desc: '兩組對應邊相等，而且「夾在中間的角」也相等。角一定要是兩邊夾住的那個。' },
+      ASA: { s: [0], a: [0, 1], name: 'ASA（角邊角）', desc: '兩組對應角相等，而且「夾在中間的邊」也相等。' },
+      AAS: { s: [1], a: [0, 1], name: 'AAS（角角邊）', desc: '兩組對應角相等，加上其中一個角的對邊相等。因為兩角定了第三角也定了，所以也成立。' },
+      RHS: { s: [1, 0], a: [], name: 'RHS（直角、斜邊、一股）', desc: '直角三角形專用：直角 ＋ 斜邊 ＋ 一股對應相等。一般三角形的 SSA 不成立，只有直角三角形這種特例可以。' }
+    };
+    var kind = K[spec.kind] ? spec.kind : 'SSS';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 160', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function tri(ox, right) {
+      // 頂點：0 左下、1 右下、2 上
+      return right ? [[ox, 120], [ox + 90, 120], [ox, 45]]
+                   : [[ox, 120], [ox + 100, 120], [ox + 30, 45]];
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var k = K[kind], isR = kind === 'RHS';
+      [10, 180].forEach(function (ox, t) {
+        var p = tri(ox, isR);
+        svg.appendChild(el('polygon', { points: p.map(function (q) { return q.join(','); }).join(' ') },
+          'fill:color-mix(in srgb, var(--accent) 14%, transparent);stroke:var(--accent);stroke-width:2'));
+        // 邊：0 = 底邊(0-1)、1 = 右斜邊(1-2)、2 = 左邊(0-2)
+        var EDGES = [[p[0], p[1]], [p[1], p[2]], [p[0], p[2]]];
+        k.s.forEach(function (ei, idx) {
+          var e = EDGES[ei];
+          svg.appendChild(el('line', { x1: e[0][0], y1: e[0][1], x2: e[1][0], y2: e[1][1] },
+            'stroke:var(--good);stroke-width:4'));
+          svg.appendChild(txt((e[0][0] + e[1][0]) / 2 + (ei === 2 ? -12 : ei === 1 ? 12 : 0),
+            (e[0][1] + e[1][1]) / 2 + (ei === 0 ? 14 : 0),
+            '｜'.repeat(idx + 1), 'font-size:11px;fill:var(--good)'));
+        });
+        k.a.forEach(function (ai) {
+          var v = p[ai];
+          svg.appendChild(el('circle', { cx: v[0] + (ai === 0 ? 16 : ai === 1 ? -16 : 0),
+            cy: v[1] + (ai === 2 ? 18 : -14), r: 9, 'fill-opacity': '.25' },
+            'fill:var(--bad);stroke:var(--bad);stroke-width:1.5'));
+        });
+        if (isR) svg.appendChild(el('rect', { x: p[0][0], y: p[0][1] - 12, width: 12, height: 12 },
+          'fill:none;stroke:var(--dim);stroke-width:1.5'));
+        svg.appendChild(txt(ox + 50, 142, t ? '△DEF' : '△ABC', 'font-size:11px;fill:var(--dim)'));
+      });
+      svg.appendChild(txt(160, 80, '≅', 'font-size:20px;fill:var(--text)'));
+      read.appendChild(div('wg-read-main', k.name));
+      read.appendChild(div('wg-read-sub', k.desc));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      ['SSS', 'SAS', 'ASA', 'AAS', 'RHS'].forEach(function (t) {
+        row.appendChild(btn(t, function () { kind = t; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 四邊形的對角線（quaddiag）────────────────────────────────────────
+     平行四邊形家族的差別，看對角線最清楚：等不等長、垂不垂直、有沒有互相平分。
+     spec: { kind:'parallelogram'|'rect'|'rhombus'|'square'|'isotrap', pick } */
+  REG.quaddiag = function (host, spec) {
+    var Q = {
+      parallelogram: { pts: [[70, 40], [250, 40], [215, 130], [35, 130]], name: '平行四邊形',
+        f: ['對角線互相平分 ✓', '對角線等長 ✗', '對角線垂直 ✗'] },
+      rect: { pts: [[60, 40], [260, 40], [260, 130], [60, 130]], name: '矩形（長方形）',
+        f: ['對角線互相平分 ✓', '對角線等長 ✓', '對角線垂直 ✗'] },
+      rhombus: { pts: [[160, 30], [250, 85], [160, 140], [70, 85]], name: '菱形',
+        f: ['對角線互相平分 ✓', '對角線等長 ✗', '對角線垂直 ✓'] },
+      square: { pts: [[105, 30], [215, 30], [215, 140], [105, 140]], name: '正方形',
+        f: ['對角線互相平分 ✓', '對角線等長 ✓', '對角線垂直 ✓'] },
+      isotrap: { pts: [[110, 40], [210, 40], [265, 130], [55, 130]], name: '等腰梯形',
+        f: ['對角線互相平分 ✗', '對角線等長 ✓', '對角線垂直 ✗'] }
+    };
+    var kind = Q[spec.kind] ? spec.kind : 'parallelogram';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 155', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var q = Q[kind], p = q.pts;
+      svg.appendChild(el('polygon', { points: p.map(function (v) { return v.join(','); }).join(' ') },
+        'fill:color-mix(in srgb, var(--good) 16%, transparent);stroke:var(--good);stroke-width:2.5'));
+      [[0, 2], [1, 3]].forEach(function (dg) {
+        svg.appendChild(el('line', { x1: p[dg[0]][0], y1: p[dg[0]][1], x2: p[dg[1]][0], y2: p[dg[1]][1] },
+          'stroke:var(--accent);stroke-width:2;stroke-dasharray:6 4'));
+      });
+      read.appendChild(div('wg-read-main', q.name));
+      read.appendChild(div('wg-read-sub', q.f.join('　') +
+        '　（正方形是「矩形 ＋ 菱形」，所以三個性質全部都有。）'));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['parallelogram', '平行四邊形'], ['rect', '矩形'], ['rhombus', '菱形'],
+       ['square', '正方形'], ['isotrap', '等腰梯形']].forEach(function (k) {
+        row.appendChild(btn(k[1], function () { kind = k[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   /* ── 面積模型（areamodel）─────────────────────────────────────────────
      乘法公式與配方法的「為什麼」：把式子畫成一塊一塊的面積就看得懂。
      spec: { mode:'square'|'rect'|'complete', a, b, c, d, edit }
