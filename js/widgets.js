@@ -2016,6 +2016,341 @@
     paint();
   };
 
+  /* ══════════════════════════════════════════════════════════════════════
+     以下是自然科用的元件（2026-08-22 起）。原則和數學科一樣：
+     一個元件服務多個單元、只用 SVG 與原生事件、顏色走 CSS 變數。
+     ══════════════════════════════════════════════════════════════════════ */
+
+  /* ── 光的現象（optics）────────────────────────────────────────────────
+     spec: { mode:'straight'|'mirror'|'refract'|'color', pick }           */
+  REG.optics = function (host, spec) {
+    var mode = spec.mode || 'straight';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function ray(x1, y1, x2, y2, color, dash) {
+      svg.appendChild(el('line', { x1: x1, y1: y1, x2: x2, y2: y2 },
+        'stroke:var(--' + color + ');stroke-width:2.5' + (dash ? ';stroke-dasharray:5 4' : '')));
+      var ang = Math.atan2(y2 - y1, x2 - x1), mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+      svg.appendChild(el('polygon', { points:
+        mx + ',' + my + ' ' + (mx - 9 * Math.cos(ang - 0.4)) + ',' + (my - 9 * Math.sin(ang - 0.4)) +
+        ' ' + (mx - 9 * Math.cos(ang + 0.4)) + ',' + (my - 9 * Math.sin(ang + 0.4)) },
+        'fill:var(--' + color + ')'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'mirror') {
+        svg.appendChild(el('line', { x1: 30, y1: 110, x2: 290, y2: 110 },
+          'stroke:var(--text);stroke-width:4'));
+        svg.appendChild(txt(60, 124, '平面鏡', 'font-size:11px;fill:var(--dim)'));
+        svg.appendChild(el('line', { x1: 160, y1: 110, x2: 160, y2: 30 },
+          'stroke:var(--dim);stroke-width:1.5;stroke-dasharray:4 3'));
+        svg.appendChild(txt(160, 22, '法線', 'font-size:10px;fill:var(--dim)'));
+        ray(70, 40, 160, 110, 'accent');
+        ray(160, 110, 250, 40, 'good');
+        svg.appendChild(txt(140, 70, '入射角', 'font-size:10px;fill:var(--accent)'));
+        svg.appendChild(txt(186, 70, '反射角', 'font-size:10px;fill:var(--good)'));
+        svg.appendChild(el('circle', { cx: 250, cy: 150, r: 5 }, 'fill:var(--bad)'));
+        svg.appendChild(txt(250, 166, '眼睛', 'font-size:10px;fill:var(--bad)'));
+        main = '反射定律：入射角 ＝ 反射角';
+        sub = '光碰到鏡面會「照原本的角度彈回去」。鏡中的像和物體到鏡面的距離相等、左右相反、' +
+          '大小一樣——那是眼睛把反射光「延長回去」看到的虛像，鏡子後面其實沒有東西。';
+      } else if (mode === 'refract') {
+        svg.appendChild(el('rect', { x: 30, y: 100, width: 260, height: 66, rx: 4, 'fill-opacity': '.2' },
+          'fill:var(--accent);stroke:var(--accent)'));
+        svg.appendChild(txt(60, 130, '水', 'font-size:12px;fill:var(--accent)'));
+        svg.appendChild(el('line', { x1: 160, y1: 100, x2: 160, y2: 30 },
+          'stroke:var(--dim);stroke-width:1.5;stroke-dasharray:4 3'));
+        ray(80, 30, 160, 100, 'good');
+        ray(160, 100, 210, 166, 'good');
+        ray(160, 100, 240, 166, 'dim', true);
+        svg.appendChild(txt(258, 160, '原本的方向', 'font-size:10px;fill:var(--dim)'));
+        main = '折射：光從空氣進入水中會轉彎';
+        sub = '光在不同介質裡「跑的速度」不一樣，交界處就會偏折。' +
+          '所以水中的筷子看起來斷掉、碗底的硬幣加了水又看得見、水池看起來比實際淺。' +
+          '⚠ 折射改變的是方向，光本身沒有被吸收。';
+      } else if (mode === 'color') {
+        var COLS = ['bad', 'accent', 'good'];
+        ['紅光', '綠光', '藍光'].forEach(function (n, i) {
+          svg.appendChild(el('rect', { x: 24 + i * 98, y: 30, width: 84, height: 44, rx: 8,
+            'fill-opacity': '.3' }, 'fill:var(--' + COLS[i] + ');stroke:var(--' + COLS[i] + ')'));
+          svg.appendChild(txt(66 + i * 98, 52, n, 'font-size:12px'));
+        });
+        svg.appendChild(el('rect', { x: 110, y: 96, width: 100, height: 44, rx: 6 },
+          'fill:#fff;stroke:var(--border);stroke-width:2'));
+        svg.appendChild(txt(160, 118, '白紙', 'font-size:12px;fill:#111'));
+        svg.appendChild(txt(160, 160, '白色物體會把照到它的光「全部反射」',
+          'font-size:10px;fill:var(--dim)'));
+        main = '物體的顏色 ＝ 它反射出來的光';
+        sub = '白色物體反射所有色光，所以在紅光下看起來是紅的、在藍光下是藍的。' +
+          '紅色物體只反射紅光、吸收其他色光，所以在只有綠光的房間裡會看起來是黑的。' +
+          '黑色物體幾乎把光全吸收了，所以照什麼光都是黑的。';
+      } else {
+        ray(24, 40, 300, 40, 'accent');
+        svg.appendChild(el('rect', { x: 150, y: 60, width: 20, height: 60, rx: 2 },
+          'fill:var(--text)'));
+        svg.appendChild(txt(160, 132, '不透明物體', 'font-size:10px;fill:var(--dim)'));
+        ray(24, 90, 150, 90, 'accent');
+        svg.appendChild(el('rect', { x: 170, y: 78, width: 130, height: 24, 'fill-opacity': '.35' },
+          'fill:var(--dim)'));
+        svg.appendChild(txt(240, 92, '影子', 'font-size:11px;fill:var(--dim)'));
+        main = '光沿著直線前進';
+        sub = '因為光走直線，被物體擋住的地方就形成影子——影子的形狀和物體輪廓一樣。' +
+          '日食、月食、針孔成像、雷射筆的光束，都是「光走直線」最直接的證據。' +
+          '光源越靠近物體，影子越大。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['straight', '直線前進'], ['mirror', '反射'], ['refract', '折射'], ['color', '色光']]
+        .forEach(function (m) { row.appendChild(btn(m[1], function () { mode = m[0]; paint(); })); });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 月相（moonphase）─────────────────────────────────────────────────
+     spec: { day }  農曆日（1～30）                                       */
+  REG.moonphase = function (host, spec) {
+    var day = spec.day == null ? 15 : spec.day;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var NAMES = [[1, '新月（朔）'], [4, '眉月'], [8, '上弦月'], [12, '盈凸月'],
+                 [15, '滿月（望）'], [19, '虧凸月'], [23, '下弦月'], [27, '殘月']];
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var cx = 160, cy = 74, R = 50;
+      // 相位 0=新月、0.5=滿月
+      var ph = ((day - 1) % 29.5) / 29.5;
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: R },
+        'fill:var(--panel2);stroke:var(--border);stroke-width:2'));
+      // 亮面＝一段半圓弧 ＋ 一段半橢圓弧（分界線叫明暗界線 terminator）
+      // k ＝ cos(2πph)：＋1 是新月（全暗）、0 是半月、−1 是滿月（全亮）
+      var k = Math.cos(2 * Math.PI * ph);
+      var rx = Math.abs(k) * R;
+      var wax = ph < 0.5;                            // 上半月：亮面在右邊
+      var d = 'M' + cx + ',' + (cy - R) +
+        ' A ' + R + ' ' + R + ' 0 0 ' + (wax ? 1 : 0) + ' ' + cx + ',' + (cy + R) +
+        ' A ' + rx + ' ' + R + ' 0 0 ' + (k > 0 ? (wax ? 0 : 1) : (wax ? 1 : 0)) + ' ' +
+        cx + ',' + (cy - R) + ' Z';
+      svg.appendChild(el('path', { d: d }, 'fill:#f5e9a9;stroke:none'));
+      var name = NAMES.reduce(function (best, n) {
+        return Math.abs(n[0] - day) < Math.abs(best[0] - day) ? n : best;
+      }, NAMES[0]);
+      svg.appendChild(txt(cx, 148, '農曆約 ' + day + ' 日', 'font-size:11px;fill:var(--dim)'));
+      read.appendChild(div('wg-read-main', name[1]));
+      read.appendChild(div('wg-read-sub',
+        '月亮自己不會發光，我們看到的是它「被太陽照亮」的那一面。' +
+        '月球繞地球轉，我們看到的亮面比例就跟著變，大約 29.5 天循環一次（農曆一個月）。' +
+        '初一看不到（新月）、初七八半個（上弦）、十五最圓（滿月）、廿二三又剩半個（下弦）。' +
+        '⚠ 月相不是地球的影子造成的——那是月食，一年只有幾次。'));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [1, 8, 15, 23].forEach(function (d) {
+        row.appendChild(btn('初' + (d === 1 ? '一' : d === 8 ? '八' : d === 15 ? '十五' : '廿三'),
+          function () { day = d; paint(); }));
+      });
+      box.appendChild(row);
+      var r2 = div('wg-ctrl');
+      r2.appendChild(slider(1, 29, day, 1, function (v) { day = v; paint(); }));
+      box.appendChild(r2);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 地球、太陽與四季（earthsun）──────────────────────────────────────
+     spec: { mode:'day'|'season'|'shadow', season:'summer'|'winter', pick } */
+  REG.earthsun = function (host, spec) {
+    var mode = spec.mode || 'day';
+    var season = spec.season || 'summer';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'season') {
+        svg.appendChild(el('ellipse', { cx: 160, cy: 96, rx: 130, ry: 58 },
+          'fill:none;stroke:var(--border);stroke-width:1.5;stroke-dasharray:5 4'));
+        svg.appendChild(el('circle', { cx: 160, cy: 96, r: 18 }, 'fill:#f5c451'));
+        svg.appendChild(txt(160, 96, '太陽', 'font-size:10px;fill:#111'));
+        [['夏至', 30, 96], ['冬至', 290, 96], ['春分', 160, 38], ['秋分', 160, 154]]
+          .forEach(function (p) {
+            svg.appendChild(el('circle', { cx: p[1], cy: p[2], r: 9 }, 'fill:var(--accent)'));
+            svg.appendChild(txt(p[1], p[2] - 18, p[0], 'font-size:10px;fill:var(--dim)'));
+          });
+        main = '四季的成因：地軸傾斜，不是遠近';
+        sub = '地球繞太陽公轉一圈約 365 天。地軸固定傾斜 23.5°，所以一年之中太陽直射的位置在南北移動：' +
+          '直射北半球時我們是夏天（陽光角度直、日照時間長），直射南半球時是冬天。' +
+          '⚠ 常見誤解：「夏天是因為離太陽比較近」——其實地球在 1 月離太陽最近，那時北半球是冬天。';
+      } else if (mode === 'shadow') {
+        svg.appendChild(el('line', { x1: 20, y1: 150, x2: 300, y2: 150 },
+          'stroke:var(--text);stroke-width:2'));
+        var sunX = season === 'summer' ? 160 : 90, sunY = season === 'summer' ? 34 : 74;
+        svg.appendChild(el('circle', { cx: sunX, cy: sunY, r: 14 }, 'fill:#f5c451'));
+        svg.appendChild(el('line', { x1: 200, y1: 150, x2: 200, y2: 96 },
+          'stroke:var(--accent);stroke-width:4'));
+        svg.appendChild(txt(212, 120, '竿', 'font-size:11px;fill:var(--accent)'));
+        var shLen = season === 'summer' ? 26 : 86;
+        svg.appendChild(el('rect', { x: 200, y: 146, width: shLen, height: 8, 'fill-opacity': '.5' },
+          'fill:var(--dim)'));
+        svg.appendChild(el('line', { x1: sunX, y1: sunY + 14, x2: 200, y2: 96 },
+          'stroke:#f5c451;stroke-width:1.5;stroke-dasharray:4 3'));
+        svg.appendChild(txt(200 + shLen + 22, 152, '影子', 'font-size:10px;fill:var(--dim)'));
+        main = season === 'summer' ? '夏天：太陽角度高 → 影子短' : '冬天：太陽角度低 → 影子長';
+        sub = '同一根竿子，正午的影子長度會隨季節變：夏至最短、冬至最長。' +
+          '因為太陽的仰角不同——角度越高，影子越短。' +
+          '一天之中也一樣：正午影子最短，早上和傍晚最長。' +
+          '在臺灣（北半球），上午影子朝西北、正午朝北、下午朝東北。';
+      } else {
+        svg.appendChild(el('circle', { cx: 66, cy: 96, r: 24 }, 'fill:#f5c451'));
+        svg.appendChild(txt(66, 96, '太陽', 'font-size:10px;fill:#111'));
+        svg.appendChild(el('circle', { cx: 210, cy: 96, r: 40 },
+          'fill:var(--panel2);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(el('path', { d: 'M210,56 A 40 40 0 0 0 210,136 Z' },
+          'fill:var(--dim);fill-opacity:.55'));
+        svg.appendChild(el('path', { d: 'M210,56 A 40 40 0 0 1 210,136 Z' },
+          'fill:#f5e9a9;fill-opacity:.6'));
+        svg.appendChild(txt(186, 96, '夜', 'font-size:11px;fill:var(--dim)'));
+        svg.appendChild(txt(236, 96, '晝', 'font-size:11px;fill:#111'));
+        svg.appendChild(el('path', { d: 'M210,42 A 46 46 0 0 1 256,88' },
+          'fill:none;stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(262, 44, '自轉', 'font-size:10px;fill:var(--good)'));
+        main = '自轉造成晝夜：一圈約 24 小時';
+        sub = '地球自己轉一圈約 24 小時（自轉），面向太陽的那半邊是白天、背對的是黑夜。' +
+          '⚠ 太陽並沒有繞著我們跑：太陽「東升西落」是地球由西向東自轉造成的相對運動。' +
+          '另外，地球繞太陽公轉一圈約 365 天，那是「一年」而不是「一天」。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      row.appendChild(btn('自轉與晝夜', function () { mode = 'day'; paint(); }));
+      row.appendChild(btn('公轉與四季', function () { mode = 'season'; paint(); }));
+      row.appendChild(btn('夏天的竿影', function () { mode = 'shadow'; season = 'summer'; paint(); }));
+      row.appendChild(btn('冬天的竿影', function () { mode = 'shadow'; season = 'winter'; paint(); }));
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 聲音（soundwave）─────────────────────────────────────────────────
+     振幅＝音量、頻率＝音高，兩個一起畫最好懂。
+     spec: { amp, freq, edit }                                            */
+  REG.soundwave = function (host, spec) {
+    var amp = spec.amp == null ? 2 : spec.amp, freq = spec.freq == null ? 2 : spec.freq;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 168', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var MID = 74, L = 24, R = 300;
+      svg.appendChild(el('line', { x1: L, y1: MID, x2: R, y2: MID },
+        'stroke:var(--dim);stroke-width:1.5;stroke-dasharray:4 3'));
+      var pts = [], i, x;
+      for (i = 0; i <= 300; i++) {
+        x = i / 300;
+        pts.push((L + (R - L) * x).toFixed(1) + ',' +
+          (MID - amp * 16 * Math.sin(freq * 2 * Math.PI * x)).toFixed(1));
+      }
+      svg.appendChild(el('polyline', { points: pts.join(' ') },
+        'fill:none;stroke:var(--accent);stroke-width:3'));
+      svg.appendChild(el('line', { x1: 40, y1: MID, x2: 40, y2: MID - amp * 16 },
+        'stroke:var(--good);stroke-width:2'));
+      svg.appendChild(txt(64, MID - amp * 8, '振幅', 'font-size:10px;fill:var(--good)'));
+      svg.appendChild(txt(160, 158, '一秒內振動 ' + freq + ' 次（頻率）',
+        'font-size:11px;fill:var(--dim)'));
+      read.appendChild(div('wg-read-main',
+        '振幅 ' + (amp >= 3 ? '大 → 聲音大' : amp <= 1 ? '小 → 聲音小' : '中等') +
+        '　頻率 ' + (freq >= 3 ? '高 → 聲音尖（高音）' : freq <= 1 ? '低 → 聲音低沉' : '中等')));
+      read.appendChild(div('wg-read-sub',
+        '聲音是物體「振動」產生的，靠空氣（或水、固體）傳出去——真空中沒有介質，所以聽不到聲音。' +
+        '振幅決定音量（振動幅度大＝大聲）、頻率決定音高（振動快＝高音）。' +
+        '敲裝水的杯子：水越少越容易振動、頻率越高，聲音越尖。'));
+    }
+    if (spec.edit !== false) {
+      var sa = stepper('振幅（音量）', function () { return amp; }, function (v) { amp = v; }, 1, 4,
+        function () { sa.sync(); paint(); });
+      var sf = stepper('頻率（音高）', function () { return freq; }, function (v) { freq = v; }, 1, 5,
+        function () { sf.sync(); paint(); });
+      box.appendChild(sa.el); box.appendChild(sf.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 對照實驗（compareexp）────────────────────────────────────────────
+     只改一個變因、其他都一樣——這是自然科實驗設計的核心。
+     spec: { title, factor, a:{label,note}, b:{label,note}, same:[..], result } */
+  REG.compareexp = function (host, spec) {
+    var A = spec.a || { label: '甲：有水有空氣', note: '會生鏽' };
+    var B = spec.b || { label: '乙：有水沒空氣', note: '不生鏽' };
+    var same = spec.same || ['鐵釘一樣', '水量一樣', '放同樣久'];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 160', class: 'wg-svg' });
+    [[16, A, 'accent'], [168, B, 'good']].forEach(function (col) {
+      svg.appendChild(el('rect', { x: col[0], y: 18, width: 136, height: 96, rx: 10,
+        'fill-opacity': '.16' }, 'fill:var(--' + col[2] + ');stroke:var(--' + col[2] + ');stroke-width:2'));
+      svg.appendChild(txt(col[0] + 68, 44, col[1].label, 'font-size:11px;font-weight:700'));
+      svg.appendChild(txt(col[0] + 68, 82, col[1].note, 'font-size:13px;fill:var(--' + col[2] + ')'));
+    });
+    svg.appendChild(txt(160, 134, '其他條件全部相同：' + same.join('、'),
+      'font-size:10px;fill:var(--dim)'));
+    box.appendChild(svg);
+    box.appendChild(div('wg-read-main', '只改變一個條件：' + (spec.factor || '有沒有空氣')));
+    box.appendChild(div('wg-read-sub',
+      '這叫「對照實驗」：兩組只差一個條件（操作變因），其他通通一樣（控制變因）。' +
+      '這樣結果不同時，才能斷定是那個條件造成的。' +
+      '⚠ 如果一次改兩個條件（水量也不同、時間也不同），就不知道是誰造成的差別，實驗白做。'));
+    host.appendChild(box);
+  };
+
+  /* ── 分類（classify）──────────────────────────────────────────────────
+     spec: { groups:[{label, items:[..], note}] }                         */
+  REG.classify = function (host, spec) {
+    var gs = spec.groups || [];
+    var box = div('wg');
+    var COLORS = ['accent', 'good', 'bad', 'dim'];
+    gs.forEach(function (g, i) {
+      var row = div('wg-ctrl');
+      row.style.cssText = 'justify-content:flex-start;margin-top:.5rem;gap:.35rem';
+      var tag = div('wg-chip on', g.label);
+      tag.style.background = 'var(--' + COLORS[i % 4] + ')';
+      tag.style.borderColor = 'var(--' + COLORS[i % 4] + ')';
+      row.appendChild(tag);
+      (g.items || []).forEach(function (it) { row.appendChild(div('wg-chip', it)); });
+      box.appendChild(row);
+      if (g.note) {
+        var n = div('wg-read-sub', g.note);
+        n.style.marginTop = '.15rem';
+        box.appendChild(n);
+      }
+    });
+    if (spec.caption) box.appendChild(div('wg-read-sub', spec.caption));
+    host.appendChild(box);
+  };
+
   /* ── 導數：割線變切線（deriv）─────────────────────────────────────────
      h 越小，割線越貼近切線；斜率的極限就是導數。
      spec: { x0, h }（畫的是 y ＝ x²）                                     */

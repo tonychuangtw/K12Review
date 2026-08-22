@@ -15,7 +15,7 @@ for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'c
 for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
-for (const f of ['lessons-math']) {          // 概念卡（單元教學層）
+for (const f of ['lessons-math', 'lessons-science']) {          // 概念卡（單元教學層）
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
 global.window.APP_DATA = window.APP_DATA;
@@ -391,7 +391,8 @@ console.log('解析確認題');
                    'counting', 'vector', 'conic', 'matrix', 'linprog',
                    'unitcircle', 'trigwave', 'limit', 'space3d',
                    'lintrans', 'normaldist', 'scatter', 'condprob',
-                   'deriv', 'curveplot', 'integralarea', 'complexplane'];  // 與 js/widgets.js 的 REG 同步
+                   'deriv', 'curveplot', 'integralarea', 'complexplane',
+                   'optics', 'moonphase', 'earthsun', 'soundwave', 'compareexp', 'classify'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');
