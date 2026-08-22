@@ -20941,3 +20941,1365 @@ window.APP_LESSONS['english|八上|第9單元 過去進行式'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|八下|第1單元 現在完成式（經驗）'] = {
+  intro: '「有沒有做過」用現在完成式，重點在經驗而不是時間。',
+  cards: [
+    {
+      title: '① 基本結構',
+      body: 'have／has ＋ 過去分詞（p.p.）\n' +
+            'I have been to Japan.（我去過日本。）\n' +
+            'He has seen that movie.\n' +
+            '⚠ 主詞是第三人稱單數用 has，其餘用 have。',
+      viz: { type: 'tense', verb: 'go', highlight: '現在完成式', pick: false },
+      check: {
+        q: 'She ___ finished her homework. 空格要填什麼？',
+        options: ['has', 'have', 'is', 'had'],
+        answer: 0,
+        why: [
+          null,
+          '第三人稱單數要用 has。',
+          '完成式用 have 或 has 而不是 be 動詞。',
+          'had 是過去完成式，時態不符。'
+        ]
+      }
+    },
+    {
+      title: '② 表示經驗的關鍵字',
+      body: 'ever（曾經）　never（從未）　before（以前）\n' +
+            'once／twice／three times（次數）\n' +
+            'Have you ever been abroad?\n' +
+            '⚠ ever 多用在疑問句，never 用在肯定句表示否定。',
+      viz: { type: 'classify', groups: [
+        { label: '經驗的訊號字', items: ['ever', 'never', 'before', 'twice'] },
+        { label: '過去式的訊號字', items: ['yesterday', 'last week', 'in 2020'] }] },
+      check: {
+        q: 'Have you ___ tried Thai food? 空格要填什麼？',
+        options: ['ever', 'yesterday', 'ago', 'last night'],
+        answer: 0,
+        why: [
+          null,
+          '有明確的過去時間就要用過去式。',
+          'ago 表示過去某時，不能配完成式。',
+          '有明確的過去時間就要用過去式。'
+        ]
+      }
+    },
+    {
+      title: '③ been 與 gone 的差別',
+      body: 'have been to ＝ 去過（已經回來了）\n' +
+            'have gone to ＝ 去了（人還在那裡）\n' +
+            'He has been to Japan.（他去過日本，人在這裡。）\n' +
+            'He has gone to Japan.（他去日本了，人不在。）',
+      viz: { type: 'compareexp',
+             factor: '人在不在這裡',
+             a: { label: 'have been to', note: '去過並且回來了' },
+             b: { label: 'have gone to', note: '去了還沒回來' },
+             same: ['都用現在完成式'] },
+      check: {
+        q: '「他去美國了，現在人不在台灣」的正確說法是什麼？',
+        options: [
+          'He has gone to the US.',
+          'He has been to the US.',
+          'He has went to the US.',
+          'He is gone to the US.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'been to 表示去過並已回來。',
+          'went 是過去式，不是過去分詞。',
+          '完成式要用 have 或 has。'
+        ]
+      }
+    },
+    {
+      title: '④ 不能配明確的過去時間',
+      body: '✗ I have seen him yesterday.\n' +
+            '✓ I saw him yesterday.\n' +
+            '✓ I have seen him before.\n' +
+            '⚠ 現在完成式的重點是「對現在的影響」，\n' +
+            '一旦指明過去某個時間點，就要用過去式。',
+      viz: { type: 'compareexp',
+             factor: '有沒有指明時間',
+             a: { label: '現在完成式', note: '不指明時間：I have seen it.' },
+             b: { label: '過去簡單式', note: '指明時間：I saw it yesterday.' },
+             same: ['動作都發生在過去'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'I visited Japan last year.',
+          'I have visited Japan last year.',
+          'I have visit Japan last year.',
+          'I am visited Japan last year.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '有 last year 就要用過去式。',
+          '完成式後面要用過去分詞，時間詞也不對。',
+          'be 動詞不能這樣使用。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 過去分詞怎麼來',
+      body: '規則動詞：和過去式一樣加 ed（played、watched）\n' +
+            '不規則動詞：要背第三態（see－saw－seen、go－went－gone）\n' +
+            '⚠ 完成式用的是第三態，不是第二態：\n' +
+            '✗ I have saw → ✓ I have seen',
+      viz: { type: 'classify', groups: [
+        { label: '三態相同', items: ['cut', 'put', 'hit'] },
+        { label: '二三態相同', items: ['bought', 'taught', 'made'] },
+        { label: '三態都不同', items: ['gone', 'seen', 'written', 'eaten'] }] },
+      check: {
+        q: 'I have ___ that book.（read 的過去分詞）空格要填什麼？',
+        options: ['read', 'readed', 'reads', 'reading'],
+        answer: 0,
+        why: [
+          null,
+          'read 是不規則動詞，不加 ed。',
+          '完成式後面要用過去分詞。',
+          '完成式後面不用動名詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 疑問與簡答',
+      body: 'Have you ever seen a whale?→ Yes, I have.／No, I haven’t.\n' +
+            'Has he finished?→ Yes, he has.\n' +
+            '⚠ 把 have／has 移到句首，簡答也用 have／has。',
+      viz: { type: 'energyflow', steps: ['You have seen it.', '把 have 移到句首', 'Have you seen it?', 'Yes, I have.'] },
+      check: {
+        q: 'Has she left? 的否定簡答是什麼？',
+        options: [
+          'No, she hasn’t.',
+          'No, she doesn’t.',
+          'No, she isn’t.',
+          'No, she haven’t.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '完成式的簡答要用 has 或 have。',
+          '完成式的簡答不用 be 動詞。',
+          '第三人稱單數要用 hasn’t。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八下|第2單元 現在完成式（完成與持續）'] = {
+  intro: '同一個結構，還可以表示「剛完成」和「一直持續到現在」。',
+  cards: [
+    {
+      title: '① 剛剛完成',
+      body: 'I have just finished my homework.（我剛寫完功課。）\n' +
+            'They have already left.（他們已經走了。）\n' +
+            '⚠ just（剛剛）、already（已經）多放在 have 和 p.p. 中間。',
+      viz: { type: 'sentence', label: '副詞的位置', items: [
+        { t: 'I have', r: '助動詞' }, { t: 'just', r: '副詞（放中間）' },
+        { t: 'finished', r: '過去分詞' }],
+        note: 'just 與 already 放在助動詞後面。' },
+      check: {
+        q: '下列哪一句位置正確？',
+        options: [
+          'She has already eaten lunch.',
+          'She already has eaten lunch.',
+          'She has eaten already lunch.',
+          'Already she has eaten has lunch.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'already 通常放在助動詞後面。',
+          '副詞不插在動詞與受詞中間。',
+          '這句重複了助動詞。'
+        ]
+      }
+    },
+    {
+      title: '② yet 與 already',
+      body: 'already：肯定句（已經）\n' +
+            'yet：否定句（還沒）與疑問句（還沒嗎），放句尾\n' +
+            'I haven’t finished yet.／Have you finished yet?',
+      viz: { type: 'compareexp',
+             factor: '用在哪種句子',
+             a: { label: 'already', note: '肯定句，放中間' },
+             b: { label: 'yet', note: '否定與疑問句，放句尾' },
+             same: ['都表示動作完成與否'] },
+      check: {
+        q: 'I haven’t seen that movie ___. 空格要填什麼？',
+        options: ['yet', 'already', 'ever', 'just'],
+        answer: 0,
+        why: [
+          null,
+          'already 用在肯定句。',
+          'ever 多用在疑問句。',
+          'just 表示剛剛，用在肯定句。'
+        ]
+      }
+    },
+    {
+      title: '③ 持續到現在',
+      body: 'I have lived here for ten years.（我住這裡十年了，現在還住。）\n' +
+            '⚠ 過去式 I lived here for ten years 表示「已經不住了」。\n' +
+            '完成式強調現在仍然如此。',
+      viz: { type: 'compareexp',
+             factor: '現在還是不是這樣',
+             a: { label: '現在完成式', note: 'have lived — 現在還住著' },
+             b: { label: '過去簡單式', note: 'lived — 現在已經不住了' },
+             same: ['都提到住了十年'] },
+      check: {
+        q: 'I have worked here for five years. 這句話表示什麼？',
+        options: [
+          '我五年前開始在這裡工作，現在還在',
+          '我五年前離職了',
+          '我明年會來這裡工作',
+          '我只工作過五天'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '完成式表示狀態持續到現在。',
+          '句子用的是完成式，不是未來式。',
+          'five years 是五年而不是五天。'
+        ]
+      }
+    },
+    {
+      title: '④ for 與 since',
+      body: 'for ＋ 一段時間：for three years、for a long time\n' +
+            'since ＋ 起點：since 2020、since I was a child\n' +
+            '⚠ since 後面也可以接一整個過去式子句。',
+      viz: { type: 'sentence', label: '兩種說法', items: [
+        { t: 'for ten years', r: '持續多久' }, { t: 'since 2016', r: '從何時開始' }],
+        note: '兩種說的是同一段時間。' },
+      check: {
+        q: 'He has been sick ___ last Monday. 空格要填什麼？',
+        options: ['since', 'for', 'in', 'during'],
+        answer: 0,
+        why: [
+          null,
+          'for 後面要接一段時間長度。',
+          'in 不用於這個句型。',
+          'during 後面接一段期間的名詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 現在完成進行式',
+      body: 'have／has been ＋ 動詞 ing\n' +
+            'I have been studying for three hours.\n' +
+            '⚠ 強調動作「一直在進行」而且可能還會繼續，\n' +
+            '比單純的完成式更強調過程。',
+      viz: { type: 'compareexp',
+             factor: '強調什麼',
+             a: { label: '現在完成式', note: '強調結果：I have read the book.' },
+             b: { label: '現在完成進行式', note: '強調過程：I have been reading it.' },
+             same: ['都從過去延續到現在'] },
+      check: {
+        q: 'I have been waiting for an hour. 這句話強調什麼？',
+        options: [
+          '等的這個過程持續了一小時，現在可能還在等',
+          '我一小時前等過',
+          '我明天要等一小時',
+          '我只等了一下下'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '完成進行式強調持續到現在。',
+          '句子用的不是未來式。',
+          'an hour 是一小時，不是一下下。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 三種用法整理',
+      body: '① 經驗：have been to、have ever seen\n' +
+            '② 完成：have just finished、haven’t yet\n' +
+            '③ 持續：have lived for／since\n' +
+            '⚠ 三種都用同一個結構，靠上下文與關鍵字判斷。',
+      viz: { type: 'classify', groups: [
+        { label: '經驗', items: ['ever', 'never', 'twice'] },
+        { label: '完成', items: ['just', 'already', 'yet'] },
+        { label: '持續', items: ['for', 'since', 'so far'] }] },
+      check: {
+        q: '看到 since 2015 這個訊號，應該判斷是哪一種用法？',
+        options: [
+          '持續：從那時一直到現在',
+          '經驗：曾經做過',
+          '完成：剛剛做完',
+          '未來：接下來要做'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '經驗的訊號字是 ever 或 never。',
+          '完成的訊號字是 just 或 already。',
+          'since 指的是過去的起點而不是未來。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八下|第3單元 被動語態（現在）'] = {
+  intro: '把「誰做的」變成「被怎麼樣」，重點就換人了。',
+  cards: [
+    {
+      title: '① 主動與被動',
+      body: '主動：Many people speak English.\n' +
+            '被動：English is spoken by many people.\n' +
+            '★ 結構：be 動詞 ＋ 過去分詞（＋ by 加行為者）\n' +
+            '⚠ 受詞變主詞，主詞變成 by 後面的部分。',
+      viz: { type: 'sentence', label: '被動語態結構', items: [
+        { t: 'English', r: '原本的受詞變主詞' }, { t: 'is spoken', r: 'be 動詞加過去分詞' },
+        { t: 'by many people', r: '原本的主詞' }],
+        note: '受詞升格為主詞，動詞改成被動形式。' },
+      check: {
+        q: '下列哪一句是正確的被動語態？',
+        options: [
+          'The room is cleaned every day.',
+          'The room is clean every day.',
+          'The room cleans every day.',
+          'The room is cleaning by us every day.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '被動語態要用過去分詞。',
+          '這是主動語態，語意變成房間會自己打掃。',
+          '這裡要用被動而不是進行式。'
+        ]
+      }
+    },
+    {
+      title: '② be 動詞要跟著主詞',
+      body: 'The book is written in English.（單數）\n' +
+            'The books are written in English.（複數）\n' +
+            '⚠ 被動語態的 be 動詞要跟新主詞的單複數一致。',
+      viz: { type: 'classify', groups: [
+        { label: '單數主詞', items: ['is made', 'is used', 'is sold'] },
+        { label: '複數主詞', items: ['are made', 'are used', 'are sold'] }] },
+      check: {
+        q: 'These shoes ___ made in Taiwan. 空格要填什麼？',
+        options: ['are', 'is', 'was', 'be'],
+        answer: 0,
+        why: [
+          null,
+          '主詞是複數的 shoes。',
+          '句子講的是現在的事實。',
+          'be 是原形，句子需要現在式。'
+        ]
+      }
+    },
+    {
+      title: '③ 什麼時候用被動',
+      body: '① 不知道或不重要是誰做的：My bike was stolen.\n' +
+            '② 想強調被影響的對象：The window is broken.\n' +
+            '③ 客觀陳述（科學、新聞）：Water is used to cool the machine.\n' +
+            '⚠ 沒必要時不用刻意改成被動，主動通常更有力。',
+      viz: { type: 'compareexp',
+             factor: '重點放在誰',
+             a: { label: '主動', note: '重點在做的人：Tom broke the window.' },
+             b: { label: '被動', note: '重點在被做的東西：The window was broken.' },
+             same: ['講的是同一件事'] },
+      check: {
+        q: '什麼情況下最適合用被動語態？',
+        options: [
+          '不知道或不需要說明是誰做的時候',
+          '想強調做事的人時',
+          '句子太短的時候',
+          '任何時候都應該用被動'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '想強調做事的人應該用主動語態。',
+          '句子長短不是選擇語態的理由。',
+          '過度使用被動會讓文章拗口。'
+        ]
+      }
+    },
+    {
+      title: '④ by 常常可以省略',
+      body: 'Rice is grown in Taiwan.（不用說 by farmers）\n' +
+            '⚠ 行為者很明顯、不重要或不知道時，by 片語就省略。',
+      viz: { type: 'classify', groups: [
+        { label: '通常省略 by', items: ['is made in Japan', 'was built in 1990', 'is spoken here'] },
+        { label: '保留 by', items: ['written by Hemingway', 'painted by Van Gogh'] }] },
+      check: {
+        q: '下列哪一種情況通常會保留 by 片語？',
+        options: [
+          '行為者很重要，例如作品的作者',
+          '行為者是一般人',
+          '行為者不知道是誰',
+          '任何被動句都要寫 by'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '行為者是一般人時通常省略。',
+          '不知道是誰時無法寫出 by 片語。',
+          '多數被動句不需要 by 片語。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 否定與疑問',
+      body: '否定：The room isn’t cleaned every day.\n' +
+            '疑問：Is the room cleaned every day?\n' +
+            '⚠ 變化都發生在 be 動詞上，過去分詞不變。',
+      viz: { type: 'energyflow', steps: ['It is made here.', '否定：isn’t made', '疑問：Is it made here?', '過去分詞不變'] },
+      check: {
+        q: '「這些書不是在台灣印的」的正確說法是什麼？',
+        options: [
+          'These books aren’t printed in Taiwan.',
+          'These books don’t printed in Taiwan.',
+          'These books aren’t print in Taiwan.',
+          'These books isn’t printed in Taiwan.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '被動語態的否定用 be 動詞加 not。',
+          '被動語態要用過去分詞。',
+          '主詞是複數，要用 aren’t。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 有些動詞不能用被動',
+      body: '沒有受詞的動詞（不及物動詞）不能改被動：\n' +
+            '✗ An accident was happened.→ ✓ An accident happened.\n' +
+            '⚠ happen、occur、appear、rise、arrive 都不能用被動。',
+      viz: { type: 'classify', groups: [
+        { label: '不能用被動', items: ['happen', 'occur', 'appear', 'arrive', 'rise'] },
+        { label: '可以用被動', items: ['make', 'build', 'write', 'break'] }] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'The accident happened last night.',
+          'The accident was happened last night.',
+          'The accident is happened last night.',
+          'The accident has been happened.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'happen 沒有受詞，不能用被動。',
+          'happen 不能改成被動語態。',
+          'happen 不能改成被動語態。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八下|第4單元 被動語態（過去）'] = {
+  intro: '過去的被動只要把 be 動詞換成 was／were。',
+  cards: [
+    {
+      title: '① 過去被動的結構',
+      body: 'was／were ＋ 過去分詞\n' +
+            'The house was built in 1990.\n' +
+            'These pictures were taken by my father.\n' +
+            '⚠ be 動詞決定時態，過去分詞決定「被動」。',
+      viz: { type: 'sentence', label: '兩個部分各管一件事', items: [
+        { t: 'was', r: 'be 動詞：決定時態' },
+        { t: 'built', r: '過去分詞：表示被動' }],
+        note: 'be 動詞管時態，過去分詞管被動。' },
+      check: {
+        q: 'The letters ___ sent yesterday. 空格要填什麼？',
+        options: ['were', 'was', 'are', 'is'],
+        answer: 0,
+        why: [
+          null,
+          '主詞是複數的 letters。',
+          '有 yesterday 要用過去式。',
+          '這裡既要複數也要過去式。'
+        ]
+      }
+    },
+    {
+      title: '② 主動改被動的三步驟',
+      body: '① 把受詞移到句首當主詞\n' +
+            '② 動詞改成 be 動詞（配合時態）加過去分詞\n' +
+            '③ 原本的主詞加 by 放句尾（可省略）\n' +
+            'Tom broke the window.→ The window was broken by Tom.',
+      viz: { type: 'energyflow', steps: ['受詞移到句首', '動詞改被動形式', '原主詞加 by', '完成'] },
+      check: {
+        q: 'Someone stole my bike. 改成被動語態是什麼？',
+        options: [
+          'My bike was stolen.',
+          'My bike was stole.',
+          'My bike is stolen yesterday.',
+          'My bike stole by someone.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '被動語態要用過去分詞 stolen。',
+          '這個句子的時態不一致。',
+          '被動語態需要 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 各種時態的被動',
+      body: '現在：is／are ＋ p.p.\n' +
+            '過去：was／were ＋ p.p.\n' +
+            '未來：will be ＋ p.p.\n' +
+            '完成：have／has been ＋ p.p.\n' +
+            '⚠ 只有 be 動詞在變，過去分詞永遠不變。',
+      viz: { type: 'classify', groups: [
+        { label: '各時態的被動', items: ['is made', 'was made', 'will be made', 'has been made'] }] },
+      check: {
+        q: '「這棟大樓明年會被拆掉」的正確說法是什麼？',
+        options: [
+          'The building will be torn down next year.',
+          'The building will torn down next year.',
+          'The building will be tear down next year.',
+          'The building is will be torn down.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '被動語態需要 be 動詞。',
+          'be 後面要接過去分詞。',
+          '助動詞不能和 be 動詞這樣連用。'
+        ]
+      }
+    },
+    {
+      title: '④ 助動詞的被動',
+      body: 'can be done、must be finished、should be sent\n' +
+            'The work must be finished today.\n' +
+            '⚠ 助動詞後面用原形的 be，再加過去分詞。',
+      viz: { type: 'sentence', label: '助動詞的被動', items: [
+        { t: 'must', r: '助動詞' }, { t: 'be', r: '原形 be' },
+        { t: 'finished', r: '過去分詞' }],
+        note: '助動詞後面用原形的 be。' },
+      check: {
+        q: 'This problem can ___ easily. 空格要填什麼？',
+        options: [
+          'be solved',
+          'is solved',
+          'be solve',
+          'solved'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '助動詞後面要用原形的 be。',
+          'be 後面要接過去分詞。',
+          '被動語態需要 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 有兩個受詞的句子',
+      body: 'He gave me a book.（兩個受詞）\n' +
+            '→ I was given a book.（人當主詞）\n' +
+            '→ A book was given to me.（物當主詞，人前面加 to）\n' +
+            '⚠ 物當主詞時，人的前面要補介系詞。',
+      viz: { type: 'compareexp',
+             factor: '誰當主詞',
+             a: { label: '人當主詞', note: 'I was given a book.' },
+             b: { label: '物當主詞', note: 'A book was given to me.' },
+             same: ['都由同一個主動句改來'] },
+      check: {
+        q: 'She sent me a letter. 改成以 letter 當主詞的被動句是什麼？',
+        options: [
+          'A letter was sent to me.',
+          'A letter was sent me.',
+          'A letter sent to me.',
+          'A letter was send to me.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '物當主詞時人的前面要加 to。',
+          '被動語態需要 be 動詞。',
+          'be 後面要接過去分詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 用其他介系詞的被動',
+      body: 'be interested in（對…有興趣）\n' +
+            'be worried about（擔心）\n' +
+            'be covered with（被…覆蓋）\n' +
+            'be known for（以…聞名）\n' +
+            '⚠ 這些是固定搭配，不一定用 by。',
+      viz: { type: 'classify', groups: [
+        { label: '搭配 in', items: ['be interested in'] },
+        { label: '搭配 with', items: ['be covered with', 'be filled with'] },
+        { label: '搭配 for／to', items: ['be known for', 'be known to'] }] },
+      check: {
+        q: 'The mountain is covered ___ snow. 空格要填什麼？',
+        options: ['with', 'by', 'in', 'of'],
+        answer: 0,
+        why: [
+          null,
+          '這個片語的固定搭配是 with。',
+          'in 不用於這個片語。',
+          'of 不用於這個片語。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八下|第5單元 關係代名詞'] = {
+  intro: '用一個子句去修飾名詞，句子就能說得更完整。',
+  cards: [
+    {
+      title: '① 關係代名詞在做什麼',
+      body: 'I know a boy. ＋ He can speak five languages.\n' +
+            '→ I know a boy who can speak five languages.\n' +
+            '★ who 代替 he，同時把兩句連起來。\n' +
+            '⚠ 關係代名詞身兼「代名詞」與「連接詞」兩個角色。',
+      viz: { type: 'sentence', label: '合併兩句', items: [
+        { t: 'I know a boy', r: '主句' }, { t: 'who', r: '關係代名詞' },
+        { t: 'can speak five languages', r: '形容詞子句' }],
+        note: '關係代名詞既連接又代替。' },
+      check: {
+        q: '關係代名詞同時扮演哪兩個角色？',
+        options: [
+          '代名詞與連接詞',
+          '動詞與名詞',
+          '介系詞與副詞',
+          '形容詞與助動詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '關係代名詞不是動詞也不是名詞。',
+          '關係代名詞不是介系詞。',
+          '關係代名詞不是助動詞。'
+        ]
+      }
+    },
+    {
+      title: '② 選哪一個關係代名詞',
+      body: '先行詞是人：who（主格）／whom（受格）／whose（所有格）\n' +
+            '先行詞是物：which\n' +
+            '人或物都可以：that\n' +
+            '⚠ 先看先行詞是人還是物，再看它在子句裡當主詞還是受詞。',
+      viz: { type: 'classify', groups: [
+        { label: '人', items: ['who', 'whom', 'whose'] },
+        { label: '物', items: ['which', 'whose'] },
+        { label: '通用', items: ['that'] }] },
+      check: {
+        q: 'This is the book ___ I bought yesterday. 空格要填什麼？',
+        options: ['which', 'who', 'whose', 'whom'],
+        answer: 0,
+        why: [
+          null,
+          'who 用於人。',
+          'whose 表示所有，語意不合。',
+          'whom 用於人的受格。'
+        ]
+      }
+    },
+    {
+      title: '③ 主格與受格',
+      body: '主格：後面直接接動詞\n' +
+            '　 The man who lives next door is a doctor.\n' +
+            '受格：後面接主詞加動詞\n' +
+            '　 The man (whom) I met is a doctor.\n' +
+            '⚠ 判斷方法：關係代名詞後面缺主詞就用主格。',
+      viz: { type: 'compareexp',
+             factor: '後面缺什麼',
+             a: { label: '主格', note: '後面直接接動詞：who lives' },
+             b: { label: '受格', note: '後面接主詞加動詞：whom I met' },
+             same: ['都在修飾前面的名詞'] },
+      check: {
+        q: 'The girl ___ won the prize is my sister. 空格要填什麼？',
+        options: ['who', 'whom', 'which', 'whose'],
+        answer: 0,
+        why: [
+          null,
+          '後面直接接動詞，要用主格。',
+          'which 用於物。',
+          'whose 後面要接名詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 受格可以省略',
+      body: 'The book (which) I read was great.\n' +
+            '★ 只有受格可以省略，主格不能省。\n' +
+            '⚠ 檢查方法：省略後如果動詞前面沒主詞，就不能省。',
+      viz: { type: 'compareexp',
+             factor: '能不能省略',
+             a: { label: '受格', note: '可以省略：the book I read' },
+             b: { label: '主格', note: '不能省略：the man who lives here' },
+             same: ['都在引導形容詞子句'] },
+      check: {
+        q: '下列哪一句的關係代名詞可以省略？',
+        options: [
+          'The movie that we watched was funny.',
+          'The man who called me is my uncle.',
+          'The dog which is barking is loud.',
+          'The girl who sits there is Amy.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這裡的 who 是主格，不能省略。',
+          '這裡的 which 是主格，不能省略。',
+          '這裡的 who 是主格，不能省略。'
+        ]
+      }
+    },
+    {
+      title: '⑤ whose 表示所有',
+      body: 'I have a friend whose father is a pilot.\n' +
+            '⚠ whose 後面一定接名詞，人和物都可以用。',
+      viz: { type: 'sentence', label: 'whose 的用法', items: [
+        { t: 'a friend', r: '先行詞' }, { t: 'whose', r: '所有格' },
+        { t: 'father is a pilot', r: '名詞加動詞' }],
+        note: 'whose 後面一定接名詞。' },
+      check: {
+        q: 'I know a girl ___ brother is a singer. 空格要填什麼？',
+        options: ['whose', 'who', 'whom', 'which'],
+        answer: 0,
+        why: [
+          null,
+          'who 後面直接接動詞。',
+          'whom 是受格，後面接主詞加動詞。',
+          'which 用於物。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 只能用 that 的情況',
+      body: '先行詞是最高級、序數、all、every、the only、the same 時，\n' +
+            '習慣用 that：\n' +
+            'This is the best movie that I have ever seen.\n' +
+            '⚠ 先行詞同時包含人和物時也用 that。',
+      viz: { type: 'classify', groups: [
+        { label: '習慣用 that', items: ['the best…', 'the first…', 'the only…', 'all…', 'everything…'] }] },
+      check: {
+        q: 'This is the only book ___ I want to read. 空格填什麼最合適？',
+        options: ['that', 'who', 'whose', 'what'],
+        answer: 0,
+        why: [
+          null,
+          'who 用於人。',
+          'whose 後面要接名詞。',
+          'what 不能當關係代名詞接在先行詞後面。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八下|第6單元 間接問句'] = {
+  intro: '把問句放進另一個句子裡，語序就要變回陳述句。',
+  cards: [
+    {
+      title: '① 什麼是間接問句',
+      body: '直接問句：Where is he?\n' +
+            '間接問句：I don’t know where he is.\n' +
+            '★ 放進句子裡之後，語序改回「主詞 ＋ 動詞」。\n' +
+            '⚠ 這是最常錯的地方。',
+      viz: { type: 'compareexp',
+             factor: '語序',
+             a: { label: '直接問句', note: 'Where is he?（動詞在前）' },
+             b: { label: '間接問句', note: '…where he is.（主詞在前）' },
+             same: ['問的內容相同'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'Do you know where he lives?',
+          'Do you know where does he live?',
+          'Do you know where lives he?',
+          'Do you know where he live?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '間接問句裡不用助動詞倒裝。',
+          '間接問句要用陳述句的語序。',
+          '第三人稱單數的動詞要加 s。'
+        ]
+      }
+    },
+    {
+      title: '② 助動詞要拿掉',
+      body: '直接：What does he want?\n' +
+            '間接：I don’t know what he wants.\n' +
+            '★ 助動詞 does 消失，它帶的 s 回到動詞上。\n' +
+            '⚠ 過去式也一樣：did want → wanted。',
+      viz: { type: 'energyflow', steps: ['What does he want?', '拿掉 does', 's 回到動詞上', '…what he wants.'] },
+      check: {
+        q: 'Can you tell me what time the movie ___? 空格要填什麼？',
+        options: ['starts', 'does start', 'start', 'starting'],
+        answer: 0,
+        why: [
+          null,
+          '間接問句裡不用助動詞。',
+          '主詞是第三人稱單數，動詞要加 s。',
+          '這個形式缺少 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 沒有疑問詞時用 if 或 whether',
+      body: '直接：Is he a teacher?\n' +
+            '間接：I wonder if he is a teacher.\n' +
+            '⚠ 沒有疑問詞的是非問句，要用 if 或 whether 引導。',
+      viz: { type: 'compareexp',
+             factor: '原本的問句有沒有疑問詞',
+             a: { label: '有疑問詞', note: '直接沿用：where he is' },
+             b: { label: '沒有疑問詞', note: '要加 if／whether' },
+             same: ['都改成陳述句語序'] },
+      check: {
+        q: 'I don’t know ___ she will come. 空格填什麼最合適？',
+        options: ['whether', 'what', 'who', 'that if'],
+        answer: 0,
+        why: [
+          null,
+          '句子裡沒有要問「什麼」。',
+          '句子裡沒有要問「誰」。',
+          '兩個連接詞不能連用。'
+        ]
+      }
+    },
+    {
+      title: '④ 整句是問句還是陳述句',
+      body: 'Do you know where he is?（整句是問句，句尾用問號）\n' +
+            'I don’t know where he is.（整句是陳述句，用句點）\n' +
+            '⚠ 標點看的是「整個句子」，不是裡面的間接問句。',
+      viz: { type: 'compareexp',
+             factor: '主句的類型',
+             a: { label: '主句是問句', note: 'Do you know…? 用問號' },
+             b: { label: '主句是陳述句', note: 'I know… 用句點' },
+             same: ['裡面都是間接問句'] },
+      check: {
+        q: 'I wonder where she went 這句話結尾應該用什麼標點？',
+        options: [
+          '句點，因為主句是陳述句',
+          '問號，因為裡面有疑問詞',
+          '驚嘆號',
+          '不用標點'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '標點要看整個句子而不是裡面的部分。',
+          '這個句子沒有強烈的情緒。',
+          '英文句子結尾一定要有標點。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見的引導句',
+      body: 'Do you know…?　Can you tell me…?\n' +
+            'I wonder…　I have no idea…　Could you tell me…?\n' +
+            '⚠ 用間接問句問路或請教，語氣比直接問更客氣。',
+      viz: { type: 'energyflow', steps: ['Where is the station?（直接）', 'Do you know where the station is?（客氣）', 'Could you tell me where the station is?（更客氣）'] },
+      check: {
+        q: '向陌生人問路時，比較有禮貌的說法是什麼？',
+        options: [
+          'Could you tell me where the station is?',
+          'Where is the station.',
+          'Station where?',
+          'Tell me the station now.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '單純的直接問句語氣較唐突。',
+          '這個說法不是完整的句子。',
+          '命令的語氣不禮貌。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 檢查三步驟',
+      body: '① 有沒有把語序改回主詞加動詞\n' +
+            '② 有沒有拿掉 do／does／did\n' +
+            '③ 沒有疑問詞時有沒有補 if 或 whether\n' +
+            '⚠ 三個都檢查過，間接問句就不會錯。',
+      viz: { type: 'energyflow', steps: ['改語序', '拿掉助動詞', '補 if／whether', '確認標點'] },
+      check: {
+        q: '把 What did he say? 放進 I don’t know 之後，正確的說法是什麼？',
+        options: [
+          'I don’t know what he said.',
+          'I don’t know what did he say.',
+          'I don’t know what he did say it.',
+          'I don’t know that what he said.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '間接問句裡不用助動詞倒裝。',
+          '這個句子多了不必要的字。',
+          '兩個連接詞不能連用。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八下|第7單元 使役動詞'] = {
+  intro: '叫別人做事的動詞，後面的動詞形式有特別規定。',
+  cards: [
+    {
+      title: '① 三個使役動詞',
+      body: 'make（強迫、使得）　let（讓、允許）　have（要求、請）\n' +
+            '★ 結構：使役動詞 ＋ 受詞 ＋ 原形動詞（不加 to）\n' +
+            'My mom made me clean my room.',
+      viz: { type: 'sentence', label: '使役動詞結構', items: [
+        { t: 'made', r: '使役動詞' }, { t: 'me', r: '受詞' },
+        { t: 'clean', r: '原形動詞（不加 to）' }],
+        note: '使役動詞後面用原形動詞。' },
+      check: {
+        q: 'She let me ___ her bike. 空格要填什麼？',
+        options: ['use', 'to use', 'using', 'used'],
+        answer: 0,
+        why: [
+          null,
+          'let 後面不加 to。',
+          '這個位置要用原形動詞。',
+          '這個位置不用過去式。'
+        ]
+      }
+    },
+    {
+      title: '② 三者的語氣差別',
+      body: 'make：帶有強迫的意味（他不想也得做）\n' +
+            'let：允許（他本來就想做）\n' +
+            'have：交代、請人去做（多用於職務上）\n' +
+            '⚠ 意思差很多，不要互換。',
+      viz: { type: 'compareexp',
+             factor: '對方願不願意',
+             a: { label: 'make', note: '強迫：made him apologize' },
+             b: { label: 'let', note: '允許：let him go' },
+             same: ['後面都接原形動詞'] },
+      check: {
+        q: '「媽媽讓我出去玩」的正確說法是什麼？',
+        options: [
+          'My mom let me go out.',
+          'My mom made me go out.',
+          'My mom let me to go out.',
+          'My mom let me going out.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'make 帶有強迫的意味，語意不合。',
+          'let 後面不加 to。',
+          'let 後面要用原形動詞。'
+        ]
+      }
+    },
+    {
+      title: '③ help 比較特別',
+      body: 'help ＋ 受詞 ＋ (to) ＋ 原形動詞\n' +
+            'She helped me (to) carry the box.\n' +
+            '⚠ help 後面加不加 to 都可以，加不加都對。',
+      viz: { type: 'classify', groups: [
+        { label: '不加 to', items: ['make', 'let', 'have'] },
+        { label: '加不加都可以', items: ['help'] },
+        { label: '一定要加 to', items: ['ask', 'tell', 'want'] }] },
+      check: {
+        q: '下列哪一個動詞後面加不加 to 都正確？',
+        options: ['help', 'make', 'let', 'want'],
+        answer: 0,
+        why: [
+          null,
+          'make 後面一定不加 to。',
+          'let 後面一定不加 to。',
+          'want 後面一定要加 to。'
+        ]
+      }
+    },
+    {
+      title: '④ 被動時 to 要出現',
+      body: '主動：They made him apologize.\n' +
+            '被動：He was made to apologize.\n' +
+            '★ make 改成被動後，原形動詞前面要補 to。\n' +
+            '⚠ let 通常不用被動，改用 be allowed to。',
+      viz: { type: 'compareexp',
+             factor: '主動還是被動',
+             a: { label: '主動', note: 'made him go（不加 to）' },
+             b: { label: '被動', note: 'was made to go（要加 to）' },
+             same: ['都是 make 的用法'] },
+      check: {
+        q: 'He was made ___ the room. 空格要填什麼？',
+        options: ['to clean', 'clean', 'cleaning', 'cleaned'],
+        answer: 0,
+        why: [
+          null,
+          '被動語態時要補上 to。',
+          '這個位置不用動名詞。',
+          '這個位置不用過去分詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ have 的另一種用法',
+      body: 'have ＋ 事物 ＋ 過去分詞 ＝ 請人做某事\n' +
+            'I had my hair cut.（我去剪了頭髮，不是自己剪的。）\n' +
+            'She had her car repaired.\n' +
+            '⚠ 受詞是「東西」時，後面用過去分詞。',
+      viz: { type: 'compareexp',
+             factor: '受詞是人還是東西',
+             a: { label: '受詞是人', note: 'have him clean（原形動詞）' },
+             b: { label: '受詞是東西', note: 'have my hair cut（過去分詞）' },
+             same: ['都表示請別人做'] },
+      check: {
+        q: 'I had my bike ___ yesterday.（請人修好）空格要填什麼？',
+        options: ['repaired', 'repair', 'to repair', 'repairing'],
+        answer: 0,
+        why: [
+          null,
+          '受詞是東西時要用過去分詞。',
+          '這裡腳踏車是被修理的，要用被動的形式。',
+          '這個位置不用進行式。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 相似但要加 to 的動詞',
+      body: 'ask／tell／want／advise ＋ 受詞 ＋ to ＋ 原形動詞\n' +
+            'She asked me to help her.\n' +
+            '⚠ 這一組和使役動詞長得很像，但一定要加 to，\n' +
+            '兩組要分開記。',
+      viz: { type: 'classify', groups: [
+        { label: '不加 to（使役）', items: ['make', 'let', 'have'] },
+        { label: '要加 to', items: ['ask', 'tell', 'want', 'advise', 'allow'] }] },
+      check: {
+        q: 'My teacher told me ___ harder. 空格要填什麼？',
+        options: ['to study', 'study', 'studying', 'studied'],
+        answer: 0,
+        why: [
+          null,
+          'tell 後面要加 to。',
+          '這個位置不用動名詞。',
+          '這個位置不用過去式。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八下|第8單元 感官動詞與知覺'] = {
+  intro: '看到、聽到、感覺到，後面的動詞形式也有規則。',
+  cards: [
+    {
+      title: '① 感官動詞的句型',
+      body: 'see／hear／watch／feel／notice ＋ 受詞 ＋ 原形動詞或動詞 ing\n' +
+            'I saw him enter the room.\n' +
+            'I saw him entering the room.\n' +
+            '⚠ 和使役動詞一樣，不加 to。',
+      viz: { type: 'sentence', label: '感官動詞句型', items: [
+        { t: 'saw', r: '感官動詞' }, { t: 'him', r: '受詞' },
+        { t: 'enter', r: '原形動詞（不加 to）' }],
+        note: '感官動詞後面不加 to。' },
+      check: {
+        q: 'I heard someone ___ my name. 空格要填什麼？',
+        options: ['call', 'to call', 'called', 'calls'],
+        answer: 0,
+        why: [
+          null,
+          '感官動詞後面不加 to。',
+          '這個位置要用原形動詞或動詞 ing。',
+          '這個位置不用第三人稱單數形。'
+        ]
+      }
+    },
+    {
+      title: '② 原形與 ing 的差別',
+      body: '原形：看到完整的過程（從頭到尾）\n' +
+            '　 I saw him cross the street.（看他走完）\n' +
+            'ing：看到正在進行的片段\n' +
+            '　 I saw him crossing the street.（看到他正在走）',
+      viz: { type: 'compareexp',
+             factor: '看到多少',
+             a: { label: '原形動詞', note: '完整的動作' },
+             b: { label: '動詞 ing', note: '進行中的片段' },
+             same: ['都不加 to'] },
+      check: {
+        q: '「我經過時看到他正在打球」比較適合用哪一種？',
+        options: [
+          '動詞 ing，因為是看到進行中的片段',
+          '原形動詞，因為看到全部',
+          '過去分詞',
+          '不定詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '經過時只看到片段而不是全部。',
+          '過去分詞用於被動的情況。',
+          '感官動詞後面不加 to。'
+        ]
+      }
+    },
+    {
+      title: '③ 被動時要加 to',
+      body: '主動：I saw him leave.\n' +
+            '被動：He was seen to leave.\n' +
+            '⚠ 和 make 一樣，改成被動後 to 要補回來。',
+      viz: { type: 'energyflow', steps: ['主動：saw him leave', '改被動', '補上 to', 'was seen to leave'] },
+      check: {
+        q: 'He was heard ___ the song. 空格要填什麼？',
+        options: ['to sing', 'sing', 'sang', 'sings'],
+        answer: 0,
+        why: [
+          null,
+          '被動語態時要補上 to。',
+          '這個位置不用過去式。',
+          '這個位置不用第三人稱單數形。'
+        ]
+      }
+    },
+    {
+      title: '④ 受詞是被動的情況',
+      body: 'I heard my name called.（我聽到有人叫我的名字。）\n' +
+            '⚠ 受詞和後面的動作是被動關係時，用過去分詞。\n' +
+            '判斷方法：受詞是「做」還是「被做」。',
+      viz: { type: 'compareexp',
+             factor: '受詞是主動還是被動',
+             a: { label: '受詞主動', note: 'saw him run（他自己跑）' },
+             b: { label: '受詞被動', note: 'heard my name called（名字被叫）' },
+             same: ['都接在感官動詞後面'] },
+      check: {
+        q: 'I saw the window ___ by the wind. 空格要填什麼？',
+        options: ['broken', 'break', 'breaking', 'to break'],
+        answer: 0,
+        why: [
+          null,
+          '窗戶是被風打破的，要用過去分詞。',
+          '窗戶不是主動打破東西的一方。',
+          '感官動詞後面不加 to。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 感官動詞當連綴動詞',
+      body: '同一批動詞也可以直接接形容詞（第八上第六單元學過）：\n' +
+            'It looks good.／It sounds strange.\n' +
+            '⚠ 後面接受詞加動詞是「知覺」用法，\n' +
+            '後面接形容詞是「連綴」用法，兩者要分清楚。',
+      viz: { type: 'compareexp',
+             factor: '後面接什麼',
+             a: { label: '連綴用法', note: '接形容詞：It looks nice.' },
+             b: { label: '知覺用法', note: '接受詞加動詞：I saw him run.' },
+             same: ['是同一批動詞'] },
+      check: {
+        q: 'The music sounds ___. 空格要填什麼？',
+        options: ['beautiful', 'beautifully', 'to be beauty', 'beauty'],
+        answer: 0,
+        why: [
+          null,
+          '連綴動詞後面要接形容詞而不是副詞。',
+          '這裡不需要不定詞。',
+          'beauty 是名詞，語意不通。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 整理成一張表',
+      body: '使役 make／let／have ＋ 受詞 ＋ 原形\n' +
+            '感官 see／hear／watch ＋ 受詞 ＋ 原形或 ing\n' +
+            '受詞被動時 → 過去分詞\n' +
+            '改成被動時 → 補上 to\n' +
+            '⚠ 這四條規則涵蓋了大多數考題。',
+      viz: { type: 'energyflow', steps: ['判斷是使役還是感官', '看受詞是主動還是被動', '主動用原形或 ing', '被動用過去分詞'] },
+      check: {
+        q: '判斷感官動詞後面要用原形、ing 還是過去分詞，第一步該看什麼？',
+        options: [
+          '受詞和動作是主動還是被動關係',
+          '句子有幾個字',
+          '主詞是不是複數',
+          '有沒有時間副詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長度與這個判斷無關。',
+          '主詞單複數不影響這個選擇。',
+          '時間副詞影響的是時態而不是這個。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八下|第9單元 too...to 與 enough to'] = {
+  intro: '一個表示「太…以致於不能」，一個表示「夠…可以」。',
+  cards: [
+    {
+      title: '① too 加形容詞加 to',
+      body: 'too ＋ 形容詞／副詞 ＋ to ＋ 原形動詞\n' +
+            'He is too young to drive.（他太年輕了，不能開車。）\n' +
+            '★ 句子沒有 not，但意思是否定的。\n' +
+            '⚠ 這是最容易誤解的地方。',
+      viz: { type: 'sentence', label: 'too…to 結構', items: [
+        { t: 'too young', r: '太年輕' }, { t: 'to drive', r: '以致於不能開車' }],
+        note: '形式肯定，意思否定。' },
+      check: {
+        q: 'The coffee is too hot to drink. 這句話的意思是什麼？',
+        options: [
+          '咖啡太燙了，沒辦法喝',
+          '咖啡很燙，可以喝',
+          '咖啡不燙',
+          '咖啡剛好可以喝'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'too…to 表示不能做這件事。',
+          '句中的 too hot 表示很燙。',
+          'too…to 表示程度超過了。'
+        ]
+      }
+    },
+    {
+      title: '② 換句話說：so…that…not',
+      body: 'He is too young to drive.\n' +
+            '＝ He is so young that he can’t drive.\n' +
+            '⚠ 改寫時要補上 not 或 can’t，\n' +
+            '因為 too…to 本身就含否定。',
+      viz: { type: 'compareexp',
+             factor: '否定藏在哪裡',
+             a: { label: 'too…to', note: '沒有 not，但意思是否定' },
+             b: { label: 'so…that…not', note: '有明確的否定詞' },
+             same: ['意思完全相同'] },
+      check: {
+        q: 'She is too tired to work. 換句話說是什麼？',
+        options: [
+          'She is so tired that she can’t work.',
+          'She is so tired that she can work.',
+          'She is very tired and works.',
+          'She is not tired so she works.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '改寫時要保留否定的意思。',
+          '這個說法失去了原句的否定意味。',
+          '這個說法與原句的意思相反。'
+        ]
+      }
+    },
+    {
+      title: '③ enough 的位置',
+      body: '★ enough 放在形容詞、副詞「後面」：\n' +
+            'old enough（夠大）、fast enough（夠快）\n' +
+            '★ 放在名詞「前面」：\n' +
+            'enough money（足夠的錢）\n' +
+            '⚠ 這個位置差異很常考。',
+      viz: { type: 'compareexp',
+             factor: '修飾什麼',
+             a: { label: '修飾形容詞', note: '放後面：tall enough' },
+             b: { label: '修飾名詞', note: '放前面：enough time' },
+             same: ['都表示足夠'] },
+      check: {
+        q: '下列哪一個位置正確？',
+        options: [
+          'He is tall enough to reach it.',
+          'He is enough tall to reach it.',
+          'He is tall to enough reach it.',
+          'He enough is tall to reach it.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'enough 修飾形容詞時要放後面。',
+          'enough 的位置不正確。',
+          'enough 不放在 be 動詞前面。'
+        ]
+      }
+    },
+    {
+      title: '④ enough to 是肯定的',
+      body: 'She is old enough to vote.（她夠大了，可以投票。）\n' +
+            '＝ She is so old that she can vote.\n' +
+            '⚠ 和 too…to 相反，enough to 的意思是肯定的。',
+      viz: { type: 'compareexp',
+             factor: '意思是肯定還是否定',
+             a: { label: 'too…to', note: '否定：太…不能…' },
+             b: { label: 'enough to', note: '肯定：夠…可以…' },
+             same: ['結構都有 to 加原形動詞'] },
+      check: {
+        q: 'The box is light enough to carry. 這句話的意思是什麼？',
+        options: [
+          '箱子夠輕，搬得動',
+          '箱子太輕了搬不動',
+          '箱子太重了',
+          '箱子搬不動'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'enough to 表示可以做到。',
+          'light 是輕的意思。',
+          '這句話表示可以搬得動。'
+        ]
+      }
+    },
+    {
+      title: '⑤ not…enough to',
+      body: 'He is not old enough to drive.（他還不夠大，不能開車。）\n' +
+            '＝ He is too young to drive.\n' +
+            '⚠ 兩種說法意思相同，只是角度不同。',
+      viz: { type: 'compareexp',
+             factor: '從哪個角度說',
+             a: { label: 'too young to', note: '太年輕' },
+             b: { label: 'not old enough to', note: '不夠大' },
+             same: ['意思完全相同'] },
+      check: {
+        q: 'He is too short to reach the shelf. 換句話說是什麼？',
+        options: [
+          'He is not tall enough to reach the shelf.',
+          'He is tall enough to reach the shelf.',
+          'He is not short enough to reach it.',
+          'He is too tall to reach the shelf.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個說法的意思與原句相反。',
+          '這樣改寫語意變得不通。',
+          '這個說法的意思與原句相反。'
+        ]
+      }
+    },
+    {
+      title: '⑥ to 後面的受詞省略',
+      body: 'The tea is too hot to drink (it).\n' +
+            '★ 不定詞的受詞和主詞是同一個東西時，it 要省略。\n' +
+            '⚠ ✗ too hot to drink it（重複了）。',
+      viz: { type: 'sentence', label: '受詞要省略', items: [
+        { t: 'The tea', r: '主詞' }, { t: 'is too hot to drink', r: '不再重複受詞' }],
+        note: '受詞與主詞相同時要省略。' },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'The soup is too salty to eat.',
+          'The soup is too salty to eat it.',
+          'The soup is too salty to eating.',
+          'The soup is too salty for eat it.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '受詞與主詞相同時要省略 it。',
+          'to 後面要接原形動詞。',
+          '這個句子的結構不正確。'
+        ]
+      }
+    }
+  ]
+};
