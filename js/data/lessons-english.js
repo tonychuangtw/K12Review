@@ -19571,3 +19571,1373 @@ window.APP_LESSONS['english|七下|第9單元 不規則動詞過去式'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|八上|第1單元 未來式'] = {
+  intro: '講未來有兩種主要說法，差別在「什麼時候決定的」。',
+  cards: [
+    {
+      title: '① will 的基本用法',
+      body: '主詞 ＋ will ＋ 原形動詞\n' +
+            'I will call you tonight.／She will be here soon.\n' +
+            '否定：won’t（will not）　疑問：Will you…?\n' +
+            '⚠ will 是助動詞，不隨主詞變化。',
+      viz: { type: 'tense', verb: 'go', highlight: '未來式', pick: false },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'She will come tomorrow.',
+          'She wills come tomorrow.',
+          'She will comes tomorrow.',
+          'She will to come tomorrow.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '助動詞不隨主詞加 s。',
+          'will 後面要接原形動詞。',
+          'will 後面不加 to。'
+        ]
+      }
+    },
+    {
+      title: '② be going to',
+      body: '主詞 ＋ be 動詞 ＋ going to ＋ 原形動詞\n' +
+            'I am going to study abroad.（我打算出國念書。）\n' +
+            '⚠ be 動詞要隨主詞變：am／is／are going to。',
+      viz: { type: 'sentence', label: 'be going to 結構', items: [
+        { t: 'I', r: '主詞' }, { t: 'am going to', r: 'be 動詞加 going to' },
+        { t: 'study', r: '原形動詞' }],
+        note: 'be 動詞隨主詞變化。' },
+      check: {
+        q: 'He ___ going to buy a car. 空格要填什麼？',
+        options: ['is', 'are', 'am', 'will'],
+        answer: 0,
+        why: [
+          null,
+          '主詞是第三人稱單數，要用 is。',
+          'am 只跟 I 搭配。',
+          'will 不能和 going to 一起用。'
+        ]
+      }
+    },
+    {
+      title: '③ 兩者的差別',
+      body: 'will：說話當下才決定，或單純預測\n' +
+            '　　（電話響了）I’ll get it!\n' +
+            'be going to：早就計畫好，或有明顯跡象\n' +
+            '　　Look at the clouds. It is going to rain.\n' +
+            '⚠ 判斷關鍵：「什麼時候決定的」與「有沒有跡象」。',
+      viz: { type: 'compareexp',
+             factor: '決定的時間點',
+             a: { label: 'will', note: '當下決定或預測' },
+             b: { label: 'be going to', note: '事先計畫或有跡象' },
+             same: ['都指未來的事'] },
+      check: {
+        q: '看到滿天烏雲，說「要下雨了」比較自然的說法是什麼？',
+        options: [
+          'It is going to rain.',
+          'It rains.',
+          'It rained.',
+          'It is raining every day.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '現在簡單式表示習慣或事實。',
+          '過去式與眼前的情境不符。',
+          '這句在講每天的習慣，語意不合。'
+        ]
+      }
+    },
+    {
+      title: '④ 用現在式表示未來',
+      body: '① 時刻表：The train leaves at six.（火車六點開。）\n' +
+            '② 現在進行式表示已安排的計畫：I am meeting him at five.\n' +
+            '⚠ 越確定的未來，越可能用現在式表達。',
+      viz: { type: 'energyflow', steps: ['will（不確定或當下決定）', 'be going to（有計畫）', '現在進行式（已安排）', '現在簡單式（時刻表，最確定）'] },
+      check: {
+        q: '「這班公車七點發車」（時刻表）最自然的說法是什麼？',
+        options: [
+          'The bus leaves at seven.',
+          'The bus will leaving at seven.',
+          'The bus is leave at seven.',
+          'The bus leave at seven.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'will 後面要接原形動詞。',
+          'be 動詞後面不能直接接原形動詞。',
+          '第三人稱單數的動詞要加 s。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 未來的時間副詞',
+      body: 'tomorrow、next week、soon、in three days、later\n' +
+            '⚠ in three days ＝ 三天後（不是三天內）；\n' +
+            '注意 in 在未來式裡表示「經過多久之後」。',
+      viz: { type: 'classify', groups: [
+        { label: '未來的訊號字', items: ['tomorrow', 'next month', 'soon', 'in two hours'] },
+        { label: '過去的訊號字', items: ['yesterday', 'last week', 'two days ago'] }] },
+      check: {
+        q: 'I will be back in ten minutes. 這句話的意思是什麼？',
+        options: [
+          '十分鐘後我會回來',
+          '我在十分鐘之內都會在',
+          '我十分鐘前回來了',
+          '我每十分鐘回來一次'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句型指的是經過十分鐘之後。',
+          '句子用的是未來式。',
+          '句中沒有表示重複的字。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 時間與條件子句用現在式',
+      body: '★ when、if、before、after 引導的子句裡，\n' +
+            '要用現在式代替未來式：\n' +
+            'I will call you when I arrive.（不是 when I will arrive）\n' +
+            '⚠ 主要子句用 will，附屬子句用現在式。',
+      viz: { type: 'sentence', label: '主句與附屬子句', items: [
+        { t: 'I will call you', r: '主要子句（用 will）' },
+        { t: 'when I arrive', r: '附屬子句（用現在式）' }],
+        note: '時間與條件子句裡不用 will。' },
+      check: {
+        q: 'If it ___ tomorrow, we will stay home. 空格要填什麼？',
+        options: ['rains', 'will rain', 'is raining will', 'rained'],
+        answer: 0,
+        why: [
+          null,
+          '條件子句裡不用 will。',
+          '這個形式重複了助動詞。',
+          '過去式與明天的情境不符。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八上|第2單元 比較級'] = {
+  intro: '兩個東西比一比，形容詞要變形。',
+  cards: [
+    {
+      title: '① 基本句型',
+      body: 'A ＋ be 動詞 ＋ 比較級 ＋ than ＋ B\n' +
+            'John is taller than Mike.\n' +
+            '⚠ 比較級一定要有 than，除非上下文已經很清楚。',
+      viz: { type: 'sentence', label: '比較級句型', items: [
+        { t: 'John is', r: '主詞加 be 動詞' }, { t: 'taller', r: '比較級' },
+        { t: 'than Mike', r: '比較的對象' }],
+        note: '比較級後面用 than 接對象。' },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'She is smarter than her brother.',
+          'She is more smart than her brother.',
+          'She is smarter then her brother.',
+          'She is smart than her brother.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '短形容詞用 er 而不是 more。',
+          'then 是「然後」，比較要用 than。',
+          '比較句要用比較級形式。'
+        ]
+      }
+    },
+    {
+      title: '② 短形容詞加 er',
+      body: '一般：tall→taller\n' +
+            '字尾 e：只加 r（nice→nicer）\n' +
+            '子音加 y：y 改 ier（happy→happier）\n' +
+            '短母音加單子音：重複字尾（big→bigger、hot→hotter）',
+      viz: { type: 'classify', groups: [
+        { label: '加 er', items: ['taller', 'longer', 'faster'] },
+        { label: 'y 改 ier', items: ['happier', 'easier', 'busier'] },
+        { label: '重複字尾', items: ['bigger', 'hotter', 'thinner'] }] },
+      check: {
+        q: 'hot 的比較級是什麼？',
+        options: ['hotter', 'hoter', 'more hot', 'hottest'],
+        answer: 0,
+        why: [
+          null,
+          '短母音加單子音要重複字尾。',
+          '單音節形容詞用 er 而不是 more。',
+          '這是最高級的形式。'
+        ]
+      }
+    },
+    {
+      title: '③ 長形容詞用 more',
+      body: '三音節以上，或多數兩音節的形容詞用 more：\n' +
+            'more beautiful、more expensive、more interesting\n' +
+            '⚠ 不能兩個都用：\n' +
+            '✗ more taller　✗ more prettier',
+      viz: { type: 'compareexp',
+             factor: '音節長短',
+             a: { label: '短形容詞', note: '加 er：taller、bigger' },
+             b: { label: '長形容詞', note: '用 more：more beautiful' },
+             same: ['後面都接 than'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'This book is more interesting than that one.',
+          'This book is interestinger than that one.',
+          'This book is more interestinger than that one.',
+          'This book is most interesting than that one.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長形容詞不加 er。',
+          '不能同時用 more 和 er。',
+          'most 是最高級，不能配 than。'
+        ]
+      }
+    },
+    {
+      title: '④ 不規則變化',
+      body: 'good／well → better\n' +
+            'bad／badly → worse\n' +
+            'many／much → more\n' +
+            'little → less\n' +
+            'far → farther（距離）／further（程度）',
+      viz: { type: 'classify', groups: [
+        { label: '不規則比較級', items: ['better', 'worse', 'more', 'less', 'farther'] }] },
+      check: {
+        q: 'good 的比較級是什麼？',
+        options: ['better', 'gooder', 'more good', 'best'],
+        answer: 0,
+        why: [
+          null,
+          'good 是不規則變化，不加 er。',
+          '不規則形容詞不用 more。',
+          'best 是最高級。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 加強語氣',
+      body: 'much／far／a lot ＋ 比較級：much bigger（大得多）\n' +
+            'a little／a bit ＋ 比較級：a little taller（高一點）\n' +
+            '⚠ ✗ very bigger（very 不能修飾比較級）。',
+      viz: { type: 'energyflow', steps: ['a little bigger（一點點）', 'bigger（比較大）', 'much bigger（大得多）', 'far bigger（大很多）'] },
+      check: {
+        q: '「這個大得多」的正確說法是什麼？',
+        options: [
+          'This one is much bigger.',
+          'This one is very bigger.',
+          'This one is more bigger.',
+          'This one is too bigger.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'very 不能修飾比較級。',
+          '不能同時用 more 和 er。',
+          'too 不用來修飾比較級。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 其他比較句型',
+      body: 'as ＋ 原級 ＋ as：as tall as（和…一樣高）\n' +
+            'not as ＋ 原級 ＋ as：not as tall as（沒有…高）\n' +
+            '比較級 ＋ and ＋ 比較級：hotter and hotter（越來越熱）\n' +
+            'The ＋ 比較級, the ＋ 比較級：The more, the better.',
+      viz: { type: 'classify', groups: [
+        { label: '一樣（原級）', items: ['as tall as', 'as big as'] },
+        { label: '不一樣（比較級）', items: ['taller than', 'bigger than'] }] },
+      check: {
+        q: '「他和我一樣高」的正確說法是什麼？',
+        options: [
+          'He is as tall as I am.',
+          'He is as taller as I am.',
+          'He is as tall than I am.',
+          'He is so tall as me is.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'as 之間要用原級形容詞。',
+          'as 的句型不用 than。',
+          '這個句子的結構不正確。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八上|第3單元 最高級'] = {
+  intro: '三者以上比較，選出「最」的那一個。',
+  cards: [
+    {
+      title: '① 基本句型',
+      body: 'the ＋ 最高級 ＋ in／of ＋ 範圍\n' +
+            'He is the tallest in his class.\n' +
+            'She is the smartest of the three.\n' +
+            '⚠ 最高級前面幾乎一定要加 the。',
+      viz: { type: 'sentence', label: '最高級句型', items: [
+        { t: 'the tallest', r: '最高級（要加 the）' },
+        { t: 'in his class', r: '比較的範圍' }],
+        note: '最高級前面要加 the。' },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'He is the fastest runner in our school.',
+          'He is fastest runner in our school.',
+          'He is the faster runner in our school.',
+          'He is the most fast runner in our school.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '最高級前面要加 the。',
+          '三者以上比較要用最高級。',
+          '短形容詞用 est 而不是 most。'
+        ]
+      }
+    },
+    {
+      title: '② in 與 of 的差別',
+      body: 'in ＋ 地方或團體：in the class、in Taiwan\n' +
+            'of ＋ 同類的複數：of the three、of all the students\n' +
+            '⚠ 判斷方法：後面是「範圍」用 in，是「群體成員」用 of。',
+      viz: { type: 'compareexp',
+             factor: '後面接什麼',
+             a: { label: 'in', note: '接地點或團體：in my family' },
+             b: { label: 'of', note: '接同類的複數：of the four' },
+             same: ['都在指定比較的範圍'] },
+      check: {
+        q: 'She is the youngest ___ the five sisters. 空格要填什麼？',
+        options: ['of', 'in', 'at', 'on'],
+        answer: 0,
+        why: [
+          null,
+          'in 後面接地點或團體。',
+          'at 用於具體的定點。',
+          'on 用於表面或日期。'
+        ]
+      }
+    },
+    {
+      title: '③ 變化規則',
+      body: '短形容詞加 est：tallest、biggest、happiest\n' +
+            '長形容詞用 most：the most beautiful\n' +
+            '不規則：good→best、bad→worst、many→most、little→least\n' +
+            '⚠ 規則和比較級完全對應。',
+      viz: { type: 'classify', groups: [
+        { label: '原級／比較級／最高級', items: ['tall taller tallest', 'good better best', 'bad worse worst'] }] },
+      check: {
+        q: 'bad 的最高級是什麼？',
+        options: ['worst', 'baddest', 'most bad', 'worse'],
+        answer: 0,
+        why: [
+          null,
+          'bad 是不規則變化，不加 est。',
+          '不規則形容詞不用 most。',
+          'worse 是比較級。'
+        ]
+      }
+    },
+    {
+      title: '④ 加序數表示「第幾」',
+      body: 'the second largest city（第二大的城市）\n' +
+            'the third longest river\n' +
+            '⚠ 序數放在 the 和最高級中間。',
+      viz: { type: 'sentence', label: '第幾名', items: [
+        { t: 'the', r: '定冠詞' }, { t: 'second', r: '序數' },
+        { t: 'largest', r: '最高級' }, { t: 'city', r: '名詞' }],
+        note: '序數放在最高級前面。' },
+      check: {
+        q: '「第二高的建築」的正確說法是什麼？',
+        options: [
+          'the second tallest building',
+          'the tallest second building',
+          'second the tallest building',
+          'the two tallest building'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '序數要放在最高級前面。',
+          '定冠詞要放在最前面。',
+          '這裡要用序數而不是基數。'
+        ]
+      }
+    },
+    {
+      title: '⑤ one of the 最高級',
+      body: 'one of the ＋ 最高級 ＋ 複數名詞\n' +
+            'It is one of the best movies I have ever seen.\n' +
+            '⚠ 後面的名詞一定要用複數（是「其中之一」）。',
+      viz: { type: 'sentence', label: '其中之一', items: [
+        { t: 'one of', r: '其中之一' }, { t: 'the best', r: '最高級' },
+        { t: 'movies', r: '複數名詞' }],
+        note: '這個句型後面的名詞要用複數。' },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'She is one of the smartest students in class.',
+          'She is one of the smartest student in class.',
+          'She is one of smartest students in class.',
+          'She is the one of smartest students.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句型後面要用複數名詞。',
+          '最高級前面要加 the。',
+          '這個句子的冠詞位置不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 用比較級表達最高級',
+      body: 'He is taller than any other student in his class.\n' +
+            '＝ He is the tallest student in his class.\n' +
+            '⚠ any other 後面接單數名詞，\n' +
+            '這是換句話說的常見考點。',
+      viz: { type: 'compareexp',
+             factor: '兩種表達',
+             a: { label: '最高級', note: 'the tallest in his class' },
+             b: { label: '比較級加 any other', note: 'taller than any other student' },
+             same: ['意思完全相同'] },
+      check: {
+        q: 'He runs faster than any other boy in his class. 這句話的意思是什麼？',
+        options: [
+          '他是班上跑最快的男生',
+          '他跑得比某個男生快',
+          '他跑得比別班的男生快',
+          '他跑得和別人一樣快'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'any other 指的是所有其他人。',
+          '句中的範圍是他自己的班上。',
+          '這個句型表達的是差異而不是相同。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八上|第4單元 動名詞'] = {
+  intro: '動詞加 ing 之後可以當名詞用，這就是動名詞。',
+  cards: [
+    {
+      title: '① 什麼是動名詞',
+      body: '動詞 ＋ ing ＝ 名詞的功能\n' +
+            'Swimming is fun.（游泳很有趣。）→ 當主詞\n' +
+            'I like swimming.→ 當受詞\n' +
+            '⚠ 動名詞當主詞時視為單數，動詞用單數形。',
+      viz: { type: 'sentence', label: '動名詞當主詞', items: [
+        { t: 'Swimming', r: '動名詞（視為單數）' }, { t: 'is', r: '單數動詞' },
+        { t: 'fun', r: '補語' }],
+        note: '動名詞當主詞時動詞用單數。' },
+      check: {
+        q: 'Reading books ___ good for you. 空格要填什麼？',
+        options: ['is', 'are', 'be', 'were'],
+        answer: 0,
+        why: [
+          null,
+          '主詞是動名詞，視為單數。',
+          'be 是原形，句子需要現在式。',
+          '句子講的是一般的道理，不用過去式。'
+        ]
+      }
+    },
+    {
+      title: '② 介系詞後面用動名詞',
+      body: '★ 介系詞後面一定接名詞或動名詞，不能接原形動詞：\n' +
+            'Thank you for helping me.\n' +
+            'He is good at playing basketball.\n' +
+            '⚠ 特別注意 to 有時是介系詞：look forward to seeing you。',
+      viz: { type: 'sentence', label: '介系詞加動名詞', items: [
+        { t: 'good at', r: '介系詞片語' }, { t: 'playing', r: '動名詞' }],
+        note: '介系詞後面要用動名詞。' },
+      check: {
+        q: 'She is interested in ___ Japanese. 空格要填什麼？',
+        options: ['learning', 'learn', 'to learn', 'learns'],
+        answer: 0,
+        why: [
+          null,
+          '介系詞後面不能接原形動詞。',
+          '介系詞後面不接不定詞。',
+          '介系詞後面不接動詞的變化形。'
+        ]
+      }
+    },
+    {
+      title: '③ 只接動名詞的動詞',
+      body: 'enjoy、finish、mind、practice、keep、avoid、give up、suggest\n' +
+            'I enjoy reading.（不是 enjoy to read）\n' +
+            '⚠ 口訣：完成、享受、避免、練習的動詞多接動名詞。',
+      viz: { type: 'classify', groups: [
+        { label: '只接動名詞', items: ['enjoy', 'finish', 'mind', 'practice', 'avoid', 'keep'] },
+        { label: '只接不定詞', items: ['want', 'hope', 'decide', 'plan'] }] },
+      check: {
+        q: 'I finished ___ my homework. 空格要填什麼？',
+        options: ['doing', 'to do', 'do', 'did'],
+        answer: 0,
+        why: [
+          null,
+          'finish 後面只接動名詞。',
+          'finish 後面不接原形動詞。',
+          '這個形式不能接在 finished 後面。'
+        ]
+      }
+    },
+    {
+      title: '④ 兩者都可以的動詞',
+      body: 'like、love、hate、start、begin、continue 後面兩種都行：\n' +
+            'I like swimming. ＝ I like to swim.\n' +
+            '⚠ 意思幾乎相同，動名詞略偏「一般的喜好」，\n' +
+            '不定詞略偏「特定的一次」。',
+      viz: { type: 'compareexp',
+             factor: '語感差別',
+             a: { label: 'like ＋ 動名詞', note: '一般的喜好、習慣' },
+             b: { label: 'like ＋ 不定詞', note: '偏向特定的一次或選擇' },
+             same: ['大多數情況兩者可互換'] },
+      check: {
+        q: '下列哪一個動詞後面兩種形式都可以？',
+        options: ['like', 'enjoy', 'want', 'finish'],
+        answer: 0,
+        why: [
+          null,
+          'enjoy 後面只接動名詞。',
+          'want 後面只接不定詞。',
+          'finish 後面只接動名詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 意思會變的動詞',
+      body: 'stop doing（停止做這件事）／stop to do（停下來去做另一件事）\n' +
+            'remember doing（記得做過）／remember to do（記得要去做）\n' +
+            'forget doing（忘了做過）／forget to do（忘了要去做）\n' +
+            '⚠ 動名詞看向過去，不定詞看向未來。',
+      viz: { type: 'compareexp',
+             factor: '時間方向',
+             a: { label: '接動名詞', note: '指已經做過的事' },
+             b: { label: '接不定詞', note: '指還沒做的事' },
+             same: ['同一個動詞，意思完全不同'] },
+      check: {
+        q: 'He stopped smoking. 這句話的意思是什麼？',
+        options: [
+          '他戒菸了',
+          '他停下來去抽菸',
+          '他正在抽菸',
+          '他想開始抽菸'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '停下來去抽菸要說 stopped to smoke。',
+          '這句話表示動作已經停止。',
+          '句子表達的是停止而不是開始。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 動名詞的常見片語',
+      body: 'go ＋ 動名詞（活動）：go shopping、go swimming、go fishing\n' +
+            'be busy ＋ 動名詞：I am busy preparing for the test.\n' +
+            'How about ＋ 動名詞：How about going out?\n' +
+            '⚠ 這些是固定用法，直接整組記。',
+      viz: { type: 'classify', groups: [
+        { label: '固定接動名詞的片語', items: ['go shopping', 'be busy doing', 'How about…?', 'It is no use…'] }] },
+      check: {
+        q: 'How about ___ to the movies? 空格要填什麼？',
+        options: ['going', 'go', 'to go', 'goes'],
+        answer: 0,
+        why: [
+          null,
+          'about 是介系詞，後面要接動名詞。',
+          '介系詞後面不接不定詞。',
+          '介系詞後面不接動詞的變化形。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八上|第5單元 不定詞'] = {
+  intro: 'to 加原形動詞，可以當名詞、形容詞或副詞用。',
+  cards: [
+    {
+      title: '① 三種角色',
+      body: '名詞：To learn English is important.（當主詞）\n' +
+            '形容詞：I have something to tell you.（修飾名詞）\n' +
+            '副詞：I came here to see you.（表示目的）\n' +
+            '⚠ 同一個形式，靠位置判斷它在做什麼。',
+      viz: { type: 'classify', groups: [
+        { label: '當名詞', items: ['To swim is fun.', 'I want to go.'] },
+        { label: '當形容詞', items: ['something to eat', 'a book to read'] },
+        { label: '當副詞（目的）', items: ['I study to pass.'] }] },
+      check: {
+        q: 'I need something to drink. 這裡的 to drink 在做什麼？',
+        options: [
+          '修飾前面的 something',
+          '當句子的主詞',
+          '表示目的',
+          '當動詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子的主詞是 I。',
+          '這裡不是在說明為什麼要做某事。',
+          '句子的動詞是 need。'
+        ]
+      }
+    },
+    {
+      title: '② 只接不定詞的動詞',
+      body: 'want、hope、decide、plan、promise、agree、need、learn\n' +
+            'I want to go.（不是 want going）\n' +
+            '⚠ 口訣：計畫、希望、決定的動詞多接不定詞，\n' +
+            '因為它們指的都是「還沒做的事」。',
+      viz: { type: 'compareexp',
+             factor: '事情做了沒',
+             a: { label: '接不定詞', note: '還沒發生：want to go' },
+             b: { label: '接動名詞', note: '已經在做或做過：enjoy going' },
+             same: ['都放在主要動詞後面'] },
+      check: {
+        q: 'They decided ___ early. 空格要填什麼？',
+        options: ['to leave', 'leaving', 'leave', 'left'],
+        answer: 0,
+        why: [
+          null,
+          'decide 後面只接不定詞。',
+          'decide 後面不接原形動詞。',
+          'decide 後面不接過去式。'
+        ]
+      }
+    },
+    {
+      title: '③ 用 It 當虛主詞',
+      body: 'To learn English is important.\n' +
+            '→ It is important to learn English.（更常用）\n' +
+            '⚠ 主詞太長時，用 it 放在前面，真正的主詞移到後面。',
+      viz: { type: 'sentence', label: '虛主詞句型', items: [
+        { t: 'It is', r: '虛主詞加 be 動詞' }, { t: 'important', r: '形容詞' },
+        { t: 'to learn English', r: '真正的主詞' }],
+        note: 'it 代替後面的不定詞片語。' },
+      check: {
+        q: '「早起很重要」用虛主詞怎麼說？',
+        options: [
+          'It is important to get up early.',
+          'It is important getting up early.',
+          'That is important to get up early.',
+          'It is important that get up early.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '虛主詞句型後面接不定詞。',
+          '虛主詞要用 it。',
+          'that 子句裡需要有主詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 表示目的',
+      body: 'I got up early to catch the train.\n' +
+            '＝ in order to catch／so as to catch\n' +
+            '⚠ 想確認是不是表示目的，就在前面加「為了」，\n' +
+            '讀得通就是目的用法。',
+      viz: { type: 'classify', groups: [
+        { label: '表示目的的說法', items: ['to catch', 'in order to catch', 'so as to catch'] }] },
+      check: {
+        q: 'She studies hard to enter a good school. 這裡的不定詞表示什麼？',
+        options: [
+          '目的：為了進好學校',
+          '結果：她進了好學校',
+          '原因：因為學校很好',
+          '時間：進學校的時候'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子沒有說她已經進去了。',
+          '不定詞在這裡不表示原因。',
+          '不定詞在這裡不表示時間。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 疑問詞加不定詞',
+      body: 'I don’t know what to do.（不知道該做什麼。）\n' +
+            'Can you tell me how to get there?\n' +
+            '⚠ 疑問詞 ＋ to ＋ 原形動詞，等於一個名詞子句的縮短版。',
+      viz: { type: 'sentence', label: '疑問詞加不定詞', items: [
+        { t: 'I don’t know', r: '主要句子' }, { t: 'what to do', r: '疑問詞加不定詞' }],
+        note: '這個結構等於一個受詞。' },
+      check: {
+        q: '「我不知道該怎麼去」的正確說法是什麼？',
+        options: [
+          'I don’t know how to get there.',
+          'I don’t know how get there.',
+          'I don’t know how to getting there.',
+          'I don’t know to how get there.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '疑問詞後面要加 to。',
+          'to 後面要接原形動詞。',
+          '疑問詞要放在 to 前面。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 不加 to 的情況',
+      body: '助動詞後面：can go、will come、must study\n' +
+            '使役動詞：make／let／have ＋ 受詞 ＋ 原形動詞\n' +
+            '感官動詞：see／hear／watch ＋ 受詞 ＋ 原形動詞\n' +
+            '⚠ 這些情況叫原形不定詞，to 要省略。',
+      viz: { type: 'compareexp',
+             factor: '要不要加 to',
+             a: { label: '一般動詞後', note: 'want to go（要加 to）' },
+             b: { label: '使役與感官動詞後', note: 'make him go（不加 to）' },
+             same: ['後面都是動詞的原形'] },
+      check: {
+        q: 'My mom made me ___ my room. 空格要填什麼？',
+        options: ['clean', 'to clean', 'cleaning', 'cleaned'],
+        answer: 0,
+        why: [
+          null,
+          '使役動詞 make 後面不加 to。',
+          '這個位置要用原形動詞。',
+          '這個位置不用過去式。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八上|第6單元 連綴動詞與感官動詞'] = {
+  intro: '有一類動詞不接受詞，而是接形容詞來描述主詞。',
+  cards: [
+    {
+      title: '① 什麼是連綴動詞',
+      body: 'be、become、get、turn、grow ＋ 形容詞\n' +
+            'He became famous.／It is getting cold.\n' +
+            '⚠ 連綴動詞不表示動作，只是把主詞和描述連起來。',
+      viz: { type: 'sentence', label: '連綴動詞結構', items: [
+        { t: 'He', r: '主詞' }, { t: 'became', r: '連綴動詞' },
+        { t: 'famous', r: '形容詞（描述主詞）' }],
+        note: '連綴動詞後面接形容詞而不是副詞。' },
+      check: {
+        q: 'The weather is getting ___. 空格要填什麼？',
+        options: ['warmer', 'warmly', 'warmth', 'to warm'],
+        answer: 0,
+        why: [
+          null,
+          '連綴動詞後面要接形容詞不是副詞。',
+          'warmth 是名詞，語意不通。',
+          '這裡不需要不定詞。'
+        ]
+      }
+    },
+    {
+      title: '② 五種感官動詞',
+      body: 'look（看起來）　sound（聽起來）　smell（聞起來）\n' +
+            'taste（嚐起來）　feel（摸起來、覺得）\n' +
+            '★ 後面直接接形容詞：It smells good.\n' +
+            '⚠ ✗ It smells well.（well 是副詞）',
+      viz: { type: 'classify', groups: [
+        { label: '感官連綴動詞', items: ['look', 'sound', 'smell', 'taste', 'feel'] },
+        { label: '後面接形容詞', items: ['looks tired', 'sounds great', 'tastes sweet'] }] },
+      check: {
+        q: 'You look ___ today. 空格要填什麼？',
+        options: ['tired', 'tiredly', 'tiring me', 'to tire'],
+        answer: 0,
+        why: [
+          null,
+          '感官動詞後面要接形容詞。',
+          '這個說法在句中不通順。',
+          '這裡不需要不定詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 接名詞時要加 like',
+      body: 'It looks like a cat.（看起來像貓。）\n' +
+            'It sounds like a good idea.\n' +
+            '⚠ 後面接形容詞 → 不加 like；\n' +
+            '後面接名詞 → 一定要加 like。',
+      viz: { type: 'compareexp',
+             factor: '後面接什麼',
+             a: { label: '接形容詞', note: 'It looks nice.（不加 like）' },
+             b: { label: '接名詞', note: 'It looks like a toy.（要加 like）' },
+             same: ['都在描述主詞給人的感覺'] },
+      check: {
+        q: 'That ___ a great plan. 空格要填什麼？',
+        options: [
+          'sounds like',
+          'sounds',
+          'sounds as',
+          'is sound like'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '後面接名詞時要加 like。',
+          'as 在這個句型裡不適用。',
+          '這個句子多了 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 感官動詞的另一種用法',
+      body: 'see／hear／watch／feel ＋ 受詞 ＋ 原形動詞或動詞 ing\n' +
+            'I saw him cross the street.（看到整個過程）\n' +
+            'I saw him crossing the street.（看到正在進行的一瞬間）\n' +
+            '⚠ 原形強調完整，ing 強調當下正在進行。',
+      viz: { type: 'compareexp',
+             factor: '看到的範圍',
+             a: { label: '接原形動詞', note: '看到動作從頭到尾' },
+             b: { label: '接動詞 ing', note: '看到動作正在進行的片段' },
+             same: ['都不加 to'] },
+      check: {
+        q: 'I heard someone ___ the piano when I passed by. 哪一個最合適？',
+        options: [
+          'playing',
+          'to play',
+          'played',
+          'plays'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '感官動詞後面不加 to。',
+          '這個位置不用過去式。',
+          '這個位置不用第三人稱單數形。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 一字兩用',
+      body: '同一個動詞可能是連綴動詞，也可能是一般動詞：\n' +
+            'The soup tastes good.（連綴：湯嚐起來好吃）\n' +
+            'She tasted the soup.（一般：她嚐了湯）\n' +
+            '⚠ 有受詞就是一般動詞，接形容詞就是連綴動詞。',
+      viz: { type: 'compareexp',
+             factor: '後面接什麼',
+             a: { label: '連綴用法', note: '接形容詞：tastes good' },
+             b: { label: '一般用法', note: '接受詞：tasted the soup' },
+             same: ['同一個動詞'] },
+      check: {
+        q: 'She felt the cloth carefully. 這裡的 felt 是哪一種用法？',
+        options: [
+          '一般動詞，後面有受詞',
+          '連綴動詞，後面接形容詞',
+          '助動詞',
+          'be 動詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句中 the cloth 是受詞而不是形容詞。',
+          'felt 不是助動詞。',
+          'felt 是 feel 的過去式，不是 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 最常考的陷阱',
+      body: '✗ It tastes deliciously.→ ✓ It tastes delicious.\n' +
+            '✗ He looks happily.→ ✓ He looks happy.\n' +
+            '⚠ 檢查方法：把動詞換成 be 動詞讀讀看，\n' +
+            '讀得通就要用形容詞。',
+      viz: { type: 'energyflow', steps: ['看到 look／sound／taste', '把它換成 be 動詞', '讀得通就用形容詞', '要接名詞就加 like'] },
+      check: {
+        q: '判斷感官動詞後面該用形容詞還是副詞，最快的方法是什麼？',
+        options: [
+          '把動詞換成 be 動詞讀讀看，通順就用形容詞',
+          '看句子有幾個字',
+          '看主詞是不是複數',
+          '看句尾有沒有句點'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長度和詞性選擇無關。',
+          '主詞單複數不影響這個判斷。',
+          '標點符號和詞性選擇無關。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八上|第7單元 對等連接詞'] = {
+  intro: '對等連接詞把兩個地位相同的東西接在一起。',
+  cards: [
+    {
+      title: '① 四個基本連接詞',
+      body: 'and（並列）　but（轉折）　or（選擇）　so（結果）\n' +
+            '⚠ 對等：前後接的東西詞性要一樣，\n' +
+            '名詞配名詞、句子配句子。',
+      viz: { type: 'classify', groups: [
+        { label: '方向相同', items: ['and', 'so'] },
+        { label: '方向相反或選擇', items: ['but', 'or'] }] },
+      check: {
+        q: 'I was tired, ___ I went to bed early. 空格要填什麼？',
+        options: ['so', 'but', 'or', 'because'],
+        answer: 0,
+        why: [
+          null,
+          'but 表示轉折，這裡是因果。',
+          'or 表示選擇，語意不通。',
+          'because 引導原因，但位置與語意不符。'
+        ]
+      }
+    },
+    {
+      title: '② 詞性要對等',
+      body: '✓ I like swimming and running.（動名詞配動名詞）\n' +
+            '✗ I like swimming and to run.\n' +
+            '⚠ 這叫「平行結構」，是寫作的基本要求。',
+      viz: { type: 'sentence', label: '平行結構', items: [
+        { t: 'swimming', r: '動名詞' }, { t: 'and', r: '連接詞' },
+        { t: 'running', r: '動名詞（形式相同）' }],
+        note: '連接詞兩邊的形式要一致。' },
+      check: {
+        q: '下列哪一句符合平行結構？',
+        options: [
+          'She is smart, kind, and funny.',
+          'She is smart, kind, and a funny person.',
+          'She is smart, kindly, and funny.',
+          'She is smart, being kind, and funny.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '前兩個是形容詞，第三個變成名詞片語。',
+          'kindly 是副詞，與形容詞不對等。',
+          'being kind 的形式與形容詞不對等。'
+        ]
+      }
+    },
+    {
+      title: '③ so 與 because 不能同時用',
+      body: '中文說「因為…所以…」，英文只能擇一：\n' +
+            '✓ Because it rained, we stayed home.\n' +
+            '✓ It rained, so we stayed home.\n' +
+            '✗ Because it rained, so we stayed home.',
+      viz: { type: 'compareexp',
+             factor: '從哪個角度說',
+             a: { label: 'because', note: '先講原因：Because…, …' },
+             b: { label: 'so', note: '先講原因再說結果：…, so…' },
+             same: ['都在表達因果，但只能用一個'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'Because he was sick, he stayed home.',
+          'Because he was sick, so he stayed home.',
+          'He was sick, because so he stayed home.',
+          'So he was sick, because he stayed home.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '中文的「因為所以」不能直接照搬。',
+          '兩個連接詞不能連用。',
+          '這句的因果關係顛倒了。'
+        ]
+      }
+    },
+    {
+      title: '④ 相關連接詞',
+      body: 'both A and B（兩者都）\n' +
+            'either A or B（兩者之一）\n' +
+            'neither A nor B（兩者都不）\n' +
+            'not only A but also B（不只…而且）\n' +
+            '⚠ A 和 B 的詞性同樣要對等。',
+      viz: { type: 'classify', groups: [
+        { label: '兩者都', items: ['both…and'] },
+        { label: '二選一', items: ['either…or'] },
+        { label: '都不', items: ['neither…nor'] }] },
+      check: {
+        q: '「他既不會唱歌也不會跳舞」的正確說法是什麼？',
+        options: [
+          'He can neither sing nor dance.',
+          'He can neither sing or dance.',
+          'He can either sing nor dance.',
+          'He can not neither sing nor dance.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'neither 要搭配 nor。',
+          'either 要搭配 or。',
+          'neither 已含否定，不能再加 not。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 動詞跟誰一致',
+      body: 'both A and B → 複數動詞\n' +
+            'either A or B／neither A nor B／not only A but also B → 動詞跟著 B\n' +
+            'Neither he nor I am wrong.（動詞跟著 I）\n' +
+            '⚠ 這叫「就近原則」，考試很愛考。',
+      viz: { type: 'sentence', label: '就近原則', items: [
+        { t: 'Neither he nor', r: '前面的不算' }, { t: 'I', r: '最靠近動詞的主詞' },
+        { t: 'am wrong', r: '動詞跟著 I' }],
+        note: '動詞跟著最靠近的主詞。' },
+      check: {
+        q: 'Either you or he ___ going to win. 空格要填什麼？',
+        options: ['is', 'are', 'am', 'be'],
+        answer: 0,
+        why: [
+          null,
+          '動詞跟著最靠近的主詞 he。',
+          'am 只跟 I 搭配。',
+          'be 是原形，句子需要現在式。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 標點的規則',
+      body: '連接兩個完整句子時，連接詞前面要加逗號：\n' +
+            'I was tired, but I kept working.\n' +
+            '連接的不是完整句子時不加逗號：\n' +
+            'I like tea and coffee.',
+      viz: { type: 'compareexp',
+             factor: '後面是不是完整句子',
+             a: { label: '加逗號', note: '接完整句子：…, but I stayed.' },
+             b: { label: '不加逗號', note: '接詞或片語：tea and coffee' },
+             same: ['都用對等連接詞'] },
+      check: {
+        q: '下列哪一句標點正確？',
+        options: [
+          'She studied hard, and she passed the test.',
+          'She studied hard and, she passed the test.',
+          'She likes, tea and coffee.',
+          'She studied hard and she, passed the test.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '逗號要放在連接詞前面。',
+          '這裡連接的不是完整句子，不加逗號。',
+          '逗號的位置不正確。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八上|第8單元 附屬連接詞'] = {
+  intro: '附屬連接詞帶出一個「不能單獨存在」的子句。',
+  cards: [
+    {
+      title: '① 主句與附屬子句',
+      body: 'When I got home, my mom was cooking.\n' +
+            '★ When I got home 不能單獨成句，它是附屬子句；\n' +
+            'my mom was cooking 才是主句。\n' +
+            '⚠ 附屬子句放句首時，後面要加逗號。',
+      viz: { type: 'sentence', label: '兩個部分', items: [
+        { t: 'When I got home', r: '附屬子句（不能單獨存在）' },
+        { t: 'my mom was cooking', r: '主句（可以單獨成句）' }],
+        note: '附屬子句放句首時要加逗號。' },
+      check: {
+        q: '下列哪一個不能單獨成為一個句子？',
+        options: [
+          'Because he was late.',
+          'He was late.',
+          'He arrived at nine.',
+          'The class started.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是完整的句子。',
+          '這是完整的句子。',
+          '這是完整的句子。'
+        ]
+      }
+    },
+    {
+      title: '② 時間類',
+      body: 'when（當…時）　while（正當…時）　before／after\n' +
+            'until（直到）　as soon as（一…就）　since（自從）\n' +
+            '⚠ while 後面通常接進行式，when 兩種都可以。',
+      viz: { type: 'classify', groups: [
+        { label: '時間點', items: ['when', 'as soon as', 'before', 'after'] },
+        { label: '持續期間', items: ['while', 'until', 'since'] }] },
+      check: {
+        q: '___ I was walking home, I met an old friend. 空格填什麼最合適？',
+        options: ['While', 'Until', 'Because', 'Although'],
+        answer: 0,
+        why: [
+          null,
+          'until 表示直到某時，語意不通。',
+          'because 表示原因，語意不合。',
+          'although 表示讓步，語意不合。'
+        ]
+      }
+    },
+    {
+      title: '③ 原因與結果',
+      body: 'because、since、as（因為）\n' +
+            'so ＋ 形容詞 ＋ that（如此…以致於）\n' +
+            'He was so tired that he fell asleep.\n' +
+            '⚠ so…that 中間放形容詞或副詞，\n' +
+            'such…that 中間放名詞片語。',
+      viz: { type: 'compareexp',
+             factor: '中間放什麼',
+             a: { label: 'so…that', note: '中間放形容詞：so tired that' },
+             b: { label: 'such…that', note: '中間放名詞：such a good movie that' },
+             same: ['都表示程度導致的結果'] },
+      check: {
+        q: 'It was ___ a good movie that I watched it twice. 空格要填什麼？',
+        options: ['such', 'so', 'very', 'too'],
+        answer: 0,
+        why: [
+          null,
+          'so 後面要接形容詞而不是名詞片語。',
+          'very 不能搭配 that 子句。',
+          'too 的句型是 too…to，不搭配 that。'
+        ]
+      }
+    },
+    {
+      title: '④ 讓步：雖然',
+      body: 'although／though／even though（雖然）\n' +
+            'Although he was tired, he kept working.\n' +
+            '⚠ ✗ Although…, but…（中文的「雖然但是」不能照搬）\n' +
+            '英文只能用一個連接詞。',
+      viz: { type: 'compareexp',
+             factor: '中文與英文的差別',
+             a: { label: '中文', note: '雖然…但是…（兩個都要）' },
+             b: { label: '英文', note: 'Although…, ….（只能用一個）' },
+             same: ['都在表達轉折'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'Although it rained, we went out.',
+          'Although it rained, but we went out.',
+          'Although it rained, so we went out.',
+          'But although it rained, we went out too.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'although 和 but 不能同時使用。',
+          'although 表示轉折，不能配 so。',
+          '句首多了不必要的連接詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 條件：如果',
+      body: 'if（如果）　unless（除非，＝ if not）\n' +
+            'You will fail unless you study.\n' +
+            '＝ You will fail if you don’t study.\n' +
+            '⚠ unless 本身已含否定，後面不再加 not。',
+      viz: { type: 'compareexp',
+             factor: '否定在哪裡',
+             a: { label: 'if…not', note: 'if you don’t study' },
+             b: { label: 'unless', note: 'unless you study（不再加 not）' },
+             same: ['意思相同'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'You will be late unless you hurry.',
+          'You will be late unless you don’t hurry.',
+          'You will be late unless not you hurry.',
+          'You will be late if unless you hurry.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'unless 已含否定，不能再加 not。',
+          '否定詞的位置不正確。',
+          '兩個連接詞不能連用。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 時間與條件子句不用未來式',
+      body: 'I will call you when I get there.（不是 when I will get）\n' +
+            'If it rains tomorrow, we will cancel it.\n' +
+            '⚠ 這是最常考的規則：\n' +
+            '主句用 will，時間與條件子句用現在式。',
+      viz: { type: 'sentence', label: '兩邊時態不同', items: [
+        { t: 'I will call you', r: '主句：未來式' },
+        { t: 'when I get there', r: '時間子句：現在式' }],
+        note: '時間與條件子句裡不用 will。' },
+      check: {
+        q: 'We will start the meeting as soon as he ___. 空格要填什麼？',
+        options: ['arrives', 'will arrive', 'arrived', 'is arrive'],
+        answer: 0,
+        why: [
+          null,
+          '時間子句裡不用 will。',
+          '句子講的是未來，不用過去式。',
+          'be 動詞不能和一般動詞並用。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|八上|第9單元 過去進行式'] = {
+  intro: '描述「過去某一刻正在進行」的動作。',
+  cards: [
+    {
+      title: '① 基本結構',
+      body: 'was／were ＋ 動詞 ing\n' +
+            'I was studying at eight last night.\n' +
+            'They were playing basketball.\n' +
+            '⚠ 只是把現在進行式的 be 動詞改成過去式。',
+      viz: { type: 'sentence', label: '過去進行式', items: [
+        { t: 'I', r: '主詞' }, { t: 'was', r: '過去的 be 動詞' },
+        { t: 'studying', r: '動詞 ing' }],
+        note: 'be 動詞用過去式，動詞保持 ing。' },
+      check: {
+        q: 'They ___ watching TV when I came in. 空格要填什麼？',
+        options: ['were', 'was', 'are', 'is'],
+        answer: 0,
+        why: [
+          null,
+          '主詞是複數，要用 were。',
+          '句子講的是過去的事。',
+          '主詞是複數而且要用過去式。'
+        ]
+      }
+    },
+    {
+      title: '② 搭配 when 與 while',
+      body: 'when ＋ 過去簡單式（短暫、突然發生）\n' +
+            'while ＋ 過去進行式（持續的背景）\n' +
+            'I was cooking when the phone rang.\n' +
+            'While I was cooking, the phone rang.',
+      viz: { type: 'compareexp',
+             factor: '搭配的時態',
+             a: { label: 'when', note: '後面多接過去簡單式：when he came' },
+             b: { label: 'while', note: '後面多接過去進行式：while I was eating' },
+             same: ['都在描述兩件同時發生的事'] },
+      check: {
+        q: '___ I was doing my homework, my brother was playing games. 空格填什麼最合適？',
+        options: ['While', 'When he', 'Because', 'Until'],
+        answer: 0,
+        why: [
+          null,
+          '這個選項多了主詞，句子會不通。',
+          'because 表示原因，語意不合。',
+          'until 表示直到某時，語意不合。'
+        ]
+      }
+    },
+    {
+      title: '③ 兩件事同時進行',
+      body: 'While I was reading, my sister was listening to music.\n' +
+            '⚠ 兩個動作都用過去進行式，\n' +
+            '表示同一段時間裡兩件事並行。',
+      viz: { type: 'energyflow', steps: ['過去某段時間', '我在看書（進行）', '妹妹在聽音樂（進行）', '兩件事並行'] },
+      check: {
+        q: '要表達「我在寫功課的同時，弟弟在看電視」，兩個動詞應該用什麼時態？',
+        options: [
+          '兩個都用過去進行式',
+          '兩個都用過去簡單式',
+          '一個用現在式一個用過去式',
+          '兩個都用未來式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '過去簡單式無法表達持續並行。',
+          '同一段時間的事不會用不同時態。',
+          '句子講的是過去的事。'
+        ]
+      }
+    },
+    {
+      title: '④ 被打斷的動作',
+      body: 'I was sleeping when the alarm went off.\n' +
+            '★ 進行中的長動作被短動作打斷：\n' +
+            '長的用進行式，短的用簡單式。\n' +
+            '⚠ 兩個都用簡單式會變成「先後發生」，意思不同。',
+      viz: { type: 'compareexp',
+             factor: '動作的長短',
+             a: { label: '長動作（背景）', note: '過去進行式：was sleeping' },
+             b: { label: '短動作（打斷）', note: '過去簡單式：the alarm went off' },
+             same: ['發生在同一個時間點'] },
+      check: {
+        q: 'When the teacher came in, the students ___. 哪一個最合適？',
+        options: [
+          'were talking',
+          'talk',
+          'will talk',
+          'are talking'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '現在簡單式與過去的情境不符。',
+          '未來式與過去的情境不符。',
+          '現在進行式與過去的情境不符。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 否定與疑問',
+      body: '否定：I wasn’t sleeping.／They weren’t listening.\n' +
+            '疑問：Was he sleeping?→ Yes, he was.\n' +
+            '⚠ 變化都發生在 be 動詞上，ing 完全不動。',
+      viz: { type: 'energyflow', steps: ['He was reading.', '否定：wasn’t reading', '疑問：Was he reading?', '簡答：Yes, he was.'] },
+      check: {
+        q: '「他們當時沒有在讀書」的正確說法是什麼？',
+        options: [
+          'They weren’t studying.',
+          'They didn’t studying.',
+          'They weren’t study.',
+          'They wasn’t studying.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '進行式的否定不用 didn’t。',
+          '進行式的動詞要保持 ing。',
+          '主詞是複數，要用 weren’t。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 說故事的時態搭配',
+      body: '寫記敘文時：\n' +
+            '背景與情境 → 過去進行式（It was raining. People were running.）\n' +
+            '推進情節 → 過去簡單式（Suddenly, a car stopped.）\n' +
+            '⚠ 兩者交錯使用，故事才有層次。',
+      viz: { type: 'energyflow', steps: ['過去進行式鋪背景', '過去簡單式推情節', '再回到背景', '故事有層次'] },
+      check: {
+        q: '寫故事時，描寫「當時的背景與氣氛」適合用哪一種時態？',
+        options: [
+          '過去進行式',
+          '現在簡單式',
+          '未來式',
+          '現在完成式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '現在簡單式與過去的故事情境不符。',
+          '未來式無法描寫已經發生的背景。',
+          '現在完成式強調對現在的影響，不適合鋪陳背景。'
+        ]
+      }
+    }
+  ]
+};
