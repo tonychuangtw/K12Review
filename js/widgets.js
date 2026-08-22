@@ -2326,6 +2326,231 @@
     host.appendChild(box);
   };
 
+  /* ── 顯微鏡（microscope）──────────────────────────────────────────────
+     spec: { eye, obj }  目鏡倍率、物鏡倍率                                */
+  REG.microscope = function (host, spec) {
+    var eye = spec.eye == null ? 10 : spec.eye;
+    var obj = spec.obj == null ? 40 : spec.obj;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var total = eye * obj;
+      // 左：視野（倍率越大，看到的範圍越小、東西越大）
+      var R = 46, cx = 76, cy = 76;
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: R },
+        'fill:var(--panel2);stroke:var(--text);stroke-width:2'));
+      // 倍率越高，細胞畫得越大（但要留在視野圓內，所以先裁切再限制大小）
+      var cid = 'mscope' + (++clipSeq);
+      var defs = el('defs'), cp = el('clipPath', { id: cid });
+      cp.appendChild(el('circle', { cx: cx, cy: cy, r: R - 1 }));
+      defs.appendChild(cp); svg.appendChild(defs);
+      var g = el('g', { 'clip-path': 'url(#' + cid + ')' });
+      svg.appendChild(g);
+      var cell = 5 + Math.min(total, 400) / 400 * 22;
+      [[0, 0], [-1, 1], [1, 1], [1, -1], [-1, -1]].forEach(function (d) {
+        g.appendChild(el('ellipse', { cx: cx + d[0] * cell * 1.5, cy: cy + d[1] * cell * 1.5,
+          rx: cell, ry: cell * 0.72, 'fill-opacity': '.5' },
+          'fill:var(--good);stroke:var(--good);stroke-width:1.5'));
+      });
+      svg.appendChild(txt(cx, 138, '視野（放大 ' + total + ' 倍）', 'font-size:11px;fill:var(--dim)'));
+      // 右：倍率算式
+      svg.appendChild(txt(226, 50, '目鏡 ' + eye + ' 倍', 'font-size:13px'));
+      svg.appendChild(txt(226, 76, '×', 'font-size:13px;fill:var(--dim)'));
+      svg.appendChild(txt(226, 100, '物鏡 ' + obj + ' 倍', 'font-size:13px'));
+      svg.appendChild(el('line', { x1: 176, y1: 112, x2: 288, y2: 112 },
+        'stroke:var(--border);stroke-width:1.5'));
+      svg.appendChild(txt(226, 132, '＝ ' + total + ' 倍',
+        'font-size:15px;font-weight:700;fill:var(--accent)'));
+      read.appendChild(div('wg-read-main', '總放大倍率 ＝ 目鏡倍率 × 物鏡倍率 ＝ ' + total + ' 倍'));
+      read.appendChild(div('wg-read-sub',
+        '操作順序：先用「低倍」物鏡找到標本並對焦，找到之後再轉到高倍微調。' +
+        '⚠ 倍率越高，看到的「範圍越小、亮度越暗」，而且要用細調節輪，' +
+        '否則物鏡容易壓破玻片。顯微鏡下看到的像是上下顛倒、左右相反的——' +
+        '標本要往左移時，玻片其實要往右推。'));
+    }
+    if (spec.edit !== false) {
+      var row = div('wg-ctrl');
+      [4, 10, 40].forEach(function (o) {
+        row.appendChild(btn('物鏡 ' + o + '×', function () { obj = o; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 人體系統（bodysystem）────────────────────────────────────────────
+     spec: { mode:'digest'|'breath'|'blood', pick }                       */
+  REG.bodysystem = function (host, spec) {
+    var mode = spec.mode || 'digest';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function chain(items, color) {
+      var w = 300 / items.length;
+      items.forEach(function (it, i) {
+        var x = 10 + i * w;
+        svg.appendChild(el('rect', { x: x + 3, y: 60, width: w - 10, height: 48, rx: 8,
+          'fill-opacity': '.18' }, 'fill:var(--' + color + ');stroke:var(--' + color + ');stroke-width:2'));
+        svg.appendChild(txt(x + w / 2 - 2, 84, it, 'font-size:11px'));
+        if (i) svg.appendChild(txt(x, 84, '→', 'font-size:13px;fill:var(--dim)'));
+      });
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'breath') {
+        chain(['鼻', '氣管', '支氣管', '肺泡'], 'accent');
+        svg.appendChild(txt(160, 132, '肺泡：氧氣進血液、二氧化碳出來',
+          'font-size:11px;fill:var(--good)'));
+        main = '呼吸系統：氣體交換在「肺泡」';
+        sub = '吸入的空氣經鼻、氣管、支氣管到達肺泡，在那裡把氧氣交給血液、' +
+          '把血液帶來的二氧化碳換出去。' +
+          '所以呼出的氣和吸入的相比：氧氣變少、二氧化碳變多、水氣也變多（呼氣會起霧）。' +
+          '⚠ 呼出的氣仍然含有氧氣（所以 CPR 的人工呼吸才有用）。';
+      } else if (mode === 'blood') {
+        chain(['心臟', '動脈', '微血管', '靜脈'], 'bad');
+        svg.appendChild(txt(160, 132, '心臟像幫浦，血液繞全身一圈再回來',
+          'font-size:11px;fill:var(--dim)'));
+        main = '循環系統：心臟推動血液運送物質';
+        sub = '心臟是幫浦，把血液推出去（動脈）→ 到全身的微血管交換物質 → 再流回來（靜脈）。' +
+          '血液負責運送氧氣、養分、二氧化碳和廢物。' +
+          '運動時肌肉需要更多氧氣和養分，所以心跳和呼吸都會變快——這是身體在加快補給。';
+      } else {
+        chain(['口', '食道', '胃', '小腸', '大腸'], 'good');
+        svg.appendChild(txt(160, 132, '小腸：吸收養分的主角',
+          'font-size:11px;fill:var(--good)'));
+        main = '消化系統：小腸負責吸收養分';
+        sub = '口（牙齒磨碎、唾液開始分解）→ 食道 → 胃（初步分解）→ 小腸（消化完成並吸收養分）→ ' +
+          '大腸（吸收水分，形成糞便）。' +
+          '細嚼慢嚥有用，是因為食物被磨得越碎，和消化液接觸的面積越大，消化越有效率。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['digest', '消化'], ['breath', '呼吸'], ['blood', '循環']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 電流的磁效應與電動機（circuit）───────────────────────────────────
+     spec: { mode:'magnet'|'motor'|'generator', pick }                    */
+  REG.circuit = function (host, spec) {
+    var mode = spec.mode || 'magnet';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function battery(x, y) {
+      svg.appendChild(el('rect', { x: x, y: y, width: 44, height: 24, rx: 4 },
+        'fill:none;stroke:var(--text);stroke-width:2'));
+      svg.appendChild(txt(x + 22, y + 12, '電池', 'font-size:10px'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'motor' || mode === 'generator') {
+        svg.appendChild(el('circle', { cx: 160, cy: 82, r: 40, 'fill-opacity': '.15' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2.5'));
+        svg.appendChild(txt(160, 82, mode === 'motor' ? '馬達' : '發電機', 'font-size:13px'));
+        var left = mode === 'motor' ? '電能' : '動能';
+        var right = mode === 'motor' ? '動能（轉動）' : '電能';
+        svg.appendChild(txt(48, 82, left, 'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(272, 82, right, 'font-size:11px;fill:var(--bad)'));
+        svg.appendChild(el('line', { x1: 84, y1: 82, x2: 116, y2: 82 },
+          'stroke:var(--good);stroke-width:3'));
+        svg.appendChild(el('polygon', { points: '120,82 110,77 110,87' }, 'fill:var(--good)'));
+        svg.appendChild(el('line', { x1: 204, y1: 82, x2: 226, y2: 82 },
+          'stroke:var(--bad);stroke-width:3'));
+        svg.appendChild(el('polygon', { points: '232,82 222,77 222,87' }, 'fill:var(--bad)'));
+        main = mode === 'motor' ? '馬達：電能 → 動能' : '發電機：動能 → 電能';
+        sub = mode === 'motor'
+          ? '通電的線圈放在磁場中會受力而轉動——電風扇、果汁機、電動車都靠馬達。' +
+            '馬達和發電機的構造幾乎一樣，只是能量轉換的方向相反。'
+          : '讓線圈在磁場中轉動就會產生電流。水力（水沖）、火力與核能（蒸汽推）、風力（風吹）' +
+            '的差別只在「用什麼推動發電機」，最後一步都一樣。' +
+            '再生能源：太陽能、風力、水力、地熱；非再生：煤、石油、天然氣、核能。';
+      } else {
+        battery(28, 118);
+        svg.appendChild(el('path', { d: 'M72,130 L120,130 M200,130 L268,130 L268,60' },
+          'fill:none;stroke:var(--text);stroke-width:2'));
+        // 線圈
+        for (var i = 0; i < 6; i++) {
+          svg.appendChild(el('ellipse', { cx: 128 + i * 13, cy: 96, rx: 7, ry: 22 },
+            'fill:none;stroke:var(--accent);stroke-width:2.5'));
+        }
+        svg.appendChild(el('rect', { x: 118, y: 86, width: 84, height: 20, rx: 3, 'fill-opacity': '.3' },
+          'fill:var(--dim);stroke:var(--dim)'));
+        svg.appendChild(txt(160, 96, '鐵釘', 'font-size:10px'));
+        svg.appendChild(txt(160, 140, '線圈通電 → 變成磁鐵', 'font-size:11px;fill:var(--accent)'));
+        svg.appendChild(el('circle', { cx: 268, cy: 46, r: 14 },
+          'fill:none;stroke:var(--good);stroke-width:2'));
+        svg.appendChild(el('line', { x1: 268, y1: 34, x2: 268, y2: 58 },
+          'stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(268, 22, '指南針偏轉', 'font-size:10px;fill:var(--good)'));
+        main = '電流的磁效應：通電的導線周圍會產生磁場';
+        sub = '把指南針放在通電導線旁會偏轉，這證明「電流會產生磁場」。' +
+          '把導線繞成線圈、中間插一根鐵釘，磁力會集中變強，這就是電磁鐵。' +
+          '電磁鐵的三個特點：① 通電才有磁性、斷電就沒有（所以資源回收場用它吊廢鐵，' +
+          '一斷電就放下）② 電池數量越多、線圈匝數越多，磁力越強 ③ 把電池正負極對調，南北極就相反。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['magnet', '電磁鐵'], ['motor', '馬達'], ['generator', '發電機']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 能量轉換（energyflow）────────────────────────────────────────────
+     spec: { steps:['電能','光能'], note }                                */
+  REG.energyflow = function (host, spec) {
+    var steps = spec.steps || ['電能', '光能 ＋ 熱能'];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 120', class: 'wg-svg' });
+    var w = 300 / steps.length;
+    steps.forEach(function (s, i) {
+      var x = 10 + i * w;
+      svg.appendChild(el('rect', { x: x + 4, y: 36, width: w - 14, height: 46, rx: 10,
+        'fill-opacity': '.2' }, 'fill:var(--' + (i === 0 ? 'good' : i === steps.length - 1 ? 'bad' : 'accent') +
+        ');stroke:var(--' + (i === 0 ? 'good' : i === steps.length - 1 ? 'bad' : 'accent') + ');stroke-width:2'));
+      svg.appendChild(txt(x + w / 2 - 3, 59, s, 'font-size:11px'));
+      if (i) svg.appendChild(txt(x, 59, '→', 'font-size:14px;fill:var(--dim)'));
+    });
+    svg.appendChild(txt(160, 104, spec.note || '能量會轉換形式，但總量不會憑空增減',
+      'font-size:11px;fill:var(--dim)'));
+    box.appendChild(svg);
+    box.appendChild(div('wg-read-main', steps.join(' → ')));
+    box.appendChild(div('wg-read-sub',
+      '能量有很多形式：動能、位能、熱能、光能、電能、化學能、聲能。' +
+      '它們可以互相轉換，但「總量守恆」——不會憑空產生也不會消失。' +
+      '⚠ 轉換過程一定會有一部分變成用不到的熱能散掉（所以燈泡會燙、手機會發熱），' +
+      '這就是為什麼沒有 100% 效率的機器。'));
+    host.appendChild(box);
+  };
+
   /* ── 植物的構造（plantparts）──────────────────────────────────────────
      spec: { mode:'parts'|'transport'|'photo', pick }                     */
   REG.plantparts = function (host, spec) {

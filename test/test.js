@@ -393,7 +393,8 @@ console.log('解析確認題');
                    'lintrans', 'normaldist', 'scatter', 'condprob',
                    'deriv', 'curveplot', 'integralarea', 'complexplane',
                    'optics', 'moonphase', 'earthsun', 'soundwave', 'compareexp', 'classify',
-                   'plantparts', 'solution', 'phscale', 'statechange'];  // 與 js/widgets.js 的 REG 同步
+                   'plantparts', 'solution', 'phscale', 'statechange',
+                   'microscope', 'bodysystem', 'circuit', 'energyflow'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');
@@ -424,6 +425,20 @@ console.log('解析確認題');
     });
   });
   ok(bad.length === 0, `概念卡格式與單元名正確（問題 ${bad.length} 筆${bad.length ? '：' + bad.slice(0, 5).join('；') : ''}）`);
+  // 2026-08-22：寫卡時混進西里爾字母／日文假名各一次（「типа」「начало」），
+  // 畫面上不明顯但就是錯字。這段直接掃原始檔，之後不會再靜默出貨。
+  {
+    const STRAY = /[\u0400-\u04FF\u3040-\u30FF\uAC00-\uD7AF]/;
+    const files = ['js/data/lessons-math.js', 'js/data/lessons-science.js', 'js/widgets.js'];
+    const hits = [];
+    files.forEach(f => {
+      const src = fs.readFileSync(path.join(root, f), 'utf8');
+      src.split('\n').forEach((line, i) => {
+        if (STRAY.test(line)) hits.push(`${f}:${i + 1}`);
+      });
+    });
+    ok(hits.length === 0, `教材文字沒有混進西里爾字母／假名／諺文（${hits.slice(0, 5).join('、') || '乾淨'}）`);
+  }
   const nCards = keys.reduce((n, k) => n + ((LES[k].cards || []).length), 0);
   console.log(`    目前 ${keys.length} 個單元有教材、共 ${nCards} 張概念卡`);
 }
