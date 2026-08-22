@@ -8552,3 +8552,1419 @@ window.APP_LESSONS['english|五下|第9單元 短文閱讀入門'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|六上|第1單元 be 動詞過去式'] = {
+  intro: '要說「以前是」「昨天在」，be 動詞也要換成過去的形式。',
+  cards: [
+    {
+      title: '① was 與 were',
+      body: 'am／is → was；are → were。\n' +
+            'I was at home yesterday.　They were happy.\n' +
+            '⚠ 主詞是 I、he、she、it 或單數名詞用 was；\n' +
+            'you、we、they 或複數名詞用 were。',
+      viz: { type: 'classify', groups: [
+        { label: 'was', items: ['I', 'he', 'she', 'it', 'my brother'] },
+        { label: 'were', items: ['you', 'we', 'they', 'my parents'] }] },
+      check: {
+        q: '主詞是 they 時，be 動詞的過去式要用什麼？',
+        options: ['were', 'was', 'is', 'are'],
+        answer: 0,
+        why: [
+          null,
+          'was 用於 I 與第三人稱單數。',
+          'is 是現在式。',
+          'are 是現在式。'
+        ]
+      }
+    },
+    {
+      title: '② 過去式的時間詞',
+      body: 'yesterday（昨天）、last night／week／year（上個…）、\n' +
+            'two days ago（兩天前）、in 2020、just now（剛才）。\n' +
+            '⚠ 看到這些詞就要用過去式，這是最明顯的線索。',
+      viz: { type: 'classify', groups: [
+        { label: '過去的時間詞', items: ['yesterday', 'last week', 'two days ago', 'in 2020'] },
+        { label: '現在的時間詞', items: ['now', 'today', 'every day'] }] },
+      check: {
+        q: '句子中出現 last night，應該用什麼時態？',
+        options: [
+          '過去式',
+          '現在式',
+          '未來式',
+          '現在進行式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '現在式用於習慣或事實。',
+          '未來式用於還沒發生的事。',
+          '進行式描述此刻正在做的事。'
+        ]
+      }
+    },
+    {
+      title: '③ 否定句',
+      body: 'I was not tired.（＝ wasn’t）\n' +
+            'They were not at home.（＝ weren’t）\n' +
+            '⚠ be 動詞的否定直接加 not，不需要 did。',
+      viz: { type: 'sentence', label: '否定', items: [
+        { t: 'They', r: '主詞' }, { t: 'were not', r: 'be＋not' },
+        { t: 'at home', r: '地點' }],
+        note: 'be 動詞的過去式否定直接加 not。' },
+      check: {
+        q: '「他昨天不在學校」的正確說法是什麼？',
+        options: [
+          'He was not at school yesterday.',
+          'He did not was at school yesterday.',
+          'He was not at school tomorrow.',
+          'He not was at school yesterday.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be 動詞的否定不用 did。',
+          'tomorrow 與過去式矛盾。',
+          'not 要放在 be 動詞後面。'
+        ]
+      }
+    },
+    {
+      title: '④ 疑問句',
+      body: 'Were you at the party?→ Yes, I was.／No, I wasn’t.\n' +
+            'Was she happy?→ Yes, she was.／No, she wasn’t.\n' +
+            '⚠ 把 was／were 移到句首，簡答時也用 was／were。',
+      viz: { type: 'sentence', label: '疑問句', items: [
+        { t: 'Were', r: 'be 動詞' }, { t: 'you', r: '主詞' }, { t: 'at the party', r: '地點' }],
+        note: '把 be 動詞移到主詞前面。' },
+      check: {
+        q: 'Was he tired? 的正確簡答是什麼？',
+        options: [
+          'Yes, he was.',
+          'Yes, he did.',
+          'Yes, he is.',
+          'Yes, he were.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be 動詞的問句不用 did 回答。',
+          '問句是過去式，回答也要用過去式。',
+          '主詞是單數要用 was。'
+        ]
+      }
+    },
+    {
+      title: '⑤ there was／there were',
+      body: 'There was a park here.（這裡以前有一座公園。）\n' +
+            'There were many students.（有很多學生。）\n' +
+            '⚠ be 動詞要配合後面的名詞單複數。',
+      viz: { type: 'sentence', label: '過去有什麼', items: [
+        { t: 'There were', r: '過去有' }, { t: 'many students', r: '複數名詞' },
+        { t: 'in the hall', r: '地點' }],
+        note: '後面是複數名詞要用 were。' },
+      check: {
+        q: '「以前這裡有一間書店」的正確說法是什麼？',
+        options: [
+          'There was a bookstore here.',
+          'There were a bookstore here.',
+          'There is a bookstore here before.',
+          'There has a bookstore here.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '單數名詞要用 was。',
+          '描述過去要用過去式。',
+          '英文用 There is/was 而不是 There has。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 描述過去',
+      body: 'When I was a child, I was very shy.\n' +
+            'The weather was nice yesterday.\n' +
+            'My grandparents were farmers.\n' +
+            '⚠ 描述過去的狀態、身分與位置，都用 was／were。',
+      viz: { type: 'tense', verb: 'play', highlight: '過去簡單式' },
+      tip: '按按鈕比較不同時態。',
+      check: {
+        q: '「我小時候很害羞」的正確說法是什麼？',
+        options: [
+          'When I was a child, I was very shy.',
+          'When I am a child, I was very shy.',
+          'When I was a child, I am very shy.',
+          'When I were a child, I was shy.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩個子句都應該用過去式。',
+          '後半也要用過去式。',
+          '主詞 I 的過去式 be 動詞是 was。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六上|第2單元 規則動詞過去式'] = {
+  intro: '大部分的動詞只要加 ed，就能表達「昨天做過」。',
+  cards: [
+    {
+      title: '① 加 ed 的基本規則',
+      body: '一般直接加 ed：play → played、work → worked、visit → visited。\n' +
+            '⚠ 過去式不分主詞：不管是 I、he 還是 they，形式都一樣，\n' +
+            '這比現在式簡單。',
+      viz: { type: 'sentence', label: '過去式', items: [
+        { t: 'I', r: '主詞' }, { t: 'played', r: '過去式' }, { t: 'basketball', r: '受詞' },
+        { t: 'yesterday', r: '時間' }],
+        note: '過去式的動詞形式不隨主詞改變。' },
+      check: {
+        q: '規則動詞的過去式，會隨主詞改變形式嗎？',
+        options: [
+          '不會，所有主詞都用同一個形式',
+          '會，第三人稱單數要加 s',
+          '會，複數要加 s',
+          '會，主詞是 I 時要變化'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '加 s 是現在式的規則。',
+          '過去式不加 s。',
+          '主詞不影響過去式的形式。'
+        ]
+      }
+    },
+    {
+      title: '② 拼寫規則',
+      body: '字尾是 e：只加 d（like → liked、live → lived）。\n' +
+            '子音＋y：去 y 加 ied（study → studied、cry → cried）。\n' +
+            '短母音＋單子音：重複子音再加 ed（stop → stopped、plan → planned）。\n' +
+            '⚠ 母音＋y 直接加 ed（play → played）。',
+      viz: { type: 'classify', groups: [
+        { label: '只加 d', items: ['liked', 'lived', 'moved'] },
+        { label: '去 y 加 ied', items: ['studied', 'cried', 'tried'] },
+        { label: '重複子音', items: ['stopped', 'planned', 'shopped'] }] },
+      check: {
+        q: 'study 的過去式怎麼拼？',
+        options: ['studied', 'studyed', 'studed', 'studying'],
+        answer: 0,
+        why: [
+          null,
+          '子音加 y 要去 y 加 ied。',
+          '不能省略字母，拼法不完整。',
+          '這是進行式的形式。'
+        ]
+      }
+    },
+    {
+      title: '③ ed 的三種發音',
+      body: '① 唸 t：字尾是無聲子音（worked、stopped、watched）。\n' +
+            '② 唸 d：字尾是有聲子音或母音（played、lived、cleaned）。\n' +
+            '③ 唸 id：字尾是 t 或 d（wanted、needed、visited）。\n' +
+            '⚠ 只有第三種會多一個音節。',
+      viz: { type: 'phonics', words: [
+        { w: 'worked', parts: ['work', 'ed'], hit: 1, s: 'ed 唸 t', mean: '工作（過去式）' },
+        { w: 'played', parts: ['play', 'ed'], hit: 1, s: 'ed 唸 d', mean: '玩（過去式）' },
+        { w: 'wanted', parts: ['want', 'ed'], hit: 1, s: 'ed 唸 id', mean: '想要（過去式）' }] },
+      tip: '按單字按鈕比較三種發音。',
+      check: {
+        q: 'wanted 的 ed 應該怎麼唸？',
+        options: [
+          '唸 id，多一個音節',
+          '唸 t',
+          '唸 d',
+          '不發音'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字尾是 t 的動詞不唸 t。',
+          '字尾是 t 或 d 時要唸 id。',
+          'ed 一定要發音。'
+        ]
+      }
+    },
+    {
+      title: '④ 否定句',
+      body: '用 did not（didn’t）＋ 原形動詞：\n' +
+            'I did not play basketball.（不是 didn’t played）\n' +
+            '⚠ 因為過去的意思已經在 did 上面了，\n' +
+            '主要動詞要回到原形。',
+      viz: { type: 'sentence', label: '否定', items: [
+        { t: 'I', r: '主詞' }, { t: 'did not', r: '助動詞（過去）' },
+        { t: 'play', r: '原形動詞' }, { t: 'basketball', r: '受詞' }],
+        note: '用了 did 之後動詞回到原形。' },
+      check: {
+        q: '「他昨天沒有去學校」的正確說法是什麼？',
+        options: [
+          'He did not go to school yesterday.',
+          'He did not went to school yesterday.',
+          'He not went to school yesterday.',
+          'He was not go to school yesterday.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '用了 did 之後動詞要用原形。',
+          '否定句需要助動詞。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 疑問句',
+      body: 'Did you play basketball?→ Yes, I did.／No, I didn’t.\n' +
+            'What did you do yesterday?→ I studied English.\n' +
+            '⚠ 疑問句同樣把 did 放到句首，主要動詞用原形。',
+      viz: { type: 'sentence', label: '疑問句', items: [
+        { t: 'Did', r: '助動詞' }, { t: 'you', r: '主詞' }, { t: 'play', r: '原形動詞' },
+        { t: 'basketball', r: '受詞' }],
+        note: '疑問句把 did 移到句首，動詞用原形。' },
+      check: {
+        q: '「你昨天做了什麼？」的正確說法是什麼？',
+        options: [
+          'What did you do yesterday?',
+          'What did you did yesterday?',
+          'What you did yesterday?',
+          'What do you do yesterday?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '用了 did 之後動詞要用原形。',
+          '疑問句需要把助動詞放在主詞前面。',
+          '時間是昨天，助動詞要用 did。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: 'Last weekend, I visited my grandparents.\n' +
+            'We watched a movie and cooked dinner together.\n' +
+            'I did not do my homework, so I was busy on Sunday.\n' +
+            '⚠ 一段敘述中通常會用很多個過去式動詞，\n' +
+            '注意每一個都要改成過去形式。',
+      viz: { type: 'energyflow', steps: ['判斷時間', '選擇過去式', '注意拼寫', '否定與疑問用 did'] },
+      check: {
+        q: '寫一段描述昨天的事情時，最容易犯的錯誤是什麼？',
+        options: [
+          '有些動詞忘記改成過去式',
+          '句子太短',
+          '用了太多形容詞',
+          '段落太整齊'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長度不是文法問題。',
+          '形容詞多寡不影響時態。',
+          '段落結構與時態無關。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六上|第3單元 不規則動詞過去式'] = {
+  intro: '英文最常用的動詞，偏偏都是不規則的——所以一定要記熟。',
+  cards: [
+    {
+      title: '① 什麼是不規則動詞',
+      body: '過去式不加 ed，而是改變字形：\n' +
+            'go → went、eat → ate、see → saw、come → came。\n' +
+            '⚠ 這些多半是最常用的動詞，所以背熟很划算。',
+      viz: { type: 'classify', groups: [
+        { label: '完全改變', items: ['go→went', 'eat→ate', 'see→saw'] },
+        { label: '只改母音', items: ['come→came', 'give→gave', 'sing→sang'] },
+        { label: '不變', items: ['put→put', 'cut→cut', 'read→read'] }] },
+      check: {
+        q: 'go 的過去式是什麼？',
+        options: ['went', 'goed', 'gone', 'going'],
+        answer: 0,
+        why: [
+          null,
+          'go 是不規則動詞，不加 ed。',
+          'gone 是過去分詞，用在完成式。',
+          'going 是現在分詞。'
+        ]
+      }
+    },
+    {
+      title: '② 常見的不規則動詞（一）',
+      body: 'be → was／were、have → had、do → did、say → said、\n' +
+            'get → got、make → made、know → knew、think → thought。\n' +
+            '⚠ 這些都是使用頻率最高的動詞，一定要背熟。',
+      viz: { type: 'classify', groups: [
+        { label: '最常用', items: ['was/were', 'had', 'did', 'said'] },
+        { label: '次常用', items: ['got', 'made', 'knew', 'thought'] }] },
+      check: {
+        q: 'have 的過去式是什麼？',
+        options: ['had', 'haved', 'has', 'having'],
+        answer: 0,
+        why: [
+          null,
+          'have 是不規則動詞。',
+          'has 是第三人稱單數的現在式。',
+          'having 是現在分詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 常見的不規則動詞（二）',
+      body: 'take → took、come → came、give → gave、find → found、\n' +
+            'tell → told、become → became、leave → left、feel → felt。\n' +
+            '⚠ 有些變化有規律（如 -eel → -elt），可以一起記。',
+      viz: { type: 'classify', groups: [
+        { label: 'oo 音', items: ['took', 'stood', 'understood'] },
+        { label: 'elt/old', items: ['felt', 'told', 'sold'] },
+        { label: 'ame', items: ['came', 'became', 'gave'] }] },
+      check: {
+        q: 'tell 的過去式是什麼？',
+        options: ['told', 'telled', 'tells', 'telling'],
+        answer: 0,
+        why: [
+          null,
+          'tell 是不規則動詞。',
+          'tells 是現在式的第三人稱單數。',
+          'telling 是現在分詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 三態相同或部分相同',
+      body: '三態相同：put、cut、hit、let、cost、read（拼法同但發音不同）。\n' +
+            '兩態相同：have-had-had、make-made-made、say-said-said。\n' +
+            '⚠ read 的過去式拼法相同但唸法不同（唸成 red 的音）。',
+      viz: { type: 'classify', groups: [
+        { label: '三態相同', items: ['put', 'cut', 'hit', 'cost'] },
+        { label: '拼同音不同', items: ['read'] }] },
+      check: {
+        q: 'read 這個字的過去式有什麼特別之處？',
+        options: [
+          '拼法和原形相同，但發音不同',
+          '拼法完全改變',
+          '要加 ed',
+          '沒有過去式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '拼法其實沒有改變。',
+          'read 是不規則動詞。',
+          '每個動詞都有過去式。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 否定與疑問一樣用 did',
+      body: '不管動詞規不規則，否定與疑問都用 did：\n' +
+            'I did not go.（不是 didn’t went）\n' +
+            'Did you eat?（不是 Did you ate）\n' +
+            '⚠ 用了 did 之後，動詞一律回到原形——\n' +
+            '這反而讓不規則動詞變簡單了。',
+      viz: { type: 'sentence', label: '否定', items: [
+        { t: 'I', r: '主詞' }, { t: 'did not', r: '助動詞' }, { t: 'go', r: '原形動詞' }],
+        note: '用了 did 之後不規則變化就用不到了。' },
+      check: {
+        q: '「他昨天沒有吃早餐」的正確說法是什麼？',
+        options: [
+          'He did not eat breakfast yesterday.',
+          'He did not ate breakfast yesterday.',
+          'He not ate breakfast yesterday.',
+          'He was not eat breakfast yesterday.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '用了 did 之後動詞要用原形。',
+          '否定句需要助動詞。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 怎麼記不規則動詞',
+      body: '方法：① 依「變化規律」分組記（sing-sang、ring-rang）\n' +
+            '② 每天記五個，寫進句子裡 ③ 用故事把它們串起來。\n' +
+            '⚠ 不要一次背一百個——分批記、反覆用，效果最好。',
+      viz: { type: 'energyflow', steps: ['分組記憶', '每天五個', '造句使用', '反覆複習'] },
+      check: {
+        q: '記不規則動詞比較有效的方法是什麼？',
+        options: [
+          '依變化規律分組，並在句子中反覆使用',
+          '一次背完全部',
+          '只看不寫',
+          '只記中文意思'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '一次太多容易混淆也記不牢。',
+          '動手寫與使用能加深記憶。',
+          '不知道形式變化就無法使用。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六上|第4單元 過去式否定與問句'] = {
+  intro: 'did 是過去式的萬用鑰匙——否定和疑問都靠它。',
+  cards: [
+    {
+      title: '① did 的角色',
+      body: 'did 是 do 的過去式，當「助動詞」使用。\n' +
+            '一旦用了 did，主要動詞就回到「原形」。\n' +
+            '⚠ 因為時態的資訊已經由 did 表達了，\n' +
+            '不需要重複標示兩次。',
+      viz: { type: 'sentence', label: '肯定', items: [
+        { t: 'I', r: '主詞' }, { t: 'went', r: '過去式' }, { t: 'to school', r: '地點' }],
+        note: '肯定句直接用過去式。',
+        alt: [
+          { label: '否定', items: [{ t: 'I', r: '主詞' }, { t: 'did not', r: '助動詞' },
+            { t: 'go', r: '原形' }, { t: 'to school', r: '地點' }],
+            note: '過去的資訊移到 did 上面，動詞回原形。' }] },
+      tip: '按按鈕比較肯定與否定。',
+      check: {
+        q: '為什麼 did not 後面的動詞要用原形？',
+        options: [
+          '因為過去的時態資訊已經在 did 上面了',
+          '因為原形比較好唸',
+          '因為沒有規則',
+          '因為動詞不能變化'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是文法規則而非發音考量。',
+          '這個規則非常明確。',
+          '動詞在肯定句中是會變化的。'
+        ]
+      }
+    },
+    {
+      title: '② 否定句',
+      body: 'I did not finish my homework.（＝ didn’t）\n' +
+            'She did not come to school.\n' +
+            '⚠ 不論主詞是誰，都用 did not，\n' +
+            '這比現在式的 do／does 簡單。',
+      viz: { type: 'classify', groups: [
+        { label: '現在式否定', items: ['do not', 'does not'] },
+        { label: '過去式否定', items: ['did not（所有主詞）'] }] },
+      check: {
+        q: '過去式的否定句中，主詞是 she 時要用什麼助動詞？',
+        options: ['did not', 'does not', 'do not', 'was not'],
+        answer: 0,
+        why: [
+          null,
+          'does not 是現在式。',
+          'do not 也是現在式。',
+          'was not 用於 be 動詞的句子。'
+        ]
+      }
+    },
+    {
+      title: '③ Yes／No 問句',
+      body: 'Did you see the movie?→ Yes, I did.／No, I didn’t.\n' +
+            'Did she call you?→ Yes, she did.\n' +
+            '⚠ 簡答時用 did，不重複主要動詞。',
+      viz: { type: 'sentence', label: '疑問句', items: [
+        { t: 'Did', r: '助動詞' }, { t: 'you', r: '主詞' }, { t: 'see', r: '原形動詞' },
+        { t: 'the movie', r: '受詞' }],
+        note: '把 did 移到句首形成疑問句。' },
+      check: {
+        q: 'Did they win the game? 的正確簡答是什麼？',
+        options: [
+          'Yes, they did.',
+          'Yes, they win.',
+          'Yes, they won.',
+          'Yes, they were.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '簡答要用助動詞而不是主要動詞。',
+          '簡答時不重複主要動詞。',
+          '問句用 did，回答也要用 did。'
+        ]
+      }
+    },
+    {
+      title: '④ 疑問詞問句',
+      body: 'What did you do yesterday?（你昨天做了什麼？）\n' +
+            'Where did she go?（她去了哪裡？）\n' +
+            'Why did he leave?（他為什麼離開？）\n' +
+            '⚠ 順序：疑問詞 ＋ did ＋ 主詞 ＋ 原形動詞。',
+      viz: { type: 'sentence', label: '疑問詞問句', items: [
+        { t: 'Where', r: '疑問詞' }, { t: 'did', r: '助動詞' }, { t: 'she', r: '主詞' },
+        { t: 'go', r: '原形動詞' }],
+        note: '疑問詞在最前面，接著是助動詞與主詞。' },
+      check: {
+        q: '「他昨天去了哪裡？」的正確說法是什麼？',
+        options: [
+          'Where did he go yesterday?',
+          'Where did he went yesterday?',
+          'Where he did go yesterday?',
+          'Where he went yesterday?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '用了 did 之後動詞要用原形。',
+          '助動詞要放在主詞前面。',
+          '疑問句需要助動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 主詞就是疑問詞時',
+      body: 'Who called you?（誰打電話給你？）\n' +
+            '⚠ 當疑問詞本身就是主詞時，「不用」加 did，\n' +
+            '動詞直接用過去式。\n' +
+            '比較：Who did you call?（你打給誰？）——這時 who 是受詞。',
+      viz: { type: 'compareexp',
+             factor: '疑問詞的角色',
+             a: { label: 'Who called you?', note: 'who 是主詞，動詞直接用過去式' },
+             b: { label: 'Who did you call?', note: 'who 是受詞，要用 did' },
+             same: ['都以 Who 開頭'] },
+      check: {
+        q: '「誰打破了窗戶？」的正確說法是什麼？',
+        options: [
+          'Who broke the window?',
+          'Who did broke the window?',
+          'Who did break window?',
+          'Whom broke the window?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'who 是主詞時不需要 did。',
+          '缺少冠詞，而且不需要 did。',
+          'whom 用於受詞的位置。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: 'A: Did you go to the party last night?\n' +
+            'B: No, I didn’t. I stayed home.\n' +
+            'A: Why didn’t you go?　B: Because I was tired.\n' +
+            '⚠ 對話中常常混用 be 動詞過去式（was）與一般動詞過去式（stayed），\n' +
+            '要看句子的動詞類型來決定否定與疑問的做法。',
+      viz: { type: 'compareexp',
+             factor: '兩類動詞的過去式',
+             a: { label: 'be 動詞', note: '否定用 was not／were not' },
+             b: { label: '一般動詞', note: '否定用 did not ＋ 原形' },
+             same: ['都表達過去'] },
+      check: {
+        q: '「我昨天不累」與「我昨天沒去」的否定方式有什麼不同？',
+        options: [
+          '前者用 was not，後者用 did not 加原形動詞',
+          '兩者都用 did not',
+          '兩者都用 was not',
+          '兩者都不需要助動詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be 動詞的句子不用 did。',
+          '一般動詞的句子不用 was。',
+          '否定句需要適當的否定形式。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六上|第5單元 未來式 be going to'] = {
+  intro: '已經計畫好的事，用 be going to 來說。',
+  cards: [
+    {
+      title: '① 形式',
+      body: '主詞 ＋ be 動詞 ＋ going to ＋ 原形動詞。\n' +
+            'I am going to visit my grandma.（我打算去看奶奶。）\n' +
+            '⚠ be 動詞要配合主詞（am／is／are），\n' +
+            'going to 後面永遠是原形動詞。',
+      viz: { type: 'sentence', label: '未來計畫', items: [
+        { t: 'I', r: '主詞' }, { t: 'am going to', r: 'be＋going to' },
+        { t: 'visit', r: '原形動詞' }, { t: 'my grandma', r: '受詞' }],
+        note: 'be 動詞配合主詞，going to 後面接原形。' },
+      tip: '這個元件把句子拆成一格一格。',
+      check: {
+        q: '「她打算去買東西」的正確說法是什麼？',
+        options: [
+          'She is going to go shopping.',
+          'She are going to go shopping.',
+          'She is going to goes shopping.',
+          'She going to go shopping.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主詞是第三人稱單數要用 is。',
+          'going to 後面要接原形動詞。',
+          '句子缺少 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '② 用在什麼情況',
+      body: '① 已經計畫好的事：We are going to have a party.\n' +
+            '② 從跡象判斷即將發生：Look at the clouds. It is going to rain.\n' +
+            '⚠ 重點是「已經有跡象或已經決定」。',
+      viz: { type: 'compareexp',
+             factor: '兩種用法',
+             a: { label: '已計畫', note: '我已經決定要做：I am going to study.' },
+             b: { label: '有跡象', note: '看起來即將發生：It is going to rain.' },
+             same: ['都指向未來'] },
+      check: {
+        q: '看到天空烏雲密布，說「快下雨了」用哪一種說法最自然？',
+        options: [
+          'It is going to rain.',
+          'It rains.',
+          'It rained.',
+          'It is raining every day.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '現在式表示習慣或事實。',
+          '過去式表示已經發生過。',
+          '這個說法表示習慣性的降雨。'
+        ]
+      }
+    },
+    {
+      title: '③ 否定句',
+      body: '在 be 動詞後面加 not：\n' +
+            'I am not going to go.　He is not going to come.\n' +
+            '⚠ 否定的是「計畫」，不是動作本身。',
+      viz: { type: 'sentence', label: '否定', items: [
+        { t: 'He', r: '主詞' }, { t: 'is not going to', r: '否定' },
+        { t: 'come', r: '原形動詞' }],
+        note: '否定時在 be 動詞後面加 not。' },
+      check: {
+        q: '「他們不打算來」的正確說法是什麼？',
+        options: [
+          'They are not going to come.',
+          'They do not going to come.',
+          'They are not going to came.',
+          'They not are going to come.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句型的否定不用 do。',
+          'going to 後面要接原形動詞。',
+          'not 要放在 be 動詞後面。'
+        ]
+      }
+    },
+    {
+      title: '④ 疑問句',
+      body: '把 be 動詞移到句首：\n' +
+            'Are you going to join us?→ Yes, I am.／No, I am not.\n' +
+            'What are you going to do this weekend?\n' +
+            '⚠ 簡答時用 be 動詞。',
+      viz: { type: 'sentence', label: '疑問句', items: [
+        { t: 'Are', r: 'be 動詞' }, { t: 'you', r: '主詞' },
+        { t: 'going to join', r: 'going to＋原形' }, { t: 'us', r: '受詞' }],
+        note: '把 be 動詞移到句首。' },
+      check: {
+        q: 'Are you going to study tonight? 的正確簡答是什麼？',
+        options: [
+          'Yes, I am.',
+          'Yes, I do.',
+          'Yes, I will going.',
+          'Yes, I going.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句型用 be 動詞回答。',
+          '簡答不需要重複 going。',
+          '簡答要有 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常用的未來時間詞',
+      body: 'tomorrow（明天）、next week／month／year（下個…）、\n' +
+            'this weekend（這個週末）、tonight（今晚）、\n' +
+            'in two days（兩天後）、soon（很快）。\n' +
+            '⚠ 這些詞常常和未來式一起出現。',
+      viz: { type: 'classify', groups: [
+        { label: '未來的時間詞', items: ['tomorrow', 'next week', 'tonight', 'soon'] },
+        { label: '過去的時間詞', items: ['yesterday', 'last week', 'ago'] }] },
+      check: {
+        q: '句子中出現 next Monday，應該用什麼時態？',
+        options: [
+          '未來式',
+          '過去式',
+          '現在完成式',
+          '過去進行式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '過去式用於已經發生的事。',
+          '完成式強調與現在的關聯。',
+          '過去進行式描述過去某時正在做的事。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 談論計畫',
+      body: 'A: What are you going to do this summer?\n' +
+            'B: I am going to visit my cousin in Tainan.\n' +
+            'A: That sounds fun! How long are you going to stay?\n' +
+            '⚠ 談計畫時用 be going to 最自然，\n' +
+            '因為那是已經決定好的事。',
+      viz: { type: 'energyflow', steps: ['問對方的計畫', '說出自己的計畫', '追問細節', '回應'] },
+      check: {
+        q: '要問「你這個暑假打算做什麼？」，正確的說法是什麼？',
+        options: [
+          'What are you going to do this summer?',
+          'What you are going to do this summer?',
+          'What do you going to do this summer?',
+          'What are you going do this summer?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be 動詞要放在主詞前面。',
+          '這個句型不用 do。',
+          '缺少 to，going to 是固定用法。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六上|第6單元 未來式 will'] = {
+  intro: 'will 用來說「將會」——特別是當下才決定，或對未來的預測。',
+  cards: [
+    {
+      title: '① 形式',
+      body: '主詞 ＋ will ＋ 原形動詞。\n' +
+            'I will call you later.　She will be here soon.\n' +
+            '⚠ will 是助動詞，不隨主詞變化，後面永遠接原形動詞。',
+      viz: { type: 'tense', verb: 'go', highlight: '未來式' },
+      tip: '按按鈕比較不同時態。',
+      check: {
+        q: '「他明天會來」的正確說法是什麼？',
+        options: [
+          'He will come tomorrow.',
+          'He wills come tomorrow.',
+          'He will comes tomorrow.',
+          'He will to come tomorrow.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'will 不隨主詞加 s。',
+          'will 後面要接原形動詞。',
+          'will 後面不加 to。'
+        ]
+      }
+    },
+    {
+      title: '② will 與 be going to 的差別',
+      body: 'will：當下才決定、預測、承諾、提議。\n' +
+            'be going to：已經計畫好、有跡象即將發生。\n' +
+            '⚠ 例：電話響了 → I will get it!（當下決定）\n' +
+            '早就約好 → I am going to meet him at five.',
+      viz: { type: 'compareexp',
+             factor: '兩種未來式',
+             a: { label: 'will', note: '當下決定、預測、承諾' },
+             b: { label: 'be going to', note: '事先計畫、有明顯跡象' },
+             same: ['都表達未來'] },
+      check: {
+        q: '電話突然響了，你說「我去接！」應該用哪一種說法？',
+        options: [
+          'I will get it!',
+          'I am going to get it.',
+          'I get it.',
+          'I got it.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be going to 用於事先計畫好的事。',
+          '現在式無法表達當下的決定。',
+          '過去式表示已經發生。'
+        ]
+      }
+    },
+    {
+      title: '③ 否定與縮寫',
+      body: 'will not ＝ won’t（注意拼法，不是 willn’t）。\n' +
+            'I will not tell anyone.＝ I won’t tell anyone.\n' +
+            '⚠ I will 可以縮寫成 I’ll；he will → he’ll。',
+      viz: { type: 'classify', groups: [
+        { label: '肯定縮寫', items: ['I’ll', 'he’ll', 'they’ll'] },
+        { label: '否定縮寫', items: ['won’t'] }] },
+      check: {
+        q: 'will not 的縮寫是什麼？',
+        options: ['won’t', 'willn’t', 'will’nt', 'wo not'],
+        answer: 0,
+        why: [
+          null,
+          '英文沒有這種縮寫。',
+          '撇號的位置不正確。',
+          '這不是標準的縮寫形式。'
+        ]
+      }
+    },
+    {
+      title: '④ 疑問句',
+      body: 'Will you help me?→ Yes, I will.／No, I won’t.\n' +
+            'When will they arrive?\n' +
+            '⚠ Will you…? 除了問未來，也常用來「請求」：\n' +
+            'Will you close the door, please?',
+      viz: { type: 'sentence', label: '疑問句', items: [
+        { t: 'Will', r: '助動詞' }, { t: 'you', r: '主詞' }, { t: 'help', r: '原形動詞' },
+        { t: 'me', r: '受詞' }],
+        note: '把 will 移到主詞前面形成疑問句。' },
+      check: {
+        q: 'Will you help me? 這句話除了問未來，還可能表示什麼？',
+        options: [
+          '禮貌的請求',
+          '過去的事',
+          '命令',
+          '拒絕'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'will 用於未來而非過去。',
+          '問句形式比命令句客氣。',
+          '這是提出請求而不是拒絕。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 用 will 做預測',
+      body: 'I think it will rain tomorrow.（我想明天會下雨。）\n' +
+            'She will probably be late.（她可能會遲到。）\n' +
+            '⚠ 常搭配 I think、maybe、probably，表示不確定。',
+      viz: { type: 'sentence', label: '預測', items: [
+        { t: 'I think', r: '表達推測' }, { t: 'it will rain', r: '未來式' },
+        { t: 'tomorrow', r: '時間' }],
+        note: '加上 I think 讓語氣變成推測。' },
+      check: {
+        q: '要表達「我想明天會下雨」，比較自然的說法是什麼？',
+        options: [
+          'I think it will rain tomorrow.',
+          'I think it rains tomorrow.',
+          'I think it rained tomorrow.',
+          'I will think it rains.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '明天的事要用未來式。',
+          '過去式與 tomorrow 矛盾。',
+          '這個語序改變了意思。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: 'A: I am going to have a party this Saturday. Will you come?\n' +
+            'B: Sure! I will bring some snacks.\n' +
+            '⚠ 注意：辦派對是事先計畫（be going to），\n' +
+            '帶點心是當下決定（will）。',
+      viz: { type: 'compareexp',
+             factor: '同一段對話中的兩種未來',
+             a: { label: '事先計畫', note: 'I am going to have a party.' },
+             b: { label: '當下決定', note: 'I will bring some snacks.' },
+             same: ['都在談未來'] },
+      check: {
+        q: '朋友邀你參加派對，你當場決定要帶東西，應該怎麼說？',
+        options: [
+          'I will bring some snacks.',
+          'I am going to bring some snacks (decided long ago).',
+          'I bring some snacks.',
+          'I brought some snacks.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個選項的說明表示是很久以前就決定的。',
+          '現在式無法表達當下的決定。',
+          '過去式表示已經帶過了。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六上|第7單元 比較級'] = {
+  intro: '要說「比較高、比較好」，形容詞要換成比較級的形式。',
+  cards: [
+    {
+      title: '① 短形容詞加 er',
+      body: '一到兩音節的形容詞加 er：\n' +
+            'tall → taller、fast → faster、young → younger。\n' +
+            '⚠ 拼寫規則：字尾 e 只加 r（nice → nicer）；\n' +
+            '子音＋y 去 y 加 ier（happy → happier）；\n' +
+            '短母音＋單子音要重複（big → bigger）。',
+      viz: { type: 'classify', groups: [
+        { label: '直接加 er', items: ['taller', 'faster', 'longer'] },
+        { label: '去 y 加 ier', items: ['happier', 'easier', 'busier'] },
+        { label: '重複子音', items: ['bigger', 'hotter', 'thinner'] }] },
+      check: {
+        q: 'big 的比較級是什麼？',
+        options: ['bigger', 'biger', 'more big', 'bigest'],
+        answer: 0,
+        why: [
+          null,
+          '短母音加單子音要重複子音。',
+          '短形容詞用 er 而不是 more。',
+          '這是最高級的錯誤拼法。'
+        ]
+      }
+    },
+    {
+      title: '② 長形容詞用 more',
+      body: '三音節以上（或部分兩音節）用 more：\n' +
+            'more beautiful、more interesting、more expensive、more difficult。\n' +
+            '⚠ 不能兩個都用：more taller ✗。',
+      viz: { type: 'classify', groups: [
+        { label: '加 er', items: ['taller', 'faster', 'smaller'] },
+        { label: '用 more', items: ['more beautiful', 'more difficult', 'more important'] }] },
+      check: {
+        q: 'beautiful 的比較級是什麼？',
+        options: [
+          'more beautiful',
+          'beautifuler',
+          'more beautifuler',
+          'beautifullest'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長形容詞不加 er。',
+          '不能同時使用 more 與 er。',
+          '這是最高級的形式。'
+        ]
+      }
+    },
+    {
+      title: '③ 不規則變化',
+      body: 'good／well → better；bad → worse；\n' +
+            'many／much → more；little → less；far → farther／further。\n' +
+            '⚠ 這些是最常用的，一定要背熟。',
+      viz: { type: 'classify', groups: [
+        { label: '不規則', items: ['good→better', 'bad→worse', 'many→more', 'little→less'] }] },
+      check: {
+        q: 'good 的比較級是什麼？',
+        options: ['better', 'gooder', 'more good', 'best'],
+        answer: 0,
+        why: [
+          null,
+          'good 是不規則變化。',
+          '不規則形容詞不用 more。',
+          'best 是最高級。'
+        ]
+      }
+    },
+    {
+      title: '④ 比較的句型',
+      body: 'A ＋ be ＋ 比較級 ＋ than ＋ B。\n' +
+            'He is taller than me.（他比我高。）\n' +
+            'This book is more interesting than that one.\n' +
+            '⚠ than 後面口語常用受格（than me），\n' +
+            '正式寫法可用 than I am。',
+      viz: { type: 'sentence', label: '比較句型', items: [
+        { t: 'He', r: '主詞' }, { t: 'is taller', r: 'be＋比較級' },
+        { t: 'than me', r: '比較對象' }],
+        note: '比較級後面用 than 帶出比較的對象。' },
+      check: {
+        q: '「這本書比那本有趣」的正確說法是什麼？',
+        options: [
+          'This book is more interesting than that one.',
+          'This book is interestinger than that one.',
+          'This book is more interesting that one.',
+          'This book more interesting than that one.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長形容詞不加 er。',
+          '比較時需要 than。',
+          '句子缺少 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 加強比較的語氣',
+      body: 'much／a lot ＋ 比較級：much taller（高很多）。\n' +
+            'a little ＋ 比較級：a little older（大一點點）。\n' +
+            '⚠ 不能用 very 修飾比較級：very taller ✗。',
+      viz: { type: 'compareexp',
+             factor: '程度的差別',
+             a: { label: 'much taller', note: '高很多' },
+             b: { label: 'a little taller', note: '高一點點' },
+             same: ['都是比較級'] },
+      check: {
+        q: '要說「高很多」，正確的說法是什麼？',
+        options: [
+          'much taller',
+          'very taller',
+          'very tall than',
+          'more taller'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'very 不能修飾比較級。',
+          '這個結構不完整。',
+          '不能同時用 more 與 er。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 同級比較',
+      body: 'as ＋ 原級 ＋ as：一樣…。\n' +
+            'He is as tall as his brother.（他和他哥哥一樣高。）\n' +
+            '否定：not as tall as（沒有…那麼高）。\n' +
+            '⚠ 兩個 as 中間用「原級」，不是比較級。',
+      viz: { type: 'sentence', label: '同級比較', items: [
+        { t: 'He is', r: '主詞＋be' }, { t: 'as tall as', r: '同級比較' },
+        { t: 'his brother', r: '比較對象' }],
+        note: '兩個 as 中間放原級形容詞。' },
+      check: {
+        q: '「他和我一樣高」的正確說法是什麼？',
+        options: [
+          'He is as tall as me.',
+          'He is as taller as me.',
+          'He is as tall than me.',
+          'He is so tall as me.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩個 as 中間要用原級。',
+          '同級比較用 as 而不是 than。',
+          '肯定句中習慣用 as…as。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六上|第8單元 最高級'] = {
+  intro: '三個以上比較時，就會出現「最…的」——這是最高級。',
+  cards: [
+    {
+      title: '① 短形容詞加 est',
+      body: '前面加 the，字尾加 est：\n' +
+            'the tallest（最高的）、the fastest、the youngest。\n' +
+            '⚠ 拼寫規則和比較級相同：\n' +
+            'nice → nicest、happy → happiest、big → biggest。',
+      viz: { type: 'classify', groups: [
+        { label: '原級', items: ['tall', 'big', 'happy'] },
+        { label: '比較級', items: ['taller', 'bigger', 'happier'] },
+        { label: '最高級', items: ['tallest', 'biggest', 'happiest'] }] },
+      check: {
+        q: 'happy 的最高級是什麼？',
+        options: ['happiest', 'happyest', 'most happy', 'happier'],
+        answer: 0,
+        why: [
+          null,
+          '子音加 y 要去 y 加 iest。',
+          '短形容詞不用 most。',
+          '這是比較級而不是最高級。'
+        ]
+      }
+    },
+    {
+      title: '② 長形容詞用 most',
+      body: 'the most beautiful、the most interesting、the most expensive。\n' +
+            '⚠ 同樣不能兩個都用：the most tallest ✗。',
+      viz: { type: 'classify', groups: [
+        { label: '加 est', items: ['tallest', 'smallest', 'fastest'] },
+        { label: '用 most', items: ['most beautiful', 'most difficult', 'most popular'] }] },
+      check: {
+        q: 'interesting 的最高級是什麼？',
+        options: [
+          'the most interesting',
+          'the interestingest',
+          'the most interestingest',
+          'more interesting'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長形容詞不加 est。',
+          '不能同時使用 most 與 est。',
+          '這是比較級而不是最高級。'
+        ]
+      }
+    },
+    {
+      title: '③ 不規則變化',
+      body: 'good → better → best；bad → worse → worst；\n' +
+            'many／much → more → most；little → less → least。\n' +
+            '⚠ 這四組最常用，要一起背。',
+      viz: { type: 'classify', groups: [
+        { label: 'good', items: ['good', 'better', 'best'] },
+        { label: 'bad', items: ['bad', 'worse', 'worst'] },
+        { label: 'many', items: ['many', 'more', 'most'] }] },
+      check: {
+        q: 'bad 的最高級是什麼？',
+        options: ['worst', 'baddest', 'most bad', 'worse'],
+        answer: 0,
+        why: [
+          null,
+          'bad 是不規則變化。',
+          '不規則形容詞不用 most。',
+          'worse 是比較級。'
+        ]
+      }
+    },
+    {
+      title: '④ 最高級的句型',
+      body: 'A ＋ be ＋ the ＋ 最高級 ＋ in／of ＋ 範圍。\n' +
+            'He is the tallest in our class.（他是班上最高的。）\n' +
+            'This is the best of all.（這是所有之中最好的。）\n' +
+            '⚠ 範圍是「地方或團體」用 in；是「一群同類」用 of。',
+      viz: { type: 'sentence', label: '最高級句型', items: [
+        { t: 'He is', r: '主詞＋be' }, { t: 'the tallest', r: '最高級' },
+        { t: 'in our class', r: '範圍' }],
+        note: '最高級前面要加 the，後面說明比較的範圍。' },
+      check: {
+        q: '「他是班上最高的」的正確說法是什麼？',
+        options: [
+          'He is the tallest in our class.',
+          'He is tallest in our class.',
+          'He is the taller in our class.',
+          'He is the most tall in our class.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '最高級前面要加 the。',
+          '三人以上比較要用最高級。',
+          '短形容詞不用 most。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見的搭配',
+      body: 'one of the ＋ 最高級 ＋ 複數名詞：\n' +
+            'It is one of the best movies I have ever seen.\n' +
+            '⚠ 注意名詞要用複數（movies），因為是「其中之一」。',
+      viz: { type: 'sentence', label: '其中之一', items: [
+        { t: 'one of', r: '其中之一' }, { t: 'the best', r: '最高級' },
+        { t: 'movies', r: '複數名詞' }],
+        note: 'one of 後面要接複數名詞。' },
+      check: {
+        q: '「這是最好的電影之一」的正確說法是什麼？',
+        options: [
+          'It is one of the best movies.',
+          'It is one of the best movie.',
+          'It is one of best movies.',
+          'It is the one of best movie.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'one of 後面要接複數名詞。',
+          '最高級前面要加 the。',
+          '這個結構不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 三個等級一起看',
+      body: '原級：tall（高）　比較級：taller than（比…高）\n' +
+            '最高級：the tallest（最高的）\n' +
+            '⚠ 判斷用哪一個：比較兩者用比較級，三者以上用最高級，\n' +
+            '沒有比較就用原級。',
+      viz: { type: 'compareexp',
+             factor: '三個等級',
+             a: { label: '比較級', note: '兩者比較：A is taller than B.' },
+             b: { label: '最高級', note: '三者以上：A is the tallest.' },
+             same: ['都用形容詞的變化形'] },
+      check: {
+        q: '在三個人之間比較身高，應該用哪一種形式？',
+        options: [
+          '最高級',
+          '比較級',
+          '原級',
+          '不需要變化'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '比較級用於兩者之間。',
+          '原級用於沒有比較的情況。',
+          '比較時形容詞必須變化。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六上|第9單元 旅遊與計畫'] = {
+  intro: '把時態、比較級和實用句型放進真實情境——旅遊是最好的練習場。',
+  cards: [
+    {
+      title: '① 談論旅遊計畫',
+      body: 'Where are you going to go this summer?\n' +
+            'I am going to visit Japan.\n' +
+            'How long are you going to stay?→ For a week.\n' +
+            '⚠ 已經計畫好的行程用 be going to。',
+      viz: { type: 'sentence', label: '問計畫', items: [
+        { t: 'Where', r: '疑問詞' }, { t: 'are you going to', r: '未來式' },
+        { t: 'go', r: '原形動詞' }],
+        note: '問已經計畫好的事用 be going to。' },
+      check: {
+        q: '「你暑假打算去哪裡？」的正確說法是什麼？',
+        options: [
+          'Where are you going to go this summer?',
+          'Where you are going to go this summer?',
+          'Where do you going this summer?',
+          'Where will you going this summer?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be 動詞要放在主詞前面。',
+          '這個句型不用 do。',
+          'will 後面要接原形動詞。'
+        ]
+      }
+    },
+    {
+      title: '② 旅遊相關字彙',
+      body: 'trip／journey（旅行）、flight（航班）、ticket（票）、\n' +
+            'passport（護照）、luggage（行李）、hotel（旅館）、\n' +
+            'sightseeing（觀光）、souvenir（紀念品）。\n' +
+            '⚠ luggage 是不可數名詞，不加 s。',
+      viz: { type: 'classify', groups: [
+        { label: '出發前', items: ['passport', 'ticket', 'luggage', 'booking'] },
+        { label: '旅途中', items: ['flight', 'hotel', 'sightseeing', 'souvenir'] }] },
+      check: {
+        q: '下列哪一個是不可數名詞？',
+        options: ['luggage', 'ticket', 'hotel', 'souvenir'],
+        answer: 0,
+        why: [
+          null,
+          'ticket 可數，有複數 tickets。',
+          'hotel 可數。',
+          'souvenir 也可數。'
+        ]
+      }
+    },
+    {
+      title: '③ 描述地點',
+      body: 'Taipei is bigger than Tainan.（台北比台南大。）\n' +
+            'It is one of the most popular cities in Asia.\n' +
+            '⚠ 描述地方時常用比較級與最高級，\n' +
+            '也可以用五感動詞：The food looks delicious.',
+      viz: { type: 'sentence', label: '比較地點', items: [
+        { t: 'Taipei is', r: '主詞＋be' }, { t: 'bigger than', r: '比較級' },
+        { t: 'Tainan', r: '比較對象' }],
+        note: '比較兩個地方用比較級。' },
+      check: {
+        q: '「這是亞洲最受歡迎的城市之一」的正確說法是什麼？',
+        options: [
+          'It is one of the most popular cities in Asia.',
+          'It is one of the most popular city in Asia.',
+          'It is the most popular cities in Asia.',
+          'It is more popular cities in Asia.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'one of 後面要接複數名詞。',
+          '加了 one of 才需要複數，這裡結構不一致。',
+          '比較級不能這樣使用。'
+        ]
+      }
+    },
+    {
+      title: '④ 分享過去的旅遊經驗',
+      body: 'Last year, I went to Kenting.（去年我去了墾丁。）\n' +
+            'We stayed there for three days.\n' +
+            'The weather was great and the beach was beautiful.\n' +
+            '⚠ 描述過去的旅行要用過去式：went、stayed、was。',
+      viz: { type: 'tense', verb: 'go', highlight: '過去簡單式' },
+      tip: '按按鈕比較不同時態。',
+      check: {
+        q: '「去年我去了台東」的正確說法是什麼？',
+        options: [
+          'Last year, I went to Taitung.',
+          'Last year, I go to Taitung.',
+          'Last year, I am going to Taitung.',
+          'Last year, I will go to Taitung.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '去年的事要用過去式。',
+          'be going to 表示未來的計畫。',
+          'will 表示未來。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 旅遊實用句',
+      body: 'Where is the restroom?（洗手間在哪裡？）\n' +
+            'How much is this?（這個多少錢？）\n' +
+            'Could you take a photo for us?（可以幫我們拍照嗎？）\n' +
+            'I would like to check in.（我要辦入住。）\n' +
+            '⚠ 用 Could you…? 開頭比較禮貌。',
+      viz: { type: 'classify', groups: [
+        { label: '問路購物', items: ['Where is…?', 'How much is…?'] },
+        { label: '請求協助', items: ['Could you…?', 'Can you help me?'] }] },
+      check: {
+        q: '要請路人幫忙拍照，比較禮貌的說法是什麼？',
+        options: [
+          'Could you take a photo for us, please?',
+          'Take a photo!',
+          'You take photo.',
+          'Photo!'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直接的命令句不禮貌。',
+          '這個說法像在指使人。',
+          '只說名詞無法表達完整的請求。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 寫旅遊心得',
+      body: '結構：時間地點 → 做了什麼 → 印象最深的 → 感想。\n' +
+            'Last summer, I went to Hualien with my family.\n' +
+            'We visited Taroko Gorge. It was the most beautiful place I have seen.\n' +
+            'I hope I can go there again.\n' +
+            '⚠ 最後一句用 hope 表達期望，讓文章有收尾。',
+      viz: { type: 'energyflow', steps: ['時間地點', '做了什麼', '最深刻的', '感想與期望'] },
+      check: {
+        q: '寫旅遊心得時，結尾常用什麼方式收束？',
+        options: [
+          '表達感想或未來的期望',
+          '重複開頭的句子',
+          '列出所有花費',
+          '寫下天氣預報'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '重複會讓文章顯得單調。',
+          '花費通常不是心得的重點。',
+          '天氣預報與心得無關。'
+        ]
+      }
+    }
+  ]
+};
