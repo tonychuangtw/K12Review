@@ -29249,3 +29249,1419 @@ window.APP_LESSONS['english|十一上|第9單元 主題句與論點'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|十一下|第1單元 虛主詞與虛受詞'] = {
+  intro: '英文不喜歡頭重腳輕，所以用 it 先頂著，真正的內容放後面。',
+  cards: [
+    {
+      title: '① 虛主詞的基本句型',
+      body: 'It is ＋ 形容詞 ＋ to V／that 子句\n' +
+            'It is important to exercise regularly.\n' +
+            'It is clear that he lied.\n' +
+            '★ it 沒有實質意義，只是佔住主詞的位置。',
+      viz: { type: 'sentence', label: '虛主詞句型', items: [
+        { t: 'It', r: '虛主詞（佔位）' }, { t: 'is important', r: '述語' },
+        { t: 'to exercise', r: '真正的主詞' }],
+        note: '真正的主詞移到句尾。' },
+      check: {
+        q: 'To learn a language takes time. 用虛主詞改寫是什麼？',
+        options: [
+          'It takes time to learn a language.',
+          'That takes time to learn a language.',
+          'It takes time learning a language.',
+          'There takes time to learn a language.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '虛主詞要用 it 而不是 that。',
+          '這個句型後面接不定詞。',
+          'there 用於表示存在的句型。'
+        ]
+      }
+    },
+    {
+      title: '② 常見的虛主詞句型',
+      body: 'It is said that…（據說）\n' +
+            'It seems that…（似乎）\n' +
+            'It takes ＋ 時間 ＋ to V（花多少時間做）\n' +
+            'It is no use Ving（做…沒有用）\n' +
+            'It is worth Ving（值得做）',
+      viz: { type: 'classify', groups: [
+        { label: '後接不定詞', items: ['It is important to…', 'It takes time to…'] },
+        { label: '後接動名詞', items: ['It is no use…', 'It is worth…'] },
+        { label: '後接 that 子句', items: ['It is said that…', 'It seems that…'] }] },
+      check: {
+        q: 'It is no use ___ over spilt milk. 空格要填什麼？',
+        options: ['crying', 'to cry', 'cry', 'cried'],
+        answer: 0,
+        why: [
+          null,
+          '這個句型後面接動名詞。',
+          '這個句型不接原形動詞。',
+          '這個句型不接過去式。'
+        ]
+      }
+    },
+    {
+      title: '③ 虛受詞',
+      body: '主詞 ＋ 動詞 ＋ it ＋ 補語 ＋ to V／that 子句\n' +
+            'I find it difficult to concentrate.\n' +
+            'We consider it important that everyone attends.\n' +
+            '⚠ find、think、consider、make 後面常用虛受詞。',
+      viz: { type: 'sentence', label: '虛受詞句型', items: [
+        { t: 'I find', r: '主詞加動詞' }, { t: 'it', r: '虛受詞' },
+        { t: 'difficult', r: '受詞補語' }, { t: 'to concentrate', r: '真正的受詞' }],
+        note: 'it 先佔住受詞的位置。' },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'I find it hard to believe.',
+          'I find hard to believe.',
+          'I find to believe hard.',
+          'I find that hard to believe it.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句型需要虛受詞 it。',
+          '這個語序不符合英文結構。',
+          '句尾多了一個多餘的 it。'
+        ]
+      }
+    },
+    {
+      title: '④ 為什麼要用虛主詞',
+      body: '英文的訊息安排原則：舊訊息在前、新訊息在後；\n' +
+            '短的成分在前、長的成分在後。\n' +
+            '★ 主詞太長會讓句子頭重腳輕，讀者要撐很久才等到動詞。\n' +
+            '⚠ 這叫「尾重原則」（end weight）。',
+      viz: { type: 'compareexp',
+             factor: '句子的重心',
+             a: { label: '頭重腳輕', note: '長主詞在前，難讀' },
+             b: { label: '尾重', note: '用 it 開頭，重點放後面' },
+             same: ['意思相同'] },
+      check: {
+        q: '英文為什麼偏好把長的成分放在句尾？',
+        options: [
+          '讓讀者先掌握句子的結構，再處理複雜的內容',
+          '因為句尾比較好看',
+          '因為文法規定',
+          '因為句首不能放名詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是訊息處理的考量而不是美觀。',
+          '長主詞在文法上也是允許的。',
+          '句首當然可以放名詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 和 there 句型的差別',
+      body: 'It is ＋ 形容詞 ＋ to V（評價某件事）\n' +
+            'There is ＋ 名詞（表示存在）\n' +
+            '✗ There is important to study.\n' +
+            '✓ It is important to study.',
+      viz: { type: 'compareexp',
+             factor: '句型的功能',
+             a: { label: 'It is…', note: '評價、判斷' },
+             b: { label: 'There is…', note: '表示某處存在某物' },
+             same: ['開頭都是沒有實義的字'] },
+      check: {
+        q: '「教室裡有二十個學生」應該用哪一個句型？',
+        options: [
+          'There are twenty students in the classroom.',
+          'It is twenty students in the classroom.',
+          'It has twenty students in the classroom.',
+          'There is twenty students in the classroom.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '表示存在要用 there 句型。',
+          '英文表示存在不用 it has。',
+          '主詞是複數，要用 there are。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見錯誤',
+      body: '① 忘了放 it：✗ Is important to study.\n' +
+            '② 虛受詞漏掉：✗ I think difficult to learn.\n' +
+            '③ it 與 that 混用：虛主詞只能用 it\n' +
+            '⚠ 看到「形容詞 ＋ to V」的結構，先檢查前面有沒有 it。',
+      viz: { type: 'energyflow', steps: ['看到長主詞', '前面放 it', '真正的主詞移到句尾', '檢查結構完整'] },
+      check: {
+        q: '下列哪一句缺少了必要的虛受詞？',
+        options: [
+          'She made clear that she disagreed.',
+          'She made it clear that she disagreed.',
+          'It is clear that she disagreed.',
+          'She said clearly that she disagreed.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這句有虛受詞 it，結構完整。',
+          '這句用的是虛主詞，結構完整。',
+          '這句用副詞修飾動詞，不需要虛受詞。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一下|第2單元 同位語與插入語'] = {
+  intro: '在句子中間插入補充說明，是學術英文的常見手法。',
+  cards: [
+    {
+      title: '① 什麼是同位語',
+      body: '兩個相鄰的名詞指的是同一件事：\n' +
+            'My brother, a doctor, lives in Taipei.\n' +
+            '★ a doctor 就是 my brother 的同位語。\n' +
+            '⚠ 同位語可以拿掉，句子仍然完整。',
+      viz: { type: 'sentence', label: '同位語', items: [
+        { t: 'My brother', r: '被說明的名詞' },
+        { t: 'a doctor', r: '同位語（補充說明）' },
+        { t: 'lives in Taipei', r: '主要動詞' }],
+        note: '同位語補充說明前面的名詞。' },
+      check: {
+        q: 'Ms. Lin, our English teacher, is retiring. 這裡的 our English teacher 是什麼？',
+        options: [
+          '同位語，補充說明 Ms. Lin',
+          '句子的主詞',
+          '句子的動詞',
+          '關係子句'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主詞是 Ms. Lin。',
+          '動詞是 is retiring。',
+          '關係子句會有自己的動詞。'
+        ]
+      }
+    },
+    {
+      title: '② 同位語的標點',
+      body: '非限定（可省略）→ 用逗號隔開\n' +
+            '　 My friend, Amy, called.（只有一個朋友）\n' +
+            '限定（不可省略）→ 不加逗號\n' +
+            '　 My friend Amy called.（好幾個朋友中的 Amy）\n' +
+            '⚠ 逗號改變了語意。',
+      viz: { type: 'compareexp',
+             factor: '有沒有逗號',
+             a: { label: '有逗號', note: '補充說明，對象唯一' },
+             b: { label: '沒有逗號', note: '用來區分，對象不只一個' },
+             same: ['都是同位語'] },
+      check: {
+        q: 'My sister Anna is a nurse.（沒有逗號）這句暗示什麼？',
+        options: [
+          '我不只一個姊妹，Anna 是其中之一',
+          '我只有一個姊妹',
+          'Anna 不是我的姊妹',
+          'Anna 不是護理師'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '只有一個姊妹時會加逗號。',
+          '句子明確說 Anna 是姊妹。',
+          '句子說她是護理師。'
+        ]
+      }
+    },
+    {
+      title: '③ that 引導的同位語子句',
+      body: 'The fact that he lied shocked us.\n' +
+            '★ that 子句說明 fact 的「內容」，是同位語子句。\n' +
+            '⚠ 和關係子句的差別：同位語子句後面的句子是完整的。',
+      viz: { type: 'compareexp',
+             factor: 'that 後面完不完整',
+             a: { label: '同位語子句', note: 'the fact that he lied（完整）' },
+             b: { label: '關係子句', note: 'the fact that we know（缺受詞）' },
+             same: ['都接在名詞後面'] },
+      check: {
+        q: 'The news that she won spread quickly. 這裡的 that 子句是什麼？',
+        options: [
+          '同位語子句，說明 news 的內容',
+          '關係子句，修飾 news',
+          '副詞子句',
+          '主要子句'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '後面的句子完整，不是關係子句。',
+          '副詞子句會表示時間或原因。',
+          '主要子句是 The news spread quickly。'
+        ]
+      }
+    },
+    {
+      title: '④ 插入語',
+      body: '插在句子中間、與主結構無關的補充：\n' +
+            'The plan, in my opinion, is too risky.\n' +
+            '常見插入語：however、of course、for example、as a result\n' +
+            '⚠ 插入語兩側要用逗號隔開。',
+      viz: { type: 'classify', groups: [
+        { label: '常見插入語', items: ['however', 'of course', 'in fact', 'for example', 'as a result'] }] },
+      check: {
+        q: '插入語在句中的標點應該怎麼處理？',
+        options: [
+          '兩側用逗號隔開',
+          '不需要任何標點',
+          '前面加句號',
+          '用引號括起來'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '沒有標點會讓句子難以斷開。',
+          '句號會把句子切成兩半。',
+          '引號用於直接引述。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 破折號與括號',
+      body: '逗號：最常用，語氣平順\n' +
+            '破折號：強調插入的內容\n' +
+            '括號：語氣最弱，表示次要資訊\n' +
+            '⚠ 三種標點的「強度」不同，選擇會影響語氣。',
+      viz: { type: 'energyflow', steps: ['括號（最次要）', '逗號（一般）', '破折號（強調）'] },
+      check: {
+        q: '想強調插入的補充說明，最適合用哪一種標點？',
+        options: [
+          '破折號',
+          '括號',
+          '逗號',
+          '分號'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '括號的語氣最弱。',
+          '逗號的語氣最平順。',
+          '分號用來連接兩個獨立子句。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 不要插得太多',
+      body: '一個句子插入兩三個補充，讀者會忘記主結構是什麼。\n' +
+            '⚠ 補充資訊太多時，拆成兩句比硬塞更好讀。',
+      viz: { type: 'compareexp',
+             factor: '插入的數量',
+             a: { label: '適量', note: '一個插入語，句子仍清楚' },
+             b: { label: '過量', note: '多層插入，主結構被切碎' },
+             same: ['都用逗號隔開'] },
+      check: {
+        q: '一個句子裡插入太多補充說明會有什麼問題？',
+        options: [
+          '主要結構被切碎，讀者難以掌握重點',
+          '文法一定會錯',
+          '句子會變太短',
+          '無法使用逗號'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '插入語過多不一定造成文法錯誤。',
+          '插入語只會讓句子變長。',
+          '插入語本來就需要逗號。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一下|第3單元 省略與替代'] = {
+  intro: '英文靠省略與替代避免重複，讀懂它們才不會誤解句意。',
+  cards: [
+    {
+      title: '① 對等句的省略',
+      body: '重複的部分可以省略：\n' +
+            'She likes coffee, and he (likes) tea.\n' +
+            'I can swim, but he can’t (swim).\n' +
+            '⚠ 省略的部分要能從上下文百分之百還原。',
+      viz: { type: 'sentence', label: '省略重複的部分', items: [
+        { t: 'She likes coffee', r: '完整' },
+        { t: 'and he, tea', r: '省略了 likes' }],
+        note: '省略的動詞可以從前半句還原。' },
+      check: {
+        q: 'Tom went to Taipei, and Mary to Tainan. 這句省略了什麼？',
+        options: [
+          '動詞 went',
+          '主詞 Mary',
+          '介系詞 to',
+          '連接詞 and'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'Mary 出現在句子裡。',
+          'to 出現在句子裡。',
+          'and 出現在句子裡。'
+        ]
+      }
+    },
+    {
+      title: '② 用 do 替代動詞',
+      body: 'He runs faster than I do.（do ＝ run）\n' +
+            'She likes it, and so do I.\n' +
+            '⚠ do／does／did 可以代替前面提過的整個動詞片語。',
+      viz: { type: 'compareexp',
+             factor: '避免重複的方式',
+             a: { label: '省略', note: '直接不寫' },
+             b: { label: '替代', note: '用 do、one、so 代替' },
+             same: ['都在避免重複'] },
+      check: {
+        q: 'She works harder than he does. 這裡的 does 代替什麼？',
+        options: [
+          'works hard',
+          'she',
+          'harder',
+          'than'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'does 代替的是動詞而不是主詞。',
+          'does 不代替比較級。',
+          'than 是連接詞，不被代替。'
+        ]
+      }
+    },
+    {
+      title: '③ 用 one 與 ones 替代名詞',
+      body: 'I have a red pen and a blue one.（one ＝ pen）\n' +
+            'These shoes are nicer than those ones.\n' +
+            '⚠ one 代替可數單數，ones 代替可數複數，\n' +
+            '不可數名詞不能用 one 代替。',
+      viz: { type: 'classify', groups: [
+        { label: '可以用 one', items: ['可數單數名詞'] },
+        { label: '用 ones', items: ['可數複數名詞'] },
+        { label: '不能用 one', items: ['不可數名詞'] }] },
+      check: {
+        q: 'I prefer this book to that ___. 空格要填什麼？',
+        options: ['one', 'ones', 'it', 'them'],
+        answer: 0,
+        why: [
+          null,
+          'ones 用於複數。',
+          'it 指的是同一本，語意不同。',
+          'them 是複數受格。'
+        ]
+      }
+    },
+    {
+      title: '④ 用 so 與 not 替代子句',
+      body: 'Is it going to rain?— I think so.（so ＝ it is going to rain）\n' +
+            'Will he come?— I’m afraid not.\n' +
+            '⚠ so 代替肯定的子句，not 代替否定的子句。',
+      viz: { type: 'compareexp',
+             factor: '代替的內容',
+             a: { label: 'so', note: '代替肯定的子句' },
+             b: { label: 'not', note: '代替否定的子句' },
+             same: ['都放在 think、hope 這類動詞後面'] },
+      check: {
+        q: 'Do you think he will pass?— I hope ___.（希望會）空格要填什麼？',
+        options: ['so', 'not', 'it', 'that'],
+        answer: 0,
+        why: [
+          null,
+          'not 代替的是否定的內容。',
+          'it 不能這樣代替整個子句。',
+          'that 不能單獨放在句尾代替子句。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 不定詞的省略',
+      body: 'You can go if you want to.（to 後面省略了 go）\n' +
+            'I didn’t want to, but I had to.\n' +
+            '⚠ 只留下 to，後面的動詞省略，這叫「不定詞代替」。',
+      viz: { type: 'sentence', label: '只留下 to', items: [
+        { t: 'if you want to', r: 'to 後面省略了動詞' }],
+        note: '省略的動詞可從前文還原。' },
+      check: {
+        q: 'I’d love to come, but I can’t. 這句的 to 後面省略了什麼？',
+        options: [
+          'come',
+          'love',
+          'but',
+          'I'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'love 已經出現在句中。',
+          'but 是連接詞，不被省略。',
+          '主詞 I 已經出現。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 省略的前提',
+      body: '① 省略的部分必須能唯一還原\n' +
+            '② 結構要平行，才能省略\n' +
+            '✗ She has finished and he finishing.（結構不平行）\n' +
+            '⚠ 省略是為了精簡，不是製造模糊。',
+      viz: { type: 'energyflow', steps: ['檢查結構是否平行', '確認能唯一還原', '再決定省略', '重讀確認清楚'] },
+      check: {
+        q: '什麼情況下不應該省略？',
+        options: [
+          '省略後讀者無法確定被省略的是什麼',
+          '句子太長時',
+          '有兩個主詞時',
+          '用了連接詞時'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長正是省略的好時機。',
+          '兩個主詞常常正好可以省略重複的動詞。',
+          '省略通常就發生在連接詞的句子裡。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一下|第4單元 複合形容詞與名詞片語'] = {
+  intro: '把好幾個字組合成一個修飾語，是英文的常見手法。',
+  cards: [
+    {
+      title: '① 複合形容詞的連字號',
+      body: '放在名詞前面時要加連字號：\n' +
+            'a well-known writer、a ten-year-old boy\n' +
+            '放在名詞後面時通常不加：\n' +
+            'The writer is well known.',
+      viz: { type: 'compareexp',
+             factor: '位置',
+             a: { label: '在名詞前', note: '要連字號：a well-known author' },
+             b: { label: '在名詞後', note: '不加連字號：is well known' },
+             same: ['意思相同'] },
+      check: {
+        q: '「一個十歲的男孩」的正確寫法是什麼？',
+        options: [
+          'a ten-year-old boy',
+          'a ten-years-old boy',
+          'a ten year old boy',
+          'a boy ten-years-old'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '複合形容詞裡的 year 用單數。',
+          '放在名詞前面要加連字號。',
+          '這個語序不自然。'
+        ]
+      }
+    },
+    {
+      title: '② 常見的複合形容詞結構',
+      body: '形容詞 ＋ 名詞 ed：blue-eyed、kind-hearted\n' +
+            '數字 ＋ 名詞：a five-minute break、a three-day trip\n' +
+            '名詞 ＋ 分詞：time-consuming、hand-made\n' +
+            '⚠ 數字後面的名詞一律用單數。',
+      viz: { type: 'classify', groups: [
+        { label: '形容詞加名詞 ed', items: ['blue-eyed', 'kind-hearted', 'left-handed'] },
+        { label: '數字加名詞', items: ['a two-hour film', 'a 100-meter race'] },
+        { label: '名詞加分詞', items: ['time-consuming', 'man-made', 'English-speaking'] }] },
+      check: {
+        q: '「一段兩小時的會議」的正確寫法是什麼？',
+        options: [
+          'a two-hour meeting',
+          'a two-hours meeting',
+          'a two hour meeting',
+          'a meeting of two-hours'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '複合形容詞裡的名詞用單數。',
+          '複合形容詞要加連字號。',
+          '這個說法不自然。'
+        ]
+      }
+    },
+    {
+      title: '③ 名詞當形容詞',
+      body: 'a school bus、a computer program、a coffee cup\n' +
+            '★ 前面的名詞用單數：\n' +
+            '✗ a shoes shop → ✓ a shoe shop\n' +
+            '⚠ 例外：sports、clothes 這類本來就是複數形的字。',
+      viz: { type: 'compareexp',
+             factor: '前面的名詞',
+             a: { label: '用單數', note: 'a shoe shop、a book store' },
+             b: { label: '例外', note: 'a sports car、a clothes shop' },
+             same: ['都是名詞修飾名詞'] },
+      check: {
+        q: '「一家鞋店」的正確說法是什麼？',
+        options: ['a shoe shop', 'a shoes shop', 'a shoe’s shop', 'a shoes store’s'],
+        answer: 0,
+        why: [
+          null,
+          '名詞當形容詞時用單數。',
+          '這裡不需要所有格。',
+          '這個寫法不符合英文用法。'
+        ]
+      }
+    },
+    {
+      title: '④ 名詞片語的層層修飾',
+      body: '一個名詞可以被前後同時修飾：\n' +
+            'the recently published research paper on climate change\n' +
+            '★ 前面：副詞 ＋ 分詞 ＋ 名詞修飾語\n' +
+            '★ 後面：介系詞片語 ＋ 關係子句',
+      viz: { type: 'sentence', label: '名詞片語的結構', items: [
+        { t: 'the recently published', r: '前置修飾' },
+        { t: 'research paper', r: '核心名詞' },
+        { t: 'on climate change', r: '後置修飾' }],
+        note: '核心名詞的前後都可以掛修飾語。' },
+      check: {
+        q: 'the newly built sports center in our town 的核心名詞是哪一個？',
+        options: ['center', 'sports', 'town', 'built'],
+        answer: 0,
+        why: [
+          null,
+          'sports 是修飾 center 的名詞。',
+          'town 在後置的介系詞片語裡。',
+          'built 是分詞修飾語。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 找出核心名詞',
+      body: '★ 方法：把介系詞片語與修飾語去掉，剩下的就是核心。\n' +
+            'The impact of social media on teenagers is significant.\n' +
+            '→ 核心是 impact（單數），所以動詞用 is。\n' +
+            '⚠ 這是主詞動詞一致最常錯的地方。',
+      viz: { type: 'energyflow', steps: ['去掉介系詞片語', '去掉修飾語', '剩下核心名詞', '依核心決定動詞'] },
+      check: {
+        q: 'The number of students ___ increasing. 空格要填什麼？',
+        options: ['is', 'are', 'were', 'have'],
+        answer: 0,
+        why: [
+          null,
+          '核心名詞是單數的 number。',
+          '句子講的是現在的趨勢。',
+          '這裡需要 be 動詞而不是 have。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 名詞片語太長要拆',
+      body: '學術寫作雖然愛用長名詞片語，但太長會難讀：\n' +
+            '✗ the government-sponsored community-based renewable-energy project\n' +
+            '⚠ 超過三層修飾時，改用關係子句或拆成兩句更好。',
+      viz: { type: 'compareexp',
+             factor: '修飾的層數',
+             a: { label: '適量', note: '兩到三層，仍然清楚' },
+             b: { label: '過量', note: '四層以上，讀者要重讀' },
+             same: ['都是名詞片語'] },
+      check: {
+        q: '名詞片語堆疊太多修飾語時，比較好的處理方式是什麼？',
+        options: [
+          '改用關係子句或拆成兩句',
+          '再加上更多連字號',
+          '把名詞改成複數',
+          '刪掉核心名詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '連字號不會解決可讀性的問題。',
+          '單複數與可讀性無關。',
+          '刪掉核心名詞句子就不完整了。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一下|第5單元 語氣與委婉表達'] = {
+  intro: '同一件事，說法不同，聽起來的感受就完全不同。',
+  cards: [
+    {
+      title: '① 為什麼要委婉',
+      body: '英文重視「不把話說死」與「顧及對方感受」：\n' +
+            '✗ You are wrong.\n' +
+            '✓ I’m not sure I agree with that.\n' +
+            '⚠ 委婉不是虛偽，而是讓溝通能繼續下去。',
+      viz: { type: 'compareexp',
+             factor: '語氣',
+             a: { label: '直接', note: 'You are wrong.' },
+             b: { label: '委婉', note: 'I see it a bit differently.' },
+             same: ['都在表達不同意'] },
+      check: {
+        q: '不同意對方的看法，比較得體的說法是什麼？',
+        options: [
+          'I see your point, but I have a different view.',
+          'That’s totally wrong.',
+          'You don’t understand.',
+          'Nonsense.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個說法過於強硬。',
+          '指責對方不懂會傷害關係。',
+          '這個回應非常失禮。'
+        ]
+      }
+    },
+    {
+      title: '② 用過去式讓語氣變柔',
+      body: 'I wonder if you could help me.\n' +
+            'I was hoping you might join us.\n' +
+            '★ 這裡的過去式不表示過去，而是拉開距離、降低壓力。\n' +
+            '⚠ 這是英文最常用的委婉手法。',
+      viz: { type: 'energyflow', steps: ['Can you…?（直接）', 'Could you…?（客氣）', 'I was wondering if you could…（最委婉）'] },
+      check: {
+        q: 'I was wondering if you could help me. 這裡用過去式的目的是什麼？',
+        options: [
+          '讓請求聽起來更客氣、壓力更小',
+          '表示這件事已經過去了',
+          '表示自己不想要幫忙',
+          '表示時間很久以前'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這裡的過去式不指時間。',
+          '句子正是在請求幫忙。',
+          '這與實際的時間無關。'
+        ]
+      }
+    },
+    {
+      title: '③ 模糊限制語',
+      body: 'somewhat、rather、a bit、fairly\n' +
+            'It seems、It appears、tend to、may\n' +
+            'The results are somewhat surprising.\n' +
+            '⚠ 學術寫作大量使用這類詞，避免把話說滿。',
+      viz: { type: 'classify', groups: [
+        { label: '程度緩和', items: ['somewhat', 'rather', 'a bit', 'fairly'] },
+        { label: '判斷緩和', items: ['seem', 'appear', 'tend to', 'may'] }] },
+      check: {
+        q: '學術寫作用 tend to 取代直接斷言，主要目的是什麼？',
+        options: [
+          '保留空間，避免因例外而被推翻',
+          '讓句子變長',
+          '表示作者不懂',
+          '增加生字量'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長度不是主要考量。',
+          '保留語氣是嚴謹的表現。',
+          '用字的目的不是炫技。'
+        ]
+      }
+    },
+    {
+      title: '④ 用被動與虛主詞淡化責任',
+      body: 'You made a mistake.→ A mistake was made.\n' +
+            'It seems that there has been a misunderstanding.\n' +
+            '⚠ 把焦點從「誰做的」移開，可以降低對立。',
+      viz: { type: 'compareexp',
+             factor: '焦點',
+             a: { label: '主動', note: '指名道姓：You made…' },
+             b: { label: '被動', note: '淡化行為者：A mistake was made.' },
+             same: ['講的是同一件事'] },
+      check: {
+        q: '在正式場合指出問題，比較不會造成對立的說法是什麼？',
+        options: [
+          'There seems to be a problem with the data.',
+          'You messed up the data.',
+          'Your data is garbage.',
+          'You are careless.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直接指責對方容易造成衝突。',
+          '這個說法帶有侮辱意味。',
+          '批評人格會讓討論失焦。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 婉拒與否定的技巧',
+      body: '先肯定再轉折：\n' +
+            'That’s an interesting idea, but I wonder if…\n' +
+            'I’d love to, but unfortunately…\n' +
+            '⚠ 直接說 No 在英文語境常顯得過於生硬。',
+      viz: { type: 'energyflow', steps: ['先表達理解或欣賞', '用 but 轉折', '說明原因', '提出替代方案'] },
+      check: {
+        q: '婉拒他人的提案時，比較妥當的順序是什麼？',
+        options: [
+          '先肯定對方，再說明自己的疑慮',
+          '直接說不行',
+          '完全不回應',
+          '只批評不說理由'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直接否定容易讓對方難堪。',
+          '不回應會讓對方無所適從。',
+          '只批評無法推進討論。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 委婉不等於含糊',
+      body: '委婉的目的是「顧及感受」，不是「不表態」。\n' +
+            '✗ Maybe possibly it might perhaps be somewhat unclear.\n' +
+            '⚠ 疊了太多緩和語，讀者反而不知道你的立場。',
+      viz: { type: 'compareexp',
+             factor: '有沒有立場',
+             a: { label: '適度委婉', note: '語氣柔和但立場清楚' },
+             b: { label: '過度委婉', note: '疊字太多，看不出立場' },
+             same: ['都用了緩和語'] },
+      check: {
+        q: '過度使用委婉語會造成什麼問題？',
+        options: [
+          '讀者看不出作者真正的立場',
+          '文法會出錯',
+          '句子會太短',
+          '不能使用被動語態'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '緩和語堆疊不一定造成文法錯誤。',
+          '疊字只會讓句子更長。',
+          '被動語態仍然可以使用。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一下|第6單元 標點與句構'] = {
+  intro: '標點不是裝飾，它標示的是句子的結構。',
+  cards: [
+    {
+      title: '① 逗號拼接',
+      body: '★ 兩個完整的句子不能只用逗號連接：\n' +
+            '✗ It was late, we went home.\n' +
+            '解法：加連接詞、改分號、或分成兩句。\n' +
+            '⚠ 這是英文寫作最常見的標點錯誤。',
+      viz: { type: 'energyflow', steps: ['發現兩個完整句子', '加對等連接詞', '或用分號', '或拆成兩句'] },
+      check: {
+        q: 'The rain stopped, we went outside. 這句該怎麼修正？',
+        options: [
+          'The rain stopped, so we went outside.',
+          'The rain stopped we went outside.',
+          'The rain stopped, and, we went outside.',
+          'The rain, stopped we went outside.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩個句子之間需要標點或連接詞。',
+          '連接詞後面不加逗號。',
+          '逗號的位置不正確。'
+        ]
+      }
+    },
+    {
+      title: '② 分號的用法',
+      body: '① 連接兩個關係緊密的獨立子句：\n' +
+            '　 He was tired; he went to bed early.\n' +
+            '② 分隔本身已含逗號的清單項目\n' +
+            '⚠ 分號前後都要是完整的句子。',
+      viz: { type: 'compareexp',
+             factor: '前後是不是完整句子',
+             a: { label: '分號', note: '兩邊都要完整' },
+             b: { label: '逗號', note: '一邊可以不完整' },
+             same: ['都在句中分隔成分'] },
+      check: {
+        q: '下列哪一句的分號用法正確？',
+        options: [
+          'I studied hard; I passed the exam.',
+          'I studied hard; and passed the exam.',
+          'Because I studied hard; I passed.',
+          'I studied; hard and passed.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '分號後面不接連接詞加不完整的句子。',
+          '分號前面必須是完整的句子。',
+          '分號的位置切斷了片語。'
+        ]
+      }
+    },
+    {
+      title: '③ 冒號的用法',
+      body: '① 引出清單：We need three things: time, money, and effort.\n' +
+            '② 引出解釋或結論：The reason is simple: it works.\n' +
+            '⚠ 冒號前面必須是完整的句子。',
+      viz: { type: 'compareexp',
+             factor: '功能',
+             a: { label: '冒號', note: '引出說明或清單' },
+             b: { label: '分號', note: '連接兩個對等的句子' },
+             same: ['前面都要是完整句子'] },
+      check: {
+        q: '下列哪一句的冒號用法正確？',
+        options: [
+          'She has one goal: to win.',
+          'She has: one goal to win.',
+          'She: has one goal to win.',
+          'She has one: goal to win.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '冒號前面必須是完整的句子。',
+          '冒號不能插在主詞與動詞之間。',
+          '冒號不能插在修飾語中間。'
+        ]
+      }
+    },
+    {
+      title: '④ 逗號的主要用法',
+      body: '① 分隔並列項目：red, blue, and green\n' +
+            '② 對等連接詞連接兩句時放在連接詞前\n' +
+            '③ 句首的副詞子句或片語後面\n' +
+            '④ 非限定修飾語的兩側\n' +
+            '⚠ 不要在主詞與動詞之間亂加逗號。',
+      viz: { type: 'classify', groups: [
+        { label: '要用逗號', items: ['並列項目', '句首子句後', '非限定修飾語'] },
+        { label: '不要用逗號', items: ['主詞與動詞之間', '動詞與受詞之間'] }] },
+      check: {
+        q: '下列哪一句的逗號是多餘的？',
+        options: [
+          'The students in the class, passed the exam.',
+          'After the class, we went home.',
+          'My teacher, Ms. Lin, is kind.',
+          'I like apples, oranges, and grapes.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句首的片語後面該加逗號。',
+          '同位語兩側該加逗號。',
+          '並列項目之間該加逗號。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 撇號',
+      body: '① 所有格：the boy’s book、the boys’ books\n' +
+            '② 縮寫：don’t、it’s\n' +
+            '★ its（它的）沒有撇號；複數名詞不用撇號：\n' +
+            '✗ apple’s for sale → ✓ apples for sale',
+      viz: { type: 'classify', groups: [
+        { label: '要用撇號', items: ['所有格', '縮寫'] },
+        { label: '不用撇號', items: ['一般複數', 'its（所有格）'] }] },
+      check: {
+        q: '下列哪一個寫法正確？',
+        options: [
+          'The dog wagged its tail.',
+          'The dog wagged it’s tail.',
+          'The dogs’ wagged its tail.',
+          'The dog’s wagged it’s tail.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'it’s 是 it is 的縮寫。',
+          '這裡的主詞是單數，不用所有格。',
+          '這句同時用錯了兩個撇號。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 標點反映結構',
+      body: '★ 標點錯了，往往表示句子的結構本身有問題。\n' +
+            '⚠ 修正標點之前，先問「這是幾個完整的句子」，\n' +
+            '結構清楚了，標點自然就對了。',
+      viz: { type: 'energyflow', steps: ['數句子裡有幾個完整子句', '判斷子句之間的關係', '選擇對應的標點', '重讀確認'] },
+      check: {
+        q: '要正確使用標點，最根本的判斷是什麼？',
+        options: [
+          '先分辨句子裡有幾個完整的子句以及它們的關係',
+          '看句子有幾個字',
+          '看有沒有生難字',
+          '看段落有幾行'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字數與標點的選擇無關。',
+          '用字難易與標點無關。',
+          '版面行數與標點無關。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一下|第7單元 同義辨析'] = {
+  intro: '意思相近的字，用起來卻不能互換。',
+  cards: [
+    {
+      title: '① 語體不同',
+      body: 'kids／children／youngsters\n' +
+            'buy／purchase　　help／assist　　begin／commence\n' +
+            '⚠ 意思相同但正式程度不同，\n' +
+            '寫學術報告用 purchase，聊天用 buy。',
+      viz: { type: 'compareexp',
+             factor: '正式程度',
+             a: { label: '日常', note: 'buy、help、kids' },
+             b: { label: '正式', note: 'purchase、assist、children' },
+             same: ['核心意思相同'] },
+      check: {
+        q: '正式的商業書信中，「購買」比較適合用哪一個字？',
+        options: ['purchase', 'buy', 'get', 'grab'],
+        answer: 0,
+        why: [
+          null,
+          'buy 較為日常。',
+          'get 過於口語。',
+          'grab 非常口語。'
+        ]
+      }
+    },
+    {
+      title: '② 語意強度不同',
+      body: 'like ＜ love ＜ adore\n' +
+            'good ＜ great ＜ excellent ＜ outstanding\n' +
+            'said ＜ argued ＜ insisted\n' +
+            '⚠ 選錯強度會扭曲原意，尤其在轉述別人的觀點時。',
+      viz: { type: 'energyflow', steps: ['said（中性）', 'suggested（提議）', 'argued（主張）', 'insisted（堅持）'] },
+      check: {
+        q: '轉述某人「堅決主張」某個看法，最合適的動詞是什麼？',
+        options: ['insisted', 'mentioned', 'noted', 'said'],
+        answer: 0,
+        why: [
+          null,
+          'mentioned 只是順帶提到。',
+          'noted 是中性的記述。',
+          'said 沒有表達出堅決的態度。'
+        ]
+      }
+    },
+    {
+      title: '③ 搭配對象不同',
+      body: 'high／tall：a tall man、a high mountain\n' +
+            'big／large：a big mistake、a large population\n' +
+            'do／make：do homework、make a decision\n' +
+            '⚠ 意思接近，但能搭配的名詞不同。',
+      viz: { type: 'classify', groups: [
+        { label: 'tall（人、細長物）', items: ['a tall man', 'a tall tree'] },
+        { label: 'high（高度、抽象）', items: ['a high mountain', 'high price'] }] },
+      check: {
+        q: '「高價」的正確說法是什麼？',
+        options: ['a high price', 'a tall price', 'a big price', 'a long price'],
+        answer: 0,
+        why: [
+          null,
+          'tall 用於人或細長的物體。',
+          'big 不用來形容價格的高低。',
+          'long 用於長度。'
+        ]
+      }
+    },
+    {
+      title: '④ 可數與不可數的差別',
+      body: 'work（不可數）／job（可數）\n' +
+            'advice（不可數）／suggestion（可數）\n' +
+            'equipment（不可數）／tool（可數）\n' +
+            '⚠ 意思接近，但一個能加 s、一個不能。',
+      viz: { type: 'compareexp',
+             factor: '可不可數',
+             a: { label: '不可數', note: 'work、advice、information' },
+             b: { label: '可數', note: 'job、suggestion、fact' },
+             same: ['意思相近'] },
+      check: {
+        q: '「三個建議」的正確說法是什麼？',
+        options: [
+          'three suggestions',
+          'three advices',
+          'three advice',
+          'three pieces of suggestion'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'advice 是不可數名詞，不加 s。',
+          '不可數名詞不能直接加數字。',
+          'suggestion 可數，不需要用單位詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 語意細微差別',
+      body: 'affect（動詞：影響）／effect（名詞：影響）\n' +
+            'accept（接受）／except（除了）\n' +
+            'principal（校長、主要的）／principle（原則）\n' +
+            '⚠ 這些是拼字相近但意思完全不同的字。',
+      viz: { type: 'classify', groups: [
+        { label: '常見易混字', items: ['affect／effect', 'accept／except', 'principal／principle', 'lose／loose'] }] },
+      check: {
+        q: 'The weather can ___ your mood. 空格要填什麼？',
+        options: ['affect', 'effect', 'effective', 'affection'],
+        answer: 0,
+        why: [
+          null,
+          'effect 主要當名詞用。',
+          'effective 是形容詞。',
+          'affection 是名詞，意思是情感。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 怎麼辨析',
+      body: '① 查英英字典看例句，不要只看中文翻譯\n' +
+            '② 注意詞性與可數性\n' +
+            '③ 注意能搭配哪些字\n' +
+            '④ 注意語體與強度\n' +
+            '⚠ 中文翻譯相同的字，用法可能完全不同。',
+      viz: { type: 'energyflow', steps: ['查英英字典', '看例句', '確認詞性與搭配', '確認語體'] },
+      check: {
+        q: '辨析同義字時，為什麼建議查英英字典而不是只看中文翻譯？',
+        options: [
+          '中文翻譯相同的字，實際用法與搭配可能完全不同',
+          '英英字典比較厚',
+          '中文字典都是錯的',
+          '英英字典解釋比較短'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字典的厚薄不是重點。',
+          '中文字典有其用處，只是資訊較不完整。',
+          '英英字典的解釋通常更詳細。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一下|第8單元 圖表與資料題'] = {
+  intro: '看圖表寫描述，是學測與大學課程都會用到的能力。',
+  cards: [
+    {
+      title: '① 常見的圖表類型',
+      body: 'line graph（折線圖）：看趨勢\n' +
+            'bar chart（長條圖）：比較數量\n' +
+            'pie chart（圓餅圖）：看比例\n' +
+            'table（表格）：看精確數值\n' +
+            '⚠ 不同圖表適合回答不同的問題。',
+      viz: { type: 'classify', groups: [
+        { label: '看趨勢', items: ['line graph'] },
+        { label: '看比較', items: ['bar chart'] },
+        { label: '看比例', items: ['pie chart'] }] },
+      check: {
+        q: '要呈現各項目占總體的比例，最適合用哪一種圖？',
+        options: ['圓餅圖', '折線圖', '流程圖', '地圖'],
+        answer: 0,
+        why: [
+          null,
+          '折線圖適合呈現隨時間的變化。',
+          '流程圖呈現的是步驟。',
+          '地圖呈現的是空間分布。'
+        ]
+      }
+    },
+    {
+      title: '② 描述趨勢的動詞',
+      body: '上升：increase、rise、climb、surge（急升）\n' +
+            '下降：decrease、fall、drop、plummet（暴跌）\n' +
+            '波動：fluctuate　持平：level off、remain stable\n' +
+            '⚠ 動詞的強度要和數據的變化幅度相符。',
+      viz: { type: 'energyflow', steps: ['remain stable（持平）', 'rise gradually（緩升）', 'increase sharply（急升）', 'surge（暴增）'] },
+      check: {
+        q: '數據在一年內從 10 暴增到 500，最合適的動詞是什麼？',
+        options: ['surged', 'fluctuated', 'declined', 'remained stable'],
+        answer: 0,
+        why: [
+          null,
+          'fluctuate 表示上下波動。',
+          'decline 表示下降。',
+          '這個說法表示沒有變化。'
+        ]
+      }
+    },
+    {
+      title: '③ 描述幅度與速度',
+      body: '幅度：slightly、moderately、significantly、dramatically\n' +
+            '速度：gradually、steadily、rapidly、abruptly\n' +
+            '★ 位置：動詞後面加副詞，或名詞前面加形容詞：\n' +
+            'rose sharply ＝ a sharp rise',
+      viz: { type: 'compareexp',
+             factor: '兩種說法',
+             a: { label: '動詞加副詞', note: 'Sales rose sharply.' },
+             b: { label: '形容詞加名詞', note: 'There was a sharp rise in sales.' },
+             same: ['意思相同'] },
+      check: {
+        q: 'Sales increased sharply. 換成名詞的說法是什麼？',
+        options: [
+          'There was a sharp increase in sales.',
+          'There was a sharply increase in sales.',
+          'There was sharp increased sales.',
+          'Sales was a sharp increase.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '修飾名詞要用形容詞而不是副詞。',
+          '這個結構不通順。',
+          '這個句子的主詞與補語不對應。'
+        ]
+      }
+    },
+    {
+      title: '④ 比較與比例',
+      body: 'account for 40%（占四成）\n' +
+            'twice as many as（是…的兩倍）\n' +
+            'compared with／in contrast to\n' +
+            'the highest／the second largest\n' +
+            '⚠ 百分比用 account for、make up、represent。',
+      viz: { type: 'classify', groups: [
+        { label: '比例', items: ['account for', 'make up', 'represent'] },
+        { label: '比較', items: ['compared with', 'in contrast to', 'while'] }] },
+      check: {
+        q: '「這一類占了總數的三成」的正確說法是什麼？',
+        options: [
+          'This category accounts for 30% of the total.',
+          'This category accounts 30% of the total.',
+          'This category occupies 30 percentage.',
+          'This category is account for 30%.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'account 後面要加介系詞 for。',
+          'percentage 的用法在這裡不正確。',
+          'be 動詞不能和一般動詞這樣並用。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 圖表描述的結構',
+      body: '① 開頭：改寫題目，說明這張圖在呈現什麼\n' +
+            '② 概述：指出最明顯的一兩個趨勢\n' +
+            '③ 細節：分組描述數據，適當比較\n' +
+            '④ 不要加入圖表沒有的資訊或個人意見\n' +
+            '⚠ 圖表題只描述數據，不推測原因。',
+      viz: { type: 'energyflow', steps: ['改寫題目', '概述主要趨勢', '分組描述細節', '不加個人意見'] },
+      check: {
+        q: '寫圖表描述時，下列哪一件事不該做？',
+        options: [
+          '推測數據變化的原因',
+          '指出最明顯的趨勢',
+          '比較不同組別的數據',
+          '改寫題目當作開頭'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '指出趨勢是概述的重點。',
+          '比較數據是合理的描述。',
+          '改寫題目是標準的開頭方式。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見錯誤',
+      body: '① 把每個數字都抄一遍（沒有重點）\n' +
+            '② 沒有比較，只是流水帳\n' +
+            '③ 加入自己的評論或原因推測\n' +
+            '④ 時態錯誤：過去的資料用過去式，預測用未來式\n' +
+            '⚠ 好的圖表描述是「有選擇的」描述。',
+      viz: { type: 'compareexp',
+             factor: '寫法',
+             a: { label: '好', note: '選重點、有比較、有結構' },
+             b: { label: '差', note: '流水帳、抄數字、加臆測' },
+             same: ['都在描述同一張圖'] },
+      check: {
+        q: '圖表描述最常見的問題是什麼？',
+        options: [
+          '把所有數字流水帳般抄一遍，沒有重點',
+          '用了太多形容詞',
+          '段落太少',
+          '沒有使用被動語態'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '適當的形容詞有助於描述幅度。',
+          '段落數量不是主要問題。',
+          '圖表描述不一定要用被動語態。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一下|第9單元 說明文與議論文'] = {
+  intro: '一個在解釋，一個在說服，寫法完全不同。',
+  cards: [
+    {
+      title: '① 兩者的差別',
+      body: '說明文（expository）：解釋事物是什麼、如何運作\n' +
+            '議論文（argumentative）：提出立場並說服讀者\n' +
+            '⚠ 說明文力求中立，議論文必須有立場。',
+      viz: { type: 'compareexp',
+             factor: '寫作目的',
+             a: { label: '說明文', note: '讓讀者理解' },
+             b: { label: '議論文', note: '讓讀者同意' },
+             same: ['都需要清楚的組織'] },
+      check: {
+        q: '「解釋光合作用如何運作」屬於哪一種文章？',
+        options: ['說明文', '議論文', '記敘文', '抒情文'],
+        answer: 0,
+        why: [
+          null,
+          '議論文需要提出立場說服讀者。',
+          '記敘文以敘述事件為主。',
+          '抒情文以表達情感為主。'
+        ]
+      }
+    },
+    {
+      title: '② 說明文的組織方式',
+      body: '① 定義與分類\n' +
+            '② 過程與步驟\n' +
+            '③ 因果關係\n' +
+            '④ 比較對照\n' +
+            '⚠ 選擇最適合主題的組織方式，並從頭到尾保持一致。',
+      viz: { type: 'classify', groups: [
+        { label: '說明文的組織', items: ['定義分類', '過程步驟', '因果', '比較對照'] }] },
+      check: {
+        q: '要說明「三種再生能源的優缺點」，最合適的組織方式是什麼？',
+        options: [
+          '分類加比較對照',
+          '時間順序',
+          '個人故事',
+          '情緒訴求'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '三種能源之間沒有時間先後。',
+          '個人故事不適合客觀說明。',
+          '情緒訴求屬於議論的手法。'
+        ]
+      }
+    },
+    {
+      title: '③ 議論文的基本架構',
+      body: '引言（背景 ＋ 論點）\n' +
+            '主體一（理由一 ＋ 證據）\n' +
+            '主體二（理由二 ＋ 證據）\n' +
+            '反方與反駁\n' +
+            '結論（回扣論點 ＋ 延伸）',
+      viz: { type: 'energyflow', steps: ['引言與論點', '理由與證據', '反方與反駁', '結論'] },
+      check: {
+        q: '議論文中「反方與反駁」這一段的作用是什麼？',
+        options: [
+          '顯示考慮周全，並強化自己的論證',
+          '為了增加字數',
+          '為了讓讀者困惑',
+          '為了展示反方是對的'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這一段有明確的論證功能。',
+          '好的論述應該讓讀者更清楚。',
+          '目的是反駁而不是同意反方。'
+        ]
+      }
+    },
+    {
+      title: '④ 證據的種類',
+      body: '① 統計數據\n' +
+            '② 專家意見或研究\n' +
+            '③ 具體案例\n' +
+            '④ 邏輯推理\n' +
+            '⚠ 「我覺得」與「大家都知道」不是證據。',
+      viz: { type: 'classify', groups: [
+        { label: '有效的證據', items: ['數據', '研究', '案例', '邏輯推理'] },
+        { label: '無效的證據', items: ['我覺得', '大家都知道', '一定是這樣'] }] },
+      check: {
+        q: '下列哪一項不算有效的論證證據？',
+        options: [
+          '「大家都知道這是對的」',
+          '一項大規模研究的統計數據',
+          '具體的實際案例',
+          '領域專家的分析'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '統計數據是有力的證據。',
+          '具體案例可以支持論點。',
+          '專家分析具有參考價值。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 避免邏輯謬誤',
+      body: '① 以偏概全：一個例子就推論全部\n' +
+            '② 人身攻擊：攻擊對方而不是論點\n' +
+            '③ 假兩難：只給兩個選項\n' +
+            '④ 因果誤置：先後不等於因果\n' +
+            '⚠ 論證的品質取決於推理是否嚴謹。',
+      viz: { type: 'classify', groups: [
+        { label: '常見謬誤', items: ['以偏概全', '人身攻擊', '假兩難', '因果誤置'] }] },
+      check: {
+        q: '「我認識的一個人這樣做成功了，所以大家都該這樣做」犯了什麼謬誤？',
+        options: [
+          '以偏概全',
+          '人身攻擊',
+          '假兩難',
+          '訴諸權威'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這句話沒有攻擊任何人。',
+          '這句話沒有把選項限縮成兩個。',
+          '這句話沒有引用權威。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 兩種文章的用字差異',
+      body: '說明文：客觀、中性、多用定義與描述\n' +
+            '　 X is defined as…／X consists of…\n' +
+            '議論文：評價性、有立場、多用論證語言\n' +
+            '　 The evidence suggests…／This approach is preferable because…',
+      viz: { type: 'compareexp',
+             factor: '用字',
+             a: { label: '說明文', note: '中性描述：consists of、refers to' },
+             b: { label: '議論文', note: '評價論證：should、preferable、suggests' },
+             same: ['都要清楚有條理'] },
+      check: {
+        q: '在說明文中出現大量 should、must 這類字，可能代表什麼問題？',
+        options: [
+          '不小心寫成了議論文，失去客觀性',
+          '文法錯誤',
+          '字數不足',
+          '段落太多'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這些字本身文法沒有錯。',
+          '文體的問題與文章字數多寡無關。',
+          '段落數量與文體無關。'
+        ]
+      }
+    }
+  ]
+};
