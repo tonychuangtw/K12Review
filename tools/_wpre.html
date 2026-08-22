@@ -5,9 +5,10 @@ h2{color:#9ecbff;font:600 14px/1.4 sans-serif;margin:8px 0 4px}</style></head>
 <body><div id="all"></div>
 <script src="../js/widgets.js"></script>
 <script>
-var D=[
-['氮循環',{type:'cycle',mode:'nitrogen'}],
-['分類階層',{type:'levels',kind:'taxon',step:6}]];
+var D=[['週期表 同週期',{type:'ptable',highlight:'period'}],
+['質量守恆',{type:'chemeq',mode:'mass'}],
+['配平',{type:'chemeq',mode:'balance'}],
+['反應類型',{type:'chemeq',mode:'type'}]];
 var all=document.getElementById('all');
 D.forEach(function(d){var h=document.createElement('h2');h.textContent=d[0];all.appendChild(h);
 var b=document.createElement('div');b.className='demo';all.appendChild(b);

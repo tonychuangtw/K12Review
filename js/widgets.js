@@ -6708,6 +6708,398 @@
     paint();
   };
 
+  /* ── 密度（density）───────────────────────────────────────────────────
+     同樣體積誰比較重？密度就是「每 1 立方公分有幾公克」。
+     spec: { material, vol }                                              */
+  REG.density = function (host, spec) {
+    var MATS = [['木頭', 0.6], ['冰', 0.92], ['水', 1.0], ['鋁', 2.7], ['鐵', 7.9]];
+    var mi = spec.material == null ? 0 : spec.material;
+    var V = spec.vol == null ? 10 : spec.vol;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var d = MATS[mi][1], m = +(d * V).toFixed(2), sink = d > 1;
+      svg.appendChild(el('rect', { x: 18, y: 36, width: 150, height: 116, rx: 6, 'fill-opacity': '.12' },
+        'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+      svg.appendChild(el('line', { x1: 18, y1: 66, x2: 168, y2: 66 },
+        'stroke:var(--accent);stroke-width:2'));
+      svg.appendChild(txt(96, 28, '水', 'font-size:11px;fill:var(--accent)'));
+      var side = Math.max(16, Math.min(52, Math.sqrt(V) * 12));
+      var by = sink ? 152 - side : 66 - side / 2;
+      svg.appendChild(el('rect', { x: 96 - side / 2, y: by, width: side, height: side, rx: 4,
+        'fill-opacity': '.55' }, 'fill:var(--' + (sink ? 'bad' : 'good') + ');stroke:var(--' +
+        (sink ? 'bad' : 'good') + ');stroke-width:2'));
+      svg.appendChild(txt(96, 168, sink ? '沉下去（密度 > 1）' : '浮起來（密度 < 1）',
+        'font-size:11px;fill:var(--' + (sink ? 'bad' : 'good') + ')'));
+      [['體積 V', V + ' cm³', 60], ['密度 D', d + ' g/cm³', 92], ['質量 M', m + ' g', 124]]
+        .forEach(function (r) {
+          svg.appendChild(txt(240, r[2] - 10, r[0], 'font-size:11px;fill:var(--dim)'));
+          svg.appendChild(txt(240, r[2] + 8, r[1], 'font-size:15px;font-weight:700;fill:var(--accent)'));
+        });
+      svg.appendChild(txt(240, 30, MATS[mi][0], 'font-size:14px;font-weight:700'));
+      svg.appendChild(txt(240, 152, 'M ＝ D × V', 'font-size:12px;fill:var(--good)'));
+      read.appendChild(div('wg-read-main',
+        MATS[mi][0] + ' ' + V + ' cm³ 的質量 ＝ ' + d + ' × ' + V + ' ＝ ' + m + ' 公克'));
+      read.appendChild(div('wg-read-sub',
+        '密度 ＝ 質量 ÷ 體積，代表「每 1 立方公分有幾公克」，是物質的固有性質。' +
+        '⚠ 把一塊鐵切成一半，質量和體積都變一半，密度「不會改變」——這是最常考的觀念。' +
+        '密度比水（1 g/cm³）小的會浮、大的會沉。' +
+        '水很特別：結成冰後密度變小（0.92），所以冰會浮在水面上。'));
+    }
+    var row = div('wg-ctrl');
+    MATS.forEach(function (m, i) {
+      row.appendChild(btn(m[0], function () { mi = i; paint(); }));
+    });
+    box.appendChild(row);
+    var row2 = div('wg-ctrl');
+    row2.appendChild(slider(1, 30, V, 1, function (v) { V = v; paint(); }));
+    box.appendChild(row2);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 成像（imaging）───────────────────────────────────────────────────
+     透鏡與面鏡的成像：拉動物距，看像跑到哪、是實是虛、是正是倒。
+     spec: { mode:'lens'|'clens'|'cmirror'|'xmirror', u }                 */
+  REG.imaging = function (host, spec) {
+    var mode = spec.mode || 'lens';
+    var u = spec.u == null ? 90 : spec.u;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var AY = 104, H = 34, F = 44;
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var mirror = mode === 'cmirror' || mode === 'xmirror';
+      var f0 = (mode === 'clens' || mode === 'xmirror') ? -F : F;
+      var X = mirror ? 244 : 178;
+      var v0 = (u === f0) ? null : u * f0 / (u - f0);   // v>0：實像；v<0：虛像
+      var real = v0 !== null && v0 > 0;
+      // 像跑太遠或太大時整張圖一起縮小（比例不變，看起來像鏡頭拉遠）
+      var k = 1;
+      if (v0 !== null) {
+        var ih0 = H * Math.abs(v0 / u);
+        k = Math.min(1, 132 / Math.abs(v0), 56 / ih0, 150 / u);
+      }
+      var f = f0 * k, uu = u * k, hh = H * k;
+      var v = v0 === null ? null : v0 * k;
+      var ox = X - uu;
+      var sgn = mirror ? -1 : 1;                        // 實像在鏡的哪一側
+      var ix = v === null ? null : X + sgn * v;
+      var ih = v === null ? 0 : hh * Math.abs(v / uu);
+      svg.appendChild(el('line', { x1: 8, y1: AY, x2: 312, y2: AY }, 'stroke:var(--dim);stroke-width:1.5'));
+      // 元件
+      if (mirror) {
+        var bend = mode === 'cmirror' ? 16 : -16;   // 凹面鏡：凹的那一面朝向物體
+        svg.appendChild(el('path',
+          { d: 'M' + (X - bend / 2) + ',' + (AY - 56) + ' Q' + (X + bend) + ',' + AY + ' ' +
+               (X - bend / 2) + ',' + (AY + 56) },
+          'fill:none;stroke:var(--text);stroke-width:4'));
+        svg.appendChild(txt(X + 22, AY + 74, mode === 'cmirror' ? '凹面鏡' : '凸面鏡',
+          'font-size:10px;fill:var(--dim)'));
+      } else {
+        svg.appendChild(el('ellipse', { cx: X, cy: AY, rx: mode === 'lens' ? 9 : 5, ry: 52,
+          'fill-opacity': '.22' }, 'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(txt(X, AY + 70, mode === 'lens' ? '凸透鏡' : '凹透鏡',
+          'font-size:10px;fill:var(--dim)'));
+      }
+      // 焦點：透鏡兩側都有；面鏡只有一個（凹面鏡在鏡前、凸面鏡是鏡後的虛焦點）
+      var fpts = mirror
+        ? [[mode === 'cmirror' ? -1 : 1, mode === 'cmirror' ? 'F' : '虛焦點']]
+        : [[-1, 'F'], [1, "F'"]];
+      fpts.forEach(function (p) {
+        var fx = X + p[0] * F * k;
+        svg.appendChild(el('circle', { cx: fx, cy: AY, r: 3 }, 'fill:var(--dim)'));
+        svg.appendChild(txt(fx, AY - 7, p[1], 'font-size:10px;fill:var(--dim)'));
+      });
+      // 物體
+      svg.appendChild(el('line', { x1: ox, y1: AY, x2: ox, y2: AY - hh },
+        'stroke:var(--good);stroke-width:3'));
+      svg.appendChild(el('polygon', { points: ox + ',' + (AY - hh - 8) + ' ' + (ox - 5) + ',' +
+        (AY - hh) + ' ' + (ox + 5) + ',' + (AY - hh) }, 'fill:var(--good)'));
+      svg.appendChild(txt(ox, AY + 16, '物', 'font-size:11px;fill:var(--good)'));
+      var main, sub;
+      if (v === null) {
+        svg.appendChild(txt(160, 26, '物體剛好在焦點上：反射／折射後的光互相平行，不成像',
+          'font-size:10px;fill:var(--bad)'));
+        main = '物體放在焦點上 → 不成像';
+        sub = '這時候射出去的光線彼此平行，永遠不會相交，也沒有反向延長線的交點，' +
+          '所以既沒有實像也沒有虛像。這是成像規則裡唯一的「例外點」。';
+      } else {
+        var iy = real ? AY + ih : AY - ih;   // 實像倒立、虛像正立
+        var dash = real ? '' : ';stroke-dasharray:5 4';
+        svg.appendChild(el('line', { x1: ix, y1: AY, x2: ix, y2: iy },
+          'stroke:var(--bad);stroke-width:3' + dash));
+        svg.appendChild(el('polygon', { points: ix + ',' + (iy + (real ? 8 : -8)) + ' ' +
+          (ix - 5) + ',' + iy + ' ' + (ix + 5) + ',' + iy }, 'fill:var(--bad)'));
+        svg.appendChild(txt(ix, real ? AY - 12 : AY + 16, '像', 'font-size:11px;fill:var(--bad)'));
+        // 光線：① 平行光 → 過焦點　② 過中心（透鏡）／到頂點反射（面鏡）
+        var top = AY - hh;
+        svg.appendChild(el('line', { x1: ox, y1: top, x2: X, y2: top },
+          'stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(el('line', { x1: X, y1: top, x2: ix, y2: iy },
+          'stroke:var(--accent);stroke-width:2' + dash));
+        svg.appendChild(el('line', { x1: ox, y1: top, x2: X, y2: AY },
+          'stroke:var(--good);stroke-width:2'));
+        svg.appendChild(el('line', { x1: X, y1: AY, x2: ix, y2: iy },
+          'stroke:var(--good);stroke-width:2' + dash));
+        var mag = Math.abs(v0 / u);
+        var size = mag > 1.05 ? '放大' : (mag < 0.95 ? '縮小' : '一樣大');
+        main = (real ? '實像' : '虛像') + '　' + (real ? '倒立' : '正立') + '　' + size +
+          '（放大率約 ' + mag.toFixed(2) + ' 倍）';
+        sub = (mode === 'lens'
+          ? '凸透鏡：物體在 2F 以外 → 縮小倒立實像（照相機）；在 F 和 2F 之間 → 放大倒立實像（投影機）；' +
+            '在 F 以內 → 放大正立虛像（放大鏡）。'
+          : mode === 'clens'
+            ? '凹透鏡不管物體放哪裡，都成「縮小正立虛像」，用於近視眼鏡。'
+            : mode === 'cmirror'
+              ? '凹面鏡：物體在焦點以外成倒立實像（太陽灶、天文望遠鏡）；在焦點以內成放大正立虛像（化妝鏡）。'
+              : '凸面鏡不管物體放哪裡，都成「縮小正立虛像」，視野範圍大，' +
+                '所以用在轉彎鏡和汽車的後視鏡。') +
+          '⚠ 實像可以用屏幕接到（光真的會合在那裡），虛像接不到，只能用眼睛看。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['lens', '凸透鏡'], ['clens', '凹透鏡'], ['cmirror', '凹面鏡'], ['xmirror', '凸面鏡']]
+        .forEach(function (m) { row.appendChild(btn(m[1], function () { mode = m[0]; paint(); })); });
+      box.appendChild(row);
+    }
+    var row2 = div('wg-ctrl');
+    row2.appendChild(slider(20, 150, u, 2, function (val) { u = val; paint(); }));
+    box.appendChild(row2);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 原子（atom）──────────────────────────────────────────────────────
+     質子數決定是哪一種元素；電子跑掉或跑進來就變成離子。
+     spec: { z, n, e, pick }                                              */
+  REG.atom = function (host, spec) {
+    var NAMES = { 1: ['氫', 'H'], 2: ['氦', 'He'], 3: ['鋰', 'Li'], 6: ['碳', 'C'],
+      7: ['氮', 'N'], 8: ['氧', 'O'], 11: ['鈉', 'Na'], 12: ['鎂', 'Mg'],
+      13: ['鋁', 'Al'], 17: ['氯', 'Cl'], 20: ['鈣', 'Ca'] };
+    var z = spec.z == null ? 8 : spec.z;
+    var extra = spec.e == null ? 0 : spec.e;          // 電子的增減
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function shells(e) {
+      var caps = [2, 8, 8, 18], out = [], left = e;
+      for (var i = 0; i < caps.length && left > 0; i++) {
+        out.push(Math.min(caps[i], left)); left -= caps[i];
+      }
+      return out;
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var nm = NAMES[z] || ['？', '?'];
+      var e = z + extra, n = z === 1 ? 0 : z;           // 中子數用最常見的同位素粗估
+      svg.appendChild(el('circle', { cx: 108, cy: 90, r: 22, 'fill-opacity': '.35' },
+        'fill:var(--bad);stroke:var(--bad);stroke-width:2'));
+      svg.appendChild(txt(108, 86, '＋' + z, 'font-size:12px;font-weight:700'));
+      svg.appendChild(txt(108, 100, 'p' + z + ' n' + n, 'font-size:8px;fill:var(--dim)'));
+      shells(e).forEach(function (cnt, i) {
+        var r = 34 + i * 20;
+        svg.appendChild(el('circle', { cx: 108, cy: 90, r: r },
+          'fill:none;stroke:var(--border);stroke-width:1;stroke-dasharray:3 3'));
+        for (var k = 0; k < cnt; k++) {
+          var a = (Math.PI * 2 / cnt) * k - Math.PI / 2;
+          svg.appendChild(el('circle',
+            { cx: 108 + r * Math.cos(a), cy: 90 + r * Math.sin(a), r: 3.5 }, 'fill:var(--accent)'));
+        }
+      });
+      var charge = extra === 0 ? '中性原子' : (extra < 0 ? '陽離子（帶正電）' : '陰離子（帶負電）');
+      svg.appendChild(txt(248, 34, nm[0] + '　' + nm[1], 'font-size:16px;font-weight:700'));
+      [['質子數（原子序）', z, 62], ['電子數', e, 92], ['中子數（約）', n, 122]].forEach(function (r) {
+        svg.appendChild(txt(248, r[2] - 9, r[0], 'font-size:9px;fill:var(--dim)'));
+        svg.appendChild(txt(248, r[2] + 7, String(r[1]),
+          'font-size:14px;font-weight:700;fill:var(--accent)'));
+      });
+      svg.appendChild(txt(248, 152, charge, 'font-size:11px;fill:var(--good)'));
+      read.appendChild(div('wg-read-main', nm[0] + '：質子 ' + z + ' 個、電子 ' + e + ' 個 → ' + charge));
+      read.appendChild(div('wg-read-sub',
+        '原子由「質子＋中子」組成的原子核，和外圍的電子構成。' +
+        '⚠ 決定是哪一種元素的是「質子數」（原子序），不是電子數也不是中子數。' +
+        '中性原子的質子數 ＝ 電子數；失去電子帶正電成陽離子（如 Na⁺），' +
+        '得到電子帶負電成陰離子（如 Cl⁻）。' +
+        '質子數相同、中子數不同的原子互稱同位素，化學性質幾乎一樣。'));
+    }
+    var row = div('wg-ctrl');
+    [1, 6, 8, 11, 17].forEach(function (k) {
+      row.appendChild(btn(NAMES[k][0], function () { z = k; extra = 0; paint(); }));
+    });
+    box.appendChild(row);
+    var row2 = div('wg-ctrl');
+    row2.appendChild(btn('－ 1 個電子', function () { extra--; paint(); }));
+    row2.appendChild(btn('＋ 1 個電子', function () { extra++; paint(); }));
+    row2.appendChild(btn('回到中性', function () { extra = 0; paint(); }));
+    box.appendChild(row2);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 週期表（ptable）──────────────────────────────────────────────────
+     只放前 20 號元素，重點在「同族性質相似、同週期由左到右金屬性遞減」。
+     spec: { pick, highlight:'metal'|'group'|'period' }                   */
+  REG.ptable = function (host, spec) {
+    var view = spec.highlight || 'metal';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    // [符號, 族(1..8), 週期(1..4), 是否金屬]
+    var EL = [['H', 1, 1, 0], ['He', 8, 1, 0],
+      ['Li', 1, 2, 1], ['Be', 2, 2, 1], ['B', 3, 2, 0], ['C', 4, 2, 0], ['N', 5, 2, 0],
+      ['O', 6, 2, 0], ['F', 7, 2, 0], ['Ne', 8, 2, 0],
+      ['Na', 1, 3, 1], ['Mg', 2, 3, 1], ['Al', 3, 3, 1], ['Si', 4, 3, 0], ['P', 5, 3, 0],
+      ['S', 6, 3, 0], ['Cl', 7, 3, 0], ['Ar', 8, 3, 0],
+      ['K', 1, 4, 1], ['Ca', 2, 4, 1]];
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var w = 34, h = 30, x0 = 24, y0 = 40;
+      EL.forEach(function (e) {
+        var on = view === 'metal' ? e[3] : (view === 'group' ? (e[1] === 1 || e[1] === 7 || e[1] === 8) : e[2] === 3);
+        var col = view === 'metal' ? (e[3] ? 'accent' : 'good')
+          : (on ? (e[1] === 8 ? 'dim' : (e[1] === 1 ? 'bad' : 'accent')) : 'border');
+        svg.appendChild(el('rect', { x: x0 + (e[1] - 1) * w, y: y0 + (e[2] - 1) * h,
+          width: w - 3, height: h - 3, rx: 4, 'fill-opacity': on ? '.3' : '.08' },
+          'fill:var(--' + col + ');stroke:var(--' + col + ');stroke-width:1.5'));
+        svg.appendChild(txt(x0 + (e[1] - 1) * w + (w - 3) / 2, y0 + (e[2] - 1) * h + (h - 3) / 2,
+          e[0], 'font-size:11px;font-weight:700'));
+      });
+      for (var g = 1; g <= 8; g++) {
+        svg.appendChild(txt(x0 + (g - 1) * w + 15, 32, String(g), 'font-size:9px;fill:var(--dim)'));
+      }
+      svg.appendChild(txt(14, 22, '族 →', 'font-size:9px;fill:var(--dim)'));
+      svg.appendChild(txt(12, y0 + 44, '週期', 'font-size:9px;fill:var(--dim)'));
+      var main, sub;
+      if (view === 'metal') {
+        main = '左邊是金屬、右邊是非金屬';
+        sub = '金屬（藍）有光澤、能導電導熱、有延展性，容易「失去電子」變成陽離子；' +
+          '非金屬（綠）大多不導電，容易得到電子變成陰離子。' +
+          '⚠ 分界在週期表右上到左下的一條階梯線附近，' +
+          '線上的硼、矽等叫類金屬，性質介於兩者之間。';
+      } else if (view === 'group') {
+        main = '同一族（直行）性質相似';
+        sub = '第 1 族（鹼金屬：鋰、鈉、鉀）都非常活潑，會和水劇烈反應；' +
+          '第 7 族（鹵素：氟、氯）也很活潑，容易得到一個電子；' +
+          '第 8 族（惰性氣體：氦、氖、氬）最外層電子已滿，幾乎不與其他元素反應。' +
+          '⚠ 性質相似是因為「最外層電子數相同」。';
+      } else {
+        main = '同一週期（橫列）由左到右金屬性遞減';
+        sub = '同一週期的元素，電子層數相同，由左往右質子數增加、原子半徑變小，' +
+          '越來越不容易失去電子，所以金屬性遞減、非金屬性遞增。' +
+          '⚠ 第三週期從鈉（活潑金屬）一路到氯（活潑非金屬）再到氬（惰性氣體），變化很清楚。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['metal', '金屬與非金屬'], ['group', '同族'], ['period', '同週期']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { view = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 化學反應與質量守恆（chemeq）──────────────────────────────────────
+     spec: { mode:'mass'|'balance'|'type', pick }                         */
+  REG.chemeq = function (host, spec) {
+    var mode = spec.mode || 'mass';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function molecule(cx, cy, atoms, label) {
+      atoms.forEach(function (a, i) {
+        svg.appendChild(el('circle', { cx: cx + a[0], cy: cy + a[1], r: a[2] || 9 },
+          'fill:var(--' + a[3] + ');fill-opacity:.75;stroke:var(--' + a[3] + ');stroke-width:1.5'));
+      });
+      if (label) svg.appendChild(txt(cx, cy + 30, label, 'font-size:10px;fill:var(--dim)'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'balance') {
+        svg.appendChild(txt(160, 40, '2 H₂ ＋ O₂ → 2 H₂O', 'font-size:18px;font-weight:700;fill:var(--accent)'));
+        [['反應前', 90, ['H 4 個', 'O 2 個']], ['反應後', 130, ['H 4 個', 'O 2 個']]].forEach(function (r) {
+          svg.appendChild(txt(72, r[1], r[0], 'font-size:12px;fill:var(--dim)'));
+          r[2].forEach(function (t, i) {
+            svg.appendChild(txt(170 + i * 90, r[1], t, 'font-size:12px;fill:var(--good)'));
+          });
+        });
+        svg.appendChild(txt(160, 162, '兩邊每一種原子的個數都要相同，方程式才平衡',
+          'font-size:11px;fill:var(--good)'));
+        main = '配平：兩邊的原子個數要一樣';
+        sub = '化學反應只是把原子「重新排列組合」，不會憑空生出原子，也不會消失。' +
+          '所以配平時只能改前面的係數，⚠ 絕對不能改化學式裡的小數字（下標）——' +
+          '把 H₂O 改成 H₂O₂ 就變成另一種物質（雙氧水）了。';
+      } else if (mode === 'type') {
+        [['化合', 'A ＋ B → AB', 46], ['分解', 'AB → A ＋ B', 82],
+         ['取代', 'A ＋ BC → AC ＋ B', 118], ['複分解', 'AB ＋ CD → AD ＋ CB', 154]]
+          .forEach(function (r) {
+            svg.appendChild(txt(66, r[2], r[0], 'font-size:12px;font-weight:700;fill:var(--accent)'));
+            svg.appendChild(txt(200, r[2], r[1], 'font-size:12px;fill:var(--dim)'));
+          });
+        main = '四種常見的反應類型';
+        sub = '化合：兩種以上合成一種（鐵 ＋ 硫 → 硫化鐵）。分解：一種變成多種（水電解成氫和氧）。' +
+          '取代：較活潑的元素把較不活潑的擠出來（鋅 ＋ 鹽酸 → 氯化鋅 ＋ 氫氣）。' +
+          '複分解：兩種化合物交換成分（酸鹼中和就是這一類）。';
+      } else {
+        svg.appendChild(el('rect', { x: 20, y: 34, width: 128, height: 78, rx: 8, 'fill-opacity': '.12' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(el('rect', { x: 172, y: 34, width: 128, height: 78, rx: 8, 'fill-opacity': '.12' },
+          'fill:var(--good);stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(160, 74, '→', 'font-size:20px;fill:var(--dim)'));
+        molecule(56, 62, [[0, 0, 9, 'accent'], [16, 0, 9, 'accent']], '');
+        molecule(112, 62, [[0, 0, 11, 'bad'], [18, 0, 11, 'bad']], '');
+        molecule(210, 62, [[0, 0, 11, 'bad'], [-14, 8, 7, 'accent'], [14, 8, 7, 'accent']], '');
+        molecule(266, 62, [[0, 0, 11, 'bad'], [-14, 8, 7, 'accent'], [14, 8, 7, 'accent']], '');
+        svg.appendChild(txt(84, 124, '反應前：氫 4 ＋ 氧 2', 'font-size:11px;fill:var(--accent)'));
+        svg.appendChild(txt(236, 124, '反應後：氫 4 ＋ 氧 2', 'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(160, 156, '原子種類與個數都沒變 → 總質量不變',
+          'font-size:12px;font-weight:700;fill:var(--bad)'));
+        main = '質量守恆定律';
+        sub = '化學反應前後，物質的「總質量不變」，因為原子只是重新組合。' +
+          '⚠ 常見的誤會：蠟燭燒完變輕、鐵生鏽變重，好像不守恆——' +
+          '那是因為沒有把跑掉的氣體（二氧化碳、水蒸氣）或加進來的氧氣算進去。' +
+          '在密閉容器中做實驗，秤起來就會前後一樣重。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['mass', '質量守恆'], ['balance', '配平'], ['type', '反應類型']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },
