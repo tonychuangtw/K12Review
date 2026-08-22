@@ -1437,3 +1437,1439 @@ window.APP_LESSONS['english|三上|第9單元 我的家庭'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|三下|第1單元 一般動詞現在式'] = {
+  intro: 'be 動詞說「是什麼」，一般動詞說「做什麼」——這是英文句子的兩大類型。',
+  cards: [
+    {
+      title: '① 什麼是一般動詞',
+      body: '表示動作或行為的動詞：go（去）、eat（吃）、play（玩）、like（喜歡）、\n' +
+            'have（有）、study（讀書）、run（跑）。\n' +
+            '⚠ 一個句子裡通常只有一個主要動詞：\n' +
+            '不能說 I am like it，要說 I like it。',
+      viz: { type: 'sentence', label: '一般動詞句', items: [
+        { t: 'I', r: '主詞' }, { t: 'like', r: '一般動詞' }, { t: 'apples', r: '受詞' }],
+        note: '主詞＋一般動詞＋受詞，是最基本的句型。',
+        alt: [
+          { label: 'be 動詞句', items: [{ t: 'I', r: '主詞' }, { t: 'am', r: 'be 動詞' },
+            { t: 'happy', r: '形容詞' }], note: 'be 動詞句用來說明「是什麼、怎麼樣」。' }] },
+      tip: '按按鈕比較兩種句型。',
+      check: {
+        q: '下列哪一句的用法正確？',
+        options: [
+          'I like apples.',
+          'I am like apples.',
+          'I am likes apples.',
+          'I like am apples.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '一個句子不能同時有 be 動詞與一般動詞當主要動詞。',
+          '這句同時犯了兩個錯誤。',
+          '語序不正確，動詞不能放在受詞後面。'
+        ]
+      }
+    },
+    {
+      title: '② 現在式的用法',
+      body: '現在簡單式用來表達：\n' +
+            '① 習慣（I go to school every day.）\n' +
+            '② 事實或狀態（I like music.）\n' +
+            '③ 不變的道理（The sun rises in the east.）\n' +
+            '⚠ 它不是「現在正在做」——那是現在進行式。',
+      viz: { type: 'tense', verb: 'go', highlight: '現在簡單式' },
+      tip: '按按鈕比較不同時態。',
+      check: {
+        q: '「我每天上學」應該用哪一種時態？',
+        options: [
+          '現在簡單式，因為這是習慣',
+          '現在進行式，因為是現在',
+          '過去式',
+          '未來式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '進行式表示「此刻正在做」。',
+          '過去式表示已經結束的事。',
+          '未來式表示還沒發生的事。'
+        ]
+      }
+    },
+    {
+      title: '③ 否定句',
+      body: '一般動詞的否定要用助動詞 do／does 加 not：\n' +
+            'I do not like it.（＝ I don’t like it.）\n' +
+            'He does not like it.（＝ He doesn’t like it.）\n' +
+            '⚠ 用了 does 之後，後面的動詞要回到「原形」：\n' +
+            '不能說 He doesn’t likes。',
+      viz: { type: 'sentence', label: '否定句', items: [
+        { t: 'I', r: '主詞' }, { t: 'do not', r: '助動詞＋not' }, { t: 'like', r: '原形動詞' },
+        { t: 'it', r: '受詞' }],
+        note: '否定時要借助 do 或 does，動詞回到原形。' },
+      check: {
+        q: '「他不喜歡貓」的正確說法是什麼？',
+        options: [
+          'He does not like cats.',
+          'He do not like cats.',
+          'He does not likes cats.',
+          'He not like cats.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主詞是第三人稱單數，要用 does。',
+          '用了 does 之後動詞要回到原形。',
+          '否定句需要助動詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 疑問句',
+      body: 'Do you like it?（你喜歡嗎？）→ Yes, I do.／No, I don’t.\n' +
+            'Does he like it?（他喜歡嗎？）→ Yes, he does.／No, he doesn’t.\n' +
+            '⚠ 疑問句同樣把 do／does 放到句首，動詞用原形。',
+      viz: { type: 'sentence', label: '疑問句', items: [
+        { t: 'Do', r: '助動詞' }, { t: 'you', r: '主詞' }, { t: 'like', r: '原形動詞' },
+        { t: 'it', r: '受詞' }],
+        note: '把助動詞移到句首就成為疑問句。',
+        alt: [
+          { label: '第三人稱', items: [{ t: 'Does', r: '助動詞' }, { t: 'he', r: '主詞' },
+            { t: 'like', r: '原形動詞' }, { t: 'it', r: '受詞' }],
+            note: '主詞是他或她時要用 Does，動詞仍用原形。' }] },
+      check: {
+        q: '「她喜歡音樂嗎？」的正確問法是什麼？',
+        options: [
+          'Does she like music?',
+          'Do she like music?',
+          'Does she likes music?',
+          'She likes music?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主詞是第三人稱單數，要用 Does。',
+          '用了 Does 之後動詞要用原形。',
+          '這是把陳述句加上問號，不是標準的疑問句。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見的頻率說法',
+      body: 'every day（每天）、every morning（每天早上）、\n' +
+            'on Sundays（每個星期天）、after school（放學後）。\n' +
+            '⚠ 這些時間詞常放在句尾：I play basketball after school.\n' +
+            '它們也是判斷「要用現在簡單式」的線索。',
+      viz: { type: 'sentence', label: '加上時間', items: [
+        { t: 'I', r: '主詞' }, { t: 'play', r: '動詞' }, { t: 'basketball', r: '受詞' },
+        { t: 'after school', r: '時間' }],
+        note: '時間片語通常放在句尾。' },
+      check: {
+        q: '看到句子裡有 every day，通常表示要用什麼時態？',
+        options: [
+          '現在簡單式，因為表達的是習慣',
+          '過去式',
+          '未來式',
+          '現在進行式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '過去式搭配的是過去的時間詞。',
+          '未來式搭配的是未來的時間詞。',
+          '進行式描述此刻正在發生的事。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: '肯定：I eat breakfast every morning.\n' +
+            '否定：I do not eat breakfast on Sundays.\n' +
+            '疑問：Do you eat breakfast every day?\n' +
+            '⚠ 三種句型的動詞都用原形（第三人稱單數的肯定句除外，下一單元會學）。',
+      viz: { type: 'sentence', label: '肯定', items: [
+        { t: 'I', r: '主詞' }, { t: 'eat', r: '動詞' }, { t: 'breakfast', r: '受詞' }],
+        note: '肯定句直接用動詞。',
+        alt: [
+          { label: '否定', items: [{ t: 'I', r: '主詞' }, { t: 'do not', r: '助動詞' },
+            { t: 'eat', r: '原形' }, { t: 'breakfast', r: '受詞' }], note: '否定要加 do not。' },
+          { label: '疑問', items: [{ t: 'Do', r: '助動詞' }, { t: 'you', r: '主詞' },
+            { t: 'eat', r: '原形' }, { t: 'breakfast', r: '受詞' }], note: '疑問把 Do 移到句首。' }] },
+      check: {
+        q: '一般動詞的否定句與疑問句，共同需要什麼？',
+        options: [
+          '助動詞 do 或 does，且主要動詞用原形',
+          'be 動詞',
+          '不需要任何額外的字',
+          '要把動詞加 s'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be 動詞用於另一類句型。',
+          '一般動詞的否定與疑問一定需要助動詞。',
+          '加 s 是第三人稱單數肯定句的規則。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|三下|第2單元 第三人稱單數 -s'] = {
+  intro: '英文有一個很麻煩但很重要的規則：主詞是「他、她、它」時，動詞要加 s。',
+  cards: [
+    {
+      title: '① 什麼是第三人稱單數',
+      body: '第一人稱：I、we。第二人稱：you。第三人稱：he、she、it、they。\n' +
+            '⚠ 其中「第三人稱＋單數」（he、she、it，以及單數的人名或名詞）\n' +
+            '在現在簡單式的肯定句中，動詞要加 s。',
+      viz: { type: 'classify', groups: [
+        { label: '動詞加 s', items: ['he', 'she', 'it', 'Amy', 'my brother'] },
+        { label: '動詞不加 s', items: ['I', 'you', 'we', 'they', 'my friends'] }] },
+      tip: '看清楚主詞屬於哪一組。',
+      check: {
+        q: '下列哪一個主詞後面的動詞要加 s？',
+        options: ['my sister', 'I', 'they', 'we'],
+        answer: 0,
+        why: [
+          null,
+          '主詞 I 的動詞不加 s。',
+          'they 是複數，動詞不加 s。',
+          'we 是複數，動詞不加 s。'
+        ]
+      }
+    },
+    {
+      title: '② 加 s 的規則',
+      body: '一般直接加 s：play → plays、like → likes、eat → eats。\n' +
+            '字尾是 s、x、sh、ch、o 時加 es：go → goes、watch → watches、\n' +
+            'wash → washes、fix → fixes。\n' +
+            '⚠ 子音＋y 結尾：去 y 加 ies（study → studies、fly → flies）。',
+      viz: { type: 'classify', groups: [
+        { label: '直接加 s', items: ['plays', 'likes', 'eats', 'runs'] },
+        { label: '加 es', items: ['goes', 'watches', 'washes', 'fixes'] },
+        { label: '去 y 加 ies', items: ['studies', 'flies', 'cries'] }] },
+      check: {
+        q: 'study 的第三人稱單數形是什麼？',
+        options: ['studies', 'studys', 'studyes', 'study'],
+        answer: 0,
+        why: [
+          null,
+          '子音加 y 結尾要去 y 加 ies。',
+          '這個拼法不正確。',
+          '第三人稱單數必須變化。'
+        ]
+      }
+    },
+    {
+      title: '③ 特別的 have',
+      body: 'have 的第三人稱單數是 has（不是 haves）。\n' +
+            'I have a dog. → He has a dog.\n' +
+            '⚠ 這是最常用也最常錯的動詞之一，要特別記住。',
+      viz: { type: 'sentence', label: '第一人稱', items: [
+        { t: 'I', r: '主詞' }, { t: 'have', r: '動詞原形' }, { t: 'a dog', r: '受詞' }],
+        note: '主詞是 I 時用 have。',
+        alt: [
+          { label: '第三人稱', items: [{ t: 'He', r: '主詞' }, { t: 'has', r: '動詞變化' },
+            { t: 'a dog', r: '受詞' }], note: 'have 的第三人稱單數形是 has。' }] },
+      check: {
+        q: '「她有一隻貓」的正確說法是什麼？',
+        options: [
+          'She has a cat.',
+          'She have a cat.',
+          'She haves a cat.',
+          'She is have a cat.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '第三人稱單數要用 has。',
+          'have 的變化是 has 而非 haves。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 否定與疑問時不加 s',
+      body: '否定：He does not like it.（不是 doesn’t likes）\n' +
+            '疑問：Does he like it?（不是 Does he likes）\n' +
+            '⚠ 因為 s 已經「跑到」does 上面了，動詞就回到原形。\n' +
+            '這是最常見的錯誤之一。',
+      viz: { type: 'sentence', label: '肯定', items: [
+        { t: 'He', r: '主詞' }, { t: 'likes', r: '加 s' }, { t: 'cats', r: '受詞' }],
+        note: '肯定句的動詞要加 s。',
+        alt: [
+          { label: '否定', items: [{ t: 'He', r: '主詞' }, { t: 'does not', r: '助動詞帶 s' },
+            { t: 'like', r: '原形' }, { t: 'cats', r: '受詞' }],
+            note: 's 跑到 does 上面，動詞回到原形。' },
+          { label: '疑問', items: [{ t: 'Does', r: '助動詞帶 s' }, { t: 'he', r: '主詞' },
+            { t: 'like', r: '原形' }, { t: 'cats', r: '受詞' }],
+            note: '疑問句同樣是動詞用原形。' }] },
+      check: {
+        q: '下列哪一句是正確的？',
+        options: [
+          'Does she play the piano?',
+          'Does she plays the piano?',
+          'Do she plays the piano?',
+          'She does plays the piano?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '用了 Does 之後動詞要用原形。',
+          '主詞是第三人稱單數，要用 Does。',
+          '這個語序與動詞形式都不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見錯誤整理',
+      body: '① He like it.（少了 s）→ He likes it.\n' +
+            '② He doesn’t likes it.（多了 s）→ He doesn’t like it.\n' +
+            '③ They likes it.（複數不該加 s）→ They like it.\n' +
+            '⚠ 檢查三步驟：主詞是不是第三人稱單數？是不是肯定句？時態是不是現在式？',
+      viz: { type: 'energyflow', steps: ['看主詞', '是第三人稱單數嗎', '是肯定句嗎', '才加 s'] },
+      check: {
+        q: '要判斷動詞要不要加 s，需要同時確認哪些條件？',
+        options: [
+          '主詞是第三人稱單數、句子是肯定句、時態是現在簡單式',
+          '只要看主詞就好',
+          '只要是現在式都要加',
+          '任何句子都要加'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '否定與疑問句即使主詞相同也不加 s。',
+          '否定與疑問句不加 s。',
+          '複數主詞的動詞不加 s。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: 'My sister likes music.（我姊姊喜歡音樂。）\n' +
+            'My parents like music.（我父母喜歡音樂。）\n' +
+            'Does your sister like music?（你姊姊喜歡音樂嗎？）\n' +
+            '⚠ 同一個動詞在不同句子裡形式不同，關鍵永遠在「主詞」與「句型」。',
+      viz: { type: 'tense', verb: 'play', highlight: '現在簡單式' },
+      tip: '按按鈕比較不同時態的動詞形式。',
+      check: {
+        q: '「我的父母喜歡音樂」為什麼用 like 而不是 likes？',
+        options: [
+          '因為 parents 是複數主詞',
+          '因為這是否定句',
+          '因為這是疑問句',
+          '因為 like 沒有變化形'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是肯定句，不是否定句。',
+          '這是陳述句而不是疑問句。',
+          'like 的第三人稱單數形是 likes。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|三下|第3單元 頻率副詞與作息'] = {
+  intro: '「總是、常常、有時、從不」——這些字讓你能說清楚一件事發生的頻率。',
+  cards: [
+    {
+      title: '① 常見的頻率副詞',
+      body: 'always（總是，100%）、usually（通常，約 80%）、often（常常，約 60%）、\n' +
+            'sometimes（有時，約 40%）、seldom（很少）、never（從不，0%）。\n' +
+            '⚠ never 本身已經是否定，不能再加 not。',
+      viz: { type: 'classify', groups: [
+        { label: '頻率高', items: ['always', 'usually', 'often'] },
+        { label: '頻率低', items: ['sometimes', 'seldom', 'never'] }] },
+      check: {
+        q: '下列哪一個頻率副詞表示「從不」？',
+        options: ['never', 'always', 'usually', 'often'],
+        answer: 0,
+        why: [
+          null,
+          'always 是總是。',
+          'usually 是通常。',
+          'often 是常常。'
+        ]
+      }
+    },
+    {
+      title: '② 頻率副詞的位置',
+      body: '一般動詞「前面」：I always get up at seven.\n' +
+            'be 動詞「後面」：I am always happy.\n' +
+            '⚠ 口訣：「一般動詞前、be 動詞後」。\n' +
+            'sometimes 比較彈性，也可以放句首或句尾。',
+      viz: { type: 'sentence', label: '一般動詞前', items: [
+        { t: 'I', r: '主詞' }, { t: 'always', r: '頻率副詞' }, { t: 'get up', r: '一般動詞' },
+        { t: 'at seven', r: '時間' }],
+        note: '頻率副詞放在一般動詞的前面。',
+        alt: [
+          { label: 'be 動詞後', items: [{ t: 'I', r: '主詞' }, { t: 'am', r: 'be 動詞' },
+            { t: 'always', r: '頻率副詞' }, { t: 'happy', r: '形容詞' }],
+            note: '遇到 be 動詞時，頻率副詞放在後面。' }] },
+      check: {
+        q: '「他總是很忙」的正確說法是什麼？',
+        options: [
+          'He is always busy.',
+          'He always is busy.',
+          'Always he is busy.',
+          'He is busy always.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '遇到 be 動詞時副詞要放在後面。',
+          '這個語序不自然。',
+          '雖然可以理解，但不是標準的位置。'
+        ]
+      }
+    },
+    {
+      title: '③ 問頻率',
+      body: 'How often do you exercise?（你多常運動？）\n' +
+            '→ I exercise three times a week.（我一週運動三次。）\n' +
+            '⚠ 次數的說法：once（一次）、twice（兩次）、three times（三次），\n' +
+            '後面接 a day／a week／a month。',
+      viz: { type: 'sentence', label: '問頻率', items: [
+        { t: 'How often', r: '疑問詞組' }, { t: 'do you', r: '助動詞＋主詞' },
+        { t: 'exercise', r: '動詞' }],
+        note: 'How often 用來詢問頻率。',
+        alt: [
+          { label: '回答', items: [{ t: 'I', r: '主詞' }, { t: 'exercise', r: '動詞' },
+            { t: 'three times a week', r: '頻率' }], note: '次數＋a＋時間單位。' }] },
+      check: {
+        q: '「一週兩次」的正確英文是什麼？',
+        options: [
+          'twice a week',
+          'two times week',
+          'two a week',
+          'second a week'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩次習慣上說 twice，而且要加 a。',
+          '缺少表示次數的字。',
+          'second 是序數，不用於次數。'
+        ]
+      }
+    },
+    {
+      title: '④ 一天的作息',
+      body: 'get up（起床）、brush my teeth（刷牙）、wash my face（洗臉）、\n' +
+            'have breakfast（吃早餐）、go to school（上學）、\n' +
+            'do my homework（寫功課）、go to bed（睡覺）。\n' +
+            '⚠ 這些是「動詞片語」，要整組記，不要拆開。',
+      viz: { type: 'classify', groups: [
+        { label: '早上', items: ['get up', 'wash my face', 'have breakfast'] },
+        { label: '白天', items: ['go to school', 'have lunch', 'study'] },
+        { label: '晚上', items: ['do my homework', 'take a shower', 'go to bed'] }] },
+      check: {
+        q: '「去睡覺」的英文片語是什麼？',
+        options: ['go to bed', 'go to sleep bed', 'to bed go', 'sleep to bed'],
+        answer: 0,
+        why: [
+          null,
+          '這個說法多了不必要的字。',
+          '語序不正確，動詞要放在前面。',
+          '這不是慣用的說法。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 說出自己的作息',
+      body: 'I get up at six thirty.（我六點半起床。）\n' +
+            'I usually have breakfast at seven.（我通常七點吃早餐。）\n' +
+            'I never go to bed after eleven.（我從不十一點以後睡覺。）\n' +
+            '⚠ 時間前面用介系詞 at：at seven、at six thirty。',
+      viz: { type: 'sentence', label: '描述作息', items: [
+        { t: 'I', r: '主詞' }, { t: 'usually', r: '頻率' }, { t: 'have breakfast', r: '動詞片語' },
+        { t: 'at seven', r: '時間' }],
+        note: '頻率副詞在動詞前，時間片語在句尾。' },
+      check: {
+        q: '表示「在七點」時，應該用哪一個介系詞？',
+        options: ['at', 'in', 'on', 'to'],
+        answer: 0,
+        why: [
+          null,
+          'in 用於月份、年份或較長的時段。',
+          'on 用於星期與日期。',
+          'to 用於方向或目標。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: '把頻率、動作與時間組合起來：\n' +
+            'I always brush my teeth before I go to bed.\n' +
+            'My brother sometimes plays basketball after school.\n' +
+            '⚠ 注意主詞是第三人稱單數時，動詞仍然要加 s（plays）。',
+      viz: { type: 'sentence', label: '完整句', items: [
+        { t: 'My brother', r: '主詞' }, { t: 'sometimes', r: '頻率' },
+        { t: 'plays', r: '動詞加 s' }, { t: 'basketball', r: '受詞' }],
+        note: '主詞是第三人稱單數時，動詞仍要加 s。' },
+      check: {
+        q: '「我哥哥常常打籃球」的正確說法是什麼？',
+        options: [
+          'My brother often plays basketball.',
+          'My brother often play basketball.',
+          'My brother plays often basketball.',
+          'Often my brother play basketball.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主詞是第三人稱單數，動詞要加 s。',
+          '頻率副詞應該放在動詞前面。',
+          '語序與動詞形式都不正確。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|三下|第4單元 時間：幾點鐘'] = {
+  intro: '會問時間、會說時間，就能安排一整天的活動。',
+  cards: [
+    {
+      title: '① 問時間',
+      body: 'What time is it?／What’s the time?（現在幾點？）\n' +
+            '→ It is three o’clock.（三點整。）\n' +
+            '⚠ 回答時主詞用 it，這是英文表達時間、天氣的固定用法。',
+      viz: { type: 'sentence', label: '問時間', items: [
+        { t: 'What time', r: '疑問詞組' }, { t: 'is', r: 'be 動詞' }, { t: 'it', r: '主詞' }],
+        note: '時間的主詞用 it，沒有實際意義。',
+        alt: [
+          { label: '回答', items: [{ t: 'It', r: '主詞' }, { t: 'is', r: 'be 動詞' },
+            { t: 'three o’clock', r: '時間' }], note: '整點用 o’clock。' }] },
+      check: {
+        q: '回答時間時，主詞應該用什麼？',
+        options: ['it', 'the time', 'this', 'now'],
+        answer: 0,
+        why: [
+          null,
+          '英文習慣用 it 當主詞。',
+          'this 通常指具體的事物。',
+          'now 是副詞，不能當主詞。'
+        ]
+      }
+    },
+    {
+      title: '② 整點與半點',
+      body: '整點：It is five o’clock.（五點整）\n' +
+            '半點：It is half past five.／It is five thirty.（五點半）\n' +
+            '⚠ o’clock 只用在「整點」，五點半不能說 five thirty o’clock。',
+      viz: { type: 'clock', h: 5, m: 0 },
+      tip: '拉動指針看時間怎麼變。',
+      check: {
+        q: '下列哪一種說法是錯的？',
+        options: [
+          'five thirty o’clock',
+          'five o’clock',
+          'five thirty',
+          'half past five'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '整點用 o’clock 是正確的。',
+          '直接說數字是常見的說法。',
+          'half past 是傳統的說法，也正確。'
+        ]
+      }
+    },
+    {
+      title: '③ 幾點幾分',
+      body: '直接說法：It is seven fifteen.（七點十五分）\n' +
+            '傳統說法：a quarter past seven（七點過一刻）、\n' +
+            'a quarter to eight（差一刻八點）。\n' +
+            '⚠ past 是「過了」、to 是「差幾分到」。',
+      viz: { type: 'clock', h: 7, m: 15 },
+      check: {
+        q: 'a quarter to eight 是幾點？',
+        options: [
+          '七點四十五分',
+          '八點十五分',
+          '八點四十五分',
+          '七點十五分'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這會是 a quarter past eight。',
+          '這是八點過四十五分。',
+          '這是 a quarter past seven。'
+        ]
+      }
+    },
+    {
+      title: '④ 上午與下午',
+      body: 'in the morning（早上）、in the afternoon（下午）、in the evening（晚上）、\n' +
+            'at night（夜裡）。\n' +
+            '⚠ 注意介系詞：morning／afternoon／evening 用 in，\n' +
+            '但 night 用 at；noon（中午）與 midnight（午夜）也用 at。',
+      viz: { type: 'classify', groups: [
+        { label: '用 in', items: ['the morning', 'the afternoon', 'the evening'] },
+        { label: '用 at', items: ['night', 'noon', 'midnight'] }] },
+      check: {
+        q: '「在晚上（夜裡）」的正確說法是什麼？',
+        options: ['at night', 'in night', 'on night', 'to night'],
+        answer: 0,
+        why: [
+          null,
+          'night 前面用 at 而不是 in。',
+          'on 用於星期與日期。',
+          'to 表示方向或目標。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 說明作息時間',
+      body: 'I get up at six thirty.（我六點半起床。）\n' +
+            'School starts at eight.（八點開始上課。）\n' +
+            'What time do you go to bed?（你幾點睡覺？）\n' +
+            '⚠ 問「幾點做某事」用 What time do you…?',
+      viz: { type: 'sentence', label: '問作息', items: [
+        { t: 'What time', r: '疑問詞組' }, { t: 'do you', r: '助動詞＋主詞' },
+        { t: 'go to bed', r: '動詞片語' }],
+        note: '問幾點做某事，用 What time 加助動詞。' },
+      check: {
+        q: '要問「你幾點吃晚餐？」應該怎麼說？',
+        options: [
+          'What time do you have dinner?',
+          'What time you have dinner?',
+          'What time are you have dinner?',
+          'When you dinner?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '一般動詞的疑問句需要助動詞 do。',
+          '不能同時用 be 動詞與一般動詞。',
+          '這個句子缺少動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 時間的綜合應用',
+      body: '課表：Math class is at nine.（數學課在九點。）\n' +
+            '邀約：Let’s meet at four thirty.（我們四點半見面吧。）\n' +
+            '⚠ 時間前面用 at；日期用 on；月份與年份用 in。\n' +
+            '這三個介系詞的用法要一起記。',
+      viz: { type: 'classify', groups: [
+        { label: 'at（時間點）', items: ['at seven', 'at noon', 'at night'] },
+        { label: 'on（日期）', items: ['on Monday', 'on May 5'] },
+        { label: 'in（較長時段）', items: ['in May', 'in 2026', 'in the morning'] }] },
+      check: {
+        q: '「在星期一」應該用哪一個介系詞？',
+        options: ['on', 'at', 'in', 'to'],
+        answer: 0,
+        why: [
+          null,
+          'at 用於具體的時間點。',
+          'in 用於月份、年份或較長的時段。',
+          'to 表示方向或目標。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|三下|第5單元 食物與點餐'] = {
+  intro: '會點餐、能說出自己喜歡什麼——這是最快用得上的英文。',
+  cards: [
+    {
+      title: '① 常見食物',
+      body: 'rice（飯）、noodles（麵）、bread（麵包）、egg（蛋）、\n' +
+            'chicken（雞肉）、beef（牛肉）、fish（魚）、soup（湯）。\n' +
+            '⚠ noodles 通常用複數；rice、bread、soup 是不可數名詞，不加 s。',
+      viz: { type: 'classify', groups: [
+        { label: '可數', items: ['egg', 'apple', 'sandwich', 'cookie'] },
+        { label: '不可數', items: ['rice', 'bread', 'soup', 'water'] }] },
+      check: {
+        q: '下列哪一個字是「不可數名詞」？',
+        options: ['rice', 'egg', 'apple', 'cookie'],
+        answer: 0,
+        why: [
+          null,
+          'egg 可以數，有複數形 eggs。',
+          'apple 可以數。',
+          'cookie 也可以數。'
+        ]
+      }
+    },
+    {
+      title: '② 飲料與水果',
+      body: '飲料：water（水）、milk（牛奶）、juice（果汁）、tea（茶）、coffee（咖啡）。\n' +
+            '水果：apple、banana、orange、grape、watermelon（西瓜）、strawberry（草莓）。\n' +
+            '⚠ 飲料大多是不可數名詞，要說「一杯」時用 a glass of／a cup of。',
+      viz: { type: 'classify', groups: [
+        { label: '飲料', items: ['water', 'milk', 'juice', 'tea'] },
+        { label: '水果', items: ['apple', 'banana', 'grape', 'strawberry'] }] },
+      check: {
+        q: '「一杯牛奶」的正確說法是什麼？',
+        options: [
+          'a glass of milk',
+          'a milk',
+          'one milks',
+          'a milk cup'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不可數名詞前面不直接加 a。',
+          '不可數名詞沒有複數形。',
+          '這個說法的語序不自然。'
+        ]
+      }
+    },
+    {
+      title: '③ 說喜好',
+      body: 'I like apples.（我喜歡蘋果。）\n' +
+            'I do not like fish.（我不喜歡魚。）\n' +
+            'Do you like milk?（你喜歡牛奶嗎？）\n' +
+            '⚠ 表達「喜歡某類食物」時，可數名詞通常用複數（I like apples）。',
+      viz: { type: 'sentence', label: '說喜好', items: [
+        { t: 'I', r: '主詞' }, { t: 'like', r: '動詞' }, { t: 'apples', r: '複數受詞' }],
+        note: '表達喜歡某一類東西時，可數名詞用複數。' },
+      check: {
+        q: '要表達「我喜歡香蕉（這種水果）」，比較自然的說法是什麼？',
+        options: [
+          'I like bananas.',
+          'I like a banana.',
+          'I like banana.',
+          'I am like bananas.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '加 a 表示特定的一根香蕉。',
+          '可數名詞通常不會單獨使用單數形。',
+          '不能同時用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 點餐用語',
+      body: '店員：May I take your order?（可以幫您點餐了嗎？）\n' +
+            '顧客：I would like a hamburger, please.（我想要一個漢堡。）\n' +
+            '＝ I’d like…（比 I want 更有禮貌）\n' +
+            '⚠ 最後加上 please，語氣會禮貌得多。',
+      viz: { type: 'sentence', label: '點餐', items: [
+        { t: 'I would like', r: '想要（禮貌）' }, { t: 'a hamburger', r: '餐點' },
+        { t: 'please', r: '禮貌用語' }],
+        note: 'I would like 比 I want 更有禮貌。' },
+      check: {
+        q: '在餐廳點餐時，比較有禮貌的說法是什麼？',
+        options: [
+          'I would like a sandwich, please.',
+          'Give me a sandwich.',
+          'I want sandwich now.',
+          'Sandwich!'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直接命令式聽起來不禮貌。',
+          '語氣過於直接，也少了冠詞。',
+          '只說名詞不算完整的句子。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 問價錢與數量',
+      body: 'How much is it?（多少錢？）→ It is fifty dollars.\n' +
+            'How many apples do you want?（你要幾顆蘋果？）→ Three, please.\n' +
+            '⚠ How much 問價錢或不可數的量；How many 問可數的數量。',
+      viz: { type: 'compareexp',
+             factor: '問數量的方式',
+             a: { label: 'How much', note: '問價錢或不可數名詞的量' },
+             b: { label: 'How many', note: '問可數名詞的數量' },
+             same: ['都是詢問量的疑問詞'] },
+      check: {
+        q: '要問「你要幾顆蛋？」應該用哪一個疑問詞？',
+        options: [
+          'How many',
+          'How much',
+          'How old',
+          'How often'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'How much 用於不可數名詞或價錢。',
+          'How old 是問年齡。',
+          'How often 是問頻率。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 完整的點餐對話',
+      body: 'A: May I take your order?\n' +
+            'B: Yes. I’d like a hamburger and a glass of milk, please.\n' +
+            'A: Anything else?（還需要別的嗎？）　B: No, thanks.\n' +
+            '⚠ 對話的關鍵不是單字多，而是「聽得懂、答得出」。',
+      viz: { type: 'sentence', label: '完整點餐', items: [
+        { t: 'I would like', r: '想要' }, { t: 'a hamburger', r: '主餐' },
+        { t: 'and', r: '連接詞' }, { t: 'a glass of milk', r: '飲料' }],
+        note: '用 and 連接兩樣想點的東西。' },
+      check: {
+        q: '店員問 Anything else? 時，如果不需要別的東西，可以怎麼回答？',
+        options: [
+          'No, thanks.',
+          'Yes, I am.',
+          'You are welcome.',
+          'How much is it?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個回答與問題不相符。',
+          '這是回應別人道謝時說的。',
+          '這是在問價錢，沒有回答問題。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|三下|第6單元 動物與棲地'] = {
+  intro: '動物是最好記的英文單字——因為你早就認識牠們了。',
+  cards: [
+    {
+      title: '① 常見動物',
+      body: '寵物：dog（狗）、cat（貓）、bird（鳥）、fish（魚）、rabbit（兔子）。\n' +
+            '農場：cow（牛）、pig（豬）、horse（馬）、duck（鴨）、chicken（雞）。\n' +
+            '野生：lion（獅子）、tiger（老虎）、elephant（大象）、monkey（猴子）。',
+      viz: { type: 'classify', groups: [
+        { label: '寵物', items: ['dog', 'cat', 'bird', 'rabbit'] },
+        { label: '農場動物', items: ['cow', 'pig', 'horse', 'duck'] },
+        { label: '野生動物', items: ['lion', 'tiger', 'elephant', 'monkey'] }] },
+      check: {
+        q: '「大象」的英文是什麼？',
+        options: ['elephant', 'tiger', 'monkey', 'horse'],
+        answer: 0,
+        why: [
+          null,
+          'tiger 是老虎。',
+          'monkey 是猴子。',
+          'horse 是馬。'
+        ]
+      }
+    },
+    {
+      title: '② 動物的棲地',
+      body: 'farm（農場）、zoo（動物園）、forest（森林）、ocean／sea（海洋）、\n' +
+            'river（河）、jungle（叢林）、desert（沙漠）。\n' +
+            '⚠ 說「住在哪裡」用 live in：Fish live in water.',
+      viz: { type: 'sentence', label: '說棲地', items: [
+        { t: 'Fish', r: '主詞（複數）' }, { t: 'live', r: '動詞' }, { t: 'in water', r: '地點' }],
+        note: '主詞是複數時動詞不加 s。' },
+      check: {
+        q: '「魚住在水裡」的正確說法是什麼？',
+        options: [
+          'Fish live in water.',
+          'Fish lives in water.',
+          'Fish live on water.',
+          'Fish is live in water.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'fish 在此為複數，動詞不加 s。',
+          '住在水中要用 in 而不是 on。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 描述動物',
+      body: 'big（大的）、small（小的）、tall（高的）、fast（快的）、slow（慢的）、\n' +
+            'cute（可愛的）、strong（強壯的）。\n' +
+            '⚠ 句型：The elephant is big.／It is a big animal.',
+      viz: { type: 'sentence', label: '用形容詞', items: [
+        { t: 'The elephant', r: '主詞' }, { t: 'is', r: 'be 動詞' }, { t: 'big', r: '形容詞' }],
+        note: '形容詞放在 be 動詞後面。',
+        alt: [
+          { label: '形容詞在名詞前', items: [{ t: 'It', r: '主詞' }, { t: 'is', r: 'be 動詞' },
+            { t: 'a big animal', r: '名詞片語' }], note: '形容詞也可以放在名詞前面。' }] },
+      check: {
+        q: '下列哪一句的用法正確？',
+        options: [
+          'It is a big animal.',
+          'It is a animal big.',
+          'It is big a animal.',
+          'It big animal is.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '形容詞要放在名詞前面。',
+          '冠詞要放在形容詞前面。',
+          '這個語序不符合英文結構。'
+        ]
+      }
+    },
+    {
+      title: '④ 動物會做什麼',
+      body: 'Birds can fly.（鳥會飛。）　Fish can swim.（魚會游泳。）\n' +
+            'Rabbits can jump.（兔子會跳。）　Dogs can run fast.（狗跑得快。）\n' +
+            '⚠ can 後面接原形動詞，不管主詞是誰都一樣。',
+      viz: { type: 'sentence', label: '能力', items: [
+        { t: 'Birds', r: '主詞' }, { t: 'can', r: '助動詞' }, { t: 'fly', r: '原形動詞' }],
+        note: 'can 後面永遠接原形動詞。' },
+      check: {
+        q: '「鳥會飛」的正確說法是什麼？',
+        options: [
+          'Birds can fly.',
+          'Birds can flies.',
+          'Birds can to fly.',
+          'Birds are can fly.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'can 後面要接原形動詞。',
+          'can 後面不加 to。',
+          '不能同時使用 be 動詞與 can。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 單複數變化',
+      body: '一般加 s：dogs、cats、birds。\n' +
+            '字尾 s、x、sh、ch 加 es：foxes、fishes（也可用 fish）。\n' +
+            '⚠ 不規則變化：mouse → mice（老鼠）、goose → geese（鵝）、\n' +
+            'sheep → sheep（羊，單複數同形）、fish → fish（常用同形）。',
+      viz: { type: 'classify', groups: [
+        { label: '加 s', items: ['dogs', 'cats', 'birds'] },
+        { label: '不規則', items: ['mice', 'geese', 'children'] },
+        { label: '單複數同形', items: ['sheep', 'fish', 'deer'] }] },
+      check: {
+        q: 'mouse 的複數形是什麼？',
+        options: ['mice', 'mouses', 'mouse', 'mousees'],
+        answer: 0,
+        why: [
+          null,
+          '這個字屬於不規則變化。',
+          '複數形與單數形不同。',
+          '這個拼法不存在。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 介紹喜歡的動物',
+      body: '句型組合：\n' +
+            'My favorite animal is the dolphin.（我最喜歡的動物是海豚。）\n' +
+            'It lives in the ocean. It can swim very fast. It is very smart.\n' +
+            '⚠ 用三到四句就能完成一段簡單的介紹。',
+      viz: { type: 'sentence', label: '介紹', items: [
+        { t: 'My favorite animal', r: '主詞' }, { t: 'is', r: 'be 動詞' },
+        { t: 'the dolphin', r: '補語' }],
+        note: '先說是什麼，再說牠住哪裡、會做什麼。' },
+      check: {
+        q: '要介紹一種動物，比較完整的內容應該包含什麼？',
+        options: [
+          '牠是什麼、住在哪裡、會做什麼、有什麼特徵',
+          '只說牠的名字',
+          '只說牠的顏色',
+          '只說自己喜歡'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '只有名字的介紹太簡短。',
+          '顏色只是其中一項特徵。',
+          '喜好之外還需要具體的說明。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|三下|第7單元 身體與健康'] = {
+  intro: '身體不舒服時說得出來，是很實用的一課。',
+  cards: [
+    {
+      title: '① 身體部位',
+      body: 'head（頭）、hair（頭髮）、eye（眼睛）、ear（耳朵）、nose（鼻子）、\n' +
+            'mouth（嘴巴）、hand（手）、arm（手臂）、leg（腿）、foot（腳）。\n' +
+            '⚠ 成對的部位常用複數：eyes、ears、hands、feet。\n' +
+            'foot 的複數是 feet（不規則變化）。',
+      viz: { type: 'classify', groups: [
+        { label: '頭部', items: ['head', 'eye', 'ear', 'nose', 'mouth'] },
+        { label: '四肢', items: ['hand', 'arm', 'leg', 'foot'] }] },
+      check: {
+        q: 'foot 的複數形是什麼？',
+        options: ['feet', 'foots', 'footes', 'feets'],
+        answer: 0,
+        why: [
+          null,
+          '這是不規則變化，不加 s。',
+          '這個拼法不存在。',
+          '複數形只要 feet 就好。'
+        ]
+      }
+    },
+    {
+      title: '② 說明不舒服',
+      body: 'I have a headache.（我頭痛。）　I have a stomachache.（我肚子痛。）\n' +
+            'I have a cold.（我感冒了。）　I have a fever.（我發燒。）\n' +
+            '⚠ 這些說法都用 have，而且前面要加冠詞 a。',
+      viz: { type: 'sentence', label: '說症狀', items: [
+        { t: 'I', r: '主詞' }, { t: 'have', r: '動詞' }, { t: 'a headache', r: '症狀' }],
+        note: '英文描述生病常用 have 加症狀名詞。' },
+      check: {
+        q: '「我感冒了」的正確說法是什麼？',
+        options: [
+          'I have a cold.',
+          'I am cold.',
+          'I have cold.',
+          'I am a cold.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'I am cold 是「我覺得冷」，意思不同。',
+          '這個說法少了冠詞 a。',
+          '人不能等同於一個 cold。'
+        ]
+      }
+    },
+    {
+      title: '③ 關心與建議',
+      body: 'What’s wrong?／What’s the matter?（怎麼了？）\n' +
+            'You should see a doctor.（你應該去看醫生。）\n' +
+            'Take care.（保重。）　Get well soon.（早日康復。）\n' +
+            '⚠ should 後面接原形動詞，用來提出建議。',
+      viz: { type: 'sentence', label: '給建議', items: [
+        { t: 'You', r: '主詞' }, { t: 'should', r: '助動詞' }, { t: 'see', r: '原形動詞' },
+        { t: 'a doctor', r: '受詞' }],
+        note: 'should 用來提出建議，後面接原形動詞。' },
+      check: {
+        q: '朋友說他不舒服，要建議他去看醫生，可以怎麼說？',
+        options: [
+          'You should see a doctor.',
+          'You should to see a doctor.',
+          'You should sees a doctor.',
+          'You are should see a doctor.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'should 後面不加 to。',
+          'should 後面要用原形動詞。',
+          '不能同時使用 be 動詞與 should。'
+        ]
+      }
+    },
+    {
+      title: '④ 健康的習慣',
+      body: 'eat healthy food（吃健康的食物）、exercise（運動）、\n' +
+            'get enough sleep（睡飽）、wash your hands（洗手）、\n' +
+            'drink more water（多喝水）。\n' +
+            '⚠ 建議別人時常用祈使句：Wash your hands before meals.',
+      viz: { type: 'classify', groups: [
+        { label: '好習慣', items: ['exercise', 'eat vegetables', 'sleep early', 'wash hands'] },
+        { label: '要避免', items: ['stay up late', 'eat too much junk food'] }] },
+      check: {
+        q: 'Wash your hands before meals. 這句話屬於什麼句型？',
+        options: [
+          '祈使句，用來提出指示或建議',
+          '疑問句',
+          '否定句',
+          '感嘆句'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句尾是句號而非問號。',
+          '句中沒有否定詞。',
+          '感嘆句通常以 What 或 How 開頭。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 看醫生的對話',
+      body: 'Doctor: What’s wrong?　Patient: I have a fever and a headache.\n' +
+            'Doctor: How long have you felt this way?（不舒服多久了？）\n' +
+            'Doctor: Take this medicine twice a day.（這個藥一天吃兩次。）\n' +
+            '⚠ twice a day 是「一天兩次」。',
+      viz: { type: 'sentence', label: '醫囑', items: [
+        { t: 'Take', r: '動詞（祈使）' }, { t: 'this medicine', r: '受詞' },
+        { t: 'twice a day', r: '頻率' }],
+        note: '祈使句加上頻率，說明服藥方式。' },
+      check: {
+        q: 'twice a day 是什麼意思？',
+        options: [
+          '一天兩次',
+          '兩天一次',
+          '一天二十次',
+          '每兩天'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '順序相反了。',
+          'twice 是兩次而不是二十次。',
+          '這樣的意思要說 every two days。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: 'A: What’s wrong? You look tired.\n' +
+            'B: I have a headache. I did not sleep well last night.\n' +
+            'A: You should go home and rest. Get well soon!\n' +
+            '⚠ 關心別人的三步驟：詢問 → 傾聽 → 給建議或祝福。',
+      viz: { type: 'sentence', label: '關心他人', items: [
+        { t: 'You', r: '主詞' }, { t: 'look', r: '動詞' }, { t: 'tired', r: '形容詞' }],
+        note: 'look 後面可以直接接形容詞，表示「看起來…」。' },
+      check: {
+        q: 'You look tired. 這句話的意思是什麼？',
+        options: [
+          '你看起來很累',
+          '你在看疲倦的東西',
+          '你要看一下',
+          '你很無聊'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'look 加形容詞表示「看起來如何」。',
+          '這個句子不是要求對方看東西。',
+          'tired 是疲倦而不是無聊。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|三下|第8單元 天氣與衣物'] = {
+  intro: '每天都會用到的話題：今天天氣如何、該穿什麼。',
+  cards: [
+    {
+      title: '① 天氣的說法',
+      body: 'sunny（晴朗）、cloudy（多雲）、rainy（下雨）、windy（有風）、\n' +
+            'snowy（下雪）、hot（熱）、cold（冷）、warm（溫暖）、cool（涼爽）。\n' +
+            '⚠ 說天氣時主詞用 it：It is sunny today.',
+      viz: { type: 'sentence', label: '說天氣', items: [
+        { t: 'It', r: '主詞' }, { t: 'is', r: 'be 動詞' }, { t: 'sunny', r: '形容詞' },
+        { t: 'today', r: '時間' }],
+        note: '天氣的主詞固定用 it。' },
+      check: {
+        q: '「今天很熱」的正確說法是什麼？',
+        options: [
+          'It is hot today.',
+          'Today is hot weather.',
+          'Weather hot today.',
+          'Is hot today.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個說法不自然，通常直接用 it。',
+          '句子缺少 be 動詞。',
+          '句子缺少主詞。'
+        ]
+      }
+    },
+    {
+      title: '② 問天氣',
+      body: 'How is the weather?／What is the weather like?（天氣如何？）\n' +
+            '→ It is rainy.／It is raining.\n' +
+            '⚠ rainy 是形容詞（多雨的）、raining 是進行式（正在下雨），\n' +
+            '兩種說法都通。',
+      viz: { type: 'compareexp',
+             factor: '兩種說法',
+             a: { label: 'It is rainy.', note: '用形容詞描述天氣狀態' },
+             b: { label: 'It is raining.', note: '用進行式表示現在正在下' },
+             same: ['都表示下雨的天氣'] },
+      check: {
+        q: '要問「天氣如何？」下列哪一句是正確的？',
+        options: [
+          'How is the weather?',
+          'How the weather is?',
+          'What weather?',
+          'Weather how?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '疑問句要把 be 動詞放在主詞前面。',
+          '這個句子不完整。',
+          '這個語序不符合英文結構。'
+        ]
+      }
+    },
+    {
+      title: '③ 四季',
+      body: 'spring（春）、summer（夏）、fall／autumn（秋）、winter（冬）。\n' +
+            '⚠ 季節前面用 in：in summer（在夏天）。\n' +
+            '台灣的夏天很長：It is hot and rainy in summer.',
+      viz: { type: 'classify', groups: [
+        { label: '四季', items: ['spring', 'summer', 'fall', 'winter'] },
+        { label: '搭配的天氣', items: ['warm', 'hot', 'cool', 'cold'] }] },
+      check: {
+        q: '「在冬天」的正確說法是什麼？',
+        options: ['in winter', 'on winter', 'at winter', 'to winter'],
+        answer: 0,
+        why: [
+          null,
+          'on 用於星期與日期。',
+          'at 用於具體的時間點。',
+          'to 表示方向或目標。'
+        ]
+      }
+    },
+    {
+      title: '④ 衣物',
+      body: 'shirt（襯衫）、T-shirt（T 恤）、pants（褲子）、skirt（裙子）、\n' +
+            'dress（洋裝）、coat（外套）、shoes（鞋子）、socks（襪子）、hat（帽子）。\n' +
+            '⚠ 成雙的衣物用複數：pants、shoes、socks、glasses。\n' +
+            '要數的時候用 a pair of（一雙／一件）。',
+      viz: { type: 'classify', groups: [
+        { label: '單數', items: ['shirt', 'coat', 'hat', 'dress'] },
+        { label: '成雙（複數）', items: ['pants', 'shoes', 'socks', 'glasses'] }] },
+      check: {
+        q: '「一雙鞋」的正確說法是什麼？',
+        options: [
+          'a pair of shoes',
+          'a shoes',
+          'one shoe pair',
+          'a shoe pair'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '複數名詞前面不能直接加 a。',
+          '語序不正確。',
+          '慣用說法是 a pair of。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 天氣與穿著',
+      body: 'It is cold. Put on your coat.（天氣冷，穿上外套。）\n' +
+            'It is sunny. Wear a hat.（天氣晴，戴頂帽子。）\n' +
+            '⚠ wear 是「穿著（狀態）」、put on 是「穿上（動作）」。',
+      viz: { type: 'compareexp',
+             factor: '兩個動詞',
+             a: { label: 'wear', note: '表示穿著的狀態' },
+             b: { label: 'put on', note: '表示穿上的動作' },
+             same: ['都與衣物有關'] },
+      check: {
+        q: 'wear 和 put on 的差別是什麼？',
+        options: [
+          'wear 是穿著的狀態，put on 是穿上的動作',
+          '兩者完全相同',
+          'wear 只能用於帽子',
+          'put on 只能用於鞋子'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩者的語意重點不同。',
+          'wear 可以用於各種衣物。',
+          'put on 同樣可以用於各種衣物。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合對話',
+      body: 'A: How is the weather today?\n' +
+            'B: It is cold and windy.\n' +
+            'A: Then put on your coat before you go out.\n' +
+            '⚠ 用 and 連接兩個天氣形容詞，用 before 連接兩個動作。',
+      viz: { type: 'sentence', label: '天氣描述', items: [
+        { t: 'It', r: '主詞' }, { t: 'is', r: 'be 動詞' }, { t: 'cold and windy', r: '兩個形容詞' }],
+        note: '用 and 可以把兩個形容詞連起來。' },
+      check: {
+        q: '要說「又冷又有風」，應該怎麼連接兩個形容詞？',
+        options: [
+          '用 and 連接：cold and windy',
+          '用 or 連接',
+          '直接並排不用連接詞',
+          '用 but 連接'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'or 表示二選一。',
+          '英文需要連接詞才通順。',
+          'but 表示轉折，語意不合。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|三下|第9單元 can 與能力'] = {
+  intro: '一個小小的 can，就能說出你會什麼、不會什麼、可不可以做什麼。',
+  cards: [
+    {
+      title: '① can 的意思',
+      body: 'can 表示「能力（會）」或「許可（可以）」。\n' +
+            'I can swim.（我會游泳。）　Can I go now?（我可以走了嗎？）\n' +
+            '⚠ can 是助動詞，後面永遠接原形動詞，而且不隨主詞變化\n' +
+            '（不會有 cans）。',
+      viz: { type: 'sentence', label: '能力', items: [
+        { t: 'I', r: '主詞' }, { t: 'can', r: '助動詞' }, { t: 'swim', r: '原形動詞' }],
+        note: 'can 後面永遠是原形動詞。',
+        alt: [
+          { label: '第三人稱', items: [{ t: 'He', r: '主詞' }, { t: 'can', r: '助動詞（不變）' },
+            { t: 'swim', r: '原形動詞' }], note: 'can 不隨主詞改變，也不加 s。' }] },
+      tip: '按按鈕比較不同主詞。',
+      check: {
+        q: '「他會游泳」的正確說法是什麼？',
+        options: [
+          'He can swim.',
+          'He cans swim.',
+          'He can swims.',
+          'He is can swim.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'can 不隨主詞加 s。',
+          'can 後面要接原形動詞。',
+          '不能同時使用 be 動詞與 can。'
+        ]
+      }
+    },
+    {
+      title: '② 否定：cannot／can’t',
+      body: 'I cannot swim.＝ I can’t swim.（我不會游泳。）\n' +
+            '⚠ 注意拼法：cannot 是一個字（中間不空格）；\n' +
+            '縮寫是 can’t。',
+      viz: { type: 'sentence', label: '否定', items: [
+        { t: 'I', r: '主詞' }, { t: 'cannot', r: '助動詞否定' }, { t: 'swim', r: '原形動詞' }],
+        note: '否定時在 can 後面加 not，動詞仍是原形。' },
+      check: {
+        q: '下列哪一個拼法是正確的？',
+        options: ['cannot', 'can not have to be split', 'cant', 'ca not'],
+        answer: 0,
+        why: [
+          null,
+          '一般寫成一個字 cannot。',
+          '縮寫要有撇號，寫成 can’t。',
+          '這個拼法不正確。'
+        ]
+      }
+    },
+    {
+      title: '③ 疑問句',
+      body: 'Can you swim?（你會游泳嗎？）→ Yes, I can.／No, I can’t.\n' +
+            'Can he play the piano?（他會彈鋼琴嗎？）\n' +
+            '⚠ 疑問句把 can 移到句首，回答時也用 can。',
+      viz: { type: 'sentence', label: '疑問句', items: [
+        { t: 'Can', r: '助動詞' }, { t: 'you', r: '主詞' }, { t: 'swim', r: '原形動詞' }],
+        note: '把 can 移到主詞前面就是疑問句。' },
+      check: {
+        q: 'Can you play the guitar? 的正確簡答是什麼？',
+        options: [
+          'Yes, I can.',
+          'Yes, I do.',
+          'Yes, I am.',
+          'Yes, I play.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '問句用 can，回答也要用 can。',
+          'am 用於 be 動詞的問句。',
+          '簡答時要用助動詞而非主要動詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 表達許可',
+      body: 'Can I use your pen?（我可以用你的筆嗎？）\n' +
+            'May I use your pen?（更有禮貌的說法）\n' +
+            '⚠ can 用於一般許可，may 更正式與客氣，\n' +
+            '對長輩或不熟的人用 may 比較好。',
+      viz: { type: 'compareexp',
+             factor: '請求許可的語氣',
+             a: { label: 'Can I…?', note: '日常口語，較隨意' },
+             b: { label: 'May I…?', note: '較正式禮貌，適合對長輩或陌生人' },
+             same: ['都是請求許可'] },
+      check: {
+        q: '要向不熟的長輩請求許可，比較恰當的說法是什麼？',
+        options: [
+          'May I use your pen?',
+          'I use your pen.',
+          'Give me your pen.',
+          'Your pen.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是陳述句，不是請求。',
+          '命令句聽起來不禮貌。',
+          '只說名詞不是完整的請求。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 說出自己的能力',
+      body: 'I can ride a bike.（我會騎腳踏車。）\n' +
+            'I can speak English a little.（我會說一點英文。）\n' +
+            'I can’t cook.（我不會煮飯。）\n' +
+            '⚠ a little（一點點）可以放在句尾，讓表達更精確。',
+      viz: { type: 'sentence', label: '說能力', items: [
+        { t: 'I', r: '主詞' }, { t: 'can speak', r: '助動詞＋動詞' },
+        { t: 'English', r: '受詞' }, { t: 'a little', r: '程度' }],
+        note: '加上程度副詞能讓表達更精確。' },
+      check: {
+        q: '要說「我會說一點英文」，正確的說法是什麼？',
+        options: [
+          'I can speak English a little.',
+          'I can speaks English.',
+          'I can to speak English.',
+          'I am can speak English.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'can 後面要用原形動詞。',
+          'can 後面不加 to。',
+          '不能同時使用 be 動詞與 can。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: 'A: Can you play basketball?　B: Yes, I can. But I can’t swim.\n' +
+            'A: Can your brother swim?　B: Yes, he can. He swims very well.\n' +
+            '⚠ 注意：用 can 時動詞是原形（can swim），\n' +
+            '不用 can 時第三人稱單數要加 s（he swims）。',
+      viz: { type: 'sentence', label: '有 can', items: [
+        { t: 'He', r: '主詞' }, { t: 'can', r: '助動詞' }, { t: 'swim', r: '原形' }],
+        note: '有 can 時動詞用原形。',
+        alt: [
+          { label: '沒有 can', items: [{ t: 'He', r: '主詞' }, { t: 'swims', r: '動詞加 s' },
+            { t: 'very well', r: '副詞' }], note: '沒有助動詞時第三人稱單數要加 s。' }] },
+      check: {
+        q: '為什麼 He can swim 用 swim，而 He swims well 用 swims？',
+        options: [
+          '因為 can 後面要用原形動詞，沒有助動詞時第三人稱單數才加 s',
+          '因為兩句意思不同',
+          '因為 swim 沒有變化形',
+          '因為可以隨便用'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩句的差別在文法而非語意。',
+          'swim 的第三人稱單數形是 swims。',
+          '動詞形式有明確的規則。'
+        ]
+      }
+    }
+  ]
+};
