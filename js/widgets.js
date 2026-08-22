@@ -7100,6 +7100,291 @@
     paint();
   };
 
+  /* ── 運動圖形（motion）────────────────────────────────────────────────
+     等速度和等加速度的 位移-時間／速度-時間 圖長什麼樣，兩張並排比才記得住。
+     spec: { mode:'const'|'accel'|'rest', pick }                          */
+  REG.motion = function (host, spec) {
+    var mode = spec.mode || 'const';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function axes(x0, title) {
+      svg.appendChild(el('line', { x1: x0, y1: 128, x2: x0 + 118, y2: 128 },
+        'stroke:var(--text);stroke-width:2'));
+      svg.appendChild(el('line', { x1: x0, y1: 128, x2: x0, y2: 34 },
+        'stroke:var(--text);stroke-width:2'));
+      svg.appendChild(txt(x0 + 60, 148, '時間 →', 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(x0 + 34, 26, title, 'font-size:11px;font-weight:700;fill:var(--dim)'));
+    }
+    function curve(x0, fn, color) {
+      var pts = [];
+      for (var t = 0; t <= 1.0001; t += 0.05) {
+        pts.push((x0 + t * 112) + ',' + (128 - fn(t) * 84));
+      }
+      svg.appendChild(el('polyline', { points: pts.join(' ') },
+        'fill:none;stroke:var(--' + color + ');stroke-width:3'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      axes(28, '位移 s'); axes(184, '速度 v');
+      var main, sub;
+      if (mode === 'accel') {
+        curve(28, function (t) { return t * t; }, 'accent');
+        curve(184, function (t) { return t; }, 'good');
+        main = '等加速度運動：s-t 是曲線、v-t 是斜直線';
+        sub = '速度每秒增加固定的量，所以 v-t 圖是一條往上斜的直線，斜率就是加速度。' +
+          '位移越跑越快，所以 s-t 圖是一條越來越陡的曲線。' +
+          '自由落體就是最典型的等加速度運動（加速度約 9.8 m/s²）。';
+      } else if (mode === 'rest') {
+        curve(28, function () { return 0.5; }, 'accent');
+        curve(184, function () { return 0; }, 'good');
+        main = '靜止：s-t 是水平線、v-t 貼在時間軸上';
+        sub = '位置不變，所以 s-t 圖是水平線（斜率 0 代表速度 0）；速度是 0，v-t 圖就貼在橫軸上。' +
+          '⚠ s-t 圖是水平線代表「靜止」，不是「等速前進」——這兩個最常被搞混。';
+      } else {
+        curve(28, function (t) { return t * 0.9; }, 'accent');
+        curve(184, function () { return 0.6; }, 'good');
+        main = '等速度運動：s-t 是斜直線、v-t 是水平線';
+        sub = '速度不變，所以 v-t 圖是一條水平線；位移每秒增加固定的量，s-t 圖是一條斜直線，' +
+          '⚠ 這條直線的「斜率」就是速度——斜率越大代表跑得越快。' +
+          '另外，v-t 圖下方圍出來的面積等於位移。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['rest', '靜止'], ['const', '等速度'], ['accel', '等加速度']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 牛頓運動定律（newton）────────────────────────────────────────────
+     spec: { mode:'first'|'second'|'third', f, m, pick }                  */
+  REG.newton = function (host, spec) {
+    var mode = spec.mode || 'first';
+    var F = spec.f == null ? 6 : spec.f, M = spec.m == null ? 2 : spec.m;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function cart(x, y, w, label, color) {
+      svg.appendChild(el('rect', { x: x, y: y, width: w, height: 34, rx: 5, 'fill-opacity': '.25' },
+        'fill:var(--' + color + ');stroke:var(--' + color + ');stroke-width:2'));
+      svg.appendChild(txt(x + w / 2, y + 17, label, 'font-size:11px'));
+    }
+    function arrow(x1, y, len, color, label) {
+      var x2 = x1 + len;
+      svg.appendChild(el('line', { x1: x1, y1: y, x2: x2, y2: y },
+        'stroke:var(--' + color + ');stroke-width:3'));
+      var d = len > 0 ? 1 : -1;
+      svg.appendChild(el('polygon', { points: x2 + ',' + y + ' ' + (x2 - 9 * d) + ',' + (y - 5) +
+        ' ' + (x2 - 9 * d) + ',' + (y + 5) }, 'fill:var(--' + color + ')'));
+      if (label) svg.appendChild(txt((x1 + x2) / 2, y - 12, label,
+        'font-size:11px;fill:var(--' + color + ')'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'second') {
+        var a = +(F / M).toFixed(2);
+        cart(60, 74, 44 + M * 12, M + ' kg', 'accent');
+        arrow(60 + 44 + M * 12 + 6, 91, 20 + F * 8, 'bad', F + ' N');
+        svg.appendChild(txt(160, 148, '加速度 a ＝ F ÷ m ＝ ' + F + ' ÷ ' + M + ' ＝ ' + a + ' m/s²',
+          'font-size:13px;font-weight:700;fill:var(--good)'));
+        main = 'F ＝ m × a：力越大加速度越大、質量越大加速度越小';
+        sub = '同樣的力推腳踏車和推汽車，腳踏車加速快得多，因為質量小。' +
+          '⚠ 力和加速度成正比、和質量成反比；力的方向就是加速度的方向。' +
+          '注意「有力不一定會動得快，而是會『改變速度』」——用力推牆壁，牆不動是因為還有其他力平衡掉了。';
+      } else if (mode === 'third') {
+        cart(50, 62, 60, '人', 'accent');
+        cart(200, 62, 60, '牆', 'good');
+        arrow(114, 79, 78, 'bad', '人推牆 F');
+        arrow(196, 116, -78, 'accent', '牆推人 F');
+        svg.appendChild(txt(160, 152, '兩個力大小相等、方向相反，作用在「不同物體」上',
+          'font-size:11px;fill:var(--dim)'));
+        main = '作用力與反作用力：一定成對出現';
+        sub = '你推牆的同時，牆也用同樣大的力推你——所以穿溜冰鞋推牆會把自己推開。' +
+          '走路是腳往後蹬地、地面把人往前推；火箭噴出氣體、氣體把火箭往前推。' +
+          '⚠ 這一對力作用在「不同物體」上，所以不會互相抵消，' +
+          '這也是它和「平衡力」最大的差別。';
+      } else {
+        cart(46, 62, 70, '靜止', 'accent');
+        cart(190, 62, 70, '等速', 'good');
+        svg.appendChild(txt(160, 118, '不受外力（或合力為零）時', 'font-size:11px;fill:var(--dim)'));
+        svg.appendChild(txt(160, 140, '本來靜止的維持靜止，本來運動的維持等速直線運動',
+          'font-size:11px;fill:var(--good)'));
+        main = '慣性定律：物體會「維持原本的運動狀態」';
+        sub = '公車突然煞車時人會往前傾，是因為人保持原本前進的運動狀態；' +
+          '突然起步時人往後倒，也是同樣的道理。' +
+          '⚠ 慣性大小只和「質量」有關，質量越大慣性越大，和速度快慢無關。' +
+          '所以安全帶和安全氣囊都是在對付慣性。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['first', '第一定律'], ['second', '第二定律'], ['third', '第三定律']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    var row2 = div('wg-ctrl');
+    row2.appendChild(div('wg-ctrl-label', '施力 F'));
+    row2.appendChild(slider(1, 20, F, 1, function (v) { F = v; mode = 'second'; paint(); }));
+    box.appendChild(row2);
+    var row3 = div('wg-ctrl');
+    row3.appendChild(div('wg-ctrl-label', '質量 m'));
+    row3.appendChild(slider(1, 10, M, 1, function (v) { M = v; mode = 'second'; paint(); }));
+    box.appendChild(row3);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 位能與動能（energyball）──────────────────────────────────────────
+     球從斜坡滑下，位能一格一格換成動能，總和不變。
+     spec: { pos }  0（最高）～ 1（最低）                                 */
+  REG.energyball = function (host, spec) {
+    var t = spec.pos == null ? 0 : spec.pos;
+    var TOTAL = 100;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var x = 40 + t * 150, y = 40 + t * t * 96;
+      svg.appendChild(el('path', { d: 'M40,40 Q120,60 190,136 L280,136' },
+        'fill:none;stroke:var(--dim);stroke-width:3'));
+      svg.appendChild(el('circle', { cx: x, cy: y - 8, r: 9 }, 'fill:var(--accent)'));
+      var pe = Math.round(TOTAL * (1 - t * t)), ke = TOTAL - pe;
+      [['位能', pe, 'accent', 44], ['動能', ke, 'bad', 74]].forEach(function (r) {
+        svg.appendChild(txt(232, r[3] - 12, r[0] + '　' + r[1], 'font-size:11px;fill:var(--' + r[2] + ')'));
+        svg.appendChild(el('rect', { x: 200, y: r[3] - 8, width: 100, height: 12, rx: 4,
+          'fill-opacity': '.12' }, 'fill:var(--' + r[2] + ')'));
+        svg.appendChild(el('rect', { x: 200, y: r[3] - 8, width: r[1], height: 12, rx: 4 },
+          'fill:var(--' + r[2] + ')'));
+      });
+      svg.appendChild(txt(250, 104, '位能 ＋ 動能 ＝ ' + TOTAL + '（固定）',
+        'font-size:10px;fill:var(--good)'));
+      svg.appendChild(txt(160, 176, '越低 → 位能越少、動能越多，總和不變',
+        'font-size:11px;fill:var(--dim)'));
+      read.appendChild(div('wg-read-main', '位能 ' + pe + '　動能 ' + ke + '　總力學能 ' + TOTAL));
+      read.appendChild(div('wg-read-sub',
+        '重力位能和高度有關（越高越大），動能和速度有關（越快越大）。' +
+        '球往下滑時位能變小、動能變大，兩者的總和（力學能）維持不變——這就是能量守恆。' +
+        '⚠ 實際上還有摩擦力，會把一部分力學能變成熱能，' +
+        '所以真實的球不會盪回原本的高度，但「能量總量」仍然沒有減少。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(slider(0, 1, t, 0.05, function (v) { t = v; paint(); }));
+    box.appendChild(row);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 壓力（pressure）──────────────────────────────────────────────────
+     spec: { mode:'area'|'liquid'|'air', f, a, pick }                     */
+  REG.pressure = function (host, spec) {
+    var mode = spec.mode || 'area';
+    var F = spec.f == null ? 60 : spec.f, A = spec.a == null ? 6 : spec.a;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'liquid') {
+        svg.appendChild(el('rect', { x: 60, y: 40, width: 130, height: 110, rx: 4, 'fill-opacity': '.15' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        [[62, 20], [100, 40], [138, 62]].forEach(function (h, i) {
+          svg.appendChild(el('line', { x1: 190, y1: h[0], x2: 190 + h[1], y2: h[0] },
+            'stroke:var(--bad);stroke-width:3'));
+          svg.appendChild(el('polygon', { points: (190 + h[1]) + ',' + h[0] + ' ' +
+            (190 + h[1] - 8) + ',' + (h[0] - 4) + ' ' + (190 + h[1] - 8) + ',' + (h[0] + 4) },
+            'fill:var(--bad)'));
+        });
+        svg.appendChild(txt(258, 170, '越深 → 噴得越遠', 'font-size:11px;fill:var(--bad)'));
+        svg.appendChild(txt(124, 166, '水的壓力', 'font-size:11px;fill:var(--accent)'));
+        main = '液體壓力隨「深度」增加';
+        sub = '同一深度處，液體對各個方向的壓力都相同；越深壓力越大（和容器形狀、水的總量無關）。' +
+          '所以水壩下方要蓋得比上方厚、潛水越深耳朵越痛。' +
+          '⚠ 壓力大小只看「深度」和「液體密度」，不是看水有多少。';
+      } else if (mode === 'air') {
+        svg.appendChild(el('circle', { cx: 160, cy: 92, r: 46, 'fill-opacity': '.15' },
+          'fill:var(--good);stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(160, 92, '大氣', 'font-size:12px'));
+        [0, 60, 120, 180, 240, 300].forEach(function (d) {
+          var a = d * Math.PI / 180;
+          svg.appendChild(el('line',
+            { x1: 160 + 74 * Math.cos(a), y1: 92 + 74 * Math.sin(a),
+              x2: 160 + 52 * Math.cos(a), y2: 92 + 52 * Math.sin(a) },
+            'stroke:var(--accent);stroke-width:2.5'));
+        });
+        svg.appendChild(txt(160, 168, '1 大氣壓 ≈ 76 公分水銀柱 ≈ 10 公尺水柱',
+          'font-size:11px;fill:var(--dim)'));
+        main = '大氣壓力：空氣從四面八方壓過來';
+        sub = '空氣有重量，所以會對地面上的所有東西產生壓力，方向是各個方向都有。' +
+          '證據：吸盤能吸住牆、用吸管喝飲料（其實是大氣把飲料壓上來）、馬德堡半球拉不開。' +
+          '⚠ 海拔越高空氣越稀薄，大氣壓越小，所以高山上水不到 100℃ 就沸騰了。';
+      } else {
+        var p = +(F / A).toFixed(1);
+        var w = 20 + A * 14;
+        svg.appendChild(el('rect', { x: 160 - w / 2, y: 56, width: w, height: 34, rx: 4,
+          'fill-opacity': '.25' }, 'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(txt(160, 73, F + ' N', 'font-size:12px'));
+        svg.appendChild(el('line', { x1: 40, y1: 106, x2: 280, y2: 106 },
+          'stroke:var(--text);stroke-width:2'));
+        for (var i = 0; i < 6; i++) {
+          var x = 160 - w / 2 + (w / 5) * i;
+          svg.appendChild(el('line', { x1: x, y1: 92, x2: x, y2: 104 },
+            'stroke:var(--bad);stroke-width:2'));
+        }
+        svg.appendChild(txt(160, 132, '接觸面積 ' + A + ' cm²', 'font-size:11px;fill:var(--dim)'));
+        svg.appendChild(txt(160, 158, '壓力 ＝ ' + F + ' ÷ ' + A + ' ＝ ' + p + ' N/cm²',
+          'font-size:13px;font-weight:700;fill:var(--good)'));
+        main = '壓力 ＝ 垂直作用力 ÷ 受力面積';
+        sub = '同樣的力，接觸面積越小壓力越大。所以刀要磨利、圖釘的尖端很細；' +
+            '相反地，坦克的履帶和雪鞋做得很寬，是為了減小壓力才不會陷下去。' +
+            '⚠ 力沒有變，改變的是「分攤到每一平方公分」的量。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['area', '壓力與面積'], ['liquid', '液體壓力'], ['air', '大氣壓力']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    var row2 = div('wg-ctrl');
+    row2.appendChild(div('wg-ctrl-label', '作用力 N'));
+    row2.appendChild(slider(10, 200, F, 10, function (v) { F = v; mode = 'area'; paint(); }));
+    box.appendChild(row2);
+    var row3 = div('wg-ctrl');
+    row3.appendChild(div('wg-ctrl-label', '面積 cm²'));
+    row3.appendChild(slider(1, 16, A, 1, function (v) { A = v; mode = 'area'; paint(); }));
+    box.appendChild(row3);
+    host.appendChild(box);
+    paint();
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },

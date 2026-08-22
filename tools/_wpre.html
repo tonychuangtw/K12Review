@@ -5,10 +5,12 @@ h2{color:#9ecbff;font:600 14px/1.4 sans-serif;margin:8px 0 4px}</style></head>
 <body><div id="all"></div>
 <script src="../js/widgets.js"></script>
 <script>
-var D=[['週期表 同週期',{type:'ptable',highlight:'period'}],
-['質量守恆',{type:'chemeq',mode:'mass'}],
-['配平',{type:'chemeq',mode:'balance'}],
-['反應類型',{type:'chemeq',mode:'type'}]];
+var D=[['牛頓三',{type:'newton',mode:'third'}],
+['能量球 中間',{type:'energyball',pos:0.5}],
+['能量球 底部',{type:'energyball',pos:1}],
+['壓力 面積',{type:'pressure',mode:'area',f:60,a:6}],
+['液體壓力',{type:'pressure',mode:'liquid'}],
+['大氣壓力',{type:'pressure',mode:'air'}]];
 var all=document.getElementById('all');
 D.forEach(function(d){var h=document.createElement('h2');h.textContent=d[0];all.appendChild(h);
 var b=document.createElement('div');b.className='demo';all.appendChild(b);
