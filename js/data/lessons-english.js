@@ -4276,3 +4276,1433 @@ window.APP_LESSONS['english|四上|第9單元 興趣與嗜好'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|四下|第1單元 購物與價錢'] = {
+  intro: '會問價錢、會殺價、會說要哪一個——出國自助旅行就靠這一課。',
+  cards: [
+    {
+      title: '① 問價錢',
+      body: 'How much is it?（多少錢？）　How much are they?（它們多少錢？）\n' +
+            'How much is this shirt?（這件襯衫多少錢？）\n' +
+            '⚠ 價錢一律用 How much，不管東西可不可數。',
+      viz: { type: 'sentence', label: '問價錢', items: [
+        { t: 'How much', r: '疑問詞組' }, { t: 'is', r: 'be 動詞' }, { t: 'it', r: '主詞' }],
+        note: '問價錢固定用 How much。',
+        alt: [
+          { label: '複數', items: [{ t: 'How much', r: '疑問詞組' }, { t: 'are', r: 'be 動詞' },
+            { t: 'they', r: '主詞' }], note: '主詞是複數時 be 動詞要用 are。' }] },
+      tip: '按按鈕比較單複數。',
+      check: {
+        q: '問價錢時應該用哪一個疑問詞組？',
+        options: ['How much', 'How many', 'How old', 'How long'],
+        answer: 0,
+        why: [
+          null,
+          'How many 問可數名詞的數量。',
+          'How old 問年齡。',
+          'How long 問長度或時間。'
+        ]
+      }
+    },
+    {
+      title: '② 說價錢',
+      body: 'It is fifty dollars.（五十元。）　They are one hundred dollars.\n' +
+            '⚠ dollar 有複數：one dollar、two dollars。\n' +
+            '台幣可以說 NT dollars 或直接說 dollars。',
+      viz: { type: 'sentence', label: '說價錢', items: [
+        { t: 'It', r: '主詞' }, { t: 'is', r: 'be 動詞' }, { t: 'fifty dollars', r: '價錢' }],
+        note: '金額大於一時 dollar 要加 s。' },
+      check: {
+        q: '「二十元」的正確說法是什麼？',
+        options: [
+          'twenty dollars',
+          'twenty dollar',
+          'twentieth dollars',
+          'twenty a dollar'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '大於一時要用複數 dollars。',
+          '金額要用基數而不是序數。',
+          '這個語序不正確。'
+        ]
+      }
+    },
+    {
+      title: '③ 購物用語',
+      body: '店員：Can I help you?／May I help you?（需要幫忙嗎？）\n' +
+            '顧客：I am just looking, thanks.（我只是看看，謝謝。）\n' +
+            'I am looking for a T-shirt.（我在找一件 T 恤。）\n' +
+            '⚠ look for 是「尋找」，look at 是「看著」。',
+      viz: { type: 'compareexp',
+             factor: '兩個相似的片語',
+             a: { label: 'look for', note: '尋找某樣東西' },
+             b: { label: 'look at', note: '注視某樣東西' },
+             same: ['都以 look 開頭'] },
+      check: {
+        q: '「我在找一雙鞋」的正確說法是什麼？',
+        options: [
+          'I am looking for a pair of shoes.',
+          'I am looking at a pair of shoes.',
+          'I am looking a pair of shoes.',
+          'I look for shoes now.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'look at 是注視而不是尋找。',
+          'look 後面需要適當的介系詞。',
+          '此刻正在進行的動作要用進行式。'
+        ]
+      }
+    },
+    {
+      title: '④ 選擇與比較',
+      body: 'Do you have a bigger one?（有大一點的嗎？）\n' +
+            'This one is too expensive.（這個太貴了。）\n' +
+            'Do you have anything cheaper?（有便宜一點的嗎？）\n' +
+            '⚠ one 用來代替前面提過的名詞，避免重複。',
+      viz: { type: 'sentence', label: '用 one 代替', items: [
+        { t: 'Do you have', r: '疑問句' }, { t: 'a bigger', r: '比較級' },
+        { t: 'one', r: '代替名詞' }],
+        note: 'one 代替前面提過的名詞，避免重複。' },
+      check: {
+        q: '句子中的 one 有什麼作用？',
+        options: [
+          '代替前面提過的名詞，避免重複',
+          '表示數字一',
+          '表示唯一',
+          '沒有任何意義'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這裡的 one 不是數字。',
+          '它不是強調唯一。',
+          '它有明確的替代功能。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 付款與結帳',
+      body: 'I will take it.（我要買這個。）\n' +
+            'How would you like to pay?（您要怎麼付款？）\n' +
+            'Cash or credit card?（現金還是信用卡？）\n' +
+            'Here is your change.（找您的零錢。）\n' +
+            '⚠ take 在購物情境中是「買下」的意思。',
+      viz: { type: 'energyflow', steps: ['挑選', '詢問價錢', '決定購買', '結帳付款'] },
+      check: {
+        q: '決定要買某樣東西時，可以說什麼？',
+        options: [
+          'I will take it.',
+          'I will look at it.',
+          'I take it away.',
+          'I am it.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是表示要看看而不是購買。',
+          '這個說法容易被誤解為拿走。',
+          '這個句子沒有意義。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 完整的購物對話',
+      body: 'A: May I help you?\n' +
+            'B: Yes. How much is this shirt?\n' +
+            'A: It is three hundred dollars.\n' +
+            'B: That is a little expensive. Do you have anything cheaper?\n' +
+            '⚠ a little（有一點）可以讓語氣柔和，比直接說 too expensive 客氣。',
+      viz: { type: 'sentence', label: '委婉表達', items: [
+        { t: 'That is', r: '主詞＋be' }, { t: 'a little', r: '程度（委婉）' },
+        { t: 'expensive', r: '形容詞' }],
+        note: 'a little 讓語氣比較委婉。' },
+      check: {
+        q: '想委婉地表示「有點貴」，可以怎麼說？',
+        options: [
+          'That is a little expensive.',
+          'That is too expensive!',
+          'It is very very expensive.',
+          'You are too expensive.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'too 的語氣比較直接。',
+          '重複 very 顯得誇張。',
+          '貴的是商品而不是店員。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四下|第2單元 城市地點與方向'] = {
+  intro: '會問路、會指路——這是在陌生城市生存的基本能力。',
+  cards: [
+    {
+      title: '① 城市裡的地方',
+      body: 'school（學校）、hospital（醫院）、bank（銀行）、post office（郵局）、\n' +
+            'library（圖書館）、park（公園）、supermarket（超市）、\n' +
+            'restaurant（餐廳）、bus stop（公車站）、train station（火車站）。',
+      viz: { type: 'classify', groups: [
+        { label: '公共設施', items: ['school', 'hospital', 'library', 'post office'] },
+        { label: '商業', items: ['bank', 'supermarket', 'restaurant'] },
+        { label: '交通', items: ['bus stop', 'train station'] }] },
+      check: {
+        q: '「郵局」的英文是什麼？',
+        options: ['post office', 'bank', 'library', 'station'],
+        answer: 0,
+        why: [
+          null,
+          'bank 是銀行。',
+          'library 是圖書館。',
+          'station 是車站。'
+        ]
+      }
+    },
+    {
+      title: '② 問路',
+      body: 'Excuse me, where is the post office?（不好意思，郵局在哪裡？）\n' +
+            'How can I get to the train station?（我要怎麼到火車站？）\n' +
+            'Is there a bank near here?（這附近有銀行嗎？）\n' +
+            '⚠ 開口前先說 Excuse me 比較有禮貌。',
+      viz: { type: 'sentence', label: '問路', items: [
+        { t: 'Excuse me', r: '禮貌開場' }, { t: 'where is', r: '疑問詞＋be' },
+        { t: 'the post office', r: '目的地' }],
+        note: '先說 Excuse me，再問問題。' },
+      check: {
+        q: '向陌生人問路時，開口前最好先說什麼？',
+        options: [
+          'Excuse me.',
+          'Hey!',
+          'Sorry.',
+          'Goodbye.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這樣的叫法不夠禮貌。',
+          'Sorry 用於做錯事道歉。',
+          '這是道別用語，不適合開場。'
+        ]
+      }
+    },
+    {
+      title: '③ 指路用語',
+      body: 'Go straight.（直走。）　Turn left／right.（左轉／右轉。）\n' +
+            'Go straight for two blocks.（直走兩個街區。）\n' +
+            'It is on your left.（它在你的左手邊。）\n' +
+            '⚠ 這些都是祈使句，直接用動詞開頭。',
+      viz: { type: 'sentence', label: '指路', items: [
+        { t: 'Turn', r: '動詞（祈使）' }, { t: 'left', r: '方向' },
+        { t: 'at the corner', r: '地點' }],
+        note: '指路時用祈使句，主詞 you 省略。' },
+      check: {
+        q: '「在轉角右轉」的正確說法是什麼？',
+        options: [
+          'Turn right at the corner.',
+          'You turn right the corner.',
+          'Turn to right corner.',
+          'Right turn corner.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '指路通常用祈使句，不加主詞。',
+          '這個說法的介系詞用法不正確。',
+          '這個語序不完整。'
+        ]
+      }
+    },
+    {
+      title: '④ 位置的描述',
+      body: 'It is next to the bank.（它在銀行旁邊。）\n' +
+            'It is across from the park.（它在公園對面。）\n' +
+            'It is between the school and the library.（它在學校和圖書館之間。）\n' +
+            '⚠ between A and B 是固定用法，中間用 and 連接。',
+      viz: { type: 'classify', groups: [
+        { label: '旁邊', items: ['next to', 'beside', 'near'] },
+        { label: '對面', items: ['across from', 'opposite'] },
+        { label: '之間', items: ['between A and B'] }] },
+      check: {
+        q: '「在銀行和郵局之間」的正確說法是什麼？',
+        options: [
+          'between the bank and the post office',
+          'between the bank or the post office',
+          'between the bank with the post office',
+          'in the bank and the post office'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'between 要搭配 and 而不是 or。',
+          'between 的固定搭配是 and。',
+          'in 表示在裡面，語意不符。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 距離與交通方式',
+      body: 'It is about ten minutes on foot.（走路大約十分鐘。）\n' +
+            'You can take the bus.（你可以搭公車。）\n' +
+            '⚠ 交通方式：by bus、by train、by car、on foot（走路）。\n' +
+            '注意 on foot 不是 by foot。',
+      viz: { type: 'classify', groups: [
+        { label: '用 by', items: ['by bus', 'by train', 'by car', 'by bike'] },
+        { label: '例外', items: ['on foot'] }] },
+      check: {
+        q: '「走路去」的正確說法是什麼？',
+        options: ['on foot', 'by foot', 'with foot', 'in foot'],
+        answer: 0,
+        why: [
+          null,
+          '這是常見的錯誤，正確用法是 on foot。',
+          'with 不用於交通方式。',
+          'in 不用於這個片語。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 完整的問路對話',
+      body: 'A: Excuse me, how can I get to the library?\n' +
+            'B: Go straight for two blocks and turn left. It is on your right.\n' +
+            'A: How long does it take?　B: About five minutes on foot.\n' +
+            'A: Thank you very much!　B: You are welcome.\n' +
+            '⚠ How long does it take? 是問「要花多久時間」。',
+      viz: { type: 'energyflow', steps: ['Excuse me 開場', '說出目的地', '聽指示', '道謝'] },
+      check: {
+        q: '要問「要花多久時間？」應該怎麼說？',
+        options: [
+          'How long does it take?',
+          'How far is it take?',
+          'How much time take?',
+          'How long is it takes?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句子的結構不正確。',
+          '句子缺少必要的助動詞與主詞。',
+          '一個句子不能有兩個動詞變化。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四下|第3單元 食物與飲食習慣'] = {
+  intro: '吃什麼、怎麼吃、喜歡什麼口味——飲食是最容易聊起來的話題。',
+  cards: [
+    {
+      title: '① 三餐與食物',
+      body: 'breakfast（早餐）、lunch（午餐）、dinner（晚餐）、snack（點心）。\n' +
+            '⚠ 三餐前面通常不加冠詞：have breakfast（吃早餐），\n' +
+            '不說 have a breakfast。',
+      viz: { type: 'sentence', label: '吃三餐', items: [
+        { t: 'I', r: '主詞' }, { t: 'have', r: '動詞' }, { t: 'breakfast', r: '受詞（不加冠詞）' },
+        { t: 'at seven', r: '時間' }],
+        note: '三餐名稱前面通常不加冠詞。' },
+      check: {
+        q: '「我七點吃早餐」的正確說法是什麼？',
+        options: [
+          'I have breakfast at seven.',
+          'I have a breakfast at seven.',
+          'I eat the breakfast at seven.',
+          'I am have breakfast at seven.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '三餐前面通常不加冠詞。',
+          '這裡也不需要加 the。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '② 可數與不可數',
+      body: '可數：an apple、two eggs、three sandwiches。\n' +
+            '不可數：rice、bread、water、milk、soup、meat。\n' +
+            '⚠ 不可數名詞要用容器或單位來計量：\n' +
+            'a bowl of rice、a piece of bread、a glass of water。',
+      viz: { type: 'classify', groups: [
+        { label: '可數', items: ['apple', 'egg', 'sandwich', 'cookie'] },
+        { label: '不可數', items: ['rice', 'bread', 'water', 'meat'] },
+        { label: '計量單位', items: ['a bowl of', 'a piece of', 'a glass of', 'a cup of'] }] },
+      check: {
+        q: '「兩碗飯」的正確說法是什麼？',
+        options: [
+          'two bowls of rice',
+          'two rices',
+          'two rice',
+          'two bowl of rices'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不可數名詞沒有複數形。',
+          '不可數名詞不能直接用數字修飾。',
+          'bowl 要用複數，rice 則不加 s。'
+        ]
+      }
+    },
+    {
+      title: '③ 表達飲食喜好',
+      body: 'I like noodles.（我喜歡麵。）\n' +
+            'I do not like carrots.（我不喜歡紅蘿蔔。）\n' +
+            'My favorite food is dumplings.（我最喜歡的食物是水餃。）\n' +
+            '⚠ 表達喜歡「某一類」食物時，可數名詞用複數。',
+      viz: { type: 'sentence', label: '最愛的食物', items: [
+        { t: 'My favorite food', r: '主詞' }, { t: 'is', r: 'be 動詞' },
+        { t: 'dumplings', r: '補語' }],
+        note: '這個句型用來說明最喜歡的東西。' },
+      check: {
+        q: '要說「我最喜歡的食物是水餃」，正確的說法是什麼？',
+        options: [
+          'My favorite food is dumplings.',
+          'My favorite food are dumplings.',
+          'I favorite dumplings.',
+          'My favorite is food dumplings.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主詞 food 是單數，用 is。',
+          'favorite 是形容詞，不能當動詞。',
+          '這個語序不通順。'
+        ]
+      }
+    },
+    {
+      title: '④ 口味與描述',
+      body: 'sweet（甜）、salty（鹹）、sour（酸）、spicy（辣）、bitter（苦）。\n' +
+            'delicious（美味的）、fresh（新鮮的）、healthy（健康的）。\n' +
+            '⚠ 說「太辣」用 too spicy；說「有點辣」用 a little spicy。',
+      viz: { type: 'classify', groups: [
+        { label: '味道', items: ['sweet', 'salty', 'sour', 'spicy', 'bitter'] },
+        { label: '評價', items: ['delicious', 'fresh', 'healthy'] }] },
+      check: {
+        q: '「這道菜有點辣」的正確說法是什麼？',
+        options: [
+          'This dish is a little spicy.',
+          'This dish is too spicy a little.',
+          'This dish little spicy.',
+          'This dish is spicy little.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'too 與 a little 的語氣互相矛盾。',
+          '句子缺少 be 動詞。',
+          '程度副詞要放在形容詞前面。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 健康的飲食',
+      body: 'eat more vegetables（多吃蔬菜）、drink enough water（喝足夠的水）、\n' +
+            'less junk food（少吃垃圾食物）、have a balanced diet（均衡飲食）。\n' +
+            '⚠ more／less 用來比較：more vegetables、less sugar。',
+      viz: { type: 'classify', groups: [
+        { label: '多吃', items: ['vegetables', 'fruit', 'water'] },
+        { label: '少吃', items: ['junk food', 'sugar', 'fried food'] }] },
+      check: {
+        q: '「多吃蔬菜」的正確說法是什麼？',
+        options: [
+          'Eat more vegetables.',
+          'Eat many vegetable.',
+          'Eat vegetables more much.',
+          'More eat vegetables.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '名詞要用複數，而且 many 在此不自然。',
+          '這個語序不正確。',
+          '祈使句要以動詞開頭。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 談論飲食習慣',
+      body: 'A: What do you usually have for breakfast?\n' +
+            'B: I usually have bread and milk. How about you?\n' +
+            'A: I have rice and eggs. I do not like bread.\n' +
+            '⚠ for breakfast（當早餐）是固定用法。',
+      viz: { type: 'sentence', label: '問習慣', items: [
+        { t: 'What', r: '疑問詞' }, { t: 'do you usually have', r: '助動詞＋主詞＋副詞＋動詞' },
+        { t: 'for breakfast', r: '固定片語' }],
+        note: 'for breakfast 表示「當作早餐」。' },
+      check: {
+        q: '「當早餐」的正確說法是什麼？',
+        options: ['for breakfast', 'to breakfast', 'in breakfast', 'at breakfast time only'],
+        answer: 0,
+        why: [
+          null,
+          'to 不用於這個片語。',
+          'in 不用於三餐。',
+          '這個說法過於冗長也不自然。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四下|第4單元 運動與休閒'] = {
+  intro: '運動的英文特別實用——因為全世界都在玩同樣的球。',
+  cards: [
+    {
+      title: '① 常見運動',
+      body: 'basketball（籃球）、baseball（棒球）、soccer（足球）、\n' +
+            'volleyball（排球）、tennis（網球）、badminton（羽球）、\n' +
+            'swimming（游泳）、running（跑步）。\n' +
+            '⚠ 球類前面不加 the：play basketball。',
+      viz: { type: 'classify', groups: [
+        { label: '球類（用 play）', items: ['basketball', 'baseball', 'soccer', 'tennis'] },
+        { label: '非球類（用 go）', items: ['swimming', 'running', 'hiking'] }] },
+      check: {
+        q: '「打籃球」的正確說法是什麼？',
+        options: [
+          'play basketball',
+          'play the basketball',
+          'go basketball',
+          'do basketball'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '球類前面不加 the。',
+          'go 用於 -ing 形的活動，例如 go swimming。',
+          'do 不用於球類運動。'
+        ]
+      }
+    },
+    {
+      title: '② play、go、do 的搭配',
+      body: 'play ＋ 球類（play soccer）。\n' +
+            'go ＋ 動詞-ing（go swimming、go running、go shopping）。\n' +
+            'do ＋ 某些運動（do yoga、do exercise）。\n' +
+            '⚠ 這是固定搭配，要整組記起來。',
+      viz: { type: 'classify', groups: [
+        { label: 'play', items: ['play soccer', 'play tennis', 'play the piano'] },
+        { label: 'go', items: ['go swimming', 'go hiking', 'go shopping'] },
+        { label: 'do', items: ['do yoga', 'do exercise'] }] },
+      check: {
+        q: '「去游泳」的正確說法是什麼？',
+        options: [
+          'go swimming',
+          'play swimming',
+          'do swimming',
+          'go swim'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'play 用於球類。',
+          'do 通常用於瑜伽或運動這類名詞。',
+          'go 後面要接動詞-ing 形。'
+        ]
+      }
+    },
+    {
+      title: '③ 談論運動習慣',
+      body: 'I play basketball twice a week.（我一週打兩次籃球。）\n' +
+            'How often do you exercise?（你多常運動？）\n' +
+            'I go swimming every Sunday.\n' +
+            '⚠ 頻率的說法：once／twice／three times ＋ a week／a month。',
+      viz: { type: 'sentence', label: '運動頻率', items: [
+        { t: 'I play basketball', r: '主要內容' }, { t: 'twice a week', r: '頻率' }],
+        note: '頻率片語通常放在句尾。' },
+      check: {
+        q: '「一個月三次」的正確說法是什麼？',
+        options: [
+          'three times a month',
+          'three time a month',
+          'thrice month',
+          'three a month times'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'time 要用複數 times。',
+          '這個說法在現代英文中很少使用。',
+          '語序不正確，次數要放在前面。'
+        ]
+      }
+    },
+    {
+      title: '④ 休閒活動',
+      body: 'watch TV（看電視）、read books（看書）、listen to music（聽音樂）、\n' +
+            'play video games（打電動）、go to the movies（看電影）、\n' +
+            'take a walk（散步）、chat with friends（和朋友聊天）。\n' +
+            '⚠ listen 後面要加 to：listen to music（不能省略）。',
+      viz: { type: 'classify', groups: [
+        { label: '室內', items: ['watch TV', 'read books', 'play video games'] },
+        { label: '室外', items: ['take a walk', 'go to the movies', 'go hiking'] }] },
+      check: {
+        q: '「聽音樂」的正確說法是什麼？',
+        options: [
+          'listen to music',
+          'listen music',
+          'hear to music',
+          'listen the music'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'listen 後面一定要加 to。',
+          'hear 是聽見，語意不同也不加 to。',
+          'listen 後面要用 to 而不是 the。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 邀約與回應',
+      body: 'Do you want to play basketball?（你想打籃球嗎？）\n' +
+            'Let’s go swimming!（我們去游泳吧！）\n' +
+            '回應：Sure!／Sounds good!／Sorry, I can’t.\n' +
+            '⚠ Let’s 是 Let us 的縮寫，後面接原形動詞。',
+      viz: { type: 'sentence', label: '提議', items: [
+        { t: 'Let’s', r: '提議' }, { t: 'go', r: '原形動詞' }, { t: 'swimming', r: '活動' }],
+        note: 'Let’s 後面要接原形動詞。' },
+      check: {
+        q: '「我們去打棒球吧」的正確說法是什麼？',
+        options: [
+          'Let’s play baseball.',
+          'Let’s to play baseball.',
+          'Let’s playing baseball.',
+          'Let’s plays baseball.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'Let’s 後面不加 to。',
+          'Let’s 後面要用原形動詞。',
+          '原形動詞不加 s。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 運動的好處',
+      body: 'Exercise is good for your health.（運動對健康有益。）\n' +
+            'It helps you sleep better.（它幫助你睡得更好。）\n' +
+            '⚠ be good for（對…有益）是固定用法；\n' +
+            'help 後面可以直接接原形動詞。',
+      viz: { type: 'sentence', label: '說好處', items: [
+        { t: 'Exercise', r: '主詞' }, { t: 'is good for', r: '固定片語' },
+        { t: 'your health', r: '受詞' }],
+        note: 'be good for 表示對某事有益。' },
+      check: {
+        q: '「運動對健康有益」的正確說法是什麼？',
+        options: [
+          'Exercise is good for your health.',
+          'Exercise is good to your health.',
+          'Exercise good for health.',
+          'Exercise is well for your health.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '固定用法是 good for 而不是 good to。',
+          '句子缺少 be 動詞。',
+          'well 是副詞，這裡要用形容詞 good。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四下|第5單元 服裝與外表描述'] = {
+  intro: '描述一個人長什麼樣、穿什麼衣服——這在找人、購物時都用得上。',
+  cards: [
+    {
+      title: '① 服裝單字',
+      body: 'shirt、T-shirt、sweater（毛衣）、jacket（夾克）、coat（大衣）、\n' +
+            'pants（長褲）、shorts（短褲）、skirt（裙子）、dress（洋裝）、\n' +
+            'shoes、socks、hat、cap（鴨舌帽）。\n' +
+            '⚠ 成雙的衣物用複數：pants、shorts、shoes、socks。',
+      viz: { type: 'classify', groups: [
+        { label: '上半身', items: ['shirt', 'sweater', 'jacket', 'coat'] },
+        { label: '下半身', items: ['pants', 'shorts', 'skirt'] },
+        { label: '配件', items: ['shoes', 'socks', 'hat', 'glasses'] }] },
+      check: {
+        q: '下列哪一個單字在英文中習慣用複數形？',
+        options: ['pants', 'shirt', 'skirt', 'coat'],
+        answer: 0,
+        why: [
+          null,
+          'shirt 是單數可數名詞。',
+          'skirt 也是單數形。',
+          'coat 同樣是單數形。'
+        ]
+      }
+    },
+    {
+      title: '② 描述外表',
+      body: 'tall（高）／short（矮）、big／small、young（年輕）／old（年長）、\n' +
+            'long hair（長髮）／short hair（短髮）、\n' +
+            'He has brown eyes.（他有棕色的眼睛。）\n' +
+            '⚠ 描述五官與髮型常用 have／has。',
+      viz: { type: 'sentence', label: '描述外表', items: [
+        { t: 'She', r: '主詞' }, { t: 'has', r: '動詞' }, { t: 'long hair', r: '受詞' }],
+        note: '描述特徵時常用 have 或 has。' },
+      check: {
+        q: '「她有長頭髮」的正確說法是什麼？',
+        options: [
+          'She has long hair.',
+          'She have long hair.',
+          'She is long hair.',
+          'She has long hairs.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '第三人稱單數要用 has。',
+          '這裡要用 have 而不是 be 動詞。',
+          'hair 在指整頭頭髮時是不可數名詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 穿著的說法',
+      body: 'He is wearing a blue shirt.（他穿著藍色襯衫。）\n' +
+            'She has on a red dress.（她穿著紅色洋裝。）\n' +
+            '⚠ wear 表示「穿著的狀態」，常用進行式來描述此刻的穿著。\n' +
+            'put on 則是「穿上」的動作。',
+      viz: { type: 'sentence', label: '描述穿著', items: [
+        { t: 'He', r: '主詞' }, { t: 'is wearing', r: '進行式' },
+        { t: 'a blue shirt', r: '受詞' }],
+        note: '描述此刻的穿著常用現在進行式。' },
+      check: {
+        q: '要描述某人「現在穿著什麼」，最常用的說法是什麼？',
+        options: [
+          'He is wearing…',
+          'He wears… only',
+          'He puts on…',
+          'He is put on…'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '一般式表示習慣而非此刻。',
+          'put on 是穿上的動作。',
+          '這個句子的動詞形式不正確。'
+        ]
+      }
+    },
+    {
+      title: '④ 尺寸與顏色',
+      body: 'Do you have this in a bigger size?（有大一號的嗎？）\n' +
+            'What size do you wear?（你穿幾號？）\n' +
+            'I wear size M.（我穿 M 號。）\n' +
+            '⚠ 形容詞順序：a big red bag（大小在顏色前面）。',
+      viz: { type: 'sentence', label: '形容詞順序', items: [
+        { t: 'a', r: '冠詞' }, { t: 'big', r: '大小' }, { t: 'red', r: '顏色' },
+        { t: 'bag', r: '名詞' }],
+        note: '大小通常放在顏色前面。' },
+      check: {
+        q: '「一個大的紅色書包」的正確順序是什麼？',
+        options: [
+          'a big red bag',
+          'a red big bag',
+          'a bag big red',
+          'big a red bag'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '大小通常放在顏色前面。',
+          '形容詞要放在名詞前面。',
+          '冠詞要放在最前面。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 詢問與稱讚',
+      body: 'You look nice today!（你今天看起來很好看！）\n' +
+            'I like your jacket.（我喜歡你的外套。）\n' +
+            '回應：Thank you.／Thanks!\n' +
+            '⚠ 被稱讚時直接說謝謝就好，不需要否認。',
+      viz: { type: 'sentence', label: '稱讚', items: [
+        { t: 'You', r: '主詞' }, { t: 'look', r: '動詞' }, { t: 'nice', r: '形容詞' },
+        { t: 'today', r: '時間' }],
+        note: 'look 後面直接接形容詞，表示「看起來如何」。' },
+      check: {
+        q: '別人稱讚你 You look nice today! 時，最恰當的回應是什麼？',
+        options: [
+          'Thank you!',
+          'No, I do not.',
+          'You are wrong.',
+          'Why do you say that?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '英語文化中通常直接道謝而非否認。',
+          '這個回應顯得不友善。',
+          '這個回應會讓對方尷尬。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 找人的描述',
+      body: 'My brother is tall and thin. He has short black hair.\n' +
+            'He is wearing a blue jacket and jeans.\n' +
+            '⚠ 描述一個人的順序：身材 → 五官髮型 → 穿著。\n' +
+            '這樣別人才容易在人群中找到他。',
+      viz: { type: 'energyflow', steps: ['身高體型', '髮型五官', '今天的穿著', '其他特徵'] },
+      check: {
+        q: '要讓別人在人群中認出某個人，描述時最好包含什麼？',
+        options: [
+          '身材、髮型與今天的穿著等具體特徵',
+          '只說他的名字',
+          '只說他的個性',
+          '只說他的年齡'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '名字無法幫助辨認外觀。',
+          '個性從外觀上看不出來，無法幫助辨認。',
+          '年齡只是其中一項資訊。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四下|第6單元 電話與邀約用語'] = {
+  intro: '講電話看不到對方的表情，所以固定用語特別重要。',
+  cards: [
+    {
+      title: '① 接電話',
+      body: 'Hello, this is Amy.（喂，我是 Amy。）\n' +
+            'May I speak to Ben?（請問 Ben 在嗎？）\n' +
+            '⚠ 電話中介紹自己用 this is（不是 I am）；\n' +
+            '問對方是誰用 Who is this?（不是 Who are you?）',
+      viz: { type: 'sentence', label: '電話用語', items: [
+        { t: 'This', r: '主詞（電話專用）' }, { t: 'is', r: 'be 動詞' },
+        { t: 'Amy', r: '名字' }],
+        note: '電話中自我介紹固定用 This is。' },
+      check: {
+        q: '在電話中要說「我是 Amy」，正確的說法是什麼？',
+        options: [
+          'This is Amy.',
+          'I am Amy speaking now here.',
+          'Here is Amy.',
+          'It is me Amy.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個說法冗長且不自然。',
+          '這不是電話中的慣用說法。',
+          '這個說法不符合電話禮儀的慣例。'
+        ]
+      }
+    },
+    {
+      title: '② 轉接與留言',
+      body: 'Just a moment, please.（請稍等。）\n' +
+            'He is not here right now.（他現在不在。）\n' +
+            'Can I take a message?（要留言嗎？）\n' +
+            'Can I call you back later?（我可以晚點回電嗎？）\n' +
+            '⚠ call back 是「回電」。',
+      viz: { type: 'classify', groups: [
+        { label: '請對方等', items: ['Just a moment', 'Hold on, please'] },
+        { label: '留言', items: ['Can I take a message?', 'Please tell him to call me.'] }] },
+      check: {
+        q: '對方要找的人不在時，可以說什麼？',
+        options: [
+          'He is not here right now. Can I take a message?',
+          'Goodbye.',
+          'I do not know him.',
+          'Call again.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直接掛電話不禮貌。',
+          '這個回應沒有幫助對方。',
+          '這個說法語氣過於生硬。'
+        ]
+      }
+    },
+    {
+      title: '③ 提出邀約',
+      body: 'Would you like to go to the movies?（你想去看電影嗎？）\n' +
+            'Do you want to play basketball this afternoon?\n' +
+            'How about going to the park?（去公園怎麼樣？）\n' +
+            '⚠ How about 後面接動詞-ing 形。',
+      viz: { type: 'compareexp',
+             factor: '三種邀約說法',
+             a: { label: 'Would you like to…', note: '較禮貌，後面接原形動詞' },
+             b: { label: 'How about…', note: '較口語，後面接動詞-ing' },
+             same: ['都是提出邀請'] },
+      check: {
+        q: '「去公園怎麼樣？」的正確說法是什麼？',
+        options: [
+          'How about going to the park?',
+          'How about to go to the park?',
+          'How about go to the park?',
+          'How about we going park?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'How about 後面不接不定詞。',
+          'How about 後面要接動詞-ing。',
+          '這個句子的結構不完整。'
+        ]
+      }
+    },
+    {
+      title: '④ 接受與婉拒',
+      body: '接受：Sure!／That sounds great!／I would love to.\n' +
+            '婉拒：Sorry, I can’t. I have to study.\n' +
+            'Maybe next time.（下次吧。）\n' +
+            '⚠ 婉拒時說明理由會比較有禮貌。',
+      viz: { type: 'classify', groups: [
+        { label: '接受', items: ['Sure!', 'Sounds great!', 'I would love to.'] },
+        { label: '婉拒', items: ['Sorry, I can’t.', 'Maybe next time.'] }] },
+      check: {
+        q: '要婉拒邀約時，比較有禮貌的做法是什麼？',
+        options: [
+          '說抱歉並簡短說明原因',
+          '直接說不要',
+          '不回應',
+          '假裝沒聽到'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直接拒絕容易顯得不友善。',
+          '不回應會讓對方尷尬。',
+          '忽略對方是不禮貌的。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 約時間與地點',
+      body: 'What time shall we meet?（我們幾點見？）\n' +
+            'Let’s meet at three at the school gate.（三點在校門口見。）\n' +
+            'See you then!（到時候見！）\n' +
+            '⚠ 時間用 at，地點也可以用 at（表示某個定點）。',
+      viz: { type: 'sentence', label: '約定', items: [
+        { t: 'Let’s meet', r: '提議' }, { t: 'at three', r: '時間' },
+        { t: 'at the school gate', r: '地點' }],
+        note: '時間與定點都可以用介系詞 at。' },
+      check: {
+        q: '「三點在校門口見」的正確說法是什麼？',
+        options: [
+          'Let’s meet at three at the school gate.',
+          'Let’s meet in three in the school gate.',
+          'Let’s meet on three on the school gate.',
+          'Let’s to meet at three.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '時間點與定點都用 at。',
+          'on 用於日期或表面。',
+          'Let’s 後面不加 to。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 完整的電話對話',
+      body: 'A: Hello, this is Amy. May I speak to Ben?\n' +
+            'B: This is Ben. What’s up?\n' +
+            'A: Would you like to play basketball this afternoon?\n' +
+            'B: Sure! What time?　A: How about three?　B: OK, see you then!\n' +
+            '⚠ What’s up? 是很口語的「怎麼了？有什麼事？」',
+      viz: { type: 'energyflow', steps: ['自我介紹', '說明來意', '討論細節', '確認並道別'] },
+      check: {
+        q: '打電話給別人時，第一步通常要做什麼？',
+        options: [
+          '先自我介紹並說明要找誰',
+          '直接說出要求',
+          '先問對方在做什麼',
+          '直接掛掉'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '沒有自我介紹會讓對方困惑。',
+          '這樣的開場不夠清楚。',
+          '這樣完全無法溝通。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四下|第7單元 祈使句與指示'] = {
+  intro: '要別人做某件事、或告訴別人怎麼做——用的都是祈使句。',
+  cards: [
+    {
+      title: '① 祈使句的形式',
+      body: '直接用「原形動詞」開頭，主詞 you 省略：\n' +
+            'Open the door.（開門。）　Sit down.（坐下。）　Be quiet.（安靜。）\n' +
+            '⚠ be 動詞的祈使句用 Be（不是 Are）：Be careful!（小心！）',
+      viz: { type: 'sentence', label: '祈使句', items: [
+        { t: '(You)', r: '主詞省略' }, { t: 'Open', r: '原形動詞' },
+        { t: 'the door', r: '受詞' }],
+        note: '祈使句以原形動詞開頭，主詞 you 省略。' },
+      tip: '這個元件把句子拆成一格一格。',
+      check: {
+        q: '「小心！」的正確說法是什麼？',
+        options: [
+          'Be careful!',
+          'Are careful!',
+          'You are careful!',
+          'Being careful!'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '祈使句要用原形 be。',
+          '這是陳述句而不是提醒。',
+          '這個形式不能單獨當句子。'
+        ]
+      }
+    },
+    {
+      title: '② 否定的祈使句',
+      body: '在動詞前面加 Do not（Don’t）：\n' +
+            'Do not run.（不要跑。）　Don’t be late.（不要遲到。）\n' +
+            '⚠ 就算是 be 動詞也要用 Don’t be，不能說 Be not。',
+      viz: { type: 'sentence', label: '否定祈使句', items: [
+        { t: 'Do not', r: '否定' }, { t: 'run', r: '原形動詞' },
+        { t: 'in the hallway', r: '地點' }],
+        note: '否定祈使句在動詞前加 Do not。' },
+      check: {
+        q: '「不要遲到」的正確說法是什麼？',
+        options: [
+          'Don’t be late.',
+          'Be not late.',
+          'Not be late.',
+          'Don’t are late.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '否定要用 Don’t 開頭。',
+          '這個句子缺少必要的助動詞。',
+          'Don’t 後面要接原形 be。'
+        ]
+      }
+    },
+    {
+      title: '③ 讓語氣更客氣',
+      body: '加 please：Please sit down.／Sit down, please.\n' +
+            '用問句：Could you open the window?（可以請你開窗嗎？）\n' +
+            '⚠ 直接的祈使句對長輩或不熟的人可能顯得強硬，\n' +
+            '加上 please 或改用問句會禮貌得多。',
+      viz: { type: 'compareexp',
+             factor: '語氣的差別',
+             a: { label: '祈使句', note: 'Open the window. 直接、適合熟人或緊急情況' },
+             b: { label: '問句', note: 'Could you open the window? 較客氣' },
+             same: ['都是請對方做某事'] },
+      check: {
+        q: '要請不熟的人幫忙開窗，比較恰當的說法是什麼？',
+        options: [
+          'Could you open the window, please?',
+          'Open the window!',
+          'You open the window.',
+          'Window!'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直接命令對不熟的人不禮貌。',
+          '這個說法像在指使人。',
+          '只說名詞無法完整表達請求。'
+        ]
+      }
+    },
+    {
+      title: '④ 常見的指示與標語',
+      body: 'Turn left.（左轉）　Push／Pull（推／拉）　\n' +
+            'Keep quiet.（保持安靜）　No smoking.（禁止吸菸）\n' +
+            'Do not touch.（請勿觸摸）　Watch your step.（小心台階）\n' +
+            '⚠ 標語常用 No ＋ 動名詞：No parking、No swimming。',
+      viz: { type: 'classify', groups: [
+        { label: '要做', items: ['Keep quiet', 'Watch your step', 'Line up'] },
+        { label: '不要做', items: ['No smoking', 'Do not touch', 'No parking'] }] },
+      check: {
+        q: '「禁止停車」的標語通常怎麼寫？',
+        options: [
+          'No parking',
+          'No park',
+          'Not parking',
+          'Do not park is here'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'No 後面要接動名詞。',
+          '標語慣用 No 而不是 Not。',
+          '這個句子的結構不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 說明步驟',
+      body: '食譜或說明書常用祈使句：\n' +
+            'First, wash the vegetables. Then, cut them into small pieces.\n' +
+            'Next, put them in the pot. Finally, add some salt.\n' +
+            '⚠ 用 First、Then、Next、Finally 標示順序，讀者才好跟著做。',
+      viz: { type: 'energyflow', steps: ['First', 'Then', 'Next', 'Finally'] },
+      check: {
+        q: '寫食譜或操作說明時，為什麼常用祈使句？',
+        options: [
+          '因為要直接告訴讀者該做什麼，簡潔明確',
+          '因為比較有禮貌',
+          '因為文法比較簡單',
+          '因為沒有其他選擇'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '祈使句的重點是清楚而非禮貌。',
+          '簡潔是結果，目的是清楚指示。',
+          '也可以用其他句型，只是祈使句最直接。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 提議：Let’s',
+      body: 'Let’s go!（我們走吧！）　Let’s not talk about it.（我們別談這個。）\n' +
+            '⚠ Let’s 包含說話者自己（let us），\n' +
+            '和一般祈使句（只叫對方做）不同。',
+      viz: { type: 'compareexp',
+             factor: '對象的差別',
+             a: { label: '祈使句', note: 'Go now. 只叫對方做' },
+             b: { label: 'Let’s', note: 'Let’s go. 包含說話者自己' },
+             same: ['都以動詞為核心'] },
+      check: {
+        q: 'Let’s go. 和 Go. 的差別是什麼？',
+        options: [
+          'Let’s go 包含說話者自己，Go 只叫對方做',
+          '兩者完全相同',
+          'Let’s go 比較沒禮貌',
+          'Go 包含說話者'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩者的對象不同。',
+          'Let’s 的語氣其實較為友善。',
+          '單獨的 Go 不包含說話者。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四下|第8單元 連接詞 and / but / or'] = {
+  intro: '連接詞就像句子的膠水——它決定兩件事的關係是「加上」「相反」還是「二選一」。',
+  cards: [
+    {
+      title: '① and：並列',
+      body: '把「方向相同」的兩件事連起來：\n' +
+            'I like apples and bananas.（我喜歡蘋果和香蕉。）\n' +
+            'He is tall and thin.（他又高又瘦。）\n' +
+            '⚠ 連接三個以上時用逗號：A, B, and C。',
+      viz: { type: 'sentence', label: '並列', items: [
+        { t: 'apples', r: '第一項' }, { t: 'and', r: '連接詞' }, { t: 'bananas', r: '第二項' }],
+        note: 'and 用來連接方向相同的兩件事。' },
+      check: {
+        q: '要連接「又高又瘦」這兩個相同方向的形容詞，應該用哪一個連接詞？',
+        options: ['and', 'but', 'or', 'because'],
+        answer: 0,
+        why: [
+          null,
+          'but 用於意思相反的情況。',
+          'or 用於二選一。',
+          'because 用來說明原因。'
+        ]
+      }
+    },
+    {
+      title: '② but：轉折',
+      body: '連接「方向相反」的兩件事：\n' +
+            'I like math, but I do not like tests.\n' +
+            'He is short but strong.（他雖矮但很強壯。）\n' +
+            '⚠ but 前面通常加逗號（連接兩個完整句子時）。',
+      viz: { type: 'sentence', label: '轉折', items: [
+        { t: 'I like math', r: '前半' }, { t: 'but', r: '轉折' },
+        { t: 'I do not like tests', r: '後半' }],
+        note: 'but 連接意思相反的兩個部分。' },
+      check: {
+        q: '「我喜歡英文，但不喜歡考試」應該用哪一個連接詞？',
+        options: ['but', 'and', 'or', 'so'],
+        answer: 0,
+        why: [
+          null,
+          'and 用於相同方向的並列。',
+          'or 用於二選一。',
+          'so 用來表示結果。'
+        ]
+      }
+    },
+    {
+      title: '③ or：選擇',
+      body: '表示「二選一」：\n' +
+            'Do you want tea or coffee?（你要茶還是咖啡？）\n' +
+            'We can go by bus or by train.\n' +
+            '⚠ 否定句中 or 表示「兩者都不」：\n' +
+            'I do not like tea or coffee.（茶和咖啡我都不喜歡。）',
+      viz: { type: 'sentence', label: '選擇', items: [
+        { t: 'tea', r: '選項一' }, { t: 'or', r: '連接詞' }, { t: 'coffee', r: '選項二' }],
+        note: 'or 用來提供選擇。' },
+      check: {
+        q: '「你要茶還是咖啡？」應該用哪一個連接詞？',
+        options: ['or', 'and', 'but', 'because'],
+        answer: 0,
+        why: [
+          null,
+          'and 表示兩者都要。',
+          'but 表示轉折。',
+          'because 用來說明原因。'
+        ]
+      }
+    },
+    {
+      title: '④ so 與 because',
+      body: 'because 說「原因」：I stayed home because it rained.\n' +
+            'so 說「結果」：It rained, so I stayed home.\n' +
+            '⚠ 兩者的前後順序剛好相反，\n' +
+            '而且同一句中不能同時用 because 和 so。',
+      viz: { type: 'compareexp',
+             factor: '因果的兩種說法',
+             a: { label: 'because', note: '後面接原因：…because it rained.' },
+             b: { label: 'so', note: '後面接結果：It rained, so…' },
+             same: ['都表達因果關係'] },
+      check: {
+        q: '「因為下雨，所以我待在家」用英文寫時要注意什麼？',
+        options: [
+          '只能用 because 或 so 其中一個，不能兩個都用',
+          '一定要兩個都用',
+          '兩個字可以互換位置',
+          '不需要連接詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '英文不像中文可以「因為…所以…」並用。',
+          '兩者的位置與功能不同。',
+          '沒有連接詞句子會不完整。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 連接詞與逗號',
+      body: '連接兩個「完整句子」時，通常在連接詞前加逗號：\n' +
+            'I like dogs, but my sister likes cats.\n' +
+            '連接兩個「單字或片語」時不用逗號：\n' +
+            'I like dogs and cats.\n' +
+            '⚠ 這個規則能讓句子更清楚。',
+      viz: { type: 'compareexp',
+             factor: '要不要加逗號',
+             a: { label: '連接完整句子', note: '前面加逗號：…, but…' },
+             b: { label: '連接單字片語', note: '不加逗號：A and B' },
+             same: ['都使用連接詞'] },
+      check: {
+        q: '下列哪一句的標點使用正確？',
+        options: [
+          'I like dogs, but my sister likes cats.',
+          'I like dogs but, my sister likes cats.',
+          'I like, dogs and cats.',
+          'I like dogs and, cats.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '逗號要放在連接詞前面。',
+          '連接單字時不需要逗號。',
+          '逗號的位置不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: '把短句連成長句，文章會更流暢：\n' +
+            '短：I like sports. I do not like swimming.\n' +
+            '長：I like sports, but I do not like swimming.\n' +
+            '⚠ 但也不要一直用 and 串下去——太長反而難懂。',
+      viz: { type: 'energyflow', steps: ['寫出短句', '判斷關係', '選擇連接詞', '合併成長句'] },
+      check: {
+        q: '把兩個短句合併時，第一步應該做什麼？',
+        options: [
+          '判斷兩句的關係是並列、轉折還是選擇',
+          '隨便挑一個連接詞',
+          '把句子縮短',
+          '把兩句都刪掉一半'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '選錯連接詞會讓意思改變。',
+          '合併的目的不是縮短。',
+          '刪減內容會失去原意。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四下|第9單元 短文閱讀理解'] = {
+  intro: '讀短文不是每個字都要懂——是要抓到「它在說什麼」。',
+  cards: [
+    {
+      title: '① 先看標題與圖片',
+      body: '讀文章前先看標題、圖片與問題，心裡先有個底。\n' +
+            '⚠ 這叫「預測」：知道大概在講什麼，讀起來會快很多。\n' +
+            '看到不認識的字先跳過，讀完整段再回頭猜。',
+      viz: { type: 'energyflow', steps: ['看標題與圖', '快速掃過一遍', '再讀細節', '回答問題'] },
+      check: {
+        q: '開始讀一篇英文短文之前，最有效的第一步是什麼？',
+        options: [
+          '先看標題、圖片與題目，預測內容',
+          '先查所有生字',
+          '從最後一段開始讀',
+          '先把全文翻譯成中文'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '先查生字會打斷閱讀的流暢。',
+          '倒著讀會失去脈絡。',
+          '逐字翻譯很花時間也不必要。'
+        ]
+      }
+    },
+    {
+      title: '② 找出主旨',
+      body: '主旨常出現在「第一句」或「最後一句」。\n' +
+            '問自己：這篇文章主要在講誰？在講什麼事？\n' +
+            '⚠ 主旨是「整篇的重點」，不是某一個細節。',
+      viz: { type: 'classify', groups: [
+        { label: '主旨題常問', items: ['What is the passage about?', 'What is the main idea?'] },
+        { label: '細節題常問', items: ['When did it happen?', 'Who is Amy?'] }] },
+      check: {
+        q: '題目問 What is the main idea of the passage? 是在問什麼？',
+        options: [
+          '整篇文章的主旨',
+          '文章的第一個生字',
+          '作者的名字',
+          '文章有幾個字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '單一生字不能代表整篇的主旨。',
+          '作者資訊通常不是主旨題的重點。',
+          '字數與內容無關。'
+        ]
+      }
+    },
+    {
+      title: '③ 找細節',
+      body: '細節題（who、when、where、what）通常可以在文章中「直接找到答案」。\n' +
+            '⚠ 技巧：先看題目的關鍵字，再回文章中找同樣的字，\n' +
+            '答案通常就在附近。',
+      viz: { type: 'energyflow', steps: ['讀題目', '圈出關鍵字', '回文章找', '對照選項'] },
+      check: {
+        q: '回答細節題最有效的方法是什麼？',
+        options: [
+          '找出題目的關鍵字，回文章中定位',
+          '憑印象猜答案',
+          '把全文背下來',
+          '只看第一段'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '憑印象容易記錯細節。',
+          '背誦既費時又沒有必要。',
+          '答案可能出現在任何一段。'
+        ]
+      }
+    },
+    {
+      title: '④ 猜生字',
+      body: '從上下文猜意思：看前後句、看例子、看對比詞（but、however）。\n' +
+            '⚠ 也可以從字的組成猜：un-（不）、-er（人）、-ful（充滿）。\n' +
+            '例：unhappy（不快樂）、teacher（教的人）、helpful（有幫助的）。',
+      viz: { type: 'classify', groups: [
+        { label: '字首', items: ['un-（不）', 're-（再次）', 'pre-（之前）'] },
+        { label: '字尾', items: ['-er（人）', '-ful（充滿）', '-less（沒有）'] }] },
+      check: {
+        q: '看到 unhappy 這個字，可以怎麼猜它的意思？',
+        options: [
+          '從字首 un- 表示否定，推測是「不快樂」',
+          '完全無法猜',
+          '一定要查字典',
+          '猜它是名詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字首與字尾提供了很多線索。',
+          '查字典可以確認，但先猜能加快閱讀。',
+          '從結構可以判斷它是形容詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 推論',
+      body: '有些答案文章沒有直說，要「從線索推出來」。\n' +
+            '例：文章說 Amy took her umbrella and put on her boots.\n' +
+            '→ 可以推論外面在下雨。\n' +
+            '⚠ 推論要有文章的依據，不能憑自己的想像。',
+      viz: { type: 'energyflow', steps: ['找出線索', '合理推論', '回文章驗證', '選出答案'] },
+      check: {
+        q: '做「推論題」時，最重要的原則是什麼？',
+        options: [
+          '推論必須有文章中的線索支持',
+          '憑生活經驗自由聯想',
+          '選最長的選項',
+          '選最特別的選項'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '沒有依據的聯想容易出錯。',
+          '選項長度與正確性無關。',
+          '特別的選項不一定正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 閱讀習慣',
+      body: '每天讀一小段（三到五句）比一次讀很多有效。\n' +
+            '⚠ 讀完後可以做兩件事：\n' +
+            '① 用一句話說出這段在講什麼 ② 記下兩三個有用的字。\n' +
+            '長期累積，閱讀速度與字彙量都會提升。',
+      viz: { type: 'energyflow', steps: ['每天讀一小段', '說出主旨', '記兩三個字', '長期累積'] },
+      check: {
+        q: '培養英文閱讀能力，比較有效的方式是什麼？',
+        options: [
+          '每天讀一小段並整理重點，長期累積',
+          '考前一次讀很多篇',
+          '只背單字不讀文章',
+          '只看中文翻譯'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '臨時大量閱讀效果有限。',
+          '單字要在文章中才學得會用法。',
+          '只看翻譯無法培養閱讀能力。'
+        ]
+      }
+    }
+  ]
+};
