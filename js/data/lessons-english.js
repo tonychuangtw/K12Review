@@ -30665,3 +30665,1361 @@ window.APP_LESSONS['english|十一下|第9單元 說明文與議論文'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|十二上|第1單元 語法綜合診斷（一）'] = {
+  intro: '把最常錯的動詞相關問題一次盤點清楚。',
+  cards: [
+    {
+      title: '① 主詞動詞一致',
+      body: '★ 先找出真正的主詞（核心名詞），再決定動詞：\n' +
+            'The list of items is on the desk.（主詞是 list）\n' +
+            '⚠ 介系詞片語不影響主詞的單複數。',
+      viz: { type: 'energyflow', steps: ['找核心名詞', '去掉修飾片語', '判斷單複數', '決定動詞'] },
+      check: {
+        q: 'The quality of the products ___ improved. 空格要填什麼？',
+        options: ['has', 'have', 'are', 'were'],
+        answer: 0,
+        why: [
+          null,
+          '核心名詞是單數的 quality。',
+          '這裡需要完成式的助動詞。',
+          '核心名詞是單數，也不需要被動。'
+        ]
+      }
+    },
+    {
+      title: '② 特殊主詞的一致',
+      body: 'each、every、either、neither ＋ 單數動詞\n' +
+            'a number of ＋ 複數動詞／the number of ＋ 單數動詞\n' +
+            '不可數名詞當主詞 → 單數動詞\n' +
+            '⚠ a number of 與 the number of 剛好相反。',
+      viz: { type: 'compareexp',
+             factor: '冠詞的差別',
+             a: { label: 'a number of', note: '許多，接複數動詞' },
+             b: { label: 'the number of', note: '數量，接單數動詞' },
+             same: ['字面很像'] },
+      check: {
+        q: 'A number of students ___ absent today. 空格要填什麼？',
+        options: ['are', 'is', 'was', 'has been'],
+        answer: 0,
+        why: [
+          null,
+          'a number of 後面接複數動詞。',
+          '句子講的是今天的狀況，也需要複數。',
+          '這裡不需要完成式。'
+        ]
+      }
+    },
+    {
+      title: '③ 時態的一致',
+      body: '主要子句用過去式 → 附屬子句通常也用過去式\n' +
+            'He said that he was busy.\n' +
+            '⚠ 例外：恆真的事實可以保持現在式：\n' +
+            'The teacher said that water boils at 100 degrees.',
+      viz: { type: 'compareexp',
+             factor: '子句的內容',
+             a: { label: '一般事件', note: '跟著往前推：was busy' },
+             b: { label: '恆真事實', note: '可保持現在式：boils' },
+             same: ['主句都是過去式'] },
+      check: {
+        q: 'Our teacher told us that the earth ___ around the sun. 空格填什麼最合適？',
+        options: ['moves', 'moved', 'will move', 'had moved'],
+        answer: 0,
+        why: [
+          null,
+          '恆真的科學事實可以維持現在式。',
+          '這是既存的事實，不用未來式。',
+          '這裡不需要過去完成式。'
+        ]
+      }
+    },
+    {
+      title: '④ 動詞後面接什麼',
+      body: '接不定詞：want、hope、decide、plan、agree\n' +
+            '接動名詞：enjoy、finish、avoid、suggest、consider\n' +
+            '兩者皆可但意思不同：stop、remember、forget、try\n' +
+            '⚠ 這是選擇題的高頻考點。',
+      viz: { type: 'classify', groups: [
+        { label: '接不定詞', items: ['want', 'hope', 'decide', 'agree'] },
+        { label: '接動名詞', items: ['enjoy', 'finish', 'avoid', 'suggest'] },
+        { label: '意思會變', items: ['stop', 'remember', 'forget', 'try'] }] },
+      check: {
+        q: 'He avoided ___ the question. 空格要填什麼？',
+        options: ['answering', 'to answer', 'answer', 'answered'],
+        answer: 0,
+        why: [
+          null,
+          'avoid 後面只接動名詞。',
+          'avoid 後面不接原形動詞。',
+          'avoid 後面不接過去式。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 助動詞的規則',
+      body: '① 助動詞後面用原形動詞\n' +
+            '② 助動詞不隨主詞變化\n' +
+            '③ 兩個助動詞不能連用（will can ✗）\n' +
+            '④ 有助動詞時不再用 do／does\n' +
+            '⚠ 這四條規則能解掉大多數助動詞題目。',
+      viz: { type: 'energyflow', steps: ['確認有沒有助動詞', '後面用原形動詞', '不重複助動詞', '不再加 do'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'She will be able to join us.',
+          'She will can join us.',
+          'She wills join us.',
+          'She does can join us.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩個助動詞不能連用。',
+          '助動詞不隨主詞加 s。',
+          '有助動詞時不再用 does。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 主動與被動',
+      body: '判斷步驟：主詞是「做動作」還是「被動作影響」？\n' +
+            '★ 被動 ＝ be ＋ p.p.，時態由 be 動詞決定。\n' +
+            '⚠ 不及物動詞（happen、arrive）不能用被動。',
+      viz: { type: 'energyflow', steps: ['看主詞的角色', '主動就用一般時態', '被動就用 be 加過去分詞', '檢查動詞能不能被動'] },
+      check: {
+        q: 'The problem ___ by the team last week. 空格要填什麼？',
+        options: ['was solved', 'solved', 'was solving', 'has solved'],
+        answer: 0,
+        why: [
+          null,
+          '問題是被解決的，要用被動。',
+          '進行式與被動的語意不符。',
+          '這個形式是主動，語意不對。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十二上|第2單元 語法綜合診斷（二）'] = {
+  intro: '第二輪盤點：名詞、修飾語與句子結構。',
+  cards: [
+    {
+      title: '① 冠詞的三個問題',
+      body: '① 這個名詞可數嗎\n' +
+            '② 是單數還是複數\n' +
+            '③ 是特定還是泛指\n' +
+            '⚠ 中文母語者最常犯的是「單數可數名詞前面什麼都沒有」。',
+      viz: { type: 'energyflow', steps: ['可數嗎', '單數還是複數', '特定還是泛指', '選 a／the／零冠詞'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'She is a doctor at a local hospital.',
+          'She is doctor at local hospital.',
+          'She is the doctor at a local hospitals.',
+          'She is a doctors at local hospital.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '單數可數名詞前面需要冠詞。',
+          '複數名詞前面不加 a。',
+          '冠詞 a 後面要接單數名詞。'
+        ]
+      }
+    },
+    {
+      title: '② 修飾語的位置',
+      body: '★ 修飾語要緊靠被修飾的字：\n' +
+            '✗ He only eats vegetables.（只吃，不做別的事？）\n' +
+            '✓ He eats only vegetables.（只吃蔬菜）\n' +
+            '⚠ only、almost、even 的位置會改變句意。',
+      viz: { type: 'compareexp',
+             factor: 'only 的位置',
+             a: { label: 'only eats', note: '只做吃這件事' },
+             b: { label: 'eats only vegetables', note: '只吃蔬菜這一類' },
+             same: ['字完全相同'] },
+      check: {
+        q: '「他只讀了三頁」的正確說法是什麼？',
+        options: [
+          'He read only three pages.',
+          'He only read three pages books.',
+          'Only he read three pages.',
+          'He read three only pages.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句子多了不必要的字。',
+          '這樣寫變成「只有他讀了」。',
+          'only 的位置不自然。'
+        ]
+      }
+    },
+    {
+      title: '③ 懸垂修飾語',
+      body: '✗ Running to catch the bus, my bag fell.（包包在跑？）\n' +
+            '✓ Running to catch the bus, I dropped my bag.\n' +
+            '⚠ 分詞或片語的動作要由主句的主詞執行。',
+      viz: { type: 'energyflow', steps: ['找出分詞片語', '問誰在做這個動作', '檢查主句主詞', '不一致就改寫'] },
+      check: {
+        q: '下列哪一句有懸垂修飾語的問題？',
+        options: [
+          'After finishing the exam, the room was empty.',
+          'After finishing the exam, I left the room.',
+          'After the exam finished, the room was empty.',
+          'When we finished the exam, the room was empty.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '分詞的動作由 I 執行，正確。',
+          '這句有完整的子句與主詞。',
+          '這句有完整的子句與主詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 平行結構',
+      body: '連接詞兩邊的成分形式要一致：\n' +
+            '✓ reading, writing, and speaking\n' +
+            '✗ reading, writing, and to speak\n' +
+            '⚠ not only…but also 的兩邊也要對稱。',
+      viz: { type: 'sentence', label: '形式一致', items: [
+        { t: 'reading', r: '動名詞' }, { t: 'writing', r: '動名詞' },
+        { t: 'speaking', r: '動名詞' }],
+        note: '並列的成分形式要相同。' },
+      check: {
+        q: '下列哪一句符合平行結構？',
+        options: [
+          'The job requires patience, creativity, and dedication.',
+          'The job requires patience, creativity, and to be dedicated.',
+          'The job requires patience, being creative, and dedication.',
+          'The job requires to be patient, creativity, and dedication.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '第三個成分變成不定詞，形式不一致。',
+          '第二個成分是動名詞片語，形式不一致。',
+          '第一個成分是不定詞，形式不一致。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 句子片段與逗號拼接',
+      body: '句子片段：✗ Because he was late.（沒有主句）\n' +
+            '逗號拼接：✗ It was late, we left.\n' +
+            '⚠ 每個句子都要有主詞、動詞，而且能獨立存在。',
+      viz: { type: 'compareexp',
+             factor: '兩種錯誤',
+             a: { label: '句子片段', note: '缺少主要子句' },
+             b: { label: '逗號拼接', note: '兩個完整句子只用逗號連接' },
+             same: ['都是句子邊界的問題'] },
+      check: {
+        q: 'Although the weather was bad. 這句話的問題是什麼？',
+        options: [
+          '這是句子片段，缺少主要子句',
+          '時態錯誤',
+          '主詞動詞不一致',
+          '拼字錯誤'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句中的時態沒有問題。',
+          '主詞與動詞是一致的。',
+          '句中沒有拼字錯誤。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 代名詞的指涉',
+      body: '① 代名詞要有明確的先行詞\n' +
+            '② 單複數與性別要一致\n' +
+            '✗ Every student should bring their book.（正式寫作有爭議）\n' +
+            '✓ All students should bring their books.\n' +
+            '⚠ 指涉不清是閱讀障礙的主要來源。',
+      viz: { type: 'energyflow', steps: ['找出代名詞', '確認先行詞', '檢查單複數一致', '確認語意清楚'] },
+      check: {
+        q: 'Tom told Jerry that he had passed. 這句話的問題是什麼？',
+        options: [
+          'he 指的是誰不清楚',
+          '時態錯誤',
+          '缺少動詞',
+          '拼字錯誤'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句中的時態搭配正確。',
+          '句中有 told 與 had passed。',
+          '句中沒有拼字錯誤。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十二上|第3單元 文意選填'] = {
+  intro: '從選項中挑出最適合空格的字，考的是語意加文法。',
+  cards: [
+    {
+      title: '① 先判斷詞性',
+      body: '★ 看空格前後就能縮小範圍：\n' +
+            '冠詞或形容詞後面 → 名詞\n' +
+            '主詞後面 → 動詞\n' +
+            '介系詞後面 → 名詞或動名詞\n' +
+            '⚠ 詞性一判斷，選項通常先刪掉一半。',
+      viz: { type: 'energyflow', steps: ['看空格前後', '判斷詞性', '刪去詞性不合的選項', '再比語意'] },
+      check: {
+        q: '文意選填時，最有效率的第一步是什麼？',
+        options: [
+          '判斷空格需要什麼詞性',
+          '把選項全部翻成中文',
+          '從第一個選項開始試',
+          '直接猜'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '翻成中文無法解決文法搭配的問題。',
+          '逐一硬試很花時間。',
+          '猜測的正確率很低。'
+        ]
+      }
+    },
+    {
+      title: '② 再看語意與邏輯',
+      body: '★ 讀空格所在的整句與前後句：\n' +
+            '有 however → 前後語意相反\n' +
+            '有 therefore → 前後是因果\n' +
+            '⚠ 文意選填的核心是「上下文的邏輯」。',
+      viz: { type: 'classify', groups: [
+        { label: '轉折的訊號', items: ['however', 'yet', 'in contrast'] },
+        { label: '因果的訊號', items: ['therefore', 'thus', 'as a result'] },
+        { label: '並列的訊號', items: ['moreover', 'also', 'in addition'] }] },
+      check: {
+        q: '空格前面是 However，代表空格所在的句子和前一句是什麼關係？',
+        options: [
+          '語意相反或有轉折',
+          '完全相同',
+          '因果關係',
+          '沒有關係'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'however 表示前後不同。',
+          '因果關係會用 therefore。',
+          '轉折詞正說明了兩句有關係。'
+        ]
+      }
+    },
+    {
+      title: '③ 注意搭配詞',
+      body: '空格常考固定搭配：\n' +
+            'depend ___ → on　　be interested ___ → in\n' +
+            'make a ___ → decision／difference\n' +
+            '⚠ 看到動詞或形容詞的空格，先想有沒有固定搭配。',
+      viz: { type: 'classify', groups: [
+        { label: '常考搭配', items: ['depend on', 'result in', 'account for', 'lead to'] }] },
+      check: {
+        q: 'The success of the plan depends ___ everyone’s cooperation. 空格要填什麼？',
+        options: ['on', 'in', 'of', 'at'],
+        answer: 0,
+        why: [
+          null,
+          'depend 不搭配 in。',
+          'depend 不搭配 of。',
+          'depend 不搭配 at。'
+        ]
+      }
+    },
+    {
+      title: '④ 注意單複數與時態',
+      body: '★ 選好字之後還要檢查形式：\n' +
+            '主詞是複數 → 動詞不加 s\n' +
+            '句中有 yesterday → 用過去式\n' +
+            '⚠ 選對字但形式錯，一樣不得分。',
+      viz: { type: 'energyflow', steps: ['選出正確的字', '檢查單複數', '檢查時態', '代回句中確認'] },
+      check: {
+        q: '選出正確的字之後，還必須檢查什麼？',
+        options: [
+          '這個字的形式（時態、單複數）是否正確',
+          '這個字有幾個字母',
+          '這個字的發音',
+          '這個字在字典的第幾頁'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字母數量與正確性無關。',
+          '文意選填不考發音。',
+          '字典頁碼與作答無關。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 先填有把握的',
+      body: '★ 策略：先填確定的空格，再回頭處理難的。\n' +
+            '⚠ 選項用掉一個就少一個，\n' +
+            '確定的填完之後，剩下的選項自然縮小範圍。',
+      viz: { type: 'energyflow', steps: ['掃過全部空格', '先填有把握的', '刪去已用的選項', '回頭處理難的'] },
+      check: {
+        q: '文意選填為什麼建議先填有把握的空格？',
+        options: [
+          '用掉的選項可以排除，剩下的範圍就變小',
+          '因為前面的空格比較重要',
+          '因為時間不夠',
+          '因為題目要求按順序'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '空格沒有重要性的差別。',
+          '這個策略的重點是提高正確率。',
+          '題目沒有規定作答順序。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 最後通讀檢查',
+      body: '★ 全部填完後，把整段從頭讀一遍。\n' +
+            '⚠ 語感是最後一道防線：\n' +
+            '讀起來卡卡的地方，通常就是填錯的地方。',
+      viz: { type: 'energyflow', steps: ['全部填完', '從頭通讀', '找出讀起來卡的地方', '重新檢視那一格'] },
+      check: {
+        q: '填完所有空格後，最後應該做什麼？',
+        options: [
+          '把整段通讀一遍，確認語意通順',
+          '立刻交卷',
+          '把答案抄兩遍',
+          '重新翻譯成中文'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不檢查容易漏掉明顯的錯誤。',
+          '重複抄寫不能檢查正確性。',
+          '翻成中文不一定能發現搭配錯誤。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十二上|第4單元 篇章結構'] = {
+  intro: '把抽掉的句子放回正確的位置，考的是文章的邏輯。',
+  cards: [
+    {
+      title: '① 這種題型在考什麼',
+      body: '文章中挖掉幾個句子，要你放回正確的空格。\n' +
+            '★ 考的是「句子之間的銜接與邏輯」，\n' +
+            '不是單一句子的文法。\n' +
+            '⚠ 一定要看空格的前一句與後一句。',
+      viz: { type: 'energyflow', steps: ['讀空格前一句', '讀空格後一句', '判斷需要什麼樣的句子', '從選項中找'] },
+      check: {
+        q: '做篇章結構題時，最關鍵的是看哪裡？',
+        options: [
+          '空格前後兩句的邏輯關係',
+          '文章的標題',
+          '選項的長度',
+          '文章的總字數'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '標題只能提供大方向。',
+          '選項長度與答案無關。',
+          '總字數與作答無關。'
+        ]
+      }
+    },
+    {
+      title: '② 找代名詞的線索',
+      body: '選項裡的 this、these、it、such 一定指向前面提過的東西。\n' +
+            '★ 找出它指的是什麼，就能定位空格。\n' +
+            '⚠ 代名詞是最強的線索。',
+      viz: { type: 'classify', groups: [
+        { label: '指涉線索', items: ['this', 'these', 'it', 'such', 'the former'] }] },
+      check: {
+        q: '某個選項以 This approach 開頭，代表什麼？',
+        options: [
+          '空格前面一定提到了某個方法',
+          '這是文章的第一句',
+          '這個選項一定是錯的',
+          '空格後面會提到方法'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '第一句不會用 This 指前面沒提過的東西。',
+          '有指涉線索反而更好定位。',
+          '代名詞指的是前面提過的內容。'
+        ]
+      }
+    },
+    {
+      title: '③ 找連接詞的線索',
+      body: '選項開頭是 However → 前面一定有相反的觀點\n' +
+            '開頭是 For example → 前面一定有一個一般性的陳述\n' +
+            '開頭是 Therefore → 前面一定有原因\n' +
+            '⚠ 連接詞規定了前一句必須是什麼。',
+      viz: { type: 'compareexp',
+             factor: '連接詞的要求',
+             a: { label: 'However', note: '前一句要有相反的觀點' },
+             b: { label: 'For example', note: '前一句要有一般性陳述' },
+             same: ['都限制了前一句的內容'] },
+      check: {
+        q: '某個選項以 For instance 開頭，應該放在哪裡？',
+        options: [
+          '一個一般性陳述的後面',
+          '文章的第一句',
+          '結論的最後一句',
+          '任何地方都可以'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '第一句通常不會直接舉例。',
+          '結論之後不會再舉例。',
+          '舉例句有明確的位置要求。'
+        ]
+      }
+    },
+    {
+      title: '④ 找詞彙重複的線索',
+      body: '同一個主題的字會反覆出現或換句話說：\n' +
+            '前一句提到 pollution，選項提到 contamination → 可能相連。\n' +
+            '⚠ 詞彙鏈是判斷文章連貫的重要依據。',
+      viz: { type: 'energyflow', steps: ['找出選項的關鍵詞', '在文章中找同義或相關的字', '定位可能的空格', '驗證邏輯'] },
+      check: {
+        q: '選項提到 the alternative，前一句最可能提到什麼？',
+        options: [
+          '某個選擇或做法',
+          '某個地名',
+          '某個數字',
+          '某個人名'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'the alternative 指的是另一個選擇。',
+          '這個詞與數字無關。',
+          '這個詞與人名無關。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 注意段落的位置',
+      body: '段落第一格 → 可能是主題句\n' +
+            '段落最後一格 → 可能是總結或過渡句\n' +
+            '⚠ 空格在段落中的位置本身就是線索。',
+      viz: { type: 'energyflow', steps: ['看空格在段落的位置', '段首可能是主題句', '段中是支持句', '段尾是總結或過渡'] },
+      check: {
+        q: '空格出現在一個段落的最後一句，這個句子最可能是什麼？',
+        options: [
+          '總結這一段或連接到下一段',
+          '提出全新的主題',
+          '一個無關的例子',
+          '文章的標題'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '新主題通常出現在段落開頭。',
+          '無關的內容不會出現在連貫的文章裡。',
+          '標題不會出現在段落中間。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 最後驗證',
+      body: '★ 全部填完後，把整篇連著讀一次。\n' +
+            '⚠ 篇章結構題常有「連鎖效應」：\n' +
+            '一格填錯，後面就跟著錯，所以要整體檢查。',
+      viz: { type: 'energyflow', steps: ['先填最有把握的', '再處理剩下的', '整篇通讀', '確認每一格都合邏輯'] },
+      check: {
+        q: '篇章結構題為什麼要整篇通讀驗證？',
+        options: [
+          '因為一格填錯可能導致後面連鎖出錯',
+          '因為題目要求朗讀',
+          '因為文章很短',
+          '因為要背下文章'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '通讀是默讀檢查而不是朗讀。',
+          '文章長度不是驗證的理由。',
+          '考試不需要背下文章。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十二上|第5單元 克漏字技巧'] = {
+  intro: '克漏字同時考文法、字彙與上下文理解。',
+  cards: [
+    {
+      title: '① 先讀完再作答',
+      body: '★ 不要看到第一個空格就填。\n' +
+            '先快速讀完整段，掌握主題與語氣，\n' +
+            '再回頭逐格處理。\n' +
+            '⚠ 很多空格的答案藏在後面的句子裡。',
+      viz: { type: 'energyflow', steps: ['快速讀完全段', '掌握主題', '逐格作答', '通讀檢查'] },
+      check: {
+        q: '做克漏字時，為什麼建議先讀完整段？',
+        options: [
+          '因為有些空格的線索出現在後面的句子',
+          '因為題目要求',
+          '因為讀完比較快',
+          '因為可以背下文章'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是解題策略而不是規定。',
+          '先讀完其實會多花一點時間，但正確率更高。',
+          '考試不需要背下文章。'
+        ]
+      }
+    },
+    {
+      title: '② 三種空格類型',
+      body: '① 文法型：考時態、詞性、介系詞\n' +
+            '② 字彙型：考語意與搭配\n' +
+            '③ 連貫型：考連接詞與邏輯\n' +
+            '⚠ 先判斷是哪一型，就知道要看多遠的範圍。',
+      viz: { type: 'classify', groups: [
+        { label: '看句內', items: ['文法型', '搭配型'] },
+        { label: '看句外', items: ['連貫型', '語意型'] }] },
+      check: {
+        q: '空格考的是連接詞，應該看多大的範圍？',
+        options: [
+          '至少要看空格前後兩句的邏輯關係',
+          '只看空格前面一個字',
+          '只看空格所在的半句',
+          '只看文章標題'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '連接詞的判斷需要跨句的資訊。',
+          '半句的資訊不足以判斷邏輯關係。',
+          '標題無法提供句間的邏輯。'
+        ]
+      }
+    },
+    {
+      title: '③ 利用選項互相排除',
+      body: '★ 四個選項常有兩個詞性相同、兩個不同。\n' +
+            '先用文法刪掉不可能的，\n' +
+            '再從剩下的比語意。\n' +
+            '⚠ 排除法比正面硬選更有效率。',
+      viz: { type: 'energyflow', steps: ['看四個選項的差異', '用文法刪去不可能的', '從剩下的比語意', '代回句中驗證'] },
+      check: {
+        q: '克漏字的四個選項詞性都相同，代表什麼？',
+        options: [
+          '這一格考的是語意或搭配，不是詞性',
+          '這一題一定很難',
+          '這一題可以跳過',
+          '四個都對'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '詞性相同不代表題目困難。',
+          '跳過等於放棄得分。',
+          '選擇題只有一個最佳答案。'
+        ]
+      }
+    },
+    {
+      title: '④ 注意重複與同義',
+      body: '★ 正確答案常和上下文的某個字有語意連結：\n' +
+            '前面提到 increase，空格可能要填 growth 或 rise。\n' +
+            '⚠ 文章的詞彙會形成一條「語意鏈」。',
+      viz: { type: 'energyflow', steps: ['找出文章的主題詞', '注意同義與反義', '選出語意連貫的選項'] },
+      check: {
+        q: '文章一直在講「環境保護」，空格最可能填哪一類字？',
+        options: [
+          '與環境或保育相關的字',
+          '與體育相關的字',
+          '與烹飪相關的字',
+          '任何字都可以'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '體育與文章主題無關。',
+          '烹飪與文章主題無關。',
+          '克漏字的答案必須符合上下文。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常考的文法點',
+      body: '① 時態與主詞動詞一致\n' +
+            '② 不定詞與動名詞\n' +
+            '③ 介系詞與搭配詞\n' +
+            '④ 關係代名詞與連接詞\n' +
+            '⚠ 這四類幾乎每年都考。',
+      viz: { type: 'classify', groups: [
+        { label: '高頻考點', items: ['時態', '不定詞與動名詞', '介系詞搭配', '連接詞'] }] },
+      check: {
+        q: '克漏字最常考的文法點不包括下列哪一項？',
+        options: [
+          '單字的音節劃分',
+          '時態的判斷',
+          '介系詞的搭配',
+          '連接詞的選擇'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '時態是高頻考點。',
+          '介系詞搭配是高頻考點。',
+          '連接詞是高頻考點。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 遇到完全不會的',
+      body: '① 先刪掉明顯不合文法的\n' +
+            '② 從剩下的選語意最順的\n' +
+            '③ 標記起來，做完再回來看\n' +
+            '⚠ 不要在一格上花超過一分鐘。',
+      viz: { type: 'energyflow', steps: ['刪去文法不合的', '選語意最順的', '標記後繼續', '最後回頭檢查'] },
+      check: {
+        q: '克漏字遇到完全沒把握的空格，最好怎麼處理？',
+        options: [
+          '刪去明顯錯的，暫時選一個並標記，最後再回來',
+          '空著不填',
+          '一直想到會為止',
+          '把四個都圈起來'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '空著等於放棄得分機會。',
+          '在一格上耗太久會壓縮其他題的時間。',
+          '選擇題只能選一個答案。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十二上|第6單元 閱讀：科普類'] = {
+  intro: '科普文章有固定的寫法，抓住它就不怕專有名詞。',
+  cards: [
+    {
+      title: '① 科普文章的典型結構',
+      body: '① 提出現象或問題\n' +
+            '② 說明研究或實驗\n' +
+            '③ 呈現結果\n' +
+            '④ 討論意義與限制\n' +
+            '⚠ 認出結構就知道每一段在做什麼。',
+      viz: { type: 'energyflow', steps: ['提出問題', '說明研究方法', '呈現結果', '討論意義'] },
+      check: {
+        q: '科普文章中出現 The researchers found that… 這一段通常在做什麼？',
+        options: [
+          '呈現研究結果',
+          '提出研究問題',
+          '說明研究方法',
+          '討論限制'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '提出問題通常在文章開頭。',
+          '說明方法會描述實驗怎麼進行。',
+          '討論限制通常在結果之後。'
+        ]
+      }
+    },
+    {
+      title: '② 專有名詞不用全懂',
+      body: '★ 文章通常會在第一次出現時定義：\n' +
+            'Photosynthesis, the process by which plants make food, …\n' +
+            '⚠ 看到逗號、破折號、or、that is，後面往往就是解釋。',
+      viz: { type: 'classify', groups: [
+        { label: '定義的訊號', items: ['逗號加同位語', '破折號', 'or', 'that is', 'known as'] }] },
+      check: {
+        q: '遇到不懂的專有名詞，最先該做什麼？',
+        options: [
+          '看它後面有沒有同位語或解釋',
+          '立刻查字典',
+          '跳過整段',
+          '放棄這篇文章'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '考試時通常沒有字典可查。',
+          '跳過整段會漏掉關鍵資訊。',
+          '文章多半會提供必要的解釋。'
+        ]
+      }
+    },
+    {
+      title: '③ 分辨事實與推論',
+      body: '事實：The temperature rose by 2 degrees.\n' +
+            '推論：This may indicate a long-term trend.\n' +
+            '⚠ 看到 may、could、suggest、likely，就是研究者的推論，\n' +
+            '不是已經確定的事實。',
+      viz: { type: 'compareexp',
+             factor: '確定的程度',
+             a: { label: '事實', note: '直接陳述觀測到的數據' },
+             b: { label: '推論', note: '用 may、suggest 表達判斷' },
+             same: ['都出現在科普文章裡'] },
+      check: {
+        q: 'The results suggest a possible link. 這句話屬於什麼？',
+        options: [
+          '研究者的推論，不是已確立的事實',
+          '已經證實的結論',
+          '研究的方法',
+          '研究的動機'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'suggest 與 possible 都表示保留。',
+          '這句沒有描述研究怎麼進行。',
+          '這句沒有說明為什麼要做研究。'
+        ]
+      }
+    },
+    {
+      title: '④ 注意數據與比較',
+      body: '科普文章常有數字：\n' +
+            '★ 注意單位、時間範圍、比較的基準。\n' +
+            '⚠ 「增加 20%」和「增加到 20%」意思完全不同。',
+      viz: { type: 'compareexp',
+             factor: '兩種說法',
+             a: { label: 'increased by 20%', note: '增加了兩成' },
+             b: { label: 'increased to 20%', note: '增加到兩成' },
+             same: ['都出現 20%'] },
+      check: {
+        q: 'The rate increased to 30%. 這句話的意思是什麼？',
+        options: [
+          '比率上升後達到三成',
+          '比率上升了三成',
+          '比率下降到三成',
+          '比率維持在三成'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '增加了三成要說 increased by 30%。',
+          'increase 表示上升。',
+          '句子表示有變化。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見的科普字彙',
+      body: 'hypothesis（假說）　experiment（實驗）　sample（樣本）\n' +
+            'variable（變因）　correlation（相關）　causation（因果）\n' +
+            '⚠ 相關不等於因果，這是科普閱讀最重要的觀念之一。',
+      viz: { type: 'compareexp',
+             factor: '兩個容易混淆的概念',
+             a: { label: 'correlation', note: '兩件事一起變動' },
+             b: { label: 'causation', note: '一件事造成另一件事' },
+             same: ['都在描述兩個變數的關係'] },
+      check: {
+        q: '研究發現冰淇淋銷量與溺水人數同時上升，這代表什麼？',
+        options: [
+          '兩者相關，但不代表其中一個造成另一個',
+          '吃冰淇淋會導致溺水',
+          '溺水會讓人想吃冰淇淋',
+          '兩者完全無關'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '相關不等於因果，兩者可能都受氣溫影響。',
+          '這個推論同樣把相關誤當因果。',
+          '數據顯示兩者確實有相關。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 作答策略',
+      body: '① 先掃過各段的第一句，掌握結構\n' +
+            '② 看題目，回文章定位\n' +
+            '③ 特別注意研究的「限制」與「保留說法」\n' +
+            '⚠ 選項若把研究結論說得太滿，通常是錯的。',
+      viz: { type: 'energyflow', steps: ['掃各段首句', '看題目定位', '注意保留語氣', '刪去說太滿的選項'] },
+      check: {
+        q: '科普閱讀的選項中，哪一類最可能是錯的？',
+        options: [
+          '把研究結果講得比原文更絕對的選項',
+          '使用 may、might 的選項',
+          '與原文語氣一致的選項',
+          '提到研究限制的選項'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '保留的語氣通常與原文一致。',
+          '語氣一致正是正確選項的特徵。',
+          '研究限制常在原文中被提及。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十二上|第7單元 閱讀：人文社會類'] = {
+  intro: '人文社會類文章重視觀點與論證，讀法和科普不同。',
+  cards: [
+    {
+      title: '① 這類文章的特徵',
+      body: '① 常有多方觀點並陳\n' +
+            '② 用歷史脈絡或社會背景解釋現象\n' +
+            '③ 作者會有立場，但表達較含蓄\n' +
+            '⚠ 讀的時候要隨時問「這是誰的觀點」。',
+      viz: { type: 'energyflow', steps: ['提出議題', '呈現不同觀點', '分析與評價', '作者的立場'] },
+      check: {
+        q: '讀人文社會類文章時，最該隨時問自己的問題是什麼？',
+        options: [
+          '現在陳述的是誰的觀點',
+          '這篇文章有幾個字',
+          '作者是哪一國人',
+          '這篇發表在哪一年'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字數與理解觀點無關。',
+          '作者國籍不是理解論證的關鍵。',
+          '發表年份是背景資訊而非核心。'
+        ]
+      }
+    },
+    {
+      title: '② 分辨誰在說話',
+      body: 'Critics argue that…（批評者的觀點）\n' +
+            'Supporters claim that…（支持者的觀點）\n' +
+            'In my view…／I would argue…（作者自己）\n' +
+            '⚠ 把不同陣營的觀點分開記，不要混成一團。',
+      viz: { type: 'classify', groups: [
+        { label: '他人觀點', items: ['critics argue', 'some claim', 'it is often said'] },
+        { label: '作者觀點', items: ['I would argue', 'in my view', 'this suggests'] }] },
+      check: {
+        q: '文章寫 Critics argue that the policy failed. 這是誰的看法？',
+        options: [
+          '批評這個政策的人',
+          '作者本人',
+          '政府官員',
+          '所有讀者'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '作者只是轉述批評者的說法。',
+          '句中沒有提到官員。',
+          '讀者不是句中提到的對象。'
+        ]
+      }
+    },
+    {
+      title: '③ 注意評價性用字',
+      body: 'flawed、questionable、oversimplified → 作者不認同\n' +
+            'compelling、insightful、convincing → 作者認同\n' +
+            '⚠ 作者的立場常藏在形容詞裡，而不是明說。',
+      viz: { type: 'classify', groups: [
+        { label: '認同', items: ['compelling', 'insightful', 'well-founded'] },
+        { label: '不認同', items: ['flawed', 'questionable', 'oversimplified'] }] },
+      check: {
+        q: '作者形容某個論點 oversimplified，代表什麼態度？',
+        options: [
+          '認為這個論點把問題想得太簡單',
+          '完全同意這個論點',
+          '認為這個論點很有說服力',
+          '沒有表達任何態度'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'oversimplified 帶有批評的意味。',
+          '有說服力會用 compelling。',
+          '這個字帶有明確的評價。'
+        ]
+      }
+    },
+    {
+      title: '④ 歷史與脈絡',
+      body: '★ 人文社會類常先鋪陳背景再進入主題：\n' +
+            'In the nineteenth century, …\n' +
+            '⚠ 背景段不是重點，但沒讀懂會誤解後面的論證。',
+      viz: { type: 'energyflow', steps: ['背景鋪陳', '轉入主題', '提出論點', '論證與評價'] },
+      check: {
+        q: '文章開頭大段描述十九世紀的社會狀況，最可能的作用是什麼？',
+        options: [
+          '為後面的論點提供背景脈絡',
+          '就是文章的主旨',
+          '與主題無關的閒聊',
+          '文章的結論'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '背景通常是鋪陳而不是主旨。',
+          '好的文章不會放無關的內容。',
+          '結論會出現在文章最後。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 抽象概念的處理',
+      body: '★ 遇到 identity、justice、globalization 這類抽象詞，\n' +
+            '找文章裡的具體例子來理解。\n' +
+            '⚠ 抽象概念的意思往往由上下文界定，\n' +
+            '不同作者可能用同一個字指不同的東西。',
+      viz: { type: 'energyflow', steps: ['遇到抽象概念', '找文章給的定義', '找具體例子', '用例子理解概念'] },
+      check: {
+        q: '文章使用 identity 這個抽象概念時，最該做什麼？',
+        options: [
+          '找文章裡的定義與例子來確定它指的是什麼',
+          '直接用自己的理解',
+          '跳過不管',
+          '查中文翻譯就好'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不同作者對抽象概念的用法可能不同。',
+          '跳過會誤解整篇論證。',
+          '中文翻譯無法呈現文章中的特定用法。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 作答注意事項',
+      body: '① 別把「作者轉述的觀點」當成作者的立場\n' +
+            '② 別把自己的價值判斷帶進答案\n' +
+            '③ 注意程度詞：all、always、never 通常太絕對\n' +
+            '⚠ 人文社會類的正確選項通常比較保守。',
+      viz: { type: 'compareexp',
+             factor: '選項的語氣',
+             a: { label: '通常正確', note: '保守：often、tends to、in some cases' },
+             b: { label: '通常錯誤', note: '絕對：always、never、all' },
+             same: ['都在陳述文章的觀點'] },
+      check: {
+        q: '選項中出現 always、never 這類絕對的字，通常代表什麼？',
+        options: [
+          '很可能超出文章能支持的範圍',
+          '一定是正確答案',
+          '表示作者很有自信',
+          '與正確與否無關'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '絕對的說法反而容易被文章推翻。',
+          '這是選項的用字，不代表作者的態度。',
+          '語氣的絕對程度是重要的判斷線索。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十二上|第8單元 混合題型與素養題'] = {
+  intro: '素養題把多種資訊放在一起，考的是整合能力。',
+  cards: [
+    {
+      title: '① 混合題型的特徵',
+      body: '① 一份題組裡有文章、圖表、對話等多種材料\n' +
+            '② 題型混合：選擇、填空、簡答\n' +
+            '③ 需要跨材料整合資訊\n' +
+            '⚠ 答案常不在單一材料裡，要合起來看。',
+      viz: { type: 'energyflow', steps: ['先看有幾份材料', '各自快速掃過', '看題目要整合哪些', '回材料定位'] },
+      check: {
+        q: '素養題的答案為什麼常不在單一材料裡？',
+        options: [
+          '因為這類題目就是要考跨材料整合資訊的能力',
+          '因為題目出錯了',
+          '因為材料太多',
+          '因為答案被藏起來了'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是題型的設計而不是錯誤。',
+          '材料數量是設計的一部分。',
+          '答案有依據，只是需要整合。'
+        ]
+      }
+    },
+    {
+      title: '② 先看題目再看材料',
+      body: '★ 材料很多時，先看題目問什麼，\n' +
+            '再帶著問題去找需要的資訊。\n' +
+            '⚠ 從頭讀到尾很花時間，也容易迷失重點。',
+      viz: { type: 'compareexp',
+             factor: '閱讀順序',
+             a: { label: '先看題目', note: '帶著目標找資訊，效率高' },
+             b: { label: '先讀完材料', note: '花時間且容易失焦' },
+             same: ['都要讀材料'] },
+      check: {
+        q: '面對有三份材料的素養題組，比較有效率的做法是什麼？',
+        options: [
+          '先看題目，再帶著問題到材料裡找答案',
+          '把三份材料從頭到尾精讀',
+          '只讀第一份材料',
+          '直接看選項猜'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '全部精讀會用掉太多時間。',
+          '只讀一份可能漏掉關鍵資訊。',
+          '猜測的正確率太低。'
+        ]
+      }
+    },
+    {
+      title: '③ 注意材料之間的關係',
+      body: '① 互補：各講一部分\n' +
+            '② 對照：呈現不同立場\n' +
+            '③ 佐證：圖表支持文章的說法\n' +
+            '⚠ 先判斷材料之間的關係，就知道該怎麼整合。',
+      viz: { type: 'classify', groups: [
+        { label: '材料關係', items: ['互補', '對照', '佐證', '延伸'] }] },
+      check: {
+        q: '一篇文章主張某政策有效，附的圖表顯示相關數據上升，兩者的關係是什麼？',
+        options: [
+          '圖表在佐證文章的主張',
+          '兩者互相矛盾',
+          '兩者完全無關',
+          '圖表在反駁文章'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '數據方向與主張一致，不是矛盾。',
+          '兩份材料談的是同一個政策。',
+          '數據支持而非反駁文章。'
+        ]
+      }
+    },
+    {
+      title: '④ 簡答題怎麼寫',
+      body: '① 看清楚要幾個字或幾句\n' +
+            '② 用文章的關鍵詞，但不要整句照抄\n' +
+            '③ 直接回答問題，不要離題\n' +
+            '⚠ 沒有回答到問題，寫再多也不得分。',
+      viz: { type: 'energyflow', steps: ['看清字數限制', '找出關鍵資訊', '用自己的話組織', '確認有回答到問題'] },
+      check: {
+        q: '寫簡答題時，最重要的原則是什麼？',
+        options: [
+          '直接回答題目問的那個問題',
+          '寫得越長越好',
+          '把原文整段抄下來',
+          '寫出所有相關的資訊'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '超出字數限制反而會扣分。',
+          '整段照抄通常不符合作答要求。',
+          '寫太多無關的資訊會失焦。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 圖表與文字的整合',
+      body: '★ 常見的問法：\n' +
+            '「根據文章與圖表，下列何者正確？」\n' +
+            '⚠ 這種題目一定要兩份材料都對照過，\n' +
+            '只看其中一份很容易選到只對一半的選項。',
+      viz: { type: 'energyflow', steps: ['讀懂題目', '在文章找一半', '在圖表找另一半', '確認兩邊都符合'] },
+      check: {
+        q: '題目說「根據文章與圖表」，作答時該注意什麼？',
+        options: [
+          '選項必須同時符合文章與圖表',
+          '只要符合圖表就好',
+          '只要符合文章就好',
+          '符合其中之一即可'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '只符合圖表可能與文章矛盾。',
+          '只符合文章可能與數據不合。',
+          '題目要求的是兩者都要符合。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 時間分配',
+      body: '① 材料多的題組先掃過再決定順序\n' +
+            '② 簡答題留足夠時間書寫\n' +
+            '③ 不確定的先標記，全部做完再回頭\n' +
+            '⚠ 素養題組的分數比重高，不要在前面的小題耗盡時間。',
+      viz: { type: 'energyflow', steps: ['估算題組份量', '先做把握大的', '標記不確定的', '留時間寫簡答'] },
+      check: {
+        q: '面對分數比重高的素養題組，時間分配上該注意什麼？',
+        options: [
+          '預留足夠時間，不要被前面的小題耗盡',
+          '花最多時間在第一題',
+          '最後五分鐘再開始做',
+          '平均分配給每一個字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '在單一小題上耗太久會排擠後面的題目。',
+          '時間不足會來不及整合資訊。',
+          '時間應該依題目份量分配而不是平均。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十二上|第9單元 學術字彙 AWL'] = {
+  intro: '學術字彙表收錄了跨學科最常用的高頻字。',
+  cards: [
+    {
+      title: '① 什麼是學術字彙表',
+      body: 'AWL 是從大量學術文章統計出來的高頻字清單，\n' +
+            '不含最基本的日常字，但在各學科反覆出現。\n' +
+            '⚠ 掌握這批字，學術閱讀的理解度會明顯提升。',
+      viz: { type: 'compareexp',
+             factor: '出現的場合',
+             a: { label: '基本字彙', note: '日常對話與各種文章' },
+             b: { label: '學術字彙', note: '教科書、論文、報告' },
+             same: ['都是高頻字'] },
+      check: {
+        q: '學術字彙表收錄的是哪一類字？',
+        options: [
+          '跨學科學術文章中高頻出現的字',
+          '最艱深罕見的字',
+          '日常口語的字',
+          '專屬某一個學科的術語'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '罕見字的實用性反而低。',
+          '日常口語字屬於基本字彙。',
+          '單一學科的術語不算跨學科高頻。'
+        ]
+      }
+    },
+    {
+      title: '② 研究與分析類',
+      body: 'analyze、research、data、method、evidence、hypothesis\n' +
+            'evaluate、assess、examine、investigate\n' +
+            '⚠ 這一組在任何學科的報告裡都會出現。',
+      viz: { type: 'classify', groups: [
+        { label: '研究過程', items: ['research', 'method', 'data', 'sample'] },
+        { label: '分析評估', items: ['analyze', 'evaluate', 'assess', 'examine'] }] },
+      check: {
+        q: 'evaluate 這個字的意思最接近什麼？',
+        options: ['評估、判斷價值', '收集資料', '重複實驗', '發表結果'],
+        answer: 0,
+        why: [
+          null,
+          '收集資料是 collect data。',
+          '重複實驗是 replicate。',
+          '發表結果是 publish。'
+        ]
+      }
+    },
+    {
+      title: '③ 因果與關係類',
+      body: 'factor、consequence、impact、influence、correlation\n' +
+            'contribute to、result in、derive from、attribute to\n' +
+            '⚠ 注意搭配的介系詞，這是考題的重點。',
+      viz: { type: 'classify', groups: [
+        { label: '名詞', items: ['factor', 'impact', 'consequence', 'correlation'] },
+        { label: '動詞片語', items: ['contribute to', 'result in', 'attribute to'] }] },
+      check: {
+        q: 'Poor sleep can contribute ___ health problems. 空格要填什麼？',
+        options: ['to', 'in', 'of', 'for'],
+        answer: 0,
+        why: [
+          null,
+          'contribute 搭配的是 to。',
+          'contribute 不搭配 of。',
+          'contribute 不搭配 for。'
+        ]
+      }
+    },
+    {
+      title: '④ 論述與立場類',
+      body: 'argue、claim、assume、imply、indicate、demonstrate\n' +
+            'perspective、approach、framework、concept\n' +
+            '⚠ 這些字用來轉述與評價他人的觀點。',
+      viz: { type: 'compareexp',
+             factor: '確定的程度',
+             a: { label: 'demonstrate', note: '證明，語氣強' },
+             b: { label: 'suggest／imply', note: '暗示，語氣保留' },
+             same: ['都用於呈現研究結論'] },
+      check: {
+        q: '想表達「資料暗示了某種可能」，最合適的動詞是什麼？',
+        options: ['suggests', 'proves', 'demonstrates', 'confirms'],
+        answer: 0,
+        why: [
+          null,
+          'prove 的語氣太強。',
+          'demonstrate 表示明確證明。',
+          'confirm 表示確認，語氣也太強。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 結構與程度類',
+      body: 'significant、considerable、substantial、minor\n' +
+            'furthermore、consequently、nevertheless、alternatively\n' +
+            'principle、criterion、aspect、component\n' +
+            '⚠ criterion 的複數是 criteria，是常考的不規則變化。',
+      viz: { type: 'classify', groups: [
+        { label: '不規則複數', items: ['criterion／criteria', 'phenomenon／phenomena', 'analysis／analyses'] }] },
+      check: {
+        q: 'criterion 的複數形是什麼？',
+        options: ['criteria', 'criterions', 'criterias', 'criterion'],
+        answer: 0,
+        why: [
+          null,
+          '這個字的複數是不規則變化。',
+          '這個拼法把兩種複數混在一起。',
+          '這個字有複數形。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 學習策略',
+      body: '① 一次專注一個主題群（研究類、因果類）\n' +
+            '② 連著搭配詞與字族一起記\n' +
+            '③ 在閱讀中辨認，在寫作中使用\n' +
+            '④ 間隔複習，不要一次塞太多\n' +
+            '⚠ 能寫進自己的句子，才算真的學會。',
+      viz: { type: 'energyflow', steps: ['依主題分組', '連搭配詞一起記', '閱讀中辨認', '寫作中使用'] },
+      check: {
+        q: '判斷自己是否真的學會一個學術字，最好的標準是什麼？',
+        options: [
+          '能在自己的寫作中正確使用它',
+          '看到它認得中文意思',
+          '能拼出來',
+          '知道它在字彙表的第幾個'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '看得懂只是被動的辨認能力。',
+          '會拼不代表會用。',
+          '排序位置與是否學會無關。'
+        ]
+      }
+    }
+  ]
+};
