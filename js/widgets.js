@@ -7385,6 +7385,598 @@
     paint();
   };
 
+  /* ── 靜電（static）────────────────────────────────────────────────────
+     spec: { mode:'charge'|'force'|'ground', pick }                       */
+  REG['static'] = function (host, spec) {
+    var mode = spec.mode || 'charge';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function ball(cx, cy, r, sign, label) {
+      var col = sign > 0 ? 'bad' : (sign < 0 ? 'accent' : 'dim');
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: r, 'fill-opacity': '.2' },
+        'fill:var(--' + col + ');stroke:var(--' + col + ');stroke-width:2'));
+      svg.appendChild(txt(cx, cy, sign > 0 ? '＋' : (sign < 0 ? '－' : '0'),
+        'font-size:14px;font-weight:700;fill:var(--' + col + ')'));
+      if (label) svg.appendChild(txt(cx, cy + r + 14, label, 'font-size:10px;fill:var(--dim)'));
+    }
+    function arrow(x1, y, x2, color) {
+      svg.appendChild(el('line', { x1: x1, y1: y, x2: x2, y2: y },
+        'stroke:var(--' + color + ');stroke-width:3'));
+      var d = x2 > x1 ? 1 : -1;
+      svg.appendChild(el('polygon', { points: x2 + ',' + y + ' ' + (x2 - 8 * d) + ',' + (y - 4) +
+        ' ' + (x2 - 8 * d) + ',' + (y + 4) }, 'fill:var(--' + color + ')'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'force') {
+        ball(84, 58, 20, -1, ''); ball(164, 58, 20, -1, '');
+        arrow(58, 58, 24, 'accent'); arrow(190, 58, 224, 'accent');
+        svg.appendChild(txt(272, 58, '同性相斥', 'font-size:12px;fill:var(--accent)'));
+        ball(84, 128, 20, -1, ''); ball(164, 128, 20, 1, '');
+        arrow(24, 128, 58, 'bad'); arrow(224, 128, 190, 'bad');
+        svg.appendChild(txt(272, 128, '異性相吸', 'font-size:12px;fill:var(--bad)'));
+        main = '同性相斥、異性相吸';
+        sub = '兩個帶同種電荷的物體會互相排斥，帶異種電荷的會互相吸引。' +
+          '⚠ 帶電體也能吸引「不帶電」的輕小物體（如碎紙屑），' +
+          '因為它會使紙屑靠近的一側感應出異性電荷，這叫靜電感應。';
+      } else if (mode === 'ground') {
+        svg.appendChild(el('rect', { x: 120, y: 44, width: 80, height: 70, rx: 6, 'fill-opacity': '.15' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(txt(160, 78, '帶電體', 'font-size:11px'));
+        svg.appendChild(el('line', { x1: 160, y1: 114, x2: 160, y2: 142 },
+          'stroke:var(--good);stroke-width:3'));
+        [0, 1, 2].forEach(function (i) {
+          svg.appendChild(el('line', { x1: 140 + i * 6, y1: 142 + i * 8, x2: 180 - i * 6, y2: 142 + i * 8 },
+            'stroke:var(--good);stroke-width:3'));
+        });
+        svg.appendChild(txt(232, 132, '電荷流入大地', 'font-size:11px;fill:var(--good)'));
+        main = '接地：把多餘的電荷導走';
+        sub = '大地可以接受或提供大量電荷而幾乎不改變自身狀態，' +
+          '所以把帶電體接地就能把靜電導走。' +
+          '避雷針、油罐車拖在地上的鐵鍊、電器的接地線都是同一個道理。' +
+          '⚠ 避雷針的作用是把電流安全導入地下，不是「避開」雷。';
+      } else {
+        svg.appendChild(el('rect', { x: 40, y: 50, width: 90, height: 46, rx: 6, 'fill-opacity': '.15' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(txt(85, 73, '塑膠棒', 'font-size:11px'));
+        svg.appendChild(el('rect', { x: 190, y: 50, width: 90, height: 46, rx: 6, 'fill-opacity': '.15' },
+          'fill:var(--bad);stroke:var(--bad);stroke-width:2'));
+        svg.appendChild(txt(235, 73, '毛皮', 'font-size:11px'));
+        arrow(184, 73, 136, 'good');
+        svg.appendChild(txt(160, 40, '電子搬家', 'font-size:10px;fill:var(--good)'));
+        svg.appendChild(txt(85, 118, '得到電子 → 帶負電', 'font-size:10px;fill:var(--accent)'));
+        svg.appendChild(txt(235, 118, '失去電子 → 帶正電', 'font-size:10px;fill:var(--bad)'));
+        svg.appendChild(txt(160, 156, '摩擦沒有「創造」電荷，只是把電子從一邊搬到另一邊',
+          'font-size:10px;fill:var(--dim)'));
+        main = '摩擦起電：電子從一個物體轉移到另一個';
+        sub = '摩擦時束縛較鬆的電子會轉移。得到電子的帶負電、失去電子的帶正電，' +
+          '兩者帶的電量相等、電性相反。' +
+          '⚠ 電荷總量守恆——摩擦不會創造出電荷。' +
+          '乾燥的冬天容易被電到，是因為濕度低時電荷不易散失而累積起來。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['charge', '摩擦起電'], ['force', '相吸相斥'], ['ground', '接地與避雷']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 歐姆定律與電功率（ohm）───────────────────────────────────────────
+     spec: { v, r, mode:'law'|'series'|'parallel'|'power', pick }         */
+  REG.ohm = function (host, spec) {
+    var V = spec.v == null ? 6 : spec.v, R = spec.r == null ? 3 : spec.r;
+    var mode = spec.mode || 'law';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function wire(pts) {
+      svg.appendChild(el('polyline', { points: pts }, 'fill:none;stroke:var(--text);stroke-width:2'));
+    }
+    function resistor(x, y, label) {
+      svg.appendChild(el('rect', { x: x - 20, y: y - 9, width: 40, height: 18, rx: 3,
+        'fill-opacity': '.2' }, 'fill:var(--bad);stroke:var(--bad);stroke-width:2'));
+      svg.appendChild(txt(x, y, label, 'font-size:10px'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'series') {
+        wire('40,88 40,40 280,40 280,88 40,88');
+        resistor(120, 40, R + 'Ω'); resistor(210, 40, R + 'Ω');
+        svg.appendChild(txt(46, 104, '電池 ' + V + 'V', 'font-size:10px;fill:var(--dim)'));
+        var rs = R * 2, is = +(V / rs).toFixed(2);
+        svg.appendChild(txt(178, 126, '總電阻 ＝ ' + R + ' ＋ ' + R + ' ＝ ' + rs + ' Ω',
+          'font-size:12px;fill:var(--good)'));
+        svg.appendChild(txt(178, 148, '電流 ＝ ' + V + ' ÷ ' + rs + ' ＝ ' + is + ' A（處處相同）',
+          'font-size:12px;fill:var(--accent)'));
+        main = '串聯：電阻相加、電流處處相同';
+        sub = '串聯時只有一條路徑，所以電流到處一樣大；總電阻是各電阻相加，' +
+          '電壓則按電阻比例分配。⚠ 缺點是「其中一個斷掉，整條路就不通」——' +
+          '舊式聖誕燈串就是這樣，一顆壞掉全部不亮。';
+      } else if (mode === 'parallel') {
+        wire('40,112 40,36 280,36 280,112 40,112');
+        wire('120,36 120,112'); wire('210,36 210,112');
+        resistor(120, 74, R + 'Ω'); resistor(210, 74, R + 'Ω');
+        var rp = +(R / 2).toFixed(2), ip = +(V / rp).toFixed(2);
+        svg.appendChild(txt(180, 152, '總電阻 ＝ ' + rp + ' Ω　總電流 ＝ ' + ip + ' A',
+          'font-size:12px;fill:var(--good)'));
+        svg.appendChild(txt(50, 128, '電池 ' + V + 'V', 'font-size:10px;fill:var(--dim)'));
+        main = '並聯：電壓相同、總電阻變小';
+        sub = '並聯時每條支路兩端的電壓都等於電源電壓；路徑變多，總電阻反而變小、總電流變大。' +
+          '⚠ 家裡的電器都是並聯：一個關掉不影響其他的，而且每個都拿到 110V。' +
+          '但同時開太多大功率電器會使總電流過大，可能跳電或引起電線走火。';
+      } else if (mode === 'power') {
+        var i2 = +(V / R).toFixed(2), p = +(V * i2).toFixed(1);
+        wire('40,74 40,36 280,36 280,74 40,74');
+        resistor(160, 36, R + 'Ω');
+        [['電壓 V', V + ' V', 100], ['電流 I', i2 + ' A', 124], ['功率 P ＝ V × I', p + ' W', 150]]
+          .forEach(function (r) {
+            svg.appendChild(txt(110, r[2], r[0], 'font-size:11px;fill:var(--dim)'));
+            svg.appendChild(txt(215, r[2], r[1], 'font-size:13px;font-weight:700;fill:var(--accent)'));
+          });
+        main = '電功率 P ＝ V × I（單位：瓦特）';
+        sub = '電功率代表「每秒消耗多少電能」。電能 ＝ 功率 × 時間，' +
+          '電費算的「1 度」＝ 1 千瓦的電器用 1 小時。' +
+          '⚠ 所以 1000 瓦的電熱器用 2 小時就是 2 度電。' +
+          '電器上標示的瓦數越大，越耗電。';
+      } else {
+        var i = +(V / R).toFixed(2);
+        wire('40,84 40,36 280,36 280,84 40,84');
+        resistor(160, 36, R + ' Ω');
+        svg.appendChild(el('rect', { x: 26, y: 48, width: 28, height: 24, rx: 3 },
+          'fill:none;stroke:var(--text);stroke-width:2'));
+        svg.appendChild(txt(40, 60, V + 'V', 'font-size:10px'));
+        svg.appendChild(txt(160, 116, 'I ＝ V ÷ R ＝ ' + V + ' ÷ ' + R + ' ＝ ' + i + ' A',
+          'font-size:15px;font-weight:700;fill:var(--good)'));
+        svg.appendChild(txt(160, 146, '電壓越大電流越大；電阻越大電流越小',
+          'font-size:11px;fill:var(--dim)'));
+        main = '歐姆定律：I ＝ V ÷ R';
+        sub = '電流（安培 A）和電壓（伏特 V）成正比、和電阻（歐姆 Ω）成反比。' +
+          '可以想成水管：電壓像水壓、電流像水流量、電阻像水管的細窄程度。' +
+          '⚠ 電阻和導體的材質、長度（越長越大）、截面積（越粗越小）以及溫度有關，' +
+          '不是由電壓或電流決定的。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['law', '歐姆定律'], ['series', '串聯'], ['parallel', '並聯'], ['power', '電功率']]
+        .forEach(function (m) { row.appendChild(btn(m[1], function () { mode = m[0]; paint(); })); });
+      box.appendChild(row);
+    }
+    var row2 = div('wg-ctrl');
+    row2.appendChild(div('wg-ctrl-label', '電壓 V'));
+    row2.appendChild(slider(1, 24, V, 1, function (v) { V = v; paint(); }));
+    box.appendChild(row2);
+    var row3 = div('wg-ctrl');
+    row3.appendChild(div('wg-ctrl-label', '電阻 Ω'));
+    row3.appendChild(slider(1, 12, R, 1, function (v) { R = v; paint(); }));
+    box.appendChild(row3);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 太陽系（solarsys）────────────────────────────────────────────────
+     spec: { pick, mode:'order'|'inner'|'size' }                          */
+  REG.solarsys = function (host, spec) {
+    var mode = spec.mode || 'order';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var P = [['水星', 3, 1], ['金星', 5, 1], ['地球', 5, 1], ['火星', 4, 1],
+             ['木星', 14, 0], ['土星', 12, 0], ['天王星', 8, 0], ['海王星', 8, 0]];
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('circle', { cx: 10, cy: 86, r: 26 }, 'fill:var(--bad);fill-opacity:.6'));
+      svg.appendChild(txt(16, 86, '日', 'font-size:11px'));
+      P.forEach(function (p, i) {
+        var x = 52 + i * 33;
+        var on = mode === 'inner' ? p[2] === 1 : (mode === 'size' ? p[1] >= 8 : true);
+        var col = p[2] ? 'accent' : 'good';
+        svg.appendChild(el('circle', { cx: x, cy: 86, r: mode === 'size' ? p[1] : 8,
+          'fill-opacity': on ? '.85' : '.2' }, 'fill:var(--' + col + ')'));
+        svg.appendChild(txt(x, 122, p[0], 'font-size:9px;fill:var(--' + (on ? 'text' : 'dim') + ')'));
+        svg.appendChild(txt(x, 136, String(i + 1), 'font-size:8px;fill:var(--dim)'));
+      });
+      var main, sub;
+      if (mode === 'inner') {
+        main = '類地行星（藍）vs 類木行星（綠）';
+        sub = '水星、金星、地球、火星叫「類地行星」：體積小、密度大、以岩石為主、衛星少。' +
+          '木星、土星、天王星、海王星叫「類木行星」：體積大、密度小、以氣體為主、衛星多且有行星環。' +
+          '⚠ 火星和木星之間有小行星帶。';
+      } else if (mode === 'size') {
+        main = '大小差很多：木星最大、水星最小';
+        sub = '木星的直徑約是地球的 11 倍，土星次之。' +
+          '⚠ 太陽比所有行星加起來都大得多（直徑約是地球的 109 倍），' +
+          '它占了太陽系總質量的 99% 以上。' +
+          '這張圖的距離沒有按比例畫——真實的行星之間距離非常遙遠。';
+      } else {
+        main = '八大行星由內而外：水金地火木土天海';
+        sub = '所有行星都以「逆時針（由北極上方看）」的方向繞太陽公轉，軌道接近圓形且幾乎在同一平面上。' +
+          '⚠ 冥王星在 2006 年被重新分類為「矮行星」，所以現在是八大行星，不是九大。' +
+          '離太陽越遠的行星，公轉一圈所需的時間越長。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['order', '排列順序'], ['inner', '兩大類'], ['size', '大小比較']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 時間軸（timeline）────────────────────────────────────────────────
+     歷史事件按順序排開，點一個看說明。社會科最常用的元件。
+     spec: { title, events:[{y:'1895', t:'馬關條約', d:'說明'}] }         */
+  REG.timeline = function (host, spec) {
+    var EV = spec.events || [];
+    var idx = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 130', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('line', { x1: 14, y1: 66, x2: 306, y2: 66 },
+        'stroke:var(--dim);stroke-width:3'));
+      svg.appendChild(el('polygon', { points: '306,66 296,61 296,71' }, 'fill:var(--dim)'));
+      var n = Math.max(EV.length, 1), gap = 280 / n;
+      EV.forEach(function (e, i) {
+        var x = 22 + gap * i + gap / 2 - gap / 2 + 8;
+        x = 24 + i * (272 / Math.max(n - 1, 1));
+        var on = i === idx;
+        svg.appendChild(el('circle', { cx: x, cy: 66, r: on ? 8 : 5 },
+          'fill:var(--' + (on ? 'accent' : 'dim') + ')'));
+        svg.appendChild(txt(x, i % 2 ? 96 : 40, e.y,
+          'font-size:10px;font-weight:700;fill:var(--' + (on ? 'accent' : 'dim') + ')'));
+        svg.appendChild(txt(x, i % 2 ? 110 : 26, e.t.slice(0, 6),
+          'font-size:9px;fill:var(--' + (on ? 'text' : 'dim') + ')'));
+      });
+      var cur = EV[idx] || { y: '', t: '', d: '' };
+      read.appendChild(div('wg-read-main', cur.y + '　' + cur.t));
+      read.appendChild(div('wg-read-sub', cur.d || ''));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('◀ 上一個', function () {
+      idx = (idx - 1 + EV.length) % EV.length; paint();
+    }));
+    row.appendChild(btn('下一個 ▶', function () { idx = (idx + 1) % EV.length; paint(); }));
+    box.appendChild(row);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 地圖與方位（mapdir）──────────────────────────────────────────────
+     spec: { mode:'compass'|'scale'|'legend', pick }                      */
+  REG.mapdir = function (host, spec) {
+    var mode = spec.mode || 'compass';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'scale') {
+        svg.appendChild(el('line', { x1: 50, y1: 70, x2: 250, y2: 70 },
+          'stroke:var(--text);stroke-width:3'));
+        [0, 1, 2, 3, 4].forEach(function (i) {
+          var x = 50 + i * 50;
+          svg.appendChild(el('line', { x1: x, y1: 62, x2: x, y2: 78 },
+            'stroke:var(--text);stroke-width:2'));
+          svg.appendChild(txt(x, 92, (i) + ' 公里', 'font-size:9px;fill:var(--dim)'));
+        });
+        svg.appendChild(txt(160, 40, '比例尺　1：100000', 'font-size:13px;font-weight:700;fill:var(--accent)'));
+        svg.appendChild(txt(160, 124, '圖上 1 公分 ＝ 實際 100000 公分 ＝ 1 公里',
+          'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(160, 150, '分母越大 → 範圍越大、越不詳細',
+          'font-size:11px;fill:var(--dim)'));
+        main = '比例尺：把真實世界縮小的倍數';
+        sub = '1：100000 代表圖上量到 1 公分，實際上是 100000 公分（也就是 1 公里）。' +
+          '⚠ 分母越「大」，縮得越小 → 涵蓋範圍大、但畫得粗略（例如世界地圖）；' +
+          '分母越小 → 範圍小但很詳細（例如校園平面圖）。' +
+          '算實際距離：圖上距離 × 分母，記得換算單位。';
+      } else if (mode === 'legend') {
+        [['🏫 學校', 70], ['🏥 醫院', 100], ['🚉 車站', 130]].forEach(function (r, i) {
+          svg.appendChild(el('rect', { x: 60, y: r[1] - 14, width: 200, height: 24, rx: 5,
+            'fill-opacity': '.1' }, 'fill:var(--accent);stroke:var(--border);stroke-width:1'));
+          svg.appendChild(txt(160, r[1] - 2, r[0], 'font-size:12px'));
+        });
+        svg.appendChild(txt(160, 40, '圖例：地圖的「說明書」', 'font-size:13px;font-weight:700;fill:var(--accent)'));
+        main = '圖例：告訴你符號代表什麼';
+        sub = '地圖上用簡單的符號代表建築、道路、河流等，圖例就是符號的對照表。' +
+          '看地圖的順序：① 先看標題（這是什麼地圖）② 看方位 ③ 看圖例 ④ 看比例尺。' +
+          '⚠ 不同地圖的符號可能不同，一定要看該張地圖自己的圖例。';
+      } else {
+        var R = 52, cx = 100, cy = 88;
+        svg.appendChild(el('circle', { cx: cx, cy: cy, r: R },
+          'fill:none;stroke:var(--border);stroke-width:2'));
+        var DIRS = [['北', 0], ['東北', 45], ['東', 90], ['東南', 135],
+                    ['南', 180], ['西南', 225], ['西', 270], ['西北', 315]];
+        DIRS.forEach(function (d) {
+          var a = (d[1] - 90) * Math.PI / 180;
+          var x = cx + (R + 14) * Math.cos(a), y = cy + (R + 14) * Math.sin(a);
+          svg.appendChild(el('line', { x1: cx, y1: cy, x2: cx + R * Math.cos(a), y2: cy + R * Math.sin(a) },
+            'stroke:var(--' + (d[1] % 90 === 0 ? 'accent' : 'dim') + ');stroke-width:' +
+            (d[1] % 90 === 0 ? 2.5 : 1)));
+          svg.appendChild(txt(x, y, d[0], 'font-size:' + (d[1] % 90 === 0 ? 12 : 9) + 'px'));
+        });
+        svg.appendChild(txt(240, 60, '地圖預設', 'font-size:11px;fill:var(--dim)'));
+        svg.appendChild(txt(240, 80, '上北 下南', 'font-size:12px;fill:var(--accent)'));
+        svg.appendChild(txt(240, 100, '左西 右東', 'font-size:12px;fill:var(--accent)'));
+        main = '八個方位：北、東北、東、東南、南、西南、西、西北';
+        sub = '一般地圖若沒有特別標示，就是「上北、下南、左西、右東」。' +
+          '⚠ 判斷方位一定要先找指北針或方位標，不要直接假設。' +
+          '實地判斷方位的方法：指南針、太陽（清晨在東、傍晚在西）、' +
+          '有些建築的坐向也可以參考。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['compass', '方位'], ['scale', '比例尺'], ['legend', '圖例']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 臺灣簡圖（taiwan）────────────────────────────────────────────────
+     spec: { mode:'region'|'terrain'|'river', pick }                      */
+  REG.taiwan = function (host, spec) {
+    var mode = spec.mode || 'region';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 210', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var OUT = 'M160,16 C186,30 200,58 202,92 C205,132 194,170 176,192 ' +
+      'C166,202 148,200 140,188 C124,164 116,120 122,80 C127,44 140,22 160,16 Z';
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('path', { d: OUT, 'fill-opacity': '.12' },
+        'fill:var(--good);stroke:var(--good);stroke-width:2'));
+      var main, sub;
+      if (mode === 'terrain') {
+        svg.appendChild(el('path',
+          { d: 'M164,34 C180,66 186,120 172,178 C166,186 158,184 156,174 C150,124 152,66 164,34 Z',
+            'fill-opacity': '.4' }, 'fill:var(--bad);stroke:var(--bad);stroke-width:1.5'));
+        svg.appendChild(txt(238, 96, '中央山脈', 'font-size:11px;fill:var(--bad)'));
+        svg.appendChild(txt(76, 120, '西部平原', 'font-size:11px;fill:var(--accent)'));
+        svg.appendChild(txt(238, 150, '東部狹窄', 'font-size:10px;fill:var(--dim)'));
+        main = '地形：東高西低，山脈偏東';
+        sub = '五大地形都有：山地（約占三分之一）、丘陵、台地、盆地、平原。' +
+          '中央山脈縱貫南北、偏東側，所以「東部山高谷深、西部平原寬廣」，' +
+          '人口和都市多集中在西部平原。' +
+          '⚠ 玉山是東北亞最高峰（3952 公尺）。';
+      } else if (mode === 'river') {
+        svg.appendChild(el('path', { d: 'M162,70 C140,80 120,86 108,92' },
+          'fill:none;stroke:var(--accent);stroke-width:2.5'));
+        svg.appendChild(el('path', { d: 'M164,118 C142,126 122,132 110,136' },
+          'fill:none;stroke:var(--accent);stroke-width:2.5'));
+        svg.appendChild(el('path', { d: 'M170,150 C186,156 194,160 200,164' },
+          'fill:none;stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(txt(66, 92, '河短流急', 'font-size:10px;fill:var(--accent)'));
+        svg.appendChild(txt(250, 168, '東岸更短', 'font-size:10px;fill:var(--dim)'));
+        main = '河川：短、急、豐枯差異大';
+        sub = '因為島嶼狹長、山脈偏東，河川大多「向西流入台灣海峽」，長度短、坡度陡、流速快。' +
+          '⚠ 雨季集中在夏季，所以河水暴漲暴落，難以儲存 → 台灣其實是缺水地區。' +
+          '最長的河是濁水溪，流域最大的是高屏溪。';
+      } else {
+        [['北部', 158, 44], ['中部', 150, 96], ['南部', 148, 150], ['東部', 196, 120]]
+          .forEach(function (r) {
+            svg.appendChild(el('circle', { cx: r[1], cy: r[2], r: 14, 'fill-opacity': '.25' },
+              'fill:var(--accent);stroke:var(--accent);stroke-width:1.5'));
+            svg.appendChild(txt(r[1], r[2], r[0], 'font-size:9px'));
+          });
+        svg.appendChild(txt(60, 40, '北回歸線', 'font-size:10px;fill:var(--bad)'));
+        svg.appendChild(el('line', { x1: 46, y1: 118, x2: 300, y2: 118 },
+          'stroke:var(--bad);stroke-width:1.5;stroke-dasharray:5 4'));
+        svg.appendChild(txt(60, 132, '約北緯 23.5 度', 'font-size:9px;fill:var(--bad)'));
+        main = '位置：北回歸線通過台灣中南部';
+        sub = '台灣位於亞洲大陸東南方、太平洋西側，是東亞島弧的一部分，' +
+          '西隔台灣海峽與中國大陸相望。' +
+          '⚠ 北回歸線（約北緯 23.5 度）通過嘉義、花蓮一帶，' +
+          '以北屬亞熱帶氣候、以南屬熱帶氣候。' +
+          '位居海運與航空要道，區位條件優越。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['region', '位置與分區'], ['terrain', '地形'], ['river', '河川']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 組織架構圖（orgchart）────────────────────────────────────────────
+     spec: { title, root, nodes:[{t, d}] }                                */
+  REG.orgchart = function (host, spec) {
+    var root = spec.root || '總統';
+    var N = spec.nodes || [];
+    var idx = -1;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 160', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('rect', { x: 110, y: 16, width: 100, height: 32, rx: 8, 'fill-opacity': '.25' },
+        'fill:var(--bad);stroke:var(--bad);stroke-width:2'));
+      svg.appendChild(txt(160, 32, root, 'font-size:12px;font-weight:700'));
+      var n = Math.max(N.length, 1), w = Math.min(300 / n, 74);
+      var x0 = 160 - n * w / 2;
+      N.forEach(function (nd, i) {
+        var x = x0 + i * w, on = i === idx;
+        svg.appendChild(el('line', { x1: 160, y1: 48, x2: x + w / 2, y2: 80 },
+          'stroke:var(--dim);stroke-width:1.5'));
+        svg.appendChild(el('rect', { x: x + 3, y: 80, width: w - 6, height: 34, rx: 6,
+          'fill-opacity': on ? '.3' : '.12' },
+          'fill:var(--accent);stroke:var(--' + (on ? 'accent' : 'border') + ');stroke-width:2'));
+        svg.appendChild(txt(x + w / 2, 97, nd.t, 'font-size:' + (w < 60 ? 9 : 11) + 'px'));
+      });
+      svg.appendChild(txt(160, 140, idx < 0 ? '按下面的按鈕看每一個的職掌' : '',
+        'font-size:10px;fill:var(--dim)'));
+      if (idx >= 0 && N[idx]) {
+        read.appendChild(div('wg-read-main', N[idx].t));
+        read.appendChild(div('wg-read-sub', N[idx].d || ''));
+      } else {
+        read.appendChild(div('wg-read-main', spec.title || root + '的組織'));
+        read.appendChild(div('wg-read-sub', spec.intro || ''));
+      }
+    }
+    var row = div('wg-ctrl');
+    N.forEach(function (nd, i) {
+      row.appendChild(btn(nd.t, function () { idx = i; paint(); }));
+    });
+    box.appendChild(row);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 人口金字塔（poppyramid）──────────────────────────────────────────
+     spec: { mode:'young'|'aging'|'compare' }                             */
+  REG.poppyramid = function (host, spec) {
+    var mode = spec.mode || 'aging';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var AGES = ['80+', '60-79', '40-59', '20-39', '0-19'];
+    var SET = {
+      young: [8, 18, 30, 42, 52],
+      aging: [26, 44, 48, 34, 22]
+    };
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var data = SET[mode === 'young' ? 'young' : 'aging'];
+      AGES.forEach(function (a, i) {
+        var y = 30 + i * 26, w = data[i] * 1.6;
+        svg.appendChild(el('rect', { x: 160 - w, y: y, width: w, height: 20, rx: 3,
+          'fill-opacity': '.5' }, 'fill:var(--accent);stroke:var(--accent)'));
+        svg.appendChild(el('rect', { x: 160, y: y, width: w * 0.96, height: 20, rx: 3,
+          'fill-opacity': '.5' }, 'fill:var(--bad);stroke:var(--bad)'));
+        svg.appendChild(txt(160, y + 12, a, 'font-size:9px'));
+      });
+      svg.appendChild(txt(70, 20, '男', 'font-size:11px;fill:var(--accent)'));
+      svg.appendChild(txt(250, 20, '女', 'font-size:11px;fill:var(--bad)'));
+      svg.appendChild(txt(160, 172, mode === 'young' ? '年輕型：底部寬（三角形）'
+        : '高齡型：中上層寬、底部窄（倒三角）', 'font-size:11px;fill:var(--good)'));
+      var main, sub;
+      if (mode === 'young') {
+        main = '年輕型人口：出生率高、底部寬';
+        sub = '圖形像正三角形，代表幼年人口多、老年人口少。' +
+          '常見於出生率高的開發中國家。' +
+          '⚠ 這種結構未來的勞動力充足，但教育與就業的壓力大。';
+      } else {
+        main = '高齡型人口：少子化 ＋ 高齡化';
+        sub = '底部（幼年）窄、上層（老年）寬，代表出生率下降、平均壽命延長。' +
+          '台灣已進入高齡社會，65 歲以上人口超過總人口的 14%。' +
+          '⚠ 影響：勞動力減少、扶養負擔加重、長照與年金壓力大。' +
+          '因應方式：鼓勵生育、延後退休、引進移工、發展照護產業。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['young', '年輕型'], ['aging', '高齡型']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 供給與需求（supply）──────────────────────────────────────────────
+     spec: { price }                                                      */
+  REG.supply = function (host, spec) {
+    var p = spec.price == null ? 5 : spec.price;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var X = function (q) { return 40 + q * 24; };
+      var Y = function (pr) { return 140 - pr * 12; };
+      svg.appendChild(el('line', { x1: 40, y1: 20, x2: 40, y2: 140 }, 'stroke:var(--text);stroke-width:2'));
+      svg.appendChild(el('line', { x1: 40, y1: 140, x2: 296, y2: 140 }, 'stroke:var(--text);stroke-width:2'));
+      svg.appendChild(txt(24, 26, '價格', 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(280, 156, '數量', 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(el('line', { x1: X(1), y1: Y(9), x2: X(9), y2: Y(1) },
+        'stroke:var(--accent);stroke-width:3'));
+      svg.appendChild(txt(X(9) + 14, Y(1), '需求', 'font-size:10px;fill:var(--accent)'));
+      svg.appendChild(el('line', { x1: X(1), y1: Y(1), x2: X(9), y2: Y(9) },
+        'stroke:var(--bad);stroke-width:3'));
+      svg.appendChild(txt(X(9) + 14, Y(9), '供給', 'font-size:10px;fill:var(--bad)'));
+      var qd = 10 - p, qs = p;
+      svg.appendChild(el('line', { x1: 40, y1: Y(p), x2: 296, y2: Y(p) },
+        'stroke:var(--good);stroke-width:1.5;stroke-dasharray:4 3'));
+      svg.appendChild(txt(20, Y(p), String(p), 'font-size:10px;fill:var(--good)'));
+      svg.appendChild(el('circle', { cx: X(qd), cy: Y(p), r: 5 }, 'fill:var(--accent)'));
+      svg.appendChild(el('circle', { cx: X(qs), cy: Y(p), r: 5 }, 'fill:var(--bad)'));
+      var state = qd > qs ? '供不應求（短缺）→ 價格會被推高'
+        : (qd < qs ? '供過於求（過剩）→ 價格會下跌' : '供需平衡：這就是均衡價格');
+      read.appendChild(div('wg-read-main', '價格 ' + p + '　需求量 ' + qd + '　供給量 ' + qs + '　' + state));
+      read.appendChild(div('wg-read-sub',
+        '需求法則：價格越高，想買的人越少（需求線由左上往右下）。' +
+        '供給法則：價格越高，生產者越想賣（供給線由左下往右上）。' +
+        '兩條線交叉的地方就是「均衡價格」，市場會自動往這裡靠近。' +
+        '⚠ 短缺時價格上漲、過剩時價格下跌，這就是市場機制在調節。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(div('wg-ctrl-label', '價格'));
+    row.appendChild(slider(1, 9, p, 1, function (v) { p = v; paint(); }));
+    box.appendChild(row);
+    host.appendChild(box);
+    paint();
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },
