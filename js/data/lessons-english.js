@@ -18251,3 +18251,1323 @@ window.APP_LESSONS['english|七上|第9單元 現在進行式'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|七下|第1單元 助動詞 can／may'] = {
+  intro: '助動詞加在動詞前面，替句子加上「能力、許可、可能」的意思。',
+  cards: [
+    {
+      title: '① 助動詞的三條鐵則',
+      body: '① 後面一定接原形動詞：He can swim.（不是 can swims）\n' +
+            '② 否定直接加 not：cannot／can’t、may not\n' +
+            '③ 疑問把助動詞移到句首：Can you swim?\n' +
+            '⚠ 有了助動詞，就不用 do／does。',
+      viz: { type: 'sentence', label: '助動詞句型', items: [
+        { t: 'He', r: '主詞' }, { t: 'can', r: '助動詞（不隨主詞變化）' },
+        { t: 'swim', r: '原形動詞' }],
+        note: '助動詞後面永遠接原形動詞。' },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'She can play the piano.',
+          'She cans play the piano.',
+          'She can plays the piano.',
+          'She does can play the piano.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '助動詞不隨主詞加 s。',
+          '助動詞後面要接原形動詞。',
+          '有助動詞時不再用 does。'
+        ]
+      }
+    },
+    {
+      title: '② can 的三種意思',
+      body: '① 能力：I can swim.（我會游泳。）\n' +
+            '② 許可：You can go now.（你可以走了。）\n' +
+            '③ 請求：Can you help me?（可以幫我嗎？）\n' +
+            '⚠ 同一個字，靠上下文判斷是哪一種。',
+      viz: { type: 'classify', groups: [
+        { label: '能力', items: ['I can swim.', 'He can speak English.'] },
+        { label: '許可與請求', items: ['You can go.', 'Can you help me?'] }] },
+      check: {
+        q: 'Can I use your phone? 這句話在表達什麼？',
+        options: [
+          '請求對方的許可',
+          '陳述自己的能力',
+          '描述過去的事',
+          '表達未來的計畫'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這裡問的是可不可以，不是會不會。',
+          '句子用的是現在式。',
+          '這句沒有提到未來的時間。'
+        ]
+      }
+    },
+    {
+      title: '③ 否定與縮寫',
+      body: 'cannot ＝ can’t（★ 注意 cannot 是一個字，中間不空格）\n' +
+            'I can’t swim.（我不會游泳。）\n' +
+            'may not（沒有常用縮寫）\n' +
+            '⚠ 寫作時 cannot 與 can not 都看得到，但以 cannot 為主。',
+      viz: { type: 'classify', groups: [
+        { label: '正確寫法', items: ['cannot', 'can’t'] },
+        { label: '容易寫錯', items: ['can not（較少用）', 'cann’t（錯）'] }] },
+      check: {
+        q: 'can 的否定形正確寫法是什麼？',
+        options: ['cannot', 'cann’t', 'can’nt', 'do not can'],
+        answer: 0,
+        why: [
+          null,
+          '這個縮寫的撇號位置錯了。',
+          '這個拼法並不存在。',
+          '有助動詞時不再用 do。'
+        ]
+      }
+    },
+    {
+      title: '④ may 的用法',
+      body: '① 正式的許可：May I come in?（比 Can I 更客氣）\n' +
+            '② 可能性：It may rain tomorrow.（明天可能會下雨。）\n' +
+            '⚠ May I…? 常用在對長輩或不熟的人。',
+      viz: { type: 'compareexp',
+             factor: '正式程度',
+             a: { label: 'Can I…?', note: '日常、朋友之間' },
+             b: { label: 'May I…?', note: '正式、對長輩或陌生人' },
+             same: ['都在請求許可'] },
+      check: {
+        q: '向老師請求進教室，比較合適的說法是什麼？',
+        options: [
+          'May I come in?',
+          'I come in.',
+          'I want come in.',
+          'Come in me.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是陳述句，不是請求。',
+          '這個句子缺少 to，語氣也不客氣。',
+          '這個語序不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑤ be able to',
+      body: 'can ＝ be able to（表示能力時）\n' +
+            'I can swim. ＝ I am able to swim.\n' +
+            '⚠ can 沒有未來式，要說未來的能力得用：\n' +
+            'I will be able to swim next year.',
+      viz: { type: 'compareexp',
+             factor: '能不能配時態',
+             a: { label: 'can', note: '只有現在式與過去式 could' },
+             b: { label: 'be able to', note: '可以配任何時態' },
+             same: ['表示能力時意思相同'] },
+      check: {
+        q: '「明年我就能開車了」的正確說法是什麼？',
+        options: [
+          'I will be able to drive next year.',
+          'I will can drive next year.',
+          'I can will drive next year.',
+          'I am can drive next year.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩個助動詞不能連用。',
+          '助動詞不能連續出現。',
+          'be 動詞不能和助動詞 can 並用。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見的請求句型',
+      body: 'Can you…?（可以嗎，日常）\n' +
+            'Could you…?（更客氣）\n' +
+            'Would you…?（更客氣）\n' +
+            '⚠ could 在這裡不是過去式，而是讓語氣更委婉。',
+      viz: { type: 'energyflow', steps: ['Can you…?（一般）', 'Could you…?（客氣）', 'Would you mind…?（最客氣）'] },
+      check: {
+        q: 'Could you open the window? 這裡的 could 表示什麼？',
+        options: [
+          '讓語氣更委婉客氣',
+          '表示過去的能力',
+          '表示不可能',
+          '表示命令'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這裡不是在講過去的事。',
+          'could 在請求句中不表示否定。',
+          '疑問的請求語氣比命令柔和。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|七下|第2單元 頻率副詞'] = {
+  intro: '多常做一件事，靠頻率副詞說清楚。',
+  cards: [
+    {
+      title: '① 頻率的高低順序',
+      body: 'always（100%）→ usually → often → sometimes → seldom／rarely → never（0%）\n' +
+            '⚠ seldom 和 never 本身已經是否定的意思，\n' +
+            '句子裡不能再加 not。',
+      viz: { type: 'energyflow', steps: ['always 總是', 'usually 通常', 'often 常常', 'sometimes 有時', 'seldom 很少', 'never 從不'] },
+      check: {
+        q: '下列哪一個表示頻率最低？',
+        options: ['never', 'seldom', 'sometimes', 'often'],
+        answer: 0,
+        why: [
+          null,
+          'seldom 表示很少，但不是完全沒有。',
+          'sometimes 表示有時候。',
+          'often 表示常常。'
+        ]
+      }
+    },
+    {
+      title: '② 放在哪裡',
+      body: '★ 一般動詞前面：I always get up early.\n' +
+            '★ be 動詞後面：He is always late.\n' +
+            '★ 助動詞後面：I can never remember his name.\n' +
+            '⚠ 口訣：be 後、助後、一般動詞前。',
+      viz: { type: 'compareexp',
+             factor: '句子裡有什麼動詞',
+             a: { label: 'be 動詞句', note: '副詞放後面：is always late' },
+             b: { label: '一般動詞句', note: '副詞放前面：always gets up' },
+             same: ['副詞的形式不變，只是位置不同'] },
+      check: {
+        q: '下列哪一句位置正確？',
+        options: [
+          'She is often tired after school.',
+          'She often is tired after school.',
+          'She is tired often after school.',
+          'Often she is tired after school is.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '頻率副詞要放在 be 動詞後面。',
+          '這個位置不是標準用法。',
+          '句尾多了一個 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 用 How often 提問',
+      body: 'How often do you exercise?（你多常運動？）\n' +
+            '→ Three times a week.（一週三次。）\n' +
+            '⚠ 回答可以用頻率副詞，也可以用具體次數。',
+      viz: { type: 'sentence', label: '問頻率', items: [
+        { t: 'How often', r: '多常' }, { t: 'do you', r: '助動詞加主詞' },
+        { t: 'exercise', r: '原形動詞' }],
+        note: 'How often 問的是次數或頻率。' },
+      check: {
+        q: '要問「你多常去圖書館？」應該用哪一個？',
+        options: [
+          'How often',
+          'How long',
+          'How many',
+          'How far'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'How long 問時間長度。',
+          'How many 問數量。',
+          'How far 問距離。'
+        ]
+      }
+    },
+    {
+      title: '④ 表示次數的說法',
+      body: 'once a week（一週一次）　twice a month（一個月兩次）\n' +
+            'three times a year（一年三次）　every day（每天）\n' +
+            '⚠ 一次是 once、兩次是 twice，三次以上才用 times。',
+      viz: { type: 'classify', groups: [
+        { label: '特殊說法', items: ['once（一次）', 'twice（兩次）'] },
+        { label: '用 times', items: ['three times', 'four times', 'ten times'] }] },
+      check: {
+        q: '「一個月兩次」的正確說法是什麼？',
+        options: [
+          'twice a month',
+          'two times a month（較少用）',
+          'second a month',
+          'two time a month'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩次的標準說法是 twice。',
+          'second 是序數，不表示次數。',
+          'time 要用複數形。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 頻率副詞的位置變化',
+      body: 'sometimes、usually、often 可以放句首或句尾加強語氣：\n' +
+            'Sometimes I walk to school.\n' +
+            '⚠ 但 always 和 never 不放句首（除非是祈使句或倒裝）。',
+      viz: { type: 'classify', groups: [
+        { label: '位置較彈性', items: ['sometimes', 'usually', 'often'] },
+        { label: '位置固定', items: ['always', 'never', 'seldom'] }] },
+      check: {
+        q: '下列哪一個副詞可以放在句首？',
+        options: ['Sometimes', 'Always', 'Never', 'Seldom'],
+        answer: 0,
+        why: [
+          null,
+          'always 一般不放在句首。',
+          'never 放句首會需要倒裝的特殊句型。',
+          'seldom 放句首也需要倒裝。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見錯誤',
+      body: '✗ I don’t never go there.（雙重否定）\n' +
+            '✓ I never go there.\n' +
+            '✗ He always is late.（位置錯）\n' +
+            '✓ He is always late.',
+      viz: { type: 'energyflow', steps: ['先看動詞是哪一種', 'be 動詞放後面', '一般動詞放前面', '否定詞不重複'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'I never eat fast food.',
+          'I don’t never eat fast food.',
+          'I never don’t eat fast food.',
+          'I not never eat fast food.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'never 已是否定，不能再加 don’t。',
+          '同一句不能有兩個否定詞。',
+          '這句同樣犯了雙重否定的錯誤。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|七下|第3單元 時間介系詞'] = {
+  intro: 'at、on、in 三個字，靠「時間範圍的大小」就能分清楚。',
+  cards: [
+    {
+      title: '① 由小到大：at、on、in',
+      body: 'at：時間點（at 7:00、at noon、at night）\n' +
+            'on：某一天（on Monday、on May 5、on my birthday）\n' +
+            'in：較長的期間（in May、in 2026、in summer、in the morning）\n' +
+            '⚠ 範圍越大，介系詞越「大」。',
+      viz: { type: 'energyflow', steps: ['at（時刻）', 'on（一天）', 'in（月、年、季節）'] },
+      check: {
+        q: '「在星期五」的正確介系詞是什麼？',
+        options: ['on', 'at', 'in', 'to'],
+        answer: 0,
+        why: [
+          null,
+          'at 用於具體的時刻。',
+          'in 用於月份、年份等較長的期間。',
+          'to 表示方向。'
+        ]
+      }
+    },
+    {
+      title: '② 要背的例外',
+      body: 'at night（不是 in the night）\n' +
+            'at noon／at midnight\n' +
+            'on Monday morning（有指定某一天時用 on）\n' +
+            '⚠ 「早上」一般用 in the morning，\n' +
+            '但一旦指定是哪一天，就改用 on。',
+      viz: { type: 'compareexp',
+             factor: '有沒有指定哪一天',
+             a: { label: 'in the morning', note: '泛指早上' },
+             b: { label: 'on Monday morning', note: '指定星期一早上' },
+             same: ['都在說早上'] },
+      check: {
+        q: '「在星期日下午」的正確說法是什麼？',
+        options: [
+          'on Sunday afternoon',
+          'in Sunday afternoon',
+          'at Sunday afternoon',
+          'in the Sunday afternoon'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '指定了哪一天就要用 on。',
+          'at 用於具體的時刻。',
+          '指定日期時不用 in。'
+        ]
+      }
+    },
+    {
+      title: '③ for 與 since',
+      body: 'for ＋ 一段時間：for three years、for two hours\n' +
+            'since ＋ 起點：since 2020、since last month\n' +
+            '⚠ for 說的是「多久」，since 說的是「從什麼時候開始」。',
+      viz: { type: 'compareexp',
+             factor: '後面接什麼',
+             a: { label: 'for', note: '接時間長度：for two years' },
+             b: { label: 'since', note: '接起始點：since 2020' },
+             same: ['常和完成式一起用'] },
+      check: {
+        q: 'I have lived here ___ 2015. 空格要填什麼？',
+        options: ['since', 'for', 'at', 'in'],
+        answer: 0,
+        why: [
+          null,
+          'for 後面要接一段時間長度。',
+          'at 用於具體的時刻。',
+          'in 這裡無法表達從某年開始持續。'
+        ]
+      }
+    },
+    {
+      title: '④ before、after、during',
+      body: 'before dinner（晚餐前）　after school（放學後）\n' +
+            'during the summer（暑假期間）\n' +
+            '⚠ during 後面接名詞（一段期間），\n' +
+            'while 後面接完整的句子。',
+      viz: { type: 'compareexp',
+             factor: '後面接什麼',
+             a: { label: 'during', note: '接名詞：during the movie' },
+             b: { label: 'while', note: '接句子：while I was watching' },
+             same: ['都表示在某段時間之內'] },
+      check: {
+        q: 'I fell asleep ___ the movie. 空格要填什麼？',
+        options: ['during', 'while', 'when I', 'since'],
+        answer: 0,
+        why: [
+          null,
+          'while 後面要接完整的句子。',
+          '這個選項後面還需要動詞才完整。',
+          'since 表示從某時開始，語意不合。'
+        ]
+      }
+    },
+    {
+      title: '⑤ from…to 與 by',
+      body: 'from Monday to Friday（從星期一到星期五）\n' +
+            'by five o’clock（在五點之前，最晚五點）\n' +
+            '⚠ by 強調「不晚於」，until 強調「一直到」。',
+      viz: { type: 'compareexp',
+             factor: '意思的差別',
+             a: { label: 'by five', note: '五點之前要完成' },
+             b: { label: 'until five', note: '一直持續到五點' },
+             same: ['都提到五點這個時間'] },
+      check: {
+        q: 'Please finish it ___ Friday.（星期五之前完成）空格要填什麼？',
+        options: ['by', 'until', 'since', 'during'],
+        answer: 0,
+        why: [
+          null,
+          'until 表示持續到某時，語意不同。',
+          'since 表示從某時開始。',
+          'during 後面要接一段期間。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 不加介系詞的情況',
+      body: 'today、tomorrow、yesterday、this morning、next week、last year\n' +
+            '★ 這些字前面不加介系詞：\n' +
+            '✗ in this morning → ✓ this morning\n' +
+            '⚠ 有 this、that、next、last、every 就不加介系詞。',
+      viz: { type: 'classify', groups: [
+        { label: '不加介系詞', items: ['today', 'this morning', 'next week', 'every day'] },
+        { label: '要加介系詞', items: ['in the morning', 'on Monday', 'at six'] }] },
+      check: {
+        q: '「下星期」的正確說法是什麼？',
+        options: [
+          'next week',
+          'in next week',
+          'on next week',
+          'at next week'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '有 next 時前面不加介系詞。',
+          'on 用於特定的日期或星期。',
+          'at 用於具體的時刻。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|七下|第4單元 地點介系詞'] = {
+  intro: '同樣是 at、on、in，換到空間上就變成點、面、體。',
+  cards: [
+    {
+      title: '① 點、面、體',
+      body: 'at：一個點（at the door、at the bus stop、at school）\n' +
+            'on：一個面（on the table、on the wall、on the second floor）\n' +
+            'in：一個空間裡面（in the box、in Taipei、in the room）\n' +
+            '⚠ at 是點、on 是面、in 是立體空間。',
+      viz: { type: 'energyflow', steps: ['at（點）', 'on（面）', 'in（立體空間）'] },
+      check: {
+        q: '「在牆上」的正確說法是什麼？',
+        options: ['on the wall', 'in the wall', 'at the wall', 'to the wall'],
+        answer: 0,
+        why: [
+          null,
+          'in the wall 表示嵌在牆裡面。',
+          'at the wall 指靠近牆的位置，語意不同。',
+          'to 表示方向而不是位置。'
+        ]
+      }
+    },
+    {
+      title: '② 相對位置',
+      body: 'in front of（在前面）　behind（在後面）\n' +
+            'next to／beside（在旁邊）　between A and B（在兩者之間）\n' +
+            'across from／opposite（在對面）\n' +
+            '⚠ between 只能用在兩者之間，三者以上用 among。',
+      viz: { type: 'classify', groups: [
+        { label: '前後', items: ['in front of', 'behind'] },
+        { label: '旁邊與之間', items: ['next to', 'between', 'among'] }] },
+      check: {
+        q: 'The bank is ___ the post office and the school. 空格要填什麼？',
+        options: ['between', 'among', 'behind', 'in'],
+        answer: 0,
+        why: [
+          null,
+          'among 用於三者以上。',
+          'behind 表示在後面，語意不合。',
+          'in 表示在裡面。'
+        ]
+      }
+    },
+    {
+      title: '③ 上下與內外',
+      body: 'over（正上方，不接觸）　above（在上方）\n' +
+            'under（正下方）　below（在下方）\n' +
+            'inside（在內部）　outside（在外面）\n' +
+            '⚠ on 是接觸的上面，over 是不接觸的上方。',
+      viz: { type: 'compareexp',
+             factor: '有沒有接觸',
+             a: { label: 'on', note: '接觸表面：a book on the desk' },
+             b: { label: 'over', note: '懸在上方：a lamp over the desk' },
+             same: ['都表示在上面'] },
+      check: {
+        q: '「燈懸在桌子上方」的正確說法是什麼？',
+        options: [
+          'The lamp is over the table.',
+          'The lamp is on the table.',
+          'The lamp is in the table.',
+          'The lamp is at the table.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'on 表示放在桌面上並接觸。',
+          'in 表示在桌子內部。',
+          'at 指靠近桌子的位置。'
+        ]
+      }
+    },
+    {
+      title: '④ 表示方向',
+      body: 'to（往）　into（進入）　out of（出來）\n' +
+            'through（穿過）　across（橫越）　along（沿著）\n' +
+            '⚠ 方向的介系詞多半和移動的動詞一起用。',
+      viz: { type: 'classify', groups: [
+        { label: '位置（靜態）', items: ['in', 'on', 'at', 'under'] },
+        { label: '方向（動態）', items: ['to', 'into', 'through', 'across'] }] },
+      check: {
+        q: 'He walked ___ the room and sat down. 空格要填什麼？',
+        options: ['into', 'in', 'on', 'at'],
+        answer: 0,
+        why: [
+          null,
+          'in 表示已經在裡面，不表示進入的動作。',
+          'on 表示在表面上。',
+          'at 表示在某一個定點。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 地址與交通',
+      body: 'in Taiwan、in Taipei（大範圍用 in）\n' +
+            'on Zhongshan Road（街道用 on）\n' +
+            'at No. 5, Zhongshan Road（門牌號碼用 at）\n' +
+            '⚠ 範圍越精確，介系詞越小。',
+      viz: { type: 'energyflow', steps: ['in Taiwan（國家）', 'in Taipei（城市）', 'on Main Road（街道）', 'at No. 5（門牌）'] },
+      check: {
+        q: '「住在中山路上」的正確說法是什麼？',
+        options: [
+          'live on Zhongshan Road',
+          'live in Zhongshan Road',
+          'live at Zhongshan Road',
+          'live to Zhongshan Road'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'in 用於城市或更大的範圍。',
+          'at 用於具體的門牌號碼。',
+          'to 表示方向。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 容易混淆的固定用法',
+      body: 'at home、at school、at work（不加冠詞，強調在做那件事）\n' +
+            'in the school（強調在校園這個地方裡）\n' +
+            'on the bus／in the car（大車用 on，小車用 in）\n' +
+            '⚠ 這些是慣用法，理解之後直接記起來。',
+      viz: { type: 'classify', groups: [
+        { label: 'on（能走動的交通工具）', items: ['on the bus', 'on the train', 'on a plane'] },
+        { label: 'in（空間小的）', items: ['in the car', 'in a taxi'] }] },
+      check: {
+        q: '「在公車上」的正確說法是什麼？',
+        options: ['on the bus', 'in the bus', 'at the bus', 'to the bus'],
+        answer: 0,
+        why: [
+          null,
+          '大型可走動的交通工具慣用 on。',
+          'at the bus 指在公車旁邊。',
+          'to 表示方向。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|七下|第5單元 There is／There are'] = {
+  intro: '要說「某處有什麼」，英文用的是 There is 而不是 have。',
+  cards: [
+    {
+      title: '① 基本句型',
+      body: 'There is ＋ 單數或不可數名詞\n' +
+            'There are ＋ 複數名詞\n' +
+            'There is a book on the desk.／There are two books.\n' +
+            '⚠ there 只是引導詞，真正的主詞在後面。',
+      viz: { type: 'sentence', label: '真正的主詞在後面', items: [
+        { t: 'There', r: '引導詞（不是主詞）' }, { t: 'are', r: '跟著後面的名詞變' },
+        { t: 'two books', r: '真正的主詞' }],
+        note: '動詞跟著後面的名詞決定單複數。' },
+      check: {
+        q: 'There ___ some milk in the fridge. 空格要填什麼？',
+        options: ['is', 'are', 'have', 'has'],
+        answer: 0,
+        why: [
+          null,
+          'milk 是不可數名詞，要用 is。',
+          '英文表示存在不用 have。',
+          '這個句型不使用 has。'
+        ]
+      }
+    },
+    {
+      title: '② 不要用 have',
+      body: '中文說「教室裡有三十個學生」，\n' +
+            '✗ The classroom has thirty students.（少用）\n' +
+            '✓ There are thirty students in the classroom.\n' +
+            '⚠ 表示某地存在某物，英文的標準說法是 There is／are。',
+      viz: { type: 'compareexp',
+             factor: '主詞是誰',
+             a: { label: 'There are…', note: '描述某地存在什麼（標準）' },
+             b: { label: '某人 has…', note: '描述某人擁有什麼' },
+             same: ['中文都翻成「有」'] },
+      check: {
+        q: '「公園裡有很多樹」的標準說法是什麼？',
+        options: [
+          'There are many trees in the park.',
+          'The park has many trees is.',
+          'In the park have many trees.',
+          'There have many trees in the park.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句尾多了一個 be 動詞。',
+          '這個句子沒有主詞，結構不完整。',
+          '這個句型不使用 have。'
+        ]
+      }
+    },
+    {
+      title: '③ 動詞跟著最近的名詞',
+      body: 'There is a pen and two books on the desk.\n' +
+            'There are two books and a pen on the desk.\n' +
+            '⚠ 有好幾個東西時，be 動詞跟著「最靠近」的那個名詞。',
+      viz: { type: 'sentence', label: '就近原則', items: [
+        { t: 'There is', r: '跟著下一個名詞' }, { t: 'a pen', r: '單數（最靠近）' },
+        { t: 'and two books', r: '後面的不影響' }],
+        note: '動詞跟著最靠近的名詞決定。' },
+      check: {
+        q: 'There ___ a chair and two tables in the room. 空格要填什麼？',
+        options: ['is', 'are', 'have', 'be'],
+        answer: 0,
+        why: [
+          null,
+          '最靠近的名詞是單數的 a chair。',
+          '這個句型不用 have。',
+          'be 是原形，句子需要現在式。'
+        ]
+      }
+    },
+    {
+      title: '④ 否定與疑問',
+      body: '否定：There isn’t any water.／There aren’t any books.\n' +
+            '疑問：Is there a bank near here?→ Yes, there is.\n' +
+            '⚠ 簡答時要保留 there：Yes, there is.（不是 Yes, it is.）',
+      viz: { type: 'energyflow', steps: ['There is a bank.', '把 is 移到前面', 'Is there a bank?', 'Yes, there is.'] },
+      check: {
+        q: 'Are there any students in the classroom? 的肯定簡答是什麼？',
+        options: [
+          'Yes, there are.',
+          'Yes, they are.',
+          'Yes, it is.',
+          'Yes, there is.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句型的簡答要保留 there。',
+          '主詞是複數而且要用 there。',
+          '問句用 are，簡答也要用 are。'
+        ]
+      }
+    },
+    {
+      title: '⑤ some 與 any',
+      body: '肯定句用 some：There are some apples.\n' +
+            '否定與疑問常用 any：There aren’t any apples.\n' +
+            '⚠ 但期待對方說 yes 的邀請句仍用 some：\n' +
+            'Would you like some tea?',
+      viz: { type: 'compareexp',
+             factor: '句子的類型',
+             a: { label: 'some', note: '肯定句、邀請句' },
+             b: { label: 'any', note: '否定句、一般疑問句' },
+             same: ['都表示不確定的數量'] },
+      check: {
+        q: 'There aren’t ___ eggs in the fridge. 空格要填什麼？',
+        options: ['any', 'some', 'a', 'much'],
+        answer: 0,
+        why: [
+          null,
+          '否定句通常用 any。',
+          'a 後面要接單數名詞。',
+          'much 用於不可數名詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 過去式與未來式',
+      body: 'There was a park here.（以前有一座公園。）\n' +
+            'There were many people.（當時有很多人。）\n' +
+            'There will be a test tomorrow.（明天會有考試。）\n' +
+            '⚠ 未來式固定用 There will be，不隨單複數變。',
+      viz: { type: 'classify', groups: [
+        { label: '現在', items: ['There is', 'There are'] },
+        { label: '過去', items: ['There was', 'There were'] },
+        { label: '未來', items: ['There will be'] }] },
+      check: {
+        q: '「明天會有一場演唱會」的正確說法是什麼？',
+        options: [
+          'There will be a concert tomorrow.',
+          'There will is a concert tomorrow.',
+          'There will are a concert tomorrow.',
+          'There is will a concert tomorrow.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'will 後面要接原形的 be。',
+          'will 後面不能接 are。',
+          '助動詞要放在 be 動詞前面。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|七下|第6單元 形容詞與副詞'] = {
+  intro: '形容詞修飾名詞、副詞修飾動詞，用錯位置意思就走樣。',
+  cards: [
+    {
+      title: '① 兩者的分工',
+      body: '形容詞修飾名詞：a careful driver（小心的駕駛）\n' +
+            '副詞修飾動詞：He drives carefully.（他開車很小心。）\n' +
+            '⚠ 判斷方法：這個字在形容「人事物」還是在形容「怎麼做」。',
+      viz: { type: 'compareexp',
+             factor: '修飾誰',
+             a: { label: '形容詞', note: '修飾名詞：a slow car' },
+             b: { label: '副詞', note: '修飾動詞：drives slowly' },
+             same: ['字根相同，字尾不同'] },
+      check: {
+        q: 'She sings ___.（她唱得很好）空格要填什麼？',
+        options: ['well', 'good', 'goodly', 'the good'],
+        answer: 0,
+        why: [
+          null,
+          'good 是形容詞，不能修飾動詞。',
+          '這個字並不存在。',
+          '加冠詞在這裡並不通順。'
+        ]
+      }
+    },
+    {
+      title: '② 副詞的變化規則',
+      body: '一般：形容詞加 ly（quick→quickly）\n' +
+            '子音加 y：y 改 ily（happy→happily）\n' +
+            '字尾 le：去 e 加 y（simple→simply）\n' +
+            '不規則：good→well、fast→fast、hard→hard',
+      viz: { type: 'classify', groups: [
+        { label: '加 ly', items: ['quickly', 'slowly', 'carefully'] },
+        { label: 'y 改 ily', items: ['happily', 'easily'] },
+        { label: '形式不變', items: ['fast', 'hard', 'late', 'early'] }] },
+      check: {
+        q: 'fast 的副詞形是什麼？',
+        options: ['fast', 'fastly', 'fastily', 'quickly fast'],
+        answer: 0,
+        why: [
+          null,
+          'fast 的副詞形和形容詞相同。',
+          '這個拼法並不存在。',
+          '這個說法重複多餘。'
+        ]
+      }
+    },
+    {
+      title: '③ 陷阱：ly 不一定是副詞',
+      body: 'friendly、lovely、lonely、ugly 都是形容詞，不是副詞。\n' +
+            '✗ He smiled friendly.\n' +
+            '✓ He gave me a friendly smile.\n' +
+            '⚠ 這些字沒有對應的副詞形，要換句話說。',
+      viz: { type: 'classify', groups: [
+        { label: 'ly 結尾但是形容詞', items: ['friendly', 'lovely', 'lonely', 'ugly'] },
+        { label: 'ly 結尾的副詞', items: ['quickly', 'slowly', 'happily'] }] },
+      check: {
+        q: '下列哪一個 ly 結尾的字是形容詞？',
+        options: ['friendly', 'quickly', 'carefully', 'happily'],
+        answer: 0,
+        why: [
+          null,
+          'quickly 是副詞，修飾動詞。',
+          'carefully 是副詞，修飾動詞。',
+          'happily 是副詞，修飾動詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 連綴動詞後面用形容詞',
+      body: 'be、look、sound、smell、taste、feel、become 後面接形容詞：\n' +
+            'The soup tastes good.（不是 tastes well）\n' +
+            'You look tired.\n' +
+            '⚠ 這些動詞沒有真正的動作，是在描述主詞的狀態。',
+      viz: { type: 'sentence', label: '連綴動詞', items: [
+        { t: 'The soup', r: '主詞' }, { t: 'tastes', r: '連綴動詞' },
+        { t: 'good', r: '形容詞（描述主詞）' }],
+        note: '連綴動詞後面要用形容詞。' },
+      check: {
+        q: 'The flower smells ___. 空格要填什麼？',
+        options: ['sweet', 'sweetly', 'sweetness', 'to sweet'],
+        answer: 0,
+        why: [
+          null,
+          'smell 是連綴動詞，後面要接形容詞。',
+          'sweetness 是名詞，語意不通。',
+          '這裡不需要不定詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 形容詞的排列順序',
+      body: '冠詞 → 數量 → 主觀評價 → 大小 → 新舊 → 顏色 → 出處 → 材質 → 名詞\n' +
+            'a beautiful small old brown wooden table\n' +
+            '⚠ 實際說話很少超過三個，記大方向即可：\n' +
+            '主觀在前、客觀在後、材質最靠近名詞。',
+      viz: { type: 'sentence', label: '排列順序', items: [
+        { t: 'a', r: '冠詞' }, { t: 'small', r: '大小' }, { t: 'old', r: '新舊' },
+        { t: 'wooden', r: '材質' }, { t: 'box', r: '名詞' }],
+        note: '越客觀的形容詞越靠近名詞。' },
+      check: {
+        q: '下列哪一個順序正確？',
+        options: [
+          'a big red plastic ball',
+          'a plastic red big ball',
+          'a red big plastic ball',
+          'a plastic big red ball'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '材質要放在最靠近名詞的位置。',
+          '大小要放在顏色前面。',
+          '材質不能放在最前面。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 副詞的位置',
+      body: '方式副詞多放句尾：He speaks English fluently.\n' +
+            '程度副詞放在被修飾的字前面：very good、quite fast\n' +
+            '⚠ 不要插在動詞和受詞中間：\n' +
+            '✗ He speaks fluently English.',
+      viz: { type: 'energyflow', steps: ['主詞', '動詞', '受詞', '方式副詞（放最後）'] },
+      check: {
+        q: '下列哪一句位置正確？',
+        options: [
+          'She plays the piano beautifully.',
+          'She plays beautifully the piano.',
+          'She beautifully plays the piano well.',
+          'Beautifully she plays piano the.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '副詞不插在動詞與受詞之間。',
+          '這句重複表達了同樣的意思。',
+          '這個語序完全不符合英文結構。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|七下|第7單元 過去式 be 動詞'] = {
+  intro: '過去的 be 動詞只有兩個字：was 和 were。',
+  cards: [
+    {
+      title: '① was 與 were',
+      body: 'am／is → was　　are → were\n' +
+            'I was busy.／He was late.／They were happy.\n' +
+            '⚠ 現在式有三個形式，過去式只剩兩個，反而更好記。',
+      viz: { type: 'classify', groups: [
+        { label: 'was', items: ['I', 'he', 'she', 'it', '單數名詞'] },
+        { label: 'were', items: ['you', 'we', 'they', '複數名詞'] }] },
+      check: {
+        q: 'The students ___ in the library yesterday. 空格要填什麼？',
+        options: ['were', 'was', 'are', 'is'],
+        answer: 0,
+        why: [
+          null,
+          '主詞是複數，要用 were。',
+          '有 yesterday 要用過去式。',
+          '主詞是複數而且要用過去式。'
+        ]
+      }
+    },
+    {
+      title: '② 否定與縮寫',
+      body: 'was not ＝ wasn’t　　were not ＝ weren’t\n' +
+            'I wasn’t at home.／They weren’t ready.\n' +
+            '⚠ 過去式的否定同樣直接在 be 動詞後面加 not。',
+      viz: { type: 'sentence', label: '否定的位置', items: [
+        { t: 'I', r: '主詞' }, { t: 'wasn’t', r: 'be 動詞加 not' },
+        { t: 'at home', r: '地點' }],
+        note: 'be 動詞後面加 not。' },
+      check: {
+        q: '「他們昨天不在學校」的正確說法是什麼？',
+        options: [
+          'They weren’t at school yesterday.',
+          'They didn’t at school yesterday.',
+          'They wasn’t at school yesterday.',
+          'They not were at school yesterday.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be 動詞的否定不用 didn’t。',
+          '主詞是複數，要用 weren’t。',
+          'not 要放在 be 動詞後面。'
+        ]
+      }
+    },
+    {
+      title: '③ 疑問句與簡答',
+      body: 'Was he at the party?→ Yes, he was.／No, he wasn’t.\n' +
+            'Were you tired?→ Yes, I was.\n' +
+            '⚠ 疑問句把 was／were 移到句首，其他規則和現在式一樣。',
+      viz: { type: 'energyflow', steps: ['He was late.', '把 was 移到句首', 'Was he late?', 'Yes, he was.'] },
+      check: {
+        q: 'Were they happy? 的否定簡答是什麼？',
+        options: [
+          'No, they weren’t.',
+          'No, they wasn’t.',
+          'No, they didn’t.',
+          'No, they aren’t.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主詞是複數，要用 weren’t。',
+          'be 動詞的簡答不用 didn’t。',
+          '問句是過去式，簡答也要用過去式。'
+        ]
+      }
+    },
+    {
+      title: '④ 過去的時間副詞',
+      body: 'yesterday、last night、last week、two days ago、in 2020\n' +
+            '⚠ 看到這些字，就要把動詞改成過去式。\n' +
+            'ago 要放在時間後面：three years ago。',
+      viz: { type: 'classify', groups: [
+        { label: '過去的訊號字', items: ['yesterday', 'last week', 'two days ago', 'in 2019'] },
+        { label: '現在的訊號字', items: ['now', 'today', 'every day'] }] },
+      check: {
+        q: '「三年前」的正確說法是什麼？',
+        options: [
+          'three years ago',
+          'ago three years',
+          'before three years',
+          'three years before now'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'ago 要放在時間長度後面。',
+          'before 的用法與 ago 不同。',
+          '這個說法多餘而且不自然。'
+        ]
+      }
+    },
+    {
+      title: '⑤ There was／There were',
+      body: 'There was a school here.（以前這裡有一所學校。）\n' +
+            'There were many trees.\n' +
+            '⚠ 同樣跟著後面的名詞決定單複數。',
+      viz: { type: 'sentence', label: '過去的存在句', items: [
+        { t: 'There', r: '引導詞' }, { t: 'were', r: '跟著後面的名詞' },
+        { t: 'many trees', r: '真正的主詞（複數）' }],
+        note: '動詞跟著後面的名詞決定單複數。' },
+      check: {
+        q: 'There ___ a lot of people at the concert. 空格要填什麼？',
+        options: ['were', 'was', 'are', 'is'],
+        answer: 0,
+        why: [
+          null,
+          'people 是複數概念，要用 were。',
+          '句子描述的是過去的事。',
+          '這裡既要過去式也要複數。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 過去進行的鋪陳',
+      body: 'was／were ＋ 動詞 ing ＝ 過去進行式\n' +
+            'I was watching TV when he called.\n' +
+            '⚠ 過去進行式用來描述「當時正在做的背景」，\n' +
+            '突然發生的事則用過去簡單式。',
+      viz: { type: 'compareexp',
+             factor: '角色',
+             a: { label: '過去進行式', note: '當時的背景：was watching TV' },
+             b: { label: '過去簡單式', note: '突然發生：he called' },
+             same: ['都在講過去的事'] },
+      check: {
+        q: 'I ___ dinner when the phone rang. 空格要填什麼？',
+        options: [
+          'was cooking',
+          'cooked',
+          'am cooking',
+          'cook'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這裡要表達當時正在進行的背景動作。',
+          '句子講的是過去的事。',
+          '現在簡單式與過去的情境不符。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|七下|第8單元 規則動詞過去式'] = {
+  intro: '規則動詞的過去式加 ed，重點是拼法與發音兩件事。',
+  cards: [
+    {
+      title: '① 拼法規則',
+      body: '一般：加 ed（play→played）\n' +
+            '字尾 e：只加 d（like→liked）\n' +
+            '子音加 y：y 改 ied（study→studied）\n' +
+            '短母音加單子音（重音在後）：重複字尾（stop→stopped）',
+      viz: { type: 'classify', groups: [
+        { label: '加 ed', items: ['played', 'watched', 'wanted'] },
+        { label: '只加 d', items: ['liked', 'lived', 'used'] },
+        { label: 'y 改 ied', items: ['studied', 'carried', 'tried'] },
+        { label: '重複字尾', items: ['stopped', 'planned'] }] },
+      check: {
+        q: 'stop 的過去式是什麼？',
+        options: ['stopped', 'stoped', 'stopd', 'stopied'],
+        answer: 0,
+        why: [
+          null,
+          '短母音加單子音時要重複字尾。',
+          '這個拼法不符合規則。',
+          '字尾不是 y，不能改成 ied。'
+        ]
+      }
+    },
+    {
+      title: '② ed 的三種發音',
+      body: '字尾是無聲子音（p、k、f、s、sh、ch）→ 唸 t（stopped、watched）\n' +
+            '字尾是 t 或 d → 唸 id（wanted、needed）\n' +
+            '其他（有聲）→ 唸 d（played、lived）\n' +
+            '⚠ 拼法都一樣，發音靠字尾的音決定。',
+      viz: { type: 'classify', groups: [
+        { label: '唸 t', items: ['stopped', 'watched', 'washed'] },
+        { label: '唸 id', items: ['wanted', 'needed', 'started'] },
+        { label: '唸 d', items: ['played', 'lived', 'opened'] }] },
+      check: {
+        q: 'wanted 的字尾 ed 要怎麼發音？',
+        options: [
+          '發成 id 這個音節',
+          '發成 t',
+          '發成 d',
+          '不發音'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字尾是 t 時要多發一個音節。',
+          '字尾是 t 或 d 時不會只發 d。',
+          'ed 在過去式裡一定要發音。'
+        ]
+      }
+    },
+    {
+      title: '③ 否定句用 didn’t',
+      body: 'I didn’t go.（不是 didn’t went）\n' +
+            '★ did 已經帶走了過去的意思，主要動詞回到原形。\n' +
+            '⚠ 這和現在式的 doesn’t 是同一個道理。',
+      viz: { type: 'sentence', label: '過去式否定', items: [
+        { t: 'I', r: '主詞' }, { t: 'didn’t', r: '助動詞（已表過去）' },
+        { t: 'watch', r: '原形動詞' }],
+        note: '過去的訊息只出現一次，在助動詞上。' },
+      check: {
+        q: '「他昨天沒有打電話給我」的正確說法是什麼？',
+        options: [
+          'He didn’t call me yesterday.',
+          'He didn’t called me yesterday.',
+          'He don’t call me yesterday.',
+          'He wasn’t call me yesterday.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '有了 didn’t，動詞要用原形。',
+          'don’t 是現在式，與 yesterday 不合。',
+          'be 動詞不能和一般動詞並用。'
+        ]
+      }
+    },
+    {
+      title: '④ 疑問句用 Did',
+      body: 'Did you watch the game?→ Yes, I did.／No, I didn’t.\n' +
+            '⚠ 同樣的規則：Did 之後動詞回到原形。',
+      viz: { type: 'energyflow', steps: ['You watched the game.', '過去移到助動詞上', 'Did you watch the game?', 'Yes, I did.'] },
+      check: {
+        q: '下列哪一個疑問句正確？',
+        options: [
+          'Did she finish her homework?',
+          'Did she finished her homework?',
+          'Does she finished her homework?',
+          'Was she finish her homework?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '有了 did，動詞要用原形。',
+          'does 是現在式，動詞也要用原形。',
+          'be 動詞不能和一般動詞並用。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 過去式的用法',
+      body: '① 過去某個時間發生並結束的事：I visited Japan last year.\n' +
+            '② 過去的習慣：I played basketball every day when I was ten.\n' +
+            '⚠ 過去式強調「已經結束」，與現在沒有直接關聯。',
+      viz: { type: 'tense', verb: 'play', highlight: '過去簡單式', pick: false },
+      check: {
+        q: '下列哪一句適合用過去簡單式？',
+        options: [
+          'I visited my grandma last Sunday.',
+          'I visit my grandma every Sunday.',
+          'I am visiting my grandma now.',
+          'I will visit my grandma tomorrow.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'every Sunday 是習慣，用現在簡單式。',
+          '有 now 要用現在進行式。',
+          '有 tomorrow 要用未來式。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 檢查清單',
+      body: '寫過去式的句子時檢查三件事：\n' +
+            '① 有沒有過去的時間副詞\n' +
+            '② 動詞有沒有改成過去式\n' +
+            '③ 否定與疑問有沒有用 did 並把動詞改回原形\n' +
+            '⚠ 一個句子裡「過去」只需標示一次。',
+      viz: { type: 'energyflow', steps: ['看時間副詞', '改動詞', '否定疑問用 did', '動詞回原形'] },
+      check: {
+        q: '寫過去式的否定句時，最常見的錯誤是什麼？',
+        options: [
+          '用了 didn’t 之後還把動詞改成過去式',
+          '在句尾加時間副詞',
+          '主詞用了代名詞',
+          '句首字母大寫'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句尾加時間副詞是正常的寫法。',
+          '主詞用代名詞完全正確。',
+          '句首大寫是基本的書寫規則。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|七下|第9單元 不規則動詞過去式'] = {
+  intro: '不規則動詞背起來很煩，但依變化型態分組就好記多了。',
+  cards: [
+    {
+      title: '① 三態都一樣',
+      body: 'cut－cut－cut　　put－put－put\n' +
+            'hit－hit－hit　　cost－cost－cost　　let－let－let\n' +
+            '⚠ 這一組最好記：完全不變。\n' +
+            '判斷時態要靠句子裡的時間副詞。',
+      viz: { type: 'classify', groups: [
+        { label: '三態相同', items: ['cut', 'put', 'hit', 'cost', 'let', 'hurt'] }] },
+      check: {
+        q: 'I ___ my finger yesterday.（cut 的過去式）空格要填什麼？',
+        options: ['cut', 'cutted', 'cuted', 'cutting'],
+        answer: 0,
+        why: [
+          null,
+          'cut 是不規則動詞，不加 ed。',
+          '這個拼法並不存在。',
+          '進行式的形式與這個句子不合。'
+        ]
+      }
+    },
+    {
+      title: '② 過去式與過去分詞相同',
+      body: 'buy－bought－bought　　teach－taught－taught\n' +
+            'find－found－found　　make－made－made\n' +
+            'have－had－had　　say－said－said\n' +
+            '⚠ 只要記兩個形式就夠。',
+      viz: { type: 'classify', groups: [
+        { label: 'ought／aught 型', items: ['bought', 'taught', 'caught', 'thought'] },
+        { label: '其他', items: ['found', 'made', 'had', 'said'] }] },
+      check: {
+        q: 'teach 的過去式是什麼？',
+        options: ['taught', 'teached', 'teachted', 'teach'],
+        answer: 0,
+        why: [
+          null,
+          'teach 是不規則動詞，不加 ed。',
+          '這個拼法並不存在。',
+          '過去式需要有形式變化。'
+        ]
+      }
+    },
+    {
+      title: '③ 三態都不同',
+      body: 'go－went－gone　　eat－ate－eaten　　see－saw－seen\n' +
+            'write－wrote－written　　speak－spoke－spoken\n' +
+            'take－took－taken　　give－gave－given\n' +
+            '⚠ 這一組要完整記三個形式。',
+      viz: { type: 'tense', verb: 'write', highlight: '過去簡單式', pick: false },
+      check: {
+        q: 'see 的過去式與過去分詞依序是什麼？',
+        options: [
+          'saw, seen',
+          'seen, saw',
+          'saw, saw',
+          'seed, seen'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩個形式的順序顛倒了。',
+          'see 的三態各不相同。',
+          'see 是不規則動詞，不加 ed。'
+        ]
+      }
+    },
+    {
+      title: '④ 母音變化的規律',
+      body: 'i → a → u：sing－sang－sung、drink－drank－drunk、swim－swam－swum\n' +
+            'i → o → i(t)：write－wrote－written、drive－drove－driven\n' +
+            '⚠ 找出母音的規律，一次記一整組。',
+      viz: { type: 'classify', groups: [
+        { label: 'i／a／u 型', items: ['sing sang sung', 'drink drank drunk', 'swim swam swum', 'begin began begun'] }] },
+      check: {
+        q: 'drink 的過去式是什麼？',
+        options: ['drank', 'drunk', 'drinked', 'drink'],
+        answer: 0,
+        why: [
+          null,
+          'drunk 是過去分詞，不是過去式。',
+          'drink 是不規則動詞，不加 ed。',
+          '過去式需要有形式變化。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 最常用的幾個',
+      body: 'be－was／were－been　　do－did－done\n' +
+            'have－had－had　　go－went－gone　　get－got－gotten\n' +
+            '⚠ 這幾個出現頻率最高，一定要背到滾瓜爛熟。',
+      viz: { type: 'classify', groups: [
+        { label: '出現頻率最高', items: ['be', 'do', 'have', 'go', 'get', 'make', 'take'] }] },
+      check: {
+        q: 'do 的過去式是什麼？',
+        options: ['did', 'done', 'doed', 'does'],
+        answer: 0,
+        why: [
+          null,
+          'done 是過去分詞。',
+          'do 是不規則動詞，不加 ed。',
+          'does 是現在式的第三人稱單數形。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 別忘了 didn’t 之後用原形',
+      body: '✗ I didn’t went.→ ✓ I didn’t go.\n' +
+            '✗ Did you saw it?→ ✓ Did you see it?\n' +
+            '⚠ 不規則動詞的規則和規則動詞完全一樣：\n' +
+            '有了 did，主要動詞就回到原形。',
+      viz: { type: 'energyflow', steps: ['肯定：I went.', '否定：I didn’t go.', '疑問：Did you go?', '動詞一律回原形'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'Did you see the movie?',
+          'Did you saw the movie?',
+          'Did you seen the movie?',
+          'Do you saw the movie?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '有了 did，動詞要用原形。',
+          'seen 是過去分詞，不能接在 did 後面。',
+          'do 是現在式，動詞也要用原形。'
+        ]
+      }
+    }
+  ]
+};
