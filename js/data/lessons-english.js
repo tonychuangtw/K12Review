@@ -9968,3 +9968,1468 @@ window.APP_LESSONS['english|六上|第9單元 旅遊與計畫'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|六下|第1單元 時態綜合複習'] = {
+  intro: '把學過的五種時態放在一起看，就會發現它們各有明確的分工。',
+  cards: [
+    {
+      title: '① 五種基本時態',
+      body: '現在簡單式（習慣、事實）、現在進行式（此刻正在做）、\n' +
+            '過去簡單式（過去發生且結束）、未來式（還沒發生）、\n' +
+            '現在完成式（從過去延續到現在，或到目前為止的經驗）。\n' +
+            '⚠ 選時態的關鍵是「時間點」與「說話的重點」。',
+      viz: { type: 'tense', verb: 'eat', highlight: '現在簡單式' },
+      tip: '按按鈕比較五種時態。',
+      check: {
+        q: '選擇時態時，最重要的判斷依據是什麼？',
+        options: [
+          '事情發生的時間，以及說話者想強調什麼',
+          '句子的長度',
+          '主詞是誰',
+          '動詞的字母數'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長度與時態無關。',
+          '主詞影響動詞形式，但不決定時態。',
+          '拼字長短與時態無關。'
+        ]
+      }
+    },
+    {
+      title: '② 時間詞是最好的線索',
+      body: 'every day、usually → 現在簡單式。\n' +
+            'now、right now、Look! → 現在進行式。\n' +
+            'yesterday、last week、ago → 過去式。\n' +
+            'tomorrow、next week → 未來式。\n' +
+            'already、just、ever、never、since、for → 現在完成式。',
+      viz: { type: 'classify', groups: [
+        { label: '現在式', items: ['every day', 'usually', 'often'] },
+        { label: '過去式', items: ['yesterday', 'last week', 'ago'] },
+        { label: '未來式', items: ['tomorrow', 'next week', 'soon'] },
+        { label: '完成式', items: ['already', 'just', 'ever', 'since'] }] },
+      check: {
+        q: '看到句子裡有 since 2020，通常要用什麼時態？',
+        options: [
+          '現在完成式',
+          '過去簡單式',
+          '未來式',
+          '現在進行式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '過去式表示已經結束的事。',
+          '未來式指還沒發生的事。',
+          '進行式描述此刻正在做的事。'
+        ]
+      }
+    },
+    {
+      title: '③ 現在簡單式與進行式的對照',
+      body: 'I play tennis every Sunday.（習慣）\n' +
+            'I am playing tennis now.（此刻）\n' +
+            '⚠ 注意：like、know、want 等狀態動詞通常不用進行式。',
+      viz: { type: 'compareexp',
+             factor: '兩種現在式',
+             a: { label: '簡單式', note: '習慣或事實' },
+             b: { label: '進行式', note: '此刻正在進行' },
+             same: ['都描述現在'] },
+      check: {
+        q: '下列哪一句的用法「不正確」？',
+        options: [
+          'I am knowing the answer.',
+          'I know the answer.',
+          'I am reading a book.',
+          'I read every night.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '狀態動詞用簡單式是正確的。',
+          '讀書是動作，可以用進行式。',
+          '這是描述習慣，用簡單式正確。'
+        ]
+      }
+    },
+    {
+      title: '④ 過去式與現在完成式',
+      body: '過去式：明確的過去時間點（I went to Japan last year.）\n' +
+            '現在完成式：不強調時間點，重點在「經驗或結果」\n' +
+            '（I have been to Japan.）\n' +
+            '⚠ 有明確過去時間詞時「不能」用現在完成式：\n' +
+            'I have gone yesterday. ✗',
+      viz: { type: 'compareexp',
+             factor: '兩種談過去的方式',
+             a: { label: '過去式', note: '有明確時間點：last year' },
+             b: { label: '現在完成式', note: '強調經驗或影響到現在' },
+             same: ['都與過去有關'] },
+      check: {
+        q: '句子裡有 yesterday 時，為什麼不能用現在完成式？',
+        options: [
+          '因為現在完成式不能搭配明確的過去時間點',
+          '因為 yesterday 太短',
+          '因為完成式只能用於未來',
+          '因為沒有這種規定'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長度與文法規則無關。',
+          '完成式與未來無關。',
+          '這是明確的文法規則。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 兩種未來式',
+      body: 'be going to：已經計畫好、有跡象。\n' +
+            'will：當下決定、預測、承諾。\n' +
+            '⚠ 也可以用現在進行式表達「已安排好的近期計畫」：\n' +
+            'I am meeting him tomorrow.',
+      viz: { type: 'classify', groups: [
+        { label: 'be going to', items: ['已計畫', '有跡象'] },
+        { label: 'will', items: ['當下決定', '預測', '承諾'] },
+        { label: '進行式表未來', items: ['已安排好的行程'] }] },
+      check: {
+        q: '朋友問你要不要一起去，你當場答應「好，我會去」，用哪一種說法最自然？',
+        options: [
+          'OK, I will go.',
+          'OK, I am going to go (planned last month).',
+          'OK, I go.',
+          'OK, I went.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個選項的說明表示是很早以前就計畫好的。',
+          '現在式無法表達當下的決定。',
+          '過去式表示已經去過了。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 時態一致',
+      body: '同一段敘述中，時態要一致：\n' +
+            '講昨天的事就整段用過去式，講習慣就用現在式。\n' +
+            '⚠ 常見錯誤：Yesterday I go to school and studied English.\n' +
+            '（go 應該改成 went）',
+      viz: { type: 'energyflow', steps: ['判斷時間', '選定時態', '整段一致', '檢查動詞'] },
+      check: {
+        q: '寫一段描述昨天的文章時，應該注意什麼？',
+        options: [
+          '整段的動詞都要用過去式，保持一致',
+          '每一句用不同的時態',
+          '只有第一句用過去式',
+          '時態可以隨意混用'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '隨意變換時態會讓讀者混亂。',
+          '整段都在講過去，都要用過去式。',
+          '時態混亂會讓意思不清楚。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六下|第2單元 助動詞 can／must／should'] = {
+  intro: '助動詞不表示動作，但能改變整句話的語氣——能力、義務還是建議。',
+  cards: [
+    {
+      title: '① 助動詞的共同規則',
+      body: '① 後面接原形動詞 ② 不隨主詞變化（沒有 cans、musts）\n' +
+            '③ 否定直接加 not ④ 疑問句把它移到句首。\n' +
+            '⚠ 這些規則對 can、must、should、will、may 都適用。',
+      viz: { type: 'sentence', label: '助動詞句', items: [
+        { t: 'He', r: '主詞' }, { t: 'can', r: '助動詞（不變）' },
+        { t: 'swim', r: '原形動詞' }],
+        note: '助動詞不隨主詞變化，後面接原形動詞。' },
+      check: {
+        q: '助動詞後面接的動詞是什麼形式？',
+        options: [
+          '原形動詞',
+          '過去式',
+          '動詞-ing',
+          '加 s 的形式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '助動詞後面不用過去式。',
+          '進行式的 -ing 要配合 be 動詞。',
+          '助動詞後面的動詞不加 s。'
+        ]
+      }
+    },
+    {
+      title: '② can：能力與許可',
+      body: '能力：I can swim.（我會游泳。）\n' +
+            '許可：You can go now.（你可以走了。）\n' +
+            '請求：Can you help me?\n' +
+            '⚠ 過去式是 could：I could swim when I was five.',
+      viz: { type: 'classify', groups: [
+        { label: 'can 的用法', items: ['能力', '許可', '請求'] },
+        { label: '過去式', items: ['could'] }] },
+      check: {
+        q: '「我五歲時就會游泳」的正確說法是什麼？',
+        options: [
+          'I could swim when I was five.',
+          'I can swim when I was five.',
+          'I could swam when I was five.',
+          'I was can swim when I was five.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '過去的能力要用 could。',
+          'could 後面要接原形動詞。',
+          '不能同時使用 be 動詞與助動詞。'
+        ]
+      }
+    },
+    {
+      title: '③ must：必須',
+      body: '表示「必須、一定要」，語氣強烈：\n' +
+            'You must wear a helmet.（你必須戴安全帽。）\n' +
+            '⚠ must not（mustn’t）表示「禁止」，\n' +
+            '不是「不必」——「不必」要說 do not have to。',
+      viz: { type: 'compareexp',
+             factor: '兩種否定',
+             a: { label: 'must not', note: '禁止：絕對不可以做' },
+             b: { label: 'do not have to', note: '不必：可做可不做' },
+             same: ['都含有否定'] },
+      check: {
+        q: 'You must not touch it. 是什麼意思？',
+        options: [
+          '你絕對不可以碰它（禁止）',
+          '你不必碰它',
+          '你可以選擇要不要碰',
+          '你應該碰它'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '「不必」要說 do not have to。',
+          'must not 沒有選擇的空間。',
+          '這是禁止而不是建議。'
+        ]
+      }
+    },
+    {
+      title: '④ should：建議',
+      body: '表示「應該」，語氣比 must 溫和：\n' +
+            'You should see a doctor.（你應該去看醫生。）\n' +
+            'You should not stay up late.\n' +
+            '⚠ should 用於提出建議或表達適當的做法。',
+      viz: { type: 'sentence', label: '給建議', items: [
+        { t: 'You', r: '主詞' }, { t: 'should', r: '助動詞' },
+        { t: 'see', r: '原形動詞' }, { t: 'a doctor', r: '受詞' }],
+        note: 'should 用來提出建議。' },
+      check: {
+        q: '朋友身體不舒服，你想建議他去看醫生，應該用哪一個助動詞？',
+        options: ['should', 'must', 'can', 'will'],
+        answer: 0,
+        why: [
+          null,
+          'must 的語氣像命令，用於建議略強。',
+          'can 表示能力或許可。',
+          'will 表示未來。'
+        ]
+      }
+    },
+    {
+      title: '⑤ have to 與 must',
+      body: 'have to 也表示「必須」，但語氣通常來自外在規定：\n' +
+            'I have to wear a uniform.（學校規定）\n' +
+            'must 則常表示說話者自己的強烈認為。\n' +
+            '⚠ have to 有時態變化（had to、will have to），\n' +
+            'must 沒有過去式。',
+      viz: { type: 'compareexp',
+             factor: '兩種必須',
+             a: { label: 'must', note: '說話者主觀認為必須，沒有過去式' },
+             b: { label: 'have to', note: '外在規定，有時態變化' },
+             same: ['都表示必須'] },
+      check: {
+        q: '要表達「我昨天必須早起」，應該怎麼說？',
+        options: [
+          'I had to get up early yesterday.',
+          'I musted get up early yesterday.',
+          'I must got up early yesterday.',
+          'I was must get up early.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'must 沒有過去式形式。',
+          'must 後面要接原形，而且不能表達過去。',
+          '不能同時使用 be 動詞與助動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 語氣的強弱',
+      body: '由強到弱：must ＞ have to ＞ should ＞ could／might。\n' +
+            '⚠ 對別人說話時要注意語氣：\n' +
+            '對朋友可以說 You should…，\n' +
+            '但對不熟的人用 Maybe you could… 會更委婉。',
+      viz: { type: 'classify', groups: [
+        { label: '強', items: ['must', 'have to'] },
+        { label: '中', items: ['should', 'ought to'] },
+        { label: '弱（委婉）', items: ['could', 'might', 'maybe you can'] }] },
+      check: {
+        q: '想對不熟的人提出建議，語氣最委婉的說法是什麼？',
+        options: [
+          'Maybe you could try this.',
+          'You must do this.',
+          'You have to do this.',
+          'Do this now.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'must 的語氣接近命令。',
+          'have to 同樣帶有強制感。',
+          '祈使句對不熟的人略顯強硬。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六下|第3單元 動名詞與不定詞'] = {
+  intro: '動詞要當名詞用時，有兩種變身方式：加 ing，或加 to。',
+  cards: [
+    {
+      title: '① 什麼是動名詞',
+      body: '動詞加 -ing 之後可以當名詞用（動名詞）：\n' +
+            'Swimming is fun.（游泳很有趣。）→ 當主詞\n' +
+            'I like swimming.→ 當受詞\n' +
+            '⚠ 動名詞當主詞時，動詞用單數（Swimming is…）。',
+      viz: { type: 'sentence', label: '動名詞當主詞', items: [
+        { t: 'Swimming', r: '動名詞（主詞）' }, { t: 'is', r: 'be 動詞（單數）' },
+        { t: 'fun', r: '形容詞' }],
+        note: '動名詞當主詞時視為單數。' },
+      check: {
+        q: '「游泳很有趣」的正確說法是什麼？',
+        options: [
+          'Swimming is fun.',
+          'Swimming are fun.',
+          'Swim is fun.',
+          'To swimming is fun.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '動名詞當主詞視為單數。',
+          '原形動詞不能直接當主詞。',
+          'to 後面要接原形動詞。'
+        ]
+      }
+    },
+    {
+      title: '② 什麼是不定詞',
+      body: 'to ＋ 原形動詞（不定詞）：\n' +
+            'I want to go.（我想去。）\n' +
+            'To learn English is important.（學英文很重要。）\n' +
+            '⚠ 不定詞也可以當主詞，但更常用 It is important to learn English.',
+      viz: { type: 'sentence', label: '不定詞當受詞', items: [
+        { t: 'I', r: '主詞' }, { t: 'want', r: '動詞' }, { t: 'to go', r: '不定詞' }],
+        note: 'want 後面要接不定詞。' },
+      check: {
+        q: '「我想要去」的正確說法是什麼？',
+        options: [
+          'I want to go.',
+          'I want go.',
+          'I want going.',
+          'I want to going.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'want 後面要接不定詞。',
+          'want 後面不接動名詞。',
+          'to 後面要接原形動詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 只接動名詞的動詞',
+      body: 'enjoy、finish、practice、mind、keep、avoid、give up。\n' +
+            'I enjoy reading.（不能說 enjoy to read）\n' +
+            '⚠ 記法：這些動詞多半和「持續或已經在做的事」有關。',
+      viz: { type: 'classify', groups: [
+        { label: '只接動名詞', items: ['enjoy', 'finish', 'practice', 'mind', 'keep'] }] },
+      check: {
+        q: '下列哪一句的用法正確？',
+        options: [
+          'I finished doing my homework.',
+          'I finished to do my homework.',
+          'I finished do my homework.',
+          'I am finish doing my homework.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'finish 後面只能接動名詞。',
+          'finish 後面不能直接接原形。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 只接不定詞的動詞',
+      body: 'want、hope、plan、decide、need、learn、would like、promise。\n' +
+            'I hope to see you.（不能說 hope seeing）\n' +
+            '⚠ 記法：這些動詞多半和「還沒發生、想做的事」有關。',
+      viz: { type: 'compareexp',
+             factor: '兩類動詞',
+             a: { label: '接動名詞', note: 'enjoy、finish：已經在做或做完' },
+             b: { label: '接不定詞', note: 'want、plan：還沒做、想做' },
+             same: ['後面都要接動詞的變化形'] },
+      check: {
+        q: '「我計畫去日本」的正確說法是什麼？',
+        options: [
+          'I plan to go to Japan.',
+          'I plan going to Japan.',
+          'I plan go to Japan.',
+          'I am plan to go to Japan.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'plan 後面要接不定詞。',
+          'plan 後面不能直接接原形。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 兩者都可以的動詞',
+      body: 'like、love、hate、start、begin 兩種都可以：\n' +
+            'I like swimming.＝ I like to swim.\n' +
+            '⚠ 但少數動詞意思會變：\n' +
+            'stop smoking（戒菸）／stop to smoke（停下來去抽菸）。',
+      viz: { type: 'compareexp',
+             factor: 'stop 的兩種用法',
+             a: { label: 'stop ＋ -ing', note: '停止做某事：stop smoking（戒菸）' },
+             b: { label: 'stop ＋ to V', note: '停下來去做：stop to smoke（停下來抽菸）' },
+             same: ['都用動詞 stop'] },
+      check: {
+        q: 'He stopped smoking. 是什麼意思？',
+        options: [
+          '他戒菸了',
+          '他停下來抽菸',
+          '他開始抽菸',
+          '他想抽菸'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是 stopped to smoke 的意思。',
+          '這裡的 stop 表示停止。',
+          '句中沒有表達意願。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 介系詞後面用動名詞',
+      body: '介系詞後面接動詞時，一律用動名詞：\n' +
+            'Thank you for helping me.　I am good at swimming.\n' +
+            'She is interested in learning Japanese.\n' +
+            '⚠ 注意 to 有時是介系詞（look forward to seeing you），\n' +
+            '這時後面也要用動名詞。',
+      viz: { type: 'sentence', label: '介系詞後', items: [
+        { t: 'Thank you for', r: '介系詞 for' }, { t: 'helping', r: '動名詞' },
+        { t: 'me', r: '受詞' }],
+        note: '介系詞後面的動詞要用動名詞。' },
+      check: {
+        q: '「謝謝你幫我」的正確說法是什麼？',
+        options: [
+          'Thank you for helping me.',
+          'Thank you for help me.',
+          'Thank you for to help me.',
+          'Thank you help me.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '介系詞後面要用動名詞。',
+          '介系詞後面不接不定詞。',
+          '缺少介系詞 for。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六下|第4單元 疑問句綜合'] = {
+  intro: '把各種問句放在一起，就會發現它們的規則其實很有系統。',
+  cards: [
+    {
+      title: '① 三種疑問句',
+      body: '① be 動詞問句：Are you ready?\n' +
+            '② 一般動詞問句：Do you like it?\n' +
+            '③ 助動詞問句：Can you swim?／Will you come?\n' +
+            '⚠ 共同規則：把 be 動詞或助動詞移到主詞前面。',
+      viz: { type: 'classify', groups: [
+        { label: 'be 動詞句', items: ['Are you…?', 'Is he…?', 'Were they…?'] },
+        { label: '一般動詞句', items: ['Do you…?', 'Does he…?', 'Did they…?'] },
+        { label: '助動詞句', items: ['Can you…?', 'Will he…?', 'Should we…?'] }] },
+      check: {
+        q: '所有疑問句的共同規則是什麼？',
+        options: [
+          '把 be 動詞或助動詞放到主詞前面',
+          '在句尾加問號就好',
+          '把動詞放到最後',
+          '把主詞省略'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '語序也必須調整。',
+          '英文的疑問句不是靠把動詞放最後構成的。',
+          '疑問句中的主詞不能省略。'
+        ]
+      }
+    },
+    {
+      title: '② 疑問詞問句',
+      body: '疑問詞 ＋ 助動詞／be 動詞 ＋ 主詞 ＋ 動詞：\n' +
+            'What are you doing?　Where did he go?　Why should I go?\n' +
+            '⚠ 疑問詞放最前面，其餘語序和 Yes／No 問句相同。',
+      viz: { type: 'sentence', label: '疑問詞問句', items: [
+        { t: 'Where', r: '疑問詞' }, { t: 'did', r: '助動詞' }, { t: 'he', r: '主詞' },
+        { t: 'go', r: '原形動詞' }],
+        note: '疑問詞在最前面，接著助動詞與主詞。' },
+      check: {
+        q: '「他為什麼哭？」的正確說法是什麼？',
+        options: [
+          'Why did he cry?',
+          'Why he cried?',
+          'Why did he cried?',
+          'Why he did cry?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '疑問句需要助動詞。',
+          '用了 did 之後動詞要用原形。',
+          '助動詞要放在主詞前面。'
+        ]
+      }
+    },
+    {
+      title: '③ 主詞疑問句',
+      body: '當疑問詞本身就是主詞時，不用助動詞：\n' +
+            'Who broke the window?（誰打破窗戶？）\n' +
+            'What happened?（發生了什麼事？）\n' +
+            '⚠ 這時動詞直接用適當的時態形式。',
+      viz: { type: 'compareexp',
+             factor: '疑問詞的角色',
+             a: { label: '疑問詞當主詞', note: 'Who called? 不用助動詞' },
+             b: { label: '疑問詞當受詞', note: 'Who did you call? 要用助動詞' },
+             same: ['都以疑問詞開頭'] },
+      check: {
+        q: '「發生了什麼事？」的正確說法是什麼？',
+        options: [
+          'What happened?',
+          'What did happened?',
+          'What did happen it?',
+          'What was happen?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'what 是主詞，不需要助動詞。',
+          '這個句子多了不必要的字。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 附加問句',
+      body: '在句尾加一個小問句確認：\n' +
+            'You are a student, aren’t you?（你是學生，對吧？）\n' +
+            'He can swim, can’t he?\n' +
+            '⚠ 規則：前面肯定 → 後面否定；前面否定 → 後面肯定。',
+      viz: { type: 'compareexp',
+             factor: '附加問句的規則',
+             a: { label: '前肯定', note: '後面用否定：You are…, aren’t you?' },
+             b: { label: '前否定', note: '後面用肯定：You aren’t…, are you?' },
+             same: ['都用來尋求確認'] },
+      check: {
+        q: 'She is your sister, ____? 空格應該填什麼？',
+        options: [
+          'isn’t she',
+          'is she',
+          'doesn’t she',
+          'isn’t her'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '前面是肯定，後面要用否定。',
+          '前面是 be 動詞，附加問句也要用 be 動詞。',
+          '附加問句要用主格 she。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 間接問句',
+      body: '把問句放進另一個句子裡時，「語序要變回陳述句」：\n' +
+            'Where does he live?→ I do not know where he lives.\n' +
+            '⚠ 常見錯誤：I do not know where does he live. ✗\n' +
+            '間接問句中不用助動詞、也不倒裝。',
+      viz: { type: 'compareexp',
+             factor: '直接與間接問句',
+             a: { label: '直接問句', note: 'Where does he live? 要倒裝' },
+             b: { label: '間接問句', note: '…where he lives. 不倒裝' },
+             same: ['都在問同一件事'] },
+      check: {
+        q: '「我不知道他住在哪裡」的正確說法是什麼？',
+        options: [
+          'I do not know where he lives.',
+          'I do not know where does he live.',
+          'I do not know where lives he.',
+          'I do not know where he live.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '間接問句不需要助動詞倒裝。',
+          '語序應該是主詞在前。',
+          '主詞是第三人稱單數，動詞要加 s。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 問句的語氣',
+      body: '直接：Where is the station?\n' +
+            '客氣：Could you tell me where the station is?\n' +
+            '⚠ 用 Could you tell me…？開頭會禮貌得多，\n' +
+            '而且後面要用間接問句的語序（不倒裝）。',
+      viz: { type: 'sentence', label: '客氣的問法', items: [
+        { t: 'Could you tell me', r: '禮貌開場' }, { t: 'where', r: '疑問詞' },
+        { t: 'the station is', r: '不倒裝' }],
+        note: '客氣的問法後面用間接問句的語序。' },
+      check: {
+        q: '「可以告訴我火車站在哪裡嗎？」的正確說法是什麼？',
+        options: [
+          'Could you tell me where the train station is?',
+          'Could you tell me where is the train station?',
+          'Could you tell me the train station where is?',
+          'Could you tell where is train station?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '間接問句不倒裝。',
+          '語序不正確，不符合間接問句的規則。',
+          '這個句子缺少受詞也語序錯誤。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六下|第5單元 連接詞與句子連結'] = {
+  intro: '會用連接詞，短句就能變成流暢的段落。',
+  cards: [
+    {
+      title: '① 對等連接詞',
+      body: 'and（並列）、but（轉折）、or（選擇）、so（結果）。\n' +
+            '⚠ 這些連接「地位相同」的兩個部分：\n' +
+            '單字對單字、片語對片語、句子對句子。',
+      viz: { type: 'classify', groups: [
+        { label: '並列', items: ['and'] },
+        { label: '轉折', items: ['but', 'yet'] },
+        { label: '選擇', items: ['or'] },
+        { label: '結果', items: ['so'] }] },
+      check: {
+        q: '要表達「他很累，所以早睡了」，應該用哪一個連接詞？',
+        options: ['so', 'but', 'or', 'because'],
+        answer: 0,
+        why: [
+          null,
+          'but 表示轉折。',
+          'or 表示選擇。',
+          'because 後面接的是原因而不是結果。'
+        ]
+      }
+    },
+    {
+      title: '② 從屬連接詞：原因',
+      body: 'because（因為）、since、as。\n' +
+            'I stayed home because it rained.\n' +
+            '⚠ because 後面接完整的句子；\n' +
+            'because of 後面接名詞（because of the rain）。',
+      viz: { type: 'compareexp',
+             factor: '兩種說原因的方式',
+             a: { label: 'because', note: '後面接句子：because it rained' },
+             b: { label: 'because of', note: '後面接名詞：because of the rain' },
+             same: ['都表示原因'] },
+      check: {
+        q: '「因為下雨」的兩種說法中，哪一個是正確的？',
+        options: [
+          'because of the rain',
+          'because the rain',
+          'because of it rained',
+          'because rain'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'because 後面要接完整的句子。',
+          'because of 後面要接名詞。',
+          '缺少必要的結構。'
+        ]
+      }
+    },
+    {
+      title: '③ 從屬連接詞：時間',
+      body: 'when（當…時）、while（當…同時）、before（之前）、after（之後）、\n' +
+            'until（直到）、as soon as（一…就…）。\n' +
+            '⚠ 時間子句中「不用未來式」：\n' +
+            'I will call you when I arrive.（不是 when I will arrive）',
+      viz: { type: 'sentence', label: '時間子句', items: [
+        { t: 'I will call you', r: '主要子句（未來）' }, { t: 'when', r: '連接詞' },
+        { t: 'I arrive', r: '時間子句（現在式）' }],
+        note: '時間子句中用現在式表示未來。' },
+      check: {
+        q: '「我到的時候會打給你」的正確說法是什麼？',
+        options: [
+          'I will call you when I arrive.',
+          'I will call you when I will arrive.',
+          'I call you when I will arrive.',
+          'I will call you when I arrived.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '時間子句中不用未來式。',
+          '主要子句應該用未來式。',
+          '時間子句不該用過去式。'
+        ]
+      }
+    },
+    {
+      title: '④ 從屬連接詞：條件與讓步',
+      body: '條件：if（如果）、unless（除非）。\n' +
+            '讓步：although／though（雖然）、even though。\n' +
+            '⚠ 中文可以說「雖然…但是…」，\n' +
+            '但英文「不能」同時用 although 與 but。',
+      viz: { type: 'compareexp',
+             factor: '中英文的差別',
+             a: { label: '中文', note: '雖然…但是…（可以並用）' },
+             b: { label: '英文', note: 'Although… ，不能再加 but' },
+             same: ['都表達讓步'] },
+      check: {
+        q: '「雖然他很累，但他還是去了」的正確英文是什麼？',
+        options: [
+          'Although he was tired, he still went.',
+          'Although he was tired, but he still went.',
+          'Although but he was tired, he went.',
+          'He was tired although but went.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '英文不能同時使用 although 與 but。',
+          '這個語序不正確。',
+          '這個句子的結構混亂。'
+        ]
+      }
+    },
+    {
+      title: '⑤ if 的用法',
+      body: '條件句中「不用未來式」：\n' +
+            'If it rains tomorrow, we will stay home.\n' +
+            '⚠ if 子句用現在式，主要子句用未來式——\n' +
+            '這和時間子句的規則相同。',
+      viz: { type: 'sentence', label: '條件句', items: [
+        { t: 'If it rains', r: '條件（現在式）' }, { t: 'we will stay home', r: '結果（未來式）' }],
+        note: 'if 子句用現在式，主要子句用未來式。' },
+      check: {
+        q: '「如果明天下雨，我們就待在家」的正確說法是什麼？',
+        options: [
+          'If it rains tomorrow, we will stay home.',
+          'If it will rain tomorrow, we will stay home.',
+          'If it rains tomorrow, we stay home.',
+          'If it rained tomorrow, we will stay home.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'if 子句中不用未來式。',
+          '主要子句應該用未來式。',
+          '這個時態組合不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 讓文章更流暢',
+      body: '除了連接詞，還可以用「轉承語」：\n' +
+            'however（然而）、also（也）、for example（例如）、\n' +
+            'in addition（此外）、finally（最後）。\n' +
+            '⚠ 這些後面通常加逗號，而且要放在句首或句中。',
+      viz: { type: 'classify', groups: [
+        { label: '補充', items: ['also', 'in addition', 'besides'] },
+        { label: '轉折', items: ['however', 'on the other hand'] },
+        { label: '舉例', items: ['for example', 'such as'] }] },
+      check: {
+        q: '要在句子開頭表示「然而」，可以用哪一個字？',
+        options: ['However,', 'But however', 'Although,', 'So,'],
+        answer: 0,
+        why: [
+          null,
+          '不需要同時使用 but 與 however。',
+          'although 後面要接子句而不是逗號。',
+          'so 表示結果而不是轉折。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六下|第6單元 日常對話情境'] = {
+  intro: '學了這麼多文法，最後都要回到一件事：能不能開口說。',
+  cards: [
+    {
+      title: '① 打招呼與寒暄',
+      body: 'How are you doing?／What’s up?（近況如何？）\n' +
+            'Long time no see!（好久不見！）\n' +
+            'How was your weekend?（週末過得如何？）\n' +
+            '⚠ 寒暄不需要長篇大論，簡短回應再反問對方就好。',
+      viz: { type: 'energyflow', steps: ['打招呼', '簡短回應', '反問對方', '延伸話題'] },
+      check: {
+        q: '別人問 How was your weekend? 時，比較好的回應方式是什麼？',
+        options: [
+          '簡短說明並反問對方',
+          '只說 Good 就不再說話',
+          '講二十分鐘的細節',
+          '不回應'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '太簡短會讓對話中斷。',
+          '過長會讓對方難以接話。',
+          '不回應是不禮貌的。'
+        ]
+      }
+    },
+    {
+      title: '② 在餐廳',
+      body: 'A table for two, please.（兩位。）\n' +
+            'May I see the menu?（可以看菜單嗎？）\n' +
+            'I would like the chicken, please.\n' +
+            'Could we have the bill?（可以結帳嗎？）\n' +
+            '⚠ 用 I would like 比 I want 有禮貌。',
+      viz: { type: 'energyflow', steps: ['入座', '看菜單', '點餐', '結帳'] },
+      check: {
+        q: '在餐廳點餐時，比較有禮貌的說法是什麼？',
+        options: [
+          'I would like the chicken, please.',
+          'I want chicken.',
+          'Give me chicken.',
+          'Chicken.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'I want 的語氣較直接。',
+          '命令句在服務場合不禮貌。',
+          '只說名詞不算完整的句子。'
+        ]
+      }
+    },
+    {
+      title: '③ 購物',
+      body: 'I am just looking, thanks.（我只是看看。）\n' +
+            'Do you have this in another size／color?\n' +
+            'Can I try it on?（可以試穿嗎？）\n' +
+            'I will take it.（我要買這個。）\n' +
+            '⚠ try on 是「試穿」，代名詞要放中間：try it on。',
+      viz: { type: 'sentence', label: '試穿', items: [
+        { t: 'Can I try', r: '請求' }, { t: 'it', r: '代名詞（放中間）' },
+        { t: 'on', r: '介副詞' }],
+        note: '代名詞當受詞時要放在動詞與介副詞之間。' },
+      check: {
+        q: '「我可以試穿嗎？」（指某件衣服）的正確說法是什麼？',
+        options: [
+          'Can I try it on?',
+          'Can I try on it?',
+          'Can I on try it?',
+          'Can I try on?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '代名詞要放在動詞與介副詞中間。',
+          '語序不正確，介副詞不能放在動詞前面。',
+          '缺少受詞，沒有說明要試穿什麼。'
+        ]
+      }
+    },
+    {
+      title: '④ 問路與交通',
+      body: 'Excuse me, how do I get to the museum?\n' +
+            'Is it far from here?（離這裡遠嗎？）\n' +
+            'Which bus should I take?（我該搭哪一班公車？）\n' +
+            '⚠ 聽不懂時可以說：Could you say that again, please?',
+      viz: { type: 'energyflow', steps: ['Excuse me', '說出目的地', '確認細節', '道謝'] },
+      check: {
+        q: '對方說的話你沒聽清楚，可以怎麼說？',
+        options: [
+          'Could you say that again, please?',
+          'What?',
+          'I do not understand you at all.',
+          '不說話直接走開'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '單獨說 What? 可能顯得不禮貌。',
+          '這個說法過於負面。',
+          '直接離開非常不禮貌。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 表達意見',
+      body: 'I think…（我認為…）　In my opinion…（依我看…）\n' +
+            'I agree.／I do not agree.（我同意／不同意。）\n' +
+            'That is a good point.（有道理。）\n' +
+            '⚠ 表達不同意時可以說：I see your point, but…\n' +
+            '這樣比直接說 You are wrong 委婉得多。',
+      viz: { type: 'compareexp',
+             factor: '表達不同意的方式',
+             a: { label: '委婉', note: 'I see your point, but…' },
+             b: { label: '直接', note: 'You are wrong.' },
+             same: ['都表示不同意'] },
+      check: {
+        q: '想表達不同意但又不想太直接，可以怎麼說？',
+        options: [
+          'I see your point, but I think…',
+          'You are wrong.',
+          'That is stupid.',
+          'No.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個說法過於直接。',
+          '這是人身評價，非常不禮貌。',
+          '單獨說 No 顯得生硬。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 對話的技巧',
+      body: '① 用開放式問題（What／How）延續話題。\n' +
+            '② 適時回應：Really?／That is interesting!\n' +
+            '③ 不懂就問，不要假裝聽懂。\n' +
+            '⚠ 說錯不要緊——溝通的目的是讓對方懂，不是零錯誤。',
+      viz: { type: 'energyflow', steps: ['開放式提問', '積極回應', '不懂就問', '持續練習'] },
+      check: {
+        q: '用英文對話時，最重要的心態是什麼？',
+        options: [
+          '重點是讓對方理解，不必害怕犯錯',
+          '一定要文法完全正確才能開口',
+          '不懂也要假裝聽懂',
+          '講得越快越好'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '追求完美會讓人不敢開口。',
+          '假裝理解會造成更大的誤會。',
+          '速度不等於溝通效果。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六下|第7單元 形容詞與副詞'] = {
+  intro: '形容詞修飾名詞，副詞修飾動詞——這一個字之差，考試最愛考。',
+  cards: [
+    {
+      title: '① 形容詞的功能',
+      body: '修飾名詞，說明「什麼樣的」：a beautiful flower。\n' +
+            '也可以放在 be 動詞或五感動詞後面：She is beautiful.／It looks good.\n' +
+            '⚠ 形容詞不能修飾動詞。',
+      viz: { type: 'sentence', label: '形容詞', items: [
+        { t: 'a', r: '冠詞' }, { t: 'beautiful', r: '形容詞' }, { t: 'flower', r: '名詞' }],
+        note: '形容詞放在名詞前面修飾它。' },
+      check: {
+        q: '形容詞主要用來修飾什麼？',
+        options: ['名詞', '動詞', '副詞', '介系詞'],
+        answer: 0,
+        why: [
+          null,
+          '修飾動詞的是副詞。',
+          '副詞可以修飾副詞，但形容詞不行。',
+          '介系詞不需要被形容詞修飾。'
+        ]
+      }
+    },
+    {
+      title: '② 副詞的功能',
+      body: '修飾動詞、形容詞或另一個副詞：\n' +
+            'He runs quickly.（修飾動詞）\n' +
+            'It is very hot.（修飾形容詞）\n' +
+            'He runs very quickly.（修飾副詞）\n' +
+            '⚠ 大多數副詞由形容詞加 ly 構成：quick → quickly。',
+      viz: { type: 'sentence', label: '副詞修飾動詞', items: [
+        { t: 'He', r: '主詞' }, { t: 'runs', r: '動詞' }, { t: 'quickly', r: '副詞' }],
+        note: '副詞用來說明動作「怎麼做」。' },
+      check: {
+        q: '「他跑得很快」的正確說法是什麼？',
+        options: [
+          'He runs quickly.',
+          'He runs quick.',
+          'He is run quickly.',
+          'He quickly is run.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '修飾動詞要用副詞。',
+          '不能同時使用 be 動詞與一般動詞。',
+          '這個語序不正確。'
+        ]
+      }
+    },
+    {
+      title: '③ ly 的拼寫規則',
+      body: '一般加 ly：slow → slowly、careful → carefully。\n' +
+            '子音＋y：去 y 加 ily（happy → happily、easy → easily）。\n' +
+            '字尾 le：去 e 加 y（simple → simply）。\n' +
+            '⚠ 例外：good 的副詞是 well（不是 goodly）。',
+      viz: { type: 'classify', groups: [
+        { label: '加 ly', items: ['slowly', 'carefully', 'quietly'] },
+        { label: '去 y 加 ily', items: ['happily', 'easily', 'angrily'] },
+        { label: '不規則', items: ['good→well', 'fast→fast', 'hard→hard'] }] },
+      check: {
+        q: 'good 的副詞形是什麼？',
+        options: ['well', 'goodly', 'gooder', 'goodily'],
+        answer: 0,
+        why: [
+          null,
+          '英文沒有 goodly 這個常用字。',
+          'gooder 不是正確的形式。',
+          '這個拼法不存在。'
+        ]
+      }
+    },
+    {
+      title: '④ 同形的形容詞與副詞',
+      body: 'fast、hard、early、late、high 的形容詞與副詞同形：\n' +
+            'a fast car（形容詞）／He runs fast.（副詞）\n' +
+            '⚠ 陷阱：hardly 不是 hard 的副詞，\n' +
+            '它的意思是「幾乎不」（I can hardly hear you.）。',
+      viz: { type: 'compareexp',
+             factor: '容易混淆的字',
+             a: { label: 'hard', note: '努力地、硬的：He works hard.' },
+             b: { label: 'hardly', note: '幾乎不：He hardly works.' },
+             same: ['拼法相似但意思相反'] },
+      check: {
+        q: 'He hardly works. 是什麼意思？',
+        options: [
+          '他幾乎不工作',
+          '他很努力工作',
+          '他工作很困難',
+          '他必須工作'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '努力工作是 He works hard.',
+          'hardly 不表示困難。',
+          '這句話沒有表達義務。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 副詞的位置',
+      body: '頻率副詞：一般動詞前、be 動詞後。\n' +
+            '方式副詞：通常放句尾（He speaks English fluently.）\n' +
+            '程度副詞：放在被修飾的字前面（very good、too fast）。\n' +
+            '⚠ 位置錯了句子會不自然，甚至改變意思。',
+      viz: { type: 'classify', groups: [
+        { label: '頻率副詞', items: ['always', 'usually', 'often', 'never'] },
+        { label: '方式副詞', items: ['quickly', 'carefully', 'well'] },
+        { label: '程度副詞', items: ['very', 'too', 'quite', 'really'] }] },
+      check: {
+        q: '「他總是很小心」的正確語序是什麼？',
+        options: [
+          'He is always careful.',
+          'He always is careful.',
+          'Always he is careful.',
+          'He is careful always.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '遇到 be 動詞時頻率副詞要放後面。',
+          '這個語序不自然。',
+          '雖可理解，但不是標準位置。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見錯誤',
+      body: '① He speaks English good. ✗ → well ✓\n' +
+            '② She sings beautiful. ✗ → beautifully ✓\n' +
+            '③ It is a very good book.（very 修飾形容詞，正確）\n' +
+            '⚠ 判斷方法：問自己「這個字在修飾誰」——\n' +
+            '修飾名詞用形容詞，修飾動詞用副詞。',
+      viz: { type: 'energyflow', steps: ['找出被修飾的字', '是名詞嗎', '是動詞嗎', '選形容詞或副詞'] },
+      check: {
+        q: '要判斷該用形容詞還是副詞，最有效的方法是什麼？',
+        options: [
+          '看它修飾的是名詞還是動詞',
+          '看句子的長度',
+          '看字尾有沒有 ly',
+          '看主詞是誰'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長度與詞類無關。',
+          '有些副詞沒有 ly，例如 fast。',
+          '主詞不決定要用哪一種詞類。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六下|第8單元 短文閱讀理解'] = {
+  intro: '國小英文的最後一哩：能讀懂一段完整的短文。',
+  cards: [
+    {
+      title: '① 掌握段落結構',
+      body: '英文段落通常有：主題句（第一句）→ 支持細節 → 結論句。\n' +
+            '⚠ 找到主題句，整段的重點就掌握了一半。\n' +
+            '細節多半是例子、原因或說明。',
+      viz: { type: 'energyflow', steps: ['主題句', '支持細節', '例子', '結論句'] },
+      check: {
+        q: '英文段落的主題句通常出現在哪裡？',
+        options: [
+          '段落的第一句',
+          '段落的正中間',
+          '一定在最後一句',
+          '沒有固定位置'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '中間通常是細節說明。',
+          '結論句可能在最後，但主題句多在開頭。',
+          '英文段落的結構相當有規律。'
+        ]
+      }
+    },
+    {
+      title: '② 主旨與細節題',
+      body: '主旨題：What is the passage mainly about?\n' +
+            '細節題：When／Where／Who／What did…?\n' +
+            '⚠ 主旨題的答案要能涵蓋全文；\n' +
+            '細節題的答案通常能在文中直接找到。',
+      viz: { type: 'compareexp',
+             factor: '兩種題型',
+             a: { label: '主旨題', note: '答案要涵蓋整篇' },
+             b: { label: '細節題', note: '答案可在文中定位' },
+             same: ['都需要回到文章確認'] },
+      check: {
+        q: '主旨題的正確答案應該具備什麼特點？',
+        options: [
+          '能涵蓋整篇文章的內容',
+          '出現在文章的最後一句',
+          '包含最多生字',
+          '是最長的選項'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '位置只是線索之一。',
+          '生字多寡與正確性無關。',
+          '長度不能決定答案。'
+        ]
+      }
+    },
+    {
+      title: '③ 推論題',
+      body: '文章沒有直說，但可以從線索推出來：\n' +
+            'What can we infer from the passage?\n' +
+            '⚠ 推論一定要有文章的依據，\n' +
+            '不能只憑自己的生活經驗或想像。',
+      viz: { type: 'energyflow', steps: ['找出線索', '合理推論', '回文章驗證', '排除沒有依據的'] },
+      check: {
+        q: '做推論題時，最重要的原則是什麼？',
+        options: [
+          '推論必須有文章中的線索支持',
+          '選最有趣的選項',
+          '憑生活經驗自由聯想',
+          '選最短的選項'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '趣味性與正確性無關。',
+          '沒有依據的聯想容易出錯。',
+          '長度不能決定答案。'
+        ]
+      }
+    },
+    {
+      title: '④ 字義猜測',
+      body: '線索：上下文、例子、同義或反義詞、字的組成。\n' +
+            '⚠ 常見的字首字尾：\n' +
+            'un-／in-（不）、re-（再）、-er（人）、-ful（充滿）、\n' +
+            '-less（沒有）、-ly（副詞）、-tion（名詞）。',
+      viz: { type: 'classify', groups: [
+        { label: '否定字首', items: ['un-', 'in-', 'dis-'] },
+        { label: '名詞字尾', items: ['-er', '-tion', '-ness'] },
+        { label: '形容詞字尾', items: ['-ful', '-less', '-y'] }] },
+      check: {
+        q: '看到 useless 這個字，可以怎麼推測意思？',
+        options: [
+          'use 是使用，-less 表示沒有，合起來是「沒有用的」',
+          '完全無法推測',
+          '它應該是動詞',
+          '它表示很有用'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字的組成提供了明確線索。',
+          '-less 結尾的字通常是形容詞。',
+          '-less 表示的是否定。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 掌握代名詞與連接詞',
+      body: '代名詞（he、it、they）指前面提過的人事物。\n' +
+            '連接詞（but、however、because、so）提示句子之間的關係。\n' +
+            '⚠ 看到 but 或 however，就知道後面要轉折了——\n' +
+            '這常常是答案的所在。',
+      viz: { type: 'classify', groups: [
+        { label: '轉折信號', items: ['but', 'however', 'although'] },
+        { label: '因果信號', items: ['because', 'so', 'therefore'] },
+        { label: '舉例信號', items: ['for example', 'such as'] }] },
+      check: {
+        q: '讀到 however 這個字時，代表接下來會出現什麼？',
+        options: [
+          '和前面相反或不同的內容',
+          '和前面完全相同的內容',
+          '文章結束',
+          '一個例子'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '轉折詞的作用正是引入不同的內容。',
+          'however 不代表文章結束。',
+          '舉例會用 for example。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 閱讀的長期練習',
+      body: '① 選對難度（大部分看得懂）② 每天固定讀一小段\n' +
+            '③ 讀完說出大意 ④ 記下三個有用的字並造句。\n' +
+            '⚠ 閱讀量是英文能力的基礎——\n' +
+            '讀得夠多，文法與字彙都會自然變好。',
+      viz: { type: 'energyflow', steps: ['每天讀一段', '說出大意', '記三個字', '造句使用'] },
+      check: {
+        q: '為什麼閱讀量對英文能力這麼重要？',
+        options: [
+          '因為大量接觸能同時累積字彙、文法與語感',
+          '因為讀得多考試就會考到',
+          '因為閱讀比聽力簡單',
+          '因為不用開口說話'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '閱讀的價值不只在應付考試。',
+          '難易因人而異，重點在累積。',
+          '各項能力都需要練習，閱讀是其中之一。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|六下|第9單元 寫作基本句型'] = {
+  intro: '寫作不是寫難的句子，是把想說的話說清楚。',
+  cards: [
+    {
+      title: '① 五大基本句型',
+      body: '① 主詞＋動詞：Birds fly.\n' +
+            '② 主詞＋動詞＋受詞：I like music.\n' +
+            '③ 主詞＋be＋補語：She is a teacher.\n' +
+            '④ 主詞＋動詞＋間接受詞＋直接受詞：He gave me a book.\n' +
+            '⑤ 主詞＋動詞＋受詞＋受詞補語：We call him Tom.',
+      viz: { type: 'sentence', label: '主詞＋動詞＋受詞', items: [
+        { t: 'I', r: '主詞' }, { t: 'like', r: '動詞' }, { t: 'music', r: '受詞' }],
+        note: '這是最常用的句型。',
+        alt: [
+          { label: '主詞＋be＋補語', items: [{ t: 'She', r: '主詞' }, { t: 'is', r: 'be 動詞' },
+            { t: 'a teacher', r: '補語' }], note: '說明主詞是什麼。' },
+          { label: '雙受詞', items: [{ t: 'He', r: '主詞' }, { t: 'gave', r: '動詞' },
+            { t: 'me', r: '間接受詞' }, { t: 'a book', r: '直接受詞' }],
+            note: '有些動詞後面可以接兩個受詞。' }] },
+      tip: '按按鈕比較不同句型。',
+      check: {
+        q: 'He gave me a book. 這句話有幾個受詞？',
+        options: [
+          '兩個：me 與 a book',
+          '一個：a book',
+          '一個：me',
+          '沒有受詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'me 也是受詞之一。',
+          'a book 同樣是受詞。',
+          '這個句型有兩個受詞。'
+        ]
+      }
+    },
+    {
+      title: '② 完整句的三要素',
+      body: '一個完整的句子要有：主詞、動詞，並表達完整的意思。\n' +
+            '⚠ 常見錯誤：\n' +
+            '① 缺動詞：He very tall. ✗ → He is very tall. ✓\n' +
+            '② 缺主詞：Is a good idea. ✗ → It is a good idea. ✓',
+      viz: { type: 'energyflow', steps: ['有主詞嗎', '有動詞嗎', '意思完整嗎', '才是完整句'] },
+      check: {
+        q: 'He very tall. 這句話少了什麼？',
+        options: [
+          '動詞（應該加 be 動詞 is）',
+          '主詞',
+          '受詞',
+          '什麼都不缺'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'He 就是主詞。',
+          '這個句型不需要受詞。',
+          '句子缺少動詞就不完整。'
+        ]
+      }
+    },
+    {
+      title: '③ 段落的結構',
+      body: '主題句（說明這段要講什麼）→ 支持句（例子、理由）→ 結論句。\n' +
+            '⚠ 一段只講一個重點；換重點就換一段。\n' +
+            '這樣讀者才容易跟上。',
+      viz: { type: 'energyflow', steps: ['主題句', '支持句一', '支持句二', '結論句'] },
+      check: {
+        q: '一個英文段落通常應該包含幾個主要重點？',
+        options: [
+          '一個',
+          '至少三個',
+          '越多越好',
+          '沒有限制'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '重點太多會讓段落失焦。',
+          '過多重點反而不清楚。',
+          '一段一個重點是寫作的基本原則。'
+        ]
+      }
+    },
+    {
+      title: '④ 常用的開頭與結尾',
+      body: '開頭：I would like to talk about…／In my opinion…\n' +
+            '舉例：For example，…／such as…\n' +
+            '結尾：In conclusion，…／All in all，…／That is why…\n' +
+            '⚠ 這些「轉承語」讓文章有層次，但不要每句都用。',
+      viz: { type: 'classify', groups: [
+        { label: '開頭', items: ['In my opinion', 'I think', 'First of all'] },
+        { label: '舉例', items: ['For example', 'such as'] },
+        { label: '結尾', items: ['In conclusion', 'All in all'] }] },
+      check: {
+        q: '要在文章結尾做總結，可以用哪一個轉承語？',
+        options: [
+          'In conclusion',
+          'For example',
+          'First of all',
+          'On the other hand'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是用來舉例的。',
+          '這是用在開頭的。',
+          '這是用來表示對比的。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 寫作的檢查表',
+      body: '寫完後檢查：\n' +
+            '① 每句都有主詞與動詞嗎？\n' +
+            '② 時態一致嗎？\n' +
+            '③ 主詞與動詞一致嗎（第三人稱單數加 s）？\n' +
+            '④ 拼字與標點正確嗎？（句首大寫、句尾句號）\n' +
+            '⚠ 檢查比多寫兩句更能提高分數。',
+      viz: { type: 'energyflow', steps: ['句子完整嗎', '時態一致嗎', '主詞動詞一致嗎', '拼字標點對嗎'] },
+      check: {
+        q: '寫完一段英文之後，最應該先檢查什麼？',
+        options: [
+          '每個句子是否完整、時態是否一致',
+          '有沒有使用難的單字',
+          '字數夠不夠多',
+          '有沒有用到成語'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '難字用錯反而扣分。',
+          '正確性比長度更重要。',
+          '基本正確性應該優先。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 從模仿開始',
+      body: '好的寫作是「讀出來的」：\n' +
+            '① 找一段喜歡的短文 ② 分析它的結構\n' +
+            '③ 用同樣的結構寫自己的內容 ④ 請人幫忙看。\n' +
+            '⚠ 一開始不用追求原創的句型，\n' +
+            '把學過的句型用對、用熟，比亂用難句更好。',
+      viz: { type: 'energyflow', steps: ['讀範文', '分析結構', '模仿寫作', '修改精進'] },
+      check: {
+        q: '初學英文寫作時，比較有效的做法是什麼？',
+        options: [
+          '模仿範文的結構，把學過的句型用熟',
+          '盡量使用沒學過的難句型',
+          '把中文直接逐字翻譯',
+          '寫得越長越好'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '沒把握的句型容易用錯。',
+          '逐字翻譯會產生不自然的句子。',
+          '長度不代表品質。'
+        ]
+      }
+    }
+  ]
+};
