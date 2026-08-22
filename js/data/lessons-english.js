@@ -26473,3 +26473,1394 @@ window.APP_LESSONS['english|十上|第9單元 寫作：段落與句型'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|十下|第1單元 假設語氣'] = {
+  intro: '假設語氣說的是「不是事實」的情況，時態要刻意往後退。',
+  cards: [
+    {
+      title: '① 與現在事實相反',
+      body: 'If ＋ 過去式, 主詞 ＋ would／could／might ＋ 原形動詞\n' +
+            'If I had time, I would help you.（其實我沒時間）\n' +
+            '★ be 動詞一律用 were。\n' +
+            '⚠ 用過去式不是在講過去，而是表示「不真實」。',
+      viz: { type: 'compareexp',
+             factor: '是不是事實',
+             a: { label: '直說法', note: 'If I have time, I will help.（有可能）' },
+             b: { label: '假設語氣', note: 'If I had time, I would help.（沒時間）' },
+             same: ['都用 if 開頭'] },
+      check: {
+        q: 'If I ___ you, I would apologize. 空格要填什麼？',
+        options: ['were', 'am', 'was', 'will be'],
+        answer: 0,
+        why: [
+          null,
+          '與現在事實相反要用過去式。',
+          '假設語氣的 be 動詞習慣用 were。',
+          'if 子句裡不用 will。'
+        ]
+      }
+    },
+    {
+      title: '② 與過去事實相反',
+      body: 'If ＋ had ＋ p.p., 主詞 ＋ would have ＋ p.p.\n' +
+            'If I had studied, I would have passed.（當時沒讀）\n' +
+            '⚠ 這是「後悔句型」，事情已成定局。',
+      viz: { type: 'energyflow', steps: ['直說法：現在式加 will', '與現在相反：過去式加 would', '與過去相反：過去完成加 would have'] },
+      check: {
+        q: 'If she had left earlier, she ___ the train. 空格要填什麼？',
+        options: [
+          'would have caught',
+          'would catch',
+          'will catch',
+          'had caught'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '與過去事實相反時主句要用 would have。',
+          '與過去事實相反時不用 will。',
+          '主句不用過去完成式。'
+        ]
+      }
+    },
+    {
+      title: '③ 混合條件句',
+      body: '條件在過去，結果在現在：\n' +
+            'If I had studied medicine, I would be a doctor now.\n' +
+            '⚠ if 子句用過去完成式，主句用 would ＋ 原形，\n' +
+            '因為結果影響的是現在。',
+      viz: { type: 'sentence', label: '混合條件句', items: [
+        { t: 'If I had studied', r: '過去的條件' },
+        { t: 'I would be a doctor now', r: '現在的結果' }],
+        note: '兩邊的時間點不同。' },
+      check: {
+        q: 'If he had taken the job, he ___ in Taipei now. 空格要填什麼？',
+        options: [
+          'would be living',
+          'would have lived',
+          'will live',
+          'had lived'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '結果指的是現在，不用 would have。',
+          '假設語氣不用 will。',
+          '主句不用過去完成式。'
+        ]
+      }
+    },
+    {
+      title: '④ 沒有 if 的假設',
+      body: 'I wish I were taller.（但願我高一點）\n' +
+            'It is time you went to bed.（你該去睡了）\n' +
+            'He talks as if he knew everything.（好像他什麼都懂）\n' +
+            '⚠ wish、as if、It is time 後面都用假設語氣。',
+      viz: { type: 'classify', groups: [
+        { label: '含假設語氣的句型', items: ['I wish…', 'as if／as though…', 'It is time…', 'would rather…'] }] },
+      check: {
+        q: 'I wish I ___ speak French. 空格要填什麼？',
+        options: ['could', 'can', 'will', 'am able'],
+        answer: 0,
+        why: [
+          null,
+          'wish 後面要用假設語氣。',
+          'wish 後面不用未來式。',
+          '這裡需要往後退一個時態。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 省略 if 的倒裝',
+      body: 'If I were you → Were I you\n' +
+            'If he had known → Had he known\n' +
+            'If it should rain → Should it rain\n' +
+            '⚠ 省略 if 之後把 were／had／should 移到句首，\n' +
+            '這是較正式的書面語。',
+      viz: { type: 'energyflow', steps: ['If I had known', '刪掉 if', 'had 移到句首', 'Had I known'] },
+      check: {
+        q: 'If I had known the truth, I would have told you. 用倒裝寫是什麼？',
+        options: [
+          'Had I known the truth, I would have told you.',
+          'Did I know the truth, I would have told you.',
+          'Have I known the truth, I would have told you.',
+          'If had I known the truth, I would have told you.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句型不用助動詞 did。',
+          '要用 had 而不是 have。',
+          '倒裝之後就不保留 if。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見的判斷步驟',
+      body: '① 這件事是不是事實？不是 → 用假設語氣\n' +
+            '② 說的是現在還是過去？\n' +
+            '③ 現在 → 過去式加 would；過去 → 過去完成加 would have\n' +
+            '⚠ 記住「往後退一格」這個核心觀念就夠了。',
+      viz: { type: 'energyflow', steps: ['判斷是不是事實', '判斷時間點', '時態往後退一格', '主句配 would'] },
+      check: {
+        q: '假設語氣的核心規則可以歸納成什麼？',
+        options: [
+          '時態往後退一格，表示與事實不符',
+          '一律用未來式',
+          '一律用現在式',
+          '動詞都要加 ing'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '假設語氣不用未來式。',
+          '現在式用於可能發生的條件句。',
+          '動詞形式與進行式無關。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十下|第2單元 倒裝句'] = {
+  intro: '把某個成分提到句首，動詞跟著前移，就是倒裝。',
+  cards: [
+    {
+      title: '① 否定副詞開頭',
+      body: 'Never、Seldom、Hardly、Rarely、Not until 放句首時要倒裝：\n' +
+            'Never have I seen such a thing.\n' +
+            '⚠ 倒裝的方式和疑問句一樣：助動詞移到主詞前面。',
+      viz: { type: 'energyflow', steps: ['I have never seen it.', 'Never 移到句首', '助動詞跟著前移', 'Never have I seen it.'] },
+      check: {
+        q: 'Seldom ___ he late for class. 空格要填什麼？',
+        options: ['is', 'he is', 'does', 'be'],
+        answer: 0,
+        why: [
+          null,
+          '倒裝後主詞要放在動詞後面。',
+          '句中用的是 be 動詞而不是一般動詞。',
+          'be 是原形，句子需要現在式。'
+        ]
+      }
+    },
+    {
+      title: '② 一般動詞的倒裝',
+      body: '沒有助動詞時要借 do／does／did：\n' +
+            'Rarely does he complain.\n' +
+            '⚠ 借了助動詞之後，主要動詞回到原形。',
+      viz: { type: 'sentence', label: '借助動詞', items: [
+        { t: 'Rarely', r: '否定副詞' }, { t: 'does', r: '借來的助動詞' },
+        { t: 'he complain', r: '主詞加原形動詞' }],
+        note: '和疑問句的處理方式相同。' },
+      check: {
+        q: 'Hardly ___ she speak in class. 空格要填什麼？',
+        options: ['does', 'is', 'do', 'has'],
+        answer: 0,
+        why: [
+          null,
+          '句中是一般動詞，要借 do 類助動詞。',
+          '主詞是第三人稱單數，要用 does。',
+          '句子不是完成式。'
+        ]
+      }
+    },
+    {
+      title: '③ Not until 的倒裝',
+      body: 'Not until he arrived did we start.\n' +
+            '★ 倒裝的是「主句」，不是 until 子句。\n' +
+            '⚠ 這是最容易搞混的一種。',
+      viz: { type: 'sentence', label: '倒裝的位置', items: [
+        { t: 'Not until he arrived', r: '子句（不倒裝）' },
+        { t: 'did we start', r: '主句（要倒裝）' }],
+        note: '倒裝發生在主句。' },
+      check: {
+        q: 'Not until midnight ___ he finish his work. 空格要填什麼？',
+        options: ['did', 'does', 'was', 'had'],
+        answer: 0,
+        why: [
+          null,
+          '句子講的是過去，要用 did。',
+          '句中是一般動詞而不是 be 動詞。',
+          '這裡不是過去完成式。'
+        ]
+      }
+    },
+    {
+      title: '④ Only 開頭的倒裝',
+      body: 'Only then did I realize the truth.\n' +
+            'Only by working hard can you succeed.\n' +
+            '⚠ Only 加副詞或介系詞片語放句首時要倒裝，\n' +
+            '但 Only 加主詞時不倒裝：Only he knows.',
+      viz: { type: 'compareexp',
+             factor: 'Only 後面接什麼',
+             a: { label: '接副詞或片語', note: '要倒裝：Only then did I…' },
+             b: { label: '接主詞', note: '不倒裝：Only he knows.' },
+             same: ['都用 Only 開頭'] },
+      check: {
+        q: 'Only after the exam ___ we relax. 空格要填什麼？',
+        options: ['could', 'we could', 'did we', 'was'],
+        answer: 0,
+        why: [
+          null,
+          '倒裝後主詞要放在助動詞後面。',
+          '這個選項多了主詞，語序會重複。',
+          '句中需要的是助動詞而不是 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 地方副詞開頭的倒裝',
+      body: 'On the hill stands an old temple.\n' +
+            'Here comes the bus.\n' +
+            '★ 這種倒裝是「主詞與動詞完全交換」，不用助動詞。\n' +
+            '⚠ 但主詞是代名詞時不倒裝：Here it comes.',
+      viz: { type: 'compareexp',
+             factor: '主詞是名詞還是代名詞',
+             a: { label: '名詞主詞', note: '倒裝：Here comes the bus.' },
+             b: { label: '代名詞主詞', note: '不倒裝：Here it comes.' },
+             same: ['都以地方副詞開頭'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'Here comes the train.',
+          'Here comes it.',
+          'Here the train comes fast quickly.',
+          'Here does come the train.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主詞是代名詞時不倒裝。',
+          '這句重複了意思相近的副詞。',
+          '這種倒裝不需要助動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ so 與 neither 的倒裝',
+      body: 'I like coffee.— So do I.（我也是）\n' +
+            'I don’t like it.— Neither do I.（我也不）\n' +
+            '⚠ 肯定用 So，否定用 Neither／Nor，\n' +
+            '助動詞要跟著前面那句的動詞形式。',
+      viz: { type: 'classify', groups: [
+        { label: '肯定的附和', items: ['So do I.', 'So am I.', 'So can I.'] },
+        { label: '否定的附和', items: ['Neither do I.', 'Nor am I.'] }] },
+      check: {
+        q: '對方說 I can’t swim.，要表達「我也不會」該怎麼說？',
+        options: [
+          'Neither can I.',
+          'So can I.',
+          'Neither do I.',
+          'So I can’t.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'So 用於肯定的附和。',
+          '前面句子用的是 can 而不是 do。',
+          '這個語序不是標準的附和句型。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十下|第3單元 強調句型'] = {
+  intro: '想強調句子裡的某一個部分，英文有固定的句型可以用。',
+  cards: [
+    {
+      title: '① 分裂句',
+      body: 'It is／was ＋ 強調的部分 ＋ that／who ＋ 其餘部分\n' +
+            'It was John who broke the window.（強調是誰）\n' +
+            'It was the window that John broke.（強調打破什麼）\n' +
+            '⚠ 把想強調的成分放進 It is 與 that 之間。',
+      viz: { type: 'sentence', label: '分裂句結構', items: [
+        { t: 'It was', r: '固定開頭' }, { t: 'John', r: '被強調的部分' },
+        { t: 'who broke the window', r: '其餘部分' }],
+        note: '被強調的成分放在中間。' },
+      check: {
+        q: 'It was yesterday that I met him. 這句在強調什麼？',
+        options: [
+          '時間：昨天',
+          '人物：他',
+          '動作：見面',
+          '地點'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '被強調的是 It was 後面的成分。',
+          '動作沒有被放在強調的位置。',
+          '句中沒有提到地點。'
+        ]
+      }
+    },
+    {
+      title: '② 強調人用 who 或 that',
+      body: 'It was Mary who／that called you.\n' +
+            '強調物或時間用 that：\n' +
+            'It was in 2020 that we met.\n' +
+            '⚠ 強調動詞不能用這個句型。',
+      viz: { type: 'classify', groups: [
+        { label: '可以強調', items: ['主詞', '受詞', '時間', '地點', '原因'] },
+        { label: '不能用這個句型', items: ['動詞'] }] },
+      check: {
+        q: '分裂句不能用來強調句子的哪一個成分？',
+        options: ['動詞', '主詞', '受詞', '時間副詞'],
+        answer: 0,
+        why: [
+          null,
+          '主詞是最常被強調的成分。',
+          '受詞可以放在強調的位置。',
+          '時間副詞可以被強調。'
+        ]
+      }
+    },
+    {
+      title: '③ 用 do 強調動詞',
+      body: 'I do believe you.（我真的相信你。）\n' +
+            'He did come yesterday.\n' +
+            '★ 在動詞前面加 do／does／did，後面動詞用原形。\n' +
+            '⚠ 這是唯一能強調動詞的方式。',
+      viz: { type: 'sentence', label: '強調動詞', items: [
+        { t: 'I', r: '主詞' }, { t: 'do', r: '強調用的助動詞' },
+        { t: 'believe', r: '原形動詞' }],
+        note: '加了 do 之後動詞用原形。' },
+      check: {
+        q: '「他昨天真的來了」的正確說法是什麼？',
+        options: [
+          'He did come yesterday.',
+          'He did came yesterday.',
+          'He does come yesterday.',
+          'He is come yesterday.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '有了 did，動詞要用原形。',
+          '句子講的是昨天，要用 did。',
+          'be 動詞不能和一般動詞並用。'
+        ]
+      }
+    },
+    {
+      title: '④ 反身代名詞強調',
+      body: 'The manager himself apologized.（經理親自道歉。）\n' +
+            'I did it myself.\n' +
+            '⚠ 這種用法可以省略，句子仍然完整，\n' +
+            '位置放在被強調的名詞後面或句尾。',
+      viz: { type: 'compareexp',
+             factor: '能不能省略',
+             a: { label: '強調用法', note: '可以省略：I did it (myself).' },
+             b: { label: '當受詞', note: '不能省略：He hurt himself.' },
+             same: ['形式完全相同'] },
+      check: {
+        q: 'The president himself signed the letter. 這裡的 himself 可以省略嗎？',
+        options: [
+          '可以，省略後句子依然完整',
+          '不可以，句子會不完整',
+          '不可以，會變成被動',
+          '可以，但意思會相反'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '強調用法省略後句子仍然完整。',
+          '省略反身代名詞不會改變語態。',
+          '省略只是少了強調，意思不會相反。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 用副詞加強語氣',
+      body: 'really、indeed、certainly、absolutely\n' +
+            'The very man I was looking for.（正是我在找的人。）\n' +
+            '⚠ the very ＋ 名詞是「正是那個」的強調用法。',
+      viz: { type: 'classify', groups: [
+        { label: '強調副詞', items: ['really', 'indeed', 'certainly', 'absolutely'] },
+        { label: '強調名詞', items: ['the very…', 'the only…'] }] },
+      check: {
+        q: 'This is the very book I need. 這裡的 very 表示什麼？',
+        options: [
+          '正是這一本，強調就是它',
+          '非常好的一本書',
+          '很厚的一本書',
+          '很多本書'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'the very 加名詞不表示程度。',
+          '句中沒有描述厚度。',
+          '這裡指的是特定的一本。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 強調不要過度',
+      body: '整篇文章到處都是 really、very、absolutely，\n' +
+            '反而讓每個強調都失去力道。\n' +
+            '⚠ 學術寫作更傾向用精確的字，\n' +
+            '例如用 significant 取代 very important。',
+      viz: { type: 'compareexp',
+             factor: '表達方式',
+             a: { label: '堆疊副詞', note: 'very very important' },
+             b: { label: '精確用字', note: 'crucial／significant' },
+             same: ['都想表達重要'] },
+      check: {
+        q: '學術寫作中，very important 比較好的替代說法是什麼？',
+        options: [
+          'crucial 或 significant',
+          'very very important',
+          'super important',
+          'so so important'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '重複副詞不會讓語氣更精確。',
+          'super 過於口語。',
+          '這個說法既口語又不精確。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十下|第4單元 比較結構'] = {
+  intro: '比較不只有 er 和 est，還有一整套精確的表達方式。',
+  cards: [
+    {
+      title: '① 三個等級',
+      body: '原級：as ＋ 形容詞 ＋ as（一樣）\n' +
+            '比較級：形容詞 er／more ＋ than（比較）\n' +
+            '最高級：the ＋ est／most（最）\n' +
+            '⚠ 三者比較的對象數量不同：原級與比較級是兩者，最高級是三者以上。',
+      viz: { type: 'energyflow', steps: ['原級：as…as（相等）', '比較級：…than（兩者）', '最高級：the…est（三者以上）'] },
+      check: {
+        q: '「他和他哥哥一樣高」的正確說法是什麼？',
+        options: [
+          'He is as tall as his brother.',
+          'He is as taller as his brother.',
+          'He is so tall than his brother.',
+          'He is the tallest as his brother.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'as 之間要用原級形容詞。',
+          '原級句型不用 than。',
+          '兩者比較不用最高級。'
+        ]
+      }
+    },
+    {
+      title: '② 倍數比較',
+      body: 'A is twice as ＋ 原級 ＋ as B.（A 是 B 的兩倍）\n' +
+            'This room is three times as large as that one.\n' +
+            '⚠ 倍數詞放在第一個 as 前面。',
+      viz: { type: 'sentence', label: '倍數的位置', items: [
+        { t: 'three times', r: '倍數' }, { t: 'as large as', r: '原級比較' }],
+        note: '倍數放在第一個 as 前面。' },
+      check: {
+        q: '「這本書是那本的兩倍厚」的正確說法是什麼？',
+        options: [
+          'This book is twice as thick as that one.',
+          'This book is as twice thick as that one.',
+          'This book is twice thicker as that one.',
+          'This book is two times thicker than as that.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '倍數要放在第一個 as 前面。',
+          '這個句型要用原級而不是比較級。',
+          '這個句子混用了兩種句型。'
+        ]
+      }
+    },
+    {
+      title: '③ 越來越、越…越…',
+      body: '比較級 ＋ and ＋ 比較級：hotter and hotter（越來越熱）\n' +
+            'more and more expensive（越來越貴）\n' +
+            'The ＋ 比較級, the ＋ 比較級：The more you practice, the better you get.',
+      viz: { type: 'classify', groups: [
+        { label: '越來越', items: ['bigger and bigger', 'more and more difficult'] },
+        { label: '越…越…', items: ['The more…, the better…'] }] },
+      check: {
+        q: '「你練習越多，進步越快」的正確句型是什麼？',
+        options: [
+          'The more you practice, the faster you improve.',
+          'More you practice, faster you improve.',
+          'The more practice you, the faster improve you.',
+          'You practice more, you improve faster than.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句型的兩個比較級前面都要有 the。',
+          '這個語序不正確。',
+          '這個句子的結構不完整。'
+        ]
+      }
+    },
+    {
+      title: '④ 比較的對象要對等',
+      body: '✗ My car is faster than you.（車和人比？）\n' +
+            '✓ My car is faster than yours.\n' +
+            '✓ The weather in Taipei is hotter than that in Tokyo.\n' +
+            '⚠ 用 that（單數）或 those（複數）代替重複的名詞。',
+      viz: { type: 'compareexp',
+             factor: '比較的對象',
+             a: { label: '正確', note: '車與車比：than yours' },
+             b: { label: '錯誤', note: '車與人比：than you' },
+             same: ['都用 than'] },
+      check: {
+        q: 'The population of Taipei is larger than ___ of Tainan. 空格要填什麼？',
+        options: ['that', 'those', 'it', 'them'],
+        answer: 0,
+        why: [
+          null,
+          'population 是單數，要用 that。',
+          'it 不能接 of 片語當比較對象。',
+          'them 是受格複數，語意也不對。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 比較級表達最高級',
+      body: 'He is taller than any other student.（any other 後接單數）\n' +
+            'No one is taller than he is.\n' +
+            'He is the tallest student.\n' +
+            '⚠ 三種寫法意思相同，是換句話說的常見考點。',
+      viz: { type: 'classify', groups: [
+        { label: '同義的三種寫法', items: ['the tallest', 'taller than any other', 'No one is taller than'] }] },
+      check: {
+        q: 'Nothing is more important than health. 這句話的意思是什麼？',
+        options: [
+          '健康是最重要的',
+          '健康不重要',
+          '有些事比健康重要',
+          '健康和其他事一樣重要'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這句話在強調健康的重要。',
+          'Nothing 表示沒有任何事物超過它。',
+          '句子表達的是超越而不是相等。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見的比較陷阱',
+      body: '① superior、inferior、senior、junior 後面用 to 不用 than\n' +
+            '② prefer A to B（不是 than B）\n' +
+            '③ 比較級前面不能加 very，要用 much／far\n' +
+            '⚠ 這些是拉丁語源的比較詞，用法特殊。',
+      viz: { type: 'classify', groups: [
+        { label: '搭配 to', items: ['superior to', 'inferior to', 'senior to', 'prefer A to B'] },
+        { label: '搭配 than', items: ['better than', 'larger than'] }] },
+      check: {
+        q: 'This model is superior ___ that one. 空格要填什麼？',
+        options: ['to', 'than', 'from', 'over'],
+        answer: 0,
+        why: [
+          null,
+          'superior 搭配的是 to 而不是 than。',
+          'from 不用於這個比較結構。',
+          'over 不用於這個比較結構。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十下|第5單元 平行結構與精簡'] = {
+  intro: '句子要對稱、要精簡，寫作分數就在這裡分高下。',
+  cards: [
+    {
+      title: '① 什麼是平行結構',
+      body: '用連接詞連起來的成分，形式要一致：\n' +
+            '✓ I like swimming, running, and cycling.\n' +
+            '✗ I like swimming, running, and to cycle.\n' +
+            '⚠ 名詞配名詞、動名詞配動名詞、子句配子句。',
+      viz: { type: 'sentence', label: '形式要一致', items: [
+        { t: 'swimming', r: '動名詞' }, { t: 'running', r: '動名詞' },
+        { t: 'cycling', r: '動名詞' }],
+        note: '並列的成分形式要相同。' },
+      check: {
+        q: '下列哪一句符合平行結構？',
+        options: [
+          'She is intelligent, hardworking, and kind.',
+          'She is intelligent, hardworking, and has kindness.',
+          'She is intelligent, works hard, and kind.',
+          'She is intelligence, hardworking, and kind.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '前兩個是形容詞，第三個變成動詞片語。',
+          '第二個成分變成動詞片語，形式不一致。',
+          '第一個成分用了名詞形式。'
+        ]
+      }
+    },
+    {
+      title: '② 相關連接詞的平行',
+      body: 'not only A but also B　both A and B　either A or B\n' +
+            '★ A 與 B 的詞性與結構要對應：\n' +
+            '✓ not only in class but also at home\n' +
+            '✗ not only in class but also he studies at home',
+      viz: { type: 'compareexp',
+             factor: '兩邊結構',
+             a: { label: '對稱', note: 'not only 片語 but also 片語' },
+             b: { label: '不對稱', note: 'not only 片語 but also 子句' },
+             same: ['都用相關連接詞'] },
+      check: {
+        q: 'He is not only a teacher ___ a writer. 空格要填什麼？',
+        options: ['but also', 'and also', 'but too', 'or also'],
+        answer: 0,
+        why: [
+          null,
+          'not only 的固定搭配是 but also。',
+          'too 不用於這個固定句型。',
+          'or 不與 not only 搭配。'
+        ]
+      }
+    },
+    {
+      title: '③ 刪掉贅字',
+      body: 'due to the fact that → because\n' +
+            'in order to → to\n' +
+            'at this point in time → now\n' +
+            'the reason is because → the reason is that\n' +
+            '⚠ 學術寫作重視精確，不是字數多就好。',
+      viz: { type: 'compareexp',
+             factor: '長度與清晰',
+             a: { label: '冗長', note: 'due to the fact that' },
+             b: { label: '精簡', note: 'because' },
+             same: ['意思完全相同'] },
+      check: {
+        q: 'due to the fact that 最精簡的替代說法是什麼？',
+        options: ['because', 'because of the fact', 'due to that fact', 'the fact is that'],
+        answer: 0,
+        why: [
+          null,
+          '這個說法仍然冗長。',
+          '這個說法仍然冗長。',
+          '這改變了句子的結構且更囉唆。'
+        ]
+      }
+    },
+    {
+      title: '④ 避免重複',
+      body: '✗ In my opinion, I think that…（重複表達意見）\n' +
+            '✗ return back、repeat again、free gift\n' +
+            '⚠ 這些叫贅語，同一個意思說了兩次。',
+      viz: { type: 'classify', groups: [
+        { label: '常見贅語', items: ['return back', 'repeat again', 'free gift', 'past history'] },
+        { label: '精簡版', items: ['return', 'repeat', 'gift', 'history'] }] },
+      check: {
+        q: '下列哪一個說法有贅字？',
+        options: [
+          'Please return back the book.',
+          'Please return the book.',
+          'Please bring the book.',
+          'Please keep the book.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'return 本身已含「回」的意思。',
+          '這個說法沒有重複。',
+          '這個說法沒有重複。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 用一個字取代片語',
+      body: 'make a decision → decide\n' +
+            'give consideration to → consider\n' +
+            'is able to → can\n' +
+            '⚠ 動詞化可以讓句子更有力。',
+      viz: { type: 'compareexp',
+             factor: '表達方式',
+             a: { label: '名詞化片語', note: 'make a decision（拖沓）' },
+             b: { label: '直接用動詞', note: 'decide（有力）' },
+             same: ['意思相同'] },
+      check: {
+        q: 'make a decision 用一個字表達是什麼？',
+        options: ['decide', 'decision', 'deciding', 'decisive'],
+        answer: 0,
+        why: [
+          null,
+          'decision 是名詞，不能當動詞用。',
+          '這是動名詞形式，不能直接取代。',
+          'decisive 是形容詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 精簡的檢查清單',
+      body: '① 有沒有可以刪掉的字\n' +
+            '② 有沒有把同一件事說兩次\n' +
+            '③ 並列的成分形式一不一致\n' +
+            '④ 有沒有名詞化片語可以改成動詞\n' +
+            '⚠ 精簡不是把句子縮短，而是讓每個字都有作用。',
+      viz: { type: 'energyflow', steps: ['刪贅字', '刪重複', '檢查平行結構', '名詞化改動詞'] },
+      check: {
+        q: '寫作精簡的真正目的是什麼？',
+        options: [
+          '讓每個字都發揮作用，訊息更清楚',
+          '把文章字數壓到最少',
+          '只用短句',
+          '不使用形容詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字數少不等於表達清楚。',
+          '句型仍然需要長短變化。',
+          '形容詞用得精準仍然重要。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十下|第6單元 連接詞與轉折語'] = {
+  intro: '連接詞決定句子的邏輯，轉折語決定段落的節奏。',
+  cards: [
+    {
+      title: '① 三大類連接詞',
+      body: '對等連接詞：and、but、or、so、yet（連接對等成分）\n' +
+            '附屬連接詞：because、although、if、when（引導附屬子句）\n' +
+            '連接副詞：however、therefore、moreover（連接兩個句子）\n' +
+            '⚠ 三者的標點用法完全不同。',
+      viz: { type: 'classify', groups: [
+        { label: '對等連接詞', items: ['and', 'but', 'or', 'so'] },
+        { label: '附屬連接詞', items: ['because', 'although', 'if', 'when'] },
+        { label: '連接副詞', items: ['however', 'therefore', 'moreover'] }] },
+      check: {
+        q: 'however 屬於哪一類？',
+        options: ['連接副詞', '對等連接詞', '附屬連接詞', '介系詞'],
+        answer: 0,
+        why: [
+          null,
+          '對等連接詞是 and 這一類。',
+          '附屬連接詞會引導子句。',
+          'however 不是介系詞。'
+        ]
+      }
+    },
+    {
+      title: '② 連接副詞的標點',
+      body: '★ 連接副詞不能像 but 那樣直接連接兩個句子：\n' +
+            '✗ I was tired, however I kept working.\n' +
+            '✓ I was tired; however, I kept working.\n' +
+            '✓ I was tired. However, I kept working.\n' +
+            '⚠ 要用分號或句號，後面再加逗號。',
+      viz: { type: 'compareexp',
+             factor: '標點方式',
+             a: { label: 'but', note: '逗號加 but 即可' },
+             b: { label: 'however', note: '要用分號或句號' },
+             same: ['都表示轉折'] },
+      check: {
+        q: '下列哪一句標點正確？',
+        options: [
+          'It was raining; therefore, we stayed home.',
+          'It was raining, therefore, we stayed home.',
+          'It was raining therefore we stayed home.',
+          'It was raining, therefore we stayed home.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '連接副詞前面要用分號或句號。',
+          '兩個獨立子句之間缺少標點。',
+          '單獨的逗號不能連接兩個獨立子句。'
+        ]
+      }
+    },
+    {
+      title: '③ 逗號連接錯誤',
+      body: '✗ It was late, we went home.（逗號拼接）\n' +
+            '✓ It was late, so we went home.\n' +
+            '✓ It was late. We went home.\n' +
+            '⚠ 兩個完整句子不能只用逗號連接，\n' +
+            '這是英文寫作最常見的錯誤之一。',
+      viz: { type: 'energyflow', steps: ['發現兩個完整句子', '加對等連接詞', '或改成分號', '或分成兩句'] },
+      check: {
+        q: 'The test was hard, I still passed. 這句話的問題是什麼？',
+        options: [
+          '兩個完整句子只用逗號連接',
+          '時態錯誤',
+          '主詞動詞不一致',
+          '拼字錯誤'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩句的時態都正確。',
+          '主詞與動詞都一致。',
+          '句中沒有拼字錯誤。'
+        ]
+      }
+    },
+    {
+      title: '④ 轉折語的分類',
+      body: '增添：moreover、in addition、furthermore\n' +
+            '對比：however、on the other hand、in contrast\n' +
+            '因果：therefore、thus、consequently\n' +
+            '舉例：for example、for instance、namely\n' +
+            '總結：in short、overall、to conclude',
+      viz: { type: 'classify', groups: [
+        { label: '增添', items: ['moreover', 'in addition', 'besides'] },
+        { label: '對比', items: ['however', 'in contrast', 'nevertheless'] },
+        { label: '因果', items: ['therefore', 'thus', 'consequently'] }] },
+      check: {
+        q: '要表達「相反地、另一方面」，應該用哪一個轉折語？',
+        options: [
+          'On the other hand',
+          'Moreover',
+          'Therefore',
+          'For example'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'Moreover 用於補充相同方向的論點。',
+          'Therefore 引出結果。',
+          'For example 用於舉例。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 介系詞與連接詞的區別',
+      body: 'despite／in spite of ＋ 名詞\n' +
+            'although／though ＋ 子句\n' +
+            '✗ Despite it rained, …→ ✓ Despite the rain, …\n' +
+            '⚠ 同樣的意思，後面接的東西不同。',
+      viz: { type: 'compareexp',
+             factor: '後面接什麼',
+             a: { label: 'despite（介系詞）', note: '接名詞：despite the rain' },
+             b: { label: 'although（連接詞）', note: '接子句：although it rained' },
+             same: ['都表示讓步'] },
+      check: {
+        q: '___ the heavy traffic, we arrived on time. 空格要填什麼？',
+        options: ['Despite', 'Although', 'Even though', 'While'],
+        answer: 0,
+        why: [
+          null,
+          'although 後面要接完整的子句。',
+          'even though 後面要接完整的子句。',
+          'while 後面要接完整的子句。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 不要濫用轉折語',
+      body: '每句都加 however、moreover 反而讓文章卡卡的。\n' +
+            '★ 轉折語只在「邏輯真的轉彎」時才用。\n' +
+            '⚠ 好的文章靠內容連貫，不是靠連接詞硬撐。',
+      viz: { type: 'compareexp',
+             factor: '使用的時機',
+             a: { label: '適當', note: '邏輯真的轉折時使用' },
+             b: { label: '濫用', note: '每句都加，反而干擾閱讀' },
+             same: ['都用了轉折語'] },
+      check: {
+        q: '什麼時候才適合使用轉折語？',
+        options: [
+          '句子之間的邏輯關係真的需要標示時',
+          '每一句都要用',
+          '想讓文章看起來比較高級時',
+          '字數不夠的時候'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '每句都用會讓文章顯得生硬。',
+          '轉折語的目的是幫助理解而不是裝飾。',
+          '為湊字數而加會傷害文章品質。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十下|第7單元 字根字首進階'] = {
+  intro: '認識字根，就能推出成千上萬個學術單字的意思。',
+  cards: [
+    {
+      title: '① 常見的動作字根',
+      body: 'spect（看）：inspect、prospect、spectator\n' +
+            'dict（說）：predict、dictate、contradict\n' +
+            'port（帶）：import、export、transport\n' +
+            'duc／duct（引導）：conduct、produce、introduce',
+      viz: { type: 'classify', groups: [
+        { label: 'spect（看）', items: ['inspect', 'respect', 'spectator'] },
+        { label: 'dict（說）', items: ['predict', 'dictionary', 'contradict'] },
+        { label: 'port（帶）', items: ['import', 'export', 'portable'] }] },
+      check: {
+        q: 'predict 這個字裡的 dict 表示什麼？',
+        options: ['說', '看', '帶', '寫'],
+        answer: 0,
+        why: [
+          null,
+          '看是字根 spect 或 vis。',
+          '帶是字根 port。',
+          '寫是字根 scrib 或 script。'
+        ]
+      }
+    },
+    {
+      title: '② 表示狀態的字根',
+      body: 'vit／viv（生命）：vital、survive、revive\n' +
+            'mort（死）：mortal、immortal\n' +
+            'sens／sent（感覺）：sensitive、sentiment\n' +
+            'cogn（知道）：recognize、cognitive',
+      viz: { type: 'compareexp',
+             factor: '意義相反的字根',
+             a: { label: 'vit／viv', note: '生命：survive、vital' },
+             b: { label: 'mort', note: '死亡：mortal、mortgage' },
+             same: ['都來自拉丁文'] },
+      check: {
+        q: 'immortal 這個字的意思最接近什麼？',
+        options: [
+          '不死的、不朽的',
+          '會死的',
+          '重要的',
+          '移動的'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字首 im 是否定，把意思反轉了。',
+          '重要的是 vital。',
+          '移動的字根是 mob 或 mot。'
+        ]
+      }
+    },
+    {
+      title: '③ 數字與量的字首',
+      body: 'mono／uni（一）：monopoly、uniform\n' +
+            'bi／du（二）：bilingual、duet\n' +
+            'tri（三）：triangle、trilogy\n' +
+            'multi／poly（多）：multimedia、polygon\n' +
+            'semi（半）：semicircle',
+      viz: { type: 'classify', groups: [
+        { label: '一', items: ['monologue', 'unique', 'unify'] },
+        { label: '二', items: ['bicycle', 'bilingual', 'dual'] },
+        { label: '多', items: ['multiple', 'polygon', 'multicultural'] }] },
+      check: {
+        q: 'bilingual 這個字的意思是什麼？',
+        options: [
+          '雙語的',
+          '單語的',
+          '多語的',
+          '無語言的'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '單語會用字首 mono。',
+          '多語會用字首 multi。',
+          '這個字沒有否定字首。'
+        ]
+      }
+    },
+    {
+      title: '④ 方位與程度的字首',
+      body: 'sub（在下）：submarine、subway\n' +
+            'super／sur（在上、超過）：supervise、surpass\n' +
+            'inter（之間）：interact、international\n' +
+            'trans（橫越）：transfer、transform\n' +
+            'over／under（過度／不足）：overestimate、underestimate',
+      viz: { type: 'compareexp',
+             factor: '方向相反的字首',
+             a: { label: 'over', note: '過度：overestimate（高估）' },
+             b: { label: 'under', note: '不足：underestimate（低估）' },
+             same: ['都表示程度'] },
+      check: {
+        q: 'underestimate 這個字的意思是什麼？',
+        options: ['低估', '高估', '正確評估', '不評估'],
+        answer: 0,
+        why: [
+          null,
+          '高估是 overestimate。',
+          '字首 under 表示不足。',
+          '這個字仍然包含評估的意思。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 用字根拆解生字',
+      body: 'incomprehensible ＝ in（不）＋ com（一起）＋ prehend（抓）＋ ible（能夠）\n' +
+            '→ 抓不住意思 → 無法理解的\n' +
+            '⚠ 遇到長單字先拆再猜，通常八九不離十。',
+      viz: { type: 'sentence', label: '拆解長字', items: [
+        { t: 'in', r: '否定' }, { t: 'com', r: '一起' },
+        { t: 'prehens', r: '抓住' }, { t: 'ible', r: '能夠的' }],
+        note: '拆開之後意思就浮現了。' },
+      check: {
+        q: 'transportable 這個字最可能的意思是什麼？',
+        options: [
+          '可以被運送的',
+          '無法運送的',
+          '運送的人',
+          '運送的行為'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個字沒有否定字首。',
+          '表示人會用字尾 er 或 or。',
+          '表示行為會用字尾 ation。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 字根不是萬能',
+      body: '① 有些字經過長期演變，意思已經偏離字根\n' +
+            '② 同一個字根在不同字裡可能有變體（duc／duct）\n' +
+            '⚠ 字根是「猜測的工具」，不是絕對的答案，\n' +
+            '猜完仍要用上下文驗證。',
+      viz: { type: 'energyflow', steps: ['拆字根字首', '推測大概意思', '代回上下文', '確認是否合理'] },
+      check: {
+        q: '用字根推測字義之後，還應該做什麼？',
+        options: [
+          '把推測的意思代回句子驗證是否合理',
+          '直接當作答案',
+          '再查一次字根表',
+          '換一個字根重猜'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字根推測不一定精確，需要驗證。',
+          '重查字根表不能確認在句中的意思。',
+          '沒有驗證就重猜只是繞圈子。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十下|第8單元 閱讀：推論與態度'] = {
+  intro: '看出作者沒明說的意思，是高中閱讀的核心能力。',
+  cards: [
+    {
+      title: '① 推論的三個層次',
+      body: '① 補足省略的資訊（前後文可推）\n' +
+            '② 推斷因果或動機\n' +
+            '③ 判斷作者的立場與態度\n' +
+            '⚠ 所有推論都必須有文本依據，不能憑想像。',
+      viz: { type: 'energyflow', steps: ['找出文本線索', '整合線索', '推出結論', '回頭驗證'] },
+      check: {
+        q: '合理推論與過度推論的差別在哪裡？',
+        options: [
+          '前者有文本線索支持，後者只是個人想像',
+          '前者比較短',
+          '前者用比較多生字',
+          '前者出現在文章開頭'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '推論的長短與是否合理無關。',
+          '用字難易與推論的合理性無關。',
+          '推論的依據可能分散在全文各處。'
+        ]
+      }
+    },
+    {
+      title: '② 從用字判斷態度',
+      body: '褒義：innovative、remarkable、promising\n' +
+            '貶義：questionable、flawed、alarming\n' +
+            '中立：reported、stated、according to\n' +
+            '⚠ 態度藏在形容詞與動詞的選擇裡。',
+      viz: { type: 'classify', groups: [
+        { label: '正面態度', items: ['remarkable', 'promising', 'beneficial'] },
+        { label: '負面態度', items: ['questionable', 'flawed', 'alarming'] },
+        { label: '中立', items: ['stated', 'reported', 'observed'] }] },
+      check: {
+        q: '作者用 questionable 描述某項研究，代表什麼態度？',
+        options: [
+          '懷疑、不太認同',
+          '完全支持',
+          '中立客觀',
+          '非常讚賞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'questionable 帶有質疑的意味。',
+          '這個字帶有明顯的評價。',
+          '這個字不是讚賞的用語。'
+        ]
+      }
+    },
+    {
+      title: '③ 常見的態度選項',
+      body: 'objective（客觀）　critical（批判）　supportive（支持）\n' +
+            'skeptical（懷疑）　neutral（中立）　optimistic／pessimistic\n' +
+            '⚠ 態度題的選項常成對出現，要仔細分辨程度。',
+      viz: { type: 'energyflow', steps: ['supportive（支持）', 'neutral（中立）', 'skeptical（懷疑）', 'critical（批判）'] },
+      check: {
+        q: '作者列出數據但完全不評價，這是什麼態度？',
+        options: [
+          'objective 客觀的',
+          'critical 批判的',
+          'enthusiastic 熱情的',
+          'pessimistic 悲觀的'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '批判態度會出現負面評價。',
+          '熱情態度會出現讚賞的用語。',
+          '悲觀態度會出現負面的預測。'
+        ]
+      }
+    },
+    {
+      title: '④ 從結構判斷立場',
+      body: '作者先呈現反方觀點，再用 However 反駁 → 後面才是作者立場。\n' +
+            '⚠ 前半段的觀點常是「別人說的」，不是作者的看法，\n' +
+            '看到 Some people argue that… 就要提高警覺。',
+      viz: { type: 'energyflow', steps: ['Some argue that…（他人觀點）', 'However…（轉折）', '作者的真正立場'] },
+      check: {
+        q: '文章寫 Some people believe X. However, the evidence suggests Y. 作者的立場是什麼？',
+        options: [
+          '傾向 Y',
+          '傾向 X',
+          '兩者都支持',
+          '兩者都反對'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'X 是別人的觀點，後面被轉折了。',
+          'However 表示作者做了取捨。',
+          '作者用證據支持了其中一方。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 語氣的細微差別',
+      body: 'may、might、could → 保留、不確定\n' +
+            'must、certainly、undoubtedly → 肯定\n' +
+            'seem、appear、tend to → 委婉\n' +
+            '⚠ 學術寫作常用委婉語，避免把話說死。',
+      viz: { type: 'compareexp',
+             factor: '確定的程度',
+             a: { label: '保留', note: 'may、might、seem' },
+             b: { label: '肯定', note: 'must、undoubtedly' },
+             same: ['都在表達判斷'] },
+      check: {
+        q: 'The results may suggest a link between the two. 作者的語氣是什麼？',
+        options: [
+          '保留，不把話說死',
+          '非常肯定',
+          '完全否定',
+          '憤怒'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'may 表示可能而不是確定。',
+          '句子並沒有否定兩者的關聯。',
+          '句子的語氣是理性的。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 推論題的作答步驟',
+      body: '① 讀懂題目要推論的是什麼\n' +
+            '② 回文章找相關段落\n' +
+            '③ 逐一檢查選項：有沒有文本支持\n' +
+            '④ 刪掉「超出文章範圍」與「與文章矛盾」的選項\n' +
+            '⚠ 最保守、最有依據的選項通常是對的。',
+      viz: { type: 'energyflow', steps: ['讀懂題目', '回文章定位', '檢查每個選項的依據', '刪去超出範圍的'] },
+      check: {
+        q: '推論題中，哪一類選項通常是錯的？',
+        options: [
+          '講得太滿、超出文章能支持的範圍',
+          '講得比較保守',
+          '有文章句子支持',
+          '和文章的語氣一致'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '保守的選項通常較容易找到依據。',
+          '有依據正是正確選項的特徵。',
+          '語氣一致是合理推論的線索。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十下|第9單元 寫作：段落發展'] = {
+  intro: '有了主題句之後，怎麼把一段寫得有內容？',
+  cards: [
+    {
+      title: '① 五種發展方式',
+      body: '① 舉例（exemplification）\n' +
+            '② 因果（cause and effect）\n' +
+            '③ 比較對照（comparison and contrast）\n' +
+            '④ 分類（classification）\n' +
+            '⑤ 定義與描述（definition and description）\n' +
+            '⚠ 選一種主要方式，不要一段裡什麼都想寫。',
+      viz: { type: 'classify', groups: [
+        { label: '發展方式', items: ['舉例', '因果', '比較對照', '分類', '定義'] }] },
+      check: {
+        q: '一個段落最好怎麼發展？',
+        options: [
+          '選一種主要方式深入寫',
+          '五種方式都用一點',
+          '只寫主題句',
+          '寫越長越好'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '什麼都寫一點反而每個都不深入。',
+          '只有主題句沒有支持，論述不成立。',
+          '長度不等於內容充實。'
+        ]
+      }
+    },
+    {
+      title: '② 舉例的層次',
+      body: '主題句 → 一般說明 → 具體例子 → 分析例子\n' +
+            '★ 很多人只寫到「舉例」就停了，\n' +
+            '真正得分的是「分析這個例子如何支持論點」。\n' +
+            '⚠ 例子不會自己說話，要解釋。',
+      viz: { type: 'energyflow', steps: ['主題句', '一般說明', '具體例子', '分析例子與論點的關係'] },
+      check: {
+        q: '舉完例子之後，最重要的一步是什麼？',
+        options: [
+          '說明這個例子如何支持你的論點',
+          '再舉一個例子',
+          '換下一段',
+          '重複主題句'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '例子多不代表論述有力。',
+          '沒有分析就換段會讓論述斷裂。',
+          '單純重複無法推進論述。'
+        ]
+      }
+    },
+    {
+      title: '③ 具體優於抽象',
+      body: '✗ Exercise is good for you.\n' +
+            '✓ Thirty minutes of jogging a day can lower blood pressure.\n' +
+            '⚠ 具體的數字、動作、場景比抽象的形容詞有說服力。',
+      viz: { type: 'compareexp',
+             factor: '具體程度',
+             a: { label: '抽象', note: '很好、很重要（沒有畫面）' },
+             b: { label: '具體', note: '三十分鐘、降低血壓（有畫面）' },
+             same: ['都在支持同一個論點'] },
+      check: {
+        q: '下列哪一個句子比較有說服力？',
+        options: [
+          'Students who sleep seven hours score higher on tests.',
+          'Sleep is very important for students.',
+          'Sleep is good.',
+          'Everyone knows sleep matters.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這句太抽象，沒有具體資訊。',
+          '這句過於籠統，沒有提供任何證據。',
+          '訴諸「大家都知道」不是證據。'
+        ]
+      }
+    },
+    {
+      title: '④ 段落的長度與比例',
+      body: '一段通常五到八句、八十到一百二十字。\n' +
+            '★ 太短表示發展不足，太長表示塞了不只一個重點。\n' +
+            '⚠ 如果一段寫超過十句，先問自己是不是該分成兩段。',
+      viz: { type: 'compareexp',
+             factor: '段落長度',
+             a: { label: '太短', note: '只有主題句，沒有發展' },
+             b: { label: '太長', note: '塞了兩個以上的重點' },
+             same: ['都是結構的問題'] },
+      check: {
+        q: '一個段落寫得太長，通常代表什麼問題？',
+        options: [
+          '裡面塞了不只一個重點，應該拆開',
+          '字太大',
+          '用了太多逗號',
+          '主題句太短'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '版面問題與段落結構無關。',
+          '標點數量不是判斷的依據。',
+          '主題句的長度與段落過長無關。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 段落之間的過渡',
+      body: '每段開頭用一句話連到上一段：\n' +
+            'While cost is one concern, safety matters even more.\n' +
+            '⚠ 好的過渡句同時回顧上一段、預告這一段。',
+      viz: { type: 'sentence', label: '過渡句的兩個功能', items: [
+        { t: 'While cost is one concern', r: '回顧上一段' },
+        { t: 'safety matters even more', r: '預告這一段' }],
+        note: '一句話串起前後兩段。' },
+      check: {
+        q: '好的段落過渡句應該做什麼？',
+        options: [
+          '同時回顧上一段並帶出這一段的重點',
+          '完全重複上一段的內容',
+          '只寫一個轉折詞',
+          '直接跳到新主題不做連接'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '重複不能推進論述。',
+          '只有轉折詞不足以說明邏輯關係。',
+          '沒有連接會讓讀者跟不上。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 完整文章的架構',
+      body: '引言：背景 → 論點（thesis statement）\n' +
+            '主體：每段一個支持論點\n' +
+            '結論：回扣論點 ＋ 延伸或呼籲\n' +
+            '⚠ 結論不是把引言重抄一次，\n' +
+            '要有「讀完之後的收穫」。',
+      viz: { type: 'energyflow', steps: ['引言（背景加論點）', '主體段一', '主體段二', '結論（回扣加延伸）'] },
+      check: {
+        q: '文章結論最不該做的是什麼？',
+        options: [
+          '把引言的句子原封不動再抄一次',
+          '回扣主要論點',
+          '提出延伸的思考',
+          '簡短總結各段重點'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '回扣論點是結論的基本功能。',
+          '延伸思考能讓結論更有力。',
+          '簡短總結是合理的做法。'
+        ]
+      }
+    }
+  ]
+};
