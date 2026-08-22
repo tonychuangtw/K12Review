@@ -1,31 +1,22 @@
-# 進度：K12Review（題庫擴充已完工／單元學習教材層進行中）
+# 進度：K12Review（題庫擴充已完工／單元學習教材層 2026-08-23 全數完工）
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。
      換一家 CLI 進來接手時看不到對話紀錄，只看得到這份檔 —— 欄位請隨進度更新。 -->
 
-STATUS: in-progress
+STATUS: done
 OBJECTIVE: 讓「完全沒學過的人」也能靠單元學習自學。原本的單元學習是把題目連答案先看一遍再考同一批題
   （對沒學過的人等於劇透，不是教學）；改成 **概念卡（說明＋互動元件＋立即檢核）→ 單元測驗**。
   Tony 2026-08-21：「最好是有圖有動畫、互動式，讓完全沒接觸過的人快速精熟」「先做一個，我覺得好再往下做」
-NEXT_ACTION: Tony 2026-08-21 看過原型後說「有了這樣很好，把其它也都做一做」。
-  **已完成：數學 24 冊（216 單元）、自然 12 冊（108）、社會 14 冊（126）、
-  英文 24 冊（216 單元）、物理／化學／生物／地科／歷史各 6 冊（各 54）、
-  地理 2 冊（十上、十下，18 單元）＝ 972 單元 5,833 張概念卡（2026-08-22）。元件庫 137 種。**
-  下一步（照這個順序做）：
-    1. 地理剩 4 冊（十一上、十一下、十二上、十二下）＝ 36 單元。lessons-geography.js 已接好線。
-    2. 公民（civics）十上～十二下 6 冊 ＝ 54 單元。第一次寫時要照下面的三步驟接線。
-  做法同數學：先看該冊 9 個單元名與既有題目（tools/tikuconv/<科>/），每單元 6 張卡，
-  能用既有 134 種元件就用（自然的力學、電路、天文可能要新增元件；社會多用地圖與時間軸；
-  英文可能要新增「句型結構」類元件）。
-  ⚠ 換科目時要多做三件事（只寫 js/data/lessons-<科>.js 不會生效）：
+NEXT_ACTION: 無（已完工）。2026-08-23 全部做完：
+  **11 科全數有教材層 —— 數學 216 單元、英文 216、自然 126、社會 126、
+  物理／化學／生物／地科／歷史／地理／公民各 54，合計 1,062 單元 6,373 張概念卡；
+  每個有題目的單元都有對應教材（缺教材 0）。元件庫 137 種。**
+  日後新增題庫單元時，記得同步補 `js/data/lessons-<科>.js` 的概念卡（test.js 不強制，但沒補就沒教材）。
+  ⚠ 新開一科時要做三件事（只寫 js/data/lessons-<科>.js 不會生效）：
     1. `index.html` 加一行 `<script src="js/data/lessons-<科>.js?v=...">`
-    2. `test/test.js` 頂端的 `for (const f of ['lessons-math'])` 陣列要加進去
+    2. `test/test.js` 頂端的 `for (const f of ['lessons-math', ...])` 陣列與 STRAY/GLUED 檔案清單都要加
     3. 跑 `python3 tools/stamp-version.py <新戳記>` 再 commit
-  💡 寫完一冊的除錯技巧：用這段找出所有過短的誤答分支再逐條補
-  `node -e "global.window={};require('./js/data/lessons-math.js');const L=window.APP_LESSONS;`
-  `Object.keys(L).filter(k=>k.includes('八上')).forEach(...)"`（完整寫法見 git log）
-  規格與驗收步驟見 `docs/bank-maintain-sop.md` 流程 D；元件長相看 tools/widget-preview.html
-  （已含 134 種元件的預覽，寫卡前先開這頁挑元件最快）。
+  寫卡規格見 `docs/bank-maintain-sop.md` 流程 D；元件長相看 tools/widget-preview.html。
 VALIDATION: `node test/test.js` 全綠；`node test/browser-smoke.mjs` 的「概念卡（單元教學層）」段全過
   （會實際點過：徽章→概念卡→互動元件→答錯給迷思解釋→答對解鎖→接單元測驗）
 BLOCKERS: 無
@@ -33,7 +24,7 @@ PATHS: js/widgets.js（互動元件庫，134 種）、js/data/lessons-math.js、
   js/data/lessons-math.js（概念卡資料）、
   js/app.js（conceptDeck/startConcept/renderConceptCard）、index.html 的 #view-concept、
   css/style.css 末段「概念卡」區、test/browser-smoke.mjs 第 10 段
-UPDATED: 2026-08-23 02:10 台北
+UPDATED: 2026-08-23 06:40 台北
 
 ## 已完工：全年級全科題庫（每單元 24 題）
 
