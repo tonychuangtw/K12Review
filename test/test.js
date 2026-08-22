@@ -395,7 +395,7 @@ console.log('解析確認題');
                    'optics', 'moonphase', 'earthsun', 'soundwave', 'compareexp', 'classify',
                    'plantparts', 'solution', 'phscale', 'statechange',
                    'microscope', 'bodysystem', 'circuit', 'energyflow',
-                   'foodweb', 'strata', 'plates', 'weathermap'];  // 與 js/widgets.js 的 REG 同步
+                   'foodweb', 'strata', 'plates', 'weathermap', 'magnet', 'force'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

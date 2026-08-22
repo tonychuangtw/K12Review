@@ -2326,6 +2326,145 @@
     host.appendChild(box);
   };
 
+  /* ── 磁鐵（magnet）────────────────────────────────────────────────────
+     spec: { mode:'poles'|'attract'|'repel'|'compass', pick }             */
+  REG.magnet = function (host, spec) {
+    var mode = spec.mode || 'poles';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 160', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function bar(x, y, leftLabel, rightLabel) {
+      svg.appendChild(el('rect', { x: x, y: y, width: 56, height: 28, rx: 3 }, 'fill:var(--bad)'));
+      svg.appendChild(el('rect', { x: x + 56, y: y, width: 56, height: 28, rx: 3 }, 'fill:var(--accent)'));
+      svg.appendChild(txt(x + 28, y + 14, leftLabel, 'font-size:14px;font-weight:700;fill:#fff'));
+      svg.appendChild(txt(x + 84, y + 14, rightLabel, 'font-size:14px;font-weight:700;fill:#fff'));
+    }
+    function arrow(x1, y, x2) {
+      svg.appendChild(el('line', { x1: x1, y1: y, x2: x2, y2: y }, 'stroke:var(--good);stroke-width:3'));
+      var d = x2 > x1 ? 1 : -1;
+      svg.appendChild(el('polygon', { points: x2 + ',' + y + ' ' + (x2 - d * 9) + ',' + (y - 5) +
+        ' ' + (x2 - d * 9) + ',' + (y + 5) }, 'fill:var(--good)'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'attract') {
+        bar(40, 66, 'N', 'S'); bar(168, 66, 'N', 'S');
+        arrow(118, 48, 152); arrow(202, 48, 168);   // 箭頭畫在磁鐵上方，才不會被蓋住
+        main = '異極相吸：S 極遇到 N 極會互相吸引';
+        sub = '磁鐵有兩個磁極：N 極（指北）和 S 極（指南）。' +
+              '同極（N 對 N、S 對 S）互相排斥，異極（N 對 S）互相吸引。' +
+              '⚠ 把磁鐵切成兩半，不會得到「只有 N 極」的磁鐵——每一小塊都還是有 N 和 S 兩極。';
+      } else if (mode === 'repel') {
+        bar(40, 66, 'S', 'N'); bar(168, 66, 'N', 'S');
+        arrow(140, 48, 106); arrow(180, 48, 214);
+        main = '同極相斥：N 極遇到 N 極會互相推開';
+        sub = '兩塊磁鐵靠近時，同極會推開、異極會吸引，而且距離越近作用力越大。' +
+              '磁浮列車就是利用同極相斥把車廂浮起來，減少摩擦力。';
+      } else if (mode === 'compass') {
+        svg.appendChild(el('circle', { cx: 160, cy: 78, r: 46 },
+          'fill:var(--panel2);stroke:var(--text);stroke-width:2'));
+        svg.appendChild(el('polygon', { points: '160,38 168,78 152,78' }, 'fill:var(--bad)'));
+        svg.appendChild(el('polygon', { points: '160,118 168,78 152,78' }, 'fill:var(--dim)'));
+        svg.appendChild(txt(160, 24, '北', 'font-size:12px;fill:var(--dim)'));
+        svg.appendChild(txt(160, 134, '南', 'font-size:12px;fill:var(--dim)'));
+        main = '指南針：紅色（有箭頭）那端指向北方';
+        sub = '地球本身像一塊大磁鐵，所以可以自由轉動的磁針會固定指向南北。' +
+              '用法：把指南針放平、等指針停下來，再轉動盤面讓「北」對齊指針。' +
+              '⚠ 旁邊有鐵器、磁鐵或手機時指針會被干擾，要拿開再量。';
+      } else {
+        bar(104, 60, 'N', 'S');
+        svg.appendChild(txt(78, 74, '磁極', 'font-size:11px;fill:var(--dim)'));
+        svg.appendChild(txt(160, 120, '兩端的磁力最強、中間最弱',
+          'font-size:11px;fill:var(--dim)'));
+        main = '磁鐵有 N、S 兩個磁極';
+        sub = '磁鐵能吸引「鐵、鈷、鎳」做的東西（迴紋針、鐵釘、鐵罐）。' +
+              '⚠ 銅、鋁、金、銀、塑膠、玻璃、木頭都不會被吸引——不是「金屬就會被吸」。' +
+              '磁力兩端最強、中間最弱，而且隔著紙或玻璃仍然吸得到（磁力可以穿透非磁性材料）。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['poles', '磁極'], ['attract', '異極相吸'], ['repel', '同極相斥'], ['compass', '指南針']]
+        .forEach(function (m) { row.appendChild(btn(m[1], function () { mode = m[0]; paint(); })); });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 力的效果與摩擦力（force）─────────────────────────────────────────
+     spec: { mode:'effect'|'friction', pick }                             */
+  REG.force = function (host, spec) {
+    var mode = spec.mode || 'effect';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'friction') {
+        svg.appendChild(el('line', { x1: 16, y1: 116, x2: 304, y2: 116 },
+          'stroke:var(--text);stroke-width:2.5'));
+        for (var i = 0; i < 14; i++) {
+          svg.appendChild(el('line', { x1: 20 + i * 12, y1: 116, x2: 26 + i * 12, y2: 126 },
+            'stroke:var(--dim);stroke-width:1.5'));
+        }
+        svg.appendChild(el('rect', { x: 110, y: 84, width: 60, height: 32, rx: 4, 'fill-opacity': '.3' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(el('line', { x1: 170, y1: 100, x2: 224, y2: 100 },
+          'stroke:var(--good);stroke-width:3'));
+        svg.appendChild(el('polygon', { points: '232,100 220,94 220,106' }, 'fill:var(--good)'));
+        svg.appendChild(txt(250, 92, '施力方向', 'font-size:10px;fill:var(--good)'));
+        svg.appendChild(el('line', { x1: 110, y1: 112, x2: 62, y2: 112 },
+          'stroke:var(--bad);stroke-width:3'));
+        svg.appendChild(el('polygon', { points: '54,112 66,106 66,118' }, 'fill:var(--bad)'));
+        svg.appendChild(txt(52, 96, '摩擦力', 'font-size:10px;fill:var(--bad)'));
+        main = '摩擦力：方向永遠和「物體移動的方向」相反';
+        sub = '兩個物體接觸並要相對滑動時，接觸面之間會產生阻礙的力，就是摩擦力。' +
+              '表面越粗糙、壓得越緊，摩擦力越大。' +
+              '增加摩擦：止滑墊、輪胎紋路、球鞋顆粒、手濕了先擦乾再開瓶蓋。' +
+              '減少摩擦：加潤滑油、裝滾輪、灑水（滑水道）、氣墊。';
+      } else {
+        [['推', 60], ['拉', 160], ['形狀改變', 260]].forEach(function (c, i) {
+          svg.appendChild(el('rect', { x: c[1] - 26, y: 60, width: 52,
+            height: i === 2 ? 22 : 34, rx: 4, 'fill-opacity': '.28' },
+            'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+          svg.appendChild(txt(c[1], 108, c[0], 'font-size:11px;fill:var(--dim)'));
+        });
+        svg.appendChild(el('line', { x1: 14, y1: 76, x2: 30, y2: 76 }, 'stroke:var(--good);stroke-width:3'));
+        svg.appendChild(el('polygon', { points: '34,76 24,71 24,81' }, 'fill:var(--good)'));
+        svg.appendChild(el('line', { x1: 200, y1: 76, x2: 190, y2: 76 }, 'stroke:var(--good);stroke-width:3'));
+        svg.appendChild(el('polygon', { points: '186,76 196,71 196,81' }, 'fill:var(--good)'));
+        svg.appendChild(el('line', { x1: 260, y1: 44, x2: 260, y2: 56 }, 'stroke:var(--bad);stroke-width:3'));
+        svg.appendChild(el('polygon', { points: '260,60 255,50 265,50' }, 'fill:var(--bad)'));
+        main = '力的三種效果';
+        sub = '① 讓靜止的物體開始運動（踢球）② 讓運動中的物體改變快慢或方向（接球、轉彎）' +
+              '③ 讓物體改變形狀（壓海綿、捏黏土）。' +
+              '力看不見，我們是「從這些效果」知道有力在作用的。' +
+              '推和拉都是力，差別只在方向：推是往外、拉是往自己。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      row.appendChild(btn('力的效果', function () { mode = 'effect'; paint(); }));
+      row.appendChild(btn('摩擦力', function () { mode = 'friction'; paint(); }));
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   /* ── 食物鏈與能量金字塔（foodweb）─────────────────────────────────────
      spec: { chain:[..], mode:'chain'|'pyramid' }                         */
   REG.foodweb = function (host, spec) {
