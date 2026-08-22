@@ -173,7 +173,11 @@ var DEMOS = [
   ['顯微鏡倍率', { type: 'microscope', eye: 10, obj: 40 }],
   ['人體系統（消化／呼吸／循環）', { type: 'bodysystem', mode: 'digest' }],
   ['電磁鐵／馬達／發電機', { type: 'circuit', mode: 'magnet' }],
-  ['能量轉換', { type: 'energyflow', steps: ['電能', '光能 ＋ 熱能'] }]
+  ['能量轉換', { type: 'energyflow', steps: ['電能', '光能 ＋ 熱能'] }],
+  ['食物鏈與能量金字塔', { type: 'foodweb', mode: 'chain' }],
+  ['地層／褶皺／斷層', { type: 'strata', mode: 'layers' }],
+  ['板塊碰撞與震源震央', { type: 'plates', mode: 'collide' }],
+  ['天氣圖（氣壓／鋒面／颱風）', { type: 'weathermap', mode: 'pressure' }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {

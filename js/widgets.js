@@ -2326,6 +2326,270 @@
     host.appendChild(box);
   };
 
+  /* ── 食物鏈與能量金字塔（foodweb）─────────────────────────────────────
+     spec: { chain:[..], mode:'chain'|'pyramid' }                         */
+  REG.foodweb = function (host, spec) {
+    var chain = spec.chain || ['稻子', '蝗蟲', '青蛙', '蛇', '老鷹'];
+    var mode = spec.mode || 'chain';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      if (mode === 'pyramid') {
+        var n = chain.length;
+        chain.forEach(function (c, i) {
+          var w = 240 - i * (200 / n), y = 150 - i * (128 / n);
+          svg.appendChild(el('rect', { x: 160 - w / 2, y: y - 24, width: w, height: 22, rx: 4,
+            'fill-opacity': '.25' }, 'fill:var(--' + (i === 0 ? 'good' : 'accent') +
+            ');stroke:var(--' + (i === 0 ? 'good' : 'accent') + ');stroke-width:1.5'));
+          svg.appendChild(txt(160, y - 13, c, 'font-size:11px'));
+        });
+        svg.appendChild(txt(160, 172, '越上層數量越少、能量也越少',
+          'font-size:10px;fill:var(--dim)'));
+        read.appendChild(div('wg-read-main', '能量金字塔：往上一層只剩約十分之一'));
+        read.appendChild(div('wg-read-sub',
+          '能量沿食物鏈往上傳時會大量流失（生物自己活動、呼吸都要消耗），' +
+          '大約只有 10% 傳到下一層。所以越上層的生物數量越少、體型再大也養不了幾隻。' +
+          '這也是為什麼「吃素比吃肉省資源」——少經過一層轉換就少浪費一次。'));
+      } else {
+        var w2 = 300 / chain.length;
+        chain.forEach(function (c, i) {
+          var x = 10 + i * w2;
+          svg.appendChild(el('rect', { x: x + 3, y: 62, width: w2 - 10, height: 44, rx: 8,
+            'fill-opacity': '.2' }, 'fill:var(--' + (i === 0 ? 'good' : 'accent') +
+            ');stroke:var(--' + (i === 0 ? 'good' : 'accent') + ');stroke-width:2'));
+          svg.appendChild(txt(x + w2 / 2 - 2, 84, c, 'font-size:11px'));
+          if (i) svg.appendChild(txt(x, 84, '→', 'font-size:13px;fill:var(--dim)'));
+        });
+        svg.appendChild(txt(160, 128, '箭頭方向 ＝ 能量流動的方向（被吃 → 吃）',
+          'font-size:10px;fill:var(--dim)'));
+        read.appendChild(div('wg-read-main',
+          '生產者 → 初級消費者 → 次級消費者 → 高級消費者'));
+        read.appendChild(div('wg-read-sub',
+          '⚠ 箭頭指的是「能量流向」：稻子 → 蝗蟲 代表蝗蟲吃稻子，不是稻子吃蝗蟲。' +
+          '第一個一定是生產者（植物）。生態系裡通常不只一條食物鏈，交織起來就是食物網——' +
+          '所以拿掉任何一種生物，都可能影響到看似無關的其他物種。'));
+      }
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      row.appendChild(btn('食物鏈', function () { mode = 'chain'; paint(); }));
+      row.appendChild(btn('能量金字塔', function () { mode = 'pyramid'; paint(); }));
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 地層與地質構造（strata）──────────────────────────────────────────
+     spec: { mode:'layers'|'fold'|'fault', pick }                         */
+  REG.strata = function (host, spec) {
+    var mode = spec.mode || 'layers';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var COLS = ['#8a6a4a', '#a98a5a', '#c2a06a', '#d9bf8a'];
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub, i;
+      if (mode === 'fold') {
+        for (i = 0; i < 4; i++) {
+          var y0 = 40 + i * 26;
+          var d = 'M20,' + (y0 + 26) + ' Q90,' + (y0 - 22) + ' 160,' + (y0 + 26) +
+            ' Q230,' + (y0 + 60) + ' 300,' + (y0 + 26) + ' L300,' + (y0 + 48) +
+            ' Q230,' + (y0 + 82) + ' 160,' + (y0 + 48) + ' Q90,' + (y0) + ' 20,' + (y0 + 48) + ' Z';
+          svg.appendChild(el('path', { d: d }, 'fill:' + COLS[i] + ';opacity:.85'));
+        }
+        main = '褶皺：地層被擠壓成波浪狀';
+        sub = '岩層在長時間的水平擠壓下（板塊碰撞）會像地毯一樣拱起彎曲，這叫褶皺。' +
+          '向上拱的叫背斜、向下凹的叫向斜。臺灣的山脈就是板塊擠壓褶皺加上抬升形成的。';
+      } else if (mode === 'fault') {
+        for (i = 0; i < 4; i++) {
+          svg.appendChild(el('rect', { x: 20, y: 44 + i * 26, width: 130, height: 24 },
+            'fill:' + COLS[i] + ';opacity:.85'));
+          svg.appendChild(el('rect', { x: 170, y: 62 + i * 26, width: 130, height: 24 },
+            'fill:' + COLS[i] + ';opacity:.85'));
+        }
+        svg.appendChild(el('line', { x1: 150, y1: 30, x2: 172, y2: 170 },
+          'stroke:var(--bad);stroke-width:3'));
+        svg.appendChild(txt(198, 34, '斷層面', 'font-size:11px;fill:var(--bad)'));
+        main = '斷層：岩層斷裂並且錯開';
+        sub = '岩層受力超過能承受的程度就會「斷掉並沿著破裂面滑動」，這叫斷層。' +
+          '兩側的同一層岩層會錯開，一眼就看得出來。' +
+          '地震大多發生在斷層活動時——累積的應力一次釋放出來。';
+      } else {
+        for (i = 0; i < 4; i++) {
+          svg.appendChild(el('rect', { x: 20, y: 44 + i * 28, width: 280, height: 26 },
+            'fill:' + COLS[i] + ';opacity:.85'));
+          svg.appendChild(txt(286, 57 + i * 28, ['最新', '', '', '最早'][i],
+            'font-size:10px;fill:#222'));
+        }
+        [[70, 100], [180, 128], [240, 156]].forEach(function (f, k) {
+          svg.appendChild(el('ellipse', { cx: f[0], cy: f[1], rx: 10, ry: 6 },
+            'fill:#f2f2f2;opacity:.9'));
+          svg.appendChild(txt(f[0], f[1], '化石', 'font-size:7px;fill:#222'));
+        });
+        main = '水平地層：越下層形成得越早';
+        sub = '沉積物一層一層堆上去，所以（沒有被翻轉的話）「越下面的越老、越上面的越新」，' +
+          '這叫疊置定律。' +
+          '化石夾在其中，比對不同地方的地層有沒有相同的化石，就能判斷它們是不是同時期形成的。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['layers', '水平地層'], ['fold', '褶皺'], ['fault', '斷層']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 板塊與地震（plates）──────────────────────────────────────────────
+     spec: { mode:'collide'|'quake', pick }                               */
+  REG.plates = function (host, spec) {
+    var mode = spec.mode || 'collide';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'quake') {
+        svg.appendChild(el('rect', { x: 14, y: 60, width: 292, height: 100, rx: 4, 'fill-opacity': '.25' },
+          'fill:var(--dim);stroke:var(--dim)'));
+        svg.appendChild(el('line', { x1: 14, y1: 60, x2: 306, y2: 60 },
+          'stroke:var(--text);stroke-width:2.5'));
+        svg.appendChild(el('circle', { cx: 150, cy: 128, r: 7 }, 'fill:var(--bad)'));
+        svg.appendChild(txt(198, 132, '震源（地下）', 'font-size:10px;fill:var(--bad)'));
+        svg.appendChild(el('circle', { cx: 150, cy: 60, r: 6 }, 'fill:var(--accent)'));
+        svg.appendChild(txt(196, 48, '震央（正上方地表）', 'font-size:10px;fill:var(--accent)'));
+        svg.appendChild(el('line', { x1: 150, y1: 60, x2: 150, y2: 128 },
+          'stroke:var(--dim);stroke-width:1.5;stroke-dasharray:4 3'));
+        [24, 40, 56].forEach(function (r) {
+          svg.appendChild(el('path', { d: 'M' + (150 - r) + ',128 A ' + r + ' ' + r + ' 0 0 1 ' +
+            (150 + r) + ',128' }, 'fill:none;stroke:var(--bad);stroke-width:1.5;opacity:.6'));
+        });
+        main = '震源在地下，震央在它正上方的地表';
+        sub = '地震波從震源向四面八方傳出去，最先到達的地表位置就是震央，那裡通常災情最重。' +
+          '⚠ 「規模」和「震度」不一樣：規模是這次地震「釋放多少能量」，一次地震只有一個數字；' +
+          '震度是「某個地方搖得多厲害」，離震央越遠通常震度越小，所以各地震度不同。';
+      } else {
+        svg.appendChild(el('rect', { x: 10, y: 96, width: 150, height: 54, rx: 3, 'fill-opacity': '.3' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(el('rect', { x: 168, y: 96, width: 142, height: 54, rx: 3, 'fill-opacity': '.3' },
+          'fill:var(--good);stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(70, 124, '板塊 A', 'font-size:11px'));
+        svg.appendChild(txt(244, 124, '板塊 B', 'font-size:11px'));
+        svg.appendChild(el('polygon', { points: '110,80 150,80 150,70 172,88 150,106 150,96 110,96' },
+          'fill:var(--bad)'));
+        svg.appendChild(el('polygon', { points: '210,80 170,80 170,70 148,88 170,106 170,96 210,96' },
+          'fill:var(--bad)'));
+        svg.appendChild(el('path', { d: 'M120,96 Q164,44 208,96' },
+          'fill:none;stroke:var(--text);stroke-width:3'));
+        svg.appendChild(txt(164, 38, '擠出山脈', 'font-size:11px;fill:var(--text)'));
+        main = '板塊互相推擠，把地表推高成山脈';
+        sub = '地球表層破裂成好幾塊板塊，浮在會緩慢流動的地函上，被地函的對流帶著移動（一年幾公分）。' +
+          '板塊碰撞的地方會擠出高山、形成火山與地震帶。' +
+          '臺灣正好位於歐亞板塊和菲律賓海板塊的交界，所以地震和溫泉都特別多，中央山脈也還在長高。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      row.appendChild(btn('板塊碰撞', function () { mode = 'collide'; paint(); }));
+      row.appendChild(btn('震源與震央', function () { mode = 'quake'; paint(); }));
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 天氣圖（weathermap）──────────────────────────────────────────────
+     spec: { mode:'pressure'|'front'|'typhoon', pick }                    */
+  REG.weathermap = function (host, spec) {
+    var mode = spec.mode || 'pressure';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub, i;
+      if (mode === 'front') {
+        svg.appendChild(el('path', { d: 'M20,60 Q110,96 300,132' },
+          'fill:none;stroke:var(--accent);stroke-width:3'));
+        for (i = 0; i < 5; i++) {
+          var t = i / 5, x = 20 + t * 280, y = 60 + t * 66;
+          svg.appendChild(el('polygon', { points: x + ',' + y + ' ' + (x + 12) + ',' + (y - 3) +
+            ' ' + (x + 6) + ',' + (y - 14) }, 'fill:var(--accent)'));
+        }
+        svg.appendChild(txt(70, 40, '冷氣團（推進）', 'font-size:11px;fill:var(--accent)'));
+        svg.appendChild(txt(250, 96, '暖氣團', 'font-size:11px;fill:var(--bad)'));
+        main = '冷鋒：冷空氣推向暖空氣的交界';
+        sub = '冷空氣重、暖空氣輕，冷鋒推進時把暖空氣抬升 → 水氣凝結 → 短時間內下大雨、伴隨強風。' +
+          '通過之後氣溫明顯下降、天氣轉晴變乾冷。' +
+          '天氣圖上冷鋒畫成藍色三角形、暖鋒畫成紅色半圓形，三角形指的方向就是它前進的方向。';
+      } else if (mode === 'typhoon') {
+        for (i = 3; i >= 1; i--) {
+          svg.appendChild(el('circle', { cx: 160, cy: 92, r: i * 26, 'fill-opacity': i === 3 ? '.12' : '.2' },
+            'fill:var(--accent);stroke:var(--accent);stroke-width:1.5'));
+        }
+        svg.appendChild(el('circle', { cx: 160, cy: 92, r: 12 },
+          'fill:var(--panel);stroke:var(--bad);stroke-width:2'));
+        svg.appendChild(txt(160, 92, '颱風眼', 'font-size:9px;fill:var(--bad)'));
+        svg.appendChild(txt(160, 168, '眼牆附近風雨最強', 'font-size:10px;fill:var(--dim)'));
+        main = '颱風：中心是風雨最小的「颱風眼」';
+        sub = '颱風是熱帶海面上發展出來的強烈低氣壓，空氣旋轉上升、水氣大量凝結，帶來狂風豪雨。' +
+          '⚠ 颱風眼裡風雨反而很小甚至放晴——但那是「暫時的」，眼睛過去之後風向會反轉、風雨立刻再起，' +
+          '這時候出門最危險。';
+      } else {
+        [[100, 78], [220, 96]].forEach(function (c, k) {
+          for (i = 1; i <= 3; i++) {
+            svg.appendChild(el('ellipse', { cx: c[0], cy: c[1], rx: i * 16, ry: i * 12 },
+              'fill:none;stroke:var(--' + (k ? 'bad' : 'accent') + ');stroke-width:1.5;opacity:.8'));
+          }
+          svg.appendChild(txt(c[0], c[1] + 4, k ? 'H' : 'L',
+            'font-size:18px;font-weight:700;fill:var(--' + (k ? 'bad' : 'accent') + ')'));
+        });
+        svg.appendChild(txt(100, 146, '低氣壓：多雲雨', 'font-size:10px;fill:var(--accent)'));
+        svg.appendChild(txt(228, 146, '高氣壓：晴朗', 'font-size:10px;fill:var(--bad)'));
+        main = '等壓線：把氣壓相同的地方連起來';
+        sub = '天氣圖上一圈一圈的線叫等壓線。中心氣壓比周圍低的是低氣壓（L）：' +
+          '空氣往中心聚集後上升、水氣凝結 → 多雲、下雨。' +
+          '中心氣壓比周圍高的是高氣壓（H）：空氣下沉 → 天氣晴朗乾燥。' +
+          '⚠ 等壓線越密集，代表氣壓差越大、風越強。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['pressure', '高低氣壓'], ['front', '鋒面'], ['typhoon', '颱風']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   /* ── 顯微鏡（microscope）──────────────────────────────────────────────
      spec: { eye, obj }  目鏡倍率、物鏡倍率                                */
   REG.microscope = function (host, spec) {

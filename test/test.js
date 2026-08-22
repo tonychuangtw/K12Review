@@ -394,7 +394,8 @@ console.log('解析確認題');
                    'deriv', 'curveplot', 'integralarea', 'complexplane',
                    'optics', 'moonphase', 'earthsun', 'soundwave', 'compareexp', 'classify',
                    'plantparts', 'solution', 'phscale', 'statechange',
-                   'microscope', 'bodysystem', 'circuit', 'energyflow'];  // 與 js/widgets.js 的 REG 同步
+                   'microscope', 'bodysystem', 'circuit', 'energyflow',
+                   'foodweb', 'strata', 'plates', 'weathermap'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');
@@ -438,6 +439,16 @@ console.log('解析確認題');
       });
     });
     ok(hits.length === 0, `教材文字沒有混進西里爾字母／假名／諺文（${hits.slice(0, 5).join('、') || '乾淨'}）`);
+    // 同一類問題的另一種形態：英文單字直接黏在中文旁邊（例如「地殼活動activo頻繁」）。
+    // 正常的專有名詞（pH 值、log₂ 32、sin θ）前後都會有空格或標點，黏在一起的幾乎都是誤植。
+    const GLUED = /[\u4e00-\u9fff][A-Za-z]{3,}|[A-Za-z]{3,}[\u4e00-\u9fff]/;
+    const glued = [];
+    files.forEach(f => {
+      fs.readFileSync(path.join(root, f), 'utf8').split('\n').forEach((line, i) => {
+        if (GLUED.test(line)) glued.push(`${f}:${i + 1}`);
+      });
+    });
+    ok(glued.length === 0, `沒有英文單字黏在中文旁邊（${glued.slice(0, 5).join('、') || '乾淨'}）`);
   }
   const nCards = keys.reduce((n, k) => n + ((LES[k].cards || []).length), 0);
   console.log(`    目前 ${keys.length} 個單元有教材、共 ${nCards} 張概念卡`);
