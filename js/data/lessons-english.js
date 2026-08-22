@@ -15513,3 +15513,1375 @@ window.APP_LESSONS['english|二上|第9單元 形容詞：大小與外形'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|二下|第1單元 人稱代名詞'] = {
+  intro: '代名詞用來代替名字，說話才不會一直重複。',
+  cards: [
+    {
+      title: '① 主格代名詞',
+      body: 'I（我）　you（你）　he（他）　she（她）　it（它）\n' +
+            'we（我們）　they（他們）\n' +
+            '⚠ 主格放在句首當主詞：He is my brother.',
+      viz: { type: 'classify', groups: [
+        { label: '單數', items: ['I', 'you', 'he', 'she', 'it'] },
+        { label: '複數', items: ['we', 'you', 'they'] }] },
+      check: {
+        q: '要代替「我的哥哥」當主詞，應該用哪一個代名詞？',
+        options: ['he', 'she', 'it', 'him'],
+        answer: 0,
+        why: [
+          null,
+          'she 用來代替女性。',
+          'it 用來代替東西或動物。',
+          'him 是受格，不能當主詞。'
+        ]
+      }
+    },
+    {
+      title: '② 受格代名詞',
+      body: 'me、you、him、her、it、us、them\n' +
+            'She likes him.（她喜歡他。）\n' +
+            '⚠ 受格放在動詞或介系詞後面。',
+      viz: { type: 'sentence', label: '主格與受格', items: [
+        { t: 'She', r: '主格（當主詞）' }, { t: 'likes', r: '動詞' },
+        { t: 'him', r: '受格（當受詞）' }],
+        note: '動詞後面要用受格。' },
+      check: {
+        q: '「我喜歡她」的正確說法是什麼？',
+        options: [
+          'I like her.',
+          'I like she.',
+          'Me like her.',
+          'I likes she.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '動詞後面要用受格 her。',
+          '句首當主詞要用主格 I。',
+          '主詞 I 的動詞不加 s，受格也用錯。'
+        ]
+      }
+    },
+    {
+      title: '③ 所有格：某人的',
+      body: 'my、your、his、her、its、our、their\n' +
+            'This is my book.（這是我的書。）\n' +
+            '⚠ 所有格後面一定要接名詞。',
+      viz: { type: 'classify', groups: [
+        { label: '主格', items: ['I', 'he', 'she', 'they'] },
+        { label: '所有格', items: ['my', 'his', 'her', 'their'] },
+        { label: '受格', items: ['me', 'him', 'her', 'them'] }] },
+      check: {
+        q: '「這是他的書包」的正確說法是什麼？',
+        options: [
+          'This is his backpack.',
+          'This is he backpack.',
+          'This is him backpack.',
+          'This is his.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主格不能直接修飾名詞。',
+          '受格不能直接修飾名詞。',
+          '這句話沒有說出是什麼東西。'
+        ]
+      }
+    },
+    {
+      title: '④ 所有代名詞',
+      body: 'mine、yours、his、hers、ours、theirs\n' +
+            'This book is mine.（這本書是我的。）\n' +
+            '⚠ 所有代名詞後面不接名詞，本身就代表「某人的東西」。',
+      viz: { type: 'compareexp',
+             factor: '後面接不接名詞',
+             a: { label: 'my（所有格）', note: '後面要接名詞：my book' },
+             b: { label: 'mine（所有代名詞）', note: '後面不接名詞：It is mine.' },
+             same: ['都表示這是我的'] },
+      check: {
+        q: '「這枝筆是我的」的正確說法是什麼？',
+        options: [
+          'This pen is mine.',
+          'This pen is my.',
+          'This pen is me.',
+          'This is my.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'my 後面一定要接名詞。',
+          'me 是受格，不表示所有。',
+          '這個句子沒說清楚是什麼東西。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 用 it 代替東西',
+      body: 'I have a cat. It is white.（我有一隻貓，牠是白色的。）\n' +
+            '⚠ it 用來代替單數的東西或動物；\n' +
+            '也用在天氣、時間、日期的句子裡。',
+      viz: { type: 'classify', groups: [
+        { label: 'it 代替東西', items: ['a book', 'a cat', 'the bag'] },
+        { label: 'it 的特殊用法', items: ['天氣', '時間', '日期'] }] },
+      check: {
+        q: '下列哪一句的 it 是特殊用法（不代替具體東西）？',
+        options: [
+          'It is rainy today.',
+          'I have a dog. It is big.',
+          'This is my bag. It is new.',
+          'Look at the cat. It is cute.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這裡的 it 代替前面提到的狗。',
+          '這裡的 it 代替前面提到的包包。',
+          '這裡的 it 代替前面提到的貓。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見混淆',
+      body: 'its（它的）vs. it’s（it is 的縮寫）\n' +
+            'their（他們的）vs. they’re（they are）vs. there（那裡）\n' +
+            '⚠ 有撇號的是縮寫，沒撇號的 its 才是所有格。',
+      viz: { type: 'compareexp',
+             factor: '有沒有撇號',
+             a: { label: 'its', note: '所有格：Its tail is long.' },
+             b: { label: 'it’s', note: '縮寫：It’s a cat.' },
+             same: ['發音完全一樣，只能靠意思判斷'] },
+      check: {
+        q: '「牠的尾巴很長」應該用哪一個字？',
+        options: [
+          'Its tail is long.',
+          'It’s tail is long.',
+          'Its’ tail is long.',
+          'It is tail is long.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '有撇號的是 it is 的縮寫。',
+          '這個寫法並不存在。',
+          '一個句子不能有兩個 be 動詞。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|二下|第2單元 Yes/No 問句與簡答'] = {
+  intro: '能用 Yes 或 No 回答的問句，是最基本的對話。',
+  cards: [
+    {
+      title: '① be 動詞問句',
+      body: 'Are you a student?（你是學生嗎？）\n' +
+            'Is she your sister?\n' +
+            '⚠ 把 be 動詞移到句首就成了問句。',
+      viz: { type: 'energyflow', steps: ['You are a student.', '把 are 移到最前面', 'Are you a student?'] },
+      check: {
+        q: '要把 He is tall. 改成問句，該怎麼做？',
+        options: [
+          '把 is 移到句首：Is he tall?',
+          '句首加 Do：Do he is tall?',
+          '句尾加 ?：He is tall?',
+          '把 he 改成 him'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be 動詞句不需要助動詞 do。',
+          '書面英文的問句要調整語序。',
+          '換成受格不會變成問句。'
+        ]
+      }
+    },
+    {
+      title: '② 一般動詞問句',
+      body: 'Do you like pizza?（你喜歡披薩嗎？）\n' +
+            'Does he play basketball?\n' +
+            '⚠ 一般動詞要借 do／does，而且後面的動詞回到原形。',
+      viz: { type: 'sentence', label: '問句結構', items: [
+        { t: 'Does', r: '助動詞' }, { t: 'he', r: '主詞' },
+        { t: 'play', r: '原形動詞' }],
+        note: '有了 does，動詞就用原形。' },
+      check: {
+        q: '「他會彈鋼琴嗎？」的正確說法是什麼？',
+        options: [
+          'Does he play the piano?',
+          'Does he plays the piano?',
+          'Do he play the piano?',
+          'Is he play the piano?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '有了 does，動詞要用原形。',
+          '第三人稱單數要用 does。',
+          'be 動詞不能和一般動詞並用。'
+        ]
+      }
+    },
+    {
+      title: '③ 簡答的規則',
+      body: 'Are you happy?→ Yes, I am.／No, I am not.\n' +
+            'Do you like it?→ Yes, I do.／No, I do not.\n' +
+            '⚠ 問句用什麼開頭，簡答就用什麼回答。',
+      viz: { type: 'compareexp',
+             factor: '問句開頭',
+             a: { label: 'Are／Is 開頭', note: '簡答用 am／is／are' },
+             b: { label: 'Do／Does 開頭', note: '簡答用 do／does' },
+             same: ['都要跟著主詞調整'] },
+      check: {
+        q: 'Do you like music? 的否定簡答是什麼？',
+        options: [
+          'No, I do not.',
+          'No, I am not.',
+          'No, I like not.',
+          'No, I does not.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '問句用 do 開頭，簡答就要用 do。',
+          '簡答不重複主要動詞。',
+          '主詞 I 要用 do 而不是 does。'
+        ]
+      }
+    },
+    {
+      title: '④ 簡答的主詞要換',
+      body: 'Are you a student?→ Yes, I am.（不是 Yes, you are.）\n' +
+            'Is Amy your friend?→ Yes, she is.\n' +
+            '⚠ 對方問「你」，你要回答「我」；\n' +
+            '人名要換成 he 或 she。',
+      viz: { type: 'energyflow', steps: ['問：Are you…?', '換主詞：you → I', '答：Yes, I am.'] },
+      check: {
+        q: '別人問 Is Ben your brother?，肯定簡答要怎麼說？',
+        options: [
+          'Yes, he is.',
+          'Yes, Ben is.',
+          'Yes, it is.',
+          'Yes, they are.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '簡答要用代名詞而不是重複名字。',
+          'it 用來代替東西，不用來代替人。',
+          'Ben 是一個人，要用單數。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 縮寫只用在否定',
+      body: 'Yes, I am.（不能縮成 Yes, I’m.）\n' +
+            'No, I’m not.（否定可以縮寫。）\n' +
+            '⚠ 肯定簡答不縮寫，這是固定用法。',
+      viz: { type: 'compareexp',
+             factor: '能不能縮寫',
+             a: { label: '肯定簡答', note: 'Yes, I am.（不縮寫）' },
+             b: { label: '否定簡答', note: 'No, I’m not.（可縮寫）' },
+             same: ['都要跟著主詞調整動詞'] },
+      check: {
+        q: '下列哪一個簡答是正確的？',
+        options: [
+          'Yes, I am.',
+          'Yes, I’m.',
+          'Yes, am I.',
+          'Yes, I’m am.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '肯定簡答不使用縮寫。',
+          '簡答不用疑問句的語序。',
+          '這個句子重複了 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 用簡答延伸對話',
+      body: 'Do you like dogs?→ Yes, I do. I have two dogs.\n' +
+            '⚠ 只回 Yes 或 No 會讓對話結束，\n' +
+            '多說一句就能讓對話繼續下去。',
+      viz: { type: 'energyflow', steps: ['對方提問', '簡答 Yes／No', '補一句相關資訊', '對話延續'] },
+      check: {
+        q: '想讓對話繼續，回答問題時最好怎麼做？',
+        options: [
+          '簡答之後再補一句相關的資訊',
+          '只回答 Yes 或 No',
+          '不回答',
+          '重複對方的問題'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '只回一個字對話很快就結束了。',
+          '不回答會讓對方不知所措。',
+          '重複問題不算回答。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|二下|第3單元 疑問詞 What 與 Who'] = {
+  intro: '想問「什麼」和「誰」，就要用疑問詞開頭。',
+  cards: [
+    {
+      title: '① What 問什麼',
+      body: 'What is this?（這是什麼？）\n' +
+            'What is your name?（你叫什麼名字？）\n' +
+            '⚠ 疑問詞放句首，後面接 be 動詞或助動詞。',
+      viz: { type: 'sentence', label: 'What 問句', items: [
+        { t: 'What', r: '疑問詞' }, { t: 'is', r: 'be 動詞' },
+        { t: 'this', r: '主詞' }],
+        note: '疑問詞放在最前面。' },
+      check: {
+        q: '「你叫什麼名字？」的正確說法是什麼？',
+        options: [
+          'What is your name?',
+          'What your name is?',
+          'What name you?',
+          'Who is your name?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be 動詞要放在主詞前面。',
+          '句子缺少 be 動詞。',
+          'Who 是問人，不是問名稱。'
+        ]
+      }
+    },
+    {
+      title: '② What 配一般動詞',
+      body: 'What do you like?（你喜歡什麼？）\n' +
+            'What does he do?（他做什麼工作？）\n' +
+            '⚠ 一般動詞的問句要借 do／does。',
+      viz: { type: 'sentence', label: 'What 加助動詞', items: [
+        { t: 'What', r: '疑問詞' }, { t: 'do', r: '助動詞' },
+        { t: 'you like', r: '主詞加原形動詞' }],
+        note: '一般動詞要用 do 或 does。' },
+      check: {
+        q: '「她喜歡什麼？」的正確說法是什麼？',
+        options: [
+          'What does she like?',
+          'What she likes?',
+          'What do she like?',
+          'What is she like it?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '問句需要助動詞 does。',
+          '第三人稱單數要用 does。',
+          '這個句子的結構不正確。'
+        ]
+      }
+    },
+    {
+      title: '③ Who 問人',
+      body: 'Who is he?（他是誰？）\n' +
+            'Who is your teacher?\n' +
+            '⚠ Who 問的是人的身分。',
+      viz: { type: 'compareexp',
+             factor: '問什麼',
+             a: { label: 'What', note: '問東西、名稱、內容' },
+             b: { label: 'Who', note: '問人是誰' },
+             same: ['都放在句首當疑問詞'] },
+      check: {
+        q: '要問「那個女生是誰？」應該用哪個疑問詞？',
+        options: ['Who', 'What', 'Where', 'When'],
+        answer: 0,
+        why: [
+          null,
+          'What 用來問東西或名稱。',
+          'Where 用來問地方。',
+          'When 用來問時間。'
+        ]
+      }
+    },
+    {
+      title: '④ Who 當主詞',
+      body: 'Who likes math?（誰喜歡數學？）\n' +
+            '⚠ Who 本身當主詞時，後面直接接動詞，\n' +
+            '而且動詞當第三人稱單數處理（likes）。',
+      viz: { type: 'sentence', label: 'Who 當主詞', items: [
+        { t: 'Who', r: '疑問詞兼主詞' }, { t: 'likes', r: '動詞加 s' },
+        { t: 'math', r: '受詞' }],
+        note: 'Who 當主詞時不用助動詞。' },
+      check: {
+        q: '「誰想吃蛋糕？」的正確說法是什麼？',
+        options: [
+          'Who wants cake?',
+          'Who do want cake?',
+          'Who want cake?',
+          'Who is want cake?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'Who 當主詞時不需要助動詞。',
+          'Who 當主詞時動詞要加 s。',
+          'be 動詞不能和一般動詞並用。'
+        ]
+      }
+    },
+    {
+      title: '⑤ Whose 問是誰的',
+      body: 'Whose bag is this?（這是誰的包包？）\n' +
+            '→ It is Amy’s.\n' +
+            '⚠ Who 問人、Whose 問所有權，兩個不一樣。',
+      viz: { type: 'compareexp',
+             factor: '問的內容',
+             a: { label: 'Who', note: '問「是誰」：Who is she?' },
+             b: { label: 'Whose', note: '問「誰的」：Whose bag is this?' },
+             same: ['發音相近，容易混淆'] },
+      check: {
+        q: '「這是誰的鉛筆？」應該用哪個疑問詞？',
+        options: ['Whose', 'Who', 'What', 'Which one is'],
+        answer: 0,
+        why: [
+          null,
+          'Who 問的是人的身分。',
+          'What 問的是東西是什麼。',
+          '這個說法不是問所有權。'
+        ]
+      }
+    },
+    {
+      title: '⑥ What 的常用句型',
+      body: 'What time is it?（幾點了？）\n' +
+            'What color is it?（什麼顏色？）\n' +
+            'What day is it today?（今天星期幾？）\n' +
+            '⚠ What 後面可以接名詞，變成「什麼樣的…」。',
+      viz: { type: 'classify', groups: [
+        { label: 'What 加名詞', items: ['What time', 'What color', 'What day'] },
+        { label: 'What 單獨用', items: ['What is this?', 'What do you like?'] }] },
+      check: {
+        q: '「現在幾點？」的正確說法是什麼？',
+        options: [
+          'What time is it?',
+          'What is time?',
+          'What clock is it?',
+          'How time is it?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '問時間的固定說法要加 time 與 it。',
+          'clock 是時鐘這個物品。',
+          '問時間點用 What 而不是 How。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|二下|第4單元 疑問詞 Where 與 When'] = {
+  intro: '問地點和時間，是找路和約時間必備的英文。',
+  cards: [
+    {
+      title: '① Where 問地點',
+      body: 'Where is the library?（圖書館在哪裡？）\n' +
+            'Where do you live?（你住哪裡？）\n' +
+            '⚠ be 動詞句用 Where is，一般動詞句要借 do。',
+      viz: { type: 'sentence', label: 'Where 問句', items: [
+        { t: 'Where', r: '疑問詞' }, { t: 'do', r: '助動詞' },
+        { t: 'you live', r: '主詞加原形動詞' }],
+        note: '一般動詞的問句要用 do。' },
+      check: {
+        q: '「你住在哪裡？」的正確說法是什麼？',
+        options: [
+          'Where do you live?',
+          'Where you live?',
+          'Where are you live?',
+          'Where is you live?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '一般動詞的問句需要助動詞。',
+          'be 動詞不能和一般動詞並用。',
+          '主詞 you 也不能配 is。'
+        ]
+      }
+    },
+    {
+      title: '② 回答地點',
+      body: 'Where is my bag?→ It is on the table.\n' +
+            'Where do you live?→ I live in Taipei.\n' +
+            '⚠ 城市用 in、街道用 on、門牌號碼用 at。',
+      viz: { type: 'classify', groups: [
+        { label: 'in（大範圍）', items: ['in Taipei', 'in Taiwan', 'in the room'] },
+        { label: 'on（路、樓層）', items: ['on Main Street', 'on the second floor'] },
+        { label: 'at（一個點）', items: ['at the door', 'at school'] }] },
+      check: {
+        q: '「我住在台北」的正確說法是什麼？',
+        options: [
+          'I live in Taipei.',
+          'I live on Taipei.',
+          'I live at Taipei.',
+          'I live to Taipei.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'on 用於街道或樓層。',
+          'at 用於較小的定點。',
+          'to 表示方向而不是位置。'
+        ]
+      }
+    },
+    {
+      title: '③ When 問時間',
+      body: 'When is your birthday?（你的生日什麼時候？）\n' +
+            'When do you get up?（你什麼時候起床？）\n' +
+            '⚠ When 問的是時間點或日期。',
+      viz: { type: 'compareexp',
+             factor: '問什麼',
+             a: { label: 'Where', note: '問地點：在哪裡' },
+             b: { label: 'When', note: '問時間：什麼時候' },
+             same: ['都放在句首，後面接助動詞或 be 動詞'] },
+      check: {
+        q: '要問「你什麼時候吃晚餐？」應該用哪個疑問詞？',
+        options: ['When', 'Where', 'Who', 'What'],
+        answer: 0,
+        why: [
+          null,
+          'Where 用來問地方。',
+          'Who 用來問人。',
+          'What 用來問東西或內容。'
+        ]
+      }
+    },
+    {
+      title: '④ 時間的介系詞',
+      body: 'at seven（七點）　on Monday（星期一）　in May（五月）\n' +
+            '⚠ 口訣：點用 at、日用 on、月與年用 in，\n' +
+            '範圍由小到大剛好是 at、on、in。',
+      viz: { type: 'energyflow', steps: ['at（時刻，最小）', 'on（日期、星期）', 'in（月、年、季節，最大）'] },
+      check: {
+        q: '「在五月」的正確說法是什麼？',
+        options: ['in May', 'on May', 'at May', 'to May'],
+        answer: 0,
+        why: [
+          null,
+          'on 用於日期與星期。',
+          'at 用於具體的時刻。',
+          'to 表示方向。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 月份',
+      body: 'January、February、March、April、May、June、\n' +
+            'July、August、September、October、November、December\n' +
+            '⚠ 月份的字首要大寫；縮寫如 Jan.、Feb. 後面有句點。',
+      viz: { type: 'classify', groups: [
+        { label: '上半年', items: ['January', 'February', 'March', 'April', 'May', 'June'] },
+        { label: '下半年', items: ['July', 'August', 'September', 'October', 'November', 'December'] }] },
+      check: {
+        q: '「二月」的正確拼法是什麼？',
+        options: ['February', 'Febuary', 'Feburary', 'february'],
+        answer: 0,
+        why: [
+          null,
+          '這個拼法漏了字母 r。',
+          '字母的順序不正確。',
+          '月份的字首要大寫。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 說日期',
+      body: 'My birthday is on May 5.（我的生日是五月五日。）\n' +
+            '⚠ 日期用序數唸：May fifth。\n' +
+            'first、second、third、fourth、fifth。',
+      viz: { type: 'classify', groups: [
+        { label: '基數（數量）', items: ['one', 'two', 'three', 'five'] },
+        { label: '序數（順序、日期）', items: ['first', 'second', 'third', 'fifth'] }] },
+      check: {
+        q: '說日期「五月三日」時，數字 3 要怎麼唸？',
+        options: [
+          'third（序數）',
+          'three（基數）',
+          'three time',
+          'thirty'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '日期要用序數而不是基數。',
+          '這個說法不符合英文用法。',
+          'thirty 是三十，數字不對。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|二下|第5單元 職業'] = {
+  intro: '認識各種工作的英文，也學會怎麼問別人做什麼。',
+  cards: [
+    {
+      title: '① 常見職業',
+      body: 'teacher（老師）　doctor（醫生）　nurse（護理師）\n' +
+            'farmer（農夫）　cook（廚師）　driver（司機）　police officer（警察）\n' +
+            '⚠ 很多職業由動詞加 er 而來：teach→teacher、drive→driver。',
+      viz: { type: 'classify', groups: [
+        { label: '動詞加 er', items: ['teacher', 'driver', 'farmer', 'singer'] },
+        { label: '其他形式', items: ['doctor', 'nurse', 'police officer'] }] },
+      check: {
+        q: 'drive 加上字尾變成職業，會是哪一個字？',
+        options: ['driver', 'drivor', 'driving', 'drived'],
+        answer: 0,
+        why: [
+          null,
+          '這個字尾拼法不正確。',
+          'driving 是動名詞，不是職業名稱。',
+          '這是過去式的形式而且拼法不對。'
+        ]
+      }
+    },
+    {
+      title: '② 問職業',
+      body: 'What do you do?（你做什麼工作？）\n' +
+            'What does your father do?\n' +
+            '→ He is a doctor.\n' +
+            '⚠ 回答時職業前面要加冠詞 a 或 an。',
+      viz: { type: 'sentence', label: '回答職業', items: [
+        { t: 'He is', r: 'be 動詞' }, { t: 'a', r: '冠詞' }, { t: 'doctor', r: '職業' }],
+        note: '單數職業前面要加冠詞。' },
+      check: {
+        q: '「她是護理師」的正確說法是什麼？',
+        options: [
+          'She is a nurse.',
+          'She is nurse.',
+          'She a nurse.',
+          'She is the nurses.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '單數職業前面要加冠詞。',
+          '句子缺少 be 動詞。',
+          '指一個人的職業不用複數。'
+        ]
+      }
+    },
+    {
+      title: '③ 冠詞 a 和 an',
+      body: 'a teacher　a doctor\n' +
+            'an artist　an engineer\n' +
+            '⚠ 字首發母音（a、e、i、o、u 的音）用 an。',
+      viz: { type: 'compareexp',
+             factor: '字首的發音',
+             a: { label: 'a', note: '字首是子音：a teacher' },
+             b: { label: 'an', note: '字首是母音：an artist' },
+             same: ['都表示「一個」'] },
+      check: {
+        q: '「一位工程師」的正確說法是什麼？',
+        options: [
+          'an engineer',
+          'a engineer',
+          'the a engineer',
+          'an engineers'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字首是母音時要用 an。',
+          '兩個冠詞不能同時使用。',
+          '冠詞 an 後面要接單數。'
+        ]
+      }
+    },
+    {
+      title: '④ 工作地點',
+      body: 'A teacher works at a school.（老師在學校工作。）\n' +
+            'A doctor works in a hospital.\n' +
+            '⚠ work 是一般動詞，第三人稱單數要加 s。',
+      viz: { type: 'classify', groups: [
+        { label: '職業與地點', items: ['teacher／school', 'doctor／hospital', 'cook／restaurant', 'farmer／farm'] }] },
+      check: {
+        q: '「醫生在醫院工作」的正確說法是什麼？',
+        options: [
+          'A doctor works in a hospital.',
+          'A doctor work in a hospital.',
+          'A doctor is work in a hospital.',
+          'A doctor works a hospital.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '第三人稱單數的動詞要加 s。',
+          'be 動詞不能和一般動詞並用。',
+          '句子缺少介系詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 職業在做什麼',
+      body: 'A teacher teaches students.（老師教學生。）\n' +
+            'A cook makes food.\n' +
+            '⚠ 描述職業的工作內容時，用現在簡單式。',
+      viz: { type: 'sentence', label: '描述工作', items: [
+        { t: 'A teacher', r: '職業' }, { t: 'teaches', r: '動詞加 es' },
+        { t: 'students', r: '受詞' }],
+        note: '陳述常態時用現在簡單式。' },
+      check: {
+        q: '「廚師做食物」的正確說法是什麼？',
+        options: [
+          'A cook makes food.',
+          'A cook make food.',
+          'A cook making food.',
+          'A cook is make food.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '第三人稱單數的動詞要加 s。',
+          '這個句子缺少 be 動詞才能用 ing。',
+          'be 動詞不能和一般動詞並用。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 我的志願',
+      body: 'I want to be a teacher.（我想當老師。）\n' +
+            '⚠ want to be 後面接職業；\n' +
+            'to be 的 be 是原形，不能改成 am 或 is。',
+      viz: { type: 'sentence', label: '說志願', items: [
+        { t: 'I want', r: '我想要' }, { t: 'to be', r: '成為（原形）' },
+        { t: 'a teacher', r: '職業' }],
+        note: 'want to 後面接原形動詞。' },
+      check: {
+        q: '「我想當醫生」的正確說法是什麼？',
+        options: [
+          'I want to be a doctor.',
+          'I want to am a doctor.',
+          'I want be a doctor.',
+          'I want to be doctor.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'to 後面要接原形動詞 be。',
+          'want 後面要加 to。',
+          '單數職業前面要加冠詞。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|二下|第6單元 交通工具'] = {
+  intro: '怎麼去學校、怎麼去旅行，都要用到交通工具的英文。',
+  cards: [
+    {
+      title: '① 常見交通工具',
+      body: 'bus（公車）　car（汽車）　bike（腳踏車）　train（火車）\n' +
+            'MRT（捷運）　plane（飛機）　ship（船）　scooter（機車）\n' +
+            '⚠ 這些都是可數名詞，複數要加 s。',
+      viz: { type: 'classify', groups: [
+        { label: '陸上', items: ['bus', 'car', 'bike', 'train'] },
+        { label: '海上與空中', items: ['ship', 'boat', 'plane'] }] },
+      check: {
+        q: '「火車」的英文是什麼？',
+        options: ['train', 'plane', 'ship', 'bus'],
+        answer: 0,
+        why: [
+          null,
+          'plane 指的是飛機。',
+          'ship 指的是船。',
+          'bus 指的是公車。'
+        ]
+      }
+    },
+    {
+      title: '② 用 by 說交通方式',
+      body: 'I go to school by bus.（我搭公車上學。）\n' +
+            'by car、by train、by bike\n' +
+            '⚠ by 後面的交通工具不加冠詞、也不加 s。',
+      viz: { type: 'sentence', label: '說交通方式', items: [
+        { t: 'I go to school', r: '去哪裡' }, { t: 'by bus', r: '交通方式（不加冠詞）' }],
+        note: 'by 後面直接接交通工具。' },
+      check: {
+        q: '「我搭火車去」的正確說法是什麼？',
+        options: [
+          'I go by train.',
+          'I go by a train.',
+          'I go by trains.',
+          'I go by the a train.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'by 後面不加冠詞。',
+          'by 後面用單數形。',
+          '兩個冠詞不能同時使用。'
+        ]
+      }
+    },
+    {
+      title: '③ 走路的特殊說法',
+      body: 'I walk to school.（我走路上學。）\n' +
+            '＝ I go to school on foot.\n' +
+            '⚠ 走路不用 by，要說 on foot 或直接用動詞 walk。',
+      viz: { type: 'compareexp',
+             factor: '怎麼表達走路',
+             a: { label: 'walk', note: '直接用動詞：I walk to school.' },
+             b: { label: 'on foot', note: '片語：go to school on foot' },
+             same: ['意思相同，都是走路去'] },
+      check: {
+        q: '「走路去」的正確說法是什麼？',
+        options: [
+          'on foot',
+          'by foot',
+          'by walk',
+          'on walking'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '走路的固定片語用 on 而不是 by。',
+          'walk 是動詞，不能放在 by 後面。',
+          '這個說法不是固定用法。'
+        ]
+      }
+    },
+    {
+      title: '④ 問怎麼去',
+      body: 'How do you go to school?（你怎麼上學？）\n' +
+            '→ I go by MRT.\n' +
+            '⚠ How 問方式或方法。',
+      viz: { type: 'sentence', label: 'How 問方式', items: [
+        { t: 'How', r: '疑問詞（方式）' }, { t: 'do you', r: '助動詞加主詞' },
+        { t: 'go to school', r: '動作' }],
+        note: 'How 用來問「怎麼做」。' },
+      check: {
+        q: '要問「你怎麼去公園？」應該用哪個疑問詞？',
+        options: ['How', 'What', 'Where', 'Who'],
+        answer: 0,
+        why: [
+          null,
+          'What 用來問東西或內容。',
+          'Where 用來問地方。',
+          'Who 用來問人。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 搭與騎',
+      body: 'take the bus（搭公車）　ride a bike（騎腳踏車）\n' +
+            'drive a car（開車）\n' +
+            '⚠ 跨坐的用 ride，自己操作方向盤的用 drive。',
+      viz: { type: 'classify', groups: [
+        { label: 'take（搭乘）', items: ['take the bus', 'take the MRT', 'take a taxi'] },
+        { label: 'ride（跨坐）', items: ['ride a bike', 'ride a horse'] },
+        { label: 'drive（駕駛）', items: ['drive a car', 'drive a truck'] }] },
+      check: {
+        q: '「騎腳踏車」的正確說法是什麼？',
+        options: [
+          'ride a bike',
+          'drive a bike',
+          'take a bike',
+          'sit a bike'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'drive 用於汽車這類有方向盤的車。',
+          'take 用於搭乘大眾運輸。',
+          'sit 是坐下，不用來說騎車。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 交通安全',
+      body: 'Stop at the red light.（紅燈要停。）\n' +
+            'Wear a helmet.（要戴安全帽。）\n' +
+            'Look both ways.（左右都要看。）\n' +
+            '⚠ 這些都是祈使句，用動詞開頭。',
+      viz: { type: 'energyflow', steps: ['先停下來', '左右看', '綠燈再走', '走斑馬線'] },
+      check: {
+        q: '過馬路前最重要的動作是什麼？',
+        options: [
+          '先停下來看左右有沒有車',
+          '直接跑過去',
+          '低頭看手機',
+          '跟著人群衝'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '跑過馬路來不及反應很危險。',
+          '看手機會忽略周圍的車。',
+          '跟著別人走不代表安全。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|二下|第7單元 房間與家具'] = {
+  intro: '介紹自己的家和房間，是很實用的生活英文。',
+  cards: [
+    {
+      title: '① 家裡的房間',
+      body: 'living room（客廳）　bedroom（臥室）　kitchen（廚房）\n' +
+            'bathroom（浴室）　dining room（餐廳）\n' +
+            '⚠ 很多都是兩個字合成的：bed 加 room。',
+      viz: { type: 'classify', groups: [
+        { label: '合成字', items: ['bedroom', 'bathroom', 'classroom'] },
+        { label: '兩個字分開寫', items: ['living room', 'dining room'] }] },
+      check: {
+        q: '「廚房」的英文是什麼？',
+        options: ['kitchen', 'bedroom', 'bathroom', 'living room'],
+        answer: 0,
+        why: [
+          null,
+          'bedroom 指的是臥室。',
+          'bathroom 指的是浴室。',
+          'living room 指的是客廳。'
+        ]
+      }
+    },
+    {
+      title: '② 家具',
+      body: 'bed（床）　desk（書桌）　chair（椅子）　table（桌子）\n' +
+            'sofa（沙發）　lamp（檯燈）　closet（衣櫥）\n' +
+            '⚠ desk 是書桌、table 是餐桌或一般桌子。',
+      viz: { type: 'classify', groups: [
+        { label: '坐與躺', items: ['bed', 'chair', 'sofa'] },
+        { label: '放東西', items: ['desk', 'table', 'closet'] }] },
+      check: {
+        q: '寫功課用的桌子英文是什麼？',
+        options: ['desk', 'table', 'chair', 'closet'],
+        answer: 0,
+        why: [
+          null,
+          'table 多指餐桌或一般桌子。',
+          'chair 是椅子。',
+          'closet 是衣櫥。'
+        ]
+      }
+    },
+    {
+      title: '③ 說東西在哪裡',
+      body: 'The lamp is on the desk.（檯燈在書桌上。）\n' +
+            'The ball is under the bed.（球在床下。）\n' +
+            '⚠ in、on、under、next to、behind 描述位置。',
+      viz: { type: 'sentence', label: '說位置', items: [
+        { t: 'The lamp', r: '東西' }, { t: 'is', r: 'be 動詞' },
+        { t: 'on the desk', r: '位置' }],
+        note: '介系詞加地點說明位置。' },
+      check: {
+        q: '「貓在沙發下面」的正確說法是什麼？',
+        options: [
+          'The cat is under the sofa.',
+          'The cat is on the sofa.',
+          'The cat under the sofa.',
+          'The cat is sofa under.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'on 表示在上面。',
+          '句子缺少 be 動詞。',
+          '介系詞要放在名詞前面。'
+        ]
+      }
+    },
+    {
+      title: '④ There is 描述房間',
+      body: 'There is a bed in my room.（我房間裡有一張床。）\n' +
+            'There are two chairs.（有兩張椅子。）\n' +
+            '⚠ 介紹房間裡有什麼，最常用這個句型。',
+      viz: { type: 'compareexp',
+             factor: '後面的名詞',
+             a: { label: 'There is', note: '接單數或不可數' },
+             b: { label: 'There are', note: '接複數' },
+             same: ['都在說某處有什麼'] },
+      check: {
+        q: '「我的房間裡有兩張書桌」的正確說法是什麼？',
+        options: [
+          'There are two desks in my room.',
+          'There is two desks in my room.',
+          'There have two desks in my room.',
+          'There are two desk in my room.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '後面接複數要用 are。',
+          '英文表示存在不用 have。',
+          '有數字兩張時名詞要用複數。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 在家裡做什麼',
+      body: 'I sleep in my bedroom.（我在臥室睡覺。）\n' +
+            'We eat in the dining room.\n' +
+            'My mom cooks in the kitchen.\n' +
+            '⚠ 在某個房間裡用 in。',
+      viz: { type: 'classify', groups: [
+        { label: '房間與活動', items: ['bedroom／sleep', 'kitchen／cook', 'living room／watch TV', 'bathroom／take a shower'] }] },
+      check: {
+        q: '「我在客廳看電視」的正確說法是什麼？',
+        options: [
+          'I watch TV in the living room.',
+          'I watch TV on the living room.',
+          'I watch TV at living room.',
+          'I am watch TV in the living room.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '在房間裡面要用 in。',
+          '這裡少了冠詞，介系詞也不對。',
+          'be 動詞不能和一般動詞並用。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 介紹我的房間',
+      body: 'This is my room. It is small but clean.\n' +
+            'There is a bed and a desk. I like my room.\n' +
+            '⚠ 介紹一個地方的順序：先說是什麼 → 再描述 → 說有什麼 → 說感受。',
+      viz: { type: 'energyflow', steps: ['這是我的房間', '房間是什麼樣子', '裡面有什麼', '我的感覺'] },
+      check: {
+        q: '介紹自己的房間時，比較清楚的說法順序是什麼？',
+        options: [
+          '先說這是什麼地方，再描述樣子與東西',
+          '只說裡面有什麼',
+          '只說自己的感覺',
+          '把所有句子都用 and 連在一起'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '沒有開頭聽的人會不知道在說哪裡。',
+          '只說感覺讓人無法想像畫面。',
+          '句子太長反而不容易聽懂。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|二下|第8單元 情緒與感受'] = {
+  intro: '說出自己的心情，也學會關心別人。',
+  cards: [
+    {
+      title: '① 基本情緒',
+      body: 'happy（開心）　sad（難過）　angry（生氣）\n' +
+            'tired（累）　excited（興奮）　scared（害怕）\n' +
+            '⚠ 這些都是形容詞，要配 be 動詞。',
+      viz: { type: 'classify', groups: [
+        { label: '正面', items: ['happy', 'excited', 'glad'] },
+        { label: '負面', items: ['sad', 'angry', 'scared', 'tired'] }] },
+      check: {
+        q: '「我很難過」的正確說法是什麼？',
+        options: [
+          'I am sad.',
+          'I sad.',
+          'I have sad.',
+          'I am sadly.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '形容詞句需要 be 動詞。',
+          '感受用 be 動詞而不是 have。',
+          'sadly 是副詞，這裡要用形容詞。'
+        ]
+      }
+    },
+    {
+      title: '② 問對方的心情',
+      body: 'How are you?（你好嗎？）\n' +
+            'Are you OK?（你還好嗎？）\n' +
+            'What is wrong?（怎麼了？）\n' +
+            '⚠ 看到朋友不開心，可以主動關心。',
+      viz: { type: 'classify', groups: [
+        { label: '一般問候', items: ['How are you?', 'How is it going?'] },
+        { label: '關心對方', items: ['Are you OK?', 'What is wrong?'] }] },
+      check: {
+        q: '看到同學一個人在哭，可以先說什麼？',
+        options: [
+          'Are you OK? What is wrong?',
+          'Go away.',
+          'Do not cry, it is stupid.',
+          'It is not my problem.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '叫人走開會讓對方更難過。',
+          '批評別人的感受並不恰當。',
+          '這樣說會讓對方覺得被冷落。'
+        ]
+      }
+    },
+    {
+      title: '③ 說原因',
+      body: 'I am happy because it is my birthday.\n' +
+            'She is sad because her dog is sick.\n' +
+            '⚠ because 後面要接完整的句子。',
+      viz: { type: 'sentence', label: '說原因', items: [
+        { t: 'I am happy', r: '心情' }, { t: 'because', r: '因為' },
+        { t: 'it is my birthday', r: '原因（完整句）' }],
+        note: 'because 後面要接完整的句子。' },
+      check: {
+        q: '「我很累，因為我昨天沒睡好」的關鍵連接詞是什麼？',
+        options: [
+          'because，用來說明原因',
+          'but，用來表示轉折',
+          'and，用來並列',
+          'or，用來選擇'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'but 表示前後相反。',
+          'and 只是把兩件事接起來，沒有因果。',
+          'or 用在兩者選一的情況。'
+        ]
+      }
+    },
+    {
+      title: '④ 安慰別人',
+      body: 'Do not worry.（別擔心。）\n' +
+            'Cheer up!（振作一點！）\n' +
+            'I am here for you.（我在這裡陪你。）\n' +
+            '⚠ 安慰的話多用祈使句，直接以動詞開頭。',
+      viz: { type: 'classify', groups: [
+        { label: '安慰', items: ['Do not worry.', 'It is OK.', 'Cheer up!'] },
+        { label: '陪伴', items: ['I am here for you.', 'Let me help you.'] }] },
+      check: {
+        q: '同學考試考不好很難過，比較恰當的話是什麼？',
+        options: [
+          'Do not worry. You can try again.',
+          'You are so bad at this.',
+          'I got a better score.',
+          'That is your problem.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '批評能力會傷害對方。',
+          '比較分數會讓對方更難受。',
+          '這樣說是拒絕關心。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 表達感謝與道歉',
+      body: 'Thank you for your help.（謝謝你的幫忙。）\n' +
+            'I am sorry.（對不起。）→ That is OK.（沒關係。）\n' +
+            '⚠ Thank you for 後面接名詞或動詞 ing。',
+      viz: { type: 'sentence', label: '道謝', items: [
+        { t: 'Thank you for', r: '謝謝你的' }, { t: 'helping me', r: '動詞 ing' }],
+        note: 'for 後面接名詞或動詞 ing。' },
+      check: {
+        q: '「謝謝你幫我」的正確說法是什麼？',
+        options: [
+          'Thank you for helping me.',
+          'Thank you for help me.',
+          'Thank you help me.',
+          'Thank you to helping me.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'for 後面的動詞要加 ing。',
+          '句子缺少介系詞 for。',
+          'for 不能和 to 一起用。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 情緒的兩種形容詞',
+      body: 'I am excited.（我覺得興奮。）\n' +
+            'The game is exciting.（這個遊戲很刺激。）\n' +
+            '⚠ ed 結尾說人的感受，ing 結尾說事物給人的感覺。',
+      viz: { type: 'compareexp',
+             factor: '字尾',
+             a: { label: 'ed 結尾', note: '形容人：I am bored.' },
+             b: { label: 'ing 結尾', note: '形容事物：The book is boring.' },
+             same: ['同一個字根，位置不同意思就不同'] },
+      check: {
+        q: '「這本書很無聊」的正確說法是什麼？',
+        options: [
+          'The book is boring.',
+          'The book is bored.',
+          'The book is boredom.',
+          'The book bores.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'ed 結尾用來形容人的感受。',
+          'boredom 是名詞，不能當形容詞用。',
+          '這個說法在這裡不自然。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|二下|第9單元 節慶與祝賀'] = {
+  intro: '過節時說一句祝福，是最溫暖的英文。',
+  cards: [
+    {
+      title: '① 常見節日',
+      body: 'Chinese New Year（農曆新年）　Christmas（聖誕節）\n' +
+            'Halloween（萬聖節）　Mid-Autumn Festival（中秋節）\n' +
+            '⚠ 節日的字首要大寫。',
+      viz: { type: 'classify', groups: [
+        { label: '台灣的節日', items: ['Chinese New Year', 'Mid-Autumn Festival', 'Dragon Boat Festival'] },
+        { label: '西方的節日', items: ['Christmas', 'Halloween', 'Easter'] }] },
+      check: {
+        q: '節日的英文名稱在書寫時要注意什麼？',
+        options: [
+          '每個主要字的字首都要大寫',
+          '一律小寫',
+          '要加引號',
+          '不能超過兩個字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '專有名詞的字首要大寫。',
+          '節日名稱不需要加引號。',
+          '節日名稱可以有很多個字。'
+        ]
+      }
+    },
+    {
+      title: '② 祝賀語',
+      body: 'Happy New Year!（新年快樂！）\n' +
+            'Merry Christmas!（聖誕快樂！）\n' +
+            'Happy Birthday!（生日快樂！）\n' +
+            '⚠ 聖誕節習慣用 Merry，其他多半用 Happy。',
+      viz: { type: 'classify', groups: [
+        { label: 'Happy 開頭', items: ['Happy New Year', 'Happy Birthday', 'Happy Halloween'] },
+        { label: 'Merry 開頭', items: ['Merry Christmas'] }] },
+      check: {
+        q: '「聖誕快樂」最常見的說法是什麼？',
+        options: [
+          'Merry Christmas!',
+          'Happy Christmas Day!',
+          'Good Christmas!',
+          'Nice Christmas!'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '英美最常用的說法是 Merry Christmas。',
+          '這個說法不是慣用的祝賀語。',
+          '這個說法不是慣用的祝賀語。'
+        ]
+      }
+    },
+    {
+      title: '③ 節日的活動',
+      body: 'We eat moon cakes on Mid-Autumn Festival.\n' +
+            'We get red envelopes on Chinese New Year.\n' +
+            '⚠ 特定節日前面用 on。',
+      viz: { type: 'classify', groups: [
+        { label: '節日與活動', items: ['新年／紅包', '中秋／月餅', '聖誕／禮物', '萬聖／糖果'] }] },
+      check: {
+        q: '「在中秋節」的正確介系詞是什麼？',
+        options: ['on', 'in', 'at', 'to'],
+        answer: 0,
+        why: [
+          null,
+          'in 用於月份、年份或季節。',
+          'at 用於具體的時刻。',
+          'to 表示方向。'
+        ]
+      }
+    },
+    {
+      title: '④ 送禮與收禮',
+      body: 'This is for you.（這是給你的。）\n' +
+            'Thank you! I love it.（謝謝！我很喜歡。）\n' +
+            '⚠ 收到禮物時說一句喜歡，對方會很開心。',
+      viz: { type: 'energyflow', steps: ['This is for you.', 'Thank you!', 'I love it.', 'You are welcome.'] },
+      check: {
+        q: '收到朋友送的禮物時，最好的回應是什麼？',
+        options: [
+          'Thank you! I love it.',
+          'I already have one.',
+          'It is too small.',
+          'Why this one?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這樣說會讓送禮的人尷尬。',
+          '批評禮物很不禮貌。',
+          '質疑禮物會傷害對方的心意。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 邀請',
+      body: 'Come to my party!（來我的派對！）\n' +
+            'Would you like to come?（你想來嗎？）\n' +
+            '→ Sure, I would love to.（好啊，我很樂意。）\n' +
+            '⚠ Would you like to 是有禮貌的邀請句型。',
+      viz: { type: 'sentence', label: '邀請', items: [
+        { t: 'Would you like', r: '你想要嗎（禮貌）' }, { t: 'to come', r: 'to 加原形動詞' }],
+        note: 'would like to 後面接原形動詞。' },
+      check: {
+        q: '「你想來我的生日派對嗎？」的正確說法是什麼？',
+        options: [
+          'Would you like to come to my birthday party?',
+          'Would you like come to my party?',
+          'Would you to like come?',
+          'You like come my party?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'would like 後面要加 to。',
+          '這個語序不正確。',
+          '句子缺少助動詞，語序也不對。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 寫一張卡片',
+      body: 'Dear Amy,（親愛的 Amy，）\n' +
+            'Happy Birthday! I hope you have a great day.\n' +
+            'Your friend,（你的朋友，）\n' +
+            'Ben\n' +
+            '⚠ 卡片的格式：稱呼 → 內容 → 署名。',
+      viz: { type: 'energyflow', steps: ['Dear（稱呼）', '祝賀與內容', 'Your friend（結尾語）', '署名'] },
+      check: {
+        q: '英文卡片的開頭稱呼通常怎麼寫？',
+        options: [
+          'Dear 加上對方的名字，後面加逗號',
+          '直接寫內容',
+          '先寫自己的名字',
+          '寫上日期就好'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '少了稱呼會顯得不夠禮貌。',
+          '自己的名字要放在最後署名。',
+          '日期不能取代稱呼。'
+        ]
+      }
+    }
+  ]
+};
