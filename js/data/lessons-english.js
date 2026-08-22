@@ -23655,3 +23655,1416 @@ window.APP_LESSONS['english|九上|第9單元 時態綜合複習'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|九下|第1單元 閱讀：主旨大意'] = {
+  intro: '抓主旨不是把文章讀完就好，而是知道要看哪裡。',
+  cards: [
+    {
+      title: '① 主旨是什麼',
+      body: '主旨 ＝ 整篇文章最想說的一句話。\n' +
+            '不是某個細節，也不是某一句好句子。\n' +
+            '⚠ 檢查方法：如果拿掉這句，整篇就沒有重點了。',
+      viz: { type: 'compareexp',
+             factor: '涵蓋範圍',
+             a: { label: '主旨', note: '涵蓋整篇的中心想法' },
+             b: { label: '細節', note: '只支持其中一段' },
+             same: ['都出現在文章裡'] },
+      check: {
+        q: '判斷一個選項是不是主旨，最好的方法是什麼？',
+        options: [
+          '看它能不能涵蓋文章的每一段',
+          '看它是不是文章的第一句',
+          '看它有沒有出現生字',
+          '看它的句子最長'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '第一句不一定是主旨。',
+          '生字多寡與主旨無關。',
+          '句子長度與主旨無關。'
+        ]
+      }
+    },
+    {
+      title: '② 主題句常在哪裡',
+      body: '① 段落第一句（最常見）\n' +
+            '② 段落最後一句（先舉例再總結）\n' +
+            '③ 沒有明說（要自己歸納）\n' +
+            '⚠ 先看每段的第一句和最後一句，效率最高。',
+      viz: { type: 'energyflow', steps: ['讀每段第一句', '讀每段最後一句', '找共同的主題', '歸納出主旨'] },
+      check: {
+        q: '快速抓文章大意時，最有效率的做法是什麼？',
+        options: [
+          '先讀每一段的第一句與最後一句',
+          '從頭到尾逐字查字典',
+          '只看標題',
+          '只看最後一段'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '逐字查字典很花時間，也容易迷失重點。',
+          '標題有時很籠統，不足以判斷。',
+          '只看最後一段可能漏掉主要論點。'
+        ]
+      }
+    },
+    {
+      title: '③ 轉折詞是路標',
+      body: 'however、but、although → 前後意思相反，重點常在後面\n' +
+            'therefore、so、thus → 帶出結論\n' +
+            'for example、such as → 只是舉例，不是重點\n' +
+            '⚠ 看到 however 要特別注意，後面常是作者真正的立場。',
+      viz: { type: 'classify', groups: [
+        { label: '轉折（重點在後）', items: ['however', 'but', 'yet', 'although'] },
+        { label: '結論', items: ['therefore', 'so', 'in conclusion'] },
+        { label: '舉例（非重點）', items: ['for example', 'such as', 'for instance'] }] },
+      check: {
+        q: '看到 However 開頭的句子，通常代表什麼？',
+        options: [
+          '後面是作者真正想強調的看法',
+          '後面只是舉例說明',
+          '文章結束了',
+          '前面的內容不重要'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '舉例的訊號字是 for example。',
+          'however 不表示文章結束。',
+          '前面的內容是後面轉折的對照，仍有意義。'
+        ]
+      }
+    },
+    {
+      title: '④ 常見的主旨題問法',
+      body: 'What is the main idea of the passage?\n' +
+            'What is the best title for this article?\n' +
+            'The passage is mainly about…\n' +
+            '⚠ 看到 main、best title、mainly 就是主旨題。',
+      viz: { type: 'classify', groups: [
+        { label: '主旨題的訊號', items: ['main idea', 'best title', 'mainly about', 'purpose'] },
+        { label: '細節題的訊號', items: ['According to…', 'Which of the following…', 'When／Where'] }] },
+      check: {
+        q: 'What is the best title for this passage? 這是哪一種題型？',
+        options: [
+          '主旨題',
+          '細節題',
+          '字義題',
+          '推論題'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '細節題會問特定的資訊。',
+          '字義題會指定某個單字。',
+          '推論題會問文章沒有明說的內容。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 三種錯誤選項',
+      body: '① 範圍太小：只講到某一段的細節\n' +
+            '② 範圍太大：超出文章談的內容\n' +
+            '③ 張冠李戴：文章有提到，但不是主要論點\n' +
+            '⚠ 主旨要「剛剛好」涵蓋全文。',
+      viz: { type: 'compareexp',
+             factor: '涵蓋的範圍',
+             a: { label: '太小', note: '只是一個細節' },
+             b: { label: '太大', note: '超出文章的範圍' },
+             same: ['都不是正確的主旨'] },
+      check: {
+        q: '一篇談「運動對青少年健康的好處」的文章，哪一個選項範圍太大？',
+        options: [
+          '運動改變了人類歷史',
+          '運動有助於青少年的身心健康',
+          '規律運動能改善睡眠品質',
+          '青少年應該每天運動'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這正好涵蓋文章的主題。',
+          '這是文章中的一個細節。',
+          '這與文章的主題相符。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 實戰步驟',
+      body: '① 先看題目，知道要找什麼\n' +
+            '② 掃過每段的首尾句\n' +
+            '③ 用自己的話歸納出一句主旨\n' +
+            '④ 再去比對選項，選最接近的\n' +
+            '⚠ 先歸納再看選項，不容易被誘答選項帶走。',
+      viz: { type: 'energyflow', steps: ['先看題目', '掃首尾句', '自己歸納一句', '比對選項'] },
+      check: {
+        q: '做主旨題時，為什麼建議先自己歸納再看選項？',
+        options: [
+          '避免被似是而非的誘答選項影響判斷',
+          '因為選項通常是錯的',
+          '因為這樣比較快',
+          '因為老師規定要這樣做'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '選項中只有誘答，正確答案仍在其中。',
+          '這個做法重點在準確而不是速度。',
+          '這是閱讀策略而不是規定。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九下|第2單元 閱讀：細節與推論'] = {
+  intro: '細節題找得到答案，推論題要多想一步。',
+  cards: [
+    {
+      title: '① 細節題怎麼做',
+      body: '細節題的答案一定寫在文章裡。\n' +
+            '★ 做法：從題目抓關鍵字 → 回文章找到那一句 → 對照選項。\n' +
+            '⚠ 不要憑印象作答，一定要回去找到那一行。',
+      viz: { type: 'energyflow', steps: ['題目抓關鍵字', '回文章定位', '讀前後兩句', '對照選項'] },
+      check: {
+        q: '做細節題時，最重要的動作是什麼？',
+        options: [
+          '回到文章中找到寫著答案的那一句',
+          '憑印象直接選',
+          '選看起來最長的選項',
+          '選有出現生字的選項'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '憑印象很容易記錯細節。',
+          '選項長度和正確與否無關。',
+          '生字的有無和答案無關。'
+        ]
+      }
+    },
+    {
+      title: '② 小心同義改寫',
+      body: '正確選項很少和原文用一模一樣的字，\n' +
+            '通常會換句話說（paraphrase）。\n' +
+            '文章：The store closes at nine.\n' +
+            '選項：The shop is open until nine.\n' +
+            '⚠ 字面一樣的選項反而常是陷阱。',
+      viz: { type: 'compareexp',
+             factor: '和原文的關係',
+             a: { label: '同義改寫', note: '換句話說，意思相同' },
+             b: { label: '字面照抄', note: '看似相同，細節被改掉' },
+             same: ['都和原文長得很像'] },
+      check: {
+        q: '正確選項通常和原文的關係是什麼？',
+        options: [
+          '意思相同但換句話說',
+          '一字不差地照抄',
+          '完全沒有關聯',
+          '比原文長很多'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '照抄的選項常被改動關鍵字。',
+          '正確選項一定和文章有關。',
+          '選項長度和正確與否無關。'
+        ]
+      }
+    },
+    {
+      title: '③ 推論題的界線',
+      body: '推論 ＝ 根據文章的線索合理推出來的結論。\n' +
+            '★ 不能憑自己的常識或想像。\n' +
+            '⚠ 檢查方法：能不能在文章裡指出支持這個推論的句子。',
+      viz: { type: 'compareexp',
+             factor: '有沒有文本依據',
+             a: { label: '合理推論', note: '文章有線索支持' },
+             b: { label: '過度推論', note: '只是自己的想像' },
+             same: ['文章都沒有直接明說'] },
+      check: {
+        q: '判斷一個推論合不合理，關鍵是什麼？',
+        options: [
+          '能不能在文章裡找到支持它的線索',
+          '聽起來合不合常理',
+          '自己同不同意',
+          '選項有沒有出現關鍵字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '符合常理不代表文章這樣說。',
+          '個人意見不是判斷的依據。',
+          '出現關鍵字可能只是陷阱。'
+        ]
+      }
+    },
+    {
+      title: '④ 推論題的訊號字',
+      body: 'infer、imply、suggest、probably、most likely\n' +
+            'What can we infer from the passage?\n' +
+            '⚠ 看到這些字就知道答案不會直接寫在文章裡。',
+      viz: { type: 'classify', groups: [
+        { label: '推論題訊號', items: ['infer', 'imply', 'suggest', 'probably', 'most likely'] },
+        { label: '細節題訊號', items: ['According to', 'state', 'mention'] }] },
+      check: {
+        q: 'What can be inferred from the passage? 這題的答案會在哪裡？',
+        options: [
+          '文章沒有直說，要根據線索推出來',
+          '文章第一句',
+          '文章最後一句',
+          '題目本身'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '推論題的答案不會直接寫出來。',
+          '推論題的答案不會直接寫出來。',
+          '題目只是提問，不含答案。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 從語氣判斷態度',
+      body: '作者的態度可以從用字看出來：\n' +
+            'unfortunately、sadly → 負面\n' +
+            'fortunately、impressive → 正面\n' +
+            '只列出事實、沒有評價 → 中立\n' +
+            '⚠ 態度題要看形容詞和副詞，不是看內容主題。',
+      viz: { type: 'classify', groups: [
+        { label: '正面用字', items: ['fortunately', 'impressive', 'remarkable'] },
+        { label: '負面用字', items: ['unfortunately', 'sadly', 'disappointing'] },
+        { label: '中立', items: ['according to', 'the data shows'] }] },
+      check: {
+        q: '判斷作者態度時，應該特別注意什麼？',
+        options: [
+          '帶有評價意味的形容詞與副詞',
+          '文章的長度',
+          '出現了幾個數字',
+          '段落的數量'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '文章長度與作者態度無關。',
+          '數字通常是中性的事實。',
+          '段落數量與態度無關。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 猜字義的方法',
+      body: '① 看定義：… , or ＋ 解釋\n' +
+            '② 看對比：unlike、however 後面是相反的意思\n' +
+            '③ 看例子：such as 後面的例子透露類別\n' +
+            '④ 看字根字首（下一單元）\n' +
+            '⚠ 遇到生字先猜，不要立刻放棄整句。',
+      viz: { type: 'energyflow', steps: ['看有沒有定義', '看有沒有對比', '看有沒有舉例', '拆字根字首'] },
+      check: {
+        q: '文章寫 He is very frugal; he never wastes money. 由此可推 frugal 是什麼意思？',
+        options: [
+          '節儉的',
+          '浪費的',
+          '生氣的',
+          '快樂的'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '後半句說他從不浪費錢，意思相反。',
+          '句中沒有提到情緒。',
+          '句中沒有提到心情愉快。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九下|第3單元 字彙：字首與字尾'] = {
+  intro: '拆解一個字的組成，就能猜出沒學過的單字。',
+  cards: [
+    {
+      title: '① 單字的三個部分',
+      body: '字首（prefix）＋ 字根（root）＋ 字尾（suffix）\n' +
+            'unhappiness ＝ un ＋ happy ＋ ness\n' +
+            '★ 字首改變意思，字尾決定詞性。\n' +
+            '⚠ 這是擴充字彙最有效率的方法。',
+      viz: { type: 'sentence', label: '拆解單字', items: [
+        { t: 'un', r: '字首：否定' }, { t: 'happi', r: '字根：快樂' },
+        { t: 'ness', r: '字尾：名詞' }],
+        note: '字首管意思，字尾管詞性。' },
+      check: {
+        q: '單字的字尾主要決定什麼？',
+        options: [
+          '這個字的詞性',
+          '這個字的長度',
+          '這個字的發音重音一定在字尾',
+          '這個字是不是外來語'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字尾與單字長度沒有必然關係。',
+          '重音位置不一定在字尾。',
+          '字尾不能判斷是否為外來語。'
+        ]
+      }
+    },
+    {
+      title: '② 否定字首',
+      body: 'un（unhappy、unfair）　in／im／ir／il（impossible、illegal）\n' +
+            'dis（dislike、disagree）　non（nonstop）\n' +
+            '⚠ im 用在 m、p、b 前面；ir 用在 r 前面；il 用在 l 前面。',
+      viz: { type: 'classify', groups: [
+        { label: 'un', items: ['unhappy', 'unfair', 'unable'] },
+        { label: 'im／in／ir／il', items: ['impossible', 'incorrect', 'irregular', 'illegal'] },
+        { label: 'dis', items: ['dislike', 'disagree', 'dishonest'] }] },
+      check: {
+        q: 'possible 的否定形是什麼？',
+        options: ['impossible', 'unpossible', 'dispossible', 'inpossible'],
+        answer: 0,
+        why: [
+          null,
+          '這個字的否定字首不是 un。',
+          '這個字的否定字首不是 dis。',
+          '字首在 p 前面要變成 im。'
+        ]
+      }
+    },
+    {
+      title: '③ 常見字首的意思',
+      body: 're（再一次）：rewrite、return\n' +
+            'pre（之前）：preview、prepare\n' +
+            'ex（向外）：export、exit\n' +
+            'inter（之間）：international、Internet\n' +
+            'trans（橫越）：transport、translate',
+      viz: { type: 'classify', groups: [
+        { label: '時間', items: ['pre（之前）', 're（再一次）'] },
+        { label: '方向', items: ['ex（向外）', 'inter（之間）', 'trans（橫越）'] }] },
+      check: {
+        q: 'preview 這個字裡的 pre 表示什麼？',
+        options: [
+          '事先、之前',
+          '再一次',
+          '向外',
+          '否定'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '再一次是字首 re。',
+          '向外是字首 ex。',
+          '否定是 un 或 in 這類字首。'
+        ]
+      }
+    },
+    {
+      title: '④ 名詞字尾',
+      body: 'tion／sion：action、decision\n' +
+            'ment：development、agreement\n' +
+            'ness：happiness、kindness\n' +
+            'er／or／ist：teacher、actor、artist（人）\n' +
+            'ity：ability、activity',
+      viz: { type: 'classify', groups: [
+        { label: '抽象名詞', items: ['action', 'movement', 'happiness', 'ability'] },
+        { label: '表示人', items: ['teacher', 'actor', 'scientist'] }] },
+      check: {
+        q: '下列哪一個字尾表示「做某件事的人」？',
+        options: ['ist', 'ness', 'tion', 'ly'],
+        answer: 0,
+        why: [
+          null,
+          'ness 構成抽象名詞。',
+          'tion 構成抽象名詞。',
+          'ly 多構成副詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 形容詞與副詞字尾',
+      body: '形容詞：ful（helpful）、less（useless）、able（comfortable）、\n' +
+            '　　　　ous（dangerous）、ive（active）、al（natural）\n' +
+            '副詞：ly（quickly）\n' +
+            '⚠ ful 表示有、less 表示沒有，剛好相反。',
+      viz: { type: 'compareexp',
+             factor: '有還是沒有',
+             a: { label: 'ful', note: '充滿：helpful（有幫助的）' },
+             b: { label: 'less', note: '沒有：helpless（無助的）' },
+             same: ['都構成形容詞'] },
+      check: {
+        q: 'careless 的意思最接近什麼？',
+        options: [
+          '粗心的',
+          '小心的',
+          '關心的',
+          '可以照顧的'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '小心的是 careful。',
+          '關心的意思是 caring。',
+          'less 表示缺乏而不是可以。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 動詞字尾',
+      body: 'ize／ise：realize、organize\n' +
+            'ify：simplify、classify\n' +
+            'en：strengthen、widen\n' +
+            '⚠ 同一個字根換不同字尾，就變成不同詞性：\n' +
+            'beauty（名）→ beautiful（形）→ beautifully（副）→ beautify（動）',
+      viz: { type: 'energyflow', steps: ['beauty（名詞）', 'beautiful（形容詞）', 'beautifully（副詞）', 'beautify（動詞）'] },
+      check: {
+        q: 'strong 加上字尾變成動詞是哪一個字？',
+        options: ['strengthen', 'strongly', 'strength', 'stronger'],
+        answer: 0,
+        why: [
+          null,
+          'strongly 是副詞。',
+          'strength 是名詞。',
+          'stronger 是比較級形容詞。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九下|第4單元 常見片語動詞'] = {
+  intro: '動詞加上介副詞，意思常常變得完全不同。',
+  cards: [
+    {
+      title: '① 什麼是片語動詞',
+      body: '動詞 ＋ 介副詞 ＝ 新的意思\n' +
+            'look（看）→ look after（照顧）→ look for（尋找）\n' +
+            '⚠ 不能拆開來翻譯，要整組記。',
+      viz: { type: 'classify', groups: [
+        { label: 'look 家族', items: ['look after（照顧）', 'look for（尋找）', 'look up（查詢）', 'look forward to（期待）'] }] },
+      check: {
+        q: 'look after 的意思是什麼？',
+        options: ['照顧', '尋找', '往後看', '查字典'],
+        answer: 0,
+        why: [
+          null,
+          '尋找是 look for。',
+          '這是字面直譯，不是實際意思。',
+          '查字典是 look up。'
+        ]
+      }
+    },
+    {
+      title: '② 常見的 take 與 get',
+      body: 'take off（起飛、脫下）　take care of（照顧）　take part in（參加）\n' +
+            'get up（起床）　get on／off（上下車）　get along with（相處）\n' +
+            '⚠ 同一個動詞配不同介副詞，意思差很多。',
+      viz: { type: 'classify', groups: [
+        { label: 'take', items: ['take off', 'take care of', 'take part in', 'take place'] },
+        { label: 'get', items: ['get up', 'get on', 'get along with', 'get over'] }] },
+      check: {
+        q: 'take part in 的意思是什麼？',
+        options: ['參加', '拆開', '拿走一部分', '起飛'],
+        answer: 0,
+        why: [
+          null,
+          '拆開是 take apart。',
+          '這是字面直譯，不是實際意思。',
+          '起飛是 take off。'
+        ]
+      }
+    },
+    {
+      title: '③ 可分離與不可分離',
+      body: '可分離：受詞可以放中間\n' +
+            '　 turn on the light ＝ turn the light on\n' +
+            '★ 受詞是代名詞時「一定」要放中間：turn it on（不是 turn on it）\n' +
+            '不可分離：look after him（不能說 look him after）',
+      viz: { type: 'compareexp',
+             factor: '受詞能不能放中間',
+             a: { label: '可分離', note: 'turn it on（代名詞一定放中間）' },
+             b: { label: '不可分離', note: 'look after it（代名詞也放後面）' },
+             same: ['都是動詞加介副詞'] },
+      check: {
+        q: '「把它關掉」的正確說法是什麼？',
+        options: [
+          'Turn it off.',
+          'Turn off it.',
+          'Turn off of it.',
+          'It turn off.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '代名詞受詞一定要放中間。',
+          '這個說法多了不必要的介系詞。',
+          '這個語序不正確。'
+        ]
+      }
+    },
+    {
+      title: '④ 常見的 put 與 turn',
+      body: 'put on（穿上）　put off（延期）　put up with（忍受）\n' +
+            'turn on／off（開／關）　turn down（拒絕、調小）　turn in（繳交）\n' +
+            '⚠ put off 不是「放下」，是「延期」。',
+      viz: { type: 'classify', groups: [
+        { label: 'put', items: ['put on', 'put off', 'put away', 'put up with'] },
+        { label: 'turn', items: ['turn on', 'turn off', 'turn down', 'turn in'] }] },
+      check: {
+        q: 'The game was put off because of the rain. 這句話的意思是什麼？',
+        options: [
+          '比賽因雨延期了',
+          '比賽因雨取消了',
+          '比賽在雨中進行',
+          '比賽被放在一旁'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '取消是 call off，延期是 put off。',
+          '句子表示比賽沒有照原訂進行。',
+          '這是字面直譯，不是實際意思。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見的 give 與 come',
+      body: 'give up（放棄）　give in（讓步）　give away（送出）\n' +
+            'come up with（想出）　come across（偶然遇到）　come true（實現）\n' +
+            '⚠ give up 後面接動名詞：give up smoking。',
+      viz: { type: 'classify', groups: [
+        { label: 'give', items: ['give up', 'give in', 'give away', 'give back'] },
+        { label: 'come', items: ['come up with', 'come across', 'come true', 'come over'] }] },
+      check: {
+        q: 'She came up with a great idea. 這句話的意思是什麼？',
+        options: [
+          '她想出了一個好點子',
+          '她走上來了',
+          '她同意了這個點子',
+          '她放棄了這個點子'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是字面直譯，不是實際意思。',
+          '同意是 agree with。',
+          '放棄是 give up。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 怎麼有效率地記',
+      body: '① 依動詞分組（look 家族、take 家族）\n' +
+            '② 依介副詞的意象分組（up 常表示完成或增加，off 常表示分離）\n' +
+            '③ 放進句子裡記，不要只背中文\n' +
+            '⚠ 片語動詞是英文口語的核心，會用比會背更重要。',
+      viz: { type: 'classify', groups: [
+        { label: 'up（完成、增加）', items: ['eat up', 'grow up', 'speak up'] },
+        { label: 'off（分離、離開）', items: ['take off', 'get off', 'turn off'] },
+        { label: 'out（向外、耗盡）', items: ['go out', 'run out of', 'find out'] }] },
+      check: {
+        q: '記片語動詞時，比較有效的方法是什麼？',
+        options: [
+          '把它放進完整的句子裡記',
+          '只背中文意思',
+          '按字母順序背',
+          '只記動詞不記介副詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '只背中文很難在說話時用出來。',
+          '字母順序和意思之間沒有關聯。',
+          '介副詞決定了片語的意思，不能省略。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九下|第5單元 會話：問路與購物'] = {
+  intro: '出門在外最常用的兩種對話。',
+  cards: [
+    {
+      title: '① 問路的開場',
+      body: 'Excuse me, how can I get to the train station?\n' +
+            'Could you tell me where the post office is?\n' +
+            '⚠ 先說 Excuse me，再用間接問句，最有禮貌。',
+      viz: { type: 'energyflow', steps: ['Excuse me（引起注意）', '禮貌提問', '聽指示', 'Thank you（道謝）'] },
+      check: {
+        q: '向陌生人問路時，最好的開場是什麼？',
+        options: [
+          'Excuse me, could you help me?',
+          'Hey, where is it?',
+          'You! Tell me the way.',
+          'Where station.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個說法太隨便也不夠清楚。',
+          '命令的語氣非常不禮貌。',
+          '這不是完整的句子。'
+        ]
+      }
+    },
+    {
+      title: '② 指路的說法',
+      body: 'Go straight ahead.（直走）\n' +
+            'Turn left／right at the corner.（在轉角左轉／右轉）\n' +
+            'It’s on your left.（在你的左手邊。）\n' +
+            'Walk two blocks.（走兩個街區。）',
+      viz: { type: 'classify', groups: [
+        { label: '方向', items: ['go straight', 'turn left', 'turn right'] },
+        { label: '距離與位置', items: ['two blocks', 'on your left', 'across from'] }] },
+      check: {
+        q: 'Turn right at the second corner. 這句話的意思是什麼？',
+        options: [
+          '在第二個轉角右轉',
+          '在第二個轉角左轉',
+          '走過兩個街區',
+          '在右邊第二棟'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'right 是右邊而不是左邊。',
+          '這句話講的是轉角而不是街區。',
+          '這句話講的是轉彎的位置。'
+        ]
+      }
+    },
+    {
+      title: '③ 聽不懂時怎麼辦',
+      body: 'Sorry, could you say that again?\n' +
+            'Could you speak more slowly, please?\n' +
+            'Do you mean…?（你的意思是…？）\n' +
+            '⚠ 請對方重說一次比亂點頭好得多。',
+      viz: { type: 'classify', groups: [
+        { label: '請對方重說', items: ['Pardon?', 'Could you say that again?'] },
+        { label: '確認理解', items: ['Do you mean…?', 'So I should…?'] }] },
+      check: {
+        q: '沒聽清楚對方說的話，最好的回應是什麼？',
+        options: [
+          'Sorry, could you say that again?',
+          '點頭裝作聽懂了',
+          '直接走開',
+          'No.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '裝懂之後可能走錯方向。',
+          '直接走開很失禮。',
+          '這個回應與問題無關。'
+        ]
+      }
+    },
+    {
+      title: '④ 購物的基本對話',
+      body: 'Can I help you?→ I’m just looking, thanks.（只是看看）\n' +
+            'I’m looking for a jacket.（我在找一件外套。）\n' +
+            'How much is it?／Can I try it on?（可以試穿嗎？）',
+      viz: { type: 'energyflow', steps: ['店員招呼', '說出需求', '詢問價格', '試穿或購買'] },
+      check: {
+        q: '店員問 Can I help you? 但你只想隨便看看，可以怎麼回？',
+        options: [
+          'I’m just looking, thanks.',
+          'No! Go away.',
+          'I don’t know you.',
+          'Help me now.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個回應太不客氣。',
+          '這個回應與情境無關。',
+          '這樣說像在使喚別人。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 尺寸、顏色與價格',
+      body: 'Do you have this in a larger size?（有大一點的嗎？）\n' +
+            'Do you have it in blue?（有藍色的嗎？）\n' +
+            'It’s too expensive. Is there a discount?（有折扣嗎？）\n' +
+            '⚠ in ＋ 尺寸或顏色，是固定用法。',
+      viz: { type: 'sentence', label: '詢問尺寸顏色', items: [
+        { t: 'Do you have this', r: '你們有這個嗎' }, { t: 'in a smaller size', r: 'in 加尺寸' }],
+        note: 'in 後面接尺寸或顏色。' },
+      check: {
+        q: '「有沒有紅色的？」的正確說法是什麼？',
+        options: [
+          'Do you have it in red?',
+          'Do you have it red?',
+          'Do you have red it?',
+          'Is it have red?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '顏色前面要加介系詞 in。',
+          '這個語序不正確。',
+          '這個句子的結構不通順。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 結帳與退換',
+      body: 'I’ll take it.（我要買這個。）\n' +
+            'Cash or credit card?（現金還是刷卡？）\n' +
+            'Can I get a refund?（可以退錢嗎？）\n' +
+            'Can I exchange this?（可以換貨嗎？）',
+      viz: { type: 'classify', groups: [
+        { label: '結帳', items: ['I’ll take it.', 'Cash or card?', 'Here is your change.'] },
+        { label: '售後', items: ['refund（退款）', 'exchange（換貨）', 'receipt（收據）'] }] },
+      check: {
+        q: '想把買錯尺寸的衣服換一件，應該說什麼？',
+        options: [
+          'Can I exchange this for a larger size?',
+          'Can I refund this money now?',
+          'I’ll take it.',
+          'Do you have it in red?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'refund 是退錢，不是換貨。',
+          '這是決定要買的時候說的。',
+          '這是在問顏色而不是換貨。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九下|第6單元 會話：電話與邀約'] = {
+  intro: '打電話和邀約，都有固定的說法可以照著用。',
+  cards: [
+    {
+      title: '① 電話的開場',
+      body: 'Hello, this is Amy.（我是 Amy。）\n' +
+            'May I speak to Mr. Lin, please?（請問林先生在嗎？）\n' +
+            'Is that Ben?（請問是 Ben 嗎？）\n' +
+            '⚠ 電話裡自稱用 this，不用 I am。',
+      viz: { type: 'sentence', label: '電話用語', items: [
+        { t: 'This is Amy', r: '自稱用 this' }, { t: 'May I speak to…', r: '找人的固定說法' }],
+        note: '電話中自稱用 this is。' },
+      check: {
+        q: '打電話時自我介紹，正確的說法是什麼？',
+        options: [
+          'Hello, this is Amy.',
+          'Hello, I am Amy here.',
+          'Hello, that is Amy.',
+          'Hello, Amy is me.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '電話中的慣用法是 this is。',
+          'that 用來稱呼對方。',
+          '這個語序不自然。'
+        ]
+      }
+    },
+    {
+      title: '② 接電話與轉接',
+      body: 'Speaking.（我就是。）\n' +
+            'Hold on, please.／Just a moment.（請稍等。）\n' +
+            'He is not in right now.（他現在不在。）\n' +
+            'May I take a message?（要留言嗎？）',
+      viz: { type: 'energyflow', steps: ['接起電話', '確認找誰', '轉接或告知不在', '留言或再打'] },
+      check: {
+        q: '對方要找的正是你自己，可以怎麼回應？',
+        options: [
+          'Speaking.',
+          'That is me here.',
+          'I am he.',
+          'Yes, I am speaking now.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個說法不是電話的慣用語。',
+          '這個說法在電話中不自然。',
+          '這句話的意思變成「我正在說話」。'
+        ]
+      }
+    },
+    {
+      title: '③ 留言',
+      body: 'Could you tell him to call me back?（請他回電給我。）\n' +
+            'Can I leave a message?（我可以留言嗎？）\n' +
+            'I’ll call back later.（我晚點再打。）\n' +
+            '⚠ call back 是回電，call up 是打電話給某人。',
+      viz: { type: 'classify', groups: [
+        { label: '留言相關', items: ['take a message', 'leave a message', 'call back'] }] },
+      check: {
+        q: '想請對方轉告「請他回電」，應該說什麼？',
+        options: [
+          'Could you ask him to call me back?',
+          'Could you ask him to call me up?',
+          'Could you take him a phone?',
+          'Could you tell him I call?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'call up 是主動打給某人，語意不合。',
+          '這個說法不通順。',
+          '這個句子的時態與語意不清楚。'
+        ]
+      }
+    },
+    {
+      title: '④ 提出邀約',
+      body: 'Would you like to go to the movies?\n' +
+            'How about going out for dinner?\n' +
+            'Are you free this Saturday?\n' +
+            '⚠ Would you like to 後面接原形動詞，\n' +
+            'How about 後面接動名詞。',
+      viz: { type: 'compareexp',
+             factor: '後面接什麼',
+             a: { label: 'Would you like to', note: '接原形動詞：to go' },
+             b: { label: 'How about', note: '接動名詞：going' },
+             same: ['都在提出邀約'] },
+      check: {
+        q: 'How about ___ a movie tonight? 空格要填什麼？',
+        options: ['watching', 'watch', 'to watch', 'watched'],
+        answer: 0,
+        why: [
+          null,
+          'about 是介系詞，後面接動名詞。',
+          '介系詞後面不接不定詞。',
+          '介系詞後面不接過去式。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 接受與婉拒',
+      body: '接受：Sure, I’d love to.／That sounds great.\n' +
+            '婉拒：I’d love to, but I have to study.\n' +
+            '　　　I’m afraid I can’t. Maybe next time.\n' +
+            '⚠ 婉拒時先表達意願再說原因，比直接說 No 得體。',
+      viz: { type: 'energyflow', steps: ['先表達想去的心意', '說明無法赴約的原因', '提出下次的可能', '道謝'] },
+      check: {
+        q: '被邀約但真的沒空時，比較得體的回應是什麼？',
+        options: [
+          'I’d love to, but I have plans. Maybe next time.',
+          'No.',
+          'I don’t want to go with you.',
+          'Ask someone else.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '單獨說 No 顯得冷淡。',
+          '這樣說會讓對方難堪。',
+          '這個回應把責任推給對方。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 約定時間地點',
+      body: 'What time should we meet?→ How about seven?\n' +
+            'Where should we meet?→ Let’s meet at the station.\n' +
+            'See you then!（到時見！）\n' +
+            '⚠ 約好之後複述一次時間地點，可以避免誤會。',
+      viz: { type: 'energyflow', steps: ['提出邀約', '對方接受', '敲定時間', '確認地點', '複述一次'] },
+      check: {
+        q: '約好見面之後，為什麼最好複述一次時間與地點？',
+        options: [
+          '確認雙方認知一致，避免誤會',
+          '讓對話變長',
+          '展示自己的英文能力',
+          '這是規定'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '複述的目的不是拉長對話。',
+          '複述是為了確認而不是展示。',
+          '這是溝通的好習慣而不是規定。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九下|第7單元 書信與電子郵件'] = {
+  intro: '英文書信有固定格式，照著寫就不會失禮。',
+  cards: [
+    {
+      title: '① 信件的五個部分',
+      body: '① 稱呼（Dear…）\n' +
+            '② 開場（說明寫信的目的）\n' +
+            '③ 主體（詳細內容）\n' +
+            '④ 結尾（期待回覆或道謝）\n' +
+            '⑤ 署名（結尾語 ＋ 名字）',
+      viz: { type: 'energyflow', steps: ['稱呼', '開場說明目的', '主體內容', '結尾', '署名'] },
+      check: {
+        q: '英文書信的第一個部分是什麼？',
+        options: [
+          '稱呼，例如 Dear Ms. Lin',
+          '署名',
+          '主體內容',
+          '結尾祝福'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '署名放在信的最後。',
+          '主體內容在開場之後。',
+          '結尾祝福放在署名之前。'
+        ]
+      }
+    },
+    {
+      title: '② 稱呼怎麼寫',
+      body: '認識的人：Dear Amy,（後面用逗號）\n' +
+            '正式：Dear Mr. Wang,／Dear Ms. Lin,\n' +
+            '不知道對方是誰：Dear Sir or Madam,／To Whom It May Concern,\n' +
+            '⚠ Mrs. 用於已婚，Ms. 不區分婚姻狀態，較安全。',
+      viz: { type: 'classify', groups: [
+        { label: '非正式', items: ['Dear Amy,', 'Hi Ben,'] },
+        { label: '正式', items: ['Dear Mr. Wang,', 'Dear Sir or Madam,'] }] },
+      check: {
+        q: '寫信給不知道姓名的公司窗口，稱呼可以怎麼寫？',
+        options: [
+          'Dear Sir or Madam,',
+          'Hi there,',
+          'Dear friend,',
+          'Hey,'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個稱呼在正式信件中太隨便。',
+          '對方不是朋友，這樣稱呼不恰當。',
+          '這個稱呼過於口語。'
+        ]
+      }
+    },
+    {
+      title: '③ 開場句',
+      body: 'I am writing to ask about…（我寫信是想詢問…）\n' +
+            'Thank you for your email.（謝謝您的來信。）\n' +
+            'How have you been?（近來好嗎？非正式）\n' +
+            '⚠ 正式信件第一段就要說清楚目的。',
+      viz: { type: 'compareexp',
+             factor: '正式程度',
+             a: { label: '正式', note: 'I am writing to inquire about…' },
+             b: { label: '非正式', note: 'How’s it going? I want to ask…' },
+             same: ['都在開場說明來意'] },
+      check: {
+        q: '正式書信的第一段應該做什麼？',
+        options: [
+          '直接說明寫信的目的',
+          '先閒聊天氣',
+          '先說自己的興趣',
+          '直接進入結尾'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '正式信件不宜花太多篇幅閒聊。',
+          '個人興趣與來意無關。',
+          '沒有說明來意就結束會讓人困惑。'
+        ]
+      }
+    },
+    {
+      title: '④ 結尾語',
+      body: '正式：Sincerely,／Yours sincerely,／Best regards,\n' +
+            '非正式：Best,／Take care,／Love,（家人與親密朋友）\n' +
+            '⚠ 結尾語後面加逗號，下一行才寫名字。',
+      viz: { type: 'classify', groups: [
+        { label: '正式', items: ['Sincerely,', 'Yours sincerely,', 'Best regards,'] },
+        { label: '非正式', items: ['Best,', 'Take care,', 'Love,'] }] },
+      check: {
+        q: '寫信給老師或公司，結尾語用哪一個最合適？',
+        options: [
+          'Sincerely,',
+          'Love,',
+          'See ya,',
+          'Bye bye,'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'Love 只用於家人或很親密的朋友。',
+          '這個說法太口語。',
+          '這個說法太隨便。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 電子郵件的主旨',
+      body: '主旨要短而具體：\n' +
+            '✗ Hello　✗ Question\n' +
+            '✓ Question about the summer camp schedule\n' +
+            '⚠ 好的主旨讓對方一眼知道信的內容。',
+      viz: { type: 'compareexp',
+             factor: '主旨的品質',
+             a: { label: '好', note: '具體：Request for a class change' },
+             b: { label: '差', note: '空泛：Hi／Important' },
+             same: ['都是一封信的主旨'] },
+      check: {
+        q: '下列哪一個電子郵件主旨最合適？',
+        options: [
+          'Request for Friday’s homework details',
+          'Hello',
+          'URGENT!!!',
+          'Question'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個主旨沒有傳達任何資訊。',
+          '只強調緊急卻沒說明內容。',
+          '這個主旨太籠統。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見錯誤',
+      body: '① 用注音或中文標點（，。）→ 要用英文標點（, .）\n' +
+            '② 全部小寫或全部大寫（全大寫等於在吼人）\n' +
+            '③ 忘記署名\n' +
+            '④ 正式信件用縮寫與表情符號\n' +
+            '⚠ 寄出前一定要重讀一次。',
+      viz: { type: 'energyflow', steps: ['檢查稱呼', '檢查目的清楚', '檢查標點與大小寫', '檢查署名', '寄出'] },
+      check: {
+        q: '在正式的英文信件中，為什麼不應該整句用大寫？',
+        options: [
+          '全大寫在英文裡等於大聲吼叫，很失禮',
+          '因為比較難打字',
+          '因為會被系統擋下來',
+          '因為大寫字母比較長'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '打字難易不是主要原因。',
+          '系統通常不會因此擋信。',
+          '字母長度不是重點。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九下|第8單元 圖表判讀'] = {
+  intro: '看懂圖表題，關鍵在標題、單位和趨勢。',
+  cards: [
+    {
+      title: '① 先看三個地方',
+      body: '① 標題：這張圖在講什麼\n' +
+            '② 座標軸與單位：橫軸是什麼、縱軸是什麼\n' +
+            '③ 圖例：不同顏色或線條代表誰\n' +
+            '⚠ 這三個看完再看數字，才不會誤讀。',
+      viz: { type: 'energyflow', steps: ['看標題', '看座標軸與單位', '看圖例', '再讀數字'] },
+      check: {
+        q: '看圖表題時，第一步應該做什麼？',
+        options: [
+          '先看標題，確認圖表在講什麼',
+          '直接找最大的數字',
+          '先看選項',
+          '先數有幾條線'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不知道主題就看數字容易誤判。',
+          '先看選項容易被誘答影響。',
+          '線條數量不等於理解內容。'
+        ]
+      }
+    },
+    {
+      title: '② 描述趨勢的字',
+      body: '上升：increase、rise、go up、grow\n' +
+            '下降：decrease、fall、drop、decline\n' +
+            '持平：stay the same、remain stable\n' +
+            '⚠ 這些字在圖表題的選項裡出現頻率極高。',
+      viz: { type: 'classify', groups: [
+        { label: '上升', items: ['increase', 'rise', 'grow', 'go up'] },
+        { label: '下降', items: ['decrease', 'fall', 'drop', 'decline'] },
+        { label: '持平', items: ['stay the same', 'remain stable'] }] },
+      check: {
+        q: 'The number of students declined. 這句話的意思是什麼？',
+        options: [
+          '學生人數減少了',
+          '學生人數增加了',
+          '學生人數沒有變化',
+          '學生拒絕了'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'decline 表示下降而不是上升。',
+          'decline 表示有變化。',
+          '這裡的 decline 用於數量而不是拒絕。'
+        ]
+      }
+    },
+    {
+      title: '③ 描述幅度的字',
+      body: '大幅：sharply、dramatically、significantly\n' +
+            '小幅：slightly、gradually、steadily\n' +
+            'Sales rose sharply in June.（六月銷售大幅上升。）\n' +
+            '⚠ 幅度形容詞常是選項對錯的關鍵。',
+      viz: { type: 'energyflow', steps: ['slightly（微幅）', 'gradually（逐漸）', 'significantly（顯著）', 'sharply（急遽）'] },
+      check: {
+        q: 'The price rose slightly. 這句話表示什麼？',
+        options: [
+          '價格微幅上升',
+          '價格大幅上升',
+          '價格微幅下降',
+          '價格沒有變'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'slightly 表示幅度很小。',
+          'rose 表示上升而不是下降。',
+          '句子明確表示有上升。'
+        ]
+      }
+    },
+    {
+      title: '④ 比較的說法',
+      body: 'twice as many as（是…的兩倍）\n' +
+            'the highest／the lowest（最高／最低）\n' +
+            'account for 40%（占四成）\n' +
+            'A is followed by B.（A 之後是 B，指排名）',
+      viz: { type: 'classify', groups: [
+        { label: '倍數與比例', items: ['twice as many as', 'account for', 'make up'] },
+        { label: '排名', items: ['the highest', 'the second largest', 'followed by'] }] },
+      check: {
+        q: 'Group A is followed by Group B. 這句話的意思是什麼？',
+        options: [
+          '排名上 B 緊接在 A 之後',
+          'B 跟蹤了 A',
+          'A 排在 B 後面',
+          'A 和 B 一樣多'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是字面直譯，不是圖表的用法。',
+          '被 followed 的是排在前面的一方。',
+          '這句話表示有先後差別。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見的陷阱',
+      body: '① 混淆單位（人數與百分比）\n' +
+            '② 混淆年份或組別\n' +
+            '③ 選項寫「最多」但圖上其實是第二多\n' +
+            '④ 選項推論超出圖表所能顯示的範圍\n' +
+            '⚠ 圖表只呈現數據，不會說明原因。',
+      viz: { type: 'compareexp',
+             factor: '圖表能不能告訴你',
+             a: { label: '可以判斷', note: '數量、比例、趨勢、排名' },
+             b: { label: '無法判斷', note: '原因、動機、未來一定會怎樣' },
+             same: ['都可能出現在選項裡'] },
+      check: {
+        q: '一張顯示各年級閱讀時數的長條圖，下列哪一個選項無法從圖中判斷？',
+        options: [
+          '學生閱讀時數增加的原因',
+          '哪一個年級閱讀時數最長',
+          '各年級之間的差距',
+          '整體的高低分布'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這可以直接從長條的高度看出來。',
+          '這可以由長條之間的差距看出來。',
+          '這可以從整張圖的分布看出來。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 作答步驟',
+      body: '① 讀題目，確認要找什麼\n' +
+            '② 回圖表定位（哪一年、哪一組）\n' +
+            '③ 讀出數字或趨勢\n' +
+            '④ 逐一刪去不符的選項\n' +
+            '⚠ 每個選項都要回圖表驗證一次。',
+      viz: { type: 'energyflow', steps: ['讀題目', '回圖表定位', '讀出數據', '逐一驗證選項'] },
+      check: {
+        q: '做圖表題時，為什麼每個選項都要回圖表驗證？',
+        options: [
+          '因為誘答選項常只改動一個數字或年份',
+          '因為題目很長',
+          '因為選項都很像',
+          '因為時間很充裕'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '題目長度不是驗證的理由。',
+          '選項相似只是表象，關鍵是細節差異。',
+          '考試時間通常有限，但仍要驗證。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九下|第9單元 綜合演練'] = {
+  intro: '把三年學的東西串起來，用在真正的考題上。',
+  cards: [
+    {
+      title: '① 文法題的三步驟',
+      body: '① 先看空格前後：需要什麼詞性\n' +
+            '② 再看時間副詞：決定時態\n' +
+            '③ 最後看主詞：決定動詞形式\n' +
+            '⚠ 大部分文法題三步就能解決。',
+      viz: { type: 'energyflow', steps: ['看空格前後', '看時間副詞', '看主詞', '選答案'] },
+      check: {
+        q: '做文法填空題時，第一步應該看什麼？',
+        options: [
+          '空格前後的字，判斷需要什麼詞性',
+          '先看有幾個選項',
+          '先看句子有多長',
+          '先看有沒有生字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '選項數量固定，不影響判斷。',
+          '句子長度與答案無關。',
+          '生字可以稍後再處理。'
+        ]
+      }
+    },
+    {
+      title: '② 詞性判斷的訊號',
+      body: '冠詞或形容詞後面 → 名詞\n' +
+            '主詞後面 → 動詞\n' +
+            'be 動詞或連綴動詞後面 → 形容詞\n' +
+            '介系詞後面 → 名詞或動名詞\n' +
+            '⚠ 詞性選對，一半的題目就對了。',
+      viz: { type: 'classify', groups: [
+        { label: '後面要名詞', items: ['a／an／the', '形容詞', '介系詞'] },
+        { label: '後面要形容詞', items: ['be 動詞', 'look／sound／feel'] }] },
+      check: {
+        q: 'His ___ surprised everyone.（空格在所有格後面）應該填什麼詞性？',
+        options: ['名詞', '動詞', '副詞', '介系詞'],
+        answer: 0,
+        why: [
+          null,
+          '所有格後面不能直接接動詞。',
+          '所有格後面不接副詞。',
+          '所有格後面不接介系詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 克漏字的做法',
+      body: '① 先把整段快速看一遍，抓住主題\n' +
+            '② 再逐格作答，注意前後文的邏輯\n' +
+            '③ 特別留意連接詞的空格（but、because、however）\n' +
+            '⚠ 克漏字考的是「上下文」，不能只看一句。',
+      viz: { type: 'energyflow', steps: ['快速看完全段', '抓住主題', '逐格作答', '回頭通讀檢查'] },
+      check: {
+        q: '做克漏字時，為什麼不能只看空格所在的那一句？',
+        options: [
+          '因為答案常取決於前後文的邏輯關係',
+          '因為那一句通常沒有意義',
+          '因為時間不夠',
+          '因為那一句一定有生字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '空格所在的句子仍然重要。',
+          '時間因素不是主要原因。',
+          '有沒有生字不影響這個原則。'
+        ]
+      }
+    },
+    {
+      title: '④ 遇到不會的題目',
+      body: '① 先刪掉明顯錯的選項（文法不通、詞性不對）\n' +
+            '② 再從剩下的判斷語意\n' +
+            '③ 真的不會就標記起來，先做別題\n' +
+            '⚠ 不要在一題上耗掉太多時間。',
+      viz: { type: 'energyflow', steps: ['刪去文法不通的', '刪去詞性不對的', '從剩下的判斷語意', '不會就先跳過'] },
+      check: {
+        q: '考試遇到完全不會的題目，最好的做法是什麼？',
+        options: [
+          '先刪去明顯錯的選項，標記後繼續往下做',
+          '一直想到會為止',
+          '直接空著不看',
+          '把整張考卷重看一遍'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '在一題上卡住會壓縮其他題的時間。',
+          '空著等於放棄得分機會。',
+          '重看整張考卷很花時間。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 最常錯的五個地方',
+      body: '① 第三人稱單數忘記加 s\n' +
+            '② 有 did／does 之後動詞沒回原形\n' +
+            '③ be 動詞和一般動詞並用\n' +
+            '④ 可數與不可數搞混\n' +
+            '⑤ 間接問句沒改回陳述句語序\n' +
+            '⚠ 寫完檢查這五項，分數就會穩定。',
+      viz: { type: 'classify', groups: [
+        { label: '動詞相關', items: ['三單加 s', 'did 後用原形', '不與 be 動詞並用'] },
+        { label: '句型相關', items: ['可數不可數', '間接問句語序'] }] },
+      check: {
+        q: '下列哪一句犯了「be 動詞和一般動詞並用」的錯誤？',
+        options: [
+          'He is go to school every day.',
+          'He goes to school every day.',
+          'He is at school now.',
+          'He does not go to school on Sunday.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這句只有一般動詞，完全正確。',
+          '這句只有 be 動詞，完全正確。',
+          '這句用助動詞加原形動詞，完全正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 平時怎麼準備',
+      body: '① 每天讀一小段英文（新聞、故事都好）\n' +
+            '② 生字記在句子裡，不要只記中文\n' +
+            '③ 錯題本：把錯的原因寫下來，不只抄答案\n' +
+            '④ 開口唸出來，聽力與口說一起練\n' +
+            '⚠ 每天二十分鐘，勝過考前熬夜。',
+      viz: { type: 'energyflow', steps: ['每天讀一小段', '生字放進句子', '整理錯題原因', '開口唸出來'] },
+      check: {
+        q: '整理錯題時，最有價值的做法是什麼？',
+        options: [
+          '寫下自己為什麼會錯，而不只是抄正確答案',
+          '只把正確答案抄一遍',
+          '把整題重抄十遍',
+          '只記下題號'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '抄答案無法避免下次犯同樣的錯。',
+          '重抄多遍不等於理解錯在哪裡。',
+          '只記題號之後回顧時看不懂。'
+        ]
+      }
+    }
+  ]
+};
