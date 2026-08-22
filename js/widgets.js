@@ -7980,6 +7980,49 @@
     paint();
   };
 
+  /* ── 區域示意圖（regionmap）───────────────────────────────────────────
+     用簡單的方框＋標點來認識一個區域的組成，點一個看說明。
+     spec: { title, shape:'wide'|'tall', items:[{t, x, y, d}] }
+     x, y 用 0～100 的相對座標。                                          */
+  REG.regionmap = function (host, spec) {
+    var items = spec.items || [];
+    var idx = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('rect', { x: 14, y: 22, width: 292, height: 150, rx: 10,
+        'fill-opacity': '.07' }, 'fill:var(--good);stroke:var(--border);stroke-width:1.5'));
+      if (spec.title) {
+        svg.appendChild(txt(160, 14, spec.title, 'font-size:11px;fill:var(--dim)'));
+      }
+      items.forEach(function (it, i) {
+        var x = 26 + (it.x == null ? 50 : it.x) / 100 * 268;
+        var y = 34 + (it.y == null ? 50 : it.y) / 100 * 126;
+        var on = i === idx;
+        svg.appendChild(el('circle', { cx: x, cy: y, r: on ? 8 : 5 },
+          'fill:var(--' + (on ? 'accent' : 'dim') + ')'));
+        svg.appendChild(txt(x, y - (on ? 16 : 13), it.t,
+          'font-size:' + (on ? 11 : 10) + 'px;fill:var(--' + (on ? 'accent' : 'dim') +
+          ');font-weight:' + (on ? 700 : 400)));
+      });
+      var cur = items[idx] || { t: '', d: '' };
+      read.appendChild(div('wg-read-main', cur.t));
+      read.appendChild(div('wg-read-sub', cur.d || ''));
+    }
+    var row = div('wg-ctrl');
+    items.forEach(function (it, i) {
+      row.appendChild(btn(it.t, function () { idx = i; paint(); }));
+    });
+    box.appendChild(row);
+    host.appendChild(box);
+    paint();
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },

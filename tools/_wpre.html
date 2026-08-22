@@ -5,8 +5,11 @@ h2{color:#9ecbff;font:600 14px/1.4 sans-serif;margin:8px 0 4px}</style></head>
 <body><div id="all"></div>
 <script src="../js/widgets.js"></script>
 <script>
-var D=[['人口金字塔',{type:'poppyramid',mode:'aging'}],
-['供需',{type:'supply',price:5}]];
+var D=[['區域圖',{type:'regionmap',title:'東亞地區',items:[
+{t:'台灣',x:70,y:70,d:'位於東亞島弧中央。'},
+{t:'日本',x:88,y:25,d:'由四大島組成。'},
+{t:'韓國',x:70,y:35,d:'位於朝鮮半島。'},
+{t:'中國',x:25,y:45,d:'面積廣大。'}]}]];
 var all=document.getElementById('all');
 D.forEach(function(d){var h=document.createElement('h2');h.textContent=d[0];all.appendChild(h);
 var b=document.createElement('div');b.className='demo';all.appendChild(b);

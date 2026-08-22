@@ -215,7 +215,11 @@ var DEMOS = [
   ['組織架構圖', { type: 'orgchart', root: '總統', intro: '中央政府分成五院。', nodes: [
     { t: '行政院', d: '國家最高行政機關。' }, { t: '立法院', d: '制定法律、審預算。' }] }],
   ['人口金字塔', { type: 'poppyramid', mode: 'aging' }],
-  ['供給與需求', { type: 'supply', price: 5 }]
+  ['供給與需求', { type: 'supply', price: 5 }],
+  ['區域示意圖', { type: 'regionmap', title: '東亞', items: [
+    { t: '台灣', x: 70, y: 70, d: '位於東亞島弧中央，是重要的航運樞紐。' },
+    { t: '日本', x: 88, y: 30, d: '由四大島組成，多火山與地震。' },
+    { t: '中國', x: 30, y: 45, d: '面積廣大，地形由西向東逐級下降。' }] }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {
