@@ -12780,3 +12780,1361 @@ window.APP_LESSONS['english|一上|第9單元 身體部位'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|一下|第1單元 子音的自然發音'] = {
+  intro: '每個子音字母都有自己的聲音——把聲音記住，就能開始拼字。',
+  cards: [
+    {
+      title: '① 什麼是子音',
+      body: '26 個字母中，除了 a、e、i、o、u 之外的 21 個都是子音字母。\n' +
+            '⚠ 子音的聲音要靠嘴唇、舌頭或牙齒擋住氣流才發得出來；\n' +
+            '母音則是氣流順暢通過。',
+      viz: { type: 'classify', groups: [
+        { label: '母音字母', items: ['a', 'e', 'i', 'o', 'u'] },
+        { label: '子音字母（部分）', items: ['b', 'c', 'd', 'f', 'g', 'h'] }] },
+      check: {
+        q: '子音與母音最主要的差別是什麼？',
+        options: [
+          '發子音時氣流會被擋住，發母音時氣流順暢通過',
+          '子音比較大聲',
+          '母音只出現在字尾',
+          '子音不用發音'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '音量大小與子音母音無關。',
+          '母音可以出現在單字的任何位置。',
+          '子音是需要發音的。'
+        ]
+      }
+    },
+    {
+      title: '② b、c、d、f',
+      body: 'b：ball（球）　c：cat（貓）　d：dog（狗）　f：fish（魚）\n' +
+            '⚠ 字母 c 在 a、o、u 前面發 k 的音（cat、cup），\n' +
+            '在 e、i、y 前面發 s 的音（city、cent）。',
+      viz: { type: 'phonics', words: [
+        { w: 'ball', parts: ['b', 'all'], hit: 0, s: 'b 的音', mean: '球' },
+        { w: 'cat', parts: ['c', 'at'], hit: 0, s: 'c 發 k 的音', mean: '貓' },
+        { w: 'city', parts: ['c', 'ity'], hit: 0, s: 'c 發 s 的音', mean: '城市' }] },
+      tip: '按單字按鈕比較同一個字母的不同發音。',
+      check: {
+        q: '字母 c 在 cup 這個字裡發什麼音？',
+        options: [
+          '發 k 的音',
+          '發 s 的音',
+          '不發音',
+          '發 ch 的音'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'c 在 e、i、y 前面才發 s 的音。',
+          '這個位置的 c 是要發音的。',
+          'ch 是兩個字母的組合。'
+        ]
+      }
+    },
+    {
+      title: '③ g、h、j、k',
+      body: 'g：girl（女孩）　h：hat（帽子）　j：jump（跳）　k：kite（風箏）\n' +
+            '⚠ 字母 g 也有兩種音：\n' +
+            'go、girl 發硬的音；giant、gym 發像 j 的音。',
+      viz: { type: 'phonics', words: [
+        { w: 'girl', parts: ['g', 'irl'], hit: 0, s: 'g 的硬音', mean: '女孩' },
+        { w: 'jump', parts: ['j', 'ump'], hit: 0, s: 'j 的音', mean: '跳' },
+        { w: 'kite', parts: ['k', 'ite'], hit: 0, s: 'k 的音', mean: '風箏' }] },
+      check: {
+        q: '字母 g 在 go 這個字裡發什麼音？',
+        options: [
+          '發硬的 g 音',
+          '發 j 的音',
+          '不發音',
+          '發 k 的音'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'g 在 e、i、y 前面才可能發 j 的音。',
+          '這個位置的 g 要發音。',
+          'g 與 k 是不同的音。'
+        ]
+      }
+    },
+    {
+      title: '④ l、m、n、p',
+      body: 'l：lion（獅子）　m：monkey（猴子）　n：nose（鼻子）　p：pig（豬）\n' +
+            '⚠ m 和 n 都是鼻音（氣流從鼻子出來），\n' +
+            '差別在嘴唇：m 要閉起嘴唇。',
+      viz: { type: 'phonics', words: [
+        { w: 'monkey', parts: ['m', 'onkey'], hit: 0, s: 'm 的音（閉唇）', mean: '猴子' },
+        { w: 'nose', parts: ['n', 'ose'], hit: 0, s: 'n 的音（舌抵上顎）', mean: '鼻子' }] },
+      check: {
+        q: '發 m 這個音時，嘴巴要怎麼做？',
+        options: [
+          '閉起嘴唇，氣流從鼻子出來',
+          '嘴巴張很大',
+          '咬住舌頭',
+          '不動嘴巴'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '張大嘴巴是發母音的動作。',
+          '咬舌頭是發 th 的動作。',
+          '發音一定需要口腔的動作。'
+        ]
+      }
+    },
+    {
+      title: '⑤ r、s、t、v、w',
+      body: 'r：rabbit（兔子）　s：sun（太陽）　t：tiger（老虎）\n' +
+            'v：van（廂型車）　w：water（水）\n' +
+            '⚠ v 和 w 常被搞混：\n' +
+            'v 的上排牙齒要碰下嘴唇，w 則是嘴唇噘起來。',
+      viz: { type: 'compareexp',
+             factor: '兩個容易混淆的音',
+             a: { label: 'v', note: '上排牙齒輕碰下嘴唇' },
+             b: { label: 'w', note: '嘴唇噘成圓形' },
+             same: ['都用到嘴唇'] },
+      check: {
+        q: '發 v 這個音時，要怎麼做？',
+        options: [
+          '上排牙齒輕碰下嘴唇',
+          '嘴唇噘成圓形',
+          '舌頭伸出來',
+          '牙齒咬緊'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '噘嘴唇是發 w 的動作。',
+          '舌頭伸出來是發 th 的動作。',
+          '咬緊牙齒發不出這個音。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 用子音開始拼字',
+      body: '把子音和母音組合起來就能拼字：\n' +
+            'b＋a＋t → bat（球棒）；c＋a＋t → cat；m＋a＋p → map。\n' +
+            '⚠ 拼讀的順序：先分開唸每個音，再慢慢連起來。',
+      viz: { type: 'phonics', words: [
+        { w: 'bat', parts: ['b', 'a', 't'], hit: 0, s: '子音開頭', mean: '球棒' },
+        { w: 'map', parts: ['m', 'a', 'p'], hit: 0, s: '子音開頭', mean: '地圖' }] },
+      check: {
+        q: '看到 mat 這個字，可以怎麼唸出來？',
+        options: [
+          '先分別唸 m、a、t，再連起來',
+          '直接猜一個發音',
+          '一定要查字典',
+          '請別人唸給你聽'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '亂猜無法建立正確的拼讀習慣。',
+          '自然發音的目的就是自己能唸。',
+          '學會拼讀就不用每次都問人。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|一下|第2單元 短母音 a、e'] = {
+  intro: '母音是每個單字的核心——先從最常見的兩個短母音開始。',
+  cards: [
+    {
+      title: '① 短母音 a',
+      body: 'cat（貓）、bat（球棒）、map（地圖）、hat（帽子）、bag（袋子）\n' +
+            '⚠ 出現在「子音＋母音＋子音」的字裡時，a 通常發短音。\n' +
+            '嘴巴要張開，聲音短促。',
+      viz: { type: 'phonics', words: [
+        { w: 'cat', parts: ['c', 'a', 't'], hit: 1, s: 'a 的短音', mean: '貓' },
+        { w: 'map', parts: ['m', 'a', 'p'], hit: 1, s: 'a 的短音', mean: '地圖' },
+        { w: 'bag', parts: ['b', 'a', 'g'], hit: 1, s: 'a 的短音', mean: '袋子' }] },
+      tip: '按單字按鈕，看每個字的目標音。',
+      check: {
+        q: '下列哪一個字含有短母音 a？',
+        options: ['bag', 'cake', 'bike', 'home'],
+        answer: 0,
+        why: [
+          null,
+          'cake 的 a 因為字尾有 e 而發長音。',
+          'bike 的母音是 i。',
+          'home 的母音是 o。'
+        ]
+      }
+    },
+    {
+      title: '② 短母音 e',
+      body: 'bed（床）、pen（筆）、red（紅色）、ten（十）、net（網子）\n' +
+            '⚠ 短音 e 的嘴型比 a 小一點，聲音也很短。',
+      viz: { type: 'phonics', words: [
+        { w: 'bed', parts: ['b', 'e', 'd'], hit: 1, s: 'e 的短音', mean: '床' },
+        { w: 'pen', parts: ['p', 'e', 'n'], hit: 1, s: 'e 的短音', mean: '筆' },
+        { w: 'ten', parts: ['t', 'e', 'n'], hit: 1, s: 'e 的短音', mean: '十' }] },
+      check: {
+        q: '下列哪一組單字的母音都是短音 e？',
+        options: [
+          'bed、pen、ten',
+          'bed、cake、pig',
+          'pen、home、bag',
+          'ten、bike、cup'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這一組包含了長音與其他母音。',
+          '這三個字的母音各不相同。',
+          '這三個字的母音也都不一樣。'
+        ]
+      }
+    },
+    {
+      title: '③ 比較 a 和 e',
+      body: 'bat／bet、pan／pen、bad／bed、mat／met。\n' +
+            '⚠ 只差一個母音，意思就完全不同——\n' +
+            '所以聽力練習時要特別注意母音。',
+      viz: { type: 'phonics', words: [
+        { w: 'bat', parts: ['b', 'a', 't'], hit: 1, s: 'a 的短音', mean: '球棒' },
+        { w: 'bet', parts: ['b', 'e', 't'], hit: 1, s: 'e 的短音', mean: '打賭' },
+        { w: 'pan', parts: ['p', 'a', 'n'], hit: 1, s: 'a 的短音', mean: '平底鍋' },
+        { w: 'pen', parts: ['p', 'e', 'n'], hit: 1, s: 'e 的短音', mean: '筆' }] },
+      check: {
+        q: 'pan 和 pen 的差別在哪裡？',
+        options: [
+          '中間的母音不同，意思也完全不同',
+          '第一個字母不同',
+          '最後一個字母不同',
+          '兩個字意思相同'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩個字都以 p 開頭。',
+          '兩個字都以 n 結尾。',
+          '一個是平底鍋，一個是筆。'
+        ]
+      }
+    },
+    {
+      title: '④ 拼讀練習',
+      body: '三步驟：① 分開唸每個音 ② 慢慢連起來 ③ 加快變成完整的字。\n' +
+            'c-a-t → cat；b-e-d → bed；m-a-p → map。\n' +
+            '⚠ 練習時可以用手指著字母，一個一個唸。',
+      viz: { type: 'phonics', words: [
+        { w: 'red', parts: ['r', 'e', 'd'], hit: 1, s: 'e 的短音', mean: '紅色' },
+        { w: 'hat', parts: ['h', 'a', 't'], hit: 1, s: 'a 的短音', mean: '帽子' }] },
+      check: {
+        q: '拼讀單字的第一步應該做什麼？',
+        options: [
+          '把每個字母的音分開唸出來',
+          '直接唸整個字',
+          '先看中文意思',
+          '先抄寫十遍'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直接唸整個字可能會唸錯。',
+          '拼讀不需要先知道中文意思。',
+          '抄寫幫助記憶但不是拼讀的第一步。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見的短母音單字',
+      body: 'a：cat、hat、bag、map、dad、man\n' +
+            'e：bed、pen、ten、red、net、hen\n' +
+            '⚠ 這些字都很短、很常用，是最好的練習材料。',
+      viz: { type: 'classify', groups: [
+        { label: '短音 a', items: ['cat', 'hat', 'bag', 'map', 'dad'] },
+        { label: '短音 e', items: ['bed', 'pen', 'ten', 'red', 'net'] }] },
+      check: {
+        q: '下列哪一個字的母音和 bed 相同？',
+        options: ['pen', 'cat', 'map', 'bag'],
+        answer: 0,
+        why: [
+          null,
+          'cat 的母音是短音 a。',
+          'map 的母音也是短音 a。',
+          'bag 的母音同樣是短音 a。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 從拼讀到拼寫',
+      body: '反過來也可以：聽到聲音就寫出字母。\n' +
+            '聽到 b-e-d 三個音 → 寫出 bed。\n' +
+            '⚠ 這樣背單字會輕鬆很多，\n' +
+            '因為你是「用規則」而不是「用死記」。',
+      viz: { type: 'energyflow', steps: ['聽到聲音', '分辨每個音', '寫出對應字母', '完成單字'] },
+      check: {
+        q: '學會自然發音之後，對拼寫有什麼幫助？',
+        options: [
+          '聽到聲音就能推出字母，不用完全死背',
+          '完全不用練習拼寫',
+          '所有單字都能拼對',
+          '只對唸讀有幫助'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '仍然需要練習才會熟練。',
+          '有些單字不符合規則，仍要另外記。',
+          '發音規則對拼寫同樣有幫助。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|一下|第3單元 短母音 i、o、u'] = {
+  intro: '把五個短母音學完，你就能拼讀出好幾百個單字。',
+  cards: [
+    {
+      title: '① 短母音 i',
+      body: 'pig（豬）、big（大的）、sit（坐）、six（六）、pin（別針）\n' +
+            '⚠ 短音 i 的聲音比較尖、比較短，嘴巴微微張開。',
+      viz: { type: 'phonics', words: [
+        { w: 'pig', parts: ['p', 'i', 'g'], hit: 1, s: 'i 的短音', mean: '豬' },
+        { w: 'six', parts: ['s', 'i', 'x'], hit: 1, s: 'i 的短音', mean: '六' },
+        { w: 'sit', parts: ['s', 'i', 't'], hit: 1, s: 'i 的短音', mean: '坐' }] },
+      tip: '按單字按鈕，看每個字的目標音。',
+      check: {
+        q: '下列哪一個字含有短母音 i？',
+        options: ['big', 'bike', 'cake', 'bed'],
+        answer: 0,
+        why: [
+          null,
+          'bike 的 i 因為字尾有 e 而發長音。',
+          'cake 的母音是長音 a。',
+          'bed 的母音是短音 e。'
+        ]
+      }
+    },
+    {
+      title: '② 短母音 o',
+      body: 'dog（狗）、hot（熱的）、box（盒子）、top（頂端）、mom（媽媽）\n' +
+            '⚠ 嘴巴要張開成圓形，聲音短促。',
+      viz: { type: 'phonics', words: [
+        { w: 'dog', parts: ['d', 'o', 'g'], hit: 1, s: 'o 的短音', mean: '狗' },
+        { w: 'box', parts: ['b', 'o', 'x'], hit: 1, s: 'o 的短音', mean: '盒子' },
+        { w: 'hot', parts: ['h', 'o', 't'], hit: 1, s: 'o 的短音', mean: '熱的' }] },
+      check: {
+        q: '發短母音 o 的時候，嘴巴應該怎麼做？',
+        options: [
+          '張開成圓形，聲音短促',
+          '嘴唇緊閉',
+          '牙齒咬住舌頭',
+          '完全不動'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '閉起嘴唇是發 m 的動作。',
+          '咬住舌頭是發 th 的動作。',
+          '發母音一定要有口腔的動作。'
+        ]
+      }
+    },
+    {
+      title: '③ 短母音 u',
+      body: 'cup（杯子）、bus（公車）、sun（太陽）、run（跑）、cut（切）\n' +
+            '⚠ 短音 u 的嘴型比較放鬆，聲音接近中文的「啊」但更短。',
+      viz: { type: 'phonics', words: [
+        { w: 'cup', parts: ['c', 'u', 'p'], hit: 1, s: 'u 的短音', mean: '杯子' },
+        { w: 'sun', parts: ['s', 'u', 'n'], hit: 1, s: 'u 的短音', mean: '太陽' },
+        { w: 'bus', parts: ['b', 'u', 's'], hit: 1, s: 'u 的短音', mean: '公車' }] },
+      check: {
+        q: '下列哪一個字含有短母音 u？',
+        options: ['bus', 'cute', 'use', 'tube'],
+        answer: 0,
+        why: [
+          null,
+          'cute 的 u 因為字尾有 e 而發長音。',
+          'use 的 u 也是長音。',
+          'tube 的 u 同樣發長音。'
+        ]
+      }
+    },
+    {
+      title: '④ 五個短母音一起看',
+      body: 'a（cat）、e（bed）、i（pig）、o（dog）、u（cup）。\n' +
+            '⚠ 共同的規則：在「子音＋母音＋子音」的結構中，\n' +
+            '母音通常發短音。',
+      viz: { type: 'phonics', words: [
+        { w: 'cat', parts: ['c', 'a', 't'], hit: 1, s: 'a 的短音', mean: '貓' },
+        { w: 'bed', parts: ['b', 'e', 'd'], hit: 1, s: 'e 的短音', mean: '床' },
+        { w: 'pig', parts: ['p', 'i', 'g'], hit: 1, s: 'i 的短音', mean: '豬' },
+        { w: 'dog', parts: ['d', 'o', 'g'], hit: 1, s: 'o 的短音', mean: '狗' },
+        { w: 'cup', parts: ['c', 'u', 'p'], hit: 1, s: 'u 的短音', mean: '杯子' }] },
+      check: {
+        q: '短母音通常出現在什麼樣的字裡？',
+        options: [
+          '子音＋母音＋子音的結構',
+          '字尾有不發音 e 的字',
+          '很長的單字',
+          '只有母音的字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字尾有 e 時母音多發長音。',
+          '短母音的字通常都很短。',
+          '英文單字幾乎都有子音。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 換母音換意思',
+      body: 'big／bag／bug；hot／hat／hit；cut／cat／cot。\n' +
+            '⚠ 這種只差一個音的字組，是練習聽力最好的材料。\n' +
+            '母音聽錯了，整個字的意思就錯了。',
+      viz: { type: 'phonics', words: [
+        { w: 'big', parts: ['b', 'i', 'g'], hit: 1, s: 'i 的短音', mean: '大的' },
+        { w: 'bag', parts: ['b', 'a', 'g'], hit: 1, s: 'a 的短音', mean: '袋子' },
+        { w: 'bug', parts: ['b', 'u', 'g'], hit: 1, s: 'u 的短音', mean: '蟲子' }] },
+      check: {
+        q: 'big、bag、bug 這三個字的差別在哪裡？',
+        options: [
+          '只有中間的母音不同，意思卻完全不一樣',
+          '開頭的字母不同',
+          '結尾的字母不同',
+          '三個字意思相同'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '三個字都以 b 開頭。',
+          '三個字都以 g 結尾。',
+          '三個字分別是大的、袋子與蟲子。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 拼讀更多單字',
+      body: '練習拼讀：sun、run、cut、hop、job、fun、win、lip。\n' +
+            '⚠ 每天練五個，一個月就是一百五十個字。\n' +
+            '拼讀能力是自學單字的基礎。',
+      viz: { type: 'phonics', words: [
+        { w: 'run', parts: ['r', 'u', 'n'], hit: 1, s: 'u 的短音', mean: '跑' },
+        { w: 'win', parts: ['w', 'i', 'n'], hit: 1, s: 'i 的短音', mean: '贏' },
+        { w: 'job', parts: ['j', 'o', 'b'], hit: 1, s: 'o 的短音', mean: '工作' }] },
+      check: {
+        q: '每天練習拼讀幾個單字，比較容易持續？',
+        options: [
+          '每天五個，長期累積',
+          '一天背一百個',
+          '考試前一次背完',
+          '完全不用練習'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '一次太多容易忘記也容易放棄。',
+          '臨時抱佛腳的效果有限。',
+          '拼讀能力需要練習才會熟練。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|一下|第4單元 動物'] = {
+  intro: '動物的英文最好記——因為你早就認識牠們了。',
+  cards: [
+    {
+      title: '① 寵物',
+      body: 'dog（狗）　cat（貓）　bird（鳥）　fish（魚）　rabbit（兔子）\n' +
+            '⚠ fish 的複數通常還是 fish（不加 s）。',
+      viz: { type: 'classify', groups: [
+        { label: '常見寵物', items: ['dog', 'cat', 'bird', 'fish', 'rabbit'] }] },
+      check: {
+        q: '「兔子」的英文是什麼？',
+        options: ['rabbit', 'dog', 'bird', 'fish'],
+        answer: 0,
+        why: [
+          null,
+          'dog 指的是狗，不是兔子。',
+          'bird 是鳥。',
+          'fish 是魚。'
+        ]
+      }
+    },
+    {
+      title: '② 農場動物',
+      body: 'cow（牛）　pig（豬）　horse（馬）　duck（鴨）　chicken（雞）　sheep（羊）\n' +
+            '⚠ sheep 的複數還是 sheep（單複數同形）。',
+      viz: { type: 'classify', groups: [
+        { label: '農場動物', items: ['cow', 'pig', 'horse', 'duck', 'sheep'] },
+        { label: '單複數同形', items: ['sheep', 'fish', 'deer'] }] },
+      check: {
+        q: 'sheep 的複數形是什麼？',
+        options: ['sheep', 'sheeps', 'sheepes', 'sheepies'],
+        answer: 0,
+        why: [
+          null,
+          '這個字的單複數同形，不加 s。',
+          '這個拼法不存在。',
+          '這個拼法也不正確。'
+        ]
+      }
+    },
+    {
+      title: '③ 野生動物',
+      body: 'lion（獅子）　tiger（老虎）　elephant（大象）　monkey（猴子）\n' +
+            'bear（熊）　giraffe（長頸鹿）\n' +
+            '⚠ 這些動物在動物園（zoo）看得到。',
+      viz: { type: 'classify', groups: [
+        { label: '大型', items: ['lion', 'tiger', 'elephant', 'bear'] },
+        { label: '特別的', items: ['giraffe', 'monkey'] }] },
+      check: {
+        q: '「大象」的英文是什麼？',
+        options: ['elephant', 'lion', 'tiger', 'bear'],
+        answer: 0,
+        why: [
+          null,
+          'lion 是獅子。',
+          'tiger 是老虎。',
+          'bear 是熊。'
+        ]
+      }
+    },
+    {
+      title: '④ 動物會做什麼',
+      body: 'Birds can fly.（鳥會飛。）　Fish can swim.（魚會游泳。）\n' +
+            'Rabbits can jump.（兔子會跳。）\n' +
+            '⚠ can 後面接原形動詞。',
+      viz: { type: 'sentence', label: '說能力', items: [
+        { t: 'Birds', r: '主詞' }, { t: 'can', r: '會' }, { t: 'fly', r: '原形動詞' }],
+        note: 'can 後面永遠接原形動詞。' },
+      check: {
+        q: '「魚會游泳」的正確說法是什麼？',
+        options: [
+          'Fish can swim.',
+          'Fish can swims.',
+          'Fish can swimming.',
+          'Fish is can swim.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'can 後面的動詞不加 s。',
+          'can 後面要用原形動詞。',
+          '不能同時使用 be 動詞與 can。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 我喜歡的動物',
+      body: 'I like dogs.（我喜歡狗。）\n' +
+            'My favorite animal is the cat.（我最喜歡的動物是貓。）\n' +
+            '⚠ 說喜歡某一類動物時，通常用複數（dogs、cats）。',
+      viz: { type: 'sentence', label: '說喜好', items: [
+        { t: 'I like', r: '我喜歡' }, { t: 'dogs', r: '複數名詞' }],
+        note: '喜歡某一類動物時用複數。' },
+      check: {
+        q: '「我喜歡貓（這種動物）」的正確說法是什麼？',
+        options: [
+          'I like cats.',
+          'I like a cat.',
+          'I like cat.',
+          'I am like cats.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '加 a 表示特定的某一隻貓。',
+          '可數名詞通常不單獨用單數形。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 動物的聲音與特徵',
+      body: 'big（大的）　small（小的）　fast（快的）　cute（可愛的）\n' +
+            'The elephant is big.（大象很大。）\n' +
+            '⚠ 形容詞放在 be 動詞後面，或名詞前面。',
+      viz: { type: 'sentence', label: '描述動物', items: [
+        { t: 'The elephant', r: '主詞' }, { t: 'is', r: 'be 動詞' },
+        { t: 'big', r: '形容詞' }],
+        note: '形容詞放在 be 動詞後面。' },
+      check: {
+        q: '「兔子很可愛」的正確說法是什麼？',
+        options: [
+          'The rabbit is cute.',
+          'The rabbit cute.',
+          'The rabbit is cutely.',
+          'Cute the rabbit is.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子缺少 be 動詞。',
+          '這裡要用形容詞而不是副詞。',
+          '這個語序不自然。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|一下|第5單元 食物與飲料'] = {
+  intro: '吃的喝的最貼近生活，學起來馬上就用得到。',
+  cards: [
+    {
+      title: '① 常見食物',
+      body: 'rice（飯）　bread（麵包）　egg（蛋）　noodles（麵）\n' +
+            'meat（肉）　fish（魚）　soup（湯）\n' +
+            '⚠ noodles 通常用複數；rice、bread、soup 不加 s。',
+      viz: { type: 'classify', groups: [
+        { label: '主食', items: ['rice', 'bread', 'noodles'] },
+        { label: '蛋白質', items: ['egg', 'meat', 'fish'] }] },
+      check: {
+        q: '「麵包」的英文是什麼？',
+        options: ['bread', 'rice', 'meat', 'soup'],
+        answer: 0,
+        why: [
+          null,
+          'rice 指的是米飯。',
+          'meat 指的是肉類。',
+          'soup 指的是湯。'
+        ]
+      }
+    },
+    {
+      title: '② 水果',
+      body: 'apple（蘋果）　banana（香蕉）　orange（柳橙）　grape（葡萄）\n' +
+            'watermelon（西瓜）　strawberry（草莓）\n' +
+            '⚠ 水果大多可數，複數要加 s：apples、bananas。',
+      viz: { type: 'classify', groups: [
+        { label: '常見水果', items: ['apple', 'banana', 'orange', 'grape'] },
+        { label: '較長的字', items: ['watermelon', 'strawberry'] }] },
+      check: {
+        q: '「香蕉」的英文是什麼？',
+        options: ['banana', 'apple', 'grape', 'orange'],
+        answer: 0,
+        why: [
+          null,
+          'apple 指的是蘋果。',
+          'grape 指的是葡萄。',
+          'orange 指的是柳橙。'
+        ]
+      }
+    },
+    {
+      title: '③ 飲料',
+      body: 'water（水）　milk（牛奶）　juice（果汁）　tea（茶）\n' +
+            '⚠ 飲料大多是不可數名詞，要說「一杯」時用 a glass of。',
+      viz: { type: 'classify', groups: [
+        { label: '飲料', items: ['water', 'milk', 'juice', 'tea'] },
+        { label: '計量方式', items: ['a glass of', 'a cup of', 'a bottle of'] }] },
+      check: {
+        q: '「一杯牛奶」的正確說法是什麼？',
+        options: [
+          'a glass of milk',
+          'a milk',
+          'one milks',
+          'a milk glass'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不可數名詞前面不能直接加 a。',
+          '不可數名詞沒有複數形。',
+          '這個說法的語序不自然。'
+        ]
+      }
+    },
+    {
+      title: '④ 我喜歡吃什麼',
+      body: 'I like apples.（我喜歡蘋果。）\n' +
+            'I do not like fish.（我不喜歡魚。）\n' +
+            '⚠ 說喜歡某一類食物時，可數名詞通常用複數。',
+      viz: { type: 'sentence', label: '說喜好', items: [
+        { t: 'I like', r: '我喜歡' }, { t: 'apples', r: '複數名詞' }],
+        note: '喜歡某一類食物時用複數。' },
+      check: {
+        q: '「我不喜歡魚」的正確說法是什麼？',
+        options: [
+          'I do not like fish.',
+          'I not like fish.',
+          'I am not like fish.',
+          'I do not likes fish.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '否定句需要助動詞 do。',
+          '不能同時使用 be 動詞與一般動詞。',
+          '用了 do not 之後動詞要用原形。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 我餓了、我渴了',
+      body: 'I am hungry.（我餓了。）　I am thirsty.（我渴了。）\n' +
+            'I want some water.（我想要一些水。）\n' +
+            '⚠ 說感受要用 be 動詞：I am hungry（不是 I have hungry）。',
+      viz: { type: 'sentence', label: '說感受', items: [
+        { t: 'I', r: '我' }, { t: 'am', r: 'be 動詞' }, { t: 'hungry', r: '形容詞' }],
+        note: '感受要用 be 動詞加形容詞。' },
+      check: {
+        q: '「我餓了」的正確說法是什麼？',
+        options: [
+          'I am hungry.',
+          'I have hungry.',
+          'I hungry.',
+          'I am hunger.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '感受要用 be 動詞而不是 have。',
+          '句子缺少 be 動詞。',
+          'hunger 是名詞，形容詞要用 hungry。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 用餐的禮貌用語',
+      body: 'Here you are.（給你。）　Thank you.（謝謝。）\n' +
+            'It is delicious!（很好吃！）\n' +
+            'No, thank you.（不用了，謝謝。）\n' +
+            '⚠ 拒絕時加上 thank you 會比較禮貌。',
+      viz: { type: 'classify', groups: [
+        { label: '接受', items: ['Yes, please.', 'Thank you.'] },
+        { label: '婉拒', items: ['No, thank you.', 'I am full.'] }] },
+      check: {
+        q: '別人問你要不要再吃一點，你想婉拒可以怎麼說？',
+        options: [
+          'No, thank you.',
+          'No!',
+          'I do not want.',
+          'Stop it.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '單獨說 No 顯得生硬。',
+          '這個說法不完整也不禮貌。',
+          '這個說法過於強硬。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|一下|第6單元 玩具與物品'] = {
+  intro: '玩具是小朋友最熟悉的東西，用英文說出來特別有成就感。',
+  cards: [
+    {
+      title: '① 常見玩具',
+      body: 'ball（球）　doll（洋娃娃）　robot（機器人）　car（玩具車）\n' +
+            'kite（風箏）　blocks（積木）　puzzle（拼圖）\n' +
+            '⚠ blocks 通常用複數，因為積木不會只有一塊。',
+      viz: { type: 'classify', groups: [
+        { label: '玩具', items: ['ball', 'doll', 'robot', 'kite'] },
+        { label: '常用複數', items: ['blocks', 'crayons'] }] },
+      check: {
+        q: '「風箏」的英文是什麼？',
+        options: ['kite', 'ball', 'doll', 'robot'],
+        answer: 0,
+        why: [
+          null,
+          'ball 指的是球。',
+          'doll 指的是洋娃娃。',
+          'robot 指的是機器人。'
+        ]
+      }
+    },
+    {
+      title: '② 這是什麼',
+      body: 'What is this?（這是什麼？）→ It is a ball.（這是一顆球。）\n' +
+            'What is that?（那是什麼？）→ It is a kite.\n' +
+            '⚠ this 指近的、that 指遠的。',
+      viz: { type: 'compareexp',
+             factor: '遠近的差別',
+             a: { label: 'this', note: '指靠近自己的東西' },
+             b: { label: 'that', note: '指離自己較遠的東西' },
+             same: ['都用來指某樣東西'] },
+      check: {
+        q: '要指遠處的一樣東西，應該用哪一個字？',
+        options: ['that', 'this', 'these', 'here'],
+        answer: 0,
+        why: [
+          null,
+          'this 指的是靠近的東西。',
+          'these 是複數形，指近處的多個東西。',
+          'here 是「這裡」，不是指物品。'
+        ]
+      }
+    },
+    {
+      title: '③ 我有…',
+      body: 'I have a ball.（我有一顆球。）\n' +
+            'I have two dolls.（我有兩個洋娃娃。）\n' +
+            '⚠ 超過一個時名詞要加 s。',
+      viz: { type: 'sentence', label: '說擁有', items: [
+        { t: 'I have', r: '我有' }, { t: 'two dolls', r: '複數名詞' }],
+        note: '數量超過一個時名詞要用複數。' },
+      check: {
+        q: '「我有三顆球」的正確說法是什麼？',
+        options: [
+          'I have three balls.',
+          'I have three ball.',
+          'I has three balls.',
+          'I have a three balls.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '超過一個時名詞要加 s。',
+          '主詞是 I 要用 have。',
+          '有數字時不需要冠詞 a。'
+        ]
+      }
+    },
+    {
+      title: '④ 這是誰的',
+      body: 'Whose ball is this?（這是誰的球？）\n' +
+            '→ It is mine.（是我的。）／It is Amy’s.（是 Amy 的。）\n' +
+            '⚠ 人名後面加 ’s 表示「某人的」。',
+      viz: { type: 'sentence', label: '說是誰的', items: [
+        { t: 'It is', r: '這是' }, { t: 'Amy’s', r: 'Amy 的' }],
+        note: '人名加撇號 s 表示所有。' },
+      check: {
+        q: '「這是 Ben 的書」的正確說法是什麼？',
+        options: [
+          'This is Ben’s book.',
+          'This is Ben book.',
+          'This is book Ben.',
+          'This is Ben is book.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '人名後面要加撇號 s。',
+          '語序不正確，所有者要放前面。',
+          '這個句子的結構不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 分享與借用',
+      body: 'Can I play with your robot?（我可以玩你的機器人嗎？）\n' +
+            'Sure!（好啊！）　Let’s play together.（我們一起玩。）\n' +
+            '⚠ 借別人的東西前一定要先問。',
+      viz: { type: 'sentence', label: '請求', items: [
+        { t: 'Can I play', r: '請求' }, { t: 'with', r: '介系詞' },
+        { t: 'your robot', r: '對方的東西' }],
+        note: 'play with 是「玩某樣東西」。' },
+      check: {
+        q: '想玩同學的玩具時，應該先做什麼？',
+        options: [
+          '先禮貌地詢問對方是否可以',
+          '直接拿來玩',
+          '等對方不注意時拿',
+          '搶過來玩'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '未經同意拿別人的東西是不對的。',
+          '趁人不注意拿東西同樣不恰當。',
+          '搶奪會傷害別人也破壞友誼。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 描述玩具',
+      body: 'It is a big red ball.（這是一顆大的紅球。）\n' +
+            'My robot is new.（我的機器人是新的。）\n' +
+            '⚠ 形容詞的順序：大小在顏色前面（big red）。',
+      viz: { type: 'sentence', label: '形容詞順序', items: [
+        { t: 'a', r: '冠詞' }, { t: 'big', r: '大小' }, { t: 'red', r: '顏色' },
+        { t: 'ball', r: '名詞' }],
+        note: '大小通常放在顏色前面。' },
+      check: {
+        q: '「一輛小的藍色車」的正確順序是什麼？',
+        options: [
+          'a small blue car',
+          'a blue small car',
+          'a car small blue',
+          'small a blue car'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '大小通常放在顏色前面。',
+          '形容詞要放在名詞前面。',
+          '冠詞要放在最前面。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|一下|第7單元 數字 11–20'] = {
+  intro: '學會二十以內的數字，就能說年齡、日期和大部分的日常數量。',
+  cards: [
+    {
+      title: '① 十一和十二',
+      body: 'eleven（11）　twelve（12）\n' +
+            '⚠ 這兩個字很特別，不跟後面的規則走，要單獨記。',
+      viz: { type: 'phonics', words: [
+        { w: 'eleven', parts: ['e', 'leven'], hit: 0, s: '數字 11', mean: '十一' },
+        { w: 'twelve', parts: ['twel', 've'], hit: 0, s: '數字 12', mean: '十二' }] },
+      tip: '按單字按鈕看發音。',
+      check: {
+        q: '數字 11 和 12 的英文有什麼特別之處？',
+        options: [
+          '它們是獨立的字，不遵守後面的 teen 規則',
+          '它們的拼法和 1、2 完全相同',
+          '它們不能單獨使用',
+          '它們沒有英文說法'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'eleven 與 one 的拼法完全不同。',
+          '這兩個字可以單獨使用。',
+          '它們都有標準的英文說法。'
+        ]
+      }
+    },
+    {
+      title: '② 十三到十九',
+      body: 'thirteen（13）、fourteen（14）、fifteen（15）、sixteen（16）、\n' +
+            'seventeen（17）、eighteen（18）、nineteen（19）。\n' +
+            '⚠ 規則：個位數加 teen。\n' +
+            '要注意的拼法：thirteen、fifteen、eighteen。',
+      viz: { type: 'classify', groups: [
+        { label: '規則的', items: ['fourteen', 'sixteen', 'seventeen', 'nineteen'] },
+        { label: '拼法要注意', items: ['thirteen', 'fifteen', 'eighteen'] }] },
+      check: {
+        q: '數字 15 的英文怎麼拼？',
+        options: ['fifteen', 'fiveteen', 'fivteen', 'fifthteen'],
+        answer: 0,
+        why: [
+          null,
+          '不是直接把 five 加上 teen。',
+          '這個拼法漏掉了字母。',
+          'fifth 是序數，不用於基數。'
+        ]
+      }
+    },
+    {
+      title: '③ 二十',
+      body: 'twenty（20）\n' +
+            '⚠ 注意拼法：不是 twoty。\n' +
+            '20 之後的數字（21、22）之後的單元會學。',
+      viz: { type: 'phonics', words: [
+        { w: 'twenty', parts: ['twen', 'ty'], hit: 0, s: '數字 20', mean: '二十' }] },
+      check: {
+        q: '數字 20 的正確拼法是什麼？',
+        options: ['twenty', 'twoty', 'twentie', 'twanty'],
+        answer: 0,
+        why: [
+          null,
+          '這個拼法並不存在。',
+          '字尾應該是 ty 而不是 tie。',
+          '第一個母音應該是 e。'
+        ]
+      }
+    },
+    {
+      title: '④ 用數字數東西',
+      body: 'How many books?→ Twelve books.\n' +
+            '⚠ 超過一個時名詞要加 s：\n' +
+            'eleven pens、fifteen apples、twenty students。',
+      viz: { type: 'sentence', label: '數東西', items: [
+        { t: 'twelve', r: '數字' }, { t: 'books', r: '複數名詞' }],
+        note: '數字超過一時名詞要用複數。' },
+      check: {
+        q: '「十五顆蘋果」的正確說法是什麼？',
+        options: [
+          'fifteen apples',
+          'fifteen apple',
+          'fifteen a apple',
+          'apple fifteen'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '超過一個時名詞要加 s。',
+          '有數字時不需要冠詞。',
+          '數字要放在名詞前面。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 說年齡',
+      body: 'How old are you?→ I am eight.（我八歲。）\n' +
+            'My sister is twelve.（我姊姊十二歲。）\n' +
+            '⚠ 說年齡用 be 動詞，不用 have。',
+      viz: { type: 'sentence', label: '說年齡', items: [
+        { t: 'I', r: '我' }, { t: 'am', r: 'be 動詞' }, { t: 'eight', r: '數字' }],
+        note: '英文說年齡用 be 動詞加數字。' },
+      check: {
+        q: '「我十一歲」的正確說法是什麼？',
+        options: [
+          'I am eleven.',
+          'I have eleven.',
+          'I am eleven year.',
+          'I eleven.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '年齡用 be 動詞而不是 have。',
+          '要說 years old 或直接說數字。',
+          '句子缺少 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 數字的應用',
+      body: '電話號碼：一個數字一個數字唸。\n' +
+            '班級：I am in Class Three.（我在三班。）\n' +
+            '⚠ 練習：數教室裡的桌子、椅子、同學，\n' +
+            '一邊數一邊用英文說出來。',
+      viz: { type: 'classify', groups: [
+        { label: '生活應用', items: ['電話號碼', '班級', '年齡', '數量'] }] },
+      check: {
+        q: '要記住數字的英文，最有效的方法是什麼？',
+        options: [
+          '在生活中一邊數東西一邊用英文說出來',
+          '只在課本上看',
+          '把數字抄很多遍',
+          '等考試前再背'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '只看不說很難真正學會。',
+          '抄寫幫助拼字，但不一定會說。',
+          '臨時背誦的效果有限。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|一下|第8單元 天氣與季節'] = {
+  intro: '今天天氣如何？這是每天都會用到的英文。',
+  cards: [
+    {
+      title: '① 天氣的說法',
+      body: 'sunny（晴天）　rainy（雨天）　cloudy（陰天）　windy（有風）\n' +
+            'hot（熱）　cold（冷）\n' +
+            '⚠ 說天氣時主詞用 it：It is sunny.',
+      viz: { type: 'sentence', label: '說天氣', items: [
+        { t: 'It', r: '主詞（固定用 it）' }, { t: 'is', r: 'be 動詞' },
+        { t: 'sunny', r: '形容詞' }],
+        note: '天氣的主詞固定用 it。' },
+      check: {
+        q: '說天氣時，主詞應該用什麼？',
+        options: [
+          'it',
+          'the weather only',
+          'this',
+          'he'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '英文習慣直接用 it 當主詞。',
+          'this 通常指具體的東西。',
+          'he 用來指人。'
+        ]
+      }
+    },
+    {
+      title: '② 問天氣',
+      body: 'How is the weather?（天氣如何？）\n' +
+            '→ It is rainy.／It is hot today.\n' +
+            '⚠ 也可以說 What is the weather like?',
+      viz: { type: 'sentence', label: '問天氣', items: [
+        { t: 'How', r: '如何' }, { t: 'is', r: 'be 動詞' },
+        { t: 'the weather', r: '天氣' }],
+        note: '問天氣的常用句型。' },
+      check: {
+        q: '要問「今天天氣如何？」可以怎麼說？',
+        options: [
+          'How is the weather today?',
+          'How the weather is today?',
+          'What weather today?',
+          'Weather how today?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '疑問句要把 be 動詞放在主詞前面。',
+          '這個句子不完整。',
+          '這個語序不符合英文結構。'
+        ]
+      }
+    },
+    {
+      title: '③ 四季',
+      body: 'spring（春天）　summer（夏天）　fall／autumn（秋天）　winter（冬天）\n' +
+            '⚠ 說「在夏天」用 in summer。',
+      viz: { type: 'classify', groups: [
+        { label: '四季', items: ['spring', 'summer', 'fall', 'winter'] },
+        { label: '搭配的天氣', items: ['warm', 'hot', 'cool', 'cold'] }] },
+      check: {
+        q: '「在冬天」的正確說法是什麼？',
+        options: ['in winter', 'on winter', 'at winter', 'to winter'],
+        answer: 0,
+        why: [
+          null,
+          'on 用於星期與日期。',
+          'at 用於具體的時間點。',
+          'to 表示方向或目標。'
+        ]
+      }
+    },
+    {
+      title: '④ 天氣與活動',
+      body: 'It is sunny. Let’s go to the park.（天氣晴，我們去公園吧。）\n' +
+            'It is rainy. Take your umbrella.（下雨了，帶把傘。）\n' +
+            '⚠ Let’s 是提議，後面接原形動詞。',
+      viz: { type: 'sentence', label: '提議', items: [
+        { t: 'Let’s', r: '我們來' }, { t: 'go', r: '原形動詞' },
+        { t: 'to the park', r: '地點' }],
+        note: 'Let’s 後面要接原形動詞。' },
+      check: {
+        q: '「我們去公園吧」的正確說法是什麼？',
+        options: [
+          'Let’s go to the park.',
+          'Let’s to go to the park.',
+          'Let’s going to the park.',
+          'Let’s goes to the park.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'Let’s 後面不加 to。',
+          'Let’s 後面要用原形動詞。',
+          '原形動詞不加 s。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 天氣與衣服',
+      body: 'It is cold. Put on your coat.（天氣冷，穿上外套。）\n' +
+            'It is hot. Wear a T-shirt.（天氣熱，穿 T 恤。）\n' +
+            '⚠ put on 是「穿上」的動作，wear 是「穿著」的狀態。',
+      viz: { type: 'classify', groups: [
+        { label: '冷的時候', items: ['coat', 'sweater', 'scarf'] },
+        { label: '熱的時候', items: ['T-shirt', 'shorts', 'hat'] }] },
+      check: {
+        q: '天氣很冷的時候應該穿什麼？',
+        options: [
+          'a coat',
+          'shorts',
+          'a swimsuit',
+          'sandals'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '短褲適合天氣熱的時候。',
+          '泳衣適合游泳的時候。',
+          '涼鞋適合夏天穿。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 我喜歡的季節',
+      body: 'I like summer.（我喜歡夏天。）\n' +
+            'My favorite season is winter.（我最喜歡的季節是冬天。）\n' +
+            'I can swim in summer.（夏天我可以游泳。）\n' +
+            '⚠ season 是「季節」。',
+      viz: { type: 'sentence', label: '說喜好', items: [
+        { t: 'My favorite season', r: '主詞' }, { t: 'is', r: 'be 動詞' },
+        { t: 'winter', r: '季節' }],
+        note: '說出自己最喜歡的季節。' },
+      check: {
+        q: '「我最喜歡的季節是春天」的正確說法是什麼？',
+        options: [
+          'My favorite season is spring.',
+          'My favorite season are spring.',
+          'I favorite spring season.',
+          'My favorite is season spring.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主詞是單數，要用 is。',
+          'favorite 是形容詞，不能當動詞用。',
+          '這個語序不通順。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|一下|第9單元 課堂用語'] = {
+  intro: '課堂上老師常說的話，聽懂了上課就輕鬆多了。',
+  cards: [
+    {
+      title: '① 上課的指令',
+      body: 'Stand up.（起立）　Sit down.（坐下）\n' +
+            'Open your book.（打開課本）　Close your book.（闔上課本）\n' +
+            '⚠ 這些都是祈使句，直接用動詞開頭。',
+      viz: { type: 'sentence', label: '祈使句', items: [
+        { t: 'Open', r: '動詞' }, { t: 'your book', r: '受詞' }],
+        note: '祈使句以動詞開頭，主詞 you 省略。' },
+      check: {
+        q: 'Sit down. 是什麼意思？',
+        options: [
+          '坐下',
+          '起立',
+          '安靜',
+          '出去'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '起立是 Stand up.',
+          '安靜是 Be quiet.',
+          '出去是 Go out.'
+        ]
+      }
+    },
+    {
+      title: '② 聽和看',
+      body: 'Listen carefully.（仔細聽）　Look at the blackboard.（看黑板）\n' +
+            'Repeat after me.（跟我唸）\n' +
+            '⚠ listen 後面要加 to 才能接受詞（listen to me），\n' +
+            '但單獨使用時不用加。',
+      viz: { type: 'classify', groups: [
+        { label: '聽的指令', items: ['Listen', 'Repeat after me'] },
+        { label: '看的指令', items: ['Look at the board', 'Watch carefully'] }] },
+      check: {
+        q: 'Repeat after me. 是什麼意思？',
+        options: [
+          '跟著我唸一遍',
+          '安靜坐好',
+          '把書打開',
+          '交出作業'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '安靜坐好是另一個指令。',
+          '打開書是 Open your book.',
+          '交作業是 Hand in your homework.'
+        ]
+      }
+    },
+    {
+      title: '③ 舉手發言',
+      body: 'Raise your hand.（舉手）\n' +
+            'May I ask a question?（我可以問問題嗎？）\n' +
+            'I do not understand.（我不懂。）\n' +
+            '⚠ 不懂就要說出來，這是學習的重要能力。',
+      viz: { type: 'sentence', label: '請求發問', items: [
+        { t: 'May I', r: '我可以嗎' }, { t: 'ask', r: '原形動詞' },
+        { t: 'a question', r: '受詞' }],
+        note: 'May I 用來有禮貌地請求。' },
+      check: {
+        q: '上課有地方聽不懂時，最好的做法是什麼？',
+        options: [
+          '舉手說 I do not understand，請老師再說一次',
+          '假裝聽懂',
+          '什麼都不說',
+          '和旁邊的同學聊天'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '假裝聽懂會讓問題累積。',
+          '不說出來老師不會知道。',
+          '聊天會影響別人也影響自己。'
+        ]
+      }
+    },
+    {
+      title: '④ 上廁所與喝水',
+      body: 'May I go to the restroom?（我可以去洗手間嗎？）\n' +
+            'May I drink some water?（我可以喝水嗎？）\n' +
+            '⚠ 用 May I…? 比直接說 I want… 有禮貌。',
+      viz: { type: 'compareexp',
+             factor: '兩種說法',
+             a: { label: 'May I…?', note: '有禮貌的請求許可' },
+             b: { label: 'I want…', note: '直接表達需求，較不客氣' },
+             same: ['都在表達自己的需要'] },
+      check: {
+        q: '上課想去洗手間，比較有禮貌的說法是什麼？',
+        options: [
+          'May I go to the restroom?',
+          'I want to go.',
+          'I go now.',
+          'Restroom!'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直接說想要略嫌不客氣。',
+          '這個說法像在通知而不是請求。',
+          '只說名詞無法表達完整的意思。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 稱讚與鼓勵',
+      body: 'Good job!（做得好！）　Very good!（很好！）\n' +
+            'Try again.（再試一次。）　Do not give up.（不要放棄。）\n' +
+            '⚠ 這些話老師常說，同學之間也可以互相鼓勵。',
+      viz: { type: 'classify', groups: [
+        { label: '稱讚', items: ['Good job!', 'Very good!', 'Well done!'] },
+        { label: '鼓勵', items: ['Try again.', 'Do not give up.', 'You can do it!'] }] },
+      check: {
+        q: '同學答錯了但很努力，可以對他說什麼？',
+        options: [
+          'Try again. You can do it!',
+          'You are wrong.',
+          'That is stupid.',
+          'Be quiet.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個說法只指出錯誤，沒有鼓勵。',
+          '這是傷人的話，非常不恰當。',
+          '這與答題的情境無關。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 下課與道別',
+      body: 'Class is over.（下課了。）\n' +
+            'See you tomorrow.（明天見。）　Have a nice day!（祝你有美好的一天！）\n' +
+            '⚠ 離開教室前可以跟老師和同學打招呼。',
+      viz: { type: 'energyflow', steps: ['上課問候', '認真聽講', '有問題就問', '下課道別'] },
+      check: {
+        q: '下課要離開教室時，可以對老師說什麼？',
+        options: [
+          'Thank you. See you tomorrow.',
+          'Good morning.',
+          'May I come in?',
+          'I do not understand.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是早上見面時的問候。',
+          '這是要進教室時說的。',
+          '這是上課中表達不懂時說的。'
+        ]
+      }
+    }
+  ]
+};
