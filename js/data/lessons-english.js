@@ -2873,3 +2873,1406 @@ window.APP_LESSONS['english|三下|第9單元 can 與能力'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|四上|第1單元 現在進行式'] = {
+  intro: '「我正在做什麼」——這個時態專門用來描述此刻正在發生的事。',
+  cards: [
+    {
+      title: '① 現在進行式的形式',
+      body: '主詞 ＋ be 動詞（am／is／are）＋ 動詞-ing。\n' +
+            'I am eating.（我正在吃。）　He is reading.（他正在看書。）\n' +
+            '⚠ be 動詞與 -ing 缺一不可：不能說 I eating，也不能說 I am eat。',
+      viz: { type: 'sentence', label: '現在進行式', items: [
+        { t: 'I', r: '主詞' }, { t: 'am', r: 'be 動詞' }, { t: 'eating', r: '動詞-ing' }],
+        note: 'be 動詞要配合主詞：I 用 am、he/she/it 用 is、you/we/they 用 are。' },
+      tip: '這個元件把句子拆成一格一格。',
+      check: {
+        q: '「他正在看書」的正確說法是什麼？',
+        options: [
+          'He is reading.',
+          'He reading.',
+          'He is read.',
+          'He are reading.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '缺少 be 動詞。',
+          '動詞要加 -ing。',
+          '主詞是第三人稱單數，要用 is。'
+        ]
+      }
+    },
+    {
+      title: '② 和現在簡單式的差別',
+      body: '現在簡單式：習慣或事實（I eat breakfast every day.）\n' +
+            '現在進行式：此刻正在做（I am eating breakfast now.）\n' +
+            '⚠ 判斷線索：now、right now、at the moment 通常搭配進行式；\n' +
+            'every day、usually 搭配簡單式。',
+      viz: { type: 'tense', verb: 'eat', highlight: '現在進行式' },
+      tip: '按按鈕比較不同時態。',
+      check: {
+        q: '句子裡出現 right now，通常要用什麼時態？',
+        options: [
+          '現在進行式',
+          '現在簡單式',
+          '過去式',
+          '未來式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '簡單式搭配的是 every day 這類頻率詞。',
+          '過去式搭配的是過去的時間詞。',
+          '未來式搭配的是未來的時間詞。'
+        ]
+      }
+    },
+    {
+      title: '③ be 動詞的選擇',
+      body: 'I ＋ am；he／she／it ＋ is；you／we／they ＋ are。\n' +
+            '⚠ 主詞是單數名詞（my brother）用 is；\n' +
+            '複數名詞（my parents）用 are。',
+      viz: { type: 'classify', groups: [
+        { label: '用 am', items: ['I'] },
+        { label: '用 is', items: ['he', 'she', 'it', 'my brother', 'the dog'] },
+        { label: '用 are', items: ['you', 'we', 'they', 'my parents'] }] },
+      check: {
+        q: '「我的父母正在看電視」應該用哪一個 be 動詞？',
+        options: ['are', 'is', 'am', '不需要 be 動詞'],
+        answer: 0,
+        why: [
+          null,
+          'parents 是複數，不用 is。',
+          'am 只能搭配主詞 I。',
+          '進行式一定要有 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 否定句',
+      body: '在 be 動詞後面加 not：\n' +
+            'I am not eating.　He is not sleeping.（＝ isn’t）\n' +
+            'They are not playing.（＝ aren’t）\n' +
+            '⚠ 進行式的否定不需要 do／does。',
+      viz: { type: 'sentence', label: '否定', items: [
+        { t: 'He', r: '主詞' }, { t: 'is not', r: 'be 動詞＋not' },
+        { t: 'sleeping', r: '動詞-ing' }],
+        note: '進行式的否定只要在 be 動詞後面加 not。' },
+      check: {
+        q: '「他沒有在睡覺」的正確說法是什麼？',
+        options: [
+          'He is not sleeping.',
+          'He does not sleeping.',
+          'He not is sleeping.',
+          'He is not sleep.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '進行式的否定不用 does。',
+          'not 要放在 be 動詞後面。',
+          '動詞要保持 -ing 形。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 疑問句',
+      body: '把 be 動詞移到句首：\n' +
+            'Are you eating?→ Yes, I am.／No, I am not.\n' +
+            'Is he reading?→ Yes, he is.／No, he isn’t.\n' +
+            '⚠ 簡答時用 be 動詞回答，不能說 Yes, I do.',
+      viz: { type: 'sentence', label: '疑問句', items: [
+        { t: 'Are', r: 'be 動詞' }, { t: 'you', r: '主詞' }, { t: 'eating', r: '動詞-ing' }],
+        note: '把 be 動詞移到主詞前面就成為疑問句。' },
+      check: {
+        q: 'Is she singing? 的正確簡答是什麼？',
+        options: [
+          'Yes, she is.',
+          'Yes, she does.',
+          'Yes, she sings.',
+          'Yes, she can.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '問句用 be 動詞，回答也要用 be 動詞。',
+          '簡答時不重複主要動詞。',
+          'can 沒有出現在問句中。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: '看圖說話是最好的練習：\n' +
+            'The boy is running.（男孩正在跑步。）\n' +
+            'Two girls are talking.（兩個女孩正在講話。）\n' +
+            'The dog is not sleeping. It is eating.\n' +
+            '⚠ 注意主詞的單複數會決定 be 動詞。',
+      viz: { type: 'sentence', label: '複數主詞', items: [
+        { t: 'Two girls', r: '主詞（複數）' }, { t: 'are', r: 'be 動詞' },
+        { t: 'talking', r: '動詞-ing' }],
+        note: '複數主詞要用 are。' },
+      check: {
+        q: '「兩隻狗正在跑」的正確說法是什麼？',
+        options: [
+          'Two dogs are running.',
+          'Two dogs is running.',
+          'Two dogs are run.',
+          'Two dog are running.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '複數主詞要用 are。',
+          '進行式的動詞要加 -ing。',
+          '數字大於一時名詞要用複數。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四上|第2單元 -ing 拼寫規則'] = {
+  intro: '動詞加 -ing 看起來簡單，但有三種情況要特別注意拼法。',
+  cards: [
+    {
+      title: '① 一般直接加 -ing',
+      body: 'play → playing、read → reading、eat → eating、study → studying。\n' +
+            '⚠ 字尾是 y 時「不用」變化，直接加 -ing（study → studying），\n' +
+            '這和第三人稱單數加 s 的規則不同。',
+      viz: { type: 'classify', groups: [
+        { label: '直接加 -ing', items: ['playing', 'reading', 'eating', 'studying'] }] },
+      check: {
+        q: 'study 加上 -ing 應該怎麼拼？',
+        options: ['studying', 'studiing', 'studing', 'studyying'],
+        answer: 0,
+        why: [
+          null,
+          '加 -ing 時字尾的 y 不需要變化。',
+          '不能省略字尾的 y。',
+          '不需要重複字尾的 y。'
+        ]
+      }
+    },
+    {
+      title: '② 去 e 加 -ing',
+      body: '字尾是「不發音的 e」時，去掉 e 再加 -ing：\n' +
+            'make → making、write → writing、come → coming、dance → dancing。\n' +
+            '⚠ 例外：see → seeing（ee 結尾不去 e）。',
+      viz: { type: 'classify', groups: [
+        { label: '去 e 加 -ing', items: ['making', 'writing', 'coming', 'dancing'] },
+        { label: '例外', items: ['seeing', 'being'] }] },
+      check: {
+        q: 'write 加上 -ing 應該怎麼拼？',
+        options: ['writing', 'writeing', 'writting', 'wrting'],
+        answer: 0,
+        why: [
+          null,
+          '字尾不發音的 e 要去掉。',
+          '這裡不需要重複子音。',
+          '正確的拼法是去掉 e。'
+        ]
+      }
+    },
+    {
+      title: '③ 重複字尾子音',
+      body: '「短母音＋單一子音」結尾的單音節字，要重複字尾子音再加 -ing：\n' +
+            'run → running、sit → sitting、swim → swimming、get → getting。\n' +
+            '⚠ 判斷方法：唸唸看，如果母音是短音而且只有一個子音結尾，就要重複。',
+      viz: { type: 'classify', groups: [
+        { label: '重複子音', items: ['running', 'sitting', 'swimming', 'getting'] },
+        { label: '不重複', items: ['reading', 'eating', 'playing'] }] },
+      check: {
+        q: 'run 加上 -ing 應該怎麼拼？',
+        options: ['running', 'runing', 'runnning', 'runnig'],
+        answer: 0,
+        why: [
+          null,
+          '短母音加單子音結尾要重複子音。',
+          '只需要重複一次。',
+          '這個拼法漏了重複的字母。'
+        ]
+      }
+    },
+    {
+      title: '④ 為什麼要重複子音',
+      body: '因為要保持母音的短音。\n' +
+            '如果不重複：hoping（希望，長音 o）／hopping（單腳跳，短音 o）。\n' +
+            '⚠ 這一個字母的差別會讓意思完全不同。',
+      viz: { type: 'compareexp',
+             factor: '重複與不重複',
+             a: { label: 'hoping', note: '來自 hope，母音是長音' },
+             b: { label: 'hopping', note: '來自 hop，母音是短音' },
+             same: ['都是 -ing 形'] },
+      check: {
+        q: 'hoping 和 hopping 的差別是什麼？',
+        options: [
+          '前者來自 hope（希望）、後者來自 hop（單腳跳），母音長短不同',
+          '兩者意思相同',
+          '只是拼法不同但意思一樣',
+          '兩個都是錯的拼法'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩者的原形動詞不同。',
+          '拼法不同代表來自不同的動詞。',
+          '兩個拼法都正確，只是意思不同。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見動詞整理',
+      body: '直接加：go → going、do → doing、say → saying、work → working。\n' +
+            '去 e：take → taking、have → having、use → using、ride → riding。\n' +
+            '重複：put → putting、cut → cutting、stop → stopping、shop → shopping。\n' +
+            '⚠ 兩音節以上時，重音在後才重複（begin → beginning）。',
+      viz: { type: 'classify', groups: [
+        { label: '直接加', items: ['going', 'doing', 'saying'] },
+        { label: '去 e', items: ['taking', 'having', 'using'] },
+        { label: '重複子音', items: ['putting', 'stopping', 'beginning'] }] },
+      check: {
+        q: 'stop 加上 -ing 應該怎麼拼？',
+        options: ['stopping', 'stoping', 'stopeing', 'stoppping'],
+        answer: 0,
+        why: [
+          null,
+          '短母音加單子音要重複子音。',
+          '這裡不需要加 e。',
+          '正確的拼法要重複 p。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 練習與檢查',
+      body: '檢查三步驟：\n' +
+            '① 字尾是不發音的 e 嗎？→ 去掉 e。\n' +
+            '② 是短母音＋單子音結尾嗎？→ 重複子音。\n' +
+            '③ 都不是？→ 直接加 -ing。\n' +
+            '⚠ 拼錯 -ing 是很常見的失分點，寫完要檢查一次。',
+      viz: { type: 'energyflow', steps: ['看字尾', '有不發音 e 就去掉', '短母音單子音就重複', '其餘直接加'] },
+      check: {
+        q: '要判斷動詞怎麼加 -ing，第一步應該先看什麼？',
+        options: [
+          '字尾是不是不發音的 e',
+          '單字有幾個字母',
+          '單字的中文意思',
+          '主詞是誰'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長度不是判斷的依據。',
+          '中文意思與拼寫規則無關。',
+          '主詞不影響 -ing 的拼法。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四上|第3單元 現在進行式問句與否定'] = {
+  intro: '學會問「你在做什麼？」就能和別人開始一段真正的對話。',
+  cards: [
+    {
+      title: '① Yes／No 問句',
+      body: '把 be 動詞移到句首：\n' +
+            'Are you studying?（你正在讀書嗎？）\n' +
+            'Is she cooking?（她正在煮飯嗎？）\n' +
+            '⚠ 進行式的問句不用 do／does，因為句子裡已經有 be 動詞。',
+      viz: { type: 'sentence', label: '陳述句', items: [
+        { t: 'You', r: '主詞' }, { t: 'are', r: 'be 動詞' }, { t: 'studying', r: '動詞-ing' }],
+        note: '陳述句的順序是主詞在前。',
+        alt: [
+          { label: '疑問句', items: [{ t: 'Are', r: 'be 動詞' }, { t: 'you', r: '主詞' },
+            { t: 'studying', r: '動詞-ing' }], note: '把 be 動詞移到主詞前面。' }] },
+      tip: '按按鈕比較兩種語序。',
+      check: {
+        q: '「他正在打電話嗎？」的正確問法是什麼？',
+        options: [
+          'Is he calling?',
+          'Does he calling?',
+          'He is calling?',
+          'Do he is calling?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '進行式的問句不用 does。',
+          '疑問句要把 be 動詞移到句首。',
+          '一個句子不能同時有兩個助動詞。'
+        ]
+      }
+    },
+    {
+      title: '② 簡答',
+      body: 'Are you eating? → Yes, I am.／No, I am not.\n' +
+            'Is he sleeping? → Yes, he is.／No, he isn’t.\n' +
+            '⚠ 肯定簡答不能縮寫：Yes, I’m. 是錯的，要說 Yes, I am.',
+      viz: { type: 'compareexp',
+             factor: '簡答的縮寫',
+             a: { label: '肯定簡答', note: '不縮寫：Yes, I am.' },
+             b: { label: '否定簡答', note: '可縮寫：No, I am not. 或 No, I’m not.' },
+             same: ['都用 be 動詞回答'] },
+      check: {
+        q: '下列哪一個簡答是錯的？',
+        options: [
+          'Yes, I’m.',
+          'Yes, I am.',
+          'No, I’m not.',
+          'No, he isn’t.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '肯定簡答要用完整形式。',
+          '否定簡答可以縮寫。',
+          '這個否定簡答的縮寫是正確的。'
+        ]
+      }
+    },
+    {
+      title: '③ 疑問詞問句',
+      body: 'What are you doing?（你正在做什麼？）→ I am reading.\n' +
+            'Where is he going?（他要去哪裡？）\n' +
+            'Who is singing?（誰在唱歌？）\n' +
+            '⚠ 順序：疑問詞 ＋ be 動詞 ＋ 主詞 ＋ 動詞-ing。',
+      viz: { type: 'sentence', label: '疑問詞問句', items: [
+        { t: 'What', r: '疑問詞' }, { t: 'are', r: 'be 動詞' }, { t: 'you', r: '主詞' },
+        { t: 'doing', r: '動詞-ing' }],
+        note: '疑問詞放在最前面，接著才是 be 動詞與主詞。' },
+      check: {
+        q: '「你正在做什麼？」的正確語序是什麼？',
+        options: [
+          'What are you doing?',
+          'What you are doing?',
+          'What do you doing?',
+          'You are doing what?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be 動詞要放在主詞前面。',
+          '進行式不用 do。',
+          '這個語序不是標準的疑問句。'
+        ]
+      }
+    },
+    {
+      title: '④ 常用的回答',
+      body: 'What are you doing? → I am doing my homework.\n' +
+            'Nothing much.（沒做什麼特別的。）\n' +
+            'I am just watching TV.（我只是在看電視。）\n' +
+            '⚠ 回答時通常重複問題中的動詞形式（doing → doing）。',
+      viz: { type: 'sentence', label: '回答', items: [
+        { t: 'I', r: '主詞' }, { t: 'am doing', r: 'be＋動詞-ing' },
+        { t: 'my homework', r: '受詞' }],
+        note: '回答時同樣要用進行式。' },
+      check: {
+        q: '別人問 What are you doing? 時，比較合適的回答是什麼？',
+        options: [
+          'I am watching TV.',
+          'I watch TV every day.',
+          'I watched TV.',
+          'I will watch TV.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是習慣而非此刻正在做的事。',
+          '這是過去式，時間不符。',
+          '這是未來的計畫，不是現在正在做。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 否定的多種說法',
+      body: 'He is not playing.＝ He isn’t playing.＝ He’s not playing.\n' +
+            '⚠ 三種寫法都正確，口語中縮寫比較常見。\n' +
+            '但 I am not 只能縮寫成 I’m not（沒有 I amn’t）。',
+      viz: { type: 'classify', groups: [
+        { label: '可以縮寫', items: ['isn’t', 'aren’t', 'he’s not', 'they’re not'] },
+        { label: '沒有這種縮寫', items: ['amn’t'] }] },
+      check: {
+        q: '「我沒有在讀書」的正確縮寫是什麼？',
+        options: [
+          'I’m not studying.',
+          'I amn’t studying.',
+          'I not am studying.',
+          'I’m no studying.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '英文沒有 amn’t 這種縮寫。',
+          'not 要放在 be 動詞後面。',
+          'no 不能用來否定動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合對話',
+      body: 'A: Hi, what are you doing?\n' +
+            'B: I am doing my homework. What about you?\n' +
+            'A: I am watching a movie. Are you busy now?\n' +
+            'B: Yes, I am. Maybe later!\n' +
+            '⚠ What about you?（那你呢？）是延續對話的好用句。',
+      viz: { type: 'sentence', label: '延續話題', items: [
+        { t: 'What about', r: '固定用法' }, { t: 'you', r: '對象' }],
+        note: 'What about you? 用來把問題丟回給對方。' },
+      check: {
+        q: '想把話題轉回給對方，可以說什麼？',
+        options: [
+          'What about you?',
+          'Goodbye.',
+          'I do not know.',
+          'That is all.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是道別，會直接結束對話。',
+          '這個回答無法延續話題。',
+          '這句話帶有結束的意味。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四上|第4單元 地點介系詞'] = {
+  intro: '東西在哪裡？上面、裡面、旁邊、後面——這些小字讓描述變得精確。',
+  cards: [
+    {
+      title: '① in、on、under',
+      body: 'in（在…裡面）：The book is in the bag.\n' +
+            'on（在…上面，有接觸）：The book is on the desk.\n' +
+            'under（在…下面）：The cat is under the chair.\n' +
+            '⚠ on 強調「接觸表面」，over 則是「在上方但沒接觸」。',
+      viz: { type: 'classify', groups: [
+        { label: '裡面', items: ['in the bag', 'in the box', 'in the room'] },
+        { label: '上面', items: ['on the desk', 'on the wall', 'on the floor'] },
+        { label: '下面', items: ['under the chair', 'under the tree'] }] },
+      check: {
+        q: '「書在書包裡」應該用哪一個介系詞？',
+        options: ['in', 'on', 'under', 'to'],
+        answer: 0,
+        why: [
+          null,
+          'on 表示在表面上。',
+          'under 表示在下面。',
+          'to 表示方向或目標。'
+        ]
+      }
+    },
+    {
+      title: '② 其他常用介系詞',
+      body: 'behind（在…後面）、in front of（在…前面）、\n' +
+            'next to／beside（在…旁邊）、between（在…之間，兩者）、\n' +
+            'near（在…附近）。\n' +
+            '⚠ between 用於「兩者之間」；三者以上用 among。',
+      viz: { type: 'classify', groups: [
+        { label: '前後', items: ['in front of', 'behind'] },
+        { label: '旁邊', items: ['next to', 'beside', 'near'] },
+        { label: '之間', items: ['between', 'among'] }] },
+      check: {
+        q: '「在兩棵樹之間」應該用哪一個介系詞？',
+        options: ['between', 'among', 'behind', 'under'],
+        answer: 0,
+        why: [
+          null,
+          'among 用於三者以上。',
+          'behind 是在後面。',
+          'under 是在下面。'
+        ]
+      }
+    },
+    {
+      title: '③ 問位置',
+      body: 'Where is my book?（我的書在哪裡？）→ It is on the desk.\n' +
+            'Where are my shoes?（我的鞋子在哪裡？）→ They are under the bed.\n' +
+            '⚠ 單數用 is、複數用 are；回答時代名詞也要一致（it／they）。',
+      viz: { type: 'sentence', label: '問位置', items: [
+        { t: 'Where', r: '疑問詞' }, { t: 'is', r: 'be 動詞' }, { t: 'my book', r: '主詞' }],
+        note: '疑問詞 Where 放句首，be 動詞在主詞前。',
+        alt: [
+          { label: '回答', items: [{ t: 'It', r: '代名詞' }, { t: 'is', r: 'be 動詞' },
+            { t: 'on the desk', r: '地點' }], note: '用 it 代替單數名詞。' }] },
+      check: {
+        q: '「我的鞋子在哪裡？」的正確問法是什麼？',
+        options: [
+          'Where are my shoes?',
+          'Where is my shoes?',
+          'Where my shoes are?',
+          'My shoes where?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'shoes 是複數，要用 are。',
+          'be 動詞要放在主詞前面。',
+          '這個語序不符合英文結構。'
+        ]
+      }
+    },
+    {
+      title: '④ There is／There are',
+      body: '表示「某處有某物」：\n' +
+            'There is a book on the desk.（桌上有一本書。）\n' +
+            'There are two books on the desk.（桌上有兩本書。）\n' +
+            '⚠ be 動詞要配合「後面的名詞」，不是配合 there。',
+      viz: { type: 'sentence', label: '單數', items: [
+        { t: 'There is', r: '有' }, { t: 'a book', r: '單數名詞' }, { t: 'on the desk', r: '地點' }],
+        note: '單數名詞用 There is。',
+        alt: [
+          { label: '複數', items: [{ t: 'There are', r: '有' }, { t: 'two books', r: '複數名詞' },
+            { t: 'on the desk', r: '地點' }], note: '複數名詞用 There are。' }] },
+      check: {
+        q: '「教室裡有三張桌子」的正確說法是什麼？',
+        options: [
+          'There are three desks in the classroom.',
+          'There is three desks in the classroom.',
+          'There have three desks in the classroom.',
+          'There are three desk in the classroom.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '後面是複數名詞，要用 are。',
+          '英文用 There is/are 而不是 There have。',
+          '數字大於一時名詞要用複數。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 地點的說法',
+      body: 'at home（在家）、at school（在學校）、in the park（在公園）、\n' +
+            'on the playground（在操場上）、in bed（在床上睡覺）。\n' +
+            '⚠ 有些是固定用法，不完全照字面推理，例如 at home 不加 the。',
+      viz: { type: 'classify', groups: [
+        { label: '用 at', items: ['at home', 'at school', 'at work'] },
+        { label: '用 in', items: ['in the park', 'in the room', 'in Taipei'] },
+        { label: '用 on', items: ['on the playground', 'on the street'] }] },
+      check: {
+        q: '「在家」的正確說法是什麼？',
+        options: ['at home', 'at the home', 'in home', 'on home'],
+        answer: 0,
+        why: [
+          null,
+          '這個片語不加冠詞 the。',
+          '慣用說法是 at home。',
+          'on 用於表面。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 描述房間',
+      body: '練習：用三到四句描述一個空間。\n' +
+            'There is a bed in my room. My desk is next to the window.\n' +
+            'There are two books on the desk. My bag is under the chair.\n' +
+            '⚠ 先說有什麼（There is/are），再說在哪裡（介系詞）。',
+      viz: { type: 'sentence', label: '描述空間', items: [
+        { t: 'My desk', r: '主詞' }, { t: 'is', r: 'be 動詞' },
+        { t: 'next to the window', r: '地點' }],
+        note: '主詞加 be 動詞加地點片語，用來說明位置。' },
+      check: {
+        q: '描述一個房間時，開頭常用什麼句型說明「有什麼」？',
+        options: [
+          'There is／There are',
+          'It is',
+          'I have to',
+          'Do you have'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'It is 用來說明某物是什麼。',
+          '這是表達必須做某事。',
+          '這是疑問句而非描述。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四上|第5單元 There is / There are'] = {
+  intro: '要說「有什麼東西在哪裡」，英文有一個專門的句型。',
+  cards: [
+    {
+      title: '① 基本句型',
+      body: 'There is ＋ 單數名詞（或不可數名詞）＋ 地點。\n' +
+            'There are ＋ 複數名詞 ＋ 地點。\n' +
+            '⚠ there 在這裡沒有「那裡」的意思，只是句型的開頭；\n' +
+            '真正的主詞是後面的名詞。',
+      viz: { type: 'sentence', label: '單數', items: [
+        { t: 'There is', r: '句型' }, { t: 'a cat', r: '真正的主詞' },
+        { t: 'in the box', r: '地點' }],
+        note: 'be 動詞要配合後面的名詞，不是配合 there。',
+        alt: [
+          { label: '複數', items: [{ t: 'There are', r: '句型' }, { t: 'two cats', r: '複數主詞' },
+            { t: 'in the box', r: '地點' }], note: '後面是複數名詞時用 There are。' }] },
+      tip: '按按鈕比較單複數。',
+      check: {
+        q: 'There is 或 There are 的選擇，取決於什麼？',
+        options: [
+          '後面名詞的單複數',
+          'there 這個字',
+          '地點的遠近',
+          '說話者是誰'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'there 本身沒有單複數。',
+          '距離不影響 be 動詞。',
+          '說話者不影響這個句型。'
+        ]
+      }
+    },
+    {
+      title: '② 不可數名詞',
+      body: '不可數名詞一律用 There is：\n' +
+            'There is some water in the glass.（杯子裡有一些水。）\n' +
+            'There is milk in the fridge.\n' +
+            '⚠ 不可數名詞沒有複數形，也不能直接加 a。',
+      viz: { type: 'classify', groups: [
+        { label: '用 There is', items: ['a book', 'some water', 'milk', 'rice'] },
+        { label: '用 There are', items: ['two books', 'some apples', 'many students'] }] },
+      check: {
+        q: '「桌上有一些水」的正確說法是什麼？',
+        options: [
+          'There is some water on the table.',
+          'There are some water on the table.',
+          'There is some waters on the table.',
+          'There have some water on the table.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不可數名詞要用 is。',
+          '不可數名詞沒有複數形。',
+          '英文用 There is 而不是 There have。'
+        ]
+      }
+    },
+    {
+      title: '③ 否定句',
+      body: 'There is not a book on the desk.＝ There isn’t a book…\n' +
+            'There are not any books.＝ There aren’t any books.\n' +
+            '⚠ 否定句中常用 any 取代 some；\n' +
+            '也可以說 There is no book.（更簡潔）',
+      viz: { type: 'sentence', label: '否定', items: [
+        { t: 'There are not', r: '句型否定' }, { t: 'any books', r: '名詞' },
+        { t: 'on the desk', r: '地點' }],
+        note: '否定句常用 any 而不是 some。' },
+      check: {
+        q: '「桌上沒有任何書」的正確說法是什麼？',
+        options: [
+          'There aren’t any books on the desk.',
+          'There aren’t some books on the desk.',
+          'There isn’t any books on the desk.',
+          'There don’t have books on the desk.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '否定句通常用 any 而不是 some。',
+          '後面是複數名詞，要用 aren’t。',
+          '英文不用 There have 這個說法。'
+        ]
+      }
+    },
+    {
+      title: '④ 疑問句',
+      body: 'Is there a book on the desk?→ Yes, there is.／No, there isn’t.\n' +
+            'Are there any books?→ Yes, there are.／No, there aren’t.\n' +
+            '⚠ 把 be 動詞移到 there 前面；簡答時保留 there。',
+      viz: { type: 'sentence', label: '疑問句', items: [
+        { t: 'Are', r: 'be 動詞' }, { t: 'there', r: '句型' }, { t: 'any books', r: '名詞' }],
+        note: '把 be 動詞移到 there 前面。' },
+      check: {
+        q: 'Is there a pen in your bag? 的正確簡答是什麼？',
+        options: [
+          'Yes, there is.',
+          'Yes, it is.',
+          'Yes, there has.',
+          'Yes, I do.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '簡答時要保留 there。',
+          '英文沒有 there has 這種用法。',
+          '這個問句不是用 do 問的。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 問數量',
+      body: 'How many students are there in your class?（你們班有幾個學生？）\n' +
+            '→ There are thirty students.\n' +
+            '⚠ 語序：How many ＋ 複數名詞 ＋ are there ＋ 地點。',
+      viz: { type: 'sentence', label: '問數量', items: [
+        { t: 'How many', r: '疑問詞組' }, { t: 'students', r: '複數名詞' },
+        { t: 'are there', r: 'be＋there' }],
+        note: '注意 are there 的順序，這是疑問句。' },
+      check: {
+        q: '「你家有幾個人？」的正確說法是什麼？',
+        options: [
+          'How many people are there in your family?',
+          'How many people there are in your family?',
+          'How much people are there in your family?',
+          'How many person are there in your family?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '疑問句要把 be 動詞放在 there 前面。',
+          '人是可數的，要用 How many。',
+          'person 的複數是 people。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合應用',
+      body: '描述一個地方：\n' +
+            'There is a park near my house. There are many trees in it.\n' +
+            'There is a small lake, too. There aren’t any tall buildings.\n' +
+            '⚠ 肯定句用 some、否定與疑問用 any，是很常見的搭配。',
+      viz: { type: 'compareexp',
+             factor: 'some 與 any',
+             a: { label: 'some', note: '用於肯定句' },
+             b: { label: 'any', note: '用於否定句與疑問句' },
+             same: ['都表示不確定的數量'] },
+      check: {
+        q: 'some 與 any 的用法差別是什麼？',
+        options: [
+          'some 多用於肯定句，any 多用於否定與疑問句',
+          '兩者完全相同',
+          'some 只能用於不可數名詞',
+          'any 只能用於肯定句'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩者的使用場合不同。',
+          'some 可以用於可數與不可數名詞。',
+          'any 主要用於否定與疑問句。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四上|第6單元 月份與日期'] = {
+  intro: '生日、節日、考試日——會說日期，行事曆就能用英文寫。',
+  cards: [
+    {
+      title: '① 十二個月份',
+      body: 'January、February、March、April、May、June、\n' +
+            'July、August、September、October、November、December。\n' +
+            '⚠ 月份的第一個字母要「大寫」，這是英文的規則。',
+      viz: { type: 'classify', groups: [
+        { label: '上半年', items: ['January', 'February', 'March', 'April', 'May', 'June'] },
+        { label: '下半年', items: ['July', 'August', 'September', 'October', 'November', 'December'] }] },
+      check: {
+        q: '英文的月份名稱有什麼書寫規則？',
+        options: [
+          '第一個字母要大寫',
+          '全部要大寫',
+          '全部要小寫',
+          '沒有規則'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '一般情況下不用全部大寫。',
+          '月份屬於專有名詞，首字母要大寫。',
+          '英文對專有名詞有明確的規則。'
+        ]
+      }
+    },
+    {
+      title: '② 星期',
+      body: 'Sunday、Monday、Tuesday、Wednesday、Thursday、Friday、Saturday。\n' +
+            '⚠ 星期的首字母同樣要大寫。\n' +
+            '「在星期一」用 on Monday；「每個星期一」用 on Mondays。',
+      viz: { type: 'classify', groups: [
+        { label: '平日', items: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] },
+        { label: '週末', items: ['Saturday', 'Sunday'] }] },
+      check: {
+        q: '「在星期五」的正確說法是什麼？',
+        options: ['on Friday', 'in Friday', 'at Friday', 'to Friday'],
+        answer: 0,
+        why: [
+          null,
+          'in 用於月份或年份。',
+          'at 用於具體的時間點。',
+          'to 表示方向或目標。'
+        ]
+      }
+    },
+    {
+      title: '③ 序數',
+      body: '日期要用序數：first（1st）、second（2nd）、third（3rd）、fourth（4th）、\n' +
+            'fifth（5th）、…、twentieth（20th）、twenty-first（21st）。\n' +
+            '⚠ 大部分是加 th，但 1、2、3 特別（st、nd、rd）。',
+      viz: { type: 'classify', groups: [
+        { label: '特別的', items: ['first', 'second', 'third', 'fifth', 'ninth', 'twelfth'] },
+        { label: '規則加 th', items: ['fourth', 'sixth', 'seventh', 'tenth'] }] },
+      check: {
+        q: '數字 3 的序數是什麼？',
+        options: ['third', 'threeth', 'thirdth', 'threerd'],
+        answer: 0,
+        why: [
+          null,
+          '這不是正確的拼法。',
+          '不需要重複字尾。',
+          '這個拼法不存在。'
+        ]
+      }
+    },
+    {
+      title: '④ 日期的寫法與唸法',
+      body: '美式：May 5, 2026（唸 May fifth）。\n' +
+            '英式：5 May 2026（唸 the fifth of May）。\n' +
+            '⚠ 唸的時候日期用序數，年份分兩段唸（2026 → twenty twenty-six）。',
+      viz: { type: 'sentence', label: '日期', items: [
+        { t: 'May', r: '月份' }, { t: '5', r: '日（唸序數）' }, { t: '2026', r: '年' }],
+        note: '寫的是數字，唸的時候要用序數。' },
+      check: {
+        q: 'May 5 應該怎麼唸？',
+        options: [
+          'May fifth',
+          'May five',
+          'Five May only',
+          'May fiveth'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '日期要用序數而不是基數。',
+          '這個語序不是美式的常見唸法。',
+          'five 的序數是 fifth。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 問日期',
+      body: 'What is the date today?（今天幾號？）→ It is May 5.\n' +
+            'What day is it today?（今天星期幾？）→ It is Monday.\n' +
+            '⚠ date 問「日期」、day 問「星期」，兩個問句不一樣。',
+      viz: { type: 'compareexp',
+             factor: '兩種問法',
+             a: { label: 'What is the date?', note: '問幾月幾號' },
+             b: { label: 'What day is it?', note: '問星期幾' },
+             same: ['都與時間有關'] },
+      check: {
+        q: '要問「今天星期幾？」應該怎麼說？',
+        options: [
+          'What day is it today?',
+          'What date is it today?',
+          'What time is it today?',
+          'How day is today?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'date 問的是幾月幾號。',
+          'time 問的是幾點。',
+          '這個語序不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 生日與節日',
+      body: 'When is your birthday?（你生日是什麼時候？）→ It is on June 10.\n' +
+            'Christmas is on December 25.（聖誕節在十二月二十五日。）\n' +
+            '⚠ 具體日期前面用 on；只說月份時用 in（in June）。',
+      viz: { type: 'classify', groups: [
+        { label: '用 on（具體日期）', items: ['on June 10', 'on Monday', 'on my birthday'] },
+        { label: '用 in（月份年份）', items: ['in June', 'in 2026', 'in summer'] }] },
+      check: {
+        q: '「我的生日在六月」應該用哪一個介系詞？',
+        options: ['in June', 'on June', 'at June', 'to June'],
+        answer: 0,
+        why: [
+          null,
+          '只說月份時用 in，有具體日期才用 on。',
+          'at 用於具體的時間點。',
+          'to 表示方向或目標。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四上|第7單元 序數'] = {
+  intro: '第一名、第二層樓、第三個路口——順序也需要專門的說法。',
+  cards: [
+    {
+      title: '① 基數與序數的差別',
+      body: '基數（cardinal）：one、two、three，表示「數量」。\n' +
+            '序數（ordinal）：first、second、third，表示「順序」。\n' +
+            '⚠ 序數前面通常加 the：the first day（第一天）。',
+      viz: { type: 'compareexp',
+             factor: '兩種數字',
+             a: { label: '基數', note: 'one、two、three：數量有多少' },
+             b: { label: '序數', note: 'first、second、third：排在第幾' },
+             same: ['都是數字的表達'] },
+      check: {
+        q: '要表達「第一名」，應該用哪一種數字？',
+        options: [
+          '序數 first',
+          '基數 one',
+          '兩者皆可',
+          '不需要數字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '基數表示數量而非順序。',
+          '表示順序時必須用序數。',
+          '名次一定要用數字表達。'
+        ]
+      }
+    },
+    {
+      title: '② 前十個序數',
+      body: 'first（1st）、second（2nd）、third（3rd）、fourth（4th）、fifth（5th）、\n' +
+            'sixth（6th）、seventh（7th）、eighth（8th）、ninth（9th）、tenth（10th）。\n' +
+            '⚠ 要注意拼法：fifth（不是 fiveth）、ninth（去掉 e）、eighth（只有一個 t）。',
+      viz: { type: 'classify', groups: [
+        { label: '完全不同', items: ['first', 'second', 'third'] },
+        { label: '要注意拼法', items: ['fifth', 'eighth', 'ninth', 'twelfth'] },
+        { label: '規則加 th', items: ['fourth', 'sixth', 'seventh', 'tenth'] }] },
+      check: {
+        q: '數字 9 的序數怎麼拼？',
+        options: ['ninth', 'nineth', 'ninenth', 'ninthe'],
+        answer: 0,
+        why: [
+          null,
+          '要去掉 nine 的 e。',
+          '這個拼法不正確。',
+          '正確的拼法是去掉 e。'
+        ]
+      }
+    },
+    {
+      title: '③ 較大的序數',
+      body: 'eleventh、twelfth、thirteenth、…、twentieth、twenty-first。\n' +
+            '⚠ 規則：整十的序數把 y 改成 ie 再加 th（twenty → twentieth）；\n' +
+            '複合數字只有最後一位變序數（twenty-first）。',
+      viz: { type: 'classify', groups: [
+        { label: '整十', items: ['twentieth', 'thirtieth', 'fortieth'] },
+        { label: '複合', items: ['twenty-first', 'twenty-second', 'thirty-third'] }] },
+      check: {
+        q: '數字 21 的序數是什麼？',
+        options: ['twenty-first', 'twentieth-first', 'twenty-oneth', 'first-twenty'],
+        answer: 0,
+        why: [
+          null,
+          '只有最後一位要變成序數。',
+          'one 的序數是 first。',
+          '語序不正確，序數要放在最後一位。'
+        ]
+      }
+    },
+    {
+      title: '④ 序數的用法',
+      body: '日期：May 5（唸 May fifth）。\n' +
+            '樓層：I live on the third floor.\n' +
+            '順序：the first question（第一題）、the second time（第二次）。\n' +
+            '⚠ 樓層與名次前面通常要加 the。',
+      viz: { type: 'sentence', label: '樓層', items: [
+        { t: 'I live', r: '主詞＋動詞' }, { t: 'on', r: '介系詞' },
+        { t: 'the third floor', r: '序數＋名詞' }],
+        note: '樓層用 on the ＋ 序數 ＋ floor。' },
+      check: {
+        q: '「我住在五樓」的正確說法是什麼？',
+        options: [
+          'I live on the fifth floor.',
+          'I live on the five floor.',
+          'I live in the fifth floor.',
+          'I live on fifth floor.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '樓層要用序數而不是基數。',
+          '樓層用 on 而不是 in。',
+          '序數前面通常要加 the。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 名次與比賽',
+      body: 'He won first place.（他得第一名。）\n' +
+            'She finished second.（她得第二名。）\n' +
+            '⚠ 也可以說 the first prize（第一名的獎）。\n' +
+            '運動比賽常用：first、second、third place。',
+      viz: { type: 'sentence', label: '名次', items: [
+        { t: 'He', r: '主詞' }, { t: 'won', r: '動詞（過去式）' },
+        { t: 'first place', r: '名次' }],
+        note: 'win 的過去式是 won。' },
+      check: {
+        q: '「她得第二名」的正確說法是什麼？',
+        options: [
+          'She won second place.',
+          'She won two place.',
+          'She won second places.',
+          'She won the two.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '名次要用序數而不是基數。',
+          'place 在此用單數。',
+          '這個說法不清楚也不自然。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 順序的表達',
+      body: '講步驟時可以用序數：\n' +
+            'First, wash your hands. Second, cut the vegetables.\n' +
+            'Finally, cook them.（最後，把它們煮熟。）\n' +
+            '⚠ 也可以用 first、then、next、finally 來串連步驟。',
+      viz: { type: 'energyflow', steps: ['First', 'Then', 'Next', 'Finally'] },
+      check: {
+        q: '說明步驟時，表示「最後一步」常用哪一個字？',
+        options: ['finally', 'first', 'second', 'next'],
+        answer: 0,
+        why: [
+          null,
+          'first 是第一步。',
+          'second 是第二步。',
+          'next 表示接下來，不是最後。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四上|第8單元 學校科目與課表'] = {
+  intro: '把課表變成英文，每天都在複習單字。',
+  cards: [
+    {
+      title: '① 常見科目',
+      body: 'Chinese（國語）、English（英語）、math（數學）、science（自然）、\n' +
+            'social studies（社會）、music（音樂）、art（美術）、PE（體育）、\n' +
+            'computer class（電腦課）。\n' +
+            '⚠ 語言名稱（Chinese、English）首字母要大寫。',
+      viz: { type: 'classify', groups: [
+        { label: '學科', items: ['math', 'science', 'social studies'] },
+        { label: '語言', items: ['Chinese', 'English'] },
+        { label: '藝能', items: ['music', 'art', 'PE'] }] },
+      check: {
+        q: '下列哪一個單字的首字母一定要大寫？',
+        options: ['English', 'math', 'music', 'art'],
+        answer: 0,
+        why: [
+          null,
+          '一般學科名稱不用大寫。',
+          'music 是普通名詞。',
+          'art 也是普通名詞。'
+        ]
+      }
+    },
+    {
+      title: '② 問課表',
+      body: 'What class do you have on Monday?（你星期一有什麼課？）\n' +
+            '→ I have math and English.\n' +
+            'What is your favorite subject?（你最喜歡哪一科？）→ I like art best.\n' +
+            '⚠ subject 是「科目」，class 是「課、班級」。',
+      viz: { type: 'sentence', label: '問課表', items: [
+        { t: 'What class', r: '疑問詞組' }, { t: 'do you have', r: '助動詞＋主詞＋動詞' },
+        { t: 'on Monday', r: '時間' }],
+        note: '一般動詞的疑問句要用助動詞 do。' },
+      check: {
+        q: '「你最喜歡哪一科？」的正確問法是什麼？',
+        options: [
+          'What is your favorite subject?',
+          'What your favorite subject?',
+          'What do your favorite subject?',
+          'Which you like subject?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子缺少 be 動詞。',
+          '這句已有 be 動詞的結構，不需要 do。',
+          '這個語序不符合英文結構。'
+        ]
+      }
+    },
+    {
+      title: '③ 說明喜好與理由',
+      body: 'I like science because it is interesting.（我喜歡自然，因為它很有趣。）\n' +
+            'I do not like math because it is difficult.\n' +
+            '⚠ because 用來說明原因，後面接完整的句子。',
+      viz: { type: 'sentence', label: '說原因', items: [
+        { t: 'I like science', r: '主要子句' }, { t: 'because', r: '連接詞' },
+        { t: 'it is interesting', r: '原因子句' }],
+        note: 'because 後面要接完整的句子（有主詞與動詞）。' },
+      check: {
+        q: '下列哪一句的用法正確？',
+        options: [
+          'I like art because it is fun.',
+          'I like art because fun.',
+          'I like art because is fun.',
+          'I like art, because.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'because 後面要接完整的句子。',
+          '這個句子缺少主詞，不完整。',
+          '這個句子不完整。'
+        ]
+      }
+    },
+    {
+      title: '④ 常用形容詞',
+      body: 'interesting（有趣的）、boring（無聊的）、easy（簡單的）、\n' +
+            'difficult／hard（困難的）、important（重要的）、useful（有用的）。\n' +
+            '⚠ 注意：interesting 是「令人感興趣的」，\n' +
+            'interested 是「感到有興趣的」（用於人）。',
+      viz: { type: 'compareexp',
+             factor: '兩個容易混淆的字',
+             a: { label: 'interesting', note: '形容事物本身有趣' },
+             b: { label: 'interested', note: '形容人對某事感到有興趣' },
+             same: ['都與興趣有關'] },
+      check: {
+        q: '「這本書很有趣」的正確說法是什麼？',
+        options: [
+          'This book is interesting.',
+          'This book is interested.',
+          'This book interests.',
+          'This book is interest.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'interested 用來形容人的感受。',
+          '這個句子不完整。',
+          'interest 是名詞或動詞，不能直接當形容詞用。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 說時間與地點',
+      body: 'I have English at nine on Monday.（我星期一九點有英文課。）\n' +
+            'Our music class is in the music room.\n' +
+            '⚠ 時間順序通常是「小到大」：at nine on Monday，\n' +
+            '和中文的「星期一九點」順序相反。',
+      viz: { type: 'sentence', label: '時間順序', items: [
+        { t: 'I have English', r: '主要內容' }, { t: 'at nine', r: '時間（小）' },
+        { t: 'on Monday', r: '時間（大）' }],
+        note: '英文的時間片語通常由小到大排列。' },
+      check: {
+        q: '英文中同時說「幾點」與「星期幾」時，順序通常是什麼？',
+        options: [
+          '先說幾點，再說星期幾',
+          '先說星期幾，再說幾點',
+          '沒有固定順序',
+          '兩者不能同時出現'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '英文習慣由小單位到大單位。',
+          '雖有彈性，但慣例是小到大。',
+          '兩者可以同時出現在句中。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 介紹自己的課表',
+      body: '練習：\n' +
+            'I have six classes on Tuesday. My first class is math.\n' +
+            'I like PE best because I love sports.\n' +
+            'I do not like tests, but I like learning new things.\n' +
+            '⚠ but 用來表示轉折，前後意思相反。',
+      viz: { type: 'sentence', label: '轉折', items: [
+        { t: 'I do not like tests', r: '前半' }, { t: 'but', r: '連接詞' },
+        { t: 'I like learning', r: '後半' }],
+        note: 'but 用來連接意思相反的兩件事。' },
+      check: {
+        q: '要表達「我不喜歡考試，但我喜歡學新東西」，應該用哪一個連接詞？',
+        options: ['but', 'and', 'or', 'because'],
+        answer: 0,
+        why: [
+          null,
+          'and 用於並列相同方向的意思。',
+          'or 用於二選一。',
+          'because 用來說明原因。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|四上|第9單元 興趣與嗜好'] = {
+  intro: '聊興趣是最容易打開話題的方式——不論用哪一種語言。',
+  cards: [
+    {
+      title: '① 常見的嗜好',
+      body: 'reading（閱讀）、drawing（畫畫）、singing（唱歌）、dancing（跳舞）、\n' +
+            'swimming（游泳）、playing basketball（打籃球）、\n' +
+            'listening to music（聽音樂）、playing video games（打電動）。\n' +
+            '⚠ 嗜好多用「動詞-ing」的形式（動名詞）。',
+      viz: { type: 'classify', groups: [
+        { label: '靜態', items: ['reading', 'drawing', 'listening to music'] },
+        { label: '動態', items: ['swimming', 'dancing', 'playing basketball'] }] },
+      check: {
+        q: '說明嗜好時，動詞通常用什麼形式？',
+        options: [
+          '動詞-ing（動名詞）',
+          '動詞原形',
+          '動詞過去式',
+          '不需要動詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '原形動詞多用於句子的主要動詞。',
+          '過去式表示已經發生的事。',
+          '嗜好通常用動詞表達。'
+        ]
+      }
+    },
+    {
+      title: '② 表達喜好的句型',
+      body: 'I like swimming.＝ I like to swim.（兩種都可以）\n' +
+            'I love reading.（我熱愛閱讀。）　I enjoy drawing.（我享受畫畫。）\n' +
+            '⚠ enjoy 後面只能接動名詞（enjoy drawing），不能說 enjoy to draw。',
+      viz: { type: 'compareexp',
+             factor: '兩種接法',
+             a: { label: 'like', note: '可以接動名詞或不定詞：like swimming／like to swim' },
+             b: { label: 'enjoy', note: '只能接動名詞：enjoy swimming' },
+             same: ['都用來表達喜好'] },
+      check: {
+        q: '下列哪一句的用法正確？',
+        options: [
+          'I enjoy reading books.',
+          'I enjoy to read books.',
+          'I enjoy read books.',
+          'I am enjoy reading.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'enjoy 後面不能接不定詞。',
+          'enjoy 後面要接動名詞。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 問興趣',
+      body: 'What do you like to do in your free time?（你空閒時喜歡做什麼？）\n' +
+            'What are your hobbies?（你有什麼嗜好？）\n' +
+            'Do you like playing basketball?（你喜歡打籃球嗎？）\n' +
+            '⚠ hobby 的複數是 hobbies（子音加 y 要去 y 加 ies）。',
+      viz: { type: 'sentence', label: '問嗜好', items: [
+        { t: 'What', r: '疑問詞' }, { t: 'are', r: 'be 動詞' },
+        { t: 'your hobbies', r: '主詞' }],
+        note: 'hobbies 是複數，所以用 are。' },
+      check: {
+        q: 'hobby 的複數形是什麼？',
+        options: ['hobbies', 'hobbys', 'hobbyes', 'hobby'],
+        answer: 0,
+        why: [
+          null,
+          '子音加 y 結尾要去 y 加 ies。',
+          '這個拼法不正確。',
+          '複數形必須變化。'
+        ]
+      }
+    },
+    {
+      title: '④ 頻率與程度',
+      body: 'I often play basketball after school.\n' +
+            'I really like music.（我真的很喜歡音樂。）\n' +
+            'I like it a lot.（我很喜歡。）\n' +
+            '⚠ really、very much、a lot 可以加強語氣。',
+      viz: { type: 'sentence', label: '加強語氣', items: [
+        { t: 'I', r: '主詞' }, { t: 'really like', r: '副詞＋動詞' },
+        { t: 'music', r: '受詞' }],
+        note: 'really 放在動詞前面加強語氣。' },
+      check: {
+        q: '要表達「我非常喜歡音樂」，下列哪一句最恰當？',
+        options: [
+          'I like music very much.',
+          'I very like music.',
+          'I like very music.',
+          'I am very like music.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'very 不能直接放在動詞前面。',
+          '語序不正確，序數要放在最後一位。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 談論不喜歡的事',
+      body: 'I do not like getting up early.（我不喜歡早起。）\n' +
+            'I hate doing the dishes.（我討厭洗碗。）\n' +
+            '⚠ 表達不喜歡時語氣要注意：hate 的語氣很強，\n' +
+            '一般情況說 I do not really like… 比較委婉。',
+      viz: { type: 'classify', groups: [
+        { label: '語氣強', items: ['hate', 'can’t stand'] },
+        { label: '語氣委婉', items: ['do not really like', 'am not a fan of'] }] },
+      check: {
+        q: '想委婉地表達「我不太喜歡」，可以怎麼說？',
+        options: [
+          'I do not really like it.',
+          'I hate it so much.',
+          'I never want to see it.',
+          'It is terrible.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'hate 的語氣相當強烈。',
+          '這個說法過於強硬。',
+          '這是直接的負面評價。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 完整的自我介紹',
+      body: 'Hi, I am Amy. I am ten years old.\n' +
+            'I like drawing and listening to music.\n' +
+            'I play the piano every Saturday. What about you?\n' +
+            '⚠ play 加樂器時要加 the（play the piano），\n' +
+            '但球類不加（play basketball）。',
+      viz: { type: 'compareexp',
+             factor: 'play 的用法',
+             a: { label: '樂器', note: '要加 the：play the piano' },
+             b: { label: '球類', note: '不加 the：play basketball' },
+             same: ['都用動詞 play'] },
+      check: {
+        q: '「我彈鋼琴」的正確說法是什麼？',
+        options: [
+          'I play the piano.',
+          'I play piano.',
+          'I play a piano.',
+          'I am play the piano.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '樂器前面通常要加 the。',
+          '這個說法指的是某一台鋼琴。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    }
+  ]
+};
