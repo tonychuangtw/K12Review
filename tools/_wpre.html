@@ -1,0 +1,15 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../css/style.css">
+<style>body{background:#0f1115;padding:14px;} .demo{margin:0 0 18px;background:var(--panel2,#181c23);padding:10px;border-radius:10px}
+h2{color:#9ecbff;font:600 14px/1.4 sans-serif;margin:8px 0 4px}</style></head>
+<body><div id="all"></div>
+<script src="../js/widgets.js"></script>
+<script>
+var D=[
+['氮循環',{type:'cycle',mode:'nitrogen'}],
+['分類階層',{type:'levels',kind:'taxon',step:6}]];
+var all=document.getElementById('all');
+D.forEach(function(d){var h=document.createElement('h2');h.textContent=d[0];all.appendChild(h);
+var b=document.createElement('div');b.className='demo';all.appendChild(b);
+if(!window.Widgets.render(b,d[1]))b.textContent='⚠️ 畫不出來';});
+</script></body></html>

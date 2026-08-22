@@ -3154,6 +3154,16 @@
         sub = '心臟是幫浦，把血液推出去（動脈）→ 到全身的微血管交換物質 → 再流回來（靜脈）。' +
           '血液負責運送氧氣、養分、二氧化碳和廢物。' +
           '運動時肌肉需要更多氧氣和養分，所以心跳和呼吸都會變快——這是身體在加快補給。';
+      } else if (mode === 'excrete') {
+        chain(['腎臟', '輸尿管', '膀胱', '尿道'], 'accent');
+        svg.appendChild(txt(160, 132, '腎臟：把血液裡的含氮廢物過濾成尿',
+          'font-size:11px;fill:var(--accent)'));
+        main = '排泄系統：腎臟過濾血液';
+        sub = '細胞代謝會產生含氮廢物（主要是尿素），由血液帶到腎臟過濾成尿，' +
+          '經輸尿管暫存在膀胱，再排出體外。' +
+          '⚠ 排泄和排遺不一樣：尿、汗、呼氣中的二氧化碳是「細胞代謝的廢物」，叫排泄；' +
+          '糞便是沒被吸收的食物殘渣，根本沒進過細胞，叫排遺。' +
+          '皮膚（流汗）和肺（呼出二氧化碳和水氣）也是排泄的管道。';
       } else {
         chain(['口', '食道', '胃', '小腸', '大腸'], 'good');
         svg.appendChild(txt(160, 132, '小腸：吸收養分的主角',
@@ -3168,7 +3178,7 @@
     }
     if (spec.pick !== false) {
       var row = div('wg-ctrl');
-      [['digest', '消化'], ['breath', '呼吸'], ['blood', '循環']].forEach(function (m) {
+      [['digest', '消化'], ['breath', '呼吸'], ['blood', '循環'], ['excrete', '排泄']].forEach(function (m) {
         row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
       });
       box.appendChild(row);
@@ -6187,6 +6197,512 @@
       var sk = stepper(inv ? '乘積固定為' : '每 1 個 x 對應的 y', function () { return k; },
         function (v) { k = v; }, 1, 24, function () { sk.sync(); paint(); });
       box.appendChild(sk.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 細胞的構造（cell）────────────────────────────────────────────────
+     動物細胞和植物細胞放在一起看，差別（細胞壁、葉綠體、大液泡）才記得住。
+     spec: { mode:'animal'|'plant'|'compare', pick }                      */
+  REG.cell = function (host, spec) {
+    var mode = spec.mode || 'compare';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function animal(cx, cy) {
+      svg.appendChild(el('ellipse', { cx: cx, cy: cy, rx: 58, ry: 44, 'fill-opacity': '.12' },
+        'fill:var(--accent);stroke:var(--accent);stroke-width:2.5'));
+      svg.appendChild(el('circle', { cx: cx - 6, cy: cy - 4, r: 15, 'fill-opacity': '.5' },
+        'fill:var(--bad);stroke:var(--bad);stroke-width:2'));
+      svg.appendChild(txt(cx - 6, cy - 4, '核', 'font-size:10px'));
+      svg.appendChild(txt(cx + 34, cy + 26, '細胞質', 'font-size:9px;fill:var(--dim)'));
+      svg.appendChild(txt(cx, cy - 52, '動物細胞', 'font-size:12px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(cx, cy + 58, '細胞膜（沒有細胞壁）', 'font-size:9px;fill:var(--dim)'));
+    }
+    function plant(cx, cy) {
+      svg.appendChild(el('rect', { x: cx - 60, y: cy - 46, width: 120, height: 92, rx: 6 },
+        'fill:none;stroke:var(--good);stroke-width:4'));
+      svg.appendChild(el('rect', { x: cx - 54, y: cy - 40, width: 108, height: 80, rx: 4,
+        'fill-opacity': '.10' }, 'fill:var(--good);stroke:var(--good);stroke-width:1.5'));
+      svg.appendChild(el('rect', { x: cx - 30, y: cy - 22, width: 56, height: 44, rx: 8,
+        'fill-opacity': '.22' }, 'fill:var(--accent);stroke:var(--accent);stroke-width:1.5'));
+      svg.appendChild(txt(cx - 2, cy, '大液泡', 'font-size:9px;fill:var(--accent)'));
+      svg.appendChild(el('circle', { cx: cx - 40, cy: cy - 24, r: 11, 'fill-opacity': '.5' },
+        'fill:var(--bad);stroke:var(--bad);stroke-width:2'));
+      svg.appendChild(txt(cx - 40, cy - 24, '核', 'font-size:9px'));
+      [[cx + 38, cy - 26], [cx + 40, cy + 4], [cx + 20, cy + 30]].forEach(function (q) {
+        svg.appendChild(el('ellipse', { cx: q[0], cy: q[1], rx: 8, ry: 5 }, 'fill:var(--good)'));
+      });
+      svg.appendChild(txt(cx, cy - 56, '植物細胞', 'font-size:12px;font-weight:700;fill:var(--good)'));
+      svg.appendChild(txt(cx, cy + 60, '細胞壁＋葉綠體＋大液泡', 'font-size:9px;fill:var(--dim)'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'animal') {
+        animal(160, 92);
+        main = '動物細胞：細胞膜、細胞質、細胞核';
+        sub = '細胞膜包住細胞、控制什麼可以進出；細胞質是進行各種化學反應的場所；' +
+          '細胞核裝著遺傳物質，是細胞的指揮中心。' +
+          '⚠ 動物細胞「沒有」細胞壁，所以形狀比較圓、不固定。';
+      } else if (mode === 'plant') {
+        plant(160, 92);
+        main = '植物細胞多了三樣東西';
+        sub = '① 細胞壁：在細胞膜外面，纖維素構成，硬的，讓細胞有固定的方形外形並支撐植物。' +
+          '② 葉綠體：進行光合作用的地方（只有綠色部位才有，根就沒有）。' +
+          '③ 大液泡：儲存水分和養分，把細胞撐飽（缺水時液泡縮小，植物就萎凋了）。';
+      } else {
+        animal(82, 88); plant(228, 88);
+        main = '比一比：動物細胞 vs 植物細胞';
+        sub = '兩者「都有」的：細胞膜、細胞質、細胞核。' +
+          '只有植物細胞有的：細胞壁、葉綠體、大液泡。' +
+          '⚠ 常見錯誤：以為植物細胞沒有細胞膜——它有，細胞壁只是加在外面的一層。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['animal', '動物細胞'], ['plant', '植物細胞'], ['compare', '比一比']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 生物體的組成層次（levels）────────────────────────────────────────
+     細胞 → 組織 → 器官 → 器官系統 → 個體，一層一層點開來看。
+     spec: { kind:'animal'|'plant', step, pick }                          */
+  REG.levels = function (host, spec) {
+    var kind = spec.kind || 'animal';
+    var idx = spec.step == null ? 0 : spec.step;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var A = [
+      ['細胞', '肌肉細胞', '構造與功能的基本單位'],
+      ['組織', '肌肉組織', '許多形狀功能相似的細胞聚在一起'],
+      ['器官', '胃', '不同的組織合作完成一項工作'],
+      ['器官系統', '消化系統', '幾個器官接力完成一整套功能'],
+      ['個體', '一個人', '各系統分工合作組成完整的生物']
+    ];
+    var T = [
+      ['界', '動物界', '最大的分類階層，範圍最廣'],
+      ['門', '脊索動物', '往下一層，共同特徵更多'],
+      ['綱', '哺乳綱', '哺乳、有毛、恆溫'],
+      ['目', '食肉目', '再往下分'],
+      ['科', '貓科', '親緣關係已經很近'],
+      ['屬', '豹屬', '幾乎只差一點點'],
+      ['種', '老虎', '最小的階層，同種才能繁殖出有生殖力的後代']
+    ];
+    var P = [
+      ['細胞', '葉肉細胞', '構造與功能的基本單位'],
+      ['組織', '葉肉組織', '許多形狀功能相似的細胞聚在一起'],
+      ['器官', '葉', '不同的組織合作完成一項工作'],
+      ['個體', '一株植物', '根莖葉花果實種子組成完整的植物'],
+      ['—', '植物沒有「器官系統」這一層', '這是植物和動物組成層次最大的差別']
+    ];
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var L = kind === 'taxon' ? T : kind === 'plant' ? P : A;
+      var n = kind === 'taxon' ? 7 : kind === 'plant' ? 4 : 5;
+      var w = 300 / n;
+      for (var i = 0; i < n; i++) {
+        var x = 10 + i * w, on = i <= idx;
+        svg.appendChild(el('rect', { x: x + 3, y: 46, width: w - 10, height: 46, rx: 8,
+          'fill-opacity': on ? '.22' : '.05' },
+          'fill:var(--accent);stroke:var(--' + (on ? 'accent' : 'border') + ');stroke-width:2'));
+        svg.appendChild(txt(x + w / 2, 62, L[i][0],
+          'font-size:' + (n > 5 ? 10 : 11) + 'px;font-weight:700'));
+        svg.appendChild(txt(x + w / 2, 80, L[i][1],
+          'font-size:' + (n > 5 ? 7.5 : 9) + 'px;fill:var(--dim)'));
+        if (i) svg.appendChild(txt(x, 70, n > 5 ? '›' : '→', 'font-size:13px;fill:var(--dim)'));
+      }
+      svg.appendChild(txt(160, 122, kind === 'taxon'
+        ? '越往右範圍越小、親緣關係越近' : '越往右越複雜（小 → 大）',
+        'font-size:10px;fill:var(--dim)'));
+      var cur = L[Math.min(idx, n - 1)];
+      read.appendChild(div('wg-read-main', cur[0] + '：' + cur[2]));
+      read.appendChild(div('wg-read-sub', kind === 'taxon'
+        ? '生物分類的七個階層：界、門、綱、目、科、屬、種。' +
+          '越往下範圍越小、成員之間越像。學名採「二名法」，由屬名加種小名組成，用斜體書寫。' +
+          '⚠ 「種」是最基本的單位：同種的個體交配才能產生具有生殖能力的後代' +
+          '（馬和驢交配生出的騾沒有生殖能力，所以牠們不同種）。'
+        : kind === 'plant'
+        ? '植物：細胞 → 組織 → 器官 → 個體。⚠ 植物「沒有器官系統」這一層，' +
+          '它的六大器官是根、莖、葉（營養器官）和花、果實、種子（生殖器官）。'
+        : '動物：細胞 → 組織 → 器官 → 器官系統 → 個體。' +
+          '例如：肌肉細胞 → 肌肉組織 → 胃 → 消化系統 → 一個人。' +
+          '⚠ 單細胞生物（草履蟲、變形蟲）一個細胞就是一個個體，沒有這些層次。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn(kind === 'taxon' ? '往下一層 ▶' : '往上一層 ▶', function () {
+      idx = (idx + 1) % (kind === 'taxon' ? 7 : kind === 'plant' ? 4 : 5); paint();
+    }));
+    if (spec.pick !== false) {
+      row.appendChild(btn('動物', function () { kind = 'animal'; idx = 0; paint(); }));
+      row.appendChild(btn('植物', function () { kind = 'plant'; idx = 0; paint(); }));
+    }
+    box.appendChild(row);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 酵素（enzyme）────────────────────────────────────────────────────
+     酵素像一把鑰匙只開一種鎖；溫度太高會讓它失去作用（變性）。
+     spec: { mode:'lock'|'temp', temp }                                   */
+  REG.enzyme = function (host, spec) {
+    var mode = spec.mode || 'lock';
+    var t = spec.temp == null ? 37 : spec.temp;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function rate(T) {
+      if (T >= 60) return 0;
+      if (T <= 0) return 0;
+      return Math.max(0, 100 - Math.abs(T - 37) * (T > 37 ? 4.2 : 2.4));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'temp') {
+        svg.appendChild(el('line', { x1: 24, y1: 130, x2: 300, y2: 130 }, 'stroke:var(--text);stroke-width:2'));
+        svg.appendChild(el('line', { x1: 24, y1: 20, x2: 24, y2: 130 }, 'stroke:var(--text);stroke-width:2'));
+        var pts = [];
+        for (var T = 0; T <= 70; T += 2) {
+          pts.push((24 + T / 70 * 272) + ',' + (130 - rate(T) / 100 * 96));
+        }
+        svg.appendChild(el('polyline', { points: pts.join(' ') },
+          'fill:none;stroke:var(--accent);stroke-width:3'));
+        var x = 24 + t / 70 * 272, y = 130 - rate(t) / 100 * 96;
+        svg.appendChild(el('line', { x1: x, y1: 130, x2: x, y2: y },
+          'stroke:var(--dim);stroke-width:1;stroke-dasharray:3 3'));
+        svg.appendChild(el('circle', { cx: x, cy: y, r: 6 }, 'fill:var(--bad)'));
+        svg.appendChild(txt(160, 148, '溫度（℃）→', 'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(txt(40, 16, '作用速率', 'font-size:10px;fill:var(--dim)'));
+        main = t + '℃：作用速率約 ' + Math.round(rate(t)) + '％';
+        sub = '酵素在體溫（約 37℃）附近作用最快。' +
+          '溫度太低時分子動得慢，反應變慢——但只是「暫時變慢」，回溫就會恢復。' +
+          '⚠ 溫度太高（約 60℃ 以上）酵素會被破壞（變性），' +
+          '就算再降溫也救不回來，這是不可逆的。';
+      } else {
+        svg.appendChild(el('rect', { x: 24, y: 50, width: 84, height: 60, rx: 10,
+          'fill-opacity': '.18' }, 'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(txt(66, 80, '酵素', 'font-size:12px;fill:var(--accent);font-weight:700'));
+        svg.appendChild(el('rect', { x: 126, y: 62, width: 40, height: 36, rx: 6,
+          'fill-opacity': '.3' }, 'fill:var(--good);stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(146, 80, '受質', 'font-size:10px'));
+        svg.appendChild(txt(186, 80, '→', 'font-size:18px;fill:var(--dim)'));
+        [[218, 66], [218, 96], [262, 66], [262, 96]].forEach(function (q) {
+          svg.appendChild(el('rect', { x: q[0], y: q[1] - 12, width: 30, height: 24, rx: 5,
+            'fill-opacity': '.3' }, 'fill:var(--bad);stroke:var(--bad);stroke-width:2'));
+        });
+        svg.appendChild(txt(244, 132, '分解後的小分子（產物）', 'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(txt(66, 128, '酵素本身不會被消耗', 'font-size:10px;fill:var(--accent)'));
+        main = '酵素：一把鑰匙只開一種鎖';
+        sub = '酵素是生物體製造的蛋白質，能加快化學反應的速率。' +
+          '每一種酵素只對特定的受質作用（澱粉酶只分解澱粉、不會分解蛋白質），這叫「專一性」。' +
+          '⚠ 酵素在反應中不會被消耗，可以重複使用；它只是讓反應變快，不會改變反應的結果。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    var row = div('wg-ctrl');
+    if (spec.pick !== false) {
+      row.appendChild(btn('專一性', function () { mode = 'lock'; paint(); }));
+      row.appendChild(btn('溫度的影響', function () { mode = 'temp'; paint(); }));
+    }
+    row.appendChild(slider(0, 70, t, 1, function (v) { t = v; mode = 'temp'; paint(); }));
+    box.appendChild(row);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 神經與反射（nerve）───────────────────────────────────────────────
+     反射弧走脊髓、不經過大腦，所以「先縮手才覺得痛」。
+     spec: { mode:'reflex'|'brain', pick }                                */
+  REG.nerve = function (host, spec) {
+    var mode = spec.mode || 'reflex';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'brain') {
+        [['大腦', 60, '思考與感覺'],
+         ['小腦', 160, '平衡與協調'],
+         ['腦幹', 260, '心跳與呼吸']].forEach(function (c) {
+          svg.appendChild(el('rect', { x: c[1] - 46, y: 46, width: 92, height: 44, rx: 10,
+            'fill-opacity': '.18' }, 'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+          svg.appendChild(txt(c[1], 62, c[0], 'font-size:12px;font-weight:700'));
+          svg.appendChild(txt(c[1], 80, c[2], 'font-size:9px;fill:var(--dim)'));
+        });
+        svg.appendChild(txt(160, 118, '腦 ＋ 脊髓 ＝ 中樞神經系統', 'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(160, 140, '腦幹受損最危險：心跳呼吸會停', 'font-size:10px;fill:var(--bad)'));
+        main = '腦的三個部分各有分工';
+        sub = '大腦：思考、記憶、語言、感覺，以及我們「想要做」的動作。' +
+          '小腦：協調動作、維持平衡（喝醉的人走路不穩就是小腦受影響）。' +
+          '腦幹：控制心跳、呼吸這些不用想就會做的事，所以腦幹受損最危險。';
+      } else {
+        var nodes = [['受器\n（皮膚）', 34], ['感覺神經', 100], ['脊髓', 164], ['運動神經', 228], ['動器\n（肌肉）', 290]];
+        nodes.forEach(function (nd, i) {
+          var c = i === 2 ? 'bad' : 'accent';
+          svg.appendChild(el('circle', { cx: nd[1], cy: 74, r: 24, 'fill-opacity': '.18' },
+            'fill:var(--' + c + ');stroke:var(--' + c + ');stroke-width:2'));
+          nd[0].split('\n').forEach(function (ln, k) {
+            svg.appendChild(txt(nd[1], 70 + k * 12, ln, 'font-size:9px'));
+          });
+          if (i) svg.appendChild(el('line', { x1: nodes[i - 1][1] + 25, y1: 74, x2: nd[1] - 25, y2: 74 },
+            'stroke:var(--good);stroke-width:2.5'));
+        });
+        svg.appendChild(el('path', { d: 'M164,50 C164,20 240,18 258,40' },
+          'fill:none;stroke:var(--dim);stroke-width:1.5;stroke-dasharray:4 4'));
+        svg.appendChild(txt(238, 14, '之後才傳到大腦 → 覺得痛', 'font-size:9px;fill:var(--dim)'));
+        svg.appendChild(txt(160, 122, '刺激 → 受器 → 感覺神經 → 脊髓 → 運動神經 → 動器',
+          'font-size:10px;fill:var(--good)'));
+        svg.appendChild(txt(160, 146, '⚠ 反射不經過大腦，所以特別快', 'font-size:11px;fill:var(--bad)'));
+        main = '反射弧：反應快，因為不繞去大腦';
+        sub = '手碰到燙的東西會「先縮手、後覺得痛」，就是因為訊息只走到脊髓就直接下令縮手，' +
+          '同時才另外傳去大腦讓我們感覺到痛。' +
+          '常見的反射：膝跳反射、眨眼、打噴嚏、瞳孔遇強光縮小。' +
+          '⚠ 反射的中樞是脊髓（有些在腦幹），不是大腦——這是最常考的一句。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      row.appendChild(btn('反射弧', function () { mode = 'reflex'; paint(); }));
+      row.appendChild(btn('腦的分工', function () { mode = 'brain'; paint(); }));
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 遺傳棋盤方格（punnett）───────────────────────────────────────────
+     兩個親代的配子交叉配對，子代的比例是「數格子」數出來的，不是背的。
+     spec: { a:'Aa', b:'Aa', trait:['高','矮'] }                          */
+  REG.punnett = function (host, spec) {
+    var A = (spec.a || 'Aa').split(''), B = (spec.b || 'Aa').split('');
+    var trait = spec.trait || ['顯性性狀', '隱性性狀'];
+    var big = A[0].toUpperCase();
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var x0 = 96, y0 = 46, c = 62;
+      svg.appendChild(txt(x0 + c, 20, '父：' + A.join(''), 'font-size:12px;fill:var(--accent);font-weight:700'));
+      var lab = el('text', { x: 40, y: 108, 'text-anchor': 'middle' },
+        'font-size:12px;fill:var(--good);font-weight:700');
+      lab.textContent = '母：' + B.join('');
+      svg.appendChild(lab);
+      var counts = { dom: 0, rec: 0 }, kinds = {};
+      A.forEach(function (a, i) {
+        svg.appendChild(txt(x0 + i * c + c / 2, 40, a, 'font-size:13px;fill:var(--accent);font-weight:700'));
+      });
+      B.forEach(function (b, j) {
+        svg.appendChild(txt(x0 - 14, y0 + j * c + c / 2, b, 'font-size:13px;fill:var(--good);font-weight:700'));
+      });
+      B.forEach(function (b, j) {
+        A.forEach(function (a, i) {
+          var pair = [a, b].sort().join('');
+          var dom = pair.indexOf(big) >= 0;
+          if (dom) counts.dom++; else counts.rec++;
+          kinds[pair] = (kinds[pair] || 0) + 1;
+          svg.appendChild(el('rect', { x: x0 + i * c, y: y0 + j * c, width: c, height: c,
+            'fill-opacity': '.16' },
+            'fill:var(--' + (dom ? 'accent' : 'bad') + ');stroke:var(--border);stroke-width:1.5'));
+          svg.appendChild(txt(x0 + i * c + c / 2, y0 + j * c + c / 2, pair,
+            'font-size:15px;font-weight:700;fill:var(--' + (dom ? 'accent' : 'bad') + ')'));
+        });
+      });
+      var ks = Object.keys(kinds).sort();
+      read.appendChild(div('wg-read-main',
+        '基因型比例　' + ks.map(function (k) { return k + ' ' + kinds[k]; }).join('：') +
+        '　　外表型　' + trait[0] + ' ' + counts.dom + '：' + trait[1] + ' ' + counts.rec));
+      read.appendChild(div('wg-read-sub',
+        '把父方的兩種配子寫在上面、母方的寫在左邊，交叉填進格子就是所有可能的組合。' +
+        '只要有一個大寫（顯性）基因，外表就表現顯性性狀（' + trait[0] + '）；' +
+        '兩個都是小寫時才表現隱性性狀（' + trait[1] + '）。' +
+        '⚠ 這是「機率」不是保證：4 個子代不一定剛好照這個比例分配，數量越多才越接近。'));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['Aa', 'Aa', 'Aa × Aa'], ['AA', 'aa', 'AA × aa'], ['Aa', 'aa', 'Aa × aa']].forEach(function (m) {
+        row.appendChild(btn(m[2], function () { A = m[0].split(''); B = m[1].split(''); paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 染色體與基因（dna）───────────────────────────────────────────────
+     spec: { mode:'levels'|'sex'|'mitosis', pick }                        */
+  REG.dna = function (host, spec) {
+    var mode = spec.mode || 'levels';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'sex') {
+        [['父 XY', 60, ['X', 'Y']], ['母 XX', 240, ['X', 'X']]].forEach(function (p) {
+          svg.appendChild(txt(p[1], 26, p[0], 'font-size:12px;font-weight:700;fill:var(--dim)'));
+          p[2].forEach(function (g, i) {
+            svg.appendChild(el('circle', { cx: p[1] - 26 + i * 52, cy: 54, r: 17, 'fill-opacity': '.2' },
+              'fill:var(--' + (g === 'Y' ? 'bad' : 'accent') + ');stroke:var(--' +
+              (g === 'Y' ? 'bad' : 'accent') + ');stroke-width:2'));
+            svg.appendChild(txt(p[1] - 26 + i * 52, 54, g, 'font-size:13px;font-weight:700'));
+          });
+        });
+        [['XX 女生', 96, 'accent'], ['XY 男生', 224, 'bad']].forEach(function (c) {
+          svg.appendChild(el('rect', { x: c[1] - 52, y: 108, width: 104, height: 34, rx: 8,
+            'fill-opacity': '.18' }, 'fill:var(--' + c[2] + ');stroke:var(--' + c[2] + ');stroke-width:2'));
+          svg.appendChild(txt(c[1], 125, c[0], 'font-size:12px;font-weight:700'));
+        });
+        svg.appendChild(txt(160, 88, '各 50%', 'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(160, 162, '孩子的性別由父親給的是 X 還是 Y 決定',
+          'font-size:11px;fill:var(--good)'));
+        main = '性別決定：男女機率各一半';
+        sub = '人有 23 對染色體，其中 22 對是體染色體，第 23 對是性染色體。' +
+          '女生是 XX、男生是 XY。母親的卵一定帶 X；父親的精子有一半帶 X、一半帶 Y。' +
+          '⚠ 所以孩子的性別是由父親決定的，而且生男生女的機率各是 50%，' +
+          '前面生過幾個女兒都不會改變下一胎的機率。';
+      } else if (mode === 'mitosis') {
+        [['體細胞分裂', 82, '2n → 2n', '一樣多'], ['減數分裂', 238, '2n → n', '減半']].forEach(function (c, i) {
+          svg.appendChild(el('rect', { x: c[1] - 66, y: 40, width: 132, height: 76, rx: 10,
+            'fill-opacity': '.14' }, 'fill:var(--' + (i ? 'bad' : 'accent') + ');stroke:var(--' +
+            (i ? 'bad' : 'accent') + ');stroke-width:2'));
+          svg.appendChild(txt(c[1], 60, c[0], 'font-size:12px;font-weight:700'));
+          svg.appendChild(txt(c[1], 82, c[2], 'font-size:13px;fill:var(--dim)'));
+          svg.appendChild(txt(c[1], 102, '染色體數目' + c[3], 'font-size:10px;fill:var(--dim)'));
+        });
+        svg.appendChild(txt(82, 140, '用於生長與修補', 'font-size:10px;fill:var(--accent)'));
+        svg.appendChild(txt(238, 140, '用於產生精子與卵', 'font-size:10px;fill:var(--bad)'));
+        main = '兩種分裂：一種數目不變，一種減半';
+        sub = '體細胞分裂：一個細胞分成兩個，染色體數目和母細胞一樣（人是 46 條），用於生長和修補。' +
+          '減數分裂：染色體數目減半（人的精子和卵各 23 條），只發生在生殖細胞的形成過程。' +
+          '⚠ 減半是必要的：受精時精卵結合，才會恢復成 46 條，' +
+          '否則每一代的染色體數目都會加倍。';
+      } else {
+        [['細胞核', 46], ['染色體', 126], ['DNA', 202], ['基因', 274]].forEach(function (c, i) {
+          svg.appendChild(el('rect', { x: c[1] - 34, y: 56, width: 68, height: 44, rx: 8,
+            'fill-opacity': '.18' }, 'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+          svg.appendChild(txt(c[1], 78, c[0], 'font-size:11px;font-weight:700'));
+          if (i) svg.appendChild(txt(c[1] - 40, 78, '›', 'font-size:16px;fill:var(--dim)'));
+        });
+        svg.appendChild(txt(160, 128, '一段一段的 DNA ＝ 一個一個的基因',
+          'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(160, 152, '基因決定一個性狀（例如單雙眼皮）',
+          'font-size:10px;fill:var(--dim)'));
+        main = '細胞核 › 染色體 › DNA › 基因';
+        sub = '細胞核裡有染色體，染色體主要由 DNA 和蛋白質組成，' +
+          'DNA 上一段一段控制特定性狀的片段就是「基因」。' +
+          '⚠ 大小關係要記牢：染色體最大，基因是 DNA 上的一小段。' +
+          '同一種生物的染色體數目固定（人 46 條、豌豆 14 條），數目多寡和高不高等無關。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['levels', '基因在哪裡'], ['mitosis', '兩種分裂'], ['sex', '性別決定']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 物質循環（cycle）─────────────────────────────────────────────────
+     spec: { mode:'carbon'|'water'|'nitrogen', pick }                     */
+  REG.cycle = function (host, spec) {
+    var mode = spec.mode || 'carbon';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var SETS = {
+      carbon: { hub: '大氣中的二氧化碳',
+        nodes: ['植物（光合作用）', '動物（攝食）', '分解者', '燃燒化石燃料'],
+        main: '碳循環：進出大氣的兩條路',
+        sub: '把二氧化碳「拿走」的：植物的光合作用。' +
+          '把二氧化碳「放回去」的：生物的呼吸作用、分解者分解遺體、以及燃燒化石燃料。' +
+          '⚠ 人類大量燃燒煤和石油，讓放回去的遠多於拿走的，' +
+          '大氣中的二氧化碳濃度上升，造成溫室效應加劇。' },
+      water: { hub: '海洋與水體',
+        nodes: ['蒸發', '凝結成雲', '降水', '地表與地下逕流'],
+        main: '水循環：太陽是動力來源',
+        sub: '水受太陽照射蒸發（植物的蒸散也送出水氣）→ 上升遇冷凝結成雲 → ' +
+          '降下雨雪 → 一部分滲入地下、一部分流回河海，再重新蒸發。' +
+          '⚠ 地球上的水總量幾乎不變，只是不斷改變狀態和位置；' +
+          '真正能用的淡水其實不到 1%，所以節約用水有意義。' },
+      nitrogen: { hub: '大氣中的氮氣（約 78%）',
+        nodes: ['固氮細菌', '植物吸收含氮鹽類', '動物攝食', '分解者與脫氮'],
+        main: '氮循環：大氣裡有很多，卻不能直接用',
+        sub: '氮氣占空氣的 78%，但大多數生物不能直接利用。' +
+          '要靠根瘤菌等「固氮細菌」（或閃電、工業固氮）把它轉成含氮鹽類，植物才吸收得到。' +
+          '⚠ 所以豆科植物的根瘤能讓土壤變肥沃，輪作時常安排種豆類。' +
+          '動物由攝食取得含氮養分，遺體與排泄物再由分解者送回土壤。' }
+    };
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var S = SETS[mode] || SETS.carbon;
+      svg.appendChild(el('circle', { cx: 160, cy: 96, r: 42, 'fill-opacity': '.18' },
+        'fill:var(--accent);stroke:var(--accent);stroke-width:2.5'));
+      var hub = S.hub.length > 7 ? [S.hub.slice(0, 6), S.hub.slice(6)] : [S.hub];
+      hub.forEach(function (ln, i) {
+        svg.appendChild(txt(160, 90 + i * 14, ln, 'font-size:10px;font-weight:700'));
+      });
+      var pos = [[54, 34], [266, 34], [54, 158], [266, 158]];
+      S.nodes.forEach(function (n, i) {
+        var p = pos[i];
+        svg.appendChild(el('rect', { x: p[0] - 50, y: p[1] - 15, width: 100, height: 30, rx: 8,
+          'fill-opacity': '.14' }, 'fill:var(--good);stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(p[0], p[1], n, 'font-size:9px'));
+        var dx = p[0] < 160 ? 1 : -1, dy = p[1] < 96 ? 1 : -1;
+        svg.appendChild(el('line',
+          { x1: p[0] + dx * 46, y1: p[1] + dy * 14, x2: 160 - dx * 34, y2: 96 - dy * 26 },
+          'stroke:var(--dim);stroke-width:1.5'));
+      });
+      read.appendChild(div('wg-read-main', S.main));
+      read.appendChild(div('wg-read-sub', S.sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['carbon', '碳循環'], ['water', '水循環'], ['nitrogen', '氮循環']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
     }
     host.appendChild(box);
     paint();

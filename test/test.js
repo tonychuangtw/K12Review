@@ -396,7 +396,8 @@ console.log('解析確認題');
                    'plantparts', 'solution', 'phscale', 'statechange',
                    'microscope', 'bodysystem', 'circuit', 'energyflow',
                    'foodweb', 'strata', 'plates', 'weathermap', 'magnet', 'force',
-                   'lamp', 'heat', 'buoyancy', 'lever'];  // 與 js/widgets.js 的 REG 同步
+                   'lamp', 'heat', 'buoyancy', 'lever',
+                   'cell', 'levels', 'enzyme', 'nerve', 'punnett', 'dna', 'cycle'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');
