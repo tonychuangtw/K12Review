@@ -403,12 +403,27 @@ async (js) => {
     await js(`document.querySelectorAll('#unitList .unit-item').length >= 5`),
     String(await js(`document.querySelectorAll('#unitList .unit-item').length`)));
   await js(`document.querySelectorAll('#unitList .unit-item')[0].click()`);
+  await sleep(400);
+  // 2026-08-22 起社會單元也有概念卡：有教材走概念卡，沒教材才退回舊的重點卡
+  const socialView = await js(`(function(){
+    if (!document.getElementById('view-concept').classList.contains('hidden')) return 'concept';
+    if (!document.getElementById('view-lesson').classList.contains('hidden')) return 'lesson';
+    return null; })()`);
+  if (socialView === 'concept') {
+    check('社會有教材的單元進到概念卡',
+      (await js(`document.getElementById('conceptBody').textContent`)).length > 10 &&
+      await js(`!!document.querySelector('#conceptViz svg')`),
+      '概念卡＋互動元件');
+    await js(`document.getElementById('conceptExit').click()`);
+  } else {
+    check('社會教學卡顯示重點',
+      /重點/.test(await js(`document.getElementById('lessonTag').textContent`)) &&
+      (await js(`document.getElementById('lessonBody').textContent`)).length > 10,
+      await js(`document.getElementById('lessonTag').textContent`));
+    await js(`document.getElementById('lessonExit').click()`);
+  }
   await sleep(300);
-  check('社會教學卡顯示重點',
-    /重點/.test(await js(`document.getElementById('lessonTag').textContent`)) &&
-    (await js(`document.getElementById('lessonBody').textContent`)).length > 10,
-    await js(`document.getElementById('lessonTag').textContent`));
-  await js(`document.getElementById('lessonExit').click()`);
+  await js(`(function(){ var b = document.querySelector('.dlg-primary'); if (b) b.click(); })()`);
   await sleep(200);
 
   // 每日練習：同日同科出同一組題，紀錄寫在 <日期>|social
