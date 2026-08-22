@@ -8023,6 +8023,148 @@
     paint();
   };
 
+  /* ── 句型結構（sentence）─────────────────────────────────────────────
+     把一個句子拆成一格一格，下面標出每一格的角色。
+     spec: { items:[{t:'I', r:'主詞'}], note, alt:[{label, items, note}] } */
+  REG.sentence = function (host, spec) {
+    var sets = [{ label: spec.label || '例句', items: spec.items || [], note: spec.note || '' }]
+      .concat(spec.alt || []);
+    var idx = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 140', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var COLS = ['accent', 'bad', 'good', 'dim', 'accent', 'bad', 'good'];
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var cur = sets[idx], its = cur.items || [];
+      var n = Math.max(its.length, 1);
+      var w = Math.min(300 / n, 96), x0 = 160 - n * w / 2;
+      its.forEach(function (it, i) {
+        var x = x0 + i * w, col = COLS[i % COLS.length];
+        svg.appendChild(el('rect', { x: x + 3, y: 40, width: w - 6, height: 40, rx: 8,
+          'fill-opacity': '.18' }, 'fill:var(--' + col + ');stroke:var(--' + col + ');stroke-width:2'));
+        var fs = it.t.length > 10 ? 10 : (it.t.length > 6 ? 12 : 14);
+        svg.appendChild(txt(x + w / 2, 60, it.t, 'font-size:' + fs + 'px;font-weight:700'));
+        svg.appendChild(txt(x + w / 2, 96, it.r, 'font-size:10px;fill:var(--' + col + ')'));
+      });
+      svg.appendChild(txt(160, 22, cur.label, 'font-size:11px;fill:var(--dim)'));
+      read.appendChild(div('wg-read-main', its.map(function (i) { return i.t; }).join(' ')));
+      read.appendChild(div('wg-read-sub', cur.note || ''));
+    }
+    if (sets.length > 1) {
+      var row = div('wg-ctrl');
+      sets.forEach(function (st, i) {
+        row.appendChild(btn(st.label, function () { idx = i; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 時態表（tense）──────────────────────────────────────────────────
+     spec: { verb:'eat', highlight:'現在簡單式' }                         */
+  REG.tense = function (host, spec) {
+    var V = spec.verb || 'eat';
+    var FORMS = {
+      eat: { base: 'eat', s: 'eats', ing: 'eating', ed: 'ate', pp: 'eaten' },
+      go: { base: 'go', s: 'goes', ing: 'going', ed: 'went', pp: 'gone' },
+      play: { base: 'play', s: 'plays', ing: 'playing', ed: 'played', pp: 'played' },
+      write: { base: 'write', s: 'writes', ing: 'writing', ed: 'wrote', pp: 'written' }
+    };
+    var pick = spec.highlight || '現在簡單式';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var f = FORMS[V] || FORMS.eat;
+      var ROWS = [
+        ['現在簡單式', 'I ' + f.base + ' / He ' + f.s, '習慣、事實與不變的道理'],
+        ['現在進行式', 'I am ' + f.ing, '此刻正在做的事'],
+        ['過去簡單式', 'I ' + f.ed, '過去發生、已經結束'],
+        ['未來式', 'I will ' + f.base, '未來要做的事'],
+        ['現在完成式', 'I have ' + f.pp, '從過去延續到現在，或到目前為止的經驗']
+      ];
+      ROWS.forEach(function (r, i) {
+        var on = r[0] === pick, y = 26 + i * 27;
+        svg.appendChild(el('rect', { x: 12, y: y, width: 296, height: 24, rx: 5,
+          'fill-opacity': on ? '.25' : '.06' },
+          'fill:var(--accent);stroke:var(--' + (on ? 'accent' : 'border') + ');stroke-width:1.5'));
+        svg.appendChild(txt(58, y + 12, r[0], 'font-size:11px;font-weight:' + (on ? 700 : 400)));
+        svg.appendChild(txt(210, y + 12, r[1], 'font-size:12px;fill:var(--' + (on ? 'text' : 'dim') + ')'));
+      });
+      var cur = ROWS.filter(function (r) { return r[0] === pick; })[0] || ROWS[0];
+      read.appendChild(div('wg-read-main', cur[0] + '　' + cur[1]));
+      read.appendChild(div('wg-read-sub', cur[2] +
+        '。⚠ 動詞的形式會隨主詞與時間改變，這是英文和中文最大的差別之一：' +
+        '中文用「了、正在、會」等詞表達時間，英文則直接改動詞本身。'));
+    }
+    var row = div('wg-ctrl');
+    ['現在簡單式', '現在進行式', '過去簡單式', '未來式', '現在完成式'].forEach(function (t) {
+      row.appendChild(btn(t.replace('簡單式', '式'), function () { pick = t; paint(); }));
+    });
+    box.appendChild(row);
+    if (spec.pick !== false) {
+      var row2 = div('wg-ctrl');
+      ['eat', 'go', 'play', 'write'].forEach(function (v) {
+        row2.appendChild(btn(v, function () { V = v; paint(); }));
+      });
+      box.appendChild(row2);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 自然發音（phonics）──────────────────────────────────────────────
+     把單字拆成一塊一塊，標出目標的字母與發音。
+     spec: { words:[{w:'cat', parts:['c','a','t'], hit:1, s:'/æ/'}], note } */
+  REG.phonics = function (host, spec) {
+    var words = spec.words || [];
+    var idx = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 130', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var cur = words[idx] || { w: '', parts: [], hit: -1, s: '' };
+      var ps = cur.parts || [];
+      var n = Math.max(ps.length, 1), w = Math.min(240 / n, 64), x0 = 160 - n * w / 2;
+      ps.forEach(function (p, i) {
+        var on = i === cur.hit, x = x0 + i * w;
+        svg.appendChild(el('rect', { x: x + 3, y: 34, width: w - 6, height: 46, rx: 8,
+          'fill-opacity': on ? '.3' : '.08' },
+          'fill:var(--' + (on ? 'bad' : 'accent') + ');stroke:var(--' +
+          (on ? 'bad' : 'border') + ');stroke-width:2'));
+        svg.appendChild(txt(x + w / 2, 58, p,
+          'font-size:20px;font-weight:700;fill:var(--' + (on ? 'bad' : 'text') + ')'));
+      });
+      if (cur.s) svg.appendChild(txt(160, 100, '目標音：' + cur.s,
+        'font-size:12px;fill:var(--bad);font-weight:700'));
+      svg.appendChild(txt(160, 22, cur.w, 'font-size:12px;fill:var(--dim)'));
+      read.appendChild(div('wg-read-main', cur.w + (cur.mean ? '　' + cur.mean : '')));
+      read.appendChild(div('wg-read-sub', cur.note || spec.note || ''));
+    }
+    if (words.length > 1) {
+      var row = div('wg-ctrl');
+      words.forEach(function (wd, i) {
+        row.appendChild(btn(wd.w, function () { idx = i; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },

@@ -8,12 +8,11 @@ OBJECTIVE: 讓「完全沒學過的人」也能靠單元學習自學。原本的
   （對沒學過的人等於劇透，不是教學）；改成 **概念卡（說明＋互動元件＋立即檢核）→ 單元測驗**。
   Tony 2026-08-21：「最好是有圖有動畫、互動式，讓完全沒接觸過的人快速精熟」「先做一個，我覺得好再往下做」
 NEXT_ACTION: Tony 2026-08-21 看過原型後說「有了這樣很好，把其它也都做一做」。
-  **數學科已全數完成：全 24 冊 216 單元 1,297 張概念卡（2026-08-22，v54）。**
-  **自然科已全數完成：三上～九下 12 冊 108 單元 648 張概念卡（2026-08-22）。**
-  **社會科進行中：三上 1 冊完成（9 單元 54 張）。元件庫 130 種。**
-  下一步：社會三下 → 四上 →…→ 九下（共 14 冊）；之後英文（24 冊）→ 高中分科 7 科。
+  **數學 24 冊 216 單元 1,297 張、自然 12 冊 108 單元 648 張、社會 14 冊 126 單元 756 張，
+  合計 468 單元 2,809 張概念卡全數完成（2026-08-22）。元件庫 131 種。**
+  下一步：英文（24 冊）→ 高中分科 7 科（物理／化學／生物／地科／歷史／地理／公民）。
   做法同數學：先看該冊 9 個單元名與既有題目（tools/tikuconv/<科>/），每單元 6 張卡，
-  能用既有 130 種元件就用（自然的力學、電路、天文可能要新增元件；社會多用地圖與時間軸；
+  能用既有 131 種元件就用（自然的力學、電路、天文可能要新增元件；社會多用地圖與時間軸；
   英文可能要新增「句型結構」類元件）。
   ⚠ 換科目時要多做三件事（只寫 js/data/lessons-<科>.js 不會生效）：
     1. `index.html` 加一行 `<script src="js/data/lessons-<科>.js?v=...">`
@@ -23,15 +22,15 @@ NEXT_ACTION: Tony 2026-08-21 看過原型後說「有了這樣很好，把其它
   `node -e "global.window={};require('./js/data/lessons-math.js');const L=window.APP_LESSONS;`
   `Object.keys(L).filter(k=>k.includes('八上')).forEach(...)"`（完整寫法見 git log）
   規格與驗收步驟見 `docs/bank-maintain-sop.md` 流程 D；元件長相看 tools/widget-preview.html
-  （已含 130 種元件的預覽，寫卡前先開這頁挑元件最快）。
+  （已含 131 種元件的預覽，寫卡前先開這頁挑元件最快）。
 VALIDATION: `node test/test.js` 全綠；`node test/browser-smoke.mjs` 的「概念卡（單元教學層）」段全過
   （會實際點過：徽章→概念卡→互動元件→答錯給迷思解釋→答對解鎖→接單元測驗）
 BLOCKERS: 無
-PATHS: js/widgets.js（互動元件庫，130 種）、js/data/lessons-math.js、js/data/lessons-science.js、js/data/lessons-social.js、tools/widget-preview.html（元件預覽頁）、
+PATHS: js/widgets.js（互動元件庫，131 種）、js/data/lessons-math.js、js/data/lessons-science.js、js/data/lessons-social.js、tools/widget-preview.html（元件預覽頁）、
   js/data/lessons-math.js（概念卡資料）、
   js/app.js（conceptDeck/startConcept/renderConceptCard）、index.html 的 #view-concept、
   css/style.css 末段「概念卡」區、test/browser-smoke.mjs 第 10 段
-UPDATED: 2026-08-22 12:51 台北
+UPDATED: 2026-08-22 14:22 台北
 
 ## 已完工：全年級全科題庫（每單元 24 題）
 

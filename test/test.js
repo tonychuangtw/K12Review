@@ -15,7 +15,7 @@ for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'c
 for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
-for (const f of ['lessons-math', 'lessons-science', 'lessons-social']) {          // 概念卡（單元教學層）
+for (const f of ['lessons-math', 'lessons-science', 'lessons-social', 'lessons-english']) {          // 概念卡（單元教學層）
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
 global.window.APP_DATA = window.APP_DATA;
@@ -399,7 +399,8 @@ console.log('解析確認題');
                    'lamp', 'heat', 'buoyancy', 'lever',
                    'cell', 'levels', 'enzyme', 'nerve', 'punnett', 'dna', 'cycle', 'density', 'imaging', 'atom', 'ptable', 'chemeq', 'motion', 'newton', 'energyball', 'pressure',
                    'static', 'ohm', 'solarsys',
-                   'timeline', 'mapdir', 'taiwan', 'orgchart', 'poppyramid', 'supply', 'regionmap'];  // 與 js/widgets.js 的 REG 同步
+                   'timeline', 'mapdir', 'taiwan', 'orgchart', 'poppyramid', 'supply', 'regionmap',
+                   'sentence', 'tense', 'phonics'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');
@@ -435,7 +436,7 @@ console.log('解析確認題');
   {
     const STRAY = /[\u0400-\u04FF\u3040-\u30FF\uAC00-\uD7AF]/;
     const files = ['js/data/lessons-math.js', 'js/data/lessons-science.js',
-      'js/data/lessons-social.js', 'js/widgets.js'];
+      'js/data/lessons-social.js', 'js/data/lessons-english.js', 'js/widgets.js'];
     const hits = [];
     files.forEach(f => {
       const src = fs.readFileSync(path.join(root, f), 'utf8');

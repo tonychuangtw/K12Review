@@ -5,11 +5,9 @@ h2{color:#9ecbff;font:600 14px/1.4 sans-serif;margin:8px 0 4px}</style></head>
 <body><div id="all"></div>
 <script src="../js/widgets.js"></script>
 <script>
-var D=[['區域圖',{type:'regionmap',title:'東亞地區',items:[
-{t:'台灣',x:70,y:70,d:'位於東亞島弧中央。'},
-{t:'日本',x:88,y:25,d:'由四大島組成。'},
-{t:'韓國',x:70,y:35,d:'位於朝鮮半島。'},
-{t:'中國',x:25,y:45,d:'面積廣大。'}]}]];
+var D=[['句型',{type:'sentence',label:'肯定句',items:[{t:'I',r:'主詞'},{t:'am',r:'be 動詞'},{t:'a student',r:'補語'}],note:'主詞後面接 be 動詞，再接說明主詞是什麼的補語。',alt:[{label:'否定句',items:[{t:'I',r:'主詞'},{t:'am not',r:'be＋not'},{t:'a student',r:'補語'}],note:'否定只要在 be 動詞後面加 not。'},{label:'疑問句',items:[{t:'Are',r:'be 動詞'},{t:'you',r:'主詞'},{t:'a student',r:'補語'}],note:'疑問句把 be 動詞移到句首。'}]}],
+['時態',{type:'tense',verb:'eat',highlight:'現在進行式'}],
+['發音',{type:'phonics',words:[{w:'cat',parts:['c','a','t'],hit:1,s:'/æ/',mean:'貓'},{w:'bed',parts:['b','e','d'],hit:1,s:'/ɛ/',mean:'床'},{w:'pig',parts:['p','i','g'],hit:1,s:'/ɪ/',mean:'豬'}],note:'短母音出現在「子音＋母音＋子音」的結構中。'}]];
 var all=document.getElementById('all');
 D.forEach(function(d){var h=document.createElement('h2');h.textContent=d[0];all.appendChild(h);
 var b=document.createElement('div');b.className='demo';all.appendChild(b);
