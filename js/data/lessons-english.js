@@ -22303,3 +22303,1355 @@ window.APP_LESSONS['english|八下|第9單元 too...to 與 enough to'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|九上|第1單元 條件句'] = {
+  intro: '如果…就…，英文用 if 子句，但時態有嚴格的搭配。',
+  cards: [
+    {
+      title: '① 真實條件句',
+      body: 'If ＋ 現在式, 主句用 will ＋ 原形動詞\n' +
+            'If it rains tomorrow, I will stay home.\n' +
+            '★ if 子句裡不用 will，這是最常考的規則。\n' +
+            '⚠ 條件有可能成真時，用這個句型。',
+      viz: { type: 'sentence', label: '真實條件句', items: [
+        { t: 'If it rains', r: 'if 子句：現在式' },
+        { t: 'I will stay home', r: '主句：未來式' }],
+        note: 'if 子句用現在式代替未來式。' },
+      check: {
+        q: 'If you ___ hard, you will pass. 空格要填什麼？',
+        options: ['study', 'will study', 'studied', 'would study'],
+        answer: 0,
+        why: [
+          null,
+          'if 子句裡不用 will。',
+          '這句講的是未來可能發生的事。',
+          'would 用於與現在事實相反的假設。'
+        ]
+      }
+    },
+    {
+      title: '② 恆真條件句',
+      body: 'If ＋ 現在式, 主句也用現在式\n' +
+            'If you heat water to 100 degrees, it boils.\n' +
+            '⚠ 講科學道理或必然的結果時，兩邊都用現在式。',
+      viz: { type: 'compareexp',
+             factor: '主句的時態',
+             a: { label: '會發生一次', note: 'If it rains, I will stay home.' },
+             b: { label: '每次都這樣', note: 'If you drop it, it breaks.' },
+             same: ['if 子句都用現在式'] },
+      check: {
+        q: 'If you mix blue and yellow, you ___ green. 空格填什麼最合適？',
+        options: ['get', 'will got', 'would get', 'got'],
+        answer: 0,
+        why: [
+          null,
+          'will 後面要接原形動詞。',
+          'would 用於與事實相反的假設。',
+          '這是恆常的道理，不用過去式。'
+        ]
+      }
+    },
+    {
+      title: '③ 與現在事實相反',
+      body: 'If ＋ 過去式, 主句用 would／could ＋ 原形動詞\n' +
+            'If I were you, I would apologize.（我不是你）\n' +
+            '★ be 動詞一律用 were，不管主詞是誰。\n' +
+            '⚠ 用過去式不是在講過去，而是表示「不是真的」。',
+      viz: { type: 'compareexp',
+             factor: '事情是不是真的',
+             a: { label: '真實條件', note: 'If I have time, I will go.' },
+             b: { label: '與事實相反', note: 'If I had time, I would go.（我沒時間）' },
+             same: ['都用 if 開頭'] },
+      check: {
+        q: 'If I ___ rich, I would travel around the world. 空格要填什麼？',
+        options: ['were', 'am', 'will be', 'have been'],
+        answer: 0,
+        why: [
+          null,
+          '與現在事實相反的假設要用過去式。',
+          'if 子句裡不用 will。',
+          '這裡不用完成式。'
+        ]
+      }
+    },
+    {
+      title: '④ 與過去事實相反',
+      body: 'If ＋ had ＋ p.p., 主句用 would have ＋ p.p.\n' +
+            'If I had studied harder, I would have passed.\n' +
+            '⚠ 這是「後悔」的句型：事情已經發生，無法改變。',
+      viz: { type: 'energyflow', steps: ['真實條件：現在式加 will', '與現在相反：過去式加 would', '與過去相反：過去完成式加 would have'] },
+      check: {
+        q: 'If I had known, I ___ told you. 空格要填什麼？',
+        options: [
+          'would have',
+          'will have',
+          'would',
+          'had'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '與過去事實相反時不用 will。',
+          '主句要用 would have 加過去分詞。',
+          'had 不能單獨出現在主句這個位置。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 三種條件句對照',
+      body: '① 未來可能：If it rains, I will stay.\n' +
+            '② 現在相反：If it rained, I would stay.（其實沒下雨）\n' +
+            '③ 過去相反：If it had rained, I would have stayed.（當時沒下雨）\n' +
+            '⚠ 時態往後退一格，就表示「越不可能」。',
+      viz: { type: 'classify', groups: [
+        { label: '可能發生', items: ['if 現在式 + will'] },
+        { label: '與現在相反', items: ['if 過去式 + would'] },
+        { label: '與過去相反', items: ['if 過去完成 + would have'] }] },
+      check: {
+        q: 'If I had a car, I would drive you home. 這句話表示什麼？',
+        options: [
+          '我其實沒有車',
+          '我有車而且會載你',
+          '我以前有車',
+          '我明天會買車'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句型表示與現在事實相反。',
+          '這句講的是現在的狀況。',
+          '句中沒有提到買車。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 其他條件的說法',
+      body: 'unless ＝ if…not（除非）\n' +
+            'as long as（只要）　in case（以防萬一）\n' +
+            'Take an umbrella in case it rains.\n' +
+            '⚠ 這些連接詞後面同樣不用未來式。',
+      viz: { type: 'classify', groups: [
+        { label: '條件類連接詞', items: ['if', 'unless', 'as long as', 'in case', 'provided that'] }] },
+      check: {
+        q: 'Bring a jacket in case it ___ cold. 空格要填什麼？',
+        options: ['gets', 'will get', 'would get', 'got'],
+        answer: 0,
+        why: [
+          null,
+          '條件子句裡不用 will。',
+          'would 用於與事實相反的假設。',
+          '這句講的是未來的可能，不用過去式。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九上|第2單元 分詞'] = {
+  intro: '動詞加 ing 或改成過去分詞，就能當形容詞用。',
+  cards: [
+    {
+      title: '① 兩種分詞',
+      body: '現在分詞（動詞 ing）：主動、進行\n' +
+            '　 a running boy（正在跑的男孩）\n' +
+            '過去分詞（p.p.）：被動、完成\n' +
+            '　 a broken window（被打破的窗戶）\n' +
+            '⚠ 判斷關鍵：被修飾的名詞是「做」還是「被做」。',
+      viz: { type: 'compareexp',
+             factor: '主動還是被動',
+             a: { label: '現在分詞', note: '主動：a crying baby' },
+             b: { label: '過去分詞', note: '被動：a stolen bike' },
+             same: ['都當形容詞用'] },
+      check: {
+        q: '「一扇破掉的窗戶」的正確說法是什麼？',
+        options: [
+          'a broken window',
+          'a breaking window',
+          'a break window',
+          'a windows broken'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '窗戶是被打破的，要用過去分詞。',
+          '這裡需要分詞形式當形容詞。',
+          '形容詞要放在名詞前面。'
+        ]
+      }
+    },
+    {
+      title: '② 情緒形容詞',
+      body: 'ing 結尾形容「事物」：The movie is boring.\n' +
+            'ed 結尾形容「人的感受」：I am bored.\n' +
+            '⚠ 說 I am boring 就變成「我這個人很無聊」，\n' +
+            '意思完全不同。',
+      viz: { type: 'compareexp',
+             factor: '形容誰',
+             a: { label: 'ing 結尾', note: '事物讓人有感覺：exciting news' },
+             b: { label: 'ed 結尾', note: '人的感受：I am excited.' },
+             same: ['來自同一個動詞'] },
+      check: {
+        q: '「我對這本書很有興趣」的正確說法是什麼？',
+        options: [
+          'I am interested in this book.',
+          'I am interesting in this book.',
+          'This book is interested.',
+          'I am interest this book.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'ing 結尾用來形容事物。',
+          '書是引起興趣的一方，要用 interesting。',
+          '這個句子缺少介系詞與正確的形容詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 分詞片語修飾名詞',
+      body: '分詞單獨用放名詞前面：a sleeping cat\n' +
+            '分詞帶著其他字時放名詞後面：\n' +
+            'The girl sitting by the window is my sister.\n' +
+            '⚠ 這等於省略了關係代名詞與 be 動詞。',
+      viz: { type: 'sentence', label: '分詞片語', items: [
+        { t: 'The girl', r: '被修飾的名詞' },
+        { t: 'sitting by the window', r: '分詞片語（放後面）' },
+        { t: 'is my sister', r: '主要動詞' }],
+        note: '分詞片語放在被修飾的名詞後面。' },
+      check: {
+        q: 'The man ___ over there is my teacher.（站在那裡）空格要填什麼？',
+        options: ['standing', 'stood', 'to stand', 'stands'],
+        answer: 0,
+        why: [
+          null,
+          '這裡要用現在分詞表示主動進行。',
+          '這個位置不用不定詞。',
+          '句子已有主要動詞 is。'
+        ]
+      }
+    },
+    {
+      title: '④ 由關係子句簡化而來',
+      body: 'The boy who is running ＝ The boy running\n' +
+            'The book which was written by him ＝ The book written by him\n' +
+            '⚠ 省略「關係代名詞 ＋ be 動詞」就變成分詞片語。',
+      viz: { type: 'energyflow', steps: ['關係子句：who is running', '省略 who is', '剩下 running', '分詞片語完成'] },
+      check: {
+        q: 'The letter which was sent yesterday 可以簡化成什麼？',
+        options: [
+          'The letter sent yesterday',
+          'The letter sending yesterday',
+          'The letter to send yesterday',
+          'The letter sends yesterday'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '信是被寄出的，要用過去分詞。',
+          '這裡不用不定詞。',
+          '簡化後不會留下限定動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 分詞構句',
+      body: 'Walking down the street, I met an old friend.\n' +
+            '＝ While I was walking down the street, I met…\n' +
+            '⚠ 兩個子句的主詞相同時，可以把附屬子句簡化成分詞。',
+      viz: { type: 'energyflow', steps: ['找出兩句的主詞', '主詞相同才能簡化', '刪掉連接詞與主詞', '動詞改成分詞'] },
+      check: {
+        q: '把 Because he was tired, he went to bed early. 改成分詞構句是什麼？',
+        options: [
+          'Being tired, he went to bed early.',
+          'Been tired, he went to bed early.',
+          'Be tired, he went to bed early.',
+          'Tiring, he went to bed early.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'been 不能單獨開頭。',
+          '分詞構句不用原形動詞。',
+          'tiring 形容事物，語意不對。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 分詞構句的主詞要一致',
+      body: '✗ Walking down the street, a dog bit me.（狗在走路？）\n' +
+            '✓ Walking down the street, I was bitten by a dog.\n' +
+            '⚠ 分詞的動作要由主句的主詞來做，\n' +
+            '不然就會鬧笑話（叫做「懸垂分詞」）。',
+      viz: { type: 'compareexp',
+             factor: '主詞一不一致',
+             a: { label: '正確', note: '分詞的動作由主句主詞做' },
+             b: { label: '錯誤', note: '主詞不一致就變成懸垂分詞' },
+             same: ['形式看起來一樣'] },
+      check: {
+        q: '下列哪一句沒有懸垂分詞的問題？',
+        options: [
+          'Running to the bus, I dropped my keys.',
+          'Running to the bus, my keys were dropped.',
+          'Running to the bus, the keys fell.',
+          'Running to the bus, it was raining.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '鑰匙不會自己跑向公車。',
+          '鑰匙不會自己跑向公車。',
+          '天氣不會跑向公車。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九上|第3單元 名詞子句'] = {
+  intro: '一整個子句當名詞用，可以當主詞、受詞或補語。',
+  cards: [
+    {
+      title: '① 什麼是名詞子句',
+      body: 'I know that he is honest.\n' +
+            '★ that he is honest 整個當 know 的受詞，就是名詞子句。\n' +
+            '⚠ 名詞子句可以放名詞能放的任何位置。',
+      viz: { type: 'sentence', label: '名詞子句當受詞', items: [
+        { t: 'I know', r: '主句' }, { t: 'that he is honest', r: '名詞子句（當受詞）' }],
+        note: '整個子句扮演一個名詞的角色。' },
+      check: {
+        q: 'I believe that she will come. 這裡的 that 子句在做什麼？',
+        options: [
+          '當 believe 的受詞',
+          '當句子的主詞',
+          '修飾前面的名詞',
+          '表示原因'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子的主詞是 I。',
+          '這裡沒有被修飾的名詞。',
+          'that 在這裡不表示原因。'
+        ]
+      }
+    },
+    {
+      title: '② that 引導的名詞子句',
+      body: '當受詞時 that 常可省略：I think (that) he is right.\n' +
+            '當主詞時不能省略，而且常改用 it 當虛主詞：\n' +
+            'It is true that he lied.',
+      viz: { type: 'compareexp',
+             factor: '在句中的位置',
+             a: { label: '當受詞', note: 'that 可以省略' },
+             b: { label: '當主詞', note: 'that 不能省略，常用 it 代替' },
+             same: ['都是完整的子句'] },
+      check: {
+        q: '下列哪一句的 that 可以省略？',
+        options: [
+          'I hope that you feel better.',
+          'That he is honest is well known.',
+          'The fact that he lied surprised us.',
+          'That she left early is strange.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '當主詞時 that 不能省略。',
+          '這裡的 that 引導同位語，不能省略。',
+          '當主詞時 that 不能省略。'
+        ]
+      }
+    },
+    {
+      title: '③ 疑問詞引導的名詞子句',
+      body: 'I don’t know where he lives.（間接問句就是名詞子句）\n' +
+            'What he said is true.（當主詞）\n' +
+            '⚠ 語序一律是陳述句：疑問詞 ＋ 主詞 ＋ 動詞。',
+      viz: { type: 'sentence', label: '陳述句語序', items: [
+        { t: 'where', r: '疑問詞' }, { t: 'he', r: '主詞' },
+        { t: 'lives', r: '動詞' }],
+        note: '名詞子句裡用陳述句的語序。' },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'What she wants is a new phone.',
+          'What does she want is a new phone.',
+          'What wants she is a new phone.',
+          'What she want is a new phone.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '名詞子句裡不用助動詞倒裝。',
+          '名詞子句要用陳述句的語序。',
+          '第三人稱單數的動詞要加 s。'
+        ]
+      }
+    },
+    {
+      title: '④ whether 與 if',
+      body: '兩者都表示「是否」，但：\n' +
+            '★ 當主詞、放介系詞後面、後接 or not 時只能用 whether。\n' +
+            'Whether he comes or not is not important.\n' +
+            '⚠ 當受詞時兩個都可以：I don’t know if／whether he will come.',
+      viz: { type: 'classify', groups: [
+        { label: '只能用 whether', items: ['當主詞', '介系詞後面', '接 or not', '接不定詞'] },
+        { label: '兩者皆可', items: ['當一般動詞的受詞'] }] },
+      check: {
+        q: '___ he will come is still unknown. 空格要填什麼？',
+        options: ['Whether', 'If', 'That if', 'What'],
+        answer: 0,
+        why: [
+          null,
+          '當主詞時只能用 whether。',
+          '兩個連接詞不能連用。',
+          'what 在這裡語意不通。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 名詞子句當補語',
+      body: 'The problem is that we have no money.\n' +
+            'My question is why he did it.\n' +
+            '⚠ 放在 be 動詞後面說明主詞的內容，就是補語。',
+      viz: { type: 'sentence', label: '名詞子句當補語', items: [
+        { t: 'The problem', r: '主詞' }, { t: 'is', r: 'be 動詞' },
+        { t: 'that we have no money', r: '名詞子句（補語）' }],
+        note: 'be 動詞後面的子句說明主詞的內容。' },
+      check: {
+        q: 'The truth is ___ he never came. 空格填什麼最合適？',
+        options: ['that', 'what', 'which', 'who'],
+        answer: 0,
+        why: [
+          null,
+          'what 後面的子句會缺一個成分。',
+          'which 用來引導形容詞子句。',
+          'who 用來指人。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 名詞子句與形容詞子句的差別',
+      body: '名詞子句：本身就是一個成分（主詞、受詞、補語）\n' +
+            '形容詞子句：修飾前面的名詞\n' +
+            'I know that he is honest.（名詞子句）\n' +
+            'The man that I met is honest.（形容詞子句）\n' +
+            '⚠ 看 that 前面有沒有被修飾的名詞。',
+      viz: { type: 'compareexp',
+             factor: 'that 前面有沒有先行詞',
+             a: { label: '名詞子句', note: '前面沒有被修飾的名詞' },
+             b: { label: '形容詞子句', note: '前面有先行詞' },
+             same: ['都可以用 that 引導'] },
+      check: {
+        q: '要分辨名詞子句與形容詞子句，最快的方法是什麼？',
+        options: [
+          '看 that 前面有沒有被修飾的名詞',
+          '看句子有幾個字',
+          '看主詞是不是複數',
+          '看句尾的標點'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長度與子句類型無關。',
+          '主詞單複數不影響子句的種類。',
+          '標點符號無法區分這兩種子句。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九上|第4單元 疑問詞 + to V'] = {
+  intro: '疑問詞加不定詞，是名詞子句的濃縮版。',
+  cards: [
+    {
+      title: '① 基本結構',
+      body: '疑問詞 ＋ to ＋ 原形動詞\n' +
+            'what to do（該做什麼）　how to swim（怎麼游泳）\n' +
+            'where to go　when to start　which to choose\n' +
+            '⚠ 這整組相當於一個名詞，可以當受詞或主詞。',
+      viz: { type: 'sentence', label: '結構', items: [
+        { t: 'I don’t know', r: '主句' }, { t: 'what to do', r: '疑問詞加不定詞' }],
+        note: '這整組當作一個受詞。' },
+      check: {
+        q: 'Can you show me ___ this machine? 空格填什麼最合適？',
+        options: [
+          'how to use',
+          'how use',
+          'how using',
+          'how to using'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '疑問詞後面要加 to。',
+          '這個結構要用不定詞。',
+          'to 後面要接原形動詞。'
+        ]
+      }
+    },
+    {
+      title: '② 由名詞子句簡化而來',
+      body: 'I don’t know what I should do.\n' +
+            '＝ I don’t know what to do.\n' +
+            '⚠ 兩句主詞相同、而且帶有「該…」的意思時才能簡化。',
+      viz: { type: 'energyflow', steps: ['I don’t know what I should do.', '主詞相同', '刪掉主詞與助動詞', 'what to do'] },
+      check: {
+        q: 'She asked me where she should go. 可以簡化成什麼？',
+        options: [
+          'She asked me where to go.',
+          'She asked me where going.',
+          'She asked me where she to go.',
+          'She asked me where go.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個結構要用不定詞而不是動名詞。',
+          '簡化後不保留主詞。',
+          '疑問詞後面要加 to。'
+        ]
+      }
+    },
+    {
+      title: '③ why 不用這個結構',
+      body: '✗ I don’t know why to go.\n' +
+            '✓ I don’t know why I should go.\n' +
+            '⚠ why 不能接不定詞（Why not 是例外的固定用法）。',
+      viz: { type: 'classify', groups: [
+        { label: '可以接不定詞', items: ['what', 'how', 'where', 'when', 'which', 'whether'] },
+        { label: '不接不定詞', items: ['why'] }] },
+      check: {
+        q: '下列哪一個疑問詞不能接不定詞？',
+        options: ['why', 'how', 'where', 'what'],
+        answer: 0,
+        why: [
+          null,
+          'how to 是很常見的用法。',
+          'where to go 是正確的說法。',
+          'what to do 是正確的說法。'
+        ]
+      }
+    },
+    {
+      title: '④ whether 也可以',
+      body: 'I can’t decide whether to go or stay.\n' +
+            '⚠ 表示「要不要」時用 whether，不用 if。\n' +
+            '★ if 不能接不定詞。',
+      viz: { type: 'compareexp',
+             factor: '能不能接不定詞',
+             a: { label: 'whether', note: '可以：whether to go' },
+             b: { label: 'if', note: '不可以：不能說 if to go' },
+             same: ['意思都是「是否」'] },
+      check: {
+        q: 'He is not sure ___ accept the offer. 空格要填什麼？',
+        options: [
+          'whether to',
+          'if to',
+          'that to',
+          'whether'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'if 不能接不定詞。',
+          'that 不能接不定詞構成這個結構。',
+          '這裡需要 to 才能接原形動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 當主詞或受詞',
+      body: '當受詞：I learned how to cook.\n' +
+            '當主詞：How to solve it is the question.\n' +
+            '當補語：The problem is what to do next.\n' +
+            '⚠ 這個結構等於一個名詞，位置很自由。',
+      viz: { type: 'classify', groups: [
+        { label: '可以放的位置', items: ['當主詞', '當受詞', '當補語'] }] },
+      check: {
+        q: 'What to wear to the party is still a problem. 這裡的 what to wear 在做什麼？',
+        options: [
+          '當句子的主詞',
+          '當動詞的受詞',
+          '修飾名詞',
+          '表示目的'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句中的動詞是 is，沒有受詞。',
+          '這裡沒有被修飾的名詞。',
+          '這個結構在句中不表示目的。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見的搭配動詞',
+      body: 'know、learn、decide、forget、remember、show、tell、teach\n' +
+            'Please tell me how to get there.\n' +
+            '⚠ 這些動詞後面很常接疑問詞加不定詞。',
+      viz: { type: 'classify', groups: [
+        { label: '常見搭配', items: ['know how to', 'learn how to', 'decide what to', 'show me how to'] }] },
+      check: {
+        q: '「請教我怎麼用這個程式」的正確說法是什麼？',
+        options: [
+          'Please teach me how to use this program.',
+          'Please teach me how use this program.',
+          'Please teach me how to using this program.',
+          'Please teach me what to use how this program.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '疑問詞後面要加 to。',
+          'to 後面要接原形動詞。',
+          '這個句子重複了疑問詞，結構不通。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九上|第5單元 授與動詞'] = {
+  intro: '有些動詞可以帶兩個受詞：給誰、給什麼。',
+  cards: [
+    {
+      title: '① 兩個受詞的句型',
+      body: '動詞 ＋ 人 ＋ 物\n' +
+            'He gave me a book.\n' +
+            '★ me 是間接受詞（給誰），a book 是直接受詞（給什麼）。\n' +
+            '⚠ 這類動詞叫授與動詞。',
+      viz: { type: 'sentence', label: '兩個受詞', items: [
+        { t: 'gave', r: '授與動詞' }, { t: 'me', r: '間接受詞（人）' },
+        { t: 'a book', r: '直接受詞（物）' }],
+        note: '人在前、物在後。' },
+      check: {
+        q: 'She sent me a postcard. 這句話裡的 me 是什麼？',
+        options: [
+          '間接受詞，表示寄給誰',
+          '直接受詞，表示寄什麼',
+          '主詞',
+          '補語'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直接受詞是 a postcard。',
+          '句子的主詞是 She。',
+          '這個句子沒有補語。'
+        ]
+      }
+    },
+    {
+      title: '② 換順序要加介系詞',
+      body: 'He gave me a book. ＝ He gave a book to me.\n' +
+            '★ 物放前面時，人的前面要加介系詞。\n' +
+            '⚠ 大多數用 to，少數用 for。',
+      viz: { type: 'compareexp',
+             factor: '哪個受詞在前',
+             a: { label: '人在前', note: 'gave me a book（不加介系詞）' },
+             b: { label: '物在前', note: 'gave a book to me（要加 to）' },
+             same: ['意思相同'] },
+      check: {
+        q: 'He showed me the photo. 換句話說是什麼？',
+        options: [
+          'He showed the photo to me.',
+          'He showed the photo me.',
+          'He showed to me the photo.',
+          'He showed for me the photo.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '物放前面時人的前面要加介系詞。',
+          '介系詞片語要放在直接受詞後面。',
+          'show 搭配的介系詞是 to。'
+        ]
+      }
+    },
+    {
+      title: '③ 用 to 的動詞',
+      body: 'give、send、show、tell、teach、lend、pass、write、offer\n' +
+            '⚠ 這些動作都有「傳遞給對方」的意味，所以用 to。',
+      viz: { type: 'classify', groups: [
+        { label: '搭配 to', items: ['give', 'send', 'show', 'teach', 'lend', 'pass'] }] },
+      check: {
+        q: 'He lent his bike ___ me. 空格要填什麼？',
+        options: ['to', 'for', 'at', 'with'],
+        answer: 0,
+        why: [
+          null,
+          'lend 搭配的介系詞是 to。',
+          'at 不用於這個句型。',
+          'with 不用於這個句型。'
+        ]
+      }
+    },
+    {
+      title: '④ 用 for 的動詞',
+      body: 'buy、make、cook、get、find、sing、do\n' +
+            'She made a cake for me.\n' +
+            '⚠ 這些動作是「為了某人做」，所以用 for。',
+      viz: { type: 'compareexp',
+             factor: '動作的性質',
+             a: { label: 'to（傳遞給）', note: 'give、send、show' },
+             b: { label: 'for（為了某人）', note: 'buy、make、cook' },
+             same: ['都可以帶兩個受詞'] },
+      check: {
+        q: 'My mom bought a gift ___ me. 空格要填什麼？',
+        options: ['for', 'to', 'at', 'of'],
+        answer: 0,
+        why: [
+          null,
+          'buy 搭配的介系詞是 for。',
+          'at 不用於這個句型。',
+          'of 不用於這個句型。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 受詞是代名詞時',
+      body: 'Give it to me.（○）　Give me it.（少用）\n' +
+            '⚠ 直接受詞是代名詞（it、them）時，\n' +
+            '習慣用「物 ＋ to ＋ 人」的順序。',
+      viz: { type: 'compareexp',
+             factor: '受詞是名詞還是代名詞',
+             a: { label: '名詞', note: 'Give me the book.（自然）' },
+             b: { label: '代名詞', note: 'Give it to me.（自然）' },
+             same: ['意思相同'] },
+      check: {
+        q: '下列哪一個說法最自然？',
+        options: [
+          'Please pass it to me.',
+          'Please pass me it.',
+          'Please pass to me it.',
+          'Please pass it me to.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直接受詞是代名詞時這樣說較不自然。',
+          '介系詞片語要放在直接受詞後面。',
+          '這個語序不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 只能用一種順序的動詞',
+      body: 'explain、introduce、suggest、describe 只能用「to ＋ 人」：\n' +
+            '✗ He explained me the rule.\n' +
+            '✓ He explained the rule to me.\n' +
+            '⚠ 這幾個動詞不能直接接「人」。',
+      viz: { type: 'classify', groups: [
+        { label: '兩種順序都可以', items: ['give', 'send', 'show', 'buy'] },
+        { label: '只能用 to 加人', items: ['explain', 'introduce', 'suggest', 'describe'] }] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'He explained the problem to us.',
+          'He explained us the problem.',
+          'He explained to us it problem.',
+          'He explained us to the problem.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'explain 不能直接接人當受詞。',
+          '這個句子的結構不通順。',
+          '介系詞的位置不正確。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九上|第6單元 反身代名詞'] = {
+  intro: '動作回到自己身上時，受詞要用反身代名詞。',
+  cards: [
+    {
+      title: '① 八個反身代名詞',
+      body: 'myself、yourself、himself、herself、itself\n' +
+            'ourselves、yourselves、themselves\n' +
+            '⚠ 單數用 self，複數用 selves；\n' +
+            'yourself 與 yourselves 靠上下文區分。',
+      viz: { type: 'classify', groups: [
+        { label: '單數（self）', items: ['myself', 'yourself', 'himself', 'herself', 'itself'] },
+        { label: '複數（selves）', items: ['ourselves', 'yourselves', 'themselves'] }] },
+      check: {
+        q: 'they 的反身代名詞是什麼？',
+        options: ['themselves', 'themself', 'theirselves', 'theirself'],
+        answer: 0,
+        why: [
+          null,
+          '複數要用 selves。',
+          '這個拼法並不存在。',
+          '這個拼法並不存在。'
+        ]
+      }
+    },
+    {
+      title: '② 動作回到自己身上',
+      body: 'He hurt himself.（他弄傷了自己。）\n' +
+            '★ 主詞和受詞是同一個人時，受詞要用反身代名詞。\n' +
+            '⚠ ✗ He hurt him.（這個 him 是別人）',
+      viz: { type: 'compareexp',
+             factor: '受詞是誰',
+             a: { label: 'himself', note: '受詞就是主詞本人' },
+             b: { label: 'him', note: '受詞是另一個人' },
+             same: ['都放在動詞後面'] },
+      check: {
+        q: 'She looked at ___ in the mirror.（看自己）空格要填什麼？',
+        options: ['herself', 'her', 'she', 'hers'],
+        answer: 0,
+        why: [
+          null,
+          'her 指的是另一個女生。',
+          '主格不能放在介系詞後面。',
+          'hers 表示所有，語意不通。'
+        ]
+      }
+    },
+    {
+      title: '③ 表示強調',
+      body: 'I did it myself.（我親自做的。）\n' +
+            'The teacher himself said so.（老師本人這麼說的。）\n' +
+            '⚠ 這個用法可以省略，句子照樣完整；\n' +
+            '位置可以放主詞後面或句尾。',
+      viz: { type: 'compareexp',
+             factor: '能不能省略',
+             a: { label: '當受詞', note: '不能省略：He hurt himself.' },
+             b: { label: '表示強調', note: '可以省略：I did it (myself).' },
+             same: ['形式完全一樣'] },
+      check: {
+        q: 'The president himself attended the meeting. 這裡的 himself 在做什麼？',
+        options: [
+          '強調是總統本人親自出席',
+          '當動詞的受詞',
+          '表示總統受了傷',
+          '當句子的主詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子的受詞是 the meeting。',
+          '句中沒有提到受傷。',
+          '句子的主詞是 the president。'
+        ]
+      }
+    },
+    {
+      title: '④ 常見片語',
+      body: 'by oneself（獨自、靠自己）\n' +
+            'enjoy oneself（玩得開心）\n' +
+            'help oneself (to)（自行取用）\n' +
+            'make oneself at home（別客氣，當自己家）\n' +
+            '⚠ 這些是固定用法，直接整組記。',
+      viz: { type: 'classify', groups: [
+        { label: '常見片語', items: ['by myself', 'enjoy yourself', 'help yourself', 'teach myself'] }] },
+      check: {
+        q: '請客人自行取用食物，可以說什麼？',
+        options: [
+          'Help yourself.',
+          'Help you.',
+          'Help your.',
+          'Yourself help.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個片語要用反身代名詞。',
+          'your 是所有格，後面要接名詞。',
+          '這個語序不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 不用反身代名詞的情況',
+      body: '穿衣服、洗澡這類日常動作，英文不用反身代名詞：\n' +
+            '✗ I dressed myself every morning.\n' +
+            '✓ I get dressed every morning.\n' +
+            '⚠ 中文說「自己穿衣服」，英文不用特別加 myself。',
+      viz: { type: 'classify', groups: [
+        { label: '要用反身代名詞', items: ['hurt oneself', 'enjoy oneself', 'teach oneself'] },
+        { label: '通常不用', items: ['get dressed', 'take a shower', 'wake up'] }] },
+      check: {
+        q: '下列哪一句比較自然？',
+        options: [
+          'I take a shower every day.',
+          'I shower myself every day.',
+          'I wash myself shower every day.',
+          'I take myself a shower every day.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這類日常動作不需要反身代名詞。',
+          '這個句子的結構不通順。',
+          '這個句型不需要反身代名詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ by oneself 與 on one’s own',
+      body: 'I did it by myself. ＝ I did it on my own.\n' +
+            '⚠ 兩者都表示「靠自己」，可以互換；\n' +
+            '注意 on 後面用的是所有格（my own），不是反身代名詞。',
+      viz: { type: 'compareexp',
+             factor: '搭配的形式',
+             a: { label: 'by oneself', note: '用反身代名詞' },
+             b: { label: 'on one’s own', note: '用所有格' },
+             same: ['意思相同'] },
+      check: {
+        q: '「他自己完成了這個專案」哪一個說法正確？',
+        options: [
+          'He finished the project on his own.',
+          'He finished the project on himself.',
+          'He finished the project by his own.',
+          'He finished the project by his self.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'on 後面要用所有格。',
+          'by 要搭配反身代名詞。',
+          '反身代名詞要寫成一個字。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九上|第7單元 不定代名詞'] = {
+  intro: 'some、any、one、none 這類字，指的是不特定的人或物。',
+  cards: [
+    {
+      title: '① some 與 any',
+      body: 'some：肯定句、期待肯定回答的邀請\n' +
+            'any：否定句、一般疑問句\n' +
+            'Would you like some coffee?（邀請仍用 some）\n' +
+            '⚠ any 用在肯定句時意思變成「任何一個」。',
+      viz: { type: 'compareexp',
+             factor: '句子的類型',
+             a: { label: 'some', note: '肯定句與邀請句' },
+             b: { label: 'any', note: '否定句與疑問句' },
+             same: ['都表示不確定的數量'] },
+      check: {
+        q: 'Would you like ___ tea? 空格填什麼最自然？',
+        options: ['some', 'any', 'a', 'much'],
+        answer: 0,
+        why: [
+          null,
+          '邀請句期待肯定回答，習慣用 some。',
+          'tea 是不可數名詞，不加冠詞 a。',
+          'much 多用在否定句與疑問句。'
+        ]
+      }
+    },
+    {
+      title: '② 複合不定代名詞',
+      body: 'someone／somebody／something／somewhere\n' +
+            'anyone／anything　　no one／nothing　　everyone／everything\n' +
+            '★ 這些字一律當「單數」，動詞用單數形。\n' +
+            '⚠ Everyone is here.（不是 are）',
+      viz: { type: 'sentence', label: '一律當單數', items: [
+        { t: 'Everyone', r: '不定代名詞（單數）' }, { t: 'is', r: '單數動詞' },
+        { t: 'here', r: '補語' }],
+        note: '這類字視為單數。' },
+      check: {
+        q: 'Everybody ___ ready. 空格要填什麼？',
+        options: ['is', 'are', 'were', 'be'],
+        answer: 0,
+        why: [
+          null,
+          '這類不定代名詞視為單數。',
+          '句子講的是現在的狀況。',
+          'be 是原形，句子需要現在式。'
+        ]
+      }
+    },
+    {
+      title: '③ 形容詞放後面',
+      body: 'something new（新的東西）　anyone else（其他任何人）\n' +
+            '★ 修飾這類字的形容詞要放在「後面」。\n' +
+            '⚠ ✗ new something',
+      viz: { type: 'compareexp',
+             factor: '形容詞的位置',
+             a: { label: '一般名詞', note: '形容詞在前：a new book' },
+             b: { label: '不定代名詞', note: '形容詞在後：something new' },
+             same: ['都是形容詞修飾名詞'] },
+      check: {
+        q: '「有趣的事」的正確說法是什麼？',
+        options: [
+          'something interesting',
+          'interesting something',
+          'something is interesting thing',
+          'an interesting something'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '修飾這類字的形容詞要放後面。',
+          '這個說法重複而且不通順。',
+          '這類字前面不加冠詞。'
+        ]
+      }
+    },
+    {
+      title: '④ one 與 it',
+      body: 'one 指「同類的另一個」：I lost my pen. I need to buy one.\n' +
+            'it 指「就是那一個」：I lost my pen. I can’t find it.\n' +
+            '⚠ 這是很常考的區別。',
+      viz: { type: 'compareexp',
+             factor: '指的是不是同一個',
+             a: { label: 'one', note: '同類的另一個' },
+             b: { label: 'it', note: '就是原本那一個' },
+             same: ['都代替前面提過的名詞'] },
+      check: {
+        q: 'My phone is broken. I want to buy a new ___. 空格要填什麼？',
+        options: ['one', 'it', 'that', 'this'],
+        answer: 0,
+        why: [
+          null,
+          'it 指的是原本那支壞掉的手機。',
+          'that 在這裡指代不清楚。',
+          'this 在這裡指代不清楚。'
+        ]
+      }
+    },
+    {
+      title: '⑤ both、either、neither、all、none',
+      body: 'both（兩者都，複數動詞）　either（兩者之一，單數）\n' +
+            'neither（兩者都不，單數）　all（全部）　none（都沒有）\n' +
+            '⚠ both 用複數動詞，either 與 neither 用單數動詞。',
+      viz: { type: 'classify', groups: [
+        { label: '複數動詞', items: ['both', 'all（可數時）'] },
+        { label: '單數動詞', items: ['either', 'neither', 'each', 'every'] }] },
+      check: {
+        q: 'Neither of the answers ___ correct. 空格填什麼最合適？',
+        options: ['is', 'are', 'were', 'have'],
+        answer: 0,
+        why: [
+          null,
+          'neither 視為單數。',
+          '句子講的是現在的狀況。',
+          '這裡需要 be 動詞而不是 have。'
+        ]
+      }
+    },
+    {
+      title: '⑥ other 家族',
+      body: 'another（三者以上中的另一個，單數）\n' +
+            'the other（兩者中的另一個）\n' +
+            'others（其他幾個）　the others（其餘全部）\n' +
+            '⚠ 有 the 表示「特定、剩下的全部」。',
+      viz: { type: 'classify', groups: [
+        { label: '不特定', items: ['another', 'others'] },
+        { label: '特定（剩下的）', items: ['the other', 'the others'] }] },
+      check: {
+        q: 'I have two pens. One is red, and ___ is blue. 空格要填什麼？',
+        options: ['the other', 'another', 'other', 'others'],
+        answer: 0,
+        why: [
+          null,
+          'another 用於三者以上。',
+          'other 後面要接名詞。',
+          'others 是複數，這裡只剩一枝。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九上|第8單元 附加問句'] = {
+  intro: '句尾加一小段問句，用來確認或尋求同意。',
+  cards: [
+    {
+      title: '① 基本規則',
+      body: '★ 前肯後否、前否後肯\n' +
+            'You are a student, aren’t you?\n' +
+            'He isn’t here, is he?\n' +
+            '⚠ 附加問句用的助動詞要對應前面的句子。',
+      viz: { type: 'compareexp',
+             factor: '前面是肯定還是否定',
+             a: { label: '前面肯定', note: '後面用否定：…, isn’t it?' },
+             b: { label: '前面否定', note: '後面用肯定：…, is it?' },
+             same: ['都在確認對方的看法'] },
+      check: {
+        q: 'She is your sister, ___? 空格要填什麼？',
+        options: ['isn’t she', 'is she', 'doesn’t she', 'isn’t it'],
+        answer: 0,
+        why: [
+          null,
+          '前面是肯定句，後面要用否定。',
+          '前面用 be 動詞，附加問句也要用 be 動詞。',
+          '代名詞要對應主詞 she。'
+        ]
+      }
+    },
+    {
+      title: '② 用什麼助動詞',
+      body: 'be 動詞句 → 用 be 動詞：You are ready, aren’t you?\n' +
+            '一般動詞句 → 用 do／does／did：He likes it, doesn’t he?\n' +
+            '有助動詞 → 沿用那個助動詞：She can swim, can’t she?',
+      viz: { type: 'classify', groups: [
+        { label: 'be 動詞句', items: ['is → isn’t', 'are → aren’t'] },
+        { label: '一般動詞句', items: ['likes → doesn’t', 'went → didn’t'] },
+        { label: '有助動詞', items: ['can → can’t', 'will → won’t'] }] },
+      check: {
+        q: 'They went to the party, ___? 空格要填什麼？',
+        options: ['didn’t they', 'don’t they', 'weren’t they', 'haven’t they'],
+        answer: 0,
+        why: [
+          null,
+          '句子是過去式，要用 didn’t。',
+          '句中用的是一般動詞而不是 be 動詞。',
+          '句子不是完成式。'
+        ]
+      }
+    },
+    {
+      title: '③ 主詞用代名詞',
+      body: 'Tom is your friend, isn’t he?（不是 isn’t Tom）\n' +
+            'The books are new, aren’t they?\n' +
+            '⚠ 附加問句的主詞一律換成代名詞。',
+      viz: { type: 'energyflow', steps: ['找出主詞', '換成代名詞', '決定肯定或否定', '完成附加問句'] },
+      check: {
+        q: 'Your parents are teachers, ___? 空格要填什麼？',
+        options: ['aren’t they', 'aren’t your parents', 'isn’t he', 'don’t they'],
+        answer: 0,
+        why: [
+          null,
+          '附加問句的主詞要用代名詞。',
+          '主詞是複數，代名詞要用 they。',
+          '句中用的是 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 特殊情況',
+      body: 'I am…, aren’t I?（固定用法）\n' +
+            'Let’s…, shall we?\n' +
+            '祈使句, will you?：Close the door, will you?\n' +
+            'There is…, isn’t there?（保留 there）',
+      viz: { type: 'classify', groups: [
+        { label: '固定搭配', items: ['I am → aren’t I', 'Let’s → shall we', '祈使句 → will you'] }] },
+      check: {
+        q: 'Let’s go for a walk, ___? 空格要填什麼？',
+        options: ['shall we', 'will you', 'don’t we', 'aren’t we'],
+        answer: 0,
+        why: [
+          null,
+          'will you 用在祈使句後面。',
+          'Let’s 的固定搭配是 shall we。',
+          'Let’s 的固定搭配是 shall we。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 句中有否定詞時',
+      body: 'never、seldom、hardly、few、little 都算否定：\n' +
+            'He never comes late, does he?（後面用肯定）\n' +
+            '⚠ 這些字讓句子變成否定，附加問句就要用肯定。',
+      viz: { type: 'classify', groups: [
+        { label: '算否定的字', items: ['never', 'seldom', 'hardly', 'few', 'little', 'no'] }] },
+      check: {
+        q: 'She hardly ever eats meat, ___? 空格要填什麼？',
+        options: ['does she', 'doesn’t she', 'is she', 'has she'],
+        answer: 0,
+        why: [
+          null,
+          'hardly 讓句子帶否定，後面要用肯定。',
+          '句中用的是一般動詞。',
+          '句子不是完成式。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 語調決定意思',
+      body: '語調下降：只是尋求同意（我知道答案）\n' +
+            '語調上揚：真的在問（我不確定）\n' +
+            '⚠ 同樣一句話，語調不同意思就不同，\n' +
+            '這在聽力測驗常出現。',
+      viz: { type: 'compareexp',
+             factor: '語調',
+             a: { label: '下降', note: '尋求認同，不是真的疑問' },
+             b: { label: '上揚', note: '真的不確定，在問對方' },
+             same: ['文字完全一樣'] },
+      check: {
+        q: '附加問句用「上揚」的語調時，表示說話者的態度是什麼？',
+        options: [
+          '真的不確定，在詢問對方',
+          '已經很確定，只是尋求同意',
+          '在命令對方',
+          '在表達生氣'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '已經確定時語調通常下降。',
+          '附加問句不是命令的語氣。',
+          '語調上揚表示疑問而不是生氣。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|九上|第9單元 時態綜合複習'] = {
+  intro: '把國中三年學的時態整理成一張地圖。',
+  cards: [
+    {
+      title: '① 五個核心時態',
+      body: '現在簡單式：習慣與事實\n' +
+            '現在進行式：此刻正在做\n' +
+            '過去簡單式：過去發生並結束\n' +
+            '未來式：還沒發生\n' +
+            '現在完成式：從過去延續或影響到現在',
+      viz: { type: 'tense', verb: 'eat', highlight: '現在完成式' },
+      check: {
+        q: '哪一種時態強調「過去的事對現在造成的影響」？',
+        options: [
+          '現在完成式',
+          '過去簡單式',
+          '現在進行式',
+          '未來式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '過去簡單式只講過去，與現在無關。',
+          '現在進行式講的是此刻正在做的事。',
+          '未來式講的是還沒發生的事。'
+        ]
+      }
+    },
+    {
+      title: '② 靠時間副詞判斷',
+      body: 'every day、usually → 現在簡單式\n' +
+            'now、Look! → 現在進行式\n' +
+            'yesterday、ago、last… → 過去簡單式\n' +
+            'tomorrow、next… → 未來式\n' +
+            'since、for、already、ever → 現在完成式',
+      viz: { type: 'classify', groups: [
+        { label: '現在簡單式', items: ['every day', 'always', 'usually'] },
+        { label: '過去式', items: ['yesterday', 'ago', 'last week'] },
+        { label: '完成式', items: ['since', 'for', 'already', 'ever'] }] },
+      check: {
+        q: '看到 since 2018 這個訊號，應該用哪一種時態？',
+        options: [
+          '現在完成式',
+          '過去簡單式',
+          '現在進行式',
+          '未來式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '過去式不能搭配 since 表示持續。',
+          '現在進行式不表示從過去持續。',
+          'since 指的是過去的起點。'
+        ]
+      }
+    },
+    {
+      title: '③ 過去式與完成式怎麼選',
+      body: '有明確的過去時間 → 過去式\n' +
+            '沒有指明時間、強調經驗或結果 → 完成式\n' +
+            'I lost my key yesterday.（過去式）\n' +
+            'I have lost my key.（完成式：現在還找不到）',
+      viz: { type: 'compareexp',
+             factor: '有沒有指明時間',
+             a: { label: '過去式', note: '有明確時間點' },
+             b: { label: '現在完成式', note: '不指明時間，強調現在的影響' },
+             same: ['動作都發生在過去'] },
+      check: {
+        q: 'I ___ my homework. Now I can play.（剛寫完）哪一個最合適？',
+        options: [
+          'have finished',
+          'finish',
+          'will finish',
+          'am finishing'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '現在簡單式無法表達剛完成。',
+          '未來式表示還沒做。',
+          '進行式表示還在做。'
+        ]
+      }
+    },
+    {
+      title: '④ 子句裡的時態',
+      body: '① 時間與條件子句用現在式代替未來式\n' +
+            '　 I will call you when I arrive.\n' +
+            '② 主要子句是過去式時，附屬子句通常也用過去式\n' +
+            '　 He said that he was tired.\n' +
+            '⚠ 這叫時態一致。',
+      viz: { type: 'sentence', label: '時態一致', items: [
+        { t: 'He said', r: '主句：過去式' }, { t: 'that he was tired', r: '子句：也用過去式' }],
+        note: '主句是過去式時，子句通常跟著往前推。' },
+      check: {
+        q: 'She said that she ___ busy. 空格填什麼最合適？',
+        options: ['was', 'is', 'will be', 'has been'],
+        answer: 0,
+        why: [
+          null,
+          '主句是過去式，子句要配合。',
+          '這裡不用未來式。',
+          '這裡不用完成式。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 進行式的兩個限制',
+      body: '① 狀態動詞不用進行式：know、like、want、have（擁有）\n' +
+            '② 進行式一定要有 be 動詞，缺一不可\n' +
+            '⚠ 這兩點是最常見的扣分點。',
+      viz: { type: 'classify', groups: [
+        { label: '可用進行式', items: ['run', 'eat', 'study', 'write'] },
+        { label: '不用進行式', items: ['know', 'like', 'want', 'belong'] }] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'I know the answer.',
+          'I am knowing the answer.',
+          'I knowing the answer.',
+          'I am know the answer.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'know 是狀態動詞，不用進行式。',
+          '這個句子缺少動詞的正確形式。',
+          'be 動詞不能直接接原形動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 三步驟檢查法',
+      body: '① 找時間副詞 → 決定時態\n' +
+            '② 看主詞 → 決定動詞形式（加不加 s）\n' +
+            '③ 看是主動還是被動 → 決定要不要用 be 加過去分詞\n' +
+            '⚠ 寫完一句就跑一次這三步，錯誤會少一半。',
+      viz: { type: 'energyflow', steps: ['找時間副詞', '看主詞', '判斷主動或被動', '檢查完成'] },
+      check: {
+        q: '檢查一個英文句子的時態時，第一步該做什麼？',
+        options: [
+          '先找出句中的時間副詞',
+          '先數句子有幾個字',
+          '先看標點符號',
+          '先看句子有沒有形容詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長度和時態選擇無關。',
+          '標點符號不決定時態。',
+          '形容詞不影響時態的判斷。'
+        ]
+      }
+    }
+  ]
+};
