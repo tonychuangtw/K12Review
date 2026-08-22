@@ -25068,3 +25068,1408 @@ window.APP_LESSONS['english|九下|第9單元 綜合演練'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|十上|第1單元 時態綜合'] = {
+  intro: '高中的時態重點不在認識，而在「什麼時候該用哪一個」。',
+  cards: [
+    {
+      title: '① 時態的兩個座標',
+      body: '時間（現在／過去／未來）× 狀態（簡單／進行／完成／完成進行）\n' +
+            '★ 兩個座標交叉，就是十二種時態。\n' +
+            '⚠ 先確定時間點，再決定要不要強調「進行」或「完成」。',
+      viz: { type: 'tense', verb: 'write', highlight: '現在完成式' },
+      check: {
+        q: '判斷該用哪一種時態，第一步應該確定什麼？',
+        options: [
+          '事件發生的時間點',
+          '句子有幾個字',
+          '主詞是不是複數',
+          '有沒有形容詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長度與時態無關。',
+          '主詞單複數影響的是動詞形式而不是時態。',
+          '形容詞不影響時態的判斷。'
+        ]
+      }
+    },
+    {
+      title: '② 完成式的核心概念',
+      body: '完成式表達的是「兩個時間點的關係」：\n' +
+            '現在完成式：過去某時 → 現在\n' +
+            '過去完成式：更早的過去 → 過去某時\n' +
+            '未來完成式：現在 → 未來某時\n' +
+            '⚠ 完成式一定牽涉兩個時間點。',
+      viz: { type: 'energyflow', steps: ['過去完成（更早）', '過去某時', '現在完成（到現在）', '未來完成（到未來）'] },
+      check: {
+        q: 'When I arrived, the movie had already started. 這句話表示什麼？',
+        options: [
+          '電影開始的時間比我抵達更早',
+          '我抵達後電影才開始',
+          '兩件事同時發生',
+          '電影還沒開始'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '過去完成式表示更早發生。',
+          '過去完成式標示的是先後而不是同時。',
+          'already started 表示已經開始了。'
+        ]
+      }
+    },
+    {
+      title: '③ 過去完成式什麼時候用',
+      body: '① 兩件過去的事需要區分先後：\n' +
+            '　 He had left before I arrived.\n' +
+            '② 敘述中的回溯（倒敘）\n' +
+            '⚠ 如果有 before、after 已經標明先後，\n' +
+            '過去完成式常可以省略不用。',
+      viz: { type: 'compareexp',
+             factor: '需不需要標示先後',
+             a: { label: '要用過去完成式', note: '先後容易混淆時' },
+             b: { label: '可以只用過去式', note: '有 before／after 已標明順序' },
+             same: ['都在描述過去的事'] },
+      check: {
+        q: 'By the time we got there, they ___ dinner. 空格填什麼最合適？',
+        options: [
+          'had finished',
+          'finish',
+          'will finish',
+          'have finished'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子講的是過去的事。',
+          '未來式與過去的情境不符。',
+          '主要時間點在過去，要用過去完成式。'
+        ]
+      }
+    },
+    {
+      title: '④ 完成進行式',
+      body: 'have been ＋ Ving：強調從過去持續到現在的「過程」\n' +
+            'I have been studying for three hours.\n' +
+            '⚠ 完成式強調結果，完成進行式強調過程與持續。',
+      viz: { type: 'compareexp',
+             factor: '強調什麼',
+             a: { label: '完成式', note: '結果：I have read three books.' },
+             b: { label: '完成進行式', note: '過程：I have been reading all day.' },
+             same: ['都從過去延續到現在'] },
+      check: {
+        q: '想強調「我一整天都在寫報告，現在還在寫」，用哪一種最合適？',
+        options: [
+          '現在完成進行式',
+          '現在簡單式',
+          '過去簡單式',
+          '未來式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '現在簡單式表達習慣而不是持續的過程。',
+          '過去式表示已經結束。',
+          '未來式表示還沒開始。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 敘事中的時態一致',
+      body: '主要子句是過去式 → 從屬子句往前推一格：\n' +
+            'He said (that) he was tired.（直接引語是 I am tired.）\n' +
+            'He said (that) he had finished.（直接引語是 I finished.）\n' +
+            '⚠ 但恆真的事實可以維持現在式。',
+      viz: { type: 'energyflow', steps: ['現在式 → 過去式', '過去式 → 過去完成式', 'will → would', 'can → could'] },
+      check: {
+        q: 'She said, "I will call you." 改成間接引語是什麼？',
+        options: [
+          'She said she would call me.',
+          'She said she will call me.',
+          'She said she called me.',
+          'She said she has called me.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主句是過去式，will 要改成 would。',
+          '這樣改變了原意。',
+          '完成式與原句的語意不符。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見的判斷陷阱',
+      body: '① 狀態動詞不用進行式（know、belong、own）\n' +
+            '② 時間與條件子句用現在式代替未來式\n' +
+            '③ since 後面接的是「時間點」，for 接「時間長度」\n' +
+            '④ 明確的過去時間不能配現在完成式\n' +
+            '⚠ 這四點涵蓋了大多數時態考題。',
+      viz: { type: 'classify', groups: [
+        { label: '不用進行式', items: ['know', 'belong', 'own', 'contain'] },
+        { label: '不用未來式', items: ['when 子句', 'if 子句', 'before 子句'] }] },
+      check: {
+        q: '下列哪一句不正確？',
+        options: [
+          'I have met him yesterday.',
+          'I met him yesterday.',
+          'I have met him before.',
+          'I have known him for years.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '有明確的過去時間，用過去式正確。',
+          'before 不指明確時間，可配完成式。',
+          'for 加時間長度，可配完成式。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十上|第2單元 被動語態進階'] = {
+  intro: '被動不只是換句話說，還牽涉到訊息的安排。',
+  cards: [
+    {
+      title: '① 各時態的被動',
+      body: '現在：is done　過去：was done　未來：will be done\n' +
+            '進行：is being done　完成：has been done\n' +
+            '⚠ 只有 be 動詞在變，過去分詞永遠不變。',
+      viz: { type: 'classify', groups: [
+        { label: '簡單式', items: ['is done', 'was done', 'will be done'] },
+        { label: '進行式', items: ['is being done', 'was being done'] },
+        { label: '完成式', items: ['has been done', 'had been done'] }] },
+      check: {
+        q: '「這棟房子正在整修」的正確說法是什麼？',
+        options: [
+          'The house is being renovated.',
+          'The house is renovating.',
+          'The house is renovated now being.',
+          'The house has renovating.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '房子是被整修的，要用被動。',
+          '這個語序不正確。',
+          '這個結構不完整。'
+        ]
+      }
+    },
+    {
+      title: '② 為什麼要用被動',
+      body: '① 行為者不明或不重要\n' +
+            '② 要把重要的訊息放在句首\n' +
+            '③ 學術與科技寫作的客觀語體\n' +
+            '⚠ 被動不是比較高級，用錯地方反而拗口。',
+      viz: { type: 'compareexp',
+             factor: '訊息的重心',
+             a: { label: '主動', note: '重心在行為者' },
+             b: { label: '被動', note: '重心在受影響的對象' },
+             same: ['敘述的是同一件事'] },
+      check: {
+        q: '學術論文常用被動語態的主要原因是什麼？',
+        options: [
+          '強調研究的過程與結果，淡化研究者個人',
+          '被動句比較長比較好看',
+          '被動句文法比較簡單',
+          '規定一定要用被動'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長度不是學術寫作的考量。',
+          '被動語態的結構其實更複雜。',
+          '現在許多期刊也接受主動語態。'
+        ]
+      }
+    },
+    {
+      title: '③ 帶 that 子句的被動',
+      body: 'People say that he is rich.\n' +
+            '→ It is said that he is rich.（虛主詞句型）\n' +
+            '→ He is said to be rich.（主詞提前句型）\n' +
+            '⚠ 兩種改法都很常考。',
+      viz: { type: 'energyflow', steps: ['People say that…', 'It is said that…', 'He is said to be…'] },
+      check: {
+        q: 'People believe that she is a genius. 改成 She 開頭的被動句是什麼？',
+        options: [
+          'She is believed to be a genius.',
+          'She is believed that a genius.',
+          'She believes to be a genius.',
+          'She is believing a genius.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主詞提前的句型後面接不定詞。',
+          '這個句子變成主動，語意也不對。',
+          'believe 是狀態動詞，也不該用進行式。'
+        ]
+      }
+    },
+    {
+      title: '④ 片語動詞的被動',
+      body: 'They looked after the child.\n' +
+            '→ The child was looked after.\n' +
+            '⚠ 片語動詞改被動時，介副詞要留著，不能丟掉。',
+      viz: { type: 'sentence', label: '介副詞要保留', items: [
+        { t: 'The child', r: '主詞' }, { t: 'was looked', r: 'be 動詞加過去分詞' },
+        { t: 'after', r: '介副詞（要保留）' }],
+        note: '片語動詞的介副詞不能省略。' },
+      check: {
+        q: 'They turned down my proposal. 改成被動是什麼？',
+        options: [
+          'My proposal was turned down.',
+          'My proposal was turned.',
+          'My proposal was down turned.',
+          'My proposal turned down.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '片語動詞的介副詞不能省略。',
+          '介副詞的位置不正確。',
+          '這句缺少 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 不能用被動的動詞',
+      body: '① 不及物動詞：happen、occur、appear、arrive、rise\n' +
+            '② 部分狀態動詞：have（擁有）、resemble、lack、cost、fit\n' +
+            '　 ✗ A car is had by him.\n' +
+            '⚠ 沒有真正受詞的動詞就不能改被動。',
+      viz: { type: 'classify', groups: [
+        { label: '不能被動', items: ['happen', 'occur', 'arrive', 'resemble', 'lack', 'cost'] },
+        { label: '可以被動', items: ['build', 'write', 'discover', 'design'] }] },
+      check: {
+        q: '下列哪一句不正確？',
+        options: [
+          'The accident was happened at noon.',
+          'The accident happened at noon.',
+          'The bridge was built in 1980.',
+          'The book was written by her.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'happen 是不及物動詞，用主動正確。',
+          '橋是被建造的，被動正確。',
+          '書是被寫的，被動正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 主動形式表被動意義',
+      body: 'This book sells well.（這本書賣得好。）\n' +
+            'The door won’t open.（門打不開。）\n' +
+            'The meat cooks quickly.\n' +
+            '⚠ 這類動詞用主動形式，但語意上是被動，\n' +
+            '常搭配 well、easily、quickly 這類副詞。',
+      viz: { type: 'compareexp',
+             factor: '形式與意義',
+             a: { label: '形式', note: '主動：sells、opens' },
+             b: { label: '意義', note: '被動：被賣、被打開' },
+             same: ['都不用 be 加過去分詞'] },
+      check: {
+        q: 'This shirt washes easily. 這句話的意思是什麼？',
+        options: [
+          '這件襯衫很好洗',
+          '這件襯衫會洗東西',
+          '這件襯衫正在洗',
+          '這件襯衫洗壞了'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '襯衫不會主動洗東西。',
+          '這句用的不是進行式。',
+          '句中沒有提到損壞。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十上|第3單元 關係子句'] = {
+  intro: '關係子句是英文長句的骨幹，看懂它就看懂一半的學術文章。',
+  cards: [
+    {
+      title: '① 限定與非限定',
+      body: '限定用法（沒有逗號）：縮小範圍，不可省略\n' +
+            '　 The students who studied hard passed.（只有用功的那些過了）\n' +
+            '非限定（有逗號）：補充說明，可以拿掉\n' +
+            '　 The students, who studied hard, passed.（全部都過了）\n' +
+            '⚠ 一個逗號改變整句的意思。',
+      viz: { type: 'compareexp',
+             factor: '有沒有逗號',
+             a: { label: '限定', note: '縮小範圍，是必要資訊' },
+             b: { label: '非限定', note: '補充說明，拿掉不影響主要意思' },
+             same: ['都用關係代名詞引導'] },
+      check: {
+        q: 'My brother, who lives in Japan, is a doctor. 這句話透露什麼？',
+        options: [
+          '我只有一個哥哥，順便說明他住在日本',
+          '我有很多哥哥，這是住日本的那一個',
+          '我沒有哥哥',
+          '我哥哥不住日本'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '有逗號的非限定用法不用來區分。',
+          '句子明確提到有哥哥。',
+          '句子說他住在日本。'
+        ]
+      }
+    },
+    {
+      title: '② that 的限制',
+      body: '★ 非限定用法不能用 that：\n' +
+            '✗ My car, that is red, is new.\n' +
+            '✓ My car, which is red, is new.\n' +
+            '⚠ 逗號後面只能用 which 或 who。',
+      viz: { type: 'classify', groups: [
+        { label: '限定用法可用', items: ['that', 'which', 'who'] },
+        { label: '非限定只能用', items: ['which', 'who', 'whom', 'whose'] }] },
+      check: {
+        q: 'Taipei, ___ is the capital of Taiwan, is a big city. 空格要填什麼？',
+        options: ['which', 'that', 'what', 'it'],
+        answer: 0,
+        why: [
+          null,
+          '非限定用法不能用 that。',
+          'what 不能當關係代名詞接在先行詞後。',
+          'it 不是關係代名詞，會造成兩個子句沒有連接。'
+        ]
+      }
+    },
+    {
+      title: '③ 介系詞加關係代名詞',
+      body: 'the house in which he lives ＝ the house which he lives in\n' +
+            '⚠ 介系詞提前時，後面只能用 which 或 whom，\n' +
+            '不能用 that，也不能省略。',
+      viz: { type: 'compareexp',
+             factor: '介系詞的位置',
+             a: { label: '介系詞在前', note: 'in which（較正式，不可用 that）' },
+             b: { label: '介系詞在後', note: 'which…in（較口語，可用 that）' },
+             same: ['意思相同'] },
+      check: {
+        q: 'This is the man ___ whom I spoke. 空格要填什麼？',
+        options: ['to', 'that', 'which', 'who'],
+        answer: 0,
+        why: [
+          null,
+          '這個位置需要介系詞而不是關係代名詞。',
+          'which 用於物，而且位置不對。',
+          '這個位置需要介系詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 關係副詞',
+      body: 'where（地方）＝ in／at which\n' +
+            'when（時間）＝ on／in which\n' +
+            'why（原因）＝ for which\n' +
+            'This is the place where we met.\n' +
+            '⚠ 關係副詞後面接完整的句子，關係代名詞後面缺一個成分。',
+      viz: { type: 'compareexp',
+             factor: '後面完不完整',
+             a: { label: '關係代名詞', note: '後面缺主詞或受詞' },
+             b: { label: '關係副詞', note: '後面是完整的句子' },
+             same: ['都在修飾前面的名詞'] },
+      check: {
+        q: 'I remember the day ___ we first met. 空格要填什麼？',
+        options: ['when', 'which', 'that we', 'where'],
+        answer: 0,
+        why: [
+          null,
+          '後面是完整句子，要用關係副詞。',
+          '這樣會多出一個主詞。',
+          'where 用於地點而不是時間。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 關代的省略',
+      body: '① 受格關係代名詞可省略：the book (which) I read\n' +
+            '② 關代 ＋ be 動詞可一起省略，變成分詞片語：\n' +
+            '　 the man (who is) standing there\n' +
+            '⚠ 主格關代單獨出現時不能省略。',
+      viz: { type: 'energyflow', steps: ['the man who is standing', '省略 who is', 'the man standing', '分詞片語'] },
+      check: {
+        q: '下列哪一個關係代名詞可以省略？',
+        options: [
+          'The book that I bought was cheap.',
+          'The man who called was angry.',
+          'The dog which barked ran away.',
+          'The girl who won is my friend.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這裡的 who 是主格，不能省略。',
+          '這裡的 which 是主格，不能省略。',
+          '這裡的 who 是主格，不能省略。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 用關係子句合併長句',
+      body: '寫作時用關係子句可以合併短句，讓文章更成熟：\n' +
+            'I have a friend. He works at Google.\n' +
+            '→ I have a friend who works at Google.\n' +
+            '⚠ 但不要一句套三層，讀者會迷路。',
+      viz: { type: 'energyflow', steps: ['找出兩句共同的名詞', '決定用哪個關係代名詞', '合併', '檢查是否過長'] },
+      check: {
+        q: '用關係子句合併句子時，要避免什麼？',
+        options: [
+          '在同一句裡層層套疊太多子句',
+          '使用關係代名詞',
+          '把兩句合併',
+          '使用逗號'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '關係代名詞正是合併所需的工具。',
+          '合併正是這個技巧的目的。',
+          '非限定用法本來就需要逗號。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十上|第4單元 名詞子句'] = {
+  intro: '整個子句當名詞用，是學術英文最常見的結構之一。',
+  cards: [
+    {
+      title: '① 三種引導詞',
+      body: 'that：陳述事實（I know that he lied.）\n' +
+            'whether／if：是否（I wonder whether it works.）\n' +
+            '疑問詞：what／who／where／how（I don’t know what he wants.）\n' +
+            '⚠ 引導詞後面一律用陳述句語序。',
+      viz: { type: 'classify', groups: [
+        { label: '陳述', items: ['that'] },
+        { label: '是否', items: ['whether', 'if'] },
+        { label: '疑問詞', items: ['what', 'who', 'where', 'how', 'why'] }] },
+      check: {
+        q: '名詞子句裡的語序應該是什麼？',
+        options: [
+          '陳述句語序：主詞在動詞前面',
+          '疑問句語序：動詞在主詞前面',
+          '沒有固定語序',
+          '一律用被動語態'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '名詞子句不用疑問句的倒裝語序。',
+          '名詞子句的語序是固定的。',
+          '語態與子句的種類無關。'
+        ]
+      }
+    },
+    {
+      title: '② that 與 what 的區別',
+      body: 'that 後面是完整的句子：I know that he is honest.\n' +
+            'what 後面缺一個成分：I know what he wants.（wants 缺受詞）\n' +
+            '⚠ what 本身兼任子句裡的一個成分，that 不兼任。',
+      viz: { type: 'compareexp',
+             factor: '後面完不完整',
+             a: { label: 'that', note: '後面是完整句子' },
+             b: { label: 'what', note: '後面缺主詞或受詞' },
+             same: ['都引導名詞子句'] },
+      check: {
+        q: 'I don’t understand ___ he said.（said 缺受詞）空格要填什麼？',
+        options: ['what', 'that', 'which', 'whether'],
+        answer: 0,
+        why: [
+          null,
+          'that 後面要接完整的句子。',
+          'which 需要有先行詞。',
+          'whether 後面也要接完整的句子。'
+        ]
+      }
+    },
+    {
+      title: '③ 虛主詞 it',
+      body: 'That he passed the exam surprised us.\n' +
+            '→ It surprised us that he passed the exam.\n' +
+            '⚠ 名詞子句當主詞時太長，習慣用 it 代替，\n' +
+            '真正的主詞移到句尾。',
+      viz: { type: 'sentence', label: '虛主詞句型', items: [
+        { t: 'It', r: '虛主詞' }, { t: 'is clear', r: '主要述語' },
+        { t: 'that he lied', r: '真正的主詞' }],
+        note: '真正的主詞移到句尾。' },
+      check: {
+        q: 'That she won is amazing. 用虛主詞改寫是什麼？',
+        options: [
+          'It is amazing that she won.',
+          'It is amazing what she won.',
+          'That is amazing she won.',
+          'It amazing is that she won.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'what 後面會缺一個成分，語意改變。',
+          '虛主詞要用 it。',
+          '這個語序不正確。'
+        ]
+      }
+    },
+    {
+      title: '④ 名詞子句當補語與同位語',
+      body: '補語：The problem is that we lack time.\n' +
+            '同位語：The fact that he lied shocked everyone.\n' +
+            '⚠ 同位語的 that 不能省略，也不是關係代名詞，\n' +
+            '因為後面的句子是完整的。',
+      viz: { type: 'compareexp',
+             factor: 'that 後面完不完整',
+             a: { label: '同位語', note: 'the fact that he lied（完整）' },
+             b: { label: '關係子句', note: 'the fact that we know（缺受詞）' },
+             same: ['都接在名詞後面'] },
+      check: {
+        q: 'The news that he resigned shocked us. 這裡的 that 子句是什麼？',
+        options: [
+          '同位語，說明 news 的內容',
+          '關係子句，修飾 news',
+          '副詞子句',
+          '主要子句'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '後面的句子完整，不是關係子句。',
+          '這個子句在句中扮演名詞的角色。',
+          '主要子句是整句的主幹。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 介系詞後面的名詞子句',
+      body: 'I am not sure about whether he will come.\n' +
+            '★ 介系詞後面只能用 whether，不能用 if。\n' +
+            '⚠ that 子句一般不直接放在介系詞後面，\n' +
+            '需要用 the fact that 這樣的結構。',
+      viz: { type: 'classify', groups: [
+        { label: '可放介系詞後', items: ['whether', '疑問詞'] },
+        { label: '不可直接放', items: ['if', 'that（需加 the fact）'] }] },
+      check: {
+        q: 'It depends on ___ she agrees. 空格要填什麼？',
+        options: ['whether', 'if', 'that', 'what if'],
+        answer: 0,
+        why: [
+          null,
+          'if 不能放在介系詞後面。',
+          'that 子句一般不直接放在介系詞後面。',
+          '這個組合不符合英文結構。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 名詞子句的簡化',
+      body: 'I don’t know what I should do.→ I don’t know what to do.\n' +
+            '★ 兩句主詞相同、含有「該…」的語意時才能簡化。\n' +
+            '⚠ why 不能這樣簡化。',
+      viz: { type: 'energyflow', steps: ['確認主詞相同', '含有 should 或 can 的語意', '刪掉主詞與助動詞', '疑問詞加不定詞'] },
+      check: {
+        q: 'He asked me where he should park. 簡化後是什麼？',
+        options: [
+          'He asked me where to park.',
+          'He asked me why to park.',
+          'He asked me where parking.',
+          'He asked me where he to park.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '原句問的是地點而不是原因。',
+          '這個結構要用不定詞。',
+          '簡化後不保留主詞。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十上|第5單元 副詞子句'] = {
+  intro: '副詞子句提供時間、原因、條件、讓步等背景資訊。',
+  cards: [
+    {
+      title: '① 六大類副詞子句',
+      body: '時間：when、while、before、after、until、as soon as\n' +
+            '原因：because、since、as\n' +
+            '條件：if、unless、as long as\n' +
+            '讓步：although、though、even if\n' +
+            '目的：so that、in order that\n' +
+            '結果：so…that、such…that',
+      viz: { type: 'classify', groups: [
+        { label: '時間與條件', items: ['when', 'while', 'if', 'unless'] },
+        { label: '原因與結果', items: ['because', 'since', 'so that', 'so…that'] },
+        { label: '讓步', items: ['although', 'even if', 'even though'] }] },
+      check: {
+        q: 'although 引導的是哪一類副詞子句？',
+        options: ['讓步', '原因', '條件', '目的'],
+        answer: 0,
+        why: [
+          null,
+          '原因用 because 或 since。',
+          '條件用 if 或 unless。',
+          '目的用 so that。'
+        ]
+      }
+    },
+    {
+      title: '② 位置與標點',
+      body: '副詞子句放句首 → 後面加逗號\n' +
+            '　 Although it rained, we went out.\n' +
+            '副詞子句放句尾 → 通常不加逗號\n' +
+            '　 We went out although it rained.',
+      viz: { type: 'compareexp',
+             factor: '子句的位置',
+             a: { label: '放句首', note: '要加逗號' },
+             b: { label: '放句尾', note: '通常不加逗號' },
+             same: ['意思相同'] },
+      check: {
+        q: '副詞子句放在句首時，標點應該怎麼處理？',
+        options: [
+          '子句後面加逗號',
+          '不需要任何標點',
+          '加句號',
+          '加冒號'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '放句首時需要逗號分隔。',
+          '句號會把句子切斷。',
+          '冒號用於引出說明或清單。'
+        ]
+      }
+    },
+    {
+      title: '③ 一個句子只能一個連接詞',
+      body: '✗ Although it rained, but we went out.\n' +
+            '✗ Because he was sick, so he stayed home.\n' +
+            '⚠ 中文的「雖然…但是」「因為…所以」不能照搬，\n' +
+            '英文兩個連接詞連用是錯的。',
+      viz: { type: 'compareexp',
+             factor: '中文與英文',
+             a: { label: '中文', note: '兩個詞成對出現' },
+             b: { label: '英文', note: '只能留一個' },
+             same: ['表達的邏輯關係相同'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'Even though he tried, he failed.',
+          'Even though he tried, but he failed.',
+          'Because he tried, so he failed.',
+          'Although but he tried, he failed.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩個連接詞不能連用。',
+          '兩個連接詞不能連用。',
+          '兩個連接詞不能相鄰使用。'
+        ]
+      }
+    },
+    {
+      title: '④ 目的與結果的區別',
+      body: '目的（還沒發生）：He studied hard so that he could pass.\n' +
+            '結果（已經發生）：He studied so hard that he passed.\n' +
+            '⚠ so that 中間不放形容詞，so…that 中間要放形容詞。',
+      viz: { type: 'compareexp',
+             factor: '中間有沒有形容詞',
+             a: { label: 'so that（目的）', note: '兩個字相連' },
+             b: { label: 'so…that（結果）', note: '中間夾形容詞或副詞' },
+             same: ['都用到 so 和 that'] },
+      check: {
+        q: 'He spoke ___ loudly that everyone heard him. 空格要填什麼？',
+        options: ['so', 'so that', 'such', 'very'],
+        answer: 0,
+        why: [
+          null,
+          'so that 中間不放副詞。',
+          'such 後面要接名詞片語。',
+          'very 不能搭配 that 子句。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 時間與條件子句的時態',
+      body: '★ 不用未來式，用現在式代替：\n' +
+            'I will leave when he arrives.\n' +
+            'If it rains, we will cancel it.\n' +
+            '⚠ 但如果 when 引導的是名詞子句，就可以用未來式：\n' +
+            'I don’t know when he will come.',
+      viz: { type: 'compareexp',
+             factor: 'when 引導什麼子句',
+             a: { label: '副詞子句', note: '用現在式：when he arrives' },
+             b: { label: '名詞子句', note: '可用未來式：when he will come' },
+             same: ['都用 when 開頭'] },
+      check: {
+        q: 'I will call you as soon as I ___ home. 空格要填什麼？',
+        options: ['get', 'will get', 'got', 'am getting'],
+        answer: 0,
+        why: [
+          null,
+          '時間副詞子句裡不用 will。',
+          '句子講的是未來的事。',
+          '這裡不需要用進行式。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 副詞子句的簡化',
+      body: '主詞相同時可以簡化成分詞構句：\n' +
+            'While I was walking home, I saw him.\n' +
+            '→ Walking home, I saw him.\n' +
+            '⚠ 主詞不同時不能簡化，否則變成懸垂分詞。',
+      viz: { type: 'energyflow', steps: ['檢查兩句主詞是否相同', '刪掉連接詞與主詞', '動詞改成分詞', '確認語意清楚'] },
+      check: {
+        q: '副詞子句要簡化成分詞構句，前提是什麼？',
+        options: [
+          '兩個子句的主詞必須相同',
+          '句子必須很長',
+          '必須是過去式',
+          '必須有逗號'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長度不是簡化的條件。',
+          '各種時態都可以簡化。',
+          '逗號是結果而不是前提。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十上|第6單元 分詞構句'] = {
+  intro: '把副詞子句壓縮成分詞片語，句子會更精簡有力。',
+  cards: [
+    {
+      title: '① 三個步驟',
+      body: '① 確認兩個子句主詞相同\n' +
+            '② 刪掉連接詞與從屬子句的主詞\n' +
+            '③ 動詞改成分詞（主動用 Ving，被動用 p.p.）\n' +
+            'Because he was tired, he left early.→ Being tired, he left early.',
+      viz: { type: 'energyflow', steps: ['確認主詞相同', '刪連接詞與主詞', '動詞改分詞', '完成'] },
+      check: {
+        q: '把 When she saw the dog, she screamed. 改成分詞構句是什麼？',
+        options: [
+          'Seeing the dog, she screamed.',
+          'Seen the dog, she screamed.',
+          'See the dog, she screamed.',
+          'She seeing the dog, screamed.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '她是主動看到的，要用現在分詞。',
+          '分詞構句不用原形動詞。',
+          '簡化後不保留從屬子句的主詞。'
+        ]
+      }
+    },
+    {
+      title: '② 主動用 Ving，被動用 p.p.',
+      body: 'Written in simple English, the book is easy to read.\n' +
+            '（書是「被寫」的 → 用過去分詞）\n' +
+            'Walking down the street, I met him.\n' +
+            '（我是「主動」走的 → 用現在分詞）',
+      viz: { type: 'compareexp',
+             factor: '主詞是主動還是被動',
+             a: { label: '主動', note: '用現在分詞：Walking…' },
+             b: { label: '被動', note: '用過去分詞：Written…' },
+             same: ['都放在句首當背景'] },
+      check: {
+        q: '___ in 1990, the building is quite old. 空格要填什麼？',
+        options: ['Built', 'Building', 'Build', 'To build'],
+        answer: 0,
+        why: [
+          null,
+          '建築物是被建造的，要用過去分詞。',
+          '分詞構句不用原形動詞。',
+          '這裡不用不定詞。'
+        ]
+      }
+    },
+    {
+      title: '③ Being 常可省略',
+      body: 'Being tired, he went to bed.→ Tired, he went to bed.\n' +
+            'Being written in English, it is hard.→ Written in English, it is hard.\n' +
+            '⚠ 句首的 Being 通常可以省略。',
+      viz: { type: 'energyflow', steps: ['Because he was tired', 'Being tired', 'Tired（省略 Being）'] },
+      check: {
+        q: 'Being surrounded by mountains, the village is quiet. 省略 Being 之後是什麼？',
+        options: [
+          'Surrounded by mountains, the village is quiet.',
+          'Surround by mountains, the village is quiet.',
+          'Surrounding by mountains, the village is quiet.',
+          'To surround by mountains, the village is quiet.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '省略 Being 之後要保留過去分詞。',
+          '村莊是被群山環繞的，要用過去分詞。',
+          '這裡不用不定詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 完成式分詞構句',
+      body: 'Having finished his homework, he went out.\n' +
+            '★ 用 Having ＋ p.p. 表示分詞的動作發生在主句之前。\n' +
+            '⚠ 兩個動作有明顯先後時使用。',
+      viz: { type: 'compareexp',
+             factor: '時間先後',
+             a: { label: 'Ving', note: '同時發生：Walking home, I saw…' },
+             b: { label: 'Having p.p.', note: '先發生：Having eaten, he left.' },
+             same: ['都是分詞構句'] },
+      check: {
+        q: '想表達「寫完報告之後，他就睡了」，分詞構句要怎麼寫？',
+        options: [
+          'Having finished the report, he went to sleep.',
+          'Finishing the report, he went to sleep.',
+          'Finished the report, he went to sleep.',
+          'Have finished the report, he went to sleep.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個形式無法明確表達先後。',
+          '報告不是主詞被動承受的對象。',
+          '分詞構句不用原形的 have。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 避免懸垂分詞',
+      body: '✗ Walking down the street, the store was closed.\n' +
+            '（店會走路？）\n' +
+            '✓ Walking down the street, I found the store closed.\n' +
+            '⚠ 分詞的動作一定要由主句的主詞來做。',
+      viz: { type: 'compareexp',
+             factor: '主詞一不一致',
+             a: { label: '正確', note: '分詞的動作由主句主詞執行' },
+             b: { label: '懸垂分詞', note: '主詞不一致，語意荒謬' },
+             same: ['形式看起來一樣'] },
+      check: {
+        q: '下列哪一句有懸垂分詞的問題？',
+        options: [
+          'Driving to work, the traffic was terrible.',
+          'Driving to work, I got stuck in traffic.',
+          'Feeling tired, she took a nap.',
+          'Having studied hard, he passed.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '分詞的動作由 I 執行，正確。',
+          '分詞的動作由 she 執行，正確。',
+          '分詞的動作由 he 執行，正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 獨立分詞構句',
+      body: '主詞不同時，保留分詞的主詞：\n' +
+            'The weather being fine, we went hiking.\n' +
+            'It being Sunday, the shop was closed.\n' +
+            '⚠ 這叫獨立分詞構句，屬於較正式的書面語。',
+      viz: { type: 'compareexp',
+             factor: '主詞相不相同',
+             a: { label: '一般分詞構句', note: '主詞相同，省略' },
+             b: { label: '獨立分詞構句', note: '主詞不同，保留' },
+             same: ['都用分詞形式'] },
+      check: {
+        q: '兩個子句主詞不同又想用分詞構句，應該怎麼做？',
+        options: [
+          '保留分詞前面的主詞，寫成獨立分詞構句',
+          '直接省略，反正讀者看得懂',
+          '把主句的主詞改掉',
+          '不能用分詞，只能拆成兩句'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '省略會造成懸垂分詞的錯誤。',
+          '改主詞會改變句子的意思。',
+          '獨立分詞構句正是為此而存在。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十上|第7單元 學術字彙入門'] = {
+  intro: '學術英文有一批高頻字，先掌握它們閱讀效率就會提升。',
+  cards: [
+    {
+      title: '① 什麼是學術字彙',
+      body: '不屬於日常口語、但在各學科文章反覆出現的字：\n' +
+            'analyze、factor、significant、method、data、concept\n' +
+            '⚠ 這些字跨學科通用，投報率最高。',
+      viz: { type: 'classify', groups: [
+        { label: '日常字彙', items: ['get', 'make', 'thing', 'good'] },
+        { label: '學術字彙', items: ['obtain', 'generate', 'factor', 'beneficial'] }] },
+      check: {
+        q: '學術字彙的特點是什麼？',
+        options: [
+          '跨學科反覆出現，但較少用於日常口語',
+          '只出現在英文課本裡',
+          '都是很長的單字',
+          '都來自拉丁文'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這些字廣泛出現在各領域的文章。',
+          '字的長度不是判斷的標準。',
+          '來源不是定義學術字彙的條件。'
+        ]
+      }
+    },
+    {
+      title: '② 正式與非正式的對應',
+      body: 'get → obtain／acquire　　show → demonstrate／indicate\n' +
+            'a lot of → numerous／considerable　　think → consider／assume\n' +
+            '⚠ 寫作時把口語字換成學術字，語體立刻提升。',
+      viz: { type: 'compareexp',
+             factor: '語體',
+             a: { label: '口語', note: 'get、show、a lot of' },
+             b: { label: '書面', note: 'obtain、demonstrate、numerous' },
+             same: ['核心意思相同'] },
+      check: {
+        q: '在正式寫作中，show 可以換成哪一個字？',
+        options: ['demonstrate', 'look', 'watch', 'see'],
+        answer: 0,
+        why: [
+          null,
+          'look 是「看」的動作。',
+          'watch 是觀看某個過程。',
+          'see 是看見，語意不同。'
+        ]
+      }
+    },
+    {
+      title: '③ 一字多形',
+      body: 'analyze（動）→ analysis（名）→ analytical（形）→ analytically（副）\n' +
+            '⚠ 學一個字要連著它的家族一起記，\n' +
+            '因為考題常考詞性轉換。',
+      viz: { type: 'energyflow', steps: ['analyze（動詞）', 'analysis（名詞）', 'analytical（形容詞）', 'analytically（副詞）'] },
+      check: {
+        q: 'The ___ of the data took two weeks. 空格應該填哪一個詞性？',
+        options: ['名詞 analysis', '動詞 analyze', '形容詞 analytical', '副詞 analytically'],
+        answer: 0,
+        why: [
+          null,
+          '冠詞後面不能直接接動詞。',
+          '形容詞不能單獨當主詞。',
+          '副詞不能當主詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 表達因果的學術用語',
+      body: '原因：due to、owing to、result from、stem from\n' +
+            '結果：lead to、result in、contribute to、give rise to\n' +
+            '⚠ result from 是「起因於」，result in 是「導致」，\n' +
+            '方向完全相反。',
+      viz: { type: 'compareexp',
+             factor: '因果的方向',
+             a: { label: 'result from', note: 'A 起因於 B' },
+             b: { label: 'result in', note: 'A 導致 B' },
+             same: ['都用 result'] },
+      check: {
+        q: 'Smoking results ___ lung cancer.（導致）空格要填什麼？',
+        options: ['in', 'from', 'to', 'of'],
+        answer: 0,
+        why: [
+          null,
+          'result from 表示起因於，方向相反。',
+          'result 不搭配 to。',
+          'result 不搭配 of。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 表達程度與比例',
+      body: 'significant（顯著的）　considerable（相當大的）\n' +
+            'moderate（中等的）　negligible（微不足道的）\n' +
+            'approximately（大約）　roughly（大致上）\n' +
+            '⚠ 學術寫作重視精確，避免用 very、really。',
+      viz: { type: 'energyflow', steps: ['negligible（極小）', 'moderate（中等）', 'considerable（相當大）', 'significant（顯著）'] },
+      check: {
+        q: '下列哪一個字表示「微不足道的」？',
+        options: ['negligible', 'significant', 'considerable', 'substantial'],
+        answer: 0,
+        why: [
+          null,
+          'significant 表示顯著。',
+          'considerable 表示相當大。',
+          'substantial 表示可觀的。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 怎麼有效累積',
+      body: '① 遇到生字先看上下文猜意思\n' +
+            '② 記在句子裡，順便記搭配詞\n' +
+            '③ 同一個字的家族一起記\n' +
+            '④ 一週回顧一次，隔一段時間再回顧\n' +
+            '⚠ 分散複習比一次背五十個有效得多。',
+      viz: { type: 'energyflow', steps: ['先猜再查', '記在句子裡', '記整個字族', '間隔回顧'] },
+      check: {
+        q: '背單字時，為什麼建議記在句子裡？',
+        options: [
+          '可以同時掌握用法與搭配詞',
+          '因為句子比較好看',
+          '因為單字太短',
+          '因為老師會考句子'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '外觀不是學習的重點。',
+          '單字長短與記憶方法無關。',
+          '重點是實際能用出來而不是應付考試。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十上|第8單元 閱讀：主旨與結構'] = {
+  intro: '看懂文章的骨架，讀長文就不會迷路。',
+  cards: [
+    {
+      title: '① 常見的文章結構',
+      body: '① 總分總：先立論 → 舉證 → 總結\n' +
+            '② 比較對照：A 與 B 的異同\n' +
+            '③ 問題解決：提出問題 → 分析 → 提出方案\n' +
+            '④ 時間順序：依先後敘述\n' +
+            '⚠ 認出結構就知道重點會出現在哪裡。',
+      viz: { type: 'classify', groups: [
+        { label: '結構類型', items: ['總分總', '比較對照', '問題解決', '因果', '時間順序'] }] },
+      check: {
+        q: '文章先提出一個社會問題，再分析成因，最後提出建議，這是哪一種結構？',
+        options: [
+          '問題解決',
+          '比較對照',
+          '時間順序',
+          '人物傳記'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '比較對照會並列兩個對象。',
+          '時間順序依先後敘述事件。',
+          '傳記以某個人的生平為主軸。'
+        ]
+      }
+    },
+    {
+      title: '② 主題句與支持句',
+      body: '主題句：一段的中心想法（多在段首）\n' +
+            '支持句：例子、數據、引用、細節\n' +
+            '⚠ 支持句再精采也不是主旨，\n' +
+            '主旨題要選能涵蓋所有支持句的那一個。',
+      viz: { type: 'energyflow', steps: ['主題句（中心想法）', '支持句一（例子）', '支持句二（數據）', '結論句'] },
+      check: {
+        q: '段落裡的數據和例子扮演什麼角色？',
+        options: [
+          '支持主題句的證據',
+          '整段的主旨',
+          '和主題無關的補充',
+          '文章的結論'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主旨是它們共同支持的那個想法。',
+          '它們與主題直接相關。',
+          '結論通常出現在段落或全文的最後。'
+        ]
+      }
+    },
+    {
+      title: '③ 連接詞是結構的路標',
+      body: '並列：moreover、furthermore、in addition\n' +
+            '對比：however、on the contrary、nevertheless\n' +
+            '因果：therefore、consequently、as a result\n' +
+            '舉例：for instance、to illustrate\n' +
+            '總結：in short、to sum up、in conclusion',
+      viz: { type: 'classify', groups: [
+        { label: '並列', items: ['moreover', 'furthermore', 'in addition'] },
+        { label: '對比', items: ['however', 'nevertheless', 'on the contrary'] },
+        { label: '總結', items: ['in short', 'to sum up', 'in conclusion'] }] },
+      check: {
+        q: '看到 In conclusion 開頭，通常表示什麼？',
+        options: [
+          '接下來是全文的總結',
+          '接下來是新的論點',
+          '接下來是舉例',
+          '接下來是反駁'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '新論點通常用 moreover 這類詞引出。',
+          '舉例會用 for instance。',
+          '反駁會用 however 這類轉折詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 快速掃讀的方法',
+      body: 'Skimming（略讀）：抓大意，看標題與各段首句\n' +
+            'Scanning（掃讀）：找特定資訊，如數字、人名、年份\n' +
+            '⚠ 考試時先略讀抓結構，再依題目掃讀定位。',
+      viz: { type: 'compareexp',
+             factor: '目的不同',
+             a: { label: 'Skimming', note: '快速抓整體大意' },
+             b: { label: 'Scanning', note: '找特定的一個資訊' },
+             same: ['都不是逐字精讀'] },
+      check: {
+        q: '要在一篇長文裡找出某個年份，應該用哪一種閱讀方式？',
+        options: [
+          'Scanning，快速掃過找特定資訊',
+          'Skimming，抓整體大意',
+          '逐字精讀',
+          '從最後一段倒著讀'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '略讀是抓大意，不適合找單一資訊。',
+          '逐字讀會浪費太多時間。',
+          '倒著讀不會提高找資訊的效率。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 代名詞指涉',
+      body: '長文裡常出現 it、they、this、such 指前面提過的東西。\n' +
+            '★ 找指涉對象的方法：往前找最近、且單複數與語意相符的名詞。\n' +
+            '⚠ 指涉題是閱讀測驗的常客。',
+      viz: { type: 'energyflow', steps: ['看到代名詞', '往前找最近的名詞', '檢查單複數是否相符', '代回句中確認語意'] },
+      check: {
+        q: '判斷代名詞指的是什麼，最可靠的方法是什麼？',
+        options: [
+          '把候選的名詞代回原句，看語意通不通',
+          '選文章裡最常出現的名詞',
+          '選離它最遠的名詞',
+          '選第一段的第一個名詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '出現頻率高不代表就是指涉對象。',
+          '代名詞通常指的是較近的名詞。',
+          '位置固定的猜法沒有依據。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 段落之間的關係',
+      body: '每段開頭常有一句「橋樑句」，說明和上一段的關係：\n' +
+            'However, this view has been challenged.（轉折）\n' +
+            'Another factor is…（並列）\n' +
+            '⚠ 讀完一段就問自己：這段和上一段是什麼關係。',
+      viz: { type: 'energyflow', steps: ['讀完一段', '問這段在做什麼', '和上一段什麼關係', '繼續下一段'] },
+      check: {
+        q: '讀完一個段落後，最有幫助的自我提問是什麼？',
+        options: [
+          '這一段在整篇文章裡扮演什麼角色',
+          '這一段有幾個生字',
+          '這一段有幾句話',
+          '這一段有沒有數字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '生字數量與理解結構無關。',
+          '句數與段落的功能無關。',
+          '有沒有數字不決定段落的角色。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十上|第9單元 寫作：段落與句型'] = {
+  intro: '一個好段落有骨架，一個好句子有變化。',
+  cards: [
+    {
+      title: '① 段落的三個部分',
+      body: '主題句（Topic Sentence）：這段要說什麼\n' +
+            '支持句（Supporting Sentences）：例子、理由、數據\n' +
+            '結論句（Concluding Sentence）：收尾或連到下一段\n' +
+            '⚠ 一段只講一個重點。',
+      viz: { type: 'energyflow', steps: ['主題句', '支持句一', '支持句二', '結論句'] },
+      check: {
+        q: '一個段落最重要的原則是什麼？',
+        options: [
+          '一段只發展一個中心想法',
+          '一段要有十句以上',
+          '一段要有很多生難字',
+          '一段要用很多逗號'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '段落長度沒有固定規定。',
+          '用字艱深不等於寫得好。',
+          '標點數量與段落品質無關。'
+        ]
+      }
+    },
+    {
+      title: '② 主題句怎麼寫',
+      body: '主題句 ＝ 主題 ＋ 你對它的看法（controlling idea）\n' +
+            '✗ I will talk about exercise.（只說主題）\n' +
+            '✓ Regular exercise improves both physical and mental health.\n' +
+            '⚠ 主題句要有立場，才有東西可以發展。',
+      viz: { type: 'sentence', label: '主題句的兩個部分', items: [
+        { t: 'Regular exercise', r: '主題' },
+        { t: 'improves physical and mental health', r: '你的看法' }],
+        note: '主題加上看法才是完整的主題句。' },
+      check: {
+        q: '下列哪一句比較適合當主題句？',
+        options: [
+          'Social media has changed how teenagers make friends.',
+          'This paragraph is about social media.',
+          'Social media.',
+          'I like social media very much.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '只宣告主題而沒有提出看法。',
+          '這不是完整的句子。',
+          '個人喜好不容易發展成論述。'
+        ]
+      }
+    },
+    {
+      title: '③ 句型要有變化',
+      body: '簡單句：I like it.\n' +
+            '合句：I like it, but he doesn’t.\n' +
+            '複句：Although I like it, he doesn’t.\n' +
+            '⚠ 全部用簡單句會很幼稚，全部用長句會很難讀，\n' +
+            '長短交錯最好。',
+      viz: { type: 'classify', groups: [
+        { label: '簡單句', items: ['一個主詞加一個動詞'] },
+        { label: '合句', items: ['對等連接詞連接兩個獨立子句'] },
+        { label: '複句', items: ['主句加附屬子句'] }] },
+      check: {
+        q: 'Although it rained, we went out. 這是哪一種句子？',
+        options: [
+          '複句',
+          '簡單句',
+          '合句',
+          '不完整的句子'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '簡單句只有一組主詞與動詞。',
+          '合句用對等連接詞連接兩個獨立子句。',
+          '這是完整的句子。'
+        ]
+      }
+    },
+    {
+      title: '④ 開頭方式要變化',
+      body: '不要每句都用主詞開頭：\n' +
+            '副詞開頭：Suddenly, the lights went out.\n' +
+            '介系詞片語：In the morning, we left.\n' +
+            '分詞構句：Having finished, he left.\n' +
+            '⚠ 變換句首能讓文章更流暢。',
+      viz: { type: 'classify', groups: [
+        { label: '句首的變化', items: ['副詞開頭', '介系詞片語', '分詞構句', '附屬子句'] }] },
+      check: {
+        q: '為什麼寫作時要變換句子的開頭？',
+        options: [
+          '避免節奏單調，讓文章讀起來更流暢',
+          '為了增加字數',
+          '為了用到更多逗號',
+          '因為規定不能用主詞開頭'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '變換開頭的目的不是灌水。',
+          '標點是結果而不是目的。',
+          '主詞開頭本身沒有錯，只是不要每句都一樣。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 連貫與銜接',
+      body: '連貫（coherence）：想法的順序合理\n' +
+            '銜接（cohesion）：用連接詞、代名詞把句子扣起來\n' +
+            '⚠ 兩者缺一不可：光有連接詞但邏輯跳躍，還是讀不懂。',
+      viz: { type: 'compareexp',
+             factor: '兩個層次',
+             a: { label: '連貫', note: '想法之間有邏輯順序' },
+             b: { label: '銜接', note: '用語言手段把句子接起來' },
+             same: ['都讓文章更好讀'] },
+      check: {
+        q: '一篇文章連接詞用得很多，但讀起來仍然混亂，最可能缺的是什麼？',
+        options: [
+          '連貫：想法本身的邏輯順序',
+          '銜接：連接詞',
+          '字彙量',
+          '標點符號'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '題目已說連接詞用得很多。',
+          '字彙量不足會影響表達，但不是這裡的問題。',
+          '標點問題不會造成整體邏輯混亂。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 修改的檢查清單',
+      body: '① 每段是不是只講一個重點\n' +
+            '② 主題句有沒有立場\n' +
+            '③ 有沒有支持的例子或理由\n' +
+            '④ 句型有沒有變化\n' +
+            '⑤ 文法：時態、主動詞一致、冠詞\n' +
+            '⚠ 寫完先放一下再改，比較看得出問題。',
+      viz: { type: 'energyflow', steps: ['檢查段落重點', '檢查主題句', '檢查支持證據', '檢查句型變化', '檢查文法'] },
+      check: {
+        q: '寫完文章後最好的修改習慣是什麼？',
+        options: [
+          '先放一段時間再重讀，比較看得出問題',
+          '寫完立刻交出去',
+          '只檢查拼字',
+          '請別人重寫一遍'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '立刻交出去容易漏掉明顯的錯誤。',
+          '只檢查拼字會忽略結構與邏輯問題。',
+          '請人重寫就失去了練習的意義。'
+        ]
+      }
+    }
+  ]
+};
