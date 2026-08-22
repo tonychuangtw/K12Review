@@ -5706,3 +5706,1406 @@ window.APP_LESSONS['english|四下|第9單元 短文閱讀理解'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|五上|第1單元 字母與母音字母'] = {
+  intro: '二十六個字母，五個母音——整個英文系統就建立在這上面。',
+  cards: [
+    {
+      title: '① 二十六個字母',
+      body: '大寫：A B C D E F G H I J K L M N O P Q R S T U V W X Y Z。\n' +
+            '小寫：a b c d e f g h i j k l m n o p q r s t u v w x y z。\n' +
+            '⚠ 大寫用在：句首、專有名詞（人名、地名、月份、星期）、\n' +
+            '以及代名詞 I（永遠大寫）。',
+      viz: { type: 'classify', groups: [
+        { label: '一定大寫', items: ['句首', '人名', '地名', '月份', '星期', 'I'] },
+        { label: '通常小寫', items: ['一般名詞', '動詞', '形容詞'] }] },
+      check: {
+        q: '下列哪一個字在句子中間也一定要大寫？',
+        options: ['I', 'book', 'run', 'happy'],
+        answer: 0,
+        why: [
+          null,
+          '一般名詞在句中用小寫。',
+          '動詞在句中用小寫。',
+          '形容詞在句中用小寫。'
+        ]
+      }
+    },
+    {
+      title: '② 母音與子音',
+      body: '母音字母：a、e、i、o、u（有時 y 也當母音，例如 my、happy）。\n' +
+            '其餘 21 個是子音字母。\n' +
+            '⚠ 每個英文音節都要有一個母音，這是拼字的重要線索。',
+      viz: { type: 'classify', groups: [
+        { label: '母音字母', items: ['a', 'e', 'i', 'o', 'u'] },
+        { label: '有時當母音', items: ['y'] }] },
+      check: {
+        q: '下列哪一組全部都是母音字母？',
+        options: ['a、e、i', 'b、c、d', 'a、b、c', 'm、n、o'],
+        answer: 0,
+        why: [
+          null,
+          '這三個都是子音字母。',
+          'b 與 c 是子音。',
+          'm 與 n 是子音。'
+        ]
+      }
+    },
+    {
+      title: '③ 母音的長短音',
+      body: '短音：cat、bed、pig、dog、cup（子音＋母音＋子音）。\n' +
+            '長音：cake、these、bike、home、cute（字尾有不發音的 e）。\n' +
+            '⚠ 長音就是「唸出字母本身的名字」。',
+      viz: { type: 'phonics', words: [
+        { w: 'cap', parts: ['c', 'a', 'p'], hit: 1, s: 'a 的短音', mean: '帽子' },
+        { w: 'cape', parts: ['c', 'a', 'p', 'e'], hit: 1, s: 'a 的長音', mean: '斗篷' }] },
+      tip: '按單字按鈕比較長短音。',
+      check: {
+        q: '長母音的特徵是什麼？',
+        options: [
+          '唸出字母本身的名字',
+          '完全不發音',
+          '比子音還短',
+          '只出現在字尾'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長母音是要發音的。',
+          '長母音比短母音長。',
+          '長母音可以出現在字的中間。'
+        ]
+      }
+    },
+    {
+      title: '④ 音節',
+      body: '音節是「發音的單位」，每個音節有一個母音。\n' +
+            'cat（1 個音節）、rab-bit（2 個）、ba-na-na（3 個）、\n' +
+            'in-ter-est-ing（4 個）。\n' +
+            '⚠ 數音節的方法：把手放在下巴下面，唸一次下巴動幾次就是幾個音節。',
+      viz: { type: 'phonics', words: [
+        { w: 'rabbit', parts: ['rab', 'bit'], hit: 0, s: '兩個音節', mean: '兔子' },
+        { w: 'banana', parts: ['ba', 'na', 'na'], hit: 1, s: '三個音節', mean: '香蕉' }] },
+      check: {
+        q: 'banana 這個字有幾個音節？',
+        options: ['3 個', '1 個', '2 個', '6 個'],
+        answer: 0,
+        why: [
+          null,
+          '這個字不只一個母音。',
+          '仔細唸會發現有三個母音。',
+          '音節數不等於字母數。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 重音',
+      body: '多音節的字有一個音節唸得比較重（重音）。\n' +
+            '例：TEA-cher、com-PU-ter、im-POR-tant。\n' +
+            '⚠ 重音位置錯了，聽的人可能聽不懂——\n' +
+            '所以背單字時要一起記重音在哪裡。',
+      viz: { type: 'phonics', words: [
+        { w: 'teacher', parts: ['TEA', 'cher'], hit: 0, s: '重音在第一音節', mean: '老師' },
+        { w: 'computer', parts: ['com', 'PU', 'ter'], hit: 1, s: '重音在第二音節', mean: '電腦' }] },
+      check: {
+        q: '為什麼背單字時要注意重音？',
+        options: [
+          '重音位置錯了可能讓對方聽不懂',
+          '重音不影響溝通',
+          '重音只影響拼字',
+          '重音只在唱歌時才重要'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '重音是英文發音的重要特徵。',
+          '重音影響的是發音而非拼字。',
+          '日常對話中重音同樣重要。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 字母與發音的關係',
+      body: '英文的字母與發音不是一對一：同一個字母可能有不同發音\n' +
+            '（cat 的 a 與 cake 的 a），不同字母也可能發同樣的音\n' +
+            '（see 與 sea）。\n' +
+            '⚠ 所以要學「規則」而不是死背個別單字，遇到例外再另外記。',
+      viz: { type: 'compareexp',
+             factor: '字母與發音',
+             a: { label: '同字母不同音', note: 'cat 的 a 與 cake 的 a' },
+             b: { label: '不同拼法同音', note: 'see 與 sea' },
+             same: ['都說明英文拼音不是一對一'] },
+      check: {
+        q: 'see 和 sea 這兩個字有什麼特點？',
+        options: [
+          '拼法不同但發音相同',
+          '拼法相同但發音不同',
+          '意思完全相同',
+          '兩者都不是英文字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩個字的拼法明顯不同。',
+          '一個是看見，一個是海。',
+          '兩者都是常用的英文字。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五上|第2單元 自然發音'] = {
+  intro: '自然發音不是背單字，是學會「看到字就唸得出來」的規則。',
+  cards: [
+    {
+      title: '① 子音的基本音',
+      body: 'b（球）、c（貓，多半發 k 的音）、d、f、g、h、j、k、l、m、n、\n' +
+            'p、q（常與 u 一起）、r、s、t、v、w、x、y、z。\n' +
+            '⚠ c 在 e、i、y 前面發 s 的音：city、cent、cycle。',
+      viz: { type: 'phonics', words: [
+        { w: 'cat', parts: ['c', 'a', 't'], hit: 0, s: 'c 發 k 的音', mean: '貓' },
+        { w: 'city', parts: ['c', 'i', 'ty'], hit: 0, s: 'c 發 s 的音', mean: '城市' }] },
+      tip: '按單字按鈕比較同一個字母的不同發音。',
+      check: {
+        q: '字母 c 在 city 這個字裡發什麼音？',
+        options: [
+          '發 s 的音',
+          '發 k 的音',
+          '不發音',
+          '發 ch 的音'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'c 在 a、o、u 前面才發 k 的音。',
+          '這個位置的 c 要發音。',
+          'ch 是另一種字母組合。'
+        ]
+      }
+    },
+    {
+      title: '② 短母音複習',
+      body: 'a（cat）、e（bed）、i（pig）、o（dog）、u（cup）。\n' +
+            '⚠ 出現在「子音＋母音＋子音」結構中時，母音多半發短音。\n' +
+            '這個結構在英文裡非常常見。',
+      viz: { type: 'phonics', words: [
+        { w: 'cat', parts: ['c', 'a', 't'], hit: 1, s: 'a 的短音', mean: '貓' },
+        { w: 'bed', parts: ['b', 'e', 'd'], hit: 1, s: 'e 的短音', mean: '床' },
+        { w: 'cup', parts: ['c', 'u', 'p'], hit: 1, s: 'u 的短音', mean: '杯子' }] },
+      check: {
+        q: '「子音＋母音＋子音」結構中的母音，通常發什麼音？',
+        options: ['短音', '長音', '不發音', '兩者皆可'],
+        answer: 0,
+        why: [
+          null,
+          '長音多出現在有字尾 e 的結構中。',
+          '母音一定要發音。',
+          '這個結構有明確的規則。'
+        ]
+      }
+    },
+    {
+      title: '③ magic e 複習',
+      body: 'cake、bike、home、cute、these：字尾的 e 不發音，\n' +
+            '但讓前面的母音發長音。\n' +
+            '⚠ 比較：cap／cape、kit／kite、hop／hope、cut／cute。',
+      viz: { type: 'phonics', words: [
+        { w: 'kit', parts: ['k', 'i', 't'], hit: 1, s: 'i 的短音', mean: '工具組' },
+        { w: 'kite', parts: ['k', 'i', 't', 'e'], hit: 1, s: 'i 的長音', mean: '風箏' }] },
+      check: {
+        q: '字尾的 magic e 有什麼作用？',
+        options: [
+          '本身不發音，讓前面的母音發長音',
+          '本身要發音',
+          '讓前面的子音消失',
+          '沒有任何作用'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個 e 是不發音的。',
+          '子音不會因此消失。',
+          '它明確改變了母音的發音。'
+        ]
+      }
+    },
+    {
+      title: '④ 母音組合',
+      body: 'ai／ay：rain、day（發 a 的長音）。\n' +
+            'ee／ea：see、eat（發 e 的長音）。\n' +
+            'oa／ow：boat、snow（發 o 的長音）。\n' +
+            '⚠ 口訣：「兩個母音走在一起，第一個說話，第二個不出聲」\n' +
+            '（大部分情況適用）。',
+      viz: { type: 'phonics', words: [
+        { w: 'rain', parts: ['r', 'ai', 'n'], hit: 1, s: 'ai 發 a 的長音', mean: '雨' },
+        { w: 'see', parts: ['s', 'ee'], hit: 1, s: 'ee 發 e 的長音', mean: '看見' },
+        { w: 'boat', parts: ['b', 'oa', 't'], hit: 1, s: 'oa 發 o 的長音', mean: '船' }] },
+      check: {
+        q: 'rain 這個字中的 ai 發什麼音？',
+        options: [
+          'a 的長音',
+          'i 的長音',
+          'a 的短音',
+          '不發音'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個組合中發音的是第一個母音。',
+          '母音組合通常發長音。',
+          '母音組合一定要發音。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 特殊組合',
+      body: 'oo：book（短）／moon（長）——同一組合有兩種發音。\n' +
+            'ou／ow：house、cow（發類似「ㄠ」的音）。\n' +
+            'oi／oy：coin、boy。\n' +
+            'ar／or／er／ir／ur：car、for、her、bird、turn（r 控制的母音）。\n' +
+            '⚠ 這些要多聽多唸才會熟。',
+      viz: { type: 'phonics', words: [
+        { w: 'book', parts: ['b', 'oo', 'k'], hit: 1, s: 'oo 的短音', mean: '書' },
+        { w: 'moon', parts: ['m', 'oo', 'n'], hit: 1, s: 'oo 的長音', mean: '月亮' },
+        { w: 'car', parts: ['c', 'ar'], hit: 1, s: 'ar 的音', mean: '汽車' }] },
+      check: {
+        q: 'book 和 moon 這兩個字的 oo 有什麼差別？',
+        options: [
+          '同樣的字母組合但發音長短不同',
+          '發音完全相同',
+          'book 的 oo 不發音',
+          '兩者都是短音'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '仔細唸會發現長度不同。',
+          'oo 在 book 中要發音。',
+          'moon 的 oo 是長音。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 用發音規則自學單字',
+      body: '看到新字時：① 找出母音 ② 判斷結構（短音、magic e、母音組合）\n' +
+            '③ 試著拼讀 ④ 查證發音。\n' +
+            '⚠ 這個能力一旦建立，背單字的速度會快很多，\n' +
+            '也不容易忘記。',
+      viz: { type: 'energyflow', steps: ['找出母音', '判斷結構', '試著拼讀', '查證確認'] },
+      check: {
+        q: '學會自然發音規則之後，最大的好處是什麼？',
+        options: [
+          '看到新單字能自己拼讀，學習與記憶都更有效率',
+          '不用再學單字',
+          '不用再聽英文',
+          '所有單字都能猜對意思'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '仍然需要累積字彙。',
+          '聽力練習依然重要。',
+          '發音規則幫助讀音，不直接給出意思。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五上|第3單元 be 動詞與自我介紹'] = {
+  intro: 'be 動詞是英文最重要的動詞——因為它負責說明「是什麼、在哪裡、怎麼樣」。',
+  cards: [
+    {
+      title: '① be 動詞的三種形式',
+      body: 'I ＋ am；he／she／it ＋ is；you／we／they ＋ are。\n' +
+            '⚠ 主詞是單數名詞用 is（My brother is…），\n' +
+            '複數名詞用 are（My parents are…）。',
+      viz: { type: 'classify', groups: [
+        { label: 'am', items: ['I'] },
+        { label: 'is', items: ['he', 'she', 'it', 'Amy', 'my brother'] },
+        { label: 'are', items: ['you', 'we', 'they', 'my parents'] }] },
+      check: {
+        q: '主詞是 my parents 時，應該用哪一個 be 動詞？',
+        options: ['are', 'is', 'am', '不需要 be 動詞'],
+        answer: 0,
+        why: [
+          null,
+          'parents 是複數，不用 is。',
+          'am 只能配主詞 I。',
+          '這類句子需要 be 動詞。'
+        ]
+      }
+    },
+    {
+      title: '② be 動詞的三種用法',
+      body: '① 說明身分：I am a student.\n' +
+            '② 說明狀態：She is happy.\n' +
+            '③ 說明位置：They are in the classroom.\n' +
+            '⚠ 三種用法的共同點是：後面接名詞、形容詞或地點，而不是動作。',
+      viz: { type: 'sentence', label: '身分', items: [
+        { t: 'I', r: '主詞' }, { t: 'am', r: 'be 動詞' }, { t: 'a student', r: '名詞' }],
+        note: '說明身分時後面接名詞。',
+        alt: [
+          { label: '狀態', items: [{ t: 'She', r: '主詞' }, { t: 'is', r: 'be 動詞' },
+            { t: 'happy', r: '形容詞' }], note: '說明狀態時後面接形容詞。' },
+          { label: '位置', items: [{ t: 'They', r: '主詞' }, { t: 'are', r: 'be 動詞' },
+            { t: 'in the classroom', r: '地點' }], note: '說明位置時後面接地點片語。' }] },
+      tip: '按按鈕看三種用法。',
+      check: {
+        q: 'be 動詞後面「不會」直接接什麼？',
+        options: [
+          '表示動作的原形動詞',
+          '名詞',
+          '形容詞',
+          '地點片語'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '名詞可以接在 be 動詞後面。',
+          '形容詞是常見的搭配。',
+          '地點片語也可以接在後面。'
+        ]
+      }
+    },
+    {
+      title: '③ 否定句',
+      body: '在 be 動詞後面加 not：\n' +
+            'I am not a teacher.　He is not tall.（＝ isn’t）\n' +
+            'They are not here.（＝ aren’t）\n' +
+            '⚠ be 動詞的否定不需要 do／does。',
+      viz: { type: 'sentence', label: '否定', items: [
+        { t: 'He', r: '主詞' }, { t: 'is not', r: 'be＋not' }, { t: 'tall', r: '形容詞' }],
+        note: 'be 動詞的否定直接加 not。' },
+      check: {
+        q: '「他不高」的正確說法是什麼？',
+        options: [
+          'He is not tall.',
+          'He does not tall.',
+          'He not is tall.',
+          'He is no tall.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'be 動詞的否定不用 does。',
+          'not 要放在 be 動詞後面。',
+          '否定要用 not 而不是 no。'
+        ]
+      }
+    },
+    {
+      title: '④ 疑問句',
+      body: '把 be 動詞移到句首：\n' +
+            'Are you a student?→ Yes, I am.／No, I am not.\n' +
+            'Is she your sister?→ Yes, she is.／No, she isn’t.\n' +
+            '⚠ 簡答時要用 be 動詞回答。',
+      viz: { type: 'sentence', label: '疑問句', items: [
+        { t: 'Are', r: 'be 動詞' }, { t: 'you', r: '主詞' }, { t: 'a student', r: '補語' }],
+        note: '把 be 動詞移到主詞前面就成為疑問句。' },
+      check: {
+        q: 'Is she a teacher? 的正確簡答是什麼？',
+        options: [
+          'Yes, she is.',
+          'Yes, she does.',
+          'Yes, she do.',
+          'Yes, she teacher.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '問句用 be 動詞，回答也要用 be 動詞。',
+          'do 不適用於 be 動詞的問句。',
+          '簡答時一定要有動詞才完整。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 自我介紹的內容',
+      body: '名字：My name is Amy.／I am Amy.\n' +
+            '年齡：I am eleven years old.\n' +
+            '年級：I am in the fifth grade.\n' +
+            '興趣：I like reading and swimming.\n' +
+            '⚠ 年級用序數：the fifth grade。',
+      viz: { type: 'sentence', label: '說年級', items: [
+        { t: 'I', r: '主詞' }, { t: 'am in', r: 'be＋介系詞' },
+        { t: 'the fifth grade', r: '年級' }],
+        note: '年級要用序數，前面加 the。' },
+      check: {
+        q: '「我五年級」的正確說法是什麼？',
+        options: [
+          'I am in the fifth grade.',
+          'I am in the five grade.',
+          'I have five grade.',
+          'I am five grade.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '年級要用序數 fifth。',
+          '英文說年級用 be 動詞而不是 have。',
+          '缺少介系詞與冠詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 完整的自我介紹',
+      body: 'Hello, everyone. My name is Amy Chen.\n' +
+            'I am eleven years old, and I am in the fifth grade.\n' +
+            'I like drawing and playing the piano.\n' +
+            'Nice to meet you all.\n' +
+            '⚠ 順序：問候 → 名字 → 年齡年級 → 興趣 → 結尾。',
+      viz: { type: 'energyflow', steps: ['問候', '名字', '年齡年級', '興趣', '結尾'] },
+      check: {
+        q: '自我介紹的結尾可以說什麼？',
+        options: [
+          'Nice to meet you.',
+          'What is your name?',
+          'How much is it?',
+          'I do not know.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這是提問而不是結尾。',
+          '這是購物用語，與情境不符。',
+          '這個回答無法收尾。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五上|第4單元 一般動詞與日常作息'] = {
+  intro: '一般動詞負責說「做什麼」——它讓句子動起來。',
+  cards: [
+    {
+      title: '① 一般動詞與 be 動詞的分工',
+      body: 'be 動詞：說明「是什麼、怎麼樣、在哪裡」。\n' +
+            '一般動詞：說明「做什麼」（go、eat、play、study）。\n' +
+            '⚠ 一個句子通常只有一個主要動詞，兩者不能並用。',
+      viz: { type: 'compareexp',
+             factor: '兩類動詞',
+             a: { label: 'be 動詞', note: '說明狀態、身分與位置' },
+             b: { label: '一般動詞', note: '說明動作與行為' },
+             same: ['都是句子的主要動詞'] },
+      check: {
+        q: '下列哪一句的用法正確？',
+        options: [
+          'I go to school every day.',
+          'I am go to school every day.',
+          'I am going to school every day by mistake here.',
+          'I to school go every day.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不能同時使用 be 動詞與一般動詞的原形。',
+          '這個句子的用詞不自然。',
+          '語序不正確，動詞要在主詞後面。'
+        ]
+      }
+    },
+    {
+      title: '② 第三人稱單數加 s',
+      body: '主詞是 he／she／it 或單數名詞時，現在式的肯定句動詞要加 s。\n' +
+            'He goes to school.　She studies English.　It rains a lot.\n' +
+            '⚠ 拼寫規則：直接加 s、加 es（go→goes）、去 y 加 ies（study→studies）。',
+      viz: { type: 'classify', groups: [
+        { label: '直接加 s', items: ['plays', 'reads', 'likes'] },
+        { label: '加 es', items: ['goes', 'watches', 'washes'] },
+        { label: '去 y 加 ies', items: ['studies', 'flies', 'cries'] }] },
+      check: {
+        q: 'watch 的第三人稱單數形是什麼？',
+        options: ['watches', 'watchs', 'watchies', 'watch'],
+        answer: 0,
+        why: [
+          null,
+          'ch 結尾要加 es。',
+          '這個字尾不需要改成 ies。',
+          '第三人稱單數必須變化。'
+        ]
+      }
+    },
+    {
+      title: '③ 否定與疑問',
+      body: '否定：I do not like it.／He does not like it.\n' +
+            '疑問：Do you like it?／Does he like it?\n' +
+            '⚠ 用了 do／does 之後，主要動詞回到原形。',
+      viz: { type: 'sentence', label: '否定', items: [
+        { t: 'He', r: '主詞' }, { t: 'does not', r: '助動詞' }, { t: 'like', r: '原形' },
+        { t: 'it', r: '受詞' }],
+        note: 's 跑到 does 上面，動詞回原形。' },
+      check: {
+        q: '「她不吃早餐」的正確說法是什麼？',
+        options: [
+          'She does not eat breakfast.',
+          'She do not eat breakfast.',
+          'She does not eats breakfast.',
+          'She not eat breakfast.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '第三人稱單數要用 does。',
+          '用了 does 之後動詞要用原形。',
+          '否定句需要助動詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 日常作息的動詞片語',
+      body: 'get up（起床）、take a shower（洗澡）、brush my teeth（刷牙）、\n' +
+            'have breakfast／lunch／dinner、go to school、do homework、\n' +
+            'watch TV、go to bed。\n' +
+            '⚠ 這些是固定搭配，要整組記。',
+      viz: { type: 'classify', groups: [
+        { label: '早上', items: ['get up', 'brush my teeth', 'have breakfast'] },
+        { label: '白天', items: ['go to school', 'have lunch', 'study'] },
+        { label: '晚上', items: ['do homework', 'take a shower', 'go to bed'] }] },
+      check: {
+        q: '「刷牙」的正確說法是什麼？',
+        options: [
+          'brush my teeth',
+          'wash my teeth',
+          'clean my tooth',
+          'brush my tooth'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '刷牙的動詞用 brush 而不是 wash。',
+          '牙齒是複數 teeth。',
+          'tooth 的複數是 teeth。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 加上時間與頻率',
+      body: 'I get up at six thirty every morning.\n' +
+            'She usually goes to bed at ten.\n' +
+            '⚠ 頻率副詞放在一般動詞前面（usually goes），\n' +
+            '時間片語放在句尾（at ten）。',
+      viz: { type: 'sentence', label: '完整句', items: [
+        { t: 'She', r: '主詞' }, { t: 'usually', r: '頻率副詞' },
+        { t: 'goes to bed', r: '動詞片語' }, { t: 'at ten', r: '時間' }],
+        note: '頻率副詞在動詞前，時間片語在句尾。' },
+      check: {
+        q: '「她通常十點睡覺」的正確語序是什麼？',
+        options: [
+          'She usually goes to bed at ten.',
+          'She goes usually to bed at ten.',
+          'Usually she goes to bed ten.',
+          'She goes to bed usually ten.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '頻率副詞要放在動詞前面。',
+          '時間前面需要介系詞 at。',
+          '語序與介系詞都不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 描述一天',
+      body: '練習寫五句話描述自己的一天：\n' +
+            'I get up at six. I have breakfast at seven.\n' +
+            'I go to school at seven thirty. I do my homework after school.\n' +
+            'I go to bed at ten.\n' +
+            '⚠ 用 first、then、after that 可以讓段落更流暢。',
+      viz: { type: 'energyflow', steps: ['起床', '上學', '放學', '寫功課', '睡覺'] },
+      check: {
+        q: '要讓一段描述更流暢，可以加入什麼？',
+        options: [
+          '表示順序的字，例如 first、then、after that',
+          '更多的形容詞',
+          '更長的單字',
+          '更多的驚嘆號'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '形容詞增加細節但不改善順序。',
+          '單字長度與流暢度無關。',
+          '標點符號不能取代連接的詞語。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五上|第5單元 現在進行式'] = {
+  intro: '「此刻正在發生」的事，要用專門的時態來說。',
+  cards: [
+    {
+      title: '① 形式與意義',
+      body: '主詞 ＋ be 動詞 ＋ 動詞-ing，表示「此刻正在做」。\n' +
+            'I am studying now.　They are playing outside.\n' +
+            '⚠ 兩個部分缺一不可：be 動詞與 -ing。',
+      viz: { type: 'tense', verb: 'play', highlight: '現在進行式' },
+      tip: '按按鈕比較不同時態。',
+      check: {
+        q: '現在進行式的組成是什麼？',
+        options: [
+          'be 動詞 ＋ 動詞-ing',
+          '只要動詞-ing',
+          '只要 be 動詞',
+          'do ＋ 原形動詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '缺少 be 動詞句子不完整。',
+          '沒有 -ing 就不是進行式。',
+          'do 用於一般動詞的否定與疑問。'
+        ]
+      }
+    },
+    {
+      title: '② -ing 的拼寫',
+      body: '直接加：play → playing。\n' +
+            '去 e：write → writing、make → making。\n' +
+            '重複子音：run → running、sit → sitting。\n' +
+            '⚠ 判斷順序：先看字尾有沒有不發音的 e，再看是不是短母音加單子音。',
+      viz: { type: 'classify', groups: [
+        { label: '直接加', items: ['playing', 'reading', 'studying'] },
+        { label: '去 e', items: ['writing', 'making', 'coming'] },
+        { label: '重複子音', items: ['running', 'sitting', 'swimming'] }] },
+      check: {
+        q: 'swim 加上 -ing 應該怎麼拼？',
+        options: ['swimming', 'swiming', 'swimeing', 'swimmming'],
+        answer: 0,
+        why: [
+          null,
+          '短母音加單子音要重複子音。',
+          '這裡不需要加 e。',
+          '只需要重複一次子音。'
+        ]
+      }
+    },
+    {
+      title: '③ 與現在簡單式的比較',
+      body: '簡單式：習慣、事實（I play basketball every Sunday.）\n' +
+            '進行式：此刻正在做（I am playing basketball now.）\n' +
+            '⚠ 線索：every day、usually → 簡單式；\n' +
+            'now、right now、at the moment、Look! → 進行式。',
+      viz: { type: 'compareexp',
+             factor: '兩種現在式',
+             a: { label: '簡單式', note: '習慣或事實，搭配 every day' },
+             b: { label: '進行式', note: '此刻正在做，搭配 now' },
+             same: ['都描述現在的情況'] },
+      check: {
+        q: '句子開頭是 Look! 時，後面通常接什麼時態？',
+        options: [
+          '現在進行式',
+          '現在簡單式',
+          '過去式',
+          '未來式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'Look 是要對方看此刻發生的事。',
+          '過去式與此刻無關。',
+          '未來式表示還沒發生。'
+        ]
+      }
+    },
+    {
+      title: '④ 否定與疑問',
+      body: '否定：He is not sleeping.（＝ isn’t）\n' +
+            '疑問：Are they playing?→ Yes, they are.／No, they aren’t.\n' +
+            '⚠ 進行式的否定與疑問都靠 be 動詞，不用 do／does。',
+      viz: { type: 'sentence', label: '疑問句', items: [
+        { t: 'Are', r: 'be 動詞' }, { t: 'they', r: '主詞' }, { t: 'playing', r: '動詞-ing' }],
+        note: '把 be 動詞移到句首形成疑問句。' },
+      check: {
+        q: '「他們在玩嗎？」的正確問法是什麼？',
+        options: [
+          'Are they playing?',
+          'Do they playing?',
+          'They are playing?',
+          'Are they play?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '進行式的疑問不用 do。',
+          '疑問句要把 be 動詞移到句首。',
+          '進行式的動詞要用 -ing 形。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 不用進行式的動詞',
+      body: '有些動詞表示「狀態」而非動作，通常不用進行式：\n' +
+            'like、love、know、want、need、have（擁有）、see、hear。\n' +
+            '⚠ 所以要說 I like it（不說 I am liking it）。\n' +
+            '但 have 當「吃、進行」時可以用：I am having lunch.',
+      viz: { type: 'classify', groups: [
+        { label: '通常不用進行式', items: ['like', 'know', 'want', 'need'] },
+        { label: '可以用進行式', items: ['have lunch', 'play', 'run', 'study'] }] },
+      check: {
+        q: '下列哪一句的用法「不正確」？',
+        options: [
+          'I am knowing the answer.',
+          'I know the answer.',
+          'I am doing my homework.',
+          'I am having lunch.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'know 表示狀態，用簡單式是正確的。',
+          '做功課是動作，可以用進行式。',
+          'have 當「吃」時可以用進行式。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 看圖說話',
+      body: '練習：看一張圖，用進行式描述三件事。\n' +
+            'A boy is riding a bike. Two girls are talking.\n' +
+            'A dog is running after a ball.\n' +
+            '⚠ 注意主詞的單複數會影響 be 動詞（is／are）。',
+      viz: { type: 'sentence', label: '看圖說話', items: [
+        { t: 'Two girls', r: '主詞（複數）' }, { t: 'are', r: 'be 動詞' },
+        { t: 'talking', r: '動詞-ing' }],
+        note: '複數主詞要用 are。' },
+      check: {
+        q: '「三個男孩正在跑步」的正確說法是什麼？',
+        options: [
+          'Three boys are running.',
+          'Three boys is running.',
+          'Three boy are running.',
+          'Three boys are run.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '複數主詞要用 are。',
+          '數字大於一時名詞要用複數。',
+          '進行式的動詞要用 -ing 形。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五上|第6單元 地點介系詞'] = {
+  intro: '在裡面、在上面、在旁邊——這些小字讓你能說清楚東西在哪裡。',
+  cards: [
+    {
+      title: '① in、on、at 的基本區別',
+      body: 'in：在某個空間內（in the box、in the room、in Taipei）。\n' +
+            'on：在某個表面上（on the desk、on the wall、on the floor）。\n' +
+            'at：在某個定點（at the door、at the bus stop、at school）。\n' +
+            '⚠ 範圍大小：at（點）< on（面）< in（空間）。',
+      viz: { type: 'classify', groups: [
+        { label: 'in（空間）', items: ['in the box', 'in the room', 'in Taipei'] },
+        { label: 'on（表面）', items: ['on the desk', 'on the wall'] },
+        { label: 'at（定點）', items: ['at the door', 'at the bus stop'] }] },
+      check: {
+        q: '「在牆上」應該用哪一個介系詞？',
+        options: ['on', 'in', 'at', 'to'],
+        answer: 0,
+        why: [
+          null,
+          'in 用於空間內部。',
+          'at 用於定點。',
+          'to 表示方向。'
+        ]
+      }
+    },
+    {
+      title: '② 位置關係',
+      body: 'under（在下面）、over（在上方，沒接觸）、above（在上方）、\n' +
+            'below（在下方）、behind（在後面）、in front of（在前面）、\n' +
+            'next to／beside（在旁邊）、between（兩者之間）、among（三者以上之間）。',
+      viz: { type: 'classify', groups: [
+        { label: '上下', items: ['under', 'over', 'above', 'below'] },
+        { label: '前後', items: ['in front of', 'behind'] },
+        { label: '之間', items: ['between', 'among'] }] },
+      check: {
+        q: '「在三棵樹之間」應該用哪一個介系詞？',
+        options: ['among', 'between', 'under', 'behind'],
+        answer: 0,
+        why: [
+          null,
+          'between 用於兩者之間。',
+          'under 是在下面。',
+          'behind 是在後面。'
+        ]
+      }
+    },
+    {
+      title: '③ on 與 over 的差別',
+      body: 'on：有接觸（The book is on the table.）\n' +
+            'over：在上方但沒接觸（The lamp is over the table.）\n' +
+            '⚠ 這個差別在描述空間時很重要。',
+      viz: { type: 'compareexp',
+             factor: '有沒有接觸',
+             a: { label: 'on', note: '直接放在表面上，有接觸' },
+             b: { label: 'over', note: '在正上方但沒有接觸' },
+             same: ['都表示在上方'] },
+      check: {
+        q: '「電燈在桌子正上方（沒有接觸）」應該用哪一個介系詞？',
+        options: ['over', 'on', 'in', 'under'],
+        answer: 0,
+        why: [
+          null,
+          'on 表示有接觸。',
+          'in 表示在空間內。',
+          'under 表示在下面。'
+        ]
+      }
+    },
+    {
+      title: '④ 地點的固定用法',
+      body: 'at home（在家）、at school（在學校）、at work（在工作）、\n' +
+            'in bed（在床上睡覺）、on the bus（在公車上）、in the car（在車裡）。\n' +
+            '⚠ 有些是固定搭配，不完全照字面推理：\n' +
+            '為什麼是 on the bus 但 in the car？因為公車可以站著走動。',
+      viz: { type: 'classify', groups: [
+        { label: '不加冠詞', items: ['at home', 'at school', 'in bed'] },
+        { label: '交通工具', items: ['on the bus', 'on the train', 'in the car'] }] },
+      check: {
+        q: '「在公車上」的正確說法是什麼？',
+        options: ['on the bus', 'in the bus', 'at the bus', 'to the bus'],
+        answer: 0,
+        why: [
+          null,
+          '大型交通工具習慣用 on。',
+          'at 用於定點如車站。',
+          'to 表示方向。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 描述位置的句型',
+      body: 'The book is on the desk.（主詞 ＋ be ＋ 介系詞片語）\n' +
+            'There is a book on the desk.（有一本書在桌上）\n' +
+            '⚠ 兩種句型的重點不同：前者強調「那本書」在哪裡，\n' +
+            '後者強調「桌上有東西」。',
+      viz: { type: 'compareexp',
+             factor: '兩種句型',
+             a: { label: 'The book is…', note: '談論已知的特定物品在哪裡' },
+             b: { label: 'There is a book…', note: '介紹某處有某物（新資訊）' },
+             same: ['都在描述位置'] },
+      check: {
+        q: '要介紹「桌上有一本書」（對方還不知道），比較自然的句型是什麼？',
+        options: [
+          'There is a book on the desk.',
+          'The book is on the desk.',
+          'A book on the desk.',
+          'Book is desk on.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '用 the 表示對方已經知道那本書。',
+          '這個句子缺少動詞，並不完整。',
+          '這個語序不正確。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 描述一個空間',
+      body: '練習：用五句描述你的房間。\n' +
+            'There is a bed in my room. My desk is next to the window.\n' +
+            'There are two pictures on the wall. My bag is under the desk.\n' +
+            '⚠ 先說有什麼，再說在哪裡，聽的人比較容易想像。',
+      viz: { type: 'energyflow', steps: ['有什麼', '在哪裡', '和什麼相鄰', '整體印象'] },
+      check: {
+        q: '描述房間時，介系詞的作用是什麼？',
+        options: [
+          '說明每樣東西的相對位置，讓人能想像空間',
+          '讓句子變長',
+          '增加單字量',
+          '沒有實際作用'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長度不是使用介系詞的目的。',
+          '單字量是附帶效果。',
+          '介系詞在描述空間時非常關鍵。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五上|第7單元 數字、時間與日期'] = {
+  intro: '數字看起來簡單，但時間、日期、價錢的說法各有規則。',
+  cards: [
+    {
+      title: '① 基數與序數',
+      body: '基數：one、two、three…（數量）。\n' +
+            '序數：first、second、third…（順序）。\n' +
+            '⚠ 用序數的場合：日期、樓層、名次、章節。\n' +
+            '拼寫要注意：fifth、eighth、ninth、twelfth、twentieth。',
+      viz: { type: 'compareexp',
+             factor: '兩種數字',
+             a: { label: '基數', note: '表示數量：two books' },
+             b: { label: '序數', note: '表示順序：the second book' },
+             same: ['都是數字的表達方式'] },
+      check: {
+        q: '「第十二」的序數怎麼拼？',
+        options: ['twelfth', 'twelveth', 'twelvth', 'twelth'],
+        answer: 0,
+        why: [
+          null,
+          '要把 twelve 的 ve 改成 f 再加 th。',
+          '這個拼法漏了字母。',
+          '這個拼法不正確。'
+        ]
+      }
+    },
+    {
+      title: '② 大數字',
+      body: 'hundred（百）、thousand（千）、million（百萬）。\n' +
+            '365 → three hundred and sixty-five。\n' +
+            '⚠ hundred、thousand 前面有數字時「不加 s」：\n' +
+            'two hundred（不是 two hundreds）。',
+      viz: { type: 'classify', groups: [
+        { label: '正確', items: ['two hundred', 'three thousand', 'five million'] },
+        { label: '錯誤', items: ['two hundreds', 'three thousands'] }] },
+      check: {
+        q: '「兩百」的正確說法是什麼？',
+        options: ['two hundred', 'two hundreds', 'two of hundred', 'twos hundred'],
+        answer: 0,
+        why: [
+          null,
+          '前面有數字時 hundred 不加 s。',
+          '不需要加 of。',
+          '數字本身不加 s。'
+        ]
+      }
+    },
+    {
+      title: '③ 時間的說法',
+      body: '整點：It is seven o’clock.\n' +
+            '幾點幾分：It is seven fifteen.／a quarter past seven。\n' +
+            '半點：It is seven thirty.／half past seven。\n' +
+            '差幾分：It is a quarter to eight.（七點四十五分）\n' +
+            '⚠ past 是「過」、to 是「差」。',
+      viz: { type: 'clock', h: 7, m: 45 },
+      tip: '拉動指針看時間怎麼變。',
+      check: {
+        q: 'a quarter to nine 是幾點？',
+        options: [
+          '八點四十五分',
+          '九點十五分',
+          '九點四十五分',
+          '八點十五分'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這會是 a quarter past nine。',
+          '這個時間要說 a quarter to ten。',
+          '這是 a quarter past eight。'
+        ]
+      }
+    },
+    {
+      title: '④ 日期的說法',
+      body: '美式：October 10, 2026（唸 October tenth）。\n' +
+            '英式：10 October 2026（唸 the tenth of October）。\n' +
+            '⚠ 日期用序數唸；年份分兩段（2026 → twenty twenty-six）。\n' +
+            '月份與星期的首字母要大寫。',
+      viz: { type: 'sentence', label: '日期', items: [
+        { t: 'October', r: '月份（大寫）' }, { t: '10', r: '日（唸序數）' },
+        { t: '2026', r: '年份' }],
+        note: '寫數字，唸序數。' },
+      check: {
+        q: 'October 10 應該怎麼唸？',
+        options: [
+          'October tenth',
+          'October ten',
+          'Ten October only',
+          'October tens'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '日期在唸的時候要用序數。',
+          '這個語序不是美式的常見唸法。',
+          '日期不加複數 s。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 時間介系詞',
+      body: 'at ＋ 時間點（at seven、at noon、at night）。\n' +
+            'on ＋ 日期或星期（on Monday、on May 5）。\n' +
+            'in ＋ 月份、年份、季節、較長的時段（in May、in 2026、in the morning）。\n' +
+            '⚠ 記法：範圍越小用 at，越大用 in。',
+      viz: { type: 'classify', groups: [
+        { label: 'at', items: ['at seven', 'at noon', 'at night'] },
+        { label: 'on', items: ['on Monday', 'on May 5', 'on my birthday'] },
+        { label: 'in', items: ['in May', 'in 2026', 'in the morning'] }] },
+      check: {
+        q: '「在早上」的正確說法是什麼？',
+        options: ['in the morning', 'on the morning', 'at the morning', 'to the morning'],
+        answer: 0,
+        why: [
+          null,
+          'on 用於日期與星期。',
+          'at 用於具體的時間點如 at noon。',
+          'to 表示方向或目標。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合應用',
+      body: 'My birthday is on June 5.（我的生日在六月五日。）\n' +
+            'School starts at eight in the morning.\n' +
+            'We have a test on Friday.\n' +
+            '⚠ 一個句子可能同時有多個時間片語，\n' +
+            '順序通常是「小到大」：at eight on Friday。',
+      viz: { type: 'sentence', label: '多個時間片語', items: [
+        { t: 'School starts', r: '主要內容' }, { t: 'at eight', r: '時間點' },
+        { t: 'in the morning', r: '時段' }],
+        note: '英文的時間片語通常由小到大排列。' },
+      check: {
+        q: '英文中同時出現「幾點」與「早上」時，順序通常是什麼？',
+        options: [
+          '先說幾點，再說早上',
+          '先說早上，再說幾點',
+          '沒有固定順序',
+          '兩者不能同時使用'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '英文習慣由小單位到大單位。',
+          '雖然有彈性，但慣例是小到大。',
+          '兩者可以同時出現。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五上|第8單元 疑問詞與日常對話'] = {
+  intro: '五個 W 加一個 H，幾乎能問出所有你想知道的事。',
+  cards: [
+    {
+      title: '① 六個基本疑問詞',
+      body: 'who（誰）、what（什麼）、where（哪裡）、when（何時）、\n' +
+            'why（為什麼）、how（如何）。\n' +
+            '⚠ 疑問詞放在句首，後面接助動詞或 be 動詞，再接主詞。',
+      viz: { type: 'classify', groups: [
+        { label: '問人事物', items: ['who', 'what', 'whose', 'which'] },
+        { label: '問時間地點', items: ['when', 'where'] },
+        { label: '問原因方式', items: ['why', 'how'] }] },
+      check: {
+        q: '要問「為什麼」，應該用哪一個疑問詞？',
+        options: ['why', 'what', 'when', 'where'],
+        answer: 0,
+        why: [
+          null,
+          'what 是問什麼東西。',
+          'when 是問時間。',
+          'where 是問地點。'
+        ]
+      }
+    },
+    {
+      title: '② 疑問句的語序',
+      body: 'be 動詞句：Where is your school?（疑問詞 ＋ be ＋ 主詞）\n' +
+            '一般動詞句：Where do you live?（疑問詞 ＋ do／does ＋ 主詞 ＋ 原形動詞）\n' +
+            '⚠ 最常見的錯誤是漏掉助動詞：\n' +
+            'Where you live? 是錯的。',
+      viz: { type: 'sentence', label: 'be 動詞句', items: [
+        { t: 'Where', r: '疑問詞' }, { t: 'is', r: 'be 動詞' }, { t: 'your school', r: '主詞' }],
+        note: 'be 動詞句直接把 be 動詞放在主詞前面。',
+        alt: [
+          { label: '一般動詞句', items: [{ t: 'Where', r: '疑問詞' }, { t: 'do', r: '助動詞' },
+            { t: 'you', r: '主詞' }, { t: 'live', r: '原形動詞' }],
+            note: '一般動詞句要加助動詞 do 或 does。' }] },
+      tip: '按按鈕比較兩種語序。',
+      check: {
+        q: '「你住在哪裡？」的正確說法是什麼？',
+        options: [
+          'Where do you live?',
+          'Where you live?',
+          'Where are you live?',
+          'Where you do live?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '一般動詞的疑問句需要助動詞。',
+          '不能同時使用 be 動詞與一般動詞。',
+          '助動詞要放在主詞前面。'
+        ]
+      }
+    },
+    {
+      title: '③ how 的延伸用法',
+      body: 'How old（幾歲）、How many（多少個）、How much（多少錢／多少量）、\n' +
+            'How often（多常）、How long（多久／多長）、How far（多遠）。\n' +
+            '⚠ how 後面加形容詞或副詞，可以問各種程度。',
+      viz: { type: 'classify', groups: [
+        { label: '問數量', items: ['How many', 'How much'] },
+        { label: '問程度', items: ['How old', 'How long', 'How far', 'How often'] }] },
+      check: {
+        q: '要問「多遠」，應該用哪一個疑問詞組？',
+        options: ['How far', 'How long', 'How many', 'How old'],
+        answer: 0,
+        why: [
+          null,
+          'How long 問的是長度或持續時間。',
+          'How many 問可數的數量。',
+          'How old 問年齡。'
+        ]
+      }
+    },
+    {
+      title: '④ 回答疑問詞問句',
+      body: '疑問詞問句「不能」用 Yes／No 回答，要直接回答內容：\n' +
+            'Where do you live?→ I live in Taipei.\n' +
+            'What time is it?→ It is three o’clock.\n' +
+            '⚠ Yes／No 只能回答以 be 動詞或助動詞開頭的問句。',
+      viz: { type: 'compareexp',
+             factor: '兩種問句',
+             a: { label: 'Yes/No 問句', note: 'Do you like it? 可以用 Yes 或 No 回答' },
+             b: { label: '疑問詞問句', note: 'What do you like? 要回答具體內容' },
+             same: ['都是疑問句'] },
+      check: {
+        q: 'Where do you live? 這個問題可以用 Yes 回答嗎？',
+        options: [
+          '不行，疑問詞問句要回答具體內容',
+          '可以，任何問句都能用 Yes 回答',
+          '可以，但要加上地點',
+          '不行，因為這不是問句'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '疑問詞問句需要具體的資訊。',
+          '既然要說地點，就不需要 Yes。',
+          '這確實是一個問句。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 日常對話的組合',
+      body: 'A: What do you do after school?　B: I usually play basketball.\n' +
+            'A: Where do you play?　B: At the park near my house.\n' +
+            'A: How often do you play?　B: About three times a week.\n' +
+            '⚠ 用不同的疑問詞可以把話題一層層問下去。',
+      viz: { type: 'energyflow', steps: ['What（做什麼）', 'Where（在哪）', 'How often（多常）', 'Why（為什麼）'] },
+      check: {
+        q: '要讓對話延續下去，比較有效的方式是什麼？',
+        options: [
+          '用不同的疑問詞繼續追問細節',
+          '一直問可以用 Yes 或 No 回答的問題',
+          '只說自己的事',
+          '沉默不說話'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '封閉式問題容易讓對話中斷。',
+          '單向的表達不算對話。',
+          '沉默會讓對話結束。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 禮貌的問法',
+      body: '直接問：What is your name?\n' +
+            '較禮貌：May I have your name, please?\n' +
+            'Could you tell me where the station is?\n' +
+            '⚠ 用 Could you…?／May I…? 開頭會比較客氣，\n' +
+            '尤其是對陌生人或長輩。',
+      viz: { type: 'compareexp',
+             factor: '語氣的差別',
+             a: { label: '直接問', note: 'Where is the station? 簡潔明確' },
+             b: { label: '客氣問', note: 'Could you tell me…? 較有禮貌' },
+             same: ['都是在詢問資訊'] },
+      check: {
+        q: '向陌生人問路時，比較客氣的說法是什麼？',
+        options: [
+          'Excuse me, could you tell me where the station is?',
+          'Station where?',
+          'Tell me the station.',
+          'You know the station?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個說法不完整也不禮貌。',
+          '命令式的語氣不適合對陌生人。',
+          '這個說法過於隨便。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五上|第9單元 主題字彙與生活用語'] = {
+  intro: '把單字依主題整理，記起來會比隨機背快得多。',
+  cards: [
+    {
+      title: '① 用主題記單字',
+      body: '把相關的字放在一起記：學校、家庭、食物、動物、天氣、身體。\n' +
+            '⚠ 為什麼有效？因為大腦習慣用「關聯」記憶，\n' +
+            '而且同主題的字常常一起出現在對話中。',
+      viz: { type: 'classify', groups: [
+        { label: '學校', items: ['classroom', 'teacher', 'homework', 'test'] },
+        { label: '食物', items: ['rice', 'noodles', 'fruit', 'juice'] },
+        { label: '天氣', items: ['sunny', 'rainy', 'cloudy', 'windy'] }] },
+      check: {
+        q: '為什麼「依主題」背單字比隨機背有效？',
+        options: [
+          '因為相關的字有連結，也常一起出現在真實情境中',
+          '因為主題的字比較短',
+          '因為主題的字比較少',
+          '因為不用理解意思'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長度與主題無關。',
+          '每個主題的字彙量都不少。',
+          '理解意思仍然是必要的。'
+        ]
+      }
+    },
+    {
+      title: '② 一天中的常用語',
+      body: '早上：Good morning.／Did you sleep well?\n' +
+            '學校：May I go to the restroom?／I do not understand.\n' +
+            '晚上：Good night.／See you tomorrow.\n' +
+            '⚠ 這些句子每天都用得到，練熟了就能自然說出口。',
+      viz: { type: 'classify', groups: [
+        { label: '打招呼', items: ['Good morning', 'How are you', 'See you'] },
+        { label: '課堂', items: ['May I…', 'I do not understand', 'Say it again, please'] }] },
+      check: {
+        q: '上課聽不懂時，可以怎麼說？',
+        options: [
+          'Sorry, I do not understand. Could you say it again?',
+          '什麼都不說',
+          'I know everything.',
+          'Goodbye.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不說出來就得不到協助。',
+          '這個回答與實際狀況不符。',
+          '這是道別語，不適合此情境。'
+        ]
+      }
+    },
+    {
+      title: '③ 表達感受',
+      body: 'happy（開心）、sad（難過）、tired（累）、excited（興奮）、\n' +
+            'nervous（緊張）、bored（無聊）、angry（生氣）。\n' +
+            '⚠ 說感受用 be 動詞：I am tired.（不是 I have tired.）',
+      viz: { type: 'sentence', label: '說感受', items: [
+        { t: 'I', r: '主詞' }, { t: 'am', r: 'be 動詞' }, { t: 'tired', r: '形容詞' }],
+        note: '感受用 be 動詞加形容詞表達。' },
+      check: {
+        q: '「我很累」的正確說法是什麼？',
+        options: [
+          'I am tired.',
+          'I have tired.',
+          'I tired.',
+          'I am tire.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '感受要用 be 動詞而不是 have。',
+          '句子缺少 be 動詞。',
+          'tire 是動詞，形容詞要用 tired。'
+        ]
+      }
+    },
+    {
+      title: '④ 表達需求',
+      body: 'I need help.（我需要幫忙。）\n' +
+            'Can you help me?（你可以幫我嗎？）\n' +
+            'I am looking for…（我在找…）\n' +
+            '⚠ 需要幫忙時開口問，比自己卡住更有效。',
+      viz: { type: 'sentence', label: '求助', items: [
+        { t: 'Can', r: '助動詞' }, { t: 'you', r: '主詞' }, { t: 'help', r: '原形動詞' },
+        { t: 'me', r: '受詞' }],
+        note: 'help 後面用受格 me 而不是主格 I。' },
+      check: {
+        q: '「你可以幫我嗎？」的正確說法是什麼？',
+        options: [
+          'Can you help me?',
+          'Can you help I?',
+          'Can you helping me?',
+          'You can help me?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '動詞後面要用受格 me。',
+          'can 後面要用原形動詞。',
+          '疑問句要把 can 放在句首。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見的固定用語',
+      body: 'No problem.（沒問題。）　Never mind.（沒關係。）\n' +
+            'It’s up to you.（你決定。）　I am not sure.（我不確定。）\n' +
+            'Let me think.（讓我想想。）\n' +
+            '⚠ 這些短句在對話中非常好用，能爭取思考的時間。',
+      viz: { type: 'classify', groups: [
+        { label: '回應', items: ['No problem', 'Never mind', 'Sure'] },
+        { label: '爭取時間', items: ['Let me think', 'I am not sure', 'Well…'] }] },
+      check: {
+        q: '被問到一個需要思考的問題時，可以說什麼爭取時間？',
+        options: [
+          'Let me think.',
+          'I do not want to answer.',
+          'Goodbye.',
+          'You are wrong.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個回答顯得不合作。',
+          '這是道別，會直接中斷對話。',
+          '這個回應不友善也不切題。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 把單字變成能用的句子',
+      body: '學單字的三個步驟：\n' +
+            '① 知道意思 ② 知道怎麼唸 ③ 能放進句子裡用出來。\n' +
+            '⚠ 只做到第一步，考試會寫但開口說不出來。\n' +
+            '練習方法：每學一個字，就用它造一個和自己有關的句子。',
+      viz: { type: 'energyflow', steps: ['知道意思', '會唸', '造句', '真的用出來'] },
+      check: {
+        q: '學會一個新單字之後，最有效的下一步是什麼？',
+        options: [
+          '用它造一個和自己生活有關的句子',
+          '把它抄十遍',
+          '背它的所有意思',
+          '只記中文翻譯'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '抄寫幫助拼字，但不一定會用。',
+          '先掌握最常用的意思即可。',
+          '只記翻譯無法在對話中使用。'
+        ]
+      }
+    }
+  ]
+};
