@@ -17,7 +17,7 @@ for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars']) {
 }
 for (const f of ['lessons-math', 'lessons-science', 'lessons-social', 'lessons-english',
   'lessons-physics', 'lessons-chemistry', 'lessons-biology', 'lessons-earth',
-  'lessons-history']) {          // 概念卡（單元教學層）
+  'lessons-history', 'lessons-geography']) {          // 概念卡（單元教學層）
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
 global.window.APP_DATA = window.APP_DATA;
@@ -441,7 +441,8 @@ console.log('解析確認題');
       'js/data/lessons-social.js', 'js/data/lessons-english.js',
       'js/data/lessons-physics.js', 'js/data/lessons-chemistry.js',
       'js/data/lessons-biology.js', 'js/data/lessons-earth.js',
-      'js/data/lessons-history.js', 'js/widgets.js'];
+      'js/data/lessons-history.js', 'js/data/lessons-geography.js',
+      'js/widgets.js'];
     const hits = [];
     files.forEach(f => {
       const src = fs.readFileSync(path.join(root, f), 'utf8');
