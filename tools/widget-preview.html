@@ -165,7 +165,11 @@ var DEMOS = [
   ['對照實驗（變因控制）', { type: 'compareexp', factor: '有沒有空氣' }],
   ['分類', { type: 'classify', groups: [
       { label: '哺乳類', items: ['狗', '鯨魚', '蝙蝠'], note: '胎生、哺乳、有毛' },
-      { label: '鳥類', items: ['麻雀', '鴕鳥', '企鵝'], note: '卵生、有羽毛、有喙' }] }]
+      { label: '鳥類', items: ['麻雀', '鴕鳥', '企鵝'], note: '卵生、有羽毛、有喙' }] }],
+  ['植物的根莖葉', { type: 'plantparts', mode: 'parts' }],
+  ['水溶液與飽和', { type: 'solution', solute: 6, max: 10 }],
+  ['酸鹼與 pH 值', { type: 'phscale' }],
+  ['三態變化／熱脹冷縮／沸騰', { type: 'statechange', mode: 'states' }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {

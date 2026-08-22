@@ -392,7 +392,8 @@ console.log('解析確認題');
                    'unitcircle', 'trigwave', 'limit', 'space3d',
                    'lintrans', 'normaldist', 'scatter', 'condprob',
                    'deriv', 'curveplot', 'integralarea', 'complexplane',
-                   'optics', 'moonphase', 'earthsun', 'soundwave', 'compareexp', 'classify'];  // 與 js/widgets.js 的 REG 同步
+                   'optics', 'moonphase', 'earthsun', 'soundwave', 'compareexp', 'classify',
+                   'plantparts', 'solution', 'phscale', 'statechange'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

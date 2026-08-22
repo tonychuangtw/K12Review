@@ -2326,6 +2326,239 @@
     host.appendChild(box);
   };
 
+  /* ── 植物的構造（plantparts）──────────────────────────────────────────
+     spec: { mode:'parts'|'transport'|'photo', pick }                     */
+  REG.plantparts = function (host, spec) {
+    var mode = spec.mode || 'parts';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 210', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var G = 'stroke:var(--good);stroke-width:5', B = 'stroke:var(--bad);stroke-width:7';
+      var hlStem = mode === 'transport';
+      svg.appendChild(el('line', { x1: 160, y1: 152, x2: 160, y2: 54 }, hlStem ? B : G));
+      [[-1, 96], [1, 78], [-1, 62]].forEach(function (lf) {
+        var x = 160 + lf[0] * 34, y = lf[1];
+        svg.appendChild(el('ellipse', { cx: x, cy: y, rx: 26, ry: 12,
+          transform: 'rotate(' + (lf[0] * -18) + ' ' + x + ' ' + y + ')', 'fill-opacity': '.3' },
+          'fill:var(--' + (mode === 'photo' ? 'bad' : 'good') + ');stroke:var(--' +
+          (mode === 'photo' ? 'bad' : 'good') + ');stroke-width:2'));
+        svg.appendChild(el('line', { x1: 160, y1: y + 4, x2: x, y2: y },
+          'stroke:var(--good);stroke-width:2'));
+      });
+      svg.appendChild(el('line', { x1: 20, y1: 152, x2: 300, y2: 152 },
+        'stroke:var(--dim);stroke-width:2'));
+      [[-1, 0.9], [-1, 0.4], [1, 0.4], [1, 0.9], [0, 0]].forEach(function (r) {
+        svg.appendChild(el('line', { x1: 160, y1: 152, x2: 160 + r[0] * 44 * r[1] + (r[0] === 0 ? 0 : 0),
+          y2: 152 + 44 }, 'stroke:var(--' + (mode === 'parts' ? 'accent' : 'dim') + ');stroke-width:3'));
+      });
+      svg.appendChild(txt(70, 176, '根', 'font-size:12px;fill:var(--accent)'));
+      svg.appendChild(txt(196, 120, '莖', 'font-size:12px;fill:var(--' + (hlStem ? 'bad' : 'dim') + ')'));
+      svg.appendChild(txt(112, 44, '葉', 'font-size:12px;fill:var(--' + (mode === 'photo' ? 'bad' : 'dim') + ')'));
+      if (mode === 'transport') {
+        [186, 166, 146, 126, 106, 86].forEach(function (y) {
+          svg.appendChild(el('polygon', { points: '166,' + y + ' 172,' + (y - 6) + ' 178,' + y },
+            'fill:var(--bad)'));
+        });
+        svg.appendChild(txt(206, 80, '水往上', 'font-size:10px;fill:var(--bad)'));
+      }
+      if (mode === 'photo') {
+        svg.appendChild(el('circle', { cx: 48, cy: 36, r: 16 }, 'fill:#f5c451'));
+        svg.appendChild(txt(48, 60, '陽光', 'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(txt(268, 40, 'CO₂ 進', 'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(txt(268, 60, 'O₂ 出', 'font-size:10px;fill:var(--good)'));
+      }
+      var INFO = {
+        parts: ['根：吸水、吸養分、固定植物',
+          '根還能儲存養分（蘿蔔、地瓜就是這樣）。根系分兩種：胡蘿蔔那種一根主根很粗的叫「軸根」；' +
+          '玉米、稻子那種一堆粗細差不多的細根叫「鬚根」。'],
+        transport: ['莖：水分和養分的高速公路',
+          '莖裡有兩種管道：木質部把「水和礦物質」從根往上送到葉；韌皮部把葉子製造的「養分」送到全身。' +
+          '把芹菜插進紅墨水，切開會看到一條條紅色的線，那就是運水的管道。' +
+          '莖也負責支撐植物、把葉子撐到有陽光的地方。'],
+        photo: ['葉：進行光合作用的工廠',
+          '葉子用「陽光 ＋ 水 ＋ 二氧化碳」製造養分（葡萄糖／澱粉），同時放出氧氣，這叫光合作用。' +
+          '負責吸收陽光的是葉綠體裡的葉綠素（所以葉子是綠的）。' +
+          '葉背的氣孔負責讓氣體進出，也讓水分蒸散出去（蒸散作用）。']
+      }[mode];
+      read.appendChild(div('wg-read-main', INFO[0]));
+      read.appendChild(div('wg-read-sub', INFO[1]));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['parts', '根'], ['transport', '莖'], ['photo', '葉']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 水溶液（solution）────────────────────────────────────────────────
+     spec: { solute, max, water, label }                                  */
+  REG.solution = function (host, spec) {
+    var solute = spec.solute == null ? 6 : spec.solute;
+    var max = spec.max == null ? 10 : spec.max;
+    var water = spec.water == null ? 100 : spec.water;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('path', { d: 'M110,26 L110,150 Q110,162 122,162 L198,162 Q210,162 210,150 L210,26' },
+        'fill:none;stroke:var(--text);stroke-width:2.5'));
+      svg.appendChild(el('rect', { x: 111, y: 60, width: 98, height: 101, 'fill-opacity': '.25' },
+        'fill:var(--accent)'));
+      var dissolved = Math.min(solute, max), extra = solute - dissolved, i;
+      for (i = 0; i < dissolved; i++) {                       // 溶解的：散開的小點
+        svg.appendChild(el('circle', { cx: 122 + (i % 5) * 19, cy: 78 + Math.floor(i / 5) * 22, r: 3 },
+          'fill:var(--good)'));
+      }
+      for (i = 0; i < extra; i++) {                           // 溶不下的：沉在杯底
+        svg.appendChild(el('rect', { x: 120 + (i % 6) * 15, y: 148, width: 11, height: 10, rx: 2 },
+          'fill:var(--bad)'));
+      }
+      svg.appendChild(txt(56, 100, '水 ' + water + ' 公克', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(266, 100, solute + ' 公克', 'font-size:11px;fill:var(--dim)'));
+      read.appendChild(div('wg-read-main', extra > 0
+        ? '已經飽和：多加的 ' + extra + ' 公克溶不下去，沉在杯底'
+        : '全部溶解：溶液總重 ＝ ' + water + ' ＋ ' + solute + ' ＝ ' + (water + solute) + ' 公克'));
+      read.appendChild(div('wg-read-sub',
+        '溶質（糖、鹽）散進溶劑（水）裡就成了溶液，看起來澄清透明、放久也不會沉澱。' +
+        '⚠ 溶解不是消失：溶液的重量 ＝ 水的重量 ＋ 溶質的重量。' +
+        '同樣的水最多只溶得下一定的量，到達上限就叫「飽和」；' +
+        '想再溶更多，可以加水或加溫（大多數固體在熱水中溶得更多）。'));
+    }
+    if (spec.edit !== false) {
+      var ss = stepper('加入的量', function () { return solute; }, function (v) { solute = v; }, 1, 16,
+        function () { ss.sync(); paint(); });
+      box.appendChild(ss.el);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 酸鹼（phscale）───────────────────────────────────────────────────
+     spec: { value, marks:[{v,label}] }                                   */
+  REG.phscale = function (host, spec) {
+    var v = spec.value == null ? 7 : spec.value;
+    var marks = spec.marks || [{ v: 2, label: '檸檬汁' }, { v: 4, label: '醋' },
+      { v: 7, label: '純水' }, { v: 9, label: '小蘇打水' }, { v: 12, label: '肥皂水' }];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    var COLS = ['#e2453c', '#e2703c', '#e2a83c', '#d8d23c', '#a8cf4a',
+                '#5ec46a', '#3cc4a8', '#3ca0d8', '#3c6fd8', '#5a3cd8'];
+    function X(p) { return 18 + p / 14 * 284; }
+    for (var i = 0; i < 14; i++) {
+      svg.appendChild(el('rect', { x: X(i), y: 48, width: 284 / 14 + 0.5, height: 26 },
+        'fill:' + COLS[Math.min(Math.floor(i / 14 * COLS.length), COLS.length - 1)]));
+    }
+    [0, 7, 14].forEach(function (p) {
+      svg.appendChild(txt(X(p) + 10, 88, String(p), 'font-size:11px;fill:var(--dim)'));
+    });
+    svg.appendChild(txt(60, 36, '← 酸性', 'font-size:12px;fill:var(--bad)'));
+    svg.appendChild(txt(160, 36, '中性', 'font-size:12px;fill:var(--dim)'));
+    svg.appendChild(txt(266, 36, '鹼性 →', 'font-size:12px;fill:var(--accent)'));
+    marks.forEach(function (m, i) {
+      var x = X(m.v) + 10;
+      svg.appendChild(el('line', { x1: x, y1: 74, x2: x, y2: 96 + (i % 2) * 14 },
+        'stroke:var(--text);stroke-width:1.5'));
+      svg.appendChild(txt(x, 108 + (i % 2) * 14, m.label, 'font-size:10px;fill:var(--text)'));
+    });
+    box.appendChild(svg);
+    box.appendChild(div('wg-read-main',
+      'pH < 7 酸性　pH ＝ 7 中性　pH > 7 鹼性'));
+    box.appendChild(div('wg-read-sub',
+      '檢驗方法：藍色石蕊試紙遇「酸」變紅、紅色石蕊試紙遇「鹼」變藍（口訣：酸紅鹼藍）。' +
+      '紫色高麗菜汁也可以當指示劑：遇酸變紅、遇鹼變綠或黃。' +
+      '⚠ 酸鹼中和：酸和鹼混在一起會互相抵消，所以蚊蟲叮咬（酸）擦鹼性藥水會止癢、' +
+      '胃酸過多吃制酸劑（鹼性）會舒服。'));
+    host.appendChild(box);
+  };
+
+  /* ── 溫度與物質三態（statechange）─────────────────────────────────────
+     spec: { mode:'states'|'expand'|'boil', pick }                        */
+  REG.statechange = function (host, spec) {
+    var mode = spec.mode || 'states';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'expand') {
+        [['冷', 40, 46, 'accent'], ['熱', 190, 66, 'bad']].forEach(function (c) {
+          svg.appendChild(el('rect', { x: c[1], y: 100 - c[2] / 2, width: c[2], height: c[2], rx: 6,
+            'fill-opacity': '.25' }, 'fill:var(--' + c[3] + ');stroke:var(--' + c[3] + ');stroke-width:2'));
+          svg.appendChild(txt(c[1] + c[2] / 2, 100, c[0], 'font-size:13px'));
+        });
+        svg.appendChild(txt(160, 100, '→', 'font-size:20px;fill:var(--dim)'));
+        svg.appendChild(txt(160, 168, '加熱 → 膨脹　　冷卻 → 收縮', 'font-size:11px;fill:var(--dim)'));
+        main = '熱脹冷縮';
+        sub = '大部分物體加熱時會膨脹、冷卻時收縮。' +
+          '所以鐵軌之間要留縫隙（夏天膨脹才不會擠壞）、電線夏天鬆冬天緊、' +
+          '癟掉的乒乓球泡熱水會鼓起來（裡面的空氣膨脹）。' +
+          '⚠ 水是例外：4℃ 以下反而膨脹，所以結冰時體積會變大，寶特瓶裝滿水冷凍會爆開。';
+      } else if (mode === 'boil') {
+        svg.appendChild(el('polyline', { points: '24,150 90,110 150,66 230,66 300,66' },
+          'fill:none;stroke:var(--accent);stroke-width:3'));
+        svg.appendChild(el('line', { x1: 150, y1: 66, x2: 300, y2: 66 },
+          'stroke:var(--bad);stroke-width:3'));
+        svg.appendChild(txt(230, 54, '100℃ 不再上升', 'font-size:11px;fill:var(--bad)'));
+        svg.appendChild(txt(60, 168, '時間 →', 'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(txt(16, 100, '溫度', 'font-size:10px;fill:var(--dim)'));
+        main = '沸騰時溫度不再上升';
+        sub = '水加熱到 100℃ 開始沸騰之後，就算繼續加熱，溫度也停在 100℃ 左右。' +
+          '因為這時吸收的熱都拿去「把液體變成氣體」了（狀態改變需要能量），沒有拿去升溫。' +
+          '同理，冰在融化的過程中也一直維持 0℃ 左右。';
+      } else {
+        [['固體（冰）', 40, '整齊排列、不會流動'], ['液體（水）', 130, '會流動、形狀隨容器'],
+         ['氣體（水蒸氣）', 226, '到處亂跑、充滿空間']].forEach(function (c, i) {
+          svg.appendChild(el('rect', { x: c[1] - 34, y: 42, width: 68, height: 56, rx: 6 },
+            'fill:none;stroke:var(--border);stroke-width:2'));
+          var n = i === 0 ? 9 : i === 1 ? 7 : 4;
+          for (var k = 0; k < n; k++) {
+            var px = i === 0 ? c[1] - 24 + (k % 3) * 18 : c[1] - 26 + ((k * 13) % 52);
+            var py = i === 0 ? 54 + Math.floor(k / 3) * 18 : 52 + ((k * 17) % 40);
+            svg.appendChild(el('circle', { cx: px, cy: py, r: 5 }, 'fill:var(--accent)'));
+          }
+          svg.appendChild(txt(c[1], 112, c[0], 'font-size:10px;fill:var(--dim)'));
+        });
+        svg.appendChild(txt(85, 140, '融化 →', 'font-size:10px;fill:var(--bad)'));
+        svg.appendChild(txt(85, 158, '← 凝固', 'font-size:10px;fill:var(--good)'));
+        svg.appendChild(txt(180, 140, '汽化 →', 'font-size:10px;fill:var(--bad)'));
+        svg.appendChild(txt(180, 158, '← 凝結', 'font-size:10px;fill:var(--good)'));
+        main = '三態變化：加熱往右、冷卻往左';
+        sub = '固體 →（融化）→ 液體 →（汽化）→ 氣體，都要「吸熱」；' +
+          '反過來（凝結、凝固）則會「放熱」。' +
+          '生活例子：冬天呼出的白煙是水蒸氣遇冷凝結成的小水滴（不是水蒸氣本身，水蒸氣看不見）；' +
+          '冰箱拿出來的杯子外面會冒水珠，也是空氣中的水蒸氣凝結。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['states', '三態變化'], ['expand', '熱脹冷縮'], ['boil', '沸騰時的溫度']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   /* ── 分類（classify）──────────────────────────────────────────────────
      spec: { groups:[{label, items:[..], note}] }                         */
   REG.classify = function (host, spec) {
