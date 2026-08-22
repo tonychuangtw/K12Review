@@ -7109,3 +7109,1446 @@ window.APP_LESSONS['english|五上|第9單元 主題字彙與生活用語'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|五下|第1單元 可數與不可數名詞'] = {
+  intro: '英文的名詞分成兩種：能一個一個數的，和不能數的。這個分別影響很多用法。',
+  cards: [
+    {
+      title: '① 什麼是可數名詞',
+      body: '可以一個一個數的東西：book、apple、chair、student。\n' +
+            '⚠ 特徵：有單複數形（a book／two books），\n' +
+            '單數前面要加 a／an 或 the。',
+      viz: { type: 'classify', groups: [
+        { label: '可數', items: ['book', 'apple', 'chair', 'student', 'idea'] },
+        { label: '不可數', items: ['water', 'rice', 'money', 'time', 'information'] }] },
+      check: {
+        q: '可數名詞最主要的特徵是什麼？',
+        options: [
+          '有單複數形，可以用數字直接修飾',
+          '一定是具體的東西',
+          '一定很小',
+          '沒有複數形'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'idea 是抽象的，但可數。',
+          '大小與可數性無關。',
+          '有複數形正是可數名詞的特徵。'
+        ]
+      }
+    },
+    {
+      title: '② 什麼是不可數名詞',
+      body: '不能一個一個數的：water、rice、bread、milk、money、time、\n' +
+            'information、homework、advice。\n' +
+            '⚠ 特徵：沒有複數形、不能直接加 a／an、\n' +
+            '動詞用單數（Water is important.）。',
+      viz: { type: 'classify', groups: [
+        { label: '液體與粉狀', items: ['water', 'milk', 'sugar', 'rice'] },
+        { label: '抽象概念', items: ['time', 'money', 'information', 'advice'] }] },
+      check: {
+        q: '下列哪一個是「不可數名詞」？',
+        options: ['homework', 'book', 'chair', 'student'],
+        answer: 0,
+        why: [
+          null,
+          'book 可以數，有複數 books。',
+          'chair 可以數。',
+          'student 也可以數。'
+        ]
+      }
+    },
+    {
+      title: '③ 不可數名詞怎麼計量',
+      body: '用「容器或單位」：a glass of water、a cup of tea、\n' +
+            'a piece of bread、a bowl of rice、a bottle of milk、\n' +
+            'a piece of information。\n' +
+            '⚠ 要數的是容器：two glasses of water（glass 加 s，water 不加）。',
+      viz: { type: 'sentence', label: '計量單位', items: [
+        { t: 'two glasses', r: '容器（複數）' }, { t: 'of', r: '介系詞' },
+        { t: 'water', r: '不可數名詞' }],
+        note: '複數要加在容器上，不可數名詞本身不變。' },
+      check: {
+        q: '「三杯茶」的正確說法是什麼？',
+        options: [
+          'three cups of tea',
+          'three cup of teas',
+          'three teas cup',
+          'three of cup tea'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '複數要加在 cup 上，tea 不加 s。',
+          '語序不正確，容器要放在前面。',
+          '這個結構不符合英文用法。'
+        ]
+      }
+    },
+    {
+      title: '④ 動詞的搭配',
+      body: '不可數名詞當主詞時，動詞用「單數」：\n' +
+            'Water is important.　Money is not everything.\n' +
+            '⚠ 可數名詞的複數當主詞時用複數動詞：\n' +
+            'Books are expensive.',
+      viz: { type: 'compareexp',
+             factor: '動詞的選擇',
+             a: { label: '不可數名詞', note: '動詞用單數：Water is…' },
+             b: { label: '可數複數', note: '動詞用複數：Books are…' },
+             same: ['都是主詞'] },
+      check: {
+        q: '「時間很寶貴」的正確說法是什麼？',
+        options: [
+          'Time is precious.',
+          'Time are precious.',
+          'Times is precious.',
+          'A time is precious.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不可數名詞要用單數動詞。',
+          'time 在此不可數，不加 s。',
+          '不可數名詞前面不加 a。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 有些字兩種都可以',
+      body: '同一個字在不同意思下可數性不同：\n' +
+            'time（時間，不可數）／three times（三次，可數）\n' +
+            'paper（紙，不可數）／a paper（一份報告或報紙，可數）\n' +
+            'hair（頭髮整體，不可數）／two hairs（兩根頭髮，可數）\n' +
+            '⚠ 要看句子的意思來判斷。',
+      viz: { type: 'compareexp',
+             factor: '同字不同用法',
+             a: { label: 'time（不可數）', note: '指時間：I have no time.' },
+             b: { label: 'times（可數）', note: '指次數：three times' },
+             same: ['同一個單字'] },
+      check: {
+        q: 'three times 中的 time 是什麼意思？',
+        options: [
+          '次數（可數）',
+          '時間（不可數）',
+          '時鐘',
+          '沒有意義'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '指時間時不能加 s。',
+          '時鐘是 clock。',
+          '這個用法有明確的意思。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 常見錯誤整理',
+      body: '① a homework ✗ → some homework ✓\n' +
+            '② two informations ✗ → two pieces of information ✓\n' +
+            '③ many money ✗ → much money ✓\n' +
+            '⚠ many 用於可數、much 用於不可數；\n' +
+            'a lot of 兩者都可以用。',
+      viz: { type: 'classify', groups: [
+        { label: '可數用', items: ['many', 'a few', 'How many'] },
+        { label: '不可數用', items: ['much', 'a little', 'How much'] },
+        { label: '兩者都可', items: ['a lot of', 'some', 'any'] }] },
+      check: {
+        q: '「很多錢」的正確說法是什麼？',
+        options: [
+          'a lot of money',
+          'many money',
+          'many moneys',
+          'much moneys'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'money 是不可數名詞，不用 many。',
+          'money 沒有複數形。',
+          'money 不加 s。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五下|第2單元 some／any／a lot of'] = {
+  intro: '要說「一些、任何、很多」，英文有一套搭配規則。',
+  cards: [
+    {
+      title: '① some 的用法',
+      body: 'some 表示「一些」，可數與不可數都能用：\n' +
+            'some books（一些書）、some water（一些水）。\n' +
+            '⚠ 主要用在「肯定句」：I have some questions.',
+      viz: { type: 'sentence', label: 'some 的用法', items: [
+        { t: 'I have', r: '主詞＋動詞' }, { t: 'some', r: '限定詞' },
+        { t: 'questions', r: '可數複數' }],
+        note: 'some 可以搭配可數複數或不可數名詞。' },
+      check: {
+        q: 'some 通常用在哪一種句子？',
+        options: [
+          '肯定句',
+          '只有否定句',
+          '只有疑問句',
+          '只有祈使句'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '否定句通常用 any。',
+          '疑問句通常用 any。',
+          'some 不限於祈使句。'
+        ]
+      }
+    },
+    {
+      title: '② any 的用法',
+      body: 'any 主要用在「否定句與疑問句」：\n' +
+            'I do not have any money.　Do you have any questions?\n' +
+            '⚠ any 在肯定句中意思會變成「任何一個」：\n' +
+            'Any student can join.（任何學生都能參加。）',
+      viz: { type: 'compareexp',
+             factor: 'some 與 any',
+             a: { label: 'some', note: '用於肯定句：I have some.' },
+             b: { label: 'any', note: '用於否定與疑問：I do not have any.' },
+             same: ['都表示不確定的數量'] },
+      check: {
+        q: '「我沒有任何錢」的正確說法是什麼？',
+        options: [
+          'I do not have any money.',
+          'I do not have some money.',
+          'I do not have many money.',
+          'I have not some money.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '否定句通常用 any 而不是 some。',
+          'money 是不可數，不用 many。',
+          '一般動詞的否定要用 do not。'
+        ]
+      }
+    },
+    {
+      title: '③ 提出邀請時的 some',
+      body: '疑問句本來用 any，但「提出邀請或請求」時用 some 比較自然：\n' +
+            'Would you like some tea?（要喝點茶嗎？）\n' +
+            'Can I have some water?（可以給我一些水嗎？）\n' +
+            '⚠ 因為說話者預期答案是肯定的。',
+      viz: { type: 'compareexp',
+             factor: '疑問句中的選擇',
+             a: { label: '一般詢問', note: 'Do you have any questions? 用 any' },
+             b: { label: '邀請或請求', note: 'Would you like some tea? 用 some' },
+             same: ['都是疑問句'] },
+      check: {
+        q: '要邀請客人喝茶，比較自然的說法是什麼？',
+        options: [
+          'Would you like some tea?',
+          'Would you like any tea?',
+          'Do you want any tea or not?',
+          'You want tea?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '邀請時用 some 比較自然也比較親切。',
+          '這個說法語氣生硬。',
+          '這個說法不夠禮貌完整。'
+        ]
+      }
+    },
+    {
+      title: '④ many 與 much',
+      body: 'many ＋ 可數名詞複數：many books、many students。\n' +
+            'much ＋ 不可數名詞：much water、much money。\n' +
+            '⚠ much 在肯定句中較少單獨使用，\n' +
+            '常說 a lot of money 而不是 much money。',
+      viz: { type: 'classify', groups: [
+        { label: 'many（可數）', items: ['many books', 'many people', 'many days'] },
+        { label: 'much（不可數）', items: ['much water', 'much time', 'much money'] }] },
+      check: {
+        q: '「很多學生」的正確說法是什麼？',
+        options: [
+          'many students',
+          'much students',
+          'many student',
+          'much student'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'student 是可數名詞，要用 many。',
+          '可數名詞要用複數形。',
+          '這個組合有兩個錯誤。'
+        ]
+      }
+    },
+    {
+      title: '⑤ a lot of 與 lots of',
+      body: 'a lot of（＝ lots of）可數與不可數都能用：\n' +
+            'a lot of books、a lot of water。\n' +
+            '⚠ 這是最安全的說法，不確定時可以用它。\n' +
+            '正式寫作中則多用 many／much。',
+      viz: { type: 'classify', groups: [
+        { label: '通用', items: ['a lot of', 'lots of', 'plenty of'] },
+        { label: '限可數', items: ['many', 'a few', 'several'] },
+        { label: '限不可數', items: ['much', 'a little'] }] },
+      check: {
+        q: '如果不確定名詞是可數還是不可數，用哪一個說法比較安全？',
+        options: [
+          'a lot of',
+          'many',
+          'much',
+          'a few'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'many 只能用於可數名詞。',
+          'much 只能用於不可數名詞。',
+          'a few 只能用於可數名詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ a few 與 a little',
+      body: 'a few ＋ 可數複數（a few books：有幾本，語氣偏正面）。\n' +
+            'a little ＋ 不可數（a little water：有一點）。\n' +
+            '⚠ 去掉 a 語氣會變負面：\n' +
+            'few books（幾乎沒有書）、little water（幾乎沒有水）。',
+      viz: { type: 'compareexp',
+             factor: '有沒有 a',
+             a: { label: 'a few／a little', note: '有一些，語氣正面' },
+             b: { label: 'few／little', note: '幾乎沒有，語氣負面' },
+             same: ['都表示少量'] },
+      check: {
+        q: 'I have few friends. 這句話的意思偏向什麼？',
+        options: [
+          '我幾乎沒有朋友（語氣負面）',
+          '我有一些朋友（語氣正面）',
+          '我有很多朋友',
+          '我沒有任何朋友'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '要表達正面語氣要說 a few。',
+          '這個說法表示數量很少。',
+          '完全沒有要說 no friends。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五下|第3單元 所有格'] = {
+  intro: '要說「誰的東西」，英文有兩種方法：加撇號 s，或用所有格代名詞。',
+  cards: [
+    {
+      title: '① 名詞所有格',
+      body: '人或動物加 ’s：Amy’s book（Amy 的書）、the dog’s tail（狗的尾巴）。\n' +
+            '⚠ 複數字尾是 s 時只加撇號：the students’ books（學生們的書）。\n' +
+            '不規則複數仍加 ’s：children’s books。',
+      viz: { type: 'classify', groups: [
+        { label: '加 ’s', items: ['Amy’s', 'the dog’s', 'children’s'] },
+        { label: '只加撇號', items: ['the students’', 'the teachers’'] }] },
+      check: {
+        q: '「學生們的教室」（複數）的正確寫法是什麼？',
+        options: [
+          'the students’ classroom',
+          'the students’s classroom',
+          'the student’s classroom',
+          'the students classroom'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字尾已有 s 時只加撇號。',
+          '這個寫法表示單一學生。',
+          '缺少表示所有格的撇號。'
+        ]
+      }
+    },
+    {
+      title: '② of 所有格',
+      body: '無生命的東西通常用 of：\n' +
+            'the door of the room（房間的門）、the name of the book。\n' +
+            '⚠ 但時間、國家、機構也可以用 ’s：\n' +
+            'today’s newspaper、Taiwan’s economy。',
+      viz: { type: 'compareexp',
+             factor: '兩種所有格',
+             a: { label: '’s', note: '用於人、動物、時間、國家' },
+             b: { label: 'of', note: '用於無生命的東西' },
+             same: ['都表示所有關係'] },
+      check: {
+        q: '「這本書的書名」比較自然的說法是什麼？',
+        options: [
+          'the name of the book',
+          'the book’s name is best always',
+          'the name book',
+          'book the name of'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個說法雖可用，但選項的敘述不正確。',
+          '這個說法缺少必要的結構。',
+          '語序不正確，不符合英文結構。'
+        ]
+      }
+    },
+    {
+      title: '③ 所有格形容詞',
+      body: 'my、your、his、her、its、our、their。\n' +
+            '⚠ 後面「一定要接名詞」：my book、your bag。\n' +
+            '注意 its（它的）沒有撇號；it’s 是 it is 的縮寫。',
+      viz: { type: 'classify', groups: [
+        { label: '所有格形容詞', items: ['my', 'your', 'his', 'her', 'its', 'our', 'their'] },
+        { label: '常見混淆', items: ['its（它的）', 'it’s（it is）'] }] },
+      check: {
+        q: 'its 和 it’s 的差別是什麼？',
+        options: [
+          'its 是「它的」，it’s 是 it is 的縮寫',
+          '兩者完全相同',
+          'its 是縮寫',
+          'it’s 表示所有'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩者的意思完全不同。',
+          '有撇號的 it’s 才是縮寫。',
+          '表示所有的是沒有撇號的 its。'
+        ]
+      }
+    },
+    {
+      title: '④ 所有格代名詞',
+      body: 'mine、yours、his、hers、ours、theirs。\n' +
+            '⚠ 後面「不接名詞」，因為它本身就代表「某人的東西」：\n' +
+            'This book is mine.（＝ my book）',
+      viz: { type: 'compareexp',
+             factor: '兩種形式',
+             a: { label: '所有格形容詞', note: '後面接名詞：my book' },
+             b: { label: '所有格代名詞', note: '後面不接名詞：mine' },
+             same: ['都表示所有關係'] },
+      check: {
+        q: '下列哪一句的用法正確？',
+        options: [
+          'This book is mine.',
+          'This book is my.',
+          'This is mine book.',
+          'This book is me.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'my 後面一定要接名詞。',
+          'mine 後面不接名詞。',
+          'me 是受格，不表示所有。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 問所有者',
+      body: 'Whose book is this?（這是誰的書？）→ It is Amy’s.／It is mine.\n' +
+            '⚠ whose（誰的）與 who’s（who is）發音相同但意思不同，\n' +
+            '這是常見的拼字陷阱。',
+      viz: { type: 'sentence', label: '問所有者', items: [
+        { t: 'Whose', r: '疑問詞' }, { t: 'book', r: '名詞' }, { t: 'is this', r: 'be＋主詞' }],
+        note: 'Whose 後面直接接名詞。' },
+      check: {
+        q: '「這是誰的書？」的正確寫法是什麼？',
+        options: [
+          'Whose book is this?',
+          'Who’s book is this?',
+          'Who book is this?',
+          'Whose is book this?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'who’s 是 who is 的縮寫，意思不同。',
+          '要用 whose 才能表示所有。',
+          '語序不正確，不符合英文結構。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: 'This is my brother’s bike.（這是我哥哥的腳踏車。）\n' +
+            'That bag is hers, not mine.（那個包包是她的，不是我的。）\n' +
+            'Whose pen is this? It is the teacher’s.\n' +
+            '⚠ 同一句中可能同時出現不同形式，要看後面有沒有名詞來判斷。',
+      viz: { type: 'sentence', label: '雙重所有格', items: [
+        { t: 'my brother’s', r: '名詞所有格' }, { t: 'bike', r: '名詞' }],
+        note: 'my 修飾 brother，brother’s 修飾 bike。' },
+      check: {
+        q: '要判斷該用 my 還是 mine，最簡單的方法是什麼？',
+        options: [
+          '看後面有沒有名詞：有名詞用 my，沒有用 mine',
+          '看句子長短',
+          '看主詞是誰',
+          '隨便用都可以'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長度與此無關。',
+          '主詞不決定所有格的形式。',
+          '兩者的用法有明確區別。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五下|第4單元 受格代名詞'] = {
+  intro: '同一個人，當主詞時是 I，當受詞時就變成 me——英文的代名詞會換形式。',
+  cards: [
+    {
+      title: '① 主格與受格',
+      body: '主格（當主詞）：I、you、he、she、it、we、they。\n' +
+            '受格（當受詞）：me、you、him、her、it、us、them。\n' +
+            '⚠ you 與 it 的主格受格同形，其餘都會變。',
+      viz: { type: 'classify', groups: [
+        { label: '主格', items: ['I', 'he', 'she', 'we', 'they'] },
+        { label: '受格', items: ['me', 'him', 'her', 'us', 'them'] }] },
+      check: {
+        q: 'he 的受格是什麼？',
+        options: ['him', 'his', 'he', 'himself'],
+        answer: 0,
+        why: [
+          null,
+          'his 是所有格而不是受格。',
+          'he 是主格，用在主詞的位置。',
+          'himself 是反身代名詞。'
+        ]
+      }
+    },
+    {
+      title: '② 受格用在哪裡',
+      body: '① 動詞後面：I like him.（我喜歡他。）\n' +
+            '② 介系詞後面：This is for her.（這是給她的。）\n' +
+            '⚠ 常見錯誤：between you and I ✗ → between you and me ✓\n' +
+            '因為介系詞 between 後面要用受格。',
+      viz: { type: 'sentence', label: '動詞後', items: [
+        { t: 'I', r: '主格（主詞）' }, { t: 'like', r: '動詞' }, { t: 'him', r: '受格（受詞）' }],
+        note: '動詞後面要用受格。',
+        alt: [
+          { label: '介系詞後', items: [{ t: 'This is', r: '主詞＋be' }, { t: 'for', r: '介系詞' },
+            { t: 'her', r: '受格' }], note: '介系詞後面也要用受格。' }] },
+      tip: '按按鈕比較兩種位置。',
+      check: {
+        q: '下列哪一句的用法正確？',
+        options: [
+          'This present is for me.',
+          'This present is for I.',
+          'This present is for my.',
+          'This present is for mine me.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '介系詞後面要用受格 me。',
+          'my 是所有格，後面要接名詞。',
+          '這個說法重複又不正確。'
+        ]
+      }
+    },
+    {
+      title: '③ 代名詞的四種形式',
+      body: '以第三人稱女性為例：\n' +
+            '主格 she、受格 her、所有格形容詞 her、所有格代名詞 hers。\n' +
+            '⚠ her 有兩種身分（受格與所有格），要看後面有沒有名詞：\n' +
+            'I like her.（受格）／her book（所有格）。',
+      viz: { type: 'classify', groups: [
+        { label: '主格', items: ['I', 'you', 'he', 'she', 'they'] },
+        { label: '受格', items: ['me', 'you', 'him', 'her', 'them'] },
+        { label: '所有格', items: ['my', 'your', 'his', 'her', 'their'] },
+        { label: '所有格代名詞', items: ['mine', 'yours', 'his', 'hers', 'theirs'] }] },
+      check: {
+        q: '在 I like her book. 這句話中，her 是什麼？',
+        options: [
+          '所有格形容詞，因為後面接了名詞',
+          '受格，因為在動詞後面',
+          '主格',
+          '所有格代名詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '受格後面不會再接名詞。',
+          '主格用在主詞位置。',
+          '所有格代名詞後面不接名詞。'
+        ]
+      }
+    },
+    {
+      title: '④ it 的用法',
+      body: 'it 可以指物品、動物，也可以當「虛主詞」：\n' +
+            'It is raining.（下雨了。）　It is three o’clock.\n' +
+            '⚠ 這時的 it 沒有實際意義，只是句子需要主詞。',
+      viz: { type: 'sentence', label: '虛主詞', items: [
+        { t: 'It', r: '虛主詞（無意義）' }, { t: 'is', r: 'be 動詞' },
+        { t: 'raining', r: '動詞-ing' }],
+        note: '天氣、時間、距離的句子用 it 當主詞。' },
+      check: {
+        q: 'It is raining. 這句話中的 it 指的是什麼？',
+        options: [
+          '沒有實際意義，只是句子需要主詞',
+          '指某個物品',
+          '指某個人',
+          '指雨滴'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這裡的 it 不指涉具體物品。',
+          'it 不用於指人。',
+          '這是文法上的需要而非指涉雨滴。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見錯誤',
+      body: '① Me and my friend went… ✗ → My friend and I went… ✓\n' +
+            '（當主詞要用主格，而且習慣把自己放後面）\n' +
+            '② He gave it to I. ✗ → He gave it to me. ✓\n' +
+            '⚠ 判斷方法：把句子拆開只留自己，看哪個順口。',
+      viz: { type: 'energyflow', steps: ['看代名詞的位置', '是主詞用主格', '是受詞用受格', '檢查一次'] },
+      check: {
+        q: '要判斷該用 I 還是 me，最實用的方法是什麼？',
+        options: [
+          '看它在句中是主詞還是受詞',
+          '看句子長短',
+          '哪個順口用哪個',
+          '永遠用 me'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子長度與此無關。',
+          '語感可能出錯，仍要看文法功能。',
+          '當主詞時必須用 I。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: 'She gave me a book. I thanked her.\n' +
+            'We invited them, and they came with us.\n' +
+            '⚠ 同一句中主格與受格可能同時出現，\n' +
+            '判斷關鍵永遠是「它在句中扮演什麼角色」。',
+      viz: { type: 'sentence', label: '雙受詞', items: [
+        { t: 'She', r: '主格' }, { t: 'gave', r: '動詞' }, { t: 'me', r: '受格' },
+        { t: 'a book', r: '受詞' }],
+        note: '有些動詞後面可以接兩個受詞。' },
+      check: {
+        q: '在 She gave me a book. 這句話中，me 的角色是什麼？',
+        options: [
+          '受詞（接受東西的人）',
+          '主詞',
+          '所有格',
+          '動詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主詞是 She。',
+          '所有格後面要接名詞。',
+          '動詞是 gave。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五下|第5單元 冠詞與指示詞'] = {
+  intro: 'a、an、the 這三個小字，是英文最常用也最容易錯的部分。',
+  cards: [
+    {
+      title: '① a 與 an',
+      body: '單數可數名詞第一次提到時用 a／an（表示「一個」）。\n' +
+            'a ＋ 子音開頭的音：a book、a dog。\n' +
+            'an ＋ 母音開頭的音：an apple、an egg、an hour。\n' +
+            '⚠ 看的是「發音」不是字母：an hour（h 不發音）、a university（u 發 you 的音）。',
+      viz: { type: 'classify', groups: [
+        { label: '用 a', items: ['a book', 'a university', 'a European'] },
+        { label: '用 an', items: ['an apple', 'an hour', 'an honest man'] }] },
+      check: {
+        q: '為什麼是 an hour 而不是 a hour？',
+        options: [
+          '因為 hour 的 h 不發音，實際上以母音開頭',
+          '因為 hour 很長',
+          '因為 hour 是時間',
+          '因為這是特例沒有原因'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '長度與冠詞的選擇無關。',
+          '詞義不決定用 a 還是 an。',
+          '這其實符合「看發音」的規則。'
+        ]
+      }
+    },
+    {
+      title: '② the 的用法',
+      body: '① 再次提到已知的事物：I bought a book. The book is interesting.\n' +
+            '② 世界上獨一無二的：the sun、the moon、the earth。\n' +
+            '③ 說話雙方都知道的：Close the door.\n' +
+            '⚠ the 表示「特定的那一個」。',
+      viz: { type: 'compareexp',
+             factor: 'a 與 the',
+             a: { label: 'a', note: '第一次提到、不特定的一個' },
+             b: { label: 'the', note: '雙方都知道的特定那一個' },
+             same: ['都是冠詞'] },
+      check: {
+        q: '「我買了一本書。那本書很有趣。」第二句應該用哪個冠詞？',
+        options: [
+          'the，因為指的是剛才提過的那本書',
+          'a，因為還是同一本書',
+          '不需要冠詞',
+          'an，因為 book 是可數名詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '第二次提到要用 the。',
+          '單數可數名詞前面需要冠詞。',
+          'book 以子音開頭，也不該用 an。'
+        ]
+      }
+    },
+    {
+      title: '③ 不用冠詞的情況',
+      body: '① 複數名詞泛指：I like dogs.（我喜歡狗這種動物。）\n' +
+            '② 不可數名詞泛指：Water is important.\n' +
+            '③ 三餐、運動、學科：have breakfast、play tennis、study math。\n' +
+            '⚠ 但特指時仍要加 the：The water in this cup is cold.',
+      viz: { type: 'classify', groups: [
+        { label: '不加冠詞', items: ['I like dogs', 'have lunch', 'play soccer'] },
+        { label: '要加 the', items: ['the dog over there', 'the water in the cup'] }] },
+      check: {
+        q: '「我喜歡狗（這種動物）」的正確說法是什麼？',
+        options: [
+          'I like dogs.',
+          'I like a dogs.',
+          'I like the dogs.',
+          'I like dog.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'a 不能配複數名詞。',
+          '加 the 表示特定的那幾隻狗。',
+          '泛指時可數名詞要用複數。'
+        ]
+      }
+    },
+    {
+      title: '④ 指示詞',
+      body: 'this（這個，單數近）、these（這些，複數近）、\n' +
+            'that（那個，單數遠）、those（那些，複數遠）。\n' +
+            '⚠ 這四個字要同時考慮「遠近」與「單複數」。',
+      viz: { type: 'classify', groups: [
+        { label: '近（this/these）', items: ['this book', 'these books'] },
+        { label: '遠（that/those）', items: ['that book', 'those books'] }] },
+      check: {
+        q: '要指遠處的幾本書，應該用哪一個字？',
+        options: ['those', 'this', 'that', 'these'],
+        answer: 0,
+        why: [
+          null,
+          'this 指近處的單一物品。',
+          'that 指遠處的單一物品。',
+          'these 指近處的多個物品。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 指示詞當主詞',
+      body: 'This is my book.（單數用 is）\n' +
+            'These are my books.（複數用 are）\n' +
+            '⚠ 常見錯誤：These is… ✗\n' +
+            '指示詞的單複數要和 be 動詞一致。',
+      viz: { type: 'sentence', label: '單數', items: [
+        { t: 'This', r: '指示詞（單數）' }, { t: 'is', r: 'be 動詞' },
+        { t: 'my book', r: '補語' }],
+        note: '單數指示詞配 is。',
+        alt: [
+          { label: '複數', items: [{ t: 'These', r: '指示詞（複數）' }, { t: 'are', r: 'be 動詞' },
+            { t: 'my books', r: '補語' }], note: '複數指示詞配 are。' }] },
+      check: {
+        q: '「這些是我的書」的正確說法是什麼？',
+        options: [
+          'These are my books.',
+          'These is my books.',
+          'This are my books.',
+          'These are my book.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '複數指示詞要配 are。',
+          'this 是單數，不能配 are。',
+          '複數的補語也要用複數形。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 綜合練習',
+      body: 'I have a cat. The cat is white.\n' +
+            'These are my friends. That is our teacher.\n' +
+            'I do not like milk, but I like the milk in this bottle.\n' +
+            '⚠ 判斷順序：① 是特定的嗎？→ the ② 單數第一次提到？→ a／an\n' +
+            '③ 泛指複數或不可數？→ 不加冠詞。',
+      viz: { type: 'energyflow', steps: ['是特定的嗎', '是單數嗎', '是第一次提到嗎', '選出冠詞'] },
+      check: {
+        q: '判斷該用哪一個冠詞時，第一個要問的問題是什麼？',
+        options: [
+          '這個名詞是不是「特定的那一個」',
+          '這個字有幾個字母',
+          '這個字好不好唸',
+          '句子有多長'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字母數與冠詞無關。',
+          '發音只影響 a 與 an 的選擇。',
+          '句子長度不影響冠詞。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五下|第6單元 五感與描述'] = {
+  intro: '看起來、聽起來、嚐起來——用五感描述，句子會變得生動。',
+  cards: [
+    {
+      title: '① 五感動詞',
+      body: 'look（看起來）、sound（聽起來）、taste（嚐起來）、\n' +
+            'smell（聞起來）、feel（摸起來／感覺）。\n' +
+            '⚠ 這些動詞後面「直接接形容詞」：\n' +
+            'It looks good.（不是 It looks well.）',
+      viz: { type: 'sentence', label: '五感動詞', items: [
+        { t: 'It', r: '主詞' }, { t: 'looks', r: '五感動詞' }, { t: 'good', r: '形容詞' }],
+        note: '五感動詞後面直接接形容詞。' },
+      check: {
+        q: '「這聞起來很香」的正確說法是什麼？',
+        options: [
+          'It smells good.',
+          'It smells well.',
+          'It smells goodly.',
+          'It is smell good.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'well 是副詞，這裡要用形容詞。',
+          'good 沒有 goodly 這種形式。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '② 五感動詞 ＋ like',
+      body: '要接「名詞」時，中間要加 like：\n' +
+            'It tastes like chicken.（嚐起來像雞肉。）\n' +
+            'It sounds like a good idea.\n' +
+            '⚠ 接形容詞不加 like，接名詞才加 like。',
+      viz: { type: 'compareexp',
+             factor: '後面接什麼',
+             a: { label: '接形容詞', note: 'It looks nice. 不加 like' },
+             b: { label: '接名詞', note: 'It looks like a cat. 要加 like' },
+             same: ['都用五感動詞'] },
+      check: {
+        q: '「它嚐起來像雞肉」的正確說法是什麼？',
+        options: [
+          'It tastes like chicken.',
+          'It tastes chicken.',
+          'It tastes as chicken.',
+          'It is taste like chicken.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '接名詞時要加 like。',
+          '這個用法不自然。',
+          '不能同時使用 be 動詞與一般動詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 描述外觀',
+      body: 'beautiful（美麗）、cute（可愛）、tall／short、big／small、\n' +
+            'new／old、clean／dirty、bright（明亮）、dark（暗）。\n' +
+            '⚠ 描述人時要注意用詞的禮貌，例如用 large 比 fat 委婉。',
+      viz: { type: 'classify', groups: [
+        { label: '外觀', items: ['beautiful', 'cute', 'clean', 'bright'] },
+        { label: '尺寸', items: ['big', 'small', 'tall', 'short'] }] },
+      check: {
+        q: '五感動詞 look 後面應該接什麼詞類？',
+        options: [
+          '形容詞',
+          '副詞',
+          '動詞',
+          '介系詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '副詞用來修飾一般動詞。',
+          '一個句子只需要一個主要動詞。',
+          '介系詞後面要接名詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 描述聲音與味道',
+      body: '聲音：loud（大聲）、quiet（安靜）、noisy（吵鬧）、beautiful。\n' +
+            '味道：sweet、sour、salty、spicy、bitter、delicious。\n' +
+            '氣味：fresh（新鮮）、strong（強烈）。\n' +
+            '⚠ 用五感描述能讓文章更有畫面。',
+      viz: { type: 'classify', groups: [
+        { label: '聲音', items: ['loud', 'quiet', 'noisy'] },
+        { label: '味道', items: ['sweet', 'sour', 'salty', 'spicy'] },
+        { label: '氣味', items: ['fresh', 'strong'] }] },
+      check: {
+        q: '「這音樂聽起來很美」的正確說法是什麼？',
+        options: [
+          'The music sounds beautiful.',
+          'The music sounds beautifully.',
+          'The music is sound beautiful.',
+          'The music hears beautiful.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '五感動詞後面用形容詞。',
+          '不能同時使用 be 動詞與一般動詞。',
+          'hear 是主動去聽，用法不同。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 描述感受',
+      body: 'I feel happy.（我覺得開心。）\n' +
+            'I feel tired.（我覺得累。）\n' +
+            '⚠ feel 後面接形容詞描述感受；\n' +
+            'feel like ＋ 動詞-ing 表示「想要做」：I feel like eating.',
+      viz: { type: 'compareexp',
+             factor: 'feel 的兩種用法',
+             a: { label: 'feel ＋ 形容詞', note: '描述感受：I feel tired.' },
+             b: { label: 'feel like ＋ -ing', note: '想要做：I feel like eating.' },
+             same: ['都用動詞 feel'] },
+      check: {
+        q: '「我想吃東西」的正確說法是什麼？',
+        options: [
+          'I feel like eating something.',
+          'I feel like eat something.',
+          'I feel eating something.',
+          'I feel to eat something.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'feel like 後面要接動詞-ing。',
+          '缺少 like 意思會改變。',
+          'feel like 後面不接不定詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 用五感寫描述',
+      body: '練習：描述一個地方或一道菜。\n' +
+            'The night market is very noisy. It smells delicious.\n' +
+            'The food looks colorful and tastes great.\n' +
+            '⚠ 用兩三種感官描述同一個對象，讀者更容易身歷其境。',
+      viz: { type: 'energyflow', steps: ['看到什麼', '聽到什麼', '聞到什麼', '嚐起來如何'] },
+      check: {
+        q: '要讓描述更生動，可以怎麼做？',
+        options: [
+          '用不同的感官（視覺、聽覺、嗅覺）一起描述',
+          '只用最長的形容詞',
+          '重複同一個形容詞',
+          '只寫看到的'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字的長短不影響生動程度。',
+          '重複會讓文章單調。',
+          '只用視覺會少了很多層次。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五下|第7單元 節慶與慶祝'] = {
+  intro: '節慶是文化的窗口——學節慶英文，也是在認識別人的生活。',
+  cards: [
+    {
+      title: '① 西方主要節日',
+      body: 'New Year’s Day（元旦，1/1）、Valentine’s Day（情人節，2/14）、\n' +
+            'Easter（復活節）、Halloween（萬聖節，10/31）、\n' +
+            'Thanksgiving（感恩節）、Christmas（聖誕節，12/25）。\n' +
+            '⚠ 節日名稱的首字母要大寫。',
+      viz: { type: 'timeline', events: [
+        { y: '1/1', t: 'New Year', d: '元旦，慶祝新的一年開始。' },
+        { y: '2/14', t: 'Valentine', d: '情人節，交換卡片與禮物。' },
+        { y: '10/31', t: 'Halloween', d: '萬聖節，變裝與要糖果。' },
+        { y: '12/25', t: 'Christmas', d: '聖誕節，家人團聚與交換禮物。' }] },
+      tip: '按「下一個」看一年的節日。',
+      check: {
+        q: '萬聖節（Halloween）是在哪一天？',
+        options: ['10 月 31 日', '12 月 25 日', '2 月 14 日', '1 月 1 日'],
+        answer: 0,
+        why: [
+          null,
+          '12 月 25 日是聖誕節。',
+          '2 月 14 日是情人節。',
+          '1 月 1 日是元旦。'
+        ]
+      }
+    },
+    {
+      title: '② 台灣的節日',
+      body: 'Chinese New Year（農曆新年）、Lantern Festival（元宵節）、\n' +
+            'Tomb Sweeping Day（清明節）、Dragon Boat Festival（端午節）、\n' +
+            'Mid-Autumn Festival（中秋節）。\n' +
+            '⚠ 介紹自己的文化時，這些說法很實用。',
+      viz: { type: 'classify', groups: [
+        { label: '台灣節日', items: ['Chinese New Year', 'Dragon Boat Festival', 'Mid-Autumn Festival'] },
+        { label: '相關活動', items: ['red envelopes', 'dragon boat races', 'moon cakes'] }] },
+      check: {
+        q: '「端午節」的英文是什麼？',
+        options: [
+          'Dragon Boat Festival',
+          'Moon Festival',
+          'Lantern Festival',
+          'Spring Festival'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'Moon Festival 是中秋節。',
+          'Lantern Festival 是元宵節。',
+          'Spring Festival 是農曆新年。'
+        ]
+      }
+    },
+    {
+      title: '③ 節慶活動的動詞',
+      body: 'celebrate（慶祝）、decorate（裝飾）、give gifts（送禮）、\n' +
+            'have a party（開派對）、visit relatives（拜訪親戚）、\n' +
+            'watch fireworks（看煙火）、set off firecrackers（放鞭炮）。',
+      viz: { type: 'classify', groups: [
+        { label: '準備', items: ['decorate', 'buy gifts', 'clean the house'] },
+        { label: '慶祝', items: ['celebrate', 'have a party', 'watch fireworks'] }] },
+      check: {
+        q: '「慶祝」的英文動詞是什麼？',
+        options: ['celebrate', 'decorate', 'donate', 'create'],
+        answer: 0,
+        why: [
+          null,
+          'decorate 是裝飾。',
+          'donate 是捐贈。',
+          'create 是創造。'
+        ]
+      }
+    },
+    {
+      title: '④ 節慶祝賀語',
+      body: 'Happy New Year!　Merry Christmas!　Happy birthday!\n' +
+            '⚠ 注意搭配：聖誕節習慣用 Merry 而不是 Happy；\n' +
+            '其他節日多用 Happy。',
+      viz: { type: 'classify', groups: [
+        { label: '用 Happy', items: ['Happy New Year', 'Happy birthday', 'Happy Halloween'] },
+        { label: '用 Merry', items: ['Merry Christmas'] }] },
+      check: {
+        q: '聖誕節的祝賀語習慣怎麼說？',
+        options: [
+          'Merry Christmas!',
+          'Happy Christmas Day only!',
+          'Good Christmas!',
+          'Nice Christmas!'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '英式英文偶爾用 Happy，但這個說法不自然。',
+          'Good 不用於節慶祝賀。',
+          'Nice 不是節慶的祝賀用語。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 介紹自己的節慶',
+      body: '句型：\n' +
+            'We celebrate Mid-Autumn Festival in September or October.\n' +
+            'We eat moon cakes and pomelos.\n' +
+            'Families get together and enjoy the full moon.\n' +
+            '⚠ 介紹順序：什麼時候 → 做什麼 → 有什麼意義。',
+      viz: { type: 'energyflow', steps: ['什麼時候', '吃什麼', '做什麼活動', '有什麼意義'] },
+      check: {
+        q: '向外國朋友介紹台灣節慶時，比較完整的內容應該包含什麼？',
+        options: [
+          '時間、活動與背後的意義',
+          '只說節日名稱',
+          '只說放幾天假',
+          '只說吃什麼'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '只有名稱無法讓對方理解。',
+          '假期長短不是文化重點。',
+          '食物只是其中一部分。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 文化差異的尊重',
+      body: '不同文化的節慶有不同的禁忌與禮節：\n' +
+            '送禮的顏色、數字、拜訪的時間都可能有講究。\n' +
+            '⚠ 不確定時可以問：Is it OK if I…?\n' +
+            '願意詢問本身就是一種尊重。',
+      viz: { type: 'sentence', label: '禮貌詢問', items: [
+        { t: 'Is it OK', r: '詢問' }, { t: 'if I', r: '假設' },
+        { t: 'take a photo', r: '動作' }],
+        note: '不確定時先問，是尊重對方文化的表現。' },
+      check: {
+        q: '參加不熟悉的文化活動時，最恰當的態度是什麼？',
+        options: [
+          '事先了解禮節，不確定時禮貌詢問',
+          '照自己的習慣做就好',
+          '避免參加',
+          '批評不合理的規矩'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不同文化的禮節可能差很多。',
+          '參與是理解文化的好機會。',
+          '在別人的場合公開批評並不尊重。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五下|第8單元 校園活動與社團'] = {
+  intro: '運動會、社團、比賽——這些是校園生活最有記憶點的部分。',
+  cards: [
+    {
+      title: '① 校園活動',
+      body: 'sports day（運動會）、field trip（校外教學）、\n' +
+            'school festival（校慶）、graduation（畢業典禮）、\n' +
+            'speech contest（演講比賽）、singing contest（歌唱比賽）。',
+      viz: { type: 'classify', groups: [
+        { label: '活動', items: ['sports day', 'field trip', 'graduation'] },
+        { label: '比賽', items: ['speech contest', 'singing contest', 'science fair'] }] },
+      check: {
+        q: '「校外教學」的英文是什麼？',
+        options: ['field trip', 'sports day', 'graduation', 'homework'],
+        answer: 0,
+        why: [
+          null,
+          'sports day 是運動會。',
+          'graduation 是畢業典禮。',
+          'homework 是家庭作業。'
+        ]
+      }
+    },
+    {
+      title: '② 社團活動',
+      body: 'club（社團）：art club、music club、English club、\n' +
+            'basketball team、school band（管樂隊）。\n' +
+            '⚠ 「參加社團」用 join：I joined the art club.\n' +
+            '「是社團成員」用 be in：I am in the art club.',
+      viz: { type: 'compareexp',
+             factor: '兩種說法',
+             a: { label: 'join', note: '加入的動作：I joined the club.' },
+             b: { label: 'be in', note: '目前的狀態：I am in the club.' },
+             same: ['都與社團有關'] },
+      check: {
+        q: '「我參加了美術社」的正確說法是什麼？',
+        options: [
+          'I joined the art club.',
+          'I join in the art club yesterday.',
+          'I am join the art club.',
+          'I joined to the art club.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '過去的動作要用過去式，而且 join 後面不加 in。',
+          '不能同時使用 be 動詞與一般動詞。',
+          'join 後面不加 to。'
+        ]
+      }
+    },
+    {
+      title: '③ 談論活動',
+      body: 'When is the sports day?（運動會是什麼時候？）\n' +
+            'What events are there?（有哪些項目？）\n' +
+            'I am going to run the 100-meter race.\n' +
+            '⚠ 100-meter 當形容詞用時 meter 不加 s。',
+      viz: { type: 'sentence', label: '談活動', items: [
+        { t: 'I am going to', r: '未來計畫' }, { t: 'run', r: '原形動詞' },
+        { t: 'the 100-meter race', r: '項目' }],
+        note: 'be going to 用來表達計畫要做的事。' },
+      check: {
+        q: '「一百公尺賽跑」當作項目名稱時，正確的寫法是什麼？',
+        options: [
+          'the 100-meter race',
+          'the 100-meters race',
+          'the 100 meter races',
+          'the race of 100 meters long'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '當形容詞用時單位不加 s。',
+          '這個說法的單複數不一致。',
+          '這個說法冗長且不自然。'
+        ]
+      }
+    },
+    {
+      title: '④ 邀請與合作',
+      body: 'Do you want to join us?（你要加入我們嗎？）\n' +
+            'Let’s work together.（我們一起努力。）\n' +
+            'Can you help me with the poster?（你可以幫我做海報嗎？）\n' +
+            '⚠ help someone with something 是固定用法。',
+      viz: { type: 'sentence', label: '請求協助', items: [
+        { t: 'Can you help', r: '請求' }, { t: 'me', r: '受格' },
+        { t: 'with the poster', r: '協助的事項' }],
+        note: 'help ＋ 人 ＋ with ＋ 事情。' },
+      check: {
+        q: '「你可以幫我做作業嗎？」的正確說法是什麼？',
+        options: [
+          'Can you help me with my homework?',
+          'Can you help me my homework?',
+          'Can you help with me my homework?',
+          'Can you help I with homework?'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '缺少介系詞 with。',
+          'with 的位置不正確。',
+          '動詞後面要用受格 me。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 描述經驗',
+      body: 'It was fun!（很好玩！）　We had a great time.（我們玩得很開心。）\n' +
+            'I learned a lot.（我學到很多。）\n' +
+            '⚠ 描述過去的活動要用過去式：was、had、learned。',
+      viz: { type: 'tense', verb: 'play', highlight: '過去簡單式' },
+      tip: '按按鈕比較不同時態。',
+      check: {
+        q: '描述昨天發生的活動，應該用什麼時態？',
+        options: [
+          '過去簡單式',
+          '現在簡單式',
+          '現在進行式',
+          '未來式'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '現在式用於習慣或事實。',
+          '進行式描述此刻正在做的事。',
+          '未來式描述還沒發生的事。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 寫活動心得',
+      body: '結構：時間地點 → 做了什麼 → 感受與收穫。\n' +
+            'Last Friday, we had our sports day.\n' +
+            'I ran in the relay race. Our class won second place.\n' +
+            'I was tired but very happy.\n' +
+            '⚠ 用 but 連接相反的感受，句子會更真實。',
+      viz: { type: 'energyflow', steps: ['時間地點', '做了什麼', '結果如何', '感受收穫'] },
+      check: {
+        q: '寫活動心得時，最後一段通常寫什麼？',
+        options: [
+          '自己的感受與收穫',
+          '重複活動名稱',
+          '別人的成績',
+          '明天的計畫'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '重複會顯得沒有重點。',
+          '心得應該以自己的經驗為主。',
+          '這與活動心得無關。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|五下|第9單元 短文閱讀入門'] = {
+  intro: '從讀懂一段話開始——這是英文從「背單字」變成「能用」的關鍵。',
+  cards: [
+    {
+      title: '① 讀之前先預測',
+      body: '先看標題、圖片與問題，猜測文章可能在講什麼。\n' +
+            '⚠ 帶著問題讀，比從頭到尾慢慢看有效率得多。\n' +
+            '也不要一遇到生字就停下來查。',
+      viz: { type: 'energyflow', steps: ['看標題與圖', '看題目', '快速讀一遍', '找答案'] },
+      check: {
+        q: '開始閱讀前先看題目，有什麼好處？',
+        options: [
+          '知道要找什麼資訊，閱讀更有方向',
+          '可以不用讀文章',
+          '可以直接猜答案',
+          '沒有任何好處'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '仍然需要閱讀文章才能作答。',
+          '猜測的正確率很低。',
+          '先看題目確實能提高效率。'
+        ]
+      }
+    },
+    {
+      title: '② 抓主旨',
+      body: '主旨通常在第一句或最後一句。\n' +
+            '問自己：這段主要在講什麼？\n' +
+            '⚠ 主旨是「整段的重點」，不是某個細節或例子。',
+      viz: { type: 'compareexp',
+             factor: '主旨與細節',
+             a: { label: '主旨', note: '整段的重點，通常較概括' },
+             b: { label: '細節', note: '支持主旨的例子或資料' },
+             same: ['都在同一段文章中'] },
+      check: {
+        q: '判斷一個選項是不是「主旨」，可以怎麼檢查？',
+        options: [
+          '看它能不能涵蓋整段的內容，而不只是其中一個例子',
+          '看它有沒有出現在文章第一個字',
+          '看它是不是最長的選項',
+          '看它有沒有生字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '位置只是線索之一。',
+          '長度與正確性無關。',
+          '生字多寡不影響判斷。'
+        ]
+      }
+    },
+    {
+      title: '③ 找細節',
+      body: '細節題（who／when／where／what）通常能在文中直接找到。\n' +
+            '技巧：圈出題目的關鍵字，回文章中定位。\n' +
+            '⚠ 注意數字、時間與人名，這些常是出題重點。',
+      viz: { type: 'energyflow', steps: ['讀題目', '圈關鍵字', '回文章定位', '核對選項'] },
+      check: {
+        q: '回答細節題最快的方法是什麼？',
+        options: [
+          '用題目的關鍵字回文章中定位',
+          '把整篇文章背下來',
+          '憑印象作答',
+          '只看第一段'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '背誦既費時也沒必要。',
+          '憑印象作答容易記錯細節。',
+          '答案可能在任何一段。'
+        ]
+      }
+    },
+    {
+      title: '④ 猜生字',
+      body: '線索：① 上下文 ② 例子 ③ 對比詞（but、however）\n' +
+            '④ 字的組成（un-、re-、-er、-ful、-less）。\n' +
+            '⚠ 不用每個字都查，能猜出大意就能繼續讀下去。',
+      viz: { type: 'classify', groups: [
+        { label: '字首', items: ['un-（不）', 're-（再）', 'pre-（前）'] },
+        { label: '字尾', items: ['-er（人）', '-ful（充滿）', '-less（沒有）'] }] },
+      check: {
+        q: '看到 careless 這個字，可以怎麼推測意思？',
+        options: [
+          '字尾 -less 表示「沒有」，care 是關心，合起來是「不小心的」',
+          '完全無法推測',
+          '一定要查字典才知道',
+          '它應該是名詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字的組成提供了明確線索。',
+          '查字典能確認，但先猜能加快閱讀。',
+          '從字尾可以判斷它是形容詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 看懂代名詞指誰',
+      body: '文章中的 he、she、it、they 通常指前面提過的人或物。\n' +
+            '⚠ 讀到代名詞時要能立刻對應回去，\n' +
+            '否則整段的意思會混亂。\n' +
+            '技巧：往前找最近的、單複數相符的名詞。',
+      viz: { type: 'energyflow', steps: ['看到代名詞', '往前找名詞', '確認單複數', '確定指誰'] },
+      check: {
+        q: '讀到 they 這個代名詞時，應該怎麼確認它指誰？',
+        options: [
+          '往前找最近且單複數相符的名詞',
+          '往後找',
+          '隨便猜一個',
+          '忽略它繼續讀'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '代名詞通常指前面提過的內容。',
+          '猜錯會誤解整段意思。',
+          '忽略代名詞會讓理解變模糊。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 培養閱讀習慣',
+      body: '每天讀一小段（三到五句），比週末讀一大篇有效。\n' +
+            '讀完做兩件事：① 用一句話說出大意 ② 記兩三個有用的字。\n' +
+            '⚠ 選擇「稍微有點難但看得懂」的材料最合適，\n' +
+            '太難會挫折、太簡單沒有進步。',
+      viz: { type: 'energyflow', steps: ['選對難度', '每天一小段', '說出大意', '記幾個字'] },
+      check: {
+        q: '選擇英文閱讀材料時，什麼樣的難度最合適？',
+        options: [
+          '稍微有點難、但大部分看得懂',
+          '完全看不懂的',
+          '每個字都認識的',
+          '越難越好'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '完全看不懂會很快失去動力。',
+          '太簡單則沒有學習效果。',
+          '難度過高反而降低效率。'
+        ]
+      }
+    }
+  ]
+};
