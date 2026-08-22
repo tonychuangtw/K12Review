@@ -7761,17 +7761,20 @@
     box.appendChild(svg);
     var read = div('wg-read');
     box.appendChild(read);
-    var OUT = 'M160,16 C186,30 200,58 202,92 C205,132 194,170 176,192 ' +
-      'C166,202 148,200 140,188 C124,164 116,120 122,80 C127,44 140,22 160,16 Z';
+    // 簡化的台灣輪廓（示意用）：北端窄、中段最寬、南端收成尖角
+    var OUT = 'M152,16 C172,24 186,46 194,74 C202,102 202,130 192,156 ' +
+      'C182,180 168,196 158,200 C150,196 140,178 132,154 C122,122 118,84 128,52 ' +
+      'C134,30 142,18 152,16 Z';
     function paint() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
       read.innerHTML = '';
       svg.appendChild(el('path', { d: OUT, 'fill-opacity': '.12' },
         'fill:var(--good);stroke:var(--good);stroke-width:2'));
+      svg.appendChild(txt(286, 202, '（示意圖）', 'font-size:9px;fill:var(--dim)'));
       var main, sub;
       if (mode === 'terrain') {
         svg.appendChild(el('path',
-          { d: 'M164,34 C180,66 186,120 172,178 C166,186 158,184 156,174 C150,124 152,66 164,34 Z',
+          { d: 'M172,40 C186,72 190,124 176,178 C170,186 162,184 160,174 C154,124 158,70 172,40 Z',
             'fill-opacity': '.4' }, 'fill:var(--bad);stroke:var(--bad);stroke-width:1.5'));
         svg.appendChild(txt(238, 96, '中央山脈', 'font-size:11px;fill:var(--bad)'));
         svg.appendChild(txt(76, 120, '西部平原', 'font-size:11px;fill:var(--accent)'));
@@ -7892,15 +7895,15 @@
       read.innerHTML = '';
       var data = SET[mode === 'young' ? 'young' : 'aging'];
       AGES.forEach(function (a, i) {
-        var y = 30 + i * 26, w = data[i] * 1.6;
-        svg.appendChild(el('rect', { x: 160 - w, y: y, width: w, height: 20, rx: 3,
+        var y = 30 + i * 26, w = data[i] * 2.1;
+        svg.appendChild(el('rect', { x: 134 - w, y: y, width: w, height: 20, rx: 3,
           'fill-opacity': '.5' }, 'fill:var(--accent);stroke:var(--accent)'));
-        svg.appendChild(el('rect', { x: 160, y: y, width: w * 0.96, height: 20, rx: 3,
+        svg.appendChild(el('rect', { x: 186, y: y, width: w * 0.96, height: 20, rx: 3,
           'fill-opacity': '.5' }, 'fill:var(--bad);stroke:var(--bad)'));
-        svg.appendChild(txt(160, y + 12, a, 'font-size:9px'));
+        svg.appendChild(txt(160, y + 12, a, 'font-size:10px;fill:var(--dim)'));
       });
-      svg.appendChild(txt(70, 20, '男', 'font-size:11px;fill:var(--accent)'));
-      svg.appendChild(txt(250, 20, '女', 'font-size:11px;fill:var(--bad)'));
+      svg.appendChild(txt(70, 22, '男', 'font-size:11px;fill:var(--accent)'));
+      svg.appendChild(txt(250, 22, '女', 'font-size:11px;fill:var(--bad)'));
       svg.appendChild(txt(160, 172, mode === 'young' ? '年輕型：底部寬（三角形）'
         : '高齡型：中上層寬、底部窄（倒三角）', 'font-size:11px;fill:var(--good)'));
       var main, sub;

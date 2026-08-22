@@ -5,12 +5,8 @@ h2{color:#9ecbff;font:600 14px/1.4 sans-serif;margin:8px 0 4px}</style></head>
 <body><div id="all"></div>
 <script src="../js/widgets.js"></script>
 <script>
-var D=[['歐姆',{type:'ohm',mode:'law',v:6,r:3}],
-['串聯',{type:'ohm',mode:'series',v:6,r:3}],
-['並聯',{type:'ohm',mode:'parallel',v:6,r:3}],
-['電功率',{type:'ohm',mode:'power',v:12,r:4}],
-['太陽系 順序',{type:'solarsys',mode:'order'}],
-['太陽系 大小',{type:'solarsys',mode:'size'}]];
+var D=[['人口金字塔',{type:'poppyramid',mode:'aging'}],
+['供需',{type:'supply',price:5}]];
 var all=document.getElementById('all');
 D.forEach(function(d){var h=document.createElement('h2');h.textContent=d[0];all.appendChild(h);
 var b=document.createElement('div');b.className='demo';all.appendChild(b);

@@ -205,7 +205,17 @@ var DEMOS = [
   ['壓力（面積／液體／大氣）', { type: 'pressure', mode: 'area' }],
   ['靜電（起電／相吸斥／接地）', { type: 'static', mode: 'charge' }],
   ['歐姆定律與電功率', { type: 'ohm', mode: 'law', v: 6, r: 3 }],
-  ['太陽系八大行星', { type: 'solarsys', mode: 'order' }]
+  ['太陽系八大行星', { type: 'solarsys', mode: 'order' }],
+  ['時間軸', { type: 'timeline', events: [
+    { y: '1624', t: '荷蘭來台', d: '荷蘭東印度公司在大員建立據點。' },
+    { y: '1662', t: '鄭成功', d: '驅逐荷蘭人，建立明鄭政權。' },
+    { y: '1895', t: '馬關條約', d: '清朝割讓台灣給日本。' }] }],
+  ['地圖與方位', { type: 'mapdir', mode: 'compass' }],
+  ['臺灣簡圖', { type: 'taiwan', mode: 'region' }],
+  ['組織架構圖', { type: 'orgchart', root: '總統', intro: '中央政府分成五院。', nodes: [
+    { t: '行政院', d: '國家最高行政機關。' }, { t: '立法院', d: '制定法律、審預算。' }] }],
+  ['人口金字塔', { type: 'poppyramid', mode: 'aging' }],
+  ['供給與需求', { type: 'supply', price: 5 }]
 ];
 var all = document.getElementById('all');
 DEMOS.forEach(function (d) {
