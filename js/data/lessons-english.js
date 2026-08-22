@@ -27864,3 +27864,1388 @@ window.APP_LESSONS['english|十下|第9單元 寫作：段落發展'] = {
     }
   ]
 };
+
+window.APP_LESSONS['english|十一上|第1單元 不定詞與動名詞'] = {
+  intro: '同一個動詞後面接不定詞或動名詞，意思可能天差地遠。',
+  cards: [
+    {
+      title: '① 兩者的核心語感',
+      body: '不定詞（to V）：指向未來、尚未發生、目的\n' +
+            '動名詞（Ving）：指向已發生、正在進行、既成事實\n' +
+            '⚠ 記住這個方向感，大部分的搭配就能推出來。',
+      viz: { type: 'compareexp',
+             factor: '時間方向',
+             a: { label: 'to V', note: '未來、還沒做：hope to go' },
+             b: { label: 'Ving', note: '已做或正在做：enjoy going' },
+             same: ['都可以當名詞用'] },
+      check: {
+        q: '為什麼 want、hope、plan 後面接不定詞？',
+        options: [
+          '因為這些動詞都指向還沒發生的事',
+          '因為它們比較短',
+          '因為它們是及物動詞',
+          '因為它們都是規則動詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字的長度與搭配無關。',
+          '及物與否不決定後面接什麼。',
+          '規則與不規則和這個搭配無關。'
+        ]
+      }
+    },
+    {
+      title: '② 意思會改變的動詞',
+      body: 'stop to V（停下來去做）／stop Ving（停止做）\n' +
+            'remember to V（記得要做）／remember Ving（記得做過）\n' +
+            'try to V（努力嘗試）／try Ving（試試看這個方法）\n' +
+            'mean to V（打算）／mean Ving（意味著）',
+      viz: { type: 'compareexp',
+             factor: '時間方向決定意思',
+             a: { label: '接不定詞', note: '事情還沒做' },
+             b: { label: '接動名詞', note: '事情已經做了' },
+             same: ['同一個主要動詞'] },
+      check: {
+        q: 'I remember locking the door. 這句話的意思是什麼？',
+        options: [
+          '我記得自己鎖過門了',
+          '我記得等一下要鎖門',
+          '我忘記鎖門了',
+          '我正在鎖門'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '記得要去做會用 remember to lock。',
+          '句子表達的是記得而不是忘記。',
+          '這句不是進行式。'
+        ]
+      }
+    },
+    {
+      title: '③ 只接動名詞的動詞',
+      body: 'enjoy、finish、avoid、mind、practice、suggest、consider、\n' +
+            'admit、deny、risk、quit、postpone\n' +
+            '⚠ 這些動詞的共同點：所指的動作已經在發生或已成事實。',
+      viz: { type: 'classify', groups: [
+        { label: '只接動名詞', items: ['enjoy', 'avoid', 'suggest', 'consider', 'deny', 'postpone'] }] },
+      check: {
+        q: 'She suggested ___ a break. 空格要填什麼？',
+        options: ['taking', 'to take', 'take', 'takes'],
+        answer: 0,
+        why: [
+          null,
+          'suggest 後面不接不定詞。',
+          'suggest 後面不直接接原形動詞。',
+          '這個形式不能接在 suggested 後面。'
+        ]
+      }
+    },
+    {
+      title: '④ 介系詞後面用動名詞',
+      body: 'be used to Ving（習慣於）vs. used to V（過去經常）\n' +
+            'look forward to Ving（期待）\n' +
+            'object to Ving（反對）\n' +
+            '⚠ 這幾個 to 是介系詞不是不定詞，後面要用動名詞。',
+      viz: { type: 'compareexp',
+             factor: 'to 的身分',
+             a: { label: 'to 是介系詞', note: 'look forward to seeing' },
+             b: { label: 'to 是不定詞的一部分', note: 'want to see' },
+             same: ['寫出來都是 to'] },
+      check: {
+        q: 'I am looking forward to ___ you. 空格要填什麼？',
+        options: ['meeting', 'meet', 'met', 'be meet'],
+        answer: 0,
+        why: [
+          null,
+          '這裡的 to 是介系詞，後面接動名詞。',
+          '介系詞後面不接過去式。',
+          '這個結構不通順。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 動名詞的所有格主詞',
+      body: 'I don’t mind his coming late.（正式）\n' +
+            'I don’t mind him coming late.（口語）\n' +
+            '⚠ 動名詞可以有自己的主詞，正式寫作用所有格。',
+      viz: { type: 'sentence', label: '動名詞的主詞', items: [
+        { t: 'his', r: '動名詞的主詞（所有格）' },
+        { t: 'coming late', r: '動名詞片語' }],
+        note: '正式語體用所有格。' },
+      check: {
+        q: '在正式寫作中，動名詞前面的主詞應該用哪一種形式？',
+        options: [
+          '所有格，例如 his、their',
+          '主格，例如 he、they',
+          '受格，例如 him、them',
+          '不能有主詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '主格不用在動名詞前面。',
+          '受格用於口語，正式寫作偏好所有格。',
+          '動名詞可以帶自己的主詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 不定詞的其他用法',
+      body: '① 表目的：I came to help.\n' +
+            '② 修飾名詞：something to eat\n' +
+            '③ 修飾形容詞：easy to learn\n' +
+            '④ 結果（常帶意外）：He grew up to be a doctor.\n' +
+            '⚠ 不定詞的用途比動名詞廣得多。',
+      viz: { type: 'classify', groups: [
+        { label: '不定詞的用法', items: ['當名詞', '表目的', '修飾名詞', '修飾形容詞', '表結果'] }] },
+      check: {
+        q: 'This book is easy to read. 這裡的不定詞在做什麼？',
+        options: [
+          '修飾前面的形容詞 easy',
+          '當句子的主詞',
+          '表示目的',
+          '修飾名詞 book'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子的主詞是 this book。',
+          '這裡不是在說明為什麼要做某事。',
+          '不定詞緊接在形容詞後面。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一上|第2單元 情態助動詞'] = {
+  intro: '情態助動詞表達說話者的判斷、態度與語氣強度。',
+  cards: [
+    {
+      title: '① 表達可能性的強度',
+      body: 'must（一定，最強）＞ should（應該）＞ may／might（可能）＞ could（也許）\n' +
+            'He must be tired.（他一定累了。）\n' +
+            '⚠ 同樣一件事，換一個助動詞，語氣就完全不同。',
+      viz: { type: 'energyflow', steps: ['could（也許）', 'may／might（可能）', 'should（應該）', 'must（一定）'] },
+      check: {
+        q: '下列哪一句表達的確定程度最高？',
+        options: [
+          'He must be at home.',
+          'He might be at home.',
+          'He could be at home.',
+          'He may be at home.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'might 表示可能性較低。',
+          'could 表示不確定的推測。',
+          'may 的確定程度低於 must。'
+        ]
+      }
+    },
+    {
+      title: '② 義務與必要',
+      body: 'must：說話者認為必須（主觀）\n' +
+            'have to：外在規定或情勢所需（客觀）\n' +
+            'should／ought to：建議\n' +
+            '⚠ must not（禁止）與 don’t have to（不必）意思完全不同。',
+      viz: { type: 'compareexp',
+             factor: '否定的意思',
+             a: { label: 'must not', note: '禁止：絕對不可以' },
+             b: { label: 'don’t have to', note: '不必：可做可不做' },
+             same: ['形式上都是否定'] },
+      check: {
+        q: 'You don’t have to come. 這句話的意思是什麼？',
+        options: [
+          '你不一定要來，來不來都可以',
+          '你絕對不可以來',
+          '你必須來',
+          '你最好不要來'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '禁止要用 must not。',
+          '這句是否定，不是要求。',
+          '這句沒有勸阻的意思。'
+        ]
+      }
+    },
+    {
+      title: '③ 許可與請求',
+      body: 'can（口語）＜ could（客氣）＜ may（正式）＜ might（很正式）\n' +
+            'Could you possibly help me?\n' +
+            '⚠ 過去式形式（could、would）在這裡不表示過去，\n' +
+            '而是讓語氣更委婉。',
+      viz: { type: 'energyflow', steps: ['Can you…?（直接）', 'Could you…?（客氣）', 'Would you mind…?（更客氣）'] },
+      check: {
+        q: 'Could you help me? 這裡的 could 表示什麼？',
+        options: [
+          '讓請求的語氣更委婉',
+          '表示過去的能力',
+          '表示不可能',
+          '表示必須'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這裡不是在講過去的事。',
+          'could 在請求句中不表示否定。',
+          '必須要用 must 或 have to。'
+        ]
+      }
+    },
+    {
+      title: '④ used to 與 would',
+      body: 'used to：過去的習慣或狀態（現在不再如此）\n' +
+            'would：過去反覆發生的動作（不能用於狀態）\n' +
+            '✓ I used to live here.（狀態，不能用 would）\n' +
+            '✓ We would go fishing every summer.',
+      viz: { type: 'compareexp',
+             factor: '能不能用於狀態',
+             a: { label: 'used to', note: '習慣與狀態都可以' },
+             b: { label: 'would', note: '只能用於反覆的動作' },
+             same: ['都表示過去的習慣'] },
+      check: {
+        q: '下列哪一句不正確？',
+        options: [
+          'I would live in Tainan when I was young.',
+          'I used to live in Tainan.',
+          'We would go camping every summer.',
+          'She used to be shy.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '狀態用 used to 是正確的。',
+          '反覆的動作可以用 would。',
+          '狀態用 used to 是正確的。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 助動詞沒有時態變化',
+      body: '✗ He cans swim.　✗ He musts go.\n' +
+            '★ 助動詞不隨主詞變，也不加 ing 或 ed。\n' +
+            '⚠ 需要其他時態時要換說法：\n' +
+            'will be able to、had to、will have to。',
+      viz: { type: 'classify', groups: [
+        { label: '沒有變化', items: ['can', 'must', 'should', 'may'] },
+        { label: '替代說法', items: ['be able to', 'have to', 'be allowed to'] }] },
+      check: {
+        q: '「明年我就必須自己開車了」的正確說法是什麼？',
+        options: [
+          'I will have to drive by myself next year.',
+          'I will must drive by myself next year.',
+          'I will can drive by myself next year.',
+          'I musted drive by myself next year.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '兩個助動詞不能連用。',
+          '兩個助動詞不能連用。',
+          '助動詞沒有過去式的變化形。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 語氣強弱的選擇',
+      body: '學術寫作偏好保留的語氣：\n' +
+            '✗ This proves that…→ ✓ This suggests that…\n' +
+            '✗ It must be…→ ✓ It may be…\n' +
+            '⚠ 把話說死容易被反駁，適度保留反而更可信。',
+      viz: { type: 'compareexp',
+             factor: '語氣',
+             a: { label: '絕對', note: 'must、prove、always' },
+             b: { label: '保留', note: 'may、suggest、tend to' },
+             same: ['都在陳述判斷'] },
+      check: {
+        q: '學術寫作為什麼常用 may、suggest 這類保留的說法？',
+        options: [
+          '避免把話說死，讓論述更嚴謹可信',
+          '因為作者不確定自己在寫什麼',
+          '因為這些字比較短',
+          '因為規定不能用肯定句'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '保留的語氣是嚴謹而不是心虛。',
+          '字的長度不是考量。',
+          '學術寫作可以用肯定句，只是要有依據。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一上|第3單元 助動詞 + 完成式'] = {
+  intro: '助動詞加完成式，用來推測或評論過去發生的事。',
+  cards: [
+    {
+      title: '① 基本結構',
+      body: '助動詞 ＋ have ＋ p.p.\n' +
+            'must have gone　should have done　could have been\n' +
+            '★ 一律用 have，不隨主詞變成 has。\n' +
+            '⚠ 這個結構講的都是「過去」。',
+      viz: { type: 'sentence', label: '結構', items: [
+        { t: 'must', r: '助動詞' }, { t: 'have', r: '固定用 have' },
+        { t: 'gone', r: '過去分詞' }],
+        note: '助動詞後面固定用原形的 have。' },
+      check: {
+        q: 'She must ___ left already. 空格要填什麼？',
+        options: ['have', 'has', 'had', 'having'],
+        answer: 0,
+        why: [
+          null,
+          '助動詞後面要用原形的 have。',
+          '這個結構固定用 have 而不是 had。',
+          '助動詞後面不接動名詞。'
+        ]
+      }
+    },
+    {
+      title: '② must have：對過去的肯定推測',
+      body: 'The ground is wet. It must have rained.\n' +
+            '（地是濕的，一定下過雨。）\n' +
+            '⚠ 這是根據現有證據推測過去，確定度很高。',
+      viz: { type: 'energyflow', steps: ['觀察現在的證據', '推測過去發生的事', 'must have 加過去分詞'] },
+      check: {
+        q: 'He looks exhausted. He must have worked all night. 這句在做什麼？',
+        options: [
+          '根據他現在的樣子推測他昨晚的行為',
+          '命令他去工作',
+          '描述他現在正在工作',
+          '預測他明天會工作'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這句是推測，不是在命令他做事。',
+          'must have 講的是過去的事。',
+          '這句講的不是未來。'
+        ]
+      }
+    },
+    {
+      title: '③ should have：後悔或責備',
+      body: 'You should have told me.（你早該告訴我的。）\n' +
+            'I shouldn’t have said that.（我不該那樣說的。）\n' +
+            '⚠ 這個句型表示「當初沒做（或做了）」，帶有遺憾。',
+      viz: { type: 'compareexp',
+             factor: '事情做了沒',
+             a: { label: 'should have done', note: '該做但沒做' },
+             b: { label: 'shouldn’t have done', note: '不該做卻做了' },
+             same: ['都在評論過去'] },
+      check: {
+        q: 'You should have studied harder. 這句話的意思是什麼？',
+        options: [
+          '你當時應該更用功，但你沒有',
+          '你現在應該更用功',
+          '你以後要更用功',
+          '你已經很用功了'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句型講的是過去。',
+          '這個句型不是在說未來。',
+          '這句帶有責備的意味。'
+        ]
+      }
+    },
+    {
+      title: '④ may／might have：不確定的推測',
+      body: 'He may have missed the bus.（他可能錯過公車了。）\n' +
+            '⚠ 比 must have 保留很多，表示只是一種可能。',
+      viz: { type: 'energyflow', steps: ['could have（也許）', 'may have（可能）', 'must have（一定）'] },
+      check: {
+        q: '想表達「他可能已經走了，但我不確定」，哪一個最合適？',
+        options: [
+          'He may have left.',
+          'He must have left.',
+          'He should have left.',
+          'He can have left.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'must have 表示很確定。',
+          'should have 帶有遺憾或責備。',
+          '這個組合在肯定句中不自然。'
+        ]
+      }
+    },
+    {
+      title: '⑤ could have：本來可以但沒有',
+      body: 'You could have called me.（你本來可以打給我的。）\n' +
+            'I could have won, but I gave up.\n' +
+            '⚠ 表示過去有那個能力或機會，卻沒有實現。',
+      viz: { type: 'compareexp',
+             factor: '事情有沒有發生',
+             a: { label: 'could have done', note: '有機會但沒做' },
+             b: { label: 'was able to do', note: '實際上做到了' },
+             same: ['都提到過去的能力'] },
+      check: {
+        q: 'She could have gone to Harvard. 這句話暗示什麼？',
+        options: [
+          '她有機會去但最後沒有去',
+          '她去了哈佛',
+          '她明年要去哈佛',
+          '她不可能去哈佛'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這個句型暗示事情沒有發生。',
+          '這句講的是過去而不是未來。',
+          '這句表示她本來是有機會的。'
+        ]
+      }
+    },
+    {
+      title: '⑥ can’t have：對過去的否定推測',
+      body: 'He can’t have finished so fast.（他不可能這麼快就寫完。）\n' +
+            '⚠ can’t have 是 must have 的反面：\n' +
+            '前者是「不可能」，後者是「一定」。',
+      viz: { type: 'compareexp',
+             factor: '推測的方向',
+             a: { label: 'must have', note: '一定發生了' },
+             b: { label: 'can’t have', note: '不可能發生' },
+             same: ['都在推測過去'] },
+      check: {
+        q: '「他不可能看過那部電影」的正確說法是什麼？',
+        options: [
+          'He can’t have seen that movie.',
+          'He mustn’t have seen that movie.',
+          'He doesn’t have seen that movie.',
+          'He can’t saw that movie.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'mustn’t 表示禁止而不是否定推測。',
+          '這個結構不符合英文文法。',
+          '助動詞後面要接原形的 have。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一上|第4單元 冠詞與限定詞'] = {
+  intro: '冠詞是中文母語者最容易漏掉的細節，但改起來有規則可循。',
+  cards: [
+    {
+      title: '① 三種選擇',
+      body: '面對一個名詞，永遠先問三件事：\n' +
+            '① 可數還是不可數？\n' +
+            '② 單數還是複數？\n' +
+            '③ 特定還是泛指？\n' +
+            '⚠ 回答完這三題，冠詞就決定了。',
+      viz: { type: 'energyflow', steps: ['可數還是不可數', '單數還是複數', '特定還是泛指', '決定冠詞'] },
+      check: {
+        q: '決定要不要加冠詞，第一步要判斷什麼？',
+        options: [
+          '這個名詞是可數還是不可數',
+          '這個字有幾個音節',
+          '這個字是不是外來語',
+          '句子有多長'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '音節數與冠詞無關。',
+          '字的來源不影響冠詞的選擇。',
+          '句子長度與冠詞無關。'
+        ]
+      }
+    },
+    {
+      title: '② a／an 的用法',
+      body: '① 第一次提到的單數可數名詞：I saw a dog.\n' +
+            '② 表示「某一個」：a friend of mine\n' +
+            '③ 表示「每一」：twice a week\n' +
+            '⚠ 依「發音」決定 a 或 an，不是依字母。',
+      viz: { type: 'compareexp',
+             factor: '判斷依據',
+             a: { label: '看發音（對）', note: 'an hour、a university' },
+             b: { label: '看字母（錯）', note: '會判斷成 a hour、an university' },
+             same: ['都表示「一個」'] },
+      check: {
+        q: '下列哪一個組合正確？',
+        options: [
+          'an honest man',
+          'a honest man',
+          'an united team',
+          'a hour'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'honest 的 h 不發音，要用 an。',
+          'united 的發音是子音開頭，要用 a。',
+          'hour 的 h 不發音，要用 an。'
+        ]
+      }
+    },
+    {
+      title: '③ the 的用法',
+      body: '① 前面提過：I saw a dog. The dog was black.\n' +
+            '② 上下文唯一：Close the door.\n' +
+            '③ 世界唯一：the sun、the Internet\n' +
+            '④ 最高級與序數：the best、the first\n' +
+            '⑤ 有修飾語限定：the book on the desk',
+      viz: { type: 'classify', groups: [
+        { label: '要用 the', items: ['前面提過', '唯一', '最高級', '有限定修飾'] },
+        { label: '不用 the', items: ['泛指複數', '泛指不可數', '專有名詞'] }] },
+      check: {
+        q: 'She is ___ tallest girl in the class. 空格要填什麼？',
+        options: ['the', 'a', 'an', '不填'],
+        answer: 0,
+        why: [
+          null,
+          '最高級前面要用定冠詞。',
+          '最高級前面要用定冠詞。',
+          '最高級前面不能省略冠詞。'
+        ]
+      }
+    },
+    {
+      title: '④ 零冠詞',
+      body: '① 泛指複數：Dogs are loyal.\n' +
+            '② 泛指不可數：Water is essential.\n' +
+            '③ 專有名詞：Taiwan、Mary\n' +
+            '④ 固定片語：go to school、at home、by bus\n' +
+            '⚠ go to school（去上學）vs. go to the school（去那所學校）。',
+      viz: { type: 'compareexp',
+             factor: '有沒有冠詞',
+             a: { label: 'go to school', note: '去上學這件事' },
+             b: { label: 'go to the school', note: '去那棟建築物' },
+             same: ['都用 go to'] },
+      check: {
+        q: 'go to bed 和 go to the bed 的差別是什麼？',
+        options: [
+          '前者是去睡覺，後者是走到那張床邊',
+          '兩者意思完全相同',
+          '前者是錯的用法',
+          '後者是錯的用法'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '加不加冠詞會改變意思。',
+          'go to bed 是正確的固定片語。',
+          'go to the bed 在特定情境下也成立。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 量詞與限定詞',
+      body: '可數：many、a few、few、several\n' +
+            '不可數：much、a little、little、a great deal of\n' +
+            '兩者皆可：some、any、a lot of、plenty of\n' +
+            '⚠ a few（有一些，正面）vs. few（幾乎沒有，負面）。',
+      viz: { type: 'compareexp',
+             factor: '有沒有冠詞 a',
+             a: { label: 'a few／a little', note: '有一些，語氣正面' },
+             b: { label: 'few／little', note: '幾乎沒有，語氣負面' },
+             same: ['都表示數量少'] },
+      check: {
+        q: 'He has few friends. 這句話的意思是什麼？',
+        options: [
+          '他幾乎沒有朋友',
+          '他有一些朋友',
+          '他有很多朋友',
+          '他沒有任何朋友'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '有一些要說 a few。',
+          '很多要用 many。',
+          'few 表示很少而不是完全沒有。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 中文母語者的常見錯誤',
+      body: '① 漏掉冠詞：✗ I am student.→ ✓ I am a student.\n' +
+            '② 不可數名詞加 s：✗ informations、✗ advices\n' +
+            '③ 泛指時多加 the：✗ The dogs are loyal.（泛指不加 the）\n' +
+            '⚠ 寫完檢查每個單數可數名詞前面有沒有東西。',
+      viz: { type: 'energyflow', steps: ['找出每個名詞', '判斷可數與單複數', '判斷特定或泛指', '補上正確的冠詞'] },
+      check: {
+        q: '下列哪一句正確？',
+        options: [
+          'I need some information about the course.',
+          'I need some informations about the course.',
+          'I need a information about the course.',
+          'I need informations about the course.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'information 是不可數名詞，不加 s。',
+          '不可數名詞前面不加冠詞 a。',
+          '不可數名詞沒有複數形。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一上|第5單元 介系詞片語'] = {
+  intro: '介系詞看起來小，卻是英文最難掌握的部分之一。',
+  cards: [
+    {
+      title: '① 介系詞片語的功能',
+      body: '當形容詞：the book on the desk（修飾名詞）\n' +
+            '當副詞：He works in Taipei.（修飾動詞）\n' +
+            '⚠ 介系詞片語不能當主詞，\n' +
+            '所以 In the box is a cat 的主詞是 a cat。',
+      viz: { type: 'compareexp',
+             factor: '修飾誰',
+             a: { label: '當形容詞', note: '修飾前面的名詞' },
+             b: { label: '當副詞', note: '修飾動詞或整句' },
+             same: ['都由介系詞加名詞組成'] },
+      check: {
+        q: 'The man in the blue shirt is my teacher. 這裡的介系詞片語在做什麼？',
+        options: [
+          '修飾名詞 man',
+          '當句子的主詞',
+          '修飾動詞 is',
+          '當句子的受詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句子的主詞是 the man。',
+          '這個片語說明的是哪一個人。',
+          '這個句子沒有受詞。'
+        ]
+      }
+    },
+    {
+      title: '② 動詞與介系詞的固定搭配',
+      body: 'depend on、rely on、consist of、result in\n' +
+            'apply for（申請）／apply to（適用於）\n' +
+            'agree with（人）／agree on（事）／agree to（提議）\n' +
+            '⚠ 這些搭配沒有邏輯可推，要整組記。',
+      viz: { type: 'classify', groups: [
+        { label: '搭配 on', items: ['depend on', 'rely on', 'focus on'] },
+        { label: '搭配 of', items: ['consist of', 'approve of', 'dispose of'] },
+        { label: '搭配 to', items: ['refer to', 'object to', 'contribute to'] }] },
+      check: {
+        q: 'The success depends ___ your effort. 空格要填什麼？',
+        options: ['on', 'of', 'to', 'in'],
+        answer: 0,
+        why: [
+          null,
+          'depend 不搭配 of。',
+          'depend 不搭配 to。',
+          'depend 不搭配 in。'
+        ]
+      }
+    },
+    {
+      title: '③ 形容詞與介系詞',
+      body: 'be interested in、be good at、be afraid of\n' +
+            'be famous for（以…聞名）／be famous as（以…身分聞名）\n' +
+            'be responsible for、be similar to、be different from\n' +
+            '⚠ 這也是固定搭配，要連著形容詞一起記。',
+      viz: { type: 'classify', groups: [
+        { label: '搭配 in／at', items: ['interested in', 'good at', 'bad at'] },
+        { label: '搭配 of／for', items: ['afraid of', 'proud of', 'responsible for'] },
+        { label: '搭配 to／from', items: ['similar to', 'different from'] }] },
+      check: {
+        q: 'This result is different ___ what we expected. 空格要填什麼？',
+        options: ['from', 'to', 'with', 'of'],
+        answer: 0,
+        why: [
+          null,
+          'different 的標準搭配是 from。',
+          'different 一般不搭配 with。',
+          'different 不搭配 of。'
+        ]
+      }
+    },
+    {
+      title: '④ 名詞與介系詞',
+      body: 'reason for、solution to、answer to\n' +
+            'effect on、influence on、increase in\n' +
+            '⚠ 注意「解決方案」用 to 不是 of：\n' +
+            'the solution to the problem。',
+      viz: { type: 'classify', groups: [
+        { label: '搭配 to', items: ['solution to', 'answer to', 'key to'] },
+        { label: '搭配 on', items: ['effect on', 'impact on', 'influence on'] },
+        { label: '搭配 in', items: ['increase in', 'decrease in', 'change in'] }] },
+      check: {
+        q: 'We need to find a solution ___ this problem. 空格要填什麼？',
+        options: ['to', 'of', 'for', 'with'],
+        answer: 0,
+        why: [
+          null,
+          'solution 的標準搭配是 to。',
+          'solution 一般不搭配 for。',
+          'solution 不搭配 with。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 介系詞後面接動名詞',
+      body: '★ 介系詞後面一律接名詞或動名詞，不接原形動詞：\n' +
+            'He is good at solving problems.\n' +
+            'Thank you for coming.\n' +
+            '⚠ 特別注意 to 有時是介系詞：object to doing。',
+      viz: { type: 'sentence', label: '介系詞加動名詞', items: [
+        { t: 'good at', r: '形容詞加介系詞' }, { t: 'solving', r: '動名詞' }],
+        note: '介系詞後面要用動名詞。' },
+      check: {
+        q: 'She is capable of ___ this task. 空格要填什麼？',
+        options: ['handling', 'handle', 'to handle', 'handled'],
+        answer: 0,
+        why: [
+          null,
+          '介系詞後面不接原形動詞。',
+          '介系詞後面不接不定詞。',
+          '介系詞後面不接過去式。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 怎麼記搭配詞',
+      body: '① 記在完整的句子裡，不要單獨背\n' +
+            '② 同一個介系詞的搭配放一起看\n' +
+            '③ 寫作時查搭配詞字典，不要憑感覺\n' +
+            '⚠ 中文母語者最常靠中文直譯，那正是錯誤的來源。',
+      viz: { type: 'energyflow', steps: ['遇到搭配就整組抄下來', '放進句子', '定期複習', '寫作時查證'] },
+      check: {
+        q: '學習介系詞搭配時，最該避免的做法是什麼？',
+        options: [
+          '從中文直接翻譯猜介系詞',
+          '把搭配放在句子裡記',
+          '查搭配詞字典',
+          '把同一介系詞的搭配整理在一起'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '放在句子裡記是有效的方法。',
+          '查字典可以確認正確的搭配。',
+          '分類整理有助於記憶。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一上|第6單元 名詞化與正式語體'] = {
+  intro: '把動作變成名詞，是學術英文的重要特徵。',
+  cards: [
+    {
+      title: '① 什麼是名詞化',
+      body: '把動詞或形容詞轉成名詞：\n' +
+            'decide → decision　　develop → development\n' +
+            'able → ability　　important → importance\n' +
+            '⚠ 名詞化讓句子更抽象、更正式，也更密集。',
+      viz: { type: 'energyflow', steps: ['動詞 develop', '名詞化 development', '句子變抽象', '語體變正式'] },
+      check: {
+        q: 'analyze 名詞化之後是哪一個字？',
+        options: ['analysis', 'analytical', 'analytically', 'analyzed'],
+        answer: 0,
+        why: [
+          null,
+          'analytical 是形容詞。',
+          'analytically 是副詞。',
+          'analyzed 是過去式或過去分詞。'
+        ]
+      }
+    },
+    {
+      title: '② 名詞化的效果',
+      body: '口語：Scientists discovered the virus, and this changed medicine.\n' +
+            '學術：The discovery of the virus transformed medicine.\n' +
+            '⚠ 名詞化可以把兩句壓成一句，資訊密度更高。',
+      viz: { type: 'compareexp',
+             factor: '語體',
+             a: { label: '口語', note: '用動詞，句子較長' },
+             b: { label: '學術', note: '用名詞，資訊密集' },
+             same: ['內容相同'] },
+      check: {
+        q: '名詞化在學術寫作中的主要作用是什麼？',
+        options: [
+          '提高資訊密度，讓語體更正式',
+          '讓句子變得更長',
+          '讓文章更容易讀',
+          '避免使用動詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '名詞化通常讓句子更精簡。',
+          '過度名詞化反而更難讀。',
+          '句子仍然需要動詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 不要過度名詞化',
+      body: '✗ The implementation of the reduction of costs was undertaken.\n' +
+            '✓ We reduced costs.\n' +
+            '⚠ 名詞化過頭會讓句子空洞難懂，\n' +
+            '英美學術寫作近年也提倡回歸清楚的動詞。',
+      viz: { type: 'compareexp',
+             factor: '可讀性',
+             a: { label: '適度名詞化', note: '精簡且清楚' },
+             b: { label: '過度名詞化', note: '冗長且抽象' },
+             same: ['都用了名詞化'] },
+      check: {
+        q: '過度名詞化會造成什麼問題？',
+        options: [
+          '句子變得抽象空洞、不易理解',
+          '句子變得太口語',
+          '文法一定會錯',
+          '無法使用被動語態'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '名詞化的方向是更正式而不是更口語。',
+          '過度名詞化不一定造成文法錯誤。',
+          '被動語態仍然可以使用。'
+        ]
+      }
+    },
+    {
+      title: '④ 正式語體的特徵',
+      body: '① 避免縮寫：don’t → do not\n' +
+            '② 避免口語詞：a lot of → numerous、kids → children\n' +
+            '③ 避免片語動詞：find out → discover、put off → postpone\n' +
+            '④ 避免第一人稱過度出現（視學科而定）',
+      viz: { type: 'compareexp',
+             factor: '語體',
+             a: { label: '非正式', note: 'don’t、kids、find out' },
+             b: { label: '正式', note: 'do not、children、discover' },
+             same: ['意思相同'] },
+      check: {
+        q: '在正式的學術寫作中，find out 比較好的替代說法是什麼？',
+        options: ['discover', 'figure out', 'check out', 'look up'],
+        answer: 0,
+        why: [
+          null,
+          'figure out 同樣是口語的片語動詞。',
+          'check out 是口語用法。',
+          'look up 是口語的片語動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 客觀的表達方式',
+      body: '✗ I think this is wrong.\n' +
+            '✓ The evidence suggests that this claim is questionable.\n' +
+            '⚠ 學術寫作把重點放在證據上，而不是個人感受。',
+      viz: { type: 'compareexp',
+             factor: '訊息的重心',
+             a: { label: '主觀', note: 'I think、I feel' },
+             b: { label: '客觀', note: 'The data indicate、Evidence suggests' },
+             same: ['都在表達判斷'] },
+      check: {
+        q: '學術寫作中，I think this is important 比較好的寫法是什麼？',
+        options: [
+          'This finding appears to be significant.',
+          'I really think this is very important.',
+          'This is super important.',
+          'Everyone knows this is important.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '加強副詞並沒有讓語體更客觀。',
+          'super 過於口語。',
+          '訴諸「大家都知道」不是論證。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 語體要一致',
+      body: '同一篇文章不要一下正式、一下口語：\n' +
+            '✗ The data indicate a huge increase, which is kind of surprising.\n' +
+            '⚠ 先決定文章的語體，再從頭到尾保持一致。',
+      viz: { type: 'energyflow', steps: ['決定語體', '選擇對應的用字', '避免混用', '通篇檢查一致性'] },
+      check: {
+        q: '一篇學術報告裡出現 kind of、a lot of 這類詞，問題是什麼？',
+        options: [
+          '語體不一致，口語詞破壞了正式感',
+          '文法錯誤',
+          '字數不足',
+          '缺少標點'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這些詞本身文法沒有錯。',
+          '語體問題與字數無關。',
+          '標點與語體選擇是兩回事。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一上|第7單元 搭配詞'] = {
+  intro: '搭配詞是「英文人習慣這樣說」的組合，背錯了會很不自然。',
+  cards: [
+    {
+      title: '① 什麼是搭配詞',
+      body: 'collocation ＝ 經常一起出現的字組\n' +
+            '✓ make a decision　✗ do a decision\n' +
+            '✓ heavy rain　✗ big rain\n' +
+            '⚠ 文法沒錯但不自然，就是搭配詞的問題。',
+      viz: { type: 'compareexp',
+             factor: '自不自然',
+             a: { label: '正確搭配', note: 'make a decision、heavy rain' },
+             b: { label: '不自然', note: 'do a decision、big rain' },
+             same: ['文法上都說得通'] },
+      check: {
+        q: '「大雨」的正確搭配是什麼？',
+        options: ['heavy rain', 'big rain', 'strong rain', 'large rain'],
+        answer: 0,
+        why: [
+          null,
+          '英文不用 big 形容雨勢。',
+          'strong 用於風而不是雨。',
+          'large 用於體積大小。'
+        ]
+      }
+    },
+    {
+      title: '② make 與 do',
+      body: 'make：創造出某個結果\n' +
+            '　 make a decision、make progress、make an effort、make a mistake\n' +
+            'do：執行某項工作或活動\n' +
+            '　 do homework、do the dishes、do research、do business',
+      viz: { type: 'classify', groups: [
+        { label: 'make', items: ['make a decision', 'make progress', 'make an effort'] },
+        { label: 'do', items: ['do homework', 'do research', 'do business'] }] },
+      check: {
+        q: '「做研究」的正確搭配是什麼？',
+        options: ['do research', 'make research', 'take research', 'have research'],
+        answer: 0,
+        why: [
+          null,
+          'research 搭配的是 do 而不是 make。',
+          'take 不與 research 搭配。',
+          'have 不與 research 搭配。'
+        ]
+      }
+    },
+    {
+      title: '③ take、have、give',
+      body: 'take：take a break、take a risk、take notes、take place\n' +
+            'have：have a meeting、have an effect、have fun\n' +
+            'give：give a speech、give advice、give a hand\n' +
+            '⚠ 這些是最高頻的動詞搭配。',
+      viz: { type: 'classify', groups: [
+        { label: 'take', items: ['take a break', 'take notes', 'take a risk'] },
+        { label: 'have', items: ['have a meeting', 'have an effect'] },
+        { label: 'give', items: ['give a speech', 'give advice'] }] },
+      check: {
+        q: '「發表演說」的正確搭配是什麼？',
+        options: ['give a speech', 'do a speech', 'make a speech to say', 'take a speech'],
+        answer: 0,
+        why: [
+          null,
+          'speech 不與 do 搭配。',
+          '這個說法多餘而且不自然。',
+          'take 不與 speech 搭配。'
+        ]
+      }
+    },
+    {
+      title: '④ 形容詞與名詞的搭配',
+      body: 'strong coffee（不是 thick coffee）\n' +
+            'high probability、close relationship\n' +
+            'significant difference、major concern\n' +
+            '⚠ 中文說「濃咖啡」，英文說 strong；\n' +
+            '直譯常常出錯。',
+      viz: { type: 'classify', groups: [
+        { label: '常見學術搭配', items: ['significant difference', 'major factor', 'key issue', 'strong evidence'] }] },
+      check: {
+        q: '「強而有力的證據」的正確搭配是什麼？',
+        options: [
+          'strong evidence',
+          'big evidence',
+          'heavy evidence',
+          'powerful evidences'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'big 不用來形容證據的力度。',
+          'heavy 用於重量或雨勢。',
+          'evidence 是不可數名詞，不加 s。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 副詞與形容詞的搭配',
+      body: 'highly likely、deeply concerned、fully aware\n' +
+            'strongly recommend、widely accepted\n' +
+            '⚠ ✗ very recommend（very 不能修飾動詞）\n' +
+            '✓ strongly recommend',
+      viz: { type: 'classify', groups: [
+        { label: '副詞加形容詞', items: ['highly likely', 'deeply concerned', 'fully aware'] },
+        { label: '副詞加動詞', items: ['strongly recommend', 'widely accepted'] }] },
+      check: {
+        q: '「強烈建議」的正確搭配是什麼？',
+        options: [
+          'strongly recommend',
+          'very recommend',
+          'highly recommend it very',
+          'big recommend'
+        ],
+        answer: 0,
+        why: [
+          null,
+          'very 不能直接修飾動詞。',
+          '這個說法重複且不自然。',
+          'big 不能當副詞修飾動詞。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 怎麼累積搭配詞',
+      body: '① 閱讀時特別留意「動詞 ＋ 名詞」的組合\n' +
+            '② 記整組不記單字\n' +
+            '③ 用搭配詞字典或語料庫查證\n' +
+            '④ 寫作時不確定就換一個有把握的說法\n' +
+            '⚠ 搭配詞是流利度的關鍵，比生難字更重要。',
+      viz: { type: 'energyflow', steps: ['閱讀時留意組合', '整組記下來', '查證', '在寫作中使用'] },
+      check: {
+        q: '寫作時不確定某個搭配對不對，最好怎麼辦？',
+        options: [
+          '查證，或換一個自己有把握的說法',
+          '照中文直譯寫下去',
+          '用最長的字',
+          '避免使用任何動詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '直譯正是搭配錯誤的主因。',
+          '字的長短與正確性無關。',
+          '句子不可能不用動詞。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一上|第8單元 長句解析'] = {
+  intro: '學術文章的長句不是靠猜，而是靠拆。',
+  cards: [
+    {
+      title: '① 先找主要動詞',
+      body: '拆長句的第一步：找出「主要子句的動詞」。\n' +
+            '★ 一個句子只有一個主要動詞，其他都在子句或片語裡。\n' +
+            '⚠ 找到主要動詞，主詞就在它前面。',
+      viz: { type: 'energyflow', steps: ['找主要動詞', '往前找主詞', '框出修飾成分', '確認句子骨幹'] },
+      check: {
+        q: '拆解長句的第一步應該做什麼？',
+        options: [
+          '找出主要子句的動詞',
+          '查每一個生字',
+          '從句尾往前讀',
+          '數句子有幾個逗號'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '先查生字容易迷失在細節裡。',
+          '倒著讀不會讓結構變清楚。',
+          '逗號數量不代表結構。'
+        ]
+      }
+    },
+    {
+      title: '② 框出修飾成分',
+      body: '把介系詞片語、關係子句、分詞片語用括號框起來，\n' +
+            '剩下的就是句子的骨幹：\n' +
+            'The book (on the table) (that I bought yesterday) is expensive.\n' +
+            '→ The book is expensive.',
+      viz: { type: 'sentence', label: '框掉修飾成分', items: [
+        { t: 'The book', r: '主詞' }, { t: '(修飾成分)', r: '先框起來' },
+        { t: 'is expensive', r: '主要動詞與補語' }],
+        note: '框掉修飾成分後骨幹就清楚了。' },
+      check: {
+        q: 'The students who passed the exam were happy. 這句的主要動詞是哪一個？',
+        options: ['were', 'passed', 'who', 'happy'],
+        answer: 0,
+        why: [
+          null,
+          'passed 是關係子句裡的動詞。',
+          'who 是關係代名詞而不是動詞。',
+          'happy 是形容詞。'
+        ]
+      }
+    },
+    {
+      title: '③ 認出連接詞的層級',
+      body: '對等連接詞連接的是「同層級」的成分\n' +
+            '附屬連接詞帶出「下一層」的子句\n' +
+            '⚠ 看到 that、which、because、although 就知道進入了下一層。',
+      viz: { type: 'classify', groups: [
+        { label: '同層級', items: ['and', 'but', 'or'] },
+        { label: '下一層', items: ['that', 'which', 'because', 'although', 'when'] }] },
+      check: {
+        q: '看到 although 開頭的部分，代表什麼？',
+        options: [
+          '這是一個附屬子句，不是句子的骨幹',
+          '這是句子的主要子句',
+          '句子結束了',
+          '這是一個名詞片語'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '附屬連接詞帶出的不是主要子句。',
+          'although 通常出現在句子中間或開頭。',
+          'although 引導的是子句而不是名詞片語。'
+        ]
+      }
+    },
+    {
+      title: '④ 插入語要跳過',
+      body: 'The theory, which was proposed in 1950, is still influential.\n' +
+            '★ 兩個逗號之間的部分通常是補充說明，\n' +
+            '第一次讀可以先跳過，抓住骨幹再回頭看。\n' +
+            '⚠ 破折號與括號裡的內容同理。',
+      viz: { type: 'energyflow', steps: ['看到兩個逗號夾住的部分', '先跳過', '抓住主要結構', '再回頭讀補充'] },
+      check: {
+        q: '讀到被兩個逗號夾住的插入語時，比較有效率的做法是什麼？',
+        options: [
+          '先跳過，抓住句子骨幹後再回頭讀',
+          '逐字精讀後再往下',
+          '直接放棄整句',
+          '從插入語開始讀'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '先精讀插入語容易失去主線。',
+          '放棄整句會漏掉重要資訊。',
+          '從補充說明開始讀會更混亂。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 常見的長句類型',
+      body: '① 主詞很長（名詞子句或多層修飾當主詞）\n' +
+            '② 多個對等成分並列\n' +
+            '③ 層層套疊的關係子句\n' +
+            '④ 分詞構句加主句\n' +
+            '⚠ 認出類型就知道該從哪裡下刀。',
+      viz: { type: 'classify', groups: [
+        { label: '長句的成因', items: ['主詞很長', '成分並列', '關係子句套疊', '分詞構句'] }] },
+      check: {
+        q: 'What the researchers discovered in the experiment surprised everyone. 這句為什麼長？',
+        options: [
+          '因為主詞是一個很長的名詞子句',
+          '因為有很多形容詞',
+          '因為用了被動語態',
+          '因為有兩個主要動詞'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '句中的形容詞其實很少。',
+          '這句用的是主動語態。',
+          '主要動詞只有 surprised 一個。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 練習方法',
+      body: '① 找一篇學術短文，用不同顏色標出主句與子句\n' +
+            '② 把長句改寫成兩三個短句\n' +
+            '③ 再把短句合併回長句\n' +
+            '⚠ 拆得開也合得起來，才算真的懂結構。',
+      viz: { type: 'energyflow', steps: ['標出主句與子句', '拆成短句', '再合併回去', '對照原文'] },
+      check: {
+        q: '練習長句解析時，為什麼要練「把短句合併回長句」？',
+        options: [
+          '確認自己真的理解句子的結構關係',
+          '為了增加字數',
+          '為了背下原文',
+          '為了練習打字'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '練習的目的不是灌水。',
+          '重點是理解結構而不是背誦。',
+          '這是理解訓練而不是打字練習。'
+        ]
+      }
+    }
+  ]
+};
+
+window.APP_LESSONS['english|十一上|第9單元 主題句與論點'] = {
+  intro: '一篇好文章的核心，是一個能被討論的論點。',
+  cards: [
+    {
+      title: '① 什麼是好的論點',
+      body: '論點（thesis）＝ 明確 ＋ 有立場 ＋ 可被討論\n' +
+            '✗ Pollution is a problem.（沒有立場）\n' +
+            '✓ Cities should ban private cars downtown to cut pollution.\n' +
+            '⚠ 如果沒有人會反對，那就不是論點，只是事實。',
+      viz: { type: 'compareexp',
+             factor: '有沒有可討論性',
+             a: { label: '論點', note: '有立場，別人可能反對' },
+             b: { label: '事實陳述', note: '沒有爭議，無從討論' },
+             same: ['都是完整的句子'] },
+      check: {
+        q: '下列哪一句比較適合當論點？',
+        options: [
+          'Schools should replace exams with project-based assessment.',
+          'Many schools give exams.',
+          'Exams exist in every country.',
+          'Exams are a kind of assessment.'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '這只是描述現況，沒有立場。',
+          '這是事實陳述，沒有爭議。',
+          '這是定義而不是主張。'
+        ]
+      }
+    },
+    {
+      title: '② 論點的位置',
+      body: '英文議論文的論點通常放在引言的最後一句。\n' +
+            '★ 結構：吸引注意 → 背景說明 → 論點\n' +
+            '⚠ 中文寫作常把結論留到最後，\n' +
+            '英文則習慣先把立場講清楚。',
+      viz: { type: 'energyflow', steps: ['吸引注意的開場', '背景說明', '論點（引言最後一句）', '進入主體段'] },
+      check: {
+        q: '英文議論文的論點通常放在哪裡？',
+        options: [
+          '引言段的最後一句',
+          '文章的最後一句',
+          '第二段的中間',
+          '標題裡'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '結論會回扣論點，但論點先在引言出現。',
+          '論點不會藏在主體段中間。',
+          '標題不能取代論點句。'
+        ]
+      }
+    },
+    {
+      title: '③ 論點要能被展開',
+      body: '好的論點可以自然分出二到三個支持段落：\n' +
+            'Remote work benefits employees, employers, and the environment.\n' +
+            '→ 三段：員工、雇主、環境\n' +
+            '⚠ 論點裡就藏著文章的架構。',
+      viz: { type: 'energyflow', steps: ['論點：三個好處', '主體段一：員工', '主體段二：雇主', '主體段三：環境'] },
+      check: {
+        q: '論點裡列出三個面向的好處，通常代表什麼？',
+        options: [
+          '文章主體會有三個對應的段落',
+          '文章只需要一段',
+          '文章要寫三千字',
+          '文章不需要結論'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '三個面向需要各自展開。',
+          '面向的數量與字數沒有直接關係。',
+          '議論文仍然需要結論。'
+        ]
+      }
+    },
+    {
+      title: '④ 主題句要呼應論點',
+      body: '每一段的主題句都要能對應回論點的某一部分。\n' +
+            '★ 檢查方法：把所有主題句抽出來排在一起，\n' +
+            '應該就是論點的展開。\n' +
+            '⚠ 對不上的段落就是離題了。',
+      viz: { type: 'energyflow', steps: ['抽出所有主題句', '排在一起', '對照論點', '刪掉對不上的段落'] },
+      check: {
+        q: '檢查文章有沒有離題，最快的方法是什麼？',
+        options: [
+          '把各段主題句抽出來，看是否都呼應論點',
+          '數總字數',
+          '看有沒有錯字',
+          '看段落數量夠不夠'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '字數與是否離題無關。',
+          '錯字是校對問題而不是結構問題。',
+          '段落多寡不代表切題。'
+        ]
+      }
+    },
+    {
+      title: '⑤ 處理反方觀點',
+      body: '成熟的議論文會先承認反方，再反駁：\n' +
+            'Admittedly, remote work can weaken team bonds.\n' +
+            'However, regular online meetings can address this concern.\n' +
+            '⚠ 承認反方不會削弱立場，反而顯得公允有力。',
+      viz: { type: 'energyflow', steps: ['承認反方有道理', '指出其侷限', '提出反駁', '回到自己的立場'] },
+      check: {
+        q: '議論文為什麼要提到反方觀點？',
+        options: [
+          '顯示考慮周全，反駁後論述更有說服力',
+          '為了湊字數',
+          '為了讓讀者困惑',
+          '因為規定一定要寫'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '提及反方的目的是強化論證。',
+          '好的論述應該讓讀者更清楚。',
+          '這是論證策略而不是硬性規定。'
+        ]
+      }
+    },
+    {
+      title: '⑥ 論點的修改',
+      body: '寫完之後回頭看：\n' +
+            '① 我實際寫的內容和原本的論點一致嗎\n' +
+            '② 如果不一致，該改論點還是改內容\n' +
+            '⚠ 寫作過程中想法會演化，改論點是正常的。',
+      viz: { type: 'energyflow', steps: ['寫完初稿', '對照論點與內容', '決定改哪一邊', '確認一致'] },
+      check: {
+        q: '寫完發現內容和原本的論點不一致，該怎麼辦？',
+        options: [
+          '判斷哪一邊比較好，然後修改另一邊使其一致',
+          '直接交出去',
+          '把不一致的段落全部刪掉',
+          '在結論解釋自己改變了想法'
+        ],
+        answer: 0,
+        why: [
+          null,
+          '不一致會讓讀者無法跟上論述。',
+          '刪段落不一定是最好的解法。',
+          '議論文不適合在結論才承認前後矛盾。'
+        ]
+      }
+    }
+  ]
+};
