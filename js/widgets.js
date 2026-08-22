@@ -2326,6 +2326,333 @@
     host.appendChild(box);
   };
 
+  /* ── 簡單電路（lamp）──────────────────────────────────────────────────
+     spec: { mode:'closed'|'open'|'short'|'series'|'parallel', pick }     */
+  REG.lamp = function (host, spec) {
+    var mode = spec.mode || 'closed';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function battery(x, y) {
+      svg.appendChild(el('rect', { x: x, y: y, width: 46, height: 24, rx: 4 },
+        'fill:none;stroke:var(--text);stroke-width:2'));
+      svg.appendChild(txt(x + 23, y + 12, '電池', 'font-size:10px'));
+    }
+    function bulb(cx, cy, on) {
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: 15, 'fill-opacity': on ? '.85' : '.15' },
+        'fill:' + (on ? '#f5e08a' : 'var(--dim)') + ';stroke:var(--text);stroke-width:2'));
+      if (on) {
+        [0, 45, 90, 135].forEach(function (a) {
+          var r = a * Math.PI / 180;
+          svg.appendChild(el('line', { x1: cx + 19 * Math.cos(r), y1: cy + 19 * Math.sin(r),
+            x2: cx + 26 * Math.cos(r), y2: cy + 26 * Math.sin(r) },
+            'stroke:#f5c451;stroke-width:2'));
+          svg.appendChild(el('line', { x1: cx - 19 * Math.cos(r), y1: cy - 19 * Math.sin(r),
+            x2: cx - 26 * Math.cos(r), y2: cy - 26 * Math.sin(r) },
+            'stroke:#f5c451;stroke-width:2'));
+        });
+      }
+    }
+    function wire(d, color) {
+      svg.appendChild(el('path', { d: d },
+        'fill:none;stroke:var(--' + (color || 'text') + ');stroke-width:2.5'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'open') {
+        battery(28, 118);
+        wire('M74,130 L150,130 M186,130 L268,130 L268,60 L150,60');
+        wire('M74,130 L74,60 L120,60');
+        bulb(135, 60, false);
+        svg.appendChild(el('line', { x1: 152, y1: 122, x2: 176, y2: 112 },
+          'stroke:var(--bad);stroke-width:3'));
+        svg.appendChild(txt(168, 148, '開關斷開', 'font-size:10px;fill:var(--bad)'));
+        main = '斷路：電流走不完一圈，燈不亮';
+        sub = '電路只要有「任何一個地方斷掉」（開關關掉、燈絲燒斷、電線鬆脫、電池沒接好），' +
+              '電流就無法流動，燈就不會亮。檢查燈不亮時，就是沿著這一圈找哪裡斷了。';
+      } else if (mode === 'short') {
+        battery(28, 118);
+        wire('M74,130 L268,130 L268,60 L150,60', 'bad');
+        wire('M74,130 L74,60 L120,60', 'bad');
+        bulb(135, 60, false);
+        wire('M74,130 L268,130', 'bad');
+        svg.appendChild(txt(170, 152, '導線直接連接正負極', 'font-size:10px;fill:var(--bad)'));
+        main = '短路：電流不經過燈泡，直接跑回電池';
+        sub = '⚠ 用導線把電池的正負極直接連起來就是短路。' +
+              '這時電流非常大，導線和電池會迅速發燙，可能燙傷、燒壞電池甚至起火。' +
+              '做電路實驗時一定要讓電流「經過用電器（燈泡）」再回到電池。';
+      } else if (mode === 'series') {
+        battery(28, 118);
+        wire('M74,130 L268,130 L268,60 L216,60 M186,60 L136,60 M106,60 L74,60 L74,130');
+        bulb(121, 60, true); bulb(201, 60, true);
+        svg.appendChild(txt(160, 152, '兩顆燈泡「接成一串」', 'font-size:10px;fill:var(--dim)'));
+        main = '串聯：電流只有一條路可以走';
+        sub = '兩顆燈泡接成一串時，電流依序流過每一顆。' +
+              '⚠ 拿掉其中一顆（或它燒壞了），整條路就斷了，另一顆也會熄滅。' +
+              '而且燈泡越多，每一顆分到的電越少，會比較暗。（舊式聖誕燈串就是這樣。）';
+      } else if (mode === 'parallel') {
+        battery(28, 118);
+        wire('M74,130 L268,130 L268,44 L74,44 L74,130');
+        wire('M130,44 L130,86 M130,86 L130,44');
+        wire('M210,44 L210,86');
+        wire('M130,86 L210,86');
+        bulb(130, 100, true); bulb(210, 100, true);
+        svg.appendChild(txt(160, 152, '兩顆燈泡各走各的路', 'font-size:10px;fill:var(--dim)'));
+        main = '並聯：每顆燈泡各有一條路';
+        sub = '並聯時每一顆燈泡都直接接到電池，各走各的路。' +
+              '所以拿掉其中一顆，另一顆「還是會亮」，而且亮度和單獨接一顆時差不多。' +
+              '家裡的電器就是並聯的——關掉電視，電燈還亮著。';
+      } else {
+        battery(28, 118);
+        wire('M74,130 L268,130 L268,60 L150,60');
+        wire('M74,130 L74,60 L120,60');
+        bulb(135, 60, true);
+        svg.appendChild(txt(170, 152, '電流繞完整一圈', 'font-size:10px;fill:var(--good)'));
+        main = '通路：電流繞完一圈，燈泡亮';
+        sub = '燈泡要亮，電路必須接成「完整的一圈」：電池 → 導線 → 燈泡 → 導線 → 回到電池。' +
+              '電池提供電、導線帶著電走、燈泡把電能變成光和熱。' +
+              '⚠ 三個都要接好，少一個環節就不亮。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['closed', '通路'], ['open', '斷路'], ['short', '短路'],
+       ['series', '串聯'], ['parallel', '並聯']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 熱的傳播（heat）──────────────────────────────────────────────────
+     spec: { mode:'conduct'|'convect'|'radiate', pick }                   */
+  REG.heat = function (host, spec) {
+    var mode = spec.mode || 'conduct';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub, i;
+      if (mode === 'convect') {
+        svg.appendChild(el('rect', { x: 60, y: 40, width: 200, height: 90, rx: 6, 'fill-opacity': '.18' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(el('rect', { x: 130, y: 132, width: 60, height: 12, rx: 3 }, 'fill:var(--bad)'));
+        svg.appendChild(txt(160, 156, '加熱', 'font-size:10px;fill:var(--bad)'));
+        svg.appendChild(el('path', { d: 'M160,124 C160,90 200,90 200,60' },
+          'fill:none;stroke:var(--bad);stroke-width:2.5'));
+        svg.appendChild(el('polygon', { points: '200,52 194,64 206,64' }, 'fill:var(--bad)'));
+        svg.appendChild(el('path', { d: 'M220,58 C240,90 200,110 176,122' },
+          'fill:none;stroke:var(--accent);stroke-width:2.5'));
+        svg.appendChild(el('polygon', { points: '170,126 182,124 178,114' }, 'fill:var(--accent)'));
+        svg.appendChild(txt(226, 40, '熱的往上', 'font-size:10px;fill:var(--bad)'));
+        svg.appendChild(txt(88, 118, '冷的下沉', 'font-size:10px;fill:var(--accent)'));
+        main = '對流：液體和氣體「自己流動」把熱帶走';
+        sub = '受熱的部分變輕往上升、旁邊比較冷的流過來補位置，一圈一圈循環把熱帶到各處。' +
+              '這是液體和氣體傳熱的主要方式（固體不會對流）。' +
+              '例子：煮開水、冷氣裝高處（冷空氣下沉）、暖氣裝低處、天燈上升、海陸風。';
+      } else if (mode === 'radiate') {
+        svg.appendChild(el('circle', { cx: 76, cy: 84, r: 24 }, 'fill:#f5c451'));
+        svg.appendChild(txt(76, 84, '熱源', 'font-size:10px;fill:#111'));
+        for (i = 0; i < 4; i++) {
+          var y = 50 + i * 24;
+          svg.appendChild(el('line', { x1: 106, y1: y, x2: 214, y2: y },
+            'stroke:#f5c451;stroke-width:2;stroke-dasharray:8 5'));
+          svg.appendChild(el('polygon', { points: '222,' + y + ' 210,' + (y - 5) + ' 210,' + (y + 5) },
+            'fill:#f5c451'));
+        }
+        svg.appendChild(el('rect', { x: 236, y: 46, width: 40, height: 76, rx: 4, 'fill-opacity': '.3' },
+          'fill:var(--bad);stroke:var(--bad);stroke-width:2'));
+        svg.appendChild(txt(256, 138, '被曬熱', 'font-size:10px;fill:var(--bad)'));
+        main = '輻射：不需要介質，熱直接傳過來';
+        sub = '太陽和地球之間是真空，沒有空氣可以傳熱，但我們還是曬得到太陽——' +
+              '因為熱可以用「輻射」的方式直接傳過來。' +
+              '例子：曬太陽、烤火時正面覺得熱、烤箱、暖爐。' +
+              '深色物體吸收輻射熱的能力比較強，所以夏天穿淺色衣服比較涼。';
+      } else {
+        svg.appendChild(el('rect', { x: 40, y: 76, width: 220, height: 20, rx: 4 }, 'fill:var(--dim)'));
+        svg.appendChild(el('rect', { x: 40, y: 76, width: 60, height: 20, rx: 4 }, 'fill:var(--bad)'));
+        svg.appendChild(txt(70, 60, '加熱端（熱）', 'font-size:10px;fill:var(--bad)'));
+        svg.appendChild(txt(232, 60, '另一端慢慢變熱', 'font-size:10px;fill:var(--dim)'));
+        for (i = 0; i < 5; i++) {
+          svg.appendChild(el('polygon', { points: (108 + i * 30) + ',86 ' + (98 + i * 30) +
+            ',80 ' + (98 + i * 30) + ',92' }, 'fill:var(--bad);opacity:' + (1 - i * 0.15)));
+        }
+        svg.appendChild(txt(160, 130, '熱沿著物體「傳過去」，物體本身不移動',
+          'font-size:10px;fill:var(--dim)'));
+        main = '傳導：熱沿著固體從高溫傳到低溫';
+        sub = '把湯匙放進熱湯，柄也會慢慢變熱——熱沿著金屬「傳」過去了。' +
+              '金屬是熱的良導體（傳得快），木頭、塑膠、布、空氣是不良導體（傳得慢）。' +
+              '所以鍋子用金屬做、鍋柄用塑膠或木頭做；冬天穿的衣服則是利用「空氣傳熱慢」來保暖。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['conduct', '傳導'], ['convect', '對流'], ['radiate', '輻射']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 浮力（buoyancy）──────────────────────────────────────────────────
+     spec: { mode:'float'|'sink'|'boat', pick }                           */
+  REG.buoyancy = function (host, spec) {
+    var mode = spec.mode || 'float';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('rect', { x: 30, y: 60, width: 260, height: 84, rx: 4, 'fill-opacity': '.22' },
+        'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+      svg.appendChild(el('line', { x1: 30, y1: 60, x2: 290, y2: 60 },
+        'stroke:var(--accent);stroke-width:2.5'));
+      var main, sub;
+      if (mode === 'sink') {
+        svg.appendChild(el('rect', { x: 140, y: 112, width: 40, height: 26, rx: 3 },
+          'fill:var(--dim);stroke:var(--text);stroke-width:2'));
+        svg.appendChild(txt(160, 125, '鐵塊', 'font-size:10px'));
+        svg.appendChild(el('line', { x1: 160, y1: 112, x2: 160, y2: 88 },
+          'stroke:var(--good);stroke-width:2.5'));
+        svg.appendChild(el('polygon', { points: '160,80 154,92 166,92' }, 'fill:var(--good)'));
+        svg.appendChild(txt(200, 84, '浮力（向上）', 'font-size:10px;fill:var(--good)'));
+        svg.appendChild(el('line', { x1: 120, y1: 118, x2: 120, y2: 142 },
+          'stroke:var(--bad);stroke-width:2.5'));
+        svg.appendChild(el('polygon', { points: '120,150 114,138 126,138' }, 'fill:var(--bad)'));
+        svg.appendChild(txt(86, 148, '重量', 'font-size:10px;fill:var(--bad)'));
+        main = '下沉：重量大於浮力';
+        sub = '放進水裡的東西同時受到「向下的重量」和「向上的浮力」。' +
+              '重量比浮力大 → 往下沉（鐵塊、石頭）；浮力比重量大 → 浮起來（木塊、保麗龍）。' +
+              '同樣大小的物體，比較重的那個（密度大）就會沉。';
+      } else if (mode === 'boat') {
+        svg.appendChild(el('path', { d: 'M116,74 L204,74 L188,104 L132,104 Z' },
+          'fill:var(--panel2);stroke:var(--text);stroke-width:2'));
+        svg.appendChild(txt(160, 90, '黏土做的船', 'font-size:10px'));
+        svg.appendChild(el('line', { x1: 160, y1: 104, x2: 160, y2: 130 },
+          'stroke:var(--good);stroke-width:2.5'));
+        svg.appendChild(el('polygon', { points: '160,98 154,110 166,110' }, 'fill:var(--good)'));
+        svg.appendChild(txt(226, 118, '排開更多水 → 浮力變大', 'font-size:10px;fill:var(--good)'));
+        main = '同一團黏土，捏成船就浮起來了';
+        sub = '浮力的大小取決於「排開多少水」。捏成一團時排開的水少、浮力小，所以沉下去；' +
+              '捏成中空的船形，排開的水變多、浮力變大，就浮起來了。' +
+              '鋼鐵做的大船能浮在海上，靠的就是這個道理——船身是空心的。';
+      } else {
+        svg.appendChild(el('rect', { x: 136, y: 44, width: 48, height: 30, rx: 3 },
+          'fill:#c8a26a;stroke:var(--text);stroke-width:2'));
+        svg.appendChild(txt(160, 59, '木塊', 'font-size:10px;fill:#111'));
+        svg.appendChild(el('line', { x1: 160, y1: 74, x2: 160, y2: 100 },
+          'stroke:var(--good);stroke-width:2.5'));
+        svg.appendChild(el('polygon', { points: '160,68 154,80 166,80' }, 'fill:var(--good)'));
+        svg.appendChild(txt(214, 96, '浮力 ≧ 重量', 'font-size:10px;fill:var(--good)'));
+        main = '浮起來：浮力大於或等於重量';
+        sub = '浮力的方向永遠「向上」，是水把物體往上托的力。' +
+              '所以在水裡搬東西感覺比較輕（不是東西變輕，是浮力幫忙撐了一部分）。' +
+              '會浮的東西：木頭、保麗龍、空瓶子；會沉的：鐵、石頭、實心黏土。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['float', '浮起來'], ['sink', '沉下去'], ['boat', '黏土船']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 簡單機械（lever）─────────────────────────────────────────────────
+     spec: { mode:'lever'|'wheel'|'pulley', pick }                        */
+  REG.lever = function (host, spec) {
+    var mode = spec.mode || 'lever';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      if (mode === 'wheel') {
+        svg.appendChild(el('circle', { cx: 160, cy: 84, r: 52, 'fill-opacity': '.18' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2.5'));
+        svg.appendChild(el('circle', { cx: 160, cy: 84, r: 18, 'fill-opacity': '.4' },
+          'fill:var(--good);stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(160, 84, '軸', 'font-size:10px'));
+        svg.appendChild(txt(160, 150, '輪（大）帶動 軸（小）', 'font-size:11px;fill:var(--dim)'));
+        main = '輪軸：轉大的輪，帶動小的軸';
+        sub = '輪軸是兩個大小不同、固定在一起轉的圓。施力在「大輪」上比較省力。' +
+              '例子：門把、水龍頭、方向盤、螺絲起子（握柄粗 ＝ 輪，金屬桿細 ＝ 軸）、腳踏車的踏板。' +
+              '⚠ 省了力氣，但手要轉的距離變長——這是簡單機械的通則。';
+      } else if (mode === 'pulley') {
+        svg.appendChild(el('circle', { cx: 160, cy: 42, r: 20 },
+          'fill:none;stroke:var(--accent);stroke-width:3'));
+        svg.appendChild(el('line', { x1: 140, y1: 42, x2: 140, y2: 130 },
+          'stroke:var(--text);stroke-width:2'));
+        svg.appendChild(el('line', { x1: 180, y1: 42, x2: 180, y2: 120 },
+          'stroke:var(--text);stroke-width:2'));
+        svg.appendChild(el('rect', { x: 124, y: 130, width: 32, height: 24, rx: 3 },
+          'fill:var(--dim)'));
+        svg.appendChild(txt(140, 142, '重物', 'font-size:9px'));
+        svg.appendChild(el('polygon', { points: '180,128 174,116 186,116' }, 'fill:var(--good)'));
+        svg.appendChild(txt(206, 128, '往下拉', 'font-size:10px;fill:var(--good)'));
+        main = '定滑輪：改變施力的方向';
+        sub = '定滑輪固定在上面不會移動，它「不能省力」，但可以把「往上拉」變成「往下拉」——' +
+              '往下拉比較好使力（可以用體重），所以升旗和吊東西都用它。' +
+              '動滑輪（會跟著重物一起移動的那種）才能省力，但要拉更長的繩子。';
+      } else {
+        svg.appendChild(el('line', { x1: 40, y1: 96, x2: 280, y2: 96 },
+          'stroke:var(--accent);stroke-width:6'));
+        svg.appendChild(el('polygon', { points: '200,100 184,130 216,130' }, 'fill:var(--dim)'));
+        svg.appendChild(txt(200, 146, '支點', 'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(el('line', { x1: 60, y1: 76, x2: 60, y2: 92 },
+          'stroke:var(--good);stroke-width:3'));
+        svg.appendChild(el('polygon', { points: '60,96 54,84 66,84' }, 'fill:var(--good)'));
+        svg.appendChild(txt(60, 66, '施力點', 'font-size:10px;fill:var(--good)'));
+        svg.appendChild(el('rect', { x: 244, y: 68, width: 30, height: 24, rx: 3 }, 'fill:var(--bad)'));
+        svg.appendChild(txt(259, 58, '抗力點', 'font-size:10px;fill:var(--bad)'));
+        main = '槓桿：支點、施力點、抗力點';
+        sub = '支點是「轉動的中心」、施力點是「我們出力的地方」、抗力點是「重物在的地方」。' +
+              '省力的訣竅：施力點離支點「越遠」越省力（力臂越長）。' +
+              '例子：撬棍、開瓶器、剪刀（支點在中間的軸）、指甲剪、掃把。' +
+              '⚠ 省了力氣，手移動的距離就變長，沒辦法兩全其美。';
+      }
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['lever', '槓桿'], ['wheel', '輪軸'], ['pulley', '滑輪']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   /* ── 磁鐵（magnet）────────────────────────────────────────────────────
      spec: { mode:'poles'|'attract'|'repel'|'compass', pick }             */
   REG.magnet = function (host, spec) {
