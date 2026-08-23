@@ -18,6 +18,7 @@
       !!(window.webkit && window.webkit.messageHandlers);          // 其他 App 的 WKWebView（Safari 本體不會有）
   })();
   var WEBVIEW_MSG = "Google 不允許在 App 內建瀏覽器（LINE／Telegram 等）裡登入，硬走只會看到空白頁。\n請點畫面角落的選單（⋯ 或分享鈕），選「用 Safari／Chrome 開啟」，再登入即可同步進度。";
+  var GIS_RETRY_MSG = "連不上 Google 登入元件（accounts.google.com 沒有回應），可能是網路不穩、擋廣告套件或內容過濾在擋。要再試一次嗎？";
 
   // UIDialog 可能因混版快取（舊 HTML 沒載 dialog.js + 新 sync.js）不存在——退回原生框保底
   function dlgAlert(msg) { if (window.UIDialog) UIDialog.alert(msg); else alert(msg); }
@@ -214,8 +215,12 @@
       pill.addEventListener("click", function () {
         if (!IN_WEBVIEW && window.google && google.accounts && google.accounts.id) {
           google.accounts.id.prompt();
-        } else {
+        } else if (IN_WEBVIEW) {
           dlgAlert(WEBVIEW_MSG);
+        } else if (gisFailed) {
+          dlgConfirm(GIS_RETRY_MSG, function () { gisFailed = false; gisAttempts = 0; loadGis(); });
+        } else {
+          dlgAlert("Google 登入元件還在載入，請稍候幾秒再點一次。");
         }
       });
       var slot = document.createElement("div");
@@ -261,6 +266,29 @@
     renderUi();
   }
 
+  /* gsi/client 載入改為自動重試（2026-08-23 poker 站教訓：Google 元件偶發載不進來時，
+     只丟一句「換外部瀏覽器」會誤導真瀏覽器的使用者），最多 3 次、每次 8 秒 */
+  var gisAttempts = 0, gisFailed = false;
+  function loadGis() {
+    gisAttempts++;
+    var settled = false;
+    var s = document.createElement("script");
+    s.src = "https://accounts.google.com/gsi/client";
+    s.async = true;
+    s.onload = function () { settled = true; gisFailed = false; initGis(); };
+    s.onerror = function () { if (!settled) { settled = true; gisRetryOrFail(); } };
+    setTimeout(function () {
+      if (settled || (window.google && google.accounts && google.accounts.id)) return;
+      settled = true;
+      gisRetryOrFail();
+    }, 8000);
+    document.head.appendChild(s);
+  }
+  function gisRetryOrFail() {
+    if (gisAttempts < 3) { loadGis(); return; }
+    gisFailed = true;
+  }
+
   function boot() {
     var controls = document.querySelector(".topbar-controls");
     if (!controls) return;
@@ -269,13 +297,7 @@
     controls.appendChild(ui);
     renderUi(); // 先畫出登入鈕：GSI 被擋（App 內建瀏覽器）時入口也不能消失（2026-08-15 Tony 回報）
 
-    if (!IN_WEBVIEW) {
-      var s = document.createElement("script");
-      s.src = "https://accounts.google.com/gsi/client";
-      s.async = true;
-      s.onload = initGis;
-      document.head.appendChild(s);
-    }
+    if (!IN_WEBVIEW) loadGis();
 
     setInterval(function () { if (signedIn()) push(); }, PUSH_INTERVAL_MS);
     document.addEventListener("visibilitychange", function () {
