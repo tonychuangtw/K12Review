@@ -12,6 +12,7 @@
 | ph11.jsonl / ph11b.jsonl | 十一上 / 十一下 | 9 / 9 |
 | ph12.jsonl / ph12b.jsonl | 十二上 / 十二下 | 9 / 9 |
 | ph10-add1 / ph10-add2 / ph10-add3.jsonl | 十上加題（2026-08-23，補到每單元 24 題） | — |
+| ph10b-add1 / ph10b-add2 / ph10b-add3.jsonl | 十下加題（2026-08-23，補到每單元 24 題） | — |
 
 重建：
 
@@ -23,6 +24,9 @@ node tools/tikuconv/build-bank.js physics js/data/physics.js $PF/header.txt --re
   $PF/ph12.jsonl $PF/ph12b.jsonl \
   $PF/ph10-add1.jsonl \
   $PF/ph10-add2.jsonl \
-  $PF/ph10-add3.jsonl
+  $PF/ph10-add3.jsonl \
+  $PF/ph10b-add1.jsonl \
+  $PF/ph10b-add2.jsonl \
+  $PF/ph10b-add3.jsonl
 node test/test.js
 ```
