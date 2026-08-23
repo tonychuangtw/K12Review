@@ -9,8 +9,12 @@ OBJECTIVE: 把高中分科 7 科（物理／化學／生物／地科／歷史／
   缺口 7 科 × 54 單元 × 16 題 = 6,048 題。Tony 2026-08-23「繼續擴題」。
 NEXT_ACTION: 照 `docs/bank-maintain-sop.md` 流程 A，一冊一 commit（一冊 9 單元 ×16 = 144 題，
   拆 3 個 add 檔各 48 題：add1=第1–3單元、add2=4–6、add3=7–9）。
-  順序：物理 ph10→ph10b→ph11→ph11b→ph12→ph12b，再化學 ch、生物 bi、地科 es、
-  歷史 hi、地理 ge、公民 ci。逐冊進度見下方「高中 7 科加題進度表」。
+  順序：物理已完成，接著化學 ch、生物 bi、地科 es、歷史 hi、地理 ge、公民 ci
+  （每科 6 冊：X10→X10b→X11→X11b→X12→X12b）。逐冊進度見下方「高中 7 科加題進度表」。
+  ⚠ 寫完 add 檔後**一定要先跑** `python3 tools/tikuconv/check-add.py <科目目錄> <冊>.jsonl <add檔...>`：
+  它會抓 schema 錯誤、爛誘答、單元名不符，以及**與原冊「換句話說」的重複題**（相似度 ≥0.75）。
+  物理十二上/十二下曾因為沒先跑這支，一口氣寫出 34 題與原冊一字不差的重複題。
+  計算題只是數字不同不算重複（檢查時會一併列出，人工判斷即可）。
   ⚠ 這 7 科 `tools/tikuconv/<科>/` **原本沒有 README.md**（建置指令沒留下來），
   第一次動某一科時要照 math/README.md 的格式補一份，指令為：
   `node tools/tikuconv/build-bank.js <key> js/data/<科>.js $F/header.txt --renumber <前綴> $F/<冊>.jsonl…`
@@ -20,7 +24,7 @@ VALIDATION: 建置輸出要看到「<科> N 題 → js/data/<科>.js」、目標
 BLOCKERS: 無
 PATHS: tools/tikuconv/{physics,chemistry,biology,earth,history,geography,civics}/、
   tools/tikuconv/build-bank.js、js/data/<科>.js、docs/bank-maintain-sop.md
-UPDATED: 2026-08-23 11:35 台北
+UPDATED: 2026-08-23 15:10 台北
 
 ## 上一階段（已完工，保留紀錄）
 
@@ -37,7 +41,7 @@ UPDATED: 2026-08-23 11:35 台北
 
 | 科 | 十上 | 十下 | 十一上 | 十一下 | 十二上 | 十二下 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 物理 physics | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| 物理 physics | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |（1,296 題，2026-08-23 完成）
 | 化學 chemistry | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | 生物 biology | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | 地科 earth | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
