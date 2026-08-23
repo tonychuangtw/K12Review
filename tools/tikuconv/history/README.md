@@ -13,6 +13,7 @@
 | hi11.jsonl / hi11b.jsonl | 十一上 / 十一下 | 9 / 9 |
 | hi12.jsonl / hi12b.jsonl | 十二上 / 十二下 | 9 / 9 |
 | hi10-add1 / hi10-add2 / hi10-add3.jsonl | 十上加題（2026-08-23，補到每單元 24 題） | — |
+| hi10b-add1 / hi10b-add2 / hi10b-add3.jsonl | 十下加題（2026-08-23，補到每單元 24 題） | — |
 
 重建：
 
@@ -24,6 +25,9 @@ node tools/tikuconv/build-bank.js history js/data/history.js $HF/header.txt --re
   $HF/hi12.jsonl $HF/hi12b.jsonl \
   $HF/hi10-add1.jsonl \
   $HF/hi10-add2.jsonl \
-  $HF/hi10-add3.jsonl
+  $HF/hi10-add3.jsonl \
+  $HF/hi10b-add1.jsonl \
+  $HF/hi10b-add2.jsonl \
+  $HF/hi10b-add3.jsonl
 node test/test.js
 ```
