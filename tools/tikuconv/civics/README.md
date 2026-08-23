@@ -18,6 +18,7 @@
 | ci10b-add1 / ci10b-add2 / ci10b-add3.jsonl | 十下加題（2026-08-23，補到每單元 24 題） | — |
 | ci11-add1 / ci11-add2 / ci11-add3.jsonl | 十一上加題（2026-08-23，補到每單元 24 題） | — |
 | ci11b-add1 / ci11b-add2 / ci11b-add3.jsonl | 十一下加題（2026-08-23，補到每單元 24 題） | — |
+| ci12-add1 / ci12-add2 / ci12-add3.jsonl | 十二上加題（2026-08-23，補到每單元 24 題） | — |
 
 重建：
 
@@ -38,6 +39,9 @@ node tools/tikuconv/build-bank.js civics js/data/civics.js $CF/header.txt --renu
   $CF/ci11-add3.jsonl \
   $CF/ci11b-add1.jsonl \
   $CF/ci11b-add2.jsonl \
-  $CF/ci11b-add3.jsonl
+  $CF/ci11b-add3.jsonl \
+  $CF/ci12-add1.jsonl \
+  $CF/ci12-add2.jsonl \
+  $CF/ci12-add3.jsonl
 node test/test.js
 ```
