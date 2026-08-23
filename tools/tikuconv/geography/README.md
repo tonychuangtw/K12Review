@@ -13,6 +13,7 @@
 | ge11.jsonl / ge11b.jsonl | 十一上 / 十一下 | 9 / 9 |
 | ge12.jsonl / ge12b.jsonl | 十二上 / 十二下 | 9 / 9 |
 | ge10-add1 / ge10-add2 / ge10-add3.jsonl | 十上加題（2026-08-23，補到每單元 24 題） | — |
+| ge10b-add1 / ge10b-add2 / ge10b-add3.jsonl | 十下加題（2026-08-23，補到每單元 24 題） | — |
 
 重建：
 
@@ -24,6 +25,9 @@ node tools/tikuconv/build-bank.js geography js/data/geography.js $GF/header.txt 
   $GF/ge12.jsonl $GF/ge12b.jsonl \
   $GF/ge10-add1.jsonl \
   $GF/ge10-add2.jsonl \
-  $GF/ge10-add3.jsonl
+  $GF/ge10-add3.jsonl \
+  $GF/ge10b-add1.jsonl \
+  $GF/ge10b-add2.jsonl \
+  $GF/ge10b-add3.jsonl
 node test/test.js
 ```
