@@ -1,30 +1,24 @@
-# 進度：K12Review（高中 7 科題庫補到每單元 24 題，進行中）
+# 進度：K12Review（全 12 年級 11 科題庫，每單元 24 題全數完工）
 
-<!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。
-     換一家 CLI 進來接手時看不到對話紀錄，只看得到這份檔 —— 欄位請隨進度更新。 -->
+<!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: in-progress
-OBJECTIVE: 把高中分科 7 科（物理／化學／生物／地科／歷史／地理／公民）的原創題庫從
-  **每單元 8 題補到每單元 24 題**，與其他科（數學／英文／自然／社會皆已 24 題/單元）看齊。
-  缺口 7 科 × 54 單元 × 16 題 = 6,048 題。Tony 2026-08-23「繼續擴題」。
-NEXT_ACTION: 照 `docs/bank-maintain-sop.md` 流程 A，一冊一 commit（一冊 9 單元 ×16 = 144 題，
-  拆 3 個 add 檔各 48 題：add1=第1–3單元、add2=4–6、add3=7–9）。
-  順序：物理、化學、生物、地科、歷史、地理已完成，最後剩公民 ci
-  （每科 6 冊：X10→X10b→X11→X11b→X12→X12b）。逐冊進度見下方「高中 7 科加題進度表」。
-  ⚠ 寫完 add 檔後**一定要先跑** `python3 tools/tikuconv/check-add.py <科目目錄> <冊>.jsonl <add檔...>`：
-  它會抓 schema 錯誤、爛誘答、單元名不符，以及**與原冊「換句話說」的重複題**（相似度 ≥0.75）。
+STATUS: done
+
+2026-08-23 完工：高中分科 7 科（物理／化學／生物／地科／歷史／地理／公民）原創題庫
+由每單元 8 題補到每單元 24 題，7 科 × 54 單元 × 16 題 ＝ **新增 6,048 題**，
+每科由 432 題增為 **1,296 題**（6 冊 × 9 單元 × 24 題）。全站題庫至此各科單元皆為 24 題。
+
+日後要再加題時照 `docs/bank-maintain-sop.md` 流程 A，一冊一 commit，並注意：
+- ⚠ 寫完 add 檔**一定要先跑** `python3 tools/tikuconv/check-add.py <科目目錄> <冊>.jsonl <add檔...>`：
+  會抓 schema 錯誤、爛誘答、單元名不符，以及與原冊「換句話說」的重複題（相似度 ≥0.75）。
   物理十二上/十二下曾因為沒先跑這支，一口氣寫出 34 題與原冊一字不差的重複題。
   計算題只是數字不同不算重複（檢查時會一併列出，人工判斷即可）。
-  ⚠ 這 7 科 `tools/tikuconv/<科>/` **原本沒有 README.md**（建置指令沒留下來），
-  第一次動某一科時要照 math/README.md 的格式補一份（geography 以外的 6 科已補），指令為：
-  `node tools/tikuconv/build-bank.js <key> js/data/<科>.js $F/header.txt --renumber <前綴> $F/<冊>.jsonl…`
-  （key/前綴：physics/ph、chemistry/ch、biology/bi、earth/es、history/hi、geography/ge、civics/ci）
-VALIDATION: 建置輸出要看到「<科> N 題 → js/data/<科>.js」、目標冊「216 題 / 9 單元」、
-  答案分布最大占比 25.0% 且無爛誘答／重複題；接著 `node test/test.js` 全部通過。
-BLOCKERS: 無
-PATHS: tools/tikuconv/{physics,chemistry,biology,earth,history,geography,civics}/、
-  tools/tikuconv/build-bank.js、js/data/<科>.js、docs/bank-maintain-sop.md
-UPDATED: 2026-08-24 01:20 台北
+- ⚠ 公民科的概念名詞高度標準化，「XX 的意義是什麼」這種問法極易撞題（ci10 一次就被抓出 44 題），
+  加題時盡量用具體情境（案例、判斷、比較）發問。
+- ⚠ check-add.py 只比對同一冊，**跨冊重複要靠 build-bank 的「完全重複題」警告**（公民曾中一次）。
+- add 檔一律接在 README 重建指令的**最後面**（`--renumber` 照檔案順序編號，插中間會讓後面所有題的 id 位移）。
+- 7 科的 `tools/tikuconv/<科>/README.md` 已於本次全數補建（原本沒有，建置指令沒留下來）。
+- 改到 js/ 或 css/ 內容，push 前要跑 `python3 tools/stamp-version.py`。
 
 ## 上一階段（已完工，保留紀錄）
 
@@ -37,7 +31,7 @@ UPDATED: 2026-08-24 01:20 台北
   3. 跑 `python3 tools/stamp-version.py <新戳記>` 再 commit
 寫卡規格見 `docs/bank-maintain-sop.md` 流程 D；元件長相看 tools/widget-preview.html。
 
-## 高中 7 科加題進度表（8 → 24 題/單元，每冊 +144 題）
+## 高中 7 科加題進度表（8 → 24 題/單元，每冊 +144 題）— 全數完工
 
 | 科 | 十上 | 十下 | 十一上 | 十一下 | 十二上 | 十二下 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -47,7 +41,7 @@ UPDATED: 2026-08-24 01:20 台北
 | 地科 earth | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |（1,296 題，2026-08-23 完成）
 | 歷史 history | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |（1,296 題，2026-08-23 完成）
 | 地理 geography | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |（1,296 題，2026-08-23 完成）
-| 公民 civics | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| 公民 civics | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |（1,296 題，2026-08-23 完成）
 
 ## 已完工：全年級全科題庫（每單元 24 題）
 
