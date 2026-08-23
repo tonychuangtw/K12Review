@@ -16,6 +16,7 @@
 | ch10b-add1 / ch10b-add2 / ch10b-add3.jsonl | 十下加題（2026-08-23，補到每單元 24 題） | — |
 | ch11-add1 / ch11-add2 / ch11-add3.jsonl | 十一上加題（2026-08-23，補到每單元 24 題） | — |
 | ch11b-add1 / ch11b-add2 / ch11b-add3.jsonl | 十一下加題（2026-08-23，補到每單元 24 題） | — |
+| ch12-add1 / ch12-add2 / ch12-add3.jsonl | 十二上加題（2026-08-23，補到每單元 24 題） | — |
 
 重建：
 
@@ -36,6 +37,9 @@ node tools/tikuconv/build-bank.js chemistry js/data/chemistry.js $CF/header.txt 
   $CF/ch11-add3.jsonl \
   $CF/ch11b-add1.jsonl \
   $CF/ch11b-add2.jsonl \
-  $CF/ch11b-add3.jsonl
+  $CF/ch11b-add3.jsonl \
+  $CF/ch12-add1.jsonl \
+  $CF/ch12-add2.jsonl \
+  $CF/ch12-add3.jsonl
 node test/test.js
 ```
