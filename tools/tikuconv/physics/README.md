@@ -14,6 +14,7 @@
 | ph10-add1 / ph10-add2 / ph10-add3.jsonl | 十上加題（2026-08-23，補到每單元 24 題） | — |
 | ph10b-add1 / ph10b-add2 / ph10b-add3.jsonl | 十下加題（2026-08-23，補到每單元 24 題） | — |
 | ph11-add1 / ph11-add2 / ph11-add3.jsonl | 十一上加題（2026-08-23，補到每單元 24 題） | — |
+| ph11b-add1 / ph11b-add2 / ph11b-add3.jsonl | 十一下加題（2026-08-23，補到每單元 24 題） | — |
 
 重建：
 
@@ -31,6 +32,9 @@ node tools/tikuconv/build-bank.js physics js/data/physics.js $PF/header.txt --re
   $PF/ph10b-add3.jsonl \
   $PF/ph11-add1.jsonl \
   $PF/ph11-add2.jsonl \
-  $PF/ph11-add3.jsonl
+  $PF/ph11-add3.jsonl \
+  $PF/ph11b-add1.jsonl \
+  $PF/ph11b-add2.jsonl \
+  $PF/ph11b-add3.jsonl
 node test/test.js
 ```
