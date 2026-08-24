@@ -11,11 +11,13 @@
   // 這類環境直接給「改用外部瀏覽器」指引，不讓使用者踩進死路。
   var IN_WEBVIEW = (function () {
     var ua = navigator.userAgent || "";
+    // ⚠️ 不可拿 window.webkit.messageHandlers 當判據：iOS/iPadOS 上的 Chrome／Edge／Firefox
+    // 全是 WKWebView 殼、都會注入這個物件，2026-08-24 Tony 的 iPad Chrome 被誤判成 App 內建
+    // 瀏覽器、整站登入不了（Google 登入在這些真瀏覽器是完全可用的）。
     return /\bwv\b/.test(ua) ||                                    // Android WebView
       (/iPhone|iPad|iPod/.test(ua) && !/Safari\//.test(ua)) ||     // iOS 內嵌 WKWebView（無 Safari token）
       /Line\/|FBAN|FBAV|Instagram|MicroMessenger|Telegram|LIFF/i.test(ua) ||
-      !!window.TelegramWebviewProxy ||                             // Telegram iOS（UA 無任何標記，只能認注入物件）
-      !!(window.webkit && window.webkit.messageHandlers);          // 其他 App 的 WKWebView（Safari 本體不會有）
+      !!window.TelegramWebviewProxy;                               // Telegram iOS（UA 無任何標記，只能認注入物件）
   })();
   var WEBVIEW_MSG = "Google 不允許在 App 內建瀏覽器（LINE／Telegram 等）裡登入，硬走只會看到空白頁。\n請點畫面角落的選單（⋯ 或分享鈕），選「用 Safari／Chrome 開啟」，再登入即可同步進度。";
   var GIS_RETRY_MSG = "連不上 Google 登入元件（accounts.google.com 沒有回應），可能是網路不穩、擋廣告套件或內容過濾在擋。要再試一次嗎？";
