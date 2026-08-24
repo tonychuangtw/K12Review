@@ -19,6 +19,14 @@
       /Line\/|FBAN|FBAV|Instagram|MicroMessenger|Telegram|LIFF/i.test(ua) ||
       !!window.TelegramWebviewProxy;                               // Telegram iOS（UA 無任何標記，只能認注入物件）
   })();
+
+  // LINE 內建瀏覽器有官方逃生參數：網址帶 openExternalBrowser=1，LINE 會自動改用外部瀏覽器開。
+  // 在 LINE 裡開站就自動重導一次，點了直接可用、不用手動「用 Safari 開啟」（Tony 2026-08-24）。
+  // 真瀏覽器帶到這參數無害；重導前先檢查參數避免無限迴圈（舊版 LINE 不吃參數時會真的重載）。
+  if (/Line\//i.test(navigator.userAgent || "") && !/[?&]openExternalBrowser=/.test(location.search)) {
+    var q = location.search ? location.search + "&openExternalBrowser=1" : "?openExternalBrowser=1";
+    location.replace(location.origin + location.pathname + q + location.hash);
+  }
   var WEBVIEW_MSG = "Google 不允許在 App 內建瀏覽器（LINE／Telegram 等）裡登入，硬走只會看到空白頁。\n請點畫面角落的選單（⋯ 或分享鈕），選「用 Safari／Chrome 開啟」，再登入即可同步進度。";
   var GIS_RETRY_MSG = "連不上 Google 登入元件（accounts.google.com 沒有回應），可能是網路不穩、擋廣告套件或內容過濾在擋。要再試一次嗎？";
 
