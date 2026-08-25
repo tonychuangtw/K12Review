@@ -195,14 +195,95 @@
     };
   }
 
-  function buildReadingQ(item, qi) {
+  /* ---------- 防「背答案、不看文章」（2026-08-25 Tony 提問後加）----------
+     三道防線：
+     1) 選項每次重新排列 —— 同一篇再做一次，答案不會還在同一個位置
+     2) 自動生成的「回文章找證據」題 —— 選項全部是這篇文章裡的句子，不翻文章就選不出來
+     3) 出題優先給做過次數最少的文章（見 startReading）                              */
+
+  function shuffleWithAnswer(options, answer, rand) {
+    var r = rand || Math.random;
+    var idx = options.map(function (_, i) { return i; });
+    for (var i = idx.length - 1; i > 0; i--) {
+      var j = Math.floor(r() * (i + 1));
+      var t = idx[i]; idx[i] = idx[j]; idx[j] = t;
+    }
+    return { options: idx.map(function (i) { return options[i]; }), correct: idx.indexOf(answer) };
+  }
+
+  // 把文章切成可以當選項的句子（去掉文末註解與圖表列；文言句子短，門檻放寬）
+  function passageSentences(item) {
+    var body = String(item.passage || '').split(/（註[：:]/)[0].split(/\n註[：:]/)[0];
+    var min = item.genre === '文言' ? 8 : 12;
+    return body.split(/[。！？!?\n]+/)
+      .map(function (s) {
+        s = s.replace(/^[\s「」『』（）…—、，]+|[\s『』（）…—、，]+$/g, '');
+        // 引號被句號切斷時補回結尾，避免選項看起來缺一半
+        if ((s.match(/「/g) || []).length > (s.match(/」/g) || []).length) s += '」';
+        return s;
+      })
+      .filter(function (s) {
+        return s.length >= min && s.length <= 60 && s.indexOf('　') < 0 && !/^[0-9\s.,%]+$/.test(s);
+      });
+  }
+
+  // 解析裡常引用原文（例：課文說『……』）；把那句話在文章裡找回來當作「證據句」
+  function evidenceOf(item, qi) {
+    var q = (item.questions || [])[qi];
+    if (!q) return null;
+    var flat = String(item.passage || '').replace(/\s/g, '');
+    var quotes = String(q.exp || '').match(/[『「][^『「』」]{6,}[』」]/g) || [];
+    var sents = null;
+    for (var i = 0; i < quotes.length; i++) {
+      var key = quotes[i].slice(1, -1).replace(/\s/g, '').replace(/…+/g, '').slice(0, 10);
+      if (key.length < 6 || flat.indexOf(key) < 0) continue;
+      sents = sents || passageSentences(item);
+      for (var k = 0; k < sents.length; k++) {
+        if (sents[k].replace(/\s/g, '').indexOf(key) >= 0) return sents[k];
+      }
+    }
+    return null;
+  }
+
+  // 這篇文章有哪些子題可以生成證據題（需要證據句 + 至少 3 個其他句子當誘答）
+  function evidenceIdx(item) {
+    var out = [];
+    if (passageSentences(item).length < 4) return out;
+    for (var qi = 0; qi < (item.questions || []).length; qi++) {
+      if (evidenceOf(item, qi)) out.push(qi);
+    }
+    return out;
+  }
+
+  function buildEvidenceQ(item, qi, rand) {
+    var ev = evidenceOf(item, qi);
+    if (!ev) return null;
+    var pool = passageSentences(item).filter(function (s) { return s !== ev; });
+    if (pool.length < 3) return null;
+    var r = rand || Math.random;
+    var pick = [];
+    while (pick.length < 3 && pool.length) pick.push(pool.splice(Math.floor(r() * pool.length), 1)[0]);
+    var sh = shuffleWithAnswer(pick.concat([ev]), 3, r);
     var q = item.questions[qi];
+    return {
+      type: 'reading', item: item, qi: qi, evidence: true,
+      passage: (item.title ? '《' + item.title + '》\n' : '') + item.passage,
+      question: '【回文章找證據】文章裡的哪一句話，可以用來回答「' + q.q + '」',
+      options: sh.options,
+      correct: sh.correct,
+      explain: '判斷的依據是這一句：「' + ev + '」\n（原題：' + q.q + '）\n' + q.exp
+    };
+  }
+
+  function buildReadingQ(item, qi, rand) {
+    var q = item.questions[qi];
+    var sh = shuffleWithAnswer(q.options, q.answer, rand);
     return {
       type: 'reading', item: item, qi: qi,
       passage: (item.title ? '《' + item.title + '》\n' : '') + item.passage,
       question: '（' + (qi + 1) + '/' + item.questions.length + '）' + q.q,
-      options: q.options.slice(),
-      correct: q.answer,
+      options: sh.options,
+      correct: sh.correct,
       explain: q.exp
     };
   }
@@ -293,7 +374,14 @@
     seededPick(poolOf('chars'), n.chars, rng).forEach(function (it) { entries.push({ t: 'chars', id: it.id }); });
     var reads = seededPick(poolOf('reading'), 1, rng);
     reads.forEach(function (r) {
-      for (var qi = 0; qi < r.questions.length; qi++) entries.push({ t: 'reading', id: r.id, qi: qi });
+      // 其中一題改成「回文章找證據」（題數不變；沒有可用證據句時自動退回原本的題目）
+      var evOk = evidenceIdx(r);
+      var evPick = evOk.length ? evOk[Math.floor(rng() * evOk.length)] : -1;
+      for (var qi = 0; qi < r.questions.length; qi++) {
+        entries.push(qi === evPick
+          ? { t: 'reading', id: r.id, qi: qi, ev: true }
+          : { t: 'reading', id: r.id, qi: qi });
+      }
     });
     return entries;
   }
@@ -444,6 +532,8 @@
     buildIdiomQ: buildIdiomQ, buildSlangQ: buildSlangQ,
     buildPhonicsQ: buildPhonicsQ, buildCharsQ: buildCharsQ,
     buildSynQ: buildSynQ, buildReadingQ: buildReadingQ, buildCustomQ: buildCustomQ,
+    passageSentences: passageSentences, evidenceOf: evidenceOf, evidenceIdx: evidenceIdx,
+    buildEvidenceQ: buildEvidenceQ,
     rngFromString: rngFromString, seededPick: seededPick, composeDaily: composeDaily,
     composeReview: composeReview,
     weakStrong: weakStrong, bumpWrongSchedule: bumpWrongSchedule, buildUnits: buildUnits,
@@ -1229,7 +1319,10 @@
       q.type = e.t;
       return q;
     }
-    if (e.t === 'reading') return buildReadingQ(it, e.qi);
+    if (e.t === 'reading') {
+      if (e.ev) { var evq = buildEvidenceQ(it, e.qi); if (evq) return evq; }
+      return buildReadingQ(it, e.qi);
+    }
     if (e.syn && (it.syn || []).length) return buildSynQ(it, DATA.idioms);
     return buildQ(e.t, it, DATA[e.t]);
   }
@@ -1254,14 +1347,26 @@
   }
 
   function startReading() {
-    // 挑 2 篇文章，展開全部子題
-    var picks = shuffle(pool('reading')).slice(0, 2);
+    // 挑 2 篇文章，展開全部子題；優先給做過次數最少的（避免一直碰到同幾篇而背起來）
+    var seen = state.readSeen || {};
+    var picks = shuffle(pool('reading')).sort(function (a, b) {
+      return (seen[a.id] || 0) - (seen[b.id] || 0);
+    }).slice(0, 2);
     if (!picks.length) { UIDialog.alert('這個年級目前沒有閱讀題，換個年級或勾選「含以下年級」。'); return; }
     var entries = [];
     picks.forEach(function (r) {
       for (var qi = 0; qi < r.questions.length; qi++) entries.push({ t: 'reading', id: r.id, qi: qi });
+      entries = entries.concat(evidenceEntries(r, 1));
+      seen[r.id] = (seen[r.id] || 0) + 1;
     });
+    state.readSeen = seen; save();
     beginQuiz(entries, 'normal', 'reading');
+  }
+
+  // 每篇文章隨機挑 n 個子題生成「回文章找證據」題，附在該篇最後
+  function evidenceEntries(item, n) {
+    var idx = shuffle(evidenceIdx(item)).slice(0, n);
+    return idx.map(function (qi) { return { t: 'reading', id: item.id, qi: qi, ev: true }; });
   }
 
   // 測試用小掛鉤（test/browser-smoke.mjs 需要知道現在考的是哪一題）
@@ -2147,6 +2252,7 @@
     if (t === 'reading') {
       entries = [];
       for (var qi = 0; qi < it.questions.length; qi++) entries.push({ t: 'reading', id: it.id, qi: qi });
+      entries = entries.concat(evidenceEntries(it, 1));
     } else entries = [{ t: t, id: it.id }];
     beginQuiz(entries, 'search', t);
   }

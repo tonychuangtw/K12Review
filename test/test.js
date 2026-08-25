@@ -138,6 +138,43 @@ ok(D.reading.every(r => r.passage && r.questions.length >= 2 &&
   const rq = PURE.buildReadingQ(D.reading[0], 0);
   ok(rq.options[rq.correct] === D.reading[0].questions[0].options[D.reading[0].questions[0].answer],
     '閱讀題答案索引正確');
+  // 選項每次重排（防背位置）：多抽幾次，位置不應永遠相同，但答案內容一定要對得上
+  {
+    const src = D.reading[0].questions[0];
+    const seenPos = new Set();
+    let mapOk = true;
+    for (let t = 0; t < 30; t++) {
+      const q = PURE.buildReadingQ(D.reading[0], 0);
+      seenPos.add(q.correct);
+      if (q.options[q.correct] !== src.options[src.answer]) mapOk = false;
+      if (q.options.slice().sort().join('|') !== src.options.slice().sort().join('|')) mapOk = false;
+    }
+    ok(mapOk, '閱讀選項重排後答案仍對得上、選項內容不變');
+    ok(seenPos.size > 1, `閱讀選項每次重新排列（30 次出現 ${seenPos.size} 種位置）`);
+  }
+}
+
+console.log('回文章找證據（防背答案）');
+{
+  const usable = D.reading.filter(r => PURE.evidenceIdx(r).length);
+  ok(usable.length >= 180, `可生成證據題的文章 ≥180 篇（實際 ${usable.length}/${D.reading.length}）`);
+  let bad = [];
+  usable.forEach(r => {
+    const sents = PURE.passageSentences(r);
+    PURE.evidenceIdx(r).forEach(qi => {
+      const q = PURE.buildEvidenceQ(r, qi);
+      if (!q) { bad.push(r.id + '#' + qi + ' 生不出題'); return; }
+      if (q.options.length !== 4) bad.push(r.id + '#' + qi + ' 選項數不對');
+      if (new Set(q.options).size !== 4) bad.push(r.id + '#' + qi + ' 選項重複');
+      // 四個選項都必須是這篇文章裡的句子（誘答同源，才不能靠常識猜）
+      if (!q.options.every(o => sents.includes(o))) bad.push(r.id + '#' + qi + ' 選項不是本文句子');
+      // 正解必須真的出現在文章裡
+      const flat = r.passage.replace(/\s/g, '');
+      const ans = q.options[q.correct].replace(/\s/g, '').replace(/」$/, '');
+      if (flat.indexOf(ans.slice(0, 10)) < 0) bad.push(r.id + '#' + qi + ' 正解不在原文');
+    });
+  });
+  ok(bad.length === 0, `證據題生成正確（問題 ${bad.length} 筆${bad.length ? '：' + bad.slice(0, 3).join('；') : ''}）`);
 }
 
 console.log('同義成語');
