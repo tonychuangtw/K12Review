@@ -1432,9 +1432,7 @@
       else {
         hqCancel();
         $('quizHwWrap').classList.remove('hidden');
-        var pan = $('quizHwPanel');
-        pan.className = 'wq-panel wq-done';
-        pan.textContent = q.item.answer;
+        paintAnswerChar($('quizHwPanel'), q.item.answer, snap.hwData);
       }
     } else {
       box.classList.remove('hidden');
@@ -1561,6 +1559,37 @@
      判定沿用手寫練習的規則：第一次一筆全對才算對，寫錯先看示範再重寫到全對才過關；
      成績與錯題本一律以第一次為準。罕用字沒有筆順資料時才退回選擇題。 */
 
+  /* 筆順資料載入器（2026-08-25 Tony 回報「有些字一直沒有帶著寫」後加）
+     以前每個地方各自 fetch 一次，手機網路抖一下就失敗，而且失敗後那個字整段練習都退回自評，
+     看起來就像「這個字沒有筆順資料」。改成：同一個字只抓一次（記在 strokeCache），
+     網路失敗自動重試一次，並且分清楚「真的沒有資料(404)」和「載入失敗(可重試)」。 */
+  var strokeCache = {};
+  function strokeUrl(ch) { return 'strokes/u' + ch.codePointAt(0).toString(16) + '.json'; }
+  function loadStroke(ch) {
+    var key = ch.codePointAt(0).toString(16);
+    if (strokeCache[key] === 'missing') return Promise.reject({ missing: true });
+    if (strokeCache[key]) return Promise.resolve(strokeCache[key]);
+    if (typeof fetch === 'undefined') return Promise.reject({ missing: false });
+    var url = strokeUrl(ch);
+    function once() {
+      return fetch(url).then(function (r) {
+        if (r.status === 404) throw { missing: true };
+        if (!r.ok) throw { missing: false, status: r.status };
+        return r.json();
+      });
+    }
+    return once().catch(function (err) {
+      if (err && err.missing) throw err;
+      return new Promise(function (res) { setTimeout(res, 700); }).then(once);   // 網路抖動再試一次
+    }).then(function (data) {
+      strokeCache[key] = data;
+      return data;
+    }, function (err) {
+      if (err && err.missing) strokeCache[key] = 'missing';
+      throw (err && err.missing) ? err : { missing: false };
+    });
+  }
+
   var hqWriter = null;
   // 這個字形題是否該用手寫出題：entry 明確標了 hw，或錯題本裡這題是手寫來源（wr）
   function hwEntry(e) {
@@ -1584,6 +1613,35 @@
     el.classList.remove('hidden');
   }
   // 沒有筆順資料 → 這題退回選擇題
+  /* 手寫題公布答案：用 hanzi-writer 的字形（楷書骨架）畫出正解並可重播筆順，
+     不要退回網站字型——2026-08-25 Tony 回報「寫完顯示成原本的字，不是練習時帶著寫的楷書」。 */
+  function paintAnswerChar(pan, ch, data) {
+    pan.onclick = null;
+    pan.className = 'wq-panel';
+    pan.innerHTML = '';
+    function asText() {
+      pan.className = 'wq-panel wq-done';
+      pan.textContent = ch;
+    }
+    if (!W.HanziWriter) { asText(); return; }
+    var draw = function (d) {
+      try {
+        var w = HanziWriter.create(pan, ch, {
+          width: 260, height: 260, padding: 14,
+          showCharacter: true, showOutline: true,
+          strokeColor: '#1a1c22', outlineColor: '#d5d8e0',
+          strokeAnimationSpeed: strokeOpts().speed, delayBetweenStrokes: strokeOpts().delay,
+          charDataLoader: function (c, done) { done(d); }
+        });
+        pan.style.cursor = 'pointer';
+        pan.title = '點一下重播筆順';
+        pan.onclick = function () { try { w.animateCharacter(); } catch (e) {} };
+      } catch (e) { asText(); }
+    };
+    if (data) { draw(data); return; }
+    loadStroke(ch).then(draw).catch(asText);
+  }
+
   function hqFallback(snap, q) {
     q.hw = false;
     hqCancel();
@@ -1595,8 +1653,7 @@
     if (snap.hwData) { hqRun(snap, q, snap.hwData); return; }
     if (!W.HanziWriter || typeof fetch === 'undefined') { hqFallback(snap, q); return; }
     hqStatus('筆順資料載入中…', '');
-    fetch('strokes/u' + q.item.answer.codePointAt(0).toString(16) + '.json')
-      .then(function (r) { if (!r.ok) throw new Error('404'); return r.json(); })
+    loadStroke(q.item.answer)
       .then(function (data) {
         if (quiz.cur !== q) return;
         snap.hwData = data;
@@ -2737,19 +2794,28 @@
     clearCanvas();
     // 有筆順資料 → 逐筆判定測驗；罕用字沒有資料 → 退回畫布自評
     if (window.HanziWriter && typeof fetch !== 'undefined') {
-      fetch('strokes/u' + it.answer.codePointAt(0).toString(16) + '.json')
-        .then(function (r) { if (!r.ok) throw new Error('404'); return r.json(); })
+      loadStroke(it.answer)
         .then(function (data) {
           if (wr && wr.items[wr.i] === it) { wr.curData = data; wqStart(it, data); }
         })
-        .catch(function () { if (wr && wr.items[wr.i] === it) wqFallbackUI(); });
+        .catch(function (err) {
+          if (wr && wr.items[wr.i] === it) wqFallbackUI(err && err.missing ? '' : '載入');
+        });
     } else wqFallbackUI();
   }
-  function wqFallbackUI() {
+  function wqFallbackUI(why) {
     $('writeQuizWrap').classList.add('hidden');
     document.querySelector('#view-write .canvas-wrap').classList.remove('hidden');
     $('writeClear').classList.remove('hidden');
     $('writeReveal').textContent = '顯示答案';
+    if (why) {   // 不是「這個字沒有資料」，而是網路載入失敗 → 講清楚並讓他重試
+      var st = $('writeQuizStatus');
+      st.className = 'q-feedback bad';
+      st.textContent = '筆順資料載入失敗（網路），這題先用畫布自評。點這裡可以再試一次。';
+      st.classList.remove('hidden');
+      st.style.cursor = 'pointer';
+      st.onclick = function () { st.onclick = null; st.style.cursor = ''; renderWrite(); };
+    }
   }
 
   // 畫布
@@ -2822,8 +2888,7 @@
     if (!window.HanziWriter || typeof fetch === 'undefined') return;
     panel.innerHTML = '';
     strokeWriter = null;
-    fetch('strokes/u' + ch.codePointAt(0).toString(16) + '.json')
-      .then(function (r) { if (!r.ok) throw new Error('404'); return r.json(); })
+    loadStroke(ch)
       .then(function (data) {
         wrap.classList.remove('hidden');
         replay.classList.remove('hidden');
@@ -2836,11 +2901,17 @@
         });
         strokeWriter.animateCharacter();
       })
-      .catch(function () {
+      .catch(function (err) {
         wrap.classList.remove('hidden');
         replay.classList.add('hidden');
+        // 真的沒有資料才說「暫無」；網路失敗要講清楚，而且點一下可以重試
+        var missing = !!(err && err.missing);
         panel.innerHTML = '<div class="stroke-fallback">' + ch +
-          '<span>此字暫無筆順動畫資料</span></div>';
+          '<span>' + (missing ? '此字暫無筆順動畫資料' : '筆順載入失敗，點一下重試') + '</span></div>';
+        if (!missing) {
+          panel.style.cursor = 'pointer';
+          panel.onclick = function () { panel.onclick = null; panel.style.cursor = ''; showStroke(ch); };
+        }
       });
   }
   $('strokeReplay').addEventListener('click', function () {

@@ -414,6 +414,8 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
 .wq-panel.wq-done {
   display: flex; align-items: center; justify-content: center;
   font-size: 8rem; line-height: 1; color: #1a1c22; font-weight: 500;
+  /* 沒有筆順資料時才會走到這裡：字型也用楷書，跟練習時帶著寫的字形一致 */
+  font-family: "TW-Kai", "BiauKai", "DFKai-SB", "KaiTi", "標楷體", "PingFang TC", "Microsoft JhengHei", serif;
 }
 .wrong-item.wb-click { cursor: pointer; }
 .wrong-item.wb-click:hover { border-color: var(--accent); }

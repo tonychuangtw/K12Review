@@ -116,7 +116,12 @@ await session(8731, 9331, { blockWriter: true, seed: seedWrong(['c001', 'c002', 
   await sleep(300);
   const fb = await js(`document.getElementById('quizFeedback').textContent`);
   check('一次寫對→公布解析', /一次就一筆不錯地寫對/.test(fb) && /正確答案/.test(fb), fb.slice(0, 50));
-  check('答完在格子裡顯示正解字', (await js(`document.getElementById('quizHwPanel').textContent`)).length === 1);
+  // 答完的正解格：有筆順資料時畫楷書字形（hanzi-writer 的 SVG），沒有資料才退回純文字
+  // （2026-08-25 Tony 回報「寫完顯示成原本的字，不是練習帶著寫的楷書」）
+  check('答完在格子裡用楷書字形顯示正解',
+    await js(`(function(){ var p = document.getElementById('quizHwPanel');
+      return !!p.querySelector('svg') || p.textContent.length === 1; })()`));
+  check('正解格點一下可以重播筆順', await js(`typeof document.getElementById('quizHwPanel').onclick === 'function'`));
   check('解析後出現確認題', await js(`!document.getElementById('quizChk').classList.contains('hidden')`));
   check('確認題有 4 個選項', await js(`document.querySelectorAll('#quizChkOpts .q-opt').length === 4`));
   check('確認題答完前不給下一題', await js(`document.getElementById('quizNext').classList.contains('hidden')`));
