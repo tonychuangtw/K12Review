@@ -20,6 +20,7 @@
 | n7-add3.jsonl | 七上加題（2026-08-25，補到每單元 32 題） |
 | n7b-add3.jsonl | 七下加題（2026-08-25，補到每單元 32 題） |
 | n8-add3.jsonl | 八上加題（2026-08-26，補到每單元 32 題） |
+| n8b-add3.jsonl | 八下加題（2026-08-26，補到每單元 32 題） |
 
 重建：
 
@@ -66,7 +67,8 @@ node tools/tikuconv/build-bank.js science js/data/science.js tools/tikuconv/scie
   tools/tikuconv/science/n3b-add3.jsonl \
   tools/tikuconv/science/n7-add3.jsonl \
   tools/tikuconv/science/n7b-add3.jsonl \
-  tools/tikuconv/science/n8-add3.jsonl
+  tools/tikuconv/science/n8-add3.jsonl \
+  tools/tikuconv/science/n8b-add3.jsonl
 node test/test.js
 ```
 
