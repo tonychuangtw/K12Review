@@ -1,8 +1,14 @@
-# 進度：K12Review（全 12 年級 11 科題庫，每單元 24 題全數完工）
+# 進度：K12Review（各科題庫由每單元 24 題往 32 題補，進行中）
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: done
+STATUS: in-progress
+OBJECTIVE: K12 各科（國語以外）原創題庫由每單元 24 題補到 32 題，一冊 72 題、一冊一 commit
+NEXT_ACTION: 英文九上 e9-add4.jsonl（72 題已寫好）跑 check-add.py → 依 tools/tikuconv/english/README.md 重建 → 測試 → commit；接著做九下（數／自／社／英），再往高中、小學
+VALIDATION: python3 tools/tikuconv/check-add.py <科目目錄> <冊>.jsonl <add檔...> 無 ✗ → node test/test.js 全綠 → 目標冊題數 288、該科總題數有增加
+BLOCKERS: 無
+PATHS: tools/tikuconv/{english,math,science,social}/、js/data/{english,math,science,social}.js、docs/bank-maintain-sop.md
+UPDATED: 2026-08-26 07:05 台北
 
 2026-08-23 完工：高中分科 7 科（物理／化學／生物／地科／歷史／地理／公民）原創題庫
 由每單元 8 題補到每單元 24 題，7 科 × 54 單元 × 16 題 ＝ **新增 6,048 題**，
