@@ -32,6 +32,7 @@
 | m7-add3.jsonl | 七上加題（2026-08-25，補到每單元 32 題） | — |
 | m7b-add3.jsonl | 七下加題（2026-08-25，補到每單元 32 題） | — |
 | m8-add3.jsonl | 八上加題（2026-08-26，補到每單元 32 題） | — |
+| m8b-add3.jsonl | 八下加題（2026-08-26，補到每單元 32 題） | — |
 
 重建：
 
@@ -112,7 +113,8 @@ node tools/tikuconv/build-bank.js math js/data/math.js $MF/header.txt --renumber
   $MF/m12b-add3.jsonl \
   $MF/m7-add3.jsonl \
   $MF/m7b-add3.jsonl \
-  $MF/m8-add3.jsonl
+  $MF/m8-add3.jsonl \
+  $MF/m8b-add3.jsonl
 node test/test.js
 ```
 
