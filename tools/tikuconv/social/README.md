@@ -3,7 +3,7 @@
 一行一題 JSON，`id` 隨便給（`x1`、`y1`…），重建時由 `--renumber o` 統一編號。
 檔案順序＝年級順序（三上～九下，社會科從三年級才有）。`*.py` 是早期轉檔用的腳本。
 
-本次加題：`o7-add3.jsonl`（七上，2026-08-25，補到每單元 32 題）。
+本次加題：`o7-add3.jsonl`（七上）、`o7b-add3.jsonl`（七下），2026-08-25，補到每單元 32 題。
 
 ⚠️ **加題一律開新的 `<冊>-addN.jsonl`，並放在重建指令的最後面**：`--renumber` 照
 「檔案順序 → 檔內順序」重編號，加在尾巴既有題目的 id 才不會位移（id 一變，使用者的
@@ -49,7 +49,8 @@ node tools/tikuconv/build-bank.js social js/data/social.js tools/tikuconv/social
   tools/tikuconv/social/o3b-add1.jsonl \
   tools/tikuconv/social/o3b-add2.jsonl \
   tools/tikuconv/social/o3b-add3.jsonl \
-  tools/tikuconv/social/o7-add3.jsonl
+  tools/tikuconv/social/o7-add3.jsonl \
+  tools/tikuconv/social/o7b-add3.jsonl
 node test/test.js
 ```
 
