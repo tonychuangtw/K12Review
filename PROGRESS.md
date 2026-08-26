@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: K12 各科（國語以外）原創題庫由每單元 24 題補到 32 題，一冊 72 題、一冊一 commit
-NEXT_ACTION: **小學 40 冊全部完成**（數學 12、英文 12、自然 8、社會 8，每冊 288 題／9 單元×32）。下一步是國中／高中：先跑 `python3 - <<'EOF'` 之類的小腳本盤點 js/data/*.js 各科各冊目前的每單元題數，挑出還沒補到 32 題的冊別，再依 docs/bank-maintain-sop.md 流程 A 逐冊加題。**出題一律走「具體事實題」路線**（見下方「重複率的真正成因」），寫完先確認 check-add 完全重複是 0 才出貨
+NEXT_ACTION: 小學＋國中已全數 288（數學/英文 24 冊、自然/社會 14 冊、物理 十上～十一下）。**剩下高中 38 冊**：物理 十二上、十二下（先前 34/72 中止，照新路線重做），以及 biology／chemistry／civics／earth／geography／history 各 6 冊（十上～十二下，目前都是 216）。一冊 72 題、一冊一 commit，走 docs/bank-maintain-sop.md 流程 A；**出題一律走「具體事實題」路線**（見下方「重複率的真正成因」），寫完先確認 check-add 完全重複是 0 才出貨
 VALIDATION: python3 tools/tikuconv/check-add.py <科目目錄> <冊>.jsonl <add檔...> 無 ✗ → node test/test.js 全綠 → 目標冊題數 288、該科總題數有增加
 BLOCKERS: 無
 PATHS: tools/tikuconv/{english,math,science,social}/、js/data/{english,math,science,social}.js、docs/bank-maintain-sop.md
-UPDATED: 2026-08-27 00:10 台北
+UPDATED: 2026-08-27 00:25 台北
 
 2026-08-23 完工：高中分科 7 科（物理／化學／生物／地科／歷史／地理／公民）原創題庫
 由每單元 8 題補到每單元 24 題，7 科 × 54 單元 × 16 題 ＝ **新增 6,048 題**，
