@@ -1,13 +1,19 @@
-# 進度：K12Review（清除題庫重複題，進行中）
+# 進度：K12Review（題庫重複題已全數清除）
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: in-progress
+STATUS: done
 OBJECTIVE: 清掉原創題庫裡 437 題「同一冊題幹重複」的題目，每一題都換成同單元的新原創題（維持每冊 288 題）
-NEXT_ACTION: 照 `tools/dedup/README.md` 的流程做（工具在 repo 裡，換 session 也用得到）：`node tools/dedup/scan.js` 看還剩多少 → `node tools/dedup/work.js <科目> <冊>` 列出該冊待修的重複題與同單元既有題幹 → 逐題手寫替換題（⛔ 不可交 subagent）→ `tools/dedup/rebuild.sh <科目>` → `node test/test.js` 看該科「同一冊無重複題幹」是否 0。**剩下：自然 116、英文 120、社會 116、數學 53**（物理/化學/生物/地科/歷史/地理/公民已清完，自然三上三下四上四下已清完）
-VALIDATION: node test/test.js 全綠（含新的「同一冊無重複題幹」守門）＋ node test/zy-check.js＋每冊仍為 288 題
+NEXT_ACTION: 2026-08-26 全數完成。11 科 122 冊完全重複 0，每冊仍為 288 題、合計 33,984 題。無待辦
+VALIDATION: `node tools/dedup/scan.js` 完全重複 0；`node test/test.js` 全綠（含新的「同一冊無重複題幹」守門）；`node test/zy-check.js` 0 個不一致
 BLOCKERS: 無
 PATHS: tools/dedup/（工具與流程說明）、tools/tikuconv/*/（來源 jsonl）、js/data/*.js、test/test.js（守門）、tools/tikuconv/check-add.py
+
+## 完工紀錄（2026-08-26）
+
+自然 133、英文 120、社會 116、數學 53、其餘 7 科 15，合計 **437 題**全部換成同單元的新原創題。
+「近似（≥0.80）」還有 2,445 組，但那多半是**不同的題**只是句型相近
+（例：「行政院的主要職權」vs「立法院的主要職權」），不能一律刪，需要人看過再判斷。
 
 ## 重複題的兩個根因（2026-08-26，Tony 的兒子在四上自然發現）
 
