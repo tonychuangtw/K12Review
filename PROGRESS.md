@@ -1,14 +1,22 @@
-# 進度：K12Review（各科題庫由每單元 24 題往 32 題補，進行中）
+# 進度：K12Review（各科題庫每單元 32 題，全數完成）
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: in-progress
+STATUS: done
 OBJECTIVE: K12 各科（國語以外）原創題庫由每單元 24 題補到 32 題，一冊 72 題、一冊一 commit
-NEXT_ACTION: 小學＋國中全數 288；高中已完成物理、化學、生物、歷史各 6 冊。**剩下高中 18 冊**：公民（civics）、地科（earth）、地理（geography）各 6 冊（十上～十二下，目前 216）。做法：`tools/tikuconv/<科>/` 下開 `<冊代號>-add4.jsonl`，一冊 72 題（9 單元 × 8），走 docs/bank-maintain-sop.md 流程 A；**出題一律走「具體事實題」路線**，寫完先確認 check-add 完全重複是 0 才出貨。出貨腳本在 scratchpad/ship.sh（會自動改 README、重建、跑測試、戳版本）
-VALIDATION: python3 tools/tikuconv/check-add.py <科目目錄> <冊>.jsonl <add檔...> 無 ✗ → node test/test.js 全綠 → 目標冊題數 288、該科總題數有增加
+NEXT_ACTION: 2026-08-26 全數完成。全站 11 科 122 冊，每一冊都是 9 單元 × 32 題 = 288 題，原創題庫合計 33,984 題。無待辦
+VALIDATION: node -e 逐科統計每冊題數皆為 288（見下方「完工驗收」）；node test/test.js 全綠
 BLOCKERS: 無
-PATHS: tools/tikuconv/{english,math,science,social}/、js/data/{english,math,science,social}.js、docs/bank-maintain-sop.md
-UPDATED: 2026-08-27 03:40 台北
+PATHS: tools/tikuconv/*/、js/data/*.js、docs/bank-maintain-sop.md
+
+## 完工驗收（2026-08-26）
+
+```
+biology 1728題6冊 / chemistry 1728題6冊 / civics 1728題6冊 / earth 1728題6冊
+english 6912題24冊 / geography 1728題6冊 / history 1728題6冊 / math 6912題24冊
+physics 1728題6冊 / science 4032題14冊 / social 4032題14冊
+= 原創題庫 33,984 題，每一冊都是 288 題
+```
 
 2026-08-23 完工：高中分科 7 科（物理／化學／生物／地科／歷史／地理／公民）原創題庫
 由每單元 8 題補到每單元 24 題，7 科 × 54 單元 × 16 題 ＝ **新增 6,048 題**，
