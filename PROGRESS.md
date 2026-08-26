@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: K12 各科（國語以外）原創題庫由每單元 24 題補到 32 題，一冊 72 題、一冊一 commit
-NEXT_ACTION: **小學 40 冊進行中**（數學 12 ✅、英文 6/12、自然 8、社會 8）。下一冊是「英文四上」（tools/tikuconv/english/e4-add4.jsonl，先 ls 看該冊既有 add 檔編號），依序做到六下，再換自然 8 冊、社會 8 冊。一冊 72 題、一冊一 commit
+NEXT_ACTION: **小學 40 冊進行中**（數學 12 ✅、英文 12 ✅、自然 8、社會 8）。下一冊是「自然三上」（tools/tikuconv/science/，先 ls 看該冊既有 add 檔編號決定新檔名），自然 8 冊（三上～六下）做完再做社會 8 冊。一冊 72 題、一冊一 commit
 VALIDATION: python3 tools/tikuconv/check-add.py <科目目錄> <冊>.jsonl <add檔...> 無 ✗ → node test/test.js 全綠 → 目標冊題數 288、該科總題數有增加
 BLOCKERS: 無
 PATHS: tools/tikuconv/{english,math,science,social}/、js/data/{english,math,science,social}.js、docs/bank-maintain-sop.md
-UPDATED: 2026-08-27 15:40 台北
+UPDATED: 2026-08-27 20:10 台北
 
 2026-08-23 完工：高中分科 7 科（物理／化學／生物／地科／歷史／地理／公民）原創題庫
 由每單元 8 題補到每單元 24 題，7 科 × 54 單元 × 16 題 ＝ **新增 6,048 題**，
@@ -46,6 +46,27 @@ UPDATED: 2026-08-27 15:40 台北
   純計算練習。
 - 每單元 8 題裡，大約留 3–4 題純計算（不同數字組合），其餘用不同情境／不同問法
   （方法題、反向問、條件推理、估算、兩步驟應用）。
+
+## 2026-08-26 小學加題實作筆記（數學 12 冊、英文 12 冊完成後補記）
+
+**每一冊固定流程**（`tools/` 沒有這支腳本，是這次臨時寫在 scratchpad 的，重點是順序）：
+1. dump 該冊既有題幹（`<冊>.jsonl` + 全部 `-addN`）看過一遍，再開始寫
+2. 產生器寫成一支 python，內建三道 assert：72 題、每單元 8 題、選項 4 個不重複且 exp 有 ✅❌📚
+   —— **產生器裡再加一道 `q` 不重複的 assert**，我在英文四上/三下各被自己撞到一次同題幹
+3. `check-add.py` → **完全重複必須是 0** 才能出貨（近似不用理，計算題換數字本來就會被列出來）
+4. README 加檔 → 重建 → `node test/test.js` → `stamp-version.py <戳>` → commit push
+
+⚠ 出貨腳本要自己擋重複：英文六上有一次 check 還有 1 題重複我就 ship 了，
+事後才補修。之後 scratchpad 的 `ship.sh` 有加一道 grep 守門。
+
+**各科的重複率差很多，寫題時要先有心理準備：**
+- 數學（可計算）最低，12 冊總共只出現 12 題完全重複
+- 英文低年級（字母、發音、單字）也低
+- **英文高年級的複習冊最高**：六下一口氣 16 題、五下 11 題、六上 9 題。
+  原因是「時態綜合複習」「寫作基本句型」這種單元本來就是把前面學過的再考一次，
+  而且我很容易寫出「下列哪一句…錯誤？」這種同款題幹。
+  **對策：少用「下列哪一句錯誤」當題幹**，改成具體情境（給句子問怎麼改、給兩句問差別、
+  給對話問怎麼接），撞題率會低很多。
 
 日後要再加題時照 `docs/bank-maintain-sop.md` 流程 A，一冊一 commit，並注意：
 - ⚠ 寫完 add 檔**一定要先跑** `python3 tools/tikuconv/check-add.py <科目目錄> <冊>.jsonl <add檔...>`：
