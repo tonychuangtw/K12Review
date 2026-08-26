@@ -20,6 +20,7 @@
 | bi12b-add1 / bi12b-add2 / bi12b-add3.jsonl | 十二下加題（2026-08-23，補到每單元 24 題） | — |
 | bi10-add4.jsonl | 生物十上加題（2026-08-26，補到每單元 32 題） | — |
 | bi10b-add4.jsonl | 生物十下加題（2026-08-26，補到每單元 32 題） | — |
+| bi11-add4.jsonl | 生物十一上加題（2026-08-26，補到每單元 32 題） | — |
 
 重建：
 
@@ -48,6 +49,7 @@ node tools/tikuconv/build-bank.js biology js/data/biology.js $BF/header.txt --re
   $BF/bi12b-add2.jsonl \
   $BF/bi12b-add3.jsonl \
   $BF/bi10-add4.jsonl \
-  $BF/bi10b-add4.jsonl
+  $BF/bi10b-add4.jsonl \
+  $BF/bi11-add4.jsonl
 node test/test.js
 ```
