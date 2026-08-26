@@ -19,6 +19,7 @@ def norm(s):
 
 base = collections.Counter()
 seen = {}
+seen_norm = {}          # 正規化題幹 → 出處檔名（完全重複就靠這個判定）
 normed = {}
 for l in open(os.path.join(d, base_f), encoding='utf-8'):
     if not l.strip():
@@ -26,6 +27,7 @@ for l in open(os.path.join(d, base_f), encoding='utf-8'):
     r = json.loads(l)
     base[r['lesson']] += 1
     seen[r['q']] = base_f
+    seen_norm[norm(r['q'])] = base_f
     normed[norm(r['q'])] = (r['q'], base_f, r['lesson'])
 
 errs = []
@@ -48,8 +50,13 @@ for f in adds:
                 errs.append('%s 解析缺 %s 段' % (where, k))
         if r['lesson'] not in base:
             errs.append('%s 單元名與基準冊不符：%s' % (where, r['lesson']))
-        if r['q'] in seen:
-            errs.append('%s 與 %s 題目重複：%s' % (where, seen[r['q']], r['q'][:30]))
+        # ⚠️ 一定要比「正規化之後」的題幹，不要比原字串。
+        # 2026-08-26 的教訓：兩題只差一個標點（「…110 伏特。最多」vs「…110 伏特，最多」）
+        # 就躲過了這個 if，只被下面的「近似」抓到；而 ship.sh 當時只擋「題目重複」
+        # 不擋「題目近似」，於是整批出貨。全站因此累積了 437 題重複。
+        nq = norm(r['q'])
+        if nq in seen_norm:
+            errs.append('%s 與 %s 題目重複：%s' % (where, seen_norm[nq], r['q'][:30]))
         else:
             # 近似重複：去掉標點後比對，相似度 ≥ 0.75 視為同一題（同單元才比）
             k = norm(r['q'])
@@ -62,6 +69,7 @@ for f in adds:
                     break
             normed[k] = (r['q'], f, r['lesson'])
         seen[r['q']] = f
+        seen_norm[nq] = f
         add[r['lesson']] += 1
 
 for u in base:

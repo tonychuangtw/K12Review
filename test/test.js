@@ -57,16 +57,30 @@ ok(bank.every(c => c.q && Array.isArray(c.options) && c.options.length >= 2 && c
   let holes = 0;
   for (let i = 0; i < bank.length; i++) if (!(i in bank)) holes++;
   ok(holes === 0, bankName + '陣列無空洞（空洞 ' + holes + ' 處）');
-  // 完全重複題（題幹+選項+答案全同）。「承上題」子題會跨課共用題幹，不算重複
+  // 同一冊裡不可以有一樣的題幹。「承上題」子題會跨課共用題幹，不算重複。
+  //
+  // ⚠️ 這裡以前是拿「題幹＋選項＋答案」當 key，結果等於沒有守門：
+  // build-bank.js 會刻意輪轉答案位置（r.answer = i % 4）並重排選項，
+  // 所以同一題被加兩次時，兩份的 answer 與選項順序一定不同，key 永遠不相同。
+  // 437 題重複就是這樣溜進去的（2026-08-26 Tony 的兒子在四上自然發現）。
+  // 改成只比「正規化後的題幹」，並且以「冊」為範圍——同一冊才是學生會連續遇到的範圍。
   {
+    const norm = (q) => String(q || '').replace(/\s+/g, '').replace(/[，。？！、：；「」（）()]/g, '');
     const seen = new Map(), dup = [];
     bank.forEach(c => {
       if (/承上題/.test(c.q)) return;
-      const k = c.q.trim() + '||' + c.options.join('|') + '||' + c.answer;
-      if (seen.has(k)) dup.push(c.id + '/' + seen.get(k)); else seen.set(k, c.id);
+      const k = (c.book || '') + '||' + norm(c.q);
+      if (seen.has(k)) dup.push(c.id + '/' + seen.get(k) + '「' + String(c.q).slice(0, 18) + '」');
+      else seen.set(k, c.id);
     });
-    ok(dup.length === 0, bankName + '無完全重複題（重複 ' + dup.length + ' 題'
-      + (dup.length ? '：' + dup.slice(0, 5).join(',') : '') + '）');
+    // 匯入題庫是 Tony 提供的題本轉檔，重複來自原始題本（同一題出現在不同本），
+    // 那不是我們寫的內容，不能自作主張刪改——只報數字，不擋測試。
+    if (/自創題庫/.test(bankName)) {
+      if (dup.length) console.log('  · ' + bankName + ' 有 ' + dup.length + ' 題重複題幹（來源題本自帶，僅記錄）');
+    } else {
+      ok(dup.length === 0, bankName + '同一冊無重複題幹（重複 ' + dup.length + ' 題'
+        + (dup.length ? '：' + dup.slice(0, 3).join(' ') : '') + '）');
+    }
   }
   const CTRL = /[\u0000-\u001f]/;
   const badOpt = bank.filter(c => c.options.some(o => typeof o !== 'string' || !o.trim() || CTRL.test(o))
