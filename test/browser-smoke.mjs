@@ -742,27 +742,42 @@ async (js) => {
       function (x) { return x.textContent; }).join(',')`) === '整年,十上,十下',
     await js(`Array.prototype.map.call(document.querySelectorAll('#gradePanel .gp-term .chip'),
       function (x) { return x.textContent; }).join(',')`));
+  /* 用「物理」這張卡驗：高一物理全是原創題、每一題都有冊，
+     所以整年 = 上 + 下，上下各一半。
+     ⚠️ 不要拿「所有科目題數相加」來驗：匯入題庫有些題沒有 book，
+     那些題在任何學期都會出現，加起來自然不等於整年（實測 全6104 / 上3512 / 下3512）。 */
   const termCounts = await js(`(function () {
+    /* 卡片副標長這樣：「576 題 · 高一」，開頭就是數字，
+       直接 parseInt 即可。⚠️ 不要在這裡寫 /(\\d+)/ 這種正規表示式：
+       這整段是包在樣板字串裡送進瀏覽器的，\\d 會先被樣板字串吃掉變成 d，
+       regex 就永遠比對不到（2026-08-26 在這裡踩過一次）。 */
+    function physics() {
+      var cards = document.querySelectorAll('#subjectCards .card');
+      for (var i = 0; i < cards.length; i++) {
+        var t = cards[i].querySelector('.card-title');
+        var sub = cards[i].querySelector('.card-sub');
+        if (t && sub && t.textContent === '物理') {
+          var n = parseInt(sub.textContent, 10);
+          return isNaN(n) ? ('NONUM:' + sub.textContent) : n;
+        }
+      }
+      return 'NOCARD';
+    }
     var out = {};
     ['整年', '十上', '十下'].forEach(function (name) {
       var chips = document.querySelectorAll('#gradePanel .gp-term .chip');
       for (var i = 0; i < chips.length; i++) {
         if (chips[i].textContent === name) { chips[i].click(); break; }
       }
-      var cards = document.querySelectorAll('#subjectCards .card-sub');
-      var n = 0;
-      for (var j = 0; j < cards.length; j++) {
-        var m = /(\d+)\s*題/.exec(cards[j].textContent);
-        if (m) n += parseInt(m[1], 10);
-      }
-      out[name] = n;
+      out[name] = physics();
       document.getElementById('rangeBar').click();
     });
     return JSON.stringify(out);
   })()`);
   const tc = JSON.parse(termCounts);
-  check('選上學期／下學期，科目題數各約一半且相加等於整年',
-    tc['整年'] > 0 && tc['十上'] > 0 && tc['十下'] > 0 && (tc['十上'] + tc['十下']) === tc['整年'],
+  check('選上／下學期後物理題數各一半，相加等於整年',
+    tc['整年'] > 0 && tc['十上'] > 0 && tc['十下'] > 0 &&
+    tc['十上'] === tc['十下'] && (tc['十上'] + tc['十下']) === tc['整年'],
     termCounts);
   /* 切回整年，後面的斷言才不會被學期過濾影響 */
   await js(`(function () {
