@@ -52,6 +52,7 @@
 | m5-add3.jsonl | 五上加題（2026-08-26，補到每單元 32 題） | — |
 | m5b-add3.jsonl | 五下加題（2026-08-26，補到每單元 32 題） | — |
 | m6-add3.jsonl | 六上加題（2026-08-26，補到每單元 32 題） | — |
+| m6b-add3.jsonl | 六下加題（2026-08-26，補到每單元 32 題） | — |
 
 重建：
 
@@ -123,6 +124,7 @@ node tools/tikuconv/build-bank.js math js/data/math.js $MF/header.txt --renumber
   $MF/m5-add3.jsonl \
   $MF/m5b-add3.jsonl \
   $MF/m6-add3.jsonl \
+  $MF/m6b-add3.jsonl \
   $MF/m10-add1.jsonl \
   $MF/m10-add2.jsonl \
   $MF/m10-add3.jsonl \
