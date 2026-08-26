@@ -4,10 +4,10 @@
 
 STATUS: in-progress
 OBJECTIVE: 清掉原創題庫裡 437 題「同一冊題幹重複」的題目，每一題都換成同單元的新原創題（維持每冊 288 題）
-NEXT_ACTION: 用 `node /tmp/.../scratchpad/work.js <科目> <冊>` 列出該冊待修的重複題與同單元既有題幹，逐題手寫替換題後用 scratchpad/replace.py 寫回來源 jsonl，再跑 scratchpad/rebuild.sh <科目> 重建，最後 `node test/test.js` 看該科「同一冊無重複題幹」是否 0。**剩下：自然 116、英文 120、社會 116、數學 53**（物理/化學/生物/地科/歷史/地理/公民已清完，自然三上三下四上四下已清完）
+NEXT_ACTION: 照 `tools/dedup/README.md` 的流程做（工具在 repo 裡，換 session 也用得到）：`node tools/dedup/scan.js` 看還剩多少 → `node tools/dedup/work.js <科目> <冊>` 列出該冊待修的重複題與同單元既有題幹 → 逐題手寫替換題（⛔ 不可交 subagent）→ `tools/dedup/rebuild.sh <科目>` → `node test/test.js` 看該科「同一冊無重複題幹」是否 0。**剩下：自然 116、英文 120、社會 116、數學 53**（物理/化學/生物/地科/歷史/地理/公民已清完，自然三上三下四上四下已清完）
 VALIDATION: node test/test.js 全綠（含新的「同一冊無重複題幹」守門）＋ node test/zy-check.js＋每冊仍為 288 題
 BLOCKERS: 無
-PATHS: tools/tikuconv/*/、js/data/*.js、test/test.js（守門）、tools/tikuconv/check-add.py
+PATHS: tools/dedup/（工具與流程說明）、tools/tikuconv/*/（來源 jsonl）、js/data/*.js、test/test.js（守門）、tools/tikuconv/check-add.py
 
 ## 重複題的兩個根因（2026-08-26，Tony 的兒子在四上自然發現）
 
