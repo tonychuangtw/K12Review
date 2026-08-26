@@ -30,6 +30,7 @@
 | n5-add3.jsonl | 自然五上加題（2026-08-26，補到每單元 32 題） | — |
 | n5b-add4.jsonl | 自然五下加題（2026-08-26，補到每單元 32 題） | — |
 | n6-add3.jsonl | 自然六上加題（2026-08-26，補到每單元 32 題） | — |
+| n6b-add4.jsonl | 自然六下加題（2026-08-26，改走具體事實題路線後重做，補到每單元 32 題） | — |
 
 重建：
 
@@ -86,7 +87,8 @@ node tools/tikuconv/build-bank.js science js/data/science.js tools/tikuconv/scie
   tools/tikuconv/science/n4b-add3.jsonl \
   tools/tikuconv/science/n5-add3.jsonl \
   tools/tikuconv/science/n5b-add4.jsonl \
-  tools/tikuconv/science/n6-add3.jsonl
+  tools/tikuconv/science/n6-add3.jsonl \
+  tools/tikuconv/science/n6b-add4.jsonl
 node test/test.js
 ```
 
