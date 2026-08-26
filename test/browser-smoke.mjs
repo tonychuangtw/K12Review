@@ -724,15 +724,57 @@ async (js) => {
   await sleep(200);
   check('點範圍列打得開年級面板',
     await js(`!document.getElementById('gradePanel').classList.contains('hidden')
-      && document.querySelectorAll('#gradePanel .gp-quick .chip').length === 12`),
-    String(await js(`document.querySelectorAll('#gradePanel .gp-quick .chip').length`)));
-  await js(`document.querySelectorAll('#gradePanel .gp-quick .chip')[9].click()`);   // 高一
+      && document.querySelectorAll('#gradePanel .gp-quick:not(.gp-term) .chip').length === 12`),
+    String(await js(`document.querySelectorAll('#gradePanel .gp-quick:not(.gp-term) .chip').length`)));
+  await js(`document.querySelectorAll('#gradePanel .gp-quick:not(.gp-term) .chip')[9].click()`);   // 高一
   await sleep(300);
   check('改主要年級後範圍列與科目卡跟著換',
     /高一/.test(await js(`document.getElementById('rangeBar').textContent`)) &&
     await js(`Array.prototype.map.call(document.querySelectorAll('#subjectCards .card-title'),
       function (x) { return x.textContent; }).indexOf('物理') >= 0`),
     await js(`document.getElementById('rangeBar').textContent`));
+  /* 學期（2026-08-26 Tony：「沒有分上下學期，例如小五會有五上和五下」）。
+     題庫本來就分冊，這裡驗的是「選了學期之後真的只出那一冊」。 */
+  await js(`document.getElementById('rangeBar').click()`);
+  await sleep(200);
+  check('學期有三顆晶片：整年／十上／十下',
+    await js(`Array.prototype.map.call(document.querySelectorAll('#gradePanel .gp-term .chip'),
+      function (x) { return x.textContent; }).join(',')`) === '整年,十上,十下',
+    await js(`Array.prototype.map.call(document.querySelectorAll('#gradePanel .gp-term .chip'),
+      function (x) { return x.textContent; }).join(',')`));
+  const termCounts = await js(`(function () {
+    var out = {};
+    ['整年', '十上', '十下'].forEach(function (name) {
+      var chips = document.querySelectorAll('#gradePanel .gp-term .chip');
+      for (var i = 0; i < chips.length; i++) {
+        if (chips[i].textContent === name) { chips[i].click(); break; }
+      }
+      var cards = document.querySelectorAll('#subjectCards .card-sub');
+      var n = 0;
+      for (var j = 0; j < cards.length; j++) {
+        var m = /(\d+)\s*題/.exec(cards[j].textContent);
+        if (m) n += parseInt(m[1], 10);
+      }
+      out[name] = n;
+      document.getElementById('rangeBar').click();
+    });
+    return JSON.stringify(out);
+  })()`);
+  const tc = JSON.parse(termCounts);
+  check('選上學期／下學期，科目題數各約一半且相加等於整年',
+    tc['整年'] > 0 && tc['十上'] > 0 && tc['十下'] > 0 && (tc['十上'] + tc['十下']) === tc['整年'],
+    termCounts);
+  /* 切回整年，後面的斷言才不會被學期過濾影響 */
+  await js(`(function () {
+    var chips = document.querySelectorAll('#gradePanel .gp-term .chip');
+    for (var i = 0; i < chips.length; i++) if (chips[i].textContent === '整年') { chips[i].click(); return; }
+  })()`);
+  await sleep(250);
+  check('學期預設回到整年', await js(`JSON.parse(localStorage.getItem('chinese-review-v1')).term`) === '全',
+    String(await js(`JSON.parse(localStorage.getItem('chinese-review-v1')).term`)));
+  await js(`document.getElementById('rangeBar').click()`);
+  await sleep(200);
+
   // 加練年級：多勾一個年級，範圍要含兩個年級，但主要年級不變
   await js(`document.querySelector('#gradePanel .gp-more').click()`);
   await sleep(200);

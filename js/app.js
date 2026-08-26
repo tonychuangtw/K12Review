@@ -45,8 +45,25 @@
   }
 
   // 多選年級（grades 為 1-12 的陣列）
+  /* 學期過濾（2026-08-26）。只對「有分冊」的題庫生效：
+     book 是 三上／三下／十一上 這種，最後一個字就是學期。
+     國語的成語／字音／字形沒有 book，任何學期設定都照樣全出。 */
+  function termOk(it) {
+    /* test/test.js 會把 composeDaily／buildUnits 這些純函式單獨 eval 出來跑，
+       那個情境沒有 state。拿不到就當「整年」，行為與預設一致。 */
+    var t = (typeof state !== 'undefined' && state && state.term) || '全';
+    if (t === '全') return true;
+    var b = it && it.book;
+    if (!b) return true;
+    return b.charAt(b.length - 1) === t;
+  }
+  function termLabel() {
+    var t = state.term || '全';
+    return t === '全' ? '整年' : (t === '上' ? '上學期' : '下學期');
+  }
+
   function filterByGrades(pool, grades) {
-    return pool.filter(function (it) { return grades.indexOf(it.grade) >= 0; });
+    return pool.filter(function (it) { return grades.indexOf(it.grade) >= 0 && termOk(it); });
   }
 
   // 年級組合顯示：連續區間縮寫，如 [1,2,3,4] → 小一–小四
@@ -63,6 +80,11 @@
     return parts.join('、');
   }
 
+  // 「五上」「十一下」用的短名：小五→五、國一→七、高一→十
+  function shortGrade(g) {
+    var n = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
+    return n[g] || String(g);
+  }
   function gradeLabel(g) {
     var names = ['', '小一', '小二', '小三', '小四', '小五', '小六', '國一', '國二', '國三', '高一', '高二', '高三'];
     return names[g] || ('年級' + g);
@@ -552,7 +574,7 @@
     try { s = JSON.parse(localStorage.getItem(LS_KEY)); } catch (e) {}
     if (!s || typeof s !== 'object') {
       s = {
-        phon: 'zhuyin', grade: 5, extra: [], grades: [5], onboarded: false,
+        phon: 'zhuyin', grade: 5, extra: [], grades: [5], term: '全', onboarded: false,
         stats: {}, streak: { last: '', days: 0 }, wrong: [], leitner: {}
       };
     }
@@ -563,6 +585,10 @@
       if (s.cumulative === false) s.grades = [g];
       else for (var i = 1; i <= g; i++) s.grades.push(i);
     }
+    // 2026-08-26 加「學期」：Tony「K12review 裡沒有分上下學期，例如小五會有五上和五下」。
+    // 題庫本來就有分冊（book = 三上/三下…），只是過濾一直只看年級數字，
+    // 所以選「小五」會把五上五下混在一起出。預設 '全' ＝ 跟舊行為完全一樣。
+    if (['全', '上', '下'].indexOf(s.term) < 0) s.term = '全';
     // 2026-08-20 年級改版：主要年級（單選，決定科目與課程進度）＋加練年級（多選）。
     // 舊資料的多選年級以「最高的那個」當主要年級，其餘轉成加練，實際過濾範圍完全不變。
     if (!s.grade || s.grades.indexOf(s.grade) < 0 || !Array.isArray(s.extra)) {
@@ -771,20 +797,25 @@
   // 沒寫 grade 的題目一律留著（國語自創題庫有些沒標年級），有寫的才照勾選年級過濾
   function gradePool(bank) {
     return (bank || []).filter(function (it) {
-      return it.grade == null || state.grades.indexOf(it.grade) >= 0;
+      return (it.grade == null || state.grades.indexOf(it.grade) >= 0) && termOk(it);
     });
   }
   function mainPool() { return gradePool(DATA[mainCat()] || []); }
   // 沒有原創題時退回該科自創題庫（一樣照年級），不要讓五年級抽到別的年級的題本題
   function bankFallback() { return gradePool(DATA[bankCat()] || []); }
   // 每日練習/總結測驗紀錄的 key：國語沿用純日期（相容舊資料），其他科加 |科目
-  function subjKey(date) { return isChinese() ? date : date + '|' + curSubj(); }
+  // 學期不是「全」時要進 key，否則五上與五下的每日練習紀錄會互相蓋掉。
+  // '全' 一律不帶，舊資料才不會整批對不上。
+  function termSuffix() { return (state.term || '全') === '全' ? '' : '|' + state.term; }
+  function subjKey(date) { return (isChinese() ? date : date + '|' + curSubj()) + termSuffix(); }
   // 只取目前科目的每日紀錄（日曆、連續天數用），key 一律還原成純日期
   function subjMap(map) {
     var out = {};
     Object.keys(map || {}).forEach(function (k) {
       var p = k.split('|');
-      if ((p[1] || 'chinese') === curSubj()) out[p[0]] = map[k];
+      // key 形如 日期 / 日期|科目 / 日期|科目|學期 / 日期|學期（國語）
+      var subj = (p[1] && ['全', '上', '下'].indexOf(p[1]) < 0) ? p[1] : 'chinese';
+      if (subj === curSubj()) out[p[0]] = map[k];
     });
     return out;
   }
@@ -1059,9 +1090,11 @@
   var RANGE_HIDDEN_VIEWS = ['quiz', 'write', 'flash', 'welcome'];
   function renderRangeBar() {
     var extra = (state.extra || []).slice().sort(function (a, b) { return a - b; });
-    $('rangeBar').innerHTML = '<span class="rb-main">📚 目前：<b>' + gradeLabel(state.grade) + '</b></span>' +
+    $('rangeBar').innerHTML = '<span class="rb-main">📚 目前：<b>' + gradeLabel(state.grade) +
+      ((state.term || '全') === '全' ? '' : ' ' + state.term) + '</b></span>' +
+      '<span class="rb-extra">' + termLabel() + '</span>' +
       (extra.length ? '<span class="rb-extra">加練 ' + extra.map(gradeLabel).join('、') + '</span>' : '') +
-      '<span class="rb-go">換年級 ›</span>';
+      '<span class="rb-go">換範圍 ›</span>';
   }
   function renderGradePanel() {
     var panel = $('gradePanel');
@@ -1089,6 +1122,42 @@
       }
       panel.appendChild(row);
     });
+
+    /* 學期（2026-08-26）。題庫本來就分冊，這裡只是把它露出來讓人選。
+       國語的成語／字音／字形沒有分冊，所以下面標一句話，免得使用者
+       選了「上學期」卻發現國語題目沒變、以為壞了。 */
+    var t15 = document.createElement('div');
+    t15.className = 'gp-title';
+    t15.textContent = '學期';
+    panel.appendChild(t15);
+    var trow = document.createElement('div');
+    /* 多一個 gp-term：學期晶片跟年級晶片長得一樣，但語意不同，
+       測試與樣式都要分得出來（不加的話「年級晶片剛好 12 顆」這種斷言會被學期晶片污染）。 */
+    trow.className = 'gp-quick gp-term';
+    var tlab = document.createElement('span');
+    tlab.className = 'gp-stage';
+    tlab.textContent = gradeLabel(state.grade);
+    trow.appendChild(tlab);
+    [['全', '整年'], ['上', '上學期'], ['下', '下學期']].forEach(function (pair) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip' + ((state.term || '全') === pair[0] ? ' active' : '');
+      /* 「整年」／「五上」／「五下」——用主要年級的短名，一看就知道選的是哪一冊 */
+      b.textContent = pair[0] === '全' ? pair[1] : shortGrade(state.grade) + pair[0];
+      b.addEventListener('click', function () {
+        state.term = pair[0];
+        state.unitBook = '';      // 換學期後原本那一冊多半不在範圍內了，重算
+        save();
+        afterGradeChange();       // 與換年級走同一條收尾路徑，不要各做各的
+      });
+      trow.appendChild(b);
+    });
+    panel.appendChild(trow);
+    var tnote = document.createElement('div');
+    tnote.className = 'gp-note';
+    tnote.textContent = '國語的成語、字音、字形沒有分冊，不受學期影響。';
+    panel.appendChild(tnote);
+
     var t2 = document.createElement('button');
     t2.type = 'button';
     t2.className = 'gp-more';
@@ -3913,8 +3982,11 @@
     return filterByGrades(bank, state.grades);
   }
   function drillKey(cat, book, lesson) {
-    if (cat && cat === mainCat()) return customDrillKey(book, lesson, cat) + '|g:' + state.grades.join(',');
-    return isBankCat(cat) ? customDrillKey(book, lesson, cat) : cat + '|' + state.grades.join(',');
+    if (cat && cat === mainCat()) {
+      return customDrillKey(book, lesson, cat) + '|g:' + state.grades.join(',') + termSuffix();
+    }
+    return isBankCat(cat) ? customDrillKey(book, lesson, cat)
+                          : cat + '|' + state.grades.join(',') + termSuffix();
   }
 
   function showDrill() {
