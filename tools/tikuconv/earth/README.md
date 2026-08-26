@@ -22,6 +22,7 @@
 | es10b-add4.jsonl | 地科十下加題（2026-08-26，補到每單元 32 題） | — |
 | es11-add4.jsonl | 地科十一上加題（2026-08-26，補到每單元 32 題） | — |
 | es11b-add4.jsonl | 地科十一下加題（2026-08-26，補到每單元 32 題） | — |
+| es12-add4.jsonl | 地科十二上加題（2026-08-26，補到每單元 32 題） | — |
 
 重建：
 
@@ -52,6 +53,7 @@ node tools/tikuconv/build-bank.js earth js/data/earth.js $EF/header.txt --renumb
   $EF/es10-add4.jsonl \
   $EF/es10b-add4.jsonl \
   $EF/es11-add4.jsonl \
-  $EF/es11b-add4.jsonl
+  $EF/es11b-add4.jsonl \
+  $EF/es12-add4.jsonl
 node test/test.js
 ```
