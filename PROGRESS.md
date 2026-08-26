@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: K12 各科（國語以外）原創題庫由每單元 24 題補到 32 題，一冊 72 題、一冊一 commit
-NEXT_ACTION: **小學 40 冊進行中**（數學 12 ✅、英文 12、自然 8、社會 8）。小學數學 12 冊已全部補到每單元 32 題（各 288 題）。下一冊是「英文一上」（tools/tikuconv/english/，先用 ls 看該冊既有的 add 檔編號再決定新檔叫 add3 還是 add4），依序做完英文 12 冊，再做自然 8 冊、社會 8 冊。一冊 72 題、一冊一 commit
+NEXT_ACTION: **暫停加題，先做 CamReview 的兩項需求**（2026-08-26 Tony）：(1) 老師能自己出作文作業題目；(2) 介面全英文不要中文（雙語班）。做完再回來繼續小學加題：數學 12 冊 ✅、英文已完成一上/一下/二上，下一冊「英文二下」（tools/tikuconv/english/e2b-add4.jsonl），之後英文剩下的冊 → 自然 8 冊 → 社會 8 冊
 VALIDATION: python3 tools/tikuconv/check-add.py <科目目錄> <冊>.jsonl <add檔...> 無 ✗ → node test/test.js 全綠 → 目標冊題數 288、該科總題數有增加
 BLOCKERS: 無
 PATHS: tools/tikuconv/{english,math,science,social}/、js/data/{english,math,science,social}.js、docs/bank-maintain-sop.md
-UPDATED: 2026-08-27 08:40 台北
+UPDATED: 2026-08-27 13:10 台北
 
 2026-08-23 完工：高中分科 7 科（物理／化學／生物／地科／歷史／地理／公民）原創題庫
 由每單元 8 題補到每單元 24 題，7 科 × 54 單元 × 16 題 ＝ **新增 6,048 題**，
