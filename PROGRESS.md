@@ -1,13 +1,25 @@
-# 進度：K12Review（各科題庫每單元 32 題，全數完成）
+# 進度：K12Review（清除題庫重複題，進行中）
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: done
-OBJECTIVE: K12 各科（國語以外）原創題庫由每單元 24 題補到 32 題，一冊 72 題、一冊一 commit
-NEXT_ACTION: 2026-08-26 全數完成。全站 11 科 122 冊，每一冊都是 9 單元 × 32 題 = 288 題，原創題庫合計 33,984 題。無待辦
-VALIDATION: node -e 逐科統計每冊題數皆為 288（見下方「完工驗收」）；node test/test.js 全綠
+STATUS: in-progress
+OBJECTIVE: 清掉原創題庫裡 437 題「同一冊題幹重複」的題目，每一題都換成同單元的新原創題（維持每冊 288 題）
+NEXT_ACTION: 用 `node /tmp/.../scratchpad/work.js <科目> <冊>` 列出該冊待修的重複題與同單元既有題幹，逐題手寫替換題後用 scratchpad/replace.py 寫回來源 jsonl，再跑 scratchpad/rebuild.sh <科目> 重建，最後 `node test/test.js` 看該科「同一冊無重複題幹」是否 0。**剩下：自然 116、英文 120、社會 116、數學 53**（物理/化學/生物/地科/歷史/地理/公民已清完，自然三上三下四上四下已清完）
+VALIDATION: node test/test.js 全綠（含新的「同一冊無重複題幹」守門）＋ node test/zy-check.js＋每冊仍為 288 題
 BLOCKERS: 無
-PATHS: tools/tikuconv/*/、js/data/*.js、docs/bank-maintain-sop.md
+PATHS: tools/tikuconv/*/、js/data/*.js、test/test.js（守門）、tools/tikuconv/check-add.py
+
+## 重複題的兩個根因（2026-08-26，Tony 的兒子在四上自然發現）
+
+1. **test/test.js 的守門從來沒有作用過**：它拿「題幹＋選項＋答案」當 key，
+   但 `build-bank.js` 會刻意輪轉答案位置（`r.answer = i % 4`）並重排選項，
+   所以同一題被加兩次時，兩份的 key 一定不同。已改成「以冊為範圍比對正規化後的題幹」。
+2. **check-add.py 的完全重複比對用原字串**：兩題只差一個標點
+   （「110 伏特。最多」vs「110 伏特，最多」）就只被判成「近似」，
+   而 ship.sh 的守門只擋「題目重複」不擋「題目近似」→ 整批出貨。
+   已改成先正規化再比對。
+
+⚠️ 匯入題庫（Tony 提供的題本轉檔）的重複來自原始題本，不是我們寫的內容，守門只記錄不擋。
 
 ## 完工驗收（2026-08-26）
 
