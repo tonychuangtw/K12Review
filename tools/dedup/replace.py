@@ -27,7 +27,9 @@ def apply(subj_dir, edits, verbose=True):
             assert not re.search(r'[Ѐ-ӿ぀-ヿ가-힯]', body), '混進西里爾/假名/諺文：' + new['q']
             # 中文句子裡混進英文單字（例如「背風side」）。科學單位是正常的，所以只擋
             # 「小寫英文字母直接黏在中文字旁邊」且不在白名單裡的情形。
-            for m in re.finditer(r'[\u4e00-\u9fff]([a-z]{2,})|([a-z]{2,})[\u4e00-\u9fff]', body):
+            # ⚠️ 英文科不適用：那一科的題目本來就是中英夾雜（題幹中文、例句英文）。
+            for m in ([] if '/english' in subj_dir else
+                      re.finditer(r'[\u4e00-\u9fff]([a-z]{2,})|([a-z]{2,})[\u4e00-\u9fff]', body)):
                 w = m.group(1) or m.group(2)
                 assert w in ('nm', 'mm', 'cm', 'km', 'kg', 'mol', 'ppm', 'pc', 'eV', 'sp',
                              'ml', 'mg', 'hf', 'ma', 'gh', 'pH'), '中文裡混進英文「%s」：%s' % (w, new['q'])
