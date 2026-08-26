@@ -19,6 +19,7 @@
 | es12-add1 / es12-add2 / es12-add3.jsonl | 十二上加題（2026-08-23，補到每單元 24 題） | — |
 | es12b-add1 / es12b-add2 / es12b-add3.jsonl | 十二下加題（2026-08-23，補到每單元 24 題） | — |
 | es10-add4.jsonl | 地科十上加題（2026-08-26，補到每單元 32 題） | — |
+| es10b-add4.jsonl | 地科十下加題（2026-08-26，補到每單元 32 題） | — |
 
 重建：
 
@@ -46,6 +47,7 @@ node tools/tikuconv/build-bank.js earth js/data/earth.js $EF/header.txt --renumb
   $EF/es12b-add1.jsonl \
   $EF/es12b-add2.jsonl \
   $EF/es12b-add3.jsonl \
-  $EF/es10-add4.jsonl
+  $EF/es10-add4.jsonl \
+  $EF/es10b-add4.jsonl
 node test/test.js
 ```
