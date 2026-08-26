@@ -59,7 +59,8 @@ node tools/tikuconv/build-bank.js english js/data/english.js $EF/header.txt --re
   $EF/e1-add4.jsonl \
   $EF/e1b-add4.jsonl \
   $EF/e2-add4.jsonl \
-  $EF/e2b-add4.jsonl
+  $EF/e2b-add4.jsonl \
+  $EF/e3-add4.jsonl
 node test/test.js
 ```
 
@@ -111,3 +112,4 @@ node test/test.js
 | e1b-add4.jsonl | 英文一下加題（2026-08-26，補到每單元 32 題） | — |
 | e2-add4.jsonl | 英文二上加題（2026-08-26，補到每單元 32 題） | — |
 | e2b-add4.jsonl | 英文二下加題（2026-08-26，補到每單元 32 題） | — |
+| e3-add4.jsonl | 英文三上加題（2026-08-26，補到每單元 32 題） | — |
