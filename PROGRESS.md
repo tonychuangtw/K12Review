@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: K12Review 那半已完成上線（見下）。LanExamMock 這半等 Tony 回覆防亂寫要哪幾項（A 解析確認題／B 低正確率要重做到全對／C 家長鎖任務長度／D 每題最短作答時間／E 家長頁標紅），我建議 A+B+C。收到就改 ~/TelegramClaude/LanExamMock/js/app.js：先修 rec.ms 的 568 min bug（d25 續做用 elapsed 還原 t0，隔天回來會把睡覺算進去，要加上限），再把拼寫回合的時間補進紀錄，最後照選項做防亂寫＋家長頁分項統計
+NEXT_ACTION: 兩站的「分項統計」都已完成上線（K12Review v64 commit b9fbfec／LanExamMock v32 commit fe9db51，含 568 min bug 與拼寫回合不計時）。只剩防亂寫要 Tony 選：A 解析確認題／B 低正確率要重做到全對／C 家長鎖任務長度／D 每題最短作答時間／E 家長頁標紅（我建議 A+B+C，訊息 id 919 已問）。選完改 ~/TelegramClaude/LanExamMock/js/app.js
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 等 Tony 選防亂寫項目（訊息 id 919 已問）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-27 23:55 台北
+UPDATED: 2026-08-28 00:40 台北
 
 ## 已完成：K12Review（v64）
 
@@ -31,7 +31,18 @@ Tony 的三個抱怨與對應修法：
 舊資料相容：`tlogAgg()` 會把 `state.daily`（每日練習）與 `state.review`（總結測驗）的既有 ms／題數
 補進總覽並標 legacy，畫面上會註明分項計時是 2026-08-27 起才開始記的。
 
-## 待辦：LanExamMock
+## 已完成：LanExamMock（v32，commit fe9db51）
+
+- 新增 `LEVEL.tlog[日期][項目] = {ms, n, ok}`，9 種練習（daily／spell／uoe／reading／
+  listening／vocab／writing／speaking／review）各自記時間與題數。項目由「目前開著的分頁」
+  決定（`curAct()`／`TAB_ACT`），拼寫回合優先判成 spell；計時同 K12Review，2 分鐘沒操作就停
+- 家長頁新增 **Time & accuracy by activity** 表，今天／近 7／近 30 天可切，最後一列 Total；
+  舊資料用 daily25 的題數與 ms 補位並標 legacy
+- `d25Complete()` 用時加 2 小時上限（`D25_MS_CAP`），Daily practice history 的用時改讀 tlog、
+  並在拼寫分數旁標出拼寫用時 → 8/21 那筆 568 min 不會再出現
+- `test/browser-smoke.mjs` 新增 6 條家長頁測試（全過；`node test/test.js` 122,015 全過）
+
+## 待辦：LanExamMock 防亂寫（等 Tony 選）
 
 Tony 2026-08-27 回報（附 Daily practice history 截圖）與查證結果：
 
