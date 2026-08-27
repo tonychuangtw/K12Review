@@ -1,13 +1,16 @@
-# 進度：K12Review（題庫重複題已全數清除）
+# 進度：LanExamMock 五級閱讀題庫擴增 5 倍
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: done
-OBJECTIVE: 清掉原創題庫裡 437 題「同一冊題幹重複」的題目，每一題都換成同單元的新原創題（維持每冊 288 題）
-NEXT_ACTION: 2026-08-26 全數完成。11 科 122 冊完全重複 0，每冊仍為 288 題、合計 33,984 題。無待辦
-VALIDATION: `node tools/dedup/scan.js` 完全重複 0；`node test/test.js` 全綠（含新的「同一冊無重複題幹」守門）；`node test/zy-check.js` 0 個不一致
+STATUS: in-progress
+OBJECTIVE: 依 Tony 2026-08-27 指示，把 LanExamMock 五個級數（KET/PET/FCE/CAE/CPE）的閱讀題庫各擴增 5 倍
+NEXT_ACTION: 正本進度在 ~/TelegramClaude/LanExamMock/PROGRESS-reading.md，接手時先讀那一份。目前 FCE 已完工，順序為 KET → PET → CAE → CPE，每批新增 `js/levels/<級>/banks/reading-<類型>-wN.js` 並在 js/loader.js 的 LEVEL_EXTRA_BANKS.<級> 註冊
+VALIDATION: cd ~/TelegramClaude/LanExamMock && node test/test.js 全綠，且該級 rmc/rgap/rmatch/rtfng/rhead 數字增加
 BLOCKERS: 無
-PATHS: tools/dedup/（工具與流程說明）、tools/tikuconv/*/（來源 jsonl）、js/data/*.js、test/test.js（守門）、tools/tikuconv/check-add.py
+PATHS: ~/TelegramClaude/LanExamMock/PROGRESS-reading.md（正本進度）、js/levels/<級>/banks/、js/loader.js
+UPDATED: 2026-08-27 13:44 台北
+
+## 前一個案子：K12Review 修重複題（2026-08-26 完工）
 
 ## 完工紀錄（2026-08-26）
 
