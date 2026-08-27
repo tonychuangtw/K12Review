@@ -957,7 +957,8 @@
   // 2026-08-27 再改成「用得到才載」—— 開站就抓 20MB 對手機沒有任何好處。
   function ensureCustomBank(cb) {
     if (W.__customReady) { cb(null); return; }
-    loadScript('js/data/custom.js', function (err) {
+    // 解析確認題跟著它的題庫一起載（人工撰寫的，見 js/data/checks-custom.js）
+    loadScripts(['js/data/custom.js', 'js/data/checks-custom.js'], function (err) {
       if (!err) W.__customReady = true;
       cb(err);
     });
@@ -969,6 +970,7 @@
   function ensureImportBanks(cb) {
     var files = IMPORT_BANK_FILES.map(function (k) { return 'js/data/' + k + '-custom.js'; });
     files.push('js/data/custom.js');          // 國語的匯入題庫
+    files.push('js/data/checks-custom.js');   // 對應的解析確認題（人工撰寫）
     loadScripts(files, function (err) {
       if (!err) W.__customReady = true;
       cb(err);
@@ -2202,28 +2204,16 @@
        Ｃ 其餘 → 從解析挑一句，混入同冊同課其他題的解析句子，問哪一句是這一題的解析
      解析太短（<12 字）或只寫「見各選項說明」就不生成，退回原本的解析鎖倒數。
      生成用題目 id 當種子 ⇒ 決定性，同一題每次出現的確認題都一樣。 */
-  var AUTO_CHK_MIN = 12;
-  function chkBody(exp) {
-    return String(exp || '').replace(/\s+/g, ' ').trim().replace(/^解析[：:]\s*/, '');
-  }
-  function chkPairs(t) {          // 「字＝定義」對
-    var out = [], re = /([\u4e00-\u9fff])[\u3105-\u3129ˇˊˋ˙\s]*＝([^；;。\n]{2,40})/g, m;
-    while ((m = re.exec(t))) out.push({ k: m[1], v: m[2].trim().replace(/，最符合文意$/, '') });
-    return out;
-  }
-  function chkLabels(t) {         // 「(Ａ)說明」逐選項標註
-    var out = [], re = /[（(]([\uFF21-\uFF2AA-J])[）)]\s*([^（()）。；;\n]{2,30})/g, m;
-    while ((m = re.exec(t))) {
-      var v = m[2].trim();
-      if (v && !/^見/.test(v)) out.push({ k: m[1], v: v });
-    }
-    return out;
-  }
-  function chkSents(t) {          // 可用來當選項的句子
-    return t.split(/[。；;\n]+/).map(function (x) { return x.trim(); })
-      .filter(function (x) { return x.length >= 12 && x.length <= 60 && !/^見各選項/.test(x); });
-  }
+  /* 解析形狀的判斷與切詞在 js/chk-gen.js（前端與 tools/ 的批次腳本共用一份，
+     否則「前端說這題有確認題、待辦清單說沒有」兩邊會走鐘）。 */
+  var CG = W.ChkGen || {};
+  var AUTO_CHK_MIN = CG.MIN_LEN || 12;
+  function chkBody(exp) { return CG.body ? CG.body(exp) : ''; }
+  function chkPairs(t) { return CG.pairs ? CG.pairs(t) : []; }
+  function chkLabels(t) { return CG.labels ? CG.labels(t) : []; }
+  function chkSents(t) { return CG.sents ? CG.sents(t) : []; }
   function uniqBy(arr, keyOf) {
+    if (CG.uniqBy) return CG.uniqBy(arr, keyOf);
     var seen = {}, out = [];
     arr.forEach(function (x) {
       var k = keyOf(x);

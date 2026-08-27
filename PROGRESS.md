@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 蓋解析確認題的題源。Tony 2026-08-27 否決 Ｃ型（句子辨識）：「認哪題的解析很沒意義，只是為了確認有沒有看，我們是希望使用者能懂解析內容，所以還是要根據解析出題比較好，30000多題花時間還是能辦到的」。下一步：寫出題管線 tools/gen-checks.js（餵每題自己的解析 → 產一題四選一）＋機器驗收器，跑在 runner 的 agy（Google AI Pro 訂閱，$0），先跑 500 題給 Tony 看品質再放全量。Ａ／Ｂ型與「答錯才放行」的閘門都留著不動
+NEXT_ACTION: 逐題撰寫解析確認題。管線已就緒（js/chk-gen.js 形狀判斷、tools/chk-todo.js 待辦清單、js/data/checks-custom.js 存放、test/test.js 驗收器）。**下一批從國語匯入題庫 custom 的 x050 開始**：`node tools/chk-todo.js custom 20 --json` 取題 → 逐題寫進 js/data/checks-custom.js → `node test/test.js` 全綠 → commit。目前已寫 13 題（八上第1課 x018–x047），總待寫 56,933
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 等 Tony 選防亂寫項目（訊息 id 919 已問）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-28 03:20 台北
+UPDATED: 2026-08-28 04:10 台北
 
 ## 已完成：K12Review（v64）
 
@@ -75,7 +75,29 @@ Tony 的三個抱怨與對應修法：
 
 要換掉：Ｃ型 —— K12Review 約 22,900 題、LanExamMock 全部。
 
-管線設計（尚未動工）：
+**真實規模（2026-08-27 用 tools/chk-todo.js 實測，比原先講的三萬多還大）**
+
+| | 題數 |
+| --- | --- |
+| 全部非國語題庫（匯入題庫 37,626 ＋ 各科依課綱自編 33,984） | 71,610 |
+| 已人工撰寫 | 13 |
+| Ａ 字義列舉型（程式自動，內容型，保留） | 243 |
+| Ｂ 逐選項標註型（程式自動，內容型，保留） | 7,266 |
+| **待人工撰寫** | **56,933** |
+| 解析太薄，要先補解析本體才有東西可問 | 7,155 |
+
+機械式的路已經走到頭：試過「詞：定義」逐行列舉（只有 16 題符合）與各科原創題的
+「❌ 其他選項：」拆解（只有 6% 拆得出 ≥3 組），都救不了大盤。剩下就是逐題寫。
+
+管線（已完成，2026-08-27）：
+- `js/chk-gen.js` — 解析形狀判斷（Ａ/Ｂ/Ｃ/none），前端與 node 腳本共用一份，不會走鐘
+- `tools/chk-todo.js` — 待辦清單與統計；`node tools/chk-todo.js custom 20 --json` 直接吐出要寫的題
+- `js/data/checks-custom.js` — 存放（跟著 custom.js 一起動態載入，不佔首頁載入量）
+- `test/test.js` 驗收器 — **正解必須有連續 3 個字以上出現在該題自己的解析裡**（防模型編造，
+  這條當場就抓到我自己寫的兩題沒有字面根據）、4 選項不重複、答案索引有效、
+  無「以上皆非」爛誘答、無位置指涉、答案位置要分散
+
+原計畫（Tony 2026-08-27 改為直接用 Claude 額度，agy 那條先擱著）：
 1. **逐題由模型撰寫**：餵該題自己的解析，產一題四選一，答案只在該段解析裡、要看懂才答得出
 2. **跑在 runner 的 agy**（Tony 的 Google AI Pro 訂閱，$0 API 費），背景批次跑好幾天，一批一 commit
 3. **機器驗收（關鍵）**：4 選項不重複／答案索引有效／正解關鍵詞真的出現在該題解析裡（防模型編）／

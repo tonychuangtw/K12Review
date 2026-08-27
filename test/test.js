@@ -12,7 +12,7 @@ for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'c
                  'civics', 'civics-custom']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
-for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars']) {
+for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars', 'checks-custom']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
 for (const f of ['lessons-math', 'lessons-science', 'lessons-social', 'lessons-english',
@@ -391,11 +391,11 @@ console.log('解析確認題');
   const CHK = window.APP_CHECKS || {};
   const byId = {};
   ['idioms', 'phonics', 'chars'].forEach(c => D[c].forEach(it => { byId[it.id] = c; }));
-  const ids = Object.keys(CHK);
+  // 匯入題庫與各科題庫的確認題另外檢（下一段），這裡只看國語核心三類
+  const ids = Object.keys(CHK).filter(id => byId[id]);
   const bad = [];
   ids.forEach(id => {
     const k = CHK[id];
-    if (!byId[id]) return bad.push(id + ' 對不到題庫題目');
     if (!k || typeof k.q !== 'string' || k.q.length < 6) return bad.push(id + ' 題目太短');
     if (!Array.isArray(k.o) || k.o.length !== 4) return bad.push(id + ' 選項不是 4 個');
     if (new Set(k.o).size !== 4) return bad.push(id + ' 選項重複');
@@ -418,6 +418,64 @@ console.log('解析確認題');
   const need = D.idioms.length + D.phonics.length + D.chars.length;
   // 2026-08-17 起 100% 覆蓋是硬性門檻：新增成語／字音／字形題時，要一併寫 js/data/checks-*.js 的確認題
   ok(total === need, `確認題全數覆蓋（${total}/${need}）`);
+}
+
+/* ---------- 匯入題庫／各科題庫的解析確認題（js/data/checks-custom.js 等） ----------
+   Tony 2026-08-27：「還是要根據解析出題比較好」。所以這裡最重要的一條守門是
+   **正解的關鍵詞必須真的出現在該題自己的解析裡** —— 模型自己編一個看起來合理、
+   但解析裡根本沒講的答案，是最容易發生也最難用眼睛看出來的錯（2026-08-02 四個
+   agent 交假貨的教訓）。 */
+{
+  const CHK = window.APP_CHECKS || {};
+  const coreIds = new Set();
+  ['idioms', 'phonics', 'chars'].forEach(c => D[c].forEach(it => coreIds.add(it.id)));
+  const bankOf = {};
+  Object.keys(D).forEach(cat => {
+    if (!Array.isArray(D[cat])) return;
+    D[cat].forEach(it => { if (it && it.id && !coreIds.has(it.id)) bankOf[it.id] = cat; });
+  });
+  const ids = Object.keys(CHK).filter(id => !coreIds.has(id));
+  const bad = [];
+  const BAD_OPTS = /^(以上皆非|以上皆是|都不對|都對|沒有|不知道|這裡沒有)/;
+  const POS_REF = /(第[一二三四1-4]句|第[一二三四1-4]個選項|最後一句|上面那句|前一句)/;
+  /* 正解有沒有真的以解析為根據：把兩邊的標點與空白全部拿掉之後，
+     正解裡要有一段連續 3 個字以上的內容出現在該題解析中（正解短於 3 字就整串比對）。
+     中文沒有詞界，用「連續 3 字」比用「詞」穩：模型自己編的答案幾乎不可能連續 3 字命中，
+     而照解析寫的答案一定命中 —— 順帶逼出「選項要用解析自己的話」這個好習慣。 */
+  function groundedIn(text, exp) {
+    const strip = t => String(t || '').replace(/[^一-鿿A-Za-z0-9]+/g, '');
+    const a = strip(text), b = strip(exp);
+    if (!a) return true;                             // 純符號／數字的選項不強求
+    if (a.length < 3) return b.indexOf(a) >= 0;
+    for (let i = 0; i + 3 <= a.length; i++) {
+      if (b.indexOf(a.slice(i, i + 3)) >= 0) return true;
+    }
+    return false;
+  }
+  ids.forEach(id => {
+    const k = CHK[id];
+    const cat = bankOf[id];
+    if (!cat) return bad.push(id + ' 對不到任何題庫的題目');
+    if (!k || typeof k.q !== 'string' || k.q.length < 6) return bad.push(id + ' 題目太短');
+    if (!Array.isArray(k.o) || k.o.length !== 4) return bad.push(id + ' 選項不是 4 個');
+    if (new Set(k.o).size !== 4) return bad.push(id + ' 選項重複');
+    if (k.o.some(o => typeof o !== 'string' || !o.length)) return bad.push(id + ' 選項有空值');
+    if (!Number.isInteger(k.a) || k.a < 0 || k.a > 3) return bad.push(id + ' 答案索引錯誤');
+    if (k.o.some(o => BAD_OPTS.test(o.trim()))) return bad.push(id + ' 有「以上皆非」這類爛誘答');
+    if (POS_REF.test(k.q) || k.o.some(o => POS_REF.test(o))) return bad.push(id + ' 有位置指涉');
+    const src = D[cat].find(x => x.id === id);
+    if (!groundedIn(k.o[k.a], src && src.exp)) {
+      bad.push(id + ' 正解在該題解析裡找不到根據（' + String(k.o[k.a]).slice(0, 14) + '）');
+    }
+  });
+  ok(bad.length === 0,
+    `匯入／各科確認題格式與根據正確（${ids.length} 筆，問題 ${bad.length} 筆${bad.length ? '：' + bad.slice(0, 5).join('；') : ''}）`);
+  if (ids.length) {
+    const dist = [0, 0, 0, 0];
+    ids.forEach(id => dist[CHK[id].a]++);
+    ok(Math.max(...dist) / ids.length < 0.5, `匯入／各科確認題答案位置分散（${dist.join('/')}）`);
+  }
+  console.log(`    人工撰寫進度：${ids.length} 題（總待寫見 node tools/chk-todo.js）`);
 }
 
 /* ---------- 概念卡（單元學習的教材層，js/data/lessons-*.js） ----------
