@@ -6,7 +6,7 @@ STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
 NEXT_ACTION: 逐題撰寫解析確認題。管線已就緒（js/chk-gen.js 形狀判斷、tools/chk-todo.js 待辦清單、js/data/checks-custom.js 存放、test/test.js 驗收器）。**下一批從國語匯入題庫 custom 的 x882 之後開始**：`node tools/chk-todo.js custom 30 --json` 取題 → 逐題寫進 js/data/checks-custom.js → `node test/test.js` 全綠 → commit。目前已寫 517 題（八上第1～3課），總待寫約 56,400
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 等 Tony 選防亂寫項目（訊息 id 919 已問）
+BLOCKERS: 等 Tony 看過 500 題品質樣本點頭，才放全量（2026-08-28 已回報）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
 UPDATED: 2026-08-28 13:30 台北
 
