@@ -2,13 +2,13 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: in-progress
+STATUS: done
 OBJECTIVE: 依 Tony 2026-08-27 指示，把 codex 對 K12Review 全站體檢找出的問題「照建議順序全部解決」
-NEXT_ACTION: A/B 兩級的技術問題已全部修完並上線（commit 5c578c0 / 396a792 / 8b92341）。剩下兩件要 Tony 決定、不宜我自己改：(1) 同步的資料最小化與 opt-in（現在登入就上傳整份 state，含自由書寫全文；週報也是把所有帳號的資料送到單一 Telegram chat）(2) 30 天 bearer token 目前存 localStorage、以及要不要上 CSP（站台是跨網域＋支援 file:// 開啟，硬上會有風險）。等 Tony 回覆再動。
+NEXT_ACTION: 無（全案結案）。2026-08-27 Tony 裁示：剩下兩件維持現狀，不改。
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；backend 另跑 node test/progress-cas-test.js 與 test/cam-test.js
 BLOCKERS: 無
 PATHS: js/app.js、js/sync.js、js/data/counts.js（tools/gen-counts.js 產生）、index.html、tools/、test/、~/TelegramClaude/claude-shared/projects/LanExamMock/backend/server.js
-UPDATED: 2026-08-27 15:05 台北
+UPDATED: 2026-08-27 22:35 台北
 
 ## 已完成（三批，皆已 push 並上線）
 
@@ -37,6 +37,13 @@ UPDATED: 2026-08-27 15:05 台北
 - 新增 `test/progress-cas-test.js`（8 項全過）；服務已重啟
 - 前端 `js/sync.js`：push 前的保護性 GET 失敗不再硬推、PUT 帶 baseUpdatedAt、
   收到 409 套用雲端資料重載、新增 `sync.owner` 換帳號防護
+
+## Tony 裁示（2026-08-27 22:30）維持現狀，不改
+
+- **決定 1 · 同步的資料最小化與 opt-in** → 不用改。登入後仍上傳整份 state（含自由書寫全文），家長週報仍送到單一 Telegram chat。這是自家自用站，Tony 接受現行做法
+- **決定 2 · token 存放與 CSP** → 不用改。30 天 bearer token 續留 localStorage，不加 CSP（站台跨網域＋要能 file:// 開啟，硬上 CSP 風險大於效益）
+
+以後再有人（含 codex 體檢）提這兩點，直接引這條裁示，不用重問。
 
 ## 給接手的人
 - 改動題庫數量或 grade/book 欄位後要跑 `node tools/gen-counts.js`，否則 test.js 會失敗
