@@ -276,8 +276,13 @@ await session(8733, 9333, { blockWriter: false, seed: seedWrong(['c001']) }, asy
   await sleep(900);
   check('每日練習開得起來', await js(`!document.getElementById('view-quiz').classList.contains('hidden')`));
   if (!await js(`!document.getElementById('quizHwWrap').classList.contains('hidden')`)) {
-    // 這題先拿掉確認題資料，測「沒有確認題 → 退回解析鎖倒數」這條路
-    await js(`delete window.APP_CHECKS[window.QuizDebug.id()]`);
+    // 這題先拿掉確認題資料，測「沒有確認題 → 退回解析鎖倒數」這條路。
+    // 2026-08-27 起沒有手寫確認題會自動從解析生成，所以要連 _noChk 一起標，才走得到解析鎖
+    await js(`(function(){ var id = window.QuizDebug.id();
+      delete window.APP_CHECKS[id];
+      ['idioms','slang','phonics','chars','reading'].forEach(function (k) {
+        (window.APP_DATA[k] || []).forEach(function (it) { if (it.id === id) it._noChk = 1; });
+      }); })()`);
     await js(`document.querySelector('#quizOptions .q-opt').click()`);
     await sleep(400);
     if (/再想一次/.test(await js(`document.getElementById('quizFeedback').textContent`))) {
@@ -356,7 +361,7 @@ async (js) => {
   check('社會自創題庫載得到', await js(`(window.APP_DATA.socialCustom || []).length > 500`),
     String(await js(`(window.APP_DATA.socialCustom || []).length`)));
   await sleep(300);
-  await js(`document.getElementById('homeLink').click()`);
+  await js(`window.NavDebug.go('home')`);
   await sleep(300);
   check('國語專屬卡片在社會科隱藏',
     await js(`document.querySelector('.card[data-go="idioms"]').classList.contains('hidden')
@@ -408,15 +413,86 @@ async (js) => {
   check('社會題答對後出現解析',
     /正解/.test(await js(`document.getElementById('quizFeedback').textContent`)),
     (await js(`document.getElementById('quizFeedback').textContent`)).slice(0, 60));
-  check('社會題沒有確認題資料時走解析鎖',
-    await js(`document.getElementById('quizNext').classList.contains('locked')`));
+  // 解析夠厚 → 自動生成確認題；太薄（例如只寫「見各選項說明」）→ 退回解析鎖，兩者都算對
+  check('匯入題庫的題：追問確認題，解析太薄則退回解析鎖',
+    await js(`(!document.getElementById('quizChk').classList.contains('hidden')
+        && document.querySelectorAll('#quizChkOpts .q-opt').length === 4)
+      || document.getElementById('quizNext').classList.contains('locked')`),
+    await js(`document.getElementById('quizChkQ').textContent + ' | lock=' +
+      document.getElementById('quizNext').classList.contains('locked')`));
+
+  /* 自動生成的確認題：涵蓋率與格式（Tony 2026-08-27「想要套到所有題目去」） */
+  console.log('自動生成的解析確認題');
+  await js(`window.__ensureImportBanks(function(){ window.__chkReady = 1; })`);
+  for (let i = 0; i < 60 && !(await js(`window.__chkReady`)); i++) await sleep(500);
+  const chkStat = await js(`(function(){
+    var cats = ['custom','socialCustom','mathCustom','englishCustom','science','social','math'];
+    var out = { n: 0, made: 0, bad: 0, sample: '' };
+    cats.forEach(function (cat) {
+      var bank = window.APP_DATA[cat] || [];
+      var step = Math.max(1, Math.floor(bank.length / 300));
+      for (var i = 0; i < bank.length; i += step) {
+        var it = bank[i];
+        if (!it) continue;
+        out.n++;
+        var c = window.ChkDebug.of(cat, it);
+        if (!c) continue;
+        out.made++;
+        var uniq = {}; c.o.forEach(function (x) { uniq[x] = 1; });
+        var ok = c.q && c.o.length === 4 && Object.keys(uniq).length === 4 &&
+          c.a >= 0 && c.a < 4 && c.o[c.a];
+        if (!ok) { out.bad++; if (!out.sample) out.sample = it.id + ' ' + JSON.stringify(c); }
+      }
+    });
+    return out;
+  })()`);
+  check('自動確認題格式全部合法（4 個不重複選項、答案索引有效）',
+    chkStat.bad === 0, JSON.stringify(chkStat).slice(0, 220));
+  console.log('    涵蓋率：' + chkStat.made + ' / ' + chkStat.n + ' = ' +
+    Math.round(100 * chkStat.made / chkStat.n) + '%（抽樣）');
+  check('自動確認題涵蓋率 ≥ 70%',
+    chkStat.made / chkStat.n >= 0.7,
+    chkStat.made + ' / ' + chkStat.n + ' = ' + Math.round(100 * chkStat.made / chkStat.n) + '%');
+  // 俚語諺語與閱讀題本來沒有手寫確認題，現在改成自動生成（Tony 2026-08-27「套到所有題目去」）
+  check('俚語諺語也生得出確認題（問這句話的意思）',
+    await js(`(function(){
+      var it = (window.APP_DATA.slang || [])[5];
+      var c = it && window.ChkDebug.of('slang', it);
+      return !!c && c.o.length === 4 && c.o[c.a] === it.meaning; })()`),
+    (await js(`JSON.stringify(window.ChkDebug.of('slang', (window.APP_DATA.slang || [])[5]))`) || '').slice(0, 160));
+  check('閱讀子題用該子題的解析生成（同一篇不同子題不會撞題）',
+    await js(`(function(){
+      var art = (window.APP_DATA.reading || []).filter(function (x) {
+        return (x.questions || []).length >= 2 && x.questions[0].exp && x.questions[1].exp; })[0];
+      if (!art) return true;
+      var a = window.ChkDebug.of('reading', art, art.questions[0].exp, 0);
+      var b = window.ChkDebug.of('reading', art, art.questions[1].exp, 1);
+      return !a || !b || JSON.stringify(a) !== JSON.stringify(b); })()`));
+  check('解析太短的題不硬生（維持解析鎖）',
+    await js(`window.ChkDebug.of('custom', { id: '__t1', exp: '解析：見各選項說明。' }) === null
+      && window.ChkDebug.of('custom', { id: '__t2', exp: '(Ｂ)被。' }) === null`));
+  check('同一題每次生成的確認題都一樣（決定性）',
+    await js(`(function(){
+      var bank = window.APP_DATA.custom || [];
+      var it = bank.filter(function (x) { return (x.exp || '').length > 60; })[3];
+      if (!it) return true;
+      var a = window.ChkDebug.of('custom', it);
+      var b = window.ChkDebug.of('custom', it);
+      return !!a && JSON.stringify(a) === JSON.stringify(b); })()`));
+
   await js(`window.QuizDebug.unlock(); document.getElementById('quizExit').click()`);
   await sleep(300);
   await js(`(function(){ var b = document.querySelector('.dlg-primary'); if (b) b.click(); })()`);
   await sleep(300);
 
-  // 單元學習：非國語改用「冊」分組，教學卡是重點卡
+  // 標題＝回最外層的科目選擇頁（Tony 2026-08-27：不然做完選不到其它科目）
   await js(`document.getElementById('homeLink').click()`);
+  await sleep(300);
+  check('點標題回到最外層的科目選擇頁',
+    await js(`!document.getElementById('view-subject').classList.contains('hidden')`));
+
+  // 單元學習：非國語改用「冊」分組，教學卡是重點卡
+  await js(`window.NavDebug.go('home')`);
   await sleep(200);
   await js(`document.querySelector('.card[data-go="units"]').click()`);
   await sleep(400);
@@ -448,7 +524,7 @@ async (js) => {
   await sleep(200);
 
   // 每日練習：同日同科出同一組題，紀錄寫在 <日期>|social
-  await js(`document.getElementById('homeLink').click()`);
+  await js(`window.NavDebug.go('home')`);
   await sleep(200);
   await js(`document.querySelector('.card[data-go="daily"]').click()`);
   await sleep(600);
@@ -473,7 +549,7 @@ async (js) => {
     var w = (JSON.parse(localStorage.getItem('chinese-review-v1')).wrong) || [];
     return w.some(function (x) { return x.t === 'social' || x.t === 'socialCustom'; });})()`),
     await js(`JSON.stringify((JSON.parse(localStorage.getItem('chinese-review-v1')).wrong) || [])`));
-  await js(`document.getElementById('homeLink').click()`);
+  await js(`window.NavDebug.go('home')`);
   await sleep(200);
   await js(`document.querySelector('.card[data-go="wrongbook"]').click()`);
   await sleep(400);
@@ -484,7 +560,7 @@ async (js) => {
     localStorage.setItem('chinese-review-v1', JSON.stringify(s)); })()`);
   await js(`location.reload()`);
   await sleep(2500);
-  await js(`document.getElementById('homeLink').click()`);
+  await js(`window.NavDebug.go('home')`);
   await sleep(200);
   await js(`document.querySelector('.card[data-go="wrongbook"]').click()`);
   await sleep(400);
@@ -502,7 +578,7 @@ async (js) => {
   for (let i = 0; i < 60 && !(await js(`(window.APP_DATA.scienceCustom || []).length > 0`)); i++) await sleep(250);
   const withImg = await js(`(window.APP_DATA.scienceCustom || []).filter(function (x) { return x.img; }).length`);
   check('自然題庫有附圖的題', withImg > 0, String(withImg));
-  await js(`document.getElementById('homeLink').click()`);
+  await js(`window.NavDebug.go('home')`);
   await sleep(200);
   await js(`document.getElementById('homeSearch').click()`);
   await sleep(300);
@@ -582,7 +658,7 @@ for (const [subj, label, idRe, port] of [['math', '數學', '^m\\d', 8738], ['en
       String(await js(`(window.APP_DATA.${subj} || []).length`)));
     check(label + '自創題庫是空的（還沒收到題本）',
       await js(`Array.isArray(window.APP_DATA.${subj}Custom) && window.APP_DATA.${subj}Custom.length === 0`));
-    await js(`document.getElementById('homeLink').click()`);
+    await js(`window.NavDebug.go('home')`);
     await sleep(300);
     // 有原創題就不該再顯示「題庫建置中」，功能卡要出得來
     check(label + '首頁不再顯示題庫建置中',
@@ -605,7 +681,7 @@ for (const [subj, label, idRe, port] of [['math', '數學', '^m\\d', 8738], ['en
       return Object.keys(d).some(function (k) { return k.indexOf('|${subj}') > 0; });})()`),
       await js(`JSON.stringify(Object.keys((JSON.parse(localStorage.getItem('chinese-review-v1')).daily) || {}))`));
     // 單元學習：7 個單元都要切得出來
-    await js(`document.getElementById('homeLink').click()`);
+    await js(`window.NavDebug.go('home')`);
     await sleep(200);
     await js(`document.querySelector('.card[data-go="units"]').click()`);
     await sleep(400);
@@ -621,7 +697,7 @@ for (const [subj, label, idRe, port] of [['math', '數學', '^m\\d', 8738], ['en
         && document.querySelector('#unitList .unit-item b').textContent.length > 8`),
       await js(`document.querySelector('#unitList .unit-item b').textContent`));
     // 年級過濾：切到還沒有題目的年級，不可以把別的年級的題端出來
-    await js(`document.getElementById('homeLink').click()`);
+    await js(`window.NavDebug.go('home')`);
     await sleep(200);
     const g = await js(`(function(){
       var grades = (window.APP_DATA.${subj} || []).map(function (x) { return x.grade; });
@@ -709,7 +785,7 @@ async (js) => {
   await sleep(400);
   check('再按返回退回科目頁', await js(view) === 'subject', String(await js(view)));
   // 返回鍵也要能離開測驗（從首頁進測驗，返回就回首頁）
-  await js(`document.getElementById('homeLink').click()`);
+  await js(`window.NavDebug.go('home')`);
   await sleep(300);
   await js(`document.querySelector('.card[data-go="daily"]').click()`);
   await sleep(700);
@@ -851,7 +927,7 @@ async (js) => {
     /加練/.test(await js(`document.getElementById('rangeBar').textContent`)),
     await js(`document.getElementById('rangeBar').textContent`));
   // 測驗中不顯示範圍列
-  await js(`document.getElementById('homeLink').click()`);
+  await js(`window.NavDebug.go('home')`);
   await sleep(300);
   await js(`document.querySelector('.card[data-go="daily"]').click()`);
   await sleep(700);
@@ -875,7 +951,7 @@ await session(8746, 9346, { blockWriter: true, seed: `localStorage.setItem('chin
   unitGrade: 3, unitBook: '三上', stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [],
   units: {} }));` },
 async (js) => {
-  await js(`document.getElementById('homeLink').click()`);
+  await js(`window.NavDebug.go('home')`);
   await sleep(300);
   await js(`document.querySelector('.card[data-go="units"]').click()`);
   await sleep(600);

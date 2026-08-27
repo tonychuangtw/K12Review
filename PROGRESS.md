@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 兩站分項統計都已上線（K12Review v64 b9fbfec／LanExamMock v32 fe9db51）。只剩 LanExamMock 防亂寫，等 Tony 回是否照「解鎖秒數改依內容長度算」這個單一改動做（訊息 id 925）。⚠️ 前兩版提案都作廢：正確率門檻會冤枉做 CAE/CPE 的女兒；用他自己的作答時間中位數當基準也不行——他現在的資料全是亂做的，基準本身就是髒的。細節見下方「防亂寫（第三版）」
+NEXT_ACTION: Tony 2026-08-27 三項指示：(2) 標題回最外層 ✅ 做完、(1) LanExamMock 作答鎖依內容長度算 ✅ 已上線 v33、(3) 解析確認題套到所有題目 → K12Review 這半已做完待 push（v65）。**剩下：把同樣的解析確認題做進 LanExamMock 全部題目**（英文解析做克漏字型確認題品質更好，材料是每題的 explanation 欄位）。另外可做：把解析太薄的課列清單給 Tony，之後補厚
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 等 Tony 選防亂寫項目（訊息 id 919 已問）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-28 01:35 台北
+UPDATED: 2026-08-28 02:30 台北
 
 ## 已完成：K12Review（v64）
 
@@ -42,7 +42,29 @@ Tony 的三個抱怨與對應修法：
   並在拼寫分數旁標出拼寫用時 → 8/21 那筆 568 min 不會再出現
 - `test/browser-smoke.mjs` 新增 6 條家長頁測試（全過；`node test/test.js` 122,015 全過）
 
-## 待辦：LanExamMock 防亂寫（第三版，等 Tony 回）
+## 已完成：Tony 2026-08-27 的三項指示
+
+### (2) 標題回最外層 ✅
+`homeLink` 改成 `show(state.onboarded ? 'subject' : 'welcome')`。smoke 測試以前拿點標題當
+「回首頁」的捷徑（12 處），改用新的測試掛鉤 `window.NavDebug.go('home')`。
+
+### (1) LanExamMock 作答鎖依內容長度算 ✅（v33，commit e91f6b3）
+原因：`d25ApplyLock` 的秒數寫死（閱讀第一題 8 秒、同篇 4 秒、其餘 3 秒）。
+改成用畫面上真的印出來的字數算（`d25AreaWords` 直接數 DOM，不猜各題型 payload 形狀）：
+4 字/秒 ≈240 wpm ＋3 秒思考；文章上限 120 秒、單題 25 秒；聽力改成「播完」才解鎖。
+
+### (3) 解析確認題套到所有題目 — K12Review 這半 ✅（v65）
+`autoChk()`（js/app.js，chkOf 附近）：手寫的 CHECKS 優先，沒有才從解析現場生成。
+- Ａ 字義列舉（`字＝定義` ≥4 對）→ 問某字的意思，誘答同段解析
+- Ｂ 逐選項標註（`(Ａ)說明` ≥3 個）→ 問某選項解析寫什麼
+- Ｃ 其餘 → 從解析挑一句，誘答取同冊同課其他題的解析句
+- 俚語諺語（`chkSlang`）→ 直接問這句話的意思，誘答取同年級其他條
+- 閱讀 → 解析在子題身上，所以 `chkOf` 把畫面上的 `q.explain` 與 `q.qi` 一起傳進去
+- 解析 <12 字或「見各選項說明」不生成（全站 4,446 題，6%），退回解析鎖倒數
+- 決定性（seed = 題目 id），結果快取；測試掛鉤 `window.ChkDebug.of()`
+- browser-smoke 抽樣 920 題：格式全合法、涵蓋率 82%
+
+## 待辦：LanExamMock 防亂寫（第三版，其餘項目）
 
 **兩個被推翻的前提（都是 Tony 2026-08-27 當場指出的）**
 1. 不能用正確率當態度指標——女兒做 CAE/CPE 認真做也常低於 60%

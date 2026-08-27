@@ -1500,7 +1500,11 @@
     state.phon = state.phon === 'zhuyin' ? 'pinyin' : 'zhuyin';
     save(); renderHome();
   });
-  $('homeLink').addEventListener('click', function () { show('home'); });
+  /* 標題＝回最外層的科目選擇頁，不是回「目前這一科的首頁」（Tony 2026-08-27：
+     「做完選不到其它科目」）。還沒選過年級的人回歡迎頁。 */
+  $('homeLink').addEventListener('click', function () {
+    show(state.onboarded ? 'subject' : 'welcome');
+  });
   $('subjectBtn').addEventListener('click', function () { show('subject'); });
 
   // ===== 主題色系（可自選，存 state.theme）=====
@@ -1698,6 +1702,14 @@
     return idx.map(function (qi) { return { t: 'reading', id: item.id, qi: qi, ev: true }; });
   }
 
+  // 測試用：直接切頁（smoke test 以前用點標題當「回首頁」的捷徑，
+  // 2026-08-27 起標題改成回最外層的科目頁，測試要有別的方法回科目首頁）
+  W.NavDebug = { go: function (v) { show(v); } };
+  // 測試用：自動生成的解析確認題（涵蓋率與格式由 browser-smoke 把關）
+  W.ChkDebug = {
+    of: function (cat, item) { return autoChkOf(cat, item); },
+    body: chkBody
+  };
   // 測試用小掛鉤（test/browser-smoke.mjs 需要知道現在考的是哪一題）
   W.QuizDebug = {
     id: function () { return (quiz && quiz.cur) ? quiz.cur.item.id : null; },
@@ -2181,8 +2193,133 @@
      原題答對但確認題答錯也會進錯題本（會選但說不出為什麼＝還沒懂）。
      沒有確認題資料的題目退回「解析鎖倒數」。 */
 
+  /* ---------- 自動生成的解析確認題（Tony 2026-08-27 定案「套到所有題目去」）----------
+     手寫的確認題只有國語的成語／字音／字形共 2,520 題有（js/data/checks-*.js）。
+     匯入題庫 37,626 題與各科原創題不可能逐題手寫，改成「從這一題自己的解析文字現場生成」——
+     答案只在剛剛看過的解析裡，沒讀就答不出來。依解析的形狀挑三種型態：
+       Ａ 字義列舉（捲＝把東西彎轉裹起；摸＝用手輕觸…）→ 問某個字解析說是什麼意思
+       Ｂ 逐選項標註（(Ａ)片→遍 (Ｃ)慌→荒）→ 問某個選項解析說了什麼
+       Ｃ 其餘 → 從解析挑一句，混入同冊同課其他題的解析句子，問哪一句是這一題的解析
+     解析太短（<12 字）或只寫「見各選項說明」就不生成，退回原本的解析鎖倒數。
+     生成用題目 id 當種子 ⇒ 決定性，同一題每次出現的確認題都一樣。 */
+  var AUTO_CHK_MIN = 12;
+  function chkBody(exp) {
+    return String(exp || '').replace(/\s+/g, ' ').trim().replace(/^解析[：:]\s*/, '');
+  }
+  function chkPairs(t) {          // 「字＝定義」對
+    var out = [], re = /([\u4e00-\u9fff])[\u3105-\u3129ˇˊˋ˙\s]*＝([^；;。\n]{2,40})/g, m;
+    while ((m = re.exec(t))) out.push({ k: m[1], v: m[2].trim().replace(/，最符合文意$/, '') });
+    return out;
+  }
+  function chkLabels(t) {         // 「(Ａ)說明」逐選項標註
+    var out = [], re = /[（(]([\uFF21-\uFF2AA-J])[）)]\s*([^（()）。；;\n]{2,30})/g, m;
+    while ((m = re.exec(t))) {
+      var v = m[2].trim();
+      if (v && !/^見/.test(v)) out.push({ k: m[1], v: v });
+    }
+    return out;
+  }
+  function chkSents(t) {          // 可用來當選項的句子
+    return t.split(/[。；;\n]+/).map(function (x) { return x.trim(); })
+      .filter(function (x) { return x.length >= 12 && x.length <= 60 && !/^見各選項/.test(x); });
+  }
+  function uniqBy(arr, keyOf) {
+    var seen = {}, out = [];
+    arr.forEach(function (x) {
+      var k = keyOf(x);
+      if (k && !seen[k]) { seen[k] = 1; out.push(x); }
+    });
+    return out;
+  }
+  // 一筆題目身上所有可以當解析的文字（匯入題庫＝exp，俚語＝meaning，閱讀＝各子題的 exp）
+  function chkTexts(x) {
+    var out = [];
+    if (x.exp) out.push(x.exp);
+    if (x.meaning) out.push(x.meaning);
+    (x.questions || []).forEach(function (sq) { if (sq && sq.exp) out.push(sq.exp); });
+    return out;
+  }
+  // 同冊同課其他題的解析句子（Ｃ型的誘答；同一課才夠像，不然看主題就猜得到）
+  function chkSiblingSents(cat, item, rng) {
+    var all = DATA[cat] || [];
+    var pool = all.filter(function (x) {
+      return x.id !== item.id && (x.book || '') === (item.book || '') &&
+        (x.lesson || '') === (item.lesson || '');
+    });
+    if (pool.length < 3) {
+      pool = all.filter(function (x) {
+        return x.id !== item.id && (x.book || '') === (item.book || '');
+      });
+    }
+    if (pool.length < 3) pool = all.filter(function (x) { return x.id !== item.id; });
+    var out = [];
+    seededPick(pool, 40, rng).forEach(function (x) {
+      chkTexts(x).forEach(function (t) {
+        chkSents(chkBody(t)).forEach(function (sen) { out.push(sen); });
+      });
+    });
+    return uniqBy(out, function (x) { return x; });
+  }
+  function chkBuild(qText, correct, wrongs, rng) {
+    var opts = uniqBy([correct].concat(wrongs), function (x) { return x; }).slice(0, 4);
+    if (opts.length < 4) return null;
+    var order = seededPick(opts, 4, rng);
+    var a = order.indexOf(correct);
+    return a < 0 ? null : { q: qText, o: order, a: a };
+  }
+  // 俚語諺語：解析講的就是這句話的意思 ⇒ 直接問意思，誘答取同年級其他條的意思
+  function chkSlang(item, rng) {
+    var pool = (DATA.slang || []).filter(function (x) {
+      return x.id !== item.id && x.meaning && x.grade === item.grade;
+    });
+    if (pool.length < 3) {
+      pool = (DATA.slang || []).filter(function (x) { return x.id !== item.id && x.meaning; });
+    }
+    return chkBuild('剛剛的解析說「' + item.term + '」是什麼意思？', item.meaning,
+      seededPick(pool, 8, rng).map(function (x) { return x.meaning; }), rng);
+  }
+  function autoChk(cat, item, expText) {
+    if (cat === 'slang' && item && item.meaning && item.term) {
+      return chkSlang(item, rngFromString('chk|' + item.id));
+    }
+    var t = chkBody((item && item.exp) || expText);
+    if (t.length < AUTO_CHK_MIN || /^見各選項說明[。.]?$/.test(t)) return null;
+    var rng = rngFromString('chk|' + (item.id || '') + '|' + t.length);
+    var pairs = uniqBy(chkPairs(t), function (x) { return x.k; });
+    if (pairs.length >= 4) {
+      var pick = seededPick(pairs, 1, rng)[0];
+      return chkBuild('剛剛的解析說「' + pick.k + '」是什麼意思？', pick.v,
+        pairs.filter(function (x) { return x.k !== pick.k; }).map(function (x) { return x.v; }), rng);
+    }
+    var labels = uniqBy(chkLabels(t), function (x) { return x.k; });
+    if (labels.length >= 3) {
+      var lp = seededPick(labels, 1, rng)[0];
+      var others = labels.filter(function (x) { return x.k !== lp.k; }).map(function (x) { return x.v; });
+      var extra = chkSiblingSents(cat, item, rng).filter(function (x) { return x.length <= 20; });
+      return chkBuild('剛剛的解析裡，選項（' + lp.k + '）寫的是什麼？', lp.v,
+        others.concat(extra), rng);
+    }
+    var sents = chkSents(t);
+    if (!sents.length) return null;
+    var mine = seededPick(sents, 1, rng)[0];
+    var sibs = chkSiblingSents(cat, item, rng).filter(function (x) {
+      return sents.indexOf(x) < 0 && Math.abs(x.length - mine.length) <= 30;
+    });
+    return chkBuild('剛剛這一題的解析裡，說的是下面哪一句？', mine, sibs, rng);
+  }
+  // 生成結果快取：同一題在同一次 session 內不用重算（Ｃ型要掃同課的題）
+  var _autoChk = {};
+  function autoChkOf(cat, item, expText, qi) {
+    var k = (cat || '') + '|' + (item && item.id) + '|' + (qi == null ? '' : qi);
+    if (!(k in _autoChk)) _autoChk[k] = autoChk(cat, item, expText);
+    return _autoChk[k];
+  }
+
   function chkOf(q) {
-    return (q && q.item && !q.item._noChk) ? CHECKS[q.item.id] : null;
+    if (!q || !q.item || q.item._noChk) return null;
+    // 手寫的優先（品質最好），沒有才從解析現場生成；
+    // 閱讀題的解析在子題身上（item 只有文章），所以把畫面上顯示的解析一起傳進去
+    return CHECKS[q.item.id] || autoChkOf(q.type, q.item, q.explain, q.qi);
   }
   // 原題降級：確認題錯了就當這題還沒精熟
   function demoteWrong(t, id) {
