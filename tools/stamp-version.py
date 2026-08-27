@@ -11,6 +11,9 @@
     python3 tools/stamp-version.py 20260821b # 指定戳記（同一天上第二次版時用）
 
 ⚠️ 每次改到 js/ 或 css/ 的內容、要 push 上線之前都要跑一次，再一起 commit。
+
+註：app.js 動態載入的大檔（js/data/custom.js）不在 index.html 裡，它會自己讀 app.js 標籤上的
+?v= 沿用同一個戳記（見 app.js 的 assetVer()），所以這支只要處理 index.html 就夠。
 """
 import re
 import sys

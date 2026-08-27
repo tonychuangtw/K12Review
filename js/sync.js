@@ -43,6 +43,11 @@
   //    再同步到別台裝置 —— token 會跟著跑到別人的瀏覽器。
   var SESS_KEY = "sync.sess";
   var PROFILE_KEY = "sync.profile";
+  // 這台裝置上的本機進度是「誰的」（2026-08-27 codex 體檢）。
+  // 沒有這個標記時，共用裝置上 A 登出、B 登入，B 的第一次 push 會把 A 留在本機的進度
+  // 整包推上 B 的雲端 —— 既蓋掉 B 的資料，也把 A 的學習紀錄洩漏給 B。
+  // ⚠️ 同樣不可用 PREFIX 開頭，否則會被 gatherKeys() 推上雲端。
+  var OWNER_KEY = "sync.owner";
   var PREFIX = "chinese-review";        // 同步所有這個前綴的 key（目前只有 chinese-review-v1）
   var SYNC_TS_KEY = "chinese-review.sync_ts";
   var PUSH_INTERVAL_MS = 60000;
@@ -101,6 +106,12 @@
   }
 
   function api(method, body, cb) { req(method, "/api/progress?level=main&app=chinese", body, cb); }
+  // 帶條件的整包寫入：baseUpdatedAt = 本機上次看到的雲端版本。
+  // 後端（claude-shared/projects/LanExamMock/backend/server.js，2026-08-27）比對不符回 409，
+  // 並把雲端現值帶回來；舊後端不認這個參數也只會照舊寫入，行為與先前相同。
+  function putProgress(body, cb) {
+    req("PUT", "/api/progress?level=main&app=chinese&baseUpdatedAt=" + encodeURIComponent(String(syncTs())), body, cb);
+  }
 
   function req(method, path, body, cb) {
     var xhr = new XMLHttpRequest();
@@ -109,6 +120,13 @@
     if (body) xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onload = function () {
       if (xhr.status === 401) { clearToken(); renderUi(); cb("auth"); return; }
+      if (xhr.status === 409) {
+        // 條件更新被擋下：把後端回傳的雲端現值一起交給呼叫端合併
+        var conflict = null;
+        try { conflict = JSON.parse(xhr.responseText); } catch (e) {}
+        cb("conflict", conflict);
+        return;
+      }
       if (xhr.status < 200 || xhr.status >= 300) { cb("http " + xhr.status); return; }
       var data = null;
       try { data = JSON.parse(xhr.responseText); } catch (e) {}
@@ -130,6 +148,21 @@
 
   function syncTs() {
     try { return parseInt(localStorage.getItem(SYNC_TS_KEY) || "0", 10) || 0; } catch (e) { return 0; }
+  }
+  function dataOwner() { return ls(OWNER_KEY); }
+  function setDataOwner(email) { try { localStorage.setItem(OWNER_KEY, String(email || "")); } catch (e) {} }
+  // 換帳號時把上一個人的本機進度清掉，並把同步基準歸零（下一次 pull 才會整包拉新帳號的資料）
+  function wipeLocalProgress() {
+    try {
+      var kill = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && k.indexOf(PREFIX) === 0) kill.push(k);
+      }
+      kill.forEach(function (k) { localStorage.removeItem(k); });
+    } catch (e) {}
+    try { localStorage.removeItem(SYNC_TS_KEY); } catch (e) {}
+    lastPushedHash = null;
   }
   function setSyncTs(ts) {
     try { localStorage.setItem(SYNC_TS_KEY, String(ts)); } catch (e) {}
@@ -160,7 +193,10 @@
     // 防蓋舊（2026-08-08）：背景舊分頁的定時 push 會把另一台裝置的新進度整包蓋掉。
     // 推送前先看雲端時間戳：比本機 sync_ts 新代表別台寫過 → 改成套用雲端資料並重載，不推。
     api("GET", null, function (gerr, gres) {
-      if (!gerr && gres && (gres.updatedAt || 0) > syncTs()) {
+      // 這支 GET 是保護機制。它失敗時代表「雲端現在是什麼狀態」是未知的，
+      // 這時候硬推整包等於盲蓋（2026-08-27 codex 體檢）—— 直接放棄這一輪，下一輪再試。
+      if (gerr) { if (done) done(gerr); return; }
+      if (gres && (gres.updatedAt || 0) > syncTs()) {
         if (gres.blob) {
           try {
             Object.keys(gres.blob).forEach(function (k) {
@@ -172,7 +208,24 @@
           return;
         }
       }
-      api("PUT", data, function (err, res) {
+      // 條件更新：把「我看到的雲端版本」一起送上去，後端比對不符就回 409（不會蓋掉別台的新資料）。
+      // 兩台同時按下送出時，GET 的檢查會有時間差，這一層才是真正的保險。
+      putProgress(data, function (err, res) {
+        if (err === "conflict") {
+          // 雲端在這幾百毫秒內被別台寫過：套用雲端資料重載，本機這輪的變更由重載後的畫面接手
+          if (res && res.blob) {
+            try {
+              Object.keys(res.blob).forEach(function (k) {
+                if (k.indexOf(PREFIX) === 0) localStorage.setItem(k, res.blob[k]);
+              });
+            } catch (e) {}
+            setSyncTs(res.updatedAt || 0);
+            location.reload();
+            return;
+          }
+          if (done) done("conflict");
+          return;
+        }
         if (err) { if (done) done(err); return; }
         lastPushedHash = h;
         if (res && res.updatedAt) setSyncTs(res.updatedAt);
@@ -252,9 +305,33 @@
 
   function onCredential(resp) {
     if (!resp || !resp.credential) return;
-    setToken(resp.credential);
-    // sess token 裡只有 email，頭像字母要用的名字先留一份在本機
     var p = jwtPayload(resp.credential) || {};
+    var email = String(p.email || "").toLowerCase();
+    var owner = String(dataOwner() || "").toLowerCase();
+
+    // 換帳號防護（2026-08-27 codex 體檢）：共用裝置上 A 登出、B 登入時，本機還留著 A 的進度。
+    // 直接照舊 push 會把 A 的紀錄整包送上 B 的雲端 —— 蓋掉 B 的資料，也洩漏 A 的學習紀錄。
+    // 因此偵測到不同帳號時先問過使用者，且無論選哪一邊都不會把舊帳號的資料推上新帳號。
+    if (owner && email && owner !== email) {
+      dlgConfirm(
+        "這台裝置上目前存的是 " + owner + " 的練習紀錄。\n" +
+        "要改用 " + email + " 登入嗎？這台裝置上的資料會換成 " + email + " 的雲端進度\n" +
+        "（" + owner + " 的紀錄仍在他自己的雲端帳號裡，重新登入就看得到）。",
+        function () {
+          wipeLocalProgress();
+          setDataOwner(email);
+          finishSignIn(resp.credential, p);
+        }
+      );
+      return;
+    }
+    if (email) setDataOwner(email);
+    finishSignIn(resp.credential, p);
+  }
+
+  function finishSignIn(credential, p) {
+    setToken(credential);
+    // sess token 裡只有 email，頭像字母要用的名字先留一份在本機
     try {
       localStorage.setItem(PROFILE_KEY, JSON.stringify({
         email: p.email || "", name: p.name || "", given_name: p.given_name || "",
@@ -320,6 +397,10 @@
     });
     // 開頁時若已是登入狀態（30 天 sess token）：續期一次再拉雲端進度
     if (signedIn()) {
+      // 這版之前登入的使用者本機沒有 owner 標記，補記一次；否則下次別人在這台登入時，
+      // 換帳號防護會誤判成「這台本來就沒有人的資料」而照舊上傳（2026-08-27）。
+      var me = (profile() || {}).email || "";
+      if (me && !dataOwner()) setDataOwner(String(me).toLowerCase());
       refreshSession();
       pull(function (err, applied) { if (applied) location.reload(); });
     }

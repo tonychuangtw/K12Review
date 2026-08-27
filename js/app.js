@@ -810,6 +810,76 @@
   function importCat() { return CUSTOM_CATS[state.importSubj || 'chinese'] || 'custom'; }
   function bankCat() { return importMode ? importCat() : (CUSTOM_CATS[curSubj()] || 'custom'); }
   function bankReady(cat) { return (cat || bankCat()) === 'custom' ? W.__customReady : true; }
+
+  /* ---------- 動態載入（2026-08-27 codex 體檢） ----------
+     首頁原本一次同步掛 52 支 script、raw 34MB，加上背景那支 20MB 的 custom.js，
+     手機在使用者還沒點任何東西之前就得下載並解析 50MB 以上 —— 慢網路上等於白屏，
+     低階機還會被系統殺頁。用得到才載：教材概念卡、成語動畫引擎、各科匯入題庫
+     都改成進到那個畫面才抓。載過的記著，不會重複下載。 */
+  var _scripts = {};
+  function loadScript(src, cb) {
+    var rec = _scripts[src];
+    if (rec && rec.state === 'done') { if (cb) cb(null); return; }
+    if (rec) { if (cb) rec.cbs.push(cb); return; }
+    rec = _scripts[src] = { state: 'loading', cbs: cb ? [cb] : [] };
+    var el = document.createElement('script');
+    var v = assetVer();
+    el.src = src + (v ? '?v=' + v : '');
+    el.async = false;                       // 同一批要照順序執行（動畫引擎有相依）
+    el.onload = function () {
+      rec.state = 'done';
+      rec.cbs.splice(0).forEach(function (f) { f(null); });
+    };
+    el.onerror = function () {
+      delete _scripts[src];                 // 失敗不記錄，下次可重試
+      rec.cbs.splice(0).forEach(function (f) { f('error'); });
+    };
+    document.head.appendChild(el);
+  }
+  function loadScripts(list, cb) {
+    var left = list.length, failed = null;
+    if (!left) { if (cb) cb(null); return; }
+    list.forEach(function (src) {
+      loadScript(src, function (err) {
+        if (err) failed = err;
+        if (--left === 0 && cb) cb(failed);
+      });
+    });
+  }
+  // 單元學習的概念卡：只有進到某一科的單元頁才需要
+  function ensureLessons(cb) {
+    var k = mainCat();
+    if (!k || k === 'chinese') { if (cb) cb(null); return; }
+    loadScript('js/data/lessons-' + k + '.js', cb || function () {});
+  }
+  // 成語動畫引擎（三支合計約 2.5MB）：只有按下「看動畫卡」才需要
+  function ensureAnim(cb) {
+    if (W.IdiomAnim) { cb(null); return; }
+    loadScripts(['js/anim-stage.js', 'js/anim-story.js', 'js/anim.js'], function (err) {
+      cb(err || (W.IdiomAnim ? null : 'error'));
+    });
+  }
+  // 國語的匯入題庫（js/data/custom.js，約 20MB）：2026-08-14 起是背景載入，
+  // 2026-08-27 再改成「用得到才載」—— 開站就抓 20MB 對手機沒有任何好處。
+  function ensureCustomBank(cb) {
+    if (W.__customReady) { cb(null); return; }
+    loadScript('js/data/custom.js', function (err) {
+      if (!err) W.__customReady = true;
+      cb(err);
+    });
+  }
+  // 匯入題庫：各科題本轉檔（合計約 4.5MB），只有進到「匯入題庫」畫面才需要
+  var IMPORT_BANK_FILES = ['english', 'math', 'science', 'social', 'physics', 'chemistry',
+    'biology', 'earth', 'history', 'geography', 'civics'];
+  W.__ensureImportBanks = function (cb) { ensureImportBanks(cb || function () {}); };  // 測試用入口
+  function ensureImportBanks(cb) {
+    var files = IMPORT_BANK_FILES.map(function (k) { return 'js/data/' + k + '-custom.js'; });
+    files.push('js/data/custom.js');          // 國語的匯入題庫
+    loadScripts(files, function (err) {
+      if (!err) W.__customReady = true;
+      cb(err);
+    });
+  }
   // 科目的原創題庫（每日練習／單元學習／依序刷題用）
   function mainCat() { return isChinese() ? null : curSubj(); }
   // 原創題庫已擴充到各年級，每日練習／單元學習／依序刷題一律先照勾選的年級過濾，
@@ -877,8 +947,24 @@
   function subjBanks(key) {
     return key === 'chinese' ? CHINESE_CATS.map(function (c) { return DATA[c] || []; }) : [DATA[key] || []];
   }
+  // 科目主題庫是動態載入的（2026-08-27）：還沒載進來時，題數與年級改查
+  // js/data/counts.js 這份小清單（tools/gen-counts.js 產生），
+  // 否則科目選擇頁會把所有還沒載入的科目顯示成 0 題。
+  function bankLoaded(key) { return key === 'chinese' || !!(DATA[key] && DATA[key].length); }
+  function countRec(key) { return (W.APP_COUNTS || {})[key] || null; }
   // 某科在指定年級有幾題（國語＝成語/俚語/字音/字形/閱讀加總）
   function subjCount(key, grades) {
+    if (!bankLoaded(key)) {
+      var rec = countRec(key);
+      if (!rec) return 0;
+      if (!grades || !grades.length) return rec.total;
+      // 清單的每一格是 { 全, 上, 下 }：學期過濾要跟 filterByGrades → termOk 的結果一致
+      var t = (state && state.term) || '全';
+      var slot = function (o) { return (o && (o[t] != null ? o[t] : o['全'])) || 0; };
+      var n = slot(rec.noGrade);
+      grades.forEach(function (g) { n += slot(rec.grades[g]); });
+      return n;
+    }
     return subjBanks(key).reduce(function (n, bank) {
       return n + filterByGrades(bank, grades).length;
     }, 0);
@@ -887,6 +973,11 @@
   var _subjGrades = {};
   function subjGrades(key) {
     if (_subjGrades[key]) return _subjGrades[key];
+    if (!bankLoaded(key)) {
+      var rec = countRec(key);
+      if (!rec) return [];
+      return Object.keys(rec.grades).map(Number).sort(function (a, b) { return a - b; });
+    }
     var gs = [];
     subjBanks(key).forEach(function (bank) {
       bank.forEach(function (it) { if (it.grade && gs.indexOf(it.grade) < 0) gs.push(it.grade); });
@@ -894,8 +985,37 @@
     gs.sort(function (a, b) { return a - b; });
     return (_subjGrades[key] = gs);
   }
+  var unitsLessonsAsked = false;
+  // 某一科的主題庫（每日練習／單元／刷題都要用）：進到該科之前先載進來
+  function ensureSubjectBank(key, cb) {
+    if (key === 'chinese' || bankLoaded(key)) { cb(null); return; }
+    loadScript('js/data/' + key + '.js', function (err) {
+      if (!err) delete _subjGrades[key];   // 有真資料了，重算涵蓋年級
+      cb(err);
+    });
+  }
+  // 錯題本／搜尋會跨科目取用題目：把用得到的科目題庫一次補齊
+  function ensureBanksForCats(cats, cb) {
+    var need = (cats || []).filter(function (c) {
+      return SUBJECT_CATS.indexOf(c) >= 0 && !bankLoaded(c);
+    });
+    if (!need.length) { cb(null, false); return; }
+    loadScripts(need.map(function (c) { return 'js/data/' + c + '.js'; }), function (err) {
+      need.forEach(function (c) { delete _subjGrades[c]; });
+      cb(err, true);
+    });
+  }
   function enterSubject(key) {
+    if (!bankLoaded(key)) {
+      setStatusToast('📚 載入' + ((SUBJECTS.find(function (x) { return x.key === key; }) || {}).name || '') + '題庫…');
+      ensureSubjectBank(key, function (err) {
+        if (err) { setStatusToast('⚠️ 題庫載入失敗，請檢查網路後再試一次'); return; }
+        enterSubject(key);
+      });
+      return;
+    }
     state.subject = key;
+    unitsLessonsAsked = false;       // 換科目要再載一次該科的概念卡
     save();
     show('home');
   }
@@ -1618,13 +1738,21 @@
 
   // 成語動畫卡入口按鈕（js/anim.js 的 IdiomAnim）
   function maybeAnimBtn(container, item) {
-    if (!item || !item.term || !W.IdiomAnim) return;
+    if (!item || !item.term) return;
     var b = document.createElement('button');
     b.className = 'anim-launch';
     b.textContent = '🎬 看動畫卡';
     b.addEventListener('click', function (ev) {
       ev.stopPropagation();
-      W.IdiomAnim.play(item, { phon: state.phon });
+      if (W.IdiomAnim) { W.IdiomAnim.play(item, { phon: state.phon }); return; }
+      b.disabled = true;
+      b.textContent = '🎬 載入中…';
+      ensureAnim(function (err) {
+        b.disabled = false;
+        b.textContent = '🎬 看動畫卡';
+        if (err) { setStatusToast('⚠️ 動畫載入失敗，請檢查網路後再試'); return; }
+        W.IdiomAnim.play(item, { phon: state.phon });
+      });
     });
     container.appendChild(b);
   }
@@ -2278,14 +2406,35 @@
     return defs;
   }
 
+  var searchBanksAsked = false;
+  // 搜尋是跨全站的：主題庫與匯入題庫改成動態載入後，這裡要把各科補齊，
+  // 否則會搜不到還沒載入的科目。實際輸入關鍵字才開始載（開個搜尋頁不該先抓幾十 MB），
+  // 載完自動重跑一次搜尋，不擋使用者現在就看已載入題庫的結果。（2026-08-27）
+  function ensureSearchBanks() {
+    if (searchBanksAsked) return;
+    searchBanksAsked = true;
+    var left = 3;
+    var rerun = function () {
+      if (--left > 0) return;
+      W.__searchBanksReady = true;
+      var el = $('view-search');
+      if (el && !el.classList.contains('hidden')) doSearch();
+    };
+    ensureBanksForCats(SUBJECT_CATS, rerun);
+    ensureCustomBank(rerun);
+    ensureImportBanks(rerun);
+  }
   function doSearch() {
-    var kw = $('searchInput').value.trim();
+    var kw0 = $('searchInput').value.trim();
+    if (kw0) ensureSearchBanks();
+    var kw = kw0;
     var box = $('searchResults');
     box.innerHTML = '';
     if (!kw) {
       $('searchHint').textContent = '搜尋全部年級的成語、俚語諺語、字音、字形、閱讀與匯入題庫。點結果先看解析，再按「做這題」。';
       return;
     }
+    var banksLoading = searchBanksAsked && !W.__searchBanksReady;
     var low = kw.toLowerCase();
     var total = 0;
     searchDefs().forEach(function (def) {
@@ -2309,8 +2458,11 @@
       }
     });
     var filtered = searchFilter.grade !== 'all' || searchFilter.diff.length > 0;
-    $('searchHint').textContent = total ? '共找到 ' + total + ' 筆' + (filtered ? '（已套用篩選）' : '')
-      : '找不到「' + kw + '」' + (filtered ? '，試著放寬年級／難度篩選' : '，換個關鍵字試試（可以搜詞語、意思、例句或注音）');
+    var loadingNote = banksLoading ? '（其他科目與匯入題庫還在載入，稍候會自動補上）' : '';
+    $('searchHint').textContent = total
+      ? '共找到 ' + total + ' 筆' + (filtered ? '（已套用篩選）' : '') + loadingNote
+      : (banksLoading ? '載入題庫中，稍候會自動再搜一次…'
+        : '找不到「' + kw + '」' + (filtered ? '，試著放寬年級／難度篩選' : '，換個關鍵字試試（可以搜詞語、意思、例句或注音）'));
   }
 
   function searchItemEl(t, it, kw) {
@@ -3145,8 +3297,17 @@
     return (d.getMonth() + 1) + '/' + d.getDate();
   }
 
+  var wbBanksAsked = false;
   function showWrongbook() {
     show('wrongbook');
+    // 錯題可能來自還沒載入的科目（主題庫改成動態載入後），先補齊再重畫，
+    // 否則題目標籤會變成空白或掉題（2026-08-27）
+    if (!wbBanksAsked) {
+      wbBanksAsked = true;
+      var cats = [];
+      (state.wrong || []).forEach(function (w) { if (cats.indexOf(w.t) < 0) cats.push(w.t); });
+      ensureBanksForCats(cats, function (err, loaded) { if (!err && loaded) showWrongbook(); });
+    }
     // 時間 + 類別篩選
     var f = $('wrongFilters');
     f.innerHTML = '';
@@ -3863,18 +4024,34 @@
     if (i >= 0) arr.splice(i, 1); else arr.push(v);
   }
 
+  var importBanksReady = false;
   // 有哪幾科可以選（含還沒匯入的，Tony：「每科都要預留」），順序照科目卡
   function importSubjects() {
     var order = [];
     SUBJ_GROUPS.forEach(function (g) { g.keys.forEach(function (k) { order.push(k); }); });
     return order.map(function (k) {
       var s = SUBJECTS.find(function (x) { return x.key === k; });
-      return s ? { key: k, name: s.name, icon: s.icon, n: (DATA[CUSTOM_CATS[k]] || []).length } : null;
+      if (!s) return null;
+      var cat = CUSTOM_CATS[k];
+      // 題本轉檔是動態載入的：還沒載進來時用 counts.js 的數字，
+      // 否則科目選擇頁的「匯入題庫」卡會顯示成 0 題（2026-08-27）
+      var n = (DATA[cat] || []).length || ((countRec(cat) || {}).total || 0);
+      return { key: k, name: s.name, icon: s.icon, n: n };
     }).filter(Boolean);
   }
   // 匯入題庫入口（最外層）：先選科目，再選冊/課
   function showImport(key) {
     importMode = true;
+    if (!importBanksReady) {
+      // 各科題本轉檔合計約 4.5MB，只有這個畫面用得到（2026-08-27 改成進來才載）
+      setStatusToast('📦 載入匯入題庫…');
+      ensureImportBanks(function (err) {
+        importBanksReady = !err;
+        if (err) { setStatusToast('⚠️ 匯入題庫載入失敗，請檢查網路後再試'); return; }
+        showImport(key);
+      });
+      return;
+    }
     var list = importSubjects();
     if (key) state.importSubj = key;
     if (!state.importSubj || !list.some(function (x) { return x.key === state.importSubj; })) {
@@ -3887,6 +4064,14 @@
 
   function showCustom() {
     var cat = bankCat();
+    if (cat === 'custom' && !W.__customReady) {
+      setStatusToast('📦 載入匯入題庫…');
+      ensureCustomBank(function (err) {
+        if (err) { setStatusToast('⚠️ 題庫載入失敗，請檢查網路後再試'); return; }
+        showCustom();
+      });
+      return;
+    }
     var bank = DATA[cat] || [];
     var sel = curSel();
     if (!bank.length) {
@@ -4131,6 +4316,11 @@
 
   function showUnits() {
     show('units');
+    // 概念卡是動態載入的：載到之後重畫一次，讓「教材」標記與互動教學流程補上
+    if (!isChinese() && !unitsLessonsAsked) {
+      unitsLessonsAsked = true;
+      ensureLessons(function (err) { if (!err) showUnits(); });
+    }
     if (!state.unitGrade) state.unitGrade = state.grade || state.grades[state.grades.length - 1] || 5;
     var srow = $('unitSizeRow');
     srow.innerHTML = '';
@@ -4493,25 +4683,25 @@
   //（2026-08-14 Tony 回報手機開站白屏——同步載入大檔在慢網路/低階機會卡死）
   DATA.custom = DATA.custom || [];
   W.__customReady = false;
-  (function loadCustomBank() {
-    var s = document.createElement('script');
-    s.src = 'js/data/custom.js';
-    s.async = true;
-    s.onload = function () {
-      W.__customReady = true;
-      renderHome();
-      var vs = $('view-subject');
-      if (vs && !vs.classList.contains('hidden')) renderSubjects();   // 匯入題庫的題數要補上
-      var vc = $('view-custom'), vd = $('view-drill');
-      if (vc && !vc.classList.contains('hidden')) showCustom();
-      else if (vd && !vd.classList.contains('hidden')) showDrill();
-      setStatusToast('📦 匯入題庫載入完成（' + (DATA.custom || []).length + ' 題）');
-    };
-    s.onerror = function () { setStatusToast('⚠️ 題庫載入失敗，請重新整理頁面'); };
-    document.body.appendChild(s);
-  })();
+  // 動態載入的檔案也要帶版本戳，否則 tools/stamp-version.py 換掉 index.html 的 ?v= 之後，
+  // 這支 20MB 的匯入題庫仍會從快取拿舊檔（2026-08-27 codex 體檢）。
+  // 直接沿用本頁 app.js 自己的戳記，stamp-version.py 不必再多認一個檔案。
+  function assetVer() {
+    try {
+      var els = document.getElementsByTagName('script');
+      for (var i = 0; i < els.length; i++) {
+        var m = String(els[i].getAttribute('src') || '').match(/js\/app\.js\?v=([^&"']+)/);
+        if (m) return m[1];
+      }
+    } catch (e) {}
+    return '';
+  }
   syncGrades();
   save();               // 把年級遷移的結果寫回去，免得每次開站都重算一次
+  // 上次停在非國語科目時，該科主題庫是動態載入的：開站就補上，載完重畫首頁
+  if (state.subject && state.subject !== 'chinese' && !bankLoaded(state.subject)) {
+    ensureSubjectBank(state.subject, function (err) { if (!err) renderHome(); });
+  }
   renderRangeBar();
   renderHome();
   // 第一次進站先問年級（只問這一次），之後每次進站都先選科目（2026-08-04 Tony：一致性）

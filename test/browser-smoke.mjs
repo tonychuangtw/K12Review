@@ -342,6 +342,10 @@ await session(8734, 9334, { blockWriter: true, seed: `localStorage.setItem('chin
 async (js) => {
   check('社會原創題庫載得到', await js(`(window.APP_DATA.social || []).length >= 50`),
     String(await js(`(window.APP_DATA.social || []).length`)));
+  // 匯入題庫（各科題本轉檔）2026-08-27 起改成動態載入：先叫一次載入器再驗，
+  // 對應 app.js 的 ensureImportBanks()（進到「匯入題庫」畫面時會走同一條路）
+  await js(`window.__ensureImportBanks && window.__ensureImportBanks()`);
+  for (let i = 0; i < 60 && !(await js(`(window.APP_DATA.socialCustom || []).length > 0`)); i++) await sleep(250);
   check('社會自創題庫載得到', await js(`(window.APP_DATA.socialCustom || []).length > 500`),
     String(await js(`(window.APP_DATA.socialCustom || []).length`)));
   await sleep(300);
@@ -482,6 +486,8 @@ console.log('題目附圖');
 await session(8736, 9336, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
   phon: 'zhuyin', grades: [5], stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], subject: 'science' }));` },
 async (js) => {
+  await js(`window.__ensureImportBanks && window.__ensureImportBanks()`);
+  for (let i = 0; i < 60 && !(await js(`(window.APP_DATA.scienceCustom || []).length > 0`)); i++) await sleep(250);
   const withImg = await js(`(window.APP_DATA.scienceCustom || []).filter(function (x) { return x.img; }).length`);
   check('自然題庫有附圖的題', withImg > 0, String(withImg));
   await js(`document.getElementById('homeLink').click()`);
@@ -490,7 +496,10 @@ async (js) => {
   await sleep(300);
   await js(`(function(){ var i = document.getElementById('searchInput');
     i.value = '太陽四季運行軌跡圖'; i.dispatchEvent(new Event('input')); })()`);
-  await sleep(500);
+  // 搜尋範圍內的題庫是動態載入的（2026-08-27 起首頁只載國語核心），
+  // 打了關鍵字才開始抓各科與匯入題庫，載完會自動重搜一次 —— 等它就緒再驗。
+  for (let i = 0; i < 60 && !(await js(`!!window.__searchBanksReady`)); i++) await sleep(250);
+  await sleep(400);
   const hits = await js(`document.querySelectorAll('#searchResults .s-item').length`);
   check('搜尋找得到附圖的題', hits > 0, String(hits));
   await js(`document.querySelector('#searchResults .s-item').click()`);
@@ -638,7 +647,12 @@ async (js) => {
     await js(`(function(){ var c = document.querySelectorAll('#subjectCards .card');
       for (var i = 0; i < c.length; i++) {
         if (c[i].querySelector('.card-title').textContent !== '數學') continue;
-        var n = (window.APP_DATA.math || []).filter(function (x) { return x.grade === 5; }).length;
+        // 數學主題庫已改成點進去才載，卡片題數來自 js/data/counts.js；
+        // 清單與真實題庫是否一致由 test/test.js 把關（對不上會直接測試失敗）
+        var mc = (window.APP_COUNTS || {}).math || { grades: {} };
+        var n = (window.APP_DATA.math || []).length
+          ? (window.APP_DATA.math || []).filter(function (x) { return x.grade === 5; }).length
+          : ((mc.grades[5] || {})['全'] || 0);
         return c[i].querySelector('.card-sub').textContent.indexOf(n + ' 題') === 0;
       } return false; })()`),
     await js(`Array.prototype.map.call(document.querySelectorAll('#subjectCards .card-sub'),

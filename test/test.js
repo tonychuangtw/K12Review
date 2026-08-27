@@ -517,5 +517,61 @@ console.log('解析確認題');
   console.log(`    目前 ${keys.length} 個單元有教材、共 ${nCards} 張概念卡`);
 }
 
+/* ---- 題數清單（js/data/counts.js）必須跟題庫一致 ----
+   科目主題庫與匯入題庫改成動態載入後（2026-08-27），科目選擇頁靠這份清單顯示題數。
+   清單過期的話使用者會看到錯的題數、甚至被當成「這個年級沒有這一科」而整科消失。 */
+console.log('題數清單 counts.js');
+{
+  const countsPath = path.join(root, 'js/data/counts.js');
+  ok(fs.existsSync(countsPath), 'js/data/counts.js 存在');
+  if (fs.existsSync(countsPath)) {
+    const w = {};
+    new Function('window', fs.readFileSync(countsPath, 'utf8'))(w);
+    const C = w.APP_COUNTS || {};
+    const CHINESE_CATS = ['idioms', 'slang', 'phonics', 'chars', 'reading'];
+    const SUBJECT_FILES = ['english', 'math', 'science', 'social', 'physics', 'chemistry',
+      'biology', 'earth', 'history', 'geography', 'civics'];
+    const emptySlot = () => ({ '全': 0, '上': 0, '下': 0 });
+    const bump = (slot, it) => {
+      slot['全']++;
+      const b = it.book || '';
+      const last = b.charAt(b.length - 1);
+      if (!b || last === '上') slot['上']++;
+      if (!b || last === '下') slot['下']++;
+    };
+    const countOf = (bank) => {
+      const grades = {};
+      const noGrade = emptySlot();
+      let total = 0;
+      (bank || []).forEach((it) => {
+        total++;
+        if (it.grade) { if (!grades[it.grade]) grades[it.grade] = emptySlot(); bump(grades[it.grade], it); }
+        else bump(noGrade, it);
+      });
+      return { total, noGrade, grades };
+    };
+    const same = (a, b) => a && b && a.total === b.total &&
+      JSON.stringify(a.noGrade) === JSON.stringify(b.noGrade) &&
+      JSON.stringify(a.grades) === JSON.stringify(b.grades);
+    const mergeSlot = (a, b) => ({ '全': a['全'] + b['全'], '上': a['上'] + b['上'], '下': a['下'] + b['下'] });
+    const chinese = CHINESE_CATS.map((c) => countOf(D[c])).reduce((a, b) => {
+      const out = { total: a.total + b.total, noGrade: mergeSlot(a.noGrade, b.noGrade), grades: {} };
+      Object.keys(a.grades).forEach((g) => { out.grades[g] = Object.assign({}, a.grades[g]); });
+      Object.keys(b.grades).forEach((g) => {
+        out.grades[g] = out.grades[g] ? mergeSlot(out.grades[g], b.grades[g]) : Object.assign({}, b.grades[g]);
+      });
+      return out;
+    }, { total: 0, noGrade: emptySlot(), grades: {} });
+    ok(same(C.chinese, chinese), `國語題數與清單一致（清單 ${(C.chinese || {}).total}、實際 ${chinese.total}）`);
+    let drift = [];
+    SUBJECT_FILES.forEach((k) => { if (!same(C[k], countOf(D[k]))) drift.push(k); });
+    SUBJECT_FILES.concat(['chinese']).forEach((k) => {
+      const cat = k === 'chinese' ? 'custom' : k + 'Custom';
+      if (!same(C[cat], countOf(D[cat]))) drift.push(cat);
+    });
+    ok(drift.length === 0, `各科題數與清單一致（不一致：${drift.join('、') || '無'}）—— 有差就跑 node tools/gen-counts.js`);
+  }
+}
+
 console.log(failed ? `\n${failed} 項失敗` : '\n全部通過');
 process.exit(failed ? 1 : 0);
