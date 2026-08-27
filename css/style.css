@@ -600,6 +600,21 @@ body {
 }
 .pt-num { font-size: 1.3rem; font-weight: 700; color: var(--accent); }
 .pt-label { color: var(--dim); font-size: 0.72rem; margin-top: 0.2rem; line-height: 1.3; }
+/* 學習總覽表（家長頁）：科目一列＋底下每一種練習各一列，最後一列全部總計 */
+.pt-tbl {
+  width: 100%; border-collapse: collapse; margin: 0.3rem 0 0.6rem;
+  background: var(--panel); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  font-size: 0.88rem;
+}
+.pt-tbl th, .pt-tbl td { padding: 0.42rem 0.55rem; text-align: right; }
+.pt-tbl th:first-child, .pt-tbl td:first-child { text-align: left; }
+.pt-tbl th { color: var(--dim); font-size: 0.76rem; font-weight: 600; border-bottom: 1px solid var(--border); }
+.pt-tbl tr.pt-tr-subj td { font-weight: 700; border-top: 1px solid var(--border); }
+.pt-tbl tr.pt-tr-act td { color: var(--dim); font-size: 0.83rem; }
+.pt-tbl tr.pt-tr-total td {
+  font-weight: 700; color: var(--accent);
+  border-top: 2px solid var(--border); background: rgba(127, 127, 127, 0.06);
+}
 .pt-cat { margin: 0.45rem 0; }
 .pt-cat-top { display: flex; justify-content: space-between; font-size: 0.9rem; }
 .pt-cat-top span { color: var(--dim); }

@@ -373,9 +373,14 @@ async (js) => {
       && document.querySelectorAll('#subjectCards .card').length >= 3`),
     await js(`document.querySelectorAll('#subjectCards .subj-group').length + ' 組 / ' +
       document.querySelectorAll('#subjectCards .card').length + ' 卡'`));
-  await js(`(function(){ var cs = document.querySelectorAll('#subjectCards .card');
-    cs[cs.length - 1].click(); })()`);   // 最後一張＝匯入題庫
+  await js(`(function(){ var cs = Array.prototype.filter.call(
+    document.querySelectorAll('#subjectCards .card'),
+    function (c) { return (c.textContent || '').indexOf('匯入題庫') >= 0; });
+    cs[0].click(); })()`);   // 依卡片名字找，不要用位置（下面還有家長／老師檢視那張）
   await sleep(400);
+  check('科目頁最外層有家長／老師檢視入口',
+    await js(`Array.prototype.some.call(document.querySelectorAll('#subjectCards .card'),
+      function (c) { return (c.textContent || '').indexOf('家長／老師檢視') >= 0; })`));
   check('匯入題庫開得起來、列出科目列',
     await js(`!document.getElementById('view-custom').classList.contains('hidden')
       && document.querySelectorAll('#customSubjs .chip').length >= 5`),
@@ -549,7 +554,11 @@ await session(8735, 9335, { blockWriter: true, seed: SEED_MULTI }, async (js) =>
   await sleep(400);
   const head = await js(`document.querySelector('#parentBody .pt-head').textContent`);
   check('家長頁把各科每日練習加總（18+8 / 20+10）', /26 \/ 30/.test(head), head.slice(0, 120));
-  check('家長頁認得帶科目的紀錄＝今日已完成', /今日已完成/.test(head), head.slice(0, 80));
+  check('家長頁認得帶科目的紀錄＝今日已完成', /今日每日練習已完成/.test(head), head.slice(0, 80));
+  const ovTxt = await js(`document.querySelector('#parentBody .pt-tbl').textContent`);
+  check('學習總覽表列出每一科與全部總計',
+    /國語/.test(ovTxt) && /社會/.test(ovTxt) && /全部總計/.test(ovTxt), ovTxt.slice(0, 120));
+  check('學習總覽表把每日練習列成獨立一項', /每日練習/.test(ovTxt), ovTxt.slice(0, 120));
   // 點今天那格看細節：應列出國語與社會兩科
   await js(`(function(){ var c = document.querySelectorAll('#parentBody .cal-cell');
     c[c.length - 1].click(); })()`);

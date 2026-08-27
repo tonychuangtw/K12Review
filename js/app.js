@@ -659,6 +659,95 @@
     while (days.length > 30) delete g[days.shift()];
   }
 
+  /* ---------- 分項計時與分項成績（Tony 2026-08-27 回報家長頁）----------
+     舊版只有「每日練習」記得到用時（state.daily[].ms），所以家長看到的「用時」「第一次答對」
+     到底涵蓋哪些練習，看的人分不出來。改成一本總帳，每一種練習分開記：
+       state.tlog[日期][科目][練習項目] = { ms, n, ok }
+       ms  ＝ 實際停在那個練習畫面上的時間（發呆超過 2 分鐘的那段不計）
+       n/ok＝ 該項目「第一次作答」的題數／答對數（跟成績一致，重做不重複計）
+     家長頁才能列出「每一項各花多久」與「這科總計／全部總計」。只留 60 天。 */
+  var ACT_NAME = {
+    daily: '每日練習', review: '總結測驗', drill: '依序刷題', unit: '單元學習',
+    retry: '錯題重練', normal: '分類練習', import: '匯入題庫', write: '手寫練習',
+    search: '搜尋練題', flash: '字卡複習', lesson: '單元教學', concept: '概念卡',
+    writing: '寫作素材'
+  };
+  var ACT_ORDER = ['daily', 'review', 'unit', 'drill', 'normal', 'import', 'retry',
+    'write', 'search', 'concept', 'lesson', 'flash', 'writing'];
+  // 題庫類別 → 科目：成語／字音／手寫這些都算國語，xxxCustom 算該科（匯入題庫）
+  var CN_CATS = ['idioms', 'slang', 'phonics', 'chars', 'reading', 'write', 'custom', 'mixed'];
+  function subjOfCat(cat) {
+    if (!cat) return curSubj();
+    if (CN_CATS.indexOf(cat) >= 0) return 'chinese';
+    if (SUBJECT_CATS.indexOf(cat) >= 0) return cat;
+    var m = /^(.+)Custom$/.exec(cat);
+    if (m && SUBJECT_CATS.indexOf(m[1]) >= 0) return m[1];
+    return curSubj();
+  }
+  // 匯入題庫（家長題本轉檔）的類別；各科原創題庫不算（isBankCat 那個是講 schema，不是講來源）
+  function isImportCat(cat) { return cat === 'custom' || /Custom$/.test(cat || ''); }
+  function tlogRec(subj, act, date) {
+    var t = (state.tlog = state.tlog || {});
+    var days = Object.keys(t).sort();
+    while (days.length > 60) delete t[days.shift()];
+    var d = t[date || today()] || (t[date || today()] = {});
+    var sm = d[subj] || (d[subj] = {});
+    return sm[act] || (sm[act] = { ms: 0, n: 0, ok: 0 });
+  }
+  // 每題「第一次作答」記一筆；不自行 save()，呼叫端接著的 bumpStat 會存
+  function logAct(subj, act, ok) {
+    if (!ACT_NAME[act]) return;
+    var r = tlogRec(subj, act);
+    r.n++;
+    if (ok) r.ok++;
+  }
+  // 測驗模式 → 練習項目（匯入題庫不管用哪種模式進去都算「匯入題庫」）
+  function quizAct() {
+    if (!quiz) return 'drill';
+    if (isImportCat(quiz.cat)) return 'import';
+    return ACT_NAME[quiz.mode] ? quiz.mode : 'drill';
+  }
+
+  /* 計時器：以「停在練習畫面上的時間」計。發呆（IDLE_MS 內沒有任何操作）那段不算，
+     免得家長看到「今天讀了 3 小時」其實是頁面開著沒人在。不另外 save()——作答時的
+     bumpStat 會一併寫入，離開畫面、切到背景、關頁面時再補存一次。 */
+  var IDLE_MS = 120000;
+  var clk = { subj: '', act: '', last: 0, seen: 0 };
+  function clkFlush() {
+    if (!clk.subj) return;
+    var now = Date.now();
+    var d = now - clk.last;
+    clk.last = now;
+    if (d <= 0 || now - clk.seen > IDLE_MS) return;
+    tlogRec(clk.subj, clk.act).ms += Math.min(d, IDLE_MS);
+  }
+  function clkStart(subj, act) {
+    clkFlush();
+    clk.subj = ACT_NAME[act] ? (subj || curSubj()) : '';
+    clk.act = act;
+    clk.last = Date.now();
+    if (!clk.seen) clk.seen = Date.now();
+  }
+  function clkStop() {
+    if (!clk.subj) return;
+    clkFlush();
+    clk.subj = '';
+    save();
+  }
+  // 練習畫面（測驗畫面另外由 paintSnap 依當題的科目起算）
+  var VIEW_ACT = { write: 'write', flash: 'flash', lesson: 'lesson', concept: 'concept', writing: 'writing' };
+  if (typeof document !== 'undefined' && document.addEventListener) {
+    ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {
+      document.addEventListener(ev, function () { clkFlush(); clk.seen = Date.now(); }, true);
+    });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { clkFlush(); clk.seen = 0; save(); }
+      else { clk.last = Date.now(); clk.seen = Date.now(); }
+    });
+    W.addEventListener('pagehide', function () { clkFlush(); save(); });
+    setInterval(clkFlush, 15000);
+  }
+
   function addWrong(type, id, isWrite) {
     var hit = state.wrong.find(function (w) { return w.t === type && w.id === id; });
     if (hit) { hit.n++; hit.ok = 0; hit.lastWrong = Date.now(); hit.due = nextDueDays(today(), 1); if (isWrite) hit.wr = 1; }
@@ -748,6 +837,9 @@
     $('gradePanel').classList.add('hidden');
     // 還沒選年級前，右上角那排（科目／注音／年級）先不要出現，畫面只有一件事要做
     document.querySelector('.topbar-controls').classList.toggle('hidden', name === 'welcome');
+    if (name === 'quiz') { /* 測驗的計時由 paintSnap 依當題起算 */ }
+    else if (VIEW_ACT[name]) clkStart(curSubj(), VIEW_ACT[name]);
+    else clkStop();
     if (name === 'welcome') W.__welcomeRender();
     if (name === 'home') renderHome();
     if (name === 'subject') renderSubjects();
@@ -1099,6 +1191,21 @@
     });
     iwrap.appendChild(ib);
     box.appendChild(iwrap);
+    /* 家長／老師檢視拉到最外層（Tony 2026-08-27：「從哪科進去、單看那科？很麻煩」）。
+       原本要先選科目 → 學習進度 → 才點得到儀表板，看起來就像只能單看一科。 */
+    var ph = document.createElement('div');
+    ph.className = 'subj-group';
+    ph.textContent = '家長／老師';
+    box.appendChild(ph);
+    var pwrap = document.createElement('div');
+    pwrap.className = 'cards';
+    var pb = document.createElement('button');
+    pb.className = 'card card-wide';
+    pb.innerHTML = '<span class="card-icon">👨‍🏫</span><span class="card-title">家長／老師檢視</span>' +
+      '<span class="card-sub">一頁看完今天每一科、每一種練習的題數・答對率・用時</span>';
+    pb.addEventListener('click', function () { showParent(); });
+    pwrap.appendChild(pb);
+    box.appendChild(pwrap);
   }
 
   function renderHome() {
@@ -1640,6 +1747,7 @@
       (e.rev ? (quiz.mode === 'review' ? '📕 來自錯題本 · ' : '🔁 錯題複習 · ') : '') +
       CAT_NAME[q.type] + (q.item.grade ? ' · ' + gradeLabel(q.item.grade) : '');
     hideChk();
+    clkStart(subjOfCat(q.type), quizAct());   // 分項計時：時間掛在這一題的科目與練習項目上
     var pas = $('quizPassage');
     if (q.passage) { pas.textContent = q.passage; pas.classList.remove('hidden'); }
     else pas.classList.add('hidden');
@@ -1959,6 +2067,7 @@
       if (quiz.round === 1) addWrong('chars', q.item.id, true);
     }
     bumpStat('chars', ok);
+    logAct('chinese', quizAct(), ok);
     if (quiz.mode !== 'daily') $('quizScore').textContent = '得分 ' + quiz.score;
     if (quiz.mode === 'daily') saveDailyRun(quiz.i + 1);
   }
@@ -2165,6 +2274,7 @@
       if (ok && q.type !== 'reading') touchWrongOnCorrect(q.type, q.item.id);
       if (!ok) quiz.wrongNow.push(e);
       bumpStat(q.type, ok);
+      logAct(subjOfCat(q.type), quizAct(), ok);
       if (!ok && q.type !== 'reading' && quiz.round === 1) addWrong(q.type, q.item.id);
     }
     // 二次作答：第一次答錯先不公布答案，讓學生再想一次（選項剩 2 個以下就直接公布）
@@ -2967,6 +3077,7 @@
     else addWrong('chars', it.id, true);
     bumpGen('write', ok, { t: 'chars', id: it.id, hw: 1 });
     bumpStat('write', ok);
+    logAct('chinese', 'write', ok);
   }
   function wqStart(it, data) {
     document.querySelector('#view-write .canvas-wrap').classList.add('hidden');
@@ -3133,6 +3244,7 @@
       if (ok) { wr.score++; touchWrongOnCorrect('chars', it.id); }
       bumpGen('write', ok, { t: 'chars', id: it.id, hw: 1 });
       bumpStat('write', ok);
+      logAct('chinese', 'write', ok);
       if (!ok) addWrong('chars', it.id, true);
     }
     if (ok) { writeNext(); return; }
@@ -3584,12 +3696,13 @@
   }
 
   // 家長檢視：近 14 天每日練習完成狀況，點日期看細節；dailyOverride/genOverride = 跨帳號檢視時傳入對方資料
-  function renderDailyCal(body, dailyOverride, genOverride, reviewOverride, dwellOverride, chkOverride) {
+  function renderDailyCal(body, dailyOverride, genOverride, reviewOverride, dwellOverride, chkOverride, tlogOverride) {
     var daily = dailyOverride || state.daily || {};
     var gen = genOverride || state.gen || {};
     var reviews = reviewOverride || state.review || [];
     var dwell = dwellOverride || state.dwell || {};
     var chk = chkOverride || state.chk || {};
+    var tlog = tlogOverride || state.tlog || {};
     var head = document.createElement('h3');
     head.className = 'prog-h3';
     head.textContent = '👨‍👩‍👧 家長檢視 — 每日學習紀錄';
@@ -3605,7 +3718,7 @@
     }
     hint.textContent = '連續完成 ' + ds + ' 天 · 最近 7 天完成 ' + week + ' 天。' +
       '✅=每日練習完成、📖=當天有自主練習（刷題/單元/錯題重練/手寫）、📋=當天考過總結測驗。' +
-      '點日期看做了什麼、錯了什麼、解析看多久。';
+      '點日期看那天每一科、每一種練習各做幾題、花多久、錯了什麼。';
     body.appendChild(hint);
     var cal = document.createElement('div');
     cal.className = 'daily-cal';
@@ -3624,7 +3737,7 @@
         cell.className = 'cal-cell' + (rec && rec.done ? ' done' : studied || rvRec.length ? ' gen' : offset === 0 ? ' today' : '');
         cell.innerHTML = '<small>' + (d.getMonth() + 1) + '/' + d.getDate() + '</small>' +
           (rec && rec.done ? '✅' : studied ? '📖' : rvRec.length ? '📋' : offset === 0 ? '⬜' : '❌');
-        cell.addEventListener('click', function () { showDayDetail(detail, key, rec, gRec, rvRec, dRec, chk[key]); });
+        cell.addEventListener('click', function () { showDayDetail(detail, key, rec, gRec, rvRec, dRec, chk[key], tlog[key]); });
         cal.appendChild(cell);
       })(j);
     }
@@ -3656,14 +3769,36 @@
       (sec < 4 ? ' ⚠️ 偏快，可能沒看解析' : '');
   }
 
-  function showDayDetail(box, key, rec, gRec, rvRec, dRec, cRecIn) {
+  // 某一天的分項用時／題數：家長點日期進來，要看得到每一科、每一種練習分開的數字
+  function dayActText(tDay) {
+    var subjs = Object.keys(tDay || {});
+    if (!subjs.length) return '';
+    var totMs = 0, lines = [];
+    subjs.forEach(function (subj) {
+      var acts = tDay[subj] || {}, ms = 0, parts = [];
+      ACT_ORDER.filter(function (a) { return acts[a]; })
+        .concat(Object.keys(acts).filter(function (a) { return ACT_ORDER.indexOf(a) < 0; }))
+        .forEach(function (a) {
+          var r = acts[a] || {};
+          ms += r.ms || 0;
+          parts.push((ACT_NAME[a] || a) + ' ' + fmtMs(r.ms) +
+            (r.n ? '（' + r.n + ' 題・對 ' + pctTxt(r.n, r.ok) + '）' : ''));
+        });
+      totMs += ms;
+      lines.push('　' + escHtml(CAT_NAME[subj] || subj) + ' 共 ' + fmtMs(ms) + '：' + escHtml(parts.join('、')));
+    });
+    return '<br><b>⏱ 各項練習（全科合計 ' + fmtMs(totMs) + '）</b><br>' + lines.join('<br>');
+  }
+
+  function showDayDetail(box, key, rec, gRec, rvRec, dRec, cRecIn, tDay) {
     box.classList.remove('hidden');
     var cRec = cRecIn || (state.chk || {})[key];
     var chkTxt = cRec && cRec.n
       ? '📝 解析確認題 ' + cRec.ok + '/' + cRec.n + ' 答對' +
         (cRec.ok / cRec.n < 0.6 ? ' ⚠️ 解析沒讀懂' : '')
       : '';
-    var extra = (gRec && gRec.n ? '<br>' + genDayText(gRec) : '') +
+    var extra = dayActText(tDay) +
+      (gRec && gRec.n ? '<br>' + genDayText(gRec) : '') +
       ((rvRec || []).length ? '<br>' + rvDayText(rvRec) : '') +
       (dwellDayText(dRec) ? '<br>' + dwellDayText(dRec) : '') +
       (chkTxt ? '<br>' + chkTxt : '');
@@ -3678,8 +3813,8 @@
       ? '（' + rec.subjs.map(function (s) { return escHtml(CAT_NAME[s] || s); }).join('、') + '）' : '';
     var html = '<b>' + escHtml(key) + '</b>' + subjTxt + '（' + escHtml(rec.gradesTxt || gradeLabel(rec.grade)) + '）<br>' +
       '✅ 完成於 ' + ('0' + fin.getHours()).slice(-2) + ':' + ('0' + fin.getMinutes()).slice(-2) +
-      ' · 用時約 ' + mins + ' 分鐘<br>' +
-      '第一次答對 ' + rec.firstOk + ' / ' + rec.total + '（' + pct + '%）· 錯題重做 ' + (rec.rounds - 1) + ' 輪後全對';
+      ' · 每日練習用時約 ' + mins + ' 分鐘<br>' +
+      '每日練習第一次答對 ' + rec.firstOk + ' / ' + rec.total + '（' + pct + '%）· 錯題重做 ' + (rec.rounds - 1) + ' 輪後全對';
     html += extra;
     if (rec.wrong && rec.wrong.length) {
       html += '<br><br><b>當天答錯過的題目：</b>';
@@ -3703,6 +3838,108 @@
   $('progExit').addEventListener('click', function () { show('home'); });
 
   /* ---------- 家長／老師儀表板 ---------- */
+
+  // 用時：秒 → 「12 分」「1 小時 5 分」；0 一律顯示 —，不要寫成「0 分」讓人以為秒殺
+  function fmtMs(ms) {
+    if (!ms) return '—';
+    var sec = Math.round(ms / 1000);
+    if (sec < 60) return sec + ' 秒';
+    var min = Math.round(sec / 60);
+    if (min < 60) return min + ' 分';
+    return Math.floor(min / 60) + ' 小時 ' + (min % 60) + ' 分';
+  }
+  function pctTxt(n, ok) { return n ? Math.round(100 * ok / n) + '%' : '—'; }
+
+  /* 把 state.tlog 依「近 N 天」彙整成 {科目 → {總計, 各練習項目}}（Tony 2026-08-27）。
+     舊資料沒有分項紀錄，但每日練習（state.daily）與總結測驗（state.review）本來就存了
+     用時與題數，所以那兩項補進來，家長不會看到一整片空白；補進來的標 legacy。 */
+  function tlogAgg(tlog, days, dailyRaw, reviewArr) {
+    var out = { subjs: {}, acts: {}, total: { n: 0, ok: 0, ms: 0 }, dates: {}, legacy: false };
+    var list = [];
+    for (var i = 0; i < days; i++) {
+      var d = new Date(); d.setDate(d.getDate() - i);
+      var k = fmtDate(d);
+      list.push(k); out.dates[k] = true;
+    }
+    function add(subj, act, n, ok, ms) {
+      if (!n && !ms) return;
+      var sm = out.subjs[subj] || (out.subjs[subj] = { n: 0, ok: 0, ms: 0, acts: {} });
+      var a = sm.acts[act] || (sm.acts[act] = { n: 0, ok: 0, ms: 0 });
+      var g = out.acts[act] || (out.acts[act] = { n: 0, ok: 0, ms: 0 });
+      [a, g, sm, out.total].forEach(function (t) { t.n += n; t.ok += ok; t.ms += ms; });
+    }
+    var tl = tlog || {};
+    list.forEach(function (dt) {
+      var day = tl[dt];
+      if (!day) return;
+      Object.keys(day).forEach(function (subj) {
+        Object.keys(day[subj]).forEach(function (act) {
+          var r = day[subj][act] || {};
+          add(subj, act, r.n || 0, r.ok || 0, r.ms || 0);
+        });
+      });
+    });
+    function has(dt, subj, act) {
+      return !!(tl[dt] && tl[dt][subj] && tl[dt][subj][act] && (tl[dt][subj][act].n || tl[dt][subj][act].ms));
+    }
+    Object.keys(dailyRaw || {}).forEach(function (k) {
+      var p = k.split('|'), dt = p[0];
+      var subj = (p[1] && ['全', '上', '下'].indexOf(p[1]) < 0) ? p[1] : 'chinese';
+      var r = dailyRaw[k];
+      if (!out.dates[dt] || !r || !r.done || has(dt, subj, 'daily')) return;
+      out.legacy = true;
+      add(subj, 'daily', r.total || 0, r.firstOk || 0, r.ms || 0);
+    });
+    (reviewArr || []).forEach(function (h) {
+      var subj = h.subj || 'chinese';
+      if (!out.dates[h.date] || has(h.date, subj, 'review')) return;
+      out.legacy = true;
+      add(subj, 'review', h.n || 0, h.ok || 0, h.ms || 0);
+    });
+    return out;
+  }
+
+  // 總覽表：一列科目（粗體＝該科總計）＋底下縮排列出每一種練習，最後一列全部總計
+  function renderOverviewTable(box, agg) {
+    var tbl = document.createElement('table');
+    tbl.className = 'pt-tbl';
+    var head = document.createElement('tr');
+    ['項目', '題數', '首次答對', '用時'].forEach(function (t) {
+      var th = document.createElement('th');
+      th.textContent = t;
+      head.appendChild(th);
+    });
+    tbl.appendChild(head);
+    function row(label, r, cls) {
+      var tr = document.createElement('tr');
+      if (cls) tr.className = cls;
+      var td0 = document.createElement('td');
+      td0.textContent = label;
+      tr.appendChild(td0);
+      [String(r.n || 0) + ' 題', pctTxt(r.n, r.ok), fmtMs(r.ms)].forEach(function (t) {
+        var td = document.createElement('td');
+        td.textContent = t;
+        tr.appendChild(td);
+      });
+      tbl.appendChild(tr);
+    }
+    var keys = Object.keys(agg.subjs).sort(function (a, b) {
+      return (agg.subjs[b].ms - agg.subjs[a].ms) || (agg.subjs[b].n - agg.subjs[a].n);
+    });
+    keys.forEach(function (subj) {
+      var sm = agg.subjs[subj];
+      row((CAT_NAME[subj] || subj), sm, 'pt-tr-subj');
+      ACT_ORDER.forEach(function (act) {
+        if (sm.acts[act]) row('　└ ' + ACT_NAME[act], sm.acts[act], 'pt-tr-act');
+      });
+      Object.keys(sm.acts).forEach(function (act) {     // 沒排在 ACT_ORDER 裡的（新增項目）也要列
+        if (ACT_ORDER.indexOf(act) < 0) row('　└ ' + (ACT_NAME[act] || act), sm.acts[act], 'pt-tr-act');
+      });
+    });
+    row('全部總計', agg.total, 'pt-tr-total');
+    box.appendChild(tbl);
+    return keys.length;
+  }
 
   function fmtTsTime(ts) {
     var d = new Date(ts);
@@ -3750,7 +3987,7 @@
     var dwToday = dwellAll[today()];
     var s1 = document.createElement('span');
     s1.textContent = (todayRec && todayRec.done
-      ? '✅ 今日已完成（第一次答對 ' + todayRec.firstOk + ' / ' + todayRec.total + '）'
+      ? '✅ 今日每日練習已完成（那一項第一次答對 ' + todayRec.firstOk + ' / ' + todayRec.total + '）'
       : '⬜ 今日每日練習還沒完成') +
       (genToday && genToday.n ? ' · 📖 今日自主練習 ' + genToday.n + ' 題' : '') +
       (rvToday.length ? ' · 📋 今日總結測驗 ' + rvToday.map(function (h) { return h.score + ' 分'; }).join('、') : '') +
@@ -3761,6 +3998,42 @@
       (ownerEmail ? ' · 檢視對象：' + ownerEmail : '');
     head.appendChild(b0); head.appendChild(s1); head.appendChild(s2);
     body.appendChild(head);
+
+    /* ── 學習總覽（Tony 2026-08-27：「家長老師進去可以直接看到今天每科的全部統計，
+       不用單點每科進去」）。一張表：科目一列（該科總計）＋底下每一種練習各一列，
+       最後一列全部總計；可切今天／近 7 天／近 30 天。 */
+    h3('📊 學習總覽 — 每科、每種練習分開算');
+    var ovChips = document.createElement('div');
+    ovChips.className = 'gp-quick';
+    body.appendChild(ovChips);
+    var ovBox = document.createElement('div');
+    body.appendChild(ovBox);
+    var ovDays = 1;
+    var OV_RANGES = [[1, '今天'], [7, '近 7 天'], [30, '近 30 天']];
+    OV_RANGES.forEach(function (o) {
+      var c = document.createElement('button');
+      c.className = 'chip';
+      c.textContent = o[1];
+      c.addEventListener('click', function () { ovDays = o[0]; paintOv(); });
+      ovChips.appendChild(c);
+    });
+    function paintOv() {
+      Array.prototype.forEach.call(ovChips.children, function (c, i) {
+        c.classList.toggle('active', OV_RANGES[i][0] === ovDays);
+      });
+      ovBox.innerHTML = '';
+      var agg = tlogAgg(st.tlog || {}, ovDays, st.daily || {}, st.review || []);
+      var cnt = renderOverviewTable(ovBox, agg);
+      var tip = document.createElement('div');
+      tip.className = 'prog-hint';
+      tip.textContent = cnt
+        ? '「用時」＝真的停在那個練習畫面上的時間（超過 2 分鐘沒有任何操作就不再累計，'
+          + '頁面開著沒人在不會被算進去）；「首次答對」一律以第一次作答為準，錯題重做不重複計。'
+          + (agg.legacy ? ' ⚠️ 分項計時是 2026-08-27 改版後才開始記的，之前的舊資料只有每日練習與總結測驗有時間，其餘練習在那幾天會缺。' : '')
+        : (ovDays === 1 ? '今天還沒有練習紀錄。' : '這段期間沒有練習紀錄。');
+      ovBox.appendChild(tip);
+    }
+    paintOv();
 
     // 三格數字
     var ok7 = 0, tot7 = 0, done7 = 0, gen7 = 0, rv7 = 0, dwN = 0, dwMs = 0, chkN = 0, chkOk = 0;
@@ -3796,30 +4069,40 @@
     body.appendChild(tiles);
 
     // 近 14 天完成格（沿用進度頁的月曆，可點日期看細節）
-    renderDailyCal(body, daily, gen, rvAll, dwellAll, st.chk || {});
+    renderDailyCal(body, daily, gen, rvAll, dwellAll, st.chk || {}, st.tlog || {});
 
-    // 各類正確率（近 30 天，來自逐題作答紀錄）
-    h3('📊 各類正確率（近 30 天）');
+    // 各題型正確率（近 30 天，來自逐題作答紀錄）——依科目分開，
+    // 不要把「成語」跟「數學」「社會匯入題庫」混在同一串（Tony 2026-08-27：「分類也怪怪的」）
+    h3('📊 各題型正確率（近 30 天，依科目分開）');
     var ans = st.answers || [];
-    var byCat = {};
+    var bySubj = {};
     ans.forEach(function (a) {
-      if (!byCat[a.t]) byCat[a.t] = { n: 0, ok: 0 };
-      byCat[a.t].n++;
-      if (a.ok) byCat[a.t].ok++;
+      var sj = subjOfCat(a.t);
+      var g = bySubj[sj] || (bySubj[sj] = { n: 0, ok: 0, cats: {} });
+      var c = g.cats[a.t] || (g.cats[a.t] = { n: 0, ok: 0 });
+      g.n++; c.n++;
+      if (a.ok) { g.ok++; c.ok++; }
     });
-    var catKeys = Object.keys(byCat).sort(function (a, b) { return byCat[b].n - byCat[a].n; });
-    if (!catKeys.length) {
-      hintEl('本次改版起才開始逐題記錄，做過練習後這裡會出現各類長條圖。');
+    var subjKeys = Object.keys(bySubj).sort(function (a, b) { return bySubj[b].n - bySubj[a].n; });
+    if (!subjKeys.length) {
+      hintEl('本次改版起才開始逐題記錄，做過練習後這裡會出現各題型長條圖。');
     } else {
-      catKeys.forEach(function (c) {
-        var s = byCat[c];
-        var pct = Math.round(100 * s.ok / s.n);
-        var row = document.createElement('div');
-        row.className = 'pt-cat';
-        row.innerHTML = '<div class="pt-cat-top"><b></b><span>' + pct + '%（' + s.n + ' 題）</span></div>' +
-          '<div class="drill-track"><div class="drill-bar" style="width:' + pct + '%"></div></div>';
-        row.querySelector('b').textContent = CAT_NAME[c] || c;
-        body.appendChild(row);
+      subjKeys.forEach(function (sj) {
+        var g = bySubj[sj];
+        var sh = document.createElement('div');
+        sh.className = 'subj-group';
+        sh.textContent = (CAT_NAME[sj] || sj) + '　' + pctTxt(g.n, g.ok) + '（' + g.n + ' 題）';
+        body.appendChild(sh);
+        Object.keys(g.cats).sort(function (a, b) { return g.cats[b].n - g.cats[a].n; }).forEach(function (c) {
+          var cs = g.cats[c];
+          var pct = Math.round(100 * cs.ok / cs.n);
+          var row = document.createElement('div');
+          row.className = 'pt-cat';
+          row.innerHTML = '<div class="pt-cat-top"><b></b><span>' + pct + '%（' + cs.n + ' 題）</span></div>' +
+            '<div class="drill-track"><div class="drill-bar" style="width:' + pct + '%"></div></div>';
+          row.querySelector('b').textContent = CAT_NAME[c] || c;
+          body.appendChild(row);
+        });
       });
     }
 
