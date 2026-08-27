@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: Tony 2026-08-27 三項指示：(2) 標題回最外層 ✅ 做完、(1) LanExamMock 作答鎖依內容長度算 ✅ 已上線 v33、(3) 解析確認題套到所有題目 → K12Review 這半已做完待 push（v65）。**剩下：把同樣的解析確認題做進 LanExamMock 全部題目**（英文解析做克漏字型確認題品質更好，材料是每題的 explanation 欄位）。另外可做：把解析太薄的課列清單給 Tony，之後補厚
+NEXT_ACTION: 蓋解析確認題的題源。Tony 2026-08-27 否決 Ｃ型（句子辨識）：「認哪題的解析很沒意義，只是為了確認有沒有看，我們是希望使用者能懂解析內容，所以還是要根據解析出題比較好，30000多題花時間還是能辦到的」。下一步：寫出題管線 tools/gen-checks.js（餵每題自己的解析 → 產一題四選一）＋機器驗收器，跑在 runner 的 agy（Google AI Pro 訂閱，$0），先跑 500 題給 Tony 看品質再放全量。Ａ／Ｂ型與「答錯才放行」的閘門都留著不動
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 等 Tony 選防亂寫項目（訊息 id 919 已問）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-28 02:30 台北
+UPDATED: 2026-08-28 03:20 台北
 
 ## 已完成：K12Review（v64）
 
@@ -63,6 +63,29 @@ Tony 的三個抱怨與對應修法：
 - 解析 <12 字或「見各選項說明」不生成（全站 4,446 題，6%），退回解析鎖倒數
 - 決定性（seed = 題目 id），結果快取；測試掛鉤 `window.ChkDebug.of()`
 - browser-smoke 抽樣 920 題：格式全合法、涵蓋率 82%
+
+## 待辦（主線）：解析確認題改成「依解析內容真的出題」
+
+**Tony 2026-08-27 否決 Ｃ型**：句子辨識只確認有沒有看，不確認有沒有懂。他明確說
+「30000多題花時間還是能辦到」＝授權做長期批次工程。
+
+保留不動：
+- Ａ 字義列舉（`字＝定義` ≥4 對）與 Ｂ 逐選項標註（`(Ａ)說明` ≥3 個）→ 本來就在問解析內容，約 7,500 題
+- LanExamMock 的「答錯 → 答對一題確認題才放行」閘門（v34 已上線）與 chk 紀錄
+
+要換掉：Ｃ型 —— K12Review 約 22,900 題、LanExamMock 全部。
+
+管線設計（尚未動工）：
+1. **逐題由模型撰寫**：餵該題自己的解析，產一題四選一，答案只在該段解析裡、要看懂才答得出
+2. **跑在 runner 的 agy**（Tony 的 Google AI Pro 訂閱，$0 API 費），背景批次跑好幾天，一批一 commit
+3. **機器驗收（關鍵）**：4 選項不重複／答案索引有效／正解關鍵詞真的出現在該題解析裡（防模型編）／
+   無「以上皆非」爛誘答／無位置指涉。過不了退回重出。
+   ⚠️ 2026-08-02 四個 agent 交假貨就是因為沒有機器驗收；SOP §硬規則也禁止「外包給平行代理量產」，
+   所以是「單一低階模型逐題寫 + 機器驗收」，不是 fan-out
+4. **解析太薄的 4,446 題**（只寫「見各選項說明」那種）沒東西可出題 → 要先補解析本體，另列清單
+5. **過渡期**：Ｃ型先留著當閘門，每跑完一批換成真的題目，不會有空窗
+
+已回報 Tony（訊息 id 929）：先做管線 + 跑 500 題給他看品質，點頭再放全量。
 
 ## 待辦：LanExamMock 防亂寫（第三版，其餘項目）
 
