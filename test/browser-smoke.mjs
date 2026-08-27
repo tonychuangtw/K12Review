@@ -16,8 +16,15 @@ const SHELL = process.env.CHROME_SHELL ||
   process.env.HOME + '/.cache/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell';
 
 if (!existsSync(SHELL)) {
-  console.log('（跳過瀏覽器 smoke test：找不到 ' + SHELL + '，可用 CHROME_SHELL=<路徑> 指定）');
-  process.exit(0);
+  // 找不到瀏覽器時預設跳過（exit 0），但要吼得夠大聲：這代表這一輪完全沒有前端覆蓋，
+  // 不能讓人以為「測試都過了」（2026-08-27 codex 體檢 B 級）。
+  // 需要把「沒跑到」當成失敗時（例如 CI），設 SMOKE_REQUIRED=1。
+  console.log('');
+  console.log('⚠️⚠️  跳過瀏覽器 smoke test —— 這一輪沒有任何前端流程被驗證  ⚠️⚠️');
+  console.log('     找不到 ' + SHELL);
+  console.log('     可用 CHROME_SHELL=<路徑> 指定，或 SMOKE_REQUIRED=1 讓缺瀏覽器直接算失敗');
+  console.log('');
+  process.exit(process.env.SMOKE_REQUIRED ? 1 : 0);
 }
 
 const fails = [];

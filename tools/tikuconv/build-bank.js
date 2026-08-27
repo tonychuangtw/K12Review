@@ -51,11 +51,31 @@ rows.forEach((r, i) => {
 const ids = new Set(rows.map(r => r.id));
 if (ids.size !== rows.length) throw new Error('id 重複（' + (rows.length - ids.size) + ' 筆）');
 
+// 爛誘答守門要在寫檔「之前」跑：原本是先覆蓋輸出檔、之後才檢查，
+// 而且只印警告不失敗 —— 等於壞資料已經進了題庫（2026-08-27 codex 體檢）。
+// 預設有爛誘答就中止且不動輸出檔；真的要先產出再修，加 --allow-bad。
+const BAD_OPT = /以外都不對|以外的(寫法|答案|字)|這裡沒有|都不對$|沒有這個選項|不是有效/;
+let bad = 0;
+rows.forEach(r => (r.options || []).forEach(o => {
+  if (BAD_OPT.test(o)) { console.log('⚠ 爛誘答', r.id, r.book, '｜', o); bad++; }
+}));
+if (bad) {
+  console.log('⚠ 共 ' + bad + ' 個爛誘答');
+  if (!process.argv.includes('--allow-bad')) {
+    console.error('已中止，未寫入 ' + outPath + '（確定要先產出再修就加 --allow-bad）');
+    process.exit(1);
+  }
+  console.log('（--allow-bad：照樣寫出，記得回頭修）');
+}
+
 const header = fs.readFileSync(headerPath, 'utf8').trimEnd();
-fs.writeFileSync(outPath,
+// 先寫暫存檔再 rename：中途出錯時原本的題庫檔不會變成半截內容
+const tmpPath = outPath + '.tmp';
+fs.writeFileSync(tmpPath,
   'window.APP_DATA = window.APP_DATA || {};\n' + header +
   '\n// 目前題數：' + rows.length + '\nwindow.APP_DATA.' + key + ' = [\n' +
   rows.map(r => JSON.stringify(r)).join(',\n') + '\n];\n');
+fs.renameSync(tmpPath, outPath);
 
 console.log(key, rows.length, '題 →', outPath);
 const pos = [0, 0, 0, 0];
@@ -83,11 +103,4 @@ rows.forEach(r => {
   seen.set(k, r.id);
 });
 
-// 爛誘答守門：選項本身不能是「以外都不對」「這裡沒有別的字」這種湊數字串，
-// 那種選項一看就知道不是答案，等於把四選一變成三選一。
-const BAD_OPT = /以外都不對|以外的(寫法|答案|字)|這裡沒有|都不對$|沒有這個選項|不是有效/;
-let bad = 0;
-rows.forEach(r => r.options.forEach(o => {
-  if (BAD_OPT.test(o)) { console.log('⚠ 爛誘答', r.id, r.book, '｜', o); bad++; }
-}));
-if (bad) console.log('⚠ 共 ' + bad + ' 個爛誘答要改');
+// （爛誘答守門已移到寫檔之前，見上方）

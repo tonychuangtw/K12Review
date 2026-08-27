@@ -792,7 +792,9 @@
 
   /* ---------- 首頁 ---------- */
 
-  function pool(cat) { return filterByGrades(DATA[cat], state.grades); }
+  // DATA[cat] 可能不存在（動態載入還沒到、或像 'mixed' 這種臨時類別），
+  // 直接 .filter 會丟 TypeError 讓整個畫面停住（2026-08-27 codex 體檢 B 級）
+  function pool(cat) { return filterByGrades(DATA[cat] || [], state.grades); }
 
   function subjectOf(key) {
     return SUBJECTS.find(function (s) { return s.key === key; }) || SUBJECTS[0];
@@ -1156,7 +1158,9 @@
     $('cnt-phonics').textContent = pool('phonics').length + ' 題可練';
     $('cnt-chars').textContent = pool('chars').length + ' 題可練';
     $('cnt-reading').textContent = pool('reading').length + ' 篇可練';
-    var rec = (state.daily || {})[today()];
+    // 每日練習紀錄的 key 是「日期|科目|學期」（國語沿用純日期）：這裡若只查純日期，
+    // 非國語科目或選了上／下學期時，明明做完了首頁還是寫「今天還沒做」（2026-08-27 codex 體檢）
+    var rec = dailyRec();
     var dCard = document.querySelector('.card[data-go="daily"]');
     $('cnt-daily').textContent = rec && rec.done ? '今天完成了 ✅' : '今天還沒做';
     if (dCard) dCard.classList.toggle('daily-done', !!(rec && rec.done));
@@ -1550,6 +1554,14 @@
     return items.map(function (it) { return { t: it._t || quizCatOf(it), id: it.id }; });
   }
 
+  // 每日練習完成後的「再練一回」：從成語／字音／字形混合抽 10 題，不列入紀錄。
+  // 這一批不是任何一個真實題庫（cat = 'mixed'），所以結束後要自己再抽一批，
+  // 不能走 startQuiz('mixed', null) —— 那會去找不存在的 DATA.mixed。
+  function startMixedRound() {
+    var items = shuffle(pool('idioms').concat(pool('phonics')).concat(pool('chars'))).slice(0, 10);
+    if (!items.length) { UIDialog.alert('這個年級目前沒有題目，換個年級或勾選加練年級。'); return; }
+    startQuiz('mixed', items);
+  }
   function startQuiz(cat, itemsOverride) {
     var items = itemsOverride || shuffle(pool(cat)).slice(0, 10);
     if (!items.length) { UIDialog.alert('這個年級目前沒有題目，換個年級或勾選「含以下年級」。'); return; }
@@ -2234,6 +2246,7 @@
     r.classList.remove('hidden');
     if (quiz.score === quiz.entries.length) confetti();
     var cat = quiz.cat, retry = quiz.mode === 'retry', drill = quiz.mode === 'drill', search = quiz.mode === 'search';
+    var mixed = cat === 'mixed';
     if (search) $('quizAgain').textContent = '← 回搜尋結果';
     if (drill) {
       var done = Math.min(quiz.drillBase + quiz.entries.length, quiz.drillTotal);
@@ -2249,6 +2262,7 @@
     var dBook = quiz.drillBook, dLesson = quiz.drillLesson, dKey = quiz.drillKey;
     $('quizAgain').addEventListener('click', function () {
       if (search) { show('search'); return; }
+      if (mixed) { startMixedRound(); return; }   // 再抽一批混合題（原本會跳到錯題本）
       if (retry) showWrongbook();
       else if (drill) {
         if ((state.drillPos[dKey] || 0) >= quiz.drillTotal) { if (importMode) showCustom(); else showDrill(); }
@@ -2282,7 +2296,7 @@
       if (importMode) { showCustom(); return; }   // 從匯入題庫進來的，退回匯入題庫
       show('home');
     }
-    if (quiz && quiz.mode === 'daily' && !((state.daily || {})[today()] || {}).done) {
+    if (quiz && quiz.mode === 'daily' && !(dailyRec() || {}).done) {
       UIDialog.confirm('今日練習還沒完成，確定要離開？（進度不會保留）', leave); return;
     }
     if (quiz && quiz.mode === 'review' && quiz.i < quiz.entries.length) {
@@ -2704,8 +2718,7 @@
     r.classList.remove('hidden');
     $('quizAgain').addEventListener('click', function () {
       if (!isChinese()) { startSubjectQuiz(curSubj()); return; }
-      var items = shuffle(pool('idioms').concat(pool('phonics')).concat(pool('chars'))).slice(0, 10);
-      startQuiz('mixed', items);
+      startMixedRound();
     });
     $('quizHome').addEventListener('click', function () { show('home'); });
   }

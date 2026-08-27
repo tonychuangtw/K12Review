@@ -64,6 +64,18 @@ async function genOne(it) {
 
 (async () => {
   const todo = idioms.filter(it => !fs.existsSync(path.join(OUT_DIR, it.id + '.webp'))).slice(0, limit);
+  // 這支打的是計費 API（2026-08-02 就是這樣把 Gemini 額度燒完的）。
+  // 預設只列清單，真的要跑要自己加 --yes；沒給 --limit 時再多要求一次確認。
+  // （2026-08-27 codex 體檢：原本不帶任何參數就會對所有缺圖直接開打）
+  if (!args.includes('--yes')) {
+    log(`dry-run: ${todo.length} 張缺圖（前 5 筆：${todo.slice(0, 5).map(i => i.id + ' ' + i.term).join('、')}）`);
+    log('要真的產圖請加 --yes（會呼叫計費 API）；建議同時用 --limit N 控制張數');
+    return;
+  }
+  if (!Number.isFinite(limit) && todo.length > 50) {
+    log(`拒絕執行：一次要產 ${todo.length} 張且沒有 --limit。請加 --limit N 分批跑。`);
+    return;
+  }
   log(`start: ${todo.length} images to generate`);
   let okN = 0, failN = 0;
   for (const it of todo) {

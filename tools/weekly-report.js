@@ -45,7 +45,11 @@ const CAT_NAME = {
 function mergeDaily(map) {
   const out = {};
   Object.keys(map || {}).forEach((k) => {
-    const [date, subj = 'chinese'] = k.split('|');
+    // key 形如 日期 / 日期|科目 / 日期|科目|學期 / 日期|學期（國語）。
+    // 沒有這層判斷時，國語的「日期|上」會被當成一個叫「上」的科目（2026-08-27 codex 體檢）。
+    const parts = k.split('|');
+    const date = parts[0];
+    const subj = (parts[1] && ['全', '上', '下'].indexOf(parts[1]) < 0) ? parts[1] : 'chinese';
     const r = map[k];
     if (!r) return;
     const m = out[date] || (out[date] = { done: false, firstOk: 0, total: 0, ms: 0, rounds: 1, wrong: [], subjs: [] });
@@ -183,14 +187,41 @@ async function main() {
     if (!anyDone) body += '\n\n⚠️ 本週完全沒有任何練習紀錄（每日練習與自主練習皆無），提醒孩子每天做一回！';
   }
 
-  const res = await fetch(`https://api.telegram.org/bot${tgToken()}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: CHAT_ID, text: body }),
-  });
-  const j = await res.json();
-  if (!j.ok) throw new Error('telegram send failed: ' + JSON.stringify(j).slice(0, 200));
-  console.log('weekly report sent');
+  // Telegram 單則訊息上限 4096 字元：人一多整份週報就會超過，整份發送失敗
+  // （沒有任何一段送出去，等於整週沒有回報）。切段送，段落界線優先切在空行上。
+  const token = tgToken();
+  const chunks = splitForTelegram(body, 3900);
+  for (let i = 0; i < chunks.length; i++) {
+    const text = chunks.length > 1 ? `（${i + 1}/${chunks.length}）\n${chunks[i]}` : chunks[i];
+    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: CHAT_ID, text }),
+    });
+    const j = await res.json();
+    if (!j.ok) throw new Error('telegram send failed: ' + JSON.stringify(j).slice(0, 200));
+  }
+  console.log(`weekly report sent（${chunks.length} 則）`);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+function splitForTelegram(text, limit) {
+  const out = [];
+  let rest = String(text);
+  while (rest.length > limit) {
+    let cut = rest.lastIndexOf('\n\n', limit);
+    if (cut < limit * 0.5) cut = rest.lastIndexOf('\n', limit);
+    if (cut < limit * 0.5) cut = limit;
+    out.push(rest.slice(0, cut).trimEnd());
+    rest = rest.slice(cut).trimStart();
+  }
+  if (rest) out.push(rest);
+  return out;
+}
+
+// ⚠️ 這支一被 require 進去就會真的發週報 —— 過去有人為了「檢查語法」而 require，
+// 結果直接送出一則訊息（CLAUDE.md 有記這條）。加上這層保護後，require 只會拿到函式，
+// 真的要送就用 node tools/weekly-report.js 執行。（2026-08-27 codex 體檢）
+if (require.main === module) {
+  main().catch((e) => { console.error(e); process.exit(1); });
+}
+module.exports = { main, splitForTelegram, mergeDaily };

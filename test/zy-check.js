@@ -100,3 +100,6 @@ D.idioms.forEach(it => {
 });
 console.log(bad.join('\n'));
 console.log('---共 ' + bad.length + ' 個不一致');
+// 有不一致就以非 0 結束：原本一律 exit 0，接在 && 後面跑或放進 CI 時
+// 會被當成通過（2026-08-27 codex 體檢 B 級）
+process.exit(bad.length ? 1 : 0);
