@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 兩站的分項統計都已上線（K12Review v64 b9fbfec／LanExamMock v32 fe9db51）。只剩 LanExamMock 防亂寫，等 Tony 回是否照修正版 A′+B′+C′ 做（訊息 id 923）。⚠️ 原本的 B「正確率 <60% 要重做」已作廢——Tony 2026-08-27 指出女兒做 CAE/CPE 認真做也常低於 60%，拿正確率當態度指標會冤枉她。改判定基準：看作答速度不看對錯，細節見下方「防亂寫（修正版）」
+NEXT_ACTION: 兩站分項統計都已上線（K12Review v64 b9fbfec／LanExamMock v32 fe9db51）。只剩 LanExamMock 防亂寫，等 Tony 回是否照「解鎖秒數改依內容長度算」這個單一改動做（訊息 id 925）。⚠️ 前兩版提案都作廢：正確率門檻會冤枉做 CAE/CPE 的女兒；用他自己的作答時間中位數當基準也不行——他現在的資料全是亂做的，基準本身就是髒的。細節見下方「防亂寫（第三版）」
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 等 Tony 選防亂寫項目（訊息 id 919 已問）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-28 01:05 台北
+UPDATED: 2026-08-28 01:35 台北
 
 ## 已完成：K12Review（v64）
 
@@ -42,7 +42,27 @@ Tony 的三個抱怨與對應修法：
   並在拼寫分數旁標出拼寫用時 → 8/21 那筆 568 min 不會再出現
 - `test/browser-smoke.mjs` 新增 6 條家長頁測試（全過；`node test/test.js` 122,015 全過）
 
-## 待辦：LanExamMock 防亂寫（修正版，等 Tony 回）
+## 待辦：LanExamMock 防亂寫（第三版，等 Tony 回）
+
+**兩個被推翻的前提（都是 Tony 2026-08-27 當場指出的）**
+1. 不能用正確率當態度指標——女兒做 CAE/CPE 認真做也常低於 60%
+2. 不能用「他自己的作答時間中位數」當基準——他現在的資料全是亂做的，基準會被汙染。
+   而且 Tony 明說「不希望真的太長太久」，所以任何「加題／重做」的懲罰都要先擱著
+
+**結論：基準要從題目內容來，不能從使用者行為來。**
+
+現況（`d25ApplyLock`，js/app.js 約 3474）已經有鎖，但秒數是寫死的，太短：
+閱讀題組第一題 8 秒、同篇之後 4 秒、一般題 3 秒、聽力要按播放。8 秒讀完一整篇＝形同虛設。
+
+要做的單一改動：**解鎖秒數改成依內容長度算**
+- 閱讀題組第一題 = 文章字數 ÷ 6 字/秒（≈360 wpm，遠快於一般青少年 200–250，是保守下限），上限 90 秒
+- 一般題 = （題目＋選項字數）÷ 6 ＋ 2 秒，上限 20 秒
+- 聽力改成「播完」才解鎖，不是「按下播放」就解鎖
+- A′ 解析確認題、B′ 重做**都先不做**（會讓作業變長）；任務長度也先不鎖，
+  改成家長頁顯示「今天把長度調成幾題」
+- 一週後用家長頁的分項計時看他真實的作答時間中位數，再決定要不要加規則
+
+原始選項與演進過程（保留備查）：
 
 **設計前提（Tony 2026-08-27 定案）**：兩個小孩程度差很多——女兒做 CAE/CPE 很自動但正確率天然低，
 兒子做 FCE 是亂按的那個。**所以認真與否只能用「有沒有花時間想」判定，不能用正確率**。
