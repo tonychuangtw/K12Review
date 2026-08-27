@@ -1,6 +1,8 @@
 # K12學霸養成 — 全科複習（國語・英文・數學・自然・社會）
 
-純靜態單頁應用（vanilla HTML/CSS/JS，無框架、無 build step、無外部依賴），可直接以 `file://` 開啟或部署到 GitHub Pages。所有資料只存在瀏覽器 localStorage，無任何網路請求。
+純靜態單頁應用（vanilla HTML/CSS/JS，無框架、無 build step），可直接以 `file://` 開啟或部署到 GitHub Pages。
+
+**資料存放與網路請求**：練習進度預設只存在瀏覽器 localStorage。若使用者選擇用 Google 登入同步（`js/sync.js`），這份進度（含每日練習紀錄、錯題本、寫作練習內容）會上傳到自架的同步 API 並在裝置間還原；不登入就完全不會上傳。另外筆順動畫會讀取本 repo 的 `strokes/`，成語配圖讀取 `img/`。家長週報由 `tools/weekly-report.js` 在伺服器端讀同步資料後經 Telegram 發送。詳見「雲端同步」一節。
 
 ## 功能
 

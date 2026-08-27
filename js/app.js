@@ -596,13 +596,34 @@
       s.extra = s.grades.filter(function (x) { return x !== s.grade; });
       s.onboarded = true;              // 舊使用者不用再被問一次年級
     }
+    // 舊版的 state.dailyRun 只記日期與科目、沒有年級／學期，續做會拿到別的範圍的題目，
+    // 因此遷移時直接丟棄（頂多損失一次未完成的當日中途進度）。2026-08-27 codex 體檢。
+    if (s.dailyRun) delete s.dailyRun;
     // 錯題排程遷移
     (s.wrong || []).forEach(function (w) {
       if (!w.box) { w.box = 1; w.due = w.due || fmtDate(new Date()); }
     });
     return s;
   }
-  function save() { localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+  // 寫入失敗不能讓整個 handler 中斷（2026-08-27 codex 體檢）：
+  // 無痕模式、儲存空間滿、瀏覽器停用 storage 都會讓 setItem 直接丟例外，
+  // 而 save() 被叫在答題、切頁、啟動遷移等地方 —— 一丟例外整段流程就停在那裡。
+  var saveFailed = false;
+  function save() {
+    try {
+      localStorage.setItem(LS_KEY, JSON.stringify(state));
+      saveFailed = false;
+      return true;
+    } catch (e) {
+      if (!saveFailed) {
+        saveFailed = true;
+        try {
+          setStatusToast('⚠️ 這台裝置存不下進度（儲存空間已滿或瀏覽器停用儲存），本次練習可能不會被保留');
+        } catch (e2) {}
+      }
+      return false;
+    }
+  }
   function today() { return fmtDate(new Date()); }
 
   function bumpStat(cat, ok) {
@@ -2396,6 +2417,13 @@
   /* ---------- 每日練習 ---------- */
 
   function dailyRec() { return (state.daily = state.daily || {})[subjKey(today())]; }
+  // 中途進度的範圍鍵：科目＋實際年級組合＋學期。少了任何一項，換範圍後會續做舊範圍的題目
+  // 卻把成績記到新範圍（2026-08-27 codex 體檢）。分開存還能讓不同科目各自保留自己的進度。
+  function dailyScope() {
+    return curSubj() + '|' + (state.grades || []).slice().sort(function (a, b) { return a - b; }).join(',') +
+      '|' + (isChinese() ? (state.term || '全') : '');
+  }
+  function dailyRuns() { return (state.dailyRuns = state.dailyRuns || {}); }
   // 這筆 ref（自主練習/每日練習出過的題）屬不屬於目前科目
   function refIsCur(r) {
     if (isChinese()) return SUBJECT_CATS.indexOf(r.t) < 0 && !/Custom$/.test(r.t || '');
@@ -2406,8 +2434,12 @@
   // 隨雲端同步 → 換裝置（或關掉分頁）都能從上次的題號繼續，不會從第 1 題重來。
   function saveDailyRun(nextI) {
     if (!quiz || quiz.mode !== 'daily') return;
-    state.dailyRun = {
-      date: today(), subj: curSubj(), entries: quiz.entries, i: nextI, score: quiz.score,
+    var runs = dailyRuns();
+    // 只留今天的，免得 dailyRuns 隨著日子累積把 localStorage 撐爆
+    Object.keys(runs).forEach(function (k) { if (!runs[k] || runs[k].date !== today()) delete runs[k]; });
+    runs[dailyScope()] = {
+      date: today(), subj: curSubj(), scope: dailyScope(),
+      entries: quiz.entries, i: nextI, score: quiz.score,
       round: quiz.round, firstTry: quiz.firstTry, wrongNow: quiz.wrongNow,
       elapsed: Date.now() - quiz.startedAt
     };
@@ -2432,8 +2464,8 @@
   function startDaily() {
     var rec = dailyRec();
     if (rec && rec.done) { showDailySummary(rec); return; }
-    var run = state.dailyRun;
-    if (run && run.date === today() && (run.subj || 'chinese') === curSubj() &&
+    var run = dailyRuns()[dailyScope()];
+    if (run && run.date === today() && run.scope === dailyScope() &&
         Array.isArray(run.entries) && run.entries.length) {
       resumeDaily(run);
       return;
@@ -2484,7 +2516,7 @@
       }
     });
     var ms = Date.now() - quiz.startedAt;
-    state.dailyRun = null;   // 今日已完成，清掉中途進度
+    delete dailyRuns()[dailyScope()];   // 這個範圍今日已完成，清掉中途進度
     var keepRefs = (state.daily[subjKey(today())] || {}).refs;
     state.daily[subjKey(today())] = {
       done: true, grade: state.grades[state.grades.length - 1], gradesTxt: gradesLabel(state.grades),
@@ -2571,7 +2603,7 @@
           ? '✅ ' + rec.firstOk + '/' + rec.total + '（' + Math.round(100 * rec.firstOk / rec.total) + '%）'
           : rec && (rec.refs || []).length ? '開始過、未完成' : '';
         if (g && (g.refs || []).length) status += (status ? ' · ' : '') + '📖 自主練 ' + g.n + ' 題';
-        lab.innerHTML = '<input type="checkbox" value="' + key + '"> <span>' + key +
+        lab.innerHTML = '<input type="checkbox" value="' + escHtml(key) + '"> <span>' + escHtml(key) +
           '</span><span class="rv-day-sub">' + status + '</span>';
         box.appendChild(lab);
       });
@@ -2588,10 +2620,10 @@
       html += '<div class="prog-hint">還沒考過總結測驗。</div>';
     } else {
       hist.slice(-8).reverse().forEach(function (h) {
-        html += '<div class="prog-row"><b>' + h.score + ' 分</b><span>' + h.date +
+        html += '<div class="prog-row"><b>' + escHtml(h.score) + ' 分</b><span>' + escHtml(h.date) +
           ' · 答對 ' + h.ok + '/' + h.n +
           (h.wrongOnly ? ' · 📕 錯題測驗' : ' · 考 ' + h.days.length + ' 天份') +
-          (h.gradesTxt ? ' · ' + h.gradesTxt : '') + '</span></div>';
+          (h.gradesTxt ? ' · ' + escHtml(h.gradesTxt) : '') + '</span></div>';
       });
     }
     el.innerHTML = html;
@@ -3371,7 +3403,7 @@
     hist.slice(-8).reverse().forEach(function (h) {
       var row = document.createElement('div');
       row.className = 'prog-row';
-      row.innerHTML = '<b>' + h.score + ' 分</b><span>' + h.date + ' · 答對 ' + h.ok + '/' + h.n +
+      row.innerHTML = '<b>' + escHtml(h.score) + ' 分</b><span>' + escHtml(h.date) + ' · 答對 ' + escHtml(h.ok) + '/' + escHtml(h.n) +
         ' · 考 ' + h.days.length + ' 天份 · 約 ' + Math.max(1, Math.round(h.ms / 60000)) + ' 分鐘</span>';
       body.appendChild(row);
     });
@@ -3462,15 +3494,15 @@
       (dwellDayText(dRec) ? '<br>' + dwellDayText(dRec) : '') +
       (chkTxt ? '<br>' + chkTxt : '');
     if (!rec || !rec.done) {
-      box.innerHTML = '<b>' + key + '</b><br>這一天沒有完成每日練習。' + extra;
+      box.innerHTML = '<b>' + escHtml(key) + '</b><br>這一天沒有完成每日練習。' + extra;
       return;
     }
     var mins = Math.max(1, Math.round(rec.ms / 60000));
     var fin = new Date(rec.finishedAt);
     var pct = rec.total ? Math.round(100 * rec.firstOk / rec.total) : 0;
     var subjTxt = (rec.subjs || []).length
-      ? '（' + rec.subjs.map(function (s) { return CAT_NAME[s] || s; }).join('、') + '）' : '';
-    var html = '<b>' + key + '</b>' + subjTxt + '（' + (rec.gradesTxt || gradeLabel(rec.grade)) + '）<br>' +
+      ? '（' + rec.subjs.map(function (s) { return escHtml(CAT_NAME[s] || s); }).join('、') + '）' : '';
+    var html = '<b>' + escHtml(key) + '</b>' + subjTxt + '（' + escHtml(rec.gradesTxt || gradeLabel(rec.grade)) + '）<br>' +
       '✅ 完成於 ' + ('0' + fin.getHours()).slice(-2) + ':' + ('0' + fin.getMinutes()).slice(-2) +
       ' · 用時約 ' + mins + ' 分鐘<br>' +
       '第一次答對 ' + rec.firstOk + ' / ' + rec.total + '（' + pct + '%）· 錯題重做 ' + (rec.rounds - 1) + ' 輪後全對';
@@ -3481,7 +3513,7 @@
         var it = findItem(w.t, w.id);
         if (!it) return;
         var label = it.term || (it.word ? it.word + '（' + it.target + '）' : it.title ? '閱讀《' + it.title + '》' : it.answer);
-        html += '<br>· ' + (CAT_NAME[w.t] || w.t) + '：' + label;
+        html += '<br>· ' + escHtml(CAT_NAME[w.t] || w.t) + '：' + escHtml(label);
       });
     } else {
       html += '<br>全部一次答對 💯';
@@ -3720,7 +3752,8 @@
     }
     box.innerHTML = '<small class="prog-hint">☁️ 讀取授權資料…</small>';
     ptApi('GET', '/api/grants?app=chinese', null, function (err, res) {
-      if (err) { box.innerHTML = '<small class="prog-hint">⚠️ 雲端連線失敗（' + err + '），僅顯示本機資料。</small>'; return; }
+      if (err) { box.innerHTML = ''; var eh = document.createElement('small'); eh.className = 'prog-hint';
+        eh.textContent = '⚠️ 雲端連線失敗（' + err + '），僅顯示本機資料。'; box.appendChild(eh); return; }
       box.innerHTML = '';
       var received = (res && res.received) || [];
       // 檢視對象切換列（自己 + 每個授權我看的孩子）
@@ -3944,7 +3977,7 @@
       var pct = p.length ? Math.round(100 * pos / p.length) : 0;
       var div = document.createElement('button');
       div.className = 'unit-item';
-      div.innerHTML = '<b>' + r.label + '</b>' +
+      div.innerHTML = '<b>' + escHtml(r.label) + '</b>' +
         '<small>' + pos + ' / ' + p.length + ' 題（' + pct + '%）' + (pos >= p.length && p.length ? ' · 已刷完一輪 🎉 可重頭再刷' : '') + '</small>' +
         '<div class="drill-track"><div class="drill-bar" style="width:' + pct + '%"></div></div>';
       div.addEventListener('click', function () {
@@ -4011,7 +4044,7 @@
       var pct = pool.length ? Math.round(100 * pos / pool.length) : 0;
       var div = document.createElement('button');
       div.className = 'unit-item';
-      div.innerHTML = '<b>' + CAT_NAME[cat] + '</b>' +
+      div.innerHTML = '<b>' + escHtml(CAT_NAME[cat] || cat) + '</b>' +
         '<small>' + pos + ' / ' + pool.length + ' 題（' + pct + '%）' + (pos >= pool.length && pool.length ? ' · 已刷完，可重頭再刷' : '') + '</small>' +
         '<div class="drill-track"><div class="drill-bar" style="width:' + pct + '%"></div></div>';
       div.addEventListener('click', function () { startDrill(cat); });
