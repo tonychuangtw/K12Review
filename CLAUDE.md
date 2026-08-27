@@ -42,7 +42,10 @@
 - 每日練習：`composeDaily` 以「日期|年級|含以下年級」做種子，同日同設定出同一組題；精熟迴圈錯題重做到全對；紀錄存 state.daily[日期]，進度頁「家長檢視」讀這份
 - 成語 `syn`（同義詞陣列）出同義題；`src`（如 "108會考"）標歷屆出處，不確定出處寧缺勿錯
 - 閱讀題庫 js/data/reading.js：{id,grade,title,genre,src,passage,questions:[{q,options[4],answer,exp}]}
-- 成語配圖：`node tools/gen-idiom-images.js --grades 1-6`（Gemini 2.5 Flash Image，金鑰在 ~/.gemini/.env），產 img/idioms/<id>.webp，前端自動載入、載不到自動隱藏
+- 成語配圖：`node tools/gen-idiom-images.js --grades 1-6 --yes`，產 img/idioms/<id>.webp，前端自動載入、載不到自動隱藏。
+  2026-08-27 起這支改走共用工具 `claude-shared/tools/gen-image.sh`（訂閱網頁介面，$0，實際跑在 scout），
+  **不再直接打 Gemini API**（那吃預付額度，見 shared.md §13；1200 條成語目前都已有圖，只有補新成語才會用到）。
+  不加 `--yes` 只會列出缺哪幾張。
 - 2026-08-02 二輪擴充：年級改多選（state.grades 陣列，舊 grade/cumulative 自動遷移）；每日練習 25 題＋弱點加權（weakStrong）＋錯題到期混入；錯題排程 bumpWrongSchedule（1→3→7 天三關畢業）；寫作素材 js/data/writing.js；家長週報 tools/weekly-report.js（systemd：chinese-weekly-report.timer，週日 20:00 台北，讀 LanExamMock backend 的 progress.db，bot token 在 ~/.claude/channels/telegram-chinese/.env）
 - ⚠️ 題庫內容不可交給 subagent 量產（2026-08-02 四個 agent 全交假貨），加題一律逐條人工撰寫並跑雙測試
 - 單元學習：`buildUnits(DATA, grade)` 依 id 序決定性切單元（4成語+2俚語+4字音+4字形），過關狀態存 state.units["gX-uY"]；教學卡 view-lesson、列表 view-units
