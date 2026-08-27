@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 兩站的「分項統計」都已完成上線（K12Review v64 commit b9fbfec／LanExamMock v32 commit fe9db51，含 568 min bug 與拼寫回合不計時）。只剩防亂寫要 Tony 選：A 解析確認題／B 低正確率要重做到全對／C 家長鎖任務長度／D 每題最短作答時間／E 家長頁標紅（我建議 A+B+C，訊息 id 919 已問）。選完改 ~/TelegramClaude/LanExamMock/js/app.js
+NEXT_ACTION: 兩站的分項統計都已上線（K12Review v64 b9fbfec／LanExamMock v32 fe9db51）。只剩 LanExamMock 防亂寫，等 Tony 回是否照修正版 A′+B′+C′ 做（訊息 id 923）。⚠️ 原本的 B「正確率 <60% 要重做」已作廢——Tony 2026-08-27 指出女兒做 CAE/CPE 認真做也常低於 60%，拿正確率當態度指標會冤枉她。改判定基準：看作答速度不看對錯，細節見下方「防亂寫（修正版）」
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 等 Tony 選防亂寫項目（訊息 id 919 已問）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-28 00:40 台北
+UPDATED: 2026-08-28 01:05 台北
 
 ## 已完成：K12Review（v64）
 
@@ -42,7 +42,21 @@ Tony 的三個抱怨與對應修法：
   並在拼寫分數旁標出拼寫用時 → 8/21 那筆 568 min 不會再出現
 - `test/browser-smoke.mjs` 新增 6 條家長頁測試（全過；`node test/test.js` 122,015 全過）
 
-## 待辦：LanExamMock 防亂寫（等 Tony 選）
+## 待辦：LanExamMock 防亂寫（修正版，等 Tony 回）
+
+**設計前提（Tony 2026-08-27 定案）**：兩個小孩程度差很多——女兒做 CAE/CPE 很自動但正確率天然低，
+兒子做 FCE 是亂按的那個。**所以認真與否只能用「有沒有花時間想」判定，不能用正確率**。
+好消息是 LanExamMock 每個 localStorage key 都有級數前綴（`fce.` / `cae.`），設定天然分級數各存各的，
+規則設在 FCE 不會套到 CAE/CPE，不管兩人是同帳號還是兩帳號。
+
+- **Ａ′ 解析確認題只追問「秒殺又答錯」的題**，認真想過才答錯的不追問
+- **Ｂ′ 重做的觸發改成「秒殺題數」**：當天 ≥3 題秒殺答錯 → 只重做那幾題（不是全部錯題）
+- **Ｃ′ 任務長度不鎖死，改家長可設下限**（例：FCE 下限 15、CAE/CPE 不設）；沒設＝維持現狀
+- **「秒殺」門檻**：不用固定秒數。用該使用者「該題型最近 30 題作答時間的中位數」當基準，
+  低於中位數 25% 才算；資料不足退回保守預設（寧可放過不要誤判）。
+  現成材料：`quiz.times[]`（每題秒數）、`drill.answersReadyAt`、`d25.rush`／`rushStreak`／`slowdown`
+
+原始選項與 Tony 的顧慮（保留備查）：
 
 Tony 2026-08-27 回報（附 Daily practice history 截圖）與查證結果：
 
