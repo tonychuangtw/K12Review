@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 逐題撰寫解析確認題。管線已就緒（js/chk-gen.js 形狀判斷、tools/chk-todo.js 待辦清單、js/data/checks-custom.js 存放、test/test.js 驗收器）。**下一批從國語匯入題庫 custom 的 x050 開始**：`node tools/chk-todo.js custom 20 --json` 取題 → 逐題寫進 js/data/checks-custom.js → `node test/test.js` 全綠 → commit。目前已寫 13 題（八上第1課 x018–x047），總待寫 56,933
+NEXT_ACTION: 逐題撰寫解析確認題。管線已就緒（js/chk-gen.js 形狀判斷、tools/chk-todo.js 待辦清單、js/data/checks-custom.js 存放、test/test.js 驗收器）。**下一批從國語匯入題庫 custom 的 x882 之後開始**：`node tools/chk-todo.js custom 30 --json` 取題 → 逐題寫進 js/data/checks-custom.js → `node test/test.js` 全綠 → commit。目前已寫 517 題（八上第1～3課），總待寫約 56,400
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 等 Tony 選防亂寫項目（訊息 id 919 已問）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-28 04:10 台北
+UPDATED: 2026-08-28 13:30 台北
 
 ## 已完成：K12Review（v64）
 
@@ -108,6 +108,17 @@ Tony 的三個抱怨與對應修法：
 5. **過渡期**：Ｃ型先留著當閘門，每跑完一批換成真的題目，不會有空窗
 
 已回報 Tony（訊息 id 929）：先做管線 + 跑 500 題給他看品質，點頭再放全量。
+
+**2026-08-28 進度：500 題品質樣本已完成（實寫 517 題）**，全部逐題人工撰寫、機器驗收零缺失
+（正解關鍵詞必在該題自己的解析裡、4 選項不重複、無爛誘答、無位置指涉、答案位置 130/129/130/128）。
+範圍是國語匯入題庫八上第1～3課（x018–x881）。每批 30 題一 commit，共 18 批。
+**在等 Tony 看過樣本點頭，再決定要不要放全量（剩約 56,400 題）。**
+
+順手修好的三個匯入題庫老 bug（同一天，已 commit）：
+1. 165 題題幹開頭有 Word EQ 轉檔亂碼 `,\S\do -9(０))` → 清掉
+2. 57 題克漏字題幹被截斷成「……，（」就沒了 → 依 `~/TelegramClaude/chinese-sources` 原檔補回整篇文章與空格編號
+3. 592 題題幹只寫「（承上題）」，單獨抽出來無法作答 → 158 個題組共 750 題重寫題幹，補回整篇文章＋標明本題填第幾個空格
+4. 25 題克漏字解析只寫「X，最符合文意」沒有詞義 → 逐詞補寫定義（其中 22 題因此升級成程式可自動出題的Ａ型）
 
 ## 待辦：LanExamMock 防亂寫（第三版，其餘項目）
 
