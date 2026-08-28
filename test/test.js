@@ -396,7 +396,7 @@ console.log('全科架構 / 自創分冊分課 / 解析強化');
   const fs = require('fs');
   const path = require('path');
   const strokeDir = path.join(__dirname, '..', 'strokes');
-  const KNOWN_NO_DATA = ['揹', '譁', '縝', '靄', '譟', '靨']; // 筆順資料庫查無此字,前端已改顯示標楷體靜態字
+  const KNOWN_NO_DATA = ['揹', '譁', '縝', '靄', '譟', '靨', '鎚']; // 筆順資料庫查無此字,前端已改顯示標楷體靜態字
   const lackStroke = D.chars
     .map(c => c.answer)
     .filter(ch => ch && KNOWN_NO_DATA.indexOf(ch) < 0)
