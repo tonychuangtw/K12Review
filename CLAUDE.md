@@ -30,6 +30,9 @@
 - 加題直接改 `js/data/*.js`，遵守檔頭既有 schema；id 連號不重複、grade 1-12、繁體台灣用字
 - ⚠️ **新增字形題（chars.js）後必跑 `node tools/fetch-strokes.js` 補筆順資料**，否則手寫練習顯示答案時沒有一筆一劃的動畫（2026-08-13 Tony 回報；test.js 已加守門，缺字會測試失敗）
 - ⚠️ **新增成語／字音／字形題後必須同時寫「解析確認題」**到 `js/data/checks-{idioms,phonics,chars}.js`（`{q, o:[4], a}`，答案只能在該題自己的 deep 解析裡找得到），2026-08-17 起 `test/test.js` 要求 100% 覆蓋，漏寫會測試失敗
+- ⚠️ **新增字音題（phonics.js）必須寫 `wz`（整詞注音，空格分隔）**，例：拘泥 → `wz:"ㄐㄩ ㄋㄧˋ"`。
+  2026-08-28 Tony 回報「『拘泥』只標『泥』讀ㄋㄧˋ，孩子不知道『拘』怎麼念」；test.js 要求 100% 覆蓋，
+  且會檢查音節數＝字數、目標字那一格要等於 zhuyin。多音字不可用機器推，一律人工判斷
 - 注音規則：一聲不標調號、輕聲 ˙ 前置、詞注音字間空格；拼音含聲調符號
 - 字音以教育部《國語一字多音審訂表》審訂音為準
 - ⚠️ **改到 `js/` 或 `css/` 的內容，push 前一定要跑 `python3 tools/stamp-version.py`**（把 index.html 裡本站 js/css 的 `?v=` 換成今天），否則使用者手機會拿到快取的舊檔——GitHub Pages 回 `Cache-Control: max-age=600`，2026-08-21 Tony 回報「我看還是有鎖」就是這個原因（程式已改好、線上檔案也對，只是他手機拿到舊的 app.js）。同一天上第二次版就傳參數：`python3 tools/stamp-version.py 20260821b`

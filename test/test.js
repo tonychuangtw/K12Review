@@ -109,6 +109,8 @@ ok(D.phonics.every(i => i.word.includes(i.target) && ZY_CHAR.test(i.zhuyin) && i
 /* 整詞注音 wz（Tony 2026-08-28）：有 wz 的題目，音節數要等於字數，
    且目標字那一格的注音要跟 zhuyin 一致——標錯位置比沒標更糟。 */
 {
+  ok(D.phonics.every(i => i.wz),
+    `字音每一題都有整詞注音 wz（缺 ${D.phonics.filter(i => !i.wz).length} 筆）`);
   const withWz = D.phonics.filter(i => i.wz);
   const bad = withWz.filter(i => {
     const chs = [...i.word], zs = String(i.wz).split(/\s+/);
