@@ -3349,9 +3349,50 @@
   /* ---------- 手寫練習（看注音寫國字） ---------- */
 
   var wr = null;
+
+  /* 不重複輪替（Tony 2026-08-28 回報：兒子說手寫一直在練同幾個字）——
+     以前每次都從整個年級的字裡隨機抽 10 個，字數不多時當然一直碰到重複的。
+     改成一輪把該範圍的字「全部練過一次」才會再出現：練過的記在
+     state.writeSeen[年級|學期]，湊不滿 10 個就把剩下的補完並開新一輪。 */
+  function writeKey() { return state.grades.join(',') + termSuffix(); }
+  function writeSeen() {
+    var m = (state.writeSeen = state.writeSeen || {});
+    var k = writeKey();
+    if (!Array.isArray(m[k])) m[k] = [];
+    return m[k];
+  }
+  function writePick(n) {
+    var all = pool('chars');
+    if (!all.length) return [];
+    var seen = writeSeen(), set = {};
+    seen.forEach(function (id) { set[id] = 1; });
+    var left = all.filter(function (it) { return !set[it.id]; });
+    if (left.length < n) {                 // 一輪練完 → 剩下的先出完，再開新一輪
+      var take = shuffle(left);
+      state.writeSeen[writeKey()] = take.map(function (it) { return it.id; });
+      if (take.length >= n || !take.length) { save(); return take.slice(0, n); }
+      var rest = shuffle(all.filter(function (it) {
+        return take.indexOf(it) < 0;
+      })).slice(0, n - take.length);
+      state.writeSeen[writeKey()] = take.concat(rest).map(function (it) { return it.id; });
+      save();
+      return take.concat(rest);
+    }
+    var picked = shuffle(left).slice(0, n);
+    state.writeSeen[writeKey()] = seen.concat(picked.map(function (it) { return it.id; }));
+    save();
+    return picked;
+  }
+  // 這一輪還剩幾個字沒練到（顯示給學生看，知道練完了沒）
+  function writeLeft() {
+    var all = pool('chars').length;
+    var seen = writeSeen().length;
+    return { all: all, left: Math.max(0, all - seen) };
+  }
+
   // startWrite()＝一般 10 題；startWrite(items,'wrongbook')＝錯題本手寫重練（練完可回錯題本）
   function startWrite(itemsArg, backTo) {
-    var items = Array.isArray(itemsArg) ? itemsArg.slice() : shuffle(pool('chars')).slice(0, 10);
+    var items = Array.isArray(itemsArg) ? itemsArg.slice() : writePick(10);
     if (!items.length) { UIDialog.alert('這個年級目前沒有題目。'); return; }
     wr = { items: items, i: 0, score: 0, attempt: 1, judged: false, curData: null,
            backTo: backTo || null };
@@ -3447,8 +3488,13 @@
       var r = $('writeResult');
       var fromWb = wr.backTo === 'wrongbook';
       var sameItems = wr.items;
+      var wl2 = fromWb ? null : writeLeft();
       r.innerHTML = '手寫練習結束<br><b style="font-size:1.6rem">' + wr.score + ' / ' + wr.items.length +
-        '</b><br><button class="btn-primary" id="writeAgain">' + (fromWb ? '再練一次這些字' : '再來一回合') + '</button>' +
+        '</b>' +
+        (wl2 ? '<div class="prog-hint">這個範圍共 ' + wl2.all + ' 個字，' +
+          (wl2.left ? '本輪還有 <b>' + wl2.left + '</b> 個字沒練到——練過的字這一輪不會再出現。'
+                    : '本輪已經全部練過一次了！下一回合會重新開始新的一輪。') + '</div>' : '') +
+        '<br><button class="btn-primary" id="writeAgain">' + (fromWb ? '再練一次這些字' : '再來一回合') + '</button>' +
         (fromWb ? ' <button class="btn-ghost" id="writeBack">回錯題本</button>' : '');
       r.classList.remove('hidden');
       $('writeAgain').addEventListener('click', function () {
@@ -3464,7 +3510,9 @@
     var reading = state.phon === 'zhuyin' ? it.zhuyin : it.pinyin;
     $('writeProgress').textContent = (wr.i + 1) + ' / ' + wr.items.length;
     $('writeScore').textContent = '寫對 ' + wr.score;
-    $('writeTag').textContent = '手寫 · ' + gradeLabel(it.grade);
+    var wl = writeLeft();
+    $('writeTag').textContent = '手寫 · ' + gradeLabel(it.grade) +
+      (wr.backTo ? '' : ' · 本輪還剩 ' + wl.left + ' / ' + wl.all + ' 字');
     $('writePrompt').textContent = it.sentence + '\n括號中讀「' + reading + '」— 請在下方寫出這個字';
     $('writeAnswer').classList.add('hidden');
     $('writeAnswer').textContent = it.answer;

@@ -345,7 +345,42 @@ await session(8733, 9333, { blockWriter: false, seed: seedWrong(['c001']) }, asy
       var g = (JSON.parse(localStorage.getItem('chinese-review-v1')).gen) || {};
       var k = Object.keys(g)[0]; return !!k && g[k].n >= 1;})()`));
 
-    /* 逐題作答紀錄（Tony 2026-08-28）：做過的題目要能回頭再看 */
+    /* 手寫練習不重複輪替（Tony 2026-08-28：兒子說一直練同幾個字）*/
+  await js(`window.NavDebug.go('home')`);
+  await sleep(300);
+  await js(`document.querySelector('.card[data-go="write"]').click()`);
+  await sleep(600);
+  const w1 = await js(`(function(){var m=(JSON.parse(localStorage.getItem('chinese-review-v1')).writeSeen)||{};
+    var k=Object.keys(m)[0]; return k? m[k].length : 0;})()`);
+  check('手寫第一輪記下練過哪些字', w1 >= 1, String(w1));
+  check('練習畫面顯示本輪還剩幾個字',
+    await js(`/本輪還剩/.test(document.getElementById('writeTag').textContent)`),
+    await js(`document.getElementById('writeTag').textContent`));
+  await js(`document.getElementById('writeExit').click()`);
+  await sleep(300);
+  await js(`(function () { var b = document.querySelector('.dlg-ok, .dialog-ok, #dlgOk, .btn-good'); if (b) b.click(); })()`);
+  await sleep(300);
+  await js(`window.NavDebug.go('home')`);
+  await sleep(300);
+  await js(`document.querySelector('.card[data-go="write"]').click()`);
+  await sleep(600);
+  const w2 = await js(`(function(){var m=(JSON.parse(localStorage.getItem('chinese-review-v1')).writeSeen)||{};
+    var k=Object.keys(m)[0]; return k? m[k].length : 0;})()`);
+  check('第二輪抽到的是沒練過的字（累計字數增加）', w2 > w1, w1 + ' → ' + w2);
+  check('同一輪內不重複（沒有重複的 id）', await js(`(function(){
+    var m=(JSON.parse(localStorage.getItem('chinese-review-v1')).writeSeen)||{};
+    var k=Object.keys(m)[0]; if(!k) return false;
+    var a=m[k]; return a.length === new Set(a).size;})()`));
+  await js(`document.getElementById('writeExit').click()`);
+  await sleep(300);
+  await js(`(function () { var b = document.querySelector('.dlg-ok, .dialog-ok, #dlgOk, .btn-good'); if (b) b.click(); })()`);
+  await sleep(300);
+  await js(`window.NavDebug.go('home')`);
+  await sleep(300);
+  await js(`document.querySelector('.card[data-go="idioms"]').click()`);
+  await sleep(700);
+
+  /* 逐題作答紀錄（Tony 2026-08-28）：做過的題目要能回頭再看 */
     check('刷題有寫進逐題紀錄 state.wlog', await js(`(function () {
       var w = (JSON.parse(localStorage.getItem('chinese-review-v1')).wlog) || {};
       var k = Object.keys(w)[0];
