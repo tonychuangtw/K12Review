@@ -926,3 +926,7 @@ body.anim-lock { overflow: hidden; }
 .wlog-ans { font-size: .95em; }
 .wlog-exp { font-size: .9em; opacity: .85; white-space: pre-wrap; margin-top: 4px; }
 .wlog-tag { font-size: .8em; font-weight: 400; opacity: .8; }
+
+/* 手寫練習「依課練習」晶片列（2026-08-28） */
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+.chip-row .chip .sub { font-size: .8em; opacity: .75; }

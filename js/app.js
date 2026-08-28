@@ -3371,7 +3371,27 @@
      以前每次都從整個年級的字裡隨機抽 10 個，字數不多時當然一直碰到重複的。
      改成一輪把該範圍的字「全部練過一次」才會再出現：練過的記在
      state.writeSeen[年級|學期]，湊不滿 10 個就把剩下的補完並開新一輪。 */
-  function writeKey() { return state.grades.join(',') + termSuffix(); }
+  function writeKey() { return state.grades.join(',') + termSuffix() + (state.writeLesson ? '|' + state.writeLesson : ''); }
+  /* 手寫練習可以只練某一冊某一課（Tony 2026-08-28：照課本進度複習）。
+     state.writeLesson = '四上|第1課'，空字串＝全部。有課次資料的字才進得了篩選。 */
+  function writePool() {
+    var all = pool('chars');
+    if (!state.writeLesson) return all;
+    var p = state.writeLesson.split('|');
+    return all.filter(function (it) { return it.book === p[0] && it.lesson === p[1]; });
+  }
+  // 目前年級有哪些冊／課（依 id 序，沒有課次資料的字不列）
+  function writeLessons() {
+    var seen = {}, out = [];
+    pool('chars').forEach(function (it) {
+      if (!it.book || !it.lesson) return;
+      var k = it.book + '|' + it.lesson;
+      if (seen[k]) return;
+      seen[k] = 1;
+      out.push({ key: k, book: it.book, lesson: it.lesson, tag: it.tag || '' });
+    });
+    return out;
+  }
   function writeSeen() {
     var m = (state.writeSeen = state.writeSeen || {});
     var k = writeKey();
@@ -3379,7 +3399,7 @@
     return m[k];
   }
   function writePick(n) {
-    var all = pool('chars');
+    var all = writePool();
     if (!all.length) return [];
     var seen = writeSeen(), set = {};
     seen.forEach(function (id) { set[id] = 1; });
@@ -3402,9 +3422,35 @@
   }
   // 這一輪還剩幾個字沒練到（顯示給學生看，知道練完了沒）
   function writeLeft() {
-    var all = pool('chars').length;
+    var all = writePool().length;
     var seen = writeSeen().length;
     return { all: all, left: Math.max(0, all - seen) };
+  }
+
+  /* 「依課練習」晶片列：有課次資料才出現，切換後重抽一輪 */
+  function renderWriteScope() {
+    var box = $('writeScope');
+    if (!box) return;
+    var ls = writeLessons();
+    if (!ls.length || (wr && wr.backTo)) { box.classList.add('hidden'); box.innerHTML = ''; return; }
+    box.classList.remove('hidden');
+    var cur = state.writeLesson || '';
+    var html = '<button type="button" class="chip' + (cur ? '' : ' active') + '" data-wls="">全部</button>';
+    ls.forEach(function (l) {
+      html += '<button type="button" class="chip' + (cur === l.key ? ' active' : '') + '" data-wls="' +
+        escHtml(l.key) + '">' + escHtml(l.book + ' ' + l.lesson) +
+        (l.tag ? '<span class="sub"> ' + escHtml(l.tag) + '</span>' : '') + '</button>';
+    });
+    box.innerHTML = html;
+    box.querySelectorAll('[data-wls]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var k = b.getAttribute('data-wls');
+        if ((state.writeLesson || '') === k) return;
+        state.writeLesson = k;
+        save();
+        startWrite();          // 換範圍＝重新抽一輪
+      });
+    });
   }
 
   // startWrite()＝一般 10 題；startWrite(items,'wrongbook')＝錯題本手寫重練（練完可回錯題本）
@@ -3527,6 +3573,7 @@
     var reading = state.phon === 'zhuyin' ? it.zhuyin : it.pinyin;
     $('writeProgress').textContent = (wr.i + 1) + ' / ' + wr.items.length;
     $('writeScore').textContent = '寫對 ' + wr.score;
+    renderWriteScope();
     var wl = writeLeft();
     $('writeTag').textContent = '手寫 · ' + gradeLabel(it.grade) +
       (wr.backTo ? '' : ' · 本輪還剩 ' + wl.left + ' / ' + wl.all + ' 字');
