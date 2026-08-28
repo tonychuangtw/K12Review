@@ -11,7 +11,7 @@ NEXT_ACTION: 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-28 19:40 台北
+UPDATED: 2026-08-28 21:10 台北
 
 ### 2026-08-28 插曲二：課本生字工程（Tony msg 964／966／968／973）
 - 手寫練習一直重複同幾十個字 → 機制面已修（不重複輪替、依課練習），內容面補課本生字
@@ -19,7 +19,11 @@ UPDATED: 2026-08-28 19:40 台北
 - 生字來源：教育部教育雲生字詞彙表（115 學年度），題目全部自撰不抄課本
 - **康軒四上 12 課 180 字（c661–c840）＋四下 12 課 180 字（c841–c1020）全數完成**，各含例句／注音／易混字／兩段解析／筆順／解析確認題（v70 上線）
 - 四下來源：教育雲 114_2（115_2 未公布），開學後核對課名；來源檔 docs/source/kanghsuan-4b-chars.{json,md}
-- 下一步：翰林八上 → 翰林八下
+- 翰林八上／八下：教育雲沒有國中生字表（只做到小六，已實測三個學年度×三家版本皆空）。
+  已完成文言文 5 課 75 字（八上第4課愛蓮說 c1021–c1035、第7課張釋之執法 c1066–c1080；
+  八下第2課木蘭詩 c1051–c1065、第5課陋室銘 c1036–c1050、第8課空城計 c1081–c1095），例句取自課文原句
+- 下一步：等 Tony 拍翰林國文八上／八下課本（或習作）每課的「字詞／生難字詞」頁，白話課文照課本編；
+  已於 2026-08-28 用 Telegram 請他拍（msg 983）。有照片就一課一課補，沒有的課先跳過不猜
 
 ### 2026-08-28 插曲三：LanExamMock 兩項回報（Tony msg 976／977）
 - 拼寫回合那 10 個字看不到：逐日紀錄找不到 spell 時，改從每日紀錄 rec.spell.words 補上；
