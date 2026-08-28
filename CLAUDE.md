@@ -54,7 +54,9 @@
   2026-08-28 Tony 回報「『拘泥』只標『泥』讀ㄋㄧˋ，孩子不知道『拘』怎麼念」；test.js 要求 100% 覆蓋，
   且會檢查音節數＝字數、目標字那一格要等於 zhuyin。多音字不可用機器推，一律人工判斷
 - 注音規則：一聲不標調號、輕聲 ˙ 前置、詞注音字間空格；拼音含聲調符號
-- 字音以教育部《國語一字多音審訂表》審訂音為準
+- 字音以教育部《國語一字多音審訂表》審訂音為準。⚠️ **新增或修改字音／字形／成語題後，跑 `node tools/moe-zy-audit.js`**（會自動下載教育部《國語辭典簡編本》開放資料到 .cache/ 比對每一條注音；該辭典編輯說明載明字音參照審訂表，是中小學該用的那本）。
+  ⛔ 不要拿《重編國語辭典修訂本》當依據 —— 它是兼收古今音的歷史語言辭典，跟簡編本在「蜿蜒」「包紮」這類詞會給不同的音；教育部自己也標示中小學宜用簡編本／國語小字典。
+  來由：2026-08-28 Tony 的兒子（小四）發現「湖泊」正解給 ㄆㄛ、正確的 ㄅㄛˊ 反而在錯誤選項裡；一掃才知道字音 58、字形 19、成語 25 共 97 條不是審訂音（已全數修正，codex 覆核無誤）。憑印象寫注音會錯，一定要對表。
 - ⚠️ **改到 `js/` 或 `css/` 的內容，push 前一定要跑 `python3 tools/stamp-version.py`**（把 index.html 裡本站 js/css 的 `?v=` 換成今天），否則使用者手機會拿到快取的舊檔——GitHub Pages 回 `Cache-Control: max-age=600`，2026-08-21 Tony 回報「我看還是有鎖」就是這個原因（程式已改好、線上檔案也對，只是他手機拿到舊的 app.js）。同一天上第二次版就傳參數：`python3 tools/stamp-version.py 20260821b`
 - push 到 main 即自動上 Pages（2026-08-18 起走 GitHub Actions `.github/workflows/pages.yml`＋`.nojekyll`；舊的 legacy Jekyll builder 當天起每次都 duration=0 直接失敗，改成 Actions 後恢復。部署約 4-8 分鐘，用 `gh run list --repo tonychuangtw/K12Review` 查狀態）
 - 日期一律用 app.js 的 `fmtDate`（本地時區），不要用 `toISOString`（UTC 會差 8 小時）
