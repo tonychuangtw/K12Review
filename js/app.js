@@ -376,7 +376,10 @@
 
   // 每日練習組卷：回傳 entry 清單 [{t, id, syn?, qi?}]，同一種子必產出同一組。
   // counts 可覆寫各類題數（弱點加權用），預設共 22 題 + 1 篇閱讀題組（2-3 題）≈ 25 題。
-  function composeDaily(data, grades, seed, counts) {
+  /* seen：已經出過的題（{ 't:id': 1 }）。抽題時優先抽沒出過的，某一類剩下的不夠出時
+     才整池重抽（＝自動開新一輪）。2026-08-28 Tony：「練習做的題目都盡量不重複」。
+     不傳 seen 的話行為與舊版完全相同（測試與家長檢視的回溯重組都靠這一點）。 */
+  function composeDaily(data, grades, seed, counts, seen) {
     var c = counts || {};
     var n = {
       idioms: c.idioms != null ? c.idioms : 6,
@@ -386,7 +389,12 @@
     };
     var rng = rngFromString(seed);
     var entries = [];
-    function poolOf(cat) { return filterByGrades(data[cat] || [], grades); }
+    function poolOf(cat) {
+      var all = filterByGrades(data[cat] || [], grades);
+      if (!seen) return all;
+      var fresh = all.filter(function (it) { return !seen[cat + ':' + it.id]; });
+      return fresh.length >= (n[cat] || 1) ? fresh : all;
+    }
     seededPick(poolOf('idioms'), n.idioms, rng).forEach(function (it, i) {
       // 前兩題若有同義詞資料就出同義題
       entries.push({ t: 'idioms', id: it.id, syn: i < 2 && (it.syn || []).length > 0 });
@@ -409,9 +417,15 @@
   }
 
   // 題庫型科目（社會等）的每日練習：同日同科同一組題（種子＝日期|科目），依題庫順序抽 n 題
-  function composeDailyBank(bank, seed, n) {
+  function composeDailyBank(bank, seed, n, seen) {
     var rng = rngFromString(seed);
-    return seededPick(bank || [], n || 20, rng).map(function (it) {
+    var want = n || 20;
+    var pool = bank || [];
+    if (seen) {
+      var fresh = pool.filter(function (it) { return !seen[quizCatOf(it) + ':' + it.id]; });
+      if (fresh.length >= want) pool = fresh;
+    }
+    return seededPick(pool, want, rng).map(function (it) {
       return { t: quizCatOf(it), id: it.id };
     });
   }
@@ -1785,7 +1799,7 @@
     var p = filterByGrades(DATA[key], state.grades);
     if (!p.length) p = DATA[key];
     if (!p.length) { UIDialog.alert('這科還沒有題目。'); return; }
-    var entries = shuffle(p).slice(0, 10).map(function (it) { return { t: key, id: it.id }; });
+    var entries = pickUnseen(p, 10, key).map(function (it) { return { t: key, id: it.id }; });
     beginQuiz(entries, 'normal', key);
   }
 
@@ -1797,12 +1811,22 @@
   // 這一批不是任何一個真實題庫（cat = 'mixed'），所以結束後要自己再抽一批，
   // 不能走 startQuiz('mixed', null) —— 那會去找不存在的 DATA.mixed。
   function startMixedRound() {
-    var items = shuffle(pool('idioms').concat(pool('phonics')).concat(pool('chars'))).slice(0, 10);
+    var items = pickUnseen(pool('idioms').concat(pool('phonics')).concat(pool('chars')), 10);
     if (!items.length) { UIDialog.alert('這個年級目前沒有題目，換個年級或勾選加練年級。'); return; }
     startQuiz('mixed', items);
   }
+  /* 從 items 中挑 n 題，沒出過的優先；不夠時才拿出過的補滿。
+     用在首頁的分類練習、混合練習與各科練習（2026-08-28 Tony：練習題目盡量不重複）。 */
+  function pickUnseen(items, n, cat) {
+    var m = seenSet();
+    function key(it) { return (cat || it._t || quizCatOf(it)) + ':' + it.id; }
+    var fresh = [], used = [];
+    (items || []).forEach(function (it) { (m[key(it)] ? used : fresh).push(it); });
+    return shuffle(fresh).concat(shuffle(used)).slice(0, n);
+  }
+
   function startQuiz(cat, itemsOverride) {
-    var items = itemsOverride || shuffle(pool(cat)).slice(0, 10);
+    var items = itemsOverride || pickUnseen(pool(cat), 10, cat);
     if (!items.length) { UIDialog.alert('這個年級目前沒有題目，換個年級或勾選「含以下年級」。'); return; }
     beginQuiz(itemsToEntries(items), itemsOverride ? 'retry' : 'normal', cat);
   }
@@ -1845,6 +1869,9 @@
   };
 
   function beginQuiz(entries, mode, cat) {
+    // 出過就記下來，之後的練習盡量不重複（2026-08-28 Tony 要求）。
+    // 'retry'（錯題重做）本來就是要再考一次，不記。
+    if (mode !== 'retry') markSeen(entries);
     quiz = {
       entries: entries, i: 0, score: 0, mode: mode, cat: cat,
       round: 1, firstTry: {}, wrongNow: [], startedAt: Date.now(), combo: 0, best: 0,
@@ -3009,6 +3036,28 @@
     setStatusToast('接續上次進度，從第 ' + (quiz.i + 1) + ' 題繼續 👍');
   }
 
+  /* ---- 「盡量不重複」的出題紀錄（2026-08-28 Tony 要求） ----
+     state.seen[範圍] = { 't:id': 1 }。範圍＝dailyScope()（科目＋年級＋學期），
+     所以換年級／換科目各自獨立計算。整池都出過了就自動清空、開新一輪。 */
+  function seenSet() {
+    if (!state.seen || typeof state.seen !== 'object') state.seen = {};
+    var k = dailyScope();
+    if (!state.seen[k] || typeof state.seen[k] !== 'object') state.seen[k] = {};
+    var m = state.seen[k];
+    // 這個範圍的總題數：出過的已經涵蓋整池就重新開始（否則會永遠退回整池亂抽）
+    var total = isChinese()
+      ? ['idioms', 'slang', 'phonics', 'chars', 'reading']
+          .reduce(function (a, c) { return a + filterByGrades(DATA[c] || [], state.grades).length; }, 0)
+      : (mainPool().length ? mainPool() : bankFallback()).length;
+    if (total && Object.keys(m).length >= total) { m = state.seen[k] = {}; }
+    return m;
+  }
+  function markSeen(entries) {
+    var m = seenSet();
+    (entries || []).forEach(function (e) { if (e && e.t && e.id) m[e.t + ':' + e.id] = 1; });
+    save();
+  }
+
   function startDaily() {
     var rec = dailyRec();
     if (rec && rec.done) { showDailySummary(rec); return; }
@@ -3021,17 +3070,18 @@
     // 弱點加權：正確率最低的類別 +2 題、最高的 -2 題
     var ws = isChinese() ? weakStrong(state.stats) : null;
     var entries;
+    var seen = seenSet();                 // 這個範圍出過的題，抽題時優先跳過
     if (isChinese()) {
       var counts = { idioms: 6, slang: 4, phonics: 6, chars: 6 };
       if (ws) {
         counts[ws.weak] += 2;
         if (counts[ws.strong] > 3) counts[ws.strong] -= 2;
       }
-      entries = composeDaily(DATA, state.grades, today() + '|' + state.grades.join(','), counts);
+      entries = composeDaily(DATA, state.grades, today() + '|' + state.grades.join(','), counts, seen);
     } else {
       // 題庫型科目：同日同科出同一組（種子＝日期|科目），依冊/課順序不重複抽 20 題
       var dBank = mainPool().length ? mainPool() : bankFallback();
-      entries = composeDailyBank(dBank, today() + '|' + curSubj(), 20);
+      entries = composeDailyBank(dBank, today() + '|' + curSubj(), 20, seen);
     }
     if (entries.length < 5) { UIDialog.alert(isChinese() ? '所選年級題目不足，請多勾幾個年級。' : '這一科題目不足。'); return; }
     // 記下今天實際出了哪些題（總結測驗依此精確重組當日題組）
@@ -3041,11 +3091,17 @@
     state.daily[dk] = recPrev;
     save();
     // 錯題到期複習：最多 3 題混入今日練習
+    // ⚠️ 要先排除今天本來就抽到的題，否則同一份練習會出兩次（2026-08-28 Tony 回報）
     var t = today();
-    state.wrong.filter(function (w) { return (w.due || t) <= t && refIsCur(w); }).slice(0, 3)
+    var already = {};
+    entries.forEach(function (e) { already[e.t + ':' + e.id] = 1; });
+    state.wrong.filter(function (w) {
+      return (w.due || t) <= t && refIsCur(w) && !already[w.t + ':' + w.id];
+    }).slice(0, 3)
       .forEach(function (w) {
         var e = { t: w.t, id: w.id, rev: true };
         if (w.t === 'chars' && w.wr) e.hw = true;   // 手寫錯的字混進每日練習時一樣手寫
+        already[w.t + ':' + w.id] = 1;
         entries.push(e);
       });
     beginQuiz(entries, 'daily', null);

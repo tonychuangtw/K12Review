@@ -241,6 +241,21 @@ console.log('每日練習');
   ok(w.filter(e => e.t === 'idioms').length === 8 && w.filter(e => e.t === 'chars').length === 4, '弱點加權可調各類題數');
   ok(PURE.dailyStreak({ '2026-08-01': { done: true }, '2026-08-02': { done: true } }, '2026-08-02') === 2, '連續天數計算（今天已做）');
   ok(PURE.dailyStreak({ '2026-08-01': { done: true } }, '2026-08-02') === 1, '連續天數計算（今天未做從昨天回數）');
+  /* 2026-08-28 Tony：「練習做的題目都盡量不重複」——出過的題要優先跳過 */
+  {
+    const seen = {};
+    a.forEach(e => { seen[e.t + ':' + e.id] = 1; });
+    const next = PURE.composeDaily(D, G, '2026-08-02|x', null, seen);
+    const dup = next.filter(e => seen[e.t + ':' + e.id]);
+    ok(dup.length === 0, `帶 seen 時不會重出出過的題（重複 ${dup.length} 題）`);
+    ok(next.length >= 22, `帶 seen 時題數不縮水（實際 ${next.length}）`);
+    // 整池都出過時要能退回整池（不然會抽不到題）
+    const allSeen = {};
+    ['idioms', 'slang', 'phonics', 'chars', 'reading'].forEach(c =>
+      PURE.filterByGrades(D[c] || [], G).forEach(it => { allSeen[c + ':' + it.id] = 1; }));
+    const fallback = PURE.composeDaily(D, G, '2026-08-02|x', null, allSeen);
+    ok(fallback.length >= 22, `整池出完時自動重來（實際 ${fallback.length}）`);
+  }
 }
 
 console.log('總結測驗');
