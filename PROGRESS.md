@@ -4,11 +4,14 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 逐題撰寫解析確認題。管線已就緒（js/chk-gen.js 形狀判斷、tools/chk-todo.js 待辦清單、js/data/checks-custom.js 存放、test/test.js 驗收器）。**下一批從國語匯入題庫 custom 的 x882 之後開始**：`node tools/chk-todo.js custom 30 --json` 取題 → 逐題寫進 js/data/checks-custom.js → `node test/test.js` 全綠 → commit。目前已寫 517 題（八上第1～3課），總待寫約 56,400
+ 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八上 → 八下 → 五上**（他還說了五下，但題庫裡根本沒有五下，已回他要先給題本才能做）。
+取題：`node tools/chk-todo.js custom 30 --book=八上 --json`（--book= 是 08-28 加的過濾）→ 逐題寫進 js/data/checks-custom.js → `node test/test.js` 全綠 → commit。
+一批 30 題。五上要寫三個題庫：custom（國語 1,227）、scienceCustom（自然 2,084）、socialCustom（社會 1,586）。
+目前已寫 637 題（八上寫到 x1056）；八上還剩約 3,580、八下 2,504、五上 4,897
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 等 Tony 看過 500 題品質樣本點頭，才放全量（2026-08-28 已回報）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
+BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-28 13:30 台北
+UPDATED: 2026-08-28 15:10 台北
 
 ## 已完成：K12Review（v64）
 
