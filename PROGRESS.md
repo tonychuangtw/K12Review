@@ -11,7 +11,7 @@ NEXT_ACTION: 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 03:40 台北
+UPDATED: 2026-08-29 04:10 台北
 
 ### 2026-08-28 插曲：兩站新增「那天做過的題目」回看功能（Tony msg 959）
 - LanExamMock v36：錯題本從 Progress 移到 Review；Review 新增「What you did」逐日作答紀錄
@@ -36,7 +36,7 @@ UPDATED: 2026-08-29 03:40 台北
    （教育部教育雲生字詞彙表 115 學年度，康軒四上 12 課 × 15 字＝180 字，含語詞）。
    抓法：`Bookmark/Textword?year=115_1&degree=<年級>&subject=國語文&press=<版本>` 取課次 id，
    再 `Bookmark/TCollection?TextNameId=<id>` 取該課生字語詞。翰林八上八下同法可取。
-   **Tony 已確認第一課與課本相符（msg 971），開工中。第1課 15 字（c661–c675）已完成上線 v69。**
+   **Tony 已確認第一課與課本相符（msg 971），開工中。第1–3課各 15 字（c661–c705）已完成。**
    各科版本（Tony msg 973）：國小 國語康軒／數學南一／自然南一／社會康軒；
    國中 國文·理化·生物·英文翰林／數學南一／社會康軒 —— 已寫進 CLAUDE.md。
    編法：chars.js schema ＋新增 book（四上）/lesson（第1課）/tag（課名）欄位；
