@@ -11,6 +11,8 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題**已全部寫完（待�
 （「辨析：Ａ＝詞（從部首）」「Ｘ＝意思；Ｙ＝意思」「「字」從Ｘ，讀ㄅ…」），改用 scratchpad 的 mkchecks.py
 依解析原文機械生成選項（正解一律取自解析原文、誘答由解析或原題錯誤選項推出），每批仍逐批跑 test.js 驗證，
 不符合已知形狀的題（約 60 題）逐題人工寫。腳本留在 scratchpad，之後要處理各科題庫可以沿用。
+補記：各科自編原創題（science/math/english/history…）的解析是「✅正解：… ❌其他選項：… 📚課綱重點：…」
+的固定三段式，同一支腳本加一種形狀就能生（問「其他選項」那段或「課綱重點」那段），要做隨時可以接。
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
