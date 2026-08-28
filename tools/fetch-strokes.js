@@ -11,7 +11,7 @@ const https = require('https');
 const ROOT = path.join(__dirname, '..');
 const STROKE_DIR = path.join(ROOT, 'strokes');
 // 筆順資料庫查無此字,前端會改顯示標楷體靜態字+說明,不必重試
-const KNOWN_NO_DATA = ['揹', '譁', '縝', '靄', '譟', '靨', '鎚', '粿'];
+const KNOWN_NO_DATA = ['揹', '譁', '縝', '靄', '譟', '靨', '鎚', '粿', '韉'];
 
 global.window = { APP_DATA: {} };
 eval(fs.readFileSync(path.join(ROOT, 'js/data/chars.js'), 'utf8'));
