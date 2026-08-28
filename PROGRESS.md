@@ -11,7 +11,7 @@ NEXT_ACTION: 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-28 23:10 台北
+UPDATED: 2026-08-29 00:10 台北
 
 ### 2026-08-28 插曲：兩站新增「那天做過的題目」回看功能（Tony msg 959）
 - LanExamMock v36：錯題本從 Progress 移到 Review；Review 新增「What you did」逐日作答紀錄
@@ -19,6 +19,12 @@ UPDATED: 2026-08-28 23:10 台北
 - K12Review v66：總結測驗頁新增「每天做過的題目」（state.wlog，依練習項目分區塊）
 - 兩站測試全過並已上線（快取版號 20260828b）
 - 同線其他案子檢查：MathReviewWu 無作答題庫不受影響；CamReview 學生缺「歷史作業」入口，已回報 Tony 待決定
+
+### 2026-08-28 插曲2：手寫練習不重複輪替（Tony msg 964）
+- 兒子回報手寫一直練同幾個字 → 原因是每回合 shuffle(pool).slice(0,10) 不記錄練過的
+- 已修：state.writeSeen 記本輪練過的字，只從沒練過的抽；UI 顯示「本輪還剩 N/共 M 字」（v67，20260828c 已上線）
+- 另一個原因是內容量：字形辨正題庫國小各年級 27/37/49/55/56/74 字，非課本生字表
+  → 已回報 Tony，等他決定要不要逐字補到各年級 150 字（約需新增 600+ 字）
 
 ## 已完成：K12Review（v64）
 
