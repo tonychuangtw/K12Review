@@ -478,7 +478,8 @@ console.log('解析確認題');
      中文沒有詞界，用「連續 3 字」比用「詞」穩：模型自己編的答案幾乎不可能連續 3 字命中，
      而照解析寫的答案一定命中 —— 順帶逼出「選項要用解析自己的話」這個好習慣。 */
   function groundedIn(text, exp) {
-    const strip = t => String(t || '').replace(/[^一-鿿A-Za-z0-9]+/g, '');
+    // 注音符號（含調號）也算內容：字音題的解析常常整句只有注音，全部濾掉就無從比對
+    const strip = t => String(t || '').replace(/[^一-鿿A-Za-z0-9\u3105-\u312F\u02C7\u02CA\u02CB\u02D9]+/g, '');
     const a = strip(text), b = strip(exp);
     if (!a) return true;                             // 純符號／數字的選項不強求
     if (a.length < 3) return b.indexOf(a) >= 0;
