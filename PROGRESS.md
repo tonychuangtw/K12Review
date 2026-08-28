@@ -11,7 +11,14 @@ NEXT_ACTION: 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-28 17:50 台北
+UPDATED: 2026-08-28 15:40 台北
+
+### 2026-08-28 插曲：兩站新增「那天做過的題目」回看功能（Tony msg 959）
+- LanExamMock v36：錯題本從 Progress 移到 Review；Review 新增「What you did」逐日作答紀錄
+  （<level>.worklog，來源分 daily/spell/vocab/uoe/reading/listening/mistake/review），對的錯的都能重看
+- K12Review v66：總結測驗頁新增「每天做過的題目」（state.wlog，依練習項目分區塊）
+- 兩站測試全過並已上線（快取版號 20260828b）
+- 同線其他案子檢查：MathReviewWu 無作答題庫不受影響；CamReview 學生缺「歷史作業」入口，已回報 Tony 待決定
 
 ## 已完成：K12Review（v64）
 
