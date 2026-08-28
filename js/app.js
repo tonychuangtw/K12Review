@@ -789,6 +789,132 @@
     }
   }
 
+  /* ---------- 逐題作答紀錄（Tony 2026-08-28）----------
+     「那一天做過的都要能點進去重複看，不只每日練習，其他多做的也要看得到。」
+     每題第一次作答寫一筆到 state.wlog[日期]：{ a 練習項目, e 題目參照, ok 對錯, g 是否用猜的 }。
+     e 用的是既有的 entry 參照（buildEntryQ 可原樣重建題目），所以佔用極小、也隨雲端同步。
+     只留 60 天、每天上限 400 題；本功能上線前的日子改用 state.daily.refs / state.gen.refs 回填
+     （那些舊資料沒有逐題對錯，只列得出做過哪些題）。 */
+  var WLOG_DAYS = 60, WLOG_PER_DAY = 400;
+  function wlogAll() { return (state.wlog = state.wlog || {}); }
+  function wlogRefOf(e, q) {
+    if (!e || !e.t || !e.id) return null;
+    var r = { t: e.t, id: e.id };
+    if (e.qi != null) r.qi = e.qi;
+    if (e.syn) r.syn = 1;
+    if (e.ev) r.ev = 1;
+    if (q && q.hw) r.hw = 1;
+    return r;
+  }
+  function wlogAdd(act, e, ok, q) {
+    try {
+      var r = wlogRefOf(e, q);
+      if (!r) return;
+      var all = wlogAll(), d = today();
+      var day = all[d] || (all[d] = []);
+      day.push({ a: ACT_NAME[act] ? act : 'drill', e: r, ok: ok ? 1 : 0 });
+      if (day.length > WLOG_PER_DAY) all[d] = day.slice(day.length - WLOG_PER_DAY);
+      var days = Object.keys(all).sort();
+      while (days.length > WLOG_DAYS) delete all[days.shift()];
+    } catch (err) {}
+  }
+  /* 事後補標「這題我是用猜的」：同一天最後一筆同題的紀錄改成「猜的」 */
+  function wlogMarkGuess(e) {
+    try {
+      var r = wlogRefOf(e), day = wlogAll()[today()] || [];
+      if (!r) return;
+      for (var i = day.length - 1; i >= 0; i--) {
+        var x = day[i].e || {};
+        if (x.t === r.t && x.id === r.id && x.qi === r.qi) { day[i].g = 1; return; }
+      }
+    } catch (err) {}
+  }
+
+  /* 某一天做過的全部題目（新紀錄逐題，舊紀錄用 refs 回填） */
+  function wlogDayItems(date) {
+    var out = (wlogAll()[date] || []).map(function (r) {
+      return { a: r.a, e: r.e, ok: r.ok, g: r.g, known: 1 };
+    });
+    var seen = {};
+    out.forEach(function (r) { seen[(r.e.t || '') + ':' + r.e.id + ':' + (r.e.qi == null ? '' : r.e.qi)] = 1; });
+    function push(act, refs) {
+      (refs || []).forEach(function (e) {
+        if (!e || !e.t || !e.id) return;
+        var k = e.t + ':' + e.id + ':' + (e.qi == null ? '' : e.qi);
+        if (seen[k]) return;
+        seen[k] = 1;
+        out.push({ a: act, e: e, ok: null, g: 0, known: 0 });
+      });
+    }
+    Object.keys(state.daily || {}).forEach(function (key) {
+      // key 可能是 "日期" 或 "日期|科目"
+      if (key !== date && key.indexOf(date + '|') !== 0) return;
+      push('daily', (state.daily[key] || {}).refs);
+    });
+    push('drill', ((state.gen || {})[date] || {}).refs);
+    return out;
+  }
+
+  function wlogDayCounts(date) {
+    var by = {};
+    wlogDayItems(date).forEach(function (r) {
+      var b = by[r.a] || (by[r.a] = { n: 0, ok: 0, known: 0 });
+      b.n++;
+      if (r.known) { b.known++; if (r.ok) b.ok++; }
+    });
+    return by;
+  }
+
+  function wlogDays(limit) {
+    var set = {};
+    Object.keys(wlogAll()).forEach(function (d) { set[d] = 1; });
+    Object.keys(state.daily || {}).forEach(function (k) { set[String(k).split('|')[0]] = 1; });
+    Object.keys(state.gen || {}).forEach(function (d) { set[d] = 1; });
+    var days = Object.keys(set).filter(Boolean).sort().reverse();
+    return limit ? days.slice(0, limit) : days;
+  }
+
+  /* 一題 → 一張可重看的卡（題目＋正解＋解析；有逐題紀錄的標對錯） */
+  function wlogRowHtml(r, n) {
+    var q = null;
+    try { q = buildEntryQ(r.e); } catch (e) { q = null; }
+    if (!q) return '';
+    var ansTxt = q.hw || r.e.hw
+      ? String(q.item && q.item.answer != null ? q.item.answer : '')
+      : String((q.options || [])[q.correct] == null ? '' : q.options[q.correct]);
+    var cls = r.known ? (r.ok ? 'ok' : 'bad') : 'unknown';
+    var mark = r.known ? (r.ok ? '✓' : '✗') : '•';
+    return '<div class="wlog-item ' + cls + '">' +
+      '<div class="wlog-verdict">' + mark + ' 第 ' + n + ' 題' +
+      (r.g ? ' <span class="wlog-tag">🤔 用猜的</span>' : '') +
+      (r.known ? '' : ' <span class="wlog-tag">舊紀錄，沒留對錯</span>') + '</div>' +
+      '<div class="wlog-q">' + escHtml(String(q.question || '')) + '</div>' +
+      '<div class="wlog-ans"><b>答案：</b>' + escHtml(ansTxt) + '</div>' +
+      (q.explain ? '<div class="wlog-exp">' + escHtml(String(q.explain)) + '</div>' : '') +
+      '</div>';
+  }
+
+  /* 一天份 → 依練習項目分區塊，對的錯的都列 */
+  function wlogDayHtml(date) {
+    var items = wlogDayItems(date);
+    if (!items.length) return '';
+    var groups = {};
+    items.forEach(function (r) { (groups[r.a] || (groups[r.a] = [])).push(r); });
+    var keys = ACT_ORDER.filter(function (k) { return groups[k]; })
+      .concat(Object.keys(groups).filter(function (k) { return ACT_ORDER.indexOf(k) < 0; }));
+    return keys.map(function (k) {
+      var rows = groups[k], html = '', ok = 0, known = 0;
+      rows.forEach(function (r, i) {
+        if (r.known) { known++; if (r.ok) ok++; }
+        html += wlogRowHtml(r, i + 1);
+      });
+      if (!html) return '';
+      return '<details class="wlog-group"><summary>' + escHtml(ACT_NAME[k] || k) +
+        ' — ' + rows.length + ' 題' + (known ? ' · 答對 ' + ok + '/' + known : '') + '</summary>' +
+        html + '</details>';
+    }).join('');
+  }
+
   function deleteWrong(keys) { // keys: ['t:id', ...]
     var set = {};
     keys.forEach(function (k) { set[k] = true; });
@@ -1823,6 +1949,7 @@
       gBtn.classList.remove('hidden');
       gBtn.onclick = function () {
         addWrong(q.type, q.item.id);
+        try { wlogMarkGuess(e); save(); } catch (err) {}
         gBtn.textContent = '✓ 已加入錯題本';
         gBtn.disabled = true;
       };
@@ -2393,6 +2520,7 @@
       if (firstEncounter) quiz.firstTry[k] = ok;
       if (firstEncounter) logAnswer(q, idx, ok);
       if (firstEncounter) logGen(q, e, ok);   // 每日練習與總結測驗不算自主練習
+      if (firstEncounter) wlogAdd(quizAct(), e, ok, q);   // 逐題紀錄：那天做過的都能回頭再看
       if (firstEncounter && quiz.mode === 'drill') {
         state.drillPos = state.drillPos || {};
         state.drillPos[quiz.drillKey] = quiz.drillBase + quiz.i + 1;
@@ -2975,7 +3103,58 @@
     return out;
   }
 
+  /* 「每天做過的題目」（Tony 2026-08-28）：不只每日練習，刷題／單元／匯入題庫／手寫
+     全部依日期收在這裡，點日期展開 → 依練習項目分區塊 → 對的錯的都能再看一次。 */
+  function renderReviewLog() {
+    var box = $('rvLog');
+    if (!box) return;
+    var days = wlogDays(30);
+    var html = '<h3 class="prog-h3">📅 每天做過的題目</h3>';
+    if (!days.length) {
+      box.innerHTML = html + '<div class="prog-hint">還沒有練習紀錄。之後不管是每日練習、依序刷題、' +
+        '單元學習、匯入題庫還是手寫練習，做過的題目都會收在這裡，隨時可以點回去重看。</div>';
+      return;
+    }
+    html += '<div class="prog-hint">點某一天，看那天做過的所有題目（答對的也列出來，' +
+      '不確定的可以再看一次）。</div>';
+    days.forEach(function (d) {
+      var by = wlogDayCounts(d), n = 0, ok = 0, known = 0, tags = '';
+      ACT_ORDER.concat(Object.keys(by).filter(function (k) { return ACT_ORDER.indexOf(k) < 0; }))
+        .forEach(function (k) {
+          if (!by[k]) return;
+          n += by[k].n; ok += by[k].ok; known += by[k].known;
+          tags += '<span class="wlog-tagchip">' + escHtml(ACT_NAME[k] || k) + ' ' + by[k].n + '</span>';
+        });
+      if (!n) return;
+      html += '<div class="wlog-day">' +
+        '<button type="button" class="wlog-day-btn" data-wlog="' + escHtml(d) + '">' +
+        '<span class="wlog-date">' + escHtml(d) + '</span>' +
+        '<span class="wlog-sub">' + n + ' 題' + (known ? ' · 答對 ' + ok + '/' + known : '') + '</span>' +
+        '<span class="wlog-tags">' + tags + '</span></button>' +
+        '<div class="wlog-detail hidden" data-wlogdetail="' + escHtml(d) + '"></div></div>';
+    });
+    box.innerHTML = html;
+    box.querySelectorAll('[data-wlog]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var day = b.getAttribute('data-wlog');
+        var det = box.querySelector('[data-wlogdetail="' + day + '"]');
+        if (!det) return;
+        if (!det.classList.contains('hidden')) { det.classList.add('hidden'); b.classList.remove('open'); return; }
+        function paint() {
+          det.innerHTML = wlogDayHtml(day) || '<div class="prog-hint">這一天沒有留下逐題紀錄。</div>';
+        }
+        paint();
+        det.classList.remove('hidden');
+        b.classList.add('open');
+        // 匯入題庫是動態載入的，沒載進來的話題目會列不出來 → 載完再重畫一次
+        var needImport = wlogDayItems(day).some(function (r) { return isImportCat(r.e && r.e.t); });
+        if (needImport) { try { ensureImportBanks(function () { if (!det.classList.contains('hidden')) paint(); }); } catch (err) {} }
+      });
+    });
+  }
+
   function showReview() {
+    renderReviewLog();
     var daily = subjMap(state.daily || {});
     var gen = {};
     Object.keys(state.gen || {}).forEach(function (d) {
@@ -3203,6 +3382,7 @@
     if (ok) { wr.score++; touchWrongOnCorrect('chars', it.id); $('writeScore').textContent = '寫對 ' + wr.score; }
     else addWrong('chars', it.id, true);
     bumpGen('write', ok, { t: 'chars', id: it.id, hw: 1 });
+    wlogAdd('write', { t: 'chars', id: it.id, hw: 1 }, ok);
     bumpStat('write', ok);
     logAct('chinese', 'write', ok);
   }
@@ -3370,6 +3550,7 @@
       wr.judged = true;
       if (ok) { wr.score++; touchWrongOnCorrect('chars', it.id); }
       bumpGen('write', ok, { t: 'chars', id: it.id, hw: 1 });
+      wlogAdd('write', { t: 'chars', id: it.id, hw: 1 }, ok);
       bumpStat('write', ok);
       logAct('chinese', 'write', ok);
       if (!ok) addWrong('chars', it.id, true);

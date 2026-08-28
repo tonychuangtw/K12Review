@@ -344,6 +344,33 @@ await session(8733, 9333, { blockWriter: false, seed: seedWrong(['c001']) }, asy
     check('成語刷題有記進自主練習 state.gen', await js(`(function () {
       var g = (JSON.parse(localStorage.getItem('chinese-review-v1')).gen) || {};
       var k = Object.keys(g)[0]; return !!k && g[k].n >= 1;})()`));
+
+    /* 逐題作答紀錄（Tony 2026-08-28）：做過的題目要能回頭再看 */
+    check('刷題有寫進逐題紀錄 state.wlog', await js(`(function () {
+      var w = (JSON.parse(localStorage.getItem('chinese-review-v1')).wlog) || {};
+      var k = Object.keys(w)[0];
+      return !!k && w[k].length >= 1 && !!w[k][0].e && w[k][0].e.id;})()`),
+      await js(`JSON.stringify((JSON.parse(localStorage.getItem('chinese-review-v1')).wlog) || {}).slice(0, 160)`));
+    await js(`document.getElementById('quizExit').click()`);
+    await sleep(300);
+    await js(`(function () { var b = document.querySelector('.dlg-ok, .dialog-ok, #dlgOk, .btn-good'); if (b) b.click(); })()`);
+    await sleep(300);
+    await js(`document.querySelector('.card[data-go="review"]').click()`);
+    await sleep(500);
+    check('總結測驗頁有「每天做過的題目」',
+      await js(`/每天做過的題目/.test(document.getElementById('rvLog').textContent)`));
+    check('列出有紀錄的日期', await js(`document.querySelectorAll('[data-wlog]').length >= 1`));
+    await js(`document.querySelector('[data-wlog]').click()`);
+    await sleep(400);
+    check('點某一天會展開那天做過的題目',
+      await js(`document.querySelectorAll('.wlog-detail:not(.hidden) .wlog-item').length >= 1`));
+    check('依練習項目分區塊',
+      await js(`document.querySelectorAll('.wlog-detail:not(.hidden) details.wlog-group').length >= 1`));
+    check('每題都附答案與解析', await js(`(function () {
+      var it = document.querySelector('.wlog-detail:not(.hidden) .wlog-item');
+      return !!it && /答案/.test(it.textContent) && it.textContent.length > 30;})()`));
+    check('答對的題目也列得出來（可以再看）',
+      await js(`document.querySelectorAll('.wlog-detail:not(.hidden) .wlog-item.ok').length >= 1`));
   }
 });
 

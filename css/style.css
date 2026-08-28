@@ -898,3 +898,31 @@ body.anim-lock { overflow: hidden; }
 .wg-clocks .wg-svg-pie { max-width: 145px; }
 .wg-arrow { font-size: 1.3rem; color: var(--dim); }
 .wg-expr { font-size: 1.35rem; font-weight: 700; letter-spacing: .02em; margin: .8rem 0 .2rem; line-height: 1.7; }
+
+/* ---- 總結測驗頁「每天做過的題目」（2026-08-28 Tony）---- */
+.wlog-day { margin: 6px 0; }
+.wlog-day-btn {
+  width: 100%; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px;
+  padding: 10px 12px; border: 1px solid var(--line, #ddd); border-radius: 10px;
+  background: var(--card, #fff); color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.wlog-day-btn.open { border-color: var(--accent, #c47); }
+.wlog-day-btn .wlog-date { font-weight: 700; }
+.wlog-day-btn .wlog-sub { font-size: .85em; opacity: .75; }
+.wlog-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-left: auto; }
+.wlog-tagchip {
+  font-size: .78em; padding: 1px 7px; border-radius: 999px;
+  border: 1px solid var(--line, #ddd); opacity: .85; white-space: nowrap;
+}
+.wlog-detail { margin: 6px 0 14px; }
+.wlog-group { margin: 8px 0; border: 1px solid var(--line, #ddd); border-radius: 10px; padding: 6px 10px; }
+.wlog-group > summary { cursor: pointer; font-weight: 600; }
+.wlog-item { margin: 8px 0; padding: 8px 10px; border-radius: 8px; border-left: 4px solid var(--line, #ddd); }
+.wlog-item.ok { border-left-color: #4caf50; }
+.wlog-item.bad { border-left-color: #e05a5a; }
+.wlog-item.unknown { border-left-color: #bbb; }
+.wlog-verdict { font-weight: 700; font-size: .92em; margin-bottom: 3px; }
+.wlog-q { white-space: pre-wrap; margin-bottom: 4px; }
+.wlog-ans { font-size: .95em; }
+.wlog-exp { font-size: .9em; opacity: .85; white-space: pre-wrap; margin-top: 4px; }
+.wlog-tag { font-size: .8em; font-weight: 400; opacity: .8; }
