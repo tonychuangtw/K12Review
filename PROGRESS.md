@@ -12,7 +12,14 @@ NEXT_ACTION: 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 02:40 台北
+UPDATED: 2026-08-29 03:10 台北
+
+### 2026-08-28 練習不重複（已完成）
+
+Tony：「練習做的題目都盡量不重複」。修了兩處：每日練習混入到期錯題時沒去重（同份出兩次）；
+每日／分類／混合／各科練習都沒有出題記憶。作法：`state.seen[dailyScope()]` 記出過的題，
+composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pickUnseen`、`beginQuiz`
+統一記錄（retry 除外），整池出完自動清空重來。test.js 加三條測試。已上版 v73。
 
 ### 2026-08-28 注音全面校正（已完成）
 
