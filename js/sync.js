@@ -105,6 +105,47 @@
     return h + ":" + s.length;
   }
 
+  // 只有雲端資料跟本機真的不同才需要重載（2026-08-28 Tony 回報「做練習到一半跳回主頁」）：
+  // 手機把分頁凍結／切走時，PUT 已經寫進雲端、回應卻沒收到，本機 sync_ts 於是落後雲端。
+  // 回到分頁時 pull 看到「雲端比較新」就 location.reload()，但內容其實一模一樣，
+  // 等於白白把做到一半的測驗中斷（quiz 只存在記憶體，重載就回到首頁）。
+  function sameAsLocal(blob) {
+    if (!blob) return false;
+    var local = gatherKeys(), k;
+    for (k in blob) {
+      if (!Object.prototype.hasOwnProperty.call(blob, k)) continue;
+      if (k.indexOf(PREFIX) !== 0) continue;
+      if (local[k] !== blob[k]) return false;
+    }
+    for (k in local) {
+      if (!Object.prototype.hasOwnProperty.call(local, k)) continue;
+      if (local[k] !== blob[k]) return false;
+    }
+    return true;
+  }
+  // 真的有新資料要套用時，也不在測驗／手寫／刷題進行中重載，等使用者離開那一頁再更新
+  var ACTIVE_VIEWS = ["view-quiz", "view-write", "view-flash", "view-drill", "view-review"];
+  var reloadTimer = null;
+  function busyNow() {
+    try {
+      for (var i = 0; i < ACTIVE_VIEWS.length; i++) {
+        var el = document.getElementById(ACTIVE_VIEWS[i]);
+        if (el && !el.classList.contains("hidden")) return true;
+      }
+    } catch (e) {}
+    return false;
+  }
+  function safeReload() {
+    if (!busyNow()) { location.reload(); return; }
+    if (reloadTimer) return;
+    setStatus("雲端有新進度，離開這頁後更新");
+    reloadTimer = setInterval(function () {
+      if (busyNow()) return;
+      clearInterval(reloadTimer); reloadTimer = null;
+      location.reload();
+    }, 3000);
+  }
+
   function api(method, body, cb) { req(method, "/api/progress?level=main&app=chinese", body, cb); }
   // 帶條件的整包寫入：baseUpdatedAt = 本機上次看到的雲端版本。
   // 後端（claude-shared/projects/LanExamMock/backend/server.js，2026-08-27）比對不符回 409，
@@ -173,6 +214,7 @@
       if (err || !res || !res.blob) { if (done) done(err); return; }
       var serverTs = res.updatedAt || 0;
       if (serverTs > syncTs()) {
+        if (sameAsLocal(res.blob)) { setSyncTs(serverTs); if (done) done(null, false); return; }
         try {
           Object.keys(res.blob).forEach(function (k) {
             if (k.indexOf(PREFIX) === 0) localStorage.setItem(k, res.blob[k]);
@@ -196,7 +238,9 @@
       // 這支 GET 是保護機制。它失敗時代表「雲端現在是什麼狀態」是未知的，
       // 這時候硬推整包等於盲蓋（2026-08-27 codex 體檢）—— 直接放棄這一輪，下一輪再試。
       if (gerr) { if (done) done(gerr); return; }
-      if (gres && (gres.updatedAt || 0) > syncTs()) {
+      if (gres && (gres.updatedAt || 0) > syncTs() && sameAsLocal(gres.blob)) {
+        setSyncTs(gres.updatedAt);           // 內容相同（多半是上一次 PUT 的回應沒收到），不必重載
+      } else if (gres && (gres.updatedAt || 0) > syncTs()) {
         if (gres.blob) {
           try {
             Object.keys(gres.blob).forEach(function (k) {
@@ -204,7 +248,7 @@
             });
           } catch (e) {}
           setSyncTs(gres.updatedAt);
-          location.reload();
+          safeReload();
           return;
         }
       }
@@ -220,7 +264,8 @@
               });
             } catch (e) {}
             setSyncTs(res.updatedAt || 0);
-            location.reload();
+            if (sameAsLocal(res.blob)) { if (done) done(null, false); return; }
+            safeReload();
             return;
           }
           if (done) done("conflict");
@@ -342,7 +387,7 @@
     // 先換長效 token 再同步：換到手才算真的「登入一次就好」
     refreshSession(function () {
       pull(function (err, applied) {
-        if (applied) { location.reload(); return; }
+        if (applied) { safeReload(); return; }
         push();
       });
     });
@@ -392,7 +437,7 @@
       // 切回分頁時拉一次雲端（2026-08-08）：修「另一台做完、這台舊分頁看不到」——
       // 原本只有登入那一刻會 pull，掛在背景的分頁永遠不更新。
       if (document.visibilityState === "visible" && signedIn()) {
-        pull(function (err, applied) { if (applied) location.reload(); });
+        pull(function (err, applied) { if (applied) safeReload(); });
       }
     });
     // 開頁時若已是登入狀態（30 天 sess token）：續期一次再拉雲端進度
@@ -402,7 +447,7 @@
       var me = (profile() || {}).email || "";
       if (me && !dataOwner()) setDataOwner(String(me).toLowerCase());
       refreshSession();
-      pull(function (err, applied) { if (applied) location.reload(); });
+      pull(function (err, applied) { if (applied) safeReload(); });
     }
   }
 
