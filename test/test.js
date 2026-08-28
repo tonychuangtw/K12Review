@@ -106,6 +106,24 @@ ok(D.slang.every(i => i.term && i.meaning && i.example && ['俚語', '諺語', '
 ok(D.phonics.every(i => i.word.includes(i.target) && ZY_CHAR.test(i.zhuyin) && i.pinyin &&
   Array.isArray(i.wrong) && i.wrong.length >= 2 && i.wrong.every(w => w.z && w.p)),
   '字音欄位完整、target 在 word 內、誤讀成對');
+/* 整詞注音 wz（Tony 2026-08-28）：有 wz 的題目，音節數要等於字數，
+   且目標字那一格的注音要跟 zhuyin 一致——標錯位置比沒標更糟。 */
+{
+  const withWz = D.phonics.filter(i => i.wz);
+  const bad = withWz.filter(i => {
+    const chs = [...i.word], zs = String(i.wz).split(/\s+/);
+    if (chs.length !== zs.length) return true;
+    const idx = chs.indexOf(i.target);
+    return idx < 0 || zs[idx] !== i.zhuyin;
+  });
+  ok(bad.length === 0,
+    `字音整詞注音 wz 格式正確（${withWz.length} 筆，問題 ${bad.length} 筆${bad.length ? '：' + bad.slice(0, 3).map(b => b.id + ' ' + b.word + '＝' + b.wz).join('；') : ''}）`);
+  const zyOne = /^˙?[ㄅ-ㄩ]+[ˊˇˋ]?$/;
+  const badZy = withWz.filter(i => String(i.wz).split(/\s+/).some(z => !zyOne.test(z)));
+  ok(badZy.length === 0,
+    `整詞注音每一格都是合法注音（問題 ${badZy.length} 筆${badZy.length ? '：' + badZy.slice(0, 3).map(b => b.id + ' ' + b.wz).join('；') : ''}）`);
+}
+
 ok(D.chars.every(i => i.sentence.includes('（') && !i.sentence.includes(i.answer) &&
   i.answer.length === 1 && Array.isArray(i.wrong) && i.wrong.length >= 2 &&
   !i.wrong.includes(i.answer) && ZY_CHAR.test(i.zhuyin)),

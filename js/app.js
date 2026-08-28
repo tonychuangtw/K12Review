@@ -2845,13 +2845,30 @@
   }
 
   function searchItemEl(t, it, kw) {
+  /* 字音辨正：整個詞的注音（Tony 2026-08-28：「拘泥」只標「泥」，孩子不知道「拘」怎麼念）。
+     資料有 wz（整詞注音，空格分隔）就整詞標出來，並把目標字那一格標粗；
+     還沒補 wz 的題目退回舊寫法，只標目標字。 */
+  function phonWordZy(it) {
+    var z = state.phon === 'zhuyin';
+    if (!z || !it.wz) return '「' + it.target + '」讀 ' + (z ? it.zhuyin : it.pinyin);
+    var chs = String(it.word).split(''), zs = String(it.wz).split(/\s+/);
+    if (chs.length !== zs.length) return '「' + it.target + '」讀 ' + it.zhuyin;
+    var hit = false;
+    var parts = chs.map(function (c, i) {
+      var mark = (!hit && c === it.target);
+      if (mark) hit = true;
+      return c + ' ' + zs[i] + (mark ? '（本題）' : '');
+    });
+    return parts.join('｜');
+  }
+
     var d = document.createElement('div');
     d.className = 's-item';
     var z = state.phon === 'zhuyin';
     var title = '', zy = '', sub = '';
     if (t === 'idioms') { title = it.term; zy = z ? it.zhuyin : it.pinyin; sub = it.meaning; }
     else if (t === 'slang') { title = it.term; zy = '（' + it.kind + '）'; sub = it.meaning; }
-    else if (t === 'phonics') { title = it.word; zy = '「' + it.target + '」讀 ' + (z ? it.zhuyin : it.pinyin); sub = it.note || ''; }
+    else if (t === 'phonics') { title = it.word; zy = phonWordZy(it); sub = it.note || ''; }
     else if (t === 'chars') { title = it.answer; zy = z ? it.zhuyin : it.pinyin; sub = it.sentence; }
     else if (t === 'reading') { title = it.title; zy = '（' + (it.genre || '閱讀') + ' · ' + it.questions.length + ' 題）'; sub = excerptAround(it.passage, kw, 20, 40); }
     else { // custom 與其他科目
@@ -5230,7 +5247,7 @@
       line('lesson-example', '例：' + it.example);
     } else if (e.t === 'phonics') {
       line('lesson-term', it.word);
-      line('lesson-zy', '「' + it.target + '」讀 ' + (z ? it.zhuyin : it.pinyin));
+      line('lesson-zy', phonWordZy(it));
       if (it.note) line('lesson-meaning', '💡 ' + it.note);
     } else if (isBankCat(e.t)) {
       // 題庫型科目（社會等）：重點卡＝題目＋正解＋解析，看完再考同一批題
