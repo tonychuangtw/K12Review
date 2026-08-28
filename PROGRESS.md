@@ -11,7 +11,20 @@ NEXT_ACTION: 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 04:10 台北
+UPDATED: 2026-08-28 18:20 台北
+
+### 2026-08-28 插曲二：課本生字工程（Tony msg 964／966／968／973）
+- 手寫練習一直重複同幾十個字 → 機制面已修（不重複輪替、依課練習），內容面補課本生字
+- 版本對照：國小 國語康軒／數學南一／自然南一／社會康軒；國中 數學南一／社會康軒／理化·國文·生物·英文翰林
+- 生字來源：教育部教育雲生字詞彙表（115 學年度），題目全部自撰不抄課本
+- **康軒四上 12 課 180 字（c661–c840）全數完成**，各含例句／注音／易混字／兩段解析／筆順／解析確認題（v70 上線）
+- 下一步：康軒四下（同一份來源改 year=115_2）→ 翰林八上 → 翰林八下
+
+### 2026-08-28 插曲三：LanExamMock 兩項回報（Tony msg 976／977）
+- 拼寫回合那 10 個字看不到：逐日紀錄找不到 spell 時，改從每日紀錄 rec.spell.words 補上；
+  之後每個字的對錯也存進 rec.spell.res。舊回合補回來的字標「•」不標對錯
+- 錯題本只能整包 review → 新增「See every mistake」清單（最近錯的在前，含題目／正解／解析／due 標記／單題移除）
+- LanExamMock v38 上線（版號 20260829b），122,015 checks ＋瀏覽器 16 項新檢查全過
 
 ### 2026-08-28 插曲：兩站新增「那天做過的題目」回看功能（Tony msg 959）
 - LanExamMock v36：錯題本從 Progress 移到 Review；Review 新增「What you did」逐日作答紀錄
