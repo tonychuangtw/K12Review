@@ -11,7 +11,7 @@ NEXT_ACTION: 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 01:30 台北
+UPDATED: 2026-08-29 02:00 台北
 
 ### 2026-08-28 插曲：兩站新增「那天做過的題目」回看功能（Tony msg 959）
 - LanExamMock v36：錯題本從 Progress 移到 Review；Review 新增「What you did」逐日作答紀錄
@@ -31,9 +31,15 @@ UPDATED: 2026-08-29 01:30 台北
    Tony 要求整個詞都要注音。作法＝在 js/data/phonics.js 每筆加 `wz`（整詞注音，空格分隔），
    前端教學卡／答題回饋／單元教學顯示。**必須逐詞人工校對**（多音字機器會猜錯，
    已驗出 當鋪、木訥、佝僂 等錯誤），一批 60 詞，寫完跑 test.js＋zy-check。
-2. **生字補齊**（等 Tony 回覆版本）：國小四年級、國中八年級起，照「每冊該會的生字」按課編，
-   每字要例句挖空、注音、易混字、解析、筆順資料。**已問 Tony 用康軒／南一／翰林哪一版**，
-   回覆前不要動手（各版生字表與課次不同）。
+2. **生字補齊**（等 Tony 確認第一課）：Tony 回覆＝**國文四上四下康軒、八上八下翰林**（其他科目他晚點給）。
+   生字表來源已找到並存進 repo：`docs/source/kanghsuan-4a-chars.md`／`.json`
+   （教育部教育雲生字詞彙表 115 學年度，康軒四上 12 課 × 15 字＝180 字，含語詞）。
+   抓法：`Bookmark/Textword?year=115_1&degree=<年級>&subject=國語文&press=<版本>` 取課次 id，
+   再 `Bookmark/TCollection?TextNameId=<id>` 取該課生字語詞。翰林八上八下同法可取。
+   **已把第一課清單傳給 Tony 對課本，等他確認再開工。**
+   編法：chars.js schema ＋新增 book（四上）/lesson（第1課）/tag（課名）欄位；
+   每字自撰挖空例句、注音、兩個易混字、解析（字源＋易錯原因）；補 strokes 筆順；
+   依 CLAUDE.md 規則同步寫 checks-chars.js 解析確認題；手寫練習要能依冊／課選範圍。
 
 ## 已完成：K12Review（v64）
 
