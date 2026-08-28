@@ -8,6 +8,7 @@
  *   node tools/chk-todo.js                 各題庫的統計（哪些已有、哪些要寫、哪些解析太薄）
  *   node tools/chk-todo.js <cat> [n]       印出該題庫最前面 n 題待寫的（含題目、選項、解析）
  *   node tools/chk-todo.js <cat> [n] --json  同上，輸出 JSON 給出題腳本吃
+ *   node tools/chk-todo.js <cat> [n] --book=八下  只列某一冊
  */
 global.window = global.window || {};
 const path = require('path');
@@ -66,14 +67,17 @@ if (!arg) {
 
 const r = scan(arg);
 const n = parseInt(process.argv[3], 10) || 20;
-const items = r.todo.slice(0, n);
+/* --book=八下：只取某一冊（Tony 2026-08-28 指定先寫八上八下、五上） */
+const bookArg = (process.argv.find(a => a.indexOf('--book=') === 0) || '').slice(7);
+const pool = bookArg ? r.todo.filter(it => (it.book || '') === bookArg) : r.todo;
+const items = pool.slice(0, n);
 if (process.argv.includes('--json')) {
   console.log(JSON.stringify(items.map(it => ({
     id: it.id, book: it.book || '', lesson: it.lesson || '', qtype: it.qtype || '',
     q: it.q, options: it.options, answer: it.answer, exp: it.exp
   })), null, 1));
 } else {
-  console.log(`${arg}：待人工寫 ${r.todo.length} 題，以下是最前面 ${items.length} 題\n`);
+  console.log(`${arg}${bookArg ? ' ' + bookArg : ''}：待人工寫 ${pool.length} 題，以下是最前面 ${items.length} 題\n`);
   items.forEach(it => {
     console.log(`── ${it.id}  ${it.book || ''} ${it.lesson || ''}  [${it.qtype || ''}]`);
     console.log(`Q: ${it.q}`);
