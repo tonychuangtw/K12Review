@@ -6,13 +6,21 @@ STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
 NEXT_ACTION: 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八上 → 八下 → 五上，已全部完成。**
 取題：`node tools/chk-todo.js custom 44 --book=七上 --json`（--book= 是 08-28 加的過濾）→ 逐題寫進 js/data/checks-custom.js → `node test/test.js` 全綠 → commit。
-一批 44 題。**已完成：八上、八下、五上國語、五上自然、五上社會（0 題待寫）；七上（2,552 題）、七下（1,686 題）皆已 100% 完成；九上進行中（批次 477 做到第7課我們的饕餮時代）。累計 17,530 題。**
-剩下的匯入題庫：九上 2,839／九下 2,040／會考 152／基測 370／特招 12（合計 5,413）。
+一批 44 題。**已完成：八上、八下、五上國語、五上自然、五上社會（0 題待寫）；七上（2,552 題）、七下（1,686 題）皆已 100% 完成；九上進行中（批次 482 做到第9課收尾＋自學選文）。累計 17,750 題。**
+剩下的匯入題庫：九上 2,619／九下 2,040／會考 152／基測 370／特招 12（合計 5,193）。
 其餘 45,304 待寫是各科「依課綱自編原創題」（science/math/english/social/history… 這些題庫本身還沒生題），不是匯入題庫。
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 04:35 台北
+UPDATED: 2026-08-29 05:45 台北
+
+### 2026-08-29 兩處品質修正（批次 474／477 順手做的）
+
+- `test/test.js` 的「正解要有解析根據」比對原本把注音符號整段濾掉，字音題若解析只寫注音
+  （例：「(Ａ)(Ｂ)(Ｄ)ㄌㄧㄥˊ(Ｃ)ㄌㄥˇ」）就無從比對，這類 563 題永遠寫不了確認題。
+  已把注音（含調號）納入比對；受影響的 14 題既有確認題改成選項一併標讀音
+- x23345（九上第6課字形題）答案鍵錯誤：解析明指Ａ栽→裁、Ｂ隋→隨、Ｄ忘→望，正解應為Ｃ「老饕」，
+  原本卻標成Ｂ。已用「解析列出的錯字落在哪幾個選項」掃過全部字形題，只有這一題不一致
 
 ### 2026-08-28 練習不重複（已完成）
 
