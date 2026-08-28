@@ -6,6 +6,14 @@ STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
 NEXT_ACTION: 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八上 → 八下 → 五上，已全部完成。**
 取題：`node tools/chk-todo.js custom 44 --book=七上 --json`（--book= 是 08-28 加的過濾）→ 逐題寫進 js/data/checks-custom.js → `node test/test.js` 全綠 → commit。
+一批 44 題。**已完成：八上、八下、五上國語、五上自然、五上社會（0 題待寫）；七上進行中（批次 402 做到七上自學選文與各課補充閱讀），累計 14,216 題。**
+剩下的匯入題庫：七上 440／七下 2,390／九上 3,323／九下 2,040／會考 152／基測 370／特招 12（合計 8,727）。
+其餘 45,304 待寫是各科「依課綱自編原創題」（science/math/english/social/history… 這些題庫本身還沒生題），不是匯入題庫。
+VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
+BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
+PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
+UPDATED: 2026-08-29 01:20 台北
+
 ### 2026-08-28 注音全面校正（已完成）
 
 兒子（小四）回報「湖泊」注音錯 → 抓教育部《國語辭典簡編本》開放資料離線比對三個題庫，
@@ -13,13 +21,6 @@ NEXT_ACTION: 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八�
 流程已封裝成 `node tools/moe-zy-audit.js`，**之後加字音／字形／成語題都要跑**。
 細節見 CLAUDE.md 的字音守則與 memory `moe-zhuyin-source-of-truth`。
 
-一批 44 題。**已完成：八上、八下、五上國語、五上自然、五上社會（0 題待寫）；七上進行中（批次 398 做到第10課玫瑰淚全文閱讀），累計 14,040 題。**
-剩下的匯入題庫：七上 616／七下 2,390／九上 3,323／九下 2,040／會考 152／基測 370／特招 12（合計 8,903）。
-其餘 45,304 待寫是各科「依課綱自編原創題」（science/math/english/social/history… 這些題庫本身還沒生題），不是匯入題庫。
-VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
-PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 01:20 台北
 
 ### 2026-08-28 插曲二：課本生字工程（Tony msg 964／966／968／973）
 - 手寫練習一直重複同幾十個字 → 機制面已修（不重複輪替、依課練習），內容面補課本生字
