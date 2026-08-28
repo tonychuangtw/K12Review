@@ -11,7 +11,7 @@ NEXT_ACTION: 逐題撰寫解析確認題。**Tony 2026-08-28 指定順序：八�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 00:40 台北
+UPDATED: 2026-08-29 01:30 台北
 
 ### 2026-08-28 插曲：兩站新增「那天做過的題目」回看功能（Tony msg 959）
 - LanExamMock v36：錯題本從 Progress 移到 Review；Review 新增「What you did」逐日作答紀錄
@@ -25,6 +25,15 @@ UPDATED: 2026-08-29 00:40 台北
 - 已修：state.writeSeen 記本輪練過的字，只從沒練過的抽；UI 顯示「本輪還剩 N/共 M 字」（v67，20260828c 已上線）
 - 另一個原因是內容量：字形辨正題庫國小各年級 27/37/49/55/56/74 字，非課本生字表
   → 已回報 Tony，等他決定要不要逐字補到各年級 150 字（約需新增 600+ 字）
+
+### 2026-08-29 新任務：字音辨正補「整詞注音」＋國小國中生字（Tony msg 966）
+1. **整詞注音**（進行中）：字音辨正 660 詞目前只標目標字的音（「拘泥」只標「泥」ㄋㄧˋ），
+   Tony 要求整個詞都要注音。作法＝在 js/data/phonics.js 每筆加 `wz`（整詞注音，空格分隔），
+   前端教學卡／答題回饋／單元教學顯示。**必須逐詞人工校對**（多音字機器會猜錯，
+   已驗出 當鋪、木訥、佝僂 等錯誤），一批 60 詞，寫完跑 test.js＋zy-check。
+2. **生字補齊**（等 Tony 回覆版本）：國小四年級、國中八年級起，照「每冊該會的生字」按課編，
+   每字要例句挖空、注音、易混字、解析、筆順資料。**已問 Tony 用康軒／南一／翰林哪一版**，
+   回覆前不要動手（各版生字表與課次不同）。
 
 ## 已完成：K12Review（v64）
 
