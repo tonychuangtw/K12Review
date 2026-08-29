@@ -737,10 +737,18 @@ async (js) => {
   await sleep(400);
   // 2026-08-22 起社會單元也有概念卡：有教材走概念卡，沒教材才退回舊的重點卡
   const socialView = await js(`(function(){
+    if (!document.getElementById('view-read').classList.contains('hidden')) return 'read';
     if (!document.getElementById('view-concept').classList.contains('hidden')) return 'concept';
     if (!document.getElementById('view-lesson').classList.contains('hidden')) return 'lesson';
     return null; })()`);
-  if (socialView === 'concept') {
+  if (socialView === 'read') {
+    // 2026-08-29 起：有課文的單元先進「課文帶讀」，讀完才接概念卡
+    check('社會有課文的單元先進課文帶讀',
+      (await js(`document.getElementById('readBody').textContent`)).length > 20 &&
+      await js(`document.querySelectorAll('#readBody .read-s').length`) >= 3,
+      '課文段落＋逐句');
+    await js(`document.getElementById('readExit').click()`);
+  } else if (socialView === 'concept') {
     check('社會有教材的單元進到概念卡',
       (await js(`document.getElementById('conceptBody').textContent`)).length > 10 &&
       await js(`!!document.querySelector('#conceptViz svg')`),
