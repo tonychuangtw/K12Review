@@ -285,6 +285,47 @@
     return { el: wrap, sync: function () { v.textContent = String(get()); } };
   }
 
+  /* 臺灣輪廓（向量）：示意圖裡要放臺灣時用這個，不要貼 AI 點陣圖——
+     線條圖配照片式插圖看起來不搭（2026-08-29 家長回報）。
+     座標取自海岸線上的實際經緯度，再等比縮到指定的方框裡，形狀是真的。 */
+  var TW_LL = [
+    [121.53, 25.30], [121.75, 25.16], [121.93, 25.00], [121.90, 24.85], [121.83, 24.66],
+    [121.85, 24.47], [121.80, 24.30], [121.68, 24.14], [121.62, 23.98], [121.55, 23.60],
+    [121.48, 23.24], [121.38, 23.05], [121.18, 22.80], [121.02, 22.62], [120.90, 22.32],
+    [120.86, 21.92], [120.74, 21.93], [120.68, 22.20], [120.58, 22.45], [120.42, 22.62],
+    [120.28, 22.90], [120.18, 23.16], [120.12, 23.42], [120.10, 23.72], [120.20, 24.02],
+    [120.42, 24.28], [120.62, 24.52], [120.85, 24.78], [121.06, 25.00], [121.22, 25.13],
+    [121.38, 25.24]
+  ];
+  function taiwanPath(x, y, w, h) {
+    var lo0 = 120.05, lo1 = 122.00, la0 = 21.85, la1 = 25.35;
+    var sx = w / (lo1 - lo0), sy = h / (la1 - la0);
+    var sc = Math.min(sx, sy);                    // 等比，才不會把島壓扁
+    var ox = x + (w - (lo1 - lo0) * sc) / 2, oy = y + (h - (la1 - la0) * sc) / 2;
+    return TW_LL.map(function (p, i) {
+      return (i ? 'L' : 'M') + (ox + (p[0] - lo0) * sc).toFixed(1) + ',' +
+        (oy + (la1 - p[1]) * sc).toFixed(1);
+    }).join(' ') + ' Z';
+  }
+  /* 把臺灣畫進示意圖：輪廓＋（選填）中央山脈的脊線 */
+  function drawTaiwan(svg, x, y, w, h, opt) {
+    opt = opt || {};
+    var g = el('g');
+    g.appendChild(el('path', { d: taiwanPath(x, y, w, h) },
+      'fill:var(--good);fill-opacity:.22;stroke:var(--good);stroke-width:2;stroke-linejoin:round'));
+    if (opt.ridge !== false) {                     // 中央山脈：讓它看得出是臺灣不是一顆芋頭
+      var sc = Math.min(w / 1.95, h / 3.5);
+      var ox = x + (w - 1.95 * sc) / 2, oy = y + (h - 3.5 * sc) / 2;
+      var pt = function (lo, la) { return (ox + (lo - 120.05) * sc).toFixed(1) + ',' +
+        (oy + (25.35 - la) * sc).toFixed(1); };
+      g.appendChild(el('path', { d: 'M' + pt(121.45, 24.90) + ' L' + pt(121.30, 24.20) +
+        ' L' + pt(121.05, 23.50) + ' L' + pt(120.85, 22.80) },
+        'fill:none;stroke:var(--good);stroke-width:1.6;opacity:.75;stroke-dasharray:3 3'));
+    }
+    svg.appendChild(g);
+    return g;
+  }
+
   /* 方位標：上北下南、左西右東。圖上只要提到東西南北，就要有這個，
      不然「往西北」配上一支往右上的箭頭，方向剛好講反（2026-08-29 家長回報）。 */
   function compassRose(svg, x, y) {
@@ -3163,14 +3204,8 @@
       var main, sub, i;
       if (mode === 'front') {
         // 右下角放臺灣小地圖，畫出「冷鋒由北往南掃過臺灣」
-        if (twOk) {
-          var twF = el('image', { x: 236, y: 56, width: 62, height: 120, href: TW_IMG,
-            preserveAspectRatio: 'xMidYMid meet', opacity: '.95' });
-          twF.setAttributeNS('http://www.w3.org/1999/xlink', 'href', TW_IMG);
-          twF.addEventListener('error', function () { twOk = false; paint(); });
-          svg.appendChild(twF);
-          svg.appendChild(txt(267, 174, '臺灣', 'font-size:9px;fill:var(--dim)'));
-        }
+        drawTaiwan(svg, 236, 52, 62, 116);
+        svg.appendChild(txt(267, 176, '臺灣', 'font-size:9px;fill:var(--good)'));
         svg.appendChild(el('path', { d: 'M14,48 Q120,80 300,104' },
           'fill:none;stroke:var(--accent);stroke-width:3'));
         for (i = 0; i < 5; i++) {
@@ -3193,14 +3228,8 @@
         // 右邊放一張臺灣小地圖，颱風畫在東南方海面上，用虛線箭頭指出西北行的常見路徑
         // 上北下南、左西右東：臺灣在西北邊（左上），颱風在東南方海面（右下），
         // 箭頭因此朝左上走，才真的是「往西北」（2026-08-29 家長回報方向畫反）
-        if (twOk) {
-          var tw = el('image', { x: 16, y: 12, width: 62, height: 124, href: TW_IMG,
-            preserveAspectRatio: 'xMidYMid meet', opacity: '.95' });
-          tw.setAttributeNS('http://www.w3.org/1999/xlink', 'href', TW_IMG);
-          tw.addEventListener('error', function () { twOk = false; paint(); });
-          svg.appendChild(tw);
-          svg.appendChild(txt(47, 146, '臺灣', 'font-size:9px;fill:var(--dim)'));
-        }
+        drawTaiwan(svg, 14, 14, 64, 122);
+        svg.appendChild(txt(46, 150, '臺灣', 'font-size:9px;fill:var(--good)'));
         for (i = 3; i >= 1; i--) {
           svg.appendChild(el('circle', { cx: 226, cy: 108, r: i * 20, 'fill-opacity': i === 3 ? '.12' : '.2' },
             'fill:var(--accent);stroke:var(--accent);stroke-width:1.5'));
@@ -3209,7 +3238,7 @@
           'fill:var(--panel);stroke:var(--bad);stroke-width:2'));
         svg.appendChild(txt(226, 111, '眼', 'font-size:9px;font-weight:700;fill:var(--bad)'));
         svg.appendChild(txt(226, 176, '颱風眼：風雨反而最小', 'font-size:9px;fill:var(--bad)'));
-        if (twOk) {
+        if (true) {
           svg.appendChild(el('path', { d: 'M198,92 Q150,66 104,58' },
             'fill:none;stroke:var(--bad);stroke-width:2;stroke-dasharray:6 4'));
           svg.appendChild(el('polygon', { points: '96,56 110,50 108,62' }, 'fill:var(--bad)'));
