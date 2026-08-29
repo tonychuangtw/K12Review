@@ -21,7 +21,22 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 11:05 台北
+UPDATED: 2026-08-29 12:10 台北
+
+### 2026-08-29 各科原創題確認題全面補齊＋停用Ｃ型（Tony msg 1040／1041／1044）
+
+Tony 兩張截圖：自然科的確認題「只是在問剛才解析裡說的是哪一句」「前面有Ｘ有勾」
+「寫正解開頭的是錯誤答案」「誘答從其它觀念硬抓」。病灶是 autoChk 的Ｃ型把三段式解析
+（✅正解／❌其他選項／📚課綱重點）整句抄成選項，記號一起抄進去。
+
+處理：(1) Ｃ型停用（app.js autoChk 回 null，沒東西可問就退回解析鎖倒數）；
+(2) 各科自編原創題 33,984 題用 scratchpad/mk3.py 逐題生成確認題，一科一檔
+    js/data/checks-<科目>.js（math/science/english/social/physics/chemistry/biology/
+    earth/history/geography/civics）；(3) chk-gen.js 的 body() 濾掉 ✅❌📚 與段落標籤。
+app.js 的 SUBJ_CHECK_FILES 列出 11 科（載題庫時一起載）；test.js 與 chk-todo.js 也要同步加檔名——
+**新增科目確認題時這三處都要改**。確認題檢查數 23,519 → 56,927；smoke 加「選項不能帶記號」守門。
+Tony 否決了「出確認題時把解析收起來」的提案（msg 1043「不用」），維持同時顯示。
+還沒處理：587 題待寫＋6,565 題解析太薄（匯入題庫只寫答案），要先補解析本體。
 
 ### 2026-08-29 概念卡「換你試試」正解位置全是Ａ（Tony msg 1038）
 
