@@ -19,9 +19,9 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人�
 補記：各科自編原創題（science/math/english/history…）的解析是「✅正解：… ❌其他選項：… 📚課綱重點：…」
 的固定三段式，同一支腳本加一種形狀就能生（問「其他選項」那段或「課綱重點」那段），要做隨時可以接。
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
+BLOCKERS: 社會科地圖卡的示範（一卡三圖）已送 Telegram，等 Tony 點頭才推其餘 153 張地圖卡；其餘無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 14:05 台北
+UPDATED: 2026-08-29 15:20 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
@@ -170,6 +170,13 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
    編法：chars.js schema ＋新增 book（四上）/lesson（第1課）/tag（課名）欄位；
    每字自撰挖空例句、注音、兩個易混字、解析（字源＋易錯原因）；補 strokes 筆順；
    依 CLAUDE.md 規則同步寫 checks-chars.js 解析確認題；手寫練習要能依冊／課選範圍。
+
+## 社會科地圖卡升級（2026-08-29，示範已送出，等 Tony 確認）
+
+- 做法：`claude-shared/tools/gen-image.sh --gpt`（$0，訂閱介面）畫**完全不含文字**的插畫風底圖 → 存 `img/social/_base-*.webp` → `js/widgets.js` 的 `REG.taiwan` 用 `<image>` 貼底圖＋程式疊中文地名與可點圓點（`MAPS` 裡設 `img/w/h/crop/spots`，載不到自動退回舊的向量示意圖）
+- 已完成：五上〈臺灣的位置與環境〉一卡三圖（位置與分區／地形／河川），三張截圖已送 Telegram 給 Tony
+- **等他回覆才推**：其餘地圖型概念卡共 153 張（taiwan 30、mapdir 33、weathermap 31、plates 21、strata 21、regionmap 17）
+- 另提過但還沒排順序的 AI 配圖方向：英文單字情境圖、自然生物／器材圖、社會歷史場景、國語閱讀插圖、單元封面圖
 
 ## 已完成：K12Review（v64）
 
