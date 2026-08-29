@@ -261,14 +261,19 @@ await session(8747, 9347, { blockWriter: true, seed: seedWrong(['c001']) }, asyn
   check('原子元件畫得出來', await js(`!!document.querySelector('#__wgtest svg')`));
   // 一開始就是中性，按「回到中性」畫面不會變 → 要給提示，不能像壞掉
   await js(`${btnText}.filter(function(b){return b.textContent === '回到中性';})[0].click()`);
-  check('按了沒變化時會提示「已經是這個狀態了」',
+  // 提示要講原因（Tony 2026-08-29：只寫「已經是這個狀態了」看不懂，會以為不能再加）
+  check('按了沒變化時會說明原因（已經是中性原子）',
     await js(`(function(){var h = document.querySelector('#__wgtest .wg-noop');
-      return !!h && !h.classList.contains('hidden') && /已經是這個狀態/.test(h.textContent);})()`),
+      return !!h && !h.classList.contains('hidden') && /已經是中性原子/.test(h.textContent);})()`),
     await js(`(document.querySelector('#__wgtest .wg-noop')||{}).textContent || '(沒有提示)'`));
   // 一直按 ＋1 個電子：以前會加到三十幾個、畫面停住；現在夾在 ±3
   for (let i = 0; i < 8; i++) {
     await js(`${btnText}.filter(function(b){return b.textContent === '＋ 1 個電子';})[0].click()`);
   }
+  check('加到上限時會說明為什麼不能再加',
+    await js(`(function(){var h = document.querySelector('#__wgtest .wg-noop');
+      return !!h && /上限/.test(h.textContent) && /電子/.test(h.textContent);})()`),
+    await js(`(document.querySelector('#__wgtest .wg-noop')||{}).textContent || '(沒有提示)'`));
   check('電子數有上限（氧最多加到 11 個，不會一路加下去）',
     await js(`/電子數/.test(document.querySelector('#__wgtest').textContent) &&
       document.querySelector('#__wgtest .wg-read-main').textContent.indexOf('電子 11 個') >= 0`),

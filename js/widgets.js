@@ -35,16 +35,18 @@
       hint.className = 'wg-noop';
       box.appendChild(hint);
     }
-    hint.textContent = '已經是這個狀態了';
+    // 每顆按鈕可以自己寫原因（例如「已經到上限」），沒寫才用通用句
+    hint.textContent = b.getAttribute('data-noop') || '已經是這個狀態了，再按也不會變';
     hint.classList.remove('hidden');
     clearTimeout(hint._t);
     hint._t = setTimeout(function () { hint.classList.add('hidden'); }, 1600);
   }
-  function btn(label, onClick, cls) {
+  function btn(label, onClick, cls, noopMsg) {
     var b = document.createElement('button');
     b.type = 'button';
     b.className = cls || 'wg-btn';
     b.textContent = label;
+    if (noopMsg) b.setAttribute('data-noop', noopMsg);
     b.addEventListener('click', function (ev) {
       var wrap = b.closest ? b.closest('.wg') : null;
       var before = wrap ? wrap.innerHTML : null;
@@ -541,6 +543,7 @@
      滑桿轉角度，即時看銳角／直角／鈍角／平角。
      spec: { deg, edit }                                                   */
   REG.angle = function (host, spec) {
+    var sl = null;
     var deg = spec.deg == null ? 45 : spec.deg;
     var box = div('wg');
     var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
@@ -575,10 +578,11 @@
       var k = kind(deg);
       read.innerHTML = '';
       read.appendChild(div('wg-read-main', deg + '°　' + k[0]));
+      if (sl && String(deg) !== sl.value) sl.value = deg;   // 按了角度按鈕，滑桿也要跟著動
     }
     if (spec.edit !== false) {
       var row = div('wg-ctrl');
-      row.appendChild(slider(0, 180, deg, 5, function (v) { deg = v; paint(); }));
+      row.appendChild(sl = slider(0, 180, deg, 5, function (v) { deg = v; paint(); }));
       box.appendChild(row);
       var quick = div('wg-ctrl');
       [30, 90, 120, 180].forEach(function (d) {
@@ -2142,6 +2146,7 @@
   /* ── 月相（moonphase）─────────────────────────────────────────────────
      spec: { day }  農曆日（1～30）                                       */
   REG.moonphase = function (host, spec) {
+    var sl = null;
     var day = spec.day == null ? 15 : spec.day;
     var box = div('wg');
     var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
@@ -2178,6 +2183,7 @@
         '月球繞地球轉，我們看到的亮面比例就跟著變，大約 29.5 天循環一次（農曆一個月）。' +
         '初一看不到（新月）、初七八半個（上弦）、十五最圓（滿月）、廿二三又剩半個（下弦）。' +
         '⚠ 月相不是地球的影子造成的——那是月食，一年只有幾次。'));
+      if (sl && String(day) !== sl.value) sl.value = day;   // 按了「初一／十五」滑桿也要跟著動
     }
     if (spec.pick !== false) {
       var row = div('wg-ctrl');
@@ -2187,7 +2193,8 @@
       });
       box.appendChild(row);
       var r2 = div('wg-ctrl');
-      r2.appendChild(slider(1, 29, day, 1, function (v) { day = v; paint(); }));
+      sl = slider(1, 29, day, 1, function (v) { day = v; paint(); });
+      r2.appendChild(sl);
       box.appendChild(r2);
     }
     host.appendChild(box);
@@ -4031,6 +4038,7 @@
      用單位圓定義三角函數：x 坐標就是 cos、y 坐標就是 sin，角度可以超過 90°。
      spec: { deg, edit }                                                  */
   REG.unitcircle = function (host, spec) {
+    var sl = null;
     var deg = spec.deg == null ? 30 : spec.deg;
     var box = div('wg');
     var svg = el('svg', { viewBox: '0 0 320 250', class: 'wg-svg' });
@@ -4078,6 +4086,7 @@
         '，所以 cos ' + (Math.cos(t) >= 0 ? '為正' : '為負') + '、sin ' +
         (Math.sin(t) >= 0 ? '為正' : '為負') + '。' +
         '弧度換算：180° ＝ π 弧度，所以「度 × π ÷ 180」就是弧度。'));
+      if (sl && String(deg) !== sl.value) sl.value = deg;   // 按了角度按鈕，滑桿也要跟著動
     }
     if (spec.edit !== false) {
       var row = div('wg-ctrl');
@@ -4086,7 +4095,7 @@
       });
       box.appendChild(row);
       var r2 = div('wg-ctrl');
-      r2.appendChild(slider(0, 360, deg, 5, function (v) { deg = v; paint(); }));
+      r2.appendChild(sl = slider(0, 360, deg, 5, function (v) { deg = v; paint(); }));
       box.appendChild(r2);
     }
     host.appendChild(box);
@@ -6964,16 +6973,20 @@
     }
     var row = div('wg-ctrl');
     [1, 6, 8, 11, 17].forEach(function (k) {
-      row.appendChild(btn(NAMES[k][0], function () { z = k; extra = 0; paint(); }));
+      row.appendChild(btn(NAMES[k][0], function () { z = k; extra = 0; paint(); },
+        null, '現在看的就是' + NAMES[k][0] + '（而且已經是中性狀態）'));
     });
     box.appendChild(row);
     var row2 = div('wg-ctrl');
     /* 電子數限制在 ±3（常見離子最多到 Al³⁺、N³⁻）。2026-08-29 Tony 回報：
        一直按 ±1 加到三十幾個以後圖就不動了——原來電子殼層容量只到 2+8+8+18＝36，
        超過的電子被無聲丟掉，畫面看起來像當掉。加上限之後按到底會提示「已經是這個狀態了」。 */
-    row2.appendChild(btn('－ 1 個電子', function () { extra = clamp(extra - 1, -3, 3); paint(); }));
-    row2.appendChild(btn('＋ 1 個電子', function () { extra = clamp(extra + 1, -3, 3); paint(); }));
-    row2.appendChild(btn('回到中性', function () { extra = 0; paint(); }));
+    row2.appendChild(btn('－ 1 個電子', function () { extra = clamp(extra - 1, -3, 3); paint(); },
+      null, '已經到下限：這裡最多讓電子比質子少 3 個（像 Al³⁺ 這種常見陽離子）'));
+    row2.appendChild(btn('＋ 1 個電子', function () { extra = clamp(extra + 1, -3, 3); paint(); },
+      null, '已經到上限：這裡最多讓電子比質子多 3 個（像 N³⁻ 這種常見陰離子）'));
+    row2.appendChild(btn('回到中性', function () { extra = 0; paint(); },
+      null, '現在已經是中性原子了（質子數＝電子數）'));
     box.appendChild(row2);
     host.appendChild(box);
     paint();

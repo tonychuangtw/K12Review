@@ -46,6 +46,10 @@
 - 版本紀錄（2026-08-07 Tony 定案，本線所有案子皆同）：每站都有 ℹ️ 使用說明＋版本紀錄頁，資料在各 repo `js/versions.js`（APP_VERSIONS，新版在最上面）。**每次有感的功能改版都要在最上方加一條 vN 條目**（K12Review／LanExamMock／MathReviewWu 皆已建置；新案子上線時一併做這頁）
 
 - 改完必跑 `node test/test.js`（資料完整性 + 題目生成邏輯）和 `node test/zy-check.js`
+- 改到互動元件（js/widgets.js）或概念卡的 viz 設定，跑 `node test/widget-audit.mjs`：
+  把 134 種元件、399 組實際用到的設定全部畫出來，每顆按鈕連按 12 下、滑桿也拉，
+  檢查「畫得出來／沒有 NaN／沒有死按鈕／不會按到一半卡住」。2026-08-29 Tony 連續回報
+  「按了沒反應」「加到三十幾個圖就不動」之後補的，找不到 chrome-headless-shell 會自動跳過
 - 改到前端行為（測驗流程、手寫題、家長檢視）再跑 `node test/browser-smoke.mjs`：無 npm 依賴，用 CDP 驅動 playwright 快取裡的 chrome-headless-shell 真的點過一遍（找不到 shell 會自動跳過）。⚠️ 不要用 `node -e "require('tools/weekly-report.js')"` 檢查語法——那支 require 進去就會真的發週報給 Tony，要檢查語法用 `node --check`
 - 加題直接改 `js/data/*.js`，遵守檔頭既有 schema；id 連號不重複、grade 1-12、繁體台灣用字
 - ⚠️ **新增字形題（chars.js）後必跑 `node tools/fetch-strokes.js` 補筆順資料**，否則手寫練習顯示答案時沒有一筆一劃的動畫（2026-08-13 Tony 回報；test.js 已加守門，缺字會測試失敗）
