@@ -21,7 +21,21 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 09:35 台北
+UPDATED: 2026-08-29 10:15 台北
+
+### 2026-08-29 ⚙️ 練習設定：解析確認題開關（Tony msg 1036）
+
+Tony：「這是確認兒子不亂做才開的，女兒可以自己唸就不用；這些科目裡應該只有國文解析很多值得全留。」
+標題列新增 ⚙️，三選一存在 `state.chkMode`：`all`（預設，維持原行為）／`chinese`（只有國語出）／`off`。
+`chkOf()` 依 `subjOfCat(q.type)` 判斷，手寫與自動生成的確認題一起管；關掉不是直接放行，退回原本的
+解析鎖倒數（還是要看完解析才能按下一題）。browser-smoke 加一節 7 項驗證。v74、快取版號 20260829c。
+
+### 2026-08-29 自然科概念卡配錯圖（Tony msg 1036 附圖）
+
+小四自然第1單元〈蝌蚪變青蛙〉的教學卡配的是數學等差數列圖（首項／公差／第 n 項公式）。
+掃過全部非數學科目共 7 張：5 張生命週期卡改成 timeline（生命階段時間軸）、〈食物鏈與棲地〉改 foodweb、
+〈北極星與方向〉的三角函數單位圓改 mapdir 方位圖，對應 tip 文字一併改。
+掃描方式：列出各科 viz.type，比對數學專屬清單（seq/unitcircle/fracbar…），現已 0 筆。
 
 ### 2026-08-29 兩處品質修正（批次 474／477 順手做的）
 
