@@ -949,7 +949,7 @@
 
   /* ---------- 視圖切換 ---------- */
 
-  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'read', 'drill', 'custom', 'review', 'help', 'search'];
+  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'read', 'drill', 'imphome', 'custom', 'review', 'help', 'search'];
   // 手機返回手勢／瀏覽器上一頁（2026-08-20 Tony：「很多選進去後都不能回前一頁」）
   // 這是單頁站，本來按返回會直接離站。做法：navStack 與 history 條目一一對應——
   // 前進 pushState，退回一律交給 history.go（畫面在 popstate 裡才更新），
@@ -1349,7 +1349,7 @@
       '<span class="card-sub">' + (itotal ? itotal.toLocaleString() + ' 題 · 依冊、依課練習' : '傳題本給我轉檔') + '</span>';
     ib.addEventListener('click', function () {
       if (needLogin()) return;
-      showImport();
+      showImportHome();
     });
     iwrap.appendChild(ib);
     box.appendChild(iwrap);
@@ -4250,7 +4250,7 @@
     beginQuiz(shuffle(entries).slice(0, 20), 'retry', null);
   });
   $('wrongExit').addEventListener('click', function () {
-    if (wb.scope === 'import') { wb.scope = 'subject'; showCustom(); return; }
+    if (wb.scope === 'import') { wb.scope = 'subject'; showImportHome(); return; }
     show('home');
   });
 
@@ -4548,7 +4548,7 @@
     });
   });
   $('progExit').addEventListener('click', function () {
-    if ($('progTitle').textContent.indexOf('匯入題庫') >= 0) { showCustom(); return; }
+    if ($('progTitle').textContent.indexOf('匯入題庫') >= 0) { showImportHome(); return; }
     show('home');
   });
 
@@ -5078,6 +5078,46 @@
       return { key: k, name: s.name, icon: s.icon, n: n };
     }).filter(Boolean);
   }
+  /* 匯入題庫大選單（2026-08-29 Tony：「一進去先有大圖示選單可以選做題、錯題本、進度分析」，
+     不要把錯題本／進度分析縮成小晶片塞在依課練習頁裡）。三個入口都在這一層。 */
+  function showImportHome() {
+    importMode = true;
+    if (!importBanksReady) {
+      setStatusToast('📦 載入匯入題庫…');
+      ensureImportBanks(function (err) {
+        importBanksReady = !err;
+        if (err) { setStatusToast('⚠️ 匯入題庫載入失敗，請檢查網路後再試'); return; }
+        showImportHome();
+      });
+      return;
+    }
+    show('imphome');
+    renderImportHome();
+  }
+  function renderImportHome() {
+    var subs = importSubjects();
+    var total = subs.reduce(function (n, x) { return n + x.n; }, 0);
+    var wrongN = (state.wrong || []).filter(function (w) { return isImportCat(w.t); }).length;
+    var done = 0;
+    subs.forEach(function (x) { done += importStat(CUSTOM_CATS[x.key]).n; });
+    var got = subs.filter(function (x) { return x.n; }).length;
+    var box = $('imphomeCards');
+    box.innerHTML = '';
+    [
+      { icon: '📝', title: '做題', sub: total ? total.toLocaleString() + ' 題 · ' + got + ' 科 · 依冊、依課練習' : '還沒有題本，傳給我轉檔', go: function () { showImport(); } },
+      { icon: '📕', title: '錯題本', sub: wrongN ? wrongN + ' 題待複習' : '目前沒有錯題', go: function () { wb.scope = 'import'; showWrongbook(); } },
+      { icon: '📊', title: '進度分析', sub: done ? '做過 ' + done.toLocaleString() + ' 題' : '還沒有作答紀錄', go: function () { showImportProgress(); } }
+    ].forEach(function (c) {
+      var b = document.createElement('button');
+      b.className = 'card card-wide';
+      b.innerHTML = '<span class="card-icon">' + c.icon + '</span><span class="card-title">' + c.title +
+        '</span><span class="card-sub">' + escHtml(c.sub) + '</span>';
+      b.addEventListener('click', c.go);
+      box.appendChild(b);
+    });
+  }
+  $('imphomeExit').addEventListener('click', function () { importMode = false; show('subject'); });
+
   // 匯入題庫入口（最外層）：先選科目，再選冊/課
   function showImport(key) {
     importMode = true;
@@ -5121,7 +5161,7 @@
       }
     }
     show('custom');
-    $('customTitle').textContent = importMode ? '📦 匯入題庫' : '📂 ' + CAT_NAME[cat] + '・依課練習';
+    $('customTitle').textContent = importMode ? '📦 匯入題庫・做題' : '📂 ' + CAT_NAME[cat] + '・依課練習';
     // 科目列（只有匯入題庫模式才有；沒匯入的科目照樣列出來，點了說明怎麼給題）
     var srow = $('customSubjs');
     srow.innerHTML = '';
@@ -5135,22 +5175,8 @@
         srow.appendChild(b);
       });
     }
-    var trow = $('customTools');
-    trow.innerHTML = '';
-    trow.classList.toggle('hidden', !importMode);
-    if (importMode) {
-      var wbBtn = document.createElement('button');
-      wbBtn.className = 'chip';
-      var iw = (state.wrong || []).filter(function (w) { return isImportCat(w.t); }).length;
-      wbBtn.textContent = '📕 錯題本' + (iw ? '（' + iw + '）' : '');
-      wbBtn.addEventListener('click', function () { wb.scope = 'import'; showWrongbook(); });
-      trow.appendChild(wbBtn);
-      var pgBtn = document.createElement('button');
-      pgBtn.className = 'chip';
-      pgBtn.textContent = '📊 進度分析';
-      pgBtn.addEventListener('click', function () { showImportProgress(); });
-      trow.appendChild(pgBtn);
-    }
+    // 錯題本／進度分析在上一層的大選單（view-imphome），這裡不再放小晶片
+    $('customTools').classList.add('hidden');
     if (!bank.length) {   // 匯入題庫模式：這一科還沒題，科目列留著讓他換一科
       ['customBooks', 'customDiffs', 'customTypes'].forEach(function (id) { $(id).innerHTML = ''; });
       $('customList').innerHTML = '<div class="empty">這一科還沒有匯入題本。<br>' +
@@ -5228,7 +5254,7 @@
     });
   }
   $('customExit').addEventListener('click', function () {
-    if (importMode) { importMode = false; show('subject'); return; }   // 匯入題庫是從科目頁進來的
+    if (importMode) { showImportHome(); return; }   // 退回匯入題庫大選單
     show('home');
   });
 

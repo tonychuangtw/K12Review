@@ -611,6 +611,14 @@ async (js) => {
   check('科目頁最外層有家長／老師檢視入口',
     await js(`Array.prototype.some.call(document.querySelectorAll('#subjectCards .card'),
       function (c) { return (c.textContent || '').indexOf('家長／老師檢視') >= 0; })`));
+  check('匯入題庫先出大選單', await js(`
+    !document.getElementById('view-imphome').classList.contains('hidden')
+    && document.querySelectorAll('#imphomeCards .card').length === 3`),
+    String(await js(`document.getElementById('imphomeCards').textContent`)));
+  await js(`(function(){ var b = Array.prototype.filter.call(
+    document.querySelectorAll('#imphomeCards .card'),
+    function (x) { return /做題/.test(x.textContent); })[0]; b.click(); })()`);
+  await sleep(500);
   check('匯入題庫開得起來、列出科目列',
     await js(`!document.getElementById('view-custom').classList.contains('hidden')
       && document.querySelectorAll('#customSubjs .chip').length >= 5`),
@@ -1326,10 +1334,10 @@ async (js) => {
   await js(`(function(){ var b = [].slice.call(document.querySelectorAll('#view-subject button, #view-subject .card'))
     .filter(function(x){ return /匯入題庫/.test(x.textContent); })[0]; if (b) b.click(); })()`);
   await sleep(3500);
-  check('匯入題庫有自己的工具列（錯題本＋進度分析）',
-    await js(`document.querySelectorAll('#customTools .chip').length`) === 2,
-    String(await js(`document.getElementById('customTools').textContent`)));
-  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#customTools .chip'))
+  check('匯入題庫先出大選單（做題／錯題本／進度分析）',
+    await js(`document.querySelectorAll('#imphomeCards .card').length`) === 3,
+    String(await js(`document.getElementById('imphomeCards').textContent`)));
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#imphomeCards .card'))
     .filter(function(x){ return /錯題本/.test(x.textContent); })[0]; if (b) b.click(); })()`);
   await sleep(900);
   check('進得了匯入題庫的錯題本',
@@ -1343,9 +1351,9 @@ async (js) => {
     return /全部科目/.test(document.getElementById('wrongFilters').textContent); })()`));
   await js(`document.getElementById('wrongExit').click()`);
   await sleep(900);
-  check('錯題本返回會回到匯入題庫',
-    await js(`!document.getElementById('view-custom').classList.contains('hidden')`));
-  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#customTools .chip'))
+  check('錯題本返回會回到匯入題庫大選單',
+    await js(`!document.getElementById('view-imphome').classList.contains('hidden')`));
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#imphomeCards .card'))
     .filter(function(x){ return /進度/.test(x.textContent); })[0]; if (b) b.click(); })()`);
   await sleep(900);
   check('進得了匯入題庫的進度分析',
@@ -1353,6 +1361,19 @@ async (js) => {
   check('進度分析看得到做過幾題與正確率',
     /做過\s*40\s*題/.test(await js(`document.getElementById('progBody').textContent`)),
     (await js(`document.getElementById('progBody').textContent`)).slice(0, 60));
+  await js(`document.getElementById('progExit').click()`);
+  await sleep(700);
+  check('進度分析返回會回到匯入題庫大選單',
+    await js(`!document.getElementById('view-imphome').classList.contains('hidden')`));
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#imphomeCards .card'))
+    .filter(function(x){ return /做題/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(900);
+  check('做題進得了依冊依課的畫面',
+    await js(`!document.getElementById('view-custom').classList.contains('hidden')`));
+  await js(`document.getElementById('customExit').click()`);
+  await sleep(700);
+  check('依課練習返回會回到匯入題庫大選單',
+    await js(`!document.getElementById('view-imphome').classList.contains('hidden')`));
   await js(`window.NavDebug.go('home')`);
   await sleep(400);
   await js(`document.querySelector('.card[data-go="progress"]').click()`);
