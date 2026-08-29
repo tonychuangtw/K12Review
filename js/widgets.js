@@ -682,6 +682,36 @@
       row.appendChild(btn('−5', function () { m = (m + 55) % 60; paint(); }));
       row.appendChild(btn('+5', function () { m = (m + 5) % 60; paint(); }));
       box.appendChild(row);
+      /* 直接在鐘面上拖指針（2026-08-29 Tony：「拉動指針看時間怎麼變」要真的做出來）。
+         拖到哪就是幾分，分針轉過 12 點會自動進位一小時，跟真的鐘一樣。 */
+      var dragging = false, lastM = m;
+      function timeFromEvent(ev) {
+        var r = svg1.getBoundingClientRect();
+        var pt = ev.touches ? ev.touches[0] : ev;
+        var dx = (pt.clientX - r.left) / r.width * 160 - 80;
+        var dy = (pt.clientY - r.top) / r.height * 160 - 80;
+        var ang = Math.atan2(dx, -dy) * 180 / Math.PI;        // 12 點為 0 度、順時針
+        if (ang < 0) ang += 360;
+        var mm = Math.round(ang / 6) % 60;                    // 每 6 度 1 分
+        if (lastM >= 45 && mm <= 15) h = (h % 12) + 1;        // 分針過 12 點 → 進 1 小時
+        else if (lastM <= 15 && mm >= 45) h = (h + 11) % 12 || 12;
+        lastM = mm; m = mm;
+        paint();
+      }
+      svg1.style.cursor = 'grab';
+      svg1.addEventListener('pointerdown', function (ev) {
+        dragging = true; lastM = m;
+        if (svg1.setPointerCapture && ev.pointerId != null) svg1.setPointerCapture(ev.pointerId);
+        timeFromEvent(ev);
+        ev.preventDefault();
+      });
+      svg1.addEventListener('pointermove', function (ev) { if (dragging) { timeFromEvent(ev); ev.preventDefault(); } });
+      ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (t) {
+        svg1.addEventListener(t, function () { dragging = false; });
+      });
+      var hintRow = div('wg-ctrl');
+      hintRow.appendChild(div('wg-ctrl-label', '也可以直接用手指／滑鼠拖鐘面上的指針'));
+      box.appendChild(hintRow);
     }
     host.appendChild(box);
     paint();
@@ -2318,13 +2348,21 @@
         '聲音是物體「振動」產生的，靠空氣（或水、固體）傳出去——真空中沒有介質，所以聽不到聲音。' +
         '振幅決定音量（振動幅度大＝大聲）、頻率決定音高（振動快＝高音）。' +
         '敲裝水的杯子：水越少越容易振動、頻率越高，聲音越尖。'));
+      if (slA && String(amp) !== slA.value) slA.value = amp;
+      if (slF && String(freq) !== slF.value) slF.value = freq;
     }
+    var slA = null, slF = null;
     if (spec.edit !== false) {
-      var sa = stepper('振幅（音量）', function () { return amp; }, function (v) { amp = v; }, 1, 4,
-        function () { sa.sync(); paint(); });
-      var sf = stepper('頻率（音高）', function () { return freq; }, function (v) { freq = v; }, 1, 5,
-        function () { sf.sync(); paint(); });
-      box.appendChild(sa.el); box.appendChild(sf.el);
+      var rowA = div('wg-ctrl');
+      rowA.appendChild(div('wg-ctrl-label', '振幅（音量）'));
+      slA = slider(1, 4, amp, 1, function (v) { amp = v; paint(); });
+      rowA.appendChild(slA);
+      box.appendChild(rowA);
+      var rowF = div('wg-ctrl');
+      rowF.appendChild(div('wg-ctrl-label', '頻率（音高）'));
+      slF = slider(1, 5, freq, 1, function (v) { freq = v; paint(); });
+      rowF.appendChild(slF);
+      box.appendChild(rowF);
     }
     host.appendChild(box);
     paint();
@@ -3132,13 +3170,27 @@
         '⚠ 倍率越高，看到的「範圍越小、亮度越暗」，而且要用細調節輪，' +
         '否則物鏡容易壓破玻片。顯微鏡下看到的像是上下顛倒、左右相反的——' +
         '標本要往左移時，玻片其實要往右推。'));
+      if (slEye && String(eye) !== slEye.value) slEye.value = eye;
+      if (slObj && String(obj) !== slObj.value) slObj.value = obj;
     }
+    var slEye = null, slObj = null;
     if (spec.edit !== false) {
       var row = div('wg-ctrl');
-      [4, 10, 40].forEach(function (o) {
-        row.appendChild(btn('物鏡 ' + o + '×', function () { obj = o; paint(); }));
-      });
+      row.appendChild(div('wg-ctrl-label', '目鏡'));
+      slEye = slider(5, 15, eye, 5, function (v) { eye = v; paint(); });
+      row.appendChild(slEye);
       box.appendChild(row);
+      var rowO = div('wg-ctrl');
+      rowO.appendChild(div('wg-ctrl-label', '物鏡'));
+      slObj = slider(4, 40, obj, 4, function (v) { obj = v; paint(); });
+      rowO.appendChild(slObj);
+      box.appendChild(rowO);
+      var row2 = div('wg-ctrl');
+      [4, 10, 40].forEach(function (o) {
+        row2.appendChild(btn('物鏡 ' + o + '×', function () { obj = o; paint(); },
+          null, '現在物鏡就是 ' + o + ' 倍'));
+      });
+      box.appendChild(row2);
     }
     host.appendChild(box);
     paint();
@@ -3431,11 +3483,19 @@
         '⚠ 溶解不是消失：溶液的重量 ＝ 水的重量 ＋ 溶質的重量。' +
         '同樣的水最多只溶得下一定的量，到達上限就叫「飽和」；' +
         '想再溶更多，可以加水或加溫（大多數固體在熱水中溶得更多）。'));
+      if (slS && String(solute) !== slS.value) slS.value = solute;
+      if (ss) ss.sync();
     }
+    var slS = null, ss = null;
     if (spec.edit !== false) {
-      var ss = stepper('加入的量', function () { return solute; }, function (v) { solute = v; }, 1, 16,
+      ss = stepper('加入的量', function () { return solute; }, function (v) { solute = v; }, 1, 16,
         function () { ss.sync(); paint(); });
       box.appendChild(ss.el);
+      var rowS = div('wg-ctrl');
+      rowS.appendChild(div('wg-ctrl-label', '拉滑桿加溶質'));
+      slS = slider(1, 16, solute, 1, function (v) { solute = v; ss.sync(); paint(); });
+      rowS.appendChild(slS);
+      box.appendChild(rowS);
     }
     host.appendChild(box);
     paint();
@@ -3449,34 +3509,70 @@
       { v: 7, label: '純水' }, { v: 9, label: '小蘇打水' }, { v: 12, label: '肥皂水' }];
     var box = div('wg');
     var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
     var COLS = ['#e2453c', '#e2703c', '#e2a83c', '#d8d23c', '#a8cf4a',
                 '#5ec46a', '#3cc4a8', '#3ca0d8', '#3c6fd8', '#5a3cd8'];
     function X(p) { return 18 + p / 14 * 284; }
-    for (var i = 0; i < 14; i++) {
-      svg.appendChild(el('rect', { x: X(i), y: 48, width: 284 / 14 + 0.5, height: 26 },
-        'fill:' + COLS[Math.min(Math.floor(i / 14 * COLS.length), COLS.length - 1)]));
+    function nearest(p) {                       // 最接近的常見物質，讓數字有具體對照
+      var best = null, d = 99;
+      marks.forEach(function (m) { var dd = Math.abs(m.v - p); if (dd < d) { d = dd; best = m; } });
+      return (best && d <= 1.2) ? best.label : null;
     }
-    [0, 7, 14].forEach(function (p) {
-      svg.appendChild(txt(X(p) + 10, 88, String(p), 'font-size:11px;fill:var(--dim)'));
-    });
-    svg.appendChild(txt(60, 36, '← 酸性', 'font-size:12px;fill:var(--bad)'));
-    svg.appendChild(txt(160, 36, '中性', 'font-size:12px;fill:var(--dim)'));
-    svg.appendChild(txt(266, 36, '鹼性 →', 'font-size:12px;fill:var(--accent)'));
-    marks.forEach(function (m, i) {
-      var x = X(m.v) + 10;
-      svg.appendChild(el('line', { x1: x, y1: 74, x2: x, y2: 96 + (i % 2) * 14 },
-        'stroke:var(--text);stroke-width:1.5'));
-      svg.appendChild(txt(x, 108 + (i % 2) * 14, m.label, 'font-size:10px;fill:var(--text)'));
-    });
-    box.appendChild(svg);
-    box.appendChild(div('wg-read-main',
-      'pH < 7 酸性　pH ＝ 7 中性　pH > 7 鹼性'));
-    box.appendChild(div('wg-read-sub',
-      '檢驗方法：藍色石蕊試紙遇「酸」變紅、紅色石蕊試紙遇「鹼」變藍（口訣：酸紅鹼藍）。' +
-      '紫色高麗菜汁也可以當指示劑：遇酸變紅、遇鹼變綠或黃。' +
-      '⚠ 酸鹼中和：酸和鹼混在一起會互相抵消，所以蚊蟲叮咬（酸）擦鹼性藥水會止癢、' +
-      '胃酸過多吃制酸劑（鹼性）會舒服。'));
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      for (var i = 0; i < 14; i++) {
+        svg.appendChild(el('rect', { x: X(i), y: 48, width: 284 / 14 + 0.5, height: 26 },
+          'fill:' + COLS[Math.min(Math.floor(i / 14 * COLS.length), COLS.length - 1)]));
+      }
+      [0, 7, 14].forEach(function (p) {
+        svg.appendChild(txt(X(p) + 10, 88, String(p), 'font-size:11px;fill:var(--dim)'));
+      });
+      svg.appendChild(txt(60, 36, '← 酸性', 'font-size:12px;fill:var(--bad)'));
+      svg.appendChild(txt(160, 36, '中性', 'font-size:12px;fill:var(--dim)'));
+      svg.appendChild(txt(266, 36, '鹼性 →', 'font-size:12px;fill:var(--accent)'));
+      marks.forEach(function (m, i) {
+        var x = X(m.v) + 10;
+        svg.appendChild(el('line', { x1: x, y1: 74, x2: x, y2: 96 + (i % 2) * 14 },
+          'stroke:var(--text);stroke-width:1.5'));
+        svg.appendChild(txt(x, 108 + (i % 2) * 14, m.label, 'font-size:10px;fill:var(--text)'));
+      });
+      // 目前拉到的 pH：三角指標＋數字（2026-08-29 Tony：說明寫「拉滑桿」但根本沒有滑桿）
+      var px = X(v) + 10;
+      svg.appendChild(el('path', { d: 'M' + (px - 6) + ' 40 L' + (px + 6) + ' 40 L' + px + ' 50 Z' },
+        'fill:var(--text)'));
+      svg.appendChild(el('rect', { x: px - 2.5, y: 46, width: 5, height: 30, rx: 2 },
+        'fill:none;stroke:var(--text);stroke-width:2'));
+      svg.appendChild(txt(px, 24, 'pH ' + v, 'font-size:12px;font-weight:700'));
+      var kind = v < 7 ? '酸性' : (v > 7 ? '鹼性' : '中性');
+      var near = nearest(v);
+      read.appendChild(div('wg-read-main', 'pH ' + v + '：' + kind +
+        (near ? '（大約就是' + near + '的酸鹼度）' : '') +
+        '　　pH < 7 酸性　pH ＝ 7 中性　pH > 7 鹼性'));
+      read.appendChild(div('wg-read-sub',
+        '檢驗方法：藍色石蕊試紙遇「酸」變紅、紅色石蕊試紙遇「鹼」變藍（口訣：酸紅鹼藍）。' +
+        '紫色高麗菜汁也可以當指示劑：遇酸變紅、遇鹼變綠或黃。' +
+        '⚠ 酸鹼中和：酸和鹼混在一起會互相抵消，所以蚊蟲叮咬（酸）擦鹼性藥水會止癢、' +
+        '胃酸過多吃制酸劑（鹼性）會舒服。'));
+      if (sl && String(v) !== sl.value) sl.value = v;
+    }
+    var sl = null;
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      sl = slider(0, 14, v, 1, function (x) { v = x; paint(); });
+      row.appendChild(sl);
+      box.appendChild(row);
+      var row2 = div('wg-ctrl');
+      [[2, '檸檬汁'], [7, '純水'], [12, '肥皂水']].forEach(function (m) {
+        row2.appendChild(btn(m[1], function () { v = m[0]; paint(); },
+          null, '現在就停在 pH ' + m[0] + '（' + m[1] + '）'));
+      });
+      box.appendChild(row2);
+    }
     host.appendChild(box);
+    paint();
   };
 
   /* ── 溫度與物質三態（statechange）─────────────────────────────────────
@@ -4417,9 +4513,44 @@
     if (spec.pick !== false) {
       var row = div('wg-ctrl');
       [['add', '加法'], ['sub', '減法'], ['scale', '係數倍'], ['dot', '內積']].forEach(function (m) {
-        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); },
+          null, '現在看的就是' + m[1]));
       });
       box.appendChild(row);
+      /* 直接拖動 a、b 的箭頭端點（2026-08-29 Tony：「拖動向量，看合力怎麼變」要真的做出來）。
+         拖曳時吸附到整數格點，數字才好講；離哪個端點近就拖哪一個。 */
+      var drag = null;
+      function cell(ev) {
+        var r = svg.getBoundingClientRect();
+        var pt = ev.touches ? ev.touches[0] : ev;
+        var px = (pt.clientX - r.left) / r.width * 320, py = (pt.clientY - r.top) / r.height * 300;
+        var vx = lo + (px - 30) / (290 - 30) * (hi - lo);
+        var vy = lo + (280 - py) / (280 - 20) * (hi - lo);
+        return [clamp(Math.round(vx), lo, hi), clamp(Math.round(vy), lo, hi)];
+      }
+      function near(p, v) { return Math.abs(p[0] - v[0]) <= 1 && Math.abs(p[1] - v[1]) <= 1; }
+      svg.style.cursor = 'grab';
+      svg.addEventListener('pointerdown', function (ev) {
+        var p = cell(ev);
+        drag = near(p, a) ? 'a' : (near(p, b) ? 'b' : null);
+        if (drag) {
+          if (svg.setPointerCapture && ev.pointerId != null) svg.setPointerCapture(ev.pointerId);
+          ev.preventDefault();
+        }
+      });
+      svg.addEventListener('pointermove', function (ev) {
+        if (!drag) return;
+        var p = cell(ev);
+        if (drag === 'a') a = p; else b = p;
+        paint();
+        ev.preventDefault();
+      });
+      ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (t) {
+        svg.addEventListener(t, function () { drag = null; });
+      });
+      var hint = div('wg-ctrl');
+      hint.appendChild(div('wg-ctrl-label', '拖動 a、b 的箭頭端點，合力會跟著變'));
+      box.appendChild(hint);
     }
     host.appendChild(box);
     paint();

@@ -2929,10 +2929,12 @@
         : '找不到「' + kw + '」' + (filtered ? '，試著放寬年級／難度篩選' : '，換個關鍵字試試（可以搜詞語、意思、例句或注音）'));
   }
 
-  function searchItemEl(t, it, kw) {
   /* 字音辨正：整個詞的注音（Tony 2026-08-28：「拘泥」只標「泥」，孩子不知道「拘」怎麼念）。
      資料有 wz（整詞注音，空格分隔）就整詞標出來，並把目標字那一格標粗；
-     還沒補 wz 的題目退回舊寫法，只標目標字。 */
+     還沒補 wz 的題目退回舊寫法，只標目標字。
+     ⚠ 2026-08-29：這個函式原本被寫進 searchItemEl 的大括號裡（只有搜尋頁看得到），
+     單元學習的教學卡呼叫它會 ReferenceError，整張卡只剩詞、注音與解析全都不見
+     （Tony 回報「字音練習，但是並沒有注音在上面」）。放在最外層才是對的。 */
   function phonWordZy(it) {
     var z = state.phon === 'zhuyin';
     if (!z || !it.wz) return '「' + it.target + '」讀 ' + (z ? it.zhuyin : it.pinyin);
@@ -2947,6 +2949,7 @@
     return parts.join('｜');
   }
 
+  function searchItemEl(t, it, kw) {
     var d = document.createElement('div');
     d.className = 's-item';
     var z = state.phon === 'zhuyin';

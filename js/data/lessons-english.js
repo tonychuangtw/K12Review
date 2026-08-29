@@ -1964,8 +1964,8 @@ window.APP_LESSONS['english|三下|第4單元 時間：幾點鐘'] = {
       body: '整點：It is five o’clock.（五點整）\n' +
             '半點：It is half past five.／It is five thirty.（五點半）\n' +
             '⚠ o’clock 只用在「整點」，五點半不能說 five thirty o’clock。',
-      viz: { type: 'clock', h: 5, m: 0 },
-      tip: '拉動指針看時間怎麼變。',
+      viz: { type: 'clock', h: 5, m: 0, edit: true },
+      tip: '直接拖鐘面上的指針，看時間怎麼變。',
       check: {
         q: '下列哪一種說法是錯的？',
         options: [
@@ -6692,8 +6692,8 @@ window.APP_LESSONS['english|五上|第7單元 數字、時間與日期'] = {
             '半點：It is seven thirty.／half past seven。\n' +
             '差幾分：It is a quarter to eight.（七點四十五分）\n' +
             '⚠ past 是「過」、to 是「差」。',
-      viz: { type: 'clock', h: 7, m: 45 },
-      tip: '拉動指針看時間怎麼變。',
+      viz: { type: 'clock', h: 7, m: 45, edit: true },
+      tip: '直接拖鐘面上的指針，看時間怎麼變。',
       check: {
         q: 'a quarter to nine 是幾點？',
         options: [

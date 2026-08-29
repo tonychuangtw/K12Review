@@ -93,10 +93,17 @@ async function session(port, cdpPort, { blockWriter, seed }, run) {
     await send('Network.enable');
     // js/sync.js 一律擋掉：沒有 CloudSync 就不會被「先登入」攔住
     await send('Network.setBlockedURLs', { urls: ['*js/sync.js'].concat(blockWriter ? ['*hanzi-writer.min.js'] : []) });
-    await send('Page.addScriptToEvaluateOnNewDocument', { source: (blockWriter ? FAKE_WRITER : '') + seed });
+    // 未捕捉的 JS 錯誤要當成失敗：2026-08-29 phonWordZy 被寫進別的函式裡，
+    // 教學卡呼叫時 ReferenceError，整張卡只剩一行，畫面上完全看不出來出過錯。
+    const ERR_HOOK = `window.__errs = [];
+      addEventListener('error', function (e) { window.__errs.push(String(e.message || e.error)); });
+      addEventListener('unhandledrejection', function (e) { window.__errs.push('promise: ' + e.reason); });`;
+    await send('Page.addScriptToEvaluateOnNewDocument', { source: ERR_HOOK + (blockWriter ? FAKE_WRITER : '') + seed });
     await send('Page.navigate', { url: `http://127.0.0.1:${port}/index.html` });
     await sleep(2500);
     await run(js);
+    const errs = await js(`JSON.stringify(window.__errs || [])`);
+    check('這一段流程沒有未捕捉的 JS 錯誤', errs === '[]', String(errs).slice(0, 300));
     ws.close();
   } finally {
     chrome.kill();
@@ -284,6 +291,90 @@ await session(8747, 9347, { blockWriter: true, seed: seedWrong(['c001']) }, asyn
   check('往下也有下限（氧最少剩 5 個電子）',
     await js(`document.querySelector('#__wgtest .wg-read-main').textContent.indexOf('電子 5 個') >= 0`),
     await js(`document.querySelector('#__wgtest .wg-read-main').textContent`));
+});
+
+/* ---------- 1c2. 說明寫「拉滑桿／拖動」的元件，真的拉得動、拖得動 ---------- */
+console.log('互動元件的滑桿與拖曳');
+await session(8749, 9349, { blockWriter: true, seed: seedWrong(['c001']) }, async (js) => {
+  const SLIDERS = [
+    ['phscale（酸鹼值）', { type: 'phscale', value: 3 }, 1],
+    ['microscope（顯微鏡）', { type: 'microscope', eye: 10, obj: 40 }, 2],
+    ['soundwave（波）', { type: 'soundwave', amp: 2, freq: 2 }, 2],
+    ['solution（溶液）', { type: 'solution', solute: 5, max: 12, water: 100 }, 1]
+  ];
+  for (const [name, spec, n] of SLIDERS) {
+    const r = await js(`(function(){
+      var d = document.createElement('div'); document.body.appendChild(d);
+      window.Widgets.render(d, ${JSON.stringify(spec)});
+      var rs = d.querySelectorAll('input[type=range]');
+      var before = d.querySelector('.wg').textContent;
+      Array.prototype.forEach.call(rs, function (x) {
+        x.value = String(Number(x.value) + (Number(x.step) || 1));
+        x.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+      var out = { n: rs.length, changed: d.querySelector('.wg').textContent !== before };
+      d.remove(); return out;
+    })()`);
+    check(name + ' 有 ' + n + ' 條滑桿且拉了會變', r.n === n && r.changed, JSON.stringify(r));
+  }
+  for (const [name, spec] of [['clock（時鐘指針）', { type: 'clock', h: 5, m: 0, edit: true }],
+                              ['vector（向量端點）', { type: 'vector', a: [3, 0], b: [0, 3], mode: 'add' }]]) {
+    const r = await js(`(function(){
+      var d = document.createElement('div'); document.body.appendChild(d);
+      window.Widgets.render(d, ${JSON.stringify(spec)});
+      var svg = null;
+      Array.prototype.forEach.call(d.querySelectorAll('svg'), function (x) {
+        if (x.style && x.style.cursor === 'grab') svg = svg || x;
+      });
+      if (!svg) { d.remove(); return { drag: false }; }
+      var rect = svg.getBoundingClientRect(), before = d.querySelector('.wg').textContent;
+      function ev(t, x, y) { svg.dispatchEvent(new PointerEvent(t, { bubbles: true, clientX: x, clientY: y, pointerId: 1 })); }
+      ev('pointerdown', rect.left + rect.width * 0.5, rect.top + rect.height * 0.2);
+      ev('pointermove', rect.left + rect.width * 0.8, rect.top + rect.height * 0.5);
+      ev('pointerup', rect.left + rect.width * 0.8, rect.top + rect.height * 0.5);
+      var out = { drag: true, changed: d.querySelector('.wg').textContent !== before };
+      d.remove(); return out;
+    })()`);
+    check(name + ' 拖得動而且畫面會變', r.drag && r.changed, JSON.stringify(r));
+  }
+});
+
+/* ---------- 1d. 單元教學卡：每一種類別都要有內容（2026-08-29 Tony 回報字音卡只有詞） ---------- */
+console.log('單元教學卡');
+await session(8748, 9348, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 5, grades: [5], extra: [], subject: 'chinese', onboarded: 1, term: '全',
+  stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [] }));` }, async (js) => {
+  await js(`document.querySelector('.card[data-go="units"]').click()`);
+  await sleep(500);
+  await js(`(function(){var e=document.querySelectorAll('#unitList .unit-card, #unitList button');(e[11]||e[0]).click();})()`);
+  await sleep(500);
+  check('進得了單元教學卡',
+    await js(`!document.getElementById('view-lesson').classList.contains('hidden')`));
+  // 走完整個單元，每一張都要有內容（成語／俚語／字音／字形四種都會走到）
+  const seen = {};
+  let thin = '', phonZy = '', charZy = '';
+  for (let i = 0; i < 20; i++) {
+    const tag = await js(`(document.getElementById('lessonTag')||{}).textContent || ''`);
+    const lines = await js(`document.querySelectorAll('#lessonBody > div').length`);
+    const term = await js(`(document.querySelector('#lessonBody .lesson-term')||{}).textContent || ''`);
+    const zy = await js(`(document.querySelector('#lessonBody .lesson-zy')||{}).textContent || ''`);
+    const kind = tag.replace('📖 教學 · ', '').trim();
+    if (kind) seen[kind] = (seen[kind] || 0) + 1;
+    if (lines < 2 && !thin) thin = `${kind}「${term}」只有 ${lines} 行`;
+    if (kind === '字音辨正' && !phonZy) phonZy = zy;
+    if (kind === '字形辨正' && !charZy) charZy = zy;
+    const last = await js(`/單元測驗/.test(document.getElementById('lessonNext').textContent)`);
+    if (last) break;
+    await js(`document.getElementById('lessonNext').click()`);
+    await sleep(200);
+  }
+  check('每一張教學卡都有內容（不只一行詞）', thin === '', thin);
+  check('四種類別的教學卡都走到了',
+    ['成語', '俚語諺語', '字音辨正', '字形辨正'].every((k) => seen[k]),
+    JSON.stringify(seen));
+  // 2026-08-29 Tony：「字音練習，但是並沒有注音在上面」——整詞注音那行不能不見
+  check('字音辨正的教學卡有整詞注音', /[ㄅ-ㄩ]/.test(phonZy) && phonZy.indexOf('｜') >= 0, phonZy || '(沒有注音行)');
+  check('字形辨正的教學卡有注音', /[ㄅ-ㄩ]/.test(charZy), charZy || '(沒有注音行)');
 });
 
 /* ---------- 1b. 只考錯題本的錯題測驗 ---------- */

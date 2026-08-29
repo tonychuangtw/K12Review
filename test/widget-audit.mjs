@@ -43,6 +43,26 @@ Object.values(w.APP_LESSONS || {}).forEach((deck) => {
 });
 console.log(`收集到 ${specs.size} 種互動元件、${[...specs.values()].reduce((n, l) => n + l.length, 0)} 組 spec`);
 
+/* 1b. 說明文字答應的操作，元件真的做得到嗎（2026-08-29 Tony：「寫有可以拉滑桿，但並沒有」） */
+const SLIDER_WORD = /滑桿|拉一拉/;
+const DRAG_WORD = /拖曳|拖動|拉動(?!.*滑桿)/;
+const CLICK_WORD = /按鈕|按一下|按按|點一下|點選|切換|選一個|試著按|自己按|按看看/;
+const promises = [];
+Object.entries(w.APP_LESSONS || {}).forEach(([key, deck]) => {
+  (deck.cards || []).forEach((c, i) => {
+    if (!c.viz) return;
+    const t = c.tip || '';        // 只看 tip：body 是課文內容，寫「選一個函數」「快速切換」不是在講操作
+    const wantSlider = SLIDER_WORD.test(t);
+    const wantDrag = DRAG_WORD.test(t);
+    const wantClick = CLICK_WORD.test(t);
+    if (wantSlider || wantDrag || wantClick) {
+      promises.push({ key, i, title: c.title || '', tip: (c.tip || '').slice(0, 40),
+        spec: c.viz, wantSlider, wantDrag, wantClick });
+    }
+  });
+});
+console.log(`說明有提到「拉滑桿／按按鈕」的卡片：${promises.length} 張`);
+
 const server = spawn('python3', ['-m', 'http.server', '8760'], { cwd: ROOT, stdio: 'ignore' });
 const chrome = spawn(SHELL, ['--remote-debugging-port=9360', '--no-sandbox', '--disable-gpu', 'about:blank'], { stdio: 'ignore' });
 let bad = [];
@@ -161,6 +181,43 @@ try {
    } catch (e) { return [{ type: '（體檢腳本自己爆了）', spec: '', issues: [String(e && e.stack || e).slice(0, 400)] }]; }
   })()`);
   bad = report || [];
+
+  const promiseReport = await js(`(function(){
+   try {
+    var jobs = ${JSON.stringify(promises)}, out = [];
+    jobs.forEach(function (j) {
+      var host = document.createElement('div');
+      document.body.appendChild(host);
+      try { window.Widgets.render(host, j.spec); } catch (e) {
+        out.push({ key: j.key, i: j.i, title: j.title, tip: j.tip, miss: 'render 丟例外' });
+        host.remove(); return;
+      }
+      var wg = host.querySelector('.wg');
+      var hasSlider = !!(wg && wg.querySelector('input[type=range]'));
+      var hasBtn = !!(wg && wg.querySelector('.wg-btn, button, select'));
+      // 可拖曳的元件會把游標設成 grab（clock 的鐘面、vector 的坐標平面就是這樣）
+      var hasDrag = !!(wg && Array.prototype.some.call(wg.querySelectorAll('svg'),
+        function (x) { return x.style && x.style.cursor === 'grab'; }));
+      var miss = [];
+      if (j.wantSlider && !hasSlider) miss.push('說明寫「拉滑桿」，但這個元件沒有滑桿');
+      if (j.wantDrag && !hasDrag && !hasSlider) miss.push('說明寫「拖動」，但這個元件不能拖');
+      if (j.wantClick && !hasBtn) miss.push('說明寫「按按鈕／點選」，但這個元件沒有可按的東西');
+      if (miss.length) out.push({ key: j.key, i: j.i, title: j.title, tip: j.tip,
+        type: j.spec.type, miss: miss.join('；') });
+      host.remove();
+    });
+    return out;
+   } catch (e) { return [{ key: '（第二段體檢自己爆了）', miss: String(e && e.stack || e).slice(0, 300) }]; }
+  })()`);
+  if (promiseReport && promiseReport.length) {
+    console.log(`\n⚠️  說明與實際操作對不上：${promiseReport.length} 張卡`);
+    promiseReport.forEach((r) => {
+      console.log(`  ${r.key} card${r.i}（${r.title}）viz=${r.type}`);
+      console.log(`    tip：${r.tip}`);
+      console.log(`    ・${r.miss}`);
+    });
+    bad = bad.concat(promiseReport.map((r) => ({ type: r.type || '?', spec: r.key + ' card' + r.i, issues: [r.miss] })));
+  }
   ws.close();
 } finally {
   chrome.kill(); server.kill();
