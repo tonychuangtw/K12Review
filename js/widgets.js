@@ -8255,8 +8255,10 @@
         svg.appendChild(txt(160, 14, spec.title, 'font-size:11px;fill:var(--dim)'));
       }
       items.forEach(function (it, i) {
-        var x = BX + 12 + (it.x == null ? 50 : it.x) / 100 * (BW - 24);
-        var y = BY + 12 + (it.y == null ? 50 : it.y) / 100 * (BH - 24);
+        /* 有底圖時 x/y 就是「底圖上的百分比位置」（左上角 0,0）；沒底圖時沿用原本內縮 12px 的排法 */
+        var px = (it.x == null ? 50 : it.x) / 100, py = (it.y == null ? 50 : it.y) / 100;
+        var x = imgOk ? BX + px * BW : BX + 12 + px * (BW - 24);
+        var y = imgOk ? BY + py * BH : BY + 12 + py * (BH - 24);
         var on = i === idx;
         var mark = el('g', { style: 'cursor:pointer' });
         mark.appendChild(el('circle', { cx: x, cy: y, r: on ? 9 : 6.5 },
