@@ -183,9 +183,12 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
   `img/social/map-{eastasia,china,seasia,southasia,westasia,africa,europe,america,oceania,world}.webp`
   （產生腳本 `scratchpad/genmaps.sh`，截圖驗證 `scratchpad/shotreg.mjs <目錄> <序號>`）
 - 已完成：weathermap 的 typhoon 模式加臺灣小地圖＋西北路徑箭頭（6 張卡）
-- 2026-08-29 Tony：「都做上去. 國小到高中都換掉」→ 剩 mapdir 33、weathermap 的 pressure/front 25、plates 21、strata 21。
-  這四種是示意圖／剖面圖不是地圖，AI 圖會畫錯（板塊誰隱沒到誰底下、地層上下順序），已回報 Tony
-  預計維持程式繪製、只重畫配色與圖形；他若要求改用 AI 圖再說
+- 已完成（2026-08-29，Tony「都做上去」＋「照你建議」）：plates 22（碰撞剖面圖＋震源震央剖面）、
+  strata 14（地表草地／化石／新→老時間軸／背斜向斜／斷層面）、weathermap front 4（加臺灣小地圖，鋒面掃過）
+  —— 這幾種是示意圖與剖面圖，維持程式繪製（AI 圖會把板塊誰擠誰、地層上下畫錯）。
+  mapdir 33 張（八方位／比例尺／圖例）本來就畫得清楚，不動
+- 地圖卡這條線到此告一段落。之後若要再擴（英文單字情境圖、自然生物器材、社會歷史場景、國語閱讀插圖、單元封面），
+  沿用同一套做法：`gen-image.sh --gpt` ＋ 真實參考圖 ＋ 「不要文字」，中文一律程式疊
 - 另提過但還沒排順序的 AI 配圖方向：英文單字情境圖、自然生物／器材圖、社會歷史場景、國語閱讀插圖、單元封面圖
 
 ## 已完成：K12Review（v64）
