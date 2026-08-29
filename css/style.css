@@ -876,6 +876,9 @@ body.anim-lock { overflow: hidden; }
   font-size: 1rem; cursor: pointer;
 }
 .wg-btn:active { background: var(--accent); border-color: var(--accent); color: #fff; }
+/* 按了但畫面沒變（例如已經是中性原子）時的提示，避免被當成按鈕壞掉 */
+.wg-noop { font-size: 0.72rem; color: var(--dim); align-self: center; margin-left: 0.3rem; }
+.wg-noop.hidden { display: none; }
 .wg-val { min-width: 1.8rem; font-size: 1.15rem; font-weight: 700; }
 .wg-hint { color: var(--dim); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.6; }
 .wg-note { margin-top: 0.6rem; font-size: 0.9rem; line-height: 1.7; }

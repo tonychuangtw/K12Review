@@ -22,12 +22,35 @@
     if (text != null) d.textContent = text;
     return d;
   }
+  /* 互動元件的按鈕。2026-08-29 Tony 回報：原子構造卡按「回到中性」沒反應——
+     因為當下本來就是中性，重畫出來一模一樣，按了像壞掉。
+     這裡統一處理：按完如果畫面完全沒變，就在按鈕旁閃一句「已經是這個狀態了」，
+     讓使用者知道是「已經是這樣」而不是「按鈕壞了」。 */
+  function flashNoop(b) {
+    var box = b.parentNode;
+    if (!box) return;
+    var hint = box.querySelector('.wg-noop');
+    if (!hint) {
+      hint = document.createElement('span');
+      hint.className = 'wg-noop';
+      box.appendChild(hint);
+    }
+    hint.textContent = '已經是這個狀態了';
+    hint.classList.remove('hidden');
+    clearTimeout(hint._t);
+    hint._t = setTimeout(function () { hint.classList.add('hidden'); }, 1600);
+  }
   function btn(label, onClick, cls) {
     var b = document.createElement('button');
     b.type = 'button';
     b.className = cls || 'wg-btn';
     b.textContent = label;
-    b.addEventListener('click', onClick);
+    b.addEventListener('click', function (ev) {
+      var wrap = b.closest ? b.closest('.wg') : null;
+      var before = wrap ? wrap.innerHTML : null;
+      onClick(ev);
+      if (wrap && wrap.innerHTML === before) flashNoop(b);
+    });
     return b;
   }
   function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
@@ -6897,10 +6920,11 @@
     var read = div('wg-read');
     box.appendChild(read);
     function shells(e) {
-      var caps = [2, 8, 8, 18], out = [], left = e;
+      var caps = [2, 8, 8, 18, 32], out = [], left = e;
       for (var i = 0; i < caps.length && left > 0; i++) {
         out.push(Math.min(caps[i], left)); left -= caps[i];
       }
+      if (left > 0) out.push(left);          // 真的還有剩就多畫一層，不要無聲吞掉
       return out;
     }
     function paint() {
@@ -6944,8 +6968,11 @@
     });
     box.appendChild(row);
     var row2 = div('wg-ctrl');
-    row2.appendChild(btn('－ 1 個電子', function () { extra--; paint(); }));
-    row2.appendChild(btn('＋ 1 個電子', function () { extra++; paint(); }));
+    /* 電子數限制在 ±3（常見離子最多到 Al³⁺、N³⁻）。2026-08-29 Tony 回報：
+       一直按 ±1 加到三十幾個以後圖就不動了——原來電子殼層容量只到 2+8+8+18＝36，
+       超過的電子被無聲丟掉，畫面看起來像當掉。加上限之後按到底會提示「已經是這個狀態了」。 */
+    row2.appendChild(btn('－ 1 個電子', function () { extra = clamp(extra - 1, -3, 3); paint(); }));
+    row2.appendChild(btn('＋ 1 個電子', function () { extra = clamp(extra + 1, -3, 3); paint(); }));
     row2.appendChild(btn('回到中性', function () { extra = 0; paint(); }));
     box.appendChild(row2);
     host.appendChild(box);

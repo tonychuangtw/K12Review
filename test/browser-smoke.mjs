@@ -248,6 +248,39 @@ await session(8746, 9346, { blockWriter: true, seed: seedWrong(['c001', 'c002', 
     await js(`document.getElementById('quizNext').textContent`));
 });
 
+/* ---------- 1c. 互動元件：原子構造（2026-08-29 Tony 回報兩個問題） ---------- */
+console.log('原子構造互動元件');
+await session(8747, 9347, { blockWriter: true, seed: seedWrong(['c001']) }, async (js) => {
+  await js(`(function(){
+    var d = document.createElement('div');
+    d.id = '__wgtest';
+    document.body.appendChild(d);
+    window.Widgets.render(d, { type: 'atom', z: 8 });
+  })()`);
+  const btnText = `Array.prototype.slice.call(document.querySelectorAll('#__wgtest .wg-btn'))`;
+  check('原子元件畫得出來', await js(`!!document.querySelector('#__wgtest svg')`));
+  // 一開始就是中性，按「回到中性」畫面不會變 → 要給提示，不能像壞掉
+  await js(`${btnText}.filter(function(b){return b.textContent === '回到中性';})[0].click()`);
+  check('按了沒變化時會提示「已經是這個狀態了」',
+    await js(`(function(){var h = document.querySelector('#__wgtest .wg-noop');
+      return !!h && !h.classList.contains('hidden') && /已經是這個狀態/.test(h.textContent);})()`),
+    await js(`(document.querySelector('#__wgtest .wg-noop')||{}).textContent || '(沒有提示)'`));
+  // 一直按 ＋1 個電子：以前會加到三十幾個、畫面停住；現在夾在 ±3
+  for (let i = 0; i < 8; i++) {
+    await js(`${btnText}.filter(function(b){return b.textContent === '＋ 1 個電子';})[0].click()`);
+  }
+  check('電子數有上限（氧最多加到 11 個，不會一路加下去）',
+    await js(`/電子數/.test(document.querySelector('#__wgtest').textContent) &&
+      document.querySelector('#__wgtest .wg-read-main').textContent.indexOf('電子 11 個') >= 0`),
+    await js(`document.querySelector('#__wgtest .wg-read-main').textContent`));
+  for (let i = 0; i < 8; i++) {
+    await js(`${btnText}.filter(function(b){return b.textContent === '－ 1 個電子';})[0].click()`);
+  }
+  check('往下也有下限（氧最少剩 5 個電子）',
+    await js(`document.querySelector('#__wgtest .wg-read-main').textContent.indexOf('電子 5 個') >= 0`),
+    await js(`document.querySelector('#__wgtest .wg-read-main').textContent`));
+});
+
 /* ---------- 1b. 只考錯題本的錯題測驗 ---------- */
 console.log('錯題測驗（只考錯題本）');
 await session(8734, 9334, { blockWriter: true, seed: seedWrong(['c001', 'c002', 'c003', 'c004', 'c005', 'c006', 'c007', 'c008']) }, async (js) => {
