@@ -949,7 +949,7 @@
 
   /* ---------- 視圖切換 ---------- */
 
-  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'read', 'drill', 'imphome', 'custom', 'review', 'help', 'search'];
+  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'read', 'lit', 'drill', 'imphome', 'custom', 'review', 'help', 'search'];
   // 手機返回手勢／瀏覽器上一頁（2026-08-20 Tony：「很多選進去後都不能回前一頁」）
   // 這是單頁站，本來按返回會直接離站。做法：navStack 與 history 條目一一對應——
   // 前進 pushState，退回一律交給 history.go（畫面在 popstate 裡才更新），
@@ -1088,9 +1088,9 @@
     loadScript('js/data/lessons-' + k + '.js', cb || function () {});
   }
   // 課文帶讀的短文：跟概念卡一樣，進到單元才載；沒有這一科的課文檔就安靜跳過
-  var TEXT_FILES = { social: 1, science: 1, math: 1, english: 1 };
-  function ensureTexts(cb) {
-    var k = mainCat();
+  var TEXT_FILES = { social: 1, science: 1, math: 1, english: 1, chinese: 1 };
+  function ensureTexts(cb, forceKey) {
+    var k = forceKey || mainCat();   // 國語沒有 mainCat（回傳 null），語文常識帶讀要自己指定 'chinese'
     if (!k || !TEXT_FILES[k] || (W.APP_TEXTS && W.__textsLoaded === k)) { if (cb) cb(null); return; }
     loadScript('js/data/texts-' + k + '.js', function (err) {
       if (!err) W.__textsLoaded = k;
@@ -1446,6 +1446,12 @@
       : '挑日期出考卷／只考錯題本 · 滿分100';
     var uDone = Object.keys(state.units || {}).length;
     $('cnt-units').textContent = uDone ? '已完成 ' + uDone + ' 個單元' : '先教後考 · 任選單元';
+    var litEl = $('cnt-lit');
+    if (litEl) {
+      var lDone = 0;
+      Object.keys(state.lit || {}).forEach(function (k) { if (k.indexOf(state.grade + '|') === 0) lDone++; });
+      litEl.textContent = lDone ? '已讀完 ' + lDone + ' 篇' : '修辭、標點、閱讀策略 · 一篇一個觀念';
+    }
     $('cnt-drill').textContent = '照順序一題不漏';
     $('phonToggle').textContent = state.phon === 'zhuyin' ? '注音' : '拼音';
     renderGradeBtn();
@@ -1832,6 +1838,7 @@
       else if (go === 'reading') startReading();
       else if (go === 'writing') showWriting();
       else if (go === 'units') showUnits();
+      else if (go === 'lit') showLit();
       else if (go === 'drill') showDrill();
       else if (go === 'custom') showCustom();
       else if (go === 'write') startWrite();
@@ -5874,6 +5881,14 @@
     if (!R) return;
     if (R.i < R.text.segs.length - 1) { R.i++; renderReadSeg(); window.scrollTo(0, 0); return; }
     readStopSpeak();
+    if (R.lit) {   // 語文常識帶讀：讀完就回列表並打勾，不接概念卡或測驗
+      state.lit = state.lit || {};
+      state.lit[R.grade + '|' + R.lit] = true;
+      save();
+      readState = null;
+      show('lit'); renderLit();
+      return;
+    }
     if (R.deck && R.deck.cards && R.deck.cards.length) {
       startConcept(R.grade, R.unitIdx, R.items, R.deck);
     } else {
@@ -5882,7 +5897,60 @@
       renderLessonCard();
     }
   });
-  $('readExit').addEventListener('click', function () { readStopSpeak(); showUnits(); });
+  $('readExit').addEventListener('click', function () {
+    readStopSpeak();
+    if (readState && readState.lit) { readState = null; show('lit'); renderLit(); return; }
+    showUnits();
+  });
+  $('litExit').addEventListener('click', function () { show('home'); });
+
+  /* ── 語文常識帶讀（國語專屬，2026-08-31）────────────────────────────────
+     國語的單元是拿成語／俚語／字音／字形照 id 順序自動切的「第 N 單元」，沒有主題名稱，
+     而且題庫一加題單元就整個位移，所以「一單元一篇課文」在國語對不起來。
+     改法：語文常識帶讀獨立一區，每個年級 9 篇（修辭、標點、部首六書、閱讀策略、寫作…），
+     不綁單元，用同一套帶讀介面；完成紀錄存 state.lit['<年級>|<篇名>']。 */
+  function litList(grade) {
+    var T = W.APP_TEXTS;
+    if (!T) return [];
+    var out = [];
+    Object.keys(T).forEach(function (k) {
+      var p = k.split('|');
+      if (p[0] === 'chinese' && p[1] === String(grade)) out.push({ key: k, name: p[2], text: T[k] });
+    });
+    out.sort(function (a, b) {
+      function n(x) { var m = x.name.match(/^第(\d+)/); return m ? Number(m[1]) : 99; }
+      return n(a) - n(b);
+    });
+    return out;
+  }
+  function renderLit() {
+    var list = $('litList');
+    list.innerHTML = '';
+    var items = litList(state.grade);
+    state.lit = state.lit || {};
+    $('litHint').textContent = items.length
+      ? gradeLabel(state.grade) + '的語文常識，一篇一個觀念：逐句唸完、答對「讀懂了嗎」就算完成。'
+      : '這個年級的語文常識還在編寫中，先換一個年級看看。';
+    if (!items.length) { list.innerHTML = '<div class="empty">這個年級目前沒有內容。</div>'; return; }
+    items.forEach(function (it) {
+      var done = !!state.lit[state.grade + '|' + it.name];
+      var b = document.createElement('button');
+      b.className = 'unit-item' + (done ? ' done' : '');
+      b.innerHTML = '<b>' + (done ? '✅' : '▶️') + ' ' + it.name + '</b>' +
+        '<small>' + it.text.segs.length + ' 段 · ' + (it.text.intro || '') + '</small>';
+      b.addEventListener('click', function () { startLitRead(it); });
+      list.appendChild(b);
+    });
+  }
+  function showLit() {
+    ensureTexts(function () { show('lit'); renderLit(); }, 'chinese');
+  }
+  function startLitRead(it) {
+    readState = { grade: state.grade, unitIdx: 0, items: { name: it.name, length: 0 },
+      text: it.text, deck: null, i: 0, ok: {}, speaking: false, lit: it.name };
+    show('read');
+    renderReadSeg();
+  }
 
   function startLesson(grade, unitIdx, items) {
     var deck = conceptDeck(items && items.name);

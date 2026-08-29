@@ -1445,5 +1445,41 @@ await session(8761, 9361, {}, async (js) => {
     await js(`(window.__errs || []).join(' | ')`));
 });
 
+/* ---------- 15. 語文常識帶讀（國語專屬獨立一區） ---------- */
+console.log('語文常識帶讀（國語）');
+await session(8762, 9362, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 1, extra: [], grades: [1], onboarded: true, subject: 'chinese',
+  stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], units: {}, lit: {} }));` },
+async (js) => {
+  await js(`window.NavDebug.go('home')`);
+  await sleep(300);
+  check('國語首頁看得到語文常識帶讀', await js(`!!document.querySelector('.card[data-go="lit"]')`));
+  await js(`document.querySelector('.card[data-go="lit"]').click()`);
+  await sleep(700);
+  const n = await js(`document.querySelectorAll('#litList .unit-item').length`);
+  check('列出這個年級的語文常識篇目', n >= 5, String(n));
+  await js(`document.querySelectorAll('#litList .unit-item')[0].click()`);
+  await sleep(400);
+  check('點進去就是帶讀畫面',
+    await js(`!document.getElementById('view-read').classList.contains('hidden')`));
+  const segs = await js(`(function(){ var T = window.APP_TEXTS, k = Object.keys(T).filter(function(x){
+    return x.indexOf('chinese|1|') === 0; }).sort()[0]; window.__litKey = k; return T[k].segs.length; })()`);
+  check('段落數與資料一致',
+    await js(`document.querySelectorAll('#readDots .cdot').length`) === segs, String(segs));
+  for (let i = 0; i < segs; i++) {
+    await js(`(function(){ var a = window.APP_TEXTS[window.__litKey].segs[${i}].q.answer;
+      var o = document.querySelectorAll('#readCheck .ck-opt'); if (o[a]) o[a].click(); })()`);
+    await sleep(180);
+    await js(`document.getElementById('readNext').click()`);
+    await sleep(300);
+  }
+  check('讀完回到語文常識列表（不是概念卡也不是測驗）',
+    await js(`!document.getElementById('view-lit').classList.contains('hidden')`));
+  check('讀完的那一篇打勾',
+    await js(`document.querySelectorAll('#litList .unit-item.done').length`) >= 1);
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);

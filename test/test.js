@@ -23,7 +23,7 @@ for (const f of ['lessons-math', 'lessons-science', 'lessons-social', 'lessons-e
   'lessons-history', 'lessons-geography', 'lessons-civics']) {          // 概念卡（單元教學層）
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
-for (const f of ['texts-social', 'texts-science', 'texts-math', 'texts-english']) {                                     // 課文帶讀（教材層第一段）
+for (const f of ['texts-social', 'texts-science', 'texts-math', 'texts-english', 'texts-chinese']) {                                     // 課文帶讀（教材層第一段）
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
 global.window.APP_TEXTS = window.APP_TEXTS;
@@ -536,7 +536,10 @@ console.log('解析確認題');
     const bad = [];
     const posCount = [0, 0, 0, 0];
     keys.forEach((k) => {
-      if (!global.window.APP_LESSONS[k]) bad.push(k + '：找不到對應的單元（鍵要和 lessons-*.js 一字不差）');
+      // 國語的語文常識帶讀（chinese|<年級>|<篇名>）不綁單元，所以不比對 APP_LESSONS
+      if (k.indexOf('chinese|') !== 0 && !global.window.APP_LESSONS[k]) {
+        bad.push(k + '：找不到對應的單元（鍵要和 lessons-*.js 一字不差）');
+      }
       const segs = T[k].segs || [];
       if (!segs.length) bad.push(k + '：沒有 segs');
       segs.forEach((sg, i) => {

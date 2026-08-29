@@ -85,6 +85,10 @@
       <span class="card-icon">📶</span><span class="card-title">依序刷題</span>
       <span class="card-sub" id="cnt-drill"></span>
     </button>
+    <button class="card" data-cn="1" data-go="lit">
+      <span class="card-icon">📖</span><span class="card-title">語文常識帶讀</span>
+      <span class="card-sub" id="cnt-lit"></span>
+    </button>
     <button class="card" data-go="units">
       <span class="card-icon">🧭</span><span class="card-title">單元學習</span>
       <span class="card-sub" id="cnt-units"></span>
@@ -258,6 +262,17 @@
 </section>
 
 <!-- 課文帶讀：一段一段唸，讀懂了才往下（短文為自撰，非課本原文） -->
+<!-- 語文常識帶讀（國語專屬，2026-08-31）：不綁單元，一年級 9 篇 -->
+<section id="view-lit" class="view hidden">
+  <div class="quiz-head">
+    <button class="btn-ghost" id="litExit">✕ 返回</button>
+    <span>📖 語文常識帶讀</span>
+    <span></span>
+  </div>
+  <div id="litHint" class="prog-hint"></div>
+  <div id="litList" class="wrong-list"></div>
+</section>
+
 <section id="view-read" class="view hidden">
   <div class="quiz-head">
     <button class="btn-ghost" id="readExit">✕ 離開</button>

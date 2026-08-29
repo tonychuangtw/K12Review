@@ -5,8 +5,8 @@
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
 NEXT_ACTION: 【進行中】課文帶讀鋪設 —— 社會 126 ✅／自然 126 ✅／數學 216 ✅／英文 216 ✅。
-下一科是國語：先確認國語的單元是怎麼切的（國語走 `buildUnits(DATA, grade)` 動態切單元，
-不是 `lessons-*.js`），決定課文帶讀的鍵要怎麼配，再開 `js/data/texts-chinese.js`
+國語已改做「語文常識帶讀」獨立一區（前端已接好、smoke 全過），接續照 `js/data/texts-chinese.js`
+從小四往下寫，每個年級 9 篇
 （每單元 6 段、每段 ≥3 句、每句 ≤60 字、附一題「讀懂了嗎」，正解位置由 scratchpad 的 tmpl_tail.py 自動輪流）。
 【已完成】匯入題庫（custom）的解析確認題已全部寫完（待人工寫 0）。各科自編原創題起步：
 **數學四年級 576 題已完成並上線（js/data/checks-math.js，2026-08-29），等 Tony 實際玩過再決定要不要往下鋪。**
@@ -25,7 +25,7 @@ NEXT_ACTION: 【進行中】課文帶讀鋪設 —— 社會 126 ✅／自然 12
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 社會科地圖卡的示範（一卡三圖）已送 Telegram，等 Tony 點頭才推其餘 153 張地圖卡；其餘無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-31 00:40 台北
+UPDATED: 2026-08-31 01:20 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
@@ -201,7 +201,15 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
 - 數學開工（`js/data/texts-math.js`，已註冊到 app.js TEXT_FILES 與 test/test.js）：
   **數學 24 冊 216 單元全數完成 ✅**（小學 12 冊 108 ＋ 國中 6 冊 54 ＋ 高中 6 冊 54，2026-08-30）
 - **英文 24 冊 216 單元全數完成 ✅**（小學 12 冊 108 ＋ 國中 6 冊 54 ＋ 高中 6 冊 54，2026-08-31）
-- 四科合計 684 單元（社會 126／自然 126／數學 216／英文 216）；下一科：國語
+- 四科合計 684 單元（社會 126／自然 126／數學 216／英文 216）
+- **國語改做「語文常識帶讀」獨立一區**（2026-08-31）：國語的單元是照 id 自動切的「第 N 單元」，
+  沒有主題名稱、加題就整個位移，一單元一篇對不起來。改成不綁單元的語文常識，每個年級 9 篇。
+  ・資料：`js/data/texts-chinese.js`，鍵是 `chinese|<年級數字>|第N篇 篇名`
+  ・前端：首頁多一張「📖 語文常識帶讀」卡（`data-go="lit"`）→ `view-lit` 列表 → 沿用 view-read 帶讀介面；
+    讀完回列表打勾（`state.lit['<年級>|<篇名>']`），不接概念卡也不接測驗
+  ・`ensureTexts(cb, forceKey)` 加了 forceKey：國語的 `mainCat()` 回傳 null，要自己指定 'chinese'
+  ・test.js 的課文守門對 `chinese|` 開頭的鍵不比對 APP_LESSONS；smoke 第 15 節走完整個流程
+  ・進度：小一・小二・小三 各 9 篇 ✅ ＝ 國語 27 / 108；下一批：小四 → 小五 → 小六 → 國中 → 高中
 - 2026-08-30：test/browser-smoke.mjs 第 10 節（數學三上概念卡）補上「先走完課文帶讀再進概念卡」，
   因為數學鋪完課文後，有課文的單元會先進 view-read，舊流程直接找 #conceptCheck 會抓不到
 - ⚠ 正解位置要打散：test.js 會擋（任一位置 >50% 就失敗）。批量寫完後用 node 重新產生整個 texts 檔
