@@ -4,8 +4,8 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【進行中】課文帶讀鋪設 —— 社會 126 ✅／自然 126 ✅／數學 216 ✅／英文 36（一上～二下）。
-接續：照 `js/data/lessons-english.js` 從三上往下寫進 `js/data/texts-english.js`
+NEXT_ACTION: 【進行中】課文帶讀鋪設 —— 社會 126 ✅／自然 126 ✅／數學 216 ✅／英文 54（一上～三下）。
+接續：照 `js/data/lessons-english.js` 從四上往下寫進 `js/data/texts-english.js`
 （每單元 6 段、每段 ≥3 句、每句 ≤60 字、附一題「讀懂了嗎」，正解位置由 scratchpad 的 tmpl_tail.py 自動輪流）。
 【已完成】匯入題庫（custom）的解析確認題已全部寫完（待人工寫 0）。各科自編原創題起步：
 **數學四年級 576 題已完成並上線（js/data/checks-math.js，2026-08-29），等 Tony 實際玩過再決定要不要往下鋪。**
@@ -24,7 +24,7 @@ NEXT_ACTION: 【進行中】課文帶讀鋪設 —— 社會 126 ✅／自然 12
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 社會科地圖卡的示範（一卡三圖）已送 Telegram，等 Tony 點頭才推其餘 153 張地圖卡；其餘無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 18:00 台北
+UPDATED: 2026-08-30 18:40 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
@@ -200,8 +200,8 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
 - 數學開工（`js/data/texts-math.js`，已註冊到 app.js TEXT_FILES 與 test/test.js）：
   **數學 24 冊 216 單元全數完成 ✅**（小學 12 冊 108 ＋ 國中 6 冊 54 ＋ 高中 6 冊 54，2026-08-30）
 - 英文開工（`js/data/texts-english.js`，已註冊到 app.js TEXT_FILES 與 test/test.js）：
-  一上・一下・二上・二下 各 9 ✅（2026-08-30）＝ 英文 36 / 216；下一批：三上 → 三下 → …
-- 四科合計 504 單元；英文做完換國語
+  一上～三下 6 冊 各 9 ✅（2026-08-30）＝ 英文 54 / 216；下一批：四上 → 四下 → …
+- 四科合計 522 單元；英文做完換國語
 - 2026-08-30：test/browser-smoke.mjs 第 10 節（數學三上概念卡）補上「先走完課文帶讀再進概念卡」，
   因為數學鋪完課文後，有課文的單元會先進 view-read，舊流程直接找 #conceptCheck 會抓不到
 - ⚠ 正解位置要打散：test.js 會擋（任一位置 >50% 就失敗）。批量寫完後用 node 重新產生整個 texts 檔
