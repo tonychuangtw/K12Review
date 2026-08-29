@@ -178,10 +178,14 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
   再加「海上要有鯨魚海豚渡輪海龜帆船、陸上有黑熊石虎梅花鹿」這類可愛元素。純文字描述畫出來的河會亂跑（第一版就是），一定要帶參考圖
 - 已完成：`img/social/_base-taiwan-cute.webp` 一張底圖供 taiwan 元件三種模式共用（位置與分區／地形／河川），
   30 張 taiwan 概念卡全部受惠；順手修掉 `mode:'river'` 沒對應到 `rivers` 的 bug（3 張卡本來顯示成分區圖）
-- 進行中：regionmap 17 張（`js/data/lessons-social.js`）——widget 已支援 `img`/`iw`/`ih` 底圖（圖框高度跟著底圖長寬比走），
-  10 張區域底圖用 `scratchpad/genmaps.sh` 產生中；截圖驗證用 `scratchpad/shotreg.mjs`
-- 還沒動：mapdir 33、weathermap 31、plates 21、strata 21 —— 這四種是示意圖／剖面圖不是地圖，
-  AI 圖反而會畫錯（板塊剖面、鋒面符號要精確），評估後傾向維持程式繪製、只改善配色與樣式
+- 已完成：regionmap 17 張（`js/data/lessons-social.js`）——widget 支援 `img`/`iw`/`ih` 底圖（圖框高度跟著底圖長寬比走，
+  item 的 x/y 改成「底圖上的百分比」，靠上緣的名字自動翻到圓點下面）。10 張區域底圖：
+  `img/social/map-{eastasia,china,seasia,southasia,westasia,africa,europe,america,oceania,world}.webp`
+  （產生腳本 `scratchpad/genmaps.sh`，截圖驗證 `scratchpad/shotreg.mjs <目錄> <序號>`）
+- 已完成：weathermap 的 typhoon 模式加臺灣小地圖＋西北路徑箭頭（6 張卡）
+- 2026-08-29 Tony：「都做上去. 國小到高中都換掉」→ 剩 mapdir 33、weathermap 的 pressure/front 25、plates 21、strata 21。
+  這四種是示意圖／剖面圖不是地圖，AI 圖會畫錯（板塊誰隱沒到誰底下、地層上下順序），已回報 Tony
+  預計維持程式繪製、只重畫配色與圖形；他若要求改用 AI 圖再說
 - 另提過但還沒排順序的 AI 配圖方向：英文單字情境圖、自然生物／器材圖、社會歷史場景、國語閱讀插圖、單元封面圖
 
 ## 已完成：K12Review（v64）
