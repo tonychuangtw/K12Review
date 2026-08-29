@@ -8102,3 +8102,2704 @@ window.APP_TEXTS['english|三下|第9單元 can 與能力'] = {
     }
   ]
 };
+
+window.APP_TEXTS['english|四上|第1單元 現在進行式'] = {
+  intro: 'be 動詞和 ing 缺一不可，少了任何一半都不成立。',
+  segs: [
+    {
+      h: '① 現在進行式的形式',
+      s: [
+        '公式是主詞加 be 動詞再加動詞加 ing。',
+        'I am eating 就是我正在吃。',
+        'He is reading 就是他正在看書。',
+        'be 動詞和 ing 缺一不可。',
+        '不能只說 I eating，也不能只說 I am eat。'
+      ],
+      terms: [
+        { w: '現在進行式', d: '表示此刻正在做的動作。' }
+      ],
+      q: {
+        q: '課文說現在進行式缺一不可的兩個部分是什麼？',
+        options: [
+          'be 動詞和 ing',
+          '主詞和動詞',
+          'do 和動詞',
+          '只要 ing'
+        ],
+        answer: 0,
+        why: [null, '要有 be 動詞和 ing。', '那是否定疑問。', '還要 be 動詞。']
+      }
+    },
+    {
+      h: '② 和現在簡單式的差別',
+      s: [
+        '現在簡單式講的是習慣或事實。',
+        '像 I eat breakfast every day。',
+        '現在進行式講的是此刻正在做。',
+        '像 I am eating breakfast now。',
+        '看到 now 或 right now 通常就是進行式。'
+      ],
+      terms: [
+        { w: '線索', d: '幫助判斷用哪種時態的字詞。' }
+      ],
+      q: {
+        q: '課文說看到 now 通常要用哪一種時態？',
+        options: [
+          '現在簡單式',
+          '現在進行式',
+          '過去式',
+          '未來式'
+        ],
+        answer: 1,
+        why: ['那配 every day。', null, '這裡講現在。', '這裡講現在。']
+      }
+    },
+    {
+      h: '③ be 動詞的選擇',
+      s: [
+        '主詞是 I 就用 am。',
+        '主詞是 he、she、it 就用 is。',
+        '主詞是 you、we、they 就用 are。',
+        '主詞是單數名詞也用 is。',
+        '主詞是複數名詞則用 are。'
+      ],
+      terms: [
+        { w: '主詞', d: '句子裡做動作的那個人事物。' }
+      ],
+      q: {
+        q: '課文說主詞是複數名詞時要用哪一個 be 動詞？',
+        options: [
+          'is',
+          'am',
+          'are',
+          'be'
+        ],
+        answer: 2,
+        why: ['那是單數。', '那只配 I。', null, '要變化。']
+      }
+    },
+    {
+      h: '④ 否定句',
+      s: [
+        '否定只要在 be 動詞後面加 not。',
+        'I am not eating 就是我沒有在吃。',
+        'He is not sleeping 也可以縮寫。',
+        'They are not playing 一樣可以縮寫。',
+        '進行式的否定不需要 do 或 does。'
+      ],
+      terms: [
+        { w: '否定句', d: '表示沒有在做某件事的句子。' }
+      ],
+      q: {
+        q: '課文說進行式的否定要不要用 do？',
+        options: [
+          '要用',
+          '看主詞',
+          '看動詞',
+          '不用'
+        ],
+        answer: 3,
+        why: ['有 be 動詞就夠了。', '一律不用。', '一律不用。', null]
+      }
+    },
+    {
+      h: '⑤ 疑問句',
+      s: [
+        '把 be 動詞移到句首就是疑問句。',
+        'Are you eating 的回答是 Yes, I am 或 No, I am not。',
+        'Is he reading 的回答是 Yes, he is 或 No, he is not。',
+        '簡答時要用 be 動詞回答。',
+        '不能用 do 來回答。'
+      ],
+      terms: [
+        { w: '簡答', d: '用很短的一句話回答問句。' }
+      ],
+      q: {
+        q: '課文說進行式的簡答要用什麼回答？',
+        options: [
+          'be 動詞',
+          'do',
+          'does',
+          '原形動詞'
+        ],
+        answer: 0,
+        why: [null, '要用 be 動詞。', '要用 be 動詞。', '要用 be 動詞。']
+      }
+    },
+    {
+      h: '⑥ 綜合練習',
+      s: [
+        '看圖說話是最好的練習方式。',
+        'The boy is running 就是男孩正在跑步。',
+        'Two girls are talking 就是兩個女孩正在講話。',
+        '主詞是兩個人所以用 are。',
+        '還可以說某個東西不是在做某事，而是在做另一件事。'
+      ],
+      terms: [
+        { w: '看圖說話', d: '看著圖片描述正在發生的事。' }
+      ],
+      q: {
+        q: '課文說主詞是兩個女孩時要用哪一個 be 動詞？',
+        options: [
+          'is',
+          'are',
+          'am',
+          'be'
+        ],
+        answer: 1,
+        why: ['複數用 are。', null, '複數用 are。', '要變化。']
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四上|第2單元 -ing 拼寫規則'] = {
+  intro: '一個字母的差別會讓意思完全不同。hoping 和 hopping 不一樣。',
+  segs: [
+    {
+      h: '① 一般直接加',
+      s: [
+        '大部分動詞直接加 ing。',
+        '像 play 變成 playing、read 變成 reading。',
+        'eat 變成 eating。',
+        '字尾是 y 的時候不用變化。',
+        '所以 study 直接變成 studying，這一點和第三人稱單數加 s 不一樣。'
+      ],
+      terms: [
+        { w: '拼寫規則', d: '單字變化時字母怎麼寫的規定。' }
+      ],
+      q: {
+        q: '課文說字尾是 y 時加 ing 要不要改成 i？',
+        options: [
+          '要改',
+          '看長度',
+          '不用',
+          '要去掉 y'
+        ],
+        answer: 2,
+        why: ['直接加 ing。', '一律不改。', null, '不用去掉。']
+      }
+    },
+    {
+      h: '② 去 e 加 ing',
+      s: [
+        '字尾是不發音的 e 時，要先去掉 e。',
+        '再加 ing。',
+        '所以 make 變成 making、write 變成 writing。',
+        'come 變成 coming、dance 變成 dancing。',
+        '但也有例外，像 see 就直接變成 seeing。'
+      ],
+      terms: [
+        { w: '不發音的 e', d: '寫出來但不唸的字尾 e。' }
+      ],
+      q: {
+        q: '課文說字尾是不發音的 e 時要怎麼加 ing？',
+        options: [
+          '直接加',
+          '重複 e',
+          '不用加',
+          '去掉 e 再加'
+        ],
+        answer: 3,
+        why: ['要先去 e。', '要去掉。', '要加 ing。', null]
+      }
+    },
+    {
+      h: '③ 重複字尾子音',
+      s: [
+        '有些字要重複字尾的子音。',
+        '條件是短母音加上單一子音結尾的單音節字。',
+        '所以 run 變成 running、sit 變成 sitting。',
+        'swim 變成 swimming、get 變成 getting。',
+        '判斷方法是唸唸看，母音是短音而且只有一個子音就要重複。'
+      ],
+      terms: [
+        { w: '單音節', d: '只有一個母音的字。' }
+      ],
+      q: {
+        q: '課文說什麼情況要重複字尾子音？',
+        options: [
+          '短母音加單一子音結尾',
+          '長母音結尾',
+          '任何字',
+          '字尾是 e'
+        ],
+        answer: 0,
+        why: [null, '要短母音。', '有條件。', '那要去 e。']
+      }
+    },
+    {
+      h: '④ 為什麼要重複',
+      s: [
+        '重複子音是為了保持母音的短音。',
+        '如果不重複，母音就會變成長音。',
+        'hoping 的 o 是長音，意思是希望。',
+        'hopping 的 o 是短音，意思是單腳跳。',
+        '一個字母的差別，就讓意思完全不同。'
+      ],
+      terms: [
+        { w: '短音', d: '發得很短促的母音。' }
+      ],
+      q: {
+        q: '課文說重複子音的目的是什麼？',
+        options: [
+          '讓字變長',
+          '保持母音的短音',
+          '好看',
+          '沒有目的'
+        ],
+        answer: 1,
+        why: ['是保持短音。', null, '有語音原因。', '有目的。']
+      }
+    },
+    {
+      h: '⑤ 常見動詞整理',
+      s: [
+        '直接加的有 go、do、say、work。',
+        '去 e 的有 take、have、use、ride。',
+        '重複子音的有 run、sit、swim、get。',
+        '三類要分清楚。',
+        '寫的時候先判斷屬於哪一類。'
+      ],
+      terms: [
+        { w: '分類', d: '把東西按規則分成幾群。' }
+      ],
+      q: {
+        q: '課文說 have 加 ing 屬於哪一類？',
+        options: [
+          '直接加',
+          '重複子音',
+          '去 e',
+          '不變化'
+        ],
+        answer: 2,
+        why: ['字尾有 e。', '要去 e。', null, '要變化。']
+      }
+    },
+    {
+      h: '⑥ 練習與檢查',
+      s: [
+        '檢查有三個步驟。',
+        '第一步問字尾是不是不發音的 e，是就去掉。',
+        '第二步問是不是短母音加單子音結尾，是就重複子音。',
+        '第三步如果都不是，就直接加 ing。',
+        '拼錯 ing 是很常見的失分點，寫完要檢查一次。'
+      ],
+      terms: [
+        { w: '檢查', d: '寫完後再看一次有沒有錯。' }
+      ],
+      q: {
+        q: '課文說檢查的第一步是什麼？',
+        options: [
+          '看是不是短母音',
+          '直接加 ing',
+          '查字典',
+          '看字尾有沒有不發音的 e'
+        ],
+        answer: 3,
+        why: ['那是第二步。', '那是最後。', '有步驟可循。', null]
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四上|第3單元 現在進行式問句與否定'] = {
+  intro: '肯定簡答不能縮寫，Yes, I am 不能縮成別的樣子。',
+  segs: [
+    {
+      h: '① 是非問句',
+      s: [
+        '把 be 動詞移到句首就是問句。',
+        'Are you studying 就是你正在讀書嗎。',
+        'Is she cooking 就是她正在煮飯嗎。',
+        '進行式的問句不用 do 或 does。',
+        '因為句子裡已經有 be 動詞了。'
+      ],
+      terms: [
+        { w: '是非問句', d: '只要回答是或不是的問句。' }
+      ],
+      q: {
+        q: '課文說進行式問句為什麼不用 do？',
+        options: [
+          '因為已經有 be 動詞',
+          '因為是現在式',
+          '因為有 ing',
+          '沒有原因'
+        ],
+        answer: 0,
+        why: [null, '因為有 be 動詞。', '因為有 be 動詞。', '有原因。']
+      }
+    },
+    {
+      h: '② 簡答',
+      s: [
+        'Are you eating 的回答是 Yes, I am 或 No, I am not。',
+        'Is he sleeping 的回答是 Yes, he is 或 No, he is not。',
+        '肯定簡答不能縮寫。',
+        '所以只能說 Yes, I am。',
+        '但否定簡答可以縮寫。'
+      ],
+      terms: [
+        { w: '縮寫', d: '把兩個字合併變短的寫法。' }
+      ],
+      q: {
+        q: '課文說肯定簡答可不可以縮寫？',
+        options: [
+          '可以',
+          '不可以',
+          '看主詞',
+          '看動詞'
+        ],
+        answer: 1,
+        why: ['固定不縮寫。', null, '一律不縮。', '一律不縮。']
+      }
+    },
+    {
+      h: '③ 疑問詞問句',
+      s: [
+        'What are you doing 就是你正在做什麼。',
+        '回答是 I am reading。',
+        'Where is he going 就是他要去哪裡。',
+        'Who is singing 就是誰在唱歌。',
+        '順序是疑問詞、be 動詞、主詞，最後才是動詞加 ing。'
+      ],
+      terms: [
+        { w: '疑問詞', d: '用來問人事時地物的字。' }
+      ],
+      q: {
+        q: '課文說疑問詞問句的語序是什麼？',
+        options: [
+          '主詞在最前',
+          '動詞在最前',
+          '疑問詞、be 動詞、主詞',
+          '沒有順序'
+        ],
+        answer: 2,
+        why: ['疑問詞在最前。', '疑問詞在最前。', null, '有順序。']
+      }
+    },
+    {
+      h: '④ 常用的回答',
+      s: [
+        '被問到正在做什麼。',
+        '可以回答 I am doing my homework。',
+        '也可以說 Nothing much，就是沒做什麼特別的。',
+        '或說 I am just watching TV。',
+        '回答時通常會重複問題裡的動作結構。'
+      ],
+      terms: [
+        { w: '回應', d: '對別人的話做出回答。' }
+      ],
+      q: {
+        q: '課文說 Nothing much 是什麼意思？',
+        options: [
+          '很多事',
+          '不知道',
+          '不想說',
+          '沒做什麼特別的'
+        ],
+        answer: 3,
+        why: ['是沒什麼。', '是沒什麼特別。', '是沒什麼特別。', null]
+      }
+    },
+    {
+      h: '⑤ 否定的多種說法',
+      s: [
+        'He is not playing 有三種寫法。',
+        '完整寫法、把 is not 縮起來，或把 He is 縮起來。',
+        '三種都正確。',
+        '口語中縮寫比較常見。',
+        '但 I am not 只有一種縮寫方式。'
+      ],
+      terms: [
+        { w: '口語', d: '平常說話時的用法。' }
+      ],
+      q: {
+        q: '課文說 I am not 有幾種縮寫方式？',
+        options: [
+          '一種',
+          '三種',
+          '兩種',
+          '沒有'
+        ],
+        answer: 0,
+        why: [null, '只有一種。', '只有一種。', '有一種。']
+      }
+    },
+    {
+      h: '⑥ 綜合對話',
+      s: [
+        '先問對方正在做什麼。',
+        '對方回答在寫功課，再反問你呢。',
+        '你可以說在看電影。',
+        '接著問對方現在忙不忙。',
+        '一問一答之間，問句、否定與回答就都練到了。'
+      ],
+      terms: [
+        { w: '對話', d: '兩個人一來一往的談話。' }
+      ],
+      q: {
+        q: '課文說對方回答後常會加哪一句讓對話繼續？',
+        options: [
+          '說再見',
+          '反問你呢',
+          '保持沉默',
+          '換話題'
+        ],
+        answer: 1,
+        why: ['會反問。', null, '會反問。', '會反問。']
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四上|第4單元 地點介系詞'] = {
+  intro: 'between 用在兩者之間，三者以上要用 among。',
+  segs: [
+    {
+      h: '① in、on、under',
+      s: [
+        'in 是在裡面，例如書在書包裡。',
+        'on 是在上面，而且有接觸，例如書在桌上。',
+        'under 是在下面，例如貓在椅子下。',
+        '三個字的差別在位置關係。',
+        '所以選錯一個，整句話的意思就變了。'
+      ],
+      terms: [
+        { w: '介系詞', d: '表示位置或時間關係的字。' }
+      ],
+      q: {
+        q: '課文說 on 表示什麼位置？',
+        options: [
+          '在上面且有接觸',
+          '在裡面',
+          '在下面',
+          '在旁邊'
+        ],
+        answer: 0,
+        why: [null, '那是 in。', '那是 under。', '那是 next to。']
+      }
+    },
+    {
+      h: '② 其他常用介系詞',
+      s: [
+        'behind 是在後面，in front of 是在前面。',
+        'next to 或 beside 是在旁邊。',
+        'between 是在兩者之間。',
+        'near 是在附近。',
+        '注意 between 只用在兩者之間，三者以上要用 among。'
+      ],
+      terms: [
+        { w: 'between', d: '在兩者之間。' }
+      ],
+      q: {
+        q: '課文說三者以上要用哪一個字？',
+        options: [
+          'between',
+          'among',
+          'near',
+          'beside'
+        ],
+        answer: 1,
+        why: ['那是兩者。', null, '那是附近。', '那是旁邊。']
+      }
+    },
+    {
+      h: '③ 問位置',
+      s: [
+        'Where is my book 就是我的書在哪裡。',
+        '回答是 It is on the desk。',
+        'Where are my shoes 就是我的鞋子在哪裡。',
+        '回答是 They are under the bed。',
+        '單數用 is、複數用 are，回答時也要跟著變。'
+      ],
+      terms: [
+        { w: '位置', d: '東西所在的地方。' }
+      ],
+      q: {
+        q: '課文說問複數東西的位置要用哪一個 be 動詞？',
+        options: [
+          'is',
+          'am',
+          'are',
+          'be'
+        ],
+        answer: 2,
+        why: ['那是單數。', '那只配 I。', null, '要變化。']
+      }
+    },
+    {
+      h: '④ There is 與 There are',
+      s: [
+        '這個句型表示某處有某樣東西。',
+        'There is a book on the desk 就是桌上有一本書。',
+        'There are two books on the desk 就是桌上有兩本書。',
+        'be 動詞要配合後面的名詞。',
+        '不是配合開頭的 there。'
+      ],
+      terms: [
+        { w: 'There is', d: '表示某處有某樣東西。' }
+      ],
+      q: {
+        q: '課文說 There 句型的 be 動詞要配合什麼？',
+        options: [
+          '前面的 there',
+          '地點',
+          '說話的人',
+          '後面的名詞'
+        ],
+        answer: 3,
+        why: ['要看名詞。', '要看名詞。', '要看名詞。', null]
+      }
+    },
+    {
+      h: '⑤ 地點的說法',
+      s: [
+        'at home 是在家。',
+        'at school 是在學校。',
+        'in the park 是在公園。',
+        'on the playground 是在操場上。',
+        '有些是固定用法，不完全能照字面推理，例如 at home 不加 the。'
+      ],
+      terms: [
+        { w: '固定用法', d: '約定俗成、不能隨意更改的說法。' }
+      ],
+      q: {
+        q: '課文說 at home 後面要不要加 the？',
+        options: [
+          '不用',
+          '要加',
+          '看情況',
+          '要加 a'
+        ],
+        answer: 0,
+        why: [null, '固定不加。', '一律不加。', '不加。']
+      }
+    },
+    {
+      h: '⑥ 描述房間',
+      s: [
+        '可以用三到四句來描述一個空間。',
+        '先說房間裡有一張床。',
+        '再說書桌在窗戶旁邊。',
+        '接著說桌上有兩本書。',
+        '最後說書包在門後面，一段描述就完成了。'
+      ],
+      terms: [
+        { w: '描述', d: '說出某個地方是什麼樣子。' }
+      ],
+      q: {
+        q: '課文說描述空間可以用幾句話？',
+        options: [
+          '一句',
+          '三到四句',
+          '十句以上',
+          '不用說'
+        ],
+        answer: 1,
+        why: ['課文說三到四句。', null, '三到四句就好。', '要描述。']
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四上|第5單元 There is / There are'] = {
+  intro: 'there 在這裡沒有「那裡」的意思，真正的主詞是後面的名詞。',
+  segs: [
+    {
+      h: '① 基本句型',
+      s: [
+        'There is 後面接單數名詞或不可數名詞。',
+        'There are 後面接複數名詞。',
+        '最後再加上地點。',
+        '這裡的 there 沒有「那裡」的意思。',
+        '它只是句型的開頭，真正的主詞是後面的名詞。'
+      ],
+      terms: [
+        { w: '句型', d: '句子的固定結構。' }
+      ],
+      q: {
+        q: '課文說這個句型真正的主詞是什麼？',
+        options: [
+          'there',
+          '地點',
+          '後面的名詞',
+          'be 動詞'
+        ],
+        answer: 2,
+        why: ['它只是開頭。', '是名詞。', null, '是名詞。']
+      }
+    },
+    {
+      h: '② 不可數名詞',
+      s: [
+        '不可數名詞一律用 There is。',
+        'There is some water in the glass 就是杯子裡有一些水。',
+        'There is milk in the fridge 就是冰箱裡有牛奶。',
+        '不可數名詞沒有複數形。',
+        '也不能直接加 a。'
+      ],
+      terms: [
+        { w: '不可數名詞', d: '不能一個兩個去數的名詞。' }
+      ],
+      q: {
+        q: '課文說不可數名詞要用 There is 還是 There are？',
+        options: [
+          'There are',
+          '兩個都可以',
+          '不能用這句型',
+          'There is'
+        ],
+        answer: 3,
+        why: ['不可數用 is。', '要用 is。', '可以用。', null]
+      }
+    },
+    {
+      h: '③ 否定句',
+      s: [
+        'There is not a book on the desk 可以縮寫。',
+        'There are not any books 也可以縮寫。',
+        '否定句中常常用 any。',
+        '而不是用 some。',
+        '這是這個句型很常考的地方。'
+      ],
+      terms: [
+        { w: 'any', d: '任何，常用在否定與疑問句。' }
+      ],
+      q: {
+        q: '課文說否定句中常用哪一個字？',
+        options: [
+          'any',
+          'some',
+          'a',
+          'the'
+        ],
+        answer: 0,
+        why: [null, '那用在肯定句。', '不可數不能用。', '常用 any。']
+      }
+    },
+    {
+      h: '④ 疑問句',
+      s: [
+        'Is there a book on the desk 的回答是 Yes, there is。',
+        '否定的話就說 No, there is not。',
+        'Are there any books 的回答則是 Yes, there are。',
+        '疑問句要把 be 動詞移到 there 前面。',
+        '回答時也要用 there。',
+        '不能換成 it 或 they。'
+      ],
+      terms: [
+        { w: '疑問句', d: '用來發問的句子。' }
+      ],
+      q: {
+        q: '課文說回答 There 句型的問句時要用什麼字？',
+        options: [
+          'it',
+          'there',
+          'they',
+          'this'
+        ],
+        answer: 1,
+        why: ['要用 there。', null, '要用 there。', '要用 there。']
+      }
+    },
+    {
+      h: '⑤ 問數量',
+      s: [
+        'How many students are there in your class。',
+        '意思是你們班有幾個學生。',
+        '回答是 There are thirty students。',
+        '語序是 How many 加複數名詞，再加 are there。',
+        '最後才是地點。'
+      ],
+      terms: [
+        { w: '語序', d: '句子裡各部分排列的順序。' }
+      ],
+      q: {
+        q: '課文說 How many 後面要接什麼？',
+        options: [
+          '單數名詞',
+          '動詞',
+          '複數名詞',
+          '地點'
+        ],
+        answer: 2,
+        why: ['要用複數。', '要接名詞。', null, '名詞在前。']
+      }
+    },
+    {
+      h: '⑥ 綜合應用',
+      s: [
+        '描述一個地方可以連用好幾句。',
+        '先說我家附近有一座公園。',
+        '再說裡面有很多樹。',
+        '接著說還有一個小湖。',
+        '最後說沒有高樓，一段完整的描述就出來了。'
+      ],
+      terms: [
+        { w: '應用', d: '把學到的東西用在實際情境。' }
+      ],
+      q: {
+        q: '課文說描述地方時可以怎麼做？',
+        options: [
+          '只說一句',
+          '用問句',
+          '用否定句',
+          '連用好幾句 There 句型'
+        ],
+        answer: 3,
+        why: ['可以連用。', '用敘述句。', '肯定否定都可以。', null]
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四上|第6單元 月份與日期'] = {
+  intro: 'date 問的是幾號，day 問的是星期幾。',
+  segs: [
+    {
+      h: '① 十二個月份',
+      s: [
+        '一年有十二個月份。',
+        '從 January 一路排到 December。',
+        '每一個都要記起來。',
+        '月份的第一個字母要大寫。',
+        '這是英文的固定規則。'
+      ],
+      terms: [
+        { w: '月份', d: '一年當中的十二個月。' }
+      ],
+      q: {
+        q: '課文說月份的第一個字母要怎麼寫？',
+        options: [
+          '大寫',
+          '小寫',
+          '都可以',
+          '全部大寫'
+        ],
+        answer: 0,
+        why: [null, '要大寫。', '要大寫。', '只有第一個。']
+      }
+    },
+    {
+      h: '② 星期',
+      s: [
+        '一週有七天。',
+        '從 Sunday 排到 Saturday。',
+        '星期的首字母同樣要大寫。',
+        '在某一個星期一要用 on Monday。',
+        '每個星期一則用複數的 on Mondays。'
+      ],
+      terms: [
+        { w: '星期', d: '一週當中的七天。' }
+      ],
+      q: {
+        q: '課文說「每個星期一」要怎麼說？',
+        options: [
+          'on Monday',
+          '用複數 on Mondays',
+          'in Monday',
+          'at Monday'
+        ],
+        answer: 1,
+        why: ['那是某一個。', null, '要用 on。', '要用 on。']
+      }
+    },
+    {
+      h: '③ 序數',
+      s: [
+        '日期要用序數。',
+        '像 first、second、third、fourth、fifth。',
+        '一路到 twentieth 和 twenty-first。',
+        '大部分序數是在基數後面加 th。',
+        '但前三個要特別記。'
+      ],
+      terms: [
+        { w: '序數', d: '表示第幾的數字。' }
+      ],
+      q: {
+        q: '課文說大部分序數是怎麼變的？',
+        options: [
+          '加 s',
+          '加 ing',
+          '加 th',
+          '不變'
+        ],
+        answer: 2,
+        why: ['是加 th。', '是加 th。', null, '要變化。']
+      }
+    },
+    {
+      h: '④ 日期的寫法',
+      s: [
+        '美式寫法是月份在前、日期在後。',
+        '唸的時候日期用序數。',
+        '英式寫法則是日期在前、月份在後。',
+        '唸的時候前面要加 the。',
+        '年份通常分成兩段來唸。'
+      ],
+      terms: [
+        { w: '美式', d: '美國常用的寫法。' }
+      ],
+      q: {
+        q: '課文說唸日期時要用哪一種數字？',
+        options: [
+          '基數',
+          '分數',
+          '都可以',
+          '序數'
+        ],
+        answer: 3,
+        why: ['要用序數。', '要用序數。', '要用序數。', null]
+      }
+    },
+    {
+      h: '⑤ 問日期',
+      s: [
+        'What is the date today 就是今天幾號。',
+        '回答會說出月份和日期。',
+        'What day is it today 就是今天星期幾。',
+        '回答會說出星期。',
+        'date 問的是幾號，day 問的是星期幾，兩個問句不一樣。'
+      ],
+      terms: [
+        { w: 'date', d: '日期，幾月幾號。' }
+      ],
+      q: {
+        q: '課文說 day 問的是什麼？',
+        options: [
+          '星期幾',
+          '幾號',
+          '幾點',
+          '哪一年'
+        ],
+        answer: 0,
+        why: [null, '那是 date。', '那是 time。', '那是 year。']
+      }
+    },
+    {
+      h: '⑥ 生日與節日',
+      s: [
+        'When is your birthday 就是你生日什麼時候。',
+        '回答會說 It is on 加上日期。',
+        '聖誕節則是在十二月二十五日。',
+        '具體日期前面用 on。',
+        '只說月份的時候則用 in。'
+      ],
+      terms: [
+        { w: '節日', d: '一年當中特別慶祝的日子。' }
+      ],
+      q: {
+        q: '課文說只講月份時要用哪一個介系詞？',
+        options: [
+          'on',
+          'in',
+          'at',
+          'to'
+        ],
+        answer: 1,
+        why: ['那是具體日期。', null, '那是時間點。', '要用 in。']
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四上|第7單元 序數'] = {
+  intro: '複合數字只有最後一位變序數，前面維持基數。',
+  segs: [
+    {
+      h: '① 基數與序數',
+      s: [
+        '基數表示數量。',
+        '像 one、two、three。',
+        '序數表示順序。',
+        '像 first、second、third。',
+        '序數前面通常要加 the，例如 the first day。'
+      ],
+      terms: [
+        { w: '基數', d: '表示數量的數字。' }
+      ],
+      q: {
+        q: '課文說序數前面通常要加什麼？',
+        options: [
+          'the',
+          'a',
+          'an',
+          '不用加'
+        ],
+        answer: 0,
+        why: [null, '要加 the。', '要加 the。', '通常要加。']
+      }
+    },
+    {
+      h: '② 前十個序數',
+      s: [
+        'first、second、third 是前三個。',
+        '這三個和基數長得完全不一樣。',
+        '接下來的 fourth 到 tenth 就規則多了。',
+        '大多是在基數後面加 th。',
+        '但 fifth、eighth、ninth 的拼法要特別留意。'
+      ],
+      terms: [
+        { w: '序數', d: '表示第幾的數字。' }
+      ],
+      q: {
+        q: '課文說哪三個序數和基數長得完全不一樣？',
+        options: [
+          '後三個',
+          '前三個',
+          '中間三個',
+          '全部都一樣'
+        ],
+        answer: 1,
+        why: ['是前三個。', null, '是前三個。', '前三個不同。']
+      }
+    },
+    {
+      h: '③ 較大的序數',
+      s: [
+        'eleventh、twelfth、thirteenth 一路往上。',
+        '到 twentieth 和 twenty-first。',
+        '規則有兩條。',
+        '整十的序數要把 y 改成 ie 再加 th。',
+        '複合數字則只有最後一位變序數。'
+      ],
+      terms: [
+        { w: '複合數字', d: '由十位和個位組成的數字。' }
+      ],
+      q: {
+        q: '課文說複合數字哪一位要變成序數？',
+        options: [
+          '第一位',
+          '兩位都要',
+          '最後一位',
+          '都不用'
+        ],
+        answer: 2,
+        why: ['是最後一位。', '只有最後一位。', null, '要變。']
+      }
+    },
+    {
+      h: '④ 序數的用法',
+      s: [
+        '日期要用序數來唸。',
+        '樓層也用序數，例如住在三樓。',
+        '順序也用序數，例如第一題、第二次。',
+        '樓層與名次前面通常要加 the。',
+        '這是很常見的用法。'
+      ],
+      terms: [
+        { w: '樓層', d: '建築物的第幾層。' }
+      ],
+      q: {
+        q: '課文說樓層要用哪一種數字？',
+        options: [
+          '基數',
+          '分數',
+          '小數',
+          '序數'
+        ],
+        answer: 3,
+        why: ['樓層用序數。', '用序數。', '用序數。', null]
+      }
+    },
+    {
+      h: '⑤ 名次與比賽',
+      s: [
+        'He won first place 就是他得第一名。',
+        'She finished second 就是她得第二名。',
+        '也可以說 the first prize。',
+        '意思是第一名的獎。',
+        '運動比賽最常用到的就是前三名。'
+      ],
+      terms: [
+        { w: '名次', d: '比賽的排名。' }
+      ],
+      q: {
+        q: '課文說「他得第一名」的英文是什麼？',
+        options: [
+          'He won first place',
+          'He is first day',
+          'He has one place',
+          'He won one'
+        ],
+        answer: 0,
+        why: [null, '那是第一天。', '要用序數。', '要用序數。']
+      }
+    },
+    {
+      h: '⑥ 順序的表達',
+      s: [
+        '講步驟時可以用序數。',
+        '先說 First，再說第一個動作。',
+        '接著說 Second，說第二個動作。',
+        '最後用 Finally 收尾。',
+        '也可以用 first、then、next、finally 這一組字。'
+      ],
+      terms: [
+        { w: '步驟', d: '做一件事的先後順序。' }
+      ],
+      q: {
+        q: '課文說講步驟最後可以用哪一個字收尾？',
+        options: [
+          'First',
+          'Finally',
+          'Second',
+          'Because'
+        ],
+        answer: 1,
+        why: ['那是開頭。', null, '那是中間。', '那是說原因。']
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四上|第8單元 學校科目與課表'] = {
+  intro: 'interesting 是令人感興趣的，interested 是感到有興趣的。',
+  segs: [
+    {
+      h: '① 常見科目',
+      s: [
+        'Chinese 是國語，English 是英語。',
+        'math 是數學，science 是自然。',
+        'social studies 是社會，music 是音樂。',
+        'art 是美術，PE 是體育。',
+        'computer class 是電腦課。'
+      ],
+      terms: [
+        { w: '科目', d: '學校裡教的各種課程。' }
+      ],
+      q: {
+        q: '課文說 PE 是哪一科？',
+        options: [
+          '美術',
+          '音樂',
+          '體育',
+          '自然'
+        ],
+        answer: 2,
+        why: ['那是 art。', '那是 music。', null, '那是 science。']
+      }
+    },
+    {
+      h: '② 問課表',
+      s: [
+        'What class do you have on Monday 就是你星期一有什麼課。',
+        '回答是 I have math and English。',
+        'What is your favorite subject 就是你最喜歡哪一科。',
+        '回答時說出科目就好。',
+        '這兩句是問課表最常用的說法。'
+      ],
+      terms: [
+        { w: '課表', d: '每天上什麼課的表格。' }
+      ],
+      q: {
+        q: '課文說問最喜歡哪一科要用哪一個字？',
+        options: [
+          'best',
+          'good',
+          'like',
+          'favorite'
+        ],
+        answer: 3,
+        why: ['課文用 favorite。', '用 favorite。', '用 favorite subject。', null]
+      }
+    },
+    {
+      h: '③ 說明喜好與理由',
+      s: [
+        'I like science because it is interesting。',
+        '意思是我喜歡自然，因為它很有趣。',
+        'I do not like math because it is difficult。',
+        '意思是我不喜歡數學，因為它很難。',
+        'because 用來說明原因，後面要接完整的句子。'
+      ],
+      terms: [
+        { w: 'because', d: '因為，用來說明原因。' }
+      ],
+      q: {
+        q: '課文說 because 後面要接什麼？',
+        options: [
+          '完整的句子',
+          '一個名詞',
+          '一個形容詞',
+          '什麼都不用'
+        ],
+        answer: 0,
+        why: [null, '要接句子。', '要接句子。', '要接句子。']
+      }
+    },
+    {
+      h: '④ 常用形容詞',
+      s: [
+        'interesting 是有趣的，boring 是無聊的。',
+        'easy 是簡單的，difficult 或 hard 是困難的。',
+        'important 是重要的，useful 是有用的。',
+        '注意 interesting 是令人感興趣的。',
+        '而 interested 是自己感到有興趣的，兩個不一樣。'
+      ],
+      terms: [
+        { w: 'interesting', d: '令人感興趣的。' }
+      ],
+      q: {
+        q: '課文說要說自己感到有興趣要用哪一個字？',
+        options: [
+          'interesting',
+          'interested',
+          'boring',
+          'important'
+        ],
+        answer: 1,
+        why: ['那是令人感興趣。', null, '那是無聊。', '那是重要。']
+      }
+    },
+    {
+      h: '⑤ 說時間與地點',
+      s: [
+        'I have English at nine on Monday。',
+        '意思是我星期一九點有英文課。',
+        'Our music class is in the music room。',
+        '意思是我們的音樂課在音樂教室。',
+        '時間的順序通常是從小到大，先說幾點再說星期。'
+      ],
+      terms: [
+        { w: '順序', d: '說話時安排內容的先後。' }
+      ],
+      q: {
+        q: '課文說時間的順序是怎麼排的？',
+        options: [
+          '從大到小',
+          '隨便排',
+          '從小到大',
+          '先說地點'
+        ],
+        answer: 2,
+        why: ['是從小到大。', '有順序。', null, '先說時間。']
+      }
+    },
+    {
+      h: '⑥ 介紹自己的課表',
+      s: [
+        '先說星期二有幾堂課。',
+        '再說第一堂是什麼。',
+        '接著說最喜歡哪一科，並說出理由。',
+        '最後可以說不喜歡什麼。',
+        '這樣一段介紹就完整了。'
+      ],
+      terms: [
+        { w: '介紹', d: '把某件事說明給別人聽。' }
+      ],
+      q: {
+        q: '課文說介紹課表時說完喜歡的科目後要加什麼？',
+        options: [
+          '時間',
+          '地點',
+          '什麼都不用',
+          '理由'
+        ],
+        answer: 3,
+        why: ['要加理由。', '要加理由。', '要加理由。', null]
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四上|第9單元 興趣與嗜好'] = {
+  intro: 'enjoy 後面只能接動名詞，不能接 to 加原形。',
+  segs: [
+    {
+      h: '① 常見的嗜好',
+      s: [
+        'reading 是閱讀，drawing 是畫畫。',
+        'singing 是唱歌，dancing 是跳舞。',
+        'swimming 是游泳。',
+        'playing basketball 是打籃球。',
+        'listening to music 是聽音樂。'
+      ],
+      terms: [
+        { w: '嗜好', d: '空閒時喜歡做的事。' }
+      ],
+      q: {
+        q: '課文說 drawing 是什麼嗜好？',
+        options: [
+          '畫畫',
+          '唱歌',
+          '跳舞',
+          '閱讀'
+        ],
+        answer: 0,
+        why: [null, '那是 singing。', '那是 dancing。', '那是 reading。']
+      }
+    },
+    {
+      h: '② 表達喜好的句型',
+      s: [
+        'I like swimming 和 I like to swim 都可以。',
+        'I love reading 是我熱愛閱讀。',
+        'I enjoy drawing 是我享受畫畫。',
+        '但要注意 enjoy 比較特別。',
+        '它後面只能接動名詞，不能接 to 加原形。'
+      ],
+      terms: [
+        { w: '動名詞', d: '動詞加 ing 當名詞用。' }
+      ],
+      q: {
+        q: '課文說 enjoy 後面只能接什麼？',
+        options: [
+          'to 加原形',
+          '動名詞',
+          '名詞',
+          '形容詞'
+        ],
+        answer: 1,
+        why: ['enjoy 不接這個。', null, '要接動名詞。', '要接動名詞。']
+      }
+    },
+    {
+      h: '③ 問興趣',
+      s: [
+        'What do you like to do in your free time。',
+        '意思是你空閒時喜歡做什麼。',
+        'What are your hobbies 就是你有什麼嗜好。',
+        'Do you like playing basketball 則是問特定的活動。',
+        '這三種問法都很常用。'
+      ],
+      terms: [
+        { w: 'free time', d: '空閒的時間。' }
+      ],
+      q: {
+        q: '課文說 What are your hobbies 是在問什麼？',
+        options: [
+          '你幾歲',
+          '你住哪裡',
+          '你有什麼嗜好',
+          '你在做什麼'
+        ],
+        answer: 2,
+        why: ['那是年齡。', '那是地點。', null, '那是進行式。']
+      }
+    },
+    {
+      h: '④ 頻率與程度',
+      s: [
+        'I often play basketball after school。',
+        '意思是我常常放學後打籃球。',
+        'I really like music 就是我真的很喜歡音樂。',
+        'I like it a lot 就是我很喜歡。',
+        'really、very much、a lot 都可以用來加強語氣。'
+      ],
+      terms: [
+        { w: '加強語氣', d: '讓語氣更強烈的說法。' }
+      ],
+      q: {
+        q: '課文說哪些字可以加強語氣？',
+        options: [
+          'often 和 always',
+          'because',
+          'and',
+          'really 和 a lot'
+        ],
+        answer: 3,
+        why: ['那是頻率。', '那是原因。', '那是連接。', null]
+      }
+    },
+    {
+      h: '⑤ 談論不喜歡的事',
+      s: [
+        'I do not like getting up early 就是我不喜歡早起。',
+        'I hate doing the dishes 就是我討厭洗碗。',
+        '但要注意語氣。',
+        'hate 的語氣很強。',
+        '一般情況說 I do not like 就夠了。'
+      ],
+      terms: [
+        { w: '語氣', d: '說話時表達的強弱程度。' }
+      ],
+      q: {
+        q: '課文說 hate 的語氣如何？',
+        options: [
+          '很強',
+          '很委婉',
+          '中性',
+          '沒有語氣'
+        ],
+        answer: 0,
+        why: [null, '語氣很強。', '語氣很強。', '語氣很強。']
+      }
+    },
+    {
+      h: '⑥ 完整的自我介紹',
+      s: [
+        '先打招呼並說出名字和年齡。',
+        '再說自己喜歡什麼。',
+        '接著說什麼時候會做這件事。',
+        '最後可以反問對方。',
+        '把這幾句接起來就是一段完整的自我介紹。'
+      ],
+      terms: [
+        { w: '自我介紹', d: '向別人說明自己是誰。' }
+      ],
+      q: {
+        q: '課文說自我介紹最後可以做什麼？',
+        options: [
+          '說再見',
+          '反問對方',
+          '重複名字',
+          '什麼都不用'
+        ],
+        answer: 1,
+        why: ['可以反問。', null, '可以反問。', '可以反問。']
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四下|第1單元 購物與價錢'] = {
+  intro: '價錢一律用 How much，不管東西可不可數。',
+  segs: [
+    {
+      h: '① 問價錢',
+      s: [
+        'How much is it 就是多少錢。',
+        'How much are they 是問複數的東西多少錢。',
+        'How much is this shirt 就是這件襯衫多少錢。',
+        '價錢一律用 How much。',
+        '不管那樣東西可不可數。'
+      ],
+      terms: [
+        { w: 'How much', d: '多少，用來問價錢。' }
+      ],
+      q: {
+        q: '課文說問價錢一律用哪一個？',
+        options: [
+          'How much',
+          'How many',
+          'How old',
+          'How often'
+        ],
+        answer: 0,
+        why: [null, '那問可數數量。', '那問年齡。', '那問頻率。']
+      }
+    },
+    {
+      h: '② 說價錢',
+      s: [
+        'It is fifty dollars 就是五十元。',
+        'They are one hundred dollars 就是它們一百元。',
+        'dollar 有複數形。',
+        '一元是 one dollar，兩元以上是 dollars。',
+        '台幣可以說 NT dollars 或直接說 dollars。'
+      ],
+      terms: [
+        { w: 'dollar', d: '元，貨幣單位。' }
+      ],
+      q: {
+        q: '課文說兩元以上的 dollar 要怎麼寫？',
+        options: [
+          '不變',
+          '加 s',
+          '加 es',
+          '用單數'
+        ],
+        answer: 1,
+        why: ['要加 s。', null, '是加 s。', '要用複數。']
+      }
+    },
+    {
+      h: '③ 購物用語',
+      s: [
+        '店員會說 Can I help you 或 May I help you。',
+        '意思是需要幫忙嗎。',
+        '如果只是看看，可以說 I am just looking, thanks。',
+        '如果有想找的東西。',
+        '就說 I am looking for 加上那樣東西。'
+      ],
+      terms: [
+        { w: 'look for', d: '尋找。' }
+      ],
+      q: {
+        q: '課文說只是看看時要怎麼回答？',
+        options: [
+          'I am looking for',
+          'I will take it',
+          'I am just looking',
+          'How much'
+        ],
+        answer: 2,
+        why: ['那是有目標。', '那是要買。', null, '那是問價錢。']
+      }
+    },
+    {
+      h: '④ 選擇與比較',
+      s: [
+        'Do you have a bigger one 就是有大一點的嗎。',
+        'This one is too expensive 就是這個太貴了。',
+        'Do you have anything cheaper 就是有便宜一點的嗎。',
+        '這裡的 one 用來代替前面提過的名詞。',
+        '這樣就不用一直重複同一個字。'
+      ],
+      terms: [
+        { w: 'one', d: '用來代替前面提過的名詞。' }
+      ],
+      q: {
+        q: '課文說 one 在這裡的作用是什麼？',
+        options: [
+          '表示數字一',
+          '表示第一',
+          '沒有作用',
+          '代替前面提過的名詞'
+        ],
+        answer: 3,
+        why: ['這裡是代名詞。', '那是 first。', '有作用。', null]
+      }
+    },
+    {
+      h: '⑤ 付款與結帳',
+      s: [
+        'I will take it 就是我要買這個。',
+        'How would you like to pay 就是您要怎麼付款。',
+        'Cash or credit card 就是現金還是信用卡。',
+        'Here is your change 就是找您零錢。',
+        '這幾句是結帳時最常聽到的。'
+      ],
+      terms: [
+        { w: 'change', d: '找回來的零錢。' }
+      ],
+      q: {
+        q: '課文說 change 在購物時是什麼意思？',
+        options: [
+          '零錢',
+          '改變',
+          '換貨',
+          '現金'
+        ],
+        answer: 0,
+        why: [null, '這裡是零錢。', '是零錢。', '那是 cash。']
+      }
+    },
+    {
+      h: '⑥ 完整的購物對話',
+      s: [
+        '店員先問需不需要幫忙。',
+        '顧客問這件襯衫多少錢。',
+        '店員說出價錢。',
+        '顧客可以說有點貴，問有沒有便宜一點的。',
+        '最後決定要買，完成結帳。'
+      ],
+      terms: [
+        { w: '結帳', d: '付錢完成交易。' }
+      ],
+      q: {
+        q: '課文說覺得太貴時可以怎麼說？',
+        options: [
+          '直接離開',
+          '問有沒有便宜一點的',
+          '說不要',
+          '不能問'
+        ],
+        answer: 1,
+        why: ['可以先問。', null, '可以先問。', '可以問。']
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四下|第2單元 城市地點與方向'] = {
+  intro: '指路用的都是祈使句，直接用動詞開頭。',
+  segs: [
+    {
+      h: '① 城市裡的地方',
+      s: [
+        'school 是學校，hospital 是醫院。',
+        'bank 是銀行，post office 是郵局。',
+        'library 是圖書館，park 是公園。',
+        'supermarket 是超市，restaurant 是餐廳。',
+        'bus stop 是公車站。'
+      ],
+      terms: [
+        { w: '地點', d: '某個地方。' }
+      ],
+      q: {
+        q: '課文說 post office 是什麼地方？',
+        options: [
+          '銀行',
+          '醫院',
+          '郵局',
+          '超市'
+        ],
+        answer: 2,
+        why: ['那是 bank。', '那是 hospital。', null, '那是 supermarket。']
+      }
+    },
+    {
+      h: '② 問路',
+      s: [
+        '問路前先說 Excuse me。',
+        '再問 where is the post office。',
+        '也可以問 How can I get to the train station。',
+        '意思是我要怎麼到火車站。',
+        '還可以問 Is there a bank near here。'
+      ],
+      terms: [
+        { w: '問路', d: '向別人打聽怎麼去某個地方。' }
+      ],
+      q: {
+        q: '課文說問路前要先說哪一句？',
+        options: [
+          'Sorry',
+          'Thank you',
+          'Hello',
+          'Excuse me'
+        ],
+        answer: 3,
+        why: ['那用在做錯事。', '那是道謝。', '課文說 Excuse me。', null]
+      }
+    },
+    {
+      h: '③ 指路用語',
+      s: [
+        'Go straight 就是直走。',
+        'Turn left 是左轉，Turn right 是右轉。',
+        'Go straight for two blocks 就是直走兩個街區。',
+        'It is on your left 就是它在你的左手邊。',
+        '這些都是祈使句，直接用動詞開頭。'
+      ],
+      terms: [
+        { w: '街區', d: '兩條路之間的一段。' }
+      ],
+      q: {
+        q: '課文說指路用語是什麼句型？',
+        options: [
+          '祈使句',
+          '問句',
+          '否定句',
+          '疑問詞問句'
+        ],
+        answer: 0,
+        why: [null, '是祈使句。', '是祈使句。', '是祈使句。']
+      }
+    },
+    {
+      h: '④ 位置的描述',
+      s: [
+        'It is next to the bank 就是它在銀行旁邊。',
+        'It is across from the park 就是它在公園對面。',
+        'It is between the school and the library。',
+        '意思是它在學校和圖書館之間。',
+        'between 後面要接兩個地方，中間用 and 連接。'
+      ],
+      terms: [
+        { w: 'across from', d: '在對面。' }
+      ],
+      q: {
+        q: '課文說 across from 是什麼意思？',
+        options: [
+          '在旁邊',
+          '在對面',
+          '在中間',
+          '在後面'
+        ],
+        answer: 1,
+        why: ['那是 next to。', null, '那是 between。', '那是 behind。']
+      }
+    },
+    {
+      h: '⑤ 距離與交通方式',
+      s: [
+        'It is about ten minutes on foot。',
+        '意思是走路大約十分鐘。',
+        'You can take the bus 就是你可以搭公車。',
+        '交通方式可以用 by bus、by train、by car。',
+        '但走路要用 on foot。'
+      ],
+      terms: [
+        { w: '距離', d: '兩個地方之間有多遠。' }
+      ],
+      q: {
+        q: '課文說走路要用哪一種說法？',
+        options: [
+          'by foot',
+          'by walk',
+          'on foot',
+          'in foot'
+        ],
+        answer: 2,
+        why: ['要用 on。', '要用 on foot。', null, '要用 on。']
+      }
+    },
+    {
+      h: '⑥ 完整的問路對話',
+      s: [
+        '先說不好意思，再問怎麼到圖書館。',
+        '對方說直走兩個街區再左轉。',
+        '還會補一句它在你右手邊。',
+        '你可以再問走路大概多久。',
+        '最後記得說謝謝。'
+      ],
+      terms: [
+        { w: '對話', d: '兩個人一來一往的談話。' }
+      ],
+      q: {
+        q: '課文說問路結束時要記得說什麼？',
+        options: [
+          '再見',
+          '對不起',
+          '什麼都不用',
+          '謝謝'
+        ],
+        answer: 3,
+        why: ['要先道謝。', '要道謝。', '要道謝。', null]
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四下|第3單元 食物與飲食習慣'] = {
+  intro: '不可數名詞要用容器或單位來計量。',
+  segs: [
+    {
+      h: '① 三餐與食物',
+      s: [
+        'breakfast 是早餐，lunch 是午餐。',
+        'dinner 是晚餐。',
+        'snack 是點心。',
+        '三餐前面通常不加冠詞。',
+        '所以說 have breakfast，不說 have a breakfast。'
+      ],
+      terms: [
+        { w: '三餐', d: '早餐、午餐與晚餐。' }
+      ],
+      q: {
+        q: '課文說三餐前面要不要加冠詞？',
+        options: [
+          '通常不加',
+          '一定要加',
+          '要加 the',
+          '看時間'
+        ],
+        answer: 0,
+        why: [null, '通常不加。', '通常不加。', '通常不加。']
+      }
+    },
+    {
+      h: '② 可數與不可數',
+      s: [
+        '可數的有 an apple、two eggs、three sandwiches。',
+        '不可數的有 rice、bread、water。',
+        '還有 milk、soup、meat。',
+        '不可數名詞要用容器或單位來計量。',
+        '像 a bowl of rice 或 a piece of bread。'
+      ],
+      terms: [
+        { w: '計量', d: '用單位表示數量多少。' }
+      ],
+      q: {
+        q: '課文說不可數名詞要怎麼計量？',
+        options: [
+          '直接加 s',
+          '用容器或單位',
+          '前面加 a',
+          '不能計量'
+        ],
+        answer: 1,
+        why: ['不可數不加 s。', null, '不能直接加。', '可以用單位。']
+      }
+    },
+    {
+      h: '③ 表達飲食喜好',
+      s: [
+        'I like noodles 就是我喜歡麵。',
+        'I do not like carrots 就是我不喜歡紅蘿蔔。',
+        'My favorite food is dumplings 就是我最喜歡的食物是水餃。',
+        '表達喜歡某一類食物時。',
+        '可數名詞通常用複數。'
+      ],
+      terms: [
+        { w: '喜好', d: '喜歡或不喜歡什麼。' }
+      ],
+      q: {
+        q: '課文說表達喜歡某類食物時可數名詞用什麼形式？',
+        options: [
+          '單數',
+          '前面加 a',
+          '複數',
+          '不用名詞'
+        ],
+        answer: 2,
+        why: ['用複數。', '用複數。', null, '要用名詞。']
+      }
+    },
+    {
+      h: '④ 口味與描述',
+      s: [
+        'sweet 是甜，salty 是鹹。',
+        'sour 是酸，spicy 是辣，bitter 是苦。',
+        'delicious 是美味的，fresh 是新鮮的。',
+        'healthy 是健康的。',
+        '說太辣用 too spicy，說有點辣用 a little spicy。'
+      ],
+      terms: [
+        { w: '口味', d: '食物吃起來的味道。' }
+      ],
+      q: {
+        q: '課文說「有點辣」要怎麼說？',
+        options: [
+          'too spicy',
+          'very spicy',
+          'not spicy',
+          'a little spicy'
+        ],
+        answer: 3,
+        why: ['那是太辣。', '那是很辣。', '那是不辣。', null]
+      }
+    },
+    {
+      h: '⑤ 健康的飲食',
+      s: [
+        'eat more vegetables 是多吃蔬菜。',
+        'drink enough water 是喝足夠的水。',
+        'less junk food 是少吃垃圾食物。',
+        'have a balanced diet 是均衡飲食。',
+        'more 和 less 是比較級，用來表達增加或減少。'
+      ],
+      terms: [
+        { w: '均衡飲食', d: '各類食物都適量攝取。' }
+      ],
+      q: {
+        q: '課文說 less 是用來表達什麼？',
+        options: [
+          '減少',
+          '增加',
+          '維持',
+          '停止'
+        ],
+        answer: 0,
+        why: [null, '那是 more。', '是減少。', '是減少。']
+      }
+    },
+    {
+      h: '⑥ 談論飲食習慣',
+      s: [
+        '先問對方早餐通常吃什麼。',
+        '對方回答通常吃麵包和牛奶。',
+        '再反問你呢。',
+        '你可以說自己吃飯和蛋。',
+        '這樣一問一答就把飲食習慣聊完了。'
+      ],
+      terms: [
+        { w: '習慣', d: '經常重複做的事。' }
+      ],
+      q: {
+        q: '課文說聊飲食習慣時對方回答後通常會做什麼？',
+        options: [
+          '換話題',
+          '反問你呢',
+          '結束對話',
+          '說再見'
+        ],
+        answer: 1,
+        why: ['會反問。', null, '會反問。', '會反問。']
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四下|第4單元 運動與休閒'] = {
+  intro: '球類用 play，動詞加 ing 的活動用 go，瑜伽這類用 do。',
+  segs: [
+    {
+      h: '① 常見運動',
+      s: [
+        'basketball 是籃球，baseball 是棒球。',
+        'soccer 是足球，volleyball 是排球。',
+        'tennis 是網球，badminton 是羽球。',
+        'swimming 是游泳，running 是跑步。',
+        '球類前面不加冠詞，直接說 play soccer。'
+      ],
+      terms: [
+        { w: '球類', d: '用球進行的運動。' }
+      ],
+      q: {
+        q: '課文說球類前面要不要加冠詞？',
+        options: [
+          '不用',
+          '要加 a',
+          '要加 the',
+          '看球種'
+        ],
+        answer: 0,
+        why: [null, '不加冠詞。', '不加冠詞。', '一律不加。']
+      }
+    },
+    {
+      h: '② 三個動詞的搭配',
+      s: [
+        '球類搭配 play，例如 play soccer。',
+        '動詞加 ing 的活動搭配 go。',
+        '像 go swimming、go running、go shopping。',
+        '某些運動搭配 do，像 do yoga、do exercise。',
+        '這是固定搭配，要整組一起記。'
+      ],
+      terms: [
+        { w: '搭配', d: '固定要一起使用的詞組。' }
+      ],
+      q: {
+        q: '課文說 go swimming 用的是哪一個動詞？',
+        options: [
+          'play',
+          'go',
+          'do',
+          'take'
+        ],
+        answer: 1,
+        why: ['球類才用 play。', null, '瑜伽才用 do。', '課文說 go。']
+      }
+    },
+    {
+      h: '③ 談論運動習慣',
+      s: [
+        'I play basketball twice a week 就是我一週打兩次籃球。',
+        'How often do you exercise 就是你多常運動。',
+        'I go swimming every Sunday 就是我每個星期天去游泳。',
+        '頻率的說法有 once、twice。',
+        '三次以上就用數字加 times。'
+      ],
+      terms: [
+        { w: '頻率', d: '做某件事有多常。' }
+      ],
+      q: {
+        q: '課文說「一週兩次」的英文是什麼？',
+        options: [
+          'two a week',
+          'once a week',
+          'twice a week',
+          'two times week'
+        ],
+        answer: 2,
+        why: ['要用 twice。', '那是一次。', null, '要加 a。']
+      }
+    },
+    {
+      h: '④ 休閒活動',
+      s: [
+        'watch TV 是看電視，read books 是看書。',
+        'listen to music 是聽音樂。',
+        'play video games 是打電動。',
+        'go to the movies 是看電影。',
+        'take a walk 是散步。'
+      ],
+      terms: [
+        { w: '休閒', d: '空閒時做的放鬆活動。' }
+      ],
+      q: {
+        q: '課文說 take a walk 是什麼意思？',
+        options: [
+          '看電影',
+          '打電動',
+          '聽音樂',
+          '散步'
+        ],
+        answer: 3,
+        why: ['那是 go to the movies。', '那是 play video games。', '那是 listen to music。', null]
+      }
+    },
+    {
+      h: '⑤ 邀約與回應',
+      s: [
+        'Do you want to play basketball 就是你想打籃球嗎。',
+        'Let us go swimming 就是我們去游泳吧。',
+        '答應可以說 Sure 或 Sounds good。',
+        '婉拒可以說 Sorry, I can not。',
+        'Let us 後面要接原形動詞。'
+      ],
+      terms: [
+        { w: '邀約', d: '約別人一起做某件事。' }
+      ],
+      q: {
+        q: '課文說 Let us 後面要接什麼？',
+        options: [
+          '原形動詞',
+          '名詞',
+          '動詞加 ing',
+          'to 加動詞'
+        ],
+        answer: 0,
+        why: [null, '要接動詞。', '要用原形。', '直接接原形。']
+      }
+    },
+    {
+      h: '⑥ 運動的好處',
+      s: [
+        'Exercise is good for your health。',
+        '意思是運動對健康有益。',
+        'It helps you sleep better。',
+        '意思是它幫助你睡得更好。',
+        'be good for 是固定用法，而 help 後面可以直接接原形動詞。'
+      ],
+      terms: [
+        { w: 'be good for', d: '對某件事有益。' }
+      ],
+      q: {
+        q: '課文說 help 後面可以接什麼？',
+        options: [
+          '動詞加 ing',
+          '原形動詞',
+          '名詞',
+          '形容詞'
+        ],
+        answer: 1,
+        why: ['可接原形。', null, '課文說原形動詞。', '接原形動詞。']
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四下|第5單元 服裝與外表描述'] = {
+  intro: '描述一個人的順序：身材、五官髮型，最後才是穿著。',
+  segs: [
+    {
+      h: '① 服裝單字',
+      s: [
+        'shirt 是襯衫，sweater 是毛衣。',
+        'jacket 是夾克，coat 是大衣。',
+        'pants 是長褲，shorts 是短褲。',
+        'skirt 是裙子，dress 是洋裝。',
+        'shoes、socks 是鞋襪，cap 是鴨舌帽。'
+      ],
+      terms: [
+        { w: '服裝', d: '身上穿的衣服。' }
+      ],
+      q: {
+        q: '課文說 shorts 是什麼？',
+        options: [
+          '襯衫',
+          '裙子',
+          '短褲',
+          '外套'
+        ],
+        answer: 2,
+        why: ['那是 shirt。', '那是 skirt。', null, '那是 jacket。']
+      }
+    },
+    {
+      h: '② 描述外表',
+      s: [
+        'tall 是高、short 是矮。',
+        'big 和 small 描述體型。',
+        'young 是年輕、old 是年長。',
+        'long hair 是長髮、short hair 是短髮。',
+        '說眼睛顏色要用 have，例如 He has brown eyes。'
+      ],
+      terms: [
+        { w: '外表', d: '一個人看起來的樣子。' }
+      ],
+      q: {
+        q: '課文說描述眼睛顏色要用哪一個動詞？',
+        options: [
+          'be 動詞',
+          'wear',
+          'do',
+          'have'
+        ],
+        answer: 3,
+        why: ['用 have。', '那是穿著。', '用 have。', null]
+      }
+    },
+    {
+      h: '③ 穿著的說法',
+      s: [
+        'He is wearing a blue shirt 就是他穿著藍色襯衫。',
+        'She has on a red dress 就是她穿著紅色洋裝。',
+        'wear 表示穿著的狀態。',
+        '描述此刻的穿著常用進行式。',
+        'put on 則是穿上的那個動作。'
+      ],
+      terms: [
+        { w: 'wear', d: '穿著，指狀態。' }
+      ],
+      q: {
+        q: '課文說描述此刻的穿著常用什麼時態？',
+        options: [
+          '進行式',
+          '簡單式',
+          '過去式',
+          '未來式'
+        ],
+        answer: 0,
+        why: [null, '常用進行式。', '描述現在。', '描述現在。']
+      }
+    },
+    {
+      h: '④ 尺寸與顏色',
+      s: [
+        'Do you have this in a bigger size 就是有大一號的嗎。',
+        'What size do you wear 就是你穿幾號。',
+        'I wear size M 就是我穿中號。',
+        '形容詞放在名詞前面時有順序。',
+        '通常是大小在前、顏色在後。'
+      ],
+      terms: [
+        { w: '尺寸', d: '衣服的大小號數。' }
+      ],
+      q: {
+        q: '課文說形容詞的順序是大小在前還是顏色在前？',
+        options: [
+          '顏色在前',
+          '大小在前',
+          '沒有順序',
+          '看長度'
+        ],
+        answer: 1,
+        why: ['大小在前。', null, '有順序。', '大小在前。']
+      }
+    },
+    {
+      h: '⑤ 詢問與稱讚',
+      s: [
+        'You look nice today 就是你今天看起來很好看。',
+        'I like your jacket 就是我喜歡你的外套。',
+        '被稱讚時要怎麼回應？',
+        '直接說 Thank you 就好。',
+        '不需要否認或推辭。'
+      ],
+      terms: [
+        { w: '稱讚', d: '說別人好的話。' }
+      ],
+      q: {
+        q: '課文說被稱讚時要怎麼回應？',
+        options: [
+          '否認',
+          '也稱讚回去',
+          '說謝謝',
+          '不理會'
+        ],
+        answer: 2,
+        why: ['直接道謝。', '道謝就好。', null, '要道謝。']
+      }
+    },
+    {
+      h: '⑥ 找人的描述',
+      s: [
+        '先說身材，例如他又高又瘦。',
+        '再說五官和髮型，例如他有黑色短髮。',
+        '最後說穿著，例如他穿著藍色夾克和牛仔褲。',
+        '這樣的順序最清楚。',
+        '別人一聽就能找到那個人。'
+      ],
+      terms: [
+        { w: '順序', d: '說話時安排內容的先後。' }
+      ],
+      q: {
+        q: '課文說描述一個人要先說什麼？',
+        options: [
+          '穿著',
+          '髮型',
+          '名字',
+          '身材'
+        ],
+        answer: 3,
+        why: ['穿著在最後。', '身材在最前。', '課文說身材。', null]
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四下|第6單元 電話與邀約用語'] = {
+  intro: '電話中介紹自己要用 this is，不是 I am。',
+  segs: [
+    {
+      h: '① 接電話',
+      s: [
+        'Hello, this is Amy 就是喂，我是 Amy。',
+        'May I speak to Ben 就是請問 Ben 在嗎。',
+        '電話中介紹自己要用 this is。',
+        '不是用 I am。',
+        '問對方是誰則要說 Who is this。'
+      ],
+      terms: [
+        { w: '接電話', d: '拿起電話回應對方。' }
+      ],
+      q: {
+        q: '課文說電話中介紹自己要用什麼？',
+        options: [
+          'this is',
+          'I am',
+          'it is',
+          'that is'
+        ],
+        answer: 0,
+        why: [null, '電話用 this is。', '用 this is。', '用 this is。']
+      }
+    },
+    {
+      h: '② 轉接與留言',
+      s: [
+        'Just a moment, please 就是請稍等。',
+        'He is not here right now 就是他現在不在。',
+        'Can I take a message 就是要留言嗎。',
+        'Can I call you back later 就是我可以晚點回電嗎。',
+        '這幾句是接到電話時很常用的。'
+      ],
+      terms: [
+        { w: '留言', d: '請人轉達的話。' }
+      ],
+      q: {
+        q: '課文說「要留言嗎」的英文是什麼？',
+        options: [
+          'Just a moment',
+          'Can I take a message',
+          'Who is this',
+          'May I speak to'
+        ],
+        answer: 1,
+        why: ['那是請稍等。', null, '那是問是誰。', '那是找人。']
+      }
+    },
+    {
+      h: '③ 提出邀約',
+      s: [
+        'Would you like to go to the movies 就是你想去看電影嗎。',
+        'Do you want to play basketball this afternoon 也是邀約。',
+        'How about going to the park 也可以。',
+        '注意 How about 後面要接動名詞。',
+        '不能接原形動詞。'
+      ],
+      terms: [
+        { w: 'How about', d: '要不要，用來提議。' }
+      ],
+      q: {
+        q: '課文說 How about 後面要接什麼？',
+        options: [
+          '原形動詞',
+          'to 加原形',
+          '動名詞',
+          '形容詞'
+        ],
+        answer: 2,
+        why: ['要接動名詞。', '要接動名詞。', null, '要接動名詞。']
+      }
+    },
+    {
+      h: '④ 接受與婉拒',
+      s: [
+        '接受可以說 Sure、That sounds great 或 I would love to。',
+        '婉拒可以說 Sorry, I can not。',
+        '後面最好再加一句理由。',
+        '例如說我必須讀書。',
+        '也可以說 Maybe next time，就是下次吧。'
+      ],
+      terms: [
+        { w: '婉拒', d: '客氣地拒絕別人。' }
+      ],
+      q: {
+        q: '課文說婉拒時最好再加什麼？',
+        options: [
+          '道謝',
+          '道歉兩次',
+          '什麼都不用',
+          '理由'
+        ],
+        answer: 3,
+        why: ['要說理由。', '要說理由。', '要說理由。', null]
+      }
+    },
+    {
+      h: '⑤ 約時間與地點',
+      s: [
+        'What time shall we meet 就是我們幾點見。',
+        'Let us meet at three at the school gate。',
+        '意思是三點在校門口見。',
+        '時間前面用 at，地點前面也常用 at。',
+        '最後可以說 See you then，就是到時候見。'
+      ],
+      terms: [
+        { w: '約定', d: '講好時間地點見面。' }
+      ],
+      q: {
+        q: '課文說 See you then 是什麼意思？',
+        options: [
+          '到時候見',
+          '明天見',
+          '再見',
+          '等一下'
+        ],
+        answer: 0,
+        why: [null, '那是 tomorrow。', '是到時候見。', '是到時候見。']
+      }
+    },
+    {
+      h: '⑥ 完整的電話對話',
+      s: [
+        '先報上自己的名字並找人。',
+        '對方接起來說是他本人。',
+        '你提出邀約，問下午要不要打籃球。',
+        '對方答應並約好時間地點。',
+        '最後互道再見，整通電話就完成了。'
+      ],
+      terms: [
+        { w: '對話', d: '兩個人一來一往的談話。' }
+      ],
+      q: {
+        q: '課文說打電話的第一步是什麼？',
+        options: [
+          '直接說事情',
+          '報上名字並找人',
+          '問對方在做什麼',
+          '說再見'
+        ],
+        answer: 1,
+        why: ['要先報名字。', null, '先報名字。', '那是最後。']
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四下|第7單元 祈使句與指示'] = {
+  intro: '否定祈使句一律用 Do not 開頭，就算是 be 動詞也一樣。',
+  segs: [
+    {
+      h: '① 祈使句的形式',
+      s: [
+        '祈使句直接用原形動詞開頭。',
+        '主詞 you 被省略掉了。',
+        'Open the door 就是開門。',
+        'Sit down 就是坐下。',
+        'be 動詞的祈使句要用 Be 開頭，例如 Be careful。'
+      ],
+      terms: [
+        { w: '祈使句', d: '直接要求別人做某件事的句子。' }
+      ],
+      q: {
+        q: '課文說祈使句省略了哪一個主詞？',
+        options: [
+          'you',
+          'I',
+          'he',
+          'they'
+        ],
+        answer: 0,
+        why: [null, '省略的是 you。', '省略的是 you。', '省略的是 you。']
+      }
+    },
+    {
+      h: '② 否定的祈使句',
+      s: [
+        '否定要在動詞前面加 Do not。',
+        '也可以縮寫。',
+        'Do not run 就是不要跑。',
+        '就算是 be 動詞也要用 Do not be。',
+        '不能說 Be not。'
+      ],
+      terms: [
+        { w: '否定', d: '表示不要做某件事。' }
+      ],
+      q: {
+        q: '課文說 be 動詞的否定祈使句要怎麼寫？',
+        options: [
+          'Be not',
+          'Do not be',
+          'Not be',
+          'Is not'
+        ],
+        answer: 1,
+        why: ['要用 Do not be。', null, '要用 Do not be。', '要用 Do not be。']
+      }
+    },
+    {
+      h: '③ 讓語氣更客氣',
+      s: [
+        '可以加 please。',
+        '放在句首或句尾都可以。',
+        '也可以改用問句。',
+        '例如 Could you open the window，就是可以請你開窗嗎。',
+        '直接的祈使句對長輩可能顯得強硬，加上 please 會好很多。'
+      ],
+      terms: [
+        { w: '客氣', d: '說話有禮貌不強硬。' }
+      ],
+      q: {
+        q: '課文說怎麼讓祈使句更客氣？',
+        options: [
+          '說大聲一點',
+          '把動詞去掉',
+          '加 please 或改用問句',
+          '不用改'
+        ],
+        answer: 2,
+        why: ['要加 please。', '要加 please。', null, '可以更客氣。']
+      }
+    },
+    {
+      h: '④ 常見的指示與標語',
+      s: [
+        'Turn left 是左轉。',
+        'Push 是推、Pull 是拉。',
+        'Keep quiet 是保持安靜，No smoking 是禁止吸菸。',
+        'Do not touch 是請勿觸摸。',
+        'Watch your step 是小心台階。'
+      ],
+      terms: [
+        { w: '標語', d: '公共場所提醒大家的短句。' }
+      ],
+      q: {
+        q: '課文說 Watch your step 是什麼意思？',
+        options: [
+          '看你的鞋',
+          '請勿觸摸',
+          '保持安靜',
+          '小心台階'
+        ],
+        answer: 3,
+        why: ['是小心台階。', '那是 Do not touch。', '那是 Keep quiet。', null]
+      }
+    },
+    {
+      h: '⑤ 說明步驟',
+      s: [
+        '食譜或說明書常常用祈使句。',
+        '先說 First，再說第一個動作。',
+        '接著用 Then 和 Next 串起中間的步驟。',
+        '最後用 Finally 收尾。',
+        '這樣讀的人就知道先做什麼、後做什麼。'
+      ],
+      terms: [
+        { w: '步驟', d: '做一件事的先後順序。' }
+      ],
+      q: {
+        q: '課文說食譜常用什麼句型？',
+        options: [
+          '祈使句',
+          '問句',
+          '否定句',
+          '感嘆句'
+        ],
+        answer: 0,
+        why: [null, '常用祈使句。', '常用祈使句。', '常用祈使句。']
+      }
+    },
+    {
+      h: '⑥ 提議 Let us',
+      s: [
+        'Let us go 就是我們走吧。',
+        'Let us not talk about it 就是我們別談這個。',
+        'Let us 包含說話者自己。',
+        '因為它其實是 let us 的縮寫。',
+        '這一點和一般祈使句不同，一般祈使句只叫對方做。'
+      ],
+      terms: [
+        { w: '提議', d: '建議大家一起做某件事。' }
+      ],
+      q: {
+        q: '課文說 Let us 和一般祈使句差在哪裡？',
+        options: [
+          '語氣比較強',
+          '包含說話者自己',
+          '要用名詞',
+          '沒有差別'
+        ],
+        answer: 1,
+        why: ['差在包含自己。', null, '接原形動詞。', '有差別。']
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四下|第8單元 連接詞 and / but / or'] = {
+  intro: '同一句中不能同時用 because 和 so。',
+  segs: [
+    {
+      h: '① and 表示並列',
+      s: [
+        'and 把方向相同的兩件事連起來。',
+        'I like apples and bananas 就是我喜歡蘋果和香蕉。',
+        'He is tall and thin 就是他又高又瘦。',
+        '連接三個以上的時候要用逗號。',
+        '最後一個前面才加 and。'
+      ],
+      terms: [
+        { w: '並列', d: '把相似的東西排在一起。' }
+      ],
+      q: {
+        q: '課文說連接三個以上要怎麼寫？',
+        options: [
+          '全部用 and',
+          '不用符號',
+          '中間用逗號',
+          '用句號'
+        ],
+        answer: 2,
+        why: ['要用逗號。', '要用逗號。', null, '要用逗號。']
+      }
+    },
+    {
+      h: '② but 表示轉折',
+      s: [
+        'but 連接方向相反的兩件事。',
+        'I like math, but I do not like tests。',
+        '意思是我喜歡數學，但不喜歡考試。',
+        'He is short but strong 就是他雖矮但很強壯。',
+        '連接兩個完整句子時，but 前面通常加逗號。'
+      ],
+      terms: [
+        { w: '轉折', d: '意思往相反方向轉。' }
+      ],
+      q: {
+        q: '課文說 but 連接兩個完整句子時前面要加什麼？',
+        options: [
+          '句號',
+          '分號',
+          '什麼都不加',
+          '逗號'
+        ],
+        answer: 3,
+        why: ['要加逗號。', '要加逗號。', '通常加逗號。', null]
+      }
+    },
+    {
+      h: '③ or 表示選擇',
+      s: [
+        'or 表示二選一。',
+        'Do you want tea or coffee 就是你要茶還是咖啡。',
+        'We can go by bus or by train 就是我們可以搭公車或火車。',
+        '在否定句中 or 的意思會變。',
+        '它表示兩者都不。'
+      ],
+      terms: [
+        { w: '選擇', d: '在幾樣裡挑一樣。' }
+      ],
+      q: {
+        q: '課文說 or 在否定句中表示什麼？',
+        options: [
+          '兩者都不',
+          '兩者都要',
+          '二選一',
+          '沒有意義'
+        ],
+        answer: 0,
+        why: [null, '是都不。', '否定句是都不。', '有意義。']
+      }
+    },
+    {
+      h: '④ so 與 because',
+      s: [
+        'because 用來說原因。',
+        '例如我待在家裡，因為下雨了。',
+        'so 用來說結果。',
+        '例如下雨了，所以我待在家裡。',
+        '兩者的前後順序剛好相反，而且同一句中不能同時用。'
+      ],
+      terms: [
+        { w: '原因', d: '事情發生的理由。' }
+      ],
+      q: {
+        q: '課文說 because 和 so 可不可以在同一句中同時用？',
+        options: [
+          '可以',
+          '不可以',
+          '看長度',
+          '看主詞'
+        ],
+        answer: 1,
+        why: ['不能同時用。', null, '一律不行。', '一律不行。']
+      }
+    },
+    {
+      h: '⑤ 連接詞與逗號',
+      s: [
+        '連接兩個完整句子時，連接詞前面通常加逗號。',
+        '例如 I like dogs, but my sister likes cats。',
+        '連接兩個單字或片語時就不用逗號。',
+        '例如 I like dogs and cats。',
+        '這個規則能讓句子讀起來更清楚。'
+      ],
+      terms: [
+        { w: '逗號', d: '句子中間停頓用的標點。' }
+      ],
+      q: {
+        q: '課文說連接兩個單字時要不要加逗號？',
+        options: [
+          '要加',
+          '看長度',
+          '不用',
+          '用句號'
+        ],
+        answer: 2,
+        why: ['單字不用。', '單字不用。', null, '不用標點。']
+      }
+    },
+    {
+      h: '⑥ 綜合練習',
+      s: [
+        '把短句連成長句，文章會更流暢。',
+        '例如把我喜歡運動和我不喜歡游泳連起來。',
+        '中間用 but 連接就成了一個長句。',
+        '但也不要一直用同一個連接詞。',
+        '變化一下句子才不會單調。'
+      ],
+      terms: [
+        { w: '流暢', d: '讀起來順、不卡頓。' }
+      ],
+      q: {
+        q: '課文提醒使用連接詞時要注意什麼？',
+        options: [
+          '越多越好',
+          '完全不要用',
+          '只用 and',
+          '不要一直用同一個'
+        ],
+        answer: 3,
+        why: ['要有變化。', '可以用。', '要有變化。', null]
+      }
+    }
+  ]
+};
+
+window.APP_TEXTS['english|四下|第9單元 短文閱讀理解'] = {
+  intro: '推論要有文章的依據，不能憑自己的想像。',
+  segs: [
+    {
+      h: '① 先看標題與圖片',
+      s: [
+        '讀文章前先看標題。',
+        '再看圖片和問題。',
+        '這樣心裡先有個底。',
+        '這個動作叫預測，知道大概在講什麼，讀起來會快很多。',
+        '看到不認識的字先跳過，讀完整段再回頭猜。'
+      ],
+      terms: [
+        { w: '預測', d: '讀之前先猜內容大概是什麼。' }
+      ],
+      q: {
+        q: '課文說看到不認識的字要怎麼辦？',
+        options: [
+          '先跳過再回頭猜',
+          '馬上查字典',
+          '停下來想',
+          '放棄整篇'
+        ],
+        answer: 0,
+        why: [null, '先跳過。', '先跳過。', '可以跳過。']
+      }
+    },
+    {
+      h: '② 找出主旨',
+      s: [
+        '主旨常常出現在第一句。',
+        '也可能出現在最後一句。',
+        '讀的時候問自己兩個問題。',
+        '這篇文章主要在講誰？在講什麼事？',
+        '主旨是整篇的重點，不是某一個細節。'
+      ],
+      terms: [
+        { w: '主旨', d: '一篇文章最主要的重點。' }
+      ],
+      q: {
+        q: '課文說主旨常出現在哪裡？',
+        options: [
+          '中間',
+          '第一句或最後一句',
+          '標題裡',
+          '每一句'
+        ],
+        answer: 1,
+        why: ['常在頭尾。', null, '常在頭尾句。', '是頭尾。']
+      }
+    },
+    {
+      h: '③ 找細節',
+      s: [
+        '細節題問的是誰、何時、何地、什麼。',
+        '這類題目通常可以在文章中直接找到答案。',
+        '技巧是先看題目的關鍵字。',
+        '再回文章中找同樣的字。',
+        '答案通常就在那個字附近。'
+      ],
+      terms: [
+        { w: '關鍵字', d: '題目裡最重要的那幾個字。' }
+      ],
+      q: {
+        q: '課文說找細節的技巧是什麼？',
+        options: [
+          '全部重讀一次',
+          '憑印象',
+          '用關鍵字回文章找',
+          '用猜的'
+        ],
+        answer: 2,
+        why: ['用關鍵字更快。', '要回去找。', null, '要回去找。']
+      }
+    },
+    {
+      h: '④ 猜生字',
+      s: [
+        '可以從上下文猜意思。',
+        '看前後句、看例子、看對比詞。',
+        '也可以從字的組成猜。',
+        '像 un 開頭表示不、er 結尾表示人。',
+        'ful 結尾則表示充滿。'
+      ],
+      terms: [
+        { w: '上下文', d: '一個字前後的句子。' }
+      ],
+      q: {
+        q: '課文說 er 結尾通常表示什麼？',
+        options: [
+          '不',
+          '充滿',
+          '很多',
+          '人'
+        ],
+        answer: 3,
+        why: ['那是 un 開頭。', '那是 ful 結尾。', '是表示人。', null]
+      }
+    },
+    {
+      h: '⑤ 推論',
+      s: [
+        '有些答案文章沒有直接說出來。',
+        '要從線索推出來。',
+        '例如文章說某個人拿了雨傘又穿上雨鞋。',
+        '就可以推論外面在下雨。',
+        '但推論要有文章的依據，不能憑自己的想像。'
+      ],
+      terms: [
+        { w: '推論', d: '從線索推出沒明講的答案。' }
+      ],
+      q: {
+        q: '課文說推論要根據什麼？',
+        options: [
+          '文章的依據',
+          '自己的想像',
+          '別人的意見',
+          '題目的長度'
+        ],
+        answer: 0,
+        why: [null, '要有依據。', '要看文章。', '要看文章。']
+      }
+    },
+    {
+      h: '⑥ 閱讀習慣',
+      s: [
+        '每天讀一小段比一次讀很多有效。',
+        '三到五句就夠了。',
+        '讀完後可以做兩件事。',
+        '第一件是用一句話說出這段在講什麼。',
+        '第二件是記下兩三個有用的字。'
+      ],
+      terms: [
+        { w: '習慣', d: '每天固定重複做的事。' }
+      ],
+      q: {
+        q: '課文說讀完一段後可以做哪兩件事？',
+        options: [
+          '立刻再讀一遍',
+          '說出重點並記幾個字',
+          '背整段',
+          '什麼都不用'
+        ],
+        answer: 1,
+        why: ['課文說那兩件。', null, '不用背整段。', '有兩件事。']
+      }
+    }
+  ]
+};
