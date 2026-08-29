@@ -3932,7 +3932,36 @@
 
   /* ---------- 錯題本 ---------- */
 
-  var wb = { time: 'all', cat: 'all', lesson: 'all', diff: 'all', kw: '', edit: false, sel: {} };
+  // scope='import' 時錯題本切換成「匯入題庫專用」：跨科目、可依科目與年級篩（2026-08-29 Tony）
+  var wb = { time: 'all', cat: 'all', lesson: 'all', diff: 'all', kw: '', edit: false, sel: {},
+    scope: 'subject', isubj: 'all', grade: 'all' };
+  function wbInScope(w) {
+    if (wb.scope === 'import') {
+      if (!isImportCat(w.t)) return false;
+      if (wb.isubj !== 'all' && w.t !== wb.isubj) return false;
+      if (wb.grade !== 'all') {
+        var it = findItem(w.t, w.id);
+        if (!it || String(itemGrade(it)) !== String(wb.grade)) return false;
+      }
+      return true;
+    }
+    return refIsCur(w);
+  }
+  // 匯入題目的年級：優先用題目自己的 grade，沒有就從冊名（五上／八下）推
+  var BOOK_GRADE = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9 };
+  function itemGrade(it) {
+    if (!it) return '';
+    if (it.grade) return it.grade;
+    var b = String(it.book || '');
+    if (/^高/.test(b)) return 9 + (BOOK_GRADE[b.charAt(1)] || 0);
+    return BOOK_GRADE[b.charAt(0)] || '';
+  }
+  function gradeName(g) {
+    var n = Number(g);
+    if (!n) return '未分年級';
+    return n <= 6 ? '小' + '一二三四五六'.charAt(n - 1)
+      : n <= 9 ? '國' + '一二三'.charAt(n - 7) : '高' + '一二三'.charAt(n - 10);
+  }
 
   function wrongFiltered() {
     var cut = 0;
@@ -3941,7 +3970,7 @@
     else if (wb.time === '7d') cut = now - 7 * 86400000;
     else if (wb.time === '30d') cut = now - 30 * 86400000;
     return state.wrong.filter(function (w) {
-      if (!refIsCur(w)) return false;   // 錯題本只看目前科目的題（切科目就換一本）
+      if (!wbInScope(w)) return false;   // 一般是「目前科目」；匯入模式則是整個匯入題庫
       if (wb.cat !== 'all' && w.t !== wb.cat) return false;
       if ((w.lastWrong || w.added || 0) < cut) return false;
       if (wb.lesson !== 'all') {
@@ -3973,6 +4002,7 @@
   var wbBanksAsked = false;
   function showWrongbook() {
     show('wrongbook');
+    $('wrongTitle').textContent = wb.scope === 'import' ? '📦 匯入題庫・錯題本' : '錯題本';
     // 錯題可能來自還沒載入的科目（主題庫改成動態載入後），先補齊再重畫，
     // 否則題目標籤會變成空白或掉題（2026-08-27）
     if (!wbBanksAsked) {
@@ -3991,22 +4021,67 @@
       b.addEventListener('click', function () { wb.time = t[0]; showWrongbook(); });
       f.appendChild(b);
     });
-    var cats = [['all', '全類別']];
-    Object.keys(CAT_NAME).forEach(function (c) {
-      if (state.wrong.some(function (w) { return w.t === c && refIsCur(w); })) cats.push([c, CAT_NAME[c]]);
-    });
-    if (cats.length === 2) cats = [];   // 只有一類（例：社會）就不用顯示類別列
-    cats.forEach(function (t) {
-      var b = document.createElement('button');
-      b.className = 'chip' + (wb.cat === t[0] ? ' active' : '');
-      b.textContent = t[1];
-      b.addEventListener('click', function () { wb.cat = t[0]; showWrongbook(); });
-      f.appendChild(b);
-    });
+    if (wb.scope === 'import') {
+      // 匯入題庫的錯題本：科目與年級各一列（只列真的有錯題的）
+      var isubjs = [['all', '全部科目']];
+      Object.keys(CUSTOM_CATS).forEach(function (k) {
+        var c = CUSTOM_CATS[k];
+        if ((state.wrong || []).some(function (w) { return w.t === c; })) {
+          isubjs.push([c, (subjectOf(k).icon || '') + (subjectOf(k).name || CAT_NAME[c] || k)]);
+        }
+      });
+      if (wb.isubj !== 'all' && !isubjs.some(function (x) { return x[0] === wb.isubj; })) wb.isubj = 'all';
+      var srow = document.createElement('div');
+      srow.className = 'gp-quick unit-grades';
+      isubjs.forEach(function (t) {
+        var b = document.createElement('button');
+        b.className = 'chip' + (wb.isubj === t[0] ? ' active' : '');
+        b.textContent = t[1];
+        b.addEventListener('click', function () { wb.isubj = t[0]; wb.grade = 'all'; showWrongbook(); });
+        srow.appendChild(b);
+      });
+      f.appendChild(srow);
+      var gset = {};
+      (state.wrong || []).forEach(function (w) {
+        if (!isImportCat(w.t)) return;
+        if (wb.isubj !== 'all' && w.t !== wb.isubj) return;
+        var it = findItem(w.t, w.id);
+        var g = it ? itemGrade(it) : '';
+        if (g) gset[g] = 1;
+      });
+      var gkeys = Object.keys(gset).sort(function (a, b) { return a - b; });
+      if (gkeys.length > 1) {
+        if (wb.grade !== 'all' && !gset[wb.grade]) wb.grade = 'all';
+        var grow = document.createElement('div');
+        grow.className = 'gp-quick unit-grades';
+        [['all', '全部年級']].concat(gkeys.map(function (g) { return [g, gradeName(g)]; })).forEach(function (t) {
+          var b = document.createElement('button');
+          b.className = 'chip' + (String(wb.grade) === String(t[0]) ? ' active' : '');
+          b.textContent = t[1];
+          b.addEventListener('click', function () { wb.grade = t[0]; showWrongbook(); });
+          grow.appendChild(b);
+        });
+        f.appendChild(grow);
+      } else wb.grade = 'all';
+      wb.cat = 'all';
+    } else {
+      var cats = [['all', '全類別']];
+      Object.keys(CAT_NAME).forEach(function (c) {
+        if (state.wrong.some(function (w) { return w.t === c && refIsCur(w); })) cats.push([c, CAT_NAME[c]]);
+      });
+      if (cats.length === 2) cats = [];   // 只有一類（例：社會）就不用顯示類別列
+      cats.forEach(function (t) {
+        var b = document.createElement('button');
+        b.className = 'chip' + (wb.cat === t[0] ? ' active' : '');
+        b.textContent = t[1];
+        b.addEventListener('click', function () { wb.cat = t[0]; showWrongbook(); });
+        f.appendChild(b);
+      });
+    }
     // 課別篩選（自創題庫的冊·課，有錯題才顯示）
     var lessons = {};
     state.wrong.forEach(function (w) {
-      if (!isBankCat(w.t) || !refIsCur(w)) return;
+      if (!isBankCat(w.t) || !wbInScope(w)) return;
       var it = findItem(w.t, w.id);
       if (!it) return;
       var key = (it.book || '未分類') + '|' + (it.lesson || '未分類');
@@ -4124,7 +4199,9 @@
         cb.addEventListener('change', function () { wb.sel[key] = cb.checked; showWrongbook(); });
         head.appendChild(cb);
       }
-      var label = w.t === 'custom' ? labelOf(w.t, w.id) :
+      // 題庫型的題（各科原創題庫與匯入題庫）用題幹當標題；
+      // 之前只判斷 'custom'，社會／數學等題庫就掉到下面那條，變成「3：undefined」（2026-08-29 修）
+      var label = isBankCat(w.t) ? labelOf(w.t, w.id) :
         (it.term || (it.word ? it.word + '（' + it.target + '）' : it.answer + '：' + it.sentence));
       var bEl = document.createElement('b');
       bEl.textContent = label;
@@ -4172,12 +4249,99 @@
     }
     beginQuiz(shuffle(entries).slice(0, 20), 'retry', null);
   });
-  $('wrongExit').addEventListener('click', function () { show('home'); });
+  $('wrongExit').addEventListener('click', function () {
+    if (wb.scope === 'import') { wb.scope = 'subject'; showCustom(); return; }
+    show('home');
+  });
 
   /* ---------- 進度 ---------- */
 
+  /* ── 匯入題庫的進度分析（2026-08-29 Tony：匯入題庫要有自己的錯題本與進度分析）──
+     資料來源：state.stats[匯入分類]（做過幾題／對幾題）、state.wrong（還沒消掉的錯題）、
+     state.drillPos（依課練習做到第幾題）。全部依科目分開列，再往下列到冊。 */
+  function importStat(cat) {
+    var st = (state.stats && state.stats[cat]) || { n: 0, ok: 0 };
+    var wrongN = (state.wrong || []).filter(function (w) { return w.t === cat; }).length;
+    var bank = DATA[cat] || [];
+    return { n: st.n || 0, ok: st.ok || 0, wrong: wrongN, total: bank.length ||
+      ((countRec(cat) || {}).total || 0) };
+  }
+  function showImportProgress() {
+    show('progress');
+    $('progTitle').textContent = '📦 匯入題庫・進度分析';
+    var body = $('progBody');
+    body.innerHTML = '';
+    var subs = importSubjects().filter(function (x) { return x.n; });
+    if (!subs.length) {
+      body.innerHTML = '<div class="empty">還沒有匯入任何題本。</div>';
+      return;
+    }
+    var sum = { n: 0, ok: 0, wrong: 0, total: 0 };
+    subs.forEach(function (x) {
+      var st = importStat(CUSTOM_CATS[x.key]);
+      sum.n += st.n; sum.ok += st.ok; sum.wrong += st.wrong; sum.total += st.total;
+    });
+    var head = document.createElement('div');
+    head.className = 'prog-row';
+    head.innerHTML = '<b>全部匯入題庫</b><span>' + sum.total + ' 題 · 做過 ' + sum.n +
+      ' 題 · 正確率 ' + (sum.n ? Math.round(100 * sum.ok / sum.n) : 0) +
+      '% · 錯題本 ' + sum.wrong + ' 題</span>';
+    body.appendChild(head);
+    subs.forEach(function (x) {
+      var cat = CUSTOM_CATS[x.key], st = importStat(cat);
+      var row = document.createElement('div');
+      row.className = 'prog-row';
+      row.innerHTML = '<b>' + x.icon + ' ' + x.name + '</b><span>' + st.total + ' 題 · 做過 ' +
+        st.n + ' 題 · 正確率 ' + (st.n ? Math.round(100 * st.ok / st.n) : 0) +
+        '% · 錯題 ' + st.wrong + ' 題</span>';
+      body.appendChild(row);
+      // 依冊列出「依課練習」做到哪裡
+      var bank = DATA[cat] || [];
+      var books = {};
+      bank.forEach(function (it) {
+        var b = it.book || '未分類';
+        books[b] = (books[b] || 0) + 1;
+      });
+      var bookKeys = Object.keys(books).sort();
+      var shown = 0;
+      bookKeys.forEach(function (b) {
+        // 沒有加難度／題型篩選時的 key 就是「分類|冊」，這裡看的是這個基本進度
+        var pos = state.drillPos[cat + '|' + b] || 0;
+        var wrongB = (state.wrong || []).filter(function (w) {
+          if (w.t !== cat) return false;
+          var it = findItem(w.t, w.id);
+          return it && (it.book || '未分類') === b;
+        }).length;
+        // 沒開始也沒錯題的冊不列，免得一科列出十幾冊全是 0（2026-08-29）
+        if (!pos && !wrongB) return;
+        shown++;
+        var sub = document.createElement('div');
+        sub.className = 'prog-row prog-sub';
+        sub.innerHTML = '<b>　' + b + '</b><span>' + books[b] + ' 題 · 依序刷到第 ' + pos +
+          ' 題 · 錯題 ' + wrongB + ' 題</span>';
+        body.appendChild(sub);
+      });
+      if (!shown) {
+        var none = document.createElement('div');
+        none.className = 'prog-row prog-sub';
+        none.innerHTML = '<b>　尚未開始</b><span>共 ' + bookKeys.length + ' 冊，還沒有作答紀錄</span>';
+        body.appendChild(none);
+      }
+    });
+    var tip = document.createElement('p');
+    tip.className = 'prog-hint';
+    tip.textContent = '「做過」是實際作答過的題數（含重複作答）；「依序刷到第幾題」是依課練習的進度。';
+    body.appendChild(tip);
+    var back = document.createElement('button');
+    back.className = 'btn-ghost';
+    back.textContent = '📕 看匯入題庫的錯題本';
+    back.addEventListener('click', function () { wb.scope = 'import'; showWrongbook(); });
+    body.appendChild(back);
+  }
+
   function showProgress() {
     show('progress');
+    $('progTitle').textContent = '學習進度';
     var body = $('progBody');
     body.innerHTML = '';
     var pbtn = document.createElement('button');
@@ -4383,7 +4547,10 @@
       state = load(); save(); renderHome(); show('home');
     });
   });
-  $('progExit').addEventListener('click', function () { show('home'); });
+  $('progExit').addEventListener('click', function () {
+    if ($('progTitle').textContent.indexOf('匯入題庫') >= 0) { showCustom(); return; }
+    show('home');
+  });
 
   /* ---------- 家長／老師儀表板 ---------- */
 
@@ -4652,6 +4819,34 @@
           body.appendChild(row);
         });
       });
+    }
+
+    // 匯入題庫（家長匯入的題本）單獨列一區，才看得出這批題做了多少（2026-08-29 Tony）
+    var impCats = Object.keys(CUSTOM_CATS).map(function (k) { return CUSTOM_CATS[k]; });
+    var impUsed = impCats.filter(function (c) {
+      var st2 = (st.stats && st.stats[c]) || {};
+      return (st2.n || 0) > 0 || (st.wrong || []).some(function (w) { return w.t === c; });
+    });
+    if (impUsed.length) {
+      h3('📦 匯入題庫（家長匯入的題本）');
+      var impSum = { n: 0, ok: 0, wrong: 0 };
+      impUsed.forEach(function (c) {
+        var st2 = (st.stats && st.stats[c]) || { n: 0, ok: 0 };
+        var wn = (st.wrong || []).filter(function (w) { return w.t === c; }).length;
+        impSum.n += st2.n || 0; impSum.ok += st2.ok || 0; impSum.wrong += wn;
+        var key = importSubjOfCat(c);
+        var nm = key ? (subjectOf(key).icon + subjectOf(key).name) : (CAT_NAME[c] || c);
+        var row2 = document.createElement('div');
+        row2.className = 'prog-row';
+        row2.innerHTML = '<b>' + nm + '</b><span>做過 ' + (st2.n || 0) + ' 題 · 正確率 ' +
+          ((st2.n || 0) ? Math.round(100 * (st2.ok || 0) / st2.n) : 0) +
+          '% · 錯題本 ' + wn + ' 題</span>';
+        body.appendChild(row2);
+      });
+      hintEl('合計做過 ' + impSum.n + ' 題、正確率 ' +
+        (impSum.n ? Math.round(100 * impSum.ok / impSum.n) : 0) +
+        '%、錯題本還有 ' + impSum.wrong + ' 題。（匯入題庫在首頁的「📦 匯入題庫」進去，' +
+        '裡面有自己的錯題本與進度分析）');
     }
 
     // 一直記不住的題（錯 2 次以上，錯最多的排前面）
@@ -4940,6 +5135,22 @@
         srow.appendChild(b);
       });
     }
+    var trow = $('customTools');
+    trow.innerHTML = '';
+    trow.classList.toggle('hidden', !importMode);
+    if (importMode) {
+      var wbBtn = document.createElement('button');
+      wbBtn.className = 'chip';
+      var iw = (state.wrong || []).filter(function (w) { return isImportCat(w.t); }).length;
+      wbBtn.textContent = '📕 錯題本' + (iw ? '（' + iw + '）' : '');
+      wbBtn.addEventListener('click', function () { wb.scope = 'import'; showWrongbook(); });
+      trow.appendChild(wbBtn);
+      var pgBtn = document.createElement('button');
+      pgBtn.className = 'chip';
+      pgBtn.textContent = '📊 進度分析';
+      pgBtn.addEventListener('click', function () { showImportProgress(); });
+      trow.appendChild(pgBtn);
+    }
     if (!bank.length) {   // 匯入題庫模式：這一科還沒題，科目列留著讓他換一科
       ['customBooks', 'customDiffs', 'customTypes'].forEach(function (id) { $(id).innerHTML = ''; });
       $('customList').innerHTML = '<div class="empty">這一科還沒有匯入題本。<br>' +
@@ -5037,6 +5248,13 @@
   // 題庫型科目（自創題庫、社會等）照冊/課/篩選走，國語各類別照年級走
   // 題庫型類別＝{q, options, answer, exp} 這種 schema（各科原創題庫與各科自創題庫都是）
   function isBankCat(cat) { return cat === 'custom' || /Custom$/.test(cat || '') || SUBJECT_CATS.indexOf(cat) >= 0; }
+  // 只認「匯入題庫」（家長匯入的題本），不含各科自編的原創題庫
+  function isImportCat(cat) { return cat === 'custom' || /Custom$/.test(cat || ''); }
+  function importSubjOfCat(cat) {
+    var out = null;
+    Object.keys(CUSTOM_CATS).forEach(function (k) { if (CUSTOM_CATS[k] === cat) out = k; });
+    return out;
+  }
   function drillPool(cat, book, lesson) {
     var bank = DATA[cat] || [];
     if (cat && cat === mainCat()) bank = filterByGrades(bank, state.grades);  // 原創題庫照年級

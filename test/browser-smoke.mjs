@@ -1311,5 +1311,59 @@ async (js) => {
     await js(`(window.__errs || []).join(' | ')`));
 });
 
+/* ---------- 12. 匯入題庫：自己的錯題本與進度分析 ---------- */
+console.log('匯入題庫（獨立區）');
+await session(8751, 9351, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 8, extra: [], grades: [8], onboarded: true, subject: 'social',
+  unitGrade: 8, unitBook: '八上', streak: { last: '', days: 0 }, leitner: {},
+  stats: { socialCustom: { n: 40, ok: 31 } },
+  drillPos: { 'socialCustom|五上': 60 },
+  wrong: [{ t: 'socialCustom', id: 'oc1505000242', n: 2, added: Date.now(), lastWrong: Date.now() }],
+  units: {} }));` },
+async (js) => {
+  await js(`window.NavDebug.go('subject')`);
+  await sleep(400);
+  await js(`(function(){ var b = [].slice.call(document.querySelectorAll('#view-subject button, #view-subject .card'))
+    .filter(function(x){ return /匯入題庫/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(3500);
+  check('匯入題庫有自己的工具列（錯題本＋進度分析）',
+    await js(`document.querySelectorAll('#customTools .chip').length`) === 2,
+    String(await js(`document.getElementById('customTools').textContent`)));
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#customTools .chip'))
+    .filter(function(x){ return /錯題本/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(900);
+  check('進得了匯入題庫的錯題本',
+    /匯入題庫/.test(await js(`document.getElementById('wrongTitle').textContent`)));
+  const wbLabel = await js(`(function(){
+    var b = document.querySelector('#wrongList .wrong-item b');
+    return b ? b.textContent : ''; })()`);
+  check('錯題本列出匯入題庫的錯題（不是 undefined）',
+    !!wbLabel && wbLabel.indexOf('undefined') < 0, wbLabel);
+  check('錯題本有科目篩選', await js(`(function(){
+    return /全部科目/.test(document.getElementById('wrongFilters').textContent); })()`));
+  await js(`document.getElementById('wrongExit').click()`);
+  await sleep(900);
+  check('錯題本返回會回到匯入題庫',
+    await js(`!document.getElementById('view-custom').classList.contains('hidden')`));
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#customTools .chip'))
+    .filter(function(x){ return /進度/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(900);
+  check('進得了匯入題庫的進度分析',
+    /匯入題庫/.test(await js(`document.getElementById('progTitle').textContent`)));
+  check('進度分析看得到做過幾題與正確率',
+    /做過\s*40\s*題/.test(await js(`document.getElementById('progBody').textContent`)),
+    (await js(`document.getElementById('progBody').textContent`)).slice(0, 60));
+  await js(`window.NavDebug.go('home')`);
+  await sleep(400);
+  await js(`document.querySelector('.card[data-go="progress"]').click()`);
+  await sleep(800);
+  await js(`(function(){ var b = document.querySelector('#progBody .pt-open'); if (b) b.click(); })()`);
+  await sleep(1400);
+  check('家長／老師檢視看得到匯入題庫那一區',
+    /匯入題庫/.test(await js(`document.getElementById('parentBody').textContent`)));
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);

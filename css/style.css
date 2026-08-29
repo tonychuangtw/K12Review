@@ -960,3 +960,9 @@ body.anim-lock { overflow: hidden; }
 .read-term.on { border-color: var(--accent); color: var(--accent); }
 .read-termd { font-size: 13px; color: var(--dim); margin: 2px 0 8px; line-height: 1.7; }
 .read-note { font-size: 11px; color: var(--dim); margin-top: 12px; text-align: center; }
+
+/* 匯入題庫進度分析：冊的細項縮排、字小一點；標題不換行，數字自己折 */
+.prog-row.prog-sub { opacity: .85; font-size: .92em; padding-top: .25rem; padding-bottom: .25rem; }
+.prog-row { gap: .6rem; align-items: flex-start; }
+.prog-row b { white-space: nowrap; flex: 0 0 auto; }
+.prog-row span { text-align: right; }
