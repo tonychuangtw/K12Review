@@ -21,7 +21,20 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 13:20 台北
+UPDATED: 2026-08-29 14:05 台北
+
+### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
+
+(A) widget-audit 加第二段：比對「tip 答應的操作」與「元件實際有的控制項」。201 張有提到操作的卡，
+    8 張對不上。Tony 指示「做出來」，所以六個元件補上真互動：phscale（pH 0–14 滑桿＋指標）、
+    microscope（目鏡／物鏡兩滑桿）、soundwave（振幅／頻率兩滑桿）、solution（加入量滑桿）、
+    clock（鐘面指針可拖，分針過 12 點自動進位；兩張英文卡補 edit: true）、
+    vector（a／b 端點可拖、吸附整數格點）。判斷條件也修窄：只看 tip，body 是課文內容。
+(B) 字音教學卡只剩詞 —— phonWordZy（2026-08-28 加的整詞注音）被寫進 searchItemEl 的大括號裡，
+    只有搜尋頁看得到；教學卡呼叫時 ReferenceError，整張卡從那行中斷。已移回最外層。
+    **這類「畫面少一半但測試全綠」的問題，根因是 smoke 沒有攔未捕捉的錯誤**，已補：
+    每段流程都收集 window error / unhandledrejection，有錯即失敗；
+    另加「單元教學卡」（走完整單元逐張檢查）與「互動元件的滑桿與拖曳」（六個元件驗真的能動）兩節。
 
 ### 2026-08-29 互動元件全面體檢（Tony msg 1052／1053）
 
