@@ -4,7 +4,10 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人工寫 0）。各科自編原創題起步：
+NEXT_ACTION: 【進行中】課文帶讀鋪設 —— 社會 126 ✅／自然 126 ✅／數學 216 ✅ 全數完成，
+下一科是英文：新建 `js/data/texts-english.js`，註冊到 js/app.js 的 TEXT_FILES 與 test/test.js 的載入清單，
+再照 `js/data/lessons-english.js` 的單元逐冊寫（每單元 6 段、每段 ≥3 句、每句 ≤60 字、附一題「讀懂了嗎」）。
+【已完成】匯入題庫（custom）的解析確認題已全部寫完（待人工寫 0）。各科自編原創題起步：
 **數學四年級 576 題已完成並上線（js/data/checks-math.js，2026-08-29），等 Tony 實際玩過再決定要不要往下鋪。**
 他點頭就跑 `python3 <scratchpad>/mk3.py math <年級> --write` 補數學其餘 11 個年級（6,336 題），再依序做其他科
 （science 4,032／english 6,912／social 4,032／history・geography・civics・biology・physics・chemistry・earth 各 1,728）。
@@ -21,7 +24,7 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 社會科地圖卡的示範（一卡三圖）已送 Telegram，等 Tony 點頭才推其餘 153 張地圖卡；其餘無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 16:10 台北
+UPDATED: 2026-08-30 16:40 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
@@ -195,8 +198,8 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
 - 自然科開工（`js/data/texts-science.js`，新檔已註冊到 app.js 的 TEXT_FILES 與 test/test.js）：
   **自然科 14 冊 126 單元全數完成 ✅**（2026-08-29～30）；社會科 126 單元亦已完成
 - 數學開工（`js/data/texts-math.js`，已註冊到 app.js TEXT_FILES 與 test/test.js）：
-  小學數學 12 冊 108 單元 ✅ ＋ 國中 6 冊 54 單元 ✅ ＋ 十上～十二上 各 9 ✅（2026-08-30）＝ 數學 207 / 216
-- 下一批：數學十二下（最後一冊） → 十一下 → 十二上 → 十二下（高中剩 5 冊）→ 高中 6 冊；之後再換英文／國語
+  **數學 24 冊 216 單元全數完成 ✅**（小學 12 冊 108 ＋ 國中 6 冊 54 ＋ 高中 6 冊 54，2026-08-30）
+- 三科合計 468 單元；下一科：英文（`js/data/texts-english.js`，記得註冊到 app.js TEXT_FILES 與 test/test.js），之後國語
 - ⚠ 正解位置要打散：test.js 會擋（任一位置 >50% 就失敗）。批量寫完後用 node 重新產生整個 texts 檔
   （載入 APP_TEXTS → 依序把正解輪到 0/1/2/3 → 照固定模板重寫檔案），比逐塊正則安全
 - 寫作要點：段落對齊該單元概念卡的順序；每段 5 句以內、每句 ≤60 字；
