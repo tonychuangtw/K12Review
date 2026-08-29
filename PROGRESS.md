@@ -21,7 +21,7 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 社會科地圖卡的示範（一卡三圖）已送 Telegram，等 Tony 點頭才推其餘 153 張地圖卡；其餘無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 17:35 台北
+UPDATED: 2026-08-29 19:50 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
@@ -191,8 +191,8 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
   地球自轉圖晝夜對調＋補自轉箭頭；新增共用 `compassRose()`，凡提到東西南北的圖都要畫方位標
 - Tony 2026-08-29 已認可模式（訊息 1104「這模式可以」「先全部做下去」），開始逐單元鋪
 - **鋪設進度（每冊完成回報一次）**：小學社會 8 冊 72 單元全部完成 ✅（三上・三下・四上・四下・五上・五下・六上・六下）
-  ＋ 國中社會七上 9 單元 ✅、七下 9 單元 ✅（2026-08-29）＋ 八上第1單元 ＝ 91 / 1062
-- 下一批：社會八上第2單元起 → 八下 → 九上 → 九下，把國中社會做完，再往其他科推
+  ＋ 國中社會七上 9 ✅、七下 9 ✅、八上 9 ✅（2026-08-29）＝ 99 / 1062
+- 下一批：社會八下 → 九上 → 九下，把國中社會做完，再往其他科推
 - ⚠ 正解位置要打散：test.js 會擋（任一位置 >50% 就失敗）。批量寫完後用 node 重新產生整個 texts 檔
   （載入 APP_TEXTS → 依序把正解輪到 0/1/2/3 → 照固定模板重寫檔案），比逐塊正則安全
 - 寫作要點：段落對齊該單元概念卡的順序；每段 5 句以內、每句 ≤60 字；
