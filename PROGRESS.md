@@ -21,7 +21,20 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 12:40 台北
+UPDATED: 2026-08-29 13:20 台北
+
+### 2026-08-29 互動元件全面體檢（Tony msg 1052／1053）
+
+Tony：「感覺這種 bug 還很多，有辦法幫我全部檢查嗎？」→ 新增 `test/widget-audit.mjs`：
+從概念卡資料收集 134 種元件、399 組實際在用的 spec，逐一 render 到暫存 div，
+每顆按鈕連按 12 下、input/select 也操作，檢查 render 例外／NaN／死按鈕／按到一半卡住。
+判定死按鈕的關鍵：先按別顆把狀態帶開再回來按它，只有「不管狀態在哪裡按都不會變」才算死。
+第一輪抓到 moonphase／angle／unitcircle 的滑桿沒跟著預設按鈕同步，已修。
+踩到的坑：range input 已頂到 max 時再往上加會被瀏覽器夾住 → 體檢要改成往下拉一格才不會誤報。
+
+Tony 也回報「已經是這個狀態了」看不懂 → btn() 加 noopMsg 參數，按鈕可以自己寫原因
+（「已經到上限：這裡最多讓電子比質子多 3 個（像 N³⁻）」）。沒寫的維持通用句。
+CLAUDE.md 改動守則已加一條：動到 widgets.js 或概念卡 viz 要跑 widget-audit。
 
 ### 2026-08-29 互動元件：按了沒反應／原子電子數爆掉（Tony msg 1048／1049）
 
