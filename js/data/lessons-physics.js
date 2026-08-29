@@ -3001,7 +3001,7 @@ window.APP_LESSONS['physics|十一上|第2單元 相對運動'] = {
             '① 船頭垂直對岸：過河時間最短，但會被沖下游\n' +
             '② 船頭偏上游：可以垂直渡河，但時間較長\n' +
             '⚠ 「最短時間」與「最短路徑」是兩個不同的問題。',
-      viz: { type: 'vector', a: [0, 3], b: [2, 0], mode: 'add' },
+      viz: { type: 'rivercross', width: 100, boat: 4, flow: 2 },
       check: {
         q: '要以最短時間渡河，船頭應該朝哪個方向？',
         options: [
@@ -3024,7 +3024,7 @@ window.APP_LESSONS['physics|十一上|第2單元 相對運動'] = {
       body: '★ 站著不動時雨垂直落下，走動時雨看起來斜著打來。\n' +
             '★ 這是雨相對於你的速度，等於雨對地速度減去你對地速度。\n' +
             '⚠ 走得越快，雨看起來越斜，傘要越往前傾。',
-      viz: { type: 'vector', a: [0, -4], b: [-2, 0], mode: 'add' },
+      viz: { type: 'rainwalk', rain: 6, walk: 0 },
       check: {
         q: '在垂直落下的雨中往前跑，雨看起來會從哪個方向打來？',
         options: [

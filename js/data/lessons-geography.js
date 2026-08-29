@@ -93,7 +93,7 @@ window.APP_LESSONS['geography|十上|第1單元 地理學與地圖'] = {
             '★ 線密＝坡陡；線疏＝坡緩\n' +
             '⚠ 山谷的等高線會向高處凸出，\n' +
             '山脊則向低處凸出。',
-      viz: { type: 'strata' },
+      viz: { type: 'contour', mode: 'slope' },
       check: {
         q: '地圖上等高線特別密集的地方代表什麼？',
         options: [
@@ -5201,7 +5201,7 @@ window.APP_LESSONS['geography|十一下|第7單元 綜合演練（一）'] = {
       body: '★ 判斷坡度看疏密；判斷山谷山脊看凸向。\n' +
             '⚠ 等高線向高處凸出＝山谷（水往此匯集）；\n' +
             '向低處凸出＝山脊。',
-      viz: { type: 'strata' },
+      viz: { type: 'contour', mode: 'valley' },
       check: {
         q: '等高線呈 V 字形且尖端指向高處，代表什麼地形？',
         options: [

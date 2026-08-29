@@ -8406,6 +8406,250 @@
     paint();
   };
 
+  /* ── 渡河問題（rivercross）───────────────────────────────────────────
+     船速與水流速度相加，看船頭角度怎麼影響「過河時間」與「被沖下游多遠」。
+     spec: { width:河寬(公尺), boat:船速(m/s), flow:水流(m/s) }             */
+  REG.rivercross = function (host, spec) {
+    var D = spec.width || 100, VB = spec.boat || 4, VW = spec.flow || 2;
+    var ang = 0;                                    // 船頭偏上游的角度（度），0 = 垂直對岸
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var Y0 = 150, Y1 = 46, X0 = 46;                 // 出發岸、對岸、出發點
+    // 滑桿往左＝船頭偏上游，所以取負號
+    var sl = slider(-60, 60, 0, 1, function (v) { ang = -v; paint(); });
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var rad = ang * Math.PI / 180;
+      var vy = VB * Math.cos(rad);                  // 垂直對岸的分量
+      var vx = VW - VB * Math.sin(rad);             // 順流方向的淨速度（正=被沖下游）
+      var t = D / vy;                               // 過河時間
+      var drift = vx * t;                           // 下游漂移（公尺）
+      svg.appendChild(el('rect', { x: 0, y: Y1, width: 320, height: Y0 - Y1 }, 'fill:#7cc6e8'));
+      svg.appendChild(el('rect', { x: 0, y: Y0, width: 320, height: 190 - Y0 }, 'fill:#8fc45f'));
+      svg.appendChild(el('rect', { x: 0, y: 24, width: 320, height: Y1 - 24 }, 'fill:#8fc45f'));
+      [70, 106, 134].forEach(function (yy) {        // 水流方向
+        svg.appendChild(el('line', { x1: 24, y1: yy, x2: 60, y2: yy },
+          'stroke:#fff;stroke-width:2;opacity:.7'));
+        svg.appendChild(el('polygon', { points: '60,' + (yy - 4) + ' 70,' + yy + ' 60,' + (yy + 4) },
+          'fill:#fff;opacity:.7'));
+      });
+      svg.appendChild(txt(96, 40, '對岸', 'font-size:9px;fill:#2c5c1c'));
+      svg.appendChild(txt(96, 168, '出發岸', 'font-size:9px;fill:#2c5c1c'));
+      svg.appendChild(txt(250, 70, '水流往右', 'font-size:9px;fill:#fff'));
+      // 實際航線：從出發點到對岸的落點
+      var land = X0 + drift * 1.4;
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: land, y2: Y1 },
+        'stroke:#fff;stroke-width:2;stroke-dasharray:5 4'));
+      svg.appendChild(el('circle', { cx: land, cy: Y1, r: 4 }, 'fill:#d94f3d;stroke:#fff;stroke-width:1.5'));
+      // 船速向量（照船頭方向）與水流向量
+      var bx = X0 - Math.sin(rad) * 46, by = Y0 - Math.cos(rad) * 46;
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: bx, y2: by },
+        'stroke:#2f6fd0;stroke-width:3'));
+      svg.appendChild(el('circle', { cx: bx, cy: by, r: 3.5 }, 'fill:#2f6fd0'));
+      svg.appendChild(el('line', { x1: bx, y1: by, x2: bx + VW / VB * 46, y2: by },
+        'stroke:#3f9d4a;stroke-width:3'));
+      svg.appendChild(el('polygon', { points: (bx + VW / VB * 46) + ',' + (by - 4) + ' ' +
+        (bx + VW / VB * 46 + 8) + ',' + by + ' ' + (bx + VW / VB * 46) + ',' + (by + 4) },
+        'fill:#3f9d4a'));
+      svg.appendChild(txt(bx - 22, by + 4, '船速', 'font-size:9px;font-weight:700;fill:#123a6b'));
+      svg.appendChild(txt(bx + VW / VB * 46 + 22, by - 6, '水流',
+        'font-size:9px;font-weight:700;fill:#1c4d24'));
+      // 船身
+      svg.appendChild(el('polygon', { points: (X0 - 7) + ',' + (Y0 + 2) + ' ' + (X0 + 7) + ',' +
+        (Y0 + 2) + ' ' + X0 + ',' + (Y0 - 10) }, 'fill:#8a5a2b;stroke:#fff;stroke-width:1.4'));
+      read.appendChild(div('wg-read-main',
+        '船頭' + (ang === 0 ? '垂直對岸' : (ang > 0 ? '偏上游 ' + ang + '°' : '偏下游 ' + (-ang) + '°')) +
+        '：過河要 ' + t.toFixed(1) + ' 秒，落點在正對面的下游 ' + drift.toFixed(1) + ' 公尺'));
+      read.appendChild(div('wg-read-sub',
+        '河寬 ' + D + ' 公尺、船速 ' + VB + ' m/s、水流 ' + VW + ' m/s。' +
+        '過河時間只看「垂直對岸的分量」＝船速×cos(角度)，所以船頭垂直對岸時時間最短（' +
+        (D / VB).toFixed(1) + ' 秒），但會被沖下游；' +
+        '要垂直渡河（落點正對面）就得偏上游 ' +
+        (Math.asin(VW / VB) * 180 / Math.PI).toFixed(0) + '°，時間變長。'));
+      sl.value = -ang;
+    }
+    var row1 = div('wg-ctrl');
+    row1.appendChild(div('wg-ctrl-label', '船頭方向（往左是偏上游）'));
+    row1.appendChild(sl);
+    box.appendChild(row1);
+    var row2 = div('wg-ctrl');
+    row2.appendChild(btn('垂直對岸（最短時間）', function () { ang = 0; paint(); }, '',
+      '船頭已經垂直對岸了'));
+    row2.appendChild(btn('偏上游（垂直渡河）', function () {
+      ang = Math.round(Math.asin(Math.min(1, VW / VB)) * 180 / Math.PI); paint();
+    }, '', '船頭已經在垂直渡河的角度了'));
+    box.appendChild(row2);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 雨中行走（rainwalk）─────────────────────────────────────────────
+     站著不動時雨垂直落下，走起來雨就變斜的——因為看到的是「雨相對於你」的速度。
+     spec: { rain:雨速(m/s), walk:走路速度(m/s) }                          */
+  REG.rainwalk = function (host, spec) {
+    var VR = spec.rain || 6, v = spec.walk == null ? 0 : spec.walk;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var GY = 158, PX = 210;                       // 地面、人的位置
+    var sl = slider(0, 8, v, 1, function (nv) { v = nv; paint(); });
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var deg = Math.atan2(v, VR) * 180 / Math.PI;   // 雨看起來偏斜的角度
+      var rad = deg * Math.PI / 180;
+      svg.appendChild(el('rect', { x: 0, y: 0, width: 320, height: GY }, 'fill:#cfe8f7'));
+      svg.appendChild(el('rect', { x: 0, y: GY, width: 320, height: 190 - GY }, 'fill:#8fc45f'));
+      // 雨絲：往人的前進方向（右）傾斜
+      for (var i = 0; i < 14; i++) {
+        var x = 12 + i * 22, y = 10 + (i % 4) * 30;
+        svg.appendChild(el('line', { x1: x, y1: y, x2: x - Math.tan(rad) * 26, y2: y + 26 },
+          'stroke:#3f7fd0;stroke-width:2;opacity:.75'));
+      }
+      // 人：頭、身體、腿
+      svg.appendChild(el('circle', { cx: PX, cy: GY - 44, r: 8 }, 'fill:#f2c9a0;stroke:#8a5a2b;stroke-width:1.4'));
+      svg.appendChild(el('line', { x1: PX, y1: GY - 36, x2: PX, y2: GY - 14 },
+        'stroke:#2f6fd0;stroke-width:5'));
+      svg.appendChild(el('line', { x1: PX, y1: GY - 14, x2: PX - 8, y2: GY },
+        'stroke:#2f6fd0;stroke-width:4'));
+      svg.appendChild(el('line', { x1: PX, y1: GY - 14, x2: PX + 8, y2: GY },
+        'stroke:#2f6fd0;stroke-width:4'));
+      // 傘：跟著雨的斜度往前傾
+      var ux = PX + Math.sin(rad) * 30, uy = GY - 72 - Math.cos(rad) * 6;
+      svg.appendChild(el('line', { x1: PX, y1: GY - 26, x2: ux, y2: uy },
+        'stroke:#8a5a2b;stroke-width:3'));
+      svg.appendChild(el('path', { d: 'M' + (ux - 26) + ',' + uy + ' Q' + ux + ',' + (uy - 24) +
+        ' ' + (ux + 26) + ',' + uy + ' Z' }, 'fill:#d94f3d;stroke:#8a2c20;stroke-width:1.6'));
+      if (v > 0) {                                   // 前進方向
+        svg.appendChild(el('line', { x1: PX + 16, y1: GY - 6, x2: PX + 52, y2: GY - 6 },
+          'stroke:#1c4d24;stroke-width:3'));
+        svg.appendChild(el('polygon', { points: (PX + 52) + ',' + (GY - 11) + ' ' + (PX + 64) + ',' +
+          (GY - 6) + ' ' + (PX + 52) + ',' + (GY - 1) }, 'fill:#1c4d24'));
+        svg.appendChild(txt(PX + 40, GY - 16, '往前走', 'font-size:9px;fill:#1c4d24'));
+      }
+      read.appendChild(div('wg-read-main', v === 0
+        ? '站著不動：雨垂直落下，傘直接舉正上方就好'
+        : '走 ' + v + ' m/s：雨看起來從前方斜著打來，偏 ' + deg.toFixed(0) + '°，傘要往前傾 ' +
+          deg.toFixed(0) + '°'));
+      read.appendChild(div('wg-read-sub',
+        '雨對地是垂直往下 ' + VR + ' m/s；你往前走，雨相對於你就多了一個「往後」的分量（＝你的速度反向）。' +
+        '兩個合起來就是你看到的雨——走得越快，往後的分量越大、雨看起來越斜（雨的傾斜角度：tan 值＝走路速度÷雨速）。'));
+      sl.value = v;
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(div('wg-ctrl-label', '走路速度 (m/s)'));
+    row.appendChild(sl);
+    box.appendChild(row);
+    var row2 = div('wg-ctrl');
+    row2.appendChild(btn('站著不動', function () { v = 0; paint(); }, '', '你本來就站著不動'));
+    row2.appendChild(btn('快走', function () { v = 4; paint(); }, '', '已經是快走的速度了'));
+    row2.appendChild(btn('用跑的', function () { v = 8; paint(); }, '', '已經是用跑的速度了'));
+    box.appendChild(row2);
+    host.appendChild(box);
+    paint();
+  };
+
+  /* ── 等高線判讀（contour）───────────────────────────────────────────
+     左邊是俯視的等高線圖（右側密＝坡陡、左側疏＝坡緩），右邊是同一座山的側面剖面。
+     spec: { mode:'slope'|'peak'|'valley' }                                */
+  REG.contour = function (host, spec) {
+    var mode = spec.mode || 'slope';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var CX = 92, CY = 96;                              // 山頂在俯視圖的位置
+    var LV = [400, 300, 200, 100];                     // 由內而外的高度
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var main, sub;
+      svg.appendChild(el('rect', { x: 4, y: 16, width: 172, height: 168, rx: 8 },
+        'fill:#e7f0d8;stroke:#9bb37a;stroke-width:1.5'));
+      svg.appendChild(txt(90, 12, '俯視：等高線圖', 'font-size:9px;fill:var(--dim)'));
+      svg.appendChild(txt(250, 12, '側面：同一座山的剖面', 'font-size:9px;fill:var(--dim)'));
+      // 俯視圖：四條封閉等高線，右邊擠在一起（陡）、左邊拉開（緩）
+      LV.forEach(function (h, i) {
+        var rx = 9 + i * 14, ry = 8 + i * 11;
+        var L = CX - rx * 1.6, R = CX + rx * 0.62;   // 左邊拉開（緩）、右邊擠（陡）
+        var d = 'M' + L + ',' + CY +
+          ' C' + L + ',' + (CY - ry * 1.7) + ' ' + R + ',' + (CY - ry * 1.7) +
+          ' ' + R + ',' + CY +
+          ' C' + R + ',' + (CY + ry * 1.7) + ' ' + L + ',' + (CY + ry * 1.7) +
+          ' ' + L + ',' + CY + ' Z';
+        svg.appendChild(el('path', { d: d },
+          'fill:none;stroke:#6b7f4a;stroke-width:' + (i === 3 ? 2 : 1.4)));
+        svg.appendChild(txt(L + 13, CY + 3, h + '', 'font-size:7px;fill:#4a5c33'));
+      });
+      svg.appendChild(el('circle', { cx: CX, cy: CY, r: 3 }, 'fill:#d94f3d'));
+      if (mode === 'peak') {
+        svg.appendChild(txt(CX + 14, CY - 6, '山頂',
+          'font-size:10px;font-weight:700;fill:#fff;stroke:#8a2c20;stroke-width:2.6;paint-order:stroke'));
+        main = '一圈一圈越小越高，最裡面那圈裡面就是山頂';
+        sub = '等高線是「把高度相同的點連起來」的線，所以每一條都會自己封閉起來、也不會互相交叉。' +
+          '一組同心的封閉曲線，數字往內越大就是山（往內越小就是窪地）。';
+      } else if (mode === 'valley') {
+        // 山谷：等高線凸向高處；山脊：凸向低處
+        svg.appendChild(el('path', { d: 'M36,142 L92,116 L134,140' },
+          'fill:none;stroke:#2f6fd0;stroke-width:2.4;stroke-dasharray:5 4'));
+        svg.appendChild(txt(80, 162, '山谷（等高線凸向高處）',
+          'font-size:9px;font-weight:700;fill:#fff;stroke:#123a6b;stroke-width:2.6;paint-order:stroke'));
+        svg.appendChild(el('path', { d: 'M36,74 L92,44 L134,72' },
+          'fill:none;stroke:#8a5a2b;stroke-width:2.4'));
+        svg.appendChild(txt(80, 32, '山脊（凸向低處）',
+          'font-size:9px;font-weight:700;fill:#fff;stroke:#6b4f33;stroke-width:2.6;paint-order:stroke'));
+        main = '等高線的彎曲方向可以分出山谷與山脊';
+        sub = '等高線「向高處凸出（V 字尖端朝山頂）」的地方是山谷，水會往這裡集中、常常有溪流；' +
+          '「向低處凸出」的地方是山脊，是分水嶺。判斷時先看數字往哪邊變大，再看 V 字尖端朝哪邊。';
+      } else {
+        svg.appendChild(el('rect', { x: 96, y: 44, width: 30, height: 104, rx: 4,
+          'fill-opacity': '.18' }, 'fill:#d94f3d;stroke:#d94f3d;stroke-width:1.5'));
+        svg.appendChild(txt(112, 38, '密＝陡',
+          'font-size:9px;font-weight:700;fill:#fff;stroke:#8a2c20;stroke-width:2.6;paint-order:stroke'));
+        svg.appendChild(el('rect', { x: 10, y: 44, width: 52, height: 104, rx: 4,
+          'fill-opacity': '.18' }, 'fill:#2f6fd0;stroke:#2f6fd0;stroke-width:1.5'));
+        svg.appendChild(txt(36, 38, '疏＝緩',
+          'font-size:9px;font-weight:700;fill:#fff;stroke:#123a6b;stroke-width:2.6;paint-order:stroke'));
+        main = '等高線越密，坡度越陡';
+        sub = '相鄰兩條等高線的高度差是固定的（例如每條差 100 公尺），' +
+          '所以線擠在一起代表「同樣爬 100 公尺，水平距離很短」＝坡很陡；' +
+          '線拉得很開代表同樣爬 100 公尺要走很遠＝坡很緩。爬山選路線就是在看這個。';
+      }
+      // 右邊：側面剖面（左緩右陡，跟俯視圖對應）
+      var base = 160;
+      svg.appendChild(el('path', { d: 'M186,' + base + ' C214,' + base + ' 236,44 262,44 C276,44 282,96 300,' +
+        base + ' Z' }, 'fill:#a8894f;stroke:#6b4f33;stroke-width:2'));
+      svg.appendChild(el('polygon', { points: '256,58 262,44 268,58' }, 'fill:#fff'));
+      [100, 200, 300, 400].forEach(function (h, i) {
+        var y = base - (i + 1) * 28;
+        svg.appendChild(el('line', { x1: 182, y1: y, x2: 306, y2: y },
+          'stroke:#6b4f33;stroke-width:1;stroke-dasharray:3 3;opacity:.7'));
+        svg.appendChild(txt(316, y - 2, h + 'm', 'font-size:7px;fill:var(--dim)'));
+      });
+      svg.appendChild(txt(206, 176, '緩', 'font-size:10px;font-weight:700;fill:#2f6fd0'));
+      svg.appendChild(txt(292, 176, '陡', 'font-size:10px;font-weight:700;fill:#d94f3d'));
+      read.appendChild(div('wg-read-main', main));
+      read.appendChild(div('wg-read-sub', sub));
+    }
+    if (spec.pick !== false) {
+      var row = div('wg-ctrl');
+      [['slope', '陡坡與緩坡'], ['peak', '山頂'], ['valley', '山谷與山脊']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }, '',
+          '現在看的就是' + m[1]));
+      });
+      box.appendChild(row);
+    }
+    host.appendChild(box);
+    paint();
+  };
+
   /* ── 句型結構（sentence）─────────────────────────────────────────────
      把一個句子拆成一格一格，下面標出每一格的角色。
      spec: { items:[{t:'I', r:'主詞'}], note, alt:[{label, items, note}] } */

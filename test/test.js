@@ -550,6 +550,7 @@ console.log('解析確認題');
                    'cell', 'levels', 'enzyme', 'nerve', 'punnett', 'dna', 'cycle', 'density', 'imaging', 'atom', 'ptable', 'chemeq', 'motion', 'newton', 'energyball', 'pressure',
                    'static', 'ohm', 'solarsys',
                    'timeline', 'mapdir', 'taiwan', 'orgchart', 'poppyramid', 'supply', 'regionmap',
+                   'rivercross', 'rainwalk', 'contour',
                    'sentence', 'tense', 'phonics'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
