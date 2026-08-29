@@ -1386,5 +1386,25 @@ async (js) => {
     await js(`(window.__errs || []).join(' | ')`));
 });
 
+/* ---------- 13. 手寫練習：換年級之後舊的「依課練習」範圍不能把題目濾成空 ---------- */
+console.log('手寫練習（換年級）');
+await session(8757, 9357, { seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 6, extra: [], grades: [6], onboarded: true, subject: 'chinese',
+  writeLesson: '四上|第1課', term: '全',
+  streak: { last: '', days: 0 }, leitner: {}, wrong: [], units: {} }));` },
+async (js) => {
+  await js(`window.NavDebug.go('home')`);
+  await sleep(400);
+  await js(`document.querySelector('.card[data-go="write"]').click()`);
+  await sleep(900);
+  check('六年級進得了手寫練習（不會被舊的課次篩成空）',
+    await js(`!document.getElementById('view-write').classList.contains('hidden')`),
+    String(await js(`(document.querySelector('.ui-dialog') || {}).textContent || ''`)).slice(0, 60));
+  check('舊的課次選擇已自動清掉',
+    await js(`(JSON.parse(localStorage.getItem('chinese-review-v1')).writeLesson || '') === ''`));
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);

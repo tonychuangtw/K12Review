@@ -3506,7 +3506,12 @@
     var all = pool('chars');
     if (!state.writeLesson) return all;
     var p = state.writeLesson.split('|');
-    return all.filter(function (it) { return it.book === p[0] && it.lesson === p[1]; });
+    var sub = all.filter(function (it) { return it.book === p[0] && it.lesson === p[1]; });
+    /* 換年級之後，上次選的冊課通常不屬於新年級（有課次資料的只有國小四年級與八上八下），
+       以前會直接變成「這個年級目前沒有題目」——Tony 2026-08-29 回報「手寫練習很多年級都沒有」。
+       現在選的範圍在這個年級找不到字就自動回到「全部」。 */
+    if (!sub.length) { state.writeLesson = ''; save(); return all; }
+    return sub;
   }
   // 目前年級有哪些冊／課（依 id 序，沒有課次資料的字不列）
   function writeLessons() {
@@ -3584,7 +3589,7 @@
   // startWrite()＝一般 10 題；startWrite(items,'wrongbook')＝錯題本手寫重練（練完可回錯題本）
   function startWrite(itemsArg, backTo) {
     var items = Array.isArray(itemsArg) ? itemsArg.slice() : writePick(10);
-    if (!items.length) { UIDialog.alert('這個年級目前沒有題目。'); return; }
+    if (!items.length) { UIDialog.alert('這個年級的手寫練習還沒有題目，換一個年級或用上方的「學習範圍」加練其他年級。'); return; }
     wr = { items: items, i: 0, score: 0, attempt: 1, judged: false, curData: null,
            backTo: backTo || null };
     $('writeResult').classList.add('hidden');
