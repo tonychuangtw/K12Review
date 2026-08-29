@@ -4,7 +4,12 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 匯入題庫（custom）的解析確認題**已全部寫完（待人工寫 0）**。下一步待 Tony 決定：要不要接著補各科「依課綱自編原創題」題庫的確認題（biology/chemistry/civics/earth/english/geography/history/math/physics/science/social 合計 33,981 題），或先處理 custom 的 5,824 題「解析太薄」（解析 <12 字，要先補解析本體才寫得了確認題）。
+NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人工寫 0）。各科自編原創題起步：
+**數學四年級 576 題已完成並上線（js/data/checks-math.js，2026-08-29），等 Tony 實際玩過再決定要不要往下鋪。**
+他點頭就跑 `python3 <scratchpad>/mk3.py math <年級> --write` 補數學其餘 11 個年級（6,336 題），再依序做其他科
+（science 4,032／english 6,912／social 4,032／history・geography・civics・biology・physics・chemistry・earth 各 1,728）。
+新科目要記得三件事：app.js 的 SUBJ_CHECK_FILES 加一筆、test/test.js 與 tools/chk-todo.js 的清單各加一筆檔名。
+另有 custom 5,824 題「解析太薄」（解析 <12 字）要先補解析本體才寫得了確認題，尚未動。
 取題：`node tools/chk-todo.js custom 44 --book=<冊> --json` → 逐題寫進 js/data/checks-custom.js → `node test/test.js` 全綠 → commit。
 一批 44 題。**custom 全部完成（五上／七上／七下／八上／八下／九上／九下／會考／基測／特招，待人工寫 0），人工累計 19,273 題，加上Ａ型 265＋Ｂ型 7,266 自動生成，覆蓋 custom 全庫。**
 2026-08-29 這一輪（批次 474–603）補了 5,589 題：前 20 批逐題人工撰寫；九上第1課之後的題目解析都是結構化格式
@@ -16,7 +21,7 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題**已全部寫完（待�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 09:10 台北
+UPDATED: 2026-08-29 09:35 台北
 
 ### 2026-08-29 兩處品質修正（批次 474／477 順手做的）
 
