@@ -1088,7 +1088,7 @@
     loadScript('js/data/lessons-' + k + '.js', cb || function () {});
   }
   // 課文帶讀的短文：跟概念卡一樣，進到單元才載；沒有這一科的課文檔就安靜跳過
-  var TEXT_FILES = { social: 1, science: 1 };
+  var TEXT_FILES = { social: 1, science: 1, math: 1 };
   function ensureTexts(cb) {
     var k = mainCat();
     if (!k || !TEXT_FILES[k] || (W.APP_TEXTS && W.__textsLoaded === k)) { if (cb) cb(null); return; }
