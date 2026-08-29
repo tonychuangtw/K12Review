@@ -608,6 +608,24 @@ console.log('解析確認題');
     });
     ok(glued.length === 0, `沒有英文單字黏在中文旁邊（${glued.slice(0, 5).join('、') || '乾淨'}）`);
   }
+  /* 「換你試試」的正解位置要分散（2026-08-29 Tony：小四自然第 1 單元「選項全是Ａ」）。
+     原本 6,373 張卡有 5,828 張答案是第一個選項，孩子閉著眼睛按Ａ就會過。
+     每一科各自檢查，任一位置都不該超過 40%。 */
+  {
+    const bySubj = {};
+    keys.forEach(k => {
+      const subj = k.split('|')[0];
+      (LES[k].cards || []).forEach(c => {
+        if (!c.check || typeof c.check.answer !== 'number') return;
+        (bySubj[subj] = bySubj[subj] || [0, 0, 0, 0])[c.check.answer]++;
+      });
+    });
+    const skew = Object.keys(bySubj).filter(s => {
+      const d = bySubj[s], n = d.reduce((a, b) => a + b, 0);
+      return n >= 20 && Math.max(...d) > n * 0.4;
+    }).map(s => s + '（' + bySubj[s].join('/') + '）');
+    ok(skew.length === 0, `概念卡「換你試試」的答案位置分散（${skew.join('、') || '各科都平均'}）`);
+  }
   const nCards = keys.reduce((n, k) => n + ((LES[k].cards || []).length), 0);
   console.log(`    目前 ${keys.length} 個單元有教材、共 ${nCards} 張概念卡`);
 }

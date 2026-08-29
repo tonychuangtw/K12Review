@@ -47,13 +47,13 @@ window.APP_LESSONS['english|三上|第1單元 短母音 a、e、i'] = {
         { w: 'dad', parts: ['d', 'a', 'd'], hit: 1, s: 'a 的短音', mean: '爸爸' }] },
       check: {
         q: '下列哪一個單字中的 a 發的是短母音？',
-        options: ['bag', 'cake', 'name', 'game'],
-        answer: 0,
+        options: ['name', 'game', 'bag', 'cake'],
+        answer: 2,
         why: [
-          null,
-          '字尾有 e 時，前面的 a 通常發長音。',
           '這個字的 a 同樣發長音。',
-          '字尾的 e 讓 a 唸出字母本身的名字。'
+          '字尾的 e 讓 a 唸出字母本身的名字。',
+          null,
+          '字尾有 e 時，前面的 a 通常發長音。'
         ]
       }
     },
@@ -69,17 +69,17 @@ window.APP_LESSONS['english|三上|第1單元 短母音 a、e、i'] = {
       check: {
         q: '下列哪一組單字的母音發音相同？',
         options: [
+          'ten、bike、cup',
           'bed、pen、ten',
           'bed、cake、pig',
-          'pen、name、hot',
-          'ten、bike、cup'
+          'pen、name、hot'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這三個字的母音也不一樣。',
           null,
           '這三個字分別是短音 e、長音 a 與短音 i。',
-          '三個字的母音各不相同。',
-          '這三個字的母音也不一樣。'
+          '三個字的母音各不相同。'
         ]
       }
     },
@@ -95,17 +95,17 @@ window.APP_LESSONS['english|三上|第1單元 短母音 a、e、i'] = {
       check: {
         q: 'big 和 bike 這兩個字的母音有什麼不同？',
         options: [
-          'big 是短母音、bike 因為字尾有 e 而發長母音',
           '兩個字的母音完全相同',
           'big 是長母音、bike 是短母音',
-          '兩個字都沒有母音'
+          '兩個字都沒有母音',
+          'big 是短母音、bike 因為字尾有 e 而發長母音'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '兩者的母音長短明顯不同。',
           '規則剛好相反，字尾的 e 會讓母音變長音。',
-          'i 就是這兩個字的母音。'
+          'i 就是這兩個字的母音。',
+          null
         ]
       }
     },
@@ -121,17 +121,17 @@ window.APP_LESSONS['english|三上|第1單元 短母音 a、e、i'] = {
       check: {
         q: '看到一個沒學過的字 mat，可以怎麼唸出來？',
         options: [
+          '只能請老師唸給你聽',
           '先分別唸出 m、短音 a、t 三個音，再連起來',
           '直接猜一個發音',
-          '一定要先查中文意思才能唸',
-          '只能請老師唸給你聽'
+          '一定要先查中文意思才能唸'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '自然發音的目的就是能自己拼讀。',
           null,
           '亂猜不會建立正確的發音習慣。',
-          '拼讀不需要先知道中文意思。',
-          '自然發音的目的就是能自己拼讀。'
+          '拼讀不需要先知道中文意思。'
         ]
       }
     },
@@ -181,17 +181,17 @@ window.APP_LESSONS['english|三上|第2單元 短母音 o、u'] = {
       check: {
         q: 'hop 和 hope 的差別在哪裡？',
         options: [
-          '字尾多了 e，使 o 由短音變成長音',
           '兩個字唸法完全相同',
           'hope 的 o 是短音',
-          '兩個字都沒有母音'
+          '兩個字都沒有母音',
+          '字尾多了 e，使 o 由短音變成長音'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '兩個字的母音長短不同。',
           '字尾有 e 時 o 發長音。',
-          'o 就是這兩個字的母音。'
+          'o 就是這兩個字的母音。',
+          null
         ]
       }
     },
@@ -206,13 +206,13 @@ window.APP_LESSONS['english|三上|第2單元 短母音 o、u'] = {
         { w: 'bus', parts: ['b', 'u', 's'], hit: 1, s: 'u 的短音', mean: '公車' }] },
       check: {
         q: '下列哪一個字的 u 發短母音？',
-        options: ['bus', 'cute', 'tube', 'use'],
-        answer: 0,
+        options: ['use', 'bus', 'cute', 'tube'],
+        answer: 1,
         why: [
+          'use 的 u 唸出字母本身的名字。',
           null,
           '字尾有 e，u 發長音。',
-          '這個字的 u 同樣是長音。',
-          'use 的 u 唸出字母本身的名字。'
+          '這個字的 u 同樣是長音。'
         ]
       }
     },
@@ -256,17 +256,17 @@ window.APP_LESSONS['english|三上|第2單元 短母音 o、u'] = {
       check: {
         q: 'cat、cot、cut 這三個字為什麼意思完全不同？',
         options: [
-          '因為中間的母音不同',
-          '因為第一個字母不同',
           '因為最後一個字母不同',
-          '因為它們其實意思相同'
+          '因為它們其實意思相同',
+          '因為中間的母音不同',
+          '因為第一個字母不同'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '三個字都以 c 開頭。',
           '三個字都以 t 結尾。',
-          '三個字分別是貓、小床與切。'
+          '三個字分別是貓、小床與切。',
+          null,
+          '三個字都以 c 開頭。'
         ]
       }
     },
@@ -282,17 +282,17 @@ window.APP_LESSONS['english|三上|第2單元 短母音 o、u'] = {
       check: {
         q: '學會自然發音之後，遇到沒學過的短單字可以怎麼辦？',
         options: [
-          '先自己拼讀出聲，再對照意思',
-          '直接跳過不看',
           '一定要等別人教',
-          '只能死背整個單字'
+          '只能死背整個單字',
+          '先自己拼讀出聲，再對照意思',
+          '直接跳過不看'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '拼讀能力就是為了自己讀出來。',
           '自然發音的目的正是能自學。',
-          '拼讀比死背更有效率。'
+          '拼讀比死背更有效率。',
+          null,
+          '拼讀能力就是為了自己讀出來。'
         ]
       }
     },
@@ -307,17 +307,17 @@ window.APP_LESSONS['english|三上|第2單元 短母音 o、u'] = {
       check: {
         q: '自然發音法對「拼字」有什麼幫助？',
         options: [
+          '會讓拼字變得更難',
           '聽到聲音就能推出字母，減少死背的負擔',
           '完全沒有幫助',
-          '只對唸讀有用',
-          '會讓拼字變得更難'
+          '只對唸讀有用'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '有規則反而比死背容易。',
           null,
           '發音與拼字是一體兩面。',
-          '拼讀與拼寫可以互相支援。',
-          '有規則反而比死背容易。'
+          '拼讀與拼寫可以互相支援。'
         ]
       }
     }
@@ -340,17 +340,17 @@ window.APP_LESSONS['english|三上|第3單元 magic e 長母音'] = {
       check: {
         q: 'magic e 的作用是什麼？',
         options: [
-          '自己不發音，但讓前面的母音變成長音',
-          '自己要發音',
           '讓前面的母音消失',
-          '讓子音變成母音'
+          '讓子音變成母音',
+          '自己不發音，但讓前面的母音變成長音',
+          '自己要發音'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '字尾的 e 在這個規則中不發音。',
           '母音仍然存在，只是發長音。',
-          '子音不會因此改變。'
+          '子音不會因此改變。',
+          null,
+          '字尾的 e 在這個規則中不發音。'
         ]
       }
     },
@@ -391,13 +391,13 @@ window.APP_LESSONS['english|三上|第3單元 magic e 長母音'] = {
         { w: 'home', parts: ['h', 'o', 'm', 'e'], hit: 1, s: 'o 的長音', mean: '家' }] },
       check: {
         q: '下列哪一個字的母音發「長音」？',
-        options: ['nine', 'pin', 'sit', 'big'],
-        answer: 0,
+        options: ['big', 'nine', 'pin', 'sit'],
+        answer: 1,
         why: [
+          '同樣是短母音的字。',
           null,
           '這個字是短母音 i。',
-          '沒有字尾的 e，發短音。',
-          '同樣是短母音的字。'
+          '沒有字尾的 e，發短音。'
         ]
       }
     },
@@ -412,17 +412,17 @@ window.APP_LESSONS['english|三上|第3單元 magic e 長母音'] = {
       check: {
         q: 'cut 和 cute 的差別是什麼？',
         options: [
-          '字尾的 e 使 u 由短音變長音，意思也完全不同',
           '兩個字意思相同',
           '兩個字發音相同',
-          'cute 的 u 是短音'
+          'cute 的 u 是短音',
+          '字尾的 e 使 u 由短音變長音，意思也完全不同'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '一個是切，一個是可愛的。',
           '母音的長短明顯不同。',
-          '字尾的 e 讓 u 發長音。'
+          '字尾的 e 讓 u 發長音。',
+          null
         ]
       }
     },
@@ -439,17 +439,17 @@ window.APP_LESSONS['english|三上|第3單元 magic e 長母音'] = {
       check: {
         q: '要判斷一個單字的母音是長音還是短音，最先要看什麼？',
         options: [
-          '字尾有沒有不發音的 e',
           '單字有幾個字母',
           '第一個字母是什麼',
-          '單字的中文意思'
+          '單字的中文意思',
+          '字尾有沒有不發音的 e'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '長度不是判斷的關鍵。',
           '開頭的字母不影響母音長短。',
-          '中文意思與發音規則無關。'
+          '中文意思與發音規則無關。',
+          null
         ]
       }
     },
@@ -498,17 +498,17 @@ window.APP_LESSONS['english|三上|第4單元 字母組合 sh、ch、th'] = {
       check: {
         q: '字母組合 sh 應該怎麼唸？',
         options: [
+          '只唸 h',
           '兩個字母合起來發一個音',
           '先唸 s 再唸 h',
-          '只唸 s',
-          '只唸 h'
+          '只唸 s'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '兩個字母缺一不可。',
           null,
           '分開唸就不是這個組合的音了。',
-          '省略其中一個字母會發錯音。',
-          '兩個字母缺一不可。'
+          '省略其中一個字母會發錯音。'
         ]
       }
     },
@@ -522,13 +522,13 @@ window.APP_LESSONS['english|三上|第4單元 字母組合 sh、ch、th'] = {
         { w: 'wash', parts: ['w', 'a', 'sh'], hit: 2, s: 'sh 的音', mean: '洗' }] },
       check: {
         q: '下列哪一個字含有 sh 的音？',
-        options: ['fish', 'sit', 'sad', 'six'],
-        answer: 0,
+        options: ['sad', 'six', 'fish', 'sit'],
+        answer: 2,
         why: [
-          null,
-          '這個字只有單獨的 s 音。',
           '開頭的 s 是單獨的子音。',
-          'six 的 s 也是單獨發音。'
+          'six 的 s 也是單獨發音。',
+          null,
+          '這個字只有單獨的 s 音。'
         ]
       }
     },
@@ -543,17 +543,17 @@ window.APP_LESSONS['english|三上|第4單元 字母組合 sh、ch、th'] = {
       check: {
         q: 'ship 和 chip 的差別在哪裡？',
         options: [
-          '開頭的字母組合不同，發音也不同',
           '兩個字完全一樣',
           '只有中間的母音不同',
-          '只有結尾不同'
+          '只有結尾不同',
+          '開頭的字母組合不同，發音也不同'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '兩個字的意思分別是船與薄片。',
           '兩個字的母音相同，差別在開頭。',
-          '兩個字都以 p 結尾。'
+          '兩個字都以 p 結尾。',
+          null
         ]
       }
     },
@@ -624,17 +624,17 @@ window.APP_LESSONS['english|三上|第4單元 字母組合 sh、ch、th'] = {
       check: {
         q: '拼讀 shop 這個字時，正確的切法是什麼？',
         options: [
-          'sh／o／p 三個音',
-          's／h／o／p 四個音',
           'sho／p 兩個音',
-          's／hop 兩個音'
+          's／hop 兩個音',
+          'sh／o／p 三個音',
+          's／h／o／p 四個音'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'sh 是一組，不能拆開。',
           'o 是獨立的母音，不與 sh 合併。',
-          '這樣切會唸錯開頭的音。'
+          '這樣切會唸錯開頭的音。',
+          null,
+          'sh 是一組，不能拆開。'
         ]
       }
     }
@@ -661,17 +661,17 @@ window.APP_LESSONS['english|三上|第5單元 打招呼與介紹他人'] = {
       check: {
         q: '晚上第一次見到朋友時，應該說什麼？',
         options: [
-          'Good evening.',
-          'Good night.',
           'Good morning.',
-          'Goodbye.'
+          'Goodbye.',
+          'Good evening.',
+          'Good night.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'Good night 是道別或睡前用語。',
           'Good morning 用在早上。',
-          'Goodbye 是道別時說的。'
+          'Goodbye 是道別時說的。',
+          null,
+          'Good night 是道別或睡前用語。'
         ]
       }
     },
@@ -718,17 +718,17 @@ window.APP_LESSONS['english|三上|第5單元 打招呼與介紹他人'] = {
       check: {
         q: '為什麼 My name is Amy 用 is，而 I am Amy 用 am？',
         options: [
-          '因為 be 動詞要配合主詞：My name 用 is、I 用 am',
           '因為兩句意思不同',
           '因為 is 比較有禮貌',
-          '因為可以隨便用'
+          '因為可以隨便用',
+          '因為 be 動詞要配合主詞：My name 用 is、I 用 am'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '兩句的意思相同。',
           '禮貌與 be 動詞的選擇無關。',
-          'be 動詞必須配合主詞，不能隨意替換。'
+          'be 動詞必須配合主詞，不能隨意替換。',
+          null
         ]
       }
     },
@@ -746,17 +746,17 @@ window.APP_LESSONS['english|三上|第5單元 打招呼與介紹他人'] = {
       check: {
         q: '要把身邊的朋友介紹給別人，最自然的說法是什麼？',
         options: [
+          'Goodbye, Ben.',
           'This is my friend, Ben.',
           'He is a book.',
-          'I am Ben.',
-          'Goodbye, Ben.'
+          'I am Ben.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這是道別而不是介紹。',
           null,
           '人不能用 a book 描述。',
-          '這是介紹自己，不是介紹別人。',
-          '這是道別而不是介紹。'
+          '這是介紹自己，不是介紹別人。'
         ]
       }
     },
@@ -771,17 +771,17 @@ window.APP_LESSONS['english|三上|第5單元 打招呼與介紹他人'] = {
       check: {
         q: '要跟同學說「明天見」，應該怎麼說？',
         options: [
-          'See you tomorrow.',
           'Good morning.',
           'How are you?',
-          'Nice to meet you.'
+          'Nice to meet you.',
+          'See you tomorrow.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這是早上見面時的問候。',
           '這是詢問對方的狀況。',
-          '這是初次見面時說的。'
+          '這是初次見面時說的。',
+          null
         ]
       }
     },
@@ -799,17 +799,17 @@ window.APP_LESSONS['english|三上|第5單元 打招呼與介紹他人'] = {
       check: {
         q: '想在路上向陌生人問路，開口前應該先說什麼？',
         options: [
-          'Excuse me.',
-          'Sorry.',
           'Goodbye.',
-          'You are welcome.'
+          'You are welcome.',
+          'Excuse me.',
+          'Sorry.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'Sorry 用於做錯事時道歉。',
           '這是道別時說的話，不適合用在開場。',
-          '這是回應別人道謝時說的。'
+          '這是回應別人道謝時說的。',
+          null,
+          'Sorry 用於做錯事時道歉。'
         ]
       }
     }
@@ -829,13 +829,13 @@ window.APP_LESSONS['english|三上|第6單元 教室與學校用語'] = {
         { label: '教室設備', items: ['desk', 'chair', 'blackboard', 'door'] }] },
       check: {
         q: '「橡皮擦」的英文是什麼？',
-        options: ['eraser', 'ruler', 'pencil', 'desk'],
-        answer: 0,
+        options: ['desk', 'eraser', 'ruler', 'pencil'],
+        answer: 1,
         why: [
+          'desk 是書桌。',
           null,
           'ruler 是尺。',
-          'pencil 是鉛筆。',
-          'desk 是書桌。'
+          'pencil 是鉛筆。'
         ]
       }
     },
@@ -850,17 +850,17 @@ window.APP_LESSONS['english|三上|第6單元 教室與學校用語'] = {
       check: {
         q: '為什麼 Open your book. 這句話看不到主詞？',
         options: [
-          '因為這是祈使句，主詞 you 被省略了',
           '因為忘記寫',
           '因為英文不需要主詞',
-          '因為 Open 就是主詞'
+          '因為 Open 就是主詞',
+          '因為這是祈使句，主詞 you 被省略了'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '省略是文法規則而非疏忽。',
           '英文句子多半需要主詞，祈使句是特例。',
-          'Open 是動詞。'
+          'Open 是動詞。',
+          null
         ]
       }
     },
@@ -876,17 +876,17 @@ window.APP_LESSONS['english|三上|第6單元 教室與學校用語'] = {
       check: {
         q: '上課遲到想進教室時，最有禮貌的說法是什麼？',
         options: [
-          'May I come in?',
-          'I come in.',
           'Come in!',
-          'You come in.'
+          'You come in.',
+          'May I come in?',
+          'I come in.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這是陳述句，聽起來像在通知而非請求。',
           '這是命令別人進來。',
-          '這是要求對方進來，不是請求許可。'
+          '這是要求對方進來，不是請求許可。',
+          null,
+          '這是陳述句，聽起來像在通知而非請求。'
         ]
       }
     },
@@ -950,17 +950,17 @@ window.APP_LESSONS['english|三上|第6單元 教室與學校用語'] = {
       check: {
         q: '學英文時，為什麼「把單字放進句子練習」比只背單字有效？',
         options: [
+          '因為老師規定要這樣',
           '因為知道怎麼用，才能在真實情境中說出口',
           '因為句子比較短',
-          '因為單字不重要',
-          '因為老師規定要這樣'
+          '因為單字不重要'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這是學習效果的問題，不是規定。',
           null,
           '句子其實比單字長。',
-          '單字仍然是基礎，只是需要用出來。',
-          '這是學習效果的問題，不是規定。'
+          '單字仍然是基礎，只是需要用出來。'
         ]
       }
     }
@@ -1009,17 +1009,17 @@ window.APP_LESSONS['english|三上|第7單元 顏色與形狀'] = {
       check: {
         q: '要問「它們是什麼顏色？」應該怎麼說？',
         options: [
+          'They what color?',
           'What color are they?',
           'What color is they?',
-          'What color they are?',
-          'They what color?'
+          'What color they are?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個語序不符合英文的疑問句結構。',
           null,
           '主詞 they 是複數，要用 are。',
-          '疑問句要把 be 動詞放到主詞前面。',
-          '這個語序不符合英文的疑問句結構。'
+          '疑問句要把 be 動詞放到主詞前面。'
         ]
       }
     },
@@ -1038,17 +1038,17 @@ window.APP_LESSONS['english|三上|第7單元 顏色與形狀'] = {
       check: {
         q: '「一個綠色的書包」的英文順序應該是什麼？',
         options: [
-          'a green bag',
           'a bag green',
           'green a bag',
-          'bag a green'
+          'bag a green',
+          'a green bag'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '形容詞要放在名詞前面。',
           '冠詞 a 要放在最前面。',
-          '這個語序不符合英文結構。'
+          '這個語序不符合英文結構。',
+          null
         ]
       }
     },
@@ -1062,13 +1062,13 @@ window.APP_LESSONS['english|三上|第7單元 顏色與形狀'] = {
         { label: '曲線', items: ['circle', 'oval'] }] },
       check: {
         q: '「三角形」的英文是什麼？',
-        options: ['triangle', 'circle', 'square', 'star'],
-        answer: 0,
+        options: ['square', 'star', 'triangle', 'circle'],
+        answer: 2,
         why: [
-          null,
-          'circle 是圓形。',
           'square 是正方形。',
-          'star 是星形。'
+          'star 是星形。',
+          null,
+          'circle 是圓形。'
         ]
       }
     },
@@ -1085,17 +1085,17 @@ window.APP_LESSONS['english|三上|第7單元 顏色與形狀'] = {
       check: {
         q: '英文中多個形容詞並列時，通常的順序是什麼？',
         options: [
+          '沒有任何順序',
           '大小 → 形狀 → 顏色 → 名詞',
           '顏色 → 大小 → 名詞 → 形狀',
-          '名詞 → 顏色 → 大小',
-          '沒有任何順序'
+          '名詞 → 顏色 → 大小'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '英文的形容詞順序有慣例。',
           null,
           '名詞要放在最後面。',
-          '名詞不會放在形容詞前面。',
-          '英文的形容詞順序有慣例。'
+          '名詞不會放在形容詞前面。'
         ]
       }
     },
@@ -1111,17 +1111,17 @@ window.APP_LESSONS['english|三上|第7單元 顏色與形狀'] = {
       check: {
         q: '要說「我有一支紅筆」，正確的英文是什麼？',
         options: [
-          'I have a red pen.',
           'I have a pen red.',
           'Have I a red pen.',
-          'A red pen I have.'
+          'A red pen I have.',
+          'I have a red pen.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '形容詞要放在名詞前面。',
           '這個語序像疑問句，不是陳述句。',
-          '雖然可以理解，但不是自然的語序。'
+          '雖然可以理解，但不是自然的語序。',
+          null
         ]
       }
     }
@@ -1142,17 +1142,17 @@ window.APP_LESSONS['english|三上|第8單元 數字 1–30 與年齡'] = {
       check: {
         q: '數字 11 和 12 的英文有什麼特別之處？',
         options: [
+          '它們沒有英文說法',
           '它們是獨立的字，不像 13 之後有規則',
           '它們的拼法和 1、2 完全相同',
-          '它們不能單獨使用',
-          '它們沒有英文說法'
+          '它們不能單獨使用'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '它們都有標準的英文說法。',
           null,
           'eleven 與 one 的拼法完全不同。',
-          '這兩個字可以單獨使用。',
-          '它們都有標準的英文說法。'
+          '這兩個字可以單獨使用。'
         ]
       }
     },
@@ -1186,13 +1186,13 @@ window.APP_LESSONS['english|三上|第8單元 數字 1–30 與年齡'] = {
         { label: '組合', items: ['twenty-one', 'twenty-five', 'twenty-nine'] }] },
       check: {
         q: '數字 24 的正確寫法是什麼？',
-        options: ['twenty-four', 'twentyfour', 'twenty four hundred', 'two four'],
-        answer: 0,
+        options: ['twenty four hundred', 'two four', 'twenty-four', 'twentyfour'],
+        answer: 2,
         why: [
-          null,
-          '中間要有連字號。',
           '這樣寫變成很大的數字。',
-          '這是把兩個數字分開唸，不是二十四。'
+          '這是把兩個數字分開唸，不是二十四。',
+          null,
+          '中間要有連字號。'
         ]
       }
     },
@@ -1211,17 +1211,17 @@ window.APP_LESSONS['english|三上|第8單元 數字 1–30 與年齡'] = {
       check: {
         q: '「我十歲」的正確英文是什麼？',
         options: [
-          'I am ten years old.',
           'I have ten years old.',
           'My age ten.',
-          'I ten years.'
+          'I ten years.',
+          'I am ten years old.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '英文年齡用 be 動詞而不是 have。',
           '這個句子缺少動詞。',
-          '這個句子同樣缺少動詞。'
+          '這個句子同樣缺少動詞。',
+          null
         ]
       }
     },
@@ -1265,17 +1265,17 @@ window.APP_LESSONS['english|三上|第8單元 數字 1–30 與年齡'] = {
       check: {
         q: '要說「第三層樓」，應該使用哪一種數字？',
         options: [
+          '不需要數字',
           '序數 third',
           '基數 three',
-          '兩者皆可',
-          '不需要數字'
+          '兩者皆可'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '樓層一定要有數字。',
           null,
           '基數用來表示數量而非順序。',
-          '表示順序時要用序數。',
-          '樓層一定要有數字。'
+          '表示順序時要用序數。'
         ]
       }
     }
@@ -1297,17 +1297,17 @@ window.APP_LESSONS['english|三上|第9單元 我的家庭'] = {
       check: {
         q: '英文的 brother 和中文的「哥哥、弟弟」有什麼不同？',
         options: [
+          '兩者完全相同',
           '英文的 brother 不分年紀，需要時才加 older 或 younger',
           '英文只指哥哥',
-          '英文只指弟弟',
-          '兩者完全相同'
+          '英文只指弟弟'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '中文有明確的長幼區分，英文沒有。',
           null,
           'brother 可以指哥哥也可以指弟弟。',
-          '它同樣可以指哥哥。',
-          '中文有明確的長幼區分，英文沒有。'
+          '它同樣可以指哥哥。'
         ]
       }
     },
@@ -1325,17 +1325,17 @@ window.APP_LESSONS['english|三上|第9單元 我的家庭'] = {
       check: {
         q: '「她是我的媽媽」的正確說法是什麼？',
         options: [
-          'She is my mother.',
           'He is my mother.',
           'It is my mother.',
-          'She are my mother.'
+          'She are my mother.',
+          'She is my mother.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '媽媽是女性，要用 she。',
           'it 用於物品或動物，不用於人。',
-          '主詞 she 要搭配 is。'
+          '主詞 she 要搭配 is。',
+          null
         ]
       }
     },
@@ -1376,13 +1376,13 @@ window.APP_LESSONS['english|三上|第9單元 我的家庭'] = {
         note: 'There are 用來表示「有…」，後面接複數名詞。' },
       check: {
         q: 'person 的複數形是什麼？',
-        options: ['people', 'persons only', 'personses', 'peoples'],
-        answer: 0,
+        options: ['personses', 'peoples', 'people', 'persons only'],
+        answer: 2,
         why: [
-          null,
-          '日常用法中複數幾乎都用 people。',
           '這不是正確的拼法。',
-          'peoples 指的是「多個民族」，意思不同。'
+          'peoples 指的是「多個民族」，意思不同。',
+          null,
+          '日常用法中複數幾乎都用 people。'
         ]
       }
     },
@@ -1425,13 +1425,13 @@ window.APP_LESSONS['english|三上|第9單元 我的家庭'] = {
             { t: 'nine years old', r: '年齡' }], note: '年齡用 be 動詞表達。' }] },
       check: {
         q: '英文列舉多個項目時，最後一項前面通常會加什麼？',
-        options: ['and', 'or only', 'but', '不用加任何字'],
-        answer: 0,
+        options: ['不用加任何字', 'and', 'or only', 'but'],
+        answer: 1,
         why: [
+          '不加連接詞會顯得不完整。',
           null,
           'or 用在選擇的情況。',
-          'but 表示轉折，用法不同。',
-          '不加連接詞會顯得不完整。'
+          'but 表示轉折，用法不同。'
         ]
       }
     }
@@ -1457,17 +1457,17 @@ window.APP_LESSONS['english|三下|第1單元 一般動詞現在式'] = {
       check: {
         q: '下列哪一句的用法正確？',
         options: [
-          'I like apples.',
-          'I am like apples.',
           'I am likes apples.',
-          'I like am apples.'
+          'I like am apples.',
+          'I like apples.',
+          'I am like apples.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '一個句子不能同時有 be 動詞與一般動詞當主要動詞。',
           '這句同時犯了兩個錯誤。',
-          '語序不正確，動詞不能放在受詞後面。'
+          '語序不正確，動詞不能放在受詞後面。',
+          null,
+          '一個句子不能同時有 be 動詞與一般動詞當主要動詞。'
         ]
       }
     },
@@ -1511,17 +1511,17 @@ window.APP_LESSONS['english|三下|第1單元 一般動詞現在式'] = {
       check: {
         q: '「他不喜歡貓」的正確說法是什麼？',
         options: [
-          'He does not like cats.',
           'He do not like cats.',
           'He does not likes cats.',
-          'He not like cats.'
+          'He not like cats.',
+          'He does not like cats.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '主詞是第三人稱單數，要用 does。',
           '用了 does 之後動詞要回到原形。',
-          '否定句需要助動詞。'
+          '否定句需要助動詞。',
+          null
         ]
       }
     },
@@ -1541,17 +1541,17 @@ window.APP_LESSONS['english|三下|第1單元 一般動詞現在式'] = {
       check: {
         q: '「她喜歡音樂嗎？」的正確問法是什麼？',
         options: [
+          'She likes music?',
           'Does she like music?',
           'Do she like music?',
-          'Does she likes music?',
-          'She likes music?'
+          'Does she likes music?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這是把陳述句加上問號，不是標準的疑問句。',
           null,
           '主詞是第三人稱單數，要用 Does。',
-          '用了 Does 之後動詞要用原形。',
-          '這是把陳述句加上問號，不是標準的疑問句。'
+          '用了 Does 之後動詞要用原形。'
         ]
       }
     },
@@ -1568,17 +1568,17 @@ window.APP_LESSONS['english|三下|第1單元 一般動詞現在式'] = {
       check: {
         q: '看到句子裡有 every day，通常表示要用什麼時態？',
         options: [
-          '現在簡單式，因為表達的是習慣',
           '過去式',
           '未來式',
-          '現在進行式'
+          '現在進行式',
+          '現在簡單式，因為表達的是習慣'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '過去式搭配的是過去的時間詞。',
           '未來式搭配的是未來的時間詞。',
-          '進行式描述此刻正在發生的事。'
+          '進行式描述此刻正在發生的事。',
+          null
         ]
       }
     },
@@ -1599,17 +1599,17 @@ window.APP_LESSONS['english|三下|第1單元 一般動詞現在式'] = {
       check: {
         q: '一般動詞的否定句與疑問句，共同需要什麼？',
         options: [
-          '助動詞 do 或 does，且主要動詞用原形',
-          'be 動詞',
           '不需要任何額外的字',
-          '要把動詞加 s'
+          '要把動詞加 s',
+          '助動詞 do 或 does，且主要動詞用原形',
+          'be 動詞'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'be 動詞用於另一類句型。',
           '一般動詞的否定與疑問一定需要助動詞。',
-          '加 s 是第三人稱單數肯定句的規則。'
+          '加 s 是第三人稱單數肯定句的規則。',
+          null,
+          'be 動詞用於另一類句型。'
         ]
       }
     }
@@ -1630,13 +1630,13 @@ window.APP_LESSONS['english|三下|第2單元 第三人稱單數 -s'] = {
       tip: '看清楚主詞屬於哪一組。',
       check: {
         q: '下列哪一個主詞後面的動詞要加 s？',
-        options: ['my sister', 'I', 'they', 'we'],
-        answer: 0,
+        options: ['I', 'they', 'we', 'my sister'],
+        answer: 3,
         why: [
-          null,
           '主詞 I 的動詞不加 s。',
           'they 是複數，動詞不加 s。',
-          'we 是複數，動詞不加 s。'
+          'we 是複數，動詞不加 s。',
+          null
         ]
       }
     },
@@ -1652,13 +1652,13 @@ window.APP_LESSONS['english|三下|第2單元 第三人稱單數 -s'] = {
         { label: '去 y 加 ies', items: ['studies', 'flies', 'cries'] }] },
       check: {
         q: 'study 的第三人稱單數形是什麼？',
-        options: ['studies', 'studys', 'studyes', 'study'],
-        answer: 0,
+        options: ['studyes', 'study', 'studies', 'studys'],
+        answer: 2,
         why: [
-          null,
-          '子音加 y 結尾要去 y 加 ies。',
           '這個拼法不正確。',
-          '第三人稱單數必須變化。'
+          '第三人稱單數必須變化。',
+          null,
+          '子音加 y 結尾要去 y 加 ies。'
         ]
       }
     },
@@ -1709,17 +1709,17 @@ window.APP_LESSONS['english|三下|第2單元 第三人稱單數 -s'] = {
       check: {
         q: '下列哪一句是正確的？',
         options: [
+          'She does plays the piano?',
           'Does she play the piano?',
           'Does she plays the piano?',
-          'Do she plays the piano?',
-          'She does plays the piano?'
+          'Do she plays the piano?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個語序與動詞形式都不正確。',
           null,
           '用了 Does 之後動詞要用原形。',
-          '主詞是第三人稱單數，要用 Does。',
-          '這個語序與動詞形式都不正確。'
+          '主詞是第三人稱單數，要用 Does。'
         ]
       }
     },
@@ -1733,17 +1733,17 @@ window.APP_LESSONS['english|三下|第2單元 第三人稱單數 -s'] = {
       check: {
         q: '要判斷動詞要不要加 s，需要同時確認哪些條件？',
         options: [
-          '主詞是第三人稱單數、句子是肯定句、時態是現在簡單式',
-          '只要看主詞就好',
           '只要是現在式都要加',
-          '任何句子都要加'
+          '任何句子都要加',
+          '主詞是第三人稱單數、句子是肯定句、時態是現在簡單式',
+          '只要看主詞就好'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '否定與疑問句即使主詞相同也不加 s。',
           '否定與疑問句不加 s。',
-          '複數主詞的動詞不加 s。'
+          '複數主詞的動詞不加 s。',
+          null,
+          '否定與疑問句即使主詞相同也不加 s。'
         ]
       }
     },
@@ -1758,17 +1758,17 @@ window.APP_LESSONS['english|三下|第2單元 第三人稱單數 -s'] = {
       check: {
         q: '「我的父母喜歡音樂」為什麼用 like 而不是 likes？',
         options: [
+          '因為 like 沒有變化形',
           '因為 parents 是複數主詞',
           '因為這是否定句',
-          '因為這是疑問句',
-          '因為 like 沒有變化形'
+          '因為這是疑問句'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'like 的第三人稱單數形是 likes。',
           null,
           '這是肯定句，不是否定句。',
-          '這是陳述句而不是疑問句。',
-          'like 的第三人稱單數形是 likes。'
+          '這是陳述句而不是疑問句。'
         ]
       }
     }
@@ -1788,13 +1788,13 @@ window.APP_LESSONS['english|三下|第3單元 頻率副詞與作息'] = {
         { label: '頻率低', items: ['sometimes', 'seldom', 'never'] }] },
       check: {
         q: '下列哪一個頻率副詞表示「從不」？',
-        options: ['never', 'always', 'usually', 'often'],
-        answer: 0,
+        options: ['often', 'never', 'always', 'usually'],
+        answer: 1,
         why: [
+          'often 是常常。',
           null,
           'always 是總是。',
-          'usually 是通常。',
-          'often 是常常。'
+          'usually 是通常。'
         ]
       }
     },
@@ -1815,17 +1815,17 @@ window.APP_LESSONS['english|三下|第3單元 頻率副詞與作息'] = {
       check: {
         q: '「他總是很忙」的正確說法是什麼？',
         options: [
-          'He is always busy.',
-          'He always is busy.',
           'Always he is busy.',
-          'He is busy always.'
+          'He is busy always.',
+          'He is always busy.',
+          'He always is busy.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '遇到 be 動詞時副詞要放在後面。',
           '這個語序不自然。',
-          '雖然可以理解，但不是標準的位置。'
+          '雖然可以理解，但不是標準的位置。',
+          null,
+          '遇到 be 動詞時副詞要放在後面。'
         ]
       }
     },
@@ -1871,13 +1871,13 @@ window.APP_LESSONS['english|三下|第3單元 頻率副詞與作息'] = {
         { label: '晚上', items: ['do my homework', 'take a shower', 'go to bed'] }] },
       check: {
         q: '「去睡覺」的英文片語是什麼？',
-        options: ['go to bed', 'go to sleep bed', 'to bed go', 'sleep to bed'],
-        answer: 0,
+        options: ['go to sleep bed', 'to bed go', 'sleep to bed', 'go to bed'],
+        answer: 3,
         why: [
-          null,
           '這個說法多了不必要的字。',
           '語序不正確，動詞要放在前面。',
-          '這不是慣用的說法。'
+          '這不是慣用的說法。',
+          null
         ]
       }
     },
@@ -1916,17 +1916,17 @@ window.APP_LESSONS['english|三下|第3單元 頻率副詞與作息'] = {
       check: {
         q: '「我哥哥常常打籃球」的正確說法是什麼？',
         options: [
+          'Often my brother play basketball.',
           'My brother often plays basketball.',
           'My brother often play basketball.',
-          'My brother plays often basketball.',
-          'Often my brother play basketball.'
+          'My brother plays often basketball.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '語序與動詞形式都不正確。',
           null,
           '主詞是第三人稱單數，動詞要加 s。',
-          '頻率副詞應該放在動詞前面。',
-          '語序與動詞形式都不正確。'
+          '頻率副詞應該放在動詞前面。'
         ]
       }
     }
@@ -1949,13 +1949,13 @@ window.APP_LESSONS['english|三下|第4單元 時間：幾點鐘'] = {
             { t: 'three o’clock', r: '時間' }], note: '整點用 o’clock。' }] },
       check: {
         q: '回答時間時，主詞應該用什麼？',
-        options: ['it', 'the time', 'this', 'now'],
-        answer: 0,
+        options: ['this', 'now', 'it', 'the time'],
+        answer: 2,
         why: [
-          null,
-          '英文習慣用 it 當主詞。',
           'this 通常指具體的事物。',
-          'now 是副詞，不能當主詞。'
+          'now 是副詞，不能當主詞。',
+          null,
+          '英文習慣用 it 當主詞。'
         ]
       }
     },
@@ -1969,17 +1969,17 @@ window.APP_LESSONS['english|三下|第4單元 時間：幾點鐘'] = {
       check: {
         q: '下列哪一種說法是錯的？',
         options: [
-          'five thirty o’clock',
           'five o’clock',
           'five thirty',
-          'half past five'
+          'half past five',
+          'five thirty o’clock'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '整點用 o’clock 是正確的。',
           '直接說數字是常見的說法。',
-          'half past 是傳統的說法，也正確。'
+          'half past 是傳統的說法，也正確。',
+          null
         ]
       }
     },
@@ -2018,13 +2018,13 @@ window.APP_LESSONS['english|三下|第4單元 時間：幾點鐘'] = {
         { label: '用 at', items: ['night', 'noon', 'midnight'] }] },
       check: {
         q: '「在晚上（夜裡）」的正確說法是什麼？',
-        options: ['at night', 'in night', 'on night', 'to night'],
-        answer: 0,
+        options: ['to night', 'at night', 'in night', 'on night'],
+        answer: 1,
         why: [
+          'to 表示方向或目標。',
           null,
           'night 前面用 at 而不是 in。',
-          'on 用於星期與日期。',
-          'to 表示方向或目標。'
+          'on 用於星期與日期。'
         ]
       }
     },
@@ -2041,17 +2041,17 @@ window.APP_LESSONS['english|三下|第4單元 時間：幾點鐘'] = {
       check: {
         q: '要問「你幾點吃晚餐？」應該怎麼說？',
         options: [
-          'What time do you have dinner?',
           'What time you have dinner?',
           'What time are you have dinner?',
-          'When you dinner?'
+          'When you dinner?',
+          'What time do you have dinner?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '一般動詞的疑問句需要助動詞 do。',
           '不能同時用 be 動詞與一般動詞。',
-          '這個句子缺少動詞。'
+          '這個句子缺少動詞。',
+          null
         ]
       }
     },
@@ -2067,13 +2067,13 @@ window.APP_LESSONS['english|三下|第4單元 時間：幾點鐘'] = {
         { label: 'in（較長時段）', items: ['in May', 'in 2026', 'in the morning'] }] },
       check: {
         q: '「在星期一」應該用哪一個介系詞？',
-        options: ['on', 'at', 'in', 'to'],
-        answer: 0,
+        options: ['in', 'to', 'on', 'at'],
+        answer: 2,
         why: [
-          null,
-          'at 用於具體的時間點。',
           'in 用於月份、年份或較長的時段。',
-          'to 表示方向或目標。'
+          'to 表示方向或目標。',
+          null,
+          'at 用於具體的時間點。'
         ]
       }
     }
@@ -2093,13 +2093,13 @@ window.APP_LESSONS['english|三下|第5單元 食物與點餐'] = {
         { label: '不可數', items: ['rice', 'bread', 'soup', 'water'] }] },
       check: {
         q: '下列哪一個字是「不可數名詞」？',
-        options: ['rice', 'egg', 'apple', 'cookie'],
-        answer: 0,
+        options: ['apple', 'cookie', 'rice', 'egg'],
+        answer: 2,
         why: [
-          null,
-          'egg 可以數，有複數形 eggs。',
           'apple 可以數。',
-          'cookie 也可以數。'
+          'cookie 也可以數。',
+          null,
+          'egg 可以數，有複數形 eggs。'
         ]
       }
     },
@@ -2114,17 +2114,17 @@ window.APP_LESSONS['english|三下|第5單元 食物與點餐'] = {
       check: {
         q: '「一杯牛奶」的正確說法是什麼？',
         options: [
+          'a milk cup',
           'a glass of milk',
           'a milk',
-          'one milks',
-          'a milk cup'
+          'one milks'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個說法的語序不自然。',
           null,
           '不可數名詞前面不直接加 a。',
-          '不可數名詞沒有複數形。',
-          '這個說法的語序不自然。'
+          '不可數名詞沒有複數形。'
         ]
       }
     },
@@ -2167,17 +2167,17 @@ window.APP_LESSONS['english|三下|第5單元 食物與點餐'] = {
       check: {
         q: '在餐廳點餐時，比較有禮貌的說法是什麼？',
         options: [
-          'I would like a sandwich, please.',
           'Give me a sandwich.',
           'I want sandwich now.',
-          'Sandwich!'
+          'Sandwich!',
+          'I would like a sandwich, please.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '直接命令式聽起來不禮貌。',
           '語氣過於直接，也少了冠詞。',
-          '只說名詞不算完整的句子。'
+          '只說名詞不算完整的句子。',
+          null
         ]
       }
     },
@@ -2194,17 +2194,17 @@ window.APP_LESSONS['english|三下|第5單元 食物與點餐'] = {
       check: {
         q: '要問「你要幾顆蛋？」應該用哪一個疑問詞？',
         options: [
-          'How many',
           'How much',
           'How old',
-          'How often'
+          'How often',
+          'How many'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'How much 用於不可數名詞或價錢。',
           'How old 是問年齡。',
-          'How often 是問頻率。'
+          'How often 是問頻率。',
+          null
         ]
       }
     },
@@ -2221,17 +2221,17 @@ window.APP_LESSONS['english|三下|第5單元 食物與點餐'] = {
       check: {
         q: '店員問 Anything else? 時，如果不需要別的東西，可以怎麼回答？',
         options: [
+          'How much is it?',
           'No, thanks.',
           'Yes, I am.',
-          'You are welcome.',
-          'How much is it?'
+          'You are welcome.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這是在問價錢，沒有回答問題。',
           null,
           '這個回答與問題不相符。',
-          '這是回應別人道謝時說的。',
-          '這是在問價錢，沒有回答問題。'
+          '這是回應別人道謝時說的。'
         ]
       }
     }
@@ -2252,13 +2252,13 @@ window.APP_LESSONS['english|三下|第6單元 動物與棲地'] = {
         { label: '野生動物', items: ['lion', 'tiger', 'elephant', 'monkey'] }] },
       check: {
         q: '「大象」的英文是什麼？',
-        options: ['elephant', 'tiger', 'monkey', 'horse'],
-        answer: 0,
+        options: ['tiger', 'monkey', 'horse', 'elephant'],
+        answer: 3,
         why: [
-          null,
           'tiger 是老虎。',
           'monkey 是猴子。',
-          'horse 是馬。'
+          'horse 是馬。',
+          null
         ]
       }
     },
@@ -2273,17 +2273,17 @@ window.APP_LESSONS['english|三下|第6單元 動物與棲地'] = {
       check: {
         q: '「魚住在水裡」的正確說法是什麼？',
         options: [
+          'Fish is live in water.',
           'Fish live in water.',
           'Fish lives in water.',
-          'Fish live on water.',
-          'Fish is live in water.'
+          'Fish live on water.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '不能同時使用 be 動詞與一般動詞。',
           null,
           'fish 在此為複數，動詞不加 s。',
-          '住在水中要用 in 而不是 on。',
-          '不能同時使用 be 動詞與一般動詞。'
+          '住在水中要用 in 而不是 on。'
         ]
       }
     },
@@ -2326,17 +2326,17 @@ window.APP_LESSONS['english|三下|第6單元 動物與棲地'] = {
       check: {
         q: '「鳥會飛」的正確說法是什麼？',
         options: [
-          'Birds can fly.',
-          'Birds can flies.',
           'Birds can to fly.',
-          'Birds are can fly.'
+          'Birds are can fly.',
+          'Birds can fly.',
+          'Birds can flies.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'can 後面要接原形動詞。',
           'can 後面不加 to。',
-          '不能同時使用 be 動詞與 can。'
+          '不能同時使用 be 動詞與 can。',
+          null,
+          'can 後面要接原形動詞。'
         ]
       }
     },
@@ -2352,13 +2352,13 @@ window.APP_LESSONS['english|三下|第6單元 動物與棲地'] = {
         { label: '單複數同形', items: ['sheep', 'fish', 'deer'] }] },
       check: {
         q: 'mouse 的複數形是什麼？',
-        options: ['mice', 'mouses', 'mouse', 'mousees'],
-        answer: 0,
+        options: ['mouse', 'mousees', 'mice', 'mouses'],
+        answer: 2,
         why: [
-          null,
-          '這個字屬於不規則變化。',
           '複數形與單數形不同。',
-          '這個拼法不存在。'
+          '這個拼法不存在。',
+          null,
+          '這個字屬於不規則變化。'
         ]
       }
     },
@@ -2375,17 +2375,17 @@ window.APP_LESSONS['english|三下|第6單元 動物與棲地'] = {
       check: {
         q: '要介紹一種動物，比較完整的內容應該包含什麼？',
         options: [
+          '只說自己喜歡',
           '牠是什麼、住在哪裡、會做什麼、有什麼特徵',
           '只說牠的名字',
-          '只說牠的顏色',
-          '只說自己喜歡'
+          '只說牠的顏色'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '喜好之外還需要具體的說明。',
           null,
           '只有名字的介紹太簡短。',
-          '顏色只是其中一項特徵。',
-          '喜好之外還需要具體的說明。'
+          '顏色只是其中一項特徵。'
         ]
       }
     }
@@ -2406,13 +2406,13 @@ window.APP_LESSONS['english|三下|第7單元 身體與健康'] = {
         { label: '四肢', items: ['hand', 'arm', 'leg', 'foot'] }] },
       check: {
         q: 'foot 的複數形是什麼？',
-        options: ['feet', 'foots', 'footes', 'feets'],
-        answer: 0,
+        options: ['feets', 'feet', 'foots', 'footes'],
+        answer: 1,
         why: [
+          '複數形只要 feet 就好。',
           null,
           '這是不規則變化，不加 s。',
-          '這個拼法不存在。',
-          '複數形只要 feet 就好。'
+          '這個拼法不存在。'
         ]
       }
     },
@@ -2454,17 +2454,17 @@ window.APP_LESSONS['english|三下|第7單元 身體與健康'] = {
       check: {
         q: '朋友說他不舒服，要建議他去看醫生，可以怎麼說？',
         options: [
-          'You should see a doctor.',
           'You should to see a doctor.',
           'You should sees a doctor.',
-          'You are should see a doctor.'
+          'You are should see a doctor.',
+          'You should see a doctor.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'should 後面不加 to。',
           'should 後面要用原形動詞。',
-          '不能同時使用 be 動詞與 should。'
+          '不能同時使用 be 動詞與 should。',
+          null
         ]
       }
     },
@@ -2480,17 +2480,17 @@ window.APP_LESSONS['english|三下|第7單元 身體與健康'] = {
       check: {
         q: 'Wash your hands before meals. 這句話屬於什麼句型？',
         options: [
-          '祈使句，用來提出指示或建議',
-          '疑問句',
           '否定句',
-          '感嘆句'
+          '感嘆句',
+          '祈使句，用來提出指示或建議',
+          '疑問句'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '句尾是句號而非問號。',
           '句中沒有否定詞。',
-          '感嘆句通常以 What 或 How 開頭。'
+          '感嘆句通常以 What 或 How 開頭。',
+          null,
+          '句尾是句號而非問號。'
         ]
       }
     },
@@ -2533,17 +2533,17 @@ window.APP_LESSONS['english|三下|第7單元 身體與健康'] = {
       check: {
         q: 'You look tired. 這句話的意思是什麼？',
         options: [
-          '你看起來很累',
-          '你在看疲倦的東西',
           '你要看一下',
-          '你很無聊'
+          '你很無聊',
+          '你看起來很累',
+          '你在看疲倦的東西'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'look 加形容詞表示「看起來如何」。',
           '這個句子不是要求對方看東西。',
-          'tired 是疲倦而不是無聊。'
+          'tired 是疲倦而不是無聊。',
+          null,
+          'look 加形容詞表示「看起來如何」。'
         ]
       }
     }
@@ -2565,17 +2565,17 @@ window.APP_LESSONS['english|三下|第8單元 天氣與衣物'] = {
       check: {
         q: '「今天很熱」的正確說法是什麼？',
         options: [
+          'Is hot today.',
           'It is hot today.',
           'Today is hot weather.',
-          'Weather hot today.',
-          'Is hot today.'
+          'Weather hot today.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句子缺少主詞，英文句子需要主詞。',
           null,
           '這個說法不自然，通常直接用 it。',
-          '句子缺少 be 動詞，文法不完整。',
-          '句子缺少主詞，英文句子需要主詞。'
+          '句子缺少 be 動詞，文法不完整。'
         ]
       }
     },
@@ -2593,17 +2593,17 @@ window.APP_LESSONS['english|三下|第8單元 天氣與衣物'] = {
       check: {
         q: '要問「天氣如何？」下列哪一句是正確的？',
         options: [
-          'How is the weather?',
-          'How the weather is?',
           'What weather?',
-          'Weather how?'
+          'Weather how?',
+          'How is the weather?',
+          'How the weather is?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '疑問句要把 be 動詞放在主詞前面。',
           '這個句子不完整。',
-          '這個語序不符合英文結構。'
+          '這個語序不符合英文結構。',
+          null,
+          '疑問句要把 be 動詞放在主詞前面。'
         ]
       }
     },
@@ -2639,17 +2639,17 @@ window.APP_LESSONS['english|三下|第8單元 天氣與衣物'] = {
       check: {
         q: '「一雙鞋」的正確說法是什麼？',
         options: [
-          'a pair of shoes',
           'a shoes',
           'one shoe pair',
-          'a shoe pair'
+          'a shoe pair',
+          'a pair of shoes'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '複數名詞前面不能直接加 a。',
           '語序不正確，應使用固定的說法。',
-          '慣用說法是 a pair of。'
+          '慣用說法是 a pair of。',
+          null
         ]
       }
     },
@@ -2692,17 +2692,17 @@ window.APP_LESSONS['english|三下|第8單元 天氣與衣物'] = {
       check: {
         q: '要說「又冷又有風」，應該怎麼連接兩個形容詞？',
         options: [
+          '用 but 連接',
           '用 and 連接：cold and windy',
           '用 or 連接',
-          '直接並排不用連接詞',
-          '用 but 連接'
+          '直接並排不用連接詞'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'but 表示轉折，語意不合。',
           null,
           'or 表示二選一。',
-          '英文需要連接詞才通順。',
-          'but 表示轉折，語意不合。'
+          '英文需要連接詞才通順。'
         ]
       }
     }
@@ -2728,17 +2728,17 @@ window.APP_LESSONS['english|三下|第9單元 can 與能力'] = {
       check: {
         q: '「他會游泳」的正確說法是什麼？',
         options: [
-          'He can swim.',
           'He cans swim.',
           'He can swims.',
-          'He is can swim.'
+          'He is can swim.',
+          'He can swim.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'can 不隨主詞加 s。',
           'can 後面要接原形動詞。',
-          '不能同時使用 be 動詞與 can。'
+          '不能同時使用 be 動詞與 can。',
+          null
         ]
       }
     },
@@ -2773,17 +2773,17 @@ window.APP_LESSONS['english|三下|第9單元 can 與能力'] = {
       check: {
         q: 'Can you play the guitar? 的正確簡答是什麼？',
         options: [
+          'Yes, I play.',
           'Yes, I can.',
           'Yes, I do.',
-          'Yes, I am.',
-          'Yes, I play.'
+          'Yes, I am.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '簡答時要用助動詞而非主要動詞。',
           null,
           '問句用 can，回答也要用 can。',
-          'am 用於 be 動詞的問句。',
-          '簡答時要用助動詞而非主要動詞。'
+          'am 用於 be 動詞的問句。'
         ]
       }
     },
@@ -2801,17 +2801,17 @@ window.APP_LESSONS['english|三下|第9單元 can 與能力'] = {
       check: {
         q: '要向不熟的長輩請求許可，比較恰當的說法是什麼？',
         options: [
-          'May I use your pen?',
-          'I use your pen.',
           'Give me your pen.',
-          'Your pen.'
+          'Your pen.',
+          'May I use your pen?',
+          'I use your pen.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這是陳述句，不是請求。',
           '命令句聽起來不禮貌。',
-          '只說名詞不是完整的請求。'
+          '只說名詞不是完整的請求。',
+          null,
+          '這是陳述句，不是請求。'
         ]
       }
     },
@@ -2828,17 +2828,17 @@ window.APP_LESSONS['english|三下|第9單元 can 與能力'] = {
       check: {
         q: '要說「我會說一點英文」，正確的說法是什麼？',
         options: [
-          'I can speak English a little.',
-          'I can speaks English.',
           'I can to speak English.',
-          'I am can speak English.'
+          'I am can speak English.',
+          'I can speak English a little.',
+          'I can speaks English.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'can 後面要用原形動詞。',
           'can 後面不加 to。',
-          '不能同時使用 be 動詞與 can。'
+          '不能同時使用 be 動詞與 can。',
+          null,
+          'can 後面要用原形動詞。'
         ]
       }
     },
@@ -2857,17 +2857,17 @@ window.APP_LESSONS['english|三下|第9單元 can 與能力'] = {
       check: {
         q: '為什麼 He can swim 用 swim，而 He swims well 用 swims？',
         options: [
+          '因為可以隨便用',
           '因為 can 後面要用原形動詞，沒有助動詞時第三人稱單數才加 s',
           '因為兩句意思不同',
-          '因為 swim 沒有變化形',
-          '因為可以隨便用'
+          '因為 swim 沒有變化形'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '動詞形式有明確的規則。',
           null,
           '兩句的差別在文法而非語意。',
-          'swim 的第三人稱單數形是 swims。',
-          '動詞形式有明確的規則。'
+          'swim 的第三人稱單數形是 swims。'
         ]
       }
     }
@@ -2889,17 +2889,17 @@ window.APP_LESSONS['english|四上|第1單元 現在進行式'] = {
       check: {
         q: '「他正在看書」的正確說法是什麼？',
         options: [
-          'He is reading.',
-          'He reading.',
           'He is read.',
-          'He are reading.'
+          'He are reading.',
+          'He is reading.',
+          'He reading.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '缺少 be 動詞。',
           '動詞要加 -ing。',
-          '主詞是第三人稱單數，要用 is。'
+          '主詞是第三人稱單數，要用 is。',
+          null,
+          '缺少 be 動詞。'
         ]
       }
     },
@@ -2939,13 +2939,13 @@ window.APP_LESSONS['english|四上|第1單元 現在進行式'] = {
         { label: '用 are', items: ['you', 'we', 'they', 'my parents'] }] },
       check: {
         q: '「我的父母正在看電視」應該用哪一個 be 動詞？',
-        options: ['are', 'is', 'am', '不需要 be 動詞'],
-        answer: 0,
+        options: ['is', 'am', '不需要 be 動詞', 'are'],
+        answer: 3,
         why: [
-          null,
           'parents 是複數，不用 is。',
           'am 只能搭配主詞 I。',
-          '進行式一定要有 be 動詞。'
+          '進行式一定要有 be 動詞。',
+          null
         ]
       }
     },
@@ -2962,17 +2962,17 @@ window.APP_LESSONS['english|四上|第1單元 現在進行式'] = {
       check: {
         q: '「他沒有在睡覺」的正確說法是什麼？',
         options: [
+          'He is not sleep.',
           'He is not sleeping.',
           'He does not sleeping.',
-          'He not is sleeping.',
-          'He is not sleep.'
+          'He not is sleeping.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '動詞要保持 -ing 形。',
           null,
           '進行式的否定不用 does。',
-          'not 要放在 be 動詞後面。',
-          '動詞要保持 -ing 形。'
+          'not 要放在 be 動詞後面。'
         ]
       }
     },
@@ -2988,17 +2988,17 @@ window.APP_LESSONS['english|四上|第1單元 現在進行式'] = {
       check: {
         q: 'Is she singing? 的正確簡答是什麼？',
         options: [
-          'Yes, she is.',
           'Yes, she does.',
           'Yes, she sings.',
-          'Yes, she can.'
+          'Yes, she can.',
+          'Yes, she is.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '問句用 be 動詞，回答也要用 be 動詞。',
           '簡答時不重複主要動詞。',
-          'can 沒有出現在問句中。'
+          'can 沒有出現在問句中。',
+          null
         ]
       }
     },
@@ -3045,13 +3045,13 @@ window.APP_LESSONS['english|四上|第2單元 -ing 拼寫規則'] = {
         { label: '直接加 -ing', items: ['playing', 'reading', 'eating', 'studying'] }] },
       check: {
         q: 'study 加上 -ing 應該怎麼拼？',
-        options: ['studying', 'studiing', 'studing', 'studyying'],
-        answer: 0,
+        options: ['studing', 'studyying', 'studying', 'studiing'],
+        answer: 2,
         why: [
-          null,
-          '加 -ing 時字尾的 y 不需要變化。',
           '不能省略字尾的 y。',
-          '不需要重複字尾的 y。'
+          '不需要重複字尾的 y。',
+          null,
+          '加 -ing 時字尾的 y 不需要變化。'
         ]
       }
     },
@@ -3065,13 +3065,13 @@ window.APP_LESSONS['english|四上|第2單元 -ing 拼寫規則'] = {
         { label: '例外', items: ['seeing', 'being'] }] },
       check: {
         q: 'write 加上 -ing 應該怎麼拼？',
-        options: ['writing', 'writeing', 'writting', 'wrting'],
-        answer: 0,
+        options: ['writeing', 'writting', 'wrting', 'writing'],
+        answer: 3,
         why: [
-          null,
           '字尾不發音的 e 要去掉。',
           '這裡不需要重複子音。',
-          '正確的拼法是去掉 e。'
+          '正確的拼法是去掉 e。',
+          null
         ]
       }
     },
@@ -3108,17 +3108,17 @@ window.APP_LESSONS['english|四上|第2單元 -ing 拼寫規則'] = {
       check: {
         q: 'hoping 和 hopping 的差別是什麼？',
         options: [
+          '兩個都是錯的拼法',
           '前者來自 hope（希望）、後者來自 hop（單腳跳），母音長短不同',
           '兩者意思相同',
-          '只是拼法不同但意思一樣',
-          '兩個都是錯的拼法'
+          '只是拼法不同但意思一樣'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '兩個拼法都正確，只是意思不同。',
           null,
           '兩者的原形動詞不同。',
-          '拼法不同代表來自不同的動詞。',
-          '兩個拼法都正確，只是意思不同。'
+          '拼法不同代表來自不同的動詞。'
         ]
       }
     },
@@ -3134,13 +3134,13 @@ window.APP_LESSONS['english|四上|第2單元 -ing 拼寫規則'] = {
         { label: '重複子音', items: ['putting', 'stopping', 'beginning'] }] },
       check: {
         q: 'stop 加上 -ing 應該怎麼拼？',
-        options: ['stopping', 'stoping', 'stopeing', 'stoppping'],
-        answer: 0,
+        options: ['stoping', 'stopeing', 'stoppping', 'stopping'],
+        answer: 3,
         why: [
-          null,
           '短母音加單子音要重複子音。',
           '這裡不需要加 e。',
-          '正確的拼法要重複 p。'
+          '正確的拼法要重複 p。',
+          null
         ]
       }
     },
@@ -3155,17 +3155,17 @@ window.APP_LESSONS['english|四上|第2單元 -ing 拼寫規則'] = {
       check: {
         q: '要判斷動詞怎麼加 -ing，第一步應該先看什麼？',
         options: [
-          '字尾是不是不發音的 e',
-          '單字有幾個字母',
           '單字的中文意思',
-          '主詞是誰'
+          '主詞是誰',
+          '字尾是不是不發音的 e',
+          '單字有幾個字母'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '長度不是判斷的依據。',
           '中文意思與拼寫規則無關。',
-          '主詞不影響 -ing 的拼法。'
+          '主詞不影響 -ing 的拼法。',
+          null,
+          '長度不是判斷的依據。'
         ]
       }
     }
@@ -3191,17 +3191,17 @@ window.APP_LESSONS['english|四上|第3單元 現在進行式問句與否定'] =
       check: {
         q: '「他正在打電話嗎？」的正確問法是什麼？',
         options: [
+          'Do he is calling?',
           'Is he calling?',
           'Does he calling?',
-          'He is calling?',
-          'Do he is calling?'
+          'He is calling?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '一個句子不能同時有兩個助動詞。',
           null,
           '進行式的問句不用 does。',
-          '疑問句要把 be 動詞移到句首。',
-          '一個句子不能同時有兩個助動詞。'
+          '疑問句要把 be 動詞移到句首。'
         ]
       }
     },
@@ -3218,17 +3218,17 @@ window.APP_LESSONS['english|四上|第3單元 現在進行式問句與否定'] =
       check: {
         q: '下列哪一個簡答是錯的？',
         options: [
-          'Yes, I’m.',
           'Yes, I am.',
           'No, I’m not.',
-          'No, he isn’t.'
+          'No, he isn’t.',
+          'Yes, I’m.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '肯定簡答要用完整形式。',
           '否定簡答可以縮寫。',
-          '這個否定簡答的縮寫是正確的。'
+          '這個否定簡答的縮寫是正確的。',
+          null
         ]
       }
     },
@@ -3245,17 +3245,17 @@ window.APP_LESSONS['english|四上|第3單元 現在進行式問句與否定'] =
       check: {
         q: '「你正在做什麼？」的正確語序是什麼？',
         options: [
-          'What are you doing?',
-          'What you are doing?',
           'What do you doing?',
-          'You are doing what?'
+          'You are doing what?',
+          'What are you doing?',
+          'What you are doing?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'be 動詞要放在主詞前面。',
           '進行式不用 do。',
-          '這個語序不是標準的疑問句。'
+          '這個語序不是標準的疑問句。',
+          null,
+          'be 動詞要放在主詞前面。'
         ]
       }
     },
@@ -3324,17 +3324,17 @@ window.APP_LESSONS['english|四上|第3單元 現在進行式問句與否定'] =
       check: {
         q: '想把話題轉回給對方，可以說什麼？',
         options: [
-          'What about you?',
           'Goodbye.',
           'I do not know.',
-          'That is all.'
+          'That is all.',
+          'What about you?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這是道別，會直接結束對話。',
           '這個回答無法延續話題。',
-          '這句話帶有結束的意味。'
+          '這句話帶有結束的意味。',
+          null
         ]
       }
     }
@@ -3378,13 +3378,13 @@ window.APP_LESSONS['english|四上|第4單元 地點介系詞'] = {
         { label: '之間', items: ['between', 'among'] }] },
       check: {
         q: '「在兩棵樹之間」應該用哪一個介系詞？',
-        options: ['between', 'among', 'behind', 'under'],
-        answer: 0,
+        options: ['behind', 'under', 'between', 'among'],
+        answer: 2,
         why: [
-          null,
-          'among 用於三者以上。',
           'behind 是在後面。',
-          'under 是在下面。'
+          'under 是在下面。',
+          null,
+          'among 用於三者以上。'
         ]
       }
     },
@@ -3402,17 +3402,17 @@ window.APP_LESSONS['english|四上|第4單元 地點介系詞'] = {
       check: {
         q: '「我的鞋子在哪裡？」的正確問法是什麼？',
         options: [
+          'My shoes where?',
           'Where are my shoes?',
           'Where is my shoes?',
-          'Where my shoes are?',
-          'My shoes where?'
+          'Where my shoes are?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個語序不符合英文結構。',
           null,
           'shoes 是複數，要用 are。',
-          'be 動詞要放在主詞前面。',
-          '這個語序不符合英文結構。'
+          'be 動詞要放在主詞前面。'
         ]
       }
     },
@@ -3431,17 +3431,17 @@ window.APP_LESSONS['english|四上|第4單元 地點介系詞'] = {
       check: {
         q: '「教室裡有三張桌子」的正確說法是什麼？',
         options: [
-          'There are three desks in the classroom.',
           'There is three desks in the classroom.',
           'There have three desks in the classroom.',
-          'There are three desk in the classroom.'
+          'There are three desk in the classroom.',
+          'There are three desks in the classroom.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '後面是複數名詞，要用 are。',
           '英文用 There is/are 而不是 There have。',
-          '數字大於一時名詞要用複數。'
+          '數字大於一時名詞要用複數。',
+          null
         ]
       }
     },
@@ -3456,13 +3456,13 @@ window.APP_LESSONS['english|四上|第4單元 地點介系詞'] = {
         { label: '用 on', items: ['on the playground', 'on the street'] }] },
       check: {
         q: '「在家」的正確說法是什麼？',
-        options: ['at home', 'at the home', 'in home', 'on home'],
-        answer: 0,
+        options: ['on home', 'at home', 'at the home', 'in home'],
+        answer: 1,
         why: [
+          'on 用於表面。',
           null,
           '這個片語不加冠詞 the。',
-          '慣用說法是 at home。',
-          'on 用於表面。'
+          '慣用說法是 at home。'
         ]
       }
     },
@@ -3479,17 +3479,17 @@ window.APP_LESSONS['english|四上|第4單元 地點介系詞'] = {
       check: {
         q: '描述一個房間時，開頭常用什麼句型說明「有什麼」？',
         options: [
-          'There is／There are',
           'It is',
           'I have to',
-          'Do you have'
+          'Do you have',
+          'There is／There are'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'It is 用來說明某物是什麼。',
           '這是表達必須做某事。',
-          '這是疑問句而非描述。'
+          '這是疑問句而非描述。',
+          null
         ]
       }
     }
@@ -3516,17 +3516,17 @@ window.APP_LESSONS['english|四上|第5單元 There is / There are'] = {
       check: {
         q: 'There is 或 There are 的選擇，取決於什麼？',
         options: [
-          '後面名詞的單複數',
-          'there 這個字',
           '地點的遠近',
-          '說話者是誰'
+          '說話者是誰',
+          '後面名詞的單複數',
+          'there 這個字'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'there 本身沒有單複數。',
           '距離不影響 be 動詞。',
-          '說話者不影響這個句型。'
+          '說話者不影響這個句型。',
+          null,
+          'there 本身沒有單複數。'
         ]
       }
     },
@@ -3569,17 +3569,17 @@ window.APP_LESSONS['english|四上|第5單元 There is / There are'] = {
       check: {
         q: '「桌上沒有任何書」的正確說法是什麼？',
         options: [
+          'There don’t have books on the desk.',
           'There aren’t any books on the desk.',
           'There aren’t some books on the desk.',
-          'There isn’t any books on the desk.',
-          'There don’t have books on the desk.'
+          'There isn’t any books on the desk.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '英文不用 There have 這個說法。',
           null,
           '否定句通常用 any 而不是 some。',
-          '後面是複數名詞，要用 aren’t。',
-          '英文不用 There have 這個說法。'
+          '後面是複數名詞，要用 aren’t。'
         ]
       }
     },
@@ -3594,17 +3594,17 @@ window.APP_LESSONS['english|四上|第5單元 There is / There are'] = {
       check: {
         q: 'Is there a pen in your bag? 的正確簡答是什麼？',
         options: [
-          'Yes, there is.',
           'Yes, it is.',
           'Yes, there has.',
-          'Yes, I do.'
+          'Yes, I do.',
+          'Yes, there is.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '簡答時要保留 there。',
           '英文沒有 there has 這種用法。',
-          '這個問句不是用 do 問的。'
+          '這個問句不是用 do 問的。',
+          null
         ]
       }
     },
@@ -3620,17 +3620,17 @@ window.APP_LESSONS['english|四上|第5單元 There is / There are'] = {
       check: {
         q: '「你家有幾個人？」的正確說法是什麼？',
         options: [
-          'How many people are there in your family?',
           'How many people there are in your family?',
           'How much people are there in your family?',
-          'How many person are there in your family?'
+          'How many person are there in your family?',
+          'How many people are there in your family?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '疑問句要把 be 動詞放在 there 前面。',
           '人是可數的，要用 How many。',
-          'person 的複數是 people。'
+          'person 的複數是 people。',
+          null
         ]
       }
     },
@@ -3648,17 +3648,17 @@ window.APP_LESSONS['english|四上|第5單元 There is / There are'] = {
       check: {
         q: 'some 與 any 的用法差別是什麼？',
         options: [
-          'some 多用於肯定句，any 多用於否定與疑問句',
-          '兩者完全相同',
           'some 只能用於不可數名詞',
-          'any 只能用於肯定句'
+          'any 只能用於肯定句',
+          'some 多用於肯定句，any 多用於否定與疑問句',
+          '兩者完全相同'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '兩者的使用場合不同。',
           'some 可以用於可數與不可數名詞。',
-          'any 主要用於否定與疑問句。'
+          'any 主要用於否定與疑問句。',
+          null,
+          '兩者的使用場合不同。'
         ]
       }
     }
@@ -3679,17 +3679,17 @@ window.APP_LESSONS['english|四上|第6單元 月份與日期'] = {
       check: {
         q: '英文的月份名稱有什麼書寫規則？',
         options: [
+          '沒有規則',
           '第一個字母要大寫',
           '全部要大寫',
-          '全部要小寫',
-          '沒有規則'
+          '全部要小寫'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '英文對專有名詞有明確的規則。',
           null,
           '一般情況下不用全部大寫。',
-          '月份屬於專有名詞，首字母要大寫。',
-          '英文對專有名詞有明確的規則。'
+          '月份屬於專有名詞，首字母要大寫。'
         ]
       }
     },
@@ -3703,13 +3703,13 @@ window.APP_LESSONS['english|四上|第6單元 月份與日期'] = {
         { label: '週末', items: ['Saturday', 'Sunday'] }] },
       check: {
         q: '「在星期五」的正確說法是什麼？',
-        options: ['on Friday', 'in Friday', 'at Friday', 'to Friday'],
-        answer: 0,
+        options: ['in Friday', 'at Friday', 'to Friday', 'on Friday'],
+        answer: 3,
         why: [
-          null,
           'in 用於月份或年份。',
           'at 用於具體的時間點。',
-          'to 表示方向或目標。'
+          'to 表示方向或目標。',
+          null
         ]
       }
     },
@@ -3723,13 +3723,13 @@ window.APP_LESSONS['english|四上|第6單元 月份與日期'] = {
         { label: '規則加 th', items: ['fourth', 'sixth', 'seventh', 'tenth'] }] },
       check: {
         q: '數字 3 的序數是什麼？',
-        options: ['third', 'threeth', 'thirdth', 'threerd'],
-        answer: 0,
+        options: ['thirdth', 'threerd', 'third', 'threeth'],
+        answer: 2,
         why: [
-          null,
-          '這不是正確的拼法。',
           '不需要重複字尾。',
-          '這個拼法不存在。'
+          '這個拼法不存在。',
+          null,
+          '這不是正確的拼法。'
         ]
       }
     },
@@ -3795,13 +3795,13 @@ window.APP_LESSONS['english|四上|第6單元 月份與日期'] = {
         { label: '用 in（月份年份）', items: ['in June', 'in 2026', 'in summer'] }] },
       check: {
         q: '「我的生日在六月」應該用哪一個介系詞？',
-        options: ['in June', 'on June', 'at June', 'to June'],
-        answer: 0,
+        options: ['to June', 'in June', 'on June', 'at June'],
+        answer: 1,
         why: [
+          'to 表示方向或目標。',
           null,
           '只說月份時用 in，有具體日期才用 on。',
-          'at 用於具體的時間點。',
-          'to 表示方向或目標。'
+          'at 用於具體的時間點。'
         ]
       }
     }
@@ -3824,17 +3824,17 @@ window.APP_LESSONS['english|四上|第7單元 序數'] = {
       check: {
         q: '要表達「第一名」，應該用哪一種數字？',
         options: [
-          '序數 first',
-          '基數 one',
           '兩者皆可',
-          '不需要數字'
+          '不需要數字',
+          '序數 first',
+          '基數 one'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '基數表示數量而非順序。',
           '表示順序時必須用序數。',
-          '名次一定要用數字表達。'
+          '名次一定要用數字表達。',
+          null,
+          '基數表示數量而非順序。'
         ]
       }
     },
@@ -3849,13 +3849,13 @@ window.APP_LESSONS['english|四上|第7單元 序數'] = {
         { label: '規則加 th', items: ['fourth', 'sixth', 'seventh', 'tenth'] }] },
       check: {
         q: '數字 9 的序數怎麼拼？',
-        options: ['ninth', 'nineth', 'ninenth', 'ninthe'],
-        answer: 0,
+        options: ['ninthe', 'ninth', 'nineth', 'ninenth'],
+        answer: 1,
         why: [
+          '正確的拼法是去掉 e。',
           null,
           '要去掉 nine 的 e。',
-          '這個拼法不正確。',
-          '正確的拼法是去掉 e。'
+          '這個拼法不正確。'
         ]
       }
     },
@@ -3892,17 +3892,17 @@ window.APP_LESSONS['english|四上|第7單元 序數'] = {
       check: {
         q: '「我住在五樓」的正確說法是什麼？',
         options: [
-          'I live on the fifth floor.',
           'I live on the five floor.',
           'I live in the fifth floor.',
-          'I live on fifth floor.'
+          'I live on fifth floor.',
+          'I live on the fifth floor.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '樓層要用序數而不是基數。',
           '樓層用 on 而不是 in。',
-          '序數前面通常要加 the。'
+          '序數前面通常要加 the。',
+          null
         ]
       }
     },
@@ -3919,17 +3919,17 @@ window.APP_LESSONS['english|四上|第7單元 序數'] = {
       check: {
         q: '「她得第二名」的正確說法是什麼？',
         options: [
-          'She won second place.',
           'She won two place.',
           'She won second places.',
-          'She won the two.'
+          'She won the two.',
+          'She won second place.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '名次要用序數而不是基數。',
           'place 在此用單數。',
-          '這個說法不清楚也不自然。'
+          '這個說法不清楚也不自然。',
+          null
         ]
       }
     },
@@ -3942,13 +3942,13 @@ window.APP_LESSONS['english|四上|第7單元 序數'] = {
       viz: { type: 'energyflow', steps: ['First', 'Then', 'Next', 'Finally'] },
       check: {
         q: '說明步驟時，表示「最後一步」常用哪一個字？',
-        options: ['finally', 'first', 'second', 'next'],
-        answer: 0,
+        options: ['next', 'finally', 'first', 'second'],
+        answer: 1,
         why: [
+          'next 表示接下來，不是最後。',
           null,
           'first 是第一步。',
-          'second 是第二步。',
-          'next 表示接下來，不是最後。'
+          'second 是第二步。'
         ]
       }
     }
@@ -3970,13 +3970,13 @@ window.APP_LESSONS['english|四上|第8單元 學校科目與課表'] = {
         { label: '藝能', items: ['music', 'art', 'PE'] }] },
       check: {
         q: '下列哪一個單字的首字母一定要大寫？',
-        options: ['English', 'math', 'music', 'art'],
-        answer: 0,
+        options: ['art', 'English', 'math', 'music'],
+        answer: 1,
         why: [
+          'art 也是普通名詞。',
           null,
           '一般學科名稱不用大寫。',
-          'music 是普通名詞。',
-          'art 也是普通名詞。'
+          'music 是普通名詞。'
         ]
       }
     },
@@ -3993,17 +3993,17 @@ window.APP_LESSONS['english|四上|第8單元 學校科目與課表'] = {
       check: {
         q: '「你最喜歡哪一科？」的正確問法是什麼？',
         options: [
-          'What is your favorite subject?',
           'What your favorite subject?',
           'What do your favorite subject?',
-          'Which you like subject?'
+          'Which you like subject?',
+          'What is your favorite subject?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '句子缺少 be 動詞。',
           '這句已有 be 動詞的結構，不需要 do。',
-          '這個語序不符合英文結構。'
+          '這個語序不符合英文結構。',
+          null
         ]
       }
     },
@@ -4019,17 +4019,17 @@ window.APP_LESSONS['english|四上|第8單元 學校科目與課表'] = {
       check: {
         q: '下列哪一句的用法正確？',
         options: [
-          'I like art because it is fun.',
-          'I like art because fun.',
           'I like art because is fun.',
-          'I like art, because.'
+          'I like art, because.',
+          'I like art because it is fun.',
+          'I like art because fun.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'because 後面要接完整的句子。',
           '這個句子缺少主詞，不完整。',
-          '這個句子不完整。'
+          '這個句子不完整。',
+          null,
+          'because 後面要接完整的句子。'
         ]
       }
     },
@@ -4101,13 +4101,13 @@ window.APP_LESSONS['english|四上|第8單元 學校科目與課表'] = {
         note: 'but 用來連接意思相反的兩件事。' },
       check: {
         q: '要表達「我不喜歡考試，但我喜歡學新東西」，應該用哪一個連接詞？',
-        options: ['but', 'and', 'or', 'because'],
-        answer: 0,
+        options: ['or', 'because', 'but', 'and'],
+        answer: 2,
         why: [
-          null,
-          'and 用於並列相同方向的意思。',
           'or 用於二選一。',
-          'because 用來說明原因。'
+          'because 用來說明原因。',
+          null,
+          'and 用於並列相同方向的意思。'
         ]
       }
     }
@@ -4129,17 +4129,17 @@ window.APP_LESSONS['english|四上|第9單元 興趣與嗜好'] = {
       check: {
         q: '說明嗜好時，動詞通常用什麼形式？',
         options: [
-          '動詞-ing（動名詞）',
           '動詞原形',
           '動詞過去式',
-          '不需要動詞'
+          '不需要動詞',
+          '動詞-ing（動名詞）'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '原形動詞多用於句子的主要動詞。',
           '過去式表示已經發生的事。',
-          '嗜好通常用動詞表達。'
+          '嗜好通常用動詞表達。',
+          null
         ]
       }
     },
@@ -4156,17 +4156,17 @@ window.APP_LESSONS['english|四上|第9單元 興趣與嗜好'] = {
       check: {
         q: '下列哪一句的用法正確？',
         options: [
-          'I enjoy reading books.',
-          'I enjoy to read books.',
           'I enjoy read books.',
-          'I am enjoy reading.'
+          'I am enjoy reading.',
+          'I enjoy reading books.',
+          'I enjoy to read books.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'enjoy 後面不能接不定詞。',
           'enjoy 後面要接動名詞。',
-          '不能同時使用 be 動詞與一般動詞。'
+          '不能同時使用 be 動詞與一般動詞。',
+          null,
+          'enjoy 後面不能接不定詞。'
         ]
       }
     },
@@ -4182,13 +4182,13 @@ window.APP_LESSONS['english|四上|第9單元 興趣與嗜好'] = {
         note: 'hobbies 是複數，所以用 are。' },
       check: {
         q: 'hobby 的複數形是什麼？',
-        options: ['hobbies', 'hobbys', 'hobbyes', 'hobby'],
-        answer: 0,
+        options: ['hobby', 'hobbies', 'hobbys', 'hobbyes'],
+        answer: 1,
         why: [
+          '複數形必須變化。',
           null,
           '子音加 y 結尾要去 y 加 ies。',
-          '這個拼法不正確。',
-          '複數形必須變化。'
+          '這個拼法不正確。'
         ]
       }
     },
@@ -4231,17 +4231,17 @@ window.APP_LESSONS['english|四上|第9單元 興趣與嗜好'] = {
       check: {
         q: '想委婉地表達「我不太喜歡」，可以怎麼說？',
         options: [
-          'I do not really like it.',
-          'I hate it so much.',
           'I never want to see it.',
-          'It is terrible.'
+          'It is terrible.',
+          'I do not really like it.',
+          'I hate it so much.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'hate 的語氣相當強烈。',
           '這個說法過於強硬。',
-          '這是直接的負面評價。'
+          '這是直接的負面評價。',
+          null,
+          'hate 的語氣相當強烈。'
         ]
       }
     },
@@ -4260,17 +4260,17 @@ window.APP_LESSONS['english|四上|第9單元 興趣與嗜好'] = {
       check: {
         q: '「我彈鋼琴」的正確說法是什麼？',
         options: [
-          'I play the piano.',
           'I play piano.',
           'I play a piano.',
-          'I am play the piano.'
+          'I am play the piano.',
+          'I play the piano.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '樂器前面通常要加 the。',
           '這個說法指的是某一台鋼琴。',
-          '不能同時使用 be 動詞與一般動詞。'
+          '不能同時使用 be 動詞與一般動詞。',
+          null
         ]
       }
     }
@@ -4294,13 +4294,13 @@ window.APP_LESSONS['english|四下|第1單元 購物與價錢'] = {
       tip: '按按鈕比較單複數。',
       check: {
         q: '問價錢時應該用哪一個疑問詞組？',
-        options: ['How much', 'How many', 'How old', 'How long'],
-        answer: 0,
+        options: ['How old', 'How long', 'How much', 'How many'],
+        answer: 2,
         why: [
-          null,
-          'How many 問可數名詞的數量。',
           'How old 問年齡。',
-          'How long 問長度或時間。'
+          'How long 問長度或時間。',
+          null,
+          'How many 問可數名詞的數量。'
         ]
       }
     },
@@ -4343,17 +4343,17 @@ window.APP_LESSONS['english|四下|第1單元 購物與價錢'] = {
       check: {
         q: '「我在找一雙鞋」的正確說法是什麼？',
         options: [
-          'I am looking for a pair of shoes.',
           'I am looking at a pair of shoes.',
           'I am looking a pair of shoes.',
-          'I look for shoes now.'
+          'I look for shoes now.',
+          'I am looking for a pair of shoes.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'look at 是注視而不是尋找。',
           'look 後面需要適當的介系詞。',
-          '此刻正在進行的動作要用進行式。'
+          '此刻正在進行的動作要用進行式。',
+          null
         ]
       }
     },
@@ -4370,17 +4370,17 @@ window.APP_LESSONS['english|四下|第1單元 購物與價錢'] = {
       check: {
         q: '句子中的 one 有什麼作用？',
         options: [
+          '沒有任何意義',
           '代替前面提過的名詞，避免重複',
           '表示數字一',
-          '表示唯一',
-          '沒有任何意義'
+          '表示唯一'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '它有明確的替代功能。',
           null,
           '這裡的 one 不是數字。',
-          '它不是強調唯一。',
-          '它有明確的替代功能。'
+          '它不是強調唯一。'
         ]
       }
     },
@@ -4395,17 +4395,17 @@ window.APP_LESSONS['english|四下|第1單元 購物與價錢'] = {
       check: {
         q: '決定要買某樣東西時，可以說什麼？',
         options: [
-          'I will take it.',
           'I will look at it.',
           'I take it away.',
-          'I am it.'
+          'I am it.',
+          'I will take it.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這是表示要看看而不是購買。',
           '這個說法容易被誤解為拿走。',
-          '這個句子沒有意義。'
+          '這個句子沒有意義。',
+          null
         ]
       }
     },
@@ -4454,13 +4454,13 @@ window.APP_LESSONS['english|四下|第2單元 城市地點與方向'] = {
         { label: '交通', items: ['bus stop', 'train station'] }] },
       check: {
         q: '「郵局」的英文是什麼？',
-        options: ['post office', 'bank', 'library', 'station'],
-        answer: 0,
+        options: ['station', 'post office', 'bank', 'library'],
+        answer: 1,
         why: [
+          'station 是車站。',
           null,
           'bank 是銀行。',
-          'library 是圖書館。',
-          'station 是車站。'
+          'library 是圖書館。'
         ]
       }
     },
@@ -4504,17 +4504,17 @@ window.APP_LESSONS['english|四下|第2單元 城市地點與方向'] = {
       check: {
         q: '「在轉角右轉」的正確說法是什麼？',
         options: [
-          'Turn right at the corner.',
           'You turn right the corner.',
           'Turn to right corner.',
-          'Right turn corner.'
+          'Right turn corner.',
+          'Turn right at the corner.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '指路通常用祈使句，不加主詞。',
           '這個說法的介系詞用法不正確。',
-          '這個語序不完整。'
+          '這個語序不完整。',
+          null
         ]
       }
     },
@@ -4531,17 +4531,17 @@ window.APP_LESSONS['english|四下|第2單元 城市地點與方向'] = {
       check: {
         q: '「在銀行和郵局之間」的正確說法是什麼？',
         options: [
-          'between the bank and the post office',
-          'between the bank or the post office',
           'between the bank with the post office',
-          'in the bank and the post office'
+          'in the bank and the post office',
+          'between the bank and the post office',
+          'between the bank or the post office'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'between 要搭配 and 而不是 or。',
           'between 的固定搭配是 and。',
-          'in 表示在裡面，語意不符。'
+          'in 表示在裡面，語意不符。',
+          null,
+          'between 要搭配 and 而不是 or。'
         ]
       }
     },
@@ -4577,17 +4577,17 @@ window.APP_LESSONS['english|四下|第2單元 城市地點與方向'] = {
       check: {
         q: '要問「要花多久時間？」應該怎麼說？',
         options: [
-          'How long does it take?',
           'How far is it take?',
           'How much time take?',
-          'How long is it takes?'
+          'How long is it takes?',
+          'How long does it take?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個句子的結構不正確。',
           '句子缺少必要的助動詞與主詞。',
-          '一個句子不能有兩個動詞變化。'
+          '一個句子不能有兩個動詞變化。',
+          null
         ]
       }
     }
@@ -4636,17 +4636,17 @@ window.APP_LESSONS['english|四下|第3單元 食物與飲食習慣'] = {
       check: {
         q: '「兩碗飯」的正確說法是什麼？',
         options: [
-          'two bowls of rice',
-          'two rices',
           'two rice',
-          'two bowl of rices'
+          'two bowl of rices',
+          'two bowls of rice',
+          'two rices'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '不可數名詞沒有複數形。',
           '不可數名詞不能直接用數字修飾。',
-          'bowl 要用複數，rice 則不加 s。'
+          'bowl 要用複數，rice 則不加 s。',
+          null,
+          '不可數名詞沒有複數形。'
         ]
       }
     },
@@ -4663,17 +4663,17 @@ window.APP_LESSONS['english|四下|第3單元 食物與飲食習慣'] = {
       check: {
         q: '要說「我最喜歡的食物是水餃」，正確的說法是什麼？',
         options: [
+          'My favorite is food dumplings.',
           'My favorite food is dumplings.',
           'My favorite food are dumplings.',
-          'I favorite dumplings.',
-          'My favorite is food dumplings.'
+          'I favorite dumplings.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個語序不通順。',
           null,
           '主詞 food 是單數，用 is。',
-          'favorite 是形容詞，不能當動詞。',
-          '這個語序不通順。'
+          'favorite 是形容詞，不能當動詞。'
         ]
       }
     },
@@ -4688,17 +4688,17 @@ window.APP_LESSONS['english|四下|第3單元 食物與飲食習慣'] = {
       check: {
         q: '「這道菜有點辣」的正確說法是什麼？',
         options: [
-          'This dish is a little spicy.',
           'This dish is too spicy a little.',
           'This dish little spicy.',
-          'This dish is spicy little.'
+          'This dish is spicy little.',
+          'This dish is a little spicy.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'too 與 a little 的語氣互相矛盾。',
           '句子缺少 be 動詞。',
-          '程度副詞要放在形容詞前面。'
+          '程度副詞要放在形容詞前面。',
+          null
         ]
       }
     },
@@ -4713,17 +4713,17 @@ window.APP_LESSONS['english|四下|第3單元 食物與飲食習慣'] = {
       check: {
         q: '「多吃蔬菜」的正確說法是什麼？',
         options: [
+          'More eat vegetables.',
           'Eat more vegetables.',
           'Eat many vegetable.',
-          'Eat vegetables more much.',
-          'More eat vegetables.'
+          'Eat vegetables more much.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '祈使句要以動詞開頭。',
           null,
           '名詞要用複數，而且 many 在此不自然。',
-          '這個語序不正確。',
-          '祈使句要以動詞開頭。'
+          '這個語序不正確。'
         ]
       }
     },
@@ -4767,17 +4767,17 @@ window.APP_LESSONS['english|四下|第4單元 運動與休閒'] = {
       check: {
         q: '「打籃球」的正確說法是什麼？',
         options: [
+          'do basketball',
           'play basketball',
           'play the basketball',
-          'go basketball',
-          'do basketball'
+          'go basketball'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'do 不用於球類運動。',
           null,
           '球類前面不加 the。',
-          'go 用於 -ing 形的活動，例如 go swimming。',
-          'do 不用於球類運動。'
+          'go 用於 -ing 形的活動，例如 go swimming。'
         ]
       }
     },
@@ -4794,17 +4794,17 @@ window.APP_LESSONS['english|四下|第4單元 運動與休閒'] = {
       check: {
         q: '「去游泳」的正確說法是什麼？',
         options: [
-          'go swimming',
           'play swimming',
           'do swimming',
-          'go swim'
+          'go swim',
+          'go swimming'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'play 用於球類。',
           'do 通常用於瑜伽或運動這類名詞。',
-          'go 後面要接動詞-ing 形。'
+          'go 後面要接動詞-ing 形。',
+          null
         ]
       }
     },
@@ -4820,17 +4820,17 @@ window.APP_LESSONS['english|四下|第4單元 運動與休閒'] = {
       check: {
         q: '「一個月三次」的正確說法是什麼？',
         options: [
-          'three times a month',
-          'three time a month',
           'thrice month',
-          'three a month times'
+          'three a month times',
+          'three times a month',
+          'three time a month'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'time 要用複數 times。',
           '這個說法在現代英文中很少使用。',
-          '語序不正確，次數要放在前面。'
+          '語序不正確，次數要放在前面。',
+          null,
+          'time 要用複數 times。'
         ]
       }
     },
@@ -4899,17 +4899,17 @@ window.APP_LESSONS['english|四下|第4單元 運動與休閒'] = {
       check: {
         q: '「運動對健康有益」的正確說法是什麼？',
         options: [
+          'Exercise is well for your health.',
           'Exercise is good for your health.',
           'Exercise is good to your health.',
-          'Exercise good for health.',
-          'Exercise is well for your health.'
+          'Exercise good for health.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'well 是副詞，這裡要用形容詞 good。',
           null,
           '固定用法是 good for 而不是 good to。',
-          '句子缺少 be 動詞。',
-          'well 是副詞，這裡要用形容詞 good。'
+          '句子缺少 be 動詞。'
         ]
       }
     }
@@ -4953,17 +4953,17 @@ window.APP_LESSONS['english|四下|第5單元 服裝與外表描述'] = {
       check: {
         q: '「她有長頭髮」的正確說法是什麼？',
         options: [
-          'She has long hair.',
           'She have long hair.',
           'She is long hair.',
-          'She has long hairs.'
+          'She has long hairs.',
+          'She has long hair.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '第三人稱單數要用 has。',
           '這裡要用 have 而不是 be 動詞。',
-          'hair 在指整頭頭髮時是不可數名詞。'
+          'hair 在指整頭頭髮時是不可數名詞。',
+          null
         ]
       }
     },
@@ -4980,17 +4980,17 @@ window.APP_LESSONS['english|四下|第5單元 服裝與外表描述'] = {
       check: {
         q: '要描述某人「現在穿著什麼」，最常用的說法是什麼？',
         options: [
-          'He is wearing…',
-          'He wears… only',
           'He puts on…',
-          'He is put on…'
+          'He is put on…',
+          'He is wearing…',
+          'He wears… only'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '一般式表示習慣而非此刻。',
           'put on 是穿上的動作。',
-          '這個句子的動詞形式不正確。'
+          '這個句子的動詞形式不正確。',
+          null,
+          '一般式表示習慣而非此刻。'
         ]
       }
     },
@@ -5007,17 +5007,17 @@ window.APP_LESSONS['english|四下|第5單元 服裝與外表描述'] = {
       check: {
         q: '「一個大的紅色書包」的正確順序是什麼？',
         options: [
+          'big a red bag',
           'a big red bag',
           'a red big bag',
-          'a bag big red',
-          'big a red bag'
+          'a bag big red'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '冠詞要放在最前面。',
           null,
           '大小通常放在顏色前面。',
-          '形容詞要放在名詞前面。',
-          '冠詞要放在最前面。'
+          '形容詞要放在名詞前面。'
         ]
       }
     },
@@ -5034,17 +5034,17 @@ window.APP_LESSONS['english|四下|第5單元 服裝與外表描述'] = {
       check: {
         q: '別人稱讚你 You look nice today! 時，最恰當的回應是什麼？',
         options: [
+          'Why do you say that?',
           'Thank you!',
           'No, I do not.',
-          'You are wrong.',
-          'Why do you say that?'
+          'You are wrong.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個回應會讓對方尷尬。',
           null,
           '英語文化中通常直接道謝而非否認。',
-          '這個回應顯得不友善。',
-          '這個回應會讓對方尷尬。'
+          '這個回應顯得不友善。'
         ]
       }
     },
@@ -5058,17 +5058,17 @@ window.APP_LESSONS['english|四下|第5單元 服裝與外表描述'] = {
       check: {
         q: '要讓別人在人群中認出某個人，描述時最好包含什麼？',
         options: [
-          '身材、髮型與今天的穿著等具體特徵',
-          '只說他的名字',
           '只說他的個性',
-          '只說他的年齡'
+          '只說他的年齡',
+          '身材、髮型與今天的穿著等具體特徵',
+          '只說他的名字'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '名字無法幫助辨認外觀。',
           '個性從外觀上看不出來，無法幫助辨認。',
-          '年齡只是其中一項資訊。'
+          '年齡只是其中一項資訊。',
+          null,
+          '名字無法幫助辨認外觀。'
         ]
       }
     }
@@ -5091,17 +5091,17 @@ window.APP_LESSONS['english|四下|第6單元 電話與邀約用語'] = {
       check: {
         q: '在電話中要說「我是 Amy」，正確的說法是什麼？',
         options: [
-          'This is Amy.',
-          'I am Amy speaking now here.',
           'Here is Amy.',
-          'It is me Amy.'
+          'It is me Amy.',
+          'This is Amy.',
+          'I am Amy speaking now here.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這個說法冗長且不自然。',
           '這不是電話中的慣用說法。',
-          '這個說法不符合電話禮儀的慣例。'
+          '這個說法不符合電話禮儀的慣例。',
+          null,
+          '這個說法冗長且不自然。'
         ]
       }
     },
@@ -5118,17 +5118,17 @@ window.APP_LESSONS['english|四下|第6單元 電話與邀約用語'] = {
       check: {
         q: '對方要找的人不在時，可以說什麼？',
         options: [
-          'He is not here right now. Can I take a message?',
           'Goodbye.',
           'I do not know him.',
-          'Call again.'
+          'Call again.',
+          'He is not here right now. Can I take a message?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '直接掛電話不禮貌。',
           '這個回應沒有幫助對方。',
-          '這個說法語氣過於生硬。'
+          '這個說法語氣過於生硬。',
+          null
         ]
       }
     },
@@ -5146,17 +5146,17 @@ window.APP_LESSONS['english|四下|第6單元 電話與邀約用語'] = {
       check: {
         q: '「去公園怎麼樣？」的正確說法是什麼？',
         options: [
+          'How about we going park?',
           'How about going to the park?',
           'How about to go to the park?',
-          'How about go to the park?',
-          'How about we going park?'
+          'How about go to the park?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個句子的結構不完整。',
           null,
           'How about 後面不接不定詞。',
-          'How about 後面要接動詞-ing。',
-          '這個句子的結構不完整。'
+          'How about 後面要接動詞-ing。'
         ]
       }
     },
@@ -5199,17 +5199,17 @@ window.APP_LESSONS['english|四下|第6單元 電話與邀約用語'] = {
       check: {
         q: '「三點在校門口見」的正確說法是什麼？',
         options: [
-          'Let’s meet at three at the school gate.',
           'Let’s meet in three in the school gate.',
           'Let’s meet on three on the school gate.',
-          'Let’s to meet at three.'
+          'Let’s to meet at three.',
+          'Let’s meet at three at the school gate.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '時間點與定點都用 at。',
           'on 用於日期或表面。',
-          'Let’s 後面不加 to。'
+          'Let’s 後面不加 to。',
+          null
         ]
       }
     },
@@ -5257,17 +5257,17 @@ window.APP_LESSONS['english|四下|第7單元 祈使句與指示'] = {
       check: {
         q: '「小心！」的正確說法是什麼？',
         options: [
+          'Being careful!',
           'Be careful!',
           'Are careful!',
-          'You are careful!',
-          'Being careful!'
+          'You are careful!'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個形式不能單獨當句子。',
           null,
           '祈使句要用原形 be。',
-          '這是陳述句而不是提醒。',
-          '這個形式不能單獨當句子。'
+          '這是陳述句而不是提醒。'
         ]
       }
     },
@@ -5311,17 +5311,17 @@ window.APP_LESSONS['english|四下|第7單元 祈使句與指示'] = {
       check: {
         q: '要請不熟的人幫忙開窗，比較恰當的說法是什麼？',
         options: [
-          'Could you open the window, please?',
-          'Open the window!',
           'You open the window.',
-          'Window!'
+          'Window!',
+          'Could you open the window, please?',
+          'Open the window!'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '直接命令對不熟的人不禮貌。',
           '這個說法像在指使人。',
-          '只說名詞無法完整表達請求。'
+          '只說名詞無法完整表達請求。',
+          null,
+          '直接命令對不熟的人不禮貌。'
         ]
       }
     },
@@ -5337,17 +5337,17 @@ window.APP_LESSONS['english|四下|第7單元 祈使句與指示'] = {
       check: {
         q: '「禁止停車」的標語通常怎麼寫？',
         options: [
-          'No parking',
           'No park',
           'Not parking',
-          'Do not park is here'
+          'Do not park is here',
+          'No parking'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'No 後面要接動名詞。',
           '標語慣用 No 而不是 Not。',
-          '這個句子的結構不正確。'
+          '這個句子的結構不正確。',
+          null
         ]
       }
     },
@@ -5388,17 +5388,17 @@ window.APP_LESSONS['english|四下|第7單元 祈使句與指示'] = {
       check: {
         q: 'Let’s go. 和 Go. 的差別是什麼？',
         options: [
-          'Let’s go 包含說話者自己，Go 只叫對方做',
           '兩者完全相同',
           'Let’s go 比較沒禮貌',
-          'Go 包含說話者'
+          'Go 包含說話者',
+          'Let’s go 包含說話者自己，Go 只叫對方做'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '兩者的對象不同。',
           'Let’s 的語氣其實較為友善。',
-          '單獨的 Go 不包含說話者。'
+          '單獨的 Go 不包含說話者。',
+          null
         ]
       }
     }
@@ -5419,13 +5419,13 @@ window.APP_LESSONS['english|四下|第8單元 連接詞 and / but / or'] = {
         note: 'and 用來連接方向相同的兩件事。' },
       check: {
         q: '要連接「又高又瘦」這兩個相同方向的形容詞，應該用哪一個連接詞？',
-        options: ['and', 'but', 'or', 'because'],
-        answer: 0,
+        options: ['because', 'and', 'but', 'or'],
+        answer: 1,
         why: [
+          'because 用來說明原因。',
           null,
           'but 用於意思相反的情況。',
-          'or 用於二選一。',
-          'because 用來說明原因。'
+          'or 用於二選一。'
         ]
       }
     },
@@ -5441,13 +5441,13 @@ window.APP_LESSONS['english|四下|第8單元 連接詞 and / but / or'] = {
         note: 'but 連接意思相反的兩個部分。' },
       check: {
         q: '「我喜歡英文，但不喜歡考試」應該用哪一個連接詞？',
-        options: ['but', 'and', 'or', 'so'],
-        answer: 0,
+        options: ['and', 'or', 'so', 'but'],
+        answer: 3,
         why: [
-          null,
           'and 用於相同方向的並列。',
           'or 用於二選一。',
-          'so 用來表示結果。'
+          'so 用來表示結果。',
+          null
         ]
       }
     },
@@ -5463,13 +5463,13 @@ window.APP_LESSONS['english|四下|第8單元 連接詞 and / but / or'] = {
         note: 'or 用來提供選擇。' },
       check: {
         q: '「你要茶還是咖啡？」應該用哪一個連接詞？',
-        options: ['or', 'and', 'but', 'because'],
-        answer: 0,
+        options: ['but', 'because', 'or', 'and'],
+        answer: 2,
         why: [
-          null,
-          'and 表示兩者都要。',
           'but 表示轉折。',
-          'because 用來說明原因。'
+          'because 用來說明原因。',
+          null,
+          'and 表示兩者都要。'
         ]
       }
     },
@@ -5540,17 +5540,17 @@ window.APP_LESSONS['english|四下|第8單元 連接詞 and / but / or'] = {
       check: {
         q: '把兩個短句合併時，第一步應該做什麼？',
         options: [
+          '把兩句都刪掉一半',
           '判斷兩句的關係是並列、轉折還是選擇',
           '隨便挑一個連接詞',
-          '把句子縮短',
-          '把兩句都刪掉一半'
+          '把句子縮短'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '刪減內容會失去原意。',
           null,
           '選錯連接詞會讓意思改變。',
-          '合併的目的不是縮短。',
-          '刪減內容會失去原意。'
+          '合併的目的不是縮短。'
         ]
       }
     }
@@ -5569,17 +5569,17 @@ window.APP_LESSONS['english|四下|第9單元 短文閱讀理解'] = {
       check: {
         q: '開始讀一篇英文短文之前，最有效的第一步是什麼？',
         options: [
+          '先把全文翻譯成中文',
           '先看標題、圖片與題目，預測內容',
           '先查所有生字',
-          '從最後一段開始讀',
-          '先把全文翻譯成中文'
+          '從最後一段開始讀'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '逐字翻譯很花時間也不必要。',
           null,
           '先查生字會打斷閱讀的流暢。',
-          '倒著讀會失去脈絡。',
-          '逐字翻譯很花時間也不必要。'
+          '倒著讀會失去脈絡。'
         ]
       }
     },
@@ -5594,17 +5594,17 @@ window.APP_LESSONS['english|四下|第9單元 短文閱讀理解'] = {
       check: {
         q: '題目問 What is the main idea of the passage? 是在問什麼？',
         options: [
-          '整篇文章的主旨',
           '文章的第一個生字',
           '作者的名字',
-          '文章有幾個字'
+          '文章有幾個字',
+          '整篇文章的主旨'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '單一生字不能代表整篇的主旨。',
           '作者資訊通常不是主旨題的重點。',
-          '字數與內容無關。'
+          '字數與內容無關。',
+          null
         ]
       }
     },
@@ -5642,17 +5642,17 @@ window.APP_LESSONS['english|四下|第9單元 短文閱讀理解'] = {
       check: {
         q: '看到 unhappy 這個字，可以怎麼猜它的意思？',
         options: [
-          '從字首 un- 表示否定，推測是「不快樂」',
-          '完全無法猜',
           '一定要查字典',
-          '猜它是名詞'
+          '猜它是名詞',
+          '從字首 un- 表示否定，推測是「不快樂」',
+          '完全無法猜'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '字首與字尾提供了很多線索。',
           '查字典可以確認，但先猜能加快閱讀。',
-          '從結構可以判斷它是形容詞。'
+          '從結構可以判斷它是形容詞。',
+          null,
+          '字首與字尾提供了很多線索。'
         ]
       }
     },
@@ -5690,17 +5690,17 @@ window.APP_LESSONS['english|四下|第9單元 短文閱讀理解'] = {
       check: {
         q: '培養英文閱讀能力，比較有效的方式是什麼？',
         options: [
-          '每天讀一小段並整理重點，長期累積',
-          '考前一次讀很多篇',
           '只背單字不讀文章',
-          '只看中文翻譯'
+          '只看中文翻譯',
+          '每天讀一小段並整理重點，長期累積',
+          '考前一次讀很多篇'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '臨時大量閱讀效果有限。',
           '單字要在文章中才學得會用法。',
-          '只看翻譯無法培養閱讀能力。'
+          '只看翻譯無法培養閱讀能力。',
+          null,
+          '臨時大量閱讀效果有限。'
         ]
       }
     }
@@ -5741,13 +5741,13 @@ window.APP_LESSONS['english|五上|第1單元 字母與母音字母'] = {
         { label: '有時當母音', items: ['y'] }] },
       check: {
         q: '下列哪一組全部都是母音字母？',
-        options: ['a、e、i', 'b、c、d', 'a、b、c', 'm、n、o'],
-        answer: 0,
+        options: ['b、c、d', 'a、b、c', 'm、n、o', 'a、e、i'],
+        answer: 3,
         why: [
-          null,
           '這三個都是子音字母。',
           'b 與 c 是子音。',
-          'm 與 n 是子音。'
+          'm 與 n 是子音。',
+          null
         ]
       }
     },
@@ -5763,17 +5763,17 @@ window.APP_LESSONS['english|五上|第1單元 字母與母音字母'] = {
       check: {
         q: '長母音的特徵是什麼？',
         options: [
+          '只出現在字尾',
           '唸出字母本身的名字',
           '完全不發音',
-          '比子音還短',
-          '只出現在字尾'
+          '比子音還短'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '長母音可以出現在字的中間。',
           null,
           '長母音是要發音的。',
-          '長母音比短母音長。',
-          '長母音可以出現在字的中間。'
+          '長母音比短母音長。'
         ]
       }
     },
@@ -5788,13 +5788,13 @@ window.APP_LESSONS['english|五上|第1單元 字母與母音字母'] = {
         { w: 'banana', parts: ['ba', 'na', 'na'], hit: 1, s: '三個音節', mean: '香蕉' }] },
       check: {
         q: 'banana 這個字有幾個音節？',
-        options: ['3 個', '1 個', '2 個', '6 個'],
-        answer: 0,
+        options: ['2 個', '6 個', '3 個', '1 個'],
+        answer: 2,
         why: [
-          null,
-          '這個字不只一個母音。',
           '仔細唸會發現有三個母音。',
-          '音節數不等於字母數。'
+          '音節數不等於字母數。',
+          null,
+          '這個字不只一個母音。'
         ]
       }
     },
@@ -5810,17 +5810,17 @@ window.APP_LESSONS['english|五上|第1單元 字母與母音字母'] = {
       check: {
         q: '為什麼背單字時要注意重音？',
         options: [
+          '重音只在唱歌時才重要',
           '重音位置錯了可能讓對方聽不懂',
           '重音不影響溝通',
-          '重音只影響拼字',
-          '重音只在唱歌時才重要'
+          '重音只影響拼字'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '日常對話中重音同樣重要。',
           null,
           '重音是英文發音的重要特徵。',
-          '重音影響的是發音而非拼字。',
-          '日常對話中重音同樣重要。'
+          '重音影響的是發音而非拼字。'
         ]
       }
     },
@@ -5838,17 +5838,17 @@ window.APP_LESSONS['english|五上|第1單元 字母與母音字母'] = {
       check: {
         q: 'see 和 sea 這兩個字有什麼特點？',
         options: [
-          '拼法不同但發音相同',
           '拼法相同但發音不同',
           '意思完全相同',
-          '兩者都不是英文字'
+          '兩者都不是英文字',
+          '拼法不同但發音相同'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '兩個字的拼法明顯不同。',
           '一個是看見，一個是海。',
-          '兩者都是常用的英文字。'
+          '兩者都是常用的英文字。',
+          null
         ]
       }
     }
@@ -5870,17 +5870,17 @@ window.APP_LESSONS['english|五上|第2單元 自然發音'] = {
       check: {
         q: '字母 c 在 city 這個字裡發什麼音？',
         options: [
+          '發 ch 的音',
           '發 s 的音',
           '發 k 的音',
-          '不發音',
-          '發 ch 的音'
+          '不發音'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'ch 是另一種字母組合。',
           null,
           'c 在 a、o、u 前面才發 k 的音。',
-          '這個位置的 c 要發音。',
-          'ch 是另一種字母組合。'
+          '這個位置的 c 要發音。'
         ]
       }
     },
@@ -5895,13 +5895,13 @@ window.APP_LESSONS['english|五上|第2單元 自然發音'] = {
         { w: 'cup', parts: ['c', 'u', 'p'], hit: 1, s: 'u 的短音', mean: '杯子' }] },
       check: {
         q: '「子音＋母音＋子音」結構中的母音，通常發什麼音？',
-        options: ['短音', '長音', '不發音', '兩者皆可'],
-        answer: 0,
+        options: ['不發音', '兩者皆可', '短音', '長音'],
+        answer: 2,
         why: [
-          null,
-          '長音多出現在有字尾 e 的結構中。',
           '母音一定要發音。',
-          '這個結構有明確的規則。'
+          '這個結構有明確的規則。',
+          null,
+          '長音多出現在有字尾 e 的結構中。'
         ]
       }
     },
@@ -5944,17 +5944,17 @@ window.APP_LESSONS['english|五上|第2單元 自然發音'] = {
       check: {
         q: 'rain 這個字中的 ai 發什麼音？',
         options: [
-          'a 的長音',
           'i 的長音',
           'a 的短音',
-          '不發音'
+          '不發音',
+          'a 的長音'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個組合中發音的是第一個母音。',
           '母音組合通常發長音。',
-          '母音組合一定要發音。'
+          '母音組合一定要發音。',
+          null
         ]
       }
     },
@@ -5996,17 +5996,17 @@ window.APP_LESSONS['english|五上|第2單元 自然發音'] = {
       check: {
         q: '學會自然發音規則之後，最大的好處是什麼？',
         options: [
+          '所有單字都能猜對意思',
           '看到新單字能自己拼讀，學習與記憶都更有效率',
           '不用再學單字',
-          '不用再聽英文',
-          '所有單字都能猜對意思'
+          '不用再聽英文'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '發音規則幫助讀音，不直接給出意思。',
           null,
           '仍然需要累積字彙。',
-          '聽力練習依然重要。',
-          '發音規則幫助讀音，不直接給出意思。'
+          '聽力練習依然重要。'
         ]
       }
     }
@@ -6027,13 +6027,13 @@ window.APP_LESSONS['english|五上|第3單元 be 動詞與自我介紹'] = {
         { label: 'are', items: ['you', 'we', 'they', 'my parents'] }] },
       check: {
         q: '主詞是 my parents 時，應該用哪一個 be 動詞？',
-        options: ['are', 'is', 'am', '不需要 be 動詞'],
-        answer: 0,
+        options: ['is', 'am', '不需要 be 動詞', 'are'],
+        answer: 3,
         why: [
-          null,
           'parents 是複數，不用 is。',
           'am 只能配主詞 I。',
-          '這類句子需要 be 動詞。'
+          '這類句子需要 be 動詞。',
+          null
         ]
       }
     },
@@ -6081,17 +6081,17 @@ window.APP_LESSONS['english|五上|第3單元 be 動詞與自我介紹'] = {
       check: {
         q: '「他不高」的正確說法是什麼？',
         options: [
-          'He is not tall.',
-          'He does not tall.',
           'He not is tall.',
-          'He is no tall.'
+          'He is no tall.',
+          'He is not tall.',
+          'He does not tall.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'be 動詞的否定不用 does。',
           'not 要放在 be 動詞後面。',
-          '否定要用 not 而不是 no。'
+          '否定要用 not 而不是 no。',
+          null,
+          'be 動詞的否定不用 does。'
         ]
       }
     },
@@ -6107,17 +6107,17 @@ window.APP_LESSONS['english|五上|第3單元 be 動詞與自我介紹'] = {
       check: {
         q: 'Is she a teacher? 的正確簡答是什麼？',
         options: [
+          'Yes, she teacher.',
           'Yes, she is.',
           'Yes, she does.',
-          'Yes, she do.',
-          'Yes, she teacher.'
+          'Yes, she do.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '簡答時一定要有動詞才完整。',
           null,
           '問句用 be 動詞，回答也要用 be 動詞。',
-          'do 不適用於 be 動詞的問句。',
-          '簡答時一定要有動詞才完整。'
+          'do 不適用於 be 動詞的問句。'
         ]
       }
     },
@@ -6135,17 +6135,17 @@ window.APP_LESSONS['english|五上|第3單元 be 動詞與自我介紹'] = {
       check: {
         q: '「我五年級」的正確說法是什麼？',
         options: [
-          'I am in the fifth grade.',
-          'I am in the five grade.',
           'I have five grade.',
-          'I am five grade.'
+          'I am five grade.',
+          'I am in the fifth grade.',
+          'I am in the five grade.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '年級要用序數 fifth。',
           '英文說年級用 be 動詞而不是 have。',
-          '缺少介系詞與冠詞。'
+          '缺少介系詞與冠詞。',
+          null,
+          '年級要用序數 fifth。'
         ]
       }
     },
@@ -6160,17 +6160,17 @@ window.APP_LESSONS['english|五上|第3單元 be 動詞與自我介紹'] = {
       check: {
         q: '自我介紹的結尾可以說什麼？',
         options: [
-          'Nice to meet you.',
           'What is your name?',
           'How much is it?',
-          'I do not know.'
+          'I do not know.',
+          'Nice to meet you.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這是提問而不是結尾。',
           '這是購物用語，與情境不符。',
-          '這個回答無法收尾。'
+          '這個回答無法收尾。',
+          null
         ]
       }
     }
@@ -6193,17 +6193,17 @@ window.APP_LESSONS['english|五上|第4單元 一般動詞與日常作息'] = {
       check: {
         q: '下列哪一句的用法正確？',
         options: [
-          'I go to school every day.',
           'I am go to school every day.',
           'I am going to school every day by mistake here.',
-          'I to school go every day.'
+          'I to school go every day.',
+          'I go to school every day.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '不能同時使用 be 動詞與一般動詞的原形。',
           '這個句子的用詞不自然。',
-          '語序不正確，動詞要在主詞後面。'
+          '語序不正確，動詞要在主詞後面。',
+          null
         ]
       }
     },
@@ -6240,17 +6240,17 @@ window.APP_LESSONS['english|五上|第4單元 一般動詞與日常作息'] = {
       check: {
         q: '「她不吃早餐」的正確說法是什麼？',
         options: [
-          'She does not eat breakfast.',
-          'She do not eat breakfast.',
           'She does not eats breakfast.',
-          'She not eat breakfast.'
+          'She not eat breakfast.',
+          'She does not eat breakfast.',
+          'She do not eat breakfast.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '第三人稱單數要用 does。',
           '用了 does 之後動詞要用原形。',
-          '否定句需要助動詞。'
+          '否定句需要助動詞。',
+          null,
+          '第三人稱單數要用 does。'
         ]
       }
     },
@@ -6267,17 +6267,17 @@ window.APP_LESSONS['english|五上|第4單元 一般動詞與日常作息'] = {
       check: {
         q: '「刷牙」的正確說法是什麼？',
         options: [
+          'brush my tooth',
           'brush my teeth',
           'wash my teeth',
-          'clean my tooth',
-          'brush my tooth'
+          'clean my tooth'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'tooth 的複數是 teeth。',
           null,
           '刷牙的動詞用 brush 而不是 wash。',
-          '牙齒是複數 teeth。',
-          'tooth 的複數是 teeth。'
+          '牙齒是複數 teeth。'
         ]
       }
     },
@@ -6294,17 +6294,17 @@ window.APP_LESSONS['english|五上|第4單元 一般動詞與日常作息'] = {
       check: {
         q: '「她通常十點睡覺」的正確語序是什麼？',
         options: [
-          'She usually goes to bed at ten.',
-          'She goes usually to bed at ten.',
           'Usually she goes to bed ten.',
-          'She goes to bed usually ten.'
+          'She goes to bed usually ten.',
+          'She usually goes to bed at ten.',
+          'She goes usually to bed at ten.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '頻率副詞要放在動詞前面。',
           '時間前面需要介系詞 at。',
-          '語序與介系詞都不正確。'
+          '語序與介系詞都不正確。',
+          null,
+          '頻率副詞要放在動詞前面。'
         ]
       }
     },
@@ -6375,13 +6375,13 @@ window.APP_LESSONS['english|五上|第5單元 現在進行式'] = {
         { label: '重複子音', items: ['running', 'sitting', 'swimming'] }] },
       check: {
         q: 'swim 加上 -ing 應該怎麼拼？',
-        options: ['swimming', 'swiming', 'swimeing', 'swimmming'],
-        answer: 0,
+        options: ['swimeing', 'swimmming', 'swimming', 'swiming'],
+        answer: 2,
         why: [
-          null,
-          '短母音加單子音要重複子音。',
           '這裡不需要加 e。',
-          '只需要重複一次子音。'
+          '只需要重複一次子音。',
+          null,
+          '短母音加單子音要重複子音。'
         ]
       }
     },
@@ -6399,17 +6399,17 @@ window.APP_LESSONS['english|五上|第5單元 現在進行式'] = {
       check: {
         q: '句子開頭是 Look! 時，後面通常接什麼時態？',
         options: [
+          '未來式',
           '現在進行式',
           '現在簡單式',
-          '過去式',
-          '未來式'
+          '過去式'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '未來式表示還沒發生。',
           null,
           'Look 是要對方看此刻發生的事。',
-          '過去式與此刻無關。',
-          '未來式表示還沒發生。'
+          '過去式與此刻無關。'
         ]
       }
     },
@@ -6424,17 +6424,17 @@ window.APP_LESSONS['english|五上|第5單元 現在進行式'] = {
       check: {
         q: '「他們在玩嗎？」的正確問法是什麼？',
         options: [
-          'Are they playing?',
           'Do they playing?',
           'They are playing?',
-          'Are they play?'
+          'Are they play?',
+          'Are they playing?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '進行式的疑問不用 do。',
           '疑問句要把 be 動詞移到句首。',
-          '進行式的動詞要用 -ing 形。'
+          '進行式的動詞要用 -ing 形。',
+          null
         ]
       }
     },
@@ -6450,17 +6450,17 @@ window.APP_LESSONS['english|五上|第5單元 現在進行式'] = {
       check: {
         q: '下列哪一句的用法「不正確」？',
         options: [
+          'I am having lunch.',
           'I am knowing the answer.',
           'I know the answer.',
-          'I am doing my homework.',
-          'I am having lunch.'
+          'I am doing my homework.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'have 當「吃」時可以用進行式。',
           null,
           'know 表示狀態，用簡單式是正確的。',
-          '做功課是動作，可以用進行式。',
-          'have 當「吃」時可以用進行式。'
+          '做功課是動作，可以用進行式。'
         ]
       }
     },
@@ -6477,17 +6477,17 @@ window.APP_LESSONS['english|五上|第5單元 現在進行式'] = {
       check: {
         q: '「三個男孩正在跑步」的正確說法是什麼？',
         options: [
-          'Three boys are running.',
-          'Three boys is running.',
           'Three boy are running.',
-          'Three boys are run.'
+          'Three boys are run.',
+          'Three boys are running.',
+          'Three boys is running.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '複數主詞要用 are。',
           '數字大於一時名詞要用複數。',
-          '進行式的動詞要用 -ing 形。'
+          '進行式的動詞要用 -ing 形。',
+          null,
+          '複數主詞要用 are。'
         ]
       }
     }
@@ -6530,13 +6530,13 @@ window.APP_LESSONS['english|五上|第6單元 地點介系詞'] = {
         { label: '之間', items: ['between', 'among'] }] },
       check: {
         q: '「在三棵樹之間」應該用哪一個介系詞？',
-        options: ['among', 'between', 'under', 'behind'],
-        answer: 0,
+        options: ['under', 'behind', 'among', 'between'],
+        answer: 2,
         why: [
-          null,
-          'between 用於兩者之間。',
           'under 是在下面。',
-          'behind 是在後面。'
+          'behind 是在後面。',
+          null,
+          'between 用於兩者之間。'
         ]
       }
     },
@@ -6552,13 +6552,13 @@ window.APP_LESSONS['english|五上|第6單元 地點介系詞'] = {
              same: ['都表示在上方'] },
       check: {
         q: '「電燈在桌子正上方（沒有接觸）」應該用哪一個介系詞？',
-        options: ['over', 'on', 'in', 'under'],
-        answer: 0,
+        options: ['under', 'over', 'on', 'in'],
+        answer: 1,
         why: [
+          'under 表示在下面。',
           null,
           'on 表示有接觸。',
-          'in 表示在空間內。',
-          'under 表示在下面。'
+          'in 表示在空間內。'
         ]
       }
     },
@@ -6573,13 +6573,13 @@ window.APP_LESSONS['english|五上|第6單元 地點介系詞'] = {
         { label: '交通工具', items: ['on the bus', 'on the train', 'in the car'] }] },
       check: {
         q: '「在公車上」的正確說法是什麼？',
-        options: ['on the bus', 'in the bus', 'at the bus', 'to the bus'],
-        answer: 0,
+        options: ['in the bus', 'at the bus', 'to the bus', 'on the bus'],
+        answer: 3,
         why: [
-          null,
           '大型交通工具習慣用 on。',
           'at 用於定點如車站。',
-          'to 表示方向。'
+          'to 表示方向。',
+          null
         ]
       }
     },
@@ -6597,17 +6597,17 @@ window.APP_LESSONS['english|五上|第6單元 地點介系詞'] = {
       check: {
         q: '要介紹「桌上有一本書」（對方還不知道），比較自然的句型是什麼？',
         options: [
+          'Book is desk on.',
           'There is a book on the desk.',
           'The book is on the desk.',
-          'A book on the desk.',
-          'Book is desk on.'
+          'A book on the desk.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個語序不正確。',
           null,
           '用 the 表示對方已經知道那本書。',
-          '這個句子缺少動詞，並不完整。',
-          '這個語序不正確。'
+          '這個句子缺少動詞，並不完整。'
         ]
       }
     },
@@ -6621,17 +6621,17 @@ window.APP_LESSONS['english|五上|第6單元 地點介系詞'] = {
       check: {
         q: '描述房間時，介系詞的作用是什麼？',
         options: [
-          '說明每樣東西的相對位置，讓人能想像空間',
-          '讓句子變長',
           '增加單字量',
-          '沒有實際作用'
+          '沒有實際作用',
+          '說明每樣東西的相對位置，讓人能想像空間',
+          '讓句子變長'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '長度不是使用介系詞的目的。',
           '單字量是附帶效果。',
-          '介系詞在描述空間時非常關鍵。'
+          '介系詞在描述空間時非常關鍵。',
+          null,
+          '長度不是使用介系詞的目的。'
         ]
       }
     }
@@ -6654,13 +6654,13 @@ window.APP_LESSONS['english|五上|第7單元 數字、時間與日期'] = {
              same: ['都是數字的表達方式'] },
       check: {
         q: '「第十二」的序數怎麼拼？',
-        options: ['twelfth', 'twelveth', 'twelvth', 'twelth'],
-        answer: 0,
+        options: ['twelveth', 'twelvth', 'twelth', 'twelfth'],
+        answer: 3,
         why: [
-          null,
           '要把 twelve 的 ve 改成 f 再加 th。',
           '這個拼法漏了字母。',
-          '這個拼法不正確。'
+          '這個拼法不正確。',
+          null
         ]
       }
     },
@@ -6675,13 +6675,13 @@ window.APP_LESSONS['english|五上|第7單元 數字、時間與日期'] = {
         { label: '錯誤', items: ['two hundreds', 'three thousands'] }] },
       check: {
         q: '「兩百」的正確說法是什麼？',
-        options: ['two hundred', 'two hundreds', 'two of hundred', 'twos hundred'],
-        answer: 0,
+        options: ['two of hundred', 'twos hundred', 'two hundred', 'two hundreds'],
+        answer: 2,
         why: [
-          null,
-          '前面有數字時 hundred 不加 s。',
           '不需要加 of。',
-          '數字本身不加 s。'
+          '數字本身不加 s。',
+          null,
+          '前面有數字時 hundred 不加 s。'
         ]
       }
     },
@@ -6724,17 +6724,17 @@ window.APP_LESSONS['english|五上|第7單元 數字、時間與日期'] = {
       check: {
         q: 'October 10 應該怎麼唸？',
         options: [
+          'October tens',
           'October tenth',
           'October ten',
-          'Ten October only',
-          'October tens'
+          'Ten October only'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '日期不加複數 s。',
           null,
           '日期在唸的時候要用序數。',
-          '這個語序不是美式的常見唸法。',
-          '日期不加複數 s。'
+          '這個語序不是美式的常見唸法。'
         ]
       }
     },
@@ -6750,13 +6750,13 @@ window.APP_LESSONS['english|五上|第7單元 數字、時間與日期'] = {
         { label: 'in', items: ['in May', 'in 2026', 'in the morning'] }] },
       check: {
         q: '「在早上」的正確說法是什麼？',
-        options: ['in the morning', 'on the morning', 'at the morning', 'to the morning'],
-        answer: 0,
+        options: ['at the morning', 'to the morning', 'in the morning', 'on the morning'],
+        answer: 2,
         why: [
-          null,
-          'on 用於日期與星期。',
           'at 用於具體的時間點如 at noon。',
-          'to 表示方向或目標。'
+          'to 表示方向或目標。',
+          null,
+          'on 用於日期與星期。'
         ]
       }
     },
@@ -6832,17 +6832,17 @@ window.APP_LESSONS['english|五上|第8單元 疑問詞與日常對話'] = {
       check: {
         q: '「你住在哪裡？」的正確說法是什麼？',
         options: [
-          'Where do you live?',
           'Where you live?',
           'Where are you live?',
-          'Where you do live?'
+          'Where you do live?',
+          'Where do you live?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '一般動詞的疑問句需要助動詞。',
           '不能同時使用 be 動詞與一般動詞。',
-          '助動詞要放在主詞前面。'
+          '助動詞要放在主詞前面。',
+          null
         ]
       }
     },
@@ -6856,13 +6856,13 @@ window.APP_LESSONS['english|五上|第8單元 疑問詞與日常對話'] = {
         { label: '問程度', items: ['How old', 'How long', 'How far', 'How often'] }] },
       check: {
         q: '要問「多遠」，應該用哪一個疑問詞組？',
-        options: ['How far', 'How long', 'How many', 'How old'],
-        answer: 0,
+        options: ['How old', 'How far', 'How long', 'How many'],
+        answer: 1,
         why: [
+          'How old 問年齡。',
           null,
           'How long 問的是長度或持續時間。',
-          'How many 問可數的數量。',
-          'How old 問年齡。'
+          'How many 問可數的數量。'
         ]
       }
     },
@@ -6880,17 +6880,17 @@ window.APP_LESSONS['english|五上|第8單元 疑問詞與日常對話'] = {
       check: {
         q: 'Where do you live? 這個問題可以用 Yes 回答嗎？',
         options: [
-          '不行，疑問詞問句要回答具體內容',
-          '可以，任何問句都能用 Yes 回答',
           '可以，但要加上地點',
-          '不行，因為這不是問句'
+          '不行，因為這不是問句',
+          '不行，疑問詞問句要回答具體內容',
+          '可以，任何問句都能用 Yes 回答'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '疑問詞問句需要具體的資訊。',
           '既然要說地點，就不需要 Yes。',
-          '這確實是一個問句。'
+          '這確實是一個問句。',
+          null,
+          '疑問詞問句需要具體的資訊。'
         ]
       }
     },
@@ -6904,17 +6904,17 @@ window.APP_LESSONS['english|五上|第8單元 疑問詞與日常對話'] = {
       check: {
         q: '要讓對話延續下去，比較有效的方式是什麼？',
         options: [
+          '沉默不說話',
           '用不同的疑問詞繼續追問細節',
           '一直問可以用 Yes 或 No 回答的問題',
-          '只說自己的事',
-          '沉默不說話'
+          '只說自己的事'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '沉默會讓對話結束。',
           null,
           '封閉式問題容易讓對話中斷。',
-          '單向的表達不算對話。',
-          '沉默會讓對話結束。'
+          '單向的表達不算對話。'
         ]
       }
     },
@@ -6965,17 +6965,17 @@ window.APP_LESSONS['english|五上|第9單元 主題字彙與生活用語'] = {
       check: {
         q: '為什麼「依主題」背單字比隨機背有效？',
         options: [
-          '因為相關的字有連結，也常一起出現在真實情境中',
-          '因為主題的字比較短',
           '因為主題的字比較少',
-          '因為不用理解意思'
+          '因為不用理解意思',
+          '因為相關的字有連結，也常一起出現在真實情境中',
+          '因為主題的字比較短'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '長度與主題無關。',
           '每個主題的字彙量都不少。',
-          '理解意思仍然是必要的。'
+          '理解意思仍然是必要的。',
+          null,
+          '長度與主題無關。'
         ]
       }
     },
@@ -7016,17 +7016,17 @@ window.APP_LESSONS['english|五上|第9單元 主題字彙與生活用語'] = {
       check: {
         q: '「我很累」的正確說法是什麼？',
         options: [
+          'I am tire.',
           'I am tired.',
           'I have tired.',
-          'I tired.',
-          'I am tire.'
+          'I tired.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'tire 是動詞，形容詞要用 tired。',
           null,
           '感受要用 be 動詞而不是 have。',
-          '句子缺少 be 動詞。',
-          'tire 是動詞，形容詞要用 tired。'
+          '句子缺少 be 動詞。'
         ]
       }
     },
@@ -7043,17 +7043,17 @@ window.APP_LESSONS['english|五上|第9單元 主題字彙與生活用語'] = {
       check: {
         q: '「你可以幫我嗎？」的正確說法是什麼？',
         options: [
-          'Can you help me?',
           'Can you help I?',
           'Can you helping me?',
-          'You can help me?'
+          'You can help me?',
+          'Can you help me?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '動詞後面要用受格 me。',
           'can 後面要用原形動詞。',
-          '疑問句要把 can 放在句首。'
+          '疑問句要把 can 放在句首。',
+          null
         ]
       }
     },
@@ -7069,17 +7069,17 @@ window.APP_LESSONS['english|五上|第9單元 主題字彙與生活用語'] = {
       check: {
         q: '被問到一個需要思考的問題時，可以說什麼爭取時間？',
         options: [
-          'Let me think.',
           'I do not want to answer.',
           'Goodbye.',
-          'You are wrong.'
+          'You are wrong.',
+          'Let me think.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個回答顯得不合作。',
           '這是道別，會直接中斷對話。',
-          '這個回應不友善也不切題。'
+          '這個回應不友善也不切題。',
+          null
         ]
       }
     },
@@ -7093,17 +7093,17 @@ window.APP_LESSONS['english|五上|第9單元 主題字彙與生活用語'] = {
       check: {
         q: '學會一個新單字之後，最有效的下一步是什麼？',
         options: [
-          '用它造一個和自己生活有關的句子',
-          '把它抄十遍',
           '背它的所有意思',
-          '只記中文翻譯'
+          '只記中文翻譯',
+          '用它造一個和自己生活有關的句子',
+          '把它抄十遍'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '抄寫幫助拼字，但不一定會用。',
           '先掌握最常用的意思即可。',
-          '只記翻譯無法在對話中使用。'
+          '只記翻譯無法在對話中使用。',
+          null,
+          '抄寫幫助拼字，但不一定會用。'
         ]
       }
     }
@@ -7124,17 +7124,17 @@ window.APP_LESSONS['english|五下|第1單元 可數與不可數名詞'] = {
       check: {
         q: '可數名詞最主要的特徵是什麼？',
         options: [
+          '沒有複數形',
           '有單複數形，可以用數字直接修飾',
           '一定是具體的東西',
-          '一定很小',
-          '沒有複數形'
+          '一定很小'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '有複數形正是可數名詞的特徵。',
           null,
           'idea 是抽象的，但可數。',
-          '大小與可數性無關。',
-          '有複數形正是可數名詞的特徵。'
+          '大小與可數性無關。'
         ]
       }
     },
@@ -7149,13 +7149,13 @@ window.APP_LESSONS['english|五下|第1單元 可數與不可數名詞'] = {
         { label: '抽象概念', items: ['time', 'money', 'information', 'advice'] }] },
       check: {
         q: '下列哪一個是「不可數名詞」？',
-        options: ['homework', 'book', 'chair', 'student'],
-        answer: 0,
+        options: ['chair', 'student', 'homework', 'book'],
+        answer: 2,
         why: [
-          null,
-          'book 可以數，有複數 books。',
           'chair 可以數。',
-          'student 也可以數。'
+          'student 也可以數。',
+          null,
+          'book 可以數，有複數 books。'
         ]
       }
     },
@@ -7200,17 +7200,17 @@ window.APP_LESSONS['english|五下|第1單元 可數與不可數名詞'] = {
       check: {
         q: '「時間很寶貴」的正確說法是什麼？',
         options: [
-          'Time is precious.',
           'Time are precious.',
           'Times is precious.',
-          'A time is precious.'
+          'A time is precious.',
+          'Time is precious.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '不可數名詞要用單數動詞。',
           'time 在此不可數，不加 s。',
-          '不可數名詞前面不加 a。'
+          '不可數名詞前面不加 a。',
+          null
         ]
       }
     },
@@ -7257,17 +7257,17 @@ window.APP_LESSONS['english|五下|第1單元 可數與不可數名詞'] = {
       check: {
         q: '「很多錢」的正確說法是什麼？',
         options: [
+          'much moneys',
           'a lot of money',
           'many money',
-          'many moneys',
-          'much moneys'
+          'many moneys'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'money 不加 s。',
           null,
           'money 是不可數名詞，不用 many。',
-          'money 沒有複數形。',
-          'money 不加 s。'
+          'money 沒有複數形。'
         ]
       }
     }
@@ -7289,17 +7289,17 @@ window.APP_LESSONS['english|五下|第2單元 some／any／a lot of'] = {
       check: {
         q: 'some 通常用在哪一種句子？',
         options: [
-          '肯定句',
-          '只有否定句',
           '只有疑問句',
-          '只有祈使句'
+          '只有祈使句',
+          '肯定句',
+          '只有否定句'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '否定句通常用 any。',
           '疑問句通常用 any。',
-          'some 不限於祈使句。'
+          'some 不限於祈使句。',
+          null,
+          '否定句通常用 any。'
         ]
       }
     },
@@ -7345,17 +7345,17 @@ window.APP_LESSONS['english|五下|第2單元 some／any／a lot of'] = {
       check: {
         q: '要邀請客人喝茶，比較自然的說法是什麼？',
         options: [
+          'You want tea?',
           'Would you like some tea?',
           'Would you like any tea?',
-          'Do you want any tea or not?',
-          'You want tea?'
+          'Do you want any tea or not?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個說法不夠禮貌完整。',
           null,
           '邀請時用 some 比較自然也比較親切。',
-          '這個說法語氣生硬。',
-          '這個說法不夠禮貌完整。'
+          '這個說法語氣生硬。'
         ]
       }
     },
@@ -7371,17 +7371,17 @@ window.APP_LESSONS['english|五下|第2單元 some／any／a lot of'] = {
       check: {
         q: '「很多學生」的正確說法是什麼？',
         options: [
-          'many students',
           'much students',
           'many student',
-          'much student'
+          'much student',
+          'many students'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'student 是可數名詞，要用 many。',
           '可數名詞要用複數形。',
-          '這個組合有兩個錯誤。'
+          '這個組合有兩個錯誤。',
+          null
         ]
       }
     },
@@ -7398,17 +7398,17 @@ window.APP_LESSONS['english|五下|第2單元 some／any／a lot of'] = {
       check: {
         q: '如果不確定名詞是可數還是不可數，用哪一個說法比較安全？',
         options: [
-          'a lot of',
           'many',
           'much',
-          'a few'
+          'a few',
+          'a lot of'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'many 只能用於可數名詞。',
           'much 只能用於不可數名詞。',
-          'a few 只能用於可數名詞。'
+          'a few 只能用於可數名詞。',
+          null
         ]
       }
     },
@@ -7426,17 +7426,17 @@ window.APP_LESSONS['english|五下|第2單元 some／any／a lot of'] = {
       check: {
         q: 'I have few friends. 這句話的意思偏向什麼？',
         options: [
-          '我幾乎沒有朋友（語氣負面）',
-          '我有一些朋友（語氣正面）',
           '我有很多朋友',
-          '我沒有任何朋友'
+          '我沒有任何朋友',
+          '我幾乎沒有朋友（語氣負面）',
+          '我有一些朋友（語氣正面）'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '要表達正面語氣要說 a few。',
           '這個說法表示數量很少。',
-          '完全沒有要說 no friends。'
+          '完全沒有要說 no friends。',
+          null,
+          '要表達正面語氣要說 a few。'
         ]
       }
     }
@@ -7485,17 +7485,17 @@ window.APP_LESSONS['english|五下|第3單元 所有格'] = {
       check: {
         q: '「這本書的書名」比較自然的說法是什麼？',
         options: [
+          'book the name of',
           'the name of the book',
           'the book’s name is best always',
-          'the name book',
-          'book the name of'
+          'the name book'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '語序不正確，不符合英文結構。',
           null,
           '這個說法雖可用，但選項的敘述不正確。',
-          '這個說法缺少必要的結構。',
-          '語序不正確，不符合英文結構。'
+          '這個說法缺少必要的結構。'
         ]
       }
     },
@@ -7510,17 +7510,17 @@ window.APP_LESSONS['english|五下|第3單元 所有格'] = {
       check: {
         q: 'its 和 it’s 的差別是什麼？',
         options: [
-          'its 是「它的」，it’s 是 it is 的縮寫',
           '兩者完全相同',
           'its 是縮寫',
-          'it’s 表示所有'
+          'it’s 表示所有',
+          'its 是「它的」，it’s 是 it is 的縮寫'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '兩者的意思完全不同。',
           '有撇號的 it’s 才是縮寫。',
-          '表示所有的是沒有撇號的 its。'
+          '表示所有的是沒有撇號的 its。',
+          null
         ]
       }
     },
@@ -7537,17 +7537,17 @@ window.APP_LESSONS['english|五下|第3單元 所有格'] = {
       check: {
         q: '下列哪一句的用法正確？',
         options: [
-          'This book is mine.',
-          'This book is my.',
           'This is mine book.',
-          'This book is me.'
+          'This book is me.',
+          'This book is mine.',
+          'This book is my.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'my 後面一定要接名詞。',
           'mine 後面不接名詞。',
-          'me 是受格，不表示所有。'
+          'me 是受格，不表示所有。',
+          null,
+          'my 後面一定要接名詞。'
         ]
       }
     },
@@ -7562,17 +7562,17 @@ window.APP_LESSONS['english|五下|第3單元 所有格'] = {
       check: {
         q: '「這是誰的書？」的正確寫法是什麼？',
         options: [
+          'Whose is book this?',
           'Whose book is this?',
           'Who’s book is this?',
-          'Who book is this?',
-          'Whose is book this?'
+          'Who book is this?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '語序不正確，不符合英文結構。',
           null,
           'who’s 是 who is 的縮寫，意思不同。',
-          '要用 whose 才能表示所有。',
-          '語序不正確，不符合英文結構。'
+          '要用 whose 才能表示所有。'
         ]
       }
     },
@@ -7644,17 +7644,17 @@ window.APP_LESSONS['english|五下|第4單元 受格代名詞'] = {
       check: {
         q: '下列哪一句的用法正確？',
         options: [
-          'This present is for me.',
           'This present is for I.',
           'This present is for my.',
-          'This present is for mine me.'
+          'This present is for mine me.',
+          'This present is for me.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '介系詞後面要用受格 me。',
           'my 是所有格，後面要接名詞。',
-          '這個說法重複又不正確。'
+          '這個說法重複又不正確。',
+          null
         ]
       }
     },
@@ -7672,17 +7672,17 @@ window.APP_LESSONS['english|五下|第4單元 受格代名詞'] = {
       check: {
         q: '在 I like her book. 這句話中，her 是什麼？',
         options: [
-          '所有格形容詞，因為後面接了名詞',
-          '受格，因為在動詞後面',
           '主格',
-          '所有格代名詞'
+          '所有格代名詞',
+          '所有格形容詞，因為後面接了名詞',
+          '受格，因為在動詞後面'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '受格後面不會再接名詞。',
           '主格用在主詞位置。',
-          '所有格代名詞後面不接名詞。'
+          '所有格代名詞後面不接名詞。',
+          null,
+          '受格後面不會再接名詞。'
         ]
       }
     },
@@ -7698,17 +7698,17 @@ window.APP_LESSONS['english|五下|第4單元 受格代名詞'] = {
       check: {
         q: 'It is raining. 這句話中的 it 指的是什麼？',
         options: [
+          '指雨滴',
           '沒有實際意義，只是句子需要主詞',
           '指某個物品',
-          '指某個人',
-          '指雨滴'
+          '指某個人'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這是文法上的需要而非指涉雨滴。',
           null,
           '這裡的 it 不指涉具體物品。',
-          'it 不用於指人。',
-          '這是文法上的需要而非指涉雨滴。'
+          'it 不用於指人。'
         ]
       }
     },
@@ -7722,17 +7722,17 @@ window.APP_LESSONS['english|五下|第4單元 受格代名詞'] = {
       check: {
         q: '要判斷該用 I 還是 me，最實用的方法是什麼？',
         options: [
+          '永遠用 me',
           '看它在句中是主詞還是受詞',
           '看句子長短',
-          '哪個順口用哪個',
-          '永遠用 me'
+          '哪個順口用哪個'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '當主詞時必須用 I。',
           null,
           '句子長度與此無關。',
-          '語感可能出錯，仍要看文法功能。',
-          '當主詞時必須用 I。'
+          '語感可能出錯，仍要看文法功能。'
         ]
       }
     },
@@ -7749,17 +7749,17 @@ window.APP_LESSONS['english|五下|第4單元 受格代名詞'] = {
       check: {
         q: '在 She gave me a book. 這句話中，me 的角色是什麼？',
         options: [
-          '受詞（接受東西的人）',
-          '主詞',
           '所有格',
-          '動詞'
+          '動詞',
+          '受詞（接受東西的人）',
+          '主詞'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '主詞是 She。',
           '所有格後面要接名詞。',
-          '動詞是 gave。'
+          '動詞是 gave。',
+          null,
+          '主詞是 She。'
         ]
       }
     }
@@ -7781,17 +7781,17 @@ window.APP_LESSONS['english|五下|第5單元 冠詞與指示詞'] = {
       check: {
         q: '為什麼是 an hour 而不是 a hour？',
         options: [
+          '因為這是特例沒有原因',
           '因為 hour 的 h 不發音，實際上以母音開頭',
           '因為 hour 很長',
-          '因為 hour 是時間',
-          '因為這是特例沒有原因'
+          '因為 hour 是時間'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這其實符合「看發音」的規則。',
           null,
           '長度與冠詞的選擇無關。',
-          '詞義不決定用 a 還是 an。',
-          '這其實符合「看發音」的規則。'
+          '詞義不決定用 a 還是 an。'
         ]
       }
     },
@@ -7835,17 +7835,17 @@ window.APP_LESSONS['english|五下|第5單元 冠詞與指示詞'] = {
       check: {
         q: '「我喜歡狗（這種動物）」的正確說法是什麼？',
         options: [
-          'I like dogs.',
-          'I like a dogs.',
           'I like the dogs.',
-          'I like dog.'
+          'I like dog.',
+          'I like dogs.',
+          'I like a dogs.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'a 不能配複數名詞。',
           '加 the 表示特定的那幾隻狗。',
-          '泛指時可數名詞要用複數。'
+          '泛指時可數名詞要用複數。',
+          null,
+          'a 不能配複數名詞。'
         ]
       }
     },
@@ -7859,13 +7859,13 @@ window.APP_LESSONS['english|五下|第5單元 冠詞與指示詞'] = {
         { label: '遠（that/those）', items: ['that book', 'those books'] }] },
       check: {
         q: '要指遠處的幾本書，應該用哪一個字？',
-        options: ['those', 'this', 'that', 'these'],
-        answer: 0,
+        options: ['this', 'that', 'these', 'those'],
+        answer: 3,
         why: [
-          null,
           'this 指近處的單一物品。',
           'that 指遠處的單一物品。',
-          'these 指近處的多個物品。'
+          'these 指近處的多個物品。',
+          null
         ]
       }
     },
@@ -7910,17 +7910,17 @@ window.APP_LESSONS['english|五下|第5單元 冠詞與指示詞'] = {
       check: {
         q: '判斷該用哪一個冠詞時，第一個要問的問題是什麼？',
         options: [
+          '句子有多長',
           '這個名詞是不是「特定的那一個」',
           '這個字有幾個字母',
-          '這個字好不好唸',
-          '句子有多長'
+          '這個字好不好唸'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句子長度不影響冠詞。',
           null,
           '字母數與冠詞無關。',
-          '發音只影響 a 與 an 的選擇。',
-          '句子長度不影響冠詞。'
+          '發音只影響 a 與 an 的選擇。'
         ]
       }
     }
@@ -7970,17 +7970,17 @@ window.APP_LESSONS['english|五下|第6單元 五感與描述'] = {
       check: {
         q: '「它嚐起來像雞肉」的正確說法是什麼？',
         options: [
-          'It tastes like chicken.',
-          'It tastes chicken.',
           'It tastes as chicken.',
-          'It is taste like chicken.'
+          'It is taste like chicken.',
+          'It tastes like chicken.',
+          'It tastes chicken.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '接名詞時要加 like。',
           '這個用法不自然。',
-          '不能同時使用 be 動詞與一般動詞。'
+          '不能同時使用 be 動詞與一般動詞。',
+          null,
+          '接名詞時要加 like。'
         ]
       }
     },
@@ -7995,17 +7995,17 @@ window.APP_LESSONS['english|五下|第6單元 五感與描述'] = {
       check: {
         q: '五感動詞 look 後面應該接什麼詞類？',
         options: [
+          '介系詞',
           '形容詞',
           '副詞',
-          '動詞',
-          '介系詞'
+          '動詞'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '介系詞後面要接名詞。',
           null,
           '副詞用來修飾一般動詞。',
-          '一個句子只需要一個主要動詞。',
-          '介系詞後面要接名詞。'
+          '一個句子只需要一個主要動詞。'
         ]
       }
     },
@@ -8022,17 +8022,17 @@ window.APP_LESSONS['english|五下|第6單元 五感與描述'] = {
       check: {
         q: '「這音樂聽起來很美」的正確說法是什麼？',
         options: [
-          'The music sounds beautiful.',
           'The music sounds beautifully.',
           'The music is sound beautiful.',
-          'The music hears beautiful.'
+          'The music hears beautiful.',
+          'The music sounds beautiful.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '五感動詞後面用形容詞。',
           '不能同時使用 be 動詞與一般動詞。',
-          'hear 是主動去聽，用法不同。'
+          'hear 是主動去聽，用法不同。',
+          null
         ]
       }
     },
@@ -8050,17 +8050,17 @@ window.APP_LESSONS['english|五下|第6單元 五感與描述'] = {
       check: {
         q: '「我想吃東西」的正確說法是什麼？',
         options: [
+          'I feel to eat something.',
           'I feel like eating something.',
           'I feel like eat something.',
-          'I feel eating something.',
-          'I feel to eat something.'
+          'I feel eating something.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'feel like 後面不接不定詞。',
           null,
           'feel like 後面要接動詞-ing。',
-          '缺少 like 意思會改變。',
-          'feel like 後面不接不定詞。'
+          '缺少 like 意思會改變。'
         ]
       }
     },
@@ -8074,17 +8074,17 @@ window.APP_LESSONS['english|五下|第6單元 五感與描述'] = {
       check: {
         q: '要讓描述更生動，可以怎麼做？',
         options: [
-          '用不同的感官（視覺、聽覺、嗅覺）一起描述',
           '只用最長的形容詞',
           '重複同一個形容詞',
-          '只寫看到的'
+          '只寫看到的',
+          '用不同的感官（視覺、聽覺、嗅覺）一起描述'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '字的長短不影響生動程度。',
           '重複會讓文章單調。',
-          '只用視覺會少了很多層次。'
+          '只用視覺會少了很多層次。',
+          null
         ]
       }
     }
@@ -8108,13 +8108,13 @@ window.APP_LESSONS['english|五下|第7單元 節慶與慶祝'] = {
       tip: '按「下一個」看一年的節日。',
       check: {
         q: '萬聖節（Halloween）是在哪一天？',
-        options: ['10 月 31 日', '12 月 25 日', '2 月 14 日', '1 月 1 日'],
-        answer: 0,
+        options: ['2 月 14 日', '1 月 1 日', '10 月 31 日', '12 月 25 日'],
+        answer: 2,
         why: [
-          null,
-          '12 月 25 日是聖誕節。',
           '2 月 14 日是情人節。',
-          '1 月 1 日是元旦。'
+          '1 月 1 日是元旦。',
+          null,
+          '12 月 25 日是聖誕節。'
         ]
       }
     },
@@ -8130,17 +8130,17 @@ window.APP_LESSONS['english|五下|第7單元 節慶與慶祝'] = {
       check: {
         q: '「端午節」的英文是什麼？',
         options: [
-          'Dragon Boat Festival',
           'Moon Festival',
           'Lantern Festival',
-          'Spring Festival'
+          'Spring Festival',
+          'Dragon Boat Festival'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'Moon Festival 是中秋節。',
           'Lantern Festival 是元宵節。',
-          'Spring Festival 是農曆新年。'
+          'Spring Festival 是農曆新年。',
+          null
         ]
       }
     },
@@ -8175,17 +8175,17 @@ window.APP_LESSONS['english|五下|第7單元 節慶與慶祝'] = {
       check: {
         q: '聖誕節的祝賀語習慣怎麼說？',
         options: [
+          'Nice Christmas!',
           'Merry Christmas!',
           'Happy Christmas Day only!',
-          'Good Christmas!',
-          'Nice Christmas!'
+          'Good Christmas!'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'Nice 不是節慶的祝賀用語。',
           null,
           '英式英文偶爾用 Happy，但這個說法不自然。',
-          'Good 不用於節慶祝賀。',
-          'Nice 不是節慶的祝賀用語。'
+          'Good 不用於節慶祝賀。'
         ]
       }
     },
@@ -8200,17 +8200,17 @@ window.APP_LESSONS['english|五下|第7單元 節慶與慶祝'] = {
       check: {
         q: '向外國朋友介紹台灣節慶時，比較完整的內容應該包含什麼？',
         options: [
-          '時間、活動與背後的意義',
           '只說節日名稱',
           '只說放幾天假',
-          '只說吃什麼'
+          '只說吃什麼',
+          '時間、活動與背後的意義'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '只有名稱無法讓對方理解。',
           '假期長短不是文化重點。',
-          '食物只是其中一部分。'
+          '食物只是其中一部分。',
+          null
         ]
       }
     },
@@ -8257,13 +8257,13 @@ window.APP_LESSONS['english|五下|第8單元 校園活動與社團'] = {
         { label: '比賽', items: ['speech contest', 'singing contest', 'science fair'] }] },
       check: {
         q: '「校外教學」的英文是什麼？',
-        options: ['field trip', 'sports day', 'graduation', 'homework'],
-        answer: 0,
+        options: ['graduation', 'homework', 'field trip', 'sports day'],
+        answer: 2,
         why: [
-          null,
-          'sports day 是運動會。',
           'graduation 是畢業典禮。',
-          'homework 是家庭作業。'
+          'homework 是家庭作業。',
+          null,
+          'sports day 是運動會。'
         ]
       }
     },
@@ -8308,17 +8308,17 @@ window.APP_LESSONS['english|五下|第8單元 校園活動與社團'] = {
       check: {
         q: '「一百公尺賽跑」當作項目名稱時，正確的寫法是什麼？',
         options: [
+          'the race of 100 meters long',
           'the 100-meter race',
           'the 100-meters race',
-          'the 100 meter races',
-          'the race of 100 meters long'
+          'the 100 meter races'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個說法冗長且不自然。',
           null,
           '當形容詞用時單位不加 s。',
-          '這個說法的單複數不一致。',
-          '這個說法冗長且不自然。'
+          '這個說法的單複數不一致。'
         ]
       }
     },
@@ -8335,17 +8335,17 @@ window.APP_LESSONS['english|五下|第8單元 校園活動與社團'] = {
       check: {
         q: '「你可以幫我做作業嗎？」的正確說法是什麼？',
         options: [
-          'Can you help me with my homework?',
           'Can you help me my homework?',
           'Can you help with me my homework?',
-          'Can you help I with homework?'
+          'Can you help I with homework?',
+          'Can you help me with my homework?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '缺少介系詞 with。',
           'with 的位置不正確。',
-          '動詞後面要用受格 me。'
+          '動詞後面要用受格 me。',
+          null
         ]
       }
     },
@@ -8359,17 +8359,17 @@ window.APP_LESSONS['english|五下|第8單元 校園活動與社團'] = {
       check: {
         q: '描述昨天發生的活動，應該用什麼時態？',
         options: [
-          '過去簡單式',
           '現在簡單式',
           '現在進行式',
-          '未來式'
+          '未來式',
+          '過去簡單式'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '現在式用於習慣或事實。',
           '進行式描述此刻正在做的事。',
-          '未來式描述還沒發生的事。'
+          '未來式描述還沒發生的事。',
+          null
         ]
       }
     },
@@ -8384,17 +8384,17 @@ window.APP_LESSONS['english|五下|第8單元 校園活動與社團'] = {
       check: {
         q: '寫活動心得時，最後一段通常寫什麼？',
         options: [
+          '明天的計畫',
           '自己的感受與收穫',
           '重複活動名稱',
-          '別人的成績',
-          '明天的計畫'
+          '別人的成績'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這與活動心得無關。',
           null,
           '重複會顯得沒有重點。',
-          '心得應該以自己的經驗為主。',
-          '這與活動心得無關。'
+          '心得應該以自己的經驗為主。'
         ]
       }
     }
@@ -8413,17 +8413,17 @@ window.APP_LESSONS['english|五下|第9單元 短文閱讀入門'] = {
       check: {
         q: '開始閱讀前先看題目，有什麼好處？',
         options: [
-          '知道要找什麼資訊，閱讀更有方向',
           '可以不用讀文章',
           '可以直接猜答案',
-          '沒有任何好處'
+          '沒有任何好處',
+          '知道要找什麼資訊，閱讀更有方向'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '仍然需要閱讀文章才能作答。',
           '猜測的正確率很低。',
-          '先看題目確實能提高效率。'
+          '先看題目確實能提高效率。',
+          null
         ]
       }
     },
@@ -8463,17 +8463,17 @@ window.APP_LESSONS['english|五下|第9單元 短文閱讀入門'] = {
       check: {
         q: '回答細節題最快的方法是什麼？',
         options: [
+          '只看第一段',
           '用題目的關鍵字回文章中定位',
           '把整篇文章背下來',
-          '憑印象作答',
-          '只看第一段'
+          '憑印象作答'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '答案可能在任何一段。',
           null,
           '背誦既費時也沒必要。',
-          '憑印象作答容易記錯細節。',
-          '答案可能在任何一段。'
+          '憑印象作答容易記錯細節。'
         ]
       }
     },
@@ -8488,17 +8488,17 @@ window.APP_LESSONS['english|五下|第9單元 短文閱讀入門'] = {
       check: {
         q: '看到 careless 這個字，可以怎麼推測意思？',
         options: [
-          '字尾 -less 表示「沒有」，care 是關心，合起來是「不小心的」',
-          '完全無法推測',
           '一定要查字典才知道',
-          '它應該是名詞'
+          '它應該是名詞',
+          '字尾 -less 表示「沒有」，care 是關心，合起來是「不小心的」',
+          '完全無法推測'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '字的組成提供了明確線索。',
           '查字典能確認，但先猜能加快閱讀。',
-          '從字尾可以判斷它是形容詞。'
+          '從字尾可以判斷它是形容詞。',
+          null,
+          '字的組成提供了明確線索。'
         ]
       }
     },
@@ -8512,17 +8512,17 @@ window.APP_LESSONS['english|五下|第9單元 短文閱讀入門'] = {
       check: {
         q: '讀到 they 這個代名詞時，應該怎麼確認它指誰？',
         options: [
-          '往前找最近且單複數相符的名詞',
-          '往後找',
           '隨便猜一個',
-          '忽略它繼續讀'
+          '忽略它繼續讀',
+          '往前找最近且單複數相符的名詞',
+          '往後找'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '代名詞通常指前面提過的內容。',
           '猜錯會誤解整段意思。',
-          '忽略代名詞會讓理解變模糊。'
+          '忽略代名詞會讓理解變模糊。',
+          null,
+          '代名詞通常指前面提過的內容。'
         ]
       }
     },
@@ -8567,13 +8567,13 @@ window.APP_LESSONS['english|六上|第1單元 be 動詞過去式'] = {
         { label: 'were', items: ['you', 'we', 'they', 'my parents'] }] },
       check: {
         q: '主詞是 they 時，be 動詞的過去式要用什麼？',
-        options: ['were', 'was', 'is', 'are'],
-        answer: 0,
+        options: ['are', 'were', 'was', 'is'],
+        answer: 1,
         why: [
+          'are 是現在式。',
           null,
           'was 用於 I 與第三人稱單數。',
-          'is 是現在式。',
-          'are 是現在式。'
+          'is 是現在式。'
         ]
       }
     },
@@ -8588,17 +8588,17 @@ window.APP_LESSONS['english|六上|第1單元 be 動詞過去式'] = {
       check: {
         q: '句子中出現 last night，應該用什麼時態？',
         options: [
-          '過去式',
           '現在式',
           '未來式',
-          '現在進行式'
+          '現在進行式',
+          '過去式'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '現在式用於習慣或事實。',
           '未來式用於還沒發生的事。',
-          '進行式描述此刻正在做的事。'
+          '進行式描述此刻正在做的事。',
+          null
         ]
       }
     },
@@ -8614,17 +8614,17 @@ window.APP_LESSONS['english|六上|第1單元 be 動詞過去式'] = {
       check: {
         q: '「他昨天不在學校」的正確說法是什麼？',
         options: [
-          'He was not at school yesterday.',
-          'He did not was at school yesterday.',
           'He was not at school tomorrow.',
-          'He not was at school yesterday.'
+          'He not was at school yesterday.',
+          'He was not at school yesterday.',
+          'He did not was at school yesterday.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'be 動詞的否定不用 did。',
           'tomorrow 與過去式矛盾。',
-          'not 要放在 be 動詞後面。'
+          'not 要放在 be 動詞後面。',
+          null,
+          'be 動詞的否定不用 did。'
         ]
       }
     },
@@ -8690,17 +8690,17 @@ window.APP_LESSONS['english|六上|第1單元 be 動詞過去式'] = {
       check: {
         q: '「我小時候很害羞」的正確說法是什麼？',
         options: [
+          'When I were a child, I was shy.',
           'When I was a child, I was very shy.',
           'When I am a child, I was very shy.',
-          'When I was a child, I am very shy.',
-          'When I were a child, I was shy.'
+          'When I was a child, I am very shy.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '主詞 I 的過去式 be 動詞是 was。',
           null,
           '兩個子句都應該用過去式。',
-          '後半也要用過去式。',
-          '主詞 I 的過去式 be 動詞是 was。'
+          '後半也要用過去式。'
         ]
       }
     }
@@ -8722,17 +8722,17 @@ window.APP_LESSONS['english|六上|第2單元 規則動詞過去式'] = {
       check: {
         q: '規則動詞的過去式，會隨主詞改變形式嗎？',
         options: [
+          '會，主詞是 I 時要變化',
           '不會，所有主詞都用同一個形式',
           '會，第三人稱單數要加 s',
-          '會，複數要加 s',
-          '會，主詞是 I 時要變化'
+          '會，複數要加 s'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '主詞不影響過去式的形式。',
           null,
           '加 s 是現在式的規則。',
-          '過去式不加 s。',
-          '主詞不影響過去式的形式。'
+          '過去式不加 s。'
         ]
       }
     },
@@ -8772,17 +8772,17 @@ window.APP_LESSONS['english|六上|第2單元 規則動詞過去式'] = {
       check: {
         q: 'wanted 的 ed 應該怎麼唸？',
         options: [
-          '唸 id，多一個音節',
           '唸 t',
           '唸 d',
-          '不發音'
+          '不發音',
+          '唸 id，多一個音節'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '字尾是 t 的動詞不唸 t。',
           '字尾是 t 或 d 時要唸 id。',
-          'ed 一定要發音。'
+          'ed 一定要發音。',
+          null
         ]
       }
     },
@@ -8799,17 +8799,17 @@ window.APP_LESSONS['english|六上|第2單元 規則動詞過去式'] = {
       check: {
         q: '「他昨天沒有去學校」的正確說法是什麼？',
         options: [
-          'He did not go to school yesterday.',
-          'He did not went to school yesterday.',
           'He not went to school yesterday.',
-          'He was not go to school yesterday.'
+          'He was not go to school yesterday.',
+          'He did not go to school yesterday.',
+          'He did not went to school yesterday.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '用了 did 之後動詞要用原形。',
           '否定句需要助動詞。',
-          '不能同時使用 be 動詞與一般動詞。'
+          '不能同時使用 be 動詞與一般動詞。',
+          null,
+          '用了 did 之後動詞要用原形。'
         ]
       }
     },
@@ -8850,17 +8850,17 @@ window.APP_LESSONS['english|六上|第2單元 規則動詞過去式'] = {
       check: {
         q: '寫一段描述昨天的事情時，最容易犯的錯誤是什麼？',
         options: [
-          '有些動詞忘記改成過去式',
           '句子太短',
           '用了太多形容詞',
-          '段落太整齊'
+          '段落太整齊',
+          '有些動詞忘記改成過去式'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '長度不是文法問題。',
           '形容詞多寡不影響時態。',
-          '段落結構與時態無關。'
+          '段落結構與時態無關。',
+          null
         ]
       }
     }
@@ -8881,13 +8881,13 @@ window.APP_LESSONS['english|六上|第3單元 不規則動詞過去式'] = {
         { label: '不變', items: ['put→put', 'cut→cut', 'read→read'] }] },
       check: {
         q: 'go 的過去式是什麼？',
-        options: ['went', 'goed', 'gone', 'going'],
-        answer: 0,
+        options: ['gone', 'going', 'went', 'goed'],
+        answer: 2,
         why: [
-          null,
-          'go 是不規則動詞，不加 ed。',
           'gone 是過去分詞，用在完成式。',
-          'going 是現在分詞。'
+          'going 是現在分詞。',
+          null,
+          'go 是不規則動詞，不加 ed。'
         ]
       }
     },
@@ -8901,13 +8901,13 @@ window.APP_LESSONS['english|六上|第3單元 不規則動詞過去式'] = {
         { label: '次常用', items: ['got', 'made', 'knew', 'thought'] }] },
       check: {
         q: 'have 的過去式是什麼？',
-        options: ['had', 'haved', 'has', 'having'],
-        answer: 0,
+        options: ['haved', 'has', 'having', 'had'],
+        answer: 3,
         why: [
-          null,
           'have 是不規則動詞。',
           'has 是第三人稱單數的現在式。',
-          'having 是現在分詞。'
+          'having 是現在分詞。',
+          null
         ]
       }
     },
@@ -8922,13 +8922,13 @@ window.APP_LESSONS['english|六上|第3單元 不規則動詞過去式'] = {
         { label: 'ame', items: ['came', 'became', 'gave'] }] },
       check: {
         q: 'tell 的過去式是什麼？',
-        options: ['told', 'telled', 'tells', 'telling'],
-        answer: 0,
+        options: ['telling', 'told', 'telled', 'tells'],
+        answer: 1,
         why: [
+          'telling 是現在分詞。',
           null,
           'tell 是不規則動詞。',
-          'tells 是現在式的第三人稱單數。',
-          'telling 是現在分詞。'
+          'tells 是現在式的第三人稱單數。'
         ]
       }
     },
@@ -8970,17 +8970,17 @@ window.APP_LESSONS['english|六上|第3單元 不規則動詞過去式'] = {
       check: {
         q: '「他昨天沒有吃早餐」的正確說法是什麼？',
         options: [
-          'He did not eat breakfast yesterday.',
           'He did not ate breakfast yesterday.',
           'He not ate breakfast yesterday.',
-          'He was not eat breakfast yesterday.'
+          'He was not eat breakfast yesterday.',
+          'He did not eat breakfast yesterday.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '用了 did 之後動詞要用原形。',
           '否定句需要助動詞。',
-          '不能同時使用 be 動詞與一般動詞。'
+          '不能同時使用 be 動詞與一般動詞。',
+          null
         ]
       }
     },
@@ -8993,17 +8993,17 @@ window.APP_LESSONS['english|六上|第3單元 不規則動詞過去式'] = {
       check: {
         q: '記不規則動詞比較有效的方法是什麼？',
         options: [
-          '依變化規律分組，並在句子中反覆使用',
-          '一次背完全部',
           '只看不寫',
-          '只記中文意思'
+          '只記中文意思',
+          '依變化規律分組，並在句子中反覆使用',
+          '一次背完全部'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '一次太多容易混淆也記不牢。',
           '動手寫與使用能加深記憶。',
-          '不知道形式變化就無法使用。'
+          '不知道形式變化就無法使用。',
+          null,
+          '一次太多容易混淆也記不牢。'
         ]
       }
     }
@@ -9030,17 +9030,17 @@ window.APP_LESSONS['english|六上|第4單元 過去式否定與問句'] = {
       check: {
         q: '為什麼 did not 後面的動詞要用原形？',
         options: [
-          '因為過去的時態資訊已經在 did 上面了',
           '因為原形比較好唸',
           '因為沒有規則',
-          '因為動詞不能變化'
+          '因為動詞不能變化',
+          '因為過去的時態資訊已經在 did 上面了'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這是文法規則而非發音考量。',
           '這個規則非常明確。',
-          '動詞在肯定句中是會變化的。'
+          '動詞在肯定句中是會變化的。',
+          null
         ]
       }
     },
@@ -9077,17 +9077,17 @@ window.APP_LESSONS['english|六上|第4單元 過去式否定與問句'] = {
       check: {
         q: 'Did they win the game? 的正確簡答是什麼？',
         options: [
+          'Yes, they were.',
           'Yes, they did.',
           'Yes, they win.',
-          'Yes, they won.',
-          'Yes, they were.'
+          'Yes, they won.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '問句用 did，回答也要用 did。',
           null,
           '簡答要用助動詞而不是主要動詞。',
-          '簡答時不重複主要動詞。',
-          '問句用 did，回答也要用 did。'
+          '簡答時不重複主要動詞。'
         ]
       }
     },
@@ -9104,17 +9104,17 @@ window.APP_LESSONS['english|六上|第4單元 過去式否定與問句'] = {
       check: {
         q: '「他昨天去了哪裡？」的正確說法是什麼？',
         options: [
-          'Where did he go yesterday?',
-          'Where did he went yesterday?',
           'Where he did go yesterday?',
-          'Where he went yesterday?'
+          'Where he went yesterday?',
+          'Where did he go yesterday?',
+          'Where did he went yesterday?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '用了 did 之後動詞要用原形。',
           '助動詞要放在主詞前面。',
-          '疑問句需要助動詞。'
+          '疑問句需要助動詞。',
+          null,
+          '用了 did 之後動詞要用原形。'
         ]
       }
     },
@@ -9132,17 +9132,17 @@ window.APP_LESSONS['english|六上|第4單元 過去式否定與問句'] = {
       check: {
         q: '「誰打破了窗戶？」的正確說法是什麼？',
         options: [
-          'Who broke the window?',
-          'Who did broke the window?',
           'Who did break window?',
-          'Whom broke the window?'
+          'Whom broke the window?',
+          'Who broke the window?',
+          'Who did broke the window?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'who 是主詞時不需要 did。',
           '缺少冠詞，而且不需要 did。',
-          'whom 用於受詞的位置。'
+          'whom 用於受詞的位置。',
+          null,
+          'who 是主詞時不需要 did。'
         ]
       }
     },
@@ -9161,17 +9161,17 @@ window.APP_LESSONS['english|六上|第4單元 過去式否定與問句'] = {
       check: {
         q: '「我昨天不累」與「我昨天沒去」的否定方式有什麼不同？',
         options: [
+          '兩者都不需要助動詞',
           '前者用 was not，後者用 did not 加原形動詞',
           '兩者都用 did not',
-          '兩者都用 was not',
-          '兩者都不需要助動詞'
+          '兩者都用 was not'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '否定句需要適當的否定形式。',
           null,
           'be 動詞的句子不用 did。',
-          '一般動詞的句子不用 was。',
-          '否定句需要適當的否定形式。'
+          '一般動詞的句子不用 was。'
         ]
       }
     }
@@ -9222,17 +9222,17 @@ window.APP_LESSONS['english|六上|第5單元 未來式 be going to'] = {
       check: {
         q: '看到天空烏雲密布，說「快下雨了」用哪一種說法最自然？',
         options: [
-          'It is going to rain.',
           'It rains.',
           'It rained.',
-          'It is raining every day.'
+          'It is raining every day.',
+          'It is going to rain.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '現在式表示習慣或事實。',
           '過去式表示已經發生過。',
-          '這個說法表示習慣性的降雨。'
+          '這個說法表示習慣性的降雨。',
+          null
         ]
       }
     },
@@ -9248,17 +9248,17 @@ window.APP_LESSONS['english|六上|第5單元 未來式 be going to'] = {
       check: {
         q: '「他們不打算來」的正確說法是什麼？',
         options: [
+          'They not are going to come.',
           'They are not going to come.',
           'They do not going to come.',
-          'They are not going to came.',
-          'They not are going to come.'
+          'They are not going to came.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'not 要放在 be 動詞後面。',
           null,
           '這個句型的否定不用 do。',
-          'going to 後面要接原形動詞。',
-          'not 要放在 be 動詞後面。'
+          'going to 後面要接原形動詞。'
         ]
       }
     },
@@ -9275,17 +9275,17 @@ window.APP_LESSONS['english|六上|第5單元 未來式 be going to'] = {
       check: {
         q: 'Are you going to study tonight? 的正確簡答是什麼？',
         options: [
-          'Yes, I am.',
-          'Yes, I do.',
           'Yes, I will going.',
-          'Yes, I going.'
+          'Yes, I going.',
+          'Yes, I am.',
+          'Yes, I do.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這個句型用 be 動詞回答。',
           '簡答不需要重複 going。',
-          '簡答要有 be 動詞。'
+          '簡答要有 be 動詞。',
+          null,
+          '這個句型用 be 動詞回答。'
         ]
       }
     },
@@ -9301,17 +9301,17 @@ window.APP_LESSONS['english|六上|第5單元 未來式 be going to'] = {
       check: {
         q: '句子中出現 next Monday，應該用什麼時態？',
         options: [
+          '過去進行式',
           '未來式',
           '過去式',
-          '現在完成式',
-          '過去進行式'
+          '現在完成式'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '過去進行式描述過去某時正在做的事。',
           null,
           '過去式用於已經發生的事。',
-          '完成式強調與現在的關聯。',
-          '過去進行式描述過去某時正在做的事。'
+          '完成式強調與現在的關聯。'
         ]
       }
     },
@@ -9326,17 +9326,17 @@ window.APP_LESSONS['english|六上|第5單元 未來式 be going to'] = {
       check: {
         q: '要問「你這個暑假打算做什麼？」，正確的說法是什麼？',
         options: [
-          'What are you going to do this summer?',
           'What you are going to do this summer?',
           'What do you going to do this summer?',
-          'What are you going do this summer?'
+          'What are you going do this summer?',
+          'What are you going to do this summer?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'be 動詞要放在主詞前面。',
           '這個句型不用 do。',
-          '缺少 to，going to 是固定用法。'
+          '缺少 to，going to 是固定用法。',
+          null
         ]
       }
     }
@@ -9384,17 +9384,17 @@ window.APP_LESSONS['english|六上|第6單元 未來式 will'] = {
       check: {
         q: '電話突然響了，你說「我去接！」應該用哪一種說法？',
         options: [
-          'I will get it!',
           'I am going to get it.',
           'I get it.',
-          'I got it.'
+          'I got it.',
+          'I will get it!'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'be going to 用於事先計畫好的事。',
           '現在式無法表達當下的決定。',
-          '過去式表示已經發生。'
+          '過去式表示已經發生。',
+          null
         ]
       }
     },
@@ -9408,13 +9408,13 @@ window.APP_LESSONS['english|六上|第6單元 未來式 will'] = {
         { label: '否定縮寫', items: ['won’t'] }] },
       check: {
         q: 'will not 的縮寫是什麼？',
-        options: ['won’t', 'willn’t', 'will’nt', 'wo not'],
-        answer: 0,
+        options: ['will’nt', 'wo not', 'won’t', 'willn’t'],
+        answer: 2,
         why: [
-          null,
-          '英文沒有這種縮寫。',
           '撇號的位置不正確。',
-          '這不是標準的縮寫形式。'
+          '這不是標準的縮寫形式。',
+          null,
+          '英文沒有這種縮寫。'
         ]
       }
     },
@@ -9431,17 +9431,17 @@ window.APP_LESSONS['english|六上|第6單元 未來式 will'] = {
       check: {
         q: 'Will you help me? 這句話除了問未來，還可能表示什麼？',
         options: [
+          '拒絕',
           '禮貌的請求',
           '過去的事',
-          '命令',
-          '拒絕'
+          '命令'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這是提出請求而不是拒絕。',
           null,
           'will 用於未來而非過去。',
-          '問句形式比命令句客氣。',
-          '這是提出請求而不是拒絕。'
+          '問句形式比命令句客氣。'
         ]
       }
     },
@@ -9457,17 +9457,17 @@ window.APP_LESSONS['english|六上|第6單元 未來式 will'] = {
       check: {
         q: '要表達「我想明天會下雨」，比較自然的說法是什麼？',
         options: [
+          'I will think it rains.',
           'I think it will rain tomorrow.',
           'I think it rains tomorrow.',
-          'I think it rained tomorrow.',
-          'I will think it rains.'
+          'I think it rained tomorrow.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個語序改變了意思。',
           null,
           '明天的事要用未來式。',
-          '過去式與 tomorrow 矛盾。',
-          '這個語序改變了意思。'
+          '過去式與 tomorrow 矛盾。'
         ]
       }
     },
@@ -9518,13 +9518,13 @@ window.APP_LESSONS['english|六上|第7單元 比較級'] = {
         { label: '重複子音', items: ['bigger', 'hotter', 'thinner'] }] },
       check: {
         q: 'big 的比較級是什麼？',
-        options: ['bigger', 'biger', 'more big', 'bigest'],
-        answer: 0,
+        options: ['biger', 'more big', 'bigest', 'bigger'],
+        answer: 3,
         why: [
-          null,
           '短母音加單子音要重複子音。',
           '短形容詞用 er 而不是 more。',
-          '這是最高級的錯誤拼法。'
+          '這是最高級的錯誤拼法。',
+          null
         ]
       }
     },
@@ -9539,17 +9539,17 @@ window.APP_LESSONS['english|六上|第7單元 比較級'] = {
       check: {
         q: 'beautiful 的比較級是什麼？',
         options: [
-          'more beautiful',
-          'beautifuler',
           'more beautifuler',
-          'beautifullest'
+          'beautifullest',
+          'more beautiful',
+          'beautifuler'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '長形容詞不加 er。',
           '不能同時使用 more 與 er。',
-          '這是最高級的形式。'
+          '這是最高級的形式。',
+          null,
+          '長形容詞不加 er。'
         ]
       }
     },
@@ -9586,17 +9586,17 @@ window.APP_LESSONS['english|六上|第7單元 比較級'] = {
       check: {
         q: '「這本書比那本有趣」的正確說法是什麼？',
         options: [
+          'This book more interesting than that one.',
           'This book is more interesting than that one.',
           'This book is interestinger than that one.',
-          'This book is more interesting that one.',
-          'This book more interesting than that one.'
+          'This book is more interesting that one.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句子缺少 be 動詞。',
           null,
           '長形容詞不加 er。',
-          '比較時需要 than。',
-          '句子缺少 be 動詞。'
+          '比較時需要 than。'
         ]
       }
     },
@@ -9613,17 +9613,17 @@ window.APP_LESSONS['english|六上|第7單元 比較級'] = {
       check: {
         q: '要說「高很多」，正確的說法是什麼？',
         options: [
-          'much taller',
-          'very taller',
           'very tall than',
-          'more taller'
+          'more taller',
+          'much taller',
+          'very taller'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'very 不能修飾比較級。',
           '這個結構不完整。',
-          '不能同時用 more 與 er。'
+          '不能同時用 more 與 er。',
+          null,
+          'very 不能修飾比較級。'
         ]
       }
     },
@@ -9640,17 +9640,17 @@ window.APP_LESSONS['english|六上|第7單元 比較級'] = {
       check: {
         q: '「他和我一樣高」的正確說法是什麼？',
         options: [
-          'He is as tall as me.',
           'He is as taller as me.',
           'He is as tall than me.',
-          'He is so tall as me.'
+          'He is so tall as me.',
+          'He is as tall as me.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '兩個 as 中間要用原級。',
           '同級比較用 as 而不是 than。',
-          '肯定句中習慣用 as…as。'
+          '肯定句中習慣用 as…as。',
+          null
         ]
       }
     }
@@ -9672,13 +9672,13 @@ window.APP_LESSONS['english|六上|第8單元 最高級'] = {
         { label: '最高級', items: ['tallest', 'biggest', 'happiest'] }] },
       check: {
         q: 'happy 的最高級是什麼？',
-        options: ['happiest', 'happyest', 'most happy', 'happier'],
-        answer: 0,
+        options: ['happyest', 'most happy', 'happier', 'happiest'],
+        answer: 3,
         why: [
-          null,
           '子音加 y 要去 y 加 iest。',
           '短形容詞不用 most。',
-          '這是比較級而不是最高級。'
+          '這是比較級而不是最高級。',
+          null
         ]
       }
     },
@@ -9717,13 +9717,13 @@ window.APP_LESSONS['english|六上|第8單元 最高級'] = {
         { label: 'many', items: ['many', 'more', 'most'] }] },
       check: {
         q: 'bad 的最高級是什麼？',
-        options: ['worst', 'baddest', 'most bad', 'worse'],
-        answer: 0,
+        options: ['worse', 'worst', 'baddest', 'most bad'],
+        answer: 1,
         why: [
+          'worse 是比較級。',
           null,
           'bad 是不規則變化。',
-          '不規則形容詞不用 most。',
-          'worse 是比較級。'
+          '不規則形容詞不用 most。'
         ]
       }
     },
@@ -9740,17 +9740,17 @@ window.APP_LESSONS['english|六上|第8單元 最高級'] = {
       check: {
         q: '「他是班上最高的」的正確說法是什麼？',
         options: [
-          'He is the tallest in our class.',
-          'He is tallest in our class.',
           'He is the taller in our class.',
-          'He is the most tall in our class.'
+          'He is the most tall in our class.',
+          'He is the tallest in our class.',
+          'He is tallest in our class.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '最高級前面要加 the。',
           '三人以上比較要用最高級。',
-          '短形容詞不用 most。'
+          '短形容詞不用 most。',
+          null,
+          '最高級前面要加 the。'
         ]
       }
     },
@@ -9766,17 +9766,17 @@ window.APP_LESSONS['english|六上|第8單元 最高級'] = {
       check: {
         q: '「這是最好的電影之一」的正確說法是什麼？',
         options: [
-          'It is one of the best movies.',
-          'It is one of the best movie.',
           'It is one of best movies.',
-          'It is the one of best movie.'
+          'It is the one of best movie.',
+          'It is one of the best movies.',
+          'It is one of the best movie.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'one of 後面要接複數名詞。',
           '最高級前面要加 the。',
-          '這個結構不正確。'
+          '這個結構不正確。',
+          null,
+          'one of 後面要接複數名詞。'
         ]
       }
     },
@@ -9794,17 +9794,17 @@ window.APP_LESSONS['english|六上|第8單元 最高級'] = {
       check: {
         q: '在三個人之間比較身高，應該用哪一種形式？',
         options: [
-          '最高級',
           '比較級',
           '原級',
-          '不需要變化'
+          '不需要變化',
+          '最高級'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '比較級用於兩者之間。',
           '原級用於沒有比較的情況。',
-          '比較時形容詞必須變化。'
+          '比較時形容詞必須變化。',
+          null
         ]
       }
     }
@@ -9852,13 +9852,13 @@ window.APP_LESSONS['english|六上|第9單元 旅遊與計畫'] = {
         { label: '旅途中', items: ['flight', 'hotel', 'sightseeing', 'souvenir'] }] },
       check: {
         q: '下列哪一個是不可數名詞？',
-        options: ['luggage', 'ticket', 'hotel', 'souvenir'],
-        answer: 0,
+        options: ['ticket', 'hotel', 'souvenir', 'luggage'],
+        answer: 3,
         why: [
-          null,
           'ticket 可數，有複數 tickets。',
           'hotel 可數。',
-          'souvenir 也可數。'
+          'souvenir 也可數。',
+          null
         ]
       }
     },
@@ -9875,17 +9875,17 @@ window.APP_LESSONS['english|六上|第9單元 旅遊與計畫'] = {
       check: {
         q: '「這是亞洲最受歡迎的城市之一」的正確說法是什麼？',
         options: [
+          'It is more popular cities in Asia.',
           'It is one of the most popular cities in Asia.',
           'It is one of the most popular city in Asia.',
-          'It is the most popular cities in Asia.',
-          'It is more popular cities in Asia.'
+          'It is the most popular cities in Asia.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '比較級不能這樣使用。',
           null,
           'one of 後面要接複數名詞。',
-          '加了 one of 才需要複數，這裡結構不一致。',
-          '比較級不能這樣使用。'
+          '加了 one of 才需要複數，這裡結構不一致。'
         ]
       }
     },
@@ -9900,17 +9900,17 @@ window.APP_LESSONS['english|六上|第9單元 旅遊與計畫'] = {
       check: {
         q: '「去年我去了台東」的正確說法是什麼？',
         options: [
-          'Last year, I went to Taitung.',
-          'Last year, I go to Taitung.',
           'Last year, I am going to Taitung.',
-          'Last year, I will go to Taitung.'
+          'Last year, I will go to Taitung.',
+          'Last year, I went to Taitung.',
+          'Last year, I go to Taitung.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '去年的事要用過去式。',
           'be going to 表示未來的計畫。',
-          'will 表示未來。'
+          'will 表示未來。',
+          null,
+          '去年的事要用過去式。'
         ]
       }
     },
@@ -9927,17 +9927,17 @@ window.APP_LESSONS['english|六上|第9單元 旅遊與計畫'] = {
       check: {
         q: '要請路人幫忙拍照，比較禮貌的說法是什麼？',
         options: [
+          'Photo!',
           'Could you take a photo for us, please?',
           'Take a photo!',
-          'You take photo.',
-          'Photo!'
+          'You take photo.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '只說名詞無法表達完整的請求。',
           null,
           '直接的命令句不禮貌。',
-          '這個說法像在指使人。',
-          '只說名詞無法表達完整的請求。'
+          '這個說法像在指使人。'
         ]
       }
     },
@@ -9952,17 +9952,17 @@ window.APP_LESSONS['english|六上|第9單元 旅遊與計畫'] = {
       check: {
         q: '寫旅遊心得時，結尾常用什麼方式收束？',
         options: [
-          '表達感想或未來的期望',
-          '重複開頭的句子',
           '列出所有花費',
-          '寫下天氣預報'
+          '寫下天氣預報',
+          '表達感想或未來的期望',
+          '重複開頭的句子'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '重複會讓文章顯得單調。',
           '花費通常不是心得的重點。',
-          '天氣預報與心得無關。'
+          '天氣預報與心得無關。',
+          null,
+          '重複會讓文章顯得單調。'
         ]
       }
     }
@@ -9983,17 +9983,17 @@ window.APP_LESSONS['english|六下|第1單元 時態綜合複習'] = {
       check: {
         q: '選擇時態時，最重要的判斷依據是什麼？',
         options: [
-          '事情發生的時間，以及說話者想強調什麼',
           '句子的長度',
           '主詞是誰',
-          '動詞的字母數'
+          '動詞的字母數',
+          '事情發生的時間，以及說話者想強調什麼'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '長度與時態無關。',
           '主詞影響動詞形式，但不決定時態。',
-          '拼字長短與時態無關。'
+          '拼字長短與時態無關。',
+          null
         ]
       }
     },
@@ -10012,17 +10012,17 @@ window.APP_LESSONS['english|六下|第1單元 時態綜合複習'] = {
       check: {
         q: '看到句子裡有 since 2020，通常要用什麼時態？',
         options: [
-          '現在完成式',
-          '過去簡單式',
           '未來式',
-          '現在進行式'
+          '現在進行式',
+          '現在完成式',
+          '過去簡單式'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '過去式表示已經結束的事。',
           '未來式指還沒發生的事。',
-          '進行式描述此刻正在做的事。'
+          '進行式描述此刻正在做的事。',
+          null,
+          '過去式表示已經結束的事。'
         ]
       }
     },
@@ -10039,17 +10039,17 @@ window.APP_LESSONS['english|六下|第1單元 時態綜合複習'] = {
       check: {
         q: '下列哪一句的用法「不正確」？',
         options: [
+          'I read every night.',
           'I am knowing the answer.',
           'I know the answer.',
-          'I am reading a book.',
-          'I read every night.'
+          'I am reading a book.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這是描述習慣，用簡單式正確。',
           null,
           '狀態動詞用簡單式是正確的。',
-          '讀書是動作，可以用進行式。',
-          '這是描述習慣，用簡單式正確。'
+          '讀書是動作，可以用進行式。'
         ]
       }
     },
@@ -10095,17 +10095,17 @@ window.APP_LESSONS['english|六下|第1單元 時態綜合複習'] = {
       check: {
         q: '朋友問你要不要一起去，你當場答應「好，我會去」，用哪一種說法最自然？',
         options: [
-          'OK, I will go.',
-          'OK, I am going to go (planned last month).',
           'OK, I go.',
-          'OK, I went.'
+          'OK, I went.',
+          'OK, I will go.',
+          'OK, I am going to go (planned last month).'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這個選項的說明表示是很早以前就計畫好的。',
           '現在式無法表達當下的決定。',
-          '過去式表示已經去過了。'
+          '過去式表示已經去過了。',
+          null,
+          '這個選項的說明表示是很早以前就計畫好的。'
         ]
       }
     },
@@ -10177,17 +10177,17 @@ window.APP_LESSONS['english|六下|第2單元 助動詞 can／must／should'] = 
       check: {
         q: '「我五歲時就會游泳」的正確說法是什麼？',
         options: [
+          'I was can swim when I was five.',
           'I could swim when I was five.',
           'I can swim when I was five.',
-          'I could swam when I was five.',
-          'I was can swim when I was five.'
+          'I could swam when I was five.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '不能同時使用 be 動詞與助動詞。',
           null,
           '過去的能力要用 could。',
-          'could 後面要接原形動詞。',
-          '不能同時使用 be 動詞與助動詞。'
+          'could 後面要接原形動詞。'
         ]
       }
     },
@@ -10205,17 +10205,17 @@ window.APP_LESSONS['english|六下|第2單元 助動詞 can／must／should'] = 
       check: {
         q: 'You must not touch it. 是什麼意思？',
         options: [
-          '你絕對不可以碰它（禁止）',
           '你不必碰它',
           '你可以選擇要不要碰',
-          '你應該碰它'
+          '你應該碰它',
+          '你絕對不可以碰它（禁止）'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '「不必」要說 do not have to。',
           'must not 沒有選擇的空間。',
-          '這是禁止而不是建議。'
+          '這是禁止而不是建議。',
+          null
         ]
       }
     },
@@ -10231,13 +10231,13 @@ window.APP_LESSONS['english|六下|第2單元 助動詞 can／must／should'] = 
         note: 'should 用來提出建議。' },
       check: {
         q: '朋友身體不舒服，你想建議他去看醫生，應該用哪一個助動詞？',
-        options: ['should', 'must', 'can', 'will'],
-        answer: 0,
+        options: ['can', 'will', 'should', 'must'],
+        answer: 2,
         why: [
-          null,
-          'must 的語氣像命令，用於建議略強。',
           'can 表示能力或許可。',
-          'will 表示未來。'
+          'will 表示未來。',
+          null,
+          'must 的語氣像命令，用於建議略強。'
         ]
       }
     },
@@ -10256,17 +10256,17 @@ window.APP_LESSONS['english|六下|第2單元 助動詞 can／must／should'] = 
       check: {
         q: '要表達「我昨天必須早起」，應該怎麼說？',
         options: [
+          'I was must get up early.',
           'I had to get up early yesterday.',
           'I musted get up early yesterday.',
-          'I must got up early yesterday.',
-          'I was must get up early.'
+          'I must got up early yesterday.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '不能同時使用 be 動詞與助動詞。',
           null,
           'must 沒有過去式形式。',
-          'must 後面要接原形，而且不能表達過去。',
-          '不能同時使用 be 動詞與助動詞。'
+          'must 後面要接原形，而且不能表達過去。'
         ]
       }
     },
@@ -10316,17 +10316,17 @@ window.APP_LESSONS['english|六下|第3單元 動名詞與不定詞'] = {
       check: {
         q: '「游泳很有趣」的正確說法是什麼？',
         options: [
+          'To swimming is fun.',
           'Swimming is fun.',
           'Swimming are fun.',
-          'Swim is fun.',
-          'To swimming is fun.'
+          'Swim is fun.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'to 後面要接原形動詞。',
           null,
           '動名詞當主詞視為單數。',
-          '原形動詞不能直接當主詞。',
-          'to 後面要接原形動詞。'
+          '原形動詞不能直接當主詞。'
         ]
       }
     },
@@ -10342,17 +10342,17 @@ window.APP_LESSONS['english|六下|第3單元 動名詞與不定詞'] = {
       check: {
         q: '「我想要去」的正確說法是什麼？',
         options: [
-          'I want to go.',
-          'I want go.',
           'I want going.',
-          'I want to going.'
+          'I want to going.',
+          'I want to go.',
+          'I want go.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'want 後面要接不定詞。',
           'want 後面不接動名詞。',
-          'to 後面要接原形動詞。'
+          'to 後面要接原形動詞。',
+          null,
+          'want 後面要接不定詞。'
         ]
       }
     },
@@ -10366,17 +10366,17 @@ window.APP_LESSONS['english|六下|第3單元 動名詞與不定詞'] = {
       check: {
         q: '下列哪一句的用法正確？',
         options: [
-          'I finished doing my homework.',
           'I finished to do my homework.',
           'I finished do my homework.',
-          'I am finish doing my homework.'
+          'I am finish doing my homework.',
+          'I finished doing my homework.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'finish 後面只能接動名詞。',
           'finish 後面不能直接接原形。',
-          '不能同時使用 be 動詞與一般動詞。'
+          '不能同時使用 be 動詞與一般動詞。',
+          null
         ]
       }
     },
@@ -10449,17 +10449,17 @@ window.APP_LESSONS['english|六下|第3單元 動名詞與不定詞'] = {
       check: {
         q: '「謝謝你幫我」的正確說法是什麼？',
         options: [
-          'Thank you for helping me.',
           'Thank you for help me.',
           'Thank you for to help me.',
-          'Thank you help me.'
+          'Thank you help me.',
+          'Thank you for helping me.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '介系詞後面要用動名詞。',
           '介系詞後面不接不定詞。',
-          '缺少介系詞 for。'
+          '缺少介系詞 for。',
+          null
         ]
       }
     }
@@ -10508,17 +10508,17 @@ window.APP_LESSONS['english|六下|第4單元 疑問句綜合'] = {
       check: {
         q: '「他為什麼哭？」的正確說法是什麼？',
         options: [
-          'Why did he cry?',
           'Why he cried?',
           'Why did he cried?',
-          'Why he did cry?'
+          'Why he did cry?',
+          'Why did he cry?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '疑問句需要助動詞。',
           '用了 did 之後動詞要用原形。',
-          '助動詞要放在主詞前面。'
+          '助動詞要放在主詞前面。',
+          null
         ]
       }
     },
@@ -10536,17 +10536,17 @@ window.APP_LESSONS['english|六下|第4單元 疑問句綜合'] = {
       check: {
         q: '「發生了什麼事？」的正確說法是什麼？',
         options: [
-          'What happened?',
-          'What did happened?',
           'What did happen it?',
-          'What was happen?'
+          'What was happen?',
+          'What happened?',
+          'What did happened?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'what 是主詞，不需要助動詞。',
           '這個句子多了不必要的字。',
-          '不能同時使用 be 動詞與一般動詞。'
+          '不能同時使用 be 動詞與一般動詞。',
+          null,
+          'what 是主詞，不需要助動詞。'
         ]
       }
     },
@@ -10564,17 +10564,17 @@ window.APP_LESSONS['english|六下|第4單元 疑問句綜合'] = {
       check: {
         q: 'She is your sister, ____? 空格應該填什麼？',
         options: [
+          'isn’t her',
           'isn’t she',
           'is she',
-          'doesn’t she',
-          'isn’t her'
+          'doesn’t she'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '附加問句要用主格 she。',
           null,
           '前面是肯定，後面要用否定。',
-          '前面是 be 動詞，附加問句也要用 be 動詞。',
-          '附加問句要用主格 she。'
+          '前面是 be 動詞，附加問句也要用 be 動詞。'
         ]
       }
     },
@@ -10592,17 +10592,17 @@ window.APP_LESSONS['english|六下|第4單元 疑問句綜合'] = {
       check: {
         q: '「我不知道他住在哪裡」的正確說法是什麼？',
         options: [
+          'I do not know where he live.',
           'I do not know where he lives.',
           'I do not know where does he live.',
-          'I do not know where lives he.',
-          'I do not know where he live.'
+          'I do not know where lives he.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '主詞是第三人稱單數，動詞要加 s。',
           null,
           '間接問句不需要助動詞倒裝。',
-          '語序應該是主詞在前。',
-          '主詞是第三人稱單數，動詞要加 s。'
+          '語序應該是主詞在前。'
         ]
       }
     },
@@ -10651,13 +10651,13 @@ window.APP_LESSONS['english|六下|第5單元 連接詞與句子連結'] = {
         { label: '結果', items: ['so'] }] },
       check: {
         q: '要表達「他很累，所以早睡了」，應該用哪一個連接詞？',
-        options: ['so', 'but', 'or', 'because'],
-        answer: 0,
+        options: ['but', 'or', 'because', 'so'],
+        answer: 3,
         why: [
-          null,
           'but 表示轉折。',
           'or 表示選擇。',
-          'because 後面接的是原因而不是結果。'
+          'because 後面接的是原因而不是結果。',
+          null
         ]
       }
     },
@@ -10675,17 +10675,17 @@ window.APP_LESSONS['english|六下|第5單元 連接詞與句子連結'] = {
       check: {
         q: '「因為下雨」的兩種說法中，哪一個是正確的？',
         options: [
+          'because rain',
           'because of the rain',
           'because the rain',
-          'because of it rained',
-          'because rain'
+          'because of it rained'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '缺少必要的結構。',
           null,
           'because 後面要接完整的句子。',
-          'because of 後面要接名詞。',
-          '缺少必要的結構。'
+          'because of 後面要接名詞。'
         ]
       }
     },
@@ -10702,17 +10702,17 @@ window.APP_LESSONS['english|六下|第5單元 連接詞與句子連結'] = {
       check: {
         q: '「我到的時候會打給你」的正確說法是什麼？',
         options: [
-          'I will call you when I arrive.',
-          'I will call you when I will arrive.',
           'I call you when I will arrive.',
-          'I will call you when I arrived.'
+          'I will call you when I arrived.',
+          'I will call you when I arrive.',
+          'I will call you when I will arrive.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '時間子句中不用未來式。',
           '主要子句應該用未來式。',
-          '時間子句不該用過去式。'
+          '時間子句不該用過去式。',
+          null,
+          '時間子句中不用未來式。'
         ]
       }
     },
@@ -10756,17 +10756,17 @@ window.APP_LESSONS['english|六下|第5單元 連接詞與句子連結'] = {
       check: {
         q: '「如果明天下雨，我們就待在家」的正確說法是什麼？',
         options: [
-          'If it rains tomorrow, we will stay home.',
-          'If it will rain tomorrow, we will stay home.',
           'If it rains tomorrow, we stay home.',
-          'If it rained tomorrow, we will stay home.'
+          'If it rained tomorrow, we will stay home.',
+          'If it rains tomorrow, we will stay home.',
+          'If it will rain tomorrow, we will stay home.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'if 子句中不用未來式。',
           '主要子句應該用未來式。',
-          '這個時態組合不正確。'
+          '這個時態組合不正確。',
+          null,
+          'if 子句中不用未來式。'
         ]
       }
     },
@@ -10782,13 +10782,13 @@ window.APP_LESSONS['english|六下|第5單元 連接詞與句子連結'] = {
         { label: '舉例', items: ['for example', 'such as'] }] },
       check: {
         q: '要在句子開頭表示「然而」，可以用哪一個字？',
-        options: ['However,', 'But however', 'Although,', 'So,'],
-        answer: 0,
+        options: ['But however', 'Although,', 'So,', 'However,'],
+        answer: 3,
         why: [
-          null,
           '不需要同時使用 but 與 however。',
           'although 後面要接子句而不是逗號。',
-          'so 表示結果而不是轉折。'
+          'so 表示結果而不是轉折。',
+          null
         ]
       }
     }
@@ -10808,17 +10808,17 @@ window.APP_LESSONS['english|六下|第6單元 日常對話情境'] = {
       check: {
         q: '別人問 How was your weekend? 時，比較好的回應方式是什麼？',
         options: [
-          '簡短說明並反問對方',
           '只說 Good 就不再說話',
           '講二十分鐘的細節',
-          '不回應'
+          '不回應',
+          '簡短說明並反問對方'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '太簡短會讓對話中斷。',
           '過長會讓對方難以接話。',
-          '不回應是不禮貌的。'
+          '不回應是不禮貌的。',
+          null
         ]
       }
     },
@@ -10833,17 +10833,17 @@ window.APP_LESSONS['english|六下|第6單元 日常對話情境'] = {
       check: {
         q: '在餐廳點餐時，比較有禮貌的說法是什麼？',
         options: [
+          'Chicken.',
           'I would like the chicken, please.',
           'I want chicken.',
-          'Give me chicken.',
-          'Chicken.'
+          'Give me chicken.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '只說名詞不算完整的句子。',
           null,
           'I want 的語氣較直接。',
-          '命令句在服務場合不禮貌。',
-          '只說名詞不算完整的句子。'
+          '命令句在服務場合不禮貌。'
         ]
       }
     },
@@ -10861,17 +10861,17 @@ window.APP_LESSONS['english|六下|第6單元 日常對話情境'] = {
       check: {
         q: '「我可以試穿嗎？」（指某件衣服）的正確說法是什麼？',
         options: [
-          'Can I try it on?',
-          'Can I try on it?',
           'Can I on try it?',
-          'Can I try on?'
+          'Can I try on?',
+          'Can I try it on?',
+          'Can I try on it?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '代名詞要放在動詞與介副詞中間。',
           '語序不正確，介副詞不能放在動詞前面。',
-          '缺少受詞，沒有說明要試穿什麼。'
+          '缺少受詞，沒有說明要試穿什麼。',
+          null,
+          '代名詞要放在動詞與介副詞中間。'
         ]
       }
     },
@@ -10914,17 +10914,17 @@ window.APP_LESSONS['english|六下|第6單元 日常對話情境'] = {
       check: {
         q: '想表達不同意但又不想太直接，可以怎麼說？',
         options: [
-          'I see your point, but I think…',
-          'You are wrong.',
           'That is stupid.',
-          'No.'
+          'No.',
+          'I see your point, but I think…',
+          'You are wrong.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這個說法過於直接。',
           '這是人身評價，非常不禮貌。',
-          '單獨說 No 顯得生硬。'
+          '單獨說 No 顯得生硬。',
+          null,
+          '這個說法過於直接。'
         ]
       }
     },
@@ -10938,17 +10938,17 @@ window.APP_LESSONS['english|六下|第6單元 日常對話情境'] = {
       check: {
         q: '用英文對話時，最重要的心態是什麼？',
         options: [
+          '講得越快越好',
           '重點是讓對方理解，不必害怕犯錯',
           '一定要文法完全正確才能開口',
-          '不懂也要假裝聽懂',
-          '講得越快越好'
+          '不懂也要假裝聽懂'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '速度不等於溝通效果。',
           null,
           '追求完美會讓人不敢開口。',
-          '假裝理解會造成更大的誤會。',
-          '速度不等於溝通效果。'
+          '假裝理解會造成更大的誤會。'
         ]
       }
     }
@@ -10991,17 +10991,17 @@ window.APP_LESSONS['english|六下|第7單元 形容詞與副詞'] = {
       check: {
         q: '「他跑得很快」的正確說法是什麼？',
         options: [
-          'He runs quickly.',
-          'He runs quick.',
           'He is run quickly.',
-          'He quickly is run.'
+          'He quickly is run.',
+          'He runs quickly.',
+          'He runs quick.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '修飾動詞要用副詞。',
           '不能同時使用 be 動詞與一般動詞。',
-          '這個語序不正確。'
+          '這個語序不正確。',
+          null,
+          '修飾動詞要用副詞。'
         ]
       }
     },
@@ -11017,13 +11017,13 @@ window.APP_LESSONS['english|六下|第7單元 形容詞與副詞'] = {
         { label: '不規則', items: ['good→well', 'fast→fast', 'hard→hard'] }] },
       check: {
         q: 'good 的副詞形是什麼？',
-        options: ['well', 'goodly', 'gooder', 'goodily'],
-        answer: 0,
+        options: ['goodly', 'gooder', 'goodily', 'well'],
+        answer: 3,
         why: [
-          null,
           '英文沒有 goodly 這個常用字。',
           'gooder 不是正確的形式。',
-          '這個拼法不存在。'
+          '這個拼法不存在。',
+          null
         ]
       }
     },
@@ -11041,17 +11041,17 @@ window.APP_LESSONS['english|六下|第7單元 形容詞與副詞'] = {
       check: {
         q: 'He hardly works. 是什麼意思？',
         options: [
+          '他必須工作',
           '他幾乎不工作',
           '他很努力工作',
-          '他工作很困難',
-          '他必須工作'
+          '他工作很困難'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這句話沒有表達義務。',
           null,
           '努力工作是 He works hard.',
-          'hardly 不表示困難。',
-          '這句話沒有表達義務。'
+          'hardly 不表示困難。'
         ]
       }
     },
@@ -11068,17 +11068,17 @@ window.APP_LESSONS['english|六下|第7單元 形容詞與副詞'] = {
       check: {
         q: '「他總是很小心」的正確語序是什麼？',
         options: [
+          'He is careful always.',
           'He is always careful.',
           'He always is careful.',
-          'Always he is careful.',
-          'He is careful always.'
+          'Always he is careful.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '雖可理解，但不是標準位置。',
           null,
           '遇到 be 動詞時頻率副詞要放後面。',
-          '這個語序不自然。',
-          '雖可理解，但不是標準位置。'
+          '這個語序不自然。'
         ]
       }
     },
@@ -11150,17 +11150,17 @@ window.APP_LESSONS['english|六下|第8單元 短文閱讀理解'] = {
       check: {
         q: '主旨題的正確答案應該具備什麼特點？',
         options: [
-          '能涵蓋整篇文章的內容',
           '出現在文章的最後一句',
           '包含最多生字',
-          '是最長的選項'
+          '是最長的選項',
+          '能涵蓋整篇文章的內容'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '位置只是線索之一。',
           '生字多寡與正確性無關。',
-          '長度不能決定答案。'
+          '長度不能決定答案。',
+          null
         ]
       }
     },
@@ -11174,17 +11174,17 @@ window.APP_LESSONS['english|六下|第8單元 短文閱讀理解'] = {
       check: {
         q: '做推論題時，最重要的原則是什麼？',
         options: [
+          '選最短的選項',
           '推論必須有文章中的線索支持',
           '選最有趣的選項',
-          '憑生活經驗自由聯想',
-          '選最短的選項'
+          '憑生活經驗自由聯想'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '長度不能決定答案。',
           null,
           '趣味性與正確性無關。',
-          '沒有依據的聯想容易出錯。',
-          '長度不能決定答案。'
+          '沒有依據的聯想容易出錯。'
         ]
       }
     },
@@ -11201,17 +11201,17 @@ window.APP_LESSONS['english|六下|第8單元 短文閱讀理解'] = {
       check: {
         q: '看到 useless 這個字，可以怎麼推測意思？',
         options: [
-          'use 是使用，-less 表示沒有，合起來是「沒有用的」',
-          '完全無法推測',
           '它應該是動詞',
-          '它表示很有用'
+          '它表示很有用',
+          'use 是使用，-less 表示沒有，合起來是「沒有用的」',
+          '完全無法推測'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '字的組成提供了明確線索。',
           '-less 結尾的字通常是形容詞。',
-          '-less 表示的是否定。'
+          '-less 表示的是否定。',
+          null,
+          '字的組成提供了明確線索。'
         ]
       }
     },
@@ -11228,17 +11228,17 @@ window.APP_LESSONS['english|六下|第8單元 短文閱讀理解'] = {
       check: {
         q: '讀到 however 這個字時，代表接下來會出現什麼？',
         options: [
+          '一個例子',
           '和前面相反或不同的內容',
           '和前面完全相同的內容',
-          '文章結束',
-          '一個例子'
+          '文章結束'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '舉例會用 for example。',
           null,
           '轉折詞的作用正是引入不同的內容。',
-          'however 不代表文章結束。',
-          '舉例會用 for example。'
+          'however 不代表文章結束。'
         ]
       }
     },
@@ -11252,17 +11252,17 @@ window.APP_LESSONS['english|六下|第8單元 短文閱讀理解'] = {
       check: {
         q: '為什麼閱讀量對英文能力這麼重要？',
         options: [
-          '因為大量接觸能同時累積字彙、文法與語感',
-          '因為讀得多考試就會考到',
           '因為閱讀比聽力簡單',
-          '因為不用開口說話'
+          '因為不用開口說話',
+          '因為大量接觸能同時累積字彙、文法與語感',
+          '因為讀得多考試就會考到'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '閱讀的價值不只在應付考試。',
           '難易因人而異，重點在累積。',
-          '各項能力都需要練習，閱讀是其中之一。'
+          '各項能力都需要練習，閱讀是其中之一。',
+          null,
+          '閱讀的價值不只在應付考試。'
         ]
       }
     }
@@ -11292,17 +11292,17 @@ window.APP_LESSONS['english|六下|第9單元 寫作基本句型'] = {
       check: {
         q: 'He gave me a book. 這句話有幾個受詞？',
         options: [
+          '沒有受詞',
           '兩個：me 與 a book',
           '一個：a book',
-          '一個：me',
-          '沒有受詞'
+          '一個：me'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個句型有兩個受詞。',
           null,
           'me 也是受詞之一。',
-          'a book 同樣是受詞。',
-          '這個句型有兩個受詞。'
+          'a book 同樣是受詞。'
         ]
       }
     },
@@ -11316,17 +11316,17 @@ window.APP_LESSONS['english|六下|第9單元 寫作基本句型'] = {
       check: {
         q: 'He very tall. 這句話少了什麼？',
         options: [
-          '動詞（應該加 be 動詞 is）',
-          '主詞',
           '受詞',
-          '什麼都不缺'
+          '什麼都不缺',
+          '動詞（應該加 be 動詞 is）',
+          '主詞'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'He 就是主詞。',
           '這個句型不需要受詞。',
-          '句子缺少動詞就不完整。'
+          '句子缺少動詞就不完整。',
+          null,
+          'He 就是主詞。'
         ]
       }
     },
@@ -11366,17 +11366,17 @@ window.APP_LESSONS['english|六下|第9單元 寫作基本句型'] = {
       check: {
         q: '要在文章結尾做總結，可以用哪一個轉承語？',
         options: [
-          'In conclusion',
           'For example',
           'First of all',
-          'On the other hand'
+          'On the other hand',
+          'In conclusion'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這是用來舉例的。',
           '這是用在開頭的。',
-          '這是用來表示對比的。'
+          '這是用來表示對比的。',
+          null
         ]
       }
     },
@@ -11417,17 +11417,17 @@ window.APP_LESSONS['english|六下|第9單元 寫作基本句型'] = {
       check: {
         q: '初學英文寫作時，比較有效的做法是什麼？',
         options: [
-          '模仿範文的結構，把學過的句型用熟',
           '盡量使用沒學過的難句型',
           '把中文直接逐字翻譯',
-          '寫得越長越好'
+          '寫得越長越好',
+          '模仿範文的結構，把學過的句型用熟'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '沒把握的句型容易用錯。',
           '逐字翻譯會產生不自然的句子。',
-          '長度不代表品質。'
+          '長度不代表品質。',
+          null
         ]
       }
     }
@@ -11448,17 +11448,17 @@ window.APP_LESSONS['english|一上|第1單元 字母 A–I'] = {
       check: {
         q: '英文的每個字母有幾種寫法？',
         options: [
-          '兩種：大寫與小寫',
           '只有一種',
           '三種',
-          '每個字母不一樣'
+          '每個字母不一樣',
+          '兩種：大寫與小寫'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '每個字母都有大小寫兩種形式。',
           '英文字母只有大寫與小寫。',
-          '所有字母都有兩種寫法。'
+          '所有字母都有兩種寫法。',
+          null
         ]
       }
     },
@@ -11495,13 +11495,13 @@ window.APP_LESSONS['english|一上|第1單元 字母 A–I'] = {
         { w: 'fish', parts: ['f', 'ish'], hit: 0, s: 'F 的音', mean: '魚' }] },
       check: {
         q: 'fish 這個字是用哪一個字母開頭的？',
-        options: ['F', 'D', 'E', 'G'],
-        answer: 0,
+        options: ['G', 'F', 'D', 'E'],
+        answer: 1,
         why: [
+          'G 開頭的字例如 girl。',
           null,
           'D 開頭的字例如 dog。',
-          'E 開頭的字例如 egg。',
-          'G 開頭的字例如 girl。'
+          'E 開頭的字例如 egg。'
         ]
       }
     },
@@ -11516,13 +11516,13 @@ window.APP_LESSONS['english|一上|第1單元 字母 A–I'] = {
         { w: 'ice', parts: ['i', 'ce'], hit: 0, s: 'I 的音', mean: '冰' }] },
       check: {
         q: 'hat 這個字是用哪一個字母開頭的？',
-        options: ['H', 'G', 'I', 'A'],
-        answer: 0,
+        options: ['I', 'A', 'H', 'G'],
+        answer: 2,
         why: [
-          null,
-          'G 開頭的字例如 girl。',
           'I 開頭的字例如 ice。',
-          'A 開頭的字例如 apple。'
+          'A 開頭的字例如 apple。',
+          null,
+          'G 開頭的字例如 girl。'
         ]
       }
     },
@@ -11537,13 +11537,13 @@ window.APP_LESSONS['english|一上|第1單元 字母 A–I'] = {
         { label: '後三個', items: ['G', 'H', 'I'] }] },
       check: {
         q: '字母 C 的後面是哪一個字母？',
-        options: ['D', 'B', 'E', 'A'],
-        answer: 0,
+        options: ['E', 'A', 'D', 'B'],
+        answer: 2,
         why: [
-          null,
-          'B 在 C 的前面。',
           'E 在 D 的後面。',
-          'A 是第一個字母。'
+          'A 是第一個字母。',
+          null,
+          'B 在 C 的前面。'
         ]
       }
     },
@@ -11559,17 +11559,17 @@ window.APP_LESSONS['english|一上|第1單元 字母 A–I'] = {
       check: {
         q: '哪兩個小寫字母最容易被搞混？',
         options: [
-          'b 和 d',
           'a 和 o',
           'x 和 y',
-          'i 和 j'
+          'i 和 j',
+          'b 和 d'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這兩個字母的形狀差別較明顯。',
           '這兩個字母的形狀不同。',
-          '兩者雖相似，但 b 與 d 更常被搞混。'
+          '兩者雖相似，但 b 與 d 更常被搞混。',
+          null
         ]
       }
     }
@@ -11590,13 +11590,13 @@ window.APP_LESSONS['english|一上|第2單元 字母 J–R'] = {
       tip: '按單字按鈕，看每個字母的音。',
       check: {
         q: 'lion 這個字是用哪一個字母開頭的？',
-        options: ['L', 'J', 'K', 'M'],
-        answer: 0,
+        options: ['M', 'L', 'J', 'K'],
+        answer: 1,
         why: [
+          'M 開頭的字例如 monkey。',
           null,
           'J 開頭的字例如 jump。',
-          'K 開頭的字例如 kite。',
-          'M 開頭的字例如 monkey。'
+          'K 開頭的字例如 kite。'
         ]
       }
     },
@@ -11611,17 +11611,17 @@ window.APP_LESSONS['english|一上|第2單元 字母 J–R'] = {
       check: {
         q: 'm 和 n 這兩個小寫字母的差別是什麼？',
         options: [
-          'm 有兩個駝峰、n 只有一個',
           'm 比較矮',
           'n 有一個點',
-          '兩者完全一樣'
+          '兩者完全一樣',
+          'm 有兩個駝峰、n 只有一個'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '兩者的高度相同。',
           '有點的是 i 和 j。',
-          '兩者的形狀不同。'
+          '兩者的形狀不同。',
+          null
         ]
       }
     },
@@ -11635,13 +11635,13 @@ window.APP_LESSONS['english|一上|第2單元 字母 J–R'] = {
         { w: 'rabbit', parts: ['r', 'abbit'], hit: 0, s: 'R 的音', mean: '兔子' }] },
       check: {
         q: '字母 q 後面通常會跟著哪一個字母？',
-        options: ['u', 'a', 'e', 'o'],
-        answer: 0,
+        options: ['e', 'o', 'u', 'a'],
+        answer: 2,
         why: [
-          null,
-          'q 後面幾乎都是 u。',
           '這個組合並不常見。',
-          'qo 這個組合在英文中很罕見。'
+          'qo 這個組合在英文中很罕見。',
+          null,
+          'q 後面幾乎都是 u。'
         ]
       }
     },
@@ -11698,17 +11698,17 @@ window.APP_LESSONS['english|一上|第2單元 字母 J–R'] = {
       check: {
         q: '別人聽不清楚你的名字時，可以怎麼做？',
         options: [
+          '換一個名字',
           '一個字母一個字母拼出來',
           '講得更大聲就好',
-          '不要再說了',
-          '換一個名字'
+          '不要再說了'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '名字不需要因此更換。',
           null,
           '音量大不一定能解決聽不清楚的問題。',
-          '放棄溝通無法解決問題。',
-          '名字不需要因此更換。'
+          '放棄溝通無法解決問題。'
         ]
       }
     }
@@ -11730,17 +11730,17 @@ window.APP_LESSONS['english|一上|第3單元 字母 S–Z'] = {
       check: {
         q: '五個母音字母是哪些？',
         options: [
+          'X、Y、Z',
           'A、E、I、O、U',
           'A、B、C、D、E',
-          'S、T、U、V、W',
-          'X、Y、Z'
+          'S、T、U、V、W'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這三個都是子音字母。',
           null,
           'B、C、D 是子音字母。',
-          'S、T、V、W 都是子音。',
-          '這三個都是子音字母。'
+          'S、T、V、W 都是子音。'
         ]
       }
     },
@@ -11781,17 +11781,17 @@ window.APP_LESSONS['english|一上|第3單元 字母 S–Z'] = {
       check: {
         q: '字母 y 有什麼特別之處？',
         options: [
-          '有時候當子音，有時候當母音',
-          '永遠是子音',
           '永遠是母音',
-          '不發音'
+          '不發音',
+          '有時候當子音，有時候當母音',
+          '永遠是子音'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '在 happy 中它當母音。',
           '在 yellow 中它當子音。',
-          'y 是會發音的。'
+          'y 是會發音的。',
+          null,
+          '在 happy 中它當母音。'
         ]
       }
     },
@@ -11805,13 +11805,13 @@ window.APP_LESSONS['english|一上|第3單元 字母 S–Z'] = {
         { label: '子音（21 個）', items: ['B', 'C', 'D', 'F', 'G', '其餘'] }] },
       check: {
         q: '英文一共有幾個字母？',
-        options: ['26 個', '24 個', '30 個', '20 個'],
-        answer: 0,
+        options: ['24 個', '30 個', '20 個', '26 個'],
+        answer: 3,
         why: [
-          null,
           '英文字母比 24 個多。',
           '英文字母沒有 30 個。',
-          '英文字母比 20 個多。'
+          '英文字母比 20 個多。',
+          null
         ]
       }
     },
@@ -11847,17 +11847,17 @@ window.APP_LESSONS['english|一上|第3單元 字母 S–Z'] = {
       check: {
         q: '學會字母之後，最重要的下一步是什麼？',
         options: [
+          '只在課本上看',
           '在生活中多注意並唸出看到的字母與單字',
           '把 26 個字母抄一百遍',
-          '停止學習',
-          '只在課本上看'
+          '停止學習'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '生活中的接觸能加深印象。',
           null,
           '抄寫有幫助，但要能實際使用。',
-          '字母只是英文的第一步。',
-          '生活中的接觸能加深印象。'
+          '字母只是英文的第一步。'
         ]
       }
     }
@@ -11881,17 +11881,17 @@ window.APP_LESSONS['english|一上|第4單元 打招呼與自我介紹'] = {
       check: {
         q: 'Hi 和 Hello 的差別是什麼？',
         options: [
+          'Hello 是道別用語',
           'Hi 比較口語輕鬆，Hello 稍微正式',
           '兩者意思完全不同',
-          'Hi 只能對長輩說',
-          'Hello 是道別用語'
+          'Hi 只能對長輩說'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'Hello 是打招呼而不是道別。',
           null,
           '兩者的意思相同。',
-          'Hi 比較適合對朋友使用。',
-          'Hello 是打招呼而不是道別。'
+          'Hi 比較適合對朋友使用。'
         ]
       }
     },
@@ -11907,17 +11907,17 @@ window.APP_LESSONS['english|一上|第4單元 打招呼與自我介紹'] = {
       check: {
         q: '早上見到老師時應該說什麼？',
         options: [
-          'Good morning.',
           'Good night.',
           'Goodbye.',
-          'Good afternoon.'
+          'Good afternoon.',
+          'Good morning.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'Good night 是睡前或道別用語。',
           'Goodbye 是道別。',
-          'Good afternoon 是下午用的。'
+          'Good afternoon 是下午用的。',
+          null
         ]
       }
     },
@@ -11958,17 +11958,17 @@ window.APP_LESSONS['english|一上|第4單元 打招呼與自我介紹'] = {
       check: {
         q: '認識新朋友時，介紹完自己可以說什麼？',
         options: [
-          'Nice to meet you.',
-          'Goodbye.',
           'Good night.',
-          'I am sorry.'
+          'I am sorry.',
+          'Nice to meet you.',
+          'Goodbye.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這是道別時說的話。',
           '這是睡前的問候。',
-          '這是道歉時說的話。'
+          '這是道歉時說的話。',
+          null,
+          '這是道別時說的話。'
         ]
       }
     },
@@ -12007,17 +12007,17 @@ window.APP_LESSONS['english|一上|第4單元 打招呼與自我介紹'] = {
       check: {
         q: '別人對你說 Nice to meet you. 時，你可以怎麼回答？',
         options: [
-          'Nice to meet you, too.',
-          'Goodbye.',
           'What?',
-          'No, thanks.'
+          'No, thanks.',
+          'Nice to meet you, too.',
+          'Goodbye.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這時候道別太早了。',
           '這個回答不禮貌。',
-          '這個回答與情境不符。'
+          '這個回答與情境不符。',
+          null,
+          '這時候道別太早了。'
         ]
       }
     }
@@ -12058,17 +12058,17 @@ window.APP_LESSONS['english|一上|第5單元 顏色'] = {
       check: {
         q: 'orange 這個字有哪兩種意思？',
         options: [
+          '只有一種意思',
           '橘色與柳橙',
           '紅色與蘋果',
-          '綠色與草地',
-          '只有一種意思'
+          '綠色與草地'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個字同時是顏色與水果。',
           null,
           '紅色是 red，蘋果是 apple。',
-          '綠色是 green，草地是 grass。',
-          '這個字同時是顏色與水果。'
+          '綠色是 green，草地是 grass。'
         ]
       }
     },
@@ -12088,17 +12088,17 @@ window.APP_LESSONS['english|一上|第5單元 顏色'] = {
       check: {
         q: '別人問 What color is it? 時，可以怎麼回答？',
         options: [
-          'It is blue.',
           'Yes, it is.',
           'I am blue.',
-          'What color?'
+          'What color?',
+          'It is blue.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個問題不能用 Yes 回答。',
           '顏色是形容物品而不是自己。',
-          '重複問題沒有回答到。'
+          '重複問題沒有回答到。',
+          null
         ]
       }
     },
@@ -12112,17 +12112,17 @@ window.APP_LESSONS['english|一上|第5單元 顏色'] = {
       check: {
         q: '「一個黃色的球」的正確說法是什麼？',
         options: [
-          'a yellow ball',
-          'a ball yellow',
           'yellow a ball',
-          'ball a yellow'
+          'ball a yellow',
+          'a yellow ball',
+          'a ball yellow'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '顏色要放在名詞前面。',
           'a 要放在最前面。',
-          '這個順序完全顛倒了。'
+          '這個順序完全顛倒了。',
+          null,
+          '顏色要放在名詞前面。'
         ]
       }
     },
@@ -12138,17 +12138,17 @@ window.APP_LESSONS['english|一上|第5單元 顏色'] = {
       check: {
         q: '「我喜歡綠色」的正確說法是什麼？',
         options: [
+          'Green I like.',
           'I like green.',
           'I am like green.',
-          'I like am green.',
-          'Green I like.'
+          'I like am green.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個語序不自然。',
           null,
           '不能同時使用 be 動詞與一般動詞。',
-          '語序不正確，動詞要放在主詞後面。',
-          '這個語序不自然。'
+          '語序不正確，動詞要放在主詞後面。'
         ]
       }
     },
@@ -12164,17 +12164,17 @@ window.APP_LESSONS['english|一上|第5單元 顏色'] = {
       check: {
         q: '紅綠燈的綠燈代表什麼？',
         options: [
-          'go（可以走）',
           'stop（停止）',
           'wait（等待）',
-          'run（跑步）'
+          'run（跑步）',
+          'go（可以走）'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '停止是紅燈代表的意思。',
           '黃燈表示要注意準備停下。',
-          '過馬路時不應該奔跑。'
+          '過馬路時不應該奔跑。',
+          null
         ]
       }
     }
@@ -12196,17 +12196,17 @@ window.APP_LESSONS['english|一上|第6單元 數字 1–10'] = {
       check: {
         q: 'two 這個字有什麼發音特點？',
         options: [
-          'w 不發音',
           't 不發音',
           'o 不發音',
-          '每個字母都發音'
+          '每個字母都發音',
+          'w 不發音'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '字首的 t 是要發音的。',
           '字中的 o 也是要發音的。',
-          'w 在這個字裡不發音。'
+          'w 在這個字裡不發音。',
+          null
         ]
       }
     },
@@ -12221,17 +12221,17 @@ window.APP_LESSONS['english|一上|第6單元 數字 1–10'] = {
       check: {
         q: 'eight 這個字的 gh 要怎麼唸？',
         options: [
-          '不發音',
-          '唸 g 的音',
           '唸 h 的音',
-          '唸 k 的音'
+          '唸 k 的音',
+          '不發音',
+          '唸 g 的音'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這個組合在此不發 g 的音。',
           'h 在這裡也不發音。',
-          '這個字沒有 k 的音。'
+          '這個字沒有 k 的音。',
+          null,
+          '這個組合在此不發 g 的音。'
         ]
       }
     },
@@ -12249,17 +12249,17 @@ window.APP_LESSONS['english|一上|第6單元 數字 1–10'] = {
       check: {
         q: '「三隻貓」的正確說法是什麼？',
         options: [
+          'cat three',
           'three cats',
           'three cat',
-          'three a cat',
-          'cat three'
+          'three a cat'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '數字要放在名詞前面。',
           null,
           '超過一個時名詞要加 s。',
-          '有數字時不需要冠詞 a。',
-          '數字要放在名詞前面。'
+          '有數字時不需要冠詞 a。'
         ]
       }
     },
@@ -12298,17 +12298,17 @@ window.APP_LESSONS['english|一上|第6單元 數字 1–10'] = {
       check: {
         q: '「我七歲」的正確說法是什麼？',
         options: [
-          'I am seven.',
-          'I have seven.',
           'I seven.',
-          'My age seven.'
+          'My age seven.',
+          'I am seven.',
+          'I have seven.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '年齡用 be 動詞而不是 have。',
           '句子缺少 be 動詞。',
-          '這個句子不完整。'
+          '這個句子不完整。',
+          null,
+          '年齡用 be 動詞而不是 have。'
         ]
       }
     },
@@ -12322,17 +12322,17 @@ window.APP_LESSONS['english|一上|第6單元 數字 1–10'] = {
       check: {
         q: '學數字最有效的練習方法是什麼？',
         options: [
+          '只看不說',
           '在生活中一邊數東西一邊用英文說出來',
           '把數字抄一百遍',
-          '只在考試前背',
-          '只看不說'
+          '只在考試前背'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '開口說才能真正學會。',
           null,
           '抄寫幫助拼字，但不一定會說。',
-          '臨時抱佛腳記不牢。',
-          '開口說才能真正學會。'
+          '臨時抱佛腳記不牢。'
         ]
       }
     }
@@ -12372,13 +12372,13 @@ window.APP_LESSONS['english|一上|第7單元 教室用品'] = {
         { label: '教室設備', items: ['door', 'window', 'blackboard', 'clock'] }] },
       check: {
         q: '「椅子」的英文是什麼？',
-        options: ['chair', 'desk', 'door', 'window'],
-        answer: 0,
+        options: ['desk', 'door', 'window', 'chair'],
+        answer: 3,
         why: [
-          null,
           'desk 是書桌。',
           'door 是門。',
-          'window 是窗戶。'
+          'window 是窗戶。',
+          null
         ]
       }
     },
@@ -12396,17 +12396,17 @@ window.APP_LESSONS['english|一上|第7單元 教室用品'] = {
       check: {
         q: '「這是一本書」的正確說法是什麼？',
         options: [
+          'This book.',
           'It is a book.',
           'It is book.',
-          'It a book.',
-          'This book.'
+          'It a book.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個句子不完整。',
           null,
           '單數名詞前面要加 a。',
-          '句子缺少 be 動詞。',
-          '這個句子不完整。'
+          '句子缺少 be 動詞。'
         ]
       }
     },
@@ -12421,17 +12421,17 @@ window.APP_LESSONS['english|一上|第7單元 教室用品'] = {
       check: {
         q: '「一個橡皮擦」的正確說法是什麼？',
         options: [
-          'an eraser',
-          'a eraser',
           'the eraser one',
-          'eraser a'
+          'eraser a',
+          'an eraser',
+          'a eraser'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'eraser 以母音開頭，要用 an。',
           '這個說法不自然。',
-          '冠詞要放在名詞前面。'
+          '冠詞要放在名詞前面。',
+          null,
+          'eraser 以母音開頭，要用 an。'
         ]
       }
     },
@@ -12446,17 +12446,17 @@ window.APP_LESSONS['english|一上|第7單元 教室用品'] = {
       check: {
         q: '「這是我的書包」的正確說法是什麼？',
         options: [
+          'This is I bag.',
           'This is my bag.',
           'This is my.',
-          'This my bag.',
-          'This is I bag.'
+          'This my bag.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '應該用所有格 my 而不是 I。',
           null,
           'my 後面一定要接名詞。',
-          '句子缺少 be 動詞。',
-          '應該用所有格 my 而不是 I。'
+          '句子缺少 be 動詞。'
         ]
       }
     },
@@ -12522,17 +12522,17 @@ window.APP_LESSONS['english|一上|第8單元 家人'] = {
       check: {
         q: '英文的 brother 可以指誰？',
         options: [
-          '哥哥或弟弟都可以',
-          '只能指哥哥',
           '只能指弟弟',
-          '指姊妹'
+          '指姊妹',
+          '哥哥或弟弟都可以',
+          '只能指哥哥'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '它同時可以指弟弟。',
           '它同時可以指哥哥。',
-          '姊妹是 sister。'
+          '姊妹是 sister。',
+          null,
+          '它同時可以指弟弟。'
         ]
       }
     },
@@ -12547,17 +12547,17 @@ window.APP_LESSONS['english|一上|第8單元 家人'] = {
       check: {
         q: '英文的 grandmother 可以指誰？',
         options: [
+          '指媽媽',
           '奶奶或外婆都可以',
           '只能指奶奶',
-          '只能指外婆',
-          '指媽媽'
+          '只能指外婆'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '媽媽是 mother。',
           null,
           '英文不區分內外祖母。',
-          '它同時也可以指奶奶。',
-          '媽媽是 mother。'
+          '它同時也可以指奶奶。'
         ]
       }
     },
@@ -12572,17 +12572,17 @@ window.APP_LESSONS['english|一上|第8單元 家人'] = {
       check: {
         q: '要介紹身邊的媽媽給朋友認識，可以怎麼說？',
         options: [
-          'This is my mother.',
           'She is a mother.',
           'My mother is.',
-          'This my mother.'
+          'This my mother.',
+          'This is my mother.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個說法沒有表達出是「我的」媽媽。',
           '這個句子不完整，缺少補語。',
-          '句子缺少 be 動詞。'
+          '句子缺少 be 動詞。',
+          null
         ]
       }
     },
@@ -12597,13 +12597,13 @@ window.APP_LESSONS['english|一上|第8單元 家人'] = {
         { label: 'it（物）', items: ['book', 'cat', 'bag'] }] },
       check: {
         q: '要說「她是我姊姊」，應該用哪一個代名詞？',
-        options: ['she', 'he', 'it', 'they'],
-        answer: 0,
+        options: ['they', 'she', 'he', 'it'],
+        answer: 1,
         why: [
+          'they 用於多個人。',
           null,
           'he 用於男性。',
-          'it 用於物品或動物。',
-          'they 用於多個人。'
+          'it 用於物品或動物。'
         ]
       }
     },
@@ -12620,17 +12620,17 @@ window.APP_LESSONS['english|一上|第8單元 家人'] = {
       check: {
         q: '「我愛我的家人」的正確說法是什麼？',
         options: [
-          'I love my family.',
           'I am love my family.',
           'I love family my.',
-          'My family I love.'
+          'My family I love.',
+          'I love my family.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '不能同時使用 be 動詞與一般動詞。',
           '所有格要放在名詞前面。',
-          '這個語序不自然。'
+          '這個語序不自然。',
+          null
         ]
       }
     }
@@ -12650,13 +12650,13 @@ window.APP_LESSONS['english|一上|第9單元 身體部位'] = {
         { label: '常用複數', items: ['eyes', 'ears'] }] },
       check: {
         q: '「鼻子」的英文是什麼？',
-        options: ['nose', 'mouth', 'ear', 'eye'],
-        answer: 0,
+        options: ['ear', 'eye', 'nose', 'mouth'],
+        answer: 2,
         why: [
-          null,
-          'mouth 是嘴巴。',
           'ear 是耳朵。',
-          'eye 是眼睛。'
+          'eye 是眼睛。',
+          null,
+          'mouth 是嘴巴。'
         ]
       }
     },
@@ -12692,17 +12692,17 @@ window.APP_LESSONS['english|一上|第9單元 身體部位'] = {
       check: {
         q: 'Clap your hands. 是什麼意思？',
         options: [
-          '拍手',
           '舉手',
           '洗手',
-          '握手'
+          '握手',
+          '拍手'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '舉手是 raise your hand。',
           '洗手是 wash your hands。',
-          '握手是 shake hands。'
+          '握手是 shake hands。',
+          null
         ]
       }
     },
@@ -12717,17 +12717,17 @@ window.APP_LESSONS['english|一上|第9單元 身體部位'] = {
       check: {
         q: '「我有兩隻手」的正確說法是什麼？',
         options: [
+          'I am have two hands.',
           'I have two hands.',
           'I have two hand.',
-          'I has two hands.',
-          'I am have two hands.'
+          'I has two hands.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '不能同時使用 be 動詞與一般動詞。',
           null,
           '超過一個時名詞要加 s。',
-          '主詞是 I 要用 have。',
-          '不能同時使用 be 動詞與一般動詞。'
+          '主詞是 I 要用 have。'
         ]
       }
     },
@@ -12743,17 +12743,17 @@ window.APP_LESSONS['english|一上|第9單元 身體部位'] = {
       check: {
         q: '「她有長頭髮」的正確說法是什麼？',
         options: [
-          'She has long hair.',
           'She have long hair.',
           'She has hair long.',
-          'She is long hair.'
+          'She is long hair.',
+          'She has long hair.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '主詞是 she 要用 has。',
           '形容詞要放在名詞前面。',
-          '這裡要用 have 而不是 be 動詞。'
+          '這裡要用 have 而不是 be 動詞。',
+          null
         ]
       }
     },
@@ -12768,13 +12768,13 @@ window.APP_LESSONS['english|一上|第9單元 身體部位'] = {
         { label: '不規則複數', items: ['tooth→teeth', 'foot→feet'] }] },
       check: {
         q: 'tooth 的複數形是什麼？',
-        options: ['teeth', 'tooths', 'toothes', 'tooth'],
-        answer: 0,
+        options: ['tooth', 'teeth', 'tooths', 'toothes'],
+        answer: 1,
         why: [
+          '複數形要用 teeth。',
           null,
           '這是不規則變化，不加 s。',
-          '這個拼法不正確。',
-          '複數形要用 teeth。'
+          '這個拼法不正確。'
         ]
       }
     }
@@ -12795,17 +12795,17 @@ window.APP_LESSONS['english|一下|第1單元 子音的自然發音'] = {
       check: {
         q: '子音與母音最主要的差別是什麼？',
         options: [
+          '子音不用發音',
           '發子音時氣流會被擋住，發母音時氣流順暢通過',
           '子音比較大聲',
-          '母音只出現在字尾',
-          '子音不用發音'
+          '母音只出現在字尾'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '子音是需要發音的。',
           null,
           '音量大小與子音母音無關。',
-          '母音可以出現在單字的任何位置。',
-          '子音是需要發音的。'
+          '母音可以出現在單字的任何位置。'
         ]
       }
     },
@@ -12822,17 +12822,17 @@ window.APP_LESSONS['english|一下|第1單元 子音的自然發音'] = {
       check: {
         q: '字母 c 在 cup 這個字裡發什麼音？',
         options: [
-          '發 k 的音',
           '發 s 的音',
           '不發音',
-          '發 ch 的音'
+          '發 ch 的音',
+          '發 k 的音'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'c 在 e、i、y 前面才發 s 的音。',
           '這個位置的 c 是要發音的。',
-          'ch 是兩個字母的組合。'
+          'ch 是兩個字母的組合。',
+          null
         ]
       }
     },
@@ -12873,17 +12873,17 @@ window.APP_LESSONS['english|一下|第1單元 子音的自然發音'] = {
       check: {
         q: '發 m 這個音時，嘴巴要怎麼做？',
         options: [
-          '閉起嘴唇，氣流從鼻子出來',
-          '嘴巴張很大',
           '咬住舌頭',
-          '不動嘴巴'
+          '不動嘴巴',
+          '閉起嘴唇，氣流從鼻子出來',
+          '嘴巴張很大'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '張大嘴巴是發母音的動作。',
           '咬舌頭是發 th 的動作。',
-          '發音一定需要口腔的動作。'
+          '發音一定需要口腔的動作。',
+          null,
+          '張大嘴巴是發母音的動作。'
         ]
       }
     },
@@ -12926,17 +12926,17 @@ window.APP_LESSONS['english|一下|第1單元 子音的自然發音'] = {
       check: {
         q: '看到 mat 這個字，可以怎麼唸出來？',
         options: [
+          '請別人唸給你聽',
           '先分別唸 m、a、t，再連起來',
           '直接猜一個發音',
-          '一定要查字典',
-          '請別人唸給你聽'
+          '一定要查字典'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '學會拼讀就不用每次都問人。',
           null,
           '亂猜無法建立正確的拼讀習慣。',
-          '自然發音的目的就是自己能唸。',
-          '學會拼讀就不用每次都問人。'
+          '自然發音的目的就是自己能唸。'
         ]
       }
     }
@@ -12958,13 +12958,13 @@ window.APP_LESSONS['english|一下|第2單元 短母音 a、e'] = {
       tip: '按單字按鈕，看每個字的目標音。',
       check: {
         q: '下列哪一個字含有短母音 a？',
-        options: ['bag', 'cake', 'bike', 'home'],
-        answer: 0,
+        options: ['bike', 'home', 'bag', 'cake'],
+        answer: 2,
         why: [
-          null,
-          'cake 的 a 因為字尾有 e 而發長音。',
           'bike 的母音是 i。',
-          'home 的母音是 o。'
+          'home 的母音是 o。',
+          null,
+          'cake 的 a 因為字尾有 e 而發長音。'
         ]
       }
     },
@@ -13006,17 +13006,17 @@ window.APP_LESSONS['english|一下|第2單元 短母音 a、e'] = {
       check: {
         q: 'pan 和 pen 的差別在哪裡？',
         options: [
-          '中間的母音不同，意思也完全不同',
           '第一個字母不同',
           '最後一個字母不同',
-          '兩個字意思相同'
+          '兩個字意思相同',
+          '中間的母音不同，意思也完全不同'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '兩個字都以 p 開頭。',
           '兩個字都以 n 結尾。',
-          '一個是平底鍋，一個是筆。'
+          '一個是平底鍋，一個是筆。',
+          null
         ]
       }
     },
@@ -13031,17 +13031,17 @@ window.APP_LESSONS['english|一下|第2單元 短母音 a、e'] = {
       check: {
         q: '拼讀單字的第一步應該做什麼？',
         options: [
+          '先抄寫十遍',
           '把每個字母的音分開唸出來',
           '直接唸整個字',
-          '先看中文意思',
-          '先抄寫十遍'
+          '先看中文意思'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '抄寫幫助記憶但不是拼讀的第一步。',
           null,
           '直接唸整個字可能會唸錯。',
-          '拼讀不需要先知道中文意思。',
-          '抄寫幫助記憶但不是拼讀的第一步。'
+          '拼讀不需要先知道中文意思。'
         ]
       }
     },
@@ -13055,13 +13055,13 @@ window.APP_LESSONS['english|一下|第2單元 短母音 a、e'] = {
         { label: '短音 e', items: ['bed', 'pen', 'ten', 'red', 'net'] }] },
       check: {
         q: '下列哪一個字的母音和 bed 相同？',
-        options: ['pen', 'cat', 'map', 'bag'],
-        answer: 0,
+        options: ['cat', 'map', 'bag', 'pen'],
+        answer: 3,
         why: [
-          null,
           'cat 的母音是短音 a。',
           'map 的母音也是短音 a。',
-          'bag 的母音同樣是短音 a。'
+          'bag 的母音同樣是短音 a。',
+          null
         ]
       }
     },
@@ -13075,17 +13075,17 @@ window.APP_LESSONS['english|一下|第2單元 短母音 a、e'] = {
       check: {
         q: '學會自然發音之後，對拼寫有什麼幫助？',
         options: [
+          '只對唸讀有幫助',
           '聽到聲音就能推出字母，不用完全死背',
           '完全不用練習拼寫',
-          '所有單字都能拼對',
-          '只對唸讀有幫助'
+          '所有單字都能拼對'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '發音規則對拼寫同樣有幫助。',
           null,
           '仍然需要練習才會熟練。',
-          '有些單字不符合規則，仍要另外記。',
-          '發音規則對拼寫同樣有幫助。'
+          '有些單字不符合規則，仍要另外記。'
         ]
       }
     }
@@ -13127,17 +13127,17 @@ window.APP_LESSONS['english|一下|第3單元 短母音 i、o、u'] = {
       check: {
         q: '發短母音 o 的時候，嘴巴應該怎麼做？',
         options: [
-          '張開成圓形，聲音短促',
-          '嘴唇緊閉',
           '牙齒咬住舌頭',
-          '完全不動'
+          '完全不動',
+          '張開成圓形，聲音短促',
+          '嘴唇緊閉'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '閉起嘴唇是發 m 的動作。',
           '咬住舌頭是發 th 的動作。',
-          '發母音一定要有口腔的動作。'
+          '發母音一定要有口腔的動作。',
+          null,
+          '閉起嘴唇是發 m 的動作。'
         ]
       }
     },
@@ -13151,13 +13151,13 @@ window.APP_LESSONS['english|一下|第3單元 短母音 i、o、u'] = {
         { w: 'bus', parts: ['b', 'u', 's'], hit: 1, s: 'u 的短音', mean: '公車' }] },
       check: {
         q: '下列哪一個字含有短母音 u？',
-        options: ['bus', 'cute', 'use', 'tube'],
-        answer: 0,
+        options: ['tube', 'bus', 'cute', 'use'],
+        answer: 1,
         why: [
+          'tube 的 u 同樣發長音。',
           null,
           'cute 的 u 因為字尾有 e 而發長音。',
-          'use 的 u 也是長音。',
-          'tube 的 u 同樣發長音。'
+          'use 的 u 也是長音。'
         ]
       }
     },
@@ -13175,17 +13175,17 @@ window.APP_LESSONS['english|一下|第3單元 短母音 i、o、u'] = {
       check: {
         q: '短母音通常出現在什麼樣的字裡？',
         options: [
-          '子音＋母音＋子音的結構',
           '字尾有不發音 e 的字',
           '很長的單字',
-          '只有母音的字'
+          '只有母音的字',
+          '子音＋母音＋子音的結構'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '字尾有 e 時母音多發長音。',
           '短母音的字通常都很短。',
-          '英文單字幾乎都有子音。'
+          '英文單字幾乎都有子音。',
+          null
         ]
       }
     },
@@ -13201,17 +13201,17 @@ window.APP_LESSONS['english|一下|第3單元 短母音 i、o、u'] = {
       check: {
         q: 'big、bag、bug 這三個字的差別在哪裡？',
         options: [
+          '三個字意思相同',
           '只有中間的母音不同，意思卻完全不一樣',
           '開頭的字母不同',
-          '結尾的字母不同',
-          '三個字意思相同'
+          '結尾的字母不同'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '三個字分別是大的、袋子與蟲子。',
           null,
           '三個字都以 b 開頭。',
-          '三個字都以 g 結尾。',
-          '三個字分別是大的、袋子與蟲子。'
+          '三個字都以 g 結尾。'
         ]
       }
     },
@@ -13255,13 +13255,13 @@ window.APP_LESSONS['english|一下|第4單元 動物'] = {
         { label: '常見寵物', items: ['dog', 'cat', 'bird', 'fish', 'rabbit'] }] },
       check: {
         q: '「兔子」的英文是什麼？',
-        options: ['rabbit', 'dog', 'bird', 'fish'],
-        answer: 0,
+        options: ['dog', 'bird', 'fish', 'rabbit'],
+        answer: 3,
         why: [
-          null,
           'dog 指的是狗，不是兔子。',
           'bird 是鳥。',
-          'fish 是魚。'
+          'fish 是魚。',
+          null
         ]
       }
     },
@@ -13294,13 +13294,13 @@ window.APP_LESSONS['english|一下|第4單元 動物'] = {
         { label: '特別的', items: ['giraffe', 'monkey'] }] },
       check: {
         q: '「大象」的英文是什麼？',
-        options: ['elephant', 'lion', 'tiger', 'bear'],
-        answer: 0,
+        options: ['bear', 'elephant', 'lion', 'tiger'],
+        answer: 1,
         why: [
+          'bear 是熊。',
           null,
           'lion 是獅子。',
-          'tiger 是老虎。',
-          'bear 是熊。'
+          'tiger 是老虎。'
         ]
       }
     },
@@ -13315,17 +13315,17 @@ window.APP_LESSONS['english|一下|第4單元 動物'] = {
       check: {
         q: '「魚會游泳」的正確說法是什麼？',
         options: [
-          'Fish can swim.',
-          'Fish can swims.',
           'Fish can swimming.',
-          'Fish is can swim.'
+          'Fish is can swim.',
+          'Fish can swim.',
+          'Fish can swims.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'can 後面的動詞不加 s。',
           'can 後面要用原形動詞。',
-          '不能同時使用 be 動詞與 can。'
+          '不能同時使用 be 動詞與 can。',
+          null,
+          'can 後面的動詞不加 s。'
         ]
       }
     },
@@ -13340,17 +13340,17 @@ window.APP_LESSONS['english|一下|第4單元 動物'] = {
       check: {
         q: '「我喜歡貓（這種動物）」的正確說法是什麼？',
         options: [
-          'I like cats.',
-          'I like a cat.',
           'I like cat.',
-          'I am like cats.'
+          'I am like cats.',
+          'I like cats.',
+          'I like a cat.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '加 a 表示特定的某一隻貓。',
           '可數名詞通常不單獨用單數形。',
-          '不能同時使用 be 動詞與一般動詞。'
+          '不能同時使用 be 動詞與一般動詞。',
+          null,
+          '加 a 表示特定的某一隻貓。'
         ]
       }
     },
@@ -13366,17 +13366,17 @@ window.APP_LESSONS['english|一下|第4單元 動物'] = {
       check: {
         q: '「兔子很可愛」的正確說法是什麼？',
         options: [
+          'Cute the rabbit is.',
           'The rabbit is cute.',
           'The rabbit cute.',
-          'The rabbit is cutely.',
-          'Cute the rabbit is.'
+          'The rabbit is cutely.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個語序不自然。',
           null,
           '句子缺少 be 動詞。',
-          '這裡要用形容詞而不是副詞。',
-          '這個語序不自然。'
+          '這裡要用形容詞而不是副詞。'
         ]
       }
     }
@@ -13396,13 +13396,13 @@ window.APP_LESSONS['english|一下|第5單元 食物與飲料'] = {
         { label: '蛋白質', items: ['egg', 'meat', 'fish'] }] },
       check: {
         q: '「麵包」的英文是什麼？',
-        options: ['bread', 'rice', 'meat', 'soup'],
-        answer: 0,
+        options: ['meat', 'soup', 'bread', 'rice'],
+        answer: 2,
         why: [
-          null,
-          'rice 指的是米飯。',
           'meat 指的是肉類。',
-          'soup 指的是湯。'
+          'soup 指的是湯。',
+          null,
+          'rice 指的是米飯。'
         ]
       }
     },
@@ -13416,13 +13416,13 @@ window.APP_LESSONS['english|一下|第5單元 食物與飲料'] = {
         { label: '較長的字', items: ['watermelon', 'strawberry'] }] },
       check: {
         q: '「香蕉」的英文是什麼？',
-        options: ['banana', 'apple', 'grape', 'orange'],
-        answer: 0,
+        options: ['orange', 'banana', 'apple', 'grape'],
+        answer: 1,
         why: [
+          'orange 指的是柳橙。',
           null,
           'apple 指的是蘋果。',
-          'grape 指的是葡萄。',
-          'orange 指的是柳橙。'
+          'grape 指的是葡萄。'
         ]
       }
     },
@@ -13461,17 +13461,17 @@ window.APP_LESSONS['english|一下|第5單元 食物與飲料'] = {
       check: {
         q: '「我不喜歡魚」的正確說法是什麼？',
         options: [
-          'I do not like fish.',
           'I not like fish.',
           'I am not like fish.',
-          'I do not likes fish.'
+          'I do not likes fish.',
+          'I do not like fish.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '否定句需要助動詞 do。',
           '不能同時使用 be 動詞與一般動詞。',
-          '用了 do not 之後動詞要用原形。'
+          '用了 do not 之後動詞要用原形。',
+          null
         ]
       }
     },
@@ -13486,17 +13486,17 @@ window.APP_LESSONS['english|一下|第5單元 食物與飲料'] = {
       check: {
         q: '「我餓了」的正確說法是什麼？',
         options: [
-          'I am hungry.',
           'I have hungry.',
           'I hungry.',
-          'I am hunger.'
+          'I am hunger.',
+          'I am hungry.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '感受要用 be 動詞而不是 have。',
           '句子缺少 be 動詞。',
-          'hunger 是名詞，形容詞要用 hungry。'
+          'hunger 是名詞，形容詞要用 hungry。',
+          null
         ]
       }
     },
@@ -13512,17 +13512,17 @@ window.APP_LESSONS['english|一下|第5單元 食物與飲料'] = {
       check: {
         q: '別人問你要不要再吃一點，你想婉拒可以怎麼說？',
         options: [
-          'No, thank you.',
-          'No!',
           'I do not want.',
-          'Stop it.'
+          'Stop it.',
+          'No, thank you.',
+          'No!'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '單獨說 No 顯得生硬。',
           '這個說法不完整也不禮貌。',
-          '這個說法過於強硬。'
+          '這個說法過於強硬。',
+          null,
+          '單獨說 No 顯得生硬。'
         ]
       }
     }
@@ -13542,13 +13542,13 @@ window.APP_LESSONS['english|一下|第6單元 玩具與物品'] = {
         { label: '常用複數', items: ['blocks', 'crayons'] }] },
       check: {
         q: '「風箏」的英文是什麼？',
-        options: ['kite', 'ball', 'doll', 'robot'],
-        answer: 0,
+        options: ['robot', 'kite', 'ball', 'doll'],
+        answer: 1,
         why: [
+          'robot 指的是機器人。',
           null,
           'ball 指的是球。',
-          'doll 指的是洋娃娃。',
-          'robot 指的是機器人。'
+          'doll 指的是洋娃娃。'
         ]
       }
     },
@@ -13564,13 +13564,13 @@ window.APP_LESSONS['english|一下|第6單元 玩具與物品'] = {
              same: ['都用來指某樣東西'] },
       check: {
         q: '要指遠處的一樣東西，應該用哪一個字？',
-        options: ['that', 'this', 'these', 'here'],
-        answer: 0,
+        options: ['this', 'these', 'here', 'that'],
+        answer: 3,
         why: [
-          null,
           'this 指的是靠近的東西。',
           'these 是複數形，指近處的多個東西。',
-          'here 是「這裡」，不是指物品。'
+          'here 是「這裡」，不是指物品。',
+          null
         ]
       }
     },
@@ -13610,17 +13610,17 @@ window.APP_LESSONS['english|一下|第6單元 玩具與物品'] = {
       check: {
         q: '「這是 Ben 的書」的正確說法是什麼？',
         options: [
-          'This is Ben’s book.',
-          'This is Ben book.',
           'This is book Ben.',
-          'This is Ben is book.'
+          'This is Ben is book.',
+          'This is Ben’s book.',
+          'This is Ben book.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '人名後面要加撇號 s。',
           '語序不正確，所有者要放前面。',
-          '這個句子的結構不正確。'
+          '這個句子的結構不正確。',
+          null,
+          '人名後面要加撇號 s。'
         ]
       }
     },
@@ -13662,17 +13662,17 @@ window.APP_LESSONS['english|一下|第6單元 玩具與物品'] = {
       check: {
         q: '「一輛小的藍色車」的正確順序是什麼？',
         options: [
-          'a small blue car',
           'a blue small car',
           'a car small blue',
-          'small a blue car'
+          'small a blue car',
+          'a small blue car'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '大小通常放在顏色前面。',
           '形容詞要放在名詞前面。',
-          '冠詞要放在最前面。'
+          '冠詞要放在最前面。',
+          null
         ]
       }
     }
@@ -13693,17 +13693,17 @@ window.APP_LESSONS['english|一下|第7單元 數字 11–20'] = {
       check: {
         q: '數字 11 和 12 的英文有什麼特別之處？',
         options: [
-          '它們是獨立的字，不遵守後面的 teen 規則',
           '它們的拼法和 1、2 完全相同',
           '它們不能單獨使用',
-          '它們沒有英文說法'
+          '它們沒有英文說法',
+          '它們是獨立的字，不遵守後面的 teen 規則'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'eleven 與 one 的拼法完全不同。',
           '這兩個字可以單獨使用。',
-          '它們都有標準的英文說法。'
+          '它們都有標準的英文說法。',
+          null
         ]
       }
     },
@@ -13718,13 +13718,13 @@ window.APP_LESSONS['english|一下|第7單元 數字 11–20'] = {
         { label: '拼法要注意', items: ['thirteen', 'fifteen', 'eighteen'] }] },
       check: {
         q: '數字 15 的英文怎麼拼？',
-        options: ['fifteen', 'fiveteen', 'fivteen', 'fifthteen'],
-        answer: 0,
+        options: ['fifthteen', 'fifteen', 'fiveteen', 'fivteen'],
+        answer: 1,
         why: [
+          'fifth 是序數，不用於基數。',
           null,
           '不是直接把 five 加上 teen。',
-          '這個拼法漏掉了字母。',
-          'fifth 是序數，不用於基數。'
+          '這個拼法漏掉了字母。'
         ]
       }
     },
@@ -13737,13 +13737,13 @@ window.APP_LESSONS['english|一下|第7單元 數字 11–20'] = {
         { w: 'twenty', parts: ['twen', 'ty'], hit: 0, s: '數字 20', mean: '二十' }] },
       check: {
         q: '數字 20 的正確拼法是什麼？',
-        options: ['twenty', 'twoty', 'twentie', 'twanty'],
-        answer: 0,
+        options: ['twentie', 'twanty', 'twenty', 'twoty'],
+        answer: 2,
         why: [
-          null,
-          '這個拼法並不存在。',
           '字尾應該是 ty 而不是 tie。',
-          '第一個母音應該是 e。'
+          '第一個母音應該是 e。',
+          null,
+          '這個拼法並不存在。'
         ]
       }
     },
@@ -13783,17 +13783,17 @@ window.APP_LESSONS['english|一下|第7單元 數字 11–20'] = {
       check: {
         q: '「我十一歲」的正確說法是什麼？',
         options: [
-          'I am eleven.',
-          'I have eleven.',
           'I am eleven year.',
-          'I eleven.'
+          'I eleven.',
+          'I am eleven.',
+          'I have eleven.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '年齡用 be 動詞而不是 have。',
           '要說 years old 或直接說數字。',
-          '句子缺少 be 動詞。'
+          '句子缺少 be 動詞。',
+          null,
+          '年齡用 be 動詞而不是 have。'
         ]
       }
     },
@@ -13808,17 +13808,17 @@ window.APP_LESSONS['english|一下|第7單元 數字 11–20'] = {
       check: {
         q: '要記住數字的英文，最有效的方法是什麼？',
         options: [
+          '等考試前再背',
           '在生活中一邊數東西一邊用英文說出來',
           '只在課本上看',
-          '把數字抄很多遍',
-          '等考試前再背'
+          '把數字抄很多遍'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '臨時背誦的效果有限。',
           null,
           '只看不說很難真正學會。',
-          '抄寫幫助拼字，但不一定會說。',
-          '臨時背誦的效果有限。'
+          '抄寫幫助拼字，但不一定會說。'
         ]
       }
     }
@@ -13866,17 +13866,17 @@ window.APP_LESSONS['english|一下|第8單元 天氣與季節'] = {
       check: {
         q: '要問「今天天氣如何？」可以怎麼說？',
         options: [
-          'How is the weather today?',
-          'How the weather is today?',
           'What weather today?',
-          'Weather how today?'
+          'Weather how today?',
+          'How is the weather today?',
+          'How the weather is today?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '疑問句要把 be 動詞放在主詞前面。',
           '這個句子不完整。',
-          '這個語序不符合英文結構。'
+          '這個語序不符合英文結構。',
+          null,
+          '疑問句要把 be 動詞放在主詞前面。'
         ]
       }
     },
@@ -13889,13 +13889,13 @@ window.APP_LESSONS['english|一下|第8單元 天氣與季節'] = {
         { label: '搭配的天氣', items: ['warm', 'hot', 'cool', 'cold'] }] },
       check: {
         q: '「在冬天」的正確說法是什麼？',
-        options: ['in winter', 'on winter', 'at winter', 'to winter'],
-        answer: 0,
+        options: ['on winter', 'at winter', 'to winter', 'in winter'],
+        answer: 3,
         why: [
-          null,
           'on 用於星期與日期。',
           'at 用於具體的時間點。',
-          'to 表示方向或目標。'
+          'to 表示方向或目標。',
+          null
         ]
       }
     },
@@ -13911,17 +13911,17 @@ window.APP_LESSONS['english|一下|第8單元 天氣與季節'] = {
       check: {
         q: '「我們去公園吧」的正確說法是什麼？',
         options: [
+          'Let’s goes to the park.',
           'Let’s go to the park.',
           'Let’s to go to the park.',
-          'Let’s going to the park.',
-          'Let’s goes to the park.'
+          'Let’s going to the park.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '原形動詞不加 s。',
           null,
           'Let’s 後面不加 to。',
-          'Let’s 後面要用原形動詞。',
-          '原形動詞不加 s。'
+          'Let’s 後面要用原形動詞。'
         ]
       }
     },
@@ -13936,17 +13936,17 @@ window.APP_LESSONS['english|一下|第8單元 天氣與季節'] = {
       check: {
         q: '天氣很冷的時候應該穿什麼？',
         options: [
+          'sandals',
           'a coat',
           'shorts',
-          'a swimsuit',
-          'sandals'
+          'a swimsuit'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '涼鞋適合夏天穿。',
           null,
           '短褲適合天氣熱的時候。',
-          '泳衣適合游泳的時候。',
-          '涼鞋適合夏天穿。'
+          '泳衣適合游泳的時候。'
         ]
       }
     },
@@ -13994,17 +13994,17 @@ window.APP_LESSONS['english|一下|第9單元 課堂用語'] = {
       check: {
         q: 'Sit down. 是什麼意思？',
         options: [
-          '坐下',
-          '起立',
           '安靜',
-          '出去'
+          '出去',
+          '坐下',
+          '起立'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '起立是 Stand up.',
           '安靜是 Be quiet.',
-          '出去是 Go out.'
+          '出去是 Go out.',
+          null,
+          '起立是 Stand up.'
         ]
       }
     },
@@ -14020,17 +14020,17 @@ window.APP_LESSONS['english|一下|第9單元 課堂用語'] = {
       check: {
         q: 'Repeat after me. 是什麼意思？',
         options: [
+          '交出作業',
           '跟著我唸一遍',
           '安靜坐好',
-          '把書打開',
-          '交出作業'
+          '把書打開'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '交作業是 Hand in your homework.',
           null,
           '安靜坐好是另一個指令。',
-          '打開書是 Open your book.',
-          '交作業是 Hand in your homework.'
+          '打開書是 Open your book.'
         ]
       }
     },
@@ -14074,17 +14074,17 @@ window.APP_LESSONS['english|一下|第9單元 課堂用語'] = {
       check: {
         q: '上課想去洗手間，比較有禮貌的說法是什麼？',
         options: [
-          'May I go to the restroom?',
           'I want to go.',
           'I go now.',
-          'Restroom!'
+          'Restroom!',
+          'May I go to the restroom?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '直接說想要略嫌不客氣。',
           '這個說法像在通知而不是請求。',
-          '只說名詞無法表達完整的意思。'
+          '只說名詞無法表達完整的意思。',
+          null
         ]
       }
     },
@@ -14099,17 +14099,17 @@ window.APP_LESSONS['english|一下|第9單元 課堂用語'] = {
       check: {
         q: '同學答錯了但很努力，可以對他說什麼？',
         options: [
-          'Try again. You can do it!',
           'You are wrong.',
           'That is stupid.',
-          'Be quiet.'
+          'Be quiet.',
+          'Try again. You can do it!'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個說法只指出錯誤，沒有鼓勵。',
           '這是傷人的話，非常不恰當。',
-          '這與答題的情境無關。'
+          '這與答題的情境無關。',
+          null
         ]
       }
     },
@@ -14122,17 +14122,17 @@ window.APP_LESSONS['english|一下|第9單元 課堂用語'] = {
       check: {
         q: '下課要離開教室時，可以對老師說什麼？',
         options: [
-          'Thank you. See you tomorrow.',
-          'Good morning.',
           'May I come in?',
-          'I do not understand.'
+          'I do not understand.',
+          'Thank you. See you tomorrow.',
+          'Good morning.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這是早上見面時的問候。',
           '這是要進教室時說的。',
-          '這是上課中表達不懂時說的。'
+          '這是上課中表達不懂時說的。',
+          null,
+          '這是早上見面時的問候。'
         ]
       }
     }
@@ -14154,17 +14154,17 @@ window.APP_LESSONS['english|二上|第1單元 This is 句型'] = {
       check: {
         q: '「這是一枝筆」的正確說法是什麼？',
         options: [
+          'This is pen a.',
           'This is a pen.',
           'This a pen.',
-          'This are a pen.',
-          'This is pen a.'
+          'This are a pen.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '冠詞 a 要放在名詞前面。',
           null,
           '句子缺少 be 動詞 is。',
-          '主詞 this 是單數，要用 is。',
-          '冠詞 a 要放在名詞前面。'
+          '主詞 this 是單數，要用 is。'
         ]
       }
     },
@@ -14205,17 +14205,17 @@ window.APP_LESSONS['english|二上|第1單元 This is 句型'] = {
       check: {
         q: '「這些是蘋果」的正確說法是什麼？',
         options: [
-          'These are apples.',
           'These is apples.',
           'This are apples.',
-          'These are apple.'
+          'These are apple.',
+          'These are apples.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '複數主詞要用 are。',
           'this 是單數，不能配 are。',
-          '複數名詞要加 s。'
+          '複數名詞要加 s。',
+          null
         ]
       }
     },
@@ -14231,17 +14231,17 @@ window.APP_LESSONS['english|二上|第1單元 This is 句型'] = {
       check: {
         q: '「那些不是我的書」的正確說法是什麼？',
         options: [
-          'Those are not my books.',
-          'Those not are my books.',
           'Those do not my books.',
-          'Those is not my books.'
+          'Those is not my books.',
+          'Those are not my books.',
+          'Those not are my books.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'not 要放在 be 動詞後面。',
           'be 動詞句不用助動詞 do。',
-          '複數主詞要用 are。'
+          '複數主詞要用 are。',
+          null,
+          'not 要放在 be 動詞後面。'
         ]
       }
     },
@@ -14280,17 +14280,17 @@ window.APP_LESSONS['english|二上|第1單元 This is 句型'] = {
       check: {
         q: '要向別人介紹身旁的朋友 Ben，可以怎麼說？',
         options: [
-          'This is my friend, Ben.',
-          'He is Ben friend.',
           'That is me friend Ben.',
-          'Ben this friend.'
+          'Ben this friend.',
+          'This is my friend, Ben.',
+          'He is Ben friend.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這個語序不正確。',
           'me 是受格，「我的」要用 my。',
-          '句子缺少 be 動詞。'
+          '句子缺少 be 動詞。',
+          null,
+          '這個語序不正確。'
         ]
       }
     }
@@ -14311,13 +14311,13 @@ window.APP_LESSONS['english|二上|第2單元 be 動詞 am／is／are'] = {
         { label: 'are', items: ['you', 'we', 'they'] }] },
       check: {
         q: '主詞是 she 的時候，be 動詞要用哪一個？',
-        options: ['is', 'am', 'are', 'be'],
-        answer: 0,
+        options: ['be', 'is', 'am', 'are'],
+        answer: 1,
         why: [
+          'be 是原形，不直接放在句子裡當主要動詞。',
           null,
           'am 只跟 I 搭配。',
-          'are 用於 you、we、they。',
-          'be 是原形，不直接放在句子裡當主要動詞。'
+          'are 用於 you、we、they。'
         ]
       }
     },
@@ -14335,17 +14335,17 @@ window.APP_LESSONS['english|二上|第2單元 be 動詞 am／is／are'] = {
       check: {
         q: '「我很開心」的正確說法是什麼？',
         options: [
-          'I am happy.',
           'I happy.',
           'I is happy.',
-          'I are happy.'
+          'I are happy.',
+          'I am happy.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '英文的形容詞句不能省略 be 動詞。',
           '主詞 I 要配 am。',
-          'are 不跟 I 搭配。'
+          'are 不跟 I 搭配。',
+          null
         ]
       }
     },
@@ -14359,13 +14359,13 @@ window.APP_LESSONS['english|二上|第2單元 be 動詞 am／is／are'] = {
         { label: '縮寫', items: ['I’m', 'he’s', 'they’re'] }] },
       check: {
         q: 'They are 的縮寫是什麼？',
-        options: ['They’re', 'Their', 'There', 'They’s'],
-        answer: 0,
+        options: ['There', 'They’s', 'They’re', 'Their'],
+        answer: 2,
         why: [
-          null,
-          'their 是「他們的」，意思不同。',
           'there 是「那裡」，只是發音相近。',
-          '縮寫要照 are 縮，不是 is。'
+          '縮寫要照 are 縮，不是 is。',
+          null,
+          'their 是「他們的」，意思不同。'
         ]
       }
     },
@@ -14432,17 +14432,17 @@ window.APP_LESSONS['english|二上|第2單元 be 動詞 am／is／are'] = {
       check: {
         q: '「我每天上學」的正確說法是什麼？',
         options: [
-          'I go to school every day.',
           'I am go to school every day.',
           'I am going school every day.',
-          'I go am to school every day.'
+          'I go am to school every day.',
+          'I go to school every day.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'be 動詞和一般動詞不能同時當主要動詞。',
           '這個句子少了介系詞 to，時態也不自然。',
-          '句中不該再插入 be 動詞。'
+          '句中不該再插入 be 動詞。',
+          null
         ]
       }
     }
@@ -14463,17 +14463,17 @@ window.APP_LESSONS['english|二上|第3單元 數字與 How many'] = {
       check: {
         q: '「有幾枝筆？」的正確說法是什麼？',
         options: [
+          'How many a pen?',
           'How many pens?',
           'How many pen?',
-          'How much pens?',
-          'How many a pen?'
+          'How much pens?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '有 How many 時不需要冠詞。',
           null,
           'How many 後面要用複數。',
-          'How much 用於不可數名詞。',
-          '有 How many 時不需要冠詞。'
+          'How much 用於不可數名詞。'
         ]
       }
     },
@@ -14486,13 +14486,13 @@ window.APP_LESSONS['english|二上|第3單元 數字與 How many'] = {
         { label: '多個（複數）', items: ['two books', 'ten books'] }] },
       check: {
         q: '「一本書」的正確說法是什麼？',
-        options: ['one book', 'one books', 'a books', 'one of book'],
-        answer: 0,
+        options: ['one books', 'a books', 'one of book', 'one book'],
+        answer: 3,
         why: [
-          null,
           '數字 one 後面用單數。',
           '冠詞 a 後面接單數名詞。',
-          '這個說法不符合英文用法。'
+          '這個說法不符合英文用法。',
+          null
         ]
       }
     },
@@ -14506,13 +14506,13 @@ window.APP_LESSONS['english|二上|第3單元 數字與 How many'] = {
         { label: '拼法要注意', items: ['forty', 'fifty', 'eighty'] }] },
       check: {
         q: '數字 40 的正確拼法是什麼？',
-        options: ['forty', 'fourty', 'fourteen', 'fortty'],
-        answer: 0,
+        options: ['fourteen', 'fortty', 'forty', 'fourty'],
+        answer: 2,
         why: [
-          null,
-          '這個拼法多了字母 u。',
           'fourteen 是 14，不是 40。',
-          '字母 t 不需要重複。'
+          '字母 t 不需要重複。',
+          null,
+          '這個拼法多了字母 u。'
         ]
       }
     },
@@ -14578,17 +14578,17 @@ window.APP_LESSONS['english|二上|第3單元 數字與 How many'] = {
       check: {
         q: '「五點整」的正確說法是什麼？',
         options: [
-          'It is five o’clock.',
-          'It is five clock.',
           'It is o’clock five.',
-          'It five o’clock.'
+          'It five o’clock.',
+          'It is five o’clock.',
+          'It is five clock.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'o’clock 要有撇號。',
           '數字要放在 o’clock 前面。',
-          '句子缺少 be 動詞。'
+          '句子缺少 be 動詞。',
+          null,
+          'o’clock 要有撇號。'
         ]
       }
     }
@@ -14610,17 +14610,17 @@ window.APP_LESSONS['english|二上|第4單元 食物與飲料'] = {
       check: {
         q: '「我吃午餐」的正確說法是什麼？',
         options: [
+          'I am lunch.',
           'I have lunch.',
           'I have a lunch.',
-          'I eat a lunches.',
-          'I am lunch.'
+          'I eat a lunches.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'be 動詞不能取代動作動詞。',
           null,
           '三餐前面通常不加冠詞。',
-          '三餐一般不用複數形。',
-          'be 動詞不能取代動作動詞。'
+          '三餐一般不用複數形。'
         ]
       }
     },
@@ -14657,17 +14657,17 @@ window.APP_LESSONS['english|二上|第4單元 食物與飲料'] = {
       check: {
         q: '「你有果汁嗎？」的正確說法是什麼？',
         options: [
-          'Do you have any juice?',
           'Do you have some juices?',
           'Have you any a juice?',
-          'You have any juice?'
+          'You have any juice?',
+          'Do you have any juice?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'juice 是不可數名詞，不加 s。',
           '這個語序不是現代常用的英文。',
-          '疑問句需要助動詞 do 在句首。'
+          '疑問句需要助動詞 do 在句首。',
+          null
         ]
       }
     },
@@ -14682,17 +14682,17 @@ window.APP_LESSONS['english|二上|第4單元 食物與飲料'] = {
       check: {
         q: '「一碗飯」的正確說法是什麼？',
         options: [
-          'a bowl of rice',
-          'a rice',
           'one rices',
-          'a rice bowl of'
+          'a rice bowl of',
+          'a bowl of rice',
+          'a rice'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '不可數名詞不能直接加冠詞 a。',
           '不可數名詞沒有複數形。',
-          '這個語序不正確。'
+          '這個語序不正確。',
+          null,
+          '不可數名詞不能直接加冠詞 a。'
         ]
       }
     },
@@ -14733,17 +14733,17 @@ window.APP_LESSONS['english|二上|第4單元 食物與飲料'] = {
       check: {
         q: '「蔬菜對身體好」的正確說法是什麼？',
         options: [
+          'Vegetables good for you.',
           'Vegetables are good for you.',
           'Vegetables is good for you.',
-          'Vegetable are good for you.',
-          'Vegetables good for you.'
+          'Vegetable are good for you.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句子缺少 be 動詞。',
           null,
           '複數主詞要用 are。',
-          '要表達整類蔬菜時用複數。',
-          '句子缺少 be 動詞。'
+          '要表達整類蔬菜時用複數。'
         ]
       }
     }
@@ -14764,17 +14764,17 @@ window.APP_LESSONS['english|二上|第5單元 I like 句型'] = {
       check: {
         q: '「我喜歡貓」（指整類貓）的正確說法是什麼？',
         options: [
+          'I am like cats.',
           'I like cats.',
           'I like a cats.',
-          'I likes cat.',
-          'I am like cats.'
+          'I likes cat.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'be 動詞不能和一般動詞並用。',
           null,
           '複數名詞前面不加冠詞 a。',
-          '主詞 I 的動詞不加 s。',
-          'be 動詞不能和一般動詞並用。'
+          '主詞 I 的動詞不加 s。'
         ]
       }
     },
@@ -14789,17 +14789,17 @@ window.APP_LESSONS['english|二上|第5單元 I like 句型'] = {
       check: {
         q: '「Amy 喜歡書」的正確說法是什麼？',
         options: [
-          'Amy likes books.',
           'Amy like books.',
           'Amy is like books.',
-          'Amy likes book.'
+          'Amy likes book.',
+          'Amy likes books.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '第三人稱單數的動詞要加 s。',
           'be 動詞不能和一般動詞並用。',
-          '指整類書時要用複數。'
+          '指整類書時要用複數。',
+          null
         ]
       }
     },
@@ -14815,17 +14815,17 @@ window.APP_LESSONS['english|二上|第5單元 I like 句型'] = {
       check: {
         q: '「他不喜歡牛奶」的正確說法是什麼？',
         options: [
-          'He doesn’t like milk.',
-          'He doesn’t likes milk.',
           'He don’t like milk.',
-          'He not like milk.'
+          'He not like milk.',
+          'He doesn’t like milk.',
+          'He doesn’t likes milk.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '有了 doesn’t，動詞要用原形。',
           '第三人稱單數要用 doesn’t。',
-          '否定句需要助動詞。'
+          '否定句需要助動詞。',
+          null,
+          '有了 doesn’t，動詞要用原形。'
         ]
       }
     },
@@ -14888,13 +14888,13 @@ window.APP_LESSONS['english|二上|第5單元 I like 句型'] = {
       viz: { type: 'energyflow', steps: ['love（最喜歡）', 'like（喜歡）', 'don’t like（不喜歡）', 'hate（討厭）'] },
       check: {
         q: '下列哪一個表達最強烈的喜歡？',
-        options: ['love', 'like', 'do not like', 'hate'],
-        answer: 0,
+        options: ['hate', 'love', 'like', 'do not like'],
+        answer: 1,
         why: [
+          'hate 表示討厭，方向相反。',
           null,
           'like 的程度比 love 弱。',
-          '這是否定的表達。',
-          'hate 表示討厭，方向相反。'
+          '這是否定的表達。'
         ]
       }
     }
@@ -14940,17 +14940,17 @@ window.APP_LESSONS['english|二上|第6單元 動作動詞'] = {
       check: {
         q: '「他去學校」的正確說法是什麼？',
         options: [
+          'He goeses to school.',
           'He goes to school.',
           'He gos to school.',
-          'He go to school.',
-          'He goeses to school.'
+          'He go to school.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個拼法重複加了字尾。',
           null,
           'go 的第三人稱單數是 goes。',
-          '第三人稱單數的動詞要變化。',
-          '這個拼法重複加了字尾。'
+          '第三人稱單數的動詞要變化。'
         ]
       }
     },
@@ -14965,17 +14965,17 @@ window.APP_LESSONS['english|二上|第6單元 動作動詞'] = {
       check: {
         q: '英文句子的基本語序是什麼？',
         options: [
-          '主詞、動詞、受詞',
           '動詞、主詞、受詞',
           '受詞、動詞、主詞',
-          '主詞、受詞、動詞'
+          '主詞、受詞、動詞',
+          '主詞、動詞、受詞'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '英文的動詞不放在主詞前面（疑問句除外）。',
           '受詞不會放在句首當開頭。',
-          '英文的動詞不放在句尾。'
+          '英文的動詞不放在句尾。',
+          null
         ]
       }
     },
@@ -14992,17 +14992,17 @@ window.APP_LESSONS['english|二上|第6單元 動作動詞'] = {
       check: {
         q: '「她不吃魚」的正確說法是什麼？',
         options: [
-          'She does not eat fish.',
-          'She not eat fish.',
           'She is not eat fish.',
-          'She does not eats fish.'
+          'She does not eats fish.',
+          'She does not eat fish.',
+          'She not eat fish.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '一般動詞的否定要借助動詞。',
           'be 動詞不能和一般動詞並用。',
-          '有了 does 之後動詞要用原形。'
+          '有了 does 之後動詞要用原形。',
+          null,
+          '一般動詞的否定要借助動詞。'
         ]
       }
     },
@@ -15018,17 +15018,17 @@ window.APP_LESSONS['english|二上|第6單元 動作動詞'] = {
       check: {
         q: '「他正在游泳」的正確說法是什麼？',
         options: [
+          'He swims now doing.',
           'He is swimming.',
           'He swimming.',
-          'He is swim.',
-          'He swims now doing.'
+          'He is swim.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個句子的結構不正確。',
           null,
           '進行式需要 be 動詞。',
-          '進行式的動詞要加 ing。',
-          '這個句子的結構不正確。'
+          '進行式的動詞要加 ing。'
         ]
       }
     },
@@ -15046,17 +15046,17 @@ window.APP_LESSONS['english|二上|第6單元 動作動詞'] = {
       check: {
         q: '「我現在正在讀書」應該用哪一種時態？',
         options: [
-          '現在進行式：I am reading now.',
-          '現在簡單式：I read now.',
           '兩種都不行',
-          '要用過去式'
+          '要用過去式',
+          '現在進行式：I am reading now.',
+          '現在簡單式：I read now.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '有 now 表示此刻，要用進行式。',
           '英文有適合的時態可以表達。',
-          '過去式用於已經發生的事。'
+          '過去式用於已經發生的事。',
+          null,
+          '有 now 表示此刻，要用進行式。'
         ]
       }
     }
@@ -15076,13 +15076,13 @@ window.APP_LESSONS['english|二上|第7單元 學校地點與科目'] = {
         { label: '室外', items: ['playground', 'garden'] }] },
       check: {
         q: '「圖書館」的英文是什麼？',
-        options: ['library', 'classroom', 'playground', 'office'],
-        answer: 0,
+        options: ['classroom', 'playground', 'office', 'library'],
+        answer: 3,
         why: [
-          null,
           'classroom 指的是教室。',
           'playground 指的是操場。',
-          'office 指的是辦公室。'
+          'office 指的是辦公室。',
+          null
         ]
       }
     },
@@ -15123,17 +15123,17 @@ window.APP_LESSONS['english|二上|第7單元 學校地點與科目'] = {
       check: {
         q: '「書在桌子上」的正確說法是什麼？',
         options: [
+          'The book is desk.',
           'The book is on the desk.',
           'The book is in the desk.',
-          'The book is under the desk.',
-          'The book is desk.'
+          'The book is under the desk.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句子缺少介系詞。',
           null,
           'in 表示在裡面（抽屜裡）。',
-          'under 表示在下面。',
-          '句子缺少介系詞。'
+          'under 表示在下面。'
         ]
       }
     },
@@ -15147,13 +15147,13 @@ window.APP_LESSONS['english|二上|第7單元 學校地點與科目'] = {
         { label: '一般小寫', items: ['math', 'science', 'art', 'music'] }] },
       check: {
         q: '下列哪一個科目的字首一定要大寫？',
-        options: ['English', 'math', 'science', 'art'],
-        answer: 0,
+        options: ['science', 'art', 'English', 'math'],
+        answer: 2,
         why: [
-          null,
-          'math 是普通名詞，不需要大寫。',
           'science 是普通名詞，不需要大寫。',
-          'art 是普通名詞，不需要大寫。'
+          'art 是普通名詞，不需要大寫。',
+          null,
+          'math 是普通名詞，不需要大寫。'
         ]
       }
     },
@@ -15169,17 +15169,17 @@ window.APP_LESSONS['english|二上|第7單元 學校地點與科目'] = {
       check: {
         q: '「我喜歡音樂，因為它很好玩」的正確說法是什麼？',
         options: [
-          'I like music because it is fun.',
-          'I like music because fun.',
           'I like music, so it is fun.',
-          'Because I like music it is fun.'
+          'Because I like music it is fun.',
+          'I like music because it is fun.',
+          'I like music because fun.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'because 後面要接完整的句子。',
           'so 表示結果，不是理由。',
-          '這樣寫語意變得不通順。'
+          '這樣寫語意變得不通順。',
+          null,
+          'because 後面要接完整的句子。'
         ]
       }
     },
@@ -15194,17 +15194,17 @@ window.APP_LESSONS['english|二上|第7單元 學校地點與科目'] = {
       check: {
         q: '「我們星期五有體育課」的正確說法是什麼？',
         options: [
+          'We have PE Friday on.',
           'We have PE on Friday.',
           'We have PE in Friday.',
-          'We have PE at Friday.',
-          'We have PE Friday on.'
+          'We have PE at Friday.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '介系詞要放在星期前面。',
           null,
           'in 用於月份、年份或季節。',
-          'at 用於具體的時間點。',
-          '介系詞要放在星期前面。'
+          'at 用於具體的時間點。'
         ]
       }
     }
@@ -15246,17 +15246,17 @@ window.APP_LESSONS['english|二上|第8單元 星期與作息'] = {
       check: {
         q: '「今天星期二」的正確說法是什麼？',
         options: [
-          'It is Tuesday.',
           'Today is tuesday.',
           'It is a Tuesday day.',
-          'Today Tuesday.'
+          'Today Tuesday.',
+          'It is Tuesday.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '星期的字首要大寫。',
           '這個說法多了不必要的字。',
-          '句子缺少 be 動詞。'
+          '句子缺少 be 動詞。',
+          null
         ]
       }
     },
@@ -15268,13 +15268,13 @@ window.APP_LESSONS['english|二上|第8單元 星期與作息'] = {
       viz: { type: 'energyflow', steps: ['get up', 'have breakfast', 'go to school', 'do homework', 'go to bed'] },
       check: {
         q: '「起床」的英文片語是什麼？',
-        options: ['get up', 'go up', 'stand up', 'wake down'],
-        answer: 0,
+        options: ['stand up', 'wake down', 'get up', 'go up'],
+        answer: 2,
         why: [
-          null,
-          'go up 是「往上走」。',
           'stand up 是「站起來」。',
-          '這個片語並不存在。'
+          '這個片語並不存在。',
+          null,
+          'go up 是「往上走」。'
         ]
       }
     },
@@ -15289,17 +15289,17 @@ window.APP_LESSONS['english|二上|第8單元 星期與作息'] = {
       check: {
         q: '「我六點起床」的正確說法是什麼？',
         options: [
+          'I get up six at.',
           'I get up at six.',
           'I get up on six.',
-          'I get up in six.',
-          'I get up six at.'
+          'I get up in six.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '介系詞要放在時間前面。',
           null,
           'on 用於星期與日期。',
-          'in 用於月份、年份或較長的時間。',
-          '介系詞要放在時間前面。'
+          'in 用於月份、年份或較長的時間。'
         ]
       }
     },
@@ -15312,17 +15312,17 @@ window.APP_LESSONS['english|二上|第8單元 星期與作息'] = {
       check: {
         q: '「我有時候看電視」的正確說法是什麼？',
         options: [
+          'I am sometimes watch TV.',
           'I sometimes watch TV.',
           'I watch sometimes TV.',
-          'Sometimes watch I TV.',
-          'I am sometimes watch TV.'
+          'Sometimes watch I TV.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'be 動詞不能和一般動詞並用。',
           null,
           '頻率副詞不放在動詞與受詞中間。',
-          '這個語序不符合英文結構。',
-          'be 動詞不能和一般動詞並用。'
+          '這個語序不符合英文結構。'
         ]
       }
     },
@@ -15338,17 +15338,17 @@ window.APP_LESSONS['english|二上|第8單元 星期與作息'] = {
       check: {
         q: '「星期日我去公園」的正確說法是什麼？',
         options: [
-          'On Sunday, I go to the park.',
           'In Sunday, I go to the park.',
           'At Sunday, I go the park.',
-          'Sunday I go park.'
+          'Sunday I go park.',
+          'On Sunday, I go to the park.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '星期前面的介系詞要用 on。',
           '星期不用 at，句子也少了介系詞。',
-          '句子缺少介系詞與冠詞。'
+          '句子缺少介系詞與冠詞。',
+          null
         ]
       }
     }
@@ -15369,17 +15369,17 @@ window.APP_LESSONS['english|二上|第9單元 形容詞：大小與外形'] = {
       check: {
         q: 'short 這個字可能有哪些意思？',
         options: [
+          '表示長的',
           '短的，也可以是矮的',
           '只能是短的',
-          '只能是矮的',
-          '表示長的'
+          '只能是矮的'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'long 才是長的。',
           null,
           'short 也可以形容身高。',
-          'short 也可以形容長度。',
-          'long 才是長的。'
+          'short 也可以形容長度。'
         ]
       }
     },
@@ -15396,17 +15396,17 @@ window.APP_LESSONS['english|二上|第9單元 形容詞：大小與外形'] = {
       check: {
         q: '「那本書很厚」的正確說法是什麼？',
         options: [
-          'The book is thick.',
-          'The book thick.',
           'The thick is book.',
-          'Is the book thick very.'
+          'Is the book thick very.',
+          'The book is thick.',
+          'The book thick.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '句子缺少 be 動詞。',
           '主詞與形容詞的位置顛倒了。',
-          '這是疑問句的語序，語意也不通。'
+          '這是疑問句的語序，語意也不通。',
+          null,
+          '句子缺少 be 動詞。'
         ]
       }
     },
@@ -15422,17 +15422,17 @@ window.APP_LESSONS['english|二上|第9單元 形容詞：大小與外形'] = {
       check: {
         q: '「一顆小的圓形白球」的正確順序是什麼？',
         options: [
-          'a small round white ball',
           'a white round small ball',
           'a round small white ball',
-          'a white small round ball'
+          'a white small round ball',
+          'a small round white ball'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '顏色通常放在最靠近名詞的位置。',
           '大小要放在形狀前面。',
-          '大小要放在顏色前面。'
+          '大小要放在顏色前面。',
+          null
         ]
       }
     },
@@ -15497,17 +15497,17 @@ window.APP_LESSONS['english|二上|第9單元 形容詞：大小與外形'] = {
       check: {
         q: '「這個包包很小但是很重」該用哪個連接詞？',
         options: [
-          'but，因為小和重有轉折',
           'and，因為兩個都是形容詞',
           'or，因為要二選一',
-          '不需要連接詞'
+          '不需要連接詞',
+          'but，因為小和重有轉折'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '詞性相同不代表語意沒有轉折。',
           'or 用在選擇的情況。',
-          '兩個描述之間需要連接詞才通順。'
+          '兩個描述之間需要連接詞才通順。',
+          null
         ]
       }
     }
@@ -15527,13 +15527,13 @@ window.APP_LESSONS['english|二下|第1單元 人稱代名詞'] = {
         { label: '複數', items: ['we', 'you', 'they'] }] },
       check: {
         q: '要代替「我的哥哥」當主詞，應該用哪一個代名詞？',
-        options: ['he', 'she', 'it', 'him'],
-        answer: 0,
+        options: ['him', 'he', 'she', 'it'],
+        answer: 1,
         why: [
+          'him 是受格，不能當主詞。',
           null,
           'she 用來代替女性。',
-          'it 用來代替東西或動物。',
-          'him 是受格，不能當主詞。'
+          'it 用來代替東西或動物。'
         ]
       }
     },
@@ -15549,17 +15549,17 @@ window.APP_LESSONS['english|二下|第1單元 人稱代名詞'] = {
       check: {
         q: '「我喜歡她」的正確說法是什麼？',
         options: [
-          'I like her.',
-          'I like she.',
           'Me like her.',
-          'I likes she.'
+          'I likes she.',
+          'I like her.',
+          'I like she.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '動詞後面要用受格 her。',
           '句首當主詞要用主格 I。',
-          '主詞 I 的動詞不加 s，受格也用錯。'
+          '主詞 I 的動詞不加 s，受格也用錯。',
+          null,
+          '動詞後面要用受格 her。'
         ]
       }
     },
@@ -15602,17 +15602,17 @@ window.APP_LESSONS['english|二下|第1單元 人稱代名詞'] = {
       check: {
         q: '「這枝筆是我的」的正確說法是什麼？',
         options: [
-          'This pen is mine.',
           'This pen is my.',
           'This pen is me.',
-          'This is my.'
+          'This is my.',
+          'This pen is mine.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'my 後面一定要接名詞。',
           'me 是受格，不表示所有。',
-          '這個句子沒說清楚是什麼東西。'
+          '這個句子沒說清楚是什麼東西。',
+          null
         ]
       }
     },
@@ -15654,17 +15654,17 @@ window.APP_LESSONS['english|二下|第1單元 人稱代名詞'] = {
       check: {
         q: '「牠的尾巴很長」應該用哪一個字？',
         options: [
-          'Its tail is long.',
-          'It’s tail is long.',
           'Its’ tail is long.',
-          'It is tail is long.'
+          'It is tail is long.',
+          'Its tail is long.',
+          'It’s tail is long.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '有撇號的是 it is 的縮寫。',
           '這個寫法並不存在。',
-          '一個句子不能有兩個 be 動詞。'
+          '一個句子不能有兩個 be 動詞。',
+          null,
+          '有撇號的是 it is 的縮寫。'
         ]
       }
     }
@@ -15683,17 +15683,17 @@ window.APP_LESSONS['english|二下|第2單元 Yes/No 問句與簡答'] = {
       check: {
         q: '要把 He is tall. 改成問句，該怎麼做？',
         options: [
+          '把 he 改成 him',
           '把 is 移到句首：Is he tall?',
           '句首加 Do：Do he is tall?',
-          '句尾加 ?：He is tall?',
-          '把 he 改成 him'
+          '句尾加 ?：He is tall?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '換成受格不會變成問句。',
           null,
           'be 動詞句不需要助動詞 do。',
-          '書面英文的問句要調整語序。',
-          '換成受格不會變成問句。'
+          '書面英文的問句要調整語序。'
         ]
       }
     },
@@ -15709,17 +15709,17 @@ window.APP_LESSONS['english|二下|第2單元 Yes/No 問句與簡答'] = {
       check: {
         q: '「他會彈鋼琴嗎？」的正確說法是什麼？',
         options: [
-          'Does he play the piano?',
-          'Does he plays the piano?',
           'Do he play the piano?',
-          'Is he play the piano?'
+          'Is he play the piano?',
+          'Does he play the piano?',
+          'Does he plays the piano?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '有了 does，動詞要用原形。',
           '第三人稱單數要用 does。',
-          'be 動詞不能和一般動詞並用。'
+          'be 動詞不能和一般動詞並用。',
+          null,
+          '有了 does，動詞要用原形。'
         ]
       }
     },
@@ -15760,17 +15760,17 @@ window.APP_LESSONS['english|二下|第2單元 Yes/No 問句與簡答'] = {
       check: {
         q: '別人問 Is Ben your brother?，肯定簡答要怎麼說？',
         options: [
-          'Yes, he is.',
           'Yes, Ben is.',
           'Yes, it is.',
-          'Yes, they are.'
+          'Yes, they are.',
+          'Yes, he is.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '簡答要用代名詞而不是重複名字。',
           'it 用來代替東西，不用來代替人。',
-          'Ben 是一個人，要用單數。'
+          'Ben 是一個人，要用單數。',
+          null
         ]
       }
     },
@@ -15810,17 +15810,17 @@ window.APP_LESSONS['english|二下|第2單元 Yes/No 問句與簡答'] = {
       check: {
         q: '想讓對話繼續，回答問題時最好怎麼做？',
         options: [
-          '簡答之後再補一句相關的資訊',
           '只回答 Yes 或 No',
           '不回答',
-          '重複對方的問題'
+          '重複對方的問題',
+          '簡答之後再補一句相關的資訊'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '只回一個字對話很快就結束了。',
           '不回答會讓對方不知所措。',
-          '重複問題不算回答。'
+          '重複問題不算回答。',
+          null
         ]
       }
     }
@@ -15842,17 +15842,17 @@ window.APP_LESSONS['english|二下|第3單元 疑問詞 What 與 Who'] = {
       check: {
         q: '「你叫什麼名字？」的正確說法是什麼？',
         options: [
+          'Who is your name?',
           'What is your name?',
           'What your name is?',
-          'What name you?',
-          'Who is your name?'
+          'What name you?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'Who 是問人，不是問名稱。',
           null,
           'be 動詞要放在主詞前面。',
-          '句子缺少 be 動詞。',
-          'Who 是問人，不是問名稱。'
+          '句子缺少 be 動詞。'
         ]
       }
     },
@@ -15894,13 +15894,13 @@ window.APP_LESSONS['english|二下|第3單元 疑問詞 What 與 Who'] = {
              same: ['都放在句首當疑問詞'] },
       check: {
         q: '要問「那個女生是誰？」應該用哪個疑問詞？',
-        options: ['Who', 'What', 'Where', 'When'],
-        answer: 0,
+        options: ['Where', 'When', 'Who', 'What'],
+        answer: 2,
         why: [
-          null,
-          'What 用來問東西或名稱。',
           'Where 用來問地方。',
-          'When 用來問時間。'
+          'When 用來問時間。',
+          null,
+          'What 用來問東西或名稱。'
         ]
       }
     },
@@ -15916,17 +15916,17 @@ window.APP_LESSONS['english|二下|第3單元 疑問詞 What 與 Who'] = {
       check: {
         q: '「誰想吃蛋糕？」的正確說法是什麼？',
         options: [
-          'Who wants cake?',
           'Who do want cake?',
           'Who want cake?',
-          'Who is want cake?'
+          'Who is want cake?',
+          'Who wants cake?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'Who 當主詞時不需要助動詞。',
           'Who 當主詞時動詞要加 s。',
-          'be 動詞不能和一般動詞並用。'
+          'be 動詞不能和一般動詞並用。',
+          null
         ]
       }
     },
@@ -15964,17 +15964,17 @@ window.APP_LESSONS['english|二下|第3單元 疑問詞 What 與 Who'] = {
       check: {
         q: '「現在幾點？」的正確說法是什麼？',
         options: [
-          'What time is it?',
-          'What is time?',
           'What clock is it?',
-          'How time is it?'
+          'How time is it?',
+          'What time is it?',
+          'What is time?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '問時間的固定說法要加 time 與 it。',
           'clock 是時鐘這個物品。',
-          '問時間點用 What 而不是 How。'
+          '問時間點用 What 而不是 How。',
+          null,
+          '問時間的固定說法要加 time 與 it。'
         ]
       }
     }
@@ -15996,17 +15996,17 @@ window.APP_LESSONS['english|二下|第4單元 疑問詞 Where 與 When'] = {
       check: {
         q: '「你住在哪裡？」的正確說法是什麼？',
         options: [
+          'Where is you live?',
           'Where do you live?',
           'Where you live?',
-          'Where are you live?',
-          'Where is you live?'
+          'Where are you live?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '主詞 you 也不能配 is。',
           null,
           '一般動詞的問句需要助動詞。',
-          'be 動詞不能和一般動詞並用。',
-          '主詞 you 也不能配 is。'
+          'be 動詞不能和一般動詞並用。'
         ]
       }
     },
@@ -16022,17 +16022,17 @@ window.APP_LESSONS['english|二下|第4單元 疑問詞 Where 與 When'] = {
       check: {
         q: '「我住在台北」的正確說法是什麼？',
         options: [
-          'I live in Taipei.',
           'I live on Taipei.',
           'I live at Taipei.',
-          'I live to Taipei.'
+          'I live to Taipei.',
+          'I live in Taipei.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'on 用於街道或樓層。',
           'at 用於較小的定點。',
-          'to 表示方向而不是位置。'
+          'to 表示方向而不是位置。',
+          null
         ]
       }
     },
@@ -16066,13 +16066,13 @@ window.APP_LESSONS['english|二下|第4單元 疑問詞 Where 與 When'] = {
       viz: { type: 'energyflow', steps: ['at（時刻，最小）', 'on（日期、星期）', 'in（月、年、季節，最大）'] },
       check: {
         q: '「在五月」的正確說法是什麼？',
-        options: ['in May', 'on May', 'at May', 'to May'],
-        answer: 0,
+        options: ['at May', 'to May', 'in May', 'on May'],
+        answer: 2,
         why: [
-          null,
-          'on 用於日期與星期。',
           'at 用於具體的時刻。',
-          'to 表示方向。'
+          'to 表示方向。',
+          null,
+          'on 用於日期與星期。'
         ]
       }
     },
@@ -16107,17 +16107,17 @@ window.APP_LESSONS['english|二下|第4單元 疑問詞 Where 與 When'] = {
       check: {
         q: '說日期「五月三日」時，數字 3 要怎麼唸？',
         options: [
+          'thirty',
           'third（序數）',
           'three（基數）',
-          'three time',
-          'thirty'
+          'three time'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'thirty 是三十，數字不對。',
           null,
           '日期要用序數而不是基數。',
-          '這個說法不符合英文用法。',
-          'thirty 是三十，數字不對。'
+          '這個說法不符合英文用法。'
         ]
       }
     }
@@ -16159,17 +16159,17 @@ window.APP_LESSONS['english|二下|第5單元 職業'] = {
       check: {
         q: '「她是護理師」的正確說法是什麼？',
         options: [
+          'She is the nurses.',
           'She is a nurse.',
           'She is nurse.',
-          'She a nurse.',
-          'She is the nurses.'
+          'She a nurse.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '指一個人的職業不用複數。',
           null,
           '單數職業前面要加冠詞。',
-          '句子缺少 be 動詞。',
-          '指一個人的職業不用複數。'
+          '句子缺少 be 動詞。'
         ]
       }
     },
@@ -16186,17 +16186,17 @@ window.APP_LESSONS['english|二下|第5單元 職業'] = {
       check: {
         q: '「一位工程師」的正確說法是什麼？',
         options: [
-          'an engineer',
           'a engineer',
           'the a engineer',
-          'an engineers'
+          'an engineers',
+          'an engineer'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '字首是母音時要用 an。',
           '兩個冠詞不能同時使用。',
-          '冠詞 an 後面要接單數。'
+          '冠詞 an 後面要接單數。',
+          null
         ]
       }
     },
@@ -16210,17 +16210,17 @@ window.APP_LESSONS['english|二下|第5單元 職業'] = {
       check: {
         q: '「醫生在醫院工作」的正確說法是什麼？',
         options: [
-          'A doctor works in a hospital.',
-          'A doctor work in a hospital.',
           'A doctor is work in a hospital.',
-          'A doctor works a hospital.'
+          'A doctor works a hospital.',
+          'A doctor works in a hospital.',
+          'A doctor work in a hospital.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '第三人稱單數的動詞要加 s。',
           'be 動詞不能和一般動詞並用。',
-          '句子缺少介系詞。'
+          '句子缺少介系詞。',
+          null,
+          '第三人稱單數的動詞要加 s。'
         ]
       }
     },
@@ -16236,17 +16236,17 @@ window.APP_LESSONS['english|二下|第5單元 職業'] = {
       check: {
         q: '「廚師做食物」的正確說法是什麼？',
         options: [
+          'A cook is make food.',
           'A cook makes food.',
           'A cook make food.',
-          'A cook making food.',
-          'A cook is make food.'
+          'A cook making food.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'be 動詞不能和一般動詞並用。',
           null,
           '第三人稱單數的動詞要加 s。',
-          '這個句子缺少 be 動詞才能用 ing。',
-          'be 動詞不能和一般動詞並用。'
+          '這個句子缺少 be 動詞才能用 ing。'
         ]
       }
     },
@@ -16292,13 +16292,13 @@ window.APP_LESSONS['english|二下|第6單元 交通工具'] = {
         { label: '海上與空中', items: ['ship', 'boat', 'plane'] }] },
       check: {
         q: '「火車」的英文是什麼？',
-        options: ['train', 'plane', 'ship', 'bus'],
-        answer: 0,
+        options: ['bus', 'train', 'plane', 'ship'],
+        answer: 1,
         why: [
+          'bus 指的是公車。',
           null,
           'plane 指的是飛機。',
-          'ship 指的是船。',
-          'bus 指的是公車。'
+          'ship 指的是船。'
         ]
       }
     },
@@ -16313,17 +16313,17 @@ window.APP_LESSONS['english|二下|第6單元 交通工具'] = {
       check: {
         q: '「我搭火車去」的正確說法是什麼？',
         options: [
-          'I go by train.',
           'I go by a train.',
           'I go by trains.',
-          'I go by the a train.'
+          'I go by the a train.',
+          'I go by train.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'by 後面不加冠詞。',
           'by 後面用單數形。',
-          '兩個冠詞不能同時使用。'
+          '兩個冠詞不能同時使用。',
+          null
         ]
       }
     },
@@ -16340,17 +16340,17 @@ window.APP_LESSONS['english|二下|第6單元 交通工具'] = {
       check: {
         q: '「走路去」的正確說法是什麼？',
         options: [
-          'on foot',
-          'by foot',
           'by walk',
-          'on walking'
+          'on walking',
+          'on foot',
+          'by foot'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '走路的固定片語用 on 而不是 by。',
           'walk 是動詞，不能放在 by 後面。',
-          '這個說法不是固定用法。'
+          '這個說法不是固定用法。',
+          null,
+          '走路的固定片語用 on 而不是 by。'
         ]
       }
     },
@@ -16411,17 +16411,17 @@ window.APP_LESSONS['english|二下|第6單元 交通工具'] = {
       check: {
         q: '過馬路前最重要的動作是什麼？',
         options: [
-          '先停下來看左右有沒有車',
           '直接跑過去',
           '低頭看手機',
-          '跟著人群衝'
+          '跟著人群衝',
+          '先停下來看左右有沒有車'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '跑過馬路來不及反應很危險。',
           '看手機會忽略周圍的車。',
-          '跟著別人走不代表安全。'
+          '跟著別人走不代表安全。',
+          null
         ]
       }
     }
@@ -16441,13 +16441,13 @@ window.APP_LESSONS['english|二下|第7單元 房間與家具'] = {
         { label: '兩個字分開寫', items: ['living room', 'dining room'] }] },
       check: {
         q: '「廚房」的英文是什麼？',
-        options: ['kitchen', 'bedroom', 'bathroom', 'living room'],
-        answer: 0,
+        options: ['bedroom', 'bathroom', 'living room', 'kitchen'],
+        answer: 3,
         why: [
-          null,
           'bedroom 指的是臥室。',
           'bathroom 指的是浴室。',
-          'living room 指的是客廳。'
+          'living room 指的是客廳。',
+          null
         ]
       }
     },
@@ -16461,13 +16461,13 @@ window.APP_LESSONS['english|二下|第7單元 房間與家具'] = {
         { label: '放東西', items: ['desk', 'table', 'closet'] }] },
       check: {
         q: '寫功課用的桌子英文是什麼？',
-        options: ['desk', 'table', 'chair', 'closet'],
-        answer: 0,
+        options: ['closet', 'desk', 'table', 'chair'],
+        answer: 1,
         why: [
+          'closet 是衣櫥。',
           null,
           'table 多指餐桌或一般桌子。',
-          'chair 是椅子。',
-          'closet 是衣櫥。'
+          'chair 是椅子。'
         ]
       }
     },
@@ -16483,17 +16483,17 @@ window.APP_LESSONS['english|二下|第7單元 房間與家具'] = {
       check: {
         q: '「貓在沙發下面」的正確說法是什麼？',
         options: [
-          'The cat is under the sofa.',
-          'The cat is on the sofa.',
           'The cat under the sofa.',
-          'The cat is sofa under.'
+          'The cat is sofa under.',
+          'The cat is under the sofa.',
+          'The cat is on the sofa.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'on 表示在上面。',
           '句子缺少 be 動詞。',
-          '介系詞要放在名詞前面。'
+          '介系詞要放在名詞前面。',
+          null,
+          'on 表示在上面。'
         ]
       }
     },
@@ -16535,17 +16535,17 @@ window.APP_LESSONS['english|二下|第7單元 房間與家具'] = {
       check: {
         q: '「我在客廳看電視」的正確說法是什麼？',
         options: [
-          'I watch TV in the living room.',
-          'I watch TV on the living room.',
           'I watch TV at living room.',
-          'I am watch TV in the living room.'
+          'I am watch TV in the living room.',
+          'I watch TV in the living room.',
+          'I watch TV on the living room.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '在房間裡面要用 in。',
           '這裡少了冠詞，介系詞也不對。',
-          'be 動詞不能和一般動詞並用。'
+          'be 動詞不能和一般動詞並用。',
+          null,
+          '在房間裡面要用 in。'
         ]
       }
     },
@@ -16558,17 +16558,17 @@ window.APP_LESSONS['english|二下|第7單元 房間與家具'] = {
       check: {
         q: '介紹自己的房間時，比較清楚的說法順序是什麼？',
         options: [
+          '把所有句子都用 and 連在一起',
           '先說這是什麼地方，再描述樣子與東西',
           '只說裡面有什麼',
-          '只說自己的感覺',
-          '把所有句子都用 and 連在一起'
+          '只說自己的感覺'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句子太長反而不容易聽懂。',
           null,
           '沒有開頭聽的人會不知道在說哪裡。',
-          '只說感覺讓人無法想像畫面。',
-          '句子太長反而不容易聽懂。'
+          '只說感覺讓人無法想像畫面。'
         ]
       }
     }
@@ -16589,17 +16589,17 @@ window.APP_LESSONS['english|二下|第8單元 情緒與感受'] = {
       check: {
         q: '「我很難過」的正確說法是什麼？',
         options: [
+          'I am sadly.',
           'I am sad.',
           'I sad.',
-          'I have sad.',
-          'I am sadly.'
+          'I have sad.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'sadly 是副詞，這裡要用形容詞。',
           null,
           '形容詞句需要 be 動詞。',
-          '感受用 be 動詞而不是 have。',
-          'sadly 是副詞，這裡要用形容詞。'
+          '感受用 be 動詞而不是 have。'
         ]
       }
     },
@@ -16615,17 +16615,17 @@ window.APP_LESSONS['english|二下|第8單元 情緒與感受'] = {
       check: {
         q: '看到同學一個人在哭，可以先說什麼？',
         options: [
-          'Are you OK? What is wrong?',
-          'Go away.',
           'Do not cry, it is stupid.',
-          'It is not my problem.'
+          'It is not my problem.',
+          'Are you OK? What is wrong?',
+          'Go away.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '叫人走開會讓對方更難過。',
           '批評別人的感受並不恰當。',
-          '這樣說會讓對方覺得被冷落。'
+          '這樣說會讓對方覺得被冷落。',
+          null,
+          '叫人走開會讓對方更難過。'
         ]
       }
     },
@@ -16641,17 +16641,17 @@ window.APP_LESSONS['english|二下|第8單元 情緒與感受'] = {
       check: {
         q: '「我很累，因為我昨天沒睡好」的關鍵連接詞是什麼？',
         options: [
-          'because，用來說明原因',
           'but，用來表示轉折',
           'and，用來並列',
-          'or，用來選擇'
+          'or，用來選擇',
+          'because，用來說明原因'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'but 表示前後相反。',
           'and 只是把兩件事接起來，沒有因果。',
-          'or 用在兩者選一的情況。'
+          'or 用在兩者選一的情況。',
+          null
         ]
       }
     },
@@ -16719,17 +16719,17 @@ window.APP_LESSONS['english|二下|第8單元 情緒與感受'] = {
       check: {
         q: '「這本書很無聊」的正確說法是什麼？',
         options: [
-          'The book is boring.',
-          'The book is bored.',
           'The book is boredom.',
-          'The book bores.'
+          'The book bores.',
+          'The book is boring.',
+          'The book is bored.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'ed 結尾用來形容人的感受。',
           'boredom 是名詞，不能當形容詞用。',
-          '這個說法在這裡不自然。'
+          '這個說法在這裡不自然。',
+          null,
+          'ed 結尾用來形容人的感受。'
         ]
       }
     }
@@ -16776,16 +16776,16 @@ window.APP_LESSONS['english|二下|第9單元 節慶與祝賀'] = {
       check: {
         q: '「聖誕快樂」最常見的說法是什麼？',
         options: [
+          'Nice Christmas!',
           'Merry Christmas!',
           'Happy Christmas Day!',
-          'Good Christmas!',
-          'Nice Christmas!'
+          'Good Christmas!'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個說法不是慣用的祝賀語。',
           null,
           '英美最常用的說法是 Merry Christmas。',
-          '這個說法不是慣用的祝賀語。',
           '這個說法不是慣用的祝賀語。'
         ]
       }
@@ -16799,13 +16799,13 @@ window.APP_LESSONS['english|二下|第9單元 節慶與祝賀'] = {
         { label: '節日與活動', items: ['新年／紅包', '中秋／月餅', '聖誕／禮物', '萬聖／糖果'] }] },
       check: {
         q: '「在中秋節」的正確介系詞是什麼？',
-        options: ['on', 'in', 'at', 'to'],
-        answer: 0,
+        options: ['in', 'at', 'to', 'on'],
+        answer: 3,
         why: [
-          null,
           'in 用於月份、年份或季節。',
           'at 用於具體的時刻。',
-          'to 表示方向。'
+          'to 表示方向。',
+          null
         ]
       }
     },
@@ -16818,17 +16818,17 @@ window.APP_LESSONS['english|二下|第9單元 節慶與祝賀'] = {
       check: {
         q: '收到朋友送的禮物時，最好的回應是什麼？',
         options: [
-          'Thank you! I love it.',
-          'I already have one.',
           'It is too small.',
-          'Why this one?'
+          'Why this one?',
+          'Thank you! I love it.',
+          'I already have one.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這樣說會讓送禮的人尷尬。',
           '批評禮物很不禮貌。',
-          '質疑禮物會傷害對方的心意。'
+          '質疑禮物會傷害對方的心意。',
+          null,
+          '這樣說會讓送禮的人尷尬。'
         ]
       }
     },
@@ -16844,17 +16844,17 @@ window.APP_LESSONS['english|二下|第9單元 節慶與祝賀'] = {
       check: {
         q: '「你想來我的生日派對嗎？」的正確說法是什麼？',
         options: [
+          'You like come my party?',
           'Would you like to come to my birthday party?',
           'Would you like come to my party?',
-          'Would you to like come?',
-          'You like come my party?'
+          'Would you to like come?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句子缺少助動詞，語序也不對。',
           null,
           'would like 後面要加 to。',
-          '這個語序不正確。',
-          '句子缺少助動詞，語序也不對。'
+          '這個語序不正確。'
         ]
       }
     },
@@ -16901,13 +16901,13 @@ window.APP_LESSONS['english|七上|第1單元 Be 動詞現在式'] = {
         { label: 'are', items: ['you', 'we', 'they', 'the books'] }] },
       check: {
         q: 'My brother and I ___ students. 空格要填什麼？',
-        options: ['are', 'am', 'is', 'be'],
-        answer: 0,
+        options: ['am', 'is', 'be', 'are'],
+        answer: 3,
         why: [
-          null,
           'am 只跟單獨的 I 搭配。',
           '主詞是兩個人，屬於複數。',
-          'be 是原形，不能直接當現在式使用。'
+          'be 是原形，不能直接當現在式使用。',
+          null
         ]
       }
     },
@@ -16925,13 +16925,13 @@ window.APP_LESSONS['english|七上|第1單元 Be 動詞現在式'] = {
              same: ['都不表示動作，只做連接'] },
       check: {
         q: 'The cat ___ under the table. 空格要填什麼？',
-        options: ['is', 'are', 'am', 'do'],
-        answer: 0,
+        options: ['do', 'is', 'are', 'am'],
+        answer: 1,
         why: [
+          'do 是助動詞，不能表示存在。',
           null,
           '主詞 the cat 是單數。',
-          'am 只跟 I 搭配。',
-          'do 是助動詞，不能表示存在。'
+          'am 只跟 I 搭配。'
         ]
       }
     },
@@ -16964,17 +16964,17 @@ window.APP_LESSONS['english|七上|第1單元 Be 動詞現在式'] = {
       check: {
         q: 'Are they your classmates? 的肯定簡答是什麼？',
         options: [
-          'Yes, they are.',
-          'Yes, they’re.',
           'Yes, they do.',
-          'Yes, are they.'
+          'Yes, are they.',
+          'Yes, they are.',
+          'Yes, they’re.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '肯定簡答不使用縮寫。',
           '問句用 be 動詞，簡答就用 be 動詞。',
-          '簡答不用疑問句的語序。'
+          '簡答不用疑問句的語序。',
+          null,
+          '肯定簡答不使用縮寫。'
         ]
       }
     },
@@ -16991,13 +16991,13 @@ window.APP_LESSONS['english|七上|第1單元 Be 動詞現在式'] = {
         note: '介系詞片語不會改變主詞的單複數。' },
       check: {
         q: 'The pictures on the wall ___ beautiful. 空格要填什麼？',
-        options: ['are', 'is', 'am', 'be'],
-        answer: 0,
+        options: ['am', 'be', 'are', 'is'],
+        answer: 2,
         why: [
-          null,
-          '真正的主詞是複數的 pictures。',
           'am 只跟 I 搭配。',
-          'be 是原形，句子需要現在式。'
+          'be 是原形，句子需要現在式。',
+          null,
+          '真正的主詞是複數的 pictures。'
         ]
       }
     },
@@ -17070,13 +17070,13 @@ window.APP_LESSONS['english|七上|第2單元 代名詞與所有格'] = {
         note: '動詞前用主格，動詞後用受格。' },
       check: {
         q: 'My teacher helped ___ with my homework. 空格要填什麼？',
-        options: ['me', 'I', 'my', 'mine'],
-        answer: 0,
+        options: ['mine', 'me', 'I', 'my'],
+        answer: 1,
         why: [
+          '所有代名詞不能當動詞的受詞用在這裡。',
           null,
           '動詞後面要用受格。',
-          '所有格後面必須接名詞。',
-          '所有代名詞不能當動詞的受詞用在這裡。'
+          '所有格後面必須接名詞。'
         ]
       }
     },
@@ -17092,13 +17092,13 @@ window.APP_LESSONS['english|七上|第2單元 代名詞與所有格'] = {
              same: ['都表示這是我的'] },
       check: {
         q: 'Whose pen is this?— It is ___. 空格要填什麼？',
-        options: ['hers', 'her', 'she', 'her’s'],
-        answer: 0,
+        options: ['she', 'her’s', 'hers', 'her'],
+        answer: 2,
         why: [
-          null,
-          'her 是所有格，後面要接名詞。',
           'she 是主格，不表示所有。',
-          '所有代名詞 hers 不加撇號。'
+          '所有代名詞 hers 不加撇號。',
+          null,
+          'her 是所有格，後面要接名詞。'
         ]
       }
     },
@@ -17114,17 +17114,17 @@ window.APP_LESSONS['english|七上|第2單元 代名詞與所有格'] = {
       check: {
         q: '「那些學生的教室」的正確寫法是什麼？',
         options: [
-          'the students’ classroom',
           'the student’s classroom',
           'the students classroom',
-          'the students’s classroom'
+          'the students’s classroom',
+          'the students’ classroom'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個寫法表示只有一位學生。',
           '所有格需要撇號。',
-          '複數字尾已有 s 時不再加 s。'
+          '複數字尾已有 s 時不再加 s。',
+          null
         ]
       }
     },
@@ -17140,13 +17140,13 @@ window.APP_LESSONS['english|七上|第2單元 代名詞與所有格'] = {
              same: ['發音完全相同'] },
       check: {
         q: 'The dog wagged ___ tail. 空格要填什麼？',
-        options: ['its', 'it’s', 'it is', 'its’'],
-        answer: 0,
+        options: ['its’', 'its', 'it’s', 'it is'],
+        answer: 1,
         why: [
+          '這個寫法並不存在。',
           null,
           '有撇號的是 it is 的縮寫。',
-          '把 it is 代回去語意不通。',
-          '這個寫法並不存在。'
+          '把 it is 代回去語意不通。'
         ]
       }
     },
@@ -17187,17 +17187,17 @@ window.APP_LESSONS['english|七上|第3單元 一般動詞現在式'] = {
       check: {
         q: '下列哪一句適合用現在簡單式？',
         options: [
+          'I will call you tonight.',
           'I go to school every day.',
           'Look! He is running.',
-          'I bought a book yesterday.',
-          'I will call you tonight.'
+          'I bought a book yesterday.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '有 tonight 且是計畫，要用未來式。',
           null,
           '有 Look 表示此刻，要用進行式。',
-          '有 yesterday 要用過去式。',
-          '有 tonight 且是計畫，要用未來式。'
+          '有 yesterday 要用過去式。'
         ]
       }
     },
@@ -17236,13 +17236,13 @@ window.APP_LESSONS['english|七上|第3單元 一般動詞現在式'] = {
         note: 's 只出現一次，在助動詞上。' },
       check: {
         q: 'She ___ eat meat. 空格要填什麼？',
-        options: ['doesn’t', 'don’t', 'isn’t', 'not'],
-        answer: 0,
+        options: ['isn’t', 'not', 'doesn’t', 'don’t'],
+        answer: 2,
         why: [
-          null,
-          '第三人稱單數要用 doesn’t。',
           'be 動詞不能和一般動詞並用。',
-          '否定句需要助動詞。'
+          '否定句需要助動詞。',
+          null,
+          '第三人稱單數要用 doesn’t。'
         ]
       }
     },
@@ -17255,17 +17255,17 @@ window.APP_LESSONS['english|七上|第3單元 一般動詞現在式'] = {
       check: {
         q: '下列哪一個疑問句正確？',
         options: [
-          'Does she work here?',
           'Does she works here?',
           'Do she work here?',
-          'Is she work here?'
+          'Is she work here?',
+          'Does she work here?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '有了 does，動詞要用原形。',
           '第三人稱單數要用 does。',
-          'be 動詞不能和一般動詞並用。'
+          'be 動詞不能和一般動詞並用。',
+          null
         ]
       }
     },
@@ -17299,17 +17299,17 @@ window.APP_LESSONS['english|七上|第3單元 一般動詞現在式'] = {
       check: {
         q: 'She ___ late for school.（她從不遲到）空格要填什麼？',
         options: [
-          'is never',
-          'never is',
           'doesn’t never',
-          'is not never'
+          'is not never',
+          'is never',
+          'never is'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '頻率副詞要放在 be 動詞後面。',
           'never 本身已經是否定，不能再加否定。',
-          '同一句不能有兩個否定詞。'
+          '同一句不能有兩個否定詞。',
+          null,
+          '頻率副詞要放在 be 動詞後面。'
         ]
       }
     }
@@ -17332,17 +17332,17 @@ window.APP_LESSONS['english|七上|第4單元 疑問詞'] = {
       check: {
         q: '疑問詞開頭的問句，可以用 Yes 或 No 回答嗎？',
         options: [
+          '只有 How 可以',
           '不行，要回答具體的資訊',
           '可以，跟一般問句一樣',
-          '只有 Why 可以',
-          '只有 How 可以'
+          '只有 Why 可以'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'How 問方式，要回答做法。',
           null,
           '疑問詞問的是資訊，不是是非。',
-          'Why 問原因，要回答理由。',
-          'How 問方式，要回答做法。'
+          'Why 問原因，要回答理由。'
         ]
       }
     },
@@ -17359,17 +17359,17 @@ window.APP_LESSONS['english|七上|第4單元 疑問詞'] = {
       check: {
         q: '下列哪一句語序正確？',
         options: [
-          'What time does the movie start?',
-          'What time the movie starts?',
           'What time start the movie?',
-          'What time does the movie starts?'
+          'What time does the movie starts?',
+          'What time does the movie start?',
+          'What time the movie starts?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '缺少助動詞，語序也不對。',
           '一般動詞不能直接倒裝到主詞前面。',
-          '有了 does，動詞要用原形。'
+          '有了 does，動詞要用原形。',
+          null,
+          '缺少助動詞，語序也不對。'
         ]
       }
     },
@@ -17387,17 +17387,17 @@ window.APP_LESSONS['english|七上|第4單元 疑問詞'] = {
       check: {
         q: '「誰住在這裡？」的正確說法是什麼？',
         options: [
-          'Who lives here?',
           'Who do live here?',
           'Who does lives here?',
-          'Who live here?'
+          'Who live here?',
+          'Who lives here?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'Who 當主詞時不需要助動詞。',
           '有了 does 動詞要用原形，這裡也不需要 does。',
-          'Who 當主詞時動詞視為第三人稱單數。'
+          'Who 當主詞時動詞視為第三人稱單數。',
+          null
         ]
       }
     },
@@ -17462,17 +17462,17 @@ window.APP_LESSONS['english|七上|第4單元 疑問詞'] = {
       check: {
         q: 'We stayed home ___ the typhoon. 空格要填什麼？',
         options: [
-          'because of',
           'because',
           'why',
-          'so'
+          'so',
+          'because of'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'because 後面要接完整的句子。',
           'why 是疑問詞，不用在陳述句裡。',
-          'so 表示結果，不是原因。'
+          'so 表示結果，不是原因。',
+          null
         ]
       }
     }
@@ -17492,13 +17492,13 @@ window.APP_LESSONS['english|七上|第5單元 名詞與冠詞'] = {
         { label: '不可數', items: ['water', 'money', 'information', 'advice'] }] },
       check: {
         q: '下列哪一個是不可數名詞？',
-        options: ['information', 'book', 'apple', 'chair'],
-        answer: 0,
+        options: ['apple', 'chair', 'information', 'book'],
+        answer: 2,
         why: [
-          null,
-          'book 可以一本一本數。',
           'apple 可以一顆一顆數。',
-          'chair 可以一張一張數。'
+          'chair 可以一張一張數。',
+          null,
+          'book 可以一本一本數。'
         ]
       }
     },
@@ -17515,13 +17515,13 @@ window.APP_LESSONS['english|七上|第5單元 名詞與冠詞'] = {
         { label: '不規則', items: ['men', 'children', 'feet', 'teeth'] }] },
       check: {
         q: 'knife 的複數形是什麼？',
-        options: ['knives', 'knifes', 'knifies', 'knife'],
-        answer: 0,
+        options: ['knifes', 'knifies', 'knife', 'knives'],
+        answer: 3,
         why: [
-          null,
           '字尾 fe 要改成 ves。',
           '這個拼法不符合任何規則。',
-          '這個名詞可數，要有複數形。'
+          '這個名詞可數，要有複數形。',
+          null
         ]
       }
     },
@@ -17563,17 +17563,17 @@ window.APP_LESSONS['english|七上|第5單元 名詞與冠詞'] = {
       check: {
         q: 'I bought ___ book yesterday. ___ book is about space. 兩格依序要填什麼？',
         options: [
+          'the … The',
           'a … The',
           'the … A',
-          'a … A',
-          'the … The'
+          'a … A'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '第一次提到不能用 the。',
           null,
           '第一次提到要用不定冠詞。',
-          '第二次提到同一本書要用 the。',
-          '第一次提到不能用 the。'
+          '第二次提到同一本書要用 the。'
         ]
       }
     },
@@ -17589,17 +17589,17 @@ window.APP_LESSONS['english|七上|第5單元 名詞與冠詞'] = {
       check: {
         q: '下列哪一個說法正確？',
         options: [
-          'I play basketball after school.',
           'I play the basketball after school.',
           'I play a basketball after school.',
-          'I play basketballs after school.'
+          'I play basketballs after school.',
+          'I play basketball after school.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '球類運動前面不加冠詞。',
           '這裡不是指某一顆球。',
-          '運動名稱不用複數。'
+          '運動名稱不用複數。',
+          null
         ]
       }
     },
@@ -17647,13 +17647,13 @@ window.APP_LESSONS['english|七上|第6單元 指示代名詞'] = {
         { label: '遠（that／those）', items: ['that book', 'those books'] }] },
       check: {
         q: '指遠處的好幾本書，應該用哪一個？',
-        options: ['those', 'these', 'that', 'this'],
-        answer: 0,
+        options: ['that', 'this', 'those', 'these'],
+        answer: 2,
         why: [
-          null,
-          'these 指近處的多個。',
           'that 是單數。',
-          'this 是單數而且指近處。'
+          'this 是單數而且指近處。',
+          null,
+          'these 指近處的多個。'
         ]
       }
     },
@@ -17669,17 +17669,17 @@ window.APP_LESSONS['english|七上|第6單元 指示代名詞'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'Those are my shoes.',
           'Those is my shoes.',
           'Those are my shoe.',
-          'That are my shoes.'
+          'That are my shoes.',
+          'Those are my shoes.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '複數主詞要用 are。',
           '複數的補語名詞也要用複數。',
-          'that 是單數，不能配 are。'
+          'that 是單數，不能配 are。',
+          null
         ]
       }
     },
@@ -17719,17 +17719,17 @@ window.APP_LESSONS['english|七上|第6單元 指示代名詞'] = {
       check: {
         q: '打電話時要說「我是小明」，正確的說法是什麼？',
         options: [
+          'Here is Ming speaking me.',
           'This is Ming.',
           'I am Ming here.',
-          'That is Ming.',
-          'Here is Ming speaking me.'
+          'That is Ming.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個句子的結構不正確。',
           null,
           '電話中自稱的慣用法是 This is。',
-          'that 用來稱呼對方。',
-          '這個句子的結構不正確。'
+          'that 用來稱呼對方。'
         ]
       }
     },
@@ -17746,17 +17746,17 @@ window.APP_LESSONS['english|七上|第6單元 指示代名詞'] = {
       check: {
         q: '「他遲到了。這件事讓大家很意外。」第二句適合用哪一個字開頭？',
         options: [
-          'That（指前面說過的事）',
           'These（指多樣東西）',
           'It is（指某個物品）',
-          'Those（指遠處的東西）'
+          'Those（指遠處的東西）',
+          'That（指前面說過的事）'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '前面只有一件事，不用複數。',
           '這裡指的是一件事而不是物品。',
-          '這裡不是指遠處的具體東西。'
+          '這裡不是指遠處的具體東西。',
+          null
         ]
       }
     },
@@ -17822,17 +17822,17 @@ window.APP_LESSONS['english|七上|第7單元 數字、時間與日期'] = {
       check: {
         q: 'a quarter to nine 是幾點？',
         options: [
-          '八點四十五分',
-          '九點十五分',
           '九點四十五分',
-          '八點十五分'
+          '八點十五分',
+          '八點四十五分',
+          '九點十五分'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這是 a quarter past nine 的意思。',
           '這是 a quarter to ten 的意思。',
-          '這是 a quarter past eight 的意思。'
+          '這是 a quarter past eight 的意思。',
+          null,
+          '這是 a quarter past nine 的意思。'
         ]
       }
     },
@@ -17846,17 +17846,17 @@ window.APP_LESSONS['english|七上|第7單元 數字、時間與日期'] = {
       check: {
         q: '「在早上」的正確說法是什麼？',
         options: [
-          'in the morning',
           'on the morning',
           'at the morning',
-          'to the morning'
+          'to the morning',
+          'in the morning'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'on 用於日期與星期。',
           'at 只用在 at night 這類固定用法。',
-          'to 表示方向。'
+          'to 表示方向。',
+          null
         ]
       }
     },
@@ -17871,17 +17871,17 @@ window.APP_LESSONS['english|七上|第7單元 數字、時間與日期'] = {
       check: {
         q: 'March 3 這個日期要怎麼唸？',
         options: [
+          'Three March day',
           'March third',
           'March three',
-          'March the three',
-          'Three March day'
+          'March the three'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個說法不符合英文用法。',
           null,
           '日期要唸序數而不是基數。',
-          '美式唸法不加 the。',
-          '這個說法不符合英文用法。'
+          '美式唸法不加 the。'
         ]
       }
     },
@@ -17897,17 +17897,17 @@ window.APP_LESSONS['english|七上|第7單元 數字、時間與日期'] = {
       check: {
         q: '「兩百位學生」的正確說法是什麼？',
         options: [
+          'two hundreds of student',
           'two hundred students',
           'two hundreds students',
-          'two hundred of students',
-          'two hundreds of student'
+          'two hundred of students'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個說法同時犯了兩個錯誤。',
           null,
           '前面有數字時 hundred 不加 s。',
-          '前面有數字時不加 of。',
-          '這個說法同時犯了兩個錯誤。'
+          '前面有數字時不加 of。'
         ]
       }
     },
@@ -17923,17 +17923,17 @@ window.APP_LESSONS['english|七上|第7單元 數字、時間與日期'] = {
       check: {
         q: '「這件襯衫多少錢？」的正確說法是什麼？',
         options: [
-          'How much is this shirt?',
           'How many is this shirt?',
           'How much this shirt?',
-          'How much does this shirt?'
+          'How much does this shirt?',
+          'How much is this shirt?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'How many 用於可數名詞的數量。',
           '句子缺少 be 動詞。',
-          '這裡不需要助動詞 does。'
+          '這裡不需要助動詞 does。',
+          null
         ]
       }
     }
@@ -17956,17 +17956,17 @@ window.APP_LESSONS['english|七上|第8單元 祈使句'] = {
       check: {
         q: '「安靜！」的正確說法是什麼？',
         options: [
+          'You are quiet!',
           'Be quiet!',
           'Are quiet!',
-          'Is quiet!',
-          'You are quiet!'
+          'Is quiet!'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這是陳述句，不是命令。',
           null,
           '祈使句要用原形的 be。',
-          'is 不是原形。',
-          '這是陳述句，不是命令。'
+          'is 不是原形。'
         ]
       }
     },
@@ -18008,17 +18008,17 @@ window.APP_LESSONS['english|七上|第8單元 祈使句'] = {
       check: {
         q: '下列哪一個說法最客氣？',
         options: [
-          'Could you help me, please?',
           'Help me.',
           'Help me now.',
-          'You help me.'
+          'You help me.',
+          'Could you help me, please?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '直接的祈使句語氣較強硬。',
           '加上 now 語氣更急迫。',
-          '這樣說像在指使別人。'
+          '這樣說像在指使別人。',
+          null
         ]
       }
     },
@@ -18036,17 +18036,17 @@ window.APP_LESSONS['english|七上|第8單元 祈使句'] = {
       check: {
         q: '「我們別去了」的正確說法是什麼？',
         options: [
-          'Let’s not go.',
-          'Don’t let’s go.',
           'Let’s don’t to go.',
-          'Not let’s go.'
+          'Not let’s go.',
+          'Let’s not go.',
+          'Don’t let’s go.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'Let’s 的否定要把 not 放在 Let’s 後面。',
           '這個說法不符合英文結構。',
-          '否定詞不能放在 Let’s 前面。'
+          '否定詞不能放在 Let’s 前面。',
+          null,
+          'Let’s 的否定要把 not 放在 Let’s 後面。'
         ]
       }
     },
@@ -18084,17 +18084,17 @@ window.APP_LESSONS['english|七上|第8單元 祈使句'] = {
       check: {
         q: '寫食譜或說明書的步驟時，通常用哪一種句型？',
         options: [
-          '祈使句，簡短又清楚',
-          '疑問句',
           '感嘆句',
-          '過去式的陳述句'
+          '過去式的陳述句',
+          '祈使句，簡短又清楚',
+          '疑問句'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '疑問句是在提問，不是指示。',
           '感嘆句表達情緒，不適合說明步驟。',
-          '步驟說明不需要用過去式。'
+          '步驟說明不需要用過去式。',
+          null,
+          '疑問句是在提問，不是指示。'
         ]
       }
     }
@@ -18139,13 +18139,13 @@ window.APP_LESSONS['english|七上|第9單元 現在進行式'] = {
         { label: '重複字尾', items: ['running', 'sitting', 'swimming'] }] },
       check: {
         q: 'swim 的現在分詞是什麼？',
-        options: ['swimming', 'swiming', 'swimeing', 'swim'],
-        answer: 0,
+        options: ['swimeing', 'swim', 'swimming', 'swiming'],
+        answer: 2,
         why: [
-          null,
-          '短母音加單子音要重複字尾。',
           '這個拼法多了字母 e。',
-          '進行式的動詞要加 ing。'
+          '進行式的動詞要加 ing。',
+          null,
+          '短母音加單子音要重複字尾。'
         ]
       }
     },
@@ -18159,17 +18159,17 @@ window.APP_LESSONS['english|七上|第9單元 現在進行式'] = {
       check: {
         q: '「他們沒有在讀書」的正確說法是什麼？',
         options: [
-          'They are not studying.',
           'They do not studying.',
           'They are not study.',
-          'They not are studying.'
+          'They not are studying.',
+          'They are not studying.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '進行式的否定用 be 動詞加 not。',
           '進行式的動詞要保持 ing。',
-          'not 要放在 be 動詞後面。'
+          'not 要放在 be 動詞後面。',
+          null
         ]
       }
     },
@@ -18186,13 +18186,13 @@ window.APP_LESSONS['english|七上|第9單元 現在進行式'] = {
              same: ['都在描述「現在」，但角度不同'] },
       check: {
         q: 'Look! The baby ___. 空格要填什麼？',
-        options: ['is crying', 'cries', 'cry', 'cried'],
-        answer: 0,
+        options: ['cried', 'is crying', 'cries', 'cry'],
+        answer: 1,
         why: [
+          '過去式與 Look 的當下情境不符。',
           null,
           'Look 表示此刻，要用進行式。',
-          '這個形式主詞動詞也不一致。',
-          '過去式與 Look 的當下情境不符。'
+          '這個形式主詞動詞也不一致。'
         ]
       }
     },
@@ -18208,17 +18208,17 @@ window.APP_LESSONS['english|七上|第9單元 現在進行式'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
+          'She is liking pizza.',
           'I want a new bike.',
           'I am wanting a new bike.',
-          'I am knowing the answer.',
-          'She is liking pizza.'
+          'I am knowing the answer.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'like 是狀態動詞，不用進行式。',
           null,
           'want 是狀態動詞，不用進行式。',
-          'know 是狀態動詞，不用進行式。',
-          'like 是狀態動詞，不用進行式。'
+          'know 是狀態動詞，不用進行式。'
         ]
       }
     },
@@ -18235,17 +18235,17 @@ window.APP_LESSONS['english|七上|第9單元 現在進行式'] = {
       check: {
         q: 'We are flying to Japan next week. 這句話的意思是什麼？',
         options: [
-          '下週去日本的行程已經安排好了',
           '我們現在正在飛機上',
           '我們考慮要不要去日本',
-          '我們以前去過日本'
+          '我們以前去過日本',
+          '下週去日本的行程已經安排好了'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '有 next week 表示是未來的事。',
           '進行式表示計畫已經確定。',
-          '這句話講的不是過去的經驗。'
+          '這句話講的不是過去的經驗。',
+          null
         ]
       }
     }
@@ -18268,17 +18268,17 @@ window.APP_LESSONS['english|七下|第1單元 助動詞 can／may'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'She can play the piano.',
           'She cans play the piano.',
           'She can plays the piano.',
-          'She does can play the piano.'
+          'She does can play the piano.',
+          'She can play the piano.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '助動詞不隨主詞加 s。',
           '助動詞後面要接原形動詞。',
-          '有助動詞時不再用 does。'
+          '有助動詞時不再用 does。',
+          null
         ]
       }
     },
@@ -18294,17 +18294,17 @@ window.APP_LESSONS['english|七下|第1單元 助動詞 can／may'] = {
       check: {
         q: 'Can I use your phone? 這句話在表達什麼？',
         options: [
-          '請求對方的許可',
-          '陳述自己的能力',
           '描述過去的事',
-          '表達未來的計畫'
+          '表達未來的計畫',
+          '請求對方的許可',
+          '陳述自己的能力'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這裡問的是可不可以，不是會不會。',
           '句子用的是現在式。',
-          '這句沒有提到未來的時間。'
+          '這句沒有提到未來的時間。',
+          null,
+          '這裡問的是可不可以，不是會不會。'
         ]
       }
     },
@@ -18319,13 +18319,13 @@ window.APP_LESSONS['english|七下|第1單元 助動詞 can／may'] = {
         { label: '容易寫錯', items: ['can not（較少用）', 'cann’t（錯）'] }] },
       check: {
         q: 'can 的否定形正確寫法是什麼？',
-        options: ['cannot', 'cann’t', 'can’nt', 'do not can'],
-        answer: 0,
+        options: ['do not can', 'cannot', 'cann’t', 'can’nt'],
+        answer: 1,
         why: [
+          '有助動詞時不再用 do。',
           null,
           '這個縮寫的撇號位置錯了。',
-          '這個拼法並不存在。',
-          '有助動詞時不再用 do。'
+          '這個拼法並不存在。'
         ]
       }
     },
@@ -18370,17 +18370,17 @@ window.APP_LESSONS['english|七下|第1單元 助動詞 can／may'] = {
       check: {
         q: '「明年我就能開車了」的正確說法是什麼？',
         options: [
-          'I will be able to drive next year.',
-          'I will can drive next year.',
           'I can will drive next year.',
-          'I am can drive next year.'
+          'I am can drive next year.',
+          'I will be able to drive next year.',
+          'I will can drive next year.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '兩個助動詞不能連用。',
           '助動詞不能連續出現。',
-          'be 動詞不能和助動詞 can 並用。'
+          'be 動詞不能和助動詞 can 並用。',
+          null,
+          '兩個助動詞不能連用。'
         ]
       }
     },
@@ -18394,17 +18394,17 @@ window.APP_LESSONS['english|七下|第1單元 助動詞 can／may'] = {
       check: {
         q: 'Could you open the window? 這裡的 could 表示什麼？',
         options: [
+          '表示命令',
           '讓語氣更委婉客氣',
           '表示過去的能力',
-          '表示不可能',
-          '表示命令'
+          '表示不可能'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '疑問的請求語氣比命令柔和。',
           null,
           '這裡不是在講過去的事。',
-          'could 在請求句中不表示否定。',
-          '疑問的請求語氣比命令柔和。'
+          'could 在請求句中不表示否定。'
         ]
       }
     }
@@ -18422,13 +18422,13 @@ window.APP_LESSONS['english|七下|第2單元 頻率副詞'] = {
       viz: { type: 'energyflow', steps: ['always 總是', 'usually 通常', 'often 常常', 'sometimes 有時', 'seldom 很少', 'never 從不'] },
       check: {
         q: '下列哪一個表示頻率最低？',
-        options: ['never', 'seldom', 'sometimes', 'often'],
-        answer: 0,
+        options: ['seldom', 'sometimes', 'often', 'never'],
+        answer: 3,
         why: [
-          null,
           'seldom 表示很少，但不是完全沒有。',
           'sometimes 表示有時候。',
-          'often 表示常常。'
+          'often 表示常常。',
+          null
         ]
       }
     },
@@ -18446,17 +18446,17 @@ window.APP_LESSONS['english|七下|第2單元 頻率副詞'] = {
       check: {
         q: '下列哪一句位置正確？',
         options: [
-          'She is often tired after school.',
-          'She often is tired after school.',
           'She is tired often after school.',
-          'Often she is tired after school is.'
+          'Often she is tired after school is.',
+          'She is often tired after school.',
+          'She often is tired after school.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '頻率副詞要放在 be 動詞後面。',
           '這個位置不是標準用法。',
-          '句尾多了一個 be 動詞。'
+          '句尾多了一個 be 動詞。',
+          null,
+          '頻率副詞要放在 be 動詞後面。'
         ]
       }
     },
@@ -18472,17 +18472,17 @@ window.APP_LESSONS['english|七下|第2單元 頻率副詞'] = {
       check: {
         q: '要問「你多常去圖書館？」應該用哪一個？',
         options: [
+          'How far',
           'How often',
           'How long',
-          'How many',
-          'How far'
+          'How many'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'How far 問距離。',
           null,
           'How long 問時間長度。',
-          'How many 問數量。',
-          'How far 問距離。'
+          'How many 問數量。'
         ]
       }
     },
@@ -18521,13 +18521,13 @@ window.APP_LESSONS['english|七下|第2單元 頻率副詞'] = {
         { label: '位置固定', items: ['always', 'never', 'seldom'] }] },
       check: {
         q: '下列哪一個副詞可以放在句首？',
-        options: ['Sometimes', 'Always', 'Never', 'Seldom'],
-        answer: 0,
+        options: ['Never', 'Seldom', 'Sometimes', 'Always'],
+        answer: 2,
         why: [
-          null,
-          'always 一般不放在句首。',
           'never 放句首會需要倒裝的特殊句型。',
-          'seldom 放句首也需要倒裝。'
+          'seldom 放句首也需要倒裝。',
+          null,
+          'always 一般不放在句首。'
         ]
       }
     },
@@ -18541,17 +18541,17 @@ window.APP_LESSONS['english|七下|第2單元 頻率副詞'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'I never eat fast food.',
           'I don’t never eat fast food.',
           'I never don’t eat fast food.',
-          'I not never eat fast food.'
+          'I not never eat fast food.',
+          'I never eat fast food.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'never 已是否定，不能再加 don’t。',
           '同一句不能有兩個否定詞。',
-          '這句同樣犯了雙重否定的錯誤。'
+          '這句同樣犯了雙重否定的錯誤。',
+          null
         ]
       }
     }
@@ -18570,13 +18570,13 @@ window.APP_LESSONS['english|七下|第3單元 時間介系詞'] = {
       viz: { type: 'energyflow', steps: ['at（時刻）', 'on（一天）', 'in（月、年、季節）'] },
       check: {
         q: '「在星期五」的正確介系詞是什麼？',
-        options: ['on', 'at', 'in', 'to'],
-        answer: 0,
+        options: ['to', 'on', 'at', 'in'],
+        answer: 1,
         why: [
+          'to 表示方向。',
           null,
           'at 用於具體的時刻。',
-          'in 用於月份、年份等較長的期間。',
-          'to 表示方向。'
+          'in 用於月份、年份等較長的期間。'
         ]
       }
     },
@@ -18621,13 +18621,13 @@ window.APP_LESSONS['english|七下|第3單元 時間介系詞'] = {
              same: ['常和完成式一起用'] },
       check: {
         q: 'I have lived here ___ 2015. 空格要填什麼？',
-        options: ['since', 'for', 'at', 'in'],
-        answer: 0,
+        options: ['at', 'in', 'since', 'for'],
+        answer: 2,
         why: [
-          null,
-          'for 後面要接一段時間長度。',
           'at 用於具體的時刻。',
-          'in 這裡無法表達從某年開始持續。'
+          'in 這裡無法表達從某年開始持續。',
+          null,
+          'for 後面要接一段時間長度。'
         ]
       }
     },
@@ -18644,13 +18644,13 @@ window.APP_LESSONS['english|七下|第3單元 時間介系詞'] = {
              same: ['都表示在某段時間之內'] },
       check: {
         q: 'I fell asleep ___ the movie. 空格要填什麼？',
-        options: ['during', 'while', 'when I', 'since'],
-        answer: 0,
+        options: ['while', 'when I', 'since', 'during'],
+        answer: 3,
         why: [
-          null,
           'while 後面要接完整的句子。',
           '這個選項後面還需要動詞才完整。',
-          'since 表示從某時開始，語意不合。'
+          'since 表示從某時開始，語意不合。',
+          null
         ]
       }
     },
@@ -18688,17 +18688,17 @@ window.APP_LESSONS['english|七下|第3單元 時間介系詞'] = {
       check: {
         q: '「下星期」的正確說法是什麼？',
         options: [
-          'next week',
-          'in next week',
           'on next week',
-          'at next week'
+          'at next week',
+          'next week',
+          'in next week'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '有 next 時前面不加介系詞。',
           'on 用於特定的日期或星期。',
-          'at 用於具體的時刻。'
+          'at 用於具體的時刻。',
+          null,
+          '有 next 時前面不加介系詞。'
         ]
       }
     }
@@ -18717,13 +18717,13 @@ window.APP_LESSONS['english|七下|第4單元 地點介系詞'] = {
       viz: { type: 'energyflow', steps: ['at（點）', 'on（面）', 'in（立體空間）'] },
       check: {
         q: '「在牆上」的正確說法是什麼？',
-        options: ['on the wall', 'in the wall', 'at the wall', 'to the wall'],
-        answer: 0,
+        options: ['at the wall', 'to the wall', 'on the wall', 'in the wall'],
+        answer: 2,
         why: [
-          null,
-          'in the wall 表示嵌在牆裡面。',
           'at the wall 指靠近牆的位置，語意不同。',
-          'to 表示方向而不是位置。'
+          'to 表示方向而不是位置。',
+          null,
+          'in the wall 表示嵌在牆裡面。'
         ]
       }
     },
@@ -18762,17 +18762,17 @@ window.APP_LESSONS['english|七下|第4單元 地點介系詞'] = {
       check: {
         q: '「燈懸在桌子上方」的正確說法是什麼？',
         options: [
-          'The lamp is over the table.',
           'The lamp is on the table.',
           'The lamp is in the table.',
-          'The lamp is at the table.'
+          'The lamp is at the table.',
+          'The lamp is over the table.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'on 表示放在桌面上並接觸。',
           'in 表示在桌子內部。',
-          'at 指靠近桌子的位置。'
+          'at 指靠近桌子的位置。',
+          null
         ]
       }
     },
@@ -18786,13 +18786,13 @@ window.APP_LESSONS['english|七下|第4單元 地點介系詞'] = {
         { label: '方向（動態）', items: ['to', 'into', 'through', 'across'] }] },
       check: {
         q: 'He walked ___ the room and sat down. 空格要填什麼？',
-        options: ['into', 'in', 'on', 'at'],
-        answer: 0,
+        options: ['at', 'into', 'in', 'on'],
+        answer: 1,
         why: [
+          'at 表示在某一個定點。',
           null,
           'in 表示已經在裡面，不表示進入的動作。',
-          'on 表示在表面上。',
-          'at 表示在某一個定點。'
+          'on 表示在表面上。'
         ]
       }
     },
@@ -18806,17 +18806,17 @@ window.APP_LESSONS['english|七下|第4單元 地點介系詞'] = {
       check: {
         q: '「住在中山路上」的正確說法是什麼？',
         options: [
-          'live on Zhongshan Road',
           'live in Zhongshan Road',
           'live at Zhongshan Road',
-          'live to Zhongshan Road'
+          'live to Zhongshan Road',
+          'live on Zhongshan Road'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'in 用於城市或更大的範圍。',
           'at 用於具體的門牌號碼。',
-          'to 表示方向。'
+          'to 表示方向。',
+          null
         ]
       }
     },
@@ -18859,13 +18859,13 @@ window.APP_LESSONS['english|七下|第5單元 There is／There are'] = {
         note: '動詞跟著後面的名詞決定單複數。' },
       check: {
         q: 'There ___ some milk in the fridge. 空格要填什麼？',
-        options: ['is', 'are', 'have', 'has'],
-        answer: 0,
+        options: ['has', 'is', 'are', 'have'],
+        answer: 1,
         why: [
+          '這個句型不使用 has。',
           null,
           'milk 是不可數名詞，要用 is。',
-          '英文表示存在不用 have。',
-          '這個句型不使用 has。'
+          '英文表示存在不用 have。'
         ]
       }
     },
@@ -18883,17 +18883,17 @@ window.APP_LESSONS['english|七下|第5單元 There is／There are'] = {
       check: {
         q: '「公園裡有很多樹」的標準說法是什麼？',
         options: [
-          'There are many trees in the park.',
-          'The park has many trees is.',
           'In the park have many trees.',
-          'There have many trees in the park.'
+          'There have many trees in the park.',
+          'There are many trees in the park.',
+          'The park has many trees is.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '句尾多了一個 be 動詞。',
           '這個句子沒有主詞，結構不完整。',
-          '這個句型不使用 have。'
+          '這個句型不使用 have。',
+          null,
+          '句尾多了一個 be 動詞。'
         ]
       }
     },
@@ -18927,17 +18927,17 @@ window.APP_LESSONS['english|七下|第5單元 There is／There are'] = {
       check: {
         q: 'Are there any students in the classroom? 的肯定簡答是什麼？',
         options: [
-          'Yes, there are.',
           'Yes, they are.',
           'Yes, it is.',
-          'Yes, there is.'
+          'Yes, there is.',
+          'Yes, there are.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個句型的簡答要保留 there。',
           '主詞是複數而且要用 there。',
-          '問句用 are，簡答也要用 are。'
+          '問句用 are，簡答也要用 are。',
+          null
         ]
       }
     },
@@ -18977,17 +18977,17 @@ window.APP_LESSONS['english|七下|第5單元 There is／There are'] = {
       check: {
         q: '「明天會有一場演唱會」的正確說法是什麼？',
         options: [
+          'There is will a concert tomorrow.',
           'There will be a concert tomorrow.',
           'There will is a concert tomorrow.',
-          'There will are a concert tomorrow.',
-          'There is will a concert tomorrow.'
+          'There will are a concert tomorrow.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '助動詞要放在 be 動詞前面。',
           null,
           'will 後面要接原形的 be。',
-          'will 後面不能接 are。',
-          '助動詞要放在 be 動詞前面。'
+          'will 後面不能接 are。'
         ]
       }
     }
@@ -19009,13 +19009,13 @@ window.APP_LESSONS['english|七下|第6單元 形容詞與副詞'] = {
              same: ['字根相同，字尾不同'] },
       check: {
         q: 'She sings ___.（她唱得很好）空格要填什麼？',
-        options: ['well', 'good', 'goodly', 'the good'],
-        answer: 0,
+        options: ['goodly', 'the good', 'well', 'good'],
+        answer: 2,
         why: [
-          null,
-          'good 是形容詞，不能修飾動詞。',
           '這個字並不存在。',
-          '加冠詞在這裡並不通順。'
+          '加冠詞在這裡並不通順。',
+          null,
+          'good 是形容詞，不能修飾動詞。'
         ]
       }
     },
@@ -19031,13 +19031,13 @@ window.APP_LESSONS['english|七下|第6單元 形容詞與副詞'] = {
         { label: '形式不變', items: ['fast', 'hard', 'late', 'early'] }] },
       check: {
         q: 'fast 的副詞形是什麼？',
-        options: ['fast', 'fastly', 'fastily', 'quickly fast'],
-        answer: 0,
+        options: ['fastly', 'fastily', 'quickly fast', 'fast'],
+        answer: 3,
         why: [
-          null,
           'fast 的副詞形和形容詞相同。',
           '這個拼法並不存在。',
-          '這個說法重複多餘。'
+          '這個說法重複多餘。',
+          null
         ]
       }
     },
@@ -19052,13 +19052,13 @@ window.APP_LESSONS['english|七下|第6單元 形容詞與副詞'] = {
         { label: 'ly 結尾的副詞', items: ['quickly', 'slowly', 'happily'] }] },
       check: {
         q: '下列哪一個 ly 結尾的字是形容詞？',
-        options: ['friendly', 'quickly', 'carefully', 'happily'],
-        answer: 0,
+        options: ['happily', 'friendly', 'quickly', 'carefully'],
+        answer: 1,
         why: [
+          'happily 是副詞，修飾動詞。',
           null,
           'quickly 是副詞，修飾動詞。',
-          'carefully 是副詞，修飾動詞。',
-          'happily 是副詞，修飾動詞。'
+          'carefully 是副詞，修飾動詞。'
         ]
       }
     },
@@ -19097,17 +19097,17 @@ window.APP_LESSONS['english|七下|第6單元 形容詞與副詞'] = {
       check: {
         q: '下列哪一個順序正確？',
         options: [
-          'a big red plastic ball',
           'a plastic red big ball',
           'a red big plastic ball',
-          'a plastic big red ball'
+          'a plastic big red ball',
+          'a big red plastic ball'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '材質要放在最靠近名詞的位置。',
           '大小要放在顏色前面。',
-          '材質不能放在最前面。'
+          '材質不能放在最前面。',
+          null
         ]
       }
     },
@@ -19121,17 +19121,17 @@ window.APP_LESSONS['english|七下|第6單元 形容詞與副詞'] = {
       check: {
         q: '下列哪一句位置正確？',
         options: [
+          'Beautifully she plays piano the.',
           'She plays the piano beautifully.',
           'She plays beautifully the piano.',
-          'She beautifully plays the piano well.',
-          'Beautifully she plays piano the.'
+          'She beautifully plays the piano well.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個語序完全不符合英文結構。',
           null,
           '副詞不插在動詞與受詞之間。',
-          '這句重複表達了同樣的意思。',
-          '這個語序完全不符合英文結構。'
+          '這句重複表達了同樣的意思。'
         ]
       }
     }
@@ -19151,13 +19151,13 @@ window.APP_LESSONS['english|七下|第7單元 過去式 be 動詞'] = {
         { label: 'were', items: ['you', 'we', 'they', '複數名詞'] }] },
       check: {
         q: 'The students ___ in the library yesterday. 空格要填什麼？',
-        options: ['were', 'was', 'are', 'is'],
-        answer: 0,
+        options: ['are', 'is', 'were', 'was'],
+        answer: 2,
         why: [
-          null,
-          '主詞是複數，要用 were。',
           '有 yesterday 要用過去式。',
-          '主詞是複數而且要用過去式。'
+          '主詞是複數而且要用過去式。',
+          null,
+          '主詞是複數，要用 were。'
         ]
       }
     },
@@ -19196,17 +19196,17 @@ window.APP_LESSONS['english|七下|第7單元 過去式 be 動詞'] = {
       check: {
         q: 'Were they happy? 的否定簡答是什麼？',
         options: [
-          'No, they weren’t.',
           'No, they wasn’t.',
           'No, they didn’t.',
-          'No, they aren’t.'
+          'No, they aren’t.',
+          'No, they weren’t.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '主詞是複數，要用 weren’t。',
           'be 動詞的簡答不用 didn’t。',
-          '問句是過去式，簡答也要用過去式。'
+          '問句是過去式，簡答也要用過去式。',
+          null
         ]
       }
     },
@@ -19221,17 +19221,17 @@ window.APP_LESSONS['english|七下|第7單元 過去式 be 動詞'] = {
       check: {
         q: '「三年前」的正確說法是什麼？',
         options: [
+          'three years before now',
           'three years ago',
           'ago three years',
-          'before three years',
-          'three years before now'
+          'before three years'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個說法多餘而且不自然。',
           null,
           'ago 要放在時間長度後面。',
-          'before 的用法與 ago 不同。',
-          '這個說法多餘而且不自然。'
+          'before 的用法與 ago 不同。'
         ]
       }
     },
@@ -19246,13 +19246,13 @@ window.APP_LESSONS['english|七下|第7單元 過去式 be 動詞'] = {
         note: '動詞跟著後面的名詞決定單複數。' },
       check: {
         q: 'There ___ a lot of people at the concert. 空格要填什麼？',
-        options: ['were', 'was', 'are', 'is'],
-        answer: 0,
+        options: ['was', 'are', 'is', 'were'],
+        answer: 3,
         why: [
-          null,
           'people 是複數概念，要用 were。',
           '句子描述的是過去的事。',
-          '這裡既要過去式也要複數。'
+          '這裡既要過去式也要複數。',
+          null
         ]
       }
     },
@@ -19270,17 +19270,17 @@ window.APP_LESSONS['english|七下|第7單元 過去式 be 動詞'] = {
       check: {
         q: 'I ___ dinner when the phone rang. 空格要填什麼？',
         options: [
-          'was cooking',
-          'cooked',
           'am cooking',
-          'cook'
+          'cook',
+          'was cooking',
+          'cooked'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這裡要表達當時正在進行的背景動作。',
           '句子講的是過去的事。',
-          '現在簡單式與過去的情境不符。'
+          '現在簡單式與過去的情境不符。',
+          null,
+          '這裡要表達當時正在進行的背景動作。'
         ]
       }
     }
@@ -19326,17 +19326,17 @@ window.APP_LESSONS['english|七下|第8單元 規則動詞過去式'] = {
       check: {
         q: 'wanted 的字尾 ed 要怎麼發音？',
         options: [
-          '發成 id 這個音節',
-          '發成 t',
           '發成 d',
-          '不發音'
+          '不發音',
+          '發成 id 這個音節',
+          '發成 t'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '字尾是 t 時要多發一個音節。',
           '字尾是 t 或 d 時不會只發 d。',
-          'ed 在過去式裡一定要發音。'
+          'ed 在過去式裡一定要發音。',
+          null,
+          '字尾是 t 時要多發一個音節。'
         ]
       }
     },
@@ -19352,17 +19352,17 @@ window.APP_LESSONS['english|七下|第8單元 規則動詞過去式'] = {
       check: {
         q: '「他昨天沒有打電話給我」的正確說法是什麼？',
         options: [
+          'He wasn’t call me yesterday.',
           'He didn’t call me yesterday.',
           'He didn’t called me yesterday.',
-          'He don’t call me yesterday.',
-          'He wasn’t call me yesterday.'
+          'He don’t call me yesterday.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'be 動詞不能和一般動詞並用。',
           null,
           '有了 didn’t，動詞要用原形。',
-          'don’t 是現在式，與 yesterday 不合。',
-          'be 動詞不能和一般動詞並用。'
+          'don’t 是現在式，與 yesterday 不合。'
         ]
       }
     },
@@ -19374,17 +19374,17 @@ window.APP_LESSONS['english|七下|第8單元 規則動詞過去式'] = {
       check: {
         q: '下列哪一個疑問句正確？',
         options: [
-          'Did she finish her homework?',
           'Did she finished her homework?',
           'Does she finished her homework?',
-          'Was she finish her homework?'
+          'Was she finish her homework?',
+          'Did she finish her homework?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '有了 did，動詞要用原形。',
           'does 是現在式，動詞也要用原形。',
-          'be 動詞不能和一般動詞並用。'
+          'be 動詞不能和一般動詞並用。',
+          null
         ]
       }
     },
@@ -19397,17 +19397,17 @@ window.APP_LESSONS['english|七下|第8單元 規則動詞過去式'] = {
       check: {
         q: '下列哪一句適合用過去簡單式？',
         options: [
+          'I will visit my grandma tomorrow.',
           'I visited my grandma last Sunday.',
           'I visit my grandma every Sunday.',
-          'I am visiting my grandma now.',
-          'I will visit my grandma tomorrow.'
+          'I am visiting my grandma now.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '有 tomorrow 要用未來式。',
           null,
           'every Sunday 是習慣，用現在簡單式。',
-          '有 now 要用現在進行式。',
-          '有 tomorrow 要用未來式。'
+          '有 now 要用現在進行式。'
         ]
       }
     },
@@ -19422,17 +19422,17 @@ window.APP_LESSONS['english|七下|第8單元 規則動詞過去式'] = {
       check: {
         q: '寫過去式的否定句時，最常見的錯誤是什麼？',
         options: [
-          '用了 didn’t 之後還把動詞改成過去式',
           '在句尾加時間副詞',
           '主詞用了代名詞',
-          '句首字母大寫'
+          '句首字母大寫',
+          '用了 didn’t 之後還把動詞改成過去式'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '句尾加時間副詞是正常的寫法。',
           '主詞用代名詞完全正確。',
-          '句首大寫是基本的書寫規則。'
+          '句首大寫是基本的書寫規則。',
+          null
         ]
       }
     }
@@ -19473,13 +19473,13 @@ window.APP_LESSONS['english|七下|第9單元 不規則動詞過去式'] = {
         { label: '其他', items: ['found', 'made', 'had', 'said'] }] },
       check: {
         q: 'teach 的過去式是什麼？',
-        options: ['taught', 'teached', 'teachted', 'teach'],
-        answer: 0,
+        options: ['teach', 'taught', 'teached', 'teachted'],
+        answer: 1,
         why: [
+          '過去式需要有形式變化。',
           null,
           'teach 是不規則動詞，不加 ed。',
-          '這個拼法並不存在。',
-          '過去式需要有形式變化。'
+          '這個拼法並不存在。'
         ]
       }
     },
@@ -19493,17 +19493,17 @@ window.APP_LESSONS['english|七下|第9單元 不規則動詞過去式'] = {
       check: {
         q: 'see 的過去式與過去分詞依序是什麼？',
         options: [
-          'saw, seen',
-          'seen, saw',
           'saw, saw',
-          'seed, seen'
+          'seed, seen',
+          'saw, seen',
+          'seen, saw'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '兩個形式的順序顛倒了。',
           'see 的三態各不相同。',
-          'see 是不規則動詞，不加 ed。'
+          'see 是不規則動詞，不加 ed。',
+          null,
+          '兩個形式的順序顛倒了。'
         ]
       }
     },
@@ -19516,13 +19516,13 @@ window.APP_LESSONS['english|七下|第9單元 不規則動詞過去式'] = {
         { label: 'i／a／u 型', items: ['sing sang sung', 'drink drank drunk', 'swim swam swum', 'begin began begun'] }] },
       check: {
         q: 'drink 的過去式是什麼？',
-        options: ['drank', 'drunk', 'drinked', 'drink'],
-        answer: 0,
+        options: ['drunk', 'drinked', 'drink', 'drank'],
+        answer: 3,
         why: [
-          null,
           'drunk 是過去分詞，不是過去式。',
           'drink 是不規則動詞，不加 ed。',
-          '過去式需要有形式變化。'
+          '過去式需要有形式變化。',
+          null
         ]
       }
     },
@@ -19535,13 +19535,13 @@ window.APP_LESSONS['english|七下|第9單元 不規則動詞過去式'] = {
         { label: '出現頻率最高', items: ['be', 'do', 'have', 'go', 'get', 'make', 'take'] }] },
       check: {
         q: 'do 的過去式是什麼？',
-        options: ['did', 'done', 'doed', 'does'],
-        answer: 0,
+        options: ['does', 'did', 'done', 'doed'],
+        answer: 1,
         why: [
+          'does 是現在式的第三人稱單數形。',
           null,
           'done 是過去分詞。',
-          'do 是不規則動詞，不加 ed。',
-          'does 是現在式的第三人稱單數形。'
+          'do 是不規則動詞，不加 ed。'
         ]
       }
     },
@@ -19555,17 +19555,17 @@ window.APP_LESSONS['english|七下|第9單元 不規則動詞過去式'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'Did you see the movie?',
           'Did you saw the movie?',
           'Did you seen the movie?',
-          'Do you saw the movie?'
+          'Do you saw the movie?',
+          'Did you see the movie?'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '有了 did，動詞要用原形。',
           'seen 是過去分詞，不能接在 did 後面。',
-          'do 是現在式，動詞也要用原形。'
+          'do 是現在式，動詞也要用原形。',
+          null
         ]
       }
     }
@@ -19585,17 +19585,17 @@ window.APP_LESSONS['english|八上|第1單元 未來式'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
+          'She will to come tomorrow.',
           'She will come tomorrow.',
           'She wills come tomorrow.',
-          'She will comes tomorrow.',
-          'She will to come tomorrow.'
+          'She will comes tomorrow.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'will 後面不加 to。',
           null,
           '助動詞不隨主詞加 s。',
-          'will 後面要接原形動詞。',
-          'will 後面不加 to。'
+          'will 後面要接原形動詞。'
         ]
       }
     },
@@ -19610,13 +19610,13 @@ window.APP_LESSONS['english|八上|第1單元 未來式'] = {
         note: 'be 動詞隨主詞變化。' },
       check: {
         q: 'He ___ going to buy a car. 空格要填什麼？',
-        options: ['is', 'are', 'am', 'will'],
-        answer: 0,
+        options: ['am', 'will', 'is', 'are'],
+        answer: 2,
         why: [
-          null,
-          '主詞是第三人稱單數，要用 is。',
           'am 只跟 I 搭配。',
-          'will 不能和 going to 一起用。'
+          'will 不能和 going to 一起用。',
+          null,
+          '主詞是第三人稱單數，要用 is。'
         ]
       }
     },
@@ -19635,17 +19635,17 @@ window.APP_LESSONS['english|八上|第1單元 未來式'] = {
       check: {
         q: '看到滿天烏雲，說「要下雨了」比較自然的說法是什麼？',
         options: [
-          'It is going to rain.',
           'It rains.',
           'It rained.',
-          'It is raining every day.'
+          'It is raining every day.',
+          'It is going to rain.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '現在簡單式表示習慣或事實。',
           '過去式與眼前的情境不符。',
-          '這句在講每天的習慣，語意不合。'
+          '這句在講每天的習慣，語意不合。',
+          null
         ]
       }
     },
@@ -19709,13 +19709,13 @@ window.APP_LESSONS['english|八上|第1單元 未來式'] = {
         note: '時間與條件子句裡不用 will。' },
       check: {
         q: 'If it ___ tomorrow, we will stay home. 空格要填什麼？',
-        options: ['rains', 'will rain', 'is raining will', 'rained'],
-        answer: 0,
+        options: ['rained', 'rains', 'will rain', 'is raining will'],
+        answer: 1,
         why: [
+          '過去式與明天的情境不符。',
           null,
           '條件子句裡不用 will。',
-          '這個形式重複了助動詞。',
-          '過去式與明天的情境不符。'
+          '這個形式重複了助動詞。'
         ]
       }
     }
@@ -19737,17 +19737,17 @@ window.APP_LESSONS['english|八上|第2單元 比較級'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
+          'She is smart than her brother.',
           'She is smarter than her brother.',
           'She is more smart than her brother.',
-          'She is smarter then her brother.',
-          'She is smart than her brother.'
+          'She is smarter then her brother.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '比較句要用比較級形式。',
           null,
           '短形容詞用 er 而不是 more。',
-          'then 是「然後」，比較要用 than。',
-          '比較句要用比較級形式。'
+          'then 是「然後」，比較要用 than。'
         ]
       }
     },
@@ -19763,13 +19763,13 @@ window.APP_LESSONS['english|八上|第2單元 比較級'] = {
         { label: '重複字尾', items: ['bigger', 'hotter', 'thinner'] }] },
       check: {
         q: 'hot 的比較級是什麼？',
-        options: ['hotter', 'hoter', 'more hot', 'hottest'],
-        answer: 0,
+        options: ['hoter', 'more hot', 'hottest', 'hotter'],
+        answer: 3,
         why: [
-          null,
           '短母音加單子音要重複字尾。',
           '單音節形容詞用 er 而不是 more。',
-          '這是最高級的形式。'
+          '這是最高級的形式。',
+          null
         ]
       }
     },
@@ -19812,13 +19812,13 @@ window.APP_LESSONS['english|八上|第2單元 比較級'] = {
         { label: '不規則比較級', items: ['better', 'worse', 'more', 'less', 'farther'] }] },
       check: {
         q: 'good 的比較級是什麼？',
-        options: ['better', 'gooder', 'more good', 'best'],
-        answer: 0,
+        options: ['more good', 'best', 'better', 'gooder'],
+        answer: 2,
         why: [
-          null,
-          'good 是不規則變化，不加 er。',
           '不規則形容詞不用 more。',
-          'best 是最高級。'
+          'best 是最高級。',
+          null,
+          'good 是不規則變化，不加 er。'
         ]
       }
     },
@@ -19857,17 +19857,17 @@ window.APP_LESSONS['english|八上|第2單元 比較級'] = {
       check: {
         q: '「他和我一樣高」的正確說法是什麼？',
         options: [
-          'He is as tall as I am.',
-          'He is as taller as I am.',
           'He is as tall than I am.',
-          'He is so tall as me is.'
+          'He is so tall as me is.',
+          'He is as tall as I am.',
+          'He is as taller as I am.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'as 之間要用原級形容詞。',
           'as 的句型不用 than。',
-          '這個句子的結構不正確。'
+          '這個句子的結構不正確。',
+          null,
+          'as 之間要用原級形容詞。'
         ]
       }
     }
@@ -19916,13 +19916,13 @@ window.APP_LESSONS['english|八上|第3單元 最高級'] = {
              same: ['都在指定比較的範圍'] },
       check: {
         q: 'She is the youngest ___ the five sisters. 空格要填什麼？',
-        options: ['of', 'in', 'at', 'on'],
-        answer: 0,
+        options: ['on', 'of', 'in', 'at'],
+        answer: 1,
         why: [
+          'on 用於表面或日期。',
           null,
           'in 後面接地點或團體。',
-          'at 用於具體的定點。',
-          'on 用於表面或日期。'
+          'at 用於具體的定點。'
         ]
       }
     },
@@ -19936,13 +19936,13 @@ window.APP_LESSONS['english|八上|第3單元 最高級'] = {
         { label: '原級／比較級／最高級', items: ['tall taller tallest', 'good better best', 'bad worse worst'] }] },
       check: {
         q: 'bad 的最高級是什麼？',
-        options: ['worst', 'baddest', 'most bad', 'worse'],
-        answer: 0,
+        options: ['baddest', 'most bad', 'worse', 'worst'],
+        answer: 3,
         why: [
-          null,
           'bad 是不規則變化，不加 est。',
           '不規則形容詞不用 most。',
-          'worse 是比較級。'
+          'worse 是比較級。',
+          null
         ]
       }
     },
@@ -19958,17 +19958,17 @@ window.APP_LESSONS['english|八上|第3單元 最高級'] = {
       check: {
         q: '「第二高的建築」的正確說法是什麼？',
         options: [
-          'the second tallest building',
-          'the tallest second building',
           'second the tallest building',
-          'the two tallest building'
+          'the two tallest building',
+          'the second tallest building',
+          'the tallest second building'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '序數要放在最高級前面。',
           '定冠詞要放在最前面。',
-          '這裡要用序數而不是基數。'
+          '這裡要用序數而不是基數。',
+          null,
+          '序數要放在最高級前面。'
         ]
       }
     },
@@ -19984,17 +19984,17 @@ window.APP_LESSONS['english|八上|第3單元 最高級'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
+          'She is the one of smartest students.',
           'She is one of the smartest students in class.',
           'She is one of the smartest student in class.',
-          'She is one of smartest students in class.',
-          'She is the one of smartest students.'
+          'She is one of smartest students in class.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個句子的冠詞位置不正確。',
           null,
           '這個句型後面要用複數名詞。',
-          '最高級前面要加 the。',
-          '這個句子的冠詞位置不正確。'
+          '最高級前面要加 the。'
         ]
       }
     },
@@ -20012,17 +20012,17 @@ window.APP_LESSONS['english|八上|第3單元 最高級'] = {
       check: {
         q: 'He runs faster than any other boy in his class. 這句話的意思是什麼？',
         options: [
-          '他是班上跑最快的男生',
           '他跑得比某個男生快',
           '他跑得比別班的男生快',
-          '他跑得和別人一樣快'
+          '他跑得和別人一樣快',
+          '他是班上跑最快的男生'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'any other 指的是所有其他人。',
           '句中的範圍是他自己的班上。',
-          '這個句型表達的是差異而不是相同。'
+          '這個句型表達的是差異而不是相同。',
+          null
         ]
       }
     }
@@ -20044,13 +20044,13 @@ window.APP_LESSONS['english|八上|第4單元 動名詞'] = {
         note: '動名詞當主詞時動詞用單數。' },
       check: {
         q: 'Reading books ___ good for you. 空格要填什麼？',
-        options: ['is', 'are', 'be', 'were'],
-        answer: 0,
+        options: ['were', 'is', 'are', 'be'],
+        answer: 1,
         why: [
+          '句子講的是一般的道理，不用過去式。',
           null,
           '主詞是動名詞，視為單數。',
-          'be 是原形，句子需要現在式。',
-          '句子講的是一般的道理，不用過去式。'
+          'be 是原形，句子需要現在式。'
         ]
       }
     },
@@ -20065,13 +20065,13 @@ window.APP_LESSONS['english|八上|第4單元 動名詞'] = {
         note: '介系詞後面要用動名詞。' },
       check: {
         q: 'She is interested in ___ Japanese. 空格要填什麼？',
-        options: ['learning', 'learn', 'to learn', 'learns'],
-        answer: 0,
+        options: ['learn', 'to learn', 'learns', 'learning'],
+        answer: 3,
         why: [
-          null,
           '介系詞後面不能接原形動詞。',
           '介系詞後面不接不定詞。',
-          '介系詞後面不接動詞的變化形。'
+          '介系詞後面不接動詞的變化形。',
+          null
         ]
       }
     },
@@ -20108,13 +20108,13 @@ window.APP_LESSONS['english|八上|第4單元 動名詞'] = {
              same: ['大多數情況兩者可互換'] },
       check: {
         q: '下列哪一個動詞後面兩種形式都可以？',
-        options: ['like', 'enjoy', 'want', 'finish'],
-        answer: 0,
+        options: ['want', 'finish', 'like', 'enjoy'],
+        answer: 2,
         why: [
-          null,
-          'enjoy 後面只接動名詞。',
           'want 後面只接不定詞。',
-          'finish 後面只接動名詞。'
+          'finish 後面只接動名詞。',
+          null,
+          'enjoy 後面只接動名詞。'
         ]
       }
     },
@@ -20156,13 +20156,13 @@ window.APP_LESSONS['english|八上|第4單元 動名詞'] = {
         { label: '固定接動名詞的片語', items: ['go shopping', 'be busy doing', 'How about…?', 'It is no use…'] }] },
       check: {
         q: 'How about ___ to the movies? 空格要填什麼？',
-        options: ['going', 'go', 'to go', 'goes'],
-        answer: 0,
+        options: ['goes', 'going', 'go', 'to go'],
+        answer: 1,
         why: [
+          '介系詞後面不接動詞的變化形。',
           null,
           'about 是介系詞，後面要接動名詞。',
-          '介系詞後面不接不定詞。',
-          '介系詞後面不接動詞的變化形。'
+          '介系詞後面不接不定詞。'
         ]
       }
     }
@@ -20185,17 +20185,17 @@ window.APP_LESSONS['english|八上|第5單元 不定詞'] = {
       check: {
         q: 'I need something to drink. 這裡的 to drink 在做什麼？',
         options: [
-          '修飾前面的 something',
           '當句子的主詞',
           '表示目的',
-          '當動詞'
+          '當動詞',
+          '修飾前面的 something'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '句子的主詞是 I。',
           '這裡不是在說明為什麼要做某事。',
-          '句子的動詞是 need。'
+          '句子的動詞是 need。',
+          null
         ]
       }
     },
@@ -20234,17 +20234,17 @@ window.APP_LESSONS['english|八上|第5單元 不定詞'] = {
       check: {
         q: '「早起很重要」用虛主詞怎麼說？',
         options: [
-          'It is important to get up early.',
-          'It is important getting up early.',
           'That is important to get up early.',
-          'It is important that get up early.'
+          'It is important that get up early.',
+          'It is important to get up early.',
+          'It is important getting up early.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '虛主詞句型後面接不定詞。',
           '虛主詞要用 it。',
-          'that 子句裡需要有主詞。'
+          'that 子句裡需要有主詞。',
+          null,
+          '虛主詞句型後面接不定詞。'
         ]
       }
     },
@@ -20259,17 +20259,17 @@ window.APP_LESSONS['english|八上|第5單元 不定詞'] = {
       check: {
         q: 'She studies hard to enter a good school. 這裡的不定詞表示什麼？',
         options: [
+          '時間：進學校的時候',
           '目的：為了進好學校',
           '結果：她進了好學校',
-          '原因：因為學校很好',
-          '時間：進學校的時候'
+          '原因：因為學校很好'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '不定詞在這裡不表示時間。',
           null,
           '句子沒有說她已經進去了。',
-          '不定詞在這裡不表示原因。',
-          '不定詞在這裡不表示時間。'
+          '不定詞在這裡不表示原因。'
         ]
       }
     },
@@ -20284,17 +20284,17 @@ window.APP_LESSONS['english|八上|第5單元 不定詞'] = {
       check: {
         q: '「我不知道該怎麼去」的正確說法是什麼？',
         options: [
-          'I don’t know how to get there.',
-          'I don’t know how get there.',
           'I don’t know how to getting there.',
-          'I don’t know to how get there.'
+          'I don’t know to how get there.',
+          'I don’t know how to get there.',
+          'I don’t know how get there.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '疑問詞後面要加 to。',
           'to 後面要接原形動詞。',
-          '疑問詞要放在 to 前面。'
+          '疑問詞要放在 to 前面。',
+          null,
+          '疑問詞後面要加 to。'
         ]
       }
     },
@@ -20359,13 +20359,13 @@ window.APP_LESSONS['english|八上|第6單元 連綴動詞與感官動詞'] = {
         { label: '後面接形容詞', items: ['looks tired', 'sounds great', 'tastes sweet'] }] },
       check: {
         q: 'You look ___ today. 空格要填什麼？',
-        options: ['tired', 'tiredly', 'tiring me', 'to tire'],
-        answer: 0,
+        options: ['tiring me', 'to tire', 'tired', 'tiredly'],
+        answer: 2,
         why: [
-          null,
-          '感官動詞後面要接形容詞。',
           '這個說法在句中不通順。',
-          '這裡不需要不定詞。'
+          '這裡不需要不定詞。',
+          null,
+          '感官動詞後面要接形容詞。'
         ]
       }
     },
@@ -20383,17 +20383,17 @@ window.APP_LESSONS['english|八上|第6單元 連綴動詞與感官動詞'] = {
       check: {
         q: 'That ___ a great plan. 空格要填什麼？',
         options: [
-          'sounds like',
           'sounds',
           'sounds as',
-          'is sound like'
+          'is sound like',
+          'sounds like'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '後面接名詞時要加 like。',
           'as 在這個句型裡不適用。',
-          '這個句子多了 be 動詞。'
+          '這個句子多了 be 動詞。',
+          null
         ]
       }
     },
@@ -20411,17 +20411,17 @@ window.APP_LESSONS['english|八上|第6單元 連綴動詞與感官動詞'] = {
       check: {
         q: 'I heard someone ___ the piano when I passed by. 哪一個最合適？',
         options: [
+          'plays',
           'playing',
           'to play',
-          'played',
-          'plays'
+          'played'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個位置不用第三人稱單數形。',
           null,
           '感官動詞後面不加 to。',
-          '這個位置不用過去式。',
-          '這個位置不用第三人稱單數形。'
+          '這個位置不用過去式。'
         ]
       }
     },
@@ -20439,17 +20439,17 @@ window.APP_LESSONS['english|八上|第6單元 連綴動詞與感官動詞'] = {
       check: {
         q: 'She felt the cloth carefully. 這裡的 felt 是哪一種用法？',
         options: [
+          'be 動詞',
           '一般動詞，後面有受詞',
           '連綴動詞，後面接形容詞',
-          '助動詞',
-          'be 動詞'
+          '助動詞'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'felt 是 feel 的過去式，不是 be 動詞。',
           null,
           '句中 the cloth 是受詞而不是形容詞。',
-          'felt 不是助動詞。',
-          'felt 是 feel 的過去式，不是 be 動詞。'
+          'felt 不是助動詞。'
         ]
       }
     },
@@ -20463,17 +20463,17 @@ window.APP_LESSONS['english|八上|第6單元 連綴動詞與感官動詞'] = {
       check: {
         q: '判斷感官動詞後面該用形容詞還是副詞，最快的方法是什麼？',
         options: [
-          '把動詞換成 be 動詞讀讀看，通順就用形容詞',
           '看句子有幾個字',
           '看主詞是不是複數',
-          '看句尾有沒有句點'
+          '看句尾有沒有句點',
+          '把動詞換成 be 動詞讀讀看，通順就用形容詞'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '句子長度和詞性選擇無關。',
           '主詞單複數不影響這個判斷。',
-          '標點符號和詞性選擇無關。'
+          '標點符號和詞性選擇無關。',
+          null
         ]
       }
     }
@@ -20515,17 +20515,17 @@ window.APP_LESSONS['english|八上|第7單元 對等連接詞'] = {
       check: {
         q: '下列哪一句符合平行結構？',
         options: [
-          'She is smart, kind, and funny.',
-          'She is smart, kind, and a funny person.',
           'She is smart, kindly, and funny.',
-          'She is smart, being kind, and funny.'
+          'She is smart, being kind, and funny.',
+          'She is smart, kind, and funny.',
+          'She is smart, kind, and a funny person.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '前兩個是形容詞，第三個變成名詞片語。',
           'kindly 是副詞，與形容詞不對等。',
-          'being kind 的形式與形容詞不對等。'
+          'being kind 的形式與形容詞不對等。',
+          null,
+          '前兩個是形容詞，第三個變成名詞片語。'
         ]
       }
     },
@@ -20543,17 +20543,17 @@ window.APP_LESSONS['english|八上|第7單元 對等連接詞'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'Because he was sick, he stayed home.',
           'Because he was sick, so he stayed home.',
           'He was sick, because so he stayed home.',
-          'So he was sick, because he stayed home.'
+          'So he was sick, because he stayed home.',
+          'Because he was sick, he stayed home.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '中文的「因為所以」不能直接照搬。',
           '兩個連接詞不能連用。',
-          '這句的因果關係顛倒了。'
+          '這句的因果關係顛倒了。',
+          null
         ]
       }
     },
@@ -20571,17 +20571,17 @@ window.APP_LESSONS['english|八上|第7單元 對等連接詞'] = {
       check: {
         q: '「他既不會唱歌也不會跳舞」的正確說法是什麼？',
         options: [
+          'He can not neither sing nor dance.',
           'He can neither sing nor dance.',
           'He can neither sing or dance.',
-          'He can either sing nor dance.',
-          'He can not neither sing nor dance.'
+          'He can either sing nor dance.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'neither 已含否定，不能再加 not。',
           null,
           'neither 要搭配 nor。',
-          'either 要搭配 or。',
-          'neither 已含否定，不能再加 not。'
+          'either 要搭配 or。'
         ]
       }
     },
@@ -20597,13 +20597,13 @@ window.APP_LESSONS['english|八上|第7單元 對等連接詞'] = {
         note: '動詞跟著最靠近的主詞。' },
       check: {
         q: 'Either you or he ___ going to win. 空格要填什麼？',
-        options: ['is', 'are', 'am', 'be'],
-        answer: 0,
+        options: ['be', 'is', 'are', 'am'],
+        answer: 1,
         why: [
+          'be 是原形，句子需要現在式。',
           null,
           '動詞跟著最靠近的主詞 he。',
-          'am 只跟 I 搭配。',
-          'be 是原形，句子需要現在式。'
+          'am 只跟 I 搭配。'
         ]
       }
     },
@@ -20654,17 +20654,17 @@ window.APP_LESSONS['english|八上|第8單元 附屬連接詞'] = {
       check: {
         q: '下列哪一個不能單獨成為一個句子？',
         options: [
-          'Because he was late.',
           'He was late.',
           'He arrived at nine.',
-          'The class started.'
+          'The class started.',
+          'Because he was late.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這是完整的句子。',
           '這是完整的句子。',
-          '這是完整的句子。'
+          '這是完整的句子。',
+          null
         ]
       }
     },
@@ -20702,13 +20702,13 @@ window.APP_LESSONS['english|八上|第8單元 附屬連接詞'] = {
              same: ['都表示程度導致的結果'] },
       check: {
         q: 'It was ___ a good movie that I watched it twice. 空格要填什麼？',
-        options: ['such', 'so', 'very', 'too'],
-        answer: 0,
+        options: ['too', 'such', 'so', 'very'],
+        answer: 1,
         why: [
+          'too 的句型是 too…to，不搭配 that。',
           null,
           'so 後面要接形容詞而不是名詞片語。',
-          'very 不能搭配 that 子句。',
-          'too 的句型是 too…to，不搭配 that。'
+          'very 不能搭配 that 子句。'
         ]
       }
     },
@@ -20726,17 +20726,17 @@ window.APP_LESSONS['english|八上|第8單元 附屬連接詞'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'Although it rained, we went out.',
-          'Although it rained, but we went out.',
           'Although it rained, so we went out.',
-          'But although it rained, we went out too.'
+          'But although it rained, we went out too.',
+          'Although it rained, we went out.',
+          'Although it rained, but we went out.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'although 和 but 不能同時使用。',
           'although 表示轉折，不能配 so。',
-          '句首多了不必要的連接詞。'
+          '句首多了不必要的連接詞。',
+          null,
+          'although 和 but 不能同時使用。'
         ]
       }
     },
@@ -20754,17 +20754,17 @@ window.APP_LESSONS['english|八上|第8單元 附屬連接詞'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'You will be late unless you hurry.',
-          'You will be late unless you don’t hurry.',
           'You will be late unless not you hurry.',
-          'You will be late if unless you hurry.'
+          'You will be late if unless you hurry.',
+          'You will be late unless you hurry.',
+          'You will be late unless you don’t hurry.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'unless 已含否定，不能再加 not。',
           '否定詞的位置不正確。',
-          '兩個連接詞不能連用。'
+          '兩個連接詞不能連用。',
+          null,
+          'unless 已含否定，不能再加 not。'
         ]
       }
     },
@@ -20831,13 +20831,13 @@ window.APP_LESSONS['english|八上|第9單元 過去進行式'] = {
              same: ['都在描述兩件同時發生的事'] },
       check: {
         q: '___ I was doing my homework, my brother was playing games. 空格填什麼最合適？',
-        options: ['While', 'When he', 'Because', 'Until'],
-        answer: 0,
+        options: ['When he', 'Because', 'Until', 'While'],
+        answer: 3,
         why: [
-          null,
           '這個選項多了主詞，句子會不通。',
           'because 表示原因，語意不合。',
-          'until 表示直到某時，語意不合。'
+          'until 表示直到某時，語意不合。',
+          null
         ]
       }
     },
@@ -20850,17 +20850,17 @@ window.APP_LESSONS['english|八上|第9單元 過去進行式'] = {
       check: {
         q: '要表達「我在寫功課的同時，弟弟在看電視」，兩個動詞應該用什麼時態？',
         options: [
+          '兩個都用未來式',
           '兩個都用過去進行式',
           '兩個都用過去簡單式',
-          '一個用現在式一個用過去式',
-          '兩個都用未來式'
+          '一個用現在式一個用過去式'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句子講的是過去的事。',
           null,
           '過去簡單式無法表達持續並行。',
-          '同一段時間的事不會用不同時態。',
-          '句子講的是過去的事。'
+          '同一段時間的事不會用不同時態。'
         ]
       }
     },
@@ -20878,17 +20878,17 @@ window.APP_LESSONS['english|八上|第9單元 過去進行式'] = {
       check: {
         q: 'When the teacher came in, the students ___. 哪一個最合適？',
         options: [
-          'were talking',
-          'talk',
           'will talk',
-          'are talking'
+          'are talking',
+          'were talking',
+          'talk'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '現在簡單式與過去的情境不符。',
           '未來式與過去的情境不符。',
-          '現在進行式與過去的情境不符。'
+          '現在進行式與過去的情境不符。',
+          null,
+          '現在簡單式與過去的情境不符。'
         ]
       }
     },
@@ -20901,17 +20901,17 @@ window.APP_LESSONS['english|八上|第9單元 過去進行式'] = {
       check: {
         q: '「他們當時沒有在讀書」的正確說法是什麼？',
         options: [
+          'They wasn’t studying.',
           'They weren’t studying.',
           'They didn’t studying.',
-          'They weren’t study.',
-          'They wasn’t studying.'
+          'They weren’t study.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '主詞是複數，要用 weren’t。',
           null,
           '進行式的否定不用 didn’t。',
-          '進行式的動詞要保持 ing。',
-          '主詞是複數，要用 weren’t。'
+          '進行式的動詞要保持 ing。'
         ]
       }
     },
@@ -20925,17 +20925,17 @@ window.APP_LESSONS['english|八上|第9單元 過去進行式'] = {
       check: {
         q: '寫故事時，描寫「當時的背景與氣氛」適合用哪一種時態？',
         options: [
-          '過去進行式',
           '現在簡單式',
           '未來式',
-          '現在完成式'
+          '現在完成式',
+          '過去進行式'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '現在簡單式與過去的故事情境不符。',
           '未來式無法描寫已經發生的背景。',
-          '現在完成式強調對現在的影響，不適合鋪陳背景。'
+          '現在完成式強調對現在的影響，不適合鋪陳背景。',
+          null
         ]
       }
     }
@@ -20954,13 +20954,13 @@ window.APP_LESSONS['english|八下|第1單元 現在完成式（經驗）'] = {
       viz: { type: 'tense', verb: 'go', highlight: '現在完成式', pick: false },
       check: {
         q: 'She ___ finished her homework. 空格要填什麼？',
-        options: ['has', 'have', 'is', 'had'],
-        answer: 0,
+        options: ['have', 'is', 'had', 'has'],
+        answer: 3,
         why: [
-          null,
           '第三人稱單數要用 has。',
           '完成式用 have 或 has 而不是 be 動詞。',
-          'had 是過去完成式，時態不符。'
+          'had 是過去完成式，時態不符。',
+          null
         ]
       }
     },
@@ -20999,17 +20999,17 @@ window.APP_LESSONS['english|八下|第1單元 現在完成式（經驗）'] = {
       check: {
         q: '「他去美國了，現在人不在台灣」的正確說法是什麼？',
         options: [
+          'He is gone to the US.',
           'He has gone to the US.',
           'He has been to the US.',
-          'He has went to the US.',
-          'He is gone to the US.'
+          'He has went to the US.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '完成式要用 have 或 has。',
           null,
           'been to 表示去過並已回來。',
-          'went 是過去式，不是過去分詞。',
-          '完成式要用 have 或 has。'
+          'went 是過去式，不是過去分詞。'
         ]
       }
     },
@@ -21028,17 +21028,17 @@ window.APP_LESSONS['english|八下|第1單元 現在完成式（經驗）'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'I visited Japan last year.',
-          'I have visited Japan last year.',
           'I have visit Japan last year.',
-          'I am visited Japan last year.'
+          'I am visited Japan last year.',
+          'I visited Japan last year.',
+          'I have visited Japan last year.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '有 last year 就要用過去式。',
           '完成式後面要用過去分詞，時間詞也不對。',
-          'be 動詞不能這樣使用。'
+          'be 動詞不能這樣使用。',
+          null,
+          '有 last year 就要用過去式。'
         ]
       }
     },
@@ -21054,13 +21054,13 @@ window.APP_LESSONS['english|八下|第1單元 現在完成式（經驗）'] = {
         { label: '三態都不同', items: ['gone', 'seen', 'written', 'eaten'] }] },
       check: {
         q: 'I have ___ that book.（read 的過去分詞）空格要填什麼？',
-        options: ['read', 'readed', 'reads', 'reading'],
-        answer: 0,
+        options: ['reads', 'reading', 'read', 'readed'],
+        answer: 2,
         why: [
-          null,
-          'read 是不規則動詞，不加 ed。',
           '完成式後面要用過去分詞。',
-          '完成式後面不用動名詞。'
+          '完成式後面不用動名詞。',
+          null,
+          'read 是不規則動詞，不加 ed。'
         ]
       }
     },
@@ -21073,17 +21073,17 @@ window.APP_LESSONS['english|八下|第1單元 現在完成式（經驗）'] = {
       check: {
         q: 'Has she left? 的否定簡答是什麼？',
         options: [
-          'No, she hasn’t.',
           'No, she doesn’t.',
           'No, she isn’t.',
-          'No, she haven’t.'
+          'No, she haven’t.',
+          'No, she hasn’t.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '完成式的簡答要用 has 或 have。',
           '完成式的簡答不用 be 動詞。',
-          '第三人稱單數要用 hasn’t。'
+          '第三人稱單數要用 hasn’t。',
+          null
         ]
       }
     }
@@ -21105,17 +21105,17 @@ window.APP_LESSONS['english|八下|第2單元 現在完成式（完成與持續�
       check: {
         q: '下列哪一句位置正確？',
         options: [
-          'She has already eaten lunch.',
           'She already has eaten lunch.',
           'She has eaten already lunch.',
-          'Already she has eaten has lunch.'
+          'Already she has eaten has lunch.',
+          'She has already eaten lunch.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'already 通常放在助動詞後面。',
           '副詞不插在動詞與受詞中間。',
-          '這句重複了助動詞。'
+          '這句重複了助動詞。',
+          null
         ]
       }
     },
@@ -21154,17 +21154,17 @@ window.APP_LESSONS['english|八下|第2單元 現在完成式（完成與持續�
       check: {
         q: 'I have worked here for five years. 這句話表示什麼？',
         options: [
-          '我五年前開始在這裡工作，現在還在',
-          '我五年前離職了',
           '我明年會來這裡工作',
-          '我只工作過五天'
+          '我只工作過五天',
+          '我五年前開始在這裡工作，現在還在',
+          '我五年前離職了'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '完成式表示狀態持續到現在。',
           '句子用的是完成式，不是未來式。',
-          'five years 是五年而不是五天。'
+          'five years 是五年而不是五天。',
+          null,
+          '完成式表示狀態持續到現在。'
         ]
       }
     },
@@ -21178,13 +21178,13 @@ window.APP_LESSONS['english|八下|第2單元 現在完成式（完成與持續�
         note: '兩種說的是同一段時間。' },
       check: {
         q: 'He has been sick ___ last Monday. 空格要填什麼？',
-        options: ['since', 'for', 'in', 'during'],
-        answer: 0,
+        options: ['during', 'since', 'for', 'in'],
+        answer: 1,
         why: [
+          'during 後面接一段期間的名詞。',
           null,
           'for 後面要接一段時間長度。',
-          'in 不用於這個句型。',
-          'during 後面接一段期間的名詞。'
+          'in 不用於這個句型。'
         ]
       }
     },
@@ -21202,17 +21202,17 @@ window.APP_LESSONS['english|八下|第2單元 現在完成式（完成與持續�
       check: {
         q: 'I have been waiting for an hour. 這句話強調什麼？',
         options: [
-          '等的這個過程持續了一小時，現在可能還在等',
-          '我一小時前等過',
           '我明天要等一小時',
-          '我只等了一下下'
+          '我只等了一下下',
+          '等的這個過程持續了一小時，現在可能還在等',
+          '我一小時前等過'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '完成進行式強調持續到現在。',
           '句子用的不是未來式。',
-          'an hour 是一小時，不是一下下。'
+          'an hour 是一小時，不是一下下。',
+          null,
+          '完成進行式強調持續到現在。'
         ]
       }
     },
@@ -21229,17 +21229,17 @@ window.APP_LESSONS['english|八下|第2單元 現在完成式（完成與持續�
       check: {
         q: '看到 since 2015 這個訊號，應該判斷是哪一種用法？',
         options: [
-          '持續：從那時一直到現在',
           '經驗：曾經做過',
           '完成：剛剛做完',
-          '未來：接下來要做'
+          '未來：接下來要做',
+          '持續：從那時一直到現在'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '經驗的訊號字是 ever 或 never。',
           '完成的訊號字是 just 或 already。',
-          'since 指的是過去的起點而不是未來。'
+          'since 指的是過去的起點而不是未來。',
+          null
         ]
       }
     }
@@ -21286,13 +21286,13 @@ window.APP_LESSONS['english|八下|第3單元 被動語態（現在）'] = {
         { label: '複數主詞', items: ['are made', 'are used', 'are sold'] }] },
       check: {
         q: 'These shoes ___ made in Taiwan. 空格要填什麼？',
-        options: ['are', 'is', 'was', 'be'],
-        answer: 0,
+        options: ['is', 'was', 'be', 'are'],
+        answer: 3,
         why: [
-          null,
           '主詞是複數的 shoes。',
           '句子講的是現在的事實。',
-          'be 是原形，句子需要現在式。'
+          'be 是原形，句子需要現在式。',
+          null
         ]
       }
     },
@@ -21310,17 +21310,17 @@ window.APP_LESSONS['english|八下|第3單元 被動語態（現在）'] = {
       check: {
         q: '什麼情況下最適合用被動語態？',
         options: [
+          '任何時候都應該用被動',
           '不知道或不需要說明是誰做的時候',
           '想強調做事的人時',
-          '句子太短的時候',
-          '任何時候都應該用被動'
+          '句子太短的時候'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '過度使用被動會讓文章拗口。',
           null,
           '想強調做事的人應該用主動語態。',
-          '句子長短不是選擇語態的理由。',
-          '過度使用被動會讓文章拗口。'
+          '句子長短不是選擇語態的理由。'
         ]
       }
     },
@@ -21334,17 +21334,17 @@ window.APP_LESSONS['english|八下|第3單元 被動語態（現在）'] = {
       check: {
         q: '下列哪一種情況通常會保留 by 片語？',
         options: [
-          '行為者很重要，例如作品的作者',
-          '行為者是一般人',
           '行為者不知道是誰',
-          '任何被動句都要寫 by'
+          '任何被動句都要寫 by',
+          '行為者很重要，例如作品的作者',
+          '行為者是一般人'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '行為者是一般人時通常省略。',
           '不知道是誰時無法寫出 by 片語。',
-          '多數被動句不需要 by 片語。'
+          '多數被動句不需要 by 片語。',
+          null,
+          '行為者是一般人時通常省略。'
         ]
       }
     },
@@ -21357,17 +21357,17 @@ window.APP_LESSONS['english|八下|第3單元 被動語態（現在）'] = {
       check: {
         q: '「這些書不是在台灣印的」的正確說法是什麼？',
         options: [
+          'These books isn’t printed in Taiwan.',
           'These books aren’t printed in Taiwan.',
           'These books don’t printed in Taiwan.',
-          'These books aren’t print in Taiwan.',
-          'These books isn’t printed in Taiwan.'
+          'These books aren’t print in Taiwan.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '主詞是複數，要用 aren’t。',
           null,
           '被動語態的否定用 be 動詞加 not。',
-          '被動語態要用過去分詞。',
-          '主詞是複數，要用 aren’t。'
+          '被動語態要用過去分詞。'
         ]
       }
     },
@@ -21382,17 +21382,17 @@ window.APP_LESSONS['english|八下|第3單元 被動語態（現在）'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'The accident happened last night.',
           'The accident was happened last night.',
           'The accident is happened last night.',
-          'The accident has been happened.'
+          'The accident has been happened.',
+          'The accident happened last night.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'happen 沒有受詞，不能用被動。',
           'happen 不能改成被動語態。',
-          'happen 不能改成被動語態。'
+          'happen 不能改成被動語態。',
+          null
         ]
       }
     }
@@ -21414,13 +21414,13 @@ window.APP_LESSONS['english|八下|第4單元 被動語態（過去）'] = {
         note: 'be 動詞管時態，過去分詞管被動。' },
       check: {
         q: 'The letters ___ sent yesterday. 空格要填什麼？',
-        options: ['were', 'was', 'are', 'is'],
-        answer: 0,
+        options: ['is', 'were', 'was', 'are'],
+        answer: 1,
         why: [
+          '這裡既要複數也要過去式。',
           null,
           '主詞是複數的 letters。',
-          '有 yesterday 要用過去式。',
-          '這裡既要複數也要過去式。'
+          '有 yesterday 要用過去式。'
         ]
       }
     },
@@ -21460,17 +21460,17 @@ window.APP_LESSONS['english|八下|第4單元 被動語態（過去）'] = {
       check: {
         q: '「這棟大樓明年會被拆掉」的正確說法是什麼？',
         options: [
-          'The building will be torn down next year.',
-          'The building will torn down next year.',
           'The building will be tear down next year.',
-          'The building is will be torn down.'
+          'The building is will be torn down.',
+          'The building will be torn down next year.',
+          'The building will torn down next year.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '被動語態需要 be 動詞。',
           'be 後面要接過去分詞。',
-          '助動詞不能和 be 動詞這樣連用。'
+          '助動詞不能和 be 動詞這樣連用。',
+          null,
+          '被動語態需要 be 動詞。'
         ]
       }
     },
@@ -21486,17 +21486,17 @@ window.APP_LESSONS['english|八下|第4單元 被動語態（過去）'] = {
       check: {
         q: 'This problem can ___ easily. 空格要填什麼？',
         options: [
-          'be solved',
           'is solved',
           'be solve',
-          'solved'
+          'solved',
+          'be solved'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '助動詞後面要用原形的 be。',
           'be 後面要接過去分詞。',
-          '被動語態需要 be 動詞。'
+          '被動語態需要 be 動詞。',
+          null
         ]
       }
     },
@@ -21541,13 +21541,13 @@ window.APP_LESSONS['english|八下|第4單元 被動語態（過去）'] = {
         { label: '搭配 for／to', items: ['be known for', 'be known to'] }] },
       check: {
         q: 'The mountain is covered ___ snow. 空格要填什麼？',
-        options: ['with', 'by', 'in', 'of'],
-        answer: 0,
+        options: ['of', 'with', 'by', 'in'],
+        answer: 1,
         why: [
+          'of 不用於這個片語。',
           null,
           '這個片語的固定搭配是 with。',
-          'in 不用於這個片語。',
-          'of 不用於這個片語。'
+          'in 不用於這個片語。'
         ]
       }
     }
@@ -21596,13 +21596,13 @@ window.APP_LESSONS['english|八下|第5單元 關係代名詞'] = {
         { label: '通用', items: ['that'] }] },
       check: {
         q: 'This is the book ___ I bought yesterday. 空格要填什麼？',
-        options: ['which', 'who', 'whose', 'whom'],
-        answer: 0,
+        options: ['whose', 'whom', 'which', 'who'],
+        answer: 2,
         why: [
-          null,
-          'who 用於人。',
           'whose 表示所有，語意不合。',
-          'whom 用於人的受格。'
+          'whom 用於人的受格。',
+          null,
+          'who 用於人。'
         ]
       }
     },
@@ -21620,13 +21620,13 @@ window.APP_LESSONS['english|八下|第5單元 關係代名詞'] = {
              same: ['都在修飾前面的名詞'] },
       check: {
         q: 'The girl ___ won the prize is my sister. 空格要填什麼？',
-        options: ['who', 'whom', 'which', 'whose'],
-        answer: 0,
+        options: ['whom', 'which', 'whose', 'who'],
+        answer: 3,
         why: [
-          null,
           '後面直接接動詞，要用主格。',
           'which 用於物。',
-          'whose 後面要接名詞。'
+          'whose 後面要接名詞。',
+          null
         ]
       }
     },
@@ -21643,17 +21643,17 @@ window.APP_LESSONS['english|八下|第5單元 關係代名詞'] = {
       check: {
         q: '下列哪一句的關係代名詞可以省略？',
         options: [
+          'The girl who sits there is Amy.',
           'The movie that we watched was funny.',
           'The man who called me is my uncle.',
-          'The dog which is barking is loud.',
-          'The girl who sits there is Amy.'
+          'The dog which is barking is loud.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這裡的 who 是主格，不能省略。',
           null,
           '這裡的 who 是主格，不能省略。',
-          '這裡的 which 是主格，不能省略。',
-          '這裡的 who 是主格，不能省略。'
+          '這裡的 which 是主格，不能省略。'
         ]
       }
     },
@@ -21667,13 +21667,13 @@ window.APP_LESSONS['english|八下|第5單元 關係代名詞'] = {
         note: 'whose 後面一定接名詞。' },
       check: {
         q: 'I know a girl ___ brother is a singer. 空格要填什麼？',
-        options: ['whose', 'who', 'whom', 'which'],
-        answer: 0,
+        options: ['which', 'whose', 'who', 'whom'],
+        answer: 1,
         why: [
+          'which 用於物。',
           null,
           'who 後面直接接動詞。',
-          'whom 是受格，後面接主詞加動詞。',
-          'which 用於物。'
+          'whom 是受格，後面接主詞加動詞。'
         ]
       }
     },
@@ -21740,13 +21740,13 @@ window.APP_LESSONS['english|八下|第6單元 間接問句'] = {
       viz: { type: 'energyflow', steps: ['What does he want?', '拿掉 does', 's 回到動詞上', '…what he wants.'] },
       check: {
         q: 'Can you tell me what time the movie ___? 空格要填什麼？',
-        options: ['starts', 'does start', 'start', 'starting'],
-        answer: 0,
+        options: ['start', 'starting', 'starts', 'does start'],
+        answer: 2,
         why: [
-          null,
-          '間接問句裡不用助動詞。',
           '主詞是第三人稱單數，動詞要加 s。',
-          '這個形式缺少 be 動詞。'
+          '這個形式缺少 be 動詞。',
+          null,
+          '間接問句裡不用助動詞。'
         ]
       }
     },
@@ -21762,13 +21762,13 @@ window.APP_LESSONS['english|八下|第6單元 間接問句'] = {
              same: ['都改成陳述句語序'] },
       check: {
         q: 'I don’t know ___ she will come. 空格填什麼最合適？',
-        options: ['whether', 'what', 'who', 'that if'],
-        answer: 0,
+        options: ['what', 'who', 'that if', 'whether'],
+        answer: 3,
         why: [
-          null,
           '句子裡沒有要問「什麼」。',
           '句子裡沒有要問「誰」。',
-          '兩個連接詞不能連用。'
+          '兩個連接詞不能連用。',
+          null
         ]
       }
     },
@@ -21785,17 +21785,17 @@ window.APP_LESSONS['english|八下|第6單元 間接問句'] = {
       check: {
         q: 'I wonder where she went 這句話結尾應該用什麼標點？',
         options: [
+          '不用標點',
           '句點，因為主句是陳述句',
           '問號，因為裡面有疑問詞',
-          '驚嘆號',
-          '不用標點'
+          '驚嘆號'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '英文句子結尾一定要有標點。',
           null,
           '標點要看整個句子而不是裡面的部分。',
-          '這個句子沒有強烈的情緒。',
-          '英文句子結尾一定要有標點。'
+          '這個句子沒有強烈的情緒。'
         ]
       }
     },
@@ -21808,17 +21808,17 @@ window.APP_LESSONS['english|八下|第6單元 間接問句'] = {
       check: {
         q: '向陌生人問路時，比較有禮貌的說法是什麼？',
         options: [
+          'Tell me the station now.',
           'Could you tell me where the station is?',
           'Where is the station.',
-          'Station where?',
-          'Tell me the station now.'
+          'Station where?'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '命令的語氣不禮貌。',
           null,
           '單純的直接問句語氣較唐突。',
-          '這個說法不是完整的句子。',
-          '命令的語氣不禮貌。'
+          '這個說法不是完整的句子。'
         ]
       }
     },
@@ -21832,17 +21832,17 @@ window.APP_LESSONS['english|八下|第6單元 間接問句'] = {
       check: {
         q: '把 What did he say? 放進 I don’t know 之後，正確的說法是什麼？',
         options: [
-          'I don’t know what he said.',
-          'I don’t know what did he say.',
           'I don’t know what he did say it.',
-          'I don’t know that what he said.'
+          'I don’t know that what he said.',
+          'I don’t know what he said.',
+          'I don’t know what did he say.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '間接問句裡不用助動詞倒裝。',
           '這個句子多了不必要的字。',
-          '兩個連接詞不能連用。'
+          '兩個連接詞不能連用。',
+          null,
+          '間接問句裡不用助動詞倒裝。'
         ]
       }
     }
@@ -21863,13 +21863,13 @@ window.APP_LESSONS['english|八下|第7單元 使役動詞'] = {
         note: '使役動詞後面用原形動詞。' },
       check: {
         q: 'She let me ___ her bike. 空格要填什麼？',
-        options: ['use', 'to use', 'using', 'used'],
-        answer: 0,
+        options: ['using', 'used', 'use', 'to use'],
+        answer: 2,
         why: [
-          null,
-          'let 後面不加 to。',
           '這個位置要用原形動詞。',
-          '這個位置不用過去式。'
+          '這個位置不用過去式。',
+          null,
+          'let 後面不加 to。'
         ]
       }
     },
@@ -21887,17 +21887,17 @@ window.APP_LESSONS['english|八下|第7單元 使役動詞'] = {
       check: {
         q: '「媽媽讓我出去玩」的正確說法是什麼？',
         options: [
-          'My mom let me go out.',
           'My mom made me go out.',
           'My mom let me to go out.',
-          'My mom let me going out.'
+          'My mom let me going out.',
+          'My mom let me go out.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'make 帶有強迫的意味，語意不合。',
           'let 後面不加 to。',
-          'let 後面要用原形動詞。'
+          'let 後面要用原形動詞。',
+          null
         ]
       }
     },
@@ -21912,13 +21912,13 @@ window.APP_LESSONS['english|八下|第7單元 使役動詞'] = {
         { label: '一定要加 to', items: ['ask', 'tell', 'want'] }] },
       check: {
         q: '下列哪一個動詞後面加不加 to 都正確？',
-        options: ['help', 'make', 'let', 'want'],
-        answer: 0,
+        options: ['want', 'help', 'make', 'let'],
+        answer: 1,
         why: [
+          'want 後面一定要加 to。',
           null,
           'make 後面一定不加 to。',
-          'let 後面一定不加 to。',
-          'want 後面一定要加 to。'
+          'let 後面一定不加 to。'
         ]
       }
     },
@@ -21958,13 +21958,13 @@ window.APP_LESSONS['english|八下|第7單元 使役動詞'] = {
              same: ['都表示請別人做'] },
       check: {
         q: 'I had my bike ___ yesterday.（請人修好）空格要填什麼？',
-        options: ['repaired', 'repair', 'to repair', 'repairing'],
-        answer: 0,
+        options: ['repair', 'to repair', 'repairing', 'repaired'],
+        answer: 3,
         why: [
-          null,
           '受詞是東西時要用過去分詞。',
           '這裡腳踏車是被修理的，要用被動的形式。',
-          '這個位置不用進行式。'
+          '這個位置不用進行式。',
+          null
         ]
       }
     },
@@ -21979,13 +21979,13 @@ window.APP_LESSONS['english|八下|第7單元 使役動詞'] = {
         { label: '要加 to', items: ['ask', 'tell', 'want', 'advise', 'allow'] }] },
       check: {
         q: 'My teacher told me ___ harder. 空格要填什麼？',
-        options: ['to study', 'study', 'studying', 'studied'],
-        answer: 0,
+        options: ['studying', 'studied', 'to study', 'study'],
+        answer: 2,
         why: [
-          null,
-          'tell 後面要加 to。',
           '這個位置不用動名詞。',
-          '這個位置不用過去式。'
+          '這個位置不用過去式。',
+          null,
+          'tell 後面要加 to。'
         ]
       }
     }
@@ -22007,13 +22007,13 @@ window.APP_LESSONS['english|八下|第8單元 感官動詞與知覺'] = {
         note: '感官動詞後面不加 to。' },
       check: {
         q: 'I heard someone ___ my name. 空格要填什麼？',
-        options: ['call', 'to call', 'called', 'calls'],
-        answer: 0,
+        options: ['called', 'calls', 'call', 'to call'],
+        answer: 2,
         why: [
-          null,
-          '感官動詞後面不加 to。',
           '這個位置要用原形動詞或動詞 ing。',
-          '這個位置不用第三人稱單數形。'
+          '這個位置不用第三人稱單數形。',
+          null,
+          '感官動詞後面不加 to。'
         ]
       }
     },
@@ -22031,17 +22031,17 @@ window.APP_LESSONS['english|八下|第8單元 感官動詞與知覺'] = {
       check: {
         q: '「我經過時看到他正在打球」比較適合用哪一種？',
         options: [
-          '動詞 ing，因為是看到進行中的片段',
           '原形動詞，因為看到全部',
           '過去分詞',
-          '不定詞'
+          '不定詞',
+          '動詞 ing，因為是看到進行中的片段'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '經過時只看到片段而不是全部。',
           '過去分詞用於被動的情況。',
-          '感官動詞後面不加 to。'
+          '感官動詞後面不加 to。',
+          null
         ]
       }
     },
@@ -22075,13 +22075,13 @@ window.APP_LESSONS['english|八下|第8單元 感官動詞與知覺'] = {
              same: ['都接在感官動詞後面'] },
       check: {
         q: 'I saw the window ___ by the wind. 空格要填什麼？',
-        options: ['broken', 'break', 'breaking', 'to break'],
-        answer: 0,
+        options: ['to break', 'broken', 'break', 'breaking'],
+        answer: 1,
         why: [
+          '感官動詞後面不加 to。',
           null,
           '窗戶是被風打破的，要用過去分詞。',
-          '窗戶不是主動打破東西的一方。',
-          '感官動詞後面不加 to。'
+          '窗戶不是主動打破東西的一方。'
         ]
       }
     },
@@ -22098,13 +22098,13 @@ window.APP_LESSONS['english|八下|第8單元 感官動詞與知覺'] = {
              same: ['是同一批動詞'] },
       check: {
         q: 'The music sounds ___. 空格要填什麼？',
-        options: ['beautiful', 'beautifully', 'to be beauty', 'beauty'],
-        answer: 0,
+        options: ['beautifully', 'to be beauty', 'beauty', 'beautiful'],
+        answer: 3,
         why: [
-          null,
           '連綴動詞後面要接形容詞而不是副詞。',
           '這裡不需要不定詞。',
-          'beauty 是名詞，語意不通。'
+          'beauty 是名詞，語意不通。',
+          null
         ]
       }
     },
@@ -22151,17 +22151,17 @@ window.APP_LESSONS['english|八下|第9單元 too...to 與 enough to'] = {
       check: {
         q: 'The coffee is too hot to drink. 這句話的意思是什麼？',
         options: [
-          '咖啡太燙了，沒辦法喝',
-          '咖啡很燙，可以喝',
           '咖啡不燙',
-          '咖啡剛好可以喝'
+          '咖啡剛好可以喝',
+          '咖啡太燙了，沒辦法喝',
+          '咖啡很燙，可以喝'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'too…to 表示不能做這件事。',
           '句中的 too hot 表示很燙。',
-          'too…to 表示程度超過了。'
+          'too…to 表示程度超過了。',
+          null,
+          'too…to 表示不能做這件事。'
         ]
       }
     },
@@ -22208,17 +22208,17 @@ window.APP_LESSONS['english|八下|第9單元 too...to 與 enough to'] = {
       check: {
         q: '下列哪一個位置正確？',
         options: [
+          'He enough is tall to reach it.',
           'He is tall enough to reach it.',
           'He is enough tall to reach it.',
-          'He is tall to enough reach it.',
-          'He enough is tall to reach it.'
+          'He is tall to enough reach it.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'enough 不放在 be 動詞前面。',
           null,
           'enough 修飾形容詞時要放後面。',
-          'enough 的位置不正確。',
-          'enough 不放在 be 動詞前面。'
+          'enough 的位置不正確。'
         ]
       }
     },
@@ -22235,17 +22235,17 @@ window.APP_LESSONS['english|八下|第9單元 too...to 與 enough to'] = {
       check: {
         q: 'The box is light enough to carry. 這句話的意思是什麼？',
         options: [
-          '箱子夠輕，搬得動',
           '箱子太輕了搬不動',
           '箱子太重了',
-          '箱子搬不動'
+          '箱子搬不動',
+          '箱子夠輕，搬得動'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'enough to 表示可以做到。',
           'light 是輕的意思。',
-          '這句話表示可以搬得動。'
+          '這句話表示可以搬得動。',
+          null
         ]
       }
     },
@@ -22262,17 +22262,17 @@ window.APP_LESSONS['english|八下|第9單元 too...to 與 enough to'] = {
       check: {
         q: 'He is too short to reach the shelf. 換句話說是什麼？',
         options: [
-          'He is not tall enough to reach the shelf.',
           'He is tall enough to reach the shelf.',
           'He is not short enough to reach it.',
-          'He is too tall to reach the shelf.'
+          'He is too tall to reach the shelf.',
+          'He is not tall enough to reach the shelf.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個說法的意思與原句相反。',
           '這樣改寫語意變得不通。',
-          '這個說法的意思與原句相反。'
+          '這個說法的意思與原句相反。',
+          null
         ]
       }
     },
@@ -22287,17 +22287,17 @@ window.APP_LESSONS['english|八下|第9單元 too...to 與 enough to'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'The soup is too salty to eat.',
-          'The soup is too salty to eat it.',
           'The soup is too salty to eating.',
-          'The soup is too salty for eat it.'
+          'The soup is too salty for eat it.',
+          'The soup is too salty to eat.',
+          'The soup is too salty to eat it.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '受詞與主詞相同時要省略 it。',
           'to 後面要接原形動詞。',
-          '這個句子的結構不正確。'
+          '這個句子的結構不正確。',
+          null,
+          '受詞與主詞相同時要省略 it。'
         ]
       }
     }
@@ -22341,13 +22341,13 @@ window.APP_LESSONS['english|九上|第1單元 條件句'] = {
              same: ['if 子句都用現在式'] },
       check: {
         q: 'If you mix blue and yellow, you ___ green. 空格填什麼最合適？',
-        options: ['get', 'will got', 'would get', 'got'],
-        answer: 0,
+        options: ['would get', 'got', 'get', 'will got'],
+        answer: 2,
         why: [
-          null,
-          'will 後面要接原形動詞。',
           'would 用於與事實相反的假設。',
-          '這是恆常的道理，不用過去式。'
+          '這是恆常的道理，不用過去式。',
+          null,
+          'will 後面要接原形動詞。'
         ]
       }
     },
@@ -22364,13 +22364,13 @@ window.APP_LESSONS['english|九上|第1單元 條件句'] = {
              same: ['都用 if 開頭'] },
       check: {
         q: 'If I ___ rich, I would travel around the world. 空格要填什麼？',
-        options: ['were', 'am', 'will be', 'have been'],
-        answer: 0,
+        options: ['am', 'will be', 'have been', 'were'],
+        answer: 3,
         why: [
-          null,
           '與現在事實相反的假設要用過去式。',
           'if 子句裡不用 will。',
-          '這裡不用完成式。'
+          '這裡不用完成式。',
+          null
         ]
       }
     },
@@ -22383,17 +22383,17 @@ window.APP_LESSONS['english|九上|第1單元 條件句'] = {
       check: {
         q: 'If I had known, I ___ told you. 空格要填什麼？',
         options: [
+          'had',
           'would have',
           'will have',
-          'would',
-          'had'
+          'would'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'had 不能單獨出現在主句這個位置。',
           null,
           '與過去事實相反時不用 will。',
-          '主句要用 would have 加過去分詞。',
-          'had 不能單獨出現在主句這個位置。'
+          '主句要用 would have 加過去分詞。'
         ]
       }
     },
@@ -22410,17 +22410,17 @@ window.APP_LESSONS['english|九上|第1單元 條件句'] = {
       check: {
         q: 'If I had a car, I would drive you home. 這句話表示什麼？',
         options: [
+          '我明天會買車',
           '我其實沒有車',
           '我有車而且會載你',
-          '我以前有車',
-          '我明天會買車'
+          '我以前有車'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句中沒有提到買車。',
           null,
           '這個句型表示與現在事實相反。',
-          '這句講的是現在的狀況。',
-          '句中沒有提到買車。'
+          '這句講的是現在的狀況。'
         ]
       }
     },
@@ -22434,13 +22434,13 @@ window.APP_LESSONS['english|九上|第1單元 條件句'] = {
         { label: '條件類連接詞', items: ['if', 'unless', 'as long as', 'in case', 'provided that'] }] },
       check: {
         q: 'Bring a jacket in case it ___ cold. 空格要填什麼？',
-        options: ['gets', 'will get', 'would get', 'got'],
-        answer: 0,
+        options: ['would get', 'got', 'gets', 'will get'],
+        answer: 2,
         why: [
-          null,
-          '條件子句裡不用 will。',
           'would 用於與事實相反的假設。',
-          '這句講的是未來的可能，不用過去式。'
+          '這句講的是未來的可能，不用過去式。',
+          null,
+          '條件子句裡不用 will。'
         ]
       }
     }
@@ -22493,17 +22493,17 @@ window.APP_LESSONS['english|九上|第2單元 分詞'] = {
       check: {
         q: '「我對這本書很有興趣」的正確說法是什麼？',
         options: [
-          'I am interested in this book.',
-          'I am interesting in this book.',
           'This book is interested.',
-          'I am interest this book.'
+          'I am interest this book.',
+          'I am interested in this book.',
+          'I am interesting in this book.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'ing 結尾用來形容事物。',
           '書是引起興趣的一方，要用 interesting。',
-          '這個句子缺少介系詞與正確的形容詞。'
+          '這個句子缺少介系詞與正確的形容詞。',
+          null,
+          'ing 結尾用來形容事物。'
         ]
       }
     },
@@ -22520,13 +22520,13 @@ window.APP_LESSONS['english|九上|第2單元 分詞'] = {
         note: '分詞片語放在被修飾的名詞後面。' },
       check: {
         q: 'The man ___ over there is my teacher.（站在那裡）空格要填什麼？',
-        options: ['standing', 'stood', 'to stand', 'stands'],
-        answer: 0,
+        options: ['stood', 'to stand', 'stands', 'standing'],
+        answer: 3,
         why: [
-          null,
           '這裡要用現在分詞表示主動進行。',
           '這個位置不用不定詞。',
-          '句子已有主要動詞 is。'
+          '句子已有主要動詞 is。',
+          null
         ]
       }
     },
@@ -22539,17 +22539,17 @@ window.APP_LESSONS['english|九上|第2單元 分詞'] = {
       check: {
         q: 'The letter which was sent yesterday 可以簡化成什麼？',
         options: [
+          'The letter sends yesterday',
           'The letter sent yesterday',
           'The letter sending yesterday',
-          'The letter to send yesterday',
-          'The letter sends yesterday'
+          'The letter to send yesterday'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '簡化後不會留下限定動詞。',
           null,
           '信是被寄出的，要用過去分詞。',
-          '這裡不用不定詞。',
-          '簡化後不會留下限定動詞。'
+          '這裡不用不定詞。'
         ]
       }
     },
@@ -22562,17 +22562,17 @@ window.APP_LESSONS['english|九上|第2單元 分詞'] = {
       check: {
         q: '把 Because he was tired, he went to bed early. 改成分詞構句是什麼？',
         options: [
+          'Tiring, he went to bed early.',
           'Being tired, he went to bed early.',
           'Been tired, he went to bed early.',
-          'Be tired, he went to bed early.',
-          'Tiring, he went to bed early.'
+          'Be tired, he went to bed early.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'tiring 形容事物，語意不對。',
           null,
           'been 不能單獨開頭。',
-          '分詞構句不用原形動詞。',
-          'tiring 形容事物，語意不對。'
+          '分詞構句不用原形動詞。'
         ]
       }
     },
@@ -22590,17 +22590,17 @@ window.APP_LESSONS['english|九上|第2單元 分詞'] = {
       check: {
         q: '下列哪一句沒有懸垂分詞的問題？',
         options: [
-          'Running to the bus, I dropped my keys.',
-          'Running to the bus, my keys were dropped.',
           'Running to the bus, the keys fell.',
-          'Running to the bus, it was raining.'
+          'Running to the bus, it was raining.',
+          'Running to the bus, I dropped my keys.',
+          'Running to the bus, my keys were dropped.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
+          '鑰匙不會自己跑向公車。',
+          '天氣不會跑向公車。',
           null,
-          '鑰匙不會自己跑向公車。',
-          '鑰匙不會自己跑向公車。',
-          '天氣不會跑向公車。'
+          '鑰匙不會自己跑向公車。'
         ]
       }
     }
@@ -22621,17 +22621,17 @@ window.APP_LESSONS['english|九上|第3單元 名詞子句'] = {
       check: {
         q: 'I believe that she will come. 這裡的 that 子句在做什麼？',
         options: [
-          '當 believe 的受詞',
           '當句子的主詞',
           '修飾前面的名詞',
-          '表示原因'
+          '表示原因',
+          '當 believe 的受詞'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '句子的主詞是 I。',
           '這裡沒有被修飾的名詞。',
-          'that 在這裡不表示原因。'
+          'that 在這裡不表示原因。',
+          null
         ]
       }
     },
@@ -22648,16 +22648,16 @@ window.APP_LESSONS['english|九上|第3單元 名詞子句'] = {
       check: {
         q: '下列哪一句的 that 可以省略？',
         options: [
-          'I hope that you feel better.',
-          'That he is honest is well known.',
           'The fact that he lied surprised us.',
-          'That she left early is strange.'
+          'That she left early is strange.',
+          'I hope that you feel better.',
+          'That he is honest is well known.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '當主詞時 that 不能省略。',
           '這裡的 that 引導同位語，不能省略。',
+          '當主詞時 that 不能省略。',
+          null,
           '當主詞時 that 不能省略。'
         ]
       }
@@ -22699,13 +22699,13 @@ window.APP_LESSONS['english|九上|第3單元 名詞子句'] = {
         { label: '兩者皆可', items: ['當一般動詞的受詞'] }] },
       check: {
         q: '___ he will come is still unknown. 空格要填什麼？',
-        options: ['Whether', 'If', 'That if', 'What'],
-        answer: 0,
+        options: ['What', 'Whether', 'If', 'That if'],
+        answer: 1,
         why: [
+          'what 在這裡語意不通。',
           null,
           '當主詞時只能用 whether。',
-          '兩個連接詞不能連用。',
-          'what 在這裡語意不通。'
+          '兩個連接詞不能連用。'
         ]
       }
     },
@@ -22720,13 +22720,13 @@ window.APP_LESSONS['english|九上|第3單元 名詞子句'] = {
         note: 'be 動詞後面的子句說明主詞的內容。' },
       check: {
         q: 'The truth is ___ he never came. 空格填什麼最合適？',
-        options: ['that', 'what', 'which', 'who'],
-        answer: 0,
+        options: ['which', 'who', 'that', 'what'],
+        answer: 2,
         why: [
-          null,
-          'what 後面的子句會缺一個成分。',
           'which 用來引導形容詞子句。',
-          'who 用來指人。'
+          'who 用來指人。',
+          null,
+          'what 後面的子句會缺一個成分。'
         ]
       }
     },
@@ -22745,17 +22745,17 @@ window.APP_LESSONS['english|九上|第3單元 名詞子句'] = {
       check: {
         q: '要分辨名詞子句與形容詞子句，最快的方法是什麼？',
         options: [
+          '看句尾的標點',
           '看 that 前面有沒有被修飾的名詞',
           '看句子有幾個字',
-          '看主詞是不是複數',
-          '看句尾的標點'
+          '看主詞是不是複數'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '標點符號無法區分這兩種子句。',
           null,
           '句子長度與子句類型無關。',
-          '主詞單複數不影響子句的種類。',
-          '標點符號無法區分這兩種子句。'
+          '主詞單複數不影響子句的種類。'
         ]
       }
     }
@@ -22777,17 +22777,17 @@ window.APP_LESSONS['english|九上|第4單元 疑問詞 + to V'] = {
       check: {
         q: 'Can you show me ___ this machine? 空格填什麼最合適？',
         options: [
-          'how to use',
           'how use',
           'how using',
-          'how to using'
+          'how to using',
+          'how to use'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '疑問詞後面要加 to。',
           '這個結構要用不定詞。',
-          'to 後面要接原形動詞。'
+          'to 後面要接原形動詞。',
+          null
         ]
       }
     },
@@ -22800,17 +22800,17 @@ window.APP_LESSONS['english|九上|第4單元 疑問詞 + to V'] = {
       check: {
         q: 'She asked me where she should go. 可以簡化成什麼？',
         options: [
+          'She asked me where go.',
           'She asked me where to go.',
           'She asked me where going.',
-          'She asked me where she to go.',
-          'She asked me where go.'
+          'She asked me where she to go.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '疑問詞後面要加 to。',
           null,
           '這個結構要用不定詞而不是動名詞。',
-          '簡化後不保留主詞。',
-          '疑問詞後面要加 to。'
+          '簡化後不保留主詞。'
         ]
       }
     },
@@ -22847,17 +22847,17 @@ window.APP_LESSONS['english|九上|第4單元 疑問詞 + to V'] = {
       check: {
         q: 'He is not sure ___ accept the offer. 空格要填什麼？',
         options: [
-          'whether to',
-          'if to',
           'that to',
-          'whether'
+          'whether',
+          'whether to',
+          'if to'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'if 不能接不定詞。',
           'that 不能接不定詞構成這個結構。',
-          '這裡需要 to 才能接原形動詞。'
+          '這裡需要 to 才能接原形動詞。',
+          null,
+          'if 不能接不定詞。'
         ]
       }
     },
@@ -22872,17 +22872,17 @@ window.APP_LESSONS['english|九上|第4單元 疑問詞 + to V'] = {
       check: {
         q: 'What to wear to the party is still a problem. 這裡的 what to wear 在做什麼？',
         options: [
-          '當句子的主詞',
-          '當動詞的受詞',
           '修飾名詞',
-          '表示目的'
+          '表示目的',
+          '當句子的主詞',
+          '當動詞的受詞'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '句中的動詞是 is，沒有受詞。',
           '這裡沒有被修飾的名詞。',
-          '這個結構在句中不表示目的。'
+          '這個結構在句中不表示目的。',
+          null,
+          '句中的動詞是 is，沒有受詞。'
         ]
       }
     },
@@ -22929,17 +22929,17 @@ window.APP_LESSONS['english|九上|第5單元 授與動詞'] = {
       check: {
         q: 'She sent me a postcard. 這句話裡的 me 是什麼？',
         options: [
+          '補語',
           '間接受詞，表示寄給誰',
           '直接受詞，表示寄什麼',
-          '主詞',
-          '補語'
+          '主詞'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個句子沒有補語。',
           null,
           '直接受詞是 a postcard。',
-          '句子的主詞是 She。',
-          '這個句子沒有補語。'
+          '句子的主詞是 She。'
         ]
       }
     },
@@ -22956,17 +22956,17 @@ window.APP_LESSONS['english|九上|第5單元 授與動詞'] = {
       check: {
         q: 'He showed me the photo. 換句話說是什麼？',
         options: [
-          'He showed the photo to me.',
-          'He showed the photo me.',
           'He showed to me the photo.',
-          'He showed for me the photo.'
+          'He showed for me the photo.',
+          'He showed the photo to me.',
+          'He showed the photo me.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '物放前面時人的前面要加介系詞。',
           '介系詞片語要放在直接受詞後面。',
-          'show 搭配的介系詞是 to。'
+          'show 搭配的介系詞是 to。',
+          null,
+          '物放前面時人的前面要加介系詞。'
         ]
       }
     },
@@ -22978,13 +22978,13 @@ window.APP_LESSONS['english|九上|第5單元 授與動詞'] = {
         { label: '搭配 to', items: ['give', 'send', 'show', 'teach', 'lend', 'pass'] }] },
       check: {
         q: 'He lent his bike ___ me. 空格要填什麼？',
-        options: ['to', 'for', 'at', 'with'],
-        answer: 0,
+        options: ['for', 'at', 'with', 'to'],
+        answer: 3,
         why: [
-          null,
           'lend 搭配的介系詞是 to。',
           'at 不用於這個句型。',
-          'with 不用於這個句型。'
+          'with 不用於這個句型。',
+          null
         ]
       }
     },
@@ -23049,17 +23049,17 @@ window.APP_LESSONS['english|九上|第5單元 授與動詞'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'He explained the problem to us.',
           'He explained us the problem.',
           'He explained to us it problem.',
-          'He explained us to the problem.'
+          'He explained us to the problem.',
+          'He explained the problem to us.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'explain 不能直接接人當受詞。',
           '這個句子的結構不通順。',
-          '介系詞的位置不正確。'
+          '介系詞的位置不正確。',
+          null
         ]
       }
     }
@@ -23080,13 +23080,13 @@ window.APP_LESSONS['english|九上|第6單元 反身代名詞'] = {
         { label: '複數（selves）', items: ['ourselves', 'yourselves', 'themselves'] }] },
       check: {
         q: 'they 的反身代名詞是什麼？',
-        options: ['themselves', 'themself', 'theirselves', 'theirself'],
-        answer: 0,
+        options: ['theirselves', 'theirself', 'themselves', 'themself'],
+        answer: 2,
         why: [
-          null,
-          '複數要用 selves。',
           '這個拼法並不存在。',
-          '這個拼法並不存在。'
+          '這個拼法並不存在。',
+          null,
+          '複數要用 selves。'
         ]
       }
     },
@@ -23102,13 +23102,13 @@ window.APP_LESSONS['english|九上|第6單元 反身代名詞'] = {
              same: ['都放在動詞後面'] },
       check: {
         q: 'She looked at ___ in the mirror.（看自己）空格要填什麼？',
-        options: ['herself', 'her', 'she', 'hers'],
-        answer: 0,
+        options: ['hers', 'herself', 'her', 'she'],
+        answer: 1,
         why: [
+          'hers 表示所有，語意不通。',
           null,
           'her 指的是另一個女生。',
-          '主格不能放在介系詞後面。',
-          'hers 表示所有，語意不通。'
+          '主格不能放在介系詞後面。'
         ]
       }
     },
@@ -23152,17 +23152,17 @@ window.APP_LESSONS['english|九上|第6單元 反身代名詞'] = {
       check: {
         q: '請客人自行取用食物，可以說什麼？',
         options: [
-          'Help yourself.',
           'Help you.',
           'Help your.',
-          'Yourself help.'
+          'Yourself help.',
+          'Help yourself.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個片語要用反身代名詞。',
           'your 是所有格，後面要接名詞。',
-          '這個語序不正確。'
+          '這個語序不正確。',
+          null
         ]
       }
     },
@@ -23178,17 +23178,17 @@ window.APP_LESSONS['english|九上|第6單元 反身代名詞'] = {
       check: {
         q: '下列哪一句比較自然？',
         options: [
-          'I take a shower every day.',
           'I shower myself every day.',
           'I wash myself shower every day.',
-          'I take myself a shower every day.'
+          'I take myself a shower every day.',
+          'I take a shower every day.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這類日常動作不需要反身代名詞。',
           '這個句子的結構不通順。',
-          '這個句型不需要反身代名詞。'
+          '這個句型不需要反身代名詞。',
+          null
         ]
       }
     },
@@ -23205,17 +23205,17 @@ window.APP_LESSONS['english|九上|第6單元 反身代名詞'] = {
       check: {
         q: '「他自己完成了這個專案」哪一個說法正確？',
         options: [
-          'He finished the project on his own.',
-          'He finished the project on himself.',
           'He finished the project by his own.',
-          'He finished the project by his self.'
+          'He finished the project by his self.',
+          'He finished the project on his own.',
+          'He finished the project on himself.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'on 後面要用所有格。',
           'by 要搭配反身代名詞。',
-          '反身代名詞要寫成一個字。'
+          '反身代名詞要寫成一個字。',
+          null,
+          'on 後面要用所有格。'
         ]
       }
     }
@@ -23238,13 +23238,13 @@ window.APP_LESSONS['english|九上|第7單元 不定代名詞'] = {
              same: ['都表示不確定的數量'] },
       check: {
         q: 'Would you like ___ tea? 空格填什麼最自然？',
-        options: ['some', 'any', 'a', 'much'],
-        answer: 0,
+        options: ['a', 'much', 'some', 'any'],
+        answer: 2,
         why: [
-          null,
-          '邀請句期待肯定回答，習慣用 some。',
           'tea 是不可數名詞，不加冠詞 a。',
-          'much 多用在否定句與疑問句。'
+          'much 多用在否定句與疑問句。',
+          null,
+          '邀請句期待肯定回答，習慣用 some。'
         ]
       }
     },
@@ -23283,17 +23283,17 @@ window.APP_LESSONS['english|九上|第7單元 不定代名詞'] = {
       check: {
         q: '「有趣的事」的正確說法是什麼？',
         options: [
-          'something interesting',
           'interesting something',
           'something is interesting thing',
-          'an interesting something'
+          'an interesting something',
+          'something interesting'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '修飾這類字的形容詞要放後面。',
           '這個說法重複而且不通順。',
-          '這類字前面不加冠詞。'
+          '這類字前面不加冠詞。',
+          null
         ]
       }
     },
@@ -23309,13 +23309,13 @@ window.APP_LESSONS['english|九上|第7單元 不定代名詞'] = {
              same: ['都代替前面提過的名詞'] },
       check: {
         q: 'My phone is broken. I want to buy a new ___. 空格要填什麼？',
-        options: ['one', 'it', 'that', 'this'],
-        answer: 0,
+        options: ['this', 'one', 'it', 'that'],
+        answer: 1,
         why: [
+          'this 在這裡指代不清楚。',
           null,
           'it 指的是原本那支壞掉的手機。',
-          'that 在這裡指代不清楚。',
-          'this 在這裡指代不清楚。'
+          'that 在這裡指代不清楚。'
         ]
       }
     },
@@ -23329,13 +23329,13 @@ window.APP_LESSONS['english|九上|第7單元 不定代名詞'] = {
         { label: '單數動詞', items: ['either', 'neither', 'each', 'every'] }] },
       check: {
         q: 'Neither of the answers ___ correct. 空格填什麼最合適？',
-        options: ['is', 'are', 'were', 'have'],
-        answer: 0,
+        options: ['are', 'were', 'have', 'is'],
+        answer: 3,
         why: [
-          null,
           'neither 視為單數。',
           '句子講的是現在的狀況。',
-          '這裡需要 be 動詞而不是 have。'
+          '這裡需要 be 動詞而不是 have。',
+          null
         ]
       }
     },
@@ -23379,13 +23379,13 @@ window.APP_LESSONS['english|九上|第8單元 附加問句'] = {
              same: ['都在確認對方的看法'] },
       check: {
         q: 'She is your sister, ___? 空格要填什麼？',
-        options: ['isn’t she', 'is she', 'doesn’t she', 'isn’t it'],
-        answer: 0,
+        options: ['doesn’t she', 'isn’t it', 'isn’t she', 'is she'],
+        answer: 2,
         why: [
-          null,
-          '前面是肯定句，後面要用否定。',
           '前面用 be 動詞，附加問句也要用 be 動詞。',
-          '代名詞要對應主詞 she。'
+          '代名詞要對應主詞 she。',
+          null,
+          '前面是肯定句，後面要用否定。'
         ]
       }
     },
@@ -23400,13 +23400,13 @@ window.APP_LESSONS['english|九上|第8單元 附加問句'] = {
         { label: '有助動詞', items: ['can → can’t', 'will → won’t'] }] },
       check: {
         q: 'They went to the party, ___? 空格要填什麼？',
-        options: ['didn’t they', 'don’t they', 'weren’t they', 'haven’t they'],
-        answer: 0,
+        options: ['haven’t they', 'didn’t they', 'don’t they', 'weren’t they'],
+        answer: 1,
         why: [
+          '句子不是完成式。',
           null,
           '句子是過去式，要用 didn’t。',
-          '句中用的是一般動詞而不是 be 動詞。',
-          '句子不是完成式。'
+          '句中用的是一般動詞而不是 be 動詞。'
         ]
       }
     },
@@ -23438,13 +23438,13 @@ window.APP_LESSONS['english|九上|第8單元 附加問句'] = {
         { label: '固定搭配', items: ['I am → aren’t I', 'Let’s → shall we', '祈使句 → will you'] }] },
       check: {
         q: 'Let’s go for a walk, ___? 空格要填什麼？',
-        options: ['shall we', 'will you', 'don’t we', 'aren’t we'],
-        answer: 0,
+        options: ['will you', 'don’t we', 'aren’t we', 'shall we'],
+        answer: 3,
         why: [
-          null,
           'will you 用在祈使句後面。',
           'Let’s 的固定搭配是 shall we。',
-          'Let’s 的固定搭配是 shall we。'
+          'Let’s 的固定搭配是 shall we。',
+          null
         ]
       }
     },
@@ -23457,13 +23457,13 @@ window.APP_LESSONS['english|九上|第8單元 附加問句'] = {
         { label: '算否定的字', items: ['never', 'seldom', 'hardly', 'few', 'little', 'no'] }] },
       check: {
         q: 'She hardly ever eats meat, ___? 空格要填什麼？',
-        options: ['does she', 'doesn’t she', 'is she', 'has she'],
-        answer: 0,
+        options: ['doesn’t she', 'is she', 'has she', 'does she'],
+        answer: 3,
         why: [
-          null,
           'hardly 讓句子帶否定，後面要用肯定。',
           '句中用的是一般動詞。',
-          '句子不是完成式。'
+          '句子不是完成式。',
+          null
         ]
       }
     },
@@ -23481,17 +23481,17 @@ window.APP_LESSONS['english|九上|第8單元 附加問句'] = {
       check: {
         q: '附加問句用「上揚」的語調時，表示說話者的態度是什麼？',
         options: [
-          '真的不確定，在詢問對方',
-          '已經很確定，只是尋求同意',
           '在命令對方',
-          '在表達生氣'
+          '在表達生氣',
+          '真的不確定，在詢問對方',
+          '已經很確定，只是尋求同意'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '已經確定時語調通常下降。',
           '附加問句不是命令的語氣。',
-          '語調上揚表示疑問而不是生氣。'
+          '語調上揚表示疑問而不是生氣。',
+          null,
+          '已經確定時語調通常下降。'
         ]
       }
     }
@@ -23512,17 +23512,17 @@ window.APP_LESSONS['english|九上|第9單元 時態綜合複習'] = {
       check: {
         q: '哪一種時態強調「過去的事對現在造成的影響」？',
         options: [
-          '現在完成式',
           '過去簡單式',
           '現在進行式',
-          '未來式'
+          '未來式',
+          '現在完成式'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '過去簡單式只講過去，與現在無關。',
           '現在進行式講的是此刻正在做的事。',
-          '未來式講的是還沒發生的事。'
+          '未來式講的是還沒發生的事。',
+          null
         ]
       }
     },
@@ -23540,17 +23540,17 @@ window.APP_LESSONS['english|九上|第9單元 時態綜合複習'] = {
       check: {
         q: '看到 since 2018 這個訊號，應該用哪一種時態？',
         options: [
+          '未來式',
           '現在完成式',
           '過去簡單式',
-          '現在進行式',
-          '未來式'
+          '現在進行式'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'since 指的是過去的起點。',
           null,
           '過去式不能搭配 since 表示持續。',
-          '現在進行式不表示從過去持續。',
-          'since 指的是過去的起點。'
+          '現在進行式不表示從過去持續。'
         ]
       }
     },
@@ -23594,13 +23594,13 @@ window.APP_LESSONS['english|九上|第9單元 時態綜合複習'] = {
         note: '主句是過去式時，子句通常跟著往前推。' },
       check: {
         q: 'She said that she ___ busy. 空格填什麼最合適？',
-        options: ['was', 'is', 'will be', 'has been'],
-        answer: 0,
+        options: ['will be', 'has been', 'was', 'is'],
+        answer: 2,
         why: [
-          null,
-          '主句是過去式，子句要配合。',
           '這裡不用未來式。',
-          '這裡不用完成式。'
+          '這裡不用完成式。',
+          null,
+          '主句是過去式，子句要配合。'
         ]
       }
     },
@@ -23615,17 +23615,17 @@ window.APP_LESSONS['english|九上|第9單元 時態綜合複習'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'I know the answer.',
-          'I am knowing the answer.',
           'I knowing the answer.',
-          'I am know the answer.'
+          'I am know the answer.',
+          'I know the answer.',
+          'I am knowing the answer.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'know 是狀態動詞，不用進行式。',
           '這個句子缺少動詞的正確形式。',
-          'be 動詞不能直接接原形動詞。'
+          'be 動詞不能直接接原形動詞。',
+          null,
+          'know 是狀態動詞，不用進行式。'
         ]
       }
     },
@@ -23639,17 +23639,17 @@ window.APP_LESSONS['english|九上|第9單元 時態綜合複習'] = {
       check: {
         q: '檢查一個英文句子的時態時，第一步該做什麼？',
         options: [
+          '先看句子有沒有形容詞',
           '先找出句中的時間副詞',
           '先數句子有幾個字',
-          '先看標點符號',
-          '先看句子有沒有形容詞'
+          '先看標點符號'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '形容詞不影響時態的判斷。',
           null,
           '句子長度和時態選擇無關。',
-          '標點符號不決定時態。',
-          '形容詞不影響時態的判斷。'
+          '標點符號不決定時態。'
         ]
       }
     }
@@ -23672,17 +23672,17 @@ window.APP_LESSONS['english|九下|第1單元 閱讀：主旨大意'] = {
       check: {
         q: '判斷一個選項是不是主旨，最好的方法是什麼？',
         options: [
-          '看它能不能涵蓋文章的每一段',
-          '看它是不是文章的第一句',
           '看它有沒有出現生字',
-          '看它的句子最長'
+          '看它的句子最長',
+          '看它能不能涵蓋文章的每一段',
+          '看它是不是文章的第一句'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '第一句不一定是主旨。',
           '生字多寡與主旨無關。',
-          '句子長度與主旨無關。'
+          '句子長度與主旨無關。',
+          null,
+          '第一句不一定是主旨。'
         ]
       }
     },
@@ -23723,17 +23723,17 @@ window.APP_LESSONS['english|九下|第1單元 閱讀：主旨大意'] = {
       check: {
         q: '看到 However 開頭的句子，通常代表什麼？',
         options: [
+          '前面的內容不重要',
           '後面是作者真正想強調的看法',
           '後面只是舉例說明',
-          '文章結束了',
-          '前面的內容不重要'
+          '文章結束了'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '前面的內容是後面轉折的對照，仍有意義。',
           null,
           '舉例的訊號字是 for example。',
-          'however 不表示文章結束。',
-          '前面的內容是後面轉折的對照，仍有意義。'
+          'however 不表示文章結束。'
         ]
       }
     },
@@ -23749,17 +23749,17 @@ window.APP_LESSONS['english|九下|第1單元 閱讀：主旨大意'] = {
       check: {
         q: 'What is the best title for this passage? 這是哪一種題型？',
         options: [
-          '主旨題',
           '細節題',
           '字義題',
-          '推論題'
+          '推論題',
+          '主旨題'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '細節題會問特定的資訊。',
           '字義題會指定某個單字。',
-          '推論題會問文章沒有明說的內容。'
+          '推論題會問文章沒有明說的內容。',
+          null
         ]
       }
     },
@@ -23777,17 +23777,17 @@ window.APP_LESSONS['english|九下|第1單元 閱讀：主旨大意'] = {
       check: {
         q: '一篇談「運動對青少年健康的好處」的文章，哪一個選項範圍太大？',
         options: [
-          '運動改變了人類歷史',
           '運動有助於青少年的身心健康',
           '規律運動能改善睡眠品質',
-          '青少年應該每天運動'
+          '青少年應該每天運動',
+          '運動改變了人類歷史'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這正好涵蓋文章的主題。',
           '這是文章中的一個細節。',
-          '這與文章的主題相符。'
+          '這與文章的主題相符。',
+          null
         ]
       }
     },
@@ -23802,17 +23802,17 @@ window.APP_LESSONS['english|九下|第1單元 閱讀：主旨大意'] = {
       check: {
         q: '做主旨題時，為什麼建議先自己歸納再看選項？',
         options: [
+          '因為老師規定要這樣做',
           '避免被似是而非的誘答選項影響判斷',
           '因為選項通常是錯的',
-          '因為這樣比較快',
-          '因為老師規定要這樣做'
+          '因為這樣比較快'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這是閱讀策略而不是規定。',
           null,
           '選項中只有誘答，正確答案仍在其中。',
-          '這個做法重點在準確而不是速度。',
-          '這是閱讀策略而不是規定。'
+          '這個做法重點在準確而不是速度。'
         ]
       }
     }
@@ -23860,17 +23860,17 @@ window.APP_LESSONS['english|九下|第2單元 閱讀：細節與推論'] = {
       check: {
         q: '正確選項通常和原文的關係是什麼？',
         options: [
+          '比原文長很多',
           '意思相同但換句話說',
           '一字不差地照抄',
-          '完全沒有關聯',
-          '比原文長很多'
+          '完全沒有關聯'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '選項長度和正確與否無關。',
           null,
           '照抄的選項常被改動關鍵字。',
-          '正確選項一定和文章有關。',
-          '選項長度和正確與否無關。'
+          '正確選項一定和文章有關。'
         ]
       }
     },
@@ -23887,17 +23887,17 @@ window.APP_LESSONS['english|九下|第2單元 閱讀：細節與推論'] = {
       check: {
         q: '判斷一個推論合不合理，關鍵是什麼？',
         options: [
-          '能不能在文章裡找到支持它的線索',
           '聽起來合不合常理',
           '自己同不同意',
-          '選項有沒有出現關鍵字'
+          '選項有沒有出現關鍵字',
+          '能不能在文章裡找到支持它的線索'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '符合常理不代表文章這樣說。',
           '個人意見不是判斷的依據。',
-          '出現關鍵字可能只是陷阱。'
+          '出現關鍵字可能只是陷阱。',
+          null
         ]
       }
     },
@@ -23912,17 +23912,17 @@ window.APP_LESSONS['english|九下|第2單元 閱讀：細節與推論'] = {
       check: {
         q: 'What can be inferred from the passage? 這題的答案會在哪裡？',
         options: [
-          '文章沒有直說，要根據線索推出來',
-          '文章第一句',
           '文章最後一句',
-          '題目本身'
+          '題目本身',
+          '文章沒有直說，要根據線索推出來',
+          '文章第一句'
         ],
-        answer: 0,
+        answer: 2,
         why: [
+          '推論題的答案不會直接寫出來。',
+          '題目只是提問，不含答案。',
           null,
-          '推論題的答案不會直接寫出來。',
-          '推論題的答案不會直接寫出來。',
-          '題目只是提問，不含答案。'
+          '推論題的答案不會直接寫出來。'
         ]
       }
     },
@@ -23940,17 +23940,17 @@ window.APP_LESSONS['english|九下|第2單元 閱讀：細節與推論'] = {
       check: {
         q: '判斷作者態度時，應該特別注意什麼？',
         options: [
+          '段落的數量',
           '帶有評價意味的形容詞與副詞',
           '文章的長度',
-          '出現了幾個數字',
-          '段落的數量'
+          '出現了幾個數字'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '段落數量與態度無關。',
           null,
           '文章長度與作者態度無關。',
-          '數字通常是中性的事實。',
-          '段落數量與態度無關。'
+          '數字通常是中性的事實。'
         ]
       }
     },
@@ -23965,17 +23965,17 @@ window.APP_LESSONS['english|九下|第2單元 閱讀：細節與推論'] = {
       check: {
         q: '文章寫 He is very frugal; he never wastes money. 由此可推 frugal 是什麼意思？',
         options: [
-          '節儉的',
           '浪費的',
           '生氣的',
-          '快樂的'
+          '快樂的',
+          '節儉的'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '後半句說他從不浪費錢，意思相反。',
           '句中沒有提到情緒。',
-          '句中沒有提到心情愉快。'
+          '句中沒有提到心情愉快。',
+          null
         ]
       }
     }
@@ -24023,13 +24023,13 @@ window.APP_LESSONS['english|九下|第3單元 字彙：字首與字尾'] = {
         { label: 'dis', items: ['dislike', 'disagree', 'dishonest'] }] },
       check: {
         q: 'possible 的否定形是什麼？',
-        options: ['impossible', 'unpossible', 'dispossible', 'inpossible'],
-        answer: 0,
+        options: ['inpossible', 'impossible', 'unpossible', 'dispossible'],
+        answer: 1,
         why: [
+          '字首在 p 前面要變成 im。',
           null,
           '這個字的否定字首不是 un。',
-          '這個字的否定字首不是 dis。',
-          '字首在 p 前面要變成 im。'
+          '這個字的否定字首不是 dis。'
         ]
       }
     },
@@ -24046,17 +24046,17 @@ window.APP_LESSONS['english|九下|第3單元 字彙：字首與字尾'] = {
       check: {
         q: 'preview 這個字裡的 pre 表示什麼？',
         options: [
-          '事先、之前',
           '再一次',
           '向外',
-          '否定'
+          '否定',
+          '事先、之前'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '再一次是字首 re。',
           '向外是字首 ex。',
-          '否定是 un 或 in 這類字首。'
+          '否定是 un 或 in 這類字首。',
+          null
         ]
       }
     },
@@ -24072,13 +24072,13 @@ window.APP_LESSONS['english|九下|第3單元 字彙：字首與字尾'] = {
         { label: '表示人', items: ['teacher', 'actor', 'scientist'] }] },
       check: {
         q: '下列哪一個字尾表示「做某件事的人」？',
-        options: ['ist', 'ness', 'tion', 'ly'],
-        answer: 0,
+        options: ['tion', 'ly', 'ist', 'ness'],
+        answer: 2,
         why: [
-          null,
-          'ness 構成抽象名詞。',
           'tion 構成抽象名詞。',
-          'ly 多構成副詞。'
+          'ly 多構成副詞。',
+          null,
+          'ness 構成抽象名詞。'
         ]
       }
     },
@@ -24096,17 +24096,17 @@ window.APP_LESSONS['english|九下|第3單元 字彙：字首與字尾'] = {
       check: {
         q: 'careless 的意思最接近什麼？',
         options: [
+          '可以照顧的',
           '粗心的',
           '小心的',
-          '關心的',
-          '可以照顧的'
+          '關心的'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'less 表示缺乏而不是可以。',
           null,
           '小心的是 careful。',
-          '關心的意思是 caring。',
-          'less 表示缺乏而不是可以。'
+          '關心的意思是 caring。'
         ]
       }
     },
@@ -24120,13 +24120,13 @@ window.APP_LESSONS['english|九下|第3單元 字彙：字首與字尾'] = {
       viz: { type: 'energyflow', steps: ['beauty（名詞）', 'beautiful（形容詞）', 'beautifully（副詞）', 'beautify（動詞）'] },
       check: {
         q: 'strong 加上字尾變成動詞是哪一個字？',
-        options: ['strengthen', 'strongly', 'strength', 'stronger'],
-        answer: 0,
+        options: ['strongly', 'strength', 'stronger', 'strengthen'],
+        answer: 3,
         why: [
-          null,
           'strongly 是副詞。',
           'strength 是名詞。',
-          'stronger 是比較級形容詞。'
+          'stronger 是比較級形容詞。',
+          null
         ]
       }
     }
@@ -24145,13 +24145,13 @@ window.APP_LESSONS['english|九下|第4單元 常見片語動詞'] = {
         { label: 'look 家族', items: ['look after（照顧）', 'look for（尋找）', 'look up（查詢）', 'look forward to（期待）'] }] },
       check: {
         q: 'look after 的意思是什麼？',
-        options: ['照顧', '尋找', '往後看', '查字典'],
-        answer: 0,
+        options: ['往後看', '查字典', '照顧', '尋找'],
+        answer: 2,
         why: [
-          null,
-          '尋找是 look for。',
           '這是字面直譯，不是實際意思。',
-          '查字典是 look up。'
+          '查字典是 look up。',
+          null,
+          '尋找是 look for。'
         ]
       }
     },
@@ -24165,13 +24165,13 @@ window.APP_LESSONS['english|九下|第4單元 常見片語動詞'] = {
         { label: 'get', items: ['get up', 'get on', 'get along with', 'get over'] }] },
       check: {
         q: 'take part in 的意思是什麼？',
-        options: ['參加', '拆開', '拿走一部分', '起飛'],
-        answer: 0,
+        options: ['拆開', '拿走一部分', '起飛', '參加'],
+        answer: 3,
         why: [
-          null,
           '拆開是 take apart。',
           '這是字面直譯，不是實際意思。',
-          '起飛是 take off。'
+          '起飛是 take off。',
+          null
         ]
       }
     },
@@ -24189,17 +24189,17 @@ window.APP_LESSONS['english|九下|第4單元 常見片語動詞'] = {
       check: {
         q: '「把它關掉」的正確說法是什麼？',
         options: [
+          'It turn off.',
           'Turn it off.',
           'Turn off it.',
-          'Turn off of it.',
-          'It turn off.'
+          'Turn off of it.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個語序不正確。',
           null,
           '代名詞受詞一定要放中間。',
-          '這個說法多了不必要的介系詞。',
-          '這個語序不正確。'
+          '這個說法多了不必要的介系詞。'
         ]
       }
     },
@@ -24239,17 +24239,17 @@ window.APP_LESSONS['english|九下|第4單元 常見片語動詞'] = {
       check: {
         q: 'She came up with a great idea. 這句話的意思是什麼？',
         options: [
-          '她想出了一個好點子',
           '她走上來了',
           '她同意了這個點子',
-          '她放棄了這個點子'
+          '她放棄了這個點子',
+          '她想出了一個好點子'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這是字面直譯，不是實際意思。',
           '同意是 agree with。',
-          '放棄是 give up。'
+          '放棄是 give up。',
+          null
         ]
       }
     },
@@ -24295,17 +24295,17 @@ window.APP_LESSONS['english|九下|第5單元 會話：問路與購物'] = {
       check: {
         q: '向陌生人問路時，最好的開場是什麼？',
         options: [
+          'Where station.',
           'Excuse me, could you help me?',
           'Hey, where is it?',
-          'You! Tell me the way.',
-          'Where station.'
+          'You! Tell me the way.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這不是完整的句子。',
           null,
           '這個說法太隨便也不夠清楚。',
-          '命令的語氣非常不禮貌。',
-          '這不是完整的句子。'
+          '命令的語氣非常不禮貌。'
         ]
       }
     },
@@ -24321,17 +24321,17 @@ window.APP_LESSONS['english|九下|第5單元 會話：問路與購物'] = {
       check: {
         q: 'Turn right at the second corner. 這句話的意思是什麼？',
         options: [
-          '在第二個轉角右轉',
           '在第二個轉角左轉',
           '走過兩個街區',
-          '在右邊第二棟'
+          '在右邊第二棟',
+          '在第二個轉角右轉'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'right 是右邊而不是左邊。',
           '這句話講的是轉角而不是街區。',
-          '這句話講的是轉彎的位置。'
+          '這句話講的是轉彎的位置。',
+          null
         ]
       }
     },
@@ -24370,17 +24370,17 @@ window.APP_LESSONS['english|九下|第5單元 會話：問路與購物'] = {
       check: {
         q: '店員問 Can I help you? 但你只想隨便看看，可以怎麼回？',
         options: [
-          'I’m just looking, thanks.',
-          'No! Go away.',
           'I don’t know you.',
-          'Help me now.'
+          'Help me now.',
+          'I’m just looking, thanks.',
+          'No! Go away.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這個回應太不客氣。',
           '這個回應與情境無關。',
-          '這樣說像在使喚別人。'
+          '這樣說像在使喚別人。',
+          null,
+          '這個回應太不客氣。'
         ]
       }
     },
@@ -24422,17 +24422,17 @@ window.APP_LESSONS['english|九下|第5單元 會話：問路與購物'] = {
       check: {
         q: '想把買錯尺寸的衣服換一件，應該說什麼？',
         options: [
-          'Can I exchange this for a larger size?',
-          'Can I refund this money now?',
           'I’ll take it.',
-          'Do you have it in red?'
+          'Do you have it in red?',
+          'Can I exchange this for a larger size?',
+          'Can I refund this money now?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'refund 是退錢，不是換貨。',
           '這是決定要買的時候說的。',
-          '這是在問顏色而不是換貨。'
+          '這是在問顏色而不是換貨。',
+          null,
+          'refund 是退錢，不是換貨。'
         ]
       }
     }
@@ -24478,17 +24478,17 @@ window.APP_LESSONS['english|九下|第6單元 會話：電話與邀約'] = {
       check: {
         q: '對方要找的正是你自己，可以怎麼回應？',
         options: [
-          'Speaking.',
           'That is me here.',
           'I am he.',
-          'Yes, I am speaking now.'
+          'Yes, I am speaking now.',
+          'Speaking.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個說法不是電話的慣用語。',
           '這個說法在電話中不自然。',
-          '這句話的意思變成「我正在說話」。'
+          '這句話的意思變成「我正在說話」。',
+          null
         ]
       }
     },
@@ -24503,17 +24503,17 @@ window.APP_LESSONS['english|九下|第6單元 會話：電話與邀約'] = {
       check: {
         q: '想請對方轉告「請他回電」，應該說什麼？',
         options: [
-          'Could you ask him to call me back?',
-          'Could you ask him to call me up?',
           'Could you take him a phone?',
-          'Could you tell him I call?'
+          'Could you tell him I call?',
+          'Could you ask him to call me back?',
+          'Could you ask him to call me up?'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'call up 是主動打給某人，語意不合。',
           '這個說法不通順。',
-          '這個句子的時態與語意不清楚。'
+          '這個句子的時態與語意不清楚。',
+          null,
+          'call up 是主動打給某人，語意不合。'
         ]
       }
     },
@@ -24531,13 +24531,13 @@ window.APP_LESSONS['english|九下|第6單元 會話：電話與邀約'] = {
              same: ['都在提出邀約'] },
       check: {
         q: 'How about ___ a movie tonight? 空格要填什麼？',
-        options: ['watching', 'watch', 'to watch', 'watched'],
-        answer: 0,
+        options: ['watched', 'watching', 'watch', 'to watch'],
+        answer: 1,
         why: [
+          '介系詞後面不接過去式。',
           null,
           'about 是介系詞，後面接動名詞。',
-          '介系詞後面不接不定詞。',
-          '介系詞後面不接過去式。'
+          '介系詞後面不接不定詞。'
         ]
       }
     },
@@ -24551,17 +24551,17 @@ window.APP_LESSONS['english|九下|第6單元 會話：電話與邀約'] = {
       check: {
         q: '被邀約但真的沒空時，比較得體的回應是什麼？',
         options: [
+          'Ask someone else.',
           'I’d love to, but I have plans. Maybe next time.',
           'No.',
-          'I don’t want to go with you.',
-          'Ask someone else.'
+          'I don’t want to go with you.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個回應把責任推給對方。',
           null,
           '單獨說 No 顯得冷淡。',
-          '這樣說會讓對方難堪。',
-          '這個回應把責任推給對方。'
+          '這樣說會讓對方難堪。'
         ]
       }
     },
@@ -24575,17 +24575,17 @@ window.APP_LESSONS['english|九下|第6單元 會話：電話與邀約'] = {
       check: {
         q: '約好見面之後，為什麼最好複述一次時間與地點？',
         options: [
-          '確認雙方認知一致，避免誤會',
-          '讓對話變長',
           '展示自己的英文能力',
-          '這是規定'
+          '這是規定',
+          '確認雙方認知一致，避免誤會',
+          '讓對話變長'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '複述的目的不是拉長對話。',
           '複述是為了確認而不是展示。',
-          '這是溝通的好習慣而不是規定。'
+          '這是溝通的好習慣而不是規定。',
+          null,
+          '複述的目的不是拉長對話。'
         ]
       }
     }
@@ -24606,17 +24606,17 @@ window.APP_LESSONS['english|九下|第7單元 書信與電子郵件'] = {
       check: {
         q: '英文書信的第一個部分是什麼？',
         options: [
-          '稱呼，例如 Dear Ms. Lin',
-          '署名',
           '主體內容',
-          '結尾祝福'
+          '結尾祝福',
+          '稱呼，例如 Dear Ms. Lin',
+          '署名'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '署名放在信的最後。',
           '主體內容在開場之後。',
-          '結尾祝福放在署名之前。'
+          '結尾祝福放在署名之前。',
+          null,
+          '署名放在信的最後。'
         ]
       }
     },
@@ -24660,17 +24660,17 @@ window.APP_LESSONS['english|九下|第7單元 書信與電子郵件'] = {
       check: {
         q: '正式書信的第一段應該做什麼？',
         options: [
-          '直接說明寫信的目的',
           '先閒聊天氣',
           '先說自己的興趣',
-          '直接進入結尾'
+          '直接進入結尾',
+          '直接說明寫信的目的'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '正式信件不宜花太多篇幅閒聊。',
           '個人興趣與來意無關。',
-          '沒有說明來意就結束會讓人困惑。'
+          '沒有說明來意就結束會讓人困惑。',
+          null
         ]
       }
     },
@@ -24685,17 +24685,17 @@ window.APP_LESSONS['english|九下|第7單元 書信與電子郵件'] = {
       check: {
         q: '寫信給老師或公司，結尾語用哪一個最合適？',
         options: [
+          'Bye bye,',
           'Sincerely,',
           'Love,',
-          'See ya,',
-          'Bye bye,'
+          'See ya,'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個說法太隨便。',
           null,
           'Love 只用於家人或很親密的朋友。',
-          '這個說法太口語。',
-          '這個說法太隨便。'
+          '這個說法太口語。'
         ]
       }
     },
@@ -24713,17 +24713,17 @@ window.APP_LESSONS['english|九下|第7單元 書信與電子郵件'] = {
       check: {
         q: '下列哪一個電子郵件主旨最合適？',
         options: [
-          'Request for Friday’s homework details',
           'Hello',
           'URGENT!!!',
-          'Question'
+          'Question',
+          'Request for Friday’s homework details'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個主旨沒有傳達任何資訊。',
           '只強調緊急卻沒說明內容。',
-          '這個主旨太籠統。'
+          '這個主旨太籠統。',
+          null
         ]
       }
     },
@@ -24795,17 +24795,17 @@ window.APP_LESSONS['english|九下|第8單元 圖表判讀'] = {
       check: {
         q: 'The number of students declined. 這句話的意思是什麼？',
         options: [
-          '學生人數減少了',
-          '學生人數增加了',
           '學生人數沒有變化',
-          '學生拒絕了'
+          '學生拒絕了',
+          '學生人數減少了',
+          '學生人數增加了'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'decline 表示下降而不是上升。',
           'decline 表示有變化。',
-          '這裡的 decline 用於數量而不是拒絕。'
+          '這裡的 decline 用於數量而不是拒絕。',
+          null,
+          'decline 表示下降而不是上升。'
         ]
       }
     },
@@ -24819,17 +24819,17 @@ window.APP_LESSONS['english|九下|第8單元 圖表判讀'] = {
       check: {
         q: 'The price rose slightly. 這句話表示什麼？',
         options: [
-          '價格微幅上升',
           '價格大幅上升',
           '價格微幅下降',
-          '價格沒有變'
+          '價格沒有變',
+          '價格微幅上升'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'slightly 表示幅度很小。',
           'rose 表示上升而不是下降。',
-          '句子明確表示有上升。'
+          '句子明確表示有上升。',
+          null
         ]
       }
     },
@@ -24845,17 +24845,17 @@ window.APP_LESSONS['english|九下|第8單元 圖表判讀'] = {
       check: {
         q: 'Group A is followed by Group B. 這句話的意思是什麼？',
         options: [
+          'A 和 B 一樣多',
           '排名上 B 緊接在 A 之後',
           'B 跟蹤了 A',
-          'A 排在 B 後面',
-          'A 和 B 一樣多'
+          'A 排在 B 後面'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這句話表示有先後差別。',
           null,
           '這是字面直譯，不是圖表的用法。',
-          '被 followed 的是排在前面的一方。',
-          '這句話表示有先後差別。'
+          '被 followed 的是排在前面的一方。'
         ]
       }
     },
@@ -24874,17 +24874,17 @@ window.APP_LESSONS['english|九下|第8單元 圖表判讀'] = {
       check: {
         q: '一張顯示各年級閱讀時數的長條圖，下列哪一個選項無法從圖中判斷？',
         options: [
+          '整體的高低分布',
           '學生閱讀時數增加的原因',
           '哪一個年級閱讀時數最長',
-          '各年級之間的差距',
-          '整體的高低分布'
+          '各年級之間的差距'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這可以從整張圖的分布看出來。',
           null,
           '這可以直接從長條的高度看出來。',
-          '這可以由長條之間的差距看出來。',
-          '這可以從整張圖的分布看出來。'
+          '這可以由長條之間的差距看出來。'
         ]
       }
     },
@@ -24955,13 +24955,13 @@ window.APP_LESSONS['english|九下|第9單元 綜合演練'] = {
         { label: '後面要形容詞', items: ['be 動詞', 'look／sound／feel'] }] },
       check: {
         q: 'His ___ surprised everyone.（空格在所有格後面）應該填什麼詞性？',
-        options: ['名詞', '動詞', '副詞', '介系詞'],
-        answer: 0,
+        options: ['介系詞', '名詞', '動詞', '副詞'],
+        answer: 1,
         why: [
+          '所有格後面不接介系詞。',
           null,
           '所有格後面不能直接接動詞。',
-          '所有格後面不接副詞。',
-          '所有格後面不接介系詞。'
+          '所有格後面不接副詞。'
         ]
       }
     },
@@ -24975,17 +24975,17 @@ window.APP_LESSONS['english|九下|第9單元 綜合演練'] = {
       check: {
         q: '做克漏字時，為什麼不能只看空格所在的那一句？',
         options: [
-          '因為答案常取決於前後文的邏輯關係',
           '因為那一句通常沒有意義',
           '因為時間不夠',
-          '因為那一句一定有生字'
+          '因為那一句一定有生字',
+          '因為答案常取決於前後文的邏輯關係'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '空格所在的句子仍然重要。',
           '時間因素不是主要原因。',
-          '有沒有生字不影響這個原則。'
+          '有沒有生字不影響這個原則。',
+          null
         ]
       }
     },
@@ -24999,17 +24999,17 @@ window.APP_LESSONS['english|九下|第9單元 綜合演練'] = {
       check: {
         q: '考試遇到完全不會的題目，最好的做法是什麼？',
         options: [
-          '先刪去明顯錯的選項，標記後繼續往下做',
-          '一直想到會為止',
           '直接空著不看',
-          '把整張考卷重看一遍'
+          '把整張考卷重看一遍',
+          '先刪去明顯錯的選項，標記後繼續往下做',
+          '一直想到會為止'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '在一題上卡住會壓縮其他題的時間。',
           '空著等於放棄得分機會。',
-          '重看整張考卷很花時間。'
+          '重看整張考卷很花時間。',
+          null,
+          '在一題上卡住會壓縮其他題的時間。'
         ]
       }
     },
@@ -25027,17 +25027,17 @@ window.APP_LESSONS['english|九下|第9單元 綜合演練'] = {
       check: {
         q: '下列哪一句犯了「be 動詞和一般動詞並用」的錯誤？',
         options: [
+          'He does not go to school on Sunday.',
           'He is go to school every day.',
           'He goes to school every day.',
-          'He is at school now.',
-          'He does not go to school on Sunday.'
+          'He is at school now.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這句用助動詞加原形動詞，完全正確。',
           null,
           '這句只有一般動詞，完全正確。',
-          '這句只有 be 動詞，完全正確。',
-          '這句用助動詞加原形動詞，完全正確。'
+          '這句只有 be 動詞，完全正確。'
         ]
       }
     },
@@ -25052,17 +25052,17 @@ window.APP_LESSONS['english|九下|第9單元 綜合演練'] = {
       check: {
         q: '整理錯題時，最有價值的做法是什麼？',
         options: [
-          '寫下自己為什麼會錯，而不只是抄正確答案',
           '只把正確答案抄一遍',
           '把整題重抄十遍',
-          '只記下題號'
+          '只記下題號',
+          '寫下自己為什麼會錯，而不只是抄正確答案'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '抄答案無法避免下次犯同樣的錯。',
           '重抄多遍不等於理解錯在哪裡。',
-          '只記題號之後回顧時看不懂。'
+          '只記題號之後回顧時看不懂。',
+          null
         ]
       }
     }
@@ -25106,17 +25106,17 @@ window.APP_LESSONS['english|十上|第1單元 時態綜合'] = {
       check: {
         q: 'When I arrived, the movie had already started. 這句話表示什麼？',
         options: [
+          '電影還沒開始',
           '電影開始的時間比我抵達更早',
           '我抵達後電影才開始',
-          '兩件事同時發生',
-          '電影還沒開始'
+          '兩件事同時發生'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'already started 表示已經開始了。',
           null,
           '過去完成式表示更早發生。',
-          '過去完成式標示的是先後而不是同時。',
-          'already started 表示已經開始了。'
+          '過去完成式標示的是先後而不是同時。'
         ]
       }
     },
@@ -25135,17 +25135,17 @@ window.APP_LESSONS['english|十上|第1單元 時態綜合'] = {
       check: {
         q: 'By the time we got there, they ___ dinner. 空格填什麼最合適？',
         options: [
-          'had finished',
-          'finish',
           'will finish',
-          'have finished'
+          'have finished',
+          'had finished',
+          'finish'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '句子講的是過去的事。',
           '未來式與過去的情境不符。',
-          '主要時間點在過去，要用過去完成式。'
+          '主要時間點在過去，要用過去完成式。',
+          null,
+          '句子講的是過去的事。'
         ]
       }
     },
@@ -25162,17 +25162,17 @@ window.APP_LESSONS['english|十上|第1單元 時態綜合'] = {
       check: {
         q: '想強調「我一整天都在寫報告，現在還在寫」，用哪一種最合適？',
         options: [
-          '現在完成進行式',
           '現在簡單式',
           '過去簡單式',
-          '未來式'
+          '未來式',
+          '現在完成進行式'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '現在簡單式表達習慣而不是持續的過程。',
           '過去式表示已經結束。',
-          '未來式表示還沒開始。'
+          '未來式表示還沒開始。',
+          null
         ]
       }
     },
@@ -25186,17 +25186,17 @@ window.APP_LESSONS['english|十上|第1單元 時態綜合'] = {
       check: {
         q: 'She said, "I will call you." 改成間接引語是什麼？',
         options: [
+          'She said she has called me.',
           'She said she would call me.',
           'She said she will call me.',
-          'She said she called me.',
-          'She said she has called me.'
+          'She said she called me.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '完成式與原句的語意不符。',
           null,
           '主句是過去式，will 要改成 would。',
-          '這樣改變了原意。',
-          '完成式與原句的語意不符。'
+          '這樣改變了原意。'
         ]
       }
     },
@@ -25245,17 +25245,17 @@ window.APP_LESSONS['english|十上|第2單元 被動語態進階'] = {
       check: {
         q: '「這棟房子正在整修」的正確說法是什麼？',
         options: [
-          'The house is being renovated.',
-          'The house is renovating.',
           'The house is renovated now being.',
-          'The house has renovating.'
+          'The house has renovating.',
+          'The house is being renovated.',
+          'The house is renovating.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '房子是被整修的，要用被動。',
           '這個語序不正確。',
-          '這個結構不完整。'
+          '這個結構不完整。',
+          null,
+          '房子是被整修的，要用被動。'
         ]
       }
     },
@@ -25273,17 +25273,17 @@ window.APP_LESSONS['english|十上|第2單元 被動語態進階'] = {
       check: {
         q: '學術論文常用被動語態的主要原因是什麼？',
         options: [
-          '強調研究的過程與結果，淡化研究者個人',
           '被動句比較長比較好看',
           '被動句文法比較簡單',
-          '規定一定要用被動'
+          '規定一定要用被動',
+          '強調研究的過程與結果，淡化研究者個人'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '句子長度不是學術寫作的考量。',
           '被動語態的結構其實更複雜。',
-          '現在許多期刊也接受主動語態。'
+          '現在許多期刊也接受主動語態。',
+          null
         ]
       }
     },
@@ -25323,17 +25323,17 @@ window.APP_LESSONS['english|十上|第2單元 被動語態進階'] = {
       check: {
         q: 'They turned down my proposal. 改成被動是什麼？',
         options: [
+          'My proposal turned down.',
           'My proposal was turned down.',
           'My proposal was turned.',
-          'My proposal was down turned.',
-          'My proposal turned down.'
+          'My proposal was down turned.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這句缺少 be 動詞。',
           null,
           '片語動詞的介副詞不能省略。',
-          '介副詞的位置不正確。',
-          '這句缺少 be 動詞。'
+          '介副詞的位置不正確。'
         ]
       }
     },
@@ -25349,17 +25349,17 @@ window.APP_LESSONS['english|十上|第2單元 被動語態進階'] = {
       check: {
         q: '下列哪一句不正確？',
         options: [
-          'The accident was happened at noon.',
           'The accident happened at noon.',
           'The bridge was built in 1980.',
-          'The book was written by her.'
+          'The book was written by her.',
+          'The accident was happened at noon.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'happen 是不及物動詞，用主動正確。',
           '橋是被建造的，被動正確。',
-          '書是被寫的，被動正確。'
+          '書是被寫的，被動正確。',
+          null
         ]
       }
     },
@@ -25413,17 +25413,17 @@ window.APP_LESSONS['english|十上|第3單元 關係子句'] = {
       check: {
         q: 'My brother, who lives in Japan, is a doctor. 這句話透露什麼？',
         options: [
-          '我只有一個哥哥，順便說明他住在日本',
-          '我有很多哥哥，這是住日本的那一個',
           '我沒有哥哥',
-          '我哥哥不住日本'
+          '我哥哥不住日本',
+          '我只有一個哥哥，順便說明他住在日本',
+          '我有很多哥哥，這是住日本的那一個'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '有逗號的非限定用法不用來區分。',
           '句子明確提到有哥哥。',
-          '句子說他住在日本。'
+          '句子說他住在日本。',
+          null,
+          '有逗號的非限定用法不用來區分。'
         ]
       }
     },
@@ -25460,13 +25460,13 @@ window.APP_LESSONS['english|十上|第3單元 關係子句'] = {
              same: ['意思相同'] },
       check: {
         q: 'This is the man ___ whom I spoke. 空格要填什麼？',
-        options: ['to', 'that', 'which', 'who'],
-        answer: 0,
+        options: ['that', 'which', 'who', 'to'],
+        answer: 3,
         why: [
-          null,
           '這個位置需要介系詞而不是關係代名詞。',
           'which 用於物，而且位置不對。',
-          '這個位置需要介系詞。'
+          '這個位置需要介系詞。',
+          null
         ]
       }
     },
@@ -25484,13 +25484,13 @@ window.APP_LESSONS['english|十上|第3單元 關係子句'] = {
              same: ['都在修飾前面的名詞'] },
       check: {
         q: 'I remember the day ___ we first met. 空格要填什麼？',
-        options: ['when', 'which', 'that we', 'where'],
-        answer: 0,
+        options: ['where', 'when', 'which', 'that we'],
+        answer: 1,
         why: [
+          'where 用於地點而不是時間。',
           null,
           '後面是完整句子，要用關係副詞。',
-          '這樣會多出一個主詞。',
-          'where 用於地點而不是時間。'
+          '這樣會多出一個主詞。'
         ]
       }
     },
@@ -25504,17 +25504,17 @@ window.APP_LESSONS['english|十上|第3單元 關係子句'] = {
       check: {
         q: '下列哪一個關係代名詞可以省略？',
         options: [
-          'The book that I bought was cheap.',
           'The man who called was angry.',
           'The dog which barked ran away.',
-          'The girl who won is my friend.'
+          'The girl who won is my friend.',
+          'The book that I bought was cheap.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這裡的 who 是主格，不能省略。',
           '這裡的 which 是主格，不能省略。',
-          '這裡的 who 是主格，不能省略。'
+          '這裡的 who 是主格，不能省略。',
+          null
         ]
       }
     },
@@ -25587,13 +25587,13 @@ window.APP_LESSONS['english|十上|第4單元 名詞子句'] = {
              same: ['都引導名詞子句'] },
       check: {
         q: 'I don’t understand ___ he said.（said 缺受詞）空格要填什麼？',
-        options: ['what', 'that', 'which', 'whether'],
-        answer: 0,
+        options: ['that', 'which', 'whether', 'what'],
+        answer: 3,
         why: [
-          null,
           'that 後面要接完整的句子。',
           'which 需要有先行詞。',
-          'whether 後面也要接完整的句子。'
+          'whether 後面也要接完整的句子。',
+          null
         ]
       }
     },
@@ -25610,17 +25610,17 @@ window.APP_LESSONS['english|十上|第4單元 名詞子句'] = {
       check: {
         q: 'That she won is amazing. 用虛主詞改寫是什麼？',
         options: [
-          'It is amazing that she won.',
-          'It is amazing what she won.',
           'That is amazing she won.',
-          'It amazing is that she won.'
+          'It amazing is that she won.',
+          'It is amazing that she won.',
+          'It is amazing what she won.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'what 後面會缺一個成分，語意改變。',
           '虛主詞要用 it。',
-          '這個語序不正確。'
+          '這個語序不正確。',
+          null,
+          'what 後面會缺一個成分，語意改變。'
         ]
       }
     },
@@ -25638,17 +25638,17 @@ window.APP_LESSONS['english|十上|第4單元 名詞子句'] = {
       check: {
         q: 'The news that he resigned shocked us. 這裡的 that 子句是什麼？',
         options: [
+          '主要子句',
           '同位語，說明 news 的內容',
           '關係子句，修飾 news',
-          '副詞子句',
-          '主要子句'
+          '副詞子句'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '主要子句是整句的主幹。',
           null,
           '後面的句子完整，不是關係子句。',
-          '這個子句在句中扮演名詞的角色。',
-          '主要子句是整句的主幹。'
+          '這個子句在句中扮演名詞的角色。'
         ]
       }
     },
@@ -25663,13 +25663,13 @@ window.APP_LESSONS['english|十上|第4單元 名詞子句'] = {
         { label: '不可直接放', items: ['if', 'that（需加 the fact）'] }] },
       check: {
         q: 'It depends on ___ she agrees. 空格要填什麼？',
-        options: ['whether', 'if', 'that', 'what if'],
-        answer: 0,
+        options: ['what if', 'whether', 'if', 'that'],
+        answer: 1,
         why: [
+          '這個組合不符合英文結構。',
           null,
           'if 不能放在介系詞後面。',
-          'that 子句一般不直接放在介系詞後面。',
-          '這個組合不符合英文結構。'
+          'that 子句一般不直接放在介系詞後面。'
         ]
       }
     },
@@ -25682,17 +25682,17 @@ window.APP_LESSONS['english|十上|第4單元 名詞子句'] = {
       check: {
         q: 'He asked me where he should park. 簡化後是什麼？',
         options: [
-          'He asked me where to park.',
-          'He asked me why to park.',
           'He asked me where parking.',
-          'He asked me where he to park.'
+          'He asked me where he to park.',
+          'He asked me where to park.',
+          'He asked me why to park.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '原句問的是地點而不是原因。',
           '這個結構要用不定詞。',
-          '簡化後不保留主詞。'
+          '簡化後不保留主詞。',
+          null,
+          '原句問的是地點而不是原因。'
         ]
       }
     }
@@ -25716,13 +25716,13 @@ window.APP_LESSONS['english|十上|第5單元 副詞子句'] = {
         { label: '讓步', items: ['although', 'even if', 'even though'] }] },
       check: {
         q: 'although 引導的是哪一類副詞子句？',
-        options: ['讓步', '原因', '條件', '目的'],
-        answer: 0,
+        options: ['原因', '條件', '目的', '讓步'],
+        answer: 3,
         why: [
-          null,
           '原因用 because 或 since。',
           '條件用 if 或 unless。',
-          '目的用 so that。'
+          '目的用 so that。',
+          null
         ]
       }
     },
@@ -25768,17 +25768,17 @@ window.APP_LESSONS['english|十上|第5單元 副詞子句'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'Even though he tried, he failed.',
-          'Even though he tried, but he failed.',
           'Because he tried, so he failed.',
-          'Although but he tried, he failed.'
+          'Although but he tried, he failed.',
+          'Even though he tried, he failed.',
+          'Even though he tried, but he failed.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
+          '兩個連接詞不能連用。',
+          '兩個連接詞不能相鄰使用。',
           null,
-          '兩個連接詞不能連用。',
-          '兩個連接詞不能連用。',
-          '兩個連接詞不能相鄰使用。'
+          '兩個連接詞不能連用。'
         ]
       }
     },
@@ -25794,13 +25794,13 @@ window.APP_LESSONS['english|十上|第5單元 副詞子句'] = {
              same: ['都用到 so 和 that'] },
       check: {
         q: 'He spoke ___ loudly that everyone heard him. 空格要填什麼？',
-        options: ['so', 'so that', 'such', 'very'],
-        answer: 0,
+        options: ['very', 'so', 'so that', 'such'],
+        answer: 1,
         why: [
+          'very 不能搭配 that 子句。',
           null,
           'so that 中間不放副詞。',
-          'such 後面要接名詞片語。',
-          'very 不能搭配 that 子句。'
+          'such 後面要接名詞片語。'
         ]
       }
     },
@@ -25818,13 +25818,13 @@ window.APP_LESSONS['english|十上|第5單元 副詞子句'] = {
              same: ['都用 when 開頭'] },
       check: {
         q: 'I will call you as soon as I ___ home. 空格要填什麼？',
-        options: ['get', 'will get', 'got', 'am getting'],
-        answer: 0,
+        options: ['got', 'am getting', 'get', 'will get'],
+        answer: 2,
         why: [
-          null,
-          '時間副詞子句裡不用 will。',
           '句子講的是未來的事。',
-          '這裡不需要用進行式。'
+          '這裡不需要用進行式。',
+          null,
+          '時間副詞子句裡不用 will。'
         ]
       }
     },
@@ -25838,17 +25838,17 @@ window.APP_LESSONS['english|十上|第5單元 副詞子句'] = {
       check: {
         q: '副詞子句要簡化成分詞構句，前提是什麼？',
         options: [
+          '必須有逗號',
           '兩個子句的主詞必須相同',
           '句子必須很長',
-          '必須是過去式',
-          '必須有逗號'
+          '必須是過去式'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '逗號是結果而不是前提。',
           null,
           '句子長度不是簡化的條件。',
-          '各種時態都可以簡化。',
-          '逗號是結果而不是前提。'
+          '各種時態都可以簡化。'
         ]
       }
     }
@@ -25895,13 +25895,13 @@ window.APP_LESSONS['english|十上|第6單元 分詞構句'] = {
              same: ['都放在句首當背景'] },
       check: {
         q: '___ in 1990, the building is quite old. 空格要填什麼？',
-        options: ['Built', 'Building', 'Build', 'To build'],
-        answer: 0,
+        options: ['To build', 'Built', 'Building', 'Build'],
+        answer: 1,
         why: [
+          '這裡不用不定詞。',
           null,
           '建築物是被建造的，要用過去分詞。',
-          '分詞構句不用原形動詞。',
-          '這裡不用不定詞。'
+          '分詞構句不用原形動詞。'
         ]
       }
     },
@@ -25914,17 +25914,17 @@ window.APP_LESSONS['english|十上|第6單元 分詞構句'] = {
       check: {
         q: 'Being surrounded by mountains, the village is quiet. 省略 Being 之後是什麼？',
         options: [
-          'Surrounded by mountains, the village is quiet.',
-          'Surround by mountains, the village is quiet.',
           'Surrounding by mountains, the village is quiet.',
-          'To surround by mountains, the village is quiet.'
+          'To surround by mountains, the village is quiet.',
+          'Surrounded by mountains, the village is quiet.',
+          'Surround by mountains, the village is quiet.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '省略 Being 之後要保留過去分詞。',
           '村莊是被群山環繞的，要用過去分詞。',
-          '這裡不用不定詞。'
+          '這裡不用不定詞。',
+          null,
+          '省略 Being 之後要保留過去分詞。'
         ]
       }
     },
@@ -25941,17 +25941,17 @@ window.APP_LESSONS['english|十上|第6單元 分詞構句'] = {
       check: {
         q: '想表達「寫完報告之後，他就睡了」，分詞構句要怎麼寫？',
         options: [
-          'Having finished the report, he went to sleep.',
           'Finishing the report, he went to sleep.',
           'Finished the report, he went to sleep.',
-          'Have finished the report, he went to sleep.'
+          'Have finished the report, he went to sleep.',
+          'Having finished the report, he went to sleep.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個形式無法明確表達先後。',
           '報告不是主詞被動承受的對象。',
-          '分詞構句不用原形的 have。'
+          '分詞構句不用原形的 have。',
+          null
         ]
       }
     },
@@ -25969,17 +25969,17 @@ window.APP_LESSONS['english|十上|第6單元 分詞構句'] = {
       check: {
         q: '下列哪一句有懸垂分詞的問題？',
         options: [
+          'Having studied hard, he passed.',
           'Driving to work, the traffic was terrible.',
           'Driving to work, I got stuck in traffic.',
-          'Feeling tired, she took a nap.',
-          'Having studied hard, he passed.'
+          'Feeling tired, she took a nap.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '分詞的動作由 he 執行，正確。',
           null,
           '分詞的動作由 I 執行，正確。',
-          '分詞的動作由 she 執行，正確。',
-          '分詞的動作由 he 執行，正確。'
+          '分詞的動作由 she 執行，正確。'
         ]
       }
     },
@@ -25997,17 +25997,17 @@ window.APP_LESSONS['english|十上|第6單元 分詞構句'] = {
       check: {
         q: '兩個子句主詞不同又想用分詞構句，應該怎麼做？',
         options: [
-          '保留分詞前面的主詞，寫成獨立分詞構句',
-          '直接省略，反正讀者看得懂',
           '把主句的主詞改掉',
-          '不能用分詞，只能拆成兩句'
+          '不能用分詞，只能拆成兩句',
+          '保留分詞前面的主詞，寫成獨立分詞構句',
+          '直接省略，反正讀者看得懂'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '省略會造成懸垂分詞的錯誤。',
           '改主詞會改變句子的意思。',
-          '獨立分詞構句正是為此而存在。'
+          '獨立分詞構句正是為此而存在。',
+          null,
+          '省略會造成懸垂分詞的錯誤。'
         ]
       }
     }
@@ -26028,17 +26028,17 @@ window.APP_LESSONS['english|十上|第7單元 學術字彙入門'] = {
       check: {
         q: '學術字彙的特點是什麼？',
         options: [
+          '都來自拉丁文',
           '跨學科反覆出現，但較少用於日常口語',
           '只出現在英文課本裡',
-          '都是很長的單字',
-          '都來自拉丁文'
+          '都是很長的單字'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '來源不是定義學術字彙的條件。',
           null,
           '這些字廣泛出現在各領域的文章。',
-          '字的長度不是判斷的標準。',
-          '來源不是定義學術字彙的條件。'
+          '字的長度不是判斷的標準。'
         ]
       }
     },
@@ -26054,13 +26054,13 @@ window.APP_LESSONS['english|十上|第7單元 學術字彙入門'] = {
              same: ['核心意思相同'] },
       check: {
         q: '在正式寫作中，show 可以換成哪一個字？',
-        options: ['demonstrate', 'look', 'watch', 'see'],
-        answer: 0,
+        options: ['look', 'watch', 'see', 'demonstrate'],
+        answer: 3,
         why: [
-          null,
           'look 是「看」的動作。',
           'watch 是觀看某個過程。',
-          'see 是看見，語意不同。'
+          'see 是看見，語意不同。',
+          null
         ]
       }
     },
@@ -26095,13 +26095,13 @@ window.APP_LESSONS['english|十上|第7單元 學術字彙入門'] = {
              same: ['都用 result'] },
       check: {
         q: 'Smoking results ___ lung cancer.（導致）空格要填什麼？',
-        options: ['in', 'from', 'to', 'of'],
-        answer: 0,
+        options: ['to', 'of', 'in', 'from'],
+        answer: 2,
         why: [
-          null,
-          'result from 表示起因於，方向相反。',
           'result 不搭配 to。',
-          'result 不搭配 of。'
+          'result 不搭配 of。',
+          null,
+          'result from 表示起因於，方向相反。'
         ]
       }
     },
@@ -26135,17 +26135,17 @@ window.APP_LESSONS['english|十上|第7單元 學術字彙入門'] = {
       check: {
         q: '背單字時，為什麼建議記在句子裡？',
         options: [
-          '可以同時掌握用法與搭配詞',
-          '因為句子比較好看',
           '因為單字太短',
-          '因為老師會考句子'
+          '因為老師會考句子',
+          '可以同時掌握用法與搭配詞',
+          '因為句子比較好看'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '外觀不是學習的重點。',
           '單字長短與記憶方法無關。',
-          '重點是實際能用出來而不是應付考試。'
+          '重點是實際能用出來而不是應付考試。',
+          null,
+          '外觀不是學習的重點。'
         ]
       }
     }
@@ -26167,17 +26167,17 @@ window.APP_LESSONS['english|十上|第8單元 閱讀：主旨與結構'] = {
       check: {
         q: '文章先提出一個社會問題，再分析成因，最後提出建議，這是哪一種結構？',
         options: [
+          '人物傳記',
           '問題解決',
           '比較對照',
-          '時間順序',
-          '人物傳記'
+          '時間順序'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '傳記以某個人的生平為主軸。',
           null,
           '比較對照會並列兩個對象。',
-          '時間順序依先後敘述事件。',
-          '傳記以某個人的生平為主軸。'
+          '時間順序依先後敘述事件。'
         ]
       }
     },
@@ -26191,17 +26191,17 @@ window.APP_LESSONS['english|十上|第8單元 閱讀：主旨與結構'] = {
       check: {
         q: '段落裡的數據和例子扮演什麼角色？',
         options: [
-          '支持主題句的證據',
           '整段的主旨',
           '和主題無關的補充',
-          '文章的結論'
+          '文章的結論',
+          '支持主題句的證據'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '主旨是它們共同支持的那個想法。',
           '它們與主題直接相關。',
-          '結論通常出現在段落或全文的最後。'
+          '結論通常出現在段落或全文的最後。',
+          null
         ]
       }
     },
@@ -26219,17 +26219,17 @@ window.APP_LESSONS['english|十上|第8單元 閱讀：主旨與結構'] = {
       check: {
         q: '看到 In conclusion 開頭，通常表示什麼？',
         options: [
-          '接下來是全文的總結',
-          '接下來是新的論點',
           '接下來是舉例',
-          '接下來是反駁'
+          '接下來是反駁',
+          '接下來是全文的總結',
+          '接下來是新的論點'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '新論點通常用 moreover 這類詞引出。',
           '舉例會用 for instance。',
-          '反駁會用 however 這類轉折詞。'
+          '反駁會用 however 這類轉折詞。',
+          null,
+          '新論點通常用 moreover 這類詞引出。'
         ]
       }
     },
@@ -26293,17 +26293,17 @@ window.APP_LESSONS['english|十上|第8單元 閱讀：主旨與結構'] = {
       check: {
         q: '讀完一個段落後，最有幫助的自我提問是什麼？',
         options: [
-          '這一段在整篇文章裡扮演什麼角色',
-          '這一段有幾個生字',
           '這一段有幾句話',
-          '這一段有沒有數字'
+          '這一段有沒有數字',
+          '這一段在整篇文章裡扮演什麼角色',
+          '這一段有幾個生字'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '生字數量與理解結構無關。',
           '句數與段落的功能無關。',
-          '有沒有數字不決定段落的角色。'
+          '有沒有數字不決定段落的角色。',
+          null,
+          '生字數量與理解結構無關。'
         ]
       }
     }
@@ -26323,17 +26323,17 @@ window.APP_LESSONS['english|十上|第9單元 寫作：段落與句型'] = {
       check: {
         q: '一個段落最重要的原則是什麼？',
         options: [
+          '一段要用很多逗號',
           '一段只發展一個中心想法',
           '一段要有十句以上',
-          '一段要有很多生難字',
-          '一段要用很多逗號'
+          '一段要有很多生難字'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '標點數量與段落品質無關。',
           null,
           '段落長度沒有固定規定。',
-          '用字艱深不等於寫得好。',
-          '標點數量與段落品質無關。'
+          '用字艱深不等於寫得好。'
         ]
       }
     },
@@ -26350,17 +26350,17 @@ window.APP_LESSONS['english|十上|第9單元 寫作：段落與句型'] = {
       check: {
         q: '下列哪一句比較適合當主題句？',
         options: [
-          'Social media has changed how teenagers make friends.',
-          'This paragraph is about social media.',
           'Social media.',
-          'I like social media very much.'
+          'I like social media very much.',
+          'Social media has changed how teenagers make friends.',
+          'This paragraph is about social media.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '只宣告主題而沒有提出看法。',
           '這不是完整的句子。',
-          '個人喜好不容易發展成論述。'
+          '個人喜好不容易發展成論述。',
+          null,
+          '只宣告主題而沒有提出看法。'
         ]
       }
     },
@@ -26404,17 +26404,17 @@ window.APP_LESSONS['english|十上|第9單元 寫作：段落與句型'] = {
       check: {
         q: '為什麼寫作時要變換句子的開頭？',
         options: [
-          '避免節奏單調，讓文章讀起來更流暢',
           '為了增加字數',
           '為了用到更多逗號',
-          '因為規定不能用主詞開頭'
+          '因為規定不能用主詞開頭',
+          '避免節奏單調，讓文章讀起來更流暢'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '變換開頭的目的不是灌水。',
           '標點是結果而不是目的。',
-          '主詞開頭本身沒有錯，只是不要每句都一樣。'
+          '主詞開頭本身沒有錯，只是不要每句都一樣。',
+          null
         ]
       }
     },
@@ -26457,17 +26457,17 @@ window.APP_LESSONS['english|十上|第9單元 寫作：段落與句型'] = {
       check: {
         q: '寫完文章後最好的修改習慣是什麼？',
         options: [
+          '請別人重寫一遍',
           '先放一段時間再重讀，比較看得出問題',
           '寫完立刻交出去',
-          '只檢查拼字',
-          '請別人重寫一遍'
+          '只檢查拼字'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '請人重寫就失去了練習的意義。',
           null,
           '立刻交出去容易漏掉明顯的錯誤。',
-          '只檢查拼字會忽略結構與邏輯問題。',
-          '請人重寫就失去了練習的意義。'
+          '只檢查拼字會忽略結構與邏輯問題。'
         ]
       }
     }
@@ -26490,13 +26490,13 @@ window.APP_LESSONS['english|十下|第1單元 假設語氣'] = {
              same: ['都用 if 開頭'] },
       check: {
         q: 'If I ___ you, I would apologize. 空格要填什麼？',
-        options: ['were', 'am', 'was', 'will be'],
-        answer: 0,
+        options: ['am', 'was', 'will be', 'were'],
+        answer: 3,
         why: [
-          null,
           '與現在事實相反要用過去式。',
           '假設語氣的 be 動詞習慣用 were。',
-          'if 子句裡不用 will。'
+          'if 子句裡不用 will。',
+          null
         ]
       }
     },
@@ -26509,17 +26509,17 @@ window.APP_LESSONS['english|十下|第1單元 假設語氣'] = {
       check: {
         q: 'If she had left earlier, she ___ the train. 空格要填什麼？',
         options: [
+          'had caught',
           'would have caught',
           'would catch',
-          'will catch',
-          'had caught'
+          'will catch'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '主句不用過去完成式。',
           null,
           '與過去事實相反時主句要用 would have。',
-          '與過去事實相反時不用 will。',
-          '主句不用過去完成式。'
+          '與過去事實相反時不用 will。'
         ]
       }
     },
@@ -26560,13 +26560,13 @@ window.APP_LESSONS['english|十下|第1單元 假設語氣'] = {
         { label: '含假設語氣的句型', items: ['I wish…', 'as if／as though…', 'It is time…', 'would rather…'] }] },
       check: {
         q: 'I wish I ___ speak French. 空格要填什麼？',
-        options: ['could', 'can', 'will', 'am able'],
-        answer: 0,
+        options: ['will', 'am able', 'could', 'can'],
+        answer: 2,
         why: [
-          null,
-          'wish 後面要用假設語氣。',
           'wish 後面不用未來式。',
-          '這裡需要往後退一個時態。'
+          '這裡需要往後退一個時態。',
+          null,
+          'wish 後面要用假設語氣。'
         ]
       }
     },
@@ -26581,17 +26581,17 @@ window.APP_LESSONS['english|十下|第1單元 假設語氣'] = {
       check: {
         q: 'If I had known the truth, I would have told you. 用倒裝寫是什麼？',
         options: [
-          'Had I known the truth, I would have told you.',
-          'Did I know the truth, I would have told you.',
           'Have I known the truth, I would have told you.',
-          'If had I known the truth, I would have told you.'
+          'If had I known the truth, I would have told you.',
+          'Had I known the truth, I would have told you.',
+          'Did I know the truth, I would have told you.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這個句型不用助動詞 did。',
           '要用 had 而不是 have。',
-          '倒裝之後就不保留 if。'
+          '倒裝之後就不保留 if。',
+          null,
+          '這個句型不用助動詞 did。'
         ]
       }
     },
@@ -26633,13 +26633,13 @@ window.APP_LESSONS['english|十下|第2單元 倒裝句'] = {
       viz: { type: 'energyflow', steps: ['I have never seen it.', 'Never 移到句首', '助動詞跟著前移', 'Never have I seen it.'] },
       check: {
         q: 'Seldom ___ he late for class. 空格要填什麼？',
-        options: ['is', 'he is', 'does', 'be'],
-        answer: 0,
+        options: ['he is', 'does', 'be', 'is'],
+        answer: 3,
         why: [
-          null,
           '倒裝後主詞要放在動詞後面。',
           '句中用的是 be 動詞而不是一般動詞。',
-          'be 是原形，句子需要現在式。'
+          'be 是原形，句子需要現在式。',
+          null
         ]
       }
     },
@@ -26654,13 +26654,13 @@ window.APP_LESSONS['english|十下|第2單元 倒裝句'] = {
         note: '和疑問句的處理方式相同。' },
       check: {
         q: 'Hardly ___ she speak in class. 空格要填什麼？',
-        options: ['does', 'is', 'do', 'has'],
-        answer: 0,
+        options: ['has', 'does', 'is', 'do'],
+        answer: 1,
         why: [
+          '句子不是完成式。',
           null,
           '句中是一般動詞，要借 do 類助動詞。',
-          '主詞是第三人稱單數，要用 does。',
-          '句子不是完成式。'
+          '主詞是第三人稱單數，要用 does。'
         ]
       }
     },
@@ -26675,13 +26675,13 @@ window.APP_LESSONS['english|十下|第2單元 倒裝句'] = {
         note: '倒裝發生在主句。' },
       check: {
         q: 'Not until midnight ___ he finish his work. 空格要填什麼？',
-        options: ['did', 'does', 'was', 'had'],
-        answer: 0,
+        options: ['was', 'had', 'did', 'does'],
+        answer: 2,
         why: [
-          null,
-          '句子講的是過去，要用 did。',
           '句中是一般動詞而不是 be 動詞。',
-          '這裡不是過去完成式。'
+          '這裡不是過去完成式。',
+          null,
+          '句子講的是過去，要用 did。'
         ]
       }
     },
@@ -26722,17 +26722,17 @@ window.APP_LESSONS['english|十下|第2單元 倒裝句'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'Here comes the train.',
-          'Here comes it.',
           'Here the train comes fast quickly.',
-          'Here does come the train.'
+          'Here does come the train.',
+          'Here comes the train.',
+          'Here comes it.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '主詞是代名詞時不倒裝。',
           '這句重複了意思相近的副詞。',
-          '這種倒裝不需要助動詞。'
+          '這種倒裝不需要助動詞。',
+          null,
+          '主詞是代名詞時不倒裝。'
         ]
       }
     },
@@ -26748,17 +26748,17 @@ window.APP_LESSONS['english|十下|第2單元 倒裝句'] = {
       check: {
         q: '對方說 I can’t swim.，要表達「我也不會」該怎麼說？',
         options: [
-          'Neither can I.',
           'So can I.',
           'Neither do I.',
-          'So I can’t.'
+          'So I can’t.',
+          'Neither can I.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'So 用於肯定的附和。',
           '前面句子用的是 can 而不是 do。',
-          '這個語序不是標準的附和句型。'
+          '這個語序不是標準的附和句型。',
+          null
         ]
       }
     }
@@ -26806,13 +26806,13 @@ window.APP_LESSONS['english|十下|第3單元 強調句型'] = {
         { label: '不能用這個句型', items: ['動詞'] }] },
       check: {
         q: '分裂句不能用來強調句子的哪一個成分？',
-        options: ['動詞', '主詞', '受詞', '時間副詞'],
-        answer: 0,
+        options: ['主詞', '受詞', '時間副詞', '動詞'],
+        answer: 3,
         why: [
-          null,
           '主詞是最常被強調的成分。',
           '受詞可以放在強調的位置。',
-          '時間副詞可以被強調。'
+          '時間副詞可以被強調。',
+          null
         ]
       }
     },
@@ -26829,17 +26829,17 @@ window.APP_LESSONS['english|十下|第3單元 強調句型'] = {
       check: {
         q: '「他昨天真的來了」的正確說法是什麼？',
         options: [
+          'He is come yesterday.',
           'He did come yesterday.',
           'He did came yesterday.',
-          'He does come yesterday.',
-          'He is come yesterday.'
+          'He does come yesterday.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'be 動詞不能和一般動詞並用。',
           null,
           '有了 did，動詞要用原形。',
-          '句子講的是昨天，要用 did。',
-          'be 動詞不能和一般動詞並用。'
+          '句子講的是昨天，要用 did。'
         ]
       }
     },
@@ -26857,17 +26857,17 @@ window.APP_LESSONS['english|十下|第3單元 強調句型'] = {
       check: {
         q: 'The president himself signed the letter. 這裡的 himself 可以省略嗎？',
         options: [
-          '可以，省略後句子依然完整',
-          '不可以，句子會不完整',
           '不可以，會變成被動',
-          '可以，但意思會相反'
+          '可以，但意思會相反',
+          '可以，省略後句子依然完整',
+          '不可以，句子會不完整'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '強調用法省略後句子仍然完整。',
           '省略反身代名詞不會改變語態。',
-          '省略只是少了強調，意思不會相反。'
+          '省略只是少了強調，意思不會相反。',
+          null,
+          '強調用法省略後句子仍然完整。'
         ]
       }
     },
@@ -26882,17 +26882,17 @@ window.APP_LESSONS['english|十下|第3單元 強調句型'] = {
       check: {
         q: 'This is the very book I need. 這裡的 very 表示什麼？',
         options: [
+          '很多本書',
           '正是這一本，強調就是它',
           '非常好的一本書',
-          '很厚的一本書',
-          '很多本書'
+          '很厚的一本書'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這裡指的是特定的一本。',
           null,
           'the very 加名詞不表示程度。',
-          '句中沒有描述厚度。',
-          '這裡指的是特定的一本。'
+          '句中沒有描述厚度。'
         ]
       }
     },
@@ -26910,17 +26910,17 @@ window.APP_LESSONS['english|十下|第3單元 強調句型'] = {
       check: {
         q: '學術寫作中，very important 比較好的替代說法是什麼？',
         options: [
-          'crucial 或 significant',
           'very very important',
           'super important',
-          'so so important'
+          'so so important',
+          'crucial 或 significant'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '重複副詞不會讓語氣更精確。',
           'super 過於口語。',
-          '這個說法既口語又不精確。'
+          '這個說法既口語又不精確。',
+          null
         ]
       }
     }
@@ -26965,17 +26965,17 @@ window.APP_LESSONS['english|十下|第4單元 比較結構'] = {
       check: {
         q: '「這本書是那本的兩倍厚」的正確說法是什麼？',
         options: [
-          'This book is twice as thick as that one.',
-          'This book is as twice thick as that one.',
           'This book is twice thicker as that one.',
-          'This book is two times thicker than as that.'
+          'This book is two times thicker than as that.',
+          'This book is twice as thick as that one.',
+          'This book is as twice thick as that one.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '倍數要放在第一個 as 前面。',
           '這個句型要用原級而不是比較級。',
-          '這個句子混用了兩種句型。'
+          '這個句子混用了兩種句型。',
+          null,
+          '倍數要放在第一個 as 前面。'
         ]
       }
     },
@@ -26990,17 +26990,17 @@ window.APP_LESSONS['english|十下|第4單元 比較結構'] = {
       check: {
         q: '「你練習越多，進步越快」的正確句型是什麼？',
         options: [
+          'You practice more, you improve faster than.',
           'The more you practice, the faster you improve.',
           'More you practice, faster you improve.',
-          'The more practice you, the faster improve you.',
-          'You practice more, you improve faster than.'
+          'The more practice you, the faster improve you.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個句子的結構不完整。',
           null,
           '這個句型的兩個比較級前面都要有 the。',
-          '這個語序不正確。',
-          '這個句子的結構不完整。'
+          '這個語序不正確。'
         ]
       }
     },
@@ -27017,13 +27017,13 @@ window.APP_LESSONS['english|十下|第4單元 比較結構'] = {
              same: ['都用 than'] },
       check: {
         q: 'The population of Taipei is larger than ___ of Tainan. 空格要填什麼？',
-        options: ['that', 'those', 'it', 'them'],
-        answer: 0,
+        options: ['those', 'it', 'them', 'that'],
+        answer: 3,
         why: [
-          null,
           'population 是單數，要用 that。',
           'it 不能接 of 片語當比較對象。',
-          'them 是受格複數，語意也不對。'
+          'them 是受格複數，語意也不對。',
+          null
         ]
       }
     },
@@ -27038,17 +27038,17 @@ window.APP_LESSONS['english|十下|第4單元 比較結構'] = {
       check: {
         q: 'Nothing is more important than health. 這句話的意思是什麼？',
         options: [
+          '健康和其他事一樣重要',
           '健康是最重要的',
           '健康不重要',
-          '有些事比健康重要',
-          '健康和其他事一樣重要'
+          '有些事比健康重要'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句子表達的是超越而不是相等。',
           null,
           '這句話在強調健康的重要。',
-          'Nothing 表示沒有任何事物超過它。',
-          '句子表達的是超越而不是相等。'
+          'Nothing 表示沒有任何事物超過它。'
         ]
       }
     },
@@ -27119,13 +27119,13 @@ window.APP_LESSONS['english|十下|第5單元 平行結構與精簡'] = {
              same: ['都用相關連接詞'] },
       check: {
         q: 'He is not only a teacher ___ a writer. 空格要填什麼？',
-        options: ['but also', 'and also', 'but too', 'or also'],
-        answer: 0,
+        options: ['but too', 'or also', 'but also', 'and also'],
+        answer: 2,
         why: [
-          null,
-          'not only 的固定搭配是 but also。',
           'too 不用於這個固定句型。',
-          'or 不與 not only 搭配。'
+          'or 不與 not only 搭配。',
+          null,
+          'not only 的固定搭配是 but also。'
         ]
       }
     },
@@ -27143,13 +27143,13 @@ window.APP_LESSONS['english|十下|第5單元 平行結構與精簡'] = {
              same: ['意思完全相同'] },
       check: {
         q: 'due to the fact that 最精簡的替代說法是什麼？',
-        options: ['because', 'because of the fact', 'due to that fact', 'the fact is that'],
-        answer: 0,
+        options: ['the fact is that', 'because', 'because of the fact', 'due to that fact'],
+        answer: 1,
         why: [
+          '這改變了句子的結構且更囉唆。',
           null,
           '這個說法仍然冗長。',
-          '這個說法仍然冗長。',
-          '這改變了句子的結構且更囉唆。'
+          '這個說法仍然冗長。'
         ]
       }
     },
@@ -27164,17 +27164,17 @@ window.APP_LESSONS['english|十下|第5單元 平行結構與精簡'] = {
       check: {
         q: '下列哪一個說法有贅字？',
         options: [
-          'Please return back the book.',
           'Please return the book.',
           'Please bring the book.',
-          'Please keep the book.'
+          'Please keep the book.',
+          'Please return back the book.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'return 本身已含「回」的意思。',
           '這個說法沒有重複。',
-          '這個說法沒有重複。'
+          '這個說法沒有重複。',
+          null
         ]
       }
     },
@@ -27191,13 +27191,13 @@ window.APP_LESSONS['english|十下|第5單元 平行結構與精簡'] = {
              same: ['意思相同'] },
       check: {
         q: 'make a decision 用一個字表達是什麼？',
-        options: ['decide', 'decision', 'deciding', 'decisive'],
-        answer: 0,
+        options: ['decisive', 'decide', 'decision', 'deciding'],
+        answer: 1,
         why: [
+          'decisive 是形容詞。',
           null,
           'decision 是名詞，不能當動詞用。',
-          '這是動名詞形式，不能直接取代。',
-          'decisive 是形容詞。'
+          '這是動名詞形式，不能直接取代。'
         ]
       }
     },
@@ -27269,17 +27269,17 @@ window.APP_LESSONS['english|十下|第6單元 連接詞與轉折語'] = {
       check: {
         q: '下列哪一句標點正確？',
         options: [
-          'It was raining; therefore, we stayed home.',
           'It was raining, therefore, we stayed home.',
           'It was raining therefore we stayed home.',
-          'It was raining, therefore we stayed home.'
+          'It was raining, therefore we stayed home.',
+          'It was raining; therefore, we stayed home.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '連接副詞前面要用分號或句號。',
           '兩個獨立子句之間缺少標點。',
-          '單獨的逗號不能連接兩個獨立子句。'
+          '單獨的逗號不能連接兩個獨立子句。',
+          null
         ]
       }
     },
@@ -27294,17 +27294,17 @@ window.APP_LESSONS['english|十下|第6單元 連接詞與轉折語'] = {
       check: {
         q: 'The test was hard, I still passed. 這句話的問題是什麼？',
         options: [
+          '拼字錯誤',
           '兩個完整句子只用逗號連接',
           '時態錯誤',
-          '主詞動詞不一致',
-          '拼字錯誤'
+          '主詞動詞不一致'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句中沒有拼字錯誤。',
           null,
           '兩句的時態都正確。',
-          '主詞與動詞都一致。',
-          '句中沒有拼字錯誤。'
+          '主詞與動詞都一致。'
         ]
       }
     },
@@ -27322,17 +27322,17 @@ window.APP_LESSONS['english|十下|第6單元 連接詞與轉折語'] = {
       check: {
         q: '要表達「相反地、另一方面」，應該用哪一個轉折語？',
         options: [
-          'On the other hand',
-          'Moreover',
           'Therefore',
-          'For example'
+          'For example',
+          'On the other hand',
+          'Moreover'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'Moreover 用於補充相同方向的論點。',
           'Therefore 引出結果。',
-          'For example 用於舉例。'
+          'For example 用於舉例。',
+          null,
+          'Moreover 用於補充相同方向的論點。'
         ]
       }
     },
@@ -27349,13 +27349,13 @@ window.APP_LESSONS['english|十下|第6單元 連接詞與轉折語'] = {
              same: ['都表示讓步'] },
       check: {
         q: '___ the heavy traffic, we arrived on time. 空格要填什麼？',
-        options: ['Despite', 'Although', 'Even though', 'While'],
-        answer: 0,
+        options: ['While', 'Despite', 'Although', 'Even though'],
+        answer: 1,
         why: [
+          'while 後面要接完整的子句。',
           null,
           'although 後面要接完整的子句。',
-          'even though 後面要接完整的子句。',
-          'while 後面要接完整的子句。'
+          'even though 後面要接完整的子句。'
         ]
       }
     },
@@ -27372,17 +27372,17 @@ window.APP_LESSONS['english|十下|第6單元 連接詞與轉折語'] = {
       check: {
         q: '什麼時候才適合使用轉折語？',
         options: [
-          '句子之間的邏輯關係真的需要標示時',
-          '每一句都要用',
           '想讓文章看起來比較高級時',
-          '字數不夠的時候'
+          '字數不夠的時候',
+          '句子之間的邏輯關係真的需要標示時',
+          '每一句都要用'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '每句都用會讓文章顯得生硬。',
           '轉折語的目的是幫助理解而不是裝飾。',
-          '為湊字數而加會傷害文章品質。'
+          '為湊字數而加會傷害文章品質。',
+          null,
+          '每句都用會讓文章顯得生硬。'
         ]
       }
     }
@@ -27404,13 +27404,13 @@ window.APP_LESSONS['english|十下|第7單元 字根字首進階'] = {
         { label: 'port（帶）', items: ['import', 'export', 'portable'] }] },
       check: {
         q: 'predict 這個字裡的 dict 表示什麼？',
-        options: ['說', '看', '帶', '寫'],
-        answer: 0,
+        options: ['寫', '說', '看', '帶'],
+        answer: 1,
         why: [
+          '寫是字根 scrib 或 script。',
           null,
           '看是字根 spect 或 vis。',
-          '帶是字根 port。',
-          '寫是字根 scrib 或 script。'
+          '帶是字根 port。'
         ]
       }
     },
@@ -27428,17 +27428,17 @@ window.APP_LESSONS['english|十下|第7單元 字根字首進階'] = {
       check: {
         q: 'immortal 這個字的意思最接近什麼？',
         options: [
-          '不死的、不朽的',
-          '會死的',
           '重要的',
-          '移動的'
+          '移動的',
+          '不死的、不朽的',
+          '會死的'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '字首 im 是否定，把意思反轉了。',
           '重要的是 vital。',
-          '移動的字根是 mob 或 mot。'
+          '移動的字根是 mob 或 mot。',
+          null,
+          '字首 im 是否定，把意思反轉了。'
         ]
       }
     },
@@ -27484,13 +27484,13 @@ window.APP_LESSONS['english|十下|第7單元 字根字首進階'] = {
              same: ['都表示程度'] },
       check: {
         q: 'underestimate 這個字的意思是什麼？',
-        options: ['低估', '高估', '正確評估', '不評估'],
-        answer: 0,
+        options: ['高估', '正確評估', '不評估', '低估'],
+        answer: 3,
         why: [
-          null,
           '高估是 overestimate。',
           '字首 under 表示不足。',
-          '這個字仍然包含評估的意思。'
+          '這個字仍然包含評估的意思。',
+          null
         ]
       }
     },
@@ -27530,17 +27530,17 @@ window.APP_LESSONS['english|十下|第7單元 字根字首進階'] = {
       check: {
         q: '用字根推測字義之後，還應該做什麼？',
         options: [
-          '把推測的意思代回句子驗證是否合理',
-          '直接當作答案',
           '再查一次字根表',
-          '換一個字根重猜'
+          '換一個字根重猜',
+          '把推測的意思代回句子驗證是否合理',
+          '直接當作答案'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '字根推測不一定精確，需要驗證。',
           '重查字根表不能確認在句中的意思。',
-          '沒有驗證就重猜只是繞圈子。'
+          '沒有驗證就重猜只是繞圈子。',
+          null,
+          '字根推測不一定精確，需要驗證。'
         ]
       }
     }
@@ -27560,17 +27560,17 @@ window.APP_LESSONS['english|十下|第8單元 閱讀：推論與態度'] = {
       check: {
         q: '合理推論與過度推論的差別在哪裡？',
         options: [
+          '前者出現在文章開頭',
           '前者有文本線索支持，後者只是個人想像',
           '前者比較短',
-          '前者用比較多生字',
-          '前者出現在文章開頭'
+          '前者用比較多生字'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '推論的依據可能分散在全文各處。',
           null,
           '推論的長短與是否合理無關。',
-          '用字難易與推論的合理性無關。',
-          '推論的依據可能分散在全文各處。'
+          '用字難易與推論的合理性無關。'
         ]
       }
     },
@@ -27610,17 +27610,17 @@ window.APP_LESSONS['english|十下|第8單元 閱讀：推論與態度'] = {
       check: {
         q: '作者列出數據但完全不評價，這是什麼態度？',
         options: [
-          'objective 客觀的',
           'critical 批判的',
           'enthusiastic 熱情的',
-          'pessimistic 悲觀的'
+          'pessimistic 悲觀的',
+          'objective 客觀的'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '批判態度會出現負面評價。',
           '熱情態度會出現讚賞的用語。',
-          '悲觀態度會出現負面的預測。'
+          '悲觀態度會出現負面的預測。',
+          null
         ]
       }
     },
@@ -27633,17 +27633,17 @@ window.APP_LESSONS['english|十下|第8單元 閱讀：推論與態度'] = {
       check: {
         q: '文章寫 Some people believe X. However, the evidence suggests Y. 作者的立場是什麼？',
         options: [
-          '傾向 Y',
-          '傾向 X',
           '兩者都支持',
-          '兩者都反對'
+          '兩者都反對',
+          '傾向 Y',
+          '傾向 X'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'X 是別人的觀點，後面被轉折了。',
           'However 表示作者做了取捨。',
-          '作者用證據支持了其中一方。'
+          '作者用證據支持了其中一方。',
+          null,
+          'X 是別人的觀點，後面被轉折了。'
         ]
       }
     },
@@ -27686,17 +27686,17 @@ window.APP_LESSONS['english|十下|第8單元 閱讀：推論與態度'] = {
       check: {
         q: '推論題中，哪一類選項通常是錯的？',
         options: [
+          '和文章的語氣一致',
           '講得太滿、超出文章能支持的範圍',
           '講得比較保守',
-          '有文章句子支持',
-          '和文章的語氣一致'
+          '有文章句子支持'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '語氣一致是合理推論的線索。',
           null,
           '保守的選項通常較容易找到依據。',
-          '有依據正是正確選項的特徵。',
-          '語氣一致是合理推論的線索。'
+          '有依據正是正確選項的特徵。'
         ]
       }
     }
@@ -27743,17 +27743,17 @@ window.APP_LESSONS['english|十下|第9單元 寫作：段落發展'] = {
       check: {
         q: '舉完例子之後，最重要的一步是什麼？',
         options: [
+          '重複主題句',
           '說明這個例子如何支持你的論點',
           '再舉一個例子',
-          '換下一段',
-          '重複主題句'
+          '換下一段'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '單純重複無法推進論述。',
           null,
           '例子多不代表論述有力。',
-          '沒有分析就換段會讓論述斷裂。',
-          '單純重複無法推進論述。'
+          '沒有分析就換段會讓論述斷裂。'
         ]
       }
     },
@@ -27770,17 +27770,17 @@ window.APP_LESSONS['english|十下|第9單元 寫作：段落發展'] = {
       check: {
         q: '下列哪一個句子比較有說服力？',
         options: [
-          'Students who sleep seven hours score higher on tests.',
           'Sleep is very important for students.',
           'Sleep is good.',
-          'Everyone knows sleep matters.'
+          'Everyone knows sleep matters.',
+          'Students who sleep seven hours score higher on tests.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這句太抽象，沒有具體資訊。',
           '這句過於籠統，沒有提供任何證據。',
-          '訴諸「大家都知道」不是證據。'
+          '訴諸「大家都知道」不是證據。',
+          null
         ]
       }
     },
@@ -27797,17 +27797,17 @@ window.APP_LESSONS['english|十下|第9單元 寫作：段落發展'] = {
       check: {
         q: '一個段落寫得太長，通常代表什麼問題？',
         options: [
-          '裡面塞了不只一個重點，應該拆開',
-          '字太大',
           '用了太多逗號',
-          '主題句太短'
+          '主題句太短',
+          '裡面塞了不只一個重點，應該拆開',
+          '字太大'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '版面問題與段落結構無關。',
           '標點數量不是判斷的依據。',
-          '主題句的長度與段落過長無關。'
+          '主題句的長度與段落過長無關。',
+          null,
+          '版面問題與段落結構無關。'
         ]
       }
     },
@@ -27823,17 +27823,17 @@ window.APP_LESSONS['english|十下|第9單元 寫作：段落發展'] = {
       check: {
         q: '好的段落過渡句應該做什麼？',
         options: [
+          '直接跳到新主題不做連接',
           '同時回顧上一段並帶出這一段的重點',
           '完全重複上一段的內容',
-          '只寫一個轉折詞',
-          '直接跳到新主題不做連接'
+          '只寫一個轉折詞'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '沒有連接會讓讀者跟不上。',
           null,
           '重複不能推進論述。',
-          '只有轉折詞不足以說明邏輯關係。',
-          '沒有連接會讓讀者跟不上。'
+          '只有轉折詞不足以說明邏輯關係。'
         ]
       }
     },
@@ -27881,17 +27881,17 @@ window.APP_LESSONS['english|十一上|第1單元 不定詞與動名詞'] = {
       check: {
         q: '為什麼 want、hope、plan 後面接不定詞？',
         options: [
-          '因為這些動詞都指向還沒發生的事',
           '因為它們比較短',
           '因為它們是及物動詞',
-          '因為它們都是規則動詞'
+          '因為它們都是規則動詞',
+          '因為這些動詞都指向還沒發生的事'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '字的長度與搭配無關。',
           '及物與否不決定後面接什麼。',
-          '規則與不規則和這個搭配無關。'
+          '規則與不規則和這個搭配無關。',
+          null
         ]
       }
     },
@@ -27909,17 +27909,17 @@ window.APP_LESSONS['english|十一上|第1單元 不定詞與動名詞'] = {
       check: {
         q: 'I remember locking the door. 這句話的意思是什麼？',
         options: [
+          '我正在鎖門',
           '我記得自己鎖過門了',
           '我記得等一下要鎖門',
-          '我忘記鎖門了',
-          '我正在鎖門'
+          '我忘記鎖門了'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這句不是進行式。',
           null,
           '記得要去做會用 remember to lock。',
-          '句子表達的是記得而不是忘記。',
-          '這句不是進行式。'
+          '句子表達的是記得而不是忘記。'
         ]
       }
     },
@@ -27932,13 +27932,13 @@ window.APP_LESSONS['english|十一上|第1單元 不定詞與動名詞'] = {
         { label: '只接動名詞', items: ['enjoy', 'avoid', 'suggest', 'consider', 'deny', 'postpone'] }] },
       check: {
         q: 'She suggested ___ a break. 空格要填什麼？',
-        options: ['taking', 'to take', 'take', 'takes'],
-        answer: 0,
+        options: ['take', 'takes', 'taking', 'to take'],
+        answer: 2,
         why: [
-          null,
-          'suggest 後面不接不定詞。',
           'suggest 後面不直接接原形動詞。',
-          '這個形式不能接在 suggested 後面。'
+          '這個形式不能接在 suggested 後面。',
+          null,
+          'suggest 後面不接不定詞。'
         ]
       }
     },
@@ -27977,17 +27977,17 @@ window.APP_LESSONS['english|十一上|第1單元 不定詞與動名詞'] = {
       check: {
         q: '在正式寫作中，動名詞前面的主詞應該用哪一種形式？',
         options: [
-          '所有格，例如 his、their',
-          '主格，例如 he、they',
           '受格，例如 him、them',
-          '不能有主詞'
+          '不能有主詞',
+          '所有格，例如 his、their',
+          '主格，例如 he、they'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '主格不用在動名詞前面。',
           '受格用於口語，正式寫作偏好所有格。',
-          '動名詞可以帶自己的主詞。'
+          '動名詞可以帶自己的主詞。',
+          null,
+          '主格不用在動名詞前面。'
         ]
       }
     },
@@ -28003,17 +28003,17 @@ window.APP_LESSONS['english|十一上|第1單元 不定詞與動名詞'] = {
       check: {
         q: 'This book is easy to read. 這裡的不定詞在做什麼？',
         options: [
-          '修飾前面的形容詞 easy',
           '當句子的主詞',
           '表示目的',
-          '修飾名詞 book'
+          '修飾名詞 book',
+          '修飾前面的形容詞 easy'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '句子的主詞是 this book。',
           '這裡不是在說明為什麼要做某事。',
-          '不定詞緊接在形容詞後面。'
+          '不定詞緊接在形容詞後面。',
+          null
         ]
       }
     }
@@ -28032,17 +28032,17 @@ window.APP_LESSONS['english|十一上|第2單元 情態助動詞'] = {
       check: {
         q: '下列哪一句表達的確定程度最高？',
         options: [
-          'He must be at home.',
-          'He might be at home.',
           'He could be at home.',
-          'He may be at home.'
+          'He may be at home.',
+          'He must be at home.',
+          'He might be at home.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'might 表示可能性較低。',
           'could 表示不確定的推測。',
-          'may 的確定程度低於 must。'
+          'may 的確定程度低於 must。',
+          null,
+          'might 表示可能性較低。'
         ]
       }
     },
@@ -28084,17 +28084,17 @@ window.APP_LESSONS['english|十一上|第2單元 情態助動詞'] = {
       check: {
         q: 'Could you help me? 這裡的 could 表示什麼？',
         options: [
-          '讓請求的語氣更委婉',
           '表示過去的能力',
           '表示不可能',
-          '表示必須'
+          '表示必須',
+          '讓請求的語氣更委婉'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這裡不是在講過去的事。',
           'could 在請求句中不表示否定。',
-          '必須要用 must 或 have to。'
+          '必須要用 must 或 have to。',
+          null
         ]
       }
     },
@@ -28112,17 +28112,17 @@ window.APP_LESSONS['english|十一上|第2單元 情態助動詞'] = {
       check: {
         q: '下列哪一句不正確？',
         options: [
+          'She used to be shy.',
           'I would live in Tainan when I was young.',
           'I used to live in Tainan.',
-          'We would go camping every summer.',
-          'She used to be shy.'
+          'We would go camping every summer.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '狀態用 used to 是正確的。',
           null,
           '狀態用 used to 是正確的。',
-          '反覆的動作可以用 would。',
-          '狀態用 used to 是正確的。'
+          '反覆的動作可以用 would。'
         ]
       }
     },
@@ -28138,17 +28138,17 @@ window.APP_LESSONS['english|十一上|第2單元 情態助動詞'] = {
       check: {
         q: '「明年我就必須自己開車了」的正確說法是什麼？',
         options: [
-          'I will have to drive by myself next year.',
           'I will must drive by myself next year.',
           'I will can drive by myself next year.',
-          'I musted drive by myself next year.'
+          'I musted drive by myself next year.',
+          'I will have to drive by myself next year.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '兩個助動詞不能連用。',
           '兩個助動詞不能連用。',
-          '助動詞沒有過去式的變化形。'
+          '助動詞沒有過去式的變化形。',
+          null
         ]
       }
     },
@@ -28166,17 +28166,17 @@ window.APP_LESSONS['english|十一上|第2單元 情態助動詞'] = {
       check: {
         q: '學術寫作為什麼常用 may、suggest 這類保留的說法？',
         options: [
-          '避免把話說死，讓論述更嚴謹可信',
-          '因為作者不確定自己在寫什麼',
           '因為這些字比較短',
-          '因為規定不能用肯定句'
+          '因為規定不能用肯定句',
+          '避免把話說死，讓論述更嚴謹可信',
+          '因為作者不確定自己在寫什麼'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '保留的語氣是嚴謹而不是心虛。',
           '字的長度不是考量。',
-          '學術寫作可以用肯定句，只是要有依據。'
+          '學術寫作可以用肯定句，只是要有依據。',
+          null,
+          '保留的語氣是嚴謹而不是心虛。'
         ]
       }
     }
@@ -28217,17 +28217,17 @@ window.APP_LESSONS['english|十一上|第3單元 助動詞 + 完成式'] = {
       check: {
         q: 'He looks exhausted. He must have worked all night. 這句在做什麼？',
         options: [
+          '預測他明天會工作',
           '根據他現在的樣子推測他昨晚的行為',
           '命令他去工作',
-          '描述他現在正在工作',
-          '預測他明天會工作'
+          '描述他現在正在工作'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這句講的不是未來。',
           null,
           '這句是推測，不是在命令他做事。',
-          'must have 講的是過去的事。',
-          '這句講的不是未來。'
+          'must have 講的是過去的事。'
         ]
       }
     },
@@ -28244,17 +28244,17 @@ window.APP_LESSONS['english|十一上|第3單元 助動詞 + 完成式'] = {
       check: {
         q: 'You should have studied harder. 這句話的意思是什麼？',
         options: [
-          '你當時應該更用功，但你沒有',
           '你現在應該更用功',
           '你以後要更用功',
-          '你已經很用功了'
+          '你已經很用功了',
+          '你當時應該更用功，但你沒有'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這個句型講的是過去。',
           '這個句型不是在說未來。',
-          '這句帶有責備的意味。'
+          '這句帶有責備的意味。',
+          null
         ]
       }
     },
@@ -28266,17 +28266,17 @@ window.APP_LESSONS['english|十一上|第3單元 助動詞 + 完成式'] = {
       check: {
         q: '想表達「他可能已經走了，但我不確定」，哪一個最合適？',
         options: [
-          'He may have left.',
-          'He must have left.',
           'He should have left.',
-          'He can have left.'
+          'He can have left.',
+          'He may have left.',
+          'He must have left.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'must have 表示很確定。',
           'should have 帶有遺憾或責備。',
-          '這個組合在肯定句中不自然。'
+          '這個組合在肯定句中不自然。',
+          null,
+          'must have 表示很確定。'
         ]
       }
     },
@@ -28293,17 +28293,17 @@ window.APP_LESSONS['english|十一上|第3單元 助動詞 + 完成式'] = {
       check: {
         q: 'She could have gone to Harvard. 這句話暗示什麼？',
         options: [
+          '她不可能去哈佛',
           '她有機會去但最後沒有去',
           '她去了哈佛',
-          '她明年要去哈佛',
-          '她不可能去哈佛'
+          '她明年要去哈佛'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這句表示她本來是有機會的。',
           null,
           '這個句型暗示事情沒有發生。',
-          '這句講的是過去而不是未來。',
-          '這句表示她本來是有機會的。'
+          '這句講的是過去而不是未來。'
         ]
       }
     },
@@ -28320,17 +28320,17 @@ window.APP_LESSONS['english|十一上|第3單元 助動詞 + 完成式'] = {
       check: {
         q: '「他不可能看過那部電影」的正確說法是什麼？',
         options: [
-          'He can’t have seen that movie.',
-          'He mustn’t have seen that movie.',
           'He doesn’t have seen that movie.',
-          'He can’t saw that movie.'
+          'He can’t saw that movie.',
+          'He can’t have seen that movie.',
+          'He mustn’t have seen that movie.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'mustn’t 表示禁止而不是否定推測。',
           '這個結構不符合英文文法。',
-          '助動詞後面要接原形的 have。'
+          '助動詞後面要接原形的 have。',
+          null,
+          'mustn’t 表示禁止而不是否定推測。'
         ]
       }
     }
@@ -28351,17 +28351,17 @@ window.APP_LESSONS['english|十一上|第4單元 冠詞與限定詞'] = {
       check: {
         q: '決定要不要加冠詞，第一步要判斷什麼？',
         options: [
-          '這個名詞是可數還是不可數',
-          '這個字有幾個音節',
           '這個字是不是外來語',
-          '句子有多長'
+          '句子有多長',
+          '這個名詞是可數還是不可數',
+          '這個字有幾個音節'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '音節數與冠詞無關。',
           '字的來源不影響冠詞的選擇。',
-          '句子長度與冠詞無關。'
+          '句子長度與冠詞無關。',
+          null,
+          '音節數與冠詞無關。'
         ]
       }
     },
@@ -28405,13 +28405,13 @@ window.APP_LESSONS['english|十一上|第4單元 冠詞與限定詞'] = {
         { label: '不用 the', items: ['泛指複數', '泛指不可數', '專有名詞'] }] },
       check: {
         q: 'She is ___ tallest girl in the class. 空格要填什麼？',
-        options: ['the', 'a', 'an', '不填'],
-        answer: 0,
+        options: ['不填', 'the', 'a', 'an'],
+        answer: 1,
         why: [
+          '最高級前面不能省略冠詞。',
           null,
           '最高級前面要用定冠詞。',
-          '最高級前面要用定冠詞。',
-          '最高級前面不能省略冠詞。'
+          '最高級前面要用定冠詞。'
         ]
       }
     },
@@ -28430,17 +28430,17 @@ window.APP_LESSONS['english|十一上|第4單元 冠詞與限定詞'] = {
       check: {
         q: 'go to bed 和 go to the bed 的差別是什麼？',
         options: [
-          '前者是去睡覺，後者是走到那張床邊',
           '兩者意思完全相同',
           '前者是錯的用法',
-          '後者是錯的用法'
+          '後者是錯的用法',
+          '前者是去睡覺，後者是走到那張床邊'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '加不加冠詞會改變意思。',
           'go to bed 是正確的固定片語。',
-          'go to the bed 在特定情境下也成立。'
+          'go to the bed 在特定情境下也成立。',
+          null
         ]
       }
     },
@@ -28458,17 +28458,17 @@ window.APP_LESSONS['english|十一上|第4單元 冠詞與限定詞'] = {
       check: {
         q: 'He has few friends. 這句話的意思是什麼？',
         options: [
-          '他幾乎沒有朋友',
           '他有一些朋友',
           '他有很多朋友',
-          '他沒有任何朋友'
+          '他沒有任何朋友',
+          '他幾乎沒有朋友'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '有一些要說 a few。',
           '很多要用 many。',
-          'few 表示很少而不是完全沒有。'
+          'few 表示很少而不是完全沒有。',
+          null
         ]
       }
     },
@@ -28482,17 +28482,17 @@ window.APP_LESSONS['english|十一上|第4單元 冠詞與限定詞'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'I need some information about the course.',
-          'I need some informations about the course.',
           'I need a information about the course.',
-          'I need informations about the course.'
+          'I need informations about the course.',
+          'I need some information about the course.',
+          'I need some informations about the course.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'information 是不可數名詞，不加 s。',
           '不可數名詞前面不加冠詞 a。',
-          '不可數名詞沒有複數形。'
+          '不可數名詞沒有複數形。',
+          null,
+          'information 是不可數名詞，不加 s。'
         ]
       }
     }
@@ -28516,17 +28516,17 @@ window.APP_LESSONS['english|十一上|第5單元 介系詞片語'] = {
       check: {
         q: 'The man in the blue shirt is my teacher. 這裡的介系詞片語在做什麼？',
         options: [
+          '當句子的受詞',
           '修飾名詞 man',
           '當句子的主詞',
-          '修飾動詞 is',
-          '當句子的受詞'
+          '修飾動詞 is'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個句子沒有受詞。',
           null,
           '句子的主詞是 the man。',
-          '這個片語說明的是哪一個人。',
-          '這個句子沒有受詞。'
+          '這個片語說明的是哪一個人。'
         ]
       }
     },
@@ -28542,13 +28542,13 @@ window.APP_LESSONS['english|十一上|第5單元 介系詞片語'] = {
         { label: '搭配 to', items: ['refer to', 'object to', 'contribute to'] }] },
       check: {
         q: 'The success depends ___ your effort. 空格要填什麼？',
-        options: ['on', 'of', 'to', 'in'],
-        answer: 0,
+        options: ['of', 'to', 'in', 'on'],
+        answer: 3,
         why: [
-          null,
           'depend 不搭配 of。',
           'depend 不搭配 to。',
-          'depend 不搭配 in。'
+          'depend 不搭配 in。',
+          null
         ]
       }
     },
@@ -28564,13 +28564,13 @@ window.APP_LESSONS['english|十一上|第5單元 介系詞片語'] = {
         { label: '搭配 to／from', items: ['similar to', 'different from'] }] },
       check: {
         q: 'This result is different ___ what we expected. 空格要填什麼？',
-        options: ['from', 'to', 'with', 'of'],
-        answer: 0,
+        options: ['with', 'of', 'from', 'to'],
+        answer: 2,
         why: [
-          null,
-          'different 的標準搭配是 from。',
           'different 一般不搭配 with。',
-          'different 不搭配 of。'
+          'different 不搭配 of。',
+          null,
+          'different 的標準搭配是 from。'
         ]
       }
     },
@@ -28627,17 +28627,17 @@ window.APP_LESSONS['english|十一上|第5單元 介系詞片語'] = {
       check: {
         q: '學習介系詞搭配時，最該避免的做法是什麼？',
         options: [
-          '從中文直接翻譯猜介系詞',
-          '把搭配放在句子裡記',
           '查搭配詞字典',
-          '把同一介系詞的搭配整理在一起'
+          '把同一介系詞的搭配整理在一起',
+          '從中文直接翻譯猜介系詞',
+          '把搭配放在句子裡記'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '放在句子裡記是有效的方法。',
           '查字典可以確認正確的搭配。',
-          '分類整理有助於記憶。'
+          '分類整理有助於記憶。',
+          null,
+          '放在句子裡記是有效的方法。'
         ]
       }
     }
@@ -28656,13 +28656,13 @@ window.APP_LESSONS['english|十一上|第6單元 名詞化與正式語體'] = {
       viz: { type: 'energyflow', steps: ['動詞 develop', '名詞化 development', '句子變抽象', '語體變正式'] },
       check: {
         q: 'analyze 名詞化之後是哪一個字？',
-        options: ['analysis', 'analytical', 'analytically', 'analyzed'],
-        answer: 0,
+        options: ['analyzed', 'analysis', 'analytical', 'analytically'],
+        answer: 1,
         why: [
+          'analyzed 是過去式或過去分詞。',
           null,
           'analytical 是形容詞。',
-          'analytically 是副詞。',
-          'analyzed 是過去式或過去分詞。'
+          'analytically 是副詞。'
         ]
       }
     },
@@ -28679,17 +28679,17 @@ window.APP_LESSONS['english|十一上|第6單元 名詞化與正式語體'] = {
       check: {
         q: '名詞化在學術寫作中的主要作用是什麼？',
         options: [
-          '提高資訊密度，讓語體更正式',
           '讓句子變得更長',
           '讓文章更容易讀',
-          '避免使用動詞'
+          '避免使用動詞',
+          '提高資訊密度，讓語體更正式'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '名詞化通常讓句子更精簡。',
           '過度名詞化反而更難讀。',
-          '句子仍然需要動詞。'
+          '句子仍然需要動詞。',
+          null
         ]
       }
     },
@@ -28734,13 +28734,13 @@ window.APP_LESSONS['english|十一上|第6單元 名詞化與正式語體'] = {
              same: ['意思相同'] },
       check: {
         q: '在正式的學術寫作中，find out 比較好的替代說法是什麼？',
-        options: ['discover', 'figure out', 'check out', 'look up'],
-        answer: 0,
+        options: ['check out', 'look up', 'discover', 'figure out'],
+        answer: 2,
         why: [
-          null,
-          'figure out 同樣是口語的片語動詞。',
           'check out 是口語用法。',
-          'look up 是口語的片語動詞。'
+          'look up 是口語的片語動詞。',
+          null,
+          'figure out 同樣是口語的片語動詞。'
         ]
       }
     },
@@ -28780,17 +28780,17 @@ window.APP_LESSONS['english|十一上|第6單元 名詞化與正式語體'] = {
       check: {
         q: '一篇學術報告裡出現 kind of、a lot of 這類詞，問題是什麼？',
         options: [
+          '缺少標點',
           '語體不一致，口語詞破壞了正式感',
           '文法錯誤',
-          '字數不足',
-          '缺少標點'
+          '字數不足'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '標點與語體選擇是兩回事。',
           null,
           '這些詞本身文法沒有錯。',
-          '語體問題與字數無關。',
-          '標點與語體選擇是兩回事。'
+          '語體問題與字數無關。'
         ]
       }
     }
@@ -28813,13 +28813,13 @@ window.APP_LESSONS['english|十一上|第7單元 搭配詞'] = {
              same: ['文法上都說得通'] },
       check: {
         q: '「大雨」的正確搭配是什麼？',
-        options: ['heavy rain', 'big rain', 'strong rain', 'large rain'],
-        answer: 0,
+        options: ['strong rain', 'large rain', 'heavy rain', 'big rain'],
+        answer: 2,
         why: [
-          null,
-          '英文不用 big 形容雨勢。',
           'strong 用於風而不是雨。',
-          'large 用於體積大小。'
+          'large 用於體積大小。',
+          null,
+          '英文不用 big 形容雨勢。'
         ]
       }
     },
@@ -28834,13 +28834,13 @@ window.APP_LESSONS['english|十一上|第7單元 搭配詞'] = {
         { label: 'do', items: ['do homework', 'do research', 'do business'] }] },
       check: {
         q: '「做研究」的正確搭配是什麼？',
-        options: ['do research', 'make research', 'take research', 'have research'],
-        answer: 0,
+        options: ['have research', 'do research', 'make research', 'take research'],
+        answer: 1,
         why: [
+          'have 不與 research 搭配。',
           null,
           'research 搭配的是 do 而不是 make。',
-          'take 不與 research 搭配。',
-          'have 不與 research 搭配。'
+          'take 不與 research 搭配。'
         ]
       }
     },
@@ -28856,13 +28856,13 @@ window.APP_LESSONS['english|十一上|第7單元 搭配詞'] = {
         { label: 'give', items: ['give a speech', 'give advice'] }] },
       check: {
         q: '「發表演說」的正確搭配是什麼？',
-        options: ['give a speech', 'do a speech', 'make a speech to say', 'take a speech'],
-        answer: 0,
+        options: ['do a speech', 'make a speech to say', 'take a speech', 'give a speech'],
+        answer: 3,
         why: [
-          null,
           'speech 不與 do 搭配。',
           '這個說法多餘而且不自然。',
-          'take 不與 speech 搭配。'
+          'take 不與 speech 搭配。',
+          null
         ]
       }
     },
@@ -28904,17 +28904,17 @@ window.APP_LESSONS['english|十一上|第7單元 搭配詞'] = {
       check: {
         q: '「強烈建議」的正確搭配是什麼？',
         options: [
-          'strongly recommend',
           'very recommend',
           'highly recommend it very',
-          'big recommend'
+          'big recommend',
+          'strongly recommend'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'very 不能直接修飾動詞。',
           '這個說法重複且不自然。',
-          'big 不能當副詞修飾動詞。'
+          'big 不能當副詞修飾動詞。',
+          null
         ]
       }
     },
@@ -28929,17 +28929,17 @@ window.APP_LESSONS['english|十一上|第7單元 搭配詞'] = {
       check: {
         q: '寫作時不確定某個搭配對不對，最好怎麼辦？',
         options: [
+          '避免使用任何動詞',
           '查證，或換一個自己有把握的說法',
           '照中文直譯寫下去',
-          '用最長的字',
-          '避免使用任何動詞'
+          '用最長的字'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句子不可能不用動詞。',
           null,
           '直譯正是搭配錯誤的主因。',
-          '字的長短與正確性無關。',
-          '句子不可能不用動詞。'
+          '字的長短與正確性無關。'
         ]
       }
     }
@@ -28958,17 +28958,17 @@ window.APP_LESSONS['english|十一上|第8單元 長句解析'] = {
       check: {
         q: '拆解長句的第一步應該做什麼？',
         options: [
-          '找出主要子句的動詞',
           '查每一個生字',
           '從句尾往前讀',
-          '數句子有幾個逗號'
+          '數句子有幾個逗號',
+          '找出主要子句的動詞'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '先查生字容易迷失在細節裡。',
           '倒著讀不會讓結構變清楚。',
-          '逗號數量不代表結構。'
+          '逗號數量不代表結構。',
+          null
         ]
       }
     },
@@ -28984,13 +28984,13 @@ window.APP_LESSONS['english|十一上|第8單元 長句解析'] = {
         note: '框掉修飾成分後骨幹就清楚了。' },
       check: {
         q: 'The students who passed the exam were happy. 這句的主要動詞是哪一個？',
-        options: ['were', 'passed', 'who', 'happy'],
-        answer: 0,
+        options: ['who', 'happy', 'were', 'passed'],
+        answer: 2,
         why: [
-          null,
-          'passed 是關係子句裡的動詞。',
           'who 是關係代名詞而不是動詞。',
-          'happy 是形容詞。'
+          'happy 是形容詞。',
+          null,
+          'passed 是關係子句裡的動詞。'
         ]
       }
     },
@@ -29005,17 +29005,17 @@ window.APP_LESSONS['english|十一上|第8單元 長句解析'] = {
       check: {
         q: '看到 although 開頭的部分，代表什麼？',
         options: [
+          '這是一個名詞片語',
           '這是一個附屬子句，不是句子的骨幹',
           '這是句子的主要子句',
-          '句子結束了',
-          '這是一個名詞片語'
+          '句子結束了'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'although 引導的是子句而不是名詞片語。',
           null,
           '附屬連接詞帶出的不是主要子句。',
-          'although 通常出現在句子中間或開頭。',
-          'although 引導的是子句而不是名詞片語。'
+          'although 通常出現在句子中間或開頭。'
         ]
       }
     },
@@ -29055,17 +29055,17 @@ window.APP_LESSONS['english|十一上|第8單元 長句解析'] = {
       check: {
         q: 'What the researchers discovered in the experiment surprised everyone. 這句為什麼長？',
         options: [
-          '因為主詞是一個很長的名詞子句',
-          '因為有很多形容詞',
           '因為用了被動語態',
-          '因為有兩個主要動詞'
+          '因為有兩個主要動詞',
+          '因為主詞是一個很長的名詞子句',
+          '因為有很多形容詞'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '句中的形容詞其實很少。',
           '這句用的是主動語態。',
-          '主要動詞只有 surprised 一個。'
+          '主要動詞只有 surprised 一個。',
+          null,
+          '句中的形容詞其實很少。'
         ]
       }
     },
@@ -29113,17 +29113,17 @@ window.APP_LESSONS['english|十一上|第9單元 主題句與論點'] = {
       check: {
         q: '下列哪一句比較適合當論點？',
         options: [
+          'Exams are a kind of assessment.',
           'Schools should replace exams with project-based assessment.',
           'Many schools give exams.',
-          'Exams exist in every country.',
-          'Exams are a kind of assessment.'
+          'Exams exist in every country.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這是定義而不是主張。',
           null,
           '這只是描述現況，沒有立場。',
-          '這是事實陳述，沒有爭議。',
-          '這是定義而不是主張。'
+          '這是事實陳述，沒有爭議。'
         ]
       }
     },
@@ -29161,17 +29161,17 @@ window.APP_LESSONS['english|十一上|第9單元 主題句與論點'] = {
       check: {
         q: '論點裡列出三個面向的好處，通常代表什麼？',
         options: [
-          '文章主體會有三個對應的段落',
-          '文章只需要一段',
           '文章要寫三千字',
-          '文章不需要結論'
+          '文章不需要結論',
+          '文章主體會有三個對應的段落',
+          '文章只需要一段'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '三個面向需要各自展開。',
           '面向的數量與字數沒有直接關係。',
-          '議論文仍然需要結論。'
+          '議論文仍然需要結論。',
+          null,
+          '三個面向需要各自展開。'
         ]
       }
     },
@@ -29185,17 +29185,17 @@ window.APP_LESSONS['english|十一上|第9單元 主題句與論點'] = {
       check: {
         q: '檢查文章有沒有離題，最快的方法是什麼？',
         options: [
-          '把各段主題句抽出來，看是否都呼應論點',
           '數總字數',
           '看有沒有錯字',
-          '看段落數量夠不夠'
+          '看段落數量夠不夠',
+          '把各段主題句抽出來，看是否都呼應論點'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '字數與是否離題無關。',
           '錯字是校對問題而不是結構問題。',
-          '段落多寡不代表切題。'
+          '段落多寡不代表切題。',
+          null
         ]
       }
     },
@@ -29233,17 +29233,17 @@ window.APP_LESSONS['english|十一上|第9單元 主題句與論點'] = {
       check: {
         q: '寫完發現內容和原本的論點不一致，該怎麼辦？',
         options: [
-          '判斷哪一邊比較好，然後修改另一邊使其一致',
           '直接交出去',
           '把不一致的段落全部刪掉',
-          '在結論解釋自己改變了想法'
+          '在結論解釋自己改變了想法',
+          '判斷哪一邊比較好，然後修改另一邊使其一致'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '不一致會讓讀者無法跟上論述。',
           '刪段落不一定是最好的解法。',
-          '議論文不適合在結論才承認前後矛盾。'
+          '議論文不適合在結論才承認前後矛盾。',
+          null
         ]
       }
     }
@@ -29293,13 +29293,13 @@ window.APP_LESSONS['english|十一下|第1單元 虛主詞與虛受詞'] = {
         { label: '後接 that 子句', items: ['It is said that…', 'It seems that…'] }] },
       check: {
         q: 'It is no use ___ over spilt milk. 空格要填什麼？',
-        options: ['crying', 'to cry', 'cry', 'cried'],
-        answer: 0,
+        options: ['to cry', 'cry', 'cried', 'crying'],
+        answer: 3,
         why: [
-          null,
           '這個句型後面接動名詞。',
           '這個句型不接原形動詞。',
-          '這個句型不接過去式。'
+          '這個句型不接過去式。',
+          null
         ]
       }
     },
@@ -29316,17 +29316,17 @@ window.APP_LESSONS['english|十一下|第1單元 虛主詞與虛受詞'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
+          'I find that hard to believe it.',
           'I find it hard to believe.',
           'I find hard to believe.',
-          'I find to believe hard.',
-          'I find that hard to believe it.'
+          'I find to believe hard.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句尾多了一個多餘的 it。',
           null,
           '這個句型需要虛受詞 it。',
-          '這個語序不符合英文結構。',
-          '句尾多了一個多餘的 it。'
+          '這個語序不符合英文結構。'
         ]
       }
     },
@@ -29344,17 +29344,17 @@ window.APP_LESSONS['english|十一下|第1單元 虛主詞與虛受詞'] = {
       check: {
         q: '英文為什麼偏好把長的成分放在句尾？',
         options: [
-          '讓讀者先掌握句子的結構，再處理複雜的內容',
-          '因為句尾比較好看',
           '因為文法規定',
-          '因為句首不能放名詞'
+          '因為句首不能放名詞',
+          '讓讀者先掌握句子的結構，再處理複雜的內容',
+          '因為句尾比較好看'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這是訊息處理的考量而不是美觀。',
           '長主詞在文法上也是允許的。',
-          '句首當然可以放名詞。'
+          '句首當然可以放名詞。',
+          null,
+          '這是訊息處理的考量而不是美觀。'
         ]
       }
     },
@@ -29372,17 +29372,17 @@ window.APP_LESSONS['english|十一下|第1單元 虛主詞與虛受詞'] = {
       check: {
         q: '「教室裡有二十個學生」應該用哪一個句型？',
         options: [
+          'There is twenty students in the classroom.',
           'There are twenty students in the classroom.',
           'It is twenty students in the classroom.',
-          'It has twenty students in the classroom.',
-          'There is twenty students in the classroom.'
+          'It has twenty students in the classroom.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '主詞是複數，要用 there are。',
           null,
           '表示存在要用 there 句型。',
-          '英文表示存在不用 it has。',
-          '主詞是複數，要用 there are。'
+          '英文表示存在不用 it has。'
         ]
       }
     },
@@ -29396,17 +29396,17 @@ window.APP_LESSONS['english|十一下|第1單元 虛主詞與虛受詞'] = {
       check: {
         q: '下列哪一句缺少了必要的虛受詞？',
         options: [
-          'She made clear that she disagreed.',
-          'She made it clear that she disagreed.',
           'It is clear that she disagreed.',
-          'She said clearly that she disagreed.'
+          'She said clearly that she disagreed.',
+          'She made clear that she disagreed.',
+          'She made it clear that she disagreed.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這句有虛受詞 it，結構完整。',
           '這句用的是虛主詞，結構完整。',
-          '這句用副詞修飾動詞，不需要虛受詞。'
+          '這句用副詞修飾動詞，不需要虛受詞。',
+          null,
+          '這句有虛受詞 it，結構完整。'
         ]
       }
     }
@@ -29430,17 +29430,17 @@ window.APP_LESSONS['english|十一下|第2單元 同位語與插入語'] = {
       check: {
         q: 'Ms. Lin, our English teacher, is retiring. 這裡的 our English teacher 是什麼？',
         options: [
-          '同位語，補充說明 Ms. Lin',
           '句子的主詞',
           '句子的動詞',
-          '關係子句'
+          '關係子句',
+          '同位語，補充說明 Ms. Lin'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '主詞是 Ms. Lin。',
           '動詞是 is retiring。',
-          '關係子句會有自己的動詞。'
+          '關係子句會有自己的動詞。',
+          null
         ]
       }
     },
@@ -29486,17 +29486,17 @@ window.APP_LESSONS['english|十一下|第2單元 同位語與插入語'] = {
       check: {
         q: 'The news that she won spread quickly. 這裡的 that 子句是什麼？',
         options: [
+          '主要子句',
           '同位語子句，說明 news 的內容',
           '關係子句，修飾 news',
-          '副詞子句',
-          '主要子句'
+          '副詞子句'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '主要子句是 The news spread quickly。',
           null,
           '後面的句子完整，不是關係子句。',
-          '副詞子句會表示時間或原因。',
-          '主要子句是 The news spread quickly。'
+          '副詞子句會表示時間或原因。'
         ]
       }
     },
@@ -29511,17 +29511,17 @@ window.APP_LESSONS['english|十一下|第2單元 同位語與插入語'] = {
       check: {
         q: '插入語在句中的標點應該怎麼處理？',
         options: [
-          '兩側用逗號隔開',
-          '不需要任何標點',
           '前面加句號',
-          '用引號括起來'
+          '用引號括起來',
+          '兩側用逗號隔開',
+          '不需要任何標點'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '沒有標點會讓句子難以斷開。',
           '句號會把句子切成兩半。',
-          '引號用於直接引述。'
+          '引號用於直接引述。',
+          null,
+          '沒有標點會讓句子難以斷開。'
         ]
       }
     },
@@ -29535,17 +29535,17 @@ window.APP_LESSONS['english|十一下|第2單元 同位語與插入語'] = {
       check: {
         q: '想強調插入的補充說明，最適合用哪一種標點？',
         options: [
-          '破折號',
-          '括號',
           '逗號',
-          '分號'
+          '分號',
+          '破折號',
+          '括號'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '括號的語氣最弱。',
           '逗號的語氣最平順。',
-          '分號用來連接兩個獨立子句。'
+          '分號用來連接兩個獨立子句。',
+          null,
+          '括號的語氣最弱。'
         ]
       }
     },
@@ -29561,17 +29561,17 @@ window.APP_LESSONS['english|十一下|第2單元 同位語與插入語'] = {
       check: {
         q: '一個句子裡插入太多補充說明會有什麼問題？',
         options: [
+          '無法使用逗號',
           '主要結構被切碎，讀者難以掌握重點',
           '文法一定會錯',
-          '句子會變太短',
-          '無法使用逗號'
+          '句子會變太短'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '插入語本來就需要逗號。',
           null,
           '插入語過多不一定造成文法錯誤。',
-          '插入語只會讓句子變長。',
-          '插入語本來就需要逗號。'
+          '插入語只會讓句子變長。'
         ]
       }
     }
@@ -29594,17 +29594,17 @@ window.APP_LESSONS['english|十一下|第3單元 省略與替代'] = {
       check: {
         q: 'Tom went to Taipei, and Mary to Tainan. 這句省略了什麼？',
         options: [
-          '動詞 went',
           '主詞 Mary',
           '介系詞 to',
-          '連接詞 and'
+          '連接詞 and',
+          '動詞 went'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'Mary 出現在句子裡。',
           'to 出現在句子裡。',
-          'and 出現在句子裡。'
+          'and 出現在句子裡。',
+          null
         ]
       }
     },
@@ -29621,17 +29621,17 @@ window.APP_LESSONS['english|十一下|第3單元 省略與替代'] = {
       check: {
         q: 'She works harder than he does. 這裡的 does 代替什麼？',
         options: [
-          'works hard',
-          'she',
           'harder',
-          'than'
+          'than',
+          'works hard',
+          'she'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'does 代替的是動詞而不是主詞。',
           'does 不代替比較級。',
-          'than 是連接詞，不被代替。'
+          'than 是連接詞，不被代替。',
+          null,
+          'does 代替的是動詞而不是主詞。'
         ]
       }
     },
@@ -29669,13 +29669,13 @@ window.APP_LESSONS['english|十一下|第3單元 省略與替代'] = {
              same: ['都放在 think、hope 這類動詞後面'] },
       check: {
         q: 'Do you think he will pass?— I hope ___.（希望會）空格要填什麼？',
-        options: ['so', 'not', 'it', 'that'],
-        answer: 0,
+        options: ['that', 'so', 'not', 'it'],
+        answer: 1,
         why: [
+          'that 不能單獨放在句尾代替子句。',
           null,
           'not 代替的是否定的內容。',
-          'it 不能這樣代替整個子句。',
-          'that 不能單獨放在句尾代替子句。'
+          'it 不能這樣代替整個子句。'
         ]
       }
     },
@@ -29690,17 +29690,17 @@ window.APP_LESSONS['english|十一下|第3單元 省略與替代'] = {
       check: {
         q: 'I’d love to come, but I can’t. 這句的 to 後面省略了什麼？',
         options: [
-          'come',
-          'love',
           'but',
-          'I'
+          'I',
+          'come',
+          'love'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'love 已經出現在句中。',
           'but 是連接詞，不被省略。',
-          '主詞 I 已經出現。'
+          '主詞 I 已經出現。',
+          null,
+          'love 已經出現在句中。'
         ]
       }
     },
@@ -29714,17 +29714,17 @@ window.APP_LESSONS['english|十一下|第3單元 省略與替代'] = {
       check: {
         q: '什麼情況下不應該省略？',
         options: [
+          '用了連接詞時',
           '省略後讀者無法確定被省略的是什麼',
           '句子太長時',
-          '有兩個主詞時',
-          '用了連接詞時'
+          '有兩個主詞時'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '省略通常就發生在連接詞的句子裡。',
           null,
           '句子長正是省略的好時機。',
-          '兩個主詞常常正好可以省略重複的動詞。',
-          '省略通常就發生在連接詞的句子裡。'
+          '兩個主詞常常正好可以省略重複的動詞。'
         ]
       }
     }
@@ -29748,17 +29748,17 @@ window.APP_LESSONS['english|十一下|第4單元 複合形容詞與名詞片語'
       check: {
         q: '「一個十歲的男孩」的正確寫法是什麼？',
         options: [
+          'a boy ten-years-old',
           'a ten-year-old boy',
           'a ten-years-old boy',
-          'a ten year old boy',
-          'a boy ten-years-old'
+          'a ten year old boy'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個語序不自然。',
           null,
           '複合形容詞裡的 year 用單數。',
-          '放在名詞前面要加連字號。',
-          '這個語序不自然。'
+          '放在名詞前面要加連字號。'
         ]
       }
     },
@@ -29775,17 +29775,17 @@ window.APP_LESSONS['english|十一下|第4單元 複合形容詞與名詞片語'
       check: {
         q: '「一段兩小時的會議」的正確寫法是什麼？',
         options: [
-          'a two-hour meeting',
-          'a two-hours meeting',
           'a two hour meeting',
-          'a meeting of two-hours'
+          'a meeting of two-hours',
+          'a two-hour meeting',
+          'a two-hours meeting'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '複合形容詞裡的名詞用單數。',
           '複合形容詞要加連字號。',
-          '這個說法不自然。'
+          '這個說法不自然。',
+          null,
+          '複合形容詞裡的名詞用單數。'
         ]
       }
     },
@@ -29802,13 +29802,13 @@ window.APP_LESSONS['english|十一下|第4單元 複合形容詞與名詞片語'
              same: ['都是名詞修飾名詞'] },
       check: {
         q: '「一家鞋店」的正確說法是什麼？',
-        options: ['a shoe shop', 'a shoes shop', 'a shoe’s shop', 'a shoes store’s'],
-        answer: 0,
+        options: ['a shoes shop', 'a shoe’s shop', 'a shoes store’s', 'a shoe shop'],
+        answer: 3,
         why: [
-          null,
           '名詞當形容詞時用單數。',
           '這裡不需要所有格。',
-          '這個寫法不符合英文用法。'
+          '這個寫法不符合英文用法。',
+          null
         ]
       }
     },
@@ -29867,17 +29867,17 @@ window.APP_LESSONS['english|十一下|第4單元 複合形容詞與名詞片語'
       check: {
         q: '名詞片語堆疊太多修飾語時，比較好的處理方式是什麼？',
         options: [
-          '改用關係子句或拆成兩句',
           '再加上更多連字號',
           '把名詞改成複數',
-          '刪掉核心名詞'
+          '刪掉核心名詞',
+          '改用關係子句或拆成兩句'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '連字號不會解決可讀性的問題。',
           '單複數與可讀性無關。',
-          '刪掉核心名詞句子就不完整了。'
+          '刪掉核心名詞句子就不完整了。',
+          null
         ]
       }
     }
@@ -29901,17 +29901,17 @@ window.APP_LESSONS['english|十一下|第5單元 語氣與委婉表達'] = {
       check: {
         q: '不同意對方的看法，比較得體的說法是什麼？',
         options: [
+          'Nonsense.',
           'I see your point, but I have a different view.',
           'That’s totally wrong.',
-          'You don’t understand.',
-          'Nonsense.'
+          'You don’t understand.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個回應非常失禮。',
           null,
           '這個說法過於強硬。',
-          '指責對方不懂會傷害關係。',
-          '這個回應非常失禮。'
+          '指責對方不懂會傷害關係。'
         ]
       }
     },
@@ -29925,17 +29925,17 @@ window.APP_LESSONS['english|十一下|第5單元 語氣與委婉表達'] = {
       check: {
         q: 'I was wondering if you could help me. 這裡用過去式的目的是什麼？',
         options: [
-          '讓請求聽起來更客氣、壓力更小',
-          '表示這件事已經過去了',
           '表示自己不想要幫忙',
-          '表示時間很久以前'
+          '表示時間很久以前',
+          '讓請求聽起來更客氣、壓力更小',
+          '表示這件事已經過去了'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '這裡的過去式不指時間。',
           '句子正是在請求幫忙。',
-          '這與實際的時間無關。'
+          '這與實際的時間無關。',
+          null,
+          '這裡的過去式不指時間。'
         ]
       }
     },
@@ -29978,17 +29978,17 @@ window.APP_LESSONS['english|十一下|第5單元 語氣與委婉表達'] = {
       check: {
         q: '在正式場合指出問題，比較不會造成對立的說法是什麼？',
         options: [
-          'There seems to be a problem with the data.',
           'You messed up the data.',
           'Your data is garbage.',
-          'You are careless.'
+          'You are careless.',
+          'There seems to be a problem with the data.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '直接指責對方容易造成衝突。',
           '這個說法帶有侮辱意味。',
-          '批評人格會讓討論失焦。'
+          '批評人格會讓討論失焦。',
+          null
         ]
       }
     },
@@ -30029,17 +30029,17 @@ window.APP_LESSONS['english|十一下|第5單元 語氣與委婉表達'] = {
       check: {
         q: '過度使用委婉語會造成什麼問題？',
         options: [
-          '讀者看不出作者真正的立場',
-          '文法會出錯',
           '句子會太短',
-          '不能使用被動語態'
+          '不能使用被動語態',
+          '讀者看不出作者真正的立場',
+          '文法會出錯'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '緩和語堆疊不一定造成文法錯誤。',
           '疊字只會讓句子更長。',
-          '被動語態仍然可以使用。'
+          '被動語態仍然可以使用。',
+          null,
+          '緩和語堆疊不一定造成文法錯誤。'
         ]
       }
     }
@@ -30087,17 +30087,17 @@ window.APP_LESSONS['english|十一下|第6單元 標點與句構'] = {
       check: {
         q: '下列哪一句的分號用法正確？',
         options: [
-          'I studied hard; I passed the exam.',
           'I studied hard; and passed the exam.',
           'Because I studied hard; I passed.',
-          'I studied; hard and passed.'
+          'I studied; hard and passed.',
+          'I studied hard; I passed the exam.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '分號後面不接連接詞加不完整的句子。',
           '分號前面必須是完整的句子。',
-          '分號的位置切斷了片語。'
+          '分號的位置切斷了片語。',
+          null
         ]
       }
     },
@@ -30114,17 +30114,17 @@ window.APP_LESSONS['english|十一下|第6單元 標點與句構'] = {
       check: {
         q: '下列哪一句的冒號用法正確？',
         options: [
-          'She has one goal: to win.',
-          'She has: one goal to win.',
           'She: has one goal to win.',
-          'She has one: goal to win.'
+          'She has one: goal to win.',
+          'She has one goal: to win.',
+          'She has: one goal to win.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '冒號前面必須是完整的句子。',
           '冒號不能插在主詞與動詞之間。',
-          '冒號不能插在修飾語中間。'
+          '冒號不能插在修飾語中間。',
+          null,
+          '冒號前面必須是完整的句子。'
         ]
       }
     },
@@ -30141,17 +30141,17 @@ window.APP_LESSONS['english|十一下|第6單元 標點與句構'] = {
       check: {
         q: '下列哪一句的逗號是多餘的？',
         options: [
+          'I like apples, oranges, and grapes.',
           'The students in the class, passed the exam.',
           'After the class, we went home.',
-          'My teacher, Ms. Lin, is kind.',
-          'I like apples, oranges, and grapes.'
+          'My teacher, Ms. Lin, is kind.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '並列項目之間該加逗號。',
           null,
           '句首的片語後面該加逗號。',
-          '同位語兩側該加逗號。',
-          '並列項目之間該加逗號。'
+          '同位語兩側該加逗號。'
         ]
       }
     },
@@ -30167,17 +30167,17 @@ window.APP_LESSONS['english|十一下|第6單元 標點與句構'] = {
       check: {
         q: '下列哪一個寫法正確？',
         options: [
+          'The dog’s wagged it’s tail.',
           'The dog wagged its tail.',
           'The dog wagged it’s tail.',
-          'The dogs’ wagged its tail.',
-          'The dog’s wagged it’s tail.'
+          'The dogs’ wagged its tail.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這句同時用錯了兩個撇號。',
           null,
           'it’s 是 it is 的縮寫。',
-          '這裡的主詞是單數，不用所有格。',
-          '這句同時用錯了兩個撇號。'
+          '這裡的主詞是單數，不用所有格。'
         ]
       }
     },
@@ -30190,17 +30190,17 @@ window.APP_LESSONS['english|十一下|第6單元 標點與句構'] = {
       check: {
         q: '要正確使用標點，最根本的判斷是什麼？',
         options: [
-          '先分辨句子裡有幾個完整的子句以及它們的關係',
-          '看句子有幾個字',
           '看有沒有生難字',
-          '看段落有幾行'
+          '看段落有幾行',
+          '先分辨句子裡有幾個完整的子句以及它們的關係',
+          '看句子有幾個字'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '字數與標點的選擇無關。',
           '用字難易與標點無關。',
-          '版面行數與標點無關。'
+          '版面行數與標點無關。',
+          null,
+          '字數與標點的選擇無關。'
         ]
       }
     }
@@ -30223,13 +30223,13 @@ window.APP_LESSONS['english|十一下|第7單元 同義辨析'] = {
              same: ['核心意思相同'] },
       check: {
         q: '正式的商業書信中，「購買」比較適合用哪一個字？',
-        options: ['purchase', 'buy', 'get', 'grab'],
-        answer: 0,
+        options: ['grab', 'purchase', 'buy', 'get'],
+        answer: 1,
         why: [
+          'grab 非常口語。',
           null,
           'buy 較為日常。',
-          'get 過於口語。',
-          'grab 非常口語。'
+          'get 過於口語。'
         ]
       }
     },
@@ -30242,13 +30242,13 @@ window.APP_LESSONS['english|十一下|第7單元 同義辨析'] = {
       viz: { type: 'energyflow', steps: ['said（中性）', 'suggested（提議）', 'argued（主張）', 'insisted（堅持）'] },
       check: {
         q: '轉述某人「堅決主張」某個看法，最合適的動詞是什麼？',
-        options: ['insisted', 'mentioned', 'noted', 'said'],
-        answer: 0,
+        options: ['mentioned', 'noted', 'said', 'insisted'],
+        answer: 3,
         why: [
-          null,
           'mentioned 只是順帶提到。',
           'noted 是中性的記述。',
-          'said 沒有表達出堅決的態度。'
+          'said 沒有表達出堅決的態度。',
+          null
         ]
       }
     },
@@ -30263,13 +30263,13 @@ window.APP_LESSONS['english|十一下|第7單元 同義辨析'] = {
         { label: 'high（高度、抽象）', items: ['a high mountain', 'high price'] }] },
       check: {
         q: '「高價」的正確說法是什麼？',
-        options: ['a high price', 'a tall price', 'a big price', 'a long price'],
-        answer: 0,
+        options: ['a big price', 'a long price', 'a high price', 'a tall price'],
+        answer: 2,
         why: [
-          null,
-          'tall 用於人或細長的物體。',
           'big 不用來形容價格的高低。',
-          'long 用於長度。'
+          'long 用於長度。',
+          null,
+          'tall 用於人或細長的物體。'
         ]
       }
     },
@@ -30332,17 +30332,17 @@ window.APP_LESSONS['english|十一下|第7單元 同義辨析'] = {
       check: {
         q: '辨析同義字時，為什麼建議查英英字典而不是只看中文翻譯？',
         options: [
+          '英英字典解釋比較短',
           '中文翻譯相同的字，實際用法與搭配可能完全不同',
           '英英字典比較厚',
-          '中文字典都是錯的',
-          '英英字典解釋比較短'
+          '中文字典都是錯的'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '英英字典的解釋通常更詳細。',
           null,
           '字典的厚薄不是重點。',
-          '中文字典有其用處，只是資訊較不完整。',
-          '英英字典的解釋通常更詳細。'
+          '中文字典有其用處，只是資訊較不完整。'
         ]
       }
     }
@@ -30365,13 +30365,13 @@ window.APP_LESSONS['english|十一下|第8單元 圖表與資料題'] = {
         { label: '看比例', items: ['pie chart'] }] },
       check: {
         q: '要呈現各項目占總體的比例，最適合用哪一種圖？',
-        options: ['圓餅圖', '折線圖', '流程圖', '地圖'],
-        answer: 0,
+        options: ['折線圖', '流程圖', '地圖', '圓餅圖'],
+        answer: 3,
         why: [
-          null,
           '折線圖適合呈現隨時間的變化。',
           '流程圖呈現的是步驟。',
-          '地圖呈現的是空間分布。'
+          '地圖呈現的是空間分布。',
+          null
         ]
       }
     },
@@ -30408,17 +30408,17 @@ window.APP_LESSONS['english|十一下|第8單元 圖表與資料題'] = {
       check: {
         q: 'Sales increased sharply. 換成名詞的說法是什麼？',
         options: [
-          'There was a sharp increase in sales.',
-          'There was a sharply increase in sales.',
           'There was sharp increased sales.',
-          'Sales was a sharp increase.'
+          'Sales was a sharp increase.',
+          'There was a sharp increase in sales.',
+          'There was a sharply increase in sales.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '修飾名詞要用形容詞而不是副詞。',
           '這個結構不通順。',
-          '這個句子的主詞與補語不對應。'
+          '這個句子的主詞與補語不對應。',
+          null,
+          '修飾名詞要用形容詞而不是副詞。'
         ]
       }
     },
@@ -30435,17 +30435,17 @@ window.APP_LESSONS['english|十一下|第8單元 圖表與資料題'] = {
       check: {
         q: '「這一類占了總數的三成」的正確說法是什麼？',
         options: [
+          'This category is account for 30%.',
           'This category accounts for 30% of the total.',
           'This category accounts 30% of the total.',
-          'This category occupies 30 percentage.',
-          'This category is account for 30%.'
+          'This category occupies 30 percentage.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          'be 動詞不能和一般動詞這樣並用。',
           null,
           'account 後面要加介系詞 for。',
-          'percentage 的用法在這裡不正確。',
-          'be 動詞不能和一般動詞這樣並用。'
+          'percentage 的用法在這裡不正確。'
         ]
       }
     },
@@ -30460,17 +30460,17 @@ window.APP_LESSONS['english|十一下|第8單元 圖表與資料題'] = {
       check: {
         q: '寫圖表描述時，下列哪一件事不該做？',
         options: [
-          '推測數據變化的原因',
-          '指出最明顯的趨勢',
           '比較不同組別的數據',
-          '改寫題目當作開頭'
+          '改寫題目當作開頭',
+          '推測數據變化的原因',
+          '指出最明顯的趨勢'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '指出趨勢是概述的重點。',
           '比較數據是合理的描述。',
-          '改寫題目是標準的開頭方式。'
+          '改寫題目是標準的開頭方式。',
+          null,
+          '指出趨勢是概述的重點。'
         ]
       }
     },
@@ -30489,17 +30489,17 @@ window.APP_LESSONS['english|十一下|第8單元 圖表與資料題'] = {
       check: {
         q: '圖表描述最常見的問題是什麼？',
         options: [
-          '把所有數字流水帳般抄一遍，沒有重點',
           '用了太多形容詞',
           '段落太少',
-          '沒有使用被動語態'
+          '沒有使用被動語態',
+          '把所有數字流水帳般抄一遍，沒有重點'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '適當的形容詞有助於描述幅度。',
           '段落數量不是主要問題。',
-          '圖表描述不一定要用被動語態。'
+          '圖表描述不一定要用被動語態。',
+          null
         ]
       }
     }
@@ -30521,13 +30521,13 @@ window.APP_LESSONS['english|十一下|第9單元 說明文與議論文'] = {
              same: ['都需要清楚的組織'] },
       check: {
         q: '「解釋光合作用如何運作」屬於哪一種文章？',
-        options: ['說明文', '議論文', '記敘文', '抒情文'],
-        answer: 0,
+        options: ['記敘文', '抒情文', '說明文', '議論文'],
+        answer: 2,
         why: [
-          null,
-          '議論文需要提出立場說服讀者。',
           '記敘文以敘述事件為主。',
-          '抒情文以表達情感為主。'
+          '抒情文以表達情感為主。',
+          null,
+          '議論文需要提出立場說服讀者。'
         ]
       }
     },
@@ -30543,17 +30543,17 @@ window.APP_LESSONS['english|十一下|第9單元 說明文與議論文'] = {
       check: {
         q: '要說明「三種再生能源的優缺點」，最合適的組織方式是什麼？',
         options: [
-          '分類加比較對照',
           '時間順序',
           '個人故事',
-          '情緒訴求'
+          '情緒訴求',
+          '分類加比較對照'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '三種能源之間沒有時間先後。',
           '個人故事不適合客觀說明。',
-          '情緒訴求屬於議論的手法。'
+          '情緒訴求屬於議論的手法。',
+          null
         ]
       }
     },
@@ -30595,17 +30595,17 @@ window.APP_LESSONS['english|十一下|第9單元 說明文與議論文'] = {
       check: {
         q: '下列哪一項不算有效的論證證據？',
         options: [
+          '領域專家的分析',
           '「大家都知道這是對的」',
           '一項大規模研究的統計數據',
-          '具體的實際案例',
-          '領域專家的分析'
+          '具體的實際案例'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '專家分析具有參考價值。',
           null,
           '統計數據是有力的證據。',
-          '具體案例可以支持論點。',
-          '專家分析具有參考價值。'
+          '具體案例可以支持論點。'
         ]
       }
     },
@@ -30621,17 +30621,17 @@ window.APP_LESSONS['english|十一下|第9單元 說明文與議論文'] = {
       check: {
         q: '「我認識的一個人這樣做成功了，所以大家都該這樣做」犯了什麼謬誤？',
         options: [
-          '以偏概全',
           '人身攻擊',
           '假兩難',
-          '訴諸權威'
+          '訴諸權威',
+          '以偏概全'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這句話沒有攻擊任何人。',
           '這句話沒有把選項限縮成兩個。',
-          '這句話沒有引用權威。'
+          '這句話沒有引用權威。',
+          null
         ]
       }
     },
@@ -30649,17 +30649,17 @@ window.APP_LESSONS['english|十一下|第9單元 說明文與議論文'] = {
       check: {
         q: '在說明文中出現大量 should、must 這類字，可能代表什麼問題？',
         options: [
+          '段落太多',
           '不小心寫成了議論文，失去客觀性',
           '文法錯誤',
-          '字數不足',
-          '段落太多'
+          '字數不足'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '段落數量與文體無關。',
           null,
           '這些字本身文法沒有錯。',
-          '文體的問題與文章字數多寡無關。',
-          '段落數量與文體無關。'
+          '文體的問題與文章字數多寡無關。'
         ]
       }
     }
@@ -30700,13 +30700,13 @@ window.APP_LESSONS['english|十二上|第1單元 語法綜合診斷（一）'] =
              same: ['字面很像'] },
       check: {
         q: 'A number of students ___ absent today. 空格要填什麼？',
-        options: ['are', 'is', 'was', 'has been'],
-        answer: 0,
+        options: ['has been', 'are', 'is', 'was'],
+        answer: 1,
         why: [
+          '這裡不需要完成式。',
           null,
           'a number of 後面接複數動詞。',
-          '句子講的是今天的狀況，也需要複數。',
-          '這裡不需要完成式。'
+          '句子講的是今天的狀況，也需要複數。'
         ]
       }
     },
@@ -30723,13 +30723,13 @@ window.APP_LESSONS['english|十二上|第1單元 語法綜合診斷（一）'] =
              same: ['主句都是過去式'] },
       check: {
         q: 'Our teacher told us that the earth ___ around the sun. 空格填什麼最合適？',
-        options: ['moves', 'moved', 'will move', 'had moved'],
-        answer: 0,
+        options: ['moved', 'will move', 'had moved', 'moves'],
+        answer: 3,
         why: [
-          null,
           '恆真的科學事實可以維持現在式。',
           '這是既存的事實，不用未來式。',
-          '這裡不需要過去完成式。'
+          '這裡不需要過去完成式。',
+          null
         ]
       }
     },
@@ -30745,13 +30745,13 @@ window.APP_LESSONS['english|十二上|第1單元 語法綜合診斷（一）'] =
         { label: '意思會變', items: ['stop', 'remember', 'forget', 'try'] }] },
       check: {
         q: 'He avoided ___ the question. 空格要填什麼？',
-        options: ['answering', 'to answer', 'answer', 'answered'],
-        answer: 0,
+        options: ['answer', 'answered', 'answering', 'to answer'],
+        answer: 2,
         why: [
-          null,
-          'avoid 後面只接動名詞。',
           'avoid 後面不接原形動詞。',
-          'avoid 後面不接過去式。'
+          'avoid 後面不接過去式。',
+          null,
+          'avoid 後面只接動名詞。'
         ]
       }
     },
@@ -30766,17 +30766,17 @@ window.APP_LESSONS['english|十二上|第1單元 語法綜合診斷（一）'] =
       check: {
         q: '下列哪一句正確？',
         options: [
+          'She does can join us.',
           'She will be able to join us.',
           'She will can join us.',
-          'She wills join us.',
-          'She does can join us.'
+          'She wills join us.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '有助動詞時不再用 does。',
           null,
           '兩個助動詞不能連用。',
-          '助動詞不隨主詞加 s。',
-          '有助動詞時不再用 does。'
+          '助動詞不隨主詞加 s。'
         ]
       }
     },
@@ -30814,17 +30814,17 @@ window.APP_LESSONS['english|十二上|第2單元 語法綜合診斷（二）'] =
       check: {
         q: '下列哪一句正確？',
         options: [
-          'She is a doctor at a local hospital.',
           'She is doctor at local hospital.',
           'She is the doctor at a local hospitals.',
-          'She is a doctors at local hospital.'
+          'She is a doctors at local hospital.',
+          'She is a doctor at a local hospital.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '單數可數名詞前面需要冠詞。',
           '複數名詞前面不加 a。',
-          '冠詞 a 後面要接單數名詞。'
+          '冠詞 a 後面要接單數名詞。',
+          null
         ]
       }
     },
@@ -30865,17 +30865,17 @@ window.APP_LESSONS['english|十二上|第2單元 語法綜合診斷（二）'] =
       check: {
         q: '下列哪一句有懸垂修飾語的問題？',
         options: [
-          'After finishing the exam, the room was empty.',
-          'After finishing the exam, I left the room.',
           'After the exam finished, the room was empty.',
-          'When we finished the exam, the room was empty.'
+          'When we finished the exam, the room was empty.',
+          'After finishing the exam, the room was empty.',
+          'After finishing the exam, I left the room.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '分詞的動作由 I 執行，正確。',
           '這句有完整的子句與主詞。',
-          '這句有完整的子句與主詞。'
+          '這句有完整的子句與主詞。',
+          null,
+          '分詞的動作由 I 執行，正確。'
         ]
       }
     },
@@ -30892,17 +30892,17 @@ window.APP_LESSONS['english|十二上|第2單元 語法綜合診斷（二）'] =
       check: {
         q: '下列哪一句符合平行結構？',
         options: [
+          'The job requires to be patient, creativity, and dedication.',
           'The job requires patience, creativity, and dedication.',
           'The job requires patience, creativity, and to be dedicated.',
-          'The job requires patience, being creative, and dedication.',
-          'The job requires to be patient, creativity, and dedication.'
+          'The job requires patience, being creative, and dedication.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '第一個成分是不定詞，形式不一致。',
           null,
           '第三個成分變成不定詞，形式不一致。',
-          '第二個成分是動名詞片語，形式不一致。',
-          '第一個成分是不定詞，形式不一致。'
+          '第二個成分是動名詞片語，形式不一致。'
         ]
       }
     },
@@ -30919,17 +30919,17 @@ window.APP_LESSONS['english|十二上|第2單元 語法綜合診斷（二）'] =
       check: {
         q: 'Although the weather was bad. 這句話的問題是什麼？',
         options: [
-          '這是句子片段，缺少主要子句',
-          '時態錯誤',
           '主詞動詞不一致',
-          '拼字錯誤'
+          '拼字錯誤',
+          '這是句子片段，缺少主要子句',
+          '時態錯誤'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '句中的時態沒有問題。',
           '主詞與動詞是一致的。',
-          '句中沒有拼字錯誤。'
+          '句中沒有拼字錯誤。',
+          null,
+          '句中的時態沒有問題。'
         ]
       }
     },
@@ -30944,17 +30944,17 @@ window.APP_LESSONS['english|十二上|第2單元 語法綜合診斷（二）'] =
       check: {
         q: 'Tom told Jerry that he had passed. 這句話的問題是什麼？',
         options: [
+          '拼字錯誤',
           'he 指的是誰不清楚',
           '時態錯誤',
-          '缺少動詞',
-          '拼字錯誤'
+          '缺少動詞'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句中沒有拼字錯誤。',
           null,
           '句中的時態搭配正確。',
-          '句中有 told 與 had passed。',
-          '句中沒有拼字錯誤。'
+          '句中有 told 與 had passed。'
         ]
       }
     }
@@ -30975,17 +30975,17 @@ window.APP_LESSONS['english|十二上|第3單元 文意選填'] = {
       check: {
         q: '文意選填時，最有效率的第一步是什麼？',
         options: [
+          '直接猜',
           '判斷空格需要什麼詞性',
           '把選項全部翻成中文',
-          '從第一個選項開始試',
-          '直接猜'
+          '從第一個選項開始試'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '猜測的正確率很低。',
           null,
           '翻成中文無法解決文法搭配的問題。',
-          '逐一硬試很花時間。',
-          '猜測的正確率很低。'
+          '逐一硬試很花時間。'
         ]
       }
     },
@@ -31002,17 +31002,17 @@ window.APP_LESSONS['english|十二上|第3單元 文意選填'] = {
       check: {
         q: '空格前面是 However，代表空格所在的句子和前一句是什麼關係？',
         options: [
-          '語意相反或有轉折',
           '完全相同',
           '因果關係',
-          '沒有關係'
+          '沒有關係',
+          '語意相反或有轉折'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'however 表示前後不同。',
           '因果關係會用 therefore。',
-          '轉折詞正說明了兩句有關係。'
+          '轉折詞正說明了兩句有關係。',
+          null
         ]
       }
     },
@@ -31026,13 +31026,13 @@ window.APP_LESSONS['english|十二上|第3單元 文意選填'] = {
         { label: '常考搭配', items: ['depend on', 'result in', 'account for', 'lead to'] }] },
       check: {
         q: 'The success of the plan depends ___ everyone’s cooperation. 空格要填什麼？',
-        options: ['on', 'in', 'of', 'at'],
-        answer: 0,
+        options: ['of', 'at', 'on', 'in'],
+        answer: 2,
         why: [
-          null,
-          'depend 不搭配 in。',
           'depend 不搭配 of。',
-          'depend 不搭配 at。'
+          'depend 不搭配 at。',
+          null,
+          'depend 不搭配 in。'
         ]
       }
     },
@@ -31092,17 +31092,17 @@ window.APP_LESSONS['english|十二上|第3單元 文意選填'] = {
       check: {
         q: '填完所有空格後，最後應該做什麼？',
         options: [
-          '把整段通讀一遍，確認語意通順',
           '立刻交卷',
           '把答案抄兩遍',
-          '重新翻譯成中文'
+          '重新翻譯成中文',
+          '把整段通讀一遍，確認語意通順'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '不檢查容易漏掉明顯的錯誤。',
           '重複抄寫不能檢查正確性。',
-          '翻成中文不一定能發現搭配錯誤。'
+          '翻成中文不一定能發現搭配錯誤。',
+          null
         ]
       }
     }
@@ -31122,17 +31122,17 @@ window.APP_LESSONS['english|十二上|第4單元 篇章結構'] = {
       check: {
         q: '做篇章結構題時，最關鍵的是看哪裡？',
         options: [
-          '空格前後兩句的邏輯關係',
-          '文章的標題',
           '選項的長度',
-          '文章的總字數'
+          '文章的總字數',
+          '空格前後兩句的邏輯關係',
+          '文章的標題'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '標題只能提供大方向。',
           '選項長度與答案無關。',
-          '總字數與作答無關。'
+          '總字數與作答無關。',
+          null,
+          '標題只能提供大方向。'
         ]
       }
     },
@@ -31174,17 +31174,17 @@ window.APP_LESSONS['english|十二上|第4單元 篇章結構'] = {
       check: {
         q: '某個選項以 For instance 開頭，應該放在哪裡？',
         options: [
-          '一個一般性陳述的後面',
           '文章的第一句',
           '結論的最後一句',
-          '任何地方都可以'
+          '任何地方都可以',
+          '一個一般性陳述的後面'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '第一句通常不會直接舉例。',
           '結論之後不會再舉例。',
-          '舉例句有明確的位置要求。'
+          '舉例句有明確的位置要求。',
+          null
         ]
       }
     },
@@ -31197,17 +31197,17 @@ window.APP_LESSONS['english|十二上|第4單元 篇章結構'] = {
       check: {
         q: '選項提到 the alternative，前一句最可能提到什麼？',
         options: [
+          '某個人名',
           '某個選擇或做法',
           '某個地名',
-          '某個數字',
-          '某個人名'
+          '某個數字'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個詞與人名無關。',
           null,
           'the alternative 指的是另一個選擇。',
-          '這個詞與數字無關。',
-          '這個詞與人名無關。'
+          '這個詞與數字無關。'
         ]
       }
     },
@@ -31220,17 +31220,17 @@ window.APP_LESSONS['english|十二上|第4單元 篇章結構'] = {
       check: {
         q: '空格出現在一個段落的最後一句，這個句子最可能是什麼？',
         options: [
-          '總結這一段或連接到下一段',
           '提出全新的主題',
           '一個無關的例子',
-          '文章的標題'
+          '文章的標題',
+          '總結這一段或連接到下一段'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '新主題通常出現在段落開頭。',
           '無關的內容不會出現在連貫的文章裡。',
-          '標題不會出現在段落中間。'
+          '標題不會出現在段落中間。',
+          null
         ]
       }
     },
@@ -31273,17 +31273,17 @@ window.APP_LESSONS['english|十二上|第5單元 克漏字技巧'] = {
       check: {
         q: '做克漏字時，為什麼建議先讀完整段？',
         options: [
+          '因為可以背下文章',
           '因為有些空格的線索出現在後面的句子',
           '因為題目要求',
-          '因為讀完比較快',
-          '因為可以背下文章'
+          '因為讀完比較快'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '考試不需要背下文章。',
           null,
           '這是解題策略而不是規定。',
-          '先讀完其實會多花一點時間，但正確率更高。',
-          '考試不需要背下文章。'
+          '先讀完其實會多花一點時間，但正確率更高。'
         ]
       }
     },
@@ -31323,17 +31323,17 @@ window.APP_LESSONS['english|十二上|第5單元 克漏字技巧'] = {
       check: {
         q: '克漏字的四個選項詞性都相同，代表什麼？',
         options: [
-          '這一格考的是語意或搭配，不是詞性',
           '這一題一定很難',
           '這一題可以跳過',
-          '四個都對'
+          '四個都對',
+          '這一格考的是語意或搭配，不是詞性'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '詞性相同不代表題目困難。',
           '跳過等於放棄得分。',
-          '選擇題只有一個最佳答案。'
+          '選擇題只有一個最佳答案。',
+          null
         ]
       }
     },
@@ -31346,17 +31346,17 @@ window.APP_LESSONS['english|十二上|第5單元 克漏字技巧'] = {
       check: {
         q: '文章一直在講「環境保護」，空格最可能填哪一類字？',
         options: [
-          '與環境或保育相關的字',
-          '與體育相關的字',
           '與烹飪相關的字',
-          '任何字都可以'
+          '任何字都可以',
+          '與環境或保育相關的字',
+          '與體育相關的字'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '體育與文章主題無關。',
           '烹飪與文章主題無關。',
-          '克漏字的答案必須符合上下文。'
+          '克漏字的答案必須符合上下文。',
+          null,
+          '體育與文章主題無關。'
         ]
       }
     },
@@ -31396,17 +31396,17 @@ window.APP_LESSONS['english|十二上|第5單元 克漏字技巧'] = {
       check: {
         q: '克漏字遇到完全沒把握的空格，最好怎麼處理？',
         options: [
+          '把四個都圈起來',
           '刪去明顯錯的，暫時選一個並標記，最後再回來',
           '空著不填',
-          '一直想到會為止',
-          '把四個都圈起來'
+          '一直想到會為止'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '選擇題只能選一個答案。',
           null,
           '空著等於放棄得分機會。',
-          '在一格上耗太久會壓縮其他題的時間。',
-          '選擇題只能選一個答案。'
+          '在一格上耗太久會壓縮其他題的時間。'
         ]
       }
     }
@@ -31451,17 +31451,17 @@ window.APP_LESSONS['english|十二上|第6單元 閱讀：科普類'] = {
       check: {
         q: '遇到不懂的專有名詞，最先該做什麼？',
         options: [
-          '看它後面有沒有同位語或解釋',
-          '立刻查字典',
           '跳過整段',
-          '放棄這篇文章'
+          '放棄這篇文章',
+          '看它後面有沒有同位語或解釋',
+          '立刻查字典'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '考試時通常沒有字典可查。',
           '跳過整段會漏掉關鍵資訊。',
-          '文章多半會提供必要的解釋。'
+          '文章多半會提供必要的解釋。',
+          null,
+          '考試時通常沒有字典可查。'
         ]
       }
     },
@@ -31479,17 +31479,17 @@ window.APP_LESSONS['english|十二上|第6單元 閱讀：科普類'] = {
       check: {
         q: 'The results suggest a possible link. 這句話屬於什麼？',
         options: [
-          '研究者的推論，不是已確立的事實',
           '已經證實的結論',
           '研究的方法',
-          '研究的動機'
+          '研究的動機',
+          '研究者的推論，不是已確立的事實'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'suggest 與 possible 都表示保留。',
           '這句沒有描述研究怎麼進行。',
-          '這句沒有說明為什麼要做研究。'
+          '這句沒有說明為什麼要做研究。',
+          null
         ]
       }
     },
@@ -31506,17 +31506,17 @@ window.APP_LESSONS['english|十二上|第6單元 閱讀：科普類'] = {
       check: {
         q: 'The rate increased to 30%. 這句話的意思是什麼？',
         options: [
+          '比率維持在三成',
           '比率上升後達到三成',
           '比率上升了三成',
-          '比率下降到三成',
-          '比率維持在三成'
+          '比率下降到三成'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '句子表示有變化。',
           null,
           '增加了三成要說 increased by 30%。',
-          'increase 表示上升。',
-          '句子表示有變化。'
+          'increase 表示上升。'
         ]
       }
     },
@@ -31533,17 +31533,17 @@ window.APP_LESSONS['english|十二上|第6單元 閱讀：科普類'] = {
       check: {
         q: '研究發現冰淇淋銷量與溺水人數同時上升，這代表什麼？',
         options: [
+          '兩者完全無關',
           '兩者相關，但不代表其中一個造成另一個',
           '吃冰淇淋會導致溺水',
-          '溺水會讓人想吃冰淇淋',
-          '兩者完全無關'
+          '溺水會讓人想吃冰淇淋'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '數據顯示兩者確實有相關。',
           null,
           '相關不等於因果，兩者可能都受氣溫影響。',
-          '這個推論同樣把相關誤當因果。',
-          '數據顯示兩者確實有相關。'
+          '這個推論同樣把相關誤當因果。'
         ]
       }
     },
@@ -31587,17 +31587,17 @@ window.APP_LESSONS['english|十二上|第7單元 閱讀：人文社會類'] = {
       check: {
         q: '讀人文社會類文章時，最該隨時問自己的問題是什麼？',
         options: [
-          '現在陳述的是誰的觀點',
-          '這篇文章有幾個字',
           '作者是哪一國人',
-          '這篇發表在哪一年'
+          '這篇發表在哪一年',
+          '現在陳述的是誰的觀點',
+          '這篇文章有幾個字'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '字數與理解觀點無關。',
           '作者國籍不是理解論證的關鍵。',
-          '發表年份是背景資訊而非核心。'
+          '發表年份是背景資訊而非核心。',
+          null,
+          '字數與理解觀點無關。'
         ]
       }
     },
@@ -31613,17 +31613,17 @@ window.APP_LESSONS['english|十二上|第7單元 閱讀：人文社會類'] = {
       check: {
         q: '文章寫 Critics argue that the policy failed. 這是誰的看法？',
         options: [
-          '批評這個政策的人',
           '作者本人',
           '政府官員',
-          '所有讀者'
+          '所有讀者',
+          '批評這個政策的人'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '作者只是轉述批評者的說法。',
           '句中沒有提到官員。',
-          '讀者不是句中提到的對象。'
+          '讀者不是句中提到的對象。',
+          null
         ]
       }
     },
@@ -31638,17 +31638,17 @@ window.APP_LESSONS['english|十二上|第7單元 閱讀：人文社會類'] = {
       check: {
         q: '作者形容某個論點 oversimplified，代表什麼態度？',
         options: [
+          '沒有表達任何態度',
           '認為這個論點把問題想得太簡單',
           '完全同意這個論點',
-          '認為這個論點很有說服力',
-          '沒有表達任何態度'
+          '認為這個論點很有說服力'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這個字帶有明確的評價。',
           null,
           'oversimplified 帶有批評的意味。',
-          '有說服力會用 compelling。',
-          '這個字帶有明確的評價。'
+          '有說服力會用 compelling。'
         ]
       }
     },
@@ -31685,17 +31685,17 @@ window.APP_LESSONS['english|十二上|第7單元 閱讀：人文社會類'] = {
       check: {
         q: '文章使用 identity 這個抽象概念時，最該做什麼？',
         options: [
-          '找文章裡的定義與例子來確定它指的是什麼',
           '直接用自己的理解',
           '跳過不管',
-          '查中文翻譯就好'
+          '查中文翻譯就好',
+          '找文章裡的定義與例子來確定它指的是什麼'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '不同作者對抽象概念的用法可能不同。',
           '跳過會誤解整篇論證。',
-          '中文翻譯無法呈現文章中的特定用法。'
+          '中文翻譯無法呈現文章中的特定用法。',
+          null
         ]
       }
     },
@@ -31713,17 +31713,17 @@ window.APP_LESSONS['english|十二上|第7單元 閱讀：人文社會類'] = {
       check: {
         q: '選項中出現 always、never 這類絕對的字，通常代表什麼？',
         options: [
-          '很可能超出文章能支持的範圍',
-          '一定是正確答案',
           '表示作者很有自信',
-          '與正確與否無關'
+          '與正確與否無關',
+          '很可能超出文章能支持的範圍',
+          '一定是正確答案'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '絕對的說法反而容易被文章推翻。',
           '這是選項的用字，不代表作者的態度。',
-          '語氣的絕對程度是重要的判斷線索。'
+          '語氣的絕對程度是重要的判斷線索。',
+          null,
+          '絕對的說法反而容易被文章推翻。'
         ]
       }
     }
@@ -31743,17 +31743,17 @@ window.APP_LESSONS['english|十二上|第8單元 混合題型與素養題'] = {
       check: {
         q: '素養題的答案為什麼常不在單一材料裡？',
         options: [
-          '因為這類題目就是要考跨材料整合資訊的能力',
           '因為題目出錯了',
           '因為材料太多',
-          '因為答案被藏起來了'
+          '因為答案被藏起來了',
+          '因為這類題目就是要考跨材料整合資訊的能力'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這是題型的設計而不是錯誤。',
           '材料數量是設計的一部分。',
-          '答案有依據，只是需要整合。'
+          '答案有依據，只是需要整合。',
+          null
         ]
       }
     },
@@ -31770,17 +31770,17 @@ window.APP_LESSONS['english|十二上|第8單元 混合題型與素養題'] = {
       check: {
         q: '面對有三份材料的素養題組，比較有效率的做法是什麼？',
         options: [
-          '先看題目，再帶著問題到材料裡找答案',
-          '把三份材料從頭到尾精讀',
           '只讀第一份材料',
-          '直接看選項猜'
+          '直接看選項猜',
+          '先看題目，再帶著問題到材料裡找答案',
+          '把三份材料從頭到尾精讀'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '全部精讀會用掉太多時間。',
           '只讀一份可能漏掉關鍵資訊。',
-          '猜測的正確率太低。'
+          '猜測的正確率太低。',
+          null,
+          '全部精讀會用掉太多時間。'
         ]
       }
     },
@@ -31819,17 +31819,17 @@ window.APP_LESSONS['english|十二上|第8單元 混合題型與素養題'] = {
       check: {
         q: '寫簡答題時，最重要的原則是什麼？',
         options: [
+          '寫出所有相關的資訊',
           '直接回答題目問的那個問題',
           '寫得越長越好',
-          '把原文整段抄下來',
-          '寫出所有相關的資訊'
+          '把原文整段抄下來'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '寫太多無關的資訊會失焦。',
           null,
           '超出字數限制反而會扣分。',
-          '整段照抄通常不符合作答要求。',
-          '寫太多無關的資訊會失焦。'
+          '整段照抄通常不符合作答要求。'
         ]
       }
     },
@@ -31843,17 +31843,17 @@ window.APP_LESSONS['english|十二上|第8單元 混合題型與素養題'] = {
       check: {
         q: '題目說「根據文章與圖表」，作答時該注意什麼？',
         options: [
-          '選項必須同時符合文章與圖表',
-          '只要符合圖表就好',
           '只要符合文章就好',
-          '符合其中之一即可'
+          '符合其中之一即可',
+          '選項必須同時符合文章與圖表',
+          '只要符合圖表就好'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '只符合圖表可能與文章矛盾。',
           '只符合文章可能與數據不合。',
-          '題目要求的是兩者都要符合。'
+          '題目要求的是兩者都要符合。',
+          null,
+          '只符合圖表可能與文章矛盾。'
         ]
       }
     },
@@ -31867,17 +31867,17 @@ window.APP_LESSONS['english|十二上|第8單元 混合題型與素養題'] = {
       check: {
         q: '面對分數比重高的素養題組，時間分配上該注意什麼？',
         options: [
-          '預留足夠時間，不要被前面的小題耗盡',
           '花最多時間在第一題',
           '最後五分鐘再開始做',
-          '平均分配給每一個字'
+          '平均分配給每一個字',
+          '預留足夠時間，不要被前面的小題耗盡'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '在單一小題上耗太久會排擠後面的題目。',
           '時間不足會來不及整合資訊。',
-          '時間應該依題目份量分配而不是平均。'
+          '時間應該依題目份量分配而不是平均。',
+          null
         ]
       }
     }
@@ -31924,13 +31924,13 @@ window.APP_LESSONS['english|十二上|第9單元 學術字彙 AWL'] = {
         { label: '分析評估', items: ['analyze', 'evaluate', 'assess', 'examine'] }] },
       check: {
         q: 'evaluate 這個字的意思最接近什麼？',
-        options: ['評估、判斷價值', '收集資料', '重複實驗', '發表結果'],
-        answer: 0,
+        options: ['收集資料', '重複實驗', '發表結果', '評估、判斷價值'],
+        answer: 3,
         why: [
-          null,
           '收集資料是 collect data。',
           '重複實驗是 replicate。',
-          '發表結果是 publish。'
+          '發表結果是 publish。',
+          null
         ]
       }
     },
@@ -31944,13 +31944,13 @@ window.APP_LESSONS['english|十二上|第9單元 學術字彙 AWL'] = {
         { label: '動詞片語', items: ['contribute to', 'result in', 'attribute to'] }] },
       check: {
         q: 'Poor sleep can contribute ___ health problems. 空格要填什麼？',
-        options: ['to', 'in', 'of', 'for'],
-        answer: 0,
+        options: ['for', 'to', 'in', 'of'],
+        answer: 1,
         why: [
+          'contribute 不搭配 for。',
           null,
           'contribute 搭配的是 to。',
-          'contribute 不搭配 of。',
-          'contribute 不搭配 for。'
+          'contribute 不搭配 of。'
         ]
       }
     },
@@ -31966,13 +31966,13 @@ window.APP_LESSONS['english|十二上|第9單元 學術字彙 AWL'] = {
              same: ['都用於呈現研究結論'] },
       check: {
         q: '想表達「資料暗示了某種可能」，最合適的動詞是什麼？',
-        options: ['suggests', 'proves', 'demonstrates', 'confirms'],
-        answer: 0,
+        options: ['demonstrates', 'confirms', 'suggests', 'proves'],
+        answer: 2,
         why: [
-          null,
-          'prove 的語氣太強。',
           'demonstrate 表示明確證明。',
-          'confirm 表示確認，語氣也太強。'
+          'confirm 表示確認，語氣也太強。',
+          null,
+          'prove 的語氣太強。'
         ]
       }
     },
@@ -31986,13 +31986,13 @@ window.APP_LESSONS['english|十二上|第9單元 學術字彙 AWL'] = {
         { label: '不規則複數', items: ['criterion／criteria', 'phenomenon／phenomena', 'analysis／analyses'] }] },
       check: {
         q: 'criterion 的複數形是什麼？',
-        options: ['criteria', 'criterions', 'criterias', 'criterion'],
-        answer: 0,
+        options: ['criterion', 'criteria', 'criterions', 'criterias'],
+        answer: 1,
         why: [
+          '這個字有複數形。',
           null,
           '這個字的複數是不規則變化。',
-          '這個拼法把兩種複數混在一起。',
-          '這個字有複數形。'
+          '這個拼法把兩種複數混在一起。'
         ]
       }
     },
@@ -32007,17 +32007,17 @@ window.APP_LESSONS['english|十二上|第9單元 學術字彙 AWL'] = {
       check: {
         q: '判斷自己是否真的學會一個學術字，最好的標準是什麼？',
         options: [
-          '能在自己的寫作中正確使用它',
-          '看到它認得中文意思',
           '能拼出來',
-          '知道它在字彙表的第幾個'
+          '知道它在字彙表的第幾個',
+          '能在自己的寫作中正確使用它',
+          '看到它認得中文意思'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '看得懂只是被動的辨認能力。',
           '會拼不代表會用。',
-          '排序位置與是否學會無關。'
+          '排序位置與是否學會無關。',
+          null,
+          '看得懂只是被動的辨認能力。'
         ]
       }
     }
@@ -32036,17 +32036,17 @@ window.APP_LESSONS['english|十二下|第1單元 中譯英'] = {
       check: {
         q: '中譯英時，中文句子省略了主詞該怎麼辦？',
         options: [
+          '改成祈使句',
           '依上下文補出英文的主詞',
           '英文也省略主詞',
-          '用 it 代替所有省略的主詞',
-          '改成祈使句'
+          '用 it 代替所有省略的主詞'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '改成祈使句會改變原意。',
           null,
           '英文句子除了祈使句外必須有主詞。',
-          'it 只能代替特定的東西。',
-          '改成祈使句會改變原意。'
+          'it 只能代替特定的東西。'
         ]
       }
     },
@@ -32064,17 +32064,17 @@ window.APP_LESSONS['english|十二下|第1單元 中譯英'] = {
       check: {
         q: '中譯英最容易出問題的做法是什麼？',
         options: [
-          '照中文的字序與用詞逐字翻譯',
-          '先理解整句的意思',
           '使用常見的英文句型',
-          '檢查文法'
+          '檢查文法',
+          '照中文的字序與用詞逐字翻譯',
+          '先理解整句的意思'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '先理解意思是正確的做法。',
           '用熟悉的句型比較不會出錯。',
-          '檢查文法是必要的步驟。'
+          '檢查文法是必要的步驟。',
+          null,
+          '先理解意思是正確的做法。'
         ]
       }
     },
@@ -32119,17 +32119,17 @@ window.APP_LESSONS['english|十二下|第1單元 中譯英'] = {
       check: {
         q: '「他去便利商店買飲料」的英文最自然的說法是什麼？',
         options: [
-          'He went to the convenience store to buy a drink.',
           'He went the convenience store buy a drink.',
           'He go to convenience store and buy drink.',
-          'He went buy drink convenience store.'
+          'He went buy drink convenience store.',
+          'He went to the convenience store to buy a drink.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '句子缺少介系詞與不定詞。',
           '時態錯誤，冠詞也漏掉了。',
-          '這個語序不符合英文結構。'
+          '這個語序不符合英文結構。',
+          null
         ]
       }
     },
@@ -32172,17 +32172,17 @@ window.APP_LESSONS['english|十二下|第1單元 中譯英'] = {
       check: {
         q: '中譯英寫完後最該優先檢查的是什麼？',
         options: [
-          '主詞與動詞的形式是否正確',
           '字寫得漂不漂亮',
           '有沒有用到難字',
-          '句子夠不夠長'
+          '句子夠不夠長',
+          '主詞與動詞的形式是否正確'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '字跡工整重要，但不是文法重點。',
           '用難字不是評分的主要標準。',
-          '句子長度不代表品質。'
+          '句子長度不代表品質。',
+          null
         ]
       }
     }
@@ -32202,17 +32202,17 @@ window.APP_LESSONS['english|十二下|第2單元 引導式作文'] = {
       check: {
         q: '引導式作文最常見的失分原因是什麼？',
         options: [
-          '漏掉題目指定的內容要點',
-          '字寫得太小',
           '用了太多形容詞',
-          '段落分得太清楚'
+          '段落分得太清楚',
+          '漏掉題目指定的內容要點',
+          '字寫得太小'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '字跡影響有限，切題才是關鍵。',
           '適當的形容詞不是問題。',
-          '段落清楚是優點而不是缺點。'
+          '段落清楚是優點而不是缺點。',
+          null,
+          '字跡影響有限，切題才是關鍵。'
         ]
       }
     },
@@ -32226,17 +32226,17 @@ window.APP_LESSONS['english|十二下|第2單元 引導式作文'] = {
       check: {
         q: '寫作前列大綱的主要好處是什麼？',
         options: [
-          '避免寫到一半偏題或卡住',
           '可以少寫一點字',
           '讓字看起來比較整齊',
-          '因為老師規定'
+          '因為老師規定',
+          '避免寫到一半偏題或卡住'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '大綱不會減少實際的寫作量。',
           '大綱與字跡無關。',
-          '這是有效的寫作策略而不是規定。'
+          '這是有效的寫作策略而不是規定。',
+          null
         ]
       }
     },
@@ -32278,17 +32278,17 @@ window.APP_LESSONS['english|十二下|第2單元 引導式作文'] = {
       check: {
         q: '要讓作文更有說服力，最有效的做法是什麼？',
         options: [
+          '多用感嘆號',
           '加入具體的細節與例子',
           '多用形容詞',
-          '把句子寫長',
-          '多用感嘆號'
+          '把句子寫長'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '感嘆號過多反而顯得幼稚。',
           null,
           '形容詞堆疊仍然可能很空泛。',
-          '句子長度不等於內容豐富。',
-          '感嘆號過多反而顯得幼稚。'
+          '句子長度不等於內容豐富。'
         ]
       }
     },
@@ -32301,17 +32301,17 @@ window.APP_LESSONS['english|十二下|第2單元 引導式作文'] = {
       check: {
         q: '作文一定要留時間檢查的原因是什麼？',
         options: [
-          '檢查能修掉扣分的基本錯誤',
           '為了增加字數',
           '為了讓字跡更工整',
-          '因為時間用不完'
+          '因為時間用不完',
+          '檢查能修掉扣分的基本錯誤'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '檢查的目的不是加字。',
           '檢查主要是找文法與拼字錯誤。',
-          '時間通常是不夠而不是用不完。'
+          '時間通常是不夠而不是用不完。',
+          null
         ]
       }
     },
@@ -32358,17 +32358,17 @@ window.APP_LESSONS['english|十二下|第3單元 圖表寫作'] = {
       check: {
         q: '圖表寫作的開頭應該怎麼寫？',
         options: [
-          '用自己的話重述這張圖在呈現什麼',
-          '直接照抄題目',
           '先寫結論',
-          '先寫個人意見'
+          '先寫個人意見',
+          '用自己的話重述這張圖在呈現什麼',
+          '直接照抄題目'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '照抄題目通常不算有效字數。',
           '結論應該放在最後。',
-          '圖表描述不寫個人意見。'
+          '圖表描述不寫個人意見。',
+          null,
+          '照抄題目通常不算有效字數。'
         ]
       }
     },
@@ -32381,17 +32381,17 @@ window.APP_LESSONS['english|十二下|第3單元 圖表寫作'] = {
       check: {
         q: '圖表寫作的概述部分應該寫什麼？',
         options: [
-          '整張圖最明顯的一兩個趨勢或對比',
           '每一個數字',
           '自己的看法',
-          '數據變化的原因'
+          '數據變化的原因',
+          '整張圖最明顯的一兩個趨勢或對比'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '逐一列數字沒有重點。',
           '圖表描述不寫個人看法。',
-          '圖表本身無法說明原因。'
+          '圖表本身無法說明原因。',
+          null
         ]
       }
     },
@@ -32434,17 +32434,17 @@ window.APP_LESSONS['english|十二下|第3單元 圖表寫作'] = {
       check: {
         q: '「銷售額從一百萬上升到兩百萬」的正確說法是什麼？',
         options: [
+          'Sales rose in one million to two million.',
           'Sales rose from one million to two million.',
           'Sales rose to one million from two million.',
-          'Sales rose one million until two million.',
-          'Sales rose in one million to two million.'
+          'Sales rose one million until two million.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這裡不用介系詞 in。',
           null,
           '起點與終點的順序顛倒了。',
-          'until 用於時間而不是數量。',
-          '這裡不用介系詞 in。'
+          'until 用於時間而不是數量。'
         ]
       }
     },
@@ -32462,17 +32462,17 @@ window.APP_LESSONS['english|十二下|第3單元 圖表寫作'] = {
       check: {
         q: '圖表顯示 2010 到 2020 年的資料，描述時應該用什麼時態？',
         options: [
-          '過去式',
           '現在式',
           '未來式',
-          '現在進行式'
+          '現在進行式',
+          '過去式'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '資料的時間已經過去。',
           '未來式用於預測的部分。',
-          '進行式不適合描述已完成的統計。'
+          '進行式不適合描述已完成的統計。',
+          null
         ]
       }
     },
@@ -32490,17 +32490,17 @@ window.APP_LESSONS['english|十二下|第3單元 圖表寫作'] = {
       check: {
         q: '圖表寫作中不應該出現下列哪一項？',
         options: [
-          '推測數據變化背後的原因',
-          '描述最明顯的趨勢',
           '比較不同組別的數據',
-          '說明時間範圍'
+          '說明時間範圍',
+          '推測數據變化背後的原因',
+          '描述最明顯的趨勢'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '描述趨勢是核心任務。',
           '比較數據是合理的做法。',
-          '說明範圍屬於開頭的資訊。'
+          '說明範圍屬於開頭的資訊。',
+          null,
+          '描述趨勢是核心任務。'
         ]
       }
     }
@@ -32519,17 +32519,17 @@ window.APP_LESSONS['english|十二下|第4單元 看圖說故事'] = {
       check: {
         q: '看圖寫作前最該先做什麼？',
         options: [
+          '先寫第一句',
           '看懂四格圖之間的因果與時間關係',
           '先數圖裡有幾個人',
-          '先想用哪些難字',
-          '先寫第一句'
+          '先想用哪些難字'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '沒想清楚就下筆容易前後不連貫。',
           null,
           '人數不是故事的重點。',
-          '用字應該服務於情節。',
-          '沒想清楚就下筆容易前後不連貫。'
+          '用字應該服務於情節。'
         ]
       }
     },
@@ -32546,17 +32546,17 @@ window.APP_LESSONS['english|十二下|第4單元 看圖說故事'] = {
       check: {
         q: '寫故事時，描述「當時正在進行的背景」該用什麼時態？',
         options: [
-          '過去進行式',
-          '現在簡單式',
           '未來式',
-          '現在完成式'
+          '現在完成式',
+          '過去進行式',
+          '現在簡單式'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '現在式與過去的故事不符。',
           '未來式無法描述已發生的事。',
-          '完成式強調對現在的影響，不適合鋪背景。'
+          '完成式強調對現在的影響，不適合鋪背景。',
+          null,
+          '現在式與過去的故事不符。'
         ]
       }
     },
@@ -32570,17 +32570,17 @@ window.APP_LESSONS['english|十二下|第4單元 看圖說故事'] = {
       check: {
         q: '看圖說故事時，為什麼建議給角色取名字？',
         options: [
-          '讓敘述更清楚，也讓代名詞有明確指涉',
           '為了增加字數',
           '因為題目規定',
-          '為了用到大寫字母'
+          '為了用到大寫字母',
+          '讓敘述更清楚，也讓代名詞有明確指涉'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '取名字不是為了灌水。',
           '多數題目沒有規定要取名。',
-          '大小寫與故事品質無關。'
+          '大小寫與故事品質無關。',
+          null
         ]
       }
     },
@@ -32644,17 +32644,17 @@ window.APP_LESSONS['english|十二下|第4單元 看圖說故事'] = {
       check: {
         q: '看圖說故事的結尾最該避免什麼？',
         options: [
-          '硬塞一段與情節無關的大道理',
-          '交代事件的結果',
           '寫角色的感受',
-          '用一句話收尾'
+          '用一句話收尾',
+          '硬塞一段與情節無關的大道理',
+          '交代事件的結果'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '交代結果是必要的收尾。',
           '角色的感受可以自然收束故事。',
-          '簡短的收尾是好的做法。'
+          '簡短的收尾是好的做法。',
+          null,
+          '交代結果是必要的收尾。'
         ]
       }
     }
@@ -32674,17 +32674,17 @@ window.APP_LESSONS['english|十二下|第5單元 論說文的論證'] = {
       check: {
         q: '一個完整的論證必須包含什麼？',
         options: [
+          '只要用很多連接詞',
           '主張、理由與證據',
           '只要有主張就好',
-          '只要舉很多例子',
-          '只要用很多連接詞'
+          '只要舉很多例子'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '連接詞是形式而不是論證本身。',
           null,
           '沒有理由與證據的主張無法說服人。',
-          '例子需要連結到理由才有意義。',
-          '連接詞是形式而不是論證本身。'
+          '例子需要連結到理由才有意義。'
         ]
       }
     },
@@ -32697,17 +32697,17 @@ window.APP_LESSONS['english|十二下|第5單元 論說文的論證'] = {
       check: {
         q: '舉出證據之後，還必須做什麼？',
         options: [
-          '說明這個證據如何支持主張',
-          '再舉五個例子',
           '換下一個主張',
-          '重複主張一次'
+          '重複主張一次',
+          '說明這個證據如何支持主張',
+          '再舉五個例子'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '證據數量不能取代解釋。',
           '沒有解釋就換主題會讓論述斷裂。',
-          '重複主張無法推進論證。'
+          '重複主張無法推進論證。',
+          null,
+          '證據數量不能取代解釋。'
         ]
       }
     },
@@ -32748,17 +32748,17 @@ window.APP_LESSONS['english|十二下|第5單元 論說文的論證'] = {
       check: {
         q: '「如果允許學生用手機，最後整個教育都會崩壞」犯了什麼謬誤？',
         options: [
-          '滑坡謬誤',
           '訴諸人身',
           '假兩難',
-          '訴諸權威'
+          '訴諸權威',
+          '滑坡謬誤'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '這句話沒有攻擊任何人。',
           '這句話沒有把選項限縮成兩個。',
-          '這句話沒有引用任何權威。'
+          '這句話沒有引用任何權威。',
+          null
         ]
       }
     },
@@ -32800,17 +32800,17 @@ window.APP_LESSONS['english|十二下|第5單元 論說文的論證'] = {
       check: {
         q: '檢查自己論證強度時，最有效的方法是什麼？',
         options: [
+          '換更難的單字',
           '設想一個持反對意見的人會怎麼反駁',
           '把文章多讀幾遍',
-          '增加字數',
-          '換更難的單字'
+          '增加字數'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '用字艱深不會讓推理更嚴謹。',
           null,
           '重複讀自己的文章容易看不出盲點。',
-          '字數與論證強度無關。',
-          '用字艱深不會讓推理更嚴謹。'
+          '字數與論證強度無關。'
         ]
       }
     }
@@ -32828,17 +32828,17 @@ window.APP_LESSONS['english|十二下|第6單元 聽力理解策略'] = {
       check: {
         q: '聽力播放前的空檔最該做什麼？',
         options: [
+          '什麼都不做',
           '快速掃過題目與選項，預測要聽的重點',
           '閉眼休息',
-          '檢查前一大題',
-          '什麼都不做'
+          '檢查前一大題'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '空檔是重要的準備時間。',
           null,
           '休息會錯過準備的機會。',
-          '檢查前一題會讓自己來不及進入狀況。',
-          '空檔是重要的準備時間。'
+          '檢查前一題會讓自己來不及進入狀況。'
         ]
       }
     },
@@ -32855,17 +32855,17 @@ window.APP_LESSONS['english|十二下|第6單元 聽力理解策略'] = {
       check: {
         q: '聽力中遇到一個完全聽不懂的字，最好怎麼辦？',
         options: [
-          '先放過它，繼續聽後面的內容',
-          '停下來想那個字的意思',
           '放棄這一題',
-          '從頭再想一次'
+          '從頭再想一次',
+          '先放過它，繼續聽後面的內容',
+          '停下來想那個字的意思'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '停下來思考會漏掉後面的內容。',
           '後面可能還有解題的關鍵。',
-          '回想已經播過的內容會錯過現在的。'
+          '回想已經播過的內容會錯過現在的。',
+          null,
+          '停下來思考會漏掉後面的內容。'
         ]
       }
     },
@@ -32881,17 +32881,17 @@ window.APP_LESSONS['english|十二下|第6單元 聽力理解策略'] = {
       check: {
         q: '聽到 Actually, … 這個字，代表什麼？',
         options: [
-          '後面可能是修正或重點資訊',
           '對話結束了',
           '後面是無關的閒聊',
-          '前面說的都是對的'
+          '前面說的都是對的',
+          '後面可能是修正或重點資訊'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'actually 常出現在對話中間。',
           '這個字通常引出重要的補充。',
-          'actually 常用來修正前面的說法。'
+          'actually 常用來修正前面的說法。',
+          null
         ]
       }
     },
@@ -32955,17 +32955,17 @@ window.APP_LESSONS['english|十二下|第6單元 聽力理解策略'] = {
       check: {
         q: '練聽力時，為什麼要對照文字稿？',
         options: [
+          '為了增加字彙量',
           '找出自己沒聽懂的地方，才知道要加強什麼',
           '為了背下整篇文章',
-          '為了練習閱讀',
-          '為了增加字彙量'
+          '為了練習閱讀'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '增加字彙是附加效果而不是主要目的。',
           null,
           '背誦不是練聽力的目的。',
-          '對照的目的是檢查聽力而不是閱讀。',
-          '增加字彙是附加效果而不是主要目的。'
+          '對照的目的是檢查聽力而不是閱讀。'
         ]
       }
     }
@@ -32988,17 +32988,17 @@ window.APP_LESSONS['english|十二下|第7單元 口語表達策略'] = {
       check: {
         q: '口說練習時，最不該做的是什麼？',
         options: [
+          '換個說法繞過不會的字',
           '每說錯一個字就停下來重講',
           '先把話說完再檢討',
-          '用簡單的句型表達',
-          '換個說法繞過不會的字'
+          '用簡單的句型表達'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '換句話說是重要的溝通策略。',
           null,
           '說完再檢討是有效的做法。',
-          '簡單句型能維持流暢。',
-          '換句話說是重要的溝通策略。'
+          '簡單句型能維持流暢。'
         ]
       }
     },
@@ -33015,17 +33015,17 @@ window.APP_LESSONS['english|十二下|第7單元 口語表達策略'] = {
       check: {
         q: '被問到需要思考的問題時，比較好的做法是什麼？',
         options: [
-          '用一句話爭取思考時間，再回答',
           '長時間沉默',
           '立刻說 I don’t know',
-          '一直重複問題'
+          '一直重複問題',
+          '用一句話爭取思考時間，再回答'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '沉默會讓對話中斷。',
           '太快放棄失去了表達的機會。',
-          '重複問題無法推進對話。'
+          '重複問題無法推進對話。',
+          null
         ]
       }
     },
@@ -33038,17 +33038,17 @@ window.APP_LESSONS['english|十二下|第7單元 口語表達策略'] = {
       check: {
         q: '說話時想不起某個單字，最好的處理方式是什麼？',
         options: [
-          '用簡單的句子描述那樣東西',
-          '停下來努力回想',
           '直接說中文',
-          '換一個完全不相關的話題'
+          '換一個完全不相關的話題',
+          '用簡單的句子描述那樣東西',
+          '停下來努力回想'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '停下來回想會中斷溝通。',
           '對方可能聽不懂中文。',
-          '換話題會讓對話失焦。'
+          '換話題會讓對話失焦。',
+          null,
+          '停下來回想會中斷溝通。'
         ]
       }
     },
@@ -33114,17 +33114,17 @@ window.APP_LESSONS['english|十二下|第7單元 口語表達策略'] = {
       check: {
         q: '錄下自己說英文再聽一次，主要的好處是什麼？',
         options: [
-          '能發現自己沒察覺的發音與流暢問題',
           '可以留作紀念',
           '可以直接增加字彙量',
-          '可以練習打字'
+          '可以練習打字',
+          '能發現自己沒察覺的發音與流暢問題'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '錄音的目的是檢討而不是收藏。',
           '錄音本身不會增加字彙。',
-          '錄音與打字練習沒有關係。'
+          '錄音與打字練習沒有關係。',
+          null
         ]
       }
     }
@@ -33146,17 +33146,17 @@ window.APP_LESSONS['english|十二下|第8單元 常見錯誤總複習'] = {
       check: {
         q: '下列哪一句犯了「助動詞後未用原形」的錯誤？',
         options: [
+          'He doesn’t go to school.',
           'He didn’t went to school.',
           'He didn’t go to school.',
-          'He went to school.',
-          'He doesn’t go to school.'
+          'He went to school.'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '這句用了原形動詞，正確。',
           null,
           '這句用了原形動詞，正確。',
-          '這句是過去式的肯定句，正確。',
-          '這句用了原形動詞，正確。'
+          '這句是過去式的肯定句，正確。'
         ]
       }
     },
@@ -33170,17 +33170,17 @@ window.APP_LESSONS['english|十二下|第8單元 常見錯誤總複習'] = {
       check: {
         q: '下列哪一句正確？',
         options: [
-          'He gave me some useful advice.',
-          'He gave me some useful advices.',
           'He gave me a useful advice.',
-          'He gave me useful advices.'
+          'He gave me useful advices.',
+          'He gave me some useful advice.',
+          'He gave me some useful advices.'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          'advice 是不可數名詞，不加 s。',
           '不可數名詞前面不加冠詞 a。',
-          '不可數名詞沒有複數形。'
+          '不可數名詞沒有複數形。',
+          null,
+          'advice 是不可數名詞，不加 s。'
         ]
       }
     },
@@ -33225,17 +33225,17 @@ window.APP_LESSONS['english|十二下|第8單元 常見錯誤總複習'] = {
       check: {
         q: '「我很喜歡這本書」的正確說法是什麼？',
         options: [
-          'I like this book very much.',
           'I very like this book.',
           'I am very like this book.',
-          'I like very this book.'
+          'I like very this book.',
+          'I like this book very much.'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           'very 不能直接修飾動詞。',
           'be 動詞不能和一般動詞並用。',
-          'very 的位置不正確。'
+          'very 的位置不正確。',
+          null
         ]
       }
     },
@@ -33269,17 +33269,17 @@ window.APP_LESSONS['english|十二下|第8單元 常見錯誤總複習'] = {
       check: {
         q: '為什麼自己的錯題本比通用的錯誤清單更有用？',
         options: [
+          '因為錯題本比較厚',
           '因為每個人常犯的錯誤類型不同',
           '因為自己寫的比較好看',
-          '因為通用清單都是錯的',
-          '因為錯題本比較厚'
+          '因為通用清單都是錯的'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '厚度與效果無關。',
           null,
           '字跡好看與否不影響學習效果。',
-          '通用清單有參考價值，只是不夠針對。',
-          '厚度與效果無關。'
+          '通用清單有參考價值，只是不夠針對。'
         ]
       }
     }
@@ -33324,17 +33324,17 @@ window.APP_LESSONS['english|十二下|第9單元 綜合演練'] = {
       check: {
         q: '考試時最可惜的失分原因通常是什麼？',
         options: [
-          '時間分配不當，來不及做完或檢查',
           '字寫得不好看',
           '用的字太簡單',
-          '答案卷太薄'
+          '答案卷太薄',
+          '時間分配不當，來不及做完或檢查'
         ],
-        answer: 0,
+        answer: 3,
         why: [
-          null,
           '字跡的影響相對有限。',
           '用簡單但正確的字並不會失分。',
-          '這與答案卷本身無關。'
+          '這與答案卷本身無關。',
+          null
         ]
       }
     },
@@ -33349,17 +33349,17 @@ window.APP_LESSONS['english|十二下|第9單元 綜合演練'] = {
       check: {
         q: '文法題的第一步應該判斷什麼？',
         options: [
-          '空格需要什麼詞性',
-          '選項的長度',
           '句子的字數',
-          '有沒有生字'
+          '有沒有生字',
+          '空格需要什麼詞性',
+          '選項的長度'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '選項長度與答案無關。',
           '字數與文法判斷無關。',
-          '生字可以先跳過。'
+          '生字可以先跳過。',
+          null,
+          '選項長度與答案無關。'
         ]
       }
     },
@@ -33374,17 +33374,17 @@ window.APP_LESSONS['english|十二下|第9單元 綜合演練'] = {
       check: {
         q: '閱讀測驗選答案時，最重要的原則是什麼？',
         options: [
+          '憑常識判斷',
           '每個答案都要能在文章中找到依據',
           '選最長的選項',
-          '選有生字的選項',
-          '憑常識判斷'
+          '選有生字的選項'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '符合常識但文章沒說的選項通常是錯的。',
           null,
           '選項長度與正確性無關。',
-          '生字的有無不是判斷依據。',
-          '符合常識但文章沒說的選項通常是錯的。'
+          '生字的有無不是判斷依據。'
         ]
       }
     },
@@ -33399,17 +33399,17 @@ window.APP_LESSONS['english|十二下|第9單元 綜合演練'] = {
       check: {
         q: '作文檢查的順序應該怎麼安排？',
         options: [
+          '從字數開始',
           '從影響分數最大的切題與文法開始',
           '從拼字開始',
-          '從標點開始',
-          '從字數開始'
+          '從標點開始'
         ],
-        answer: 0,
+        answer: 1,
         why: [
+          '字數不足時仍要先確保切題。',
           null,
           '拼字的扣分幅度相對小。',
-          '標點是次要的檢查項目。',
-          '字數不足時仍要先確保切題。'
+          '標點是次要的檢查項目。'
         ]
       }
     },
@@ -33424,17 +33424,17 @@ window.APP_LESSONS['english|十二下|第9單元 綜合演練'] = {
       check: {
         q: '學完高中英文之後，最好的持續學習方式是什麼？',
         options: [
-          '在真實情境中持續使用，遇到不足再補強',
-          '把課本再背一次',
           '停止接觸英文',
-          '只做考古題'
+          '只做考古題',
+          '在真實情境中持續使用，遇到不足再補強',
+          '把課本再背一次'
         ],
-        answer: 0,
+        answer: 2,
         why: [
-          null,
-          '重複背誦課本的效果有限。',
           '停止接觸會讓能力退步。',
-          '只做考題無法培養實際的使用能力。'
+          '只做考題無法培養實際的使用能力。',
+          null,
+          '重複背誦課本的效果有限。'
         ]
       }
     }
