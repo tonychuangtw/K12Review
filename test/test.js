@@ -12,7 +12,8 @@ for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'c
                  'civics', 'civics-custom']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
-for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars', 'checks-custom']) {
+for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars', 'checks-custom',
+                 'checks-math']) {   // checks-math 起：各科自編原創題的確認題，一科一檔
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
 for (const f of ['lessons-math', 'lessons-science', 'lessons-social', 'lessons-english',

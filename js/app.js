@@ -1223,9 +1223,17 @@
   }
   var unitsLessonsAsked = false;
   // 某一科的主題庫（每日練習／單元／刷題都要用）：進到該科之前先載進來
+  // 有人工確認題檔的科目（js/data/checks-<科目>.js）：題庫載進來時一起載，
+  // 沒列在這裡的科目就退回 autoChk 現場生成。新增一科的確認題時要補進這份清單。
+  var SUBJ_CHECK_FILES = { math: 1 };
+  function bankFilesFor(key) {
+    var files = ['js/data/' + key + '.js'];
+    if (SUBJ_CHECK_FILES[key]) files.push('js/data/checks-' + key + '.js');
+    return files;
+  }
   function ensureSubjectBank(key, cb) {
     if (key === 'chinese' || bankLoaded(key)) { cb(null); return; }
-    loadScript('js/data/' + key + '.js', function (err) {
+    loadScripts(bankFilesFor(key), function (err) {
       if (!err) delete _subjGrades[key];   // 有真資料了，重算涵蓋年級
       cb(err);
     });
@@ -1236,7 +1244,7 @@
       return SUBJECT_CATS.indexOf(c) >= 0 && !bankLoaded(c);
     });
     if (!need.length) { cb(null, false); return; }
-    loadScripts(need.map(function (c) { return 'js/data/' + c + '.js'; }), function (err) {
+    loadScripts(need.reduce(function (acc, c) { return acc.concat(bankFilesFor(c)); }, []), function (err) {
       need.forEach(function (c) { delete _subjGrades[c]; });
       cb(err, true);
     });
