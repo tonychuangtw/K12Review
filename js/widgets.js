@@ -7933,6 +7933,7 @@
      spec: { mode:'region'|'terrain'|'rivers', pick }                    */
   REG.taiwan = function (host, spec) {
     var mode = spec.mode || 'region';
+    if (mode === 'river') mode = 'rivers';   // 資料裡兩種寫法都有
     var VIEW_W = 320, VIEW_H = 380;
     /* 每一種地圖：底圖、原圖尺寸、要裁的範圍（原圖像素）、可點的熱區。
        region／rivers 的座標先用經緯度換算（公式見 tools/tikuconv/mkfig_*.html 檔頭），
@@ -8213,29 +8214,64 @@
      x, y 用 0～100 的相對座標。                                          */
   REG.regionmap = function (host, spec) {
     var items = spec.items || [];
-    var idx = 0;
+    var idx = 0, imgOk = !!spec.img;
     var box = div('wg');
     var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
     box.appendChild(svg);
     var read = div('wg-read');
     box.appendChild(read);
+    /* 有底圖時，圖框高度跟著底圖的長寬比走（上限 300），整張圖完整放進去不裁切；
+       沒有底圖就維持原本的 292×150 方框。item 的 x/y 是「圖框內的百分比」。 */
+    var BX = 14, BY = 22, BW = 292, BH = 150;
+    if (imgOk && spec.iw && spec.ih) {
+      BH = Math.max(140, Math.min(300, Math.round(BW * spec.ih / spec.iw)));
+      svg.setAttribute('viewBox', '0 0 320 ' + (BH + 40));
+    }
+    var CLIP = 'rgclip' + Math.floor(items.length * 97 + BW);
     function paint() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
       read.innerHTML = '';
-      svg.appendChild(el('rect', { x: 14, y: 22, width: 292, height: 150, rx: 10,
-        'fill-opacity': '.07' }, 'fill:var(--good);stroke:var(--border);stroke-width:1.5'));
+      if (imgOk) {
+        // 底圖（AI 畫的地圖，一律不含文字；地名與圓點都在這裡用程式疊上去）
+        var defs = el('defs');
+        var cp = el('clipPath', { id: CLIP });
+        cp.appendChild(el('rect', { x: BX, y: BY, width: BW, height: BH, rx: 10 }));
+        defs.appendChild(cp);
+        svg.appendChild(defs);
+        var g = el('g', { 'clip-path': 'url(#' + CLIP + ')' });
+        var im = el('image', { x: BX, y: BY, width: BW, height: BH,
+          preserveAspectRatio: 'xMidYMid meet', href: spec.img });
+        im.setAttributeNS('http://www.w3.org/1999/xlink', 'href', spec.img);
+        im.addEventListener('error', function () { imgOk = false; paint(); });
+        g.appendChild(im);
+        svg.appendChild(g);
+        svg.appendChild(el('rect', { x: BX, y: BY, width: BW, height: BH, rx: 10, fill: 'none' },
+          'stroke:var(--border);stroke-width:1.5'));
+      } else {
+        svg.appendChild(el('rect', { x: BX, y: BY, width: BW, height: BH, rx: 10,
+          'fill-opacity': '.07' }, 'fill:var(--good);stroke:var(--border);stroke-width:1.5'));
+      }
       if (spec.title) {
         svg.appendChild(txt(160, 14, spec.title, 'font-size:11px;fill:var(--dim)'));
       }
       items.forEach(function (it, i) {
-        var x = 26 + (it.x == null ? 50 : it.x) / 100 * 268;
-        var y = 34 + (it.y == null ? 50 : it.y) / 100 * 126;
+        var x = BX + 12 + (it.x == null ? 50 : it.x) / 100 * (BW - 24);
+        var y = BY + 12 + (it.y == null ? 50 : it.y) / 100 * (BH - 24);
         var on = i === idx;
-        svg.appendChild(el('circle', { cx: x, cy: y, r: on ? 8 : 5 },
-          'fill:var(--' + (on ? 'accent' : 'dim') + ')'));
-        svg.appendChild(txt(x, y - (on ? 16 : 13), it.t,
-          'font-size:' + (on ? 11 : 10) + 'px;fill:var(--' + (on ? 'accent' : 'dim') +
-          ');font-weight:' + (on ? 700 : 400)));
+        var mark = el('g', { style: 'cursor:pointer' });
+        mark.appendChild(el('circle', { cx: x, cy: y, r: on ? 9 : 6.5 },
+          'fill:var(--' + (on ? 'accent' : 'dim') + ');stroke:#fff;stroke-width:1.5;fill-opacity:.9'));
+        if (imgOk) {
+          mark.appendChild(txt(x, y + 3, String(i + 1),
+            'font-size:8px;font-weight:700;fill:#fff'));
+        }
+        var lab = txt(x, y - (on ? 15 : 12), it.t,
+          'font-size:' + (on ? 11 : 10) + 'px;font-weight:' + (on ? 700 : 600) +
+          (imgOk ? ';fill:#fff;stroke:#1b1b1b;stroke-width:2.6;paint-order:stroke'
+                 : ';fill:var(--' + (on ? 'accent' : 'dim') + ')'));
+        mark.appendChild(lab);
+        mark.addEventListener('click', function () { idx = i; paint(); });
+        svg.appendChild(mark);
       });
       var cur = items[idx] || { t: '', d: '' };
       read.appendChild(div('wg-read-main', cur.t));
@@ -8243,7 +8279,8 @@
     }
     var row = div('wg-ctrl');
     items.forEach(function (it, i) {
-      row.appendChild(btn(it.t, function () { idx = i; paint(); }));
+      row.appendChild(btn(it.t, function () { idx = i; paint(); }, '',
+        '這個地方的說明已經顯示在下面了'));
     });
     box.appendChild(row);
     host.appendChild(box);

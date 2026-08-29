@@ -174,8 +174,14 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
 ## 社會科地圖卡升級（2026-08-29，示範已送出，等 Tony 確認）
 
 - 做法：`claude-shared/tools/gen-image.sh --gpt`（$0，訂閱介面）畫**完全不含文字**的插畫風底圖 → 存 `img/social/_base-*.webp` → `js/widgets.js` 的 `REG.taiwan` 用 `<image>` 貼底圖＋程式疊中文地名與可點圓點（`MAPS` 裡設 `img/w/h/crop/spots`，載不到自動退回舊的向量示意圖）
-- 已完成：五上〈臺灣的位置與環境〉一卡三圖（位置與分區／地形／河川），三張截圖已送 Telegram 給 Tony
-- **等他回覆才推**：其餘地圖型概念卡共 153 張（taiwan 30、mapdir 33、weathermap 31、plates 21、strata 21、regionmap 17）
+- 底圖畫法（Tony 2026-08-29 定案）：**把真實地圖當 `--ref` 參考圖丟給 GPT，只准換畫風、不准改地理**，
+  再加「海上要有鯨魚海豚渡輪海龜帆船、陸上有黑熊石虎梅花鹿」這類可愛元素。純文字描述畫出來的河會亂跑（第一版就是），一定要帶參考圖
+- 已完成：`img/social/_base-taiwan-cute.webp` 一張底圖供 taiwan 元件三種模式共用（位置與分區／地形／河川），
+  30 張 taiwan 概念卡全部受惠；順手修掉 `mode:'river'` 沒對應到 `rivers` 的 bug（3 張卡本來顯示成分區圖）
+- 進行中：regionmap 17 張（`js/data/lessons-social.js`）——widget 已支援 `img`/`iw`/`ih` 底圖（圖框高度跟著底圖長寬比走），
+  10 張區域底圖用 `scratchpad/genmaps.sh` 產生中；截圖驗證用 `scratchpad/shotreg.mjs`
+- 還沒動：mapdir 33、weathermap 31、plates 21、strata 21 —— 這四種是示意圖／剖面圖不是地圖，
+  AI 圖反而會畫錯（板塊剖面、鋒面符號要精確），評估後傾向維持程式繪製、只改善配色與樣式
 - 另提過但還沒排順序的 AI 配圖方向：英文單字情境圖、自然生物／器材圖、社會歷史場景、國語閱讀插圖、單元封面圖
 
 ## 已完成：K12Review（v64）
