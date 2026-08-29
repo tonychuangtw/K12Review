@@ -171,6 +171,15 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
    每字自撰挖空例句、注音、兩個易混字、解析（字源＋易錯原因）；補 strokes 筆順；
    依 CLAUDE.md 規則同步寫 checks-chars.js 解析確認題；手寫練習要能依冊／課選範圍。
 
+## 匯入題庫獨立區（2026-08-29 Tony 訊息 1122，已完成上線）
+
+- 需求：匯入題庫是獨立一區，要有自己的錯題本（可選科目、年級）、進度分析，家長檢視也要看得到
+- 做法：`wb.scope='import'` 讓錯題本切成跨科目的匯入模式（`wbInScope()`／`isImportCat()`／`itemGrade()`）；
+  `showImportProgress()` 是專屬進度頁（總表→各科→各冊，沒開始的冊不列）；
+  `view-custom` 加 `#customTools` 兩顆按鈕；家長儀表板加「📦 匯入題庫」區塊
+- 順手修：錯題本標題只認 `custom`，社會／數學等題庫型錯題顯示成「3：undefined」，改用 `isBankCat()` 判斷
+- 守門：`test/browser-smoke.mjs` 第 12 節走完整條路（工具列→錯題本→返回→進度分析→家長檢視）
+
 ## 課文帶讀上線＋方向畫反的圖修正（2026-08-29）
 
 - 課文帶讀：`js/data/texts-social.js`（八上社會第1單元 6 段），前端 `view-read`＋`js/app.js` 的
