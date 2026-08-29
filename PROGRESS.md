@@ -21,7 +21,18 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 12:10 台北
+UPDATED: 2026-08-29 12:40 台北
+
+### 2026-08-29 互動元件：按了沒反應／原子電子數爆掉（Tony msg 1048／1049）
+
+(1) 按「回到中性」沒反應 —— 那時本來就是中性，重畫一樣。掃出 28 個「按到目前已在的狀態」
+    的模式切換鈕（食物鏈／能量金字塔、自轉與晝夜、酵素專一性…）。解法做在 widgets.js 的
+    btn()：按完比對 .wg 的 innerHTML，沒變就閃「已經是這個狀態了」，全站與未來的元件都適用。
+(2) ±1 個電子加到三十幾個圖不動 —— shells() 殼層容量 2+8+8+18＝36，多的被無聲丟掉。
+    電子數改夾 ±3（常見離子上限），shells() 也補「還有剩就多畫一層」。
+    掃過其他 ± / 下一步按鈕都已有 clamp，沒有第二處。
+browser-smoke 新增「原子構造互動元件」一節 4 項（直接 Widgets.render 到暫存 div 上驅動，
+不必走完整導覽）。
 
 ### 2026-08-29 各科原創題確認題全面補齊＋停用Ｃ型（Tony msg 1040／1041／1044）
 
