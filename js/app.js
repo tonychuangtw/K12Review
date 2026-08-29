@@ -1701,6 +1701,56 @@
   })();
   applyTheme();
 
+  /* 解析確認題開關（2026-08-29 Tony）：
+     「這是確認兒子不亂做才開的，女兒可以自己唸就不用。這些科目裡應該只有國文解析很多值得全留，
+       其他科目直接看完解析往下就好。」
+     關掉之後不是直接放行，而是退回原本的「解析鎖倒數」——還是要看完解析才能按下一題。 */
+  var CHK_MODES = [
+    { key: 'all', name: '全部科目都出', sub: '答完題要再答一題解析確認題才能往下' },
+    { key: 'chinese', name: '只有國語出', sub: '國語解析長、值得追問；其他科目看完解析就往下' },
+    { key: 'off', name: '都不出', sub: '所有科目都只要看完解析（倒數結束）就能往下' }
+  ];
+  function chkMode() {
+    var m = state.chkMode;
+    return (m === 'chinese' || m === 'off') ? m : 'all';
+  }
+  // 這一題現在要不要出確認題
+  function chkOn(cat) {
+    var m = chkMode();
+    if (m === 'off') return false;
+    if (m === 'chinese') return subjOfCat(cat) === 'chinese';
+    return true;
+  }
+  (function initSetPanel() {
+    var panel = $('setPanel');
+    function render() {
+      panel.innerHTML = '';
+      var h = document.createElement('div');
+      h.className = 'set-title';
+      h.textContent = '解析確認題';
+      panel.appendChild(h);
+      CHK_MODES.forEach(function (m) {
+        var b = document.createElement('button');
+        b.className = 'theme-sw' + (chkMode() === m.key ? ' active' : '');
+        b.innerHTML = '<b>' + m.name + '</b><span class="set-sub">' + m.sub + '</span>';
+        b.addEventListener('click', function () {
+          state.chkMode = m.key;
+          save(); render();
+          setStatusToast('解析確認題：' + m.name);
+        });
+        panel.appendChild(b);
+      });
+    }
+    $('setBtn').addEventListener('click', function (e) {
+      e.stopPropagation();
+      render();
+      panel.classList.toggle('hidden');
+      $('themePanel').classList.add('hidden');
+    });
+    panel.addEventListener('click', function (e) { e.stopPropagation(); });
+    document.addEventListener('click', function () { panel.classList.add('hidden'); });
+  })();
+
   // 強制登入（2026-08-09 Tony 要求）：未登入不能開始做題，先提示並觸發 Google 登入。
   // 只擋「開始練習」的入口，不擋做到一半的人（token 一小時過期，重新整理會自動續登）。
   function needLogin() {
@@ -2469,6 +2519,7 @@
 
   function chkOf(q) {
     if (!q || !q.item || q.item._noChk) return null;
+    if (!chkOn(q.type)) return null;           // 設定關掉的科目：退回解析鎖倒數
     // 手寫的優先（品質最好），沒有才從解析現場生成；
     // 閱讀題的解析在子題身上（item 只有文章），所以把畫面上顯示的解析一起傳進去
     return CHECKS[q.item.id] || autoChkOf(q.type, q.item, q.explain, q.qi);

@@ -214,6 +214,40 @@ await session(8731, 9331, { blockWriter: true, seed: seedWrong(['c001', 'c002', 
     await js(`JSON.stringify((JSON.parse(localStorage.getItem('chinese-review-v1')).gen) || {})`));
 });
 
+/* ---------- 1a. 解析確認題開關（⚙️ 練習設定，2026-08-29 Tony） ---------- */
+console.log('解析確認題開關');
+await session(8746, 9346, { blockWriter: true, seed: seedWrong(['c001', 'c002', 'c003', 'c004', 'c005', 'c006']) }, async (js) => {
+  await js(`document.getElementById('setBtn').click()`);
+  await sleep(200);
+  check('⚙️ 開得出練習設定面板',
+    await js(`!document.getElementById('setPanel').classList.contains('hidden')`));
+  check('三種選法都在', await js(`document.querySelectorAll('#setPanel .theme-sw').length === 3`));
+  check('預設是「全部科目都出」',
+    await js(`document.querySelectorAll('#setPanel .theme-sw')[0].classList.contains('active')`));
+  // 選「都不出」
+  await js(`document.querySelectorAll('#setPanel .theme-sw')[2].click()`);
+  await sleep(200);
+  check('選好會存進 state.chkMode',
+    await js(`JSON.parse(localStorage.getItem('chinese-review-v1')).chkMode === 'off'`),
+    await js(`JSON.parse(localStorage.getItem('chinese-review-v1')).chkMode`));
+  // 關掉之後：答完題不出確認題，退回解析鎖倒數
+  await js(`document.getElementById('setBtn').click()`);   // 收起面板
+  await js(`document.querySelector('.card[data-go="review"]').click()`);
+  await sleep(400);
+  await js(`document.getElementById('rvMb').checked = true; document.getElementById('rvStart').click()`);
+  await sleep(900);
+  check('測驗有開起來（手寫題）',
+    await js(`typeof (window.__hw || {}).onComplete === 'function'`));
+  await js(`window.__hw.onComplete({ totalMistakes: 0 })`);
+  await sleep(400);
+  check('關掉之後不出確認題',
+    await js(`document.getElementById('quizChk').classList.contains('hidden')`));
+  check('關掉之後仍要看完解析才能往下（解析鎖倒數）',
+    await js(`document.getElementById('quizNext').classList.contains('locked')`) &&
+    /先看解析/.test(await js(`document.getElementById('quizNext').textContent`)),
+    await js(`document.getElementById('quizNext').textContent`));
+});
+
 /* ---------- 1b. 只考錯題本的錯題測驗 ---------- */
 console.log('錯題測驗（只考錯題本）');
 await session(8734, 9334, { blockWriter: true, seed: seedWrong(['c001', 'c002', 'c003', 'c004', 'c005', 'c006', 'c007', 'c008']) }, async (js) => {

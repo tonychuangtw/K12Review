@@ -564,6 +564,17 @@ body {
 }
 .theme-sw.active .theme-dot { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
 
+/* 練習設定（⚙️）：沿用 theme-panel 的外框，但改成一欄一列的清單 */
+#setPanel { grid-template-columns: 1fr; max-width: min(20rem, calc(100vw - 1.6rem)); }
+#setPanel .set-title { font-size: 0.8rem; color: var(--dim); padding: 0 0.2rem 0.2rem; }
+#setPanel .theme-sw {
+  flex-direction: column; align-items: flex-start; gap: 0.15rem;
+  text-align: left; padding: 0.45rem 0.5rem; font-size: 0.85rem; width: 100%;
+  border: 1px solid transparent;
+}
+#setPanel .theme-sw.active { border-color: var(--accent); background: var(--panel2); }
+#setPanel .set-sub { font-size: 0.72rem; color: var(--dim); line-height: 1.35; }
+
 /* ---- 總結測驗 ---- */
 .rv-days { display: flex; flex-direction: column; gap: 6px; margin: 8px 0; }
 .rv-day {
