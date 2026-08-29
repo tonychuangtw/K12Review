@@ -4,12 +4,13 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【已完成】課文帶讀鋪設全部做完 —— 社會 126／自然 126／數學 216／英文 216／國語語文常識 108，
-共 792 篇。下一件事等 Tony 指示；待辦池裡還有兩項：
-(1) 字形題（chars.js）年級分布不平均，小一 27／小二 37／小三 49／小五 56／小六 74／國一 62／國三 61／
-    高中各 56–60（小四 415、國二 139 已足夠）——要不要補題等 Tony 決定，補了要跑 tools/fetch-strokes.js 與寫解析確認題。
-（原本列的「社會科其餘 153 張 regionmap 地圖升級」已作廢：地圖卡那條線 2026-08-29 就告一段落了，
-    regionmap 17 張、taiwan 30 張、plates 22、strata 14、weathermap 10 都做完，mapdir 33 張本來就清楚不用動）
+NEXT_ACTION: 【已完成】字形題補題 —— Tony 2026-08-31 說「好. 補」，已把年級題數補平：
+小一 27→100／小二 37→101／小三 49→100／小五 56→100／小六 74→100／國一 62→100／國三 61→100／
+高一 60→100／高二 59→100／高三 56→100，共新增 460 題（全庫 1,095→1,555），
+每題含 note、兩段式 deep（注音比較＋國字拆解）、js/data/checks-chars.js 的解析確認題，並跑過 tools/fetch-strokes.js。
+補題過程被 tools/moe-zy-audit.js 抓到 6 個注音錯誤（寂ㄐㄧˊ、惋ㄨㄢˋ、剖ㄆㄡˇ、儲ㄔㄨˊ、湮ㄧㄣ、戕ㄑㄧㄤˊ）已依簡編本改正。
+產生器留在 scratchpad（mk.py＋body_g*.py），要再補題照同樣格式寫 body 檔即可（會自動檢查洩答案／誤字／重複字／確認題規則並輪流正解位置）。
+【已完成】課文帶讀鋪設全部做完 —— 社會 126／自然 126／數學 216／英文 216／國語語文常識 108，共 792 篇
 （每單元 6 段、每段 ≥3 句、每句 ≤60 字、附一題「讀懂了嗎」，正解位置由 scratchpad 的 tmpl_tail.py 自動輪流）。
 【已完成】匯入題庫（custom）的解析確認題已全部寫完（待人工寫 0）。各科自編原創題起步：
 **數學四年級 576 題已完成並上線（js/data/checks-math.js，2026-08-29），等 Tony 實際玩過再決定要不要往下鋪。**
@@ -26,8 +27,8 @@ NEXT_ACTION: 【已完成】課文帶讀鋪設全部做完 —— 社會 126／�
 補記：各科自編原創題（science/math/english/history…）的解析是「✅正解：… ❌其他選項：… 📚課綱重點：…」
 的固定三段式，同一支腳本加一種形狀就能生（問「其他選項」那段或「課綱重點」那段），要做隨時可以接。
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 等 Tony 回覆「字形題要不要補題」（訊息 id 1173）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
-PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
+BLOCKERS: LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
+PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
 UPDATED: 2026-08-31 03:20 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
