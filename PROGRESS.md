@@ -171,6 +171,15 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
    每字自撰挖空例句、注音、兩個易混字、解析（字源＋易錯原因）；補 strokes 筆順；
    依 CLAUDE.md 規則同步寫 checks-chars.js 解析確認題；手寫練習要能依冊／課選範圍。
 
+## 概念卡配錯圖的巡檢（2026-08-29，Tony 從高二物理〈渡河問題〉問起）
+
+- 症狀：卡片配的是「概念上沾得上邊、但畫面看不出情境」的通用元件（渡河題配抽象向量加法圖）
+- 已修：physics 渡河→新元件 `rivercross`（河流／船／兩個向量／落點，滑桿調船頭角度算時間與漂移）、
+  physics 雨傘→`rainwalk`（走越快雨越斜、傘往前傾）、geography 等高線 2 張→`contour`（俯視等高線＋側面剖面，三種模式）
+- 巡檢方法（腳本留在 scratchpad/vizaudit.js，可重跑）：算出每種元件的「主場科目」，
+  列出「元件主場在別科、且該科只用 1-3 次」的卡片 → 122 筆逐一看過，其餘都是合理共用（生物用顯微鏡、化學用溶液）
+- ⚠ 新增元件要同時加進 `test/test.js` 的 WIDGETS 白名單，否則測試會報「未知的元件」
+
 ## 社會科地圖卡升級（2026-08-29，示範已送出，等 Tony 確認）
 
 - 做法：`claude-shared/tools/gen-image.sh --gpt`（$0，訂閱介面）畫**完全不含文字**的插畫風底圖 → 存 `img/social/_base-*.webp` → `js/widgets.js` 的 `REG.taiwan` 用 `<image>` 貼底圖＋程式疊中文地名與可點圓點（`MAPS` 裡設 `img/w/h/crop/spots`，載不到自動退回舊的向量示意圖）
