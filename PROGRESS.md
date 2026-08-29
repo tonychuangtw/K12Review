@@ -21,7 +21,18 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-29 10:15 台北
+UPDATED: 2026-08-29 11:05 台北
+
+### 2026-08-29 概念卡「換你試試」正解位置全是Ａ（Tony msg 1038）
+
+6,373 張概念卡有 5,828 張把正解放在第一個選項；除了數學（752/465/72/8）之外每一科都是 100% Ａ。
+修法：options 與 why（正解那格是 null）一起輪轉，目標位置以單元為單位分配——每四張卡把 0/1/2/3
+各用一次，順序由單元名的假亂數決定（xorshift32 + Math.imul；第一版用 h*1103515245 低位元被浮點截掉，
+結果全部又被推去Ａ，這是踩過的坑）。修正後 1592/1608/1586/1587。
+腳本：scratchpad/rotate.js（逐檔做括號配對的原地文字替換，不重新序列化，排版與註解都不動）。
+test/test.js 新增守門「概念卡『換你試試』的答案位置分散」（任一位置 >40% 即失敗）。
+順帶掃過其他有選項的資料（各科原創題庫、匯入題庫、閱讀題、解析確認題）都正常；
+匯入題庫有 2～10 個選項的題型，answer>3 是正常資料。
 
 ### 2026-08-29 ⚙️ 練習設定：解析確認題開關（Tony msg 1036）
 
