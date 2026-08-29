@@ -23,6 +23,10 @@ for (const f of ['lessons-math', 'lessons-science', 'lessons-social', 'lessons-e
   'lessons-history', 'lessons-geography', 'lessons-civics']) {          // 概念卡（單元教學層）
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
+for (const f of ['texts-social']) {                                     // 課文帶讀（教材層第一段）
+  eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
+}
+global.window.APP_TEXTS = window.APP_TEXTS;
 global.window.APP_DATA = window.APP_DATA;
 global.window.APP_CHECKS = window.APP_CHECKS;
 eval(fs.readFileSync(path.join(root, 'js/app.js'), 'utf8'));
@@ -524,6 +528,40 @@ console.log('解析確認題');
   console.log('\n概念卡（單元教學層）');
   const LES = window.APP_LESSONS || {};
   const keys = Object.keys(LES);
+  // 課文帶讀（js/data/texts-<科>.js）：每段要有句子、確認題四選一、答案位置要分散
+  (function () {
+    const T = global.window.APP_TEXTS || {};
+    const keys = Object.keys(T);
+    if (!keys.length) return;
+    const bad = [];
+    const posCount = [0, 0, 0, 0];
+    keys.forEach((k) => {
+      if (!global.window.APP_LESSONS[k]) bad.push(k + '：找不到對應的單元（鍵要和 lessons-*.js 一字不差）');
+      const segs = T[k].segs || [];
+      if (!segs.length) bad.push(k + '：沒有 segs');
+      segs.forEach((sg, i) => {
+        const tag = k + ' 第' + (i + 1) + '段';
+        if (!sg.h) bad.push(tag + '：缺小標 h');
+        if (!Array.isArray(sg.s) || sg.s.length < 3) bad.push(tag + '：句子少於 3 句（要能一句一句帶讀）');
+        (sg.s || []).forEach((line) => {
+          if (line.length > 60) bad.push(tag + '：有一句 ' + line.length + ' 字，太長唸不完');
+        });
+        if (!sg.q) return bad.push(tag + '：缺「讀懂了嗎」確認題');
+        if (!Array.isArray(sg.q.options) || sg.q.options.length !== 4) bad.push(tag + '：選項不是 4 個');
+        if (new Set(sg.q.options).size !== 4) bad.push(tag + '：選項有重複');
+        if (typeof sg.q.answer !== 'number' || sg.q.answer < 0 || sg.q.answer > 3) bad.push(tag + '：answer 不合法');
+        else posCount[sg.q.answer]++;
+        if (!Array.isArray(sg.q.why) || sg.q.why.length !== 4) bad.push(tag + '：why 不是 4 筆');
+        else if (sg.q.why[sg.q.answer] !== null) bad.push(tag + '：正解那格的 why 要留 null');
+      });
+    });
+    const total = posCount.reduce((a, b) => a + b, 0);
+    if (total >= 8 && Math.max(...posCount) / total > 0.5) {
+      bad.push('確認題的正解位置太集中（' + posCount.join('/') + '），要打散');
+    }
+    ok(!bad.length, '課文帶讀的資料完整（段落、確認題、選項）' + (bad.length ? '——' + bad.slice(0, 6).join('；') : ''));
+  })();
+
   const WIDGETS = ['fracbar', 'fraccircle', 'fraccompare', 'placevalue', 'column',
                    'array', 'grouping', 'angle', 'circleparts', 'clock', 'numberline',
                    'areagrid', 'decimalgrid', 'bargraph',

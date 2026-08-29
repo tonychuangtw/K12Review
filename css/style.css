@@ -944,3 +944,19 @@ body.anim-lock { overflow: hidden; }
 /* 手寫練習「依課練習」晶片列（2026-08-28） */
 .chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
 .chip-row .chip .sub { font-size: .8em; opacity: .75; }
+
+/* ── 課文帶讀 ─────────────────────────────────────────────────────────── */
+.read-tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 6px 0 10px; }
+.read-speed { font-size: 12px; color: var(--dim); display: flex; align-items: center; gap: 6px; }
+.read-speed input { width: 90px; }
+.read-hint { font-size: 12px; color: var(--dim); margin: 0 0 6px; }
+.read-body { font-size: 17px; line-height: 2; letter-spacing: .3px; }
+.read-s { cursor: pointer; border-radius: 6px; padding: 1px 2px; transition: background .15s; }
+.read-s:hover { background: rgba(127, 127, 127, .18); }
+.read-s.on { background: var(--accent); color: #fff; }
+.read-terms { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 4px; }
+.read-term { font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--panel2); color: var(--text); cursor: pointer; }
+.read-term.on { border-color: var(--accent); color: var(--accent); }
+.read-termd { font-size: 13px; color: var(--dim); margin: 2px 0 8px; line-height: 1.7; }
+.read-note { font-size: 11px; color: var(--dim); margin-top: 12px; text-align: center; }

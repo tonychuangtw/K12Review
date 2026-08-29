@@ -1246,5 +1246,62 @@ async (js) => {
   check('概念卡看完接單元測驗', await js(VIEW2) === 'quiz', String(await js(VIEW2)));
 });
 
+/* ---------- 11. 課文帶讀：讀懂一段才解鎖下一段 ---------- */
+console.log('課文帶讀（教材層第一段）');
+await session(8749, 9349, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 8, extra: [], grades: [8], onboarded: true, subject: 'social',
+  unitGrade: 8, unitBook: '八上', stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [],
+  units: {} }));` },
+async (js) => {
+  await js(`window.NavDebug.go('home')`);
+  await sleep(300);
+  await js(`document.querySelector('.card[data-go="units"]').click()`);
+  await sleep(900);
+  const picked = await js(`(function(){ var t = null;
+    document.querySelectorAll('#unitList .unit-item').forEach(function (b) {
+      if (/自然環境/.test(b.textContent)) t = b; });
+    if (!t) return false;
+    window.__smokeText = window.APP_TEXTS['social|八上|第1單元 地理：中國的自然環境'];
+    t.click(); return true; })()`);
+  const inRead = await js(`!document.getElementById('view-read').classList.contains('hidden')`);
+  check('有課文的單元先進「課文帶讀」', picked === true && inRead === true);
+  const segs = await js(`window.__smokeText.segs.length`);
+  check('段落數與資料一致', await js(`document.querySelectorAll('#readDots .cdot').length`) === segs);
+  check('句子是一句一句可點的', await js(`document.querySelectorAll('#readBody .read-s').length`) ===
+    await js(`window.__smokeText.segs[0].s.length`));
+  check('還沒讀懂前「下一段」是鎖住的',
+    await js(`document.getElementById('readNext').disabled`) === true);
+  // 答錯 → 就地說明；答對 → 解鎖
+  await js(`(function(){ var a = window.__smokeText.segs[0].q.answer;
+    var o = document.querySelectorAll('#readCheck .ck-opt');
+    for (var i = 0; i < o.length; i++) if (i !== a) { o[i].click(); return; } })()`);
+  await sleep(200);
+  check('答錯有針對性的說明', /❌/.test(await js(`(document.querySelector('#readCheck .ck-fb')||{}).textContent||''`)));
+  check('答錯後仍然鎖住', await js(`document.getElementById('readNext').disabled`) === true);
+  await js(`document.querySelectorAll('#readCheck .ck-opt')[window.__smokeText.segs[0].q.answer].click()`);
+  await sleep(200);
+  check('答對後解鎖下一段', await js(`document.getElementById('readNext').disabled`) === false);
+  // 詞語解釋不會跟著翻到下一段
+  await js(`(function(){ var t = document.querySelectorAll('#readTerms .read-term'); if (t[0]) t[0].click(); })()`);
+  await sleep(150);
+  check('點詞看得到解釋', await js(`document.querySelectorAll('.read-termd').length`) >= 1);
+  await js(`document.getElementById('readNext').click()`);
+  await sleep(400);
+  check('翻到下一段時上一段的詞語解釋會收掉',
+    await js(`document.querySelectorAll('.read-termd').length`) === 0);
+  // 全部讀完 → 進概念卡
+  for (let i = 1; i < segs; i++) {
+    await js(`(function(){ var a = window.__smokeText.segs[${i}].q.answer;
+      var o = document.querySelectorAll('#readCheck .ck-opt'); if (o[a]) o[a].click(); })()`);
+    await sleep(180);
+    await js(`document.getElementById('readNext').click()`);
+    await sleep(320);
+  }
+  check('課文讀完接概念卡',
+    await js(`!document.getElementById('view-concept').classList.contains('hidden')`));
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);

@@ -949,7 +949,7 @@
 
   /* ---------- 視圖切換 ---------- */
 
-  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'drill', 'custom', 'review', 'help', 'search'];
+  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'read', 'drill', 'custom', 'review', 'help', 'search'];
   // 手機返回手勢／瀏覽器上一頁（2026-08-20 Tony：「很多選進去後都不能回前一頁」）
   // 這是單頁站，本來按返回會直接離站。做法：navStack 與 history 條目一一對應——
   // 前進 pushState，退回一律交給 history.go（畫面在 popstate 裡才更新），
@@ -958,7 +958,8 @@
   // 中途離開某些頁要收尾（測驗計時、手寫畫布），按返回鍵跟按 ✕ 一樣要清乾淨
   var NAV_CLEAN = {
     quiz: function () { logDwell(); hqCancel(); },
-    write: function () { wqCancel(); }
+    write: function () { wqCancel(); },
+    read: function () { readStopSpeak(); }
   };
   function curView() {
     for (var i = 0; i < views.length; i++) {
@@ -1085,6 +1086,16 @@
     var k = mainCat();
     if (!k || k === 'chinese') { if (cb) cb(null); return; }
     loadScript('js/data/lessons-' + k + '.js', cb || function () {});
+  }
+  // 課文帶讀的短文：跟概念卡一樣，進到單元才載；沒有這一科的課文檔就安靜跳過
+  var TEXT_FILES = { social: 1 };
+  function ensureTexts(cb) {
+    var k = mainCat();
+    if (!k || !TEXT_FILES[k] || (W.APP_TEXTS && W.__textsLoaded === k)) { if (cb) cb(null); return; }
+    loadScript('js/data/texts-' + k + '.js', function (err) {
+      if (!err) W.__textsLoaded = k;
+      if (cb) cb(null);            // 載不到就當作這一科沒有課文，不擋住單元學習
+    });
   }
   // 成語動畫引擎（三支合計約 2.5MB）：只有按下「看動畫卡」才需要
   function ensureAnim(cb) {
@@ -5152,7 +5163,7 @@
     // 概念卡是動態載入的：載到之後重畫一次，讓「教材」標記與互動教學流程補上
     if (!isChinese() && !unitsLessonsAsked) {
       unitsLessonsAsked = true;
-      ensureLessons(function (err) { if (!err) showUnits(); });
+      ensureLessons(function (err) { ensureTexts(function () { if (!err) showUnits(); }); });
     }
     if (!state.unitGrade) state.unitGrade = state.grade || state.grades[state.grades.length - 1] || 5;
     var srow = $('unitSizeRow');
@@ -5370,8 +5381,217 @@
   });
   $('conceptExit').addEventListener('click', function () { showUnits(); });
 
+  /* ── 課文帶讀（教材層的第一段）──────────────────────────────────────────
+     2026-08-29 Tony：「能不能一開始先有課文整段帶著逐步唸完，再來是概念卡，然後才是測驗，
+     而且要知道學生唸到哪一段是不是真懂了才往下走。」
+     做法：短文切成幾段，每段可整段朗讀或點單句重聽（瀏覽器內建語音，不用後端），
+     配一張圖或互動元件，段末一題確認題——答對才解鎖下一段，答錯就地說明並建議重讀。
+     ⚠ 短文一律自撰（課本原文有版權，不可放進公開網站），資料在 js/data/texts-<科>.js。 */
+  function textDeck(name) {
+    var T = W.APP_TEXTS;
+    if (!T || isChinese() || !name || !state.unitBook) return null;
+    return T[mainCat() + '|' + state.unitBook + '|' + name] || null;
+  }
+  var readState = null, readVoice = null;
+
+  function readStopSpeak() {
+    try { if (W.speechSynthesis) W.speechSynthesis.cancel(); } catch (e) {}
+    if (readState) readState.speaking = false;
+    var body = $('readBody');
+    if (body) body.querySelectorAll('.read-s.on').forEach(function (x) { x.classList.remove('on'); });
+    $('readStop').classList.add('hidden');
+    $('readPlay').classList.remove('hidden');
+  }
+  function pickVoice() {
+    if (readVoice || !W.speechSynthesis || !speechSynthesis.getVoices) return readVoice;
+    var vs = speechSynthesis.getVoices() || [];
+    readVoice = vs.filter(function (v) { return /zh[-_]TW|cmn-Hant|zh-Hant/i.test(v.lang || ''); })[0] ||
+      vs.filter(function (v) { return /^zh/i.test(v.lang || ''); })[0] || null;
+    return readVoice;
+  }
+  function speak(text, cb) {
+    if (!W.speechSynthesis || !W.SpeechSynthesisUtterance) { if (cb) cb(); return false; }
+    var u = new SpeechSynthesisUtterance(text);
+    var v = pickVoice();
+    if (v) u.voice = v;
+    u.lang = (v && v.lang) || 'zh-TW';
+    u.rate = Number($('readRate').value) || 0.9;
+    u.onend = function () { if (cb) cb(); };
+    u.onerror = function () { if (cb) cb(); };
+    speechSynthesis.speak(u);
+    return true;
+  }
+
+  function startReading(grade, unitIdx, items, text, deck) {
+    readState = { grade: grade, unitIdx: unitIdx, items: items, text: text, deck: deck,
+      i: 0, ok: {}, speaking: false };
+    show('read');
+    renderReadSeg();
+  }
+
+  function renderReadDots() {
+    var R = readState, host = $('readDots');
+    host.innerHTML = '';
+    R.text.segs.forEach(function (_, i) {
+      var d = document.createElement('span');
+      d.className = 'cdot' + (R.ok[i] ? ' ok' : (i === R.i ? ' cur' : (i < R.i ? ' seen' : '')));
+      host.appendChild(d);
+    });
+  }
+
+  function renderReadSeg() {
+    var R = readState;
+    if (!R) return;
+    readStopSpeak();
+    var seg = R.text.segs[R.i], last = R.i === R.text.segs.length - 1;
+    $('readInfo').textContent = (state.unitBook || '') + ' · ' + (R.items.name || '課文帶讀');
+    $('readStep').textContent = '📖 課文 ' + (R.i + 1) + '/' + R.text.segs.length;
+    $('readTitle').textContent = seg.h || '';
+    renderReadDots();
+    // 逐句：點一句就唸那一句
+    var body = $('readBody');
+    body.innerHTML = '';
+    (seg.s || []).forEach(function (line, si) {
+      var span = document.createElement('span');
+      span.className = 'read-s';
+      span.textContent = line;
+      span.addEventListener('click', function () {
+        readStopSpeak();
+        span.classList.add('on');
+        speak(line, function () { span.classList.remove('on'); });
+      });
+      body.appendChild(span);
+    });
+    // 詞語解釋
+    var terms = $('readTerms');
+    terms.innerHTML = '';
+    // 上一段展開的詞語解釋要收掉，不然會跟著翻到下一段
+    var stale = $('readCheck').parentNode.querySelectorAll('.read-termd');
+    for (var si = 0; si < stale.length; si++) stale[si].remove();
+    var desc = null;
+    (seg.terms || []).forEach(function (t) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'read-term';
+      b.textContent = t.w;
+      b.addEventListener('click', function () {
+        var on = b.classList.contains('on');
+        terms.querySelectorAll('.read-term').forEach(function (x) { x.classList.remove('on'); });
+        if (desc) { desc.remove(); desc = null; }
+        if (on) return;
+        b.classList.add('on');
+        desc = document.createElement('div');
+        desc.className = 'read-termd';
+        desc.textContent = t.w + '：' + t.d;
+        terms.parentNode.insertBefore(desc, terms.nextSibling);
+      });
+      terms.appendChild(b);
+    });
+    var viz = $('readViz');
+    if (seg.viz && W.Widgets) W.Widgets.render(viz, seg.viz); else viz.innerHTML = '';
+    renderReadCheck(seg, last);
+    $('readPrev').disabled = R.i === 0;
+  }
+
+  function renderReadCheck(seg, last) {
+    var R = readState, host = $('readCheck'), next = $('readNext');
+    host.innerHTML = '';
+    function setNext(done) {
+      next.textContent = last ? (done ? '進入概念卡 📘' : '先讀懂這一段') : (done ? '下一段 →' : '先讀懂這一段');
+      next.className = done ? 'btn-primary' : 'btn-ghost';
+      next.disabled = !done;                     // 讀懂了才往下（Tony 要的就是這個）
+    }
+    if (!seg.q) { setNext(true); return; }
+    var q = seg.q, answered = !!R.ok[R.i];
+    setNext(answered);
+    host.appendChild(Object.assign(document.createElement('div'),
+      { className: 'ck-q', textContent: '📖 讀懂了嗎：' + q.q }));
+    var fb = document.createElement('div');
+    fb.className = 'ck-fb hidden';
+    var opts = document.createElement('div');
+    opts.className = 'ck-opts';
+    q.options.forEach(function (text, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'ck-opt';
+      b.textContent = text;
+      b.addEventListener('click', function () {
+        if (b.classList.contains('wrong')) return;
+        if (i === q.answer) {
+          b.classList.add('right');
+          opts.querySelectorAll('.ck-opt').forEach(function (o) { o.disabled = true; });
+          R.ok[R.i] = true;
+          fb.className = 'ck-fb ok';
+          fb.textContent = '✅ 讀懂了！' + ((q.why && q.why[i]) || '這一段的重點你抓到了，往下一段。');
+          setNext(true);
+          renderReadDots();
+        } else {
+          b.classList.add('wrong');
+          fb.className = 'ck-fb ng';
+          fb.textContent = '❌ ' + ((q.why && q.why[i]) || '再讀一次上面那幾句，答案就在裡面。');
+        }
+      });
+      opts.appendChild(b);
+    });
+    host.appendChild(opts);
+    host.appendChild(fb);
+    if (answered) {
+      opts.querySelectorAll('.ck-opt').forEach(function (o, i) {
+        o.disabled = true;
+        if (i === q.answer) o.classList.add('right');
+      });
+      fb.className = 'ck-fb ok';
+      fb.textContent = '✅ 這一段你已經讀懂了。';
+    }
+  }
+
+  // 整段朗讀：一句一句唸，唸到哪一句就highlight哪一句
+  function readPlayAll() {
+    var R = readState;
+    if (!R) return;
+    var lines = R.text.segs[R.i].s || [], spans = $('readBody').querySelectorAll('.read-s');
+    if (!lines.length) return;
+    R.speaking = true;
+    $('readPlay').classList.add('hidden');
+    $('readStop').classList.remove('hidden');
+    var k = 0;
+    (function step() {
+      if (!R.speaking || k >= lines.length) { readStopSpeak(); return; }
+      spans.forEach(function (x) { x.classList.remove('on'); });
+      if (spans[k]) spans[k].classList.add('on');
+      var idx = k++;
+      var ok = speak(lines[idx], step);
+      if (!ok) {                                  // 這台裝置沒有語音：至少把句子依序highlight
+        setTimeout(step, 1200);
+      }
+    })();
+  }
+
+  $('readPlay').addEventListener('click', readPlayAll);
+  $('readStop').addEventListener('click', readStopSpeak);
+  $('readPrev').addEventListener('click', function () {
+    if (readState && readState.i > 0) { readState.i--; renderReadSeg(); window.scrollTo(0, 0); }
+  });
+  $('readNext').addEventListener('click', function () {
+    var R = readState;
+    if (!R) return;
+    if (R.i < R.text.segs.length - 1) { R.i++; renderReadSeg(); window.scrollTo(0, 0); return; }
+    readStopSpeak();
+    if (R.deck && R.deck.cards && R.deck.cards.length) {
+      startConcept(R.grade, R.unitIdx, R.items, R.deck);
+    } else {
+      lessonState = { grade: R.grade, unitIdx: R.unitIdx, items: R.items, i: 0 };
+      show('lesson');
+      renderLessonCard();
+    }
+  });
+  $('readExit').addEventListener('click', function () { readStopSpeak(); showUnits(); });
+
   function startLesson(grade, unitIdx, items) {
     var deck = conceptDeck(items && items.name);
+    var text = textDeck(items && items.name);
+    // 有課文的單元：課文帶讀 → 概念卡 → 單元測驗（2026-08-29 Tony 指定的流程）
+    if (text && text.segs && text.segs.length) { startReading(grade, unitIdx, items, text, deck); return; }
     if (deck && deck.cards && deck.cards.length) { startConcept(grade, unitIdx, items, deck); return; }
     lessonState = { grade: grade, unitIdx: unitIdx, items: items, i: 0 };
     show('lesson');

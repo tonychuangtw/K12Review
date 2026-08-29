@@ -285,6 +285,16 @@
     return { el: wrap, sync: function () { v.textContent = String(get()); } };
   }
 
+  /* 方位標：上北下南、左西右東。圖上只要提到東西南北，就要有這個，
+     不然「往西北」配上一支往右上的箭頭，方向剛好講反（2026-08-29 家長回報）。 */
+  function compassRose(svg, x, y) {
+    svg.appendChild(el('circle', { cx: x, cy: y, r: 13, 'fill-opacity': '.10' },
+      'fill:var(--dim);stroke:var(--border);stroke-width:1'));
+    svg.appendChild(el('polygon', { points: x + ',' + (y - 11) + ' ' + (x + 4) + ',' + (y + 2) +
+      ' ' + (x - 4) + ',' + (y + 2) }, 'fill:var(--bad)'));
+    svg.appendChild(txt(x, y + 11, '北', 'font-size:7px;fill:var(--dim)'));
+  }
+
   /* ── 位值積木（placevalue）─────────────────────────────────────────────
      一萬以內的數 / 大數 / 進位借位都靠這個「看得見的位值」。
      spec: { value, max, edit }                                            */
@@ -2283,15 +2293,20 @@
         svg.appendChild(txt(66, 96, '太陽', 'font-size:10px;fill:#111'));
         svg.appendChild(el('circle', { cx: 210, cy: 96, r: 40 },
           'fill:var(--panel2);stroke:var(--accent);stroke-width:2'));
+        // 太陽在左邊 → 面向太陽的「左半邊」才是白天（2026-08-29 修正：原本晝夜畫反了）
         svg.appendChild(el('path', { d: 'M210,56 A 40 40 0 0 0 210,136 Z' },
-          'fill:var(--dim);fill-opacity:.55'));
-        svg.appendChild(el('path', { d: 'M210,56 A 40 40 0 0 1 210,136 Z' },
           'fill:#f5e9a9;fill-opacity:.6'));
-        svg.appendChild(txt(186, 96, '夜', 'font-size:11px;fill:var(--dim)'));
-        svg.appendChild(txt(236, 96, '晝', 'font-size:11px;fill:#111'));
-        svg.appendChild(el('path', { d: 'M210,42 A 46 46 0 0 1 256,88' },
+        svg.appendChild(el('path', { d: 'M210,56 A 40 40 0 0 1 210,136 Z' },
+          'fill:var(--dim);fill-opacity:.55'));
+        svg.appendChild(txt(186, 96, '晝', 'font-size:11px;fill:#111'));
+        svg.appendChild(txt(236, 96, '夜', 'font-size:11px;fill:var(--dim)'));
+        // 自轉方向：從北極上方看是逆時針（由西向東），箭頭要畫得出來，不能只有一段弧
+        svg.appendChild(el('path', { d: 'M256,88 A 46 46 0 0 0 210,42' },
           'fill:none;stroke:var(--good);stroke-width:2'));
-        svg.appendChild(txt(262, 44, '自轉', 'font-size:10px;fill:var(--good)'));
+        svg.appendChild(el('polygon', { points: '210,42 220,36 220,48' }, 'fill:var(--good)'));
+        svg.appendChild(txt(268, 62, '自轉', 'font-size:10px;fill:var(--good)'));
+        svg.appendChild(txt(210, 26, '（由西向東，從北極上方看是逆時針）',
+          'font-size:8px;fill:var(--dim)'));
         main = '自轉造成晝夜：一圈約 24 小時';
         sub = '地球自己轉一圈約 24 小時（自轉），面向太陽的那半邊是白天、背對的是黑夜。' +
           '⚠ 太陽並沒有繞著我們跑：太陽「東升西落」是地球由西向東自轉造成的相對運動。' +
@@ -3160,43 +3175,47 @@
           'fill:none;stroke:var(--accent);stroke-width:3'));
         for (i = 0; i < 5; i++) {
           var t = i / 5, x = 14 + t * 268, y = 48 + t * 52;
-          svg.appendChild(el('polygon', { points: x + ',' + y + ' ' + (x + 12) + ',' + (y - 3) +
-            ' ' + (x + 6) + ',' + (y - 14) }, 'fill:var(--accent)'));
+          // 冷鋒的三角形要指向前進方向（往南＝往下），底邊貼在鋒面線上
+          svg.appendChild(el('polygon', { points: (x - 7) + ',' + (y - 1) + ' ' + (x + 7) + ',' + (y + 2) +
+            ' ' + x + ',' + (y + 15) }, 'fill:var(--accent)'));
         }
         svg.appendChild(el('polygon', { points: '150,92 150,116 144,116 156,130 168,116 162,116 162,92' },
           'fill:var(--accent);opacity:.85'));
         svg.appendChild(txt(60, 32, '冷氣團（由北往南推進）', 'font-size:10px;fill:var(--accent)'));
         svg.appendChild(txt(96, 150, '暖氣團', 'font-size:11px;fill:var(--bad)'));
         svg.appendChild(txt(60, 168, '鋒面掃過 → 降溫、下雨', 'font-size:9px;fill:var(--dim)'));
+        compassRose(svg, 300, 24);
         main = '冷鋒：冷空氣推向暖空氣的交界';
         sub = '冷空氣重、暖空氣輕，冷鋒推進時把暖空氣抬升 → 水氣凝結 → 短時間內下大雨、伴隨強風。' +
           '通過之後氣溫明顯下降、天氣轉晴變乾冷。' +
           '天氣圖上冷鋒畫成藍色三角形、暖鋒畫成紅色半圓形，三角形指的方向就是它前進的方向。';
       } else if (mode === 'typhoon') {
         // 右邊放一張臺灣小地圖，颱風畫在東南方海面上，用虛線箭頭指出西北行的常見路徑
+        // 上北下南、左西右東：臺灣在西北邊（左上），颱風在東南方海面（右下），
+        // 箭頭因此朝左上走，才真的是「往西北」（2026-08-29 家長回報方向畫反）
         if (twOk) {
-          var tw = el('image', { x: 236, y: 14, width: 74, height: 152, href: TW_IMG,
+          var tw = el('image', { x: 16, y: 12, width: 62, height: 124, href: TW_IMG,
             preserveAspectRatio: 'xMidYMid meet', opacity: '.95' });
           tw.setAttributeNS('http://www.w3.org/1999/xlink', 'href', TW_IMG);
           tw.addEventListener('error', function () { twOk = false; paint(); });
           svg.appendChild(tw);
-          svg.appendChild(txt(273, 178, '臺灣', 'font-size:9px;fill:var(--dim)'));
+          svg.appendChild(txt(47, 146, '臺灣', 'font-size:9px;fill:var(--dim)'));
         }
         for (i = 3; i >= 1; i--) {
-          svg.appendChild(el('circle', { cx: 105, cy: 90, r: i * 21, 'fill-opacity': i === 3 ? '.12' : '.2' },
+          svg.appendChild(el('circle', { cx: 226, cy: 108, r: i * 20, 'fill-opacity': i === 3 ? '.12' : '.2' },
             'fill:var(--accent);stroke:var(--accent);stroke-width:1.5'));
         }
-        svg.appendChild(el('circle', { cx: 105, cy: 90, r: 10 },
+        svg.appendChild(el('circle', { cx: 226, cy: 108, r: 10 },
           'fill:var(--panel);stroke:var(--bad);stroke-width:2'));
-        svg.appendChild(txt(105, 93, '眼', 'font-size:9px;font-weight:700;fill:var(--bad)'));
-        svg.appendChild(txt(105, 163, '颱風眼：風雨反而最小', 'font-size:9px;fill:var(--bad)'));
+        svg.appendChild(txt(226, 111, '眼', 'font-size:9px;font-weight:700;fill:var(--bad)'));
+        svg.appendChild(txt(226, 176, '颱風眼：風雨反而最小', 'font-size:9px;fill:var(--bad)'));
         if (twOk) {
-          svg.appendChild(el('path', { d: 'M128,78 Q182,52 232,48' },
+          svg.appendChild(el('path', { d: 'M198,92 Q150,66 104,58' },
             'fill:none;stroke:var(--bad);stroke-width:2;stroke-dasharray:6 4'));
-          svg.appendChild(el('polygon', { points: '232,48 220,42 222,54' }, 'fill:var(--bad)'));
-          svg.appendChild(txt(178, 30, '常見路徑：往西北', 'font-size:9px;fill:var(--bad)'));
+          svg.appendChild(el('polygon', { points: '96,56 110,50 108,62' }, 'fill:var(--bad)'));
+          svg.appendChild(txt(150, 40, '常見路徑：往西北', 'font-size:9px;fill:var(--bad)'));
         }
-        svg.appendChild(txt(105, 176, '眼牆附近風雨最強', 'font-size:9px;fill:var(--dim)'));
+        compassRose(svg, 300, 24);
         main = '颱風：中心是風雨最小的「颱風眼」';
         sub = '颱風是熱帶海面上發展出來的強烈低氣壓，空氣旋轉上升、水氣大量凝結，帶來狂風豪雨。' +
           '⚠ 颱風眼裡風雨反而很小甚至放晴——但那是「暫時的」，眼睛過去之後風向會反轉、風雨立刻再起，' +
