@@ -3057,6 +3057,7 @@
      spec: { mode:'pressure'|'front'|'typhoon', pick }                    */
   REG.weathermap = function (host, spec) {
     var mode = spec.mode || 'pressure';
+    var TW_IMG = 'img/social/_base-taiwan-cute.webp', twOk = true;
     var box = div('wg');
     var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
     box.appendChild(svg);
@@ -3081,14 +3082,30 @@
           '通過之後氣溫明顯下降、天氣轉晴變乾冷。' +
           '天氣圖上冷鋒畫成藍色三角形、暖鋒畫成紅色半圓形，三角形指的方向就是它前進的方向。';
       } else if (mode === 'typhoon') {
+        // 右邊放一張臺灣小地圖，颱風畫在東南方海面上，用虛線箭頭指出西北行的常見路徑
+        if (twOk) {
+          var tw = el('image', { x: 236, y: 14, width: 74, height: 152, href: TW_IMG,
+            preserveAspectRatio: 'xMidYMid meet', opacity: '.95' });
+          tw.setAttributeNS('http://www.w3.org/1999/xlink', 'href', TW_IMG);
+          tw.addEventListener('error', function () { twOk = false; paint(); });
+          svg.appendChild(tw);
+          svg.appendChild(txt(273, 178, '臺灣', 'font-size:9px;fill:var(--dim)'));
+        }
         for (i = 3; i >= 1; i--) {
-          svg.appendChild(el('circle', { cx: 160, cy: 92, r: i * 26, 'fill-opacity': i === 3 ? '.12' : '.2' },
+          svg.appendChild(el('circle', { cx: 105, cy: 90, r: i * 21, 'fill-opacity': i === 3 ? '.12' : '.2' },
             'fill:var(--accent);stroke:var(--accent);stroke-width:1.5'));
         }
-        svg.appendChild(el('circle', { cx: 160, cy: 92, r: 12 },
+        svg.appendChild(el('circle', { cx: 105, cy: 90, r: 10 },
           'fill:var(--panel);stroke:var(--bad);stroke-width:2'));
-        svg.appendChild(txt(160, 92, '颱風眼', 'font-size:9px;fill:var(--bad)'));
-        svg.appendChild(txt(160, 168, '眼牆附近風雨最強', 'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(txt(105, 93, '眼', 'font-size:9px;font-weight:700;fill:var(--bad)'));
+        svg.appendChild(txt(105, 163, '颱風眼：風雨反而最小', 'font-size:9px;fill:var(--bad)'));
+        if (twOk) {
+          svg.appendChild(el('path', { d: 'M128,78 Q182,52 232,48' },
+            'fill:none;stroke:var(--bad);stroke-width:2;stroke-dasharray:6 4'));
+          svg.appendChild(el('polygon', { points: '232,48 220,42 222,54' }, 'fill:var(--bad)'));
+          svg.appendChild(txt(178, 30, '常見路徑：往西北', 'font-size:9px;fill:var(--bad)'));
+        }
+        svg.appendChild(txt(105, 176, '眼牆附近風雨最強', 'font-size:9px;fill:var(--dim)'));
         main = '颱風：中心是風雨最小的「颱風眼」';
         sub = '颱風是熱帶海面上發展出來的強烈低氣壓，空氣旋轉上升、水氣大量凝結，帶來狂風豪雨。' +
           '⚠ 颱風眼裡風雨反而很小甚至放晴——但那是「暫時的」，眼睛過去之後風向會反轉、風雨立刻再起，' +
