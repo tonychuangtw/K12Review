@@ -6550,7 +6550,53 @@
   /* ── 生物體的組成層次（levels）────────────────────────────────────────
      細胞 → 組織 → 器官 → 器官系統 → 個體，一層一層點開來看。
      spec: { kind:'animal'|'plant', step, pick }                          */
+  /* 卡片自備層次資料時走這條：items 可以是字串或 {t, sub, d} */
+  function levelsCustom(host, spec) {
+    var items = spec.items.map(function (it) {
+      return typeof it === 'string' ? { t: it } : (it || {});
+    });
+    var idx = 0;
+    var box = div('wg');
+    var n = items.length;
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var w = 300 / n;
+      items.forEach(function (it, i) {
+        var x = 10 + i * w, on = i <= idx;
+        var g = el('g', { style: 'cursor:pointer' });
+        g.appendChild(el('rect', { x: x + 3, y: 46, width: w - 10, height: 46, rx: 8,
+          'fill-opacity': on ? '.22' : '.05' },
+          'fill:var(--accent);stroke:var(--' + (on ? 'accent' : 'border') + ');stroke-width:2'));
+        var fs = n > 5 ? 9 : (it.t.length > 5 ? 9 : 11);
+        g.appendChild(txt(x + w / 2, it.sub ? 62 : 72, it.t, 'font-size:' + fs + 'px;font-weight:700'));
+        if (it.sub) g.appendChild(txt(x + w / 2, 80, it.sub, 'font-size:8px;fill:var(--dim)'));
+        g.addEventListener('click', function () { idx = i; paint(); });
+        svg.appendChild(g);
+        if (i) svg.appendChild(txt(x, 70, n > 5 ? '›' : '→', 'font-size:13px;fill:var(--dim)'));
+      });
+      svg.appendChild(txt(160, 122, spec.note || '由左往右，一層一層推下去',
+        'font-size:10px;fill:var(--dim)'));
+      var cur = items[Math.min(idx, n - 1)];
+      read.appendChild(div('wg-read-main', cur.t + (cur.d ? '：' + cur.d : '')));
+      read.appendChild(div('wg-read-sub', spec.sub || ''));
+    }
+    var row = div('wg-ctrl');
+    items.forEach(function (it, i) {
+      row.appendChild(btn(it.t, function () { idx = i; paint(); }, '', '這一層已經選起來了'));
+    });
+    box.appendChild(row);
+    host.appendChild(box);
+    paint();
+  }
+
   REG.levels = function (host, spec) {
+    // 卡片自己給了 items 就畫卡片的內容（不然會拿生物的「細胞→組織→器官」去配地理、歷史的卡）
+    if (Array.isArray(spec.items) && spec.items.length) return levelsCustom(host, spec);
     var kind = spec.kind || 'animal';
     var idx = spec.step == null ? 0 : spec.step;
     var box = div('wg');
@@ -6914,7 +6960,61 @@
 
   /* ── 物質循環（cycle）─────────────────────────────────────────────────
      spec: { mode:'carbon'|'water'|'nitrogen', pick }                     */
+  /* 卡片自備循環步驟時走這條：steps 是字串陣列，畫成一圈箭頭 */
+  function cycleCustom(host, spec) {
+    var steps = spec.steps.map(function (x) { return typeof x === 'string' ? x : (x && x.t) || ''; });
+    var n = steps.length, idx = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 210', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var CX = 160, CY = 102, R = 74, RIN = 40;
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      // 中間的環＋順時針箭頭
+      svg.appendChild(el('circle', { cx: CX, cy: CY, r: RIN, fill: 'none' },
+        'stroke:var(--border);stroke-width:2;stroke-dasharray:5 5'));
+      for (var a = 0; a < n; a++) {
+        var th = -Math.PI / 2 + (a + 0.5) * 2 * Math.PI / n;
+        var ax = CX + Math.cos(th) * RIN, ay = CY + Math.sin(th) * RIN;
+        var tx = -Math.sin(th), ty = Math.cos(th);
+        svg.appendChild(el('polygon', { points: (ax + tx * 6) + ',' + (ay + ty * 6) + ' ' +
+          (ax - ty * 5) + ',' + (ay + tx * 5) + ' ' + (ax + ty * 5) + ',' + (ay - tx * 5) },
+          'fill:var(--dim)'));
+      }
+      steps.forEach(function (t, i) {
+        var th = -Math.PI / 2 + i * 2 * Math.PI / n;
+        var x = CX + Math.cos(th) * R, y = CY + Math.sin(th) * R;
+        var on = i === idx;
+        var g = el('g', { style: 'cursor:pointer' });
+        g.appendChild(el('rect', { x: x - 46, y: y - 14, width: 92, height: 28, rx: 8,
+          'fill-opacity': on ? '.28' : '.12' },
+          'fill:var(--' + (on ? 'accent' : 'good') + ');stroke:var(--' + (on ? 'accent' : 'good') +
+          ');stroke-width:2'));
+        g.appendChild(txt(x, y + 4, (i + 1) + '. ' + t,
+          'font-size:' + (t.length > 9 ? 7.5 : t.length > 6 ? 8.5 : 9.5) +
+          'px;font-weight:' + (on ? 700 : 400)));
+        g.addEventListener('click', function () { idx = i; paint(); });
+        svg.appendChild(g);
+      });
+      if (spec.hub) svg.appendChild(txt(CX, CY + 4, spec.hub, 'font-size:9px;fill:var(--dim)'));
+      read.appendChild(div('wg-read-main', (idx + 1) + '. ' + steps[idx]));
+      read.appendChild(div('wg-read-sub', spec.sub ||
+        '這是一個循環：最後一步結束又回到第一步，所以沒有真正的「起點」，' +
+        '重點是每一步接著哪一步、以及每一步發生了什麼。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('下一步 ▶', function () { idx = (idx + 1) % n; paint(); }));
+    box.appendChild(row);
+    host.appendChild(box);
+    paint();
+  }
+
   REG.cycle = function (host, spec) {
+    // 卡片自己給了 steps 就畫卡片的循環（不然會拿碳循環／水循環去配別的主題）
+    if (Array.isArray(spec.steps) && spec.steps.length) return cycleCustom(host, spec);
     var mode = spec.mode || 'carbon';
     var box = div('wg');
     var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });

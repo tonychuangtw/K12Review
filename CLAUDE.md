@@ -50,6 +50,9 @@
   把 134 種元件、399 組實際用到的設定全部畫出來，每顆按鈕連按 12 下、滑桿也拉，
   檢查「畫得出來／沒有 NaN／沒有死按鈕／不會按到一半卡住」。2026-08-29 Tony 連續回報
   「按了沒反應」「加到三十幾個圖就不動」之後補的，找不到 chrome-headless-shell 會自動跳過
+- 改到概念卡的 viz 或互動元件，另跑 `node test/viz-match.mjs`：把每張「卡片自己有傳資料」的概念卡畫出來，
+  檢查那些字有沒有真的出現在圖上。2026-08-29 Tony 回報「高二地理氣候的圖是生物的細胞層次」——
+  就是 levels／cycle 兩個元件無視卡片傳進來的 items／steps，改畫自己內建的內容，一次影響 111 張卡
 - 改到前端行為（測驗流程、手寫題、家長檢視）再跑 `node test/browser-smoke.mjs`：無 npm 依賴，用 CDP 驅動 playwright 快取裡的 chrome-headless-shell 真的點過一遍（找不到 shell 會自動跳過）。⚠️ 不要用 `node -e "require('tools/weekly-report.js')"` 檢查語法——那支 require 進去就會真的發週報給 Tony，要檢查語法用 `node --check`
 - 加題直接改 `js/data/*.js`，遵守檔頭既有 schema；id 連號不重複、grade 1-12、繁體台灣用字
 - ⚠️ **新增字形題（chars.js）後必跑 `node tools/fetch-strokes.js` 補筆順資料**，否則手寫練習顯示答案時沒有一筆一劃的動畫（2026-08-13 Tony 回報；test.js 已加守門，缺字會測試失敗）
