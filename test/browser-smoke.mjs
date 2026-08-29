@@ -1227,9 +1227,24 @@ async (js) => {
     if (t) {
       var name = t.querySelector('b').textContent.replace(/^[✅▶️]+\\s*/, '').replace(/\\s*教材\\s*$/, '').trim();
       window.__smokeDeck = window.APP_LESSONS['math|三上|' + name] || null;
+      window.__smokeText = (window.APP_TEXTS || {})['math|三上|' + name] || null;
       t.click();
     } })()`);
   await sleep(500);
+  // 2026-08-30 起數學也有課文帶讀：有課文的單元先讀完課文才接概念卡
+  if (await js(`!document.getElementById('view-read').classList.contains('hidden')`)) {
+    const rsegs = await js(`(window.__smokeText ? window.__smokeText.segs.length : 0)`);
+    check('數學有課文的單元先進課文帶讀',
+      rsegs > 0 && await js(`document.querySelectorAll('#readDots .cdot').length`) === rsegs &&
+      await js(`document.querySelectorAll('#readBody .read-s').length`) >= 3, '段數 ' + rsegs);
+    for (let i = 0; i < rsegs; i++) {
+      await js(`(function(){ var a = window.__smokeText.segs[${i}].q.answer;
+        var o = document.querySelectorAll('#readCheck .ck-opt'); if (o[a]) o[a].click(); })()`);
+      await sleep(180);
+      await js(`document.getElementById('readNext').click()`);
+      await sleep(320);
+    }
+  }
   check('點有教材的單元進到概念卡（不是題目劇透）', await js(VIEW2) === 'concept', String(await js(VIEW2)));
   check('概念卡畫出互動元件（SVG）',
     await js(`!!document.querySelector('#conceptViz svg')`));

@@ -23,7 +23,7 @@ for (const f of ['lessons-math', 'lessons-science', 'lessons-social', 'lessons-e
   'lessons-history', 'lessons-geography', 'lessons-civics']) {          // 概念卡（單元教學層）
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
-for (const f of ['texts-social', 'texts-science', 'texts-math']) {                                     // 課文帶讀（教材層第一段）
+for (const f of ['texts-social', 'texts-science', 'texts-math', 'texts-english']) {                                     // 課文帶讀（教材層第一段）
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
 global.window.APP_TEXTS = window.APP_TEXTS;
