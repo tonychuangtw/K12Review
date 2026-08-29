@@ -1688,8 +1688,55 @@
       meta.setAttribute('content', bgs[t] || '#12141a');
     }
   }
+  /* 字級（2026-08-29 Tony：「可以調顏色不能調大小，做和 LanExamMock 一樣的可選大小」）。
+     全站尺寸都是 rem，所以改 <html> 的 font-size 就整站一起縮放。
+     ⚠ 固定級距表，表上一定有 100%：不要改回「±10 再夾在 85..175」，
+     撞到下限之後級距會整個偏掉，使用者再也回不到 100%（LanExamMock 踩過同一個坑）。 */
+  var FS_KEY = 'chinese-fontsize';
+  var FS_STEPS = [85, 90, 100, 110, 120, 130, 140, 150, 160, 175];
+  function fsGet() {
+    var v = 100;
+    try { v = parseInt(localStorage.getItem(FS_KEY), 10) || 100; } catch (e) {}
+    v = Math.min(175, Math.max(85, v));
+    var best = FS_STEPS[0];
+    for (var i = 0; i < FS_STEPS.length; i++) {
+      if (Math.abs(FS_STEPS[i] - v) < Math.abs(best - v)) best = FS_STEPS[i];
+    }
+    return best;
+  }
+  function fsApply(v) {
+    v = Math.min(175, Math.max(85, v));
+    document.documentElement.style.fontSize = (v === 100 ? '' : v + '%');
+    try { localStorage.setItem(FS_KEY, String(v)); } catch (e) {}
+    return v;
+  }
+  fsApply(fsGet());
+
   (function initThemePanel() {
     var panel = $('themePanel');
+    function renderFs() {
+      var row = document.createElement('div');
+      row.className = 'fs-row';
+      var v = fsGet();
+      row.innerHTML = '<div class="fs-title">字級</div>' +
+        '<button type="button" class="fs-btn" id="fsMinus" aria-label="縮小字級">Ａ−</button>' +
+        '<span class="fs-val" id="fsVal">' + v + '%</span>' +
+        '<button type="button" class="fs-btn" id="fsPlus" aria-label="放大字級">Ａ＋</button>';
+      panel.appendChild(row);
+      function paint(nv) {
+        $('fsVal').textContent = nv + '%';
+        $('fsMinus').disabled = nv <= FS_STEPS[0];
+        $('fsPlus').disabled = nv >= FS_STEPS[FS_STEPS.length - 1];
+      }
+      function step(dir) {
+        var i = FS_STEPS.indexOf(fsGet());
+        if (i < 0) i = FS_STEPS.indexOf(100);
+        paint(fsApply(FS_STEPS[Math.max(0, Math.min(FS_STEPS.length - 1, i + dir))]));
+      }
+      $('fsMinus').addEventListener('click', function () { step(-1); });
+      $('fsPlus').addEventListener('click', function () { step(1); });
+      paint(v);
+    }
     function render() {
       panel.innerHTML = '';
       THEMES.forEach(function (t) {
@@ -1702,6 +1749,7 @@
         });
         panel.appendChild(b);
       });
+      renderFs();
     }
     $('themeBtn').addEventListener('click', function (e) {
       e.stopPropagation();

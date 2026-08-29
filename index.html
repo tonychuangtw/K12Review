@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#12141a">
 <title>K12學霸養成 — 國語・英文・數學・自然・社會</title>
+<script>
+/* 字級：在畫面畫出來之前先套用，避免先小後大閃一下（和 LanExamMock 同一套做法） */
+(function () {
+  try {
+    var fs = parseInt(localStorage.getItem('chinese-fontsize'), 10);
+    if (fs && fs >= 85 && fs <= 175) document.documentElement.style.fontSize = fs + '%';
+  } catch (e) {}
+})();
+</script>
 <link rel="stylesheet" href="css/style.css?v=20260829a">
 </head>
 <body>

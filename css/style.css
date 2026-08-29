@@ -564,6 +564,20 @@ body {
 }
 .theme-sw.active .theme-dot { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
 
+/* 字級調整（主題面板最下面一列，跨滿整排） */
+.fs-row {
+  grid-column: 1 / -1; display: flex; align-items: center; gap: 0.5rem;
+  border-top: 1px solid var(--border); margin-top: 0.3rem; padding-top: 0.6rem;
+}
+.fs-row .fs-title { font-size: 0.8rem; color: var(--dim); margin-right: auto; }
+.fs-row .fs-btn {
+  min-width: 2.6rem; padding: 0.3rem 0.5rem; cursor: pointer;
+  background: var(--panel2); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px; font-size: 0.95rem;
+}
+.fs-row .fs-btn:disabled { opacity: 0.4; cursor: default; }
+.fs-row .fs-val { min-width: 3.2rem; text-align: center; font-size: 0.85rem; color: var(--text); }
+
 /* 練習設定（⚙️）：沿用 theme-panel 的外框，但改成一欄一列的清單 */
 #setPanel { grid-template-columns: 1fr; max-width: min(20rem, calc(100vw - 1.6rem)); }
 #setPanel .set-title { font-size: 0.8rem; color: var(--dim); padding: 0 0.2rem 0.2rem; }

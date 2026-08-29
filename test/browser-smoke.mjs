@@ -1406,5 +1406,29 @@ async (js) => {
     await js(`(window.__errs || []).join(' | ')`));
 });
 
+/* ---------- 14. 字級調整（主題面板） ---------- */
+console.log('字級調整');
+await session(8761, 9361, {}, async (js) => {
+  await js(`window.NavDebug.go('home')`);
+  await sleep(300);
+  await js(`document.getElementById('themeBtn').click()`);
+  await sleep(300);
+  check('主題面板有字級調整列', await js(`!!document.getElementById('fsPlus')`));
+  await js(`document.getElementById('fsPlus').click()`);
+  await sleep(200);
+  check('按 Ａ＋ 之後整站字級變大',
+    await js(`document.documentElement.style.fontSize`) === '110%',
+    String(await js(`document.documentElement.style.fontSize`)));
+  check('字級有存起來',
+    await js(`localStorage.getItem('chinese-fontsize')`) === '110');
+  await js(`document.getElementById('fsMinus').click()`);
+  await sleep(200);
+  check('按 Ａ− 回得到 100%（不會偏掉級距）',
+    await js(`document.getElementById('fsVal').textContent`) === '100%',
+    String(await js(`document.getElementById('fsVal').textContent`)));
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);
