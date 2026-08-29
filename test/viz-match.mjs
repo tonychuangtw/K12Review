@@ -25,12 +25,28 @@ try {
       s.src='js/data/lessons-${f}.js'; s.onload=function(){res(1)}; s.onerror=function(){res(0)};
       document.head.appendChild(s); })`).catch(() => {});
   }
+  // 課文帶讀的每一段也可能有圖，一起檢查
+  for (const f of ['social']) {
+    await js(`new Promise(function(res){ var s=document.createElement('script');
+      s.src='js/data/texts-${f}.js'; s.onload=function(){res(1)}; s.onerror=function(){res(0)};
+      document.head.appendChild(s); })`).catch(() => {});
+  }
   await sleep(800);
   const out = await js(`(function(){
     var res = [];
     var host = document.createElement('div'); document.body.appendChild(host);
-    Object.keys(window.APP_LESSONS || {}).forEach(function (k) {
-      (APP_LESSONS[k].cards || []).forEach(function (c, ci) {
+    // 課文帶讀的段落先攤平成和概念卡一樣的形狀
+    var TEXTSEGS = {};
+    Object.keys(window.APP_TEXTS || {}).forEach(function (k) {
+      TEXTSEGS['課文｜' + k] = { cards: (APP_TEXTS[k].segs || []).map(function (sg) {
+        return { title: sg.h, viz: sg.viz };
+      }) };
+    });
+    var ALL = {};
+    Object.keys(window.APP_LESSONS || {}).forEach(function (k) { ALL[k] = APP_LESSONS[k]; });
+    Object.keys(TEXTSEGS).forEach(function (k) { ALL[k] = TEXTSEGS[k]; });
+    Object.keys(ALL).forEach(function (k) {
+      (ALL[k].cards || []).forEach(function (c, ci) {
         if (!c.viz || !c.viz.type) return;
         // 收集卡片傳給元件的中文字串（至少 2 個字）
         var words = [];
