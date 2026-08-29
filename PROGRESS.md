@@ -21,7 +21,7 @@ NEXT_ACTION: 匯入題庫（custom）的解析確認題已全部寫完（待人�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 社會科地圖卡的示範（一卡三圖）已送 Telegram，等 Tony 點頭才推其餘 153 張地圖卡；其餘無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 09:40 台北
+UPDATED: 2026-08-30 10:10 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
@@ -195,8 +195,8 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
 - 自然科開工（`js/data/texts-science.js`，新檔已註冊到 app.js 的 TEXT_FILES 與 test/test.js）：
   **自然科 14 冊 126 單元全數完成 ✅**（2026-08-29～30）；社會科 126 單元亦已完成
 - 數學開工（`js/data/texts-math.js`，已註冊到 app.js TEXT_FILES 與 test/test.js）：
-  一上到五下 10 冊 90 單元 ✅（2026-08-30）＝ 數學 90 / 216（數學是 24 冊、一年級到高三）
-- 下一批：數學六上 → 六下（做完小學）→ 國中高中；之後再換英文／國語
+  一上到六上 11 冊 99 單元 ✅（2026-08-30）＝ 數學 99 / 216（數學是 24 冊、一年級到高三）
+- 下一批：數學六下（做完小學）→ 國中七上起；之後再換英文／國語
 - ⚠ 正解位置要打散：test.js 會擋（任一位置 >50% 就失敗）。批量寫完後用 node 重新產生整個 texts 檔
   （載入 APP_TEXTS → 依序把正解輪到 0/1/2/3 → 照固定模板重寫檔案），比逐塊正則安全
 - 寫作要點：段落對齊該單元概念卡的順序；每段 5 句以內、每句 ≤60 字；
