@@ -4,9 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【進行中】課文帶讀鋪設 —— 社會 126 ✅／自然 126 ✅／數學 216 ✅／英文 216 ✅。
-國語已改做「語文常識帶讀」獨立一區（前端已接好、smoke 全過），接續照 `js/data/texts-chinese.js`
-從高一往下寫，每個年級 9 篇
+NEXT_ACTION: 【已完成】課文帶讀鋪設全部做完 —— 社會 126／自然 126／數學 216／英文 216／國語語文常識 108，
+共 792 篇。下一件事等 Tony 指示；待辦池裡還有兩項：
+(1) 字形題（chars.js）年級分布不平均，小一 27／小二 37／小三 49／小五 56／小六 74／國一 62／國三 61／
+    高中各 56–60（小四 415、國二 139 已足夠）——要不要補題等 Tony 決定，補了要跑 tools/fetch-strokes.js 與寫解析確認題。
+(2) 社會科其餘 153 張 regionmap 概念卡的地圖升級
 （每單元 6 段、每段 ≥3 句、每句 ≤60 字、附一題「讀懂了嗎」，正解位置由 scratchpad 的 tmpl_tail.py 自動輪流）。
 【已完成】匯入題庫（custom）的解析確認題已全部寫完（待人工寫 0）。各科自編原創題起步：
 **數學四年級 576 題已完成並上線（js/data/checks-math.js，2026-08-29），等 Tony 實際玩過再決定要不要往下鋪。**
@@ -25,7 +27,7 @@ NEXT_ACTION: 【進行中】課文帶讀鋪設 —— 社會 126 ✅／自然 12
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 社會科地圖卡的示範（一卡三圖）已送 Telegram，等 Tony 點頭才推其餘 153 張地圖卡；其餘無（Tony 2026-08-28 已看過樣本點頭，指定先做八上八下五上）；LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-31 02:40 台北
+UPDATED: 2026-08-31 03:20 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
@@ -209,7 +211,7 @@ composeDaily／composeDailyBank 多一個 seen 參數、首頁練習改用 `pick
     讀完回列表打勾（`state.lit['<年級>|<篇名>']`），不接概念卡也不接測驗
   ・`ensureTexts(cb, forceKey)` 加了 forceKey：國語的 `mainCat()` 回傳 null，要自己指定 'chinese'
   ・test.js 的課文守門對 `chinese|` 開頭的鍵不比對 APP_LESSONS；smoke 第 15 節走完整個流程
-  ・進度：小學 6 冊 ＋ 國中 3 冊 各 9 篇 ✅（2026-08-31）＝ 國語 81 / 108；下一批：高一 → 高二 → 高三
+  ・進度：**12 個年級 各 9 篇 ✅ ＝ 國語 108 / 108 全數完成**（2026-08-31）
 - 2026-08-30：test/browser-smoke.mjs 第 10 節（數學三上概念卡）補上「先走完課文帶讀再進概念卡」，
   因為數學鋪完課文後，有課文的單元會先進 view-read，舊流程直接找 #conceptCheck 會抓不到
 - ⚠ 正解位置要打散：test.js 會擋（任一位置 >50% 就失敗）。批量寫完後用 node 重新產生整個 texts 檔
