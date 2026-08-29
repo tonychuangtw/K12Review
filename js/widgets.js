@@ -8254,11 +8254,18 @@
       if (spec.title) {
         svg.appendChild(txt(160, 14, spec.title, 'font-size:11px;fill:var(--dim)'));
       }
+      /* 底圖用 meet 置中放進圖框，所以先算出「圖真正畫在哪」，item 的百分比才對得上 */
+      var IR = { x: BX, y: BY, w: BW, h: BH };
+      if (imgOk && spec.iw && spec.ih) {
+        var s0 = Math.min(BW / spec.iw, BH / spec.ih);
+        IR = { x: BX + (BW - spec.iw * s0) / 2, y: BY + (BH - spec.ih * s0) / 2,
+          w: spec.iw * s0, h: spec.ih * s0 };
+      }
       items.forEach(function (it, i) {
         /* 有底圖時 x/y 就是「底圖上的百分比位置」（左上角 0,0）；沒底圖時沿用原本內縮 12px 的排法 */
         var px = (it.x == null ? 50 : it.x) / 100, py = (it.y == null ? 50 : it.y) / 100;
-        var x = imgOk ? BX + px * BW : BX + 12 + px * (BW - 24);
-        var y = imgOk ? BY + py * BH : BY + 12 + py * (BH - 24);
+        var x = imgOk ? IR.x + px * IR.w : BX + 12 + px * (BW - 24);
+        var y = imgOk ? IR.y + py * IR.h : BY + 12 + py * (BH - 24);
         var on = i === idx;
         var mark = el('g', { style: 'cursor:pointer' });
         mark.appendChild(el('circle', { cx: x, cy: y, r: on ? 9 : 6.5 },
@@ -8267,7 +8274,9 @@
           mark.appendChild(txt(x, y + 3, String(i + 1),
             'font-size:8px;font-weight:700;fill:#fff'));
         }
-        var lab = txt(x, y - (on ? 15 : 12), it.t,
+        // 靠近圖框上緣時把名字放到圓點下面，不然會被裁掉或壓到標題
+        var ly = (y - (on ? 15 : 12) < BY + 24) ? y + (on ? 19 : 17) : y - (on ? 15 : 12);
+        var lab = txt(x, ly, it.t,
           'font-size:' + (on ? 11 : 10) + 'px;font-weight:' + (on ? 700 : 600) +
           (imgOk ? ';fill:#fff;stroke:#1b1b1b;stroke-width:2.6;paint-order:stroke'
                  : ';fill:var(--' + (on ? 'accent' : 'dim') + ')'));
