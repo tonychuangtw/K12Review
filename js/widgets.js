@@ -2928,48 +2928,82 @@
     box.appendChild(svg);
     var read = div('wg-read');
     box.appendChild(read);
-    var COLS = ['#8a6a4a', '#a98a5a', '#c2a06a', '#d9bf8a'];
+    /* 地層剖面：由上而下四層，顏色本身就是資訊（越下面越老），所以不吃主題色 */
+    var COLS = ['#c9a86f', '#b08d55', '#9a7746', '#7f5f38'];
+    var SKY = '#bfe6f5', GRASS = '#8fc45f';
+    function label(x, y, t, ring) {          // 白字＋深色描邊，壓在地層上也看得清楚
+      return txt(x, y, t, 'font-size:9px;font-weight:700;fill:#fff;stroke:' +
+        (ring || '#5b4227') + ';stroke-width:2.6;paint-order:stroke');
+    }
+    function fossil(x, y) {                  // 小小的菊石化石
+      var g = el('g');
+      g.appendChild(el('circle', { cx: x, cy: y, r: 6 }, 'fill:#f4efe6;stroke:#6b543a;stroke-width:1.4'));
+      g.appendChild(el('path', { d: 'M' + x + ',' + (y - 3) + ' A3,3 0 1 1 ' + (x - 2) + ',' + (y + 2) },
+        'fill:none;stroke:#6b543a;stroke-width:1.2'));
+      return g;
+    }
     function paint() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
       read.innerHTML = '';
       var main, sub, i;
+      svg.appendChild(el('rect', { x: 0, y: 0, width: 320, height: 30 }, 'fill:' + SKY));
       if (mode === 'fold') {
+        svg.appendChild(el('rect', { x: 0, y: 30, width: 320, height: 150 }, 'fill:' + COLS[3]));
         for (i = 0; i < 4; i++) {
-          var y0 = 40 + i * 26;
-          var d = 'M20,' + (y0 + 26) + ' Q90,' + (y0 - 22) + ' 160,' + (y0 + 26) +
-            ' Q230,' + (y0 + 60) + ' 300,' + (y0 + 26) + ' L300,' + (y0 + 48) +
-            ' Q230,' + (y0 + 82) + ' 160,' + (y0 + 48) + ' Q90,' + (y0) + ' 20,' + (y0 + 48) + ' Z';
-          svg.appendChild(el('path', { d: d }, 'fill:' + COLS[i] + ';opacity:.85'));
+          var y0 = 44 + i * 24;
+          var d = 'M0,' + (y0 + 24) + ' Q80,' + (y0 - 22) + ' 160,' + (y0 + 24) +
+            ' Q240,' + (y0 + 58) + ' 320,' + (y0 + 24) + ' L320,' + (y0 + 44) +
+            ' Q240,' + (y0 + 78) + ' 160,' + (y0 + 44) + ' Q80,' + (y0 - 2) + ' 0,' + (y0 + 44) + ' Z';
+          svg.appendChild(el('path', { d: d }, 'fill:' + COLS[i]));
         }
+        svg.appendChild(el('polygon', { points: '6,96 34,96 34,90 48,100 34,110 34,104 6,104' }, 'fill:#d94f3d'));
+        svg.appendChild(el('polygon', { points: '314,96 286,96 286,90 272,100 286,110 286,104 314,104' }, 'fill:#d94f3d'));
+        svg.appendChild(label(96, 40, '背斜（往上拱）', '#3d6b2a'));
+        svg.appendChild(label(238, 128, '向斜（往下凹）', '#3d6b2a'));
+        svg.appendChild(label(160, 172, '兩側擠壓 → 岩層像地毯一樣皺起來'));
         main = '褶皺：地層被擠壓成波浪狀';
         sub = '岩層在長時間的水平擠壓下（板塊碰撞）會像地毯一樣拱起彎曲，這叫褶皺。' +
           '向上拱的叫背斜、向下凹的叫向斜。臺灣的山脈就是板塊擠壓褶皺加上抬升形成的。';
       } else if (mode === 'fault') {
+        svg.appendChild(el('rect', { x: 0, y: 30, width: 320, height: 150 }, 'fill:#6d5232'));
         for (i = 0; i < 4; i++) {
-          svg.appendChild(el('rect', { x: 20, y: 44 + i * 26, width: 130, height: 24 },
-            'fill:' + COLS[i] + ';opacity:.85'));
-          svg.appendChild(el('rect', { x: 170, y: 62 + i * 26, width: 130, height: 24 },
-            'fill:' + COLS[i] + ';opacity:.85'));
+          svg.appendChild(el('polygon', { points: '0,' + (38 + i * 26) + ' 148,' + (38 + i * 26) +
+            ' 162,' + (62 + i * 26) + ' 0,' + (62 + i * 26) }, 'fill:' + COLS[i]));
+          svg.appendChild(el('polygon', { points: '162,' + (62 + i * 26) + ' 320,' + (62 + i * 26) +
+            ' 320,' + (86 + i * 26) + ' 176,' + (86 + i * 26) }, 'fill:' + COLS[i]));
         }
-        svg.appendChild(el('line', { x1: 150, y1: 30, x2: 172, y2: 170 },
-          'stroke:var(--bad);stroke-width:3'));
-        svg.appendChild(txt(198, 34, '斷層面', 'font-size:11px;fill:var(--bad)'));
+        svg.appendChild(el('line', { x1: 146, y1: 30, x2: 180, y2: 180 },
+          'stroke:#fff;stroke-width:3'));
+        svg.appendChild(label(112, 24, '斷層面', '#123a6b'));
+        svg.appendChild(el('polygon', { points: '106,48 106,74 100,74 112,88 124,74 118,74 118,48' },
+          'fill:#d94f3d'));
+        svg.appendChild(el('polygon', { points: '212,96 212,70 206,70 218,56 230,70 224,70 224,96' },
+          'fill:#d94f3d'));
+        svg.appendChild(label(60, 168, '同一層被錯開了'));
         main = '斷層：岩層斷裂並且錯開';
         sub = '岩層受力超過能承受的程度就會「斷掉並沿著破裂面滑動」，這叫斷層。' +
           '兩側的同一層岩層會錯開，一眼就看得出來。' +
           '地震大多發生在斷層活動時——累積的應力一次釋放出來。';
       } else {
+        var NAME = ['最新（最上層）', '較新', '較老', '最早（最下層）'];
         for (i = 0; i < 4; i++) {
-          svg.appendChild(el('rect', { x: 20, y: 44 + i * 28, width: 280, height: 26 },
-            'fill:' + COLS[i] + ';opacity:.85'));
-          svg.appendChild(txt(286, 57 + i * 28, ['最新', '', '', '最早'][i],
-            'font-size:10px;fill:#222'));
+          svg.appendChild(el('rect', { x: 0, y: 30 + i * 34, width: 320, height: 34 },
+            'fill:' + COLS[i]));
+          svg.appendChild(el('line', { x1: 0, y1: 30 + i * 34, x2: 320, y2: 30 + i * 34 },
+            'stroke:#6b543a;stroke-width:1.4;opacity:.7'));
+          svg.appendChild(label(258, 52 + i * 34, NAME[i]));
         }
-        [[70, 100], [180, 128], [240, 156]].forEach(function (f, k) {
-          svg.appendChild(el('ellipse', { cx: f[0], cy: f[1], rx: 10, ry: 6 },
-            'fill:#f2f2f2;opacity:.9'));
-          svg.appendChild(txt(f[0], f[1], '化石', 'font-size:7px;fill:#222'));
+        svg.appendChild(el('rect', { x: 0, y: 26, width: 320, height: 6 }, 'fill:' + GRASS));
+        [[54, 50], [96, 118], [150, 152]].forEach(function (f) {
+          svg.appendChild(fossil(f[0], f[1]));
         });
+        svg.appendChild(label(96, 100, '化石夾在地層裡'));
+        // 左邊的時間軸：越往下越老
+        svg.appendChild(el('line', { x1: 14, y1: 40, x2: 14, y2: 168 },
+          'stroke:#fff;stroke-width:2;opacity:.85'));
+        svg.appendChild(el('polygon', { points: '14,172 9,160 19,160' }, 'fill:#fff'));
+        svg.appendChild(label(30, 46, '新'));
+        svg.appendChild(label(30, 164, '老'));
         main = '水平地層：越下層形成得越早';
         sub = '沉積物一層一層堆上去，所以（沒有被翻轉的話）「越下面的越老、越上面的越新」，' +
           '這叫疊置定律。' +
@@ -2981,7 +3015,8 @@
     if (spec.pick !== false) {
       var row = div('wg-ctrl');
       [['layers', '水平地層'], ['fold', '褶皺'], ['fault', '斷層']].forEach(function (m) {
-        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }, '',
+          '現在畫的就是' + m[1]));
       });
       box.appendChild(row);
     }
@@ -2998,43 +3033,85 @@
     box.appendChild(svg);
     var read = div('wg-read');
     box.appendChild(read);
+    /* 剖面圖：上面是天空與地表，中間是地殼（板塊），下面是地函。
+       顏色寫死不吃主題色，因為地層／地函的顏色本身就是這張圖要教的東西。 */
+    var SKY = '#bfe6f5', SEA = '#7cc6e8', CRUST = '#c9a06a', CRUST2 = '#a87f4d',
+        MANTLE = '#e0803f', MANTLE2 = '#c25a26', ROCK = '#8d6a45', GRASS = '#8fc45f';
     function paint() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
       read.innerHTML = '';
       var main, sub;
       if (mode === 'quake') {
-        svg.appendChild(el('rect', { x: 14, y: 60, width: 292, height: 100, rx: 4, 'fill-opacity': '.25' },
-          'fill:var(--dim);stroke:var(--dim)'));
-        svg.appendChild(el('line', { x1: 14, y1: 60, x2: 306, y2: 60 },
-          'stroke:var(--text);stroke-width:2.5'));
-        svg.appendChild(el('circle', { cx: 150, cy: 128, r: 7 }, 'fill:var(--bad)'));
-        svg.appendChild(txt(198, 132, '震源（地下）', 'font-size:10px;fill:var(--bad)'));
-        svg.appendChild(el('circle', { cx: 150, cy: 60, r: 6 }, 'fill:var(--accent)'));
-        svg.appendChild(txt(196, 48, '震央（正上方地表）', 'font-size:10px;fill:var(--accent)'));
-        svg.appendChild(el('line', { x1: 150, y1: 60, x2: 150, y2: 128 },
-          'stroke:var(--dim);stroke-width:1.5;stroke-dasharray:4 3'));
-        [24, 40, 56].forEach(function (r) {
-          svg.appendChild(el('path', { d: 'M' + (150 - r) + ',128 A ' + r + ' ' + r + ' 0 0 1 ' +
-            (150 + r) + ',128' }, 'fill:none;stroke:var(--bad);stroke-width:1.5;opacity:.6'));
+        svg.appendChild(el('rect', { x: 0, y: 0, width: 320, height: 52 }, 'fill:' + SKY));
+        // 地表上放幾間小房子，讓「地表」看得出來是地面
+        [70, 232].forEach(function (hx) {          // 地表上的小房子（屋身＋屋頂）
+          svg.appendChild(el('rect', { x: hx - 7, y: 40, width: 14, height: 12 }, 'fill:#f4efe6'));
+          svg.appendChild(el('polygon', { points: (hx - 10) + ',40 ' + hx + ',30 ' + (hx + 10) + ',40' },
+            'fill:#e07a5f'));
         });
+        svg.appendChild(el('rect', { x: 0, y: 52, width: 320, height: 128 }, 'fill:' + CRUST));
+        [72, 96, 120, 144].forEach(function (yy, i) {
+          svg.appendChild(el('rect', { x: 0, y: yy, width: 320, height: 12,
+            'fill-opacity': i % 2 ? '.18' : '.30' }, 'fill:' + CRUST2));
+        });
+        svg.appendChild(el('line', { x1: 0, y1: 52, x2: 320, y2: 52 },
+          'stroke:' + GRASS + ';stroke-width:5'));
+        // 震波從震源一圈圈往外傳
+        [26, 44, 62, 80].forEach(function (r, i) {
+          svg.appendChild(el('circle', { cx: 150, cy: 126, r: r, fill: 'none' },
+            'stroke:#fff;stroke-width:1.6;opacity:' + (0.7 - i * 0.13)));
+        });
+        svg.appendChild(el('line', { x1: 150, y1: 52, x2: 150, y2: 126 },
+          'stroke:#fff;stroke-width:1.6;stroke-dasharray:4 3;opacity:.85'));
+        svg.appendChild(el('circle', { cx: 150, cy: 126, r: 8 },
+          'fill:#d94f3d;stroke:#fff;stroke-width:2'));
+        svg.appendChild(el('circle', { cx: 150, cy: 52, r: 7 },
+          'fill:#2f6fd0;stroke:#fff;stroke-width:2'));
+        svg.appendChild(txt(212, 130, '震源（地下）',
+          'font-size:10px;font-weight:700;fill:#fff;stroke:#7a2a20;stroke-width:2.6;paint-order:stroke'));
+        svg.appendChild(txt(214, 40, '震央（正上方地表）',
+          'font-size:10px;font-weight:700;fill:#fff;stroke:#123a6b;stroke-width:2.6;paint-order:stroke'));
+        svg.appendChild(txt(56, 96, '地震波向四面八方傳出',
+          'font-size:9px;fill:#fff;stroke:#5b4227;stroke-width:2.4;paint-order:stroke'));
         main = '震源在地下，震央在它正上方的地表';
         sub = '地震波從震源向四面八方傳出去，最先到達的地表位置就是震央，那裡通常災情最重。' +
           '⚠ 「規模」和「震度」不一樣：規模是這次地震「釋放多少能量」，一次地震只有一個數字；' +
           '震度是「某個地方搖得多厲害」，離震央越遠通常震度越小，所以各地震度不同。';
       } else {
-        svg.appendChild(el('rect', { x: 10, y: 96, width: 150, height: 54, rx: 3, 'fill-opacity': '.3' },
-          'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
-        svg.appendChild(el('rect', { x: 168, y: 96, width: 142, height: 54, rx: 3, 'fill-opacity': '.3' },
-          'fill:var(--good);stroke:var(--good);stroke-width:2'));
-        svg.appendChild(txt(70, 124, '板塊 A', 'font-size:11px'));
-        svg.appendChild(txt(244, 124, '板塊 B', 'font-size:11px'));
-        svg.appendChild(el('polygon', { points: '110,80 150,80 150,70 172,88 150,106 150,96 110,96' },
-          'fill:var(--bad)'));
-        svg.appendChild(el('polygon', { points: '210,80 170,80 170,70 148,88 170,106 170,96 210,96' },
-          'fill:var(--bad)'));
-        svg.appendChild(el('path', { d: 'M120,96 Q164,44 208,96' },
-          'fill:none;stroke:var(--text);stroke-width:3'));
-        svg.appendChild(txt(164, 38, '擠出山脈', 'font-size:11px;fill:var(--text)'));
+        svg.appendChild(el('rect', { x: 0, y: 0, width: 320, height: 96 }, 'fill:' + SKY));
+        svg.appendChild(el('rect', { x: 0, y: 78, width: 42, height: 18 }, 'fill:' + SEA));
+        svg.appendChild(el('rect', { x: 278, y: 78, width: 42, height: 18 }, 'fill:' + SEA));
+        // 地函（下層，會對流）
+        svg.appendChild(el('rect', { x: 0, y: 132, width: 320, height: 48 }, 'fill:' + MANTLE));
+        [40, 120, 200, 280].forEach(function (cx) {
+          svg.appendChild(el('circle', { cx: cx, cy: 158, r: 13, 'fill-opacity': '.5' }, 'fill:' + MANTLE2));
+        });
+        svg.appendChild(txt(160, 172, '地函（會慢慢對流，帶著板塊移動）',
+          'font-size:9px;fill:#fff;stroke:#8a3a12;stroke-width:2.4;paint-order:stroke'));
+        // 兩塊地殼往中間擠，交界處翹起來變成山
+        svg.appendChild(el('path', { d: 'M0,96 L112,96 L164,74 L164,132 L0,132 Z' },
+          'fill:' + CRUST + ';stroke:' + CRUST2 + ';stroke-width:2'));
+        svg.appendChild(el('path', { d: 'M320,96 L208,96 L156,74 L156,132 L320,132 Z' },
+          'fill:' + CRUST + ';stroke:' + CRUST2 + ';stroke-width:2'));
+        // 擠出來的山脈
+        svg.appendChild(el('polygon', { points: '118,96 160,34 202,96' },
+          'fill:' + ROCK + ';stroke:#6b4f33;stroke-width:2'));
+        svg.appendChild(el('polygon', { points: '146,54 160,34 174,54' }, 'fill:#fff'));
+        svg.appendChild(el('polygon', { points: '96,96 126,58 156,96' },
+          'fill:' + ROCK + ';stroke:#6b4f33;stroke-width:2;opacity:.9'));
+        svg.appendChild(el('polygon', { points: '168,96 196,60 224,96' },
+          'fill:' + ROCK + ';stroke:#6b4f33;stroke-width:2;opacity:.9'));
+        // 推擠方向
+        svg.appendChild(el('polygon', { points: '46,114 86,114 86,108 100,118 86,128 86,122 46,122' },
+          'fill:#d94f3d'));
+        svg.appendChild(el('polygon', { points: '274,114 234,114 234,108 220,118 234,128 234,122 274,122' },
+          'fill:#d94f3d'));
+        svg.appendChild(txt(58, 88, '歐亞板塊',
+          'font-size:10px;font-weight:700;fill:#fff;stroke:#6b4f33;stroke-width:2.6;paint-order:stroke'));
+        svg.appendChild(txt(262, 88, '菲律賓海板塊',
+          'font-size:10px;font-weight:700;fill:#fff;stroke:#6b4f33;stroke-width:2.6;paint-order:stroke'));
+        svg.appendChild(txt(160, 26, '擠出高山（臺灣就是這樣長出來的）',
+          'font-size:9px;font-weight:700;fill:#26506e'));
         main = '板塊互相推擠，把地表推高成山脈';
         sub = '地球表層破裂成好幾塊板塊，浮在會緩慢流動的地函上，被地函的對流帶著移動（一年幾公分）。' +
           '板塊碰撞的地方會擠出高山、形成火山與地震帶。' +
@@ -3045,8 +3122,10 @@
     }
     if (spec.pick !== false) {
       var row = div('wg-ctrl');
-      row.appendChild(btn('板塊碰撞', function () { mode = 'collide'; paint(); }));
-      row.appendChild(btn('震源與震央', function () { mode = 'quake'; paint(); }));
+      row.appendChild(btn('板塊碰撞', function () { mode = 'collide'; paint(); }, '',
+        '現在畫的就是板塊碰撞'));
+      row.appendChild(btn('震源與震央', function () { mode = 'quake'; paint(); }, '',
+        '現在畫的就是震源與震央'));
       box.appendChild(row);
     }
     host.appendChild(box);
@@ -3068,15 +3147,27 @@
       read.innerHTML = '';
       var main, sub, i;
       if (mode === 'front') {
-        svg.appendChild(el('path', { d: 'M20,60 Q110,96 300,132' },
+        // 右下角放臺灣小地圖，畫出「冷鋒由北往南掃過臺灣」
+        if (twOk) {
+          var twF = el('image', { x: 236, y: 56, width: 62, height: 120, href: TW_IMG,
+            preserveAspectRatio: 'xMidYMid meet', opacity: '.95' });
+          twF.setAttributeNS('http://www.w3.org/1999/xlink', 'href', TW_IMG);
+          twF.addEventListener('error', function () { twOk = false; paint(); });
+          svg.appendChild(twF);
+          svg.appendChild(txt(267, 174, '臺灣', 'font-size:9px;fill:var(--dim)'));
+        }
+        svg.appendChild(el('path', { d: 'M14,48 Q120,80 300,104' },
           'fill:none;stroke:var(--accent);stroke-width:3'));
         for (i = 0; i < 5; i++) {
-          var t = i / 5, x = 20 + t * 280, y = 60 + t * 66;
+          var t = i / 5, x = 14 + t * 268, y = 48 + t * 52;
           svg.appendChild(el('polygon', { points: x + ',' + y + ' ' + (x + 12) + ',' + (y - 3) +
             ' ' + (x + 6) + ',' + (y - 14) }, 'fill:var(--accent)'));
         }
-        svg.appendChild(txt(70, 40, '冷氣團（推進）', 'font-size:11px;fill:var(--accent)'));
-        svg.appendChild(txt(250, 96, '暖氣團', 'font-size:11px;fill:var(--bad)'));
+        svg.appendChild(el('polygon', { points: '150,92 150,116 144,116 156,130 168,116 162,116 162,92' },
+          'fill:var(--accent);opacity:.85'));
+        svg.appendChild(txt(60, 32, '冷氣團（由北往南推進）', 'font-size:10px;fill:var(--accent)'));
+        svg.appendChild(txt(96, 150, '暖氣團', 'font-size:11px;fill:var(--bad)'));
+        svg.appendChild(txt(60, 168, '鋒面掃過 → 降溫、下雨', 'font-size:9px;fill:var(--dim)'));
         main = '冷鋒：冷空氣推向暖空氣的交界';
         sub = '冷空氣重、暖空氣輕，冷鋒推進時把暖空氣抬升 → 水氣凝結 → 短時間內下大雨、伴隨強風。' +
           '通過之後氣溫明顯下降、天氣轉晴變乾冷。' +
