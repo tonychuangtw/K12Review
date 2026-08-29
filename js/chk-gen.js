@@ -13,8 +13,14 @@
 (function (root) {
   var MIN_LEN = 12;
 
+  /* 各科自編原創題的解析是「✅ 正解：… ❌ 其他選項：… 📚 課綱重點：…」三段式。
+     這些記號是排版用的，不該被當成句子的一部分丟進選項裡
+     （2026-08-29 Tony 回報：自然科的確認題選項最前面出現 ✅❌📚，而且「✅ 正解：」等於直接標出答案）。 */
   function body(exp) {
-    return String(exp || '').replace(/\s+/g, ' ').trim().replace(/^解析[：:]\s*/, '');
+    return String(exp || '')
+      .replace(/[✅❌📚]\s*/g, ' ')
+      .replace(/(正解|其他選項|課綱重點)[：:]\s*/g, '')
+      .replace(/\s+/g, ' ').trim().replace(/^解析[：:]\s*/, '');
   }
   function usable(exp) {
     var t = body(exp);

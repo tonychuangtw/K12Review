@@ -19,7 +19,10 @@ const BANK_FILES = ['custom', 'english-custom', 'math-custom', 'science-custom',
   'physics-custom', 'chemistry-custom', 'biology-custom', 'earth-custom', 'history-custom',
   'geography-custom', 'civics-custom', 'english', 'math', 'science', 'social', 'physics',
   'chemistry', 'biology', 'earth', 'history', 'geography', 'civics'];
-const CHECK_FILES = ['checks-idioms', 'checks-phonics', 'checks-chars', 'checks-custom', 'checks-math'];
+const CHECK_FILES = ['checks-idioms', 'checks-phonics', 'checks-chars', 'checks-custom',
+  'checks-math', 'checks-science', 'checks-english', 'checks-social', 'checks-physics',
+  'checks-chemistry', 'checks-biology', 'checks-earth', 'checks-history',
+  'checks-geography', 'checks-civics'];
 
 BANK_FILES.concat(CHECK_FILES).forEach(f => {
   try { require(path.join(ROOT, 'js/data', f + '.js')); } catch (e) {}

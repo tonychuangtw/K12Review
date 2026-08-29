@@ -1225,7 +1225,8 @@
   // 某一科的主題庫（每日練習／單元／刷題都要用）：進到該科之前先載進來
   // 有人工確認題檔的科目（js/data/checks-<科目>.js）：題庫載進來時一起載，
   // 沒列在這裡的科目就退回 autoChk 現場生成。新增一科的確認題時要補進這份清單。
-  var SUBJ_CHECK_FILES = { math: 1 };
+  var SUBJ_CHECK_FILES = { math: 1, science: 1, english: 1, social: 1, physics: 1,
+    chemistry: 1, biology: 1, earth: 1, history: 1, geography: 1, civics: 1 };
   function bankFilesFor(key) {
     var files = ['js/data/' + key + '.js'];
     if (SUBJ_CHECK_FILES[key]) files.push('js/data/checks-' + key + '.js');
@@ -2501,13 +2502,11 @@
       return chkBuild('剛剛的解析裡，選項（' + lp.k + '）寫的是什麼？', lp.v,
         others.concat(extra), rng);
     }
-    var sents = chkSents(t);
-    if (!sents.length) return null;
-    var mine = seededPick(sents, 1, rng)[0];
-    var sibs = chkSiblingSents(cat, item, rng).filter(function (x) {
-      return sents.indexOf(x) < 0 && Math.abs(x.length - mine.length) <= 30;
-    });
-    return chkBuild('剛剛這一題的解析裡，說的是下面哪一句？', mine, sibs, rng);
+    /* Ｃ型（「剛剛的解析裡說的是下面哪一句？」）2026-08-29 起停用。
+       Tony 兩次回報同一件事：這種問法「只是在問剛才解析裡說的是哪一句，不是問真的懂不懂解析」，
+       而且誘答是從別題硬抓來的、沒有誘答性。現在Ａ／Ｂ型與各科的人工／依解析生成的確認題
+       已覆蓋 56,927 題，剩下的（解析太薄、匯入題庫只寫答案的）就退回解析鎖倒數，不硬出一題。 */
+    return null;
   }
   // 生成結果快取：同一題在同一次 session 內不用重算（Ｃ型要掃同課的題）
   var _autoChk = {};

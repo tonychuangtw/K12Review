@@ -523,7 +523,7 @@ async (js) => {
   for (let i = 0; i < 60 && !(await js(`window.__chkReady`)); i++) await sleep(500);
   const chkStat = await js(`(function(){
     var cats = ['custom','socialCustom','mathCustom','englishCustom','science','social','math'];
-    var out = { n: 0, made: 0, bad: 0, sample: '' };
+    var out = { n: 0, made: 0, hand: 0, bad: 0, marker: 0, mk: '', sample: '' };
     cats.forEach(function (cat) {
       var bank = window.APP_DATA[cat] || [];
       var step = Math.max(1, Math.floor(bank.length / 300));
@@ -531,9 +531,15 @@ async (js) => {
         var it = bank[i];
         if (!it) continue;
         out.n++;
-        var c = window.ChkDebug.of(cat, it);
+        // 2026-08-29：Ｃ型停用後，覆蓋率要看「人工／依解析生成的確認題（APP_CHECKS）＋自動Ａ/Ｂ型」
+        var c = (window.APP_CHECKS || {})[it.id];
+        if (c) out.hand++;
+        else c = window.ChkDebug.of(cat, it);
         if (!c) continue;
         out.made++;
+        if (c.o.some(function (x) { return /[✅❌📚💡]/.test(x) || /^(正解|其他選項|課綱重點)[：:]/.test(x); })) {
+          out.marker++; if (!out.mk) out.mk = it.id + ' ' + JSON.stringify(c.o);
+        }
         var uniq = {}; c.o.forEach(function (x) { uniq[x] = 1; });
         var ok = c.q && c.o.length === 4 && Object.keys(uniq).length === 4 &&
           c.a >= 0 && c.a < 4 && c.o[c.a];
@@ -546,9 +552,12 @@ async (js) => {
     chkStat.bad === 0, JSON.stringify(chkStat).slice(0, 220));
   console.log('    涵蓋率：' + chkStat.made + ' / ' + chkStat.n + ' = ' +
     Math.round(100 * chkStat.made / chkStat.n) + '%（抽樣）');
-  check('自動確認題涵蓋率 ≥ 70%',
+  check('確認題涵蓋率 ≥ 70%（人工／依解析生成 ＋ 自動Ａ/Ｂ型）',
     chkStat.made / chkStat.n >= 0.7,
     chkStat.made + ' / ' + chkStat.n + ' = ' + Math.round(100 * chkStat.made / chkStat.n) + '%');
+  // 2026-08-29 Tony 回報：選項最前面出現 ✅❌📚，還有「✅ 正解：」開頭的選項其實是錯的
+  check('選項不會帶著 ✅❌📚 或「正解：」這種排版記號',
+    chkStat.marker === 0, chkStat.mk.slice(0, 200));
   // 俚語諺語與閱讀題本來沒有手寫確認題，現在改成自動生成（Tony 2026-08-27「套到所有題目去」）
   check('俚語諺語也生得出確認題（問這句話的意思）',
     await js(`(function(){
