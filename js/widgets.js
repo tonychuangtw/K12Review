@@ -7925,74 +7925,130 @@
 
   /* ── 臺灣簡圖（taiwan）────────────────────────────────────────────────
      spec: { mode:'region'|'terrain'|'river', pick }                      */
+  /* ── 臺灣地圖（taiwan）──────────────────────────────────────────────
+     2026-08-29 Tony：「幾何圖在社會科這種要地圖的題目上看起來很陽春」。
+     改成跟看圖題同一套：AI 產的底圖（img/social/*.webp，一律要求「不要文字」）
+     ＋程式在上面畫可以點的熱區與中文標籤。底圖載不到就退回原本的示意輪廓，
+     離線或漏檔不會整張卡開天窗。
+     spec: { mode:'region'|'terrain'|'rivers', pick }                    */
   REG.taiwan = function (host, spec) {
     var mode = spec.mode || 'region';
+    var VIEW_W = 320, VIEW_H = 380;
+    /* 每一種地圖：底圖、原圖尺寸、要裁的範圍（原圖像素）、可點的熱區。
+       region／rivers 的座標先用經緯度換算（公式見 tools/tikuconv/mkfig_*.html 檔頭），
+       換出來若落在海裡（底圖是插畫、海岸線和投影圖有出入），再沿同一緯度貼到畫出來的陸地上——
+       這是 2026-08-19 定的規矩，不是憑感覺挪；
+       terrain 標的是「中央山脈」這種面狀地形，直接對著畫出來的山脊放，肉眼可驗證。 */
+    var MAPS = {
+      region: {
+        img: 'img/social/taiwan-location.webp', w: 900, h: 900, crop: [326, 326, 210, 300],
+        note: '臺灣位置與分區',
+        line: { y: 350 + (25.30 - 23.5) * 72, label: '北回歸線（約北緯 23.5 度）' },
+        spots: [
+          { x: 460, y: 372, t: '北部', d: '臺北、新北、基隆、桃園、新竹——政治與商業中心，人口最密集，冬天受東北季風影響多雨。' },
+          { x: 424, y: 436, t: '中部', d: '臺中、彰化、南投、雲林——西部平原最寬的一段，農業發達，日照充足。' },
+          { x: 412, y: 546, t: '南部', d: '臺南、高雄、屏東——北回歸線以南屬熱帶，夏季多雨、冬季乾燥，港口與重工業集中。' },
+          { x: 464, y: 452, t: '東部', d: '宜蘭、花蓮、臺東——中央山脈把東部隔開，交通不便但地景壯麗，人口較少。' }
+        ]
+      },
+      terrain: {
+        img: 'img/social/_base-terrain-gpt.webp', w: 1024, h: 1536, crop: [120, 60, 800, 1420],
+        note: '臺灣地形',
+        spots: [
+          { x: 565, y: 700, t: '中央山脈', d: '從北到南縱貫全島，像屋脊一樣把臺灣分成東西兩半，也擋住東北季風與颱風。' },
+          { x: 487, y: 800, t: '玉山', d: '海拔 3952 公尺，東亞第一高峰；臺灣有兩百多座三千公尺以上的高山。' },
+          { x: 285, y: 880, t: '西部平原', d: '河川從山上帶下泥沙堆積而成，地勢平緩、土壤肥沃，是人口與農業最集中的地方。' },
+          { x: 690, y: 560, t: '花東縱谷', d: '中央山脈與海岸山脈之間的狹長谷地，兩側都是山，只有一條路南北相通。' }
+        ]
+      },
+      rivers: {
+        img: 'img/social/_base-rivers-gpt.webp', w: 1024, h: 1536, crop: [0, 40, 1024, 1450],
+        note: '臺灣主要河川',
+        spots: [
+          { x: 615, y: 83, t: '淡水河', d: '① 流經臺北盆地，是北部最重要的河，早年艋舺、大稻埕就靠它發展。' },
+          { x: 735, y: 507, t: '立霧溪', d: '② 從中央山脈直奔太平洋，切出太魯閣峽谷——落差大、河短流急是東部河川的特色。' },
+          { x: 160, y: 655, t: '濁水溪', d: '③ 臺灣最長的河（約 186 公里），泥沙多所以水色混濁，灌溉了中部的平原。' },
+          { x: 205, y: 1202, t: '高屏溪', d: '④ 流域面積最大的河，供應高雄、屏東的用水。' }
+        ]
+      }
+    };
+    var M = MAPS[mode] || MAPS.region;
+    var sel = -1, imgOk = true;
     var box = div('wg');
-    var svg = el('svg', { viewBox: '0 0 320 210', class: 'wg-svg' });
+    var svg = el('svg', { viewBox: '0 0 ' + VIEW_W + ' ' + VIEW_H, class: 'wg-svg' });
     box.appendChild(svg);
     var read = div('wg-read');
     box.appendChild(read);
-    // 簡化的台灣輪廓（示意用）：北端窄、中段最寬、南端收成尖角
+    var sc = Math.min(VIEW_W / M.crop[2], VIEW_H / M.crop[3]);
+    var offX = (VIEW_W - M.crop[2] * sc) / 2, offY = (VIEW_H - M.crop[3] * sc) / 2;
+    function VX(ix) { return offX + (ix - M.crop[0]) * sc; }
+    function VY(iy) { return offY + (iy - M.crop[1]) * sc; }
+    // 底圖載不到時的備用輪廓（原本的示意圖）
     var OUT = 'M152,16 C172,24 186,46 194,74 C202,102 202,130 192,156 ' +
       'C182,180 168,196 158,200 C150,196 140,178 132,154 C122,122 118,84 128,52 ' +
       'C134,30 142,18 152,16 Z';
     function paint() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
       read.innerHTML = '';
-      svg.appendChild(el('path', { d: OUT, 'fill-opacity': '.12' },
-        'fill:var(--good);stroke:var(--good);stroke-width:2'));
-      svg.appendChild(txt(286, 202, '（示意圖）', 'font-size:9px;fill:var(--dim)'));
-      var main, sub;
-      if (mode === 'terrain') {
-        svg.appendChild(el('path',
-          { d: 'M172,40 C186,72 190,124 176,178 C170,186 162,184 160,174 C154,124 158,70 172,40 Z',
-            'fill-opacity': '.4' }, 'fill:var(--bad);stroke:var(--bad);stroke-width:1.5'));
-        svg.appendChild(txt(238, 96, '中央山脈', 'font-size:11px;fill:var(--bad)'));
-        svg.appendChild(txt(76, 120, '西部平原', 'font-size:11px;fill:var(--accent)'));
-        svg.appendChild(txt(238, 150, '東部狹窄', 'font-size:10px;fill:var(--dim)'));
-        main = '地形：東高西低，山脈偏東';
-        sub = '五大地形都有：山地（約占三分之一）、丘陵、台地、盆地、平原。' +
-          '中央山脈縱貫南北、偏東側，所以「東部山高谷深、西部平原寬廣」，' +
-          '人口和都市多集中在西部平原。' +
-          '⚠ 玉山是東北亞最高峰（3952 公尺）。';
-      } else if (mode === 'river') {
-        svg.appendChild(el('path', { d: 'M162,70 C140,80 120,86 108,92' },
-          'fill:none;stroke:var(--accent);stroke-width:2.5'));
-        svg.appendChild(el('path', { d: 'M164,118 C142,126 122,132 110,136' },
-          'fill:none;stroke:var(--accent);stroke-width:2.5'));
-        svg.appendChild(el('path', { d: 'M170,150 C186,156 194,160 200,164' },
-          'fill:none;stroke:var(--accent);stroke-width:2'));
-        svg.appendChild(txt(66, 92, '河短流急', 'font-size:10px;fill:var(--accent)'));
-        svg.appendChild(txt(250, 168, '東岸更短', 'font-size:10px;fill:var(--dim)'));
-        main = '河川：短、急、豐枯差異大';
-        sub = '因為島嶼狹長、山脈偏東，河川大多「向西流入台灣海峽」，長度短、坡度陡、流速快。' +
-          '⚠ 雨季集中在夏季，所以河水暴漲暴落，難以儲存 → 台灣其實是缺水地區。' +
-          '最長的河是濁水溪，流域最大的是高屏溪。';
+      if (imgOk) {
+        var im = el('image', { x: offX - M.crop[0] * sc, y: offY - M.crop[1] * sc,
+          width: M.w * sc, height: M.h * sc, href: M.img, preserveAspectRatio: 'none' });
+        im.setAttributeNS('http://www.w3.org/1999/xlink', 'href', M.img);
+        im.addEventListener('error', function () { imgOk = false; paint(); });
+        svg.appendChild(im);
       } else {
-        [['北部', 158, 44], ['中部', 150, 96], ['南部', 148, 150], ['東部', 196, 120]]
-          .forEach(function (r) {
-            svg.appendChild(el('circle', { cx: r[1], cy: r[2], r: 14, 'fill-opacity': '.25' },
-              'fill:var(--accent);stroke:var(--accent);stroke-width:1.5'));
-            svg.appendChild(txt(r[1], r[2], r[0], 'font-size:9px'));
-          });
-        svg.appendChild(txt(60, 40, '北回歸線', 'font-size:10px;fill:var(--bad)'));
-        svg.appendChild(el('line', { x1: 46, y1: 118, x2: 300, y2: 118 },
-          'stroke:var(--bad);stroke-width:1.5;stroke-dasharray:5 4'));
-        svg.appendChild(txt(60, 132, '約北緯 23.5 度', 'font-size:9px;fill:var(--bad)'));
-        main = '位置：北回歸線通過台灣中南部';
-        sub = '台灣位於亞洲大陸東南方、太平洋西側，是東亞島弧的一部分，' +
-          '西隔台灣海峽與中國大陸相望。' +
-          '⚠ 北回歸線（約北緯 23.5 度）通過嘉義、花蓮一帶，' +
-          '以北屬亞熱帶氣候、以南屬熱帶氣候。' +
-          '位居海運與航空要道，區位條件優越。';
+        svg.appendChild(el('path', { d: OUT, transform: 'translate(40,60) scale(1.2)', 'fill-opacity': '.12' },
+          'fill:var(--good);stroke:var(--good);stroke-width:2'));
+        svg.appendChild(txt(VIEW_W / 2, 30, '（地圖載入中或載不到，先看示意圖）', 'font-size:10px;fill:var(--dim)'));
       }
-      read.appendChild(div('wg-read-main', main));
-      read.appendChild(div('wg-read-sub', sub));
+      if (M.line && imgOk) {                       // 北回歸線
+        var ly = VY(M.line.y);
+        svg.appendChild(el('line', { x1: 0, y1: ly, x2: VIEW_W, y2: ly },
+          'stroke:var(--bad);stroke-width:1.6;stroke-dasharray:7 5'));
+        svg.appendChild(txt(VIEW_W - 62, ly - 6, '北回歸線', 'font-size:10px;fill:var(--bad);font-weight:700'));
+      }
+      M.spots.forEach(function (sp, i) {
+        var cx = VX(sp.x), cy = VY(sp.y), on = i === sel;
+        var g = el('g', { style: 'cursor:pointer' });
+        g.appendChild(el('circle', { cx: cx, cy: cy, r: on ? 13 : 10, 'fill-opacity': on ? '.95' : '.75' },
+          'fill:var(--' + (on ? 'accent' : 'panel2') + ');stroke:var(--accent);stroke-width:2'));
+        var label = el('text', { x: cx, y: cy + 4, 'text-anchor': 'middle' },
+          'font-size:9px;font-weight:700;fill:' + (on ? '#fff' : 'var(--text)'));
+        label.textContent = String(i + 1);
+        g.appendChild(label);
+        // 靠近上緣時把名字放到圓點下面，才不會被裁掉
+        var ny = cy < 26 ? cy + 24 : cy - 16;
+        var name = el('text', { x: cx, y: ny, 'text-anchor': 'middle' },
+          'font-size:11px;font-weight:800;fill:var(--text);paint-order:stroke;' +
+          'stroke:var(--panel);stroke-width:3.5;stroke-linejoin:round');
+        name.textContent = sp.t;
+        g.appendChild(name);
+        g.addEventListener('click', function () { sel = i; paint(); });
+        svg.appendChild(g);
+      });
+      var cur = sel >= 0 ? M.spots[sel] : null;
+      read.appendChild(div('wg-read-main', cur ? cur.t + '：' + cur.d
+        : M.note + '　👉 點地圖上的圓點看說明'));
+      read.appendChild(div('wg-read-sub', mode === 'region'
+        ? '絕對位置用經緯度表示（臺灣約在東經 120～122 度、北緯 22～25 度）；' +
+          '相對位置是和其他地方的關係（亞洲大陸東南方、太平洋西側）。' +
+          '⚠ 北回歸線通過嘉義、花蓮一帶，以北是亞熱帶、以南是熱帶。'
+        : (mode === 'terrain'
+          ? '臺灣地勢東高西低：山地約占三分之二，集中在中央與東部；平原多在西部。' +
+            '⚠ 因為山高谷深、河川短促，雨水很快流入海裡，所以水庫與集水區特別重要。'
+          : '臺灣的河川又短又急：發源於中央山脈，向東或向西入海，落差大、含沙量高。' +
+            '⚠ 西部河川流域較長、灌溉平原；東部河川短而陡，常切出峽谷。')));
     }
     if (spec.pick !== false) {
       var row = div('wg-ctrl');
-      [['region', '位置與分區'], ['terrain', '地形'], ['river', '河川']].forEach(function (m) {
-        row.appendChild(btn(m[1], function () { mode = m[0]; paint(); }));
+      [['region', '位置與分區'], ['terrain', '地形'], ['rivers', '河川']].forEach(function (m) {
+        row.appendChild(btn(m[1], function () {
+          if (mode === m[0]) return;
+          mode = m[0]; M = MAPS[m[0]]; sel = -1; imgOk = true;
+          sc = Math.min(VIEW_W / M.crop[2], VIEW_H / M.crop[3]);
+          offX = (VIEW_W - M.crop[2] * sc) / 2; offY = (VIEW_H - M.crop[3] * sc) / 2;
+          paint();
+        }, null, '現在看的就是「' + m[1] + '」這張圖'));
       });
       box.appendChild(row);
     }
