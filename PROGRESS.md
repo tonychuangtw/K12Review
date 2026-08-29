@@ -4,15 +4,19 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【進行中】字音題補題（phonics.js）——把每個年級補到 100 題，全庫 660→1200（共補 540 題）。
-已完成：小一 26→100（＋74）／小二 43→100（＋57）／小三 49→100（＋51）／小四 54→100（＋46），共 228 題。
-剩下：小五 54／小六 56／國一 62／國二 62／國三 63／高一 68／高二 64／高三 59 → 各補到 100（共 312 題）。
-做法：scratchpad ph/ 下 mkp.py（產生器）＋ zp.py（注音→拼音換算）＋ q.py（查教育部簡編本）＋ body_g<年級><批>.py（逐條人工撰寫）。
-mkp.py 會擋下：注音／整詞注音不在簡編本、拼音跟注音對不起來、wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項重複。
-每題要寫 word/target/zhuyin/wz/wrong(≥2)/note/deep（1. 注音比較 2. 國字拆解與造字原因）＋ checks-phonics.js 的解析確認題。
-每個年級 commit 一次，跑 node test/test.js＋zy-check.js＋tools/moe-zy-audit.js＋tools/gen-counts.js。
-補完字音之後可以接著補俚語（slang 452，各年級 19-54 不等）與成語（idioms 1200，各年級 52-137 不等）。
-【已完成】字形題補題 —— Tony 2026-08-31 說「好. 補」，已把年級題數補平：
+NEXT_ACTION: 【已完成】字音題補題（phonics.js）—— 十二個年級全部補到 100 題，全庫 660→1200（共新增 540 題）：
+小一 26→100／小二 43→100／小三 49→100／小四 54→100／小五 54→100／小六 56→100／
+國一 62→100／國二 62→100／國三 63→100／高一 68→100／高二 64→100／高三 59→100。
+每題含 word/target/zhuyin/pinyin/wz（整詞注音）/wrong(≥2)/note/deep（1. 注音比較 2. 國字拆解與造字原因），
+以及 js/data/checks-phonics.js 的解析確認題。已加 v77 版本紀錄、跑過 tools/gen-counts.js 與 tools/stamp-version.py。
+工具留在 scratchpad ph/：mkp.py（產生器）＋zp.py（注音→拼音換算，已對全庫 660 題驗證只有 3 筆輕聲寫法差異）
+＋q.py（查教育部簡編本）＋body_g<年級><批>.py。mkp.py 會擋下：注音／整詞注音不在簡編本、拼音與注音對不起來、
+wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項重複或正解等於原題答案。要再補題照同樣格式寫 body 檔即可。
+補題過程被簡編本擋下的常見錯讀（已寫成題目教）：大廈ㄉㄚˋ ㄒㄧㄚˋ、曙光ㄕㄨˋ ㄍㄨㄤ、熟悉ㄕㄡˊ ㄒㄧ、
+一模一樣ㄇㄛˊ、藩籬ㄈㄢˊ ㄌㄧˊ、寂寥的寂ㄐㄧˊ、剝只收ㄅㄛ、汗流浹背的浹ㄐㄧㄚˊ、盡量ㄐㄧㄣˋ ㄌㄧㄤˋ。
+【下一步候選】同樣的補題法可以接著做：俚語 slang 452 題（各年級 19–54，補到 100 要 748 題）、
+成語 idioms 1200 題（各年級 52–137，補到 137 要 444 題）、閱讀 reading 286 篇。要做哪一個等 Tony 指示。
+【已完成】字形題補題 —— Tony 2026-08-30 說「好. 補」，已把年級題數補平：
 小一 27→100／小二 37→101／小三 49→100／小五 56→100／小六 74→100／國一 62→100／國三 61→100／
 高一 60→100／高二 59→100／高三 56→100，共新增 460 題（全庫 1,095→1,555），
 每題含 note、兩段式 deep（注音比較＋國字拆解）、js/data/checks-chars.js 的解析確認題，並跑過 tools/fetch-strokes.js。
@@ -37,7 +41,7 @@ mkp.py 會擋下：注音／整詞注音不在簡編本、拼音跟注音對不�
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: LanExamMock 防亂寫其餘項目仍等 Tony 選（訊息 id 919）
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 03:05 台北
+UPDATED: 2026-08-30 04:10 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
