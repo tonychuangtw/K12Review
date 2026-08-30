@@ -34,6 +34,12 @@ NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
        英文：phonics（words:[{w,parts[],hit,s,mean}]）、sentence（label/items[{t,r}]/note/alt[]）、
              classify、compareexp、tense、clock
        國語：matchpair 最泛用（title/left/right/note/pairs[{a,b}]），charparts／wordtree／punctcut 可用 items 覆寫內建範例
+     ⚠ **元件的 mode 寫錯不會報錯，會靜靜畫成預設的那張圖**（2026-09-07 我把 optics 寫成不存在的
+       mode:"prism"，結果畫出的是「光直線前進」而不是色散；viz-match 也抓不到，因為圖還是畫得出來）。
+       用 mode 之前先 grep 那個元件實際有哪些分支：
+       `sed -n "$(grep -n 'REG.<元件> = ' js/widgets.js|cut -d: -f1),+90p" js/widgets.js | grep -o "mode === '[a-z]*'"`
+       ⚠ 注意很多元件是「二選一」寫法（`var inv = spec.mode === 'inverse'`），另一個值是 else 分支、
+       grep 不到但合法（proportion 的 direct、mitosis 的 mitosis、triglaw 的 sin 都是），所以不能寫成自動守門。
      ⚠ viz-match 只認「連續 2 個以上中文字」當證據：`s:"六"`、`mean:"6"` 這種單字／純數字會被判成
        「圖上一個字都沒出現」。說明欄一律寫成完整句子（例：s:"gh 不發音，所以唸起來很短"）。
      各科現況（2026-09-06）：chinese 60%、social 42%、physics 41%、math 39%、science 38%、chemistry 37%、
@@ -232,7 +238,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-07 07:40 台北
+UPDATED: 2026-09-07 09:20 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
