@@ -4,7 +4,18 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【進行中 2026-08-30】各科往下鋪＝把「課文帶讀」補到高中分科七科（物理／化學／生物／地科／歷史／地理／公民）。
+NEXT_ACTION: 【進行中 2026-08-30】LanExamMock 聽力擴題 —— 每級目前只有 30 組（每組一段對話或獨白＋5 題），
+是五個題庫中最薄的（閱讀 mc140/gap100/match70/tfng30/head30、用法文法約 2,000–2,400、單字 2,200–2,340）。
+目標每級擴到 60 組（＋30 組／級，五級共 150 組新稿 750 題），順序 FCE → CAE → CPE → PET → KET。
+做法：新增 js/levels/<級>/banks/listening-w6.js 起的檔案，每檔 6 組，
+schema＝{ id, title, kind:"dialogue"|"monologue", script, questions:[{q,options[4],answer,explanation}] }，
+腳本 250–400 字（依級數調整難度，見 PROGRESS-reading.md 的「各級規格差異」），每組 5 題、
+explanation 要引用腳本原文。⚠ 新檔一定要註冊到 js/loader.js 的 LEVEL_EXTRA_BANKS
+（用腳本重建陣列，不要用 sed 就地插字串 —— 2026-08-27 出過事故），
+每批跑 `cd ~/TelegramClaude/LanExamMock && node test/test.js`，寫完一級加 js/versions.js 一條並更新 index.html 的 ?v=。
+⚠ FCE 擴完要同步 CamReview（~/TelegramClaude/CamReview/tools/sync-banks.js）。
+
+【已完成 2026-08-30】各科往下鋪＝把「課文帶讀」補到高中分科七科（物理／化學／生物／地科／歷史／地理／公民）。
 原本只有國語 108、數學 216、英文 216、自然 126、社會 126 共 792 篇，高中七科一篇都沒有；每科 6 冊 × 9 單元 = 54 篇，七科共 378 篇。
 做法：scratchpad 的 tmpl_head.py ＋ body_<科><冊>_<a|b|c>.py ＋ tmpl_tail.py 串成 mk_*.py，
 `python3 mk_xxx.py <科目key>` 會 append 到 js/data/texts-<科>.js（正解位置由 tail 自動輪流）。一檔 3 單元，一冊 3 檔。
@@ -53,7 +64,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 18:50 台北（高中七科課文帶讀全數完成，378 單元 2,268 段）
+UPDATED: 2026-08-30 19:20 台北（K12Review 高中七科課文帶讀完成並上線；LanExamMock 家長頁長度標記 v43 上線；下一步：LanExamMock 聽力擴題）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
