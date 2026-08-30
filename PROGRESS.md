@@ -23,7 +23,9 @@ NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
        b. 國語沒有概念卡系統，要手寫 plan：`node tools/set-text-viz.js <plan.json> --write`
           plan = [{key:"chinese|年級|第N篇 篇名", seg:段號從1起, viz:{type:"…", …}}]
           每單元上限 4 段（2026-09-05 由 3 放寬；要再放寬下 --per N）。國語 18% → 33%。
-     2026-09-06～07：國語 33%→60%、歷史 31%→66%、公民 33%→63%、英文 30%→34%，全站 36.0% → 42.2%。
+     2026-09-06～07（v94）：國語 33%→60%、歷史 31%→66%、公民 33%→63%、英文 30%→44%，全站 36.0% → 43.9%。
+     還沒動過的科目（各 324–1296 段，都還有很多空位）：math 39%、science 38%、social 42%、
+       physics 41%、chemistry 37%、biology 35%、earth 36%、geography 36%。下一輪從 biology／geography 開始。
      各科可用的元件不同，先跑 `node -e` 把該科現用的 viz 型別與一個範例 spec 印出來再動手：
        歷史／公民：timeline（events:[{y,t}]）、classify（groups:[{label,items[]}]）、compareexp（factor/a/b/same）、
                    energyflow（steps[]）、cycle（steps[]）、levels（items[]）、dynastyband、piechart、bargraph
@@ -228,7 +230,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-07 04:30 台北
+UPDATED: 2026-09-07 06:15 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
