@@ -4174,6 +4174,7 @@ window.APP_TEXTS['english|二下|第1單元 人稱代名詞'] = {
       terms: [
         { w: '主格', d: '當句子主詞用的代名詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"單數","items":["I 我","you 你","he 他","she 她","it 它"]},{"label":"複數","items":["we 我們","you 你們","they 他們"]},{"label":"位置","items":["主格放句首當主詞"]}]},
       q: {
         q: '課文說主格代名詞放在句子的哪個位置？',
         options: [
@@ -4223,6 +4224,7 @@ window.APP_TEXTS['english|二下|第1單元 人稱代名詞'] = {
       terms: [
         { w: '所有格', d: '表示「某人的」的代名詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"單數所有格","items":["my 我的","your 你的","his 他的","her 她的","its 它的"]},{"label":"複數所有格","items":["our 我們的","their 他們的"]},{"label":"規則","items":["所有格後面一定要接名詞，不能單獨用"]}]},
       q: {
         q: '課文說所有格後面一定要接什麼？',
         options: [
@@ -4326,6 +4328,7 @@ window.APP_TEXTS['english|二下|第2單元 Yes/No 問句與簡答'] = {
       terms: [
         { w: '問句', d: '用來發問的句子。' }
       ],
+      viz: {"type":"compareexp","factor":"怎麼變成問句","a":{"label":"直述句","note":"You are a student."},"b":{"label":"問句","note":"Are you a student?（be 動詞搬到最前面）"},"same":["其他字的順序完全不用動"]},
       q: {
         q: '課文說 be 動詞問句要怎麼造？',
         options: [
@@ -4399,6 +4402,7 @@ window.APP_TEXTS['english|二下|第2單元 Yes/No 問句與簡答'] = {
       terms: [
         { w: '人稱', d: '說話者、聽話者與第三者的區分。' }
       ],
+      viz: {"type":"compareexp","factor":"簡答時主詞要換","a":{"label":"對方問","note":"Are you a student?（問「你」）"},"b":{"label":"你要回","note":"Yes, I am.（答「我」，不能照抄成 Yes, you are.）"},"same":["問句裡是人名時，回答要換成 he 或 she"]},
       q: {
         q: '課文說對方問「你」時要用什麼回答？',
         options: [
@@ -4503,6 +4507,7 @@ window.APP_TEXTS['english|二下|第3單元 疑問詞 What 與 Who'] = {
       terms: [
         { w: '助動詞', d: '幫助造問句或否定句的動詞。' }
       ],
+      viz: {"type":"compareexp","factor":"要不要借助動詞","a":{"label":"配 be 動詞","note":"What is this?（不用借 do）"},"b":{"label":"配一般動詞","note":"What do you like? / What does he do?（要借 do／does）"},"same":["疑問詞都放在最前面"]},
       q: {
         q: '課文說 What 配一般動詞時要加什麼？',
         options: [
@@ -4551,6 +4556,7 @@ window.APP_TEXTS['english|二下|第3單元 疑問詞 What 與 Who'] = {
       terms: [
         { w: '主詞', d: '句子裡做動作的那個人。' }
       ],
+      viz: {"type":"compareexp","factor":"Who 在句子裡當什麼","a":{"label":"Who 當主詞","note":"Who likes math?（沒有 do，動詞要加 s）"},"b":{"label":"Who 不是主詞","note":"Who do you like?（要借 do）"},"same":["兩句都是問人"]},
       q: {
         q: '課文說 Who 當主詞時動詞要怎麼變？',
         options: [
@@ -4655,6 +4661,7 @@ window.APP_TEXTS['english|二下|第4單元 疑問詞 Where 與 When'] = {
       terms: [
         { w: '地點', d: '某個東西所在的位置。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"大範圍用 in","items":["in Taipei（城市）","in Taiwan（國家）"]},{"label":"街道用 on","items":["on Zhongshan Road"]},{"label":"確切地點用 at","items":["at No. 5","at the door"]}]},
       q: {
         q: '課文說城市前面要用哪一個介系詞？',
         options: [
@@ -4728,6 +4735,7 @@ window.APP_TEXTS['english|二下|第4單元 疑問詞 Where 與 When'] = {
       terms: [
         { w: '月份', d: '一年當中的十二個月。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"上半年","items":["January","February","March","April","May","June"]},{"label":"下半年","items":["July","August","September","October","November","December"]},{"label":"規則","items":["字首一定大寫","縮寫後面要加句點"]}]},
       q: {
         q: '課文說月份的縮寫後面要加什麼？',
         options: [
@@ -4782,6 +4790,7 @@ window.APP_TEXTS['english|二下|第5單元 職業'] = {
       terms: [
         { w: '職業', d: '一個人所從事的工作。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"學校與醫院","items":["teacher 老師","doctor 醫生","nurse 護理師"]},{"label":"生產與服務","items":["farmer 農夫","cook 廚師","driver 司機"]},{"label":"公職","items":["police officer 警察"]}]},
       q: {
         q: '課文說很多職業的字是怎麼來的？',
         options: [
@@ -4904,6 +4913,7 @@ window.APP_TEXTS['english|二下|第5單元 職業'] = {
       terms: [
         { w: '志願', d: '將來想做的工作。' }
       ],
+      viz: {"type":"sentence","label":"說志願","items":[{"t":"I want to be a teacher","r":"我想當老師"}],"note":"to 後面一定接原形動詞，所以是 be，不是 am 或 is。","alt":[{"label":"問對方","items":[{"t":"What do you want to be?","r":"你想當什麼？"}],"note":"同樣用 want to be。"}]},
       q: {
         q: '課文說 want to be 的 be 可不可以改成 am？',
         options: [
@@ -4984,6 +4994,7 @@ window.APP_TEXTS['english|二下|第6單元 交通工具'] = {
       terms: [
         { w: 'on foot', d: '徒步、走路。' }
       ],
+      viz: {"type":"compareexp","factor":"走路怎麼說","a":{"label":"用動詞","note":"I walk to school."},"b":{"label":"用片語","note":"I go to school on foot.（是 on foot，不是 by foot）"},"same":["其他交通工具用 by：by bus、by MRT"]},
       q: {
         q: '課文說走路要用哪一個說法？',
         options: [
@@ -5032,6 +5043,7 @@ window.APP_TEXTS['english|二下|第6單元 交通工具'] = {
       terms: [
         { w: 'ride', d: '騎，跨坐在上面。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"take 搭（大眾運輸）","items":["take the bus","take the MRT","take a taxi"]},{"label":"ride 騎（跨坐在上面）","items":["ride a bike","ride a scooter","ride a horse"]},{"label":"drive 開（自己操作方向盤）","items":["drive a car"]}]},
       q: {
         q: '課文說騎腳踏車要用哪一個動詞？',
         options: [
@@ -5111,6 +5123,7 @@ window.APP_TEXTS['english|二下|第7單元 房間與家具'] = {
       terms: [
         { w: '家具', d: '家裡的桌椅床櫃等用品。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"睡覺與坐","items":["bed 床","chair 椅子","sofa 沙發"]},{"label":"桌子","items":["desk 書桌","table 餐桌或一般的桌子"]},{"label":"收納與照明","items":["closet 衣櫥","lamp 檯燈"]}]},
       q: {
         q: '課文說 desk 和 table 差在哪裡？',
         options: [
@@ -5160,6 +5173,7 @@ window.APP_TEXTS['english|二下|第7單元 房間與家具'] = {
       terms: [
         { w: 'There is', d: '表示某處有某樣東西。' }
       ],
+      viz: {"type":"compareexp","factor":"There is 還是 There are","a":{"label":"單數","note":"There is a bed in my room."},"b":{"label":"複數","note":"There are two chairs in my room."},"same":["介紹「某處有什麼」最常用的句型"]},
       q: {
         q: '課文說介紹房間裡有什麼最常用哪個句型？',
         options: [
@@ -5263,6 +5277,7 @@ window.APP_TEXTS['english|二下|第8單元 情緒與感受'] = {
       terms: [
         { w: '關心', d: '注意並在意別人的狀況。' }
       ],
+      viz: {"type":"sentence","label":"關心對方","items":[{"t":"How are you?","r":"你好嗎？"}],"note":"最常用的一句。","alt":[{"label":"看起來不對勁","items":[{"t":"Are you OK?","r":"你還好嗎？"}],"note":"對方臉色不好時用。"},{"label":"想問發生什麼事","items":[{"t":"What is wrong?","r":"怎麼了？"}],"note":"想知道原因時用。"}]},
       q: {
         q: '課文說「怎麼了」的英文是什麼？',
         options: [
@@ -5360,6 +5375,7 @@ window.APP_TEXTS['english|二下|第8單元 情緒與感受'] = {
       terms: [
         { w: '詞尾', d: '一個字最後面的那幾個字母。' }
       ],
+      viz: {"type":"compareexp","factor":"ed 還是 ing","a":{"label":"-ed 說人的感受","note":"I am excited.（我覺得興奮）"},"b":{"label":"-ing 說事物的性質","note":"The game is exciting.（這遊戲很刺激）"},"same":["說錯就變成「我這個人很刺激」"]},
       q: {
         q: '課文說 ing 結尾的情緒形容詞用來說什麼？',
         options: [
@@ -5415,6 +5431,7 @@ window.APP_TEXTS['english|二下|第9單元 節慶與祝賀'] = {
       terms: [
         { w: '祝賀', d: '對別人說吉祥話。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"用 Happy","items":["Happy New Year","Happy Birthday","Happy Halloween"]},{"label":"用 Merry","items":["Merry Christmas（習慣用法）"]},{"label":"提醒","items":["只有聖誕節習慣用 Merry"]}]},
       q: {
         q: '課文說聖誕節習慣用哪一個字？',
         options: [
@@ -5512,6 +5529,7 @@ window.APP_TEXTS['english|二下|第9單元 節慶與祝賀'] = {
       terms: [
         { w: '署名', d: '在信末寫上自己的名字。' }
       ],
+      viz: {"type":"energyflow","steps":["稱呼：Dear Amy,","內容：Happy Birthday! I hope you have a great day.","署名：Your friend, Ben","（卡片就是稱呼、內容、署名三段）"]},
       q: {
         q: '課文說卡片的格式有哪三段？',
         options: [
@@ -5542,6 +5560,7 @@ window.APP_TEXTS['english|三上|第1單元 短母音 a、e、i'] = {
       terms: [
         { w: '自然發音', d: '看字母就知道怎麼唸的方法。' }
       ],
+      viz: {"type":"compareexp","factor":"字母的兩種身分","a":{"label":"名字","note":"a 唸起來像「ㄟ」——這是字母本身的唸法"},"b":{"label":"聲音","note":"在 cat 裡發的是短母音，不是「ㄟ」"},"same":["每個字母都有這兩種身分，別搞混"]},
       q: {
         q: '課文說每個字母有哪兩種身分？',
         options: [
@@ -5614,6 +5633,7 @@ window.APP_TEXTS['english|三上|第1單元 短母音 a、e、i'] = {
       terms: [
         { w: '長音', d: '母音唸成字母本身名字的音。' }
       ],
+      viz: {"type":"compareexp","factor":"字尾多一個 e","a":{"label":"短音","note":"sit 坐　pin 別針"},"b":{"label":"長音","note":"site 地點　pine 松樹"},"same":["字尾的 e 不發音，但會把前面的母音變成長音"]},
       q: {
         q: '課文說字尾多一個 e 會怎樣？',
         options: [
@@ -5693,6 +5713,7 @@ window.APP_TEXTS['english|三上|第2單元 短母音 o、u'] = {
       terms: [
         { w: '圓形', d: '嘴唇圍成圓圈的形狀。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"dog","parts":["d","o","g"],"hit":1,"s":"短音 o，嘴巴張開成圓形","mean":"狗"},{"w":"hop","parts":["h","o","p"],"hit":1,"s":"短音；加了 e 變成 hope 就是長音","mean":"單腳跳"},{"w":"not","parts":["n","o","t"],"hit":1,"s":"短音；加了 e 變成 note 就是長音","mean":"不"}]},
       q: {
         q: '課文說發短母音 o 時嘴巴要張成什麼形狀？',
         options: [
@@ -5717,6 +5738,7 @@ window.APP_TEXTS['english|三上|第2單元 短母音 o、u'] = {
       terms: [
         { w: '放鬆', d: '不用特別出力的狀態。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"cup","parts":["c","u","p"],"hit":1,"s":"短音 u，嘴型比較放鬆","mean":"杯子"},{"w":"cut","parts":["c","u","t"],"hit":1,"s":"短音；加了 e 變成 cute 就是長音","mean":"切"},{"w":"tub","parts":["t","u","b"],"hit":1,"s":"短音；加了 e 變成 tube 就是長音","mean":"浴缸"}]},
       q: {
         q: '課文說短音 u 的嘴型如何？',
         options: [
@@ -5741,6 +5763,7 @@ window.APP_TEXTS['english|三上|第2單元 短母音 o、u'] = {
       terms: [
         { w: '結構', d: '一個字由哪些部分組成。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"短音 a、e","items":["cat 貓","bed 床"]},{"label":"短音 i、o","items":["pig 豬","dog 狗"]},{"label":"短音 u","items":["cup 杯子"]},{"label":"共同規則","items":["子音＋母音＋子音的結構，母音通常發短音"]}]},
       q: {
         q: '課文說學會這個結構有什麼好處？',
         options: [
@@ -5844,6 +5867,7 @@ window.APP_TEXTS['english|三上|第3單元 magic e 長母音'] = {
       terms: [
         { w: 'magic e', d: '字尾不發音但使前面母音變長的 e。' }
       ],
+      viz: {"type":"compareexp","factor":"字尾加不加 e","a":{"label":"沒有 e","note":"cap 帽子（短音）"},"b":{"label":"加了 e","note":"cape 披風（長音，e 本身不發音）"},"same":["長音就是把字母自己的名字唸出來"]},
       q: {
         q: '課文說字尾的 e 本身發不發音？',
         options: [
@@ -5868,6 +5892,7 @@ window.APP_TEXTS['english|三上|第3單元 magic e 長母音'] = {
       terms: [
         { w: '長母音', d: '唸成字母本身名字的母音。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"長音 a 的字","items":["cake 蛋糕","name 名字","game 遊戲","face 臉"]},{"label":"短音 ↔ 長音","items":["hat ↔ hate","mad ↔ made","tap ↔ tape"]},{"label":"規則","items":["字尾 e 不發音，前面的 a 唸自己的名字"]}]},
       q: {
         q: '課文說長母音 a 唸起來像什麼？',
         options: [
@@ -5892,6 +5917,7 @@ window.APP_TEXTS['english|三上|第3單元 magic e 長母音'] = {
       terms: [
         { w: '規則', d: '固定成立的原則。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"長音 i","items":["bike 腳踏車","time 時間","nine 九","ride 騎"]},{"label":"長音 o","items":["nose 鼻子","home 家","note 筆記","hope 希望"]},{"label":"規則","items":["字尾的 e 都不發音"]}]},
       q: {
         q: '課文說 nose 裡的 o 發什麼音？',
         options: [
@@ -5995,6 +6021,7 @@ window.APP_TEXTS['english|三上|第4單元 字母組合 sh、ch、th'] = {
       terms: [
         { w: '字母組合', d: '兩個字母合起來發一個音。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"發新的音","items":["sh","ch","th"]},{"label":"發成一個舊音","items":["ph → f 的音","ck → k 的音"]},{"label":"其他常見","items":["wh","ng"]}]},
       q: {
         q: '課文說字母組合要怎麼唸？',
         options: [
@@ -6068,6 +6095,7 @@ window.APP_TEXTS['english|三上|第4單元 字母組合 sh、ch、th'] = {
       terms: [
         { w: '聲帶', d: '喉嚨裡發出聲音的部位。' }
       ],
+      viz: {"type":"compareexp","factor":"th 的兩種音","a":{"label":"無聲","note":"three、think、mouth——喉嚨不震動"},"b":{"label":"有聲","note":"this、that、mother——喉嚨會震動"},"same":["舌頭位置完全相同：輕輕放在上下牙齒之間"]},
       q: {
         q: '課文說 th 兩種發音的差別在哪裡？',
         options: [
@@ -6116,6 +6144,7 @@ window.APP_TEXTS['english|三上|第4單元 字母組合 sh、ch、th'] = {
       terms: [
         { w: '拆音', d: '把一個字分成幾個音來唸。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"shop","items":["sh","o","p"]},{"label":"this","items":["th","i","s"]},{"label":"duck","items":["d","u","ck"]},{"label":"要點","items":["看到兩個字母先想它們是不是一組"]}]},
       q: {
         q: '課文說拼讀時看到兩個字母要先想什麼？',
         options: [
@@ -6170,6 +6199,7 @@ window.APP_TEXTS['english|三上|第5單元 打招呼與介紹他人'] = {
       terms: [
         { w: '反問', d: '回答後再把問題丟回去。' }
       ],
+      viz: {"type":"sentence","label":"問候與回答","items":[{"t":"How are you?","r":"你好嗎？"}],"note":"最常見的問候。","alt":[{"label":"還不錯","items":[{"t":"I am fine, thank you","r":"我很好，謝謝"}],"note":"最標準的回答。"},{"label":"其他回答","items":[{"t":"Great / Not bad / So-so","r":"很好／還可以／普普"}],"note":"照實際心情選一個。"},{"label":"反問","items":[{"t":"And you?","r":"你呢？"}],"note":"回答完反問一句，對話才接得下去。"}]},
       q: {
         q: '課文說回答之後可以加哪一句讓對話繼續？',
         options: [
@@ -6218,6 +6248,7 @@ window.APP_TEXTS['english|三上|第5單元 打招呼與介紹他人'] = {
       terms: [
         { w: '介紹', d: '讓別人認識某個人。' }
       ],
+      viz: {"type":"sentence","label":"介紹別人","items":[{"t":"This is my friend, Ben","r":"這是我的朋友 Ben"}],"note":"介紹人時用 This is，不用 He is。","alt":[{"label":"介紹完之後","items":[{"t":"He is my brother","r":"他是我哥哥"}],"note":"接下來才用 he 或 she。"}]},
       q: {
         q: '課文說介紹在場的人開頭要用什麼？',
         options: [
@@ -6372,6 +6403,7 @@ window.APP_TEXTS['english|三上|第6單元 教室與學校用語'] = {
       terms: [
         { w: '地點', d: '某個地方。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"上課的地方","items":["classroom 教室","music room 音樂教室"]},{"label":"活動與辦公","items":["playground 操場","office 辦公室"]},{"label":"其他","items":["library 圖書館","restroom 洗手間"]}]},
       q: {
         q: '課文說「在教室」要用哪一個介系詞？',
         options: [
@@ -6396,6 +6428,7 @@ window.APP_TEXTS['english|三上|第6單元 教室與學校用語'] = {
       terms: [
         { w: '稱呼', d: '叫別人的方式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"學生","items":["student 學生","classmate 同學","friend 朋友"]},{"label":"教職員","items":["teacher 老師","principal 校長"]},{"label":"稱呼方式","items":["Mr. 或 Ms. 加姓氏（不加名字）"]}]},
       q: {
         q: '課文說稱呼老師時後面要加什麼？',
         options: [
