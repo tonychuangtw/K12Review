@@ -598,7 +598,11 @@ console.log('解析確認題');
                    // 會動的（2026-08-30 加，課文帶讀用；播放列走 widgets.js 的 player）
                    'fracequiv', 'floatsink', 'motionplay',
                    // 高中理科補的圖（2026-08-30）：概念卡九成是文字排版，帶讀接不到東西可用
-                   'accuracy', 'workgraph', 'fieldlines', 'energylevel', 'fission', 'greenhouse'];  // 與 js/widgets.js 的 REG 同步
+                   'accuracy', 'workgraph', 'fieldlines', 'energylevel', 'fission', 'greenhouse',
+                   // 化學與生物補的圖（2026-08-30 第二批）
+                   'bonding', 'ratecurve', 'galvanic', 'titration',
+                   'membrane', 'translation', 'immune', 'feedback',
+                   'actenergy', 'vsepr', 'imf', 'organic', 'mitosis', 'hrdiagram'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

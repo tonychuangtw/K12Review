@@ -353,6 +353,7 @@ window.APP_TEXTS['civics|十上|第3單元 民主與政治'] = {
       terms: [
         { w: '制衡', d: '不同權力機關互相監督與限制。' }
       ],
+      viz: { type: 'orgchart' },
       q: {
         q: '課文說權力分立的代價是什麼？',
         options: [
@@ -620,6 +621,7 @@ window.APP_TEXTS['civics|十上|第5單元 政府與治理'] = {
       terms: [
         { w: '地方自治', d: '地方居民自行選舉並管理地方事務。' }
       ],
+      viz: { type: 'orgchart' },
       q: {
         q: '課文說地方自治的價值是什麼？',
         options: [
@@ -1101,6 +1103,7 @@ window.APP_TEXTS['civics|十上|第8單元 經濟基本概念'] = {
       terms: [
         { w: '均衡價格', d: '供給量與需求量相等時的價格。' }
       ],
+      viz: { type: 'supply' },
       q: {
         q: '課文說市場價格由什麼決定？',
         options: [
@@ -1177,6 +1180,7 @@ window.APP_TEXTS['civics|十上|第9單元 市場與政府'] = {
       terms: [
         { w: '價格機能', d: '價格傳遞資訊並協調供需的作用。' }
       ],
+      viz: { type: 'supply' },
       q: {
         q: '課文說價格在市場中的作用是什麼？',
         options: [
@@ -1925,6 +1929,7 @@ window.APP_TEXTS['civics|十下|第5單元 總體經濟'] = {
       terms: [
         { w: '通貨膨脹', d: '物價水準持續普遍上漲的現象。' }
       ],
+      viz: { type: 'supply' },
       q: {
         q: '課文說通膨過高時誰受害最深？',
         options: [
@@ -2238,6 +2243,7 @@ window.APP_TEXTS['civics|十下|第7單元 社會安全與福利'] = {
       terms: [
         { w: '世代正義', d: '不同世代之間權利與負擔的公平分配。' }
       ],
+      viz: { type: 'poppyramid' },
       q: {
         q: '課文說年金改革涉及什麼樣的爭議？',
         options: [
@@ -3207,6 +3213,7 @@ window.APP_TEXTS['civics|十一上|第5單元 個體經濟'] = {
       terms: [
         { w: '需求變動', d: '非價格因素造成整條需求曲線移動。' }
       ],
+      viz: { type: 'supply' },
       q: {
         q: '課文說所得改變會造成什麼？',
         options: [
@@ -3230,6 +3237,7 @@ window.APP_TEXTS['civics|十一上|第5單元 個體經濟'] = {
       terms: [
         { w: '需求彈性', d: '需求量對價格變化的反應程度。' }
       ],
+      viz: { type: 'supply' },
       q: {
         q: '課文說什麼樣的商品需求彈性較小？',
         options: [
@@ -3955,6 +3963,7 @@ window.APP_TEXTS['civics|十一下|第1單元 憲政體制'] = {
       terms: [
         { w: '制衡', d: '不同權力機關互相監督與限制。' }
       ],
+      viz: { type: 'orgchart' },
       q: {
         q: '課文說權力分立的取捨是什麼？',
         options: [
@@ -5428,6 +5437,7 @@ window.APP_TEXTS['civics|十二上|第2單元 政治學總複習'] = {
       terms: [
         { w: '課責', d: '要求權力行使者為決策負責。' }
       ],
+      viz: { type: 'orgchart' },
       q: {
         q: '課文說課責的前提是什麼？',
         options: [
@@ -5695,6 +5705,7 @@ window.APP_TEXTS['civics|十二上|第4單元 經濟學總複習'] = {
       terms: [
         { w: '價格機能', d: '價格傳遞資訊並協調供需的作用。' }
       ],
+      viz: { type: 'supply' },
       q: {
         q: '課文說價格在市場中扮演什麼角色？',
         options: [
@@ -6252,6 +6263,7 @@ window.APP_TEXTS['civics|十二上|第8單元 未來社會'] = {
       terms: [
         { w: '扶養比', d: '被扶養人口與工作年齡人口的比例。' }
       ],
+      viz: { type: 'poppyramid' },
       q: {
         q: '課文說人口變化帶來的主要壓力是什麼？',
         options: [

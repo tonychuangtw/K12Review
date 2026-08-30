@@ -478,6 +478,7 @@ window.APP_TEXTS['chemistry|十上|第4單元 化學鍵'] = {
       terms: [
         { w: '離子鍵', d: '正負離子之間的靜電吸引所形成的鍵。' }
       ],
+      viz: { type: 'bonding', mode: 'ionic' },
       q: {
         q: '課文說離子化合物什麼時候才會導電？',
         options: [
@@ -501,6 +502,7 @@ window.APP_TEXTS['chemistry|十上|第4單元 化學鍵'] = {
       terms: [
         { w: '共價鍵', d: '兩原子共用電子對所形成的鍵。' }
       ],
+      viz: { type: 'bonding', mode: 'covalent' },
       q: {
         q: '課文說共價鍵的鍵數越多，鍵會怎樣？',
         options: [
@@ -524,6 +526,7 @@ window.APP_TEXTS['chemistry|十上|第4單元 化學鍵'] = {
       terms: [
         { w: '自由電子', d: '金屬中不屬於特定原子、可移動的價電子。' }
       ],
+      viz: { type: 'bonding', mode: 'metallic' },
       q: {
         q: '課文說金屬可以被敲打成薄片而不碎，是因為什麼？',
         options: [
@@ -669,6 +672,7 @@ window.APP_TEXTS['chemistry|十上|第5單元 化學式與莫耳'] = {
       terms: [
         { w: '係數', d: '化學反應式中表示參與莫耳數比例的數字。' }
       ],
+      viz: { type: 'chemeq' },
       q: {
         q: '課文說平衡反應式時不能做什麼？',
         options: [
@@ -960,6 +964,7 @@ window.APP_TEXTS['chemistry|十上|第7單元 酸鹼'] = {
       terms: [
         { w: '酸鹼值', d: '表示溶液酸鹼程度的數值。' }
       ],
+      viz: { type: 'phscale' },
       q: {
         q: '課文說酸鹼值每差一個數字，氫離子濃度差幾倍？',
         options: [
@@ -1007,6 +1012,7 @@ window.APP_TEXTS['chemistry|十上|第7單元 酸鹼'] = {
       terms: [
         { w: '滴定', d: '用已知濃度溶液測定未知濃度的方法。' }
       ],
+      viz: { type: 'titration', mode: 'strong' },
       q: {
         q: '課文說滴定終點是怎麼判斷的？',
         options: [
@@ -1152,6 +1158,7 @@ window.APP_TEXTS['chemistry|十上|第8單元 氧化還原'] = {
       terms: [
         { w: '鹽橋', d: '連接兩個半電池、維持電中性的通道。' }
       ],
+      viz: { type: 'galvanic' },
       q: {
         q: '課文說電池能產生電流的關鍵是什麼？',
         options: [
@@ -1227,6 +1234,7 @@ window.APP_TEXTS['chemistry|十上|第9單元 化學反應與能量'] = {
       terms: [
         { w: '活化能', d: '反應開始進行所需跨越的最低能量。' }
       ],
+      viz: { type: 'actenergy' },
       q: {
         q: '課文說紙張不會自己燃燒的原因是什麼？',
         options: [
@@ -1273,6 +1281,7 @@ window.APP_TEXTS['chemistry|十上|第9單元 化學反應與能量'] = {
       terms: [
         { w: '熱卡計', d: '用來測量反應放出或吸收熱量的裝置。' }
       ],
+      viz: { type: 'heat' },
       q: {
         q: '課文說熱卡計實驗中為什麼要做好隔熱？',
         options: [
@@ -1518,6 +1527,7 @@ window.APP_TEXTS['chemistry|十下|第2單元 化學反應速率與平衡'] = {
       terms: [
         { w: '可逆反應', d: '正逆兩方向都能進行的反應。' }
       ],
+      viz: { type: 'ratecurve' },
       q: {
         q: '課文說達到化學平衡時，反應停止了嗎？',
         options: [
@@ -1640,6 +1650,7 @@ window.APP_TEXTS['chemistry|十下|第3單元 有機化合物基礎'] = {
       terms: [
         { w: '烯類', d: '含有碳碳雙鍵的碳氫化合物。' }
       ],
+      viz: { type: 'organic', mode: '烯' },
       q: {
         q: '課文說烯類為什麼比烷類活潑？',
         options: [
@@ -1686,6 +1697,7 @@ window.APP_TEXTS['chemistry|十下|第3單元 有機化合物基礎'] = {
       terms: [
         { w: '官能基', d: '決定有機化合物性質的特定原子團。' }
       ],
+      viz: { type: 'organic', mode: '醇' },
       q: {
         q: '課文說看到有機分子時，判斷性質的關鍵是什麼？',
         options: [
@@ -1762,6 +1774,7 @@ window.APP_TEXTS['chemistry|十下|第4單元 有機化合物的應用'] = {
       terms: [
         { w: '羥基', d: '由氧與氫組成、使分子帶極性的官能基。' }
       ],
+      viz: { type: 'organic', mode: '醇' },
       q: {
         q: '課文說小分子的醇能溶於水，原因是什麼？',
         options: [
@@ -1808,6 +1821,7 @@ window.APP_TEXTS['chemistry|十下|第4單元 有機化合物的應用'] = {
       terms: [
         { w: '酯化', d: '羧酸與醇作用生成酯與水的反應。' }
       ],
+      viz: { type: 'organic', mode: '酯' },
       q: {
         q: '課文說水果的香味主要來自哪一類化合物？',
         options: [
@@ -2023,6 +2037,7 @@ window.APP_TEXTS['chemistry|十下|第5單元 生物體中的化學'] = {
       terms: [
         { w: '酵素', d: '生物體內催化特定反應的蛋白質。' }
       ],
+      viz: { type: 'enzyme' },
       q: {
         q: '課文說人體為什麼要嚴格維持體溫與酸鹼值？',
         options: [
@@ -2243,6 +2258,7 @@ window.APP_TEXTS['chemistry|十下|第7單元 化學與環境'] = {
       terms: [
         { w: '溫室氣體', d: '能吸收地表紅外輻射的氣體。' }
       ],
+      viz: { type: 'greenhouse', ghg: 4 },
       q: {
         q: '課文說溫室效應本身是好是壞？',
         options: [
@@ -2655,6 +2671,7 @@ window.APP_TEXTS['chemistry|十一上|第1單元 原子軌域與電子組態'] =
       terms: [
         { w: '電子容量', d: '一個軌域最多能容納的電子數。' }
       ],
+      viz: { type: 'atom' },
       q: {
         q: '課文說一個軌域最多能容納幾個電子？',
         options: [
@@ -2724,6 +2741,7 @@ window.APP_TEXTS['chemistry|十一上|第1單元 原子軌域與電子組態'] =
       terms: [
         { w: '過渡金屬', d: '週期表中央、電子填入內層軌域的金屬元素。' }
       ],
+      viz: { type: 'ptable' },
       q: {
         q: '課文說週期表的區塊劃分是根據什麼？',
         options: [
@@ -2800,6 +2818,7 @@ window.APP_TEXTS['chemistry|十一上|第2單元 分子結構與形狀'] = {
       terms: [
         { w: '電子對互斥', d: '中心原子周圍電子對盡量彼此遠離的原則。' }
       ],
+      viz: { type: 'vsepr', mol: 'CH₄' },
       q: {
         q: '課文說中心原子周圍有四組電子對時，會排成什麼形狀？',
         options: [
@@ -2823,6 +2842,7 @@ window.APP_TEXTS['chemistry|十一上|第2單元 分子結構與形狀'] = {
       terms: [
         { w: '鍵角', d: '兩個化學鍵之間的夾角。' }
       ],
+      viz: { type: 'vsepr', mol: 'NH₃' },
       q: {
         q: '課文說水分子的鍵角比標準四面體小，原因是什麼？',
         options: [
@@ -2945,6 +2965,7 @@ window.APP_TEXTS['chemistry|十一上|第3單元 分子間作用力'] = {
       terms: [
         { w: '分散力', d: '由瞬間電子分布不均引起的微弱吸引力。' }
       ],
+      viz: { type: 'imf', mode: '分散力' },
       q: {
         q: '課文說烷類碳數越多沸點越高，原因是什麼？',
         options: [
@@ -2968,6 +2989,7 @@ window.APP_TEXTS['chemistry|十一上|第3單元 分子間作用力'] = {
       terms: [
         { w: '偶極', d: '分子中正負電荷分離形成的兩極。' }
       ],
+      viz: { type: 'imf', mode: '偶極作用力' },
       q: {
         q: '課文說比較沸點時的順序是什麼？',
         options: [
@@ -3014,6 +3036,7 @@ window.APP_TEXTS['chemistry|十一上|第3單元 分子間作用力'] = {
       terms: [
         { w: '密度異常', d: '水在四度時密度最大、結冰反而變小的現象。' }
       ],
+      viz: { type: 'imf', mode: '氫鍵' },
       q: {
         q: '課文說冰浮在水上對生態的意義是什麼？',
         options: [
@@ -3090,6 +3113,7 @@ window.APP_TEXTS['chemistry|十一上|第4單元 化學熱力學'] = {
       terms: [
         { w: '狀態函數', d: '數值只由起始與最終狀態決定的量。' }
       ],
+      viz: { type: 'actenergy' },
       q: {
         q: '課文說放熱反應的焓變是正的還是負的？',
         options: [
@@ -3212,6 +3236,7 @@ window.APP_TEXTS['chemistry|十一上|第5單元 反應動力學'] = {
       terms: [
         { w: '反應速率', d: '單位時間內反應物或產物濃度的變化量。' }
       ],
+      viz: { type: 'ratecurve' },
       q: {
         q: '課文說比較不同物質的反應速率時要先做什麼？',
         options: [
@@ -3473,6 +3498,7 @@ window.APP_TEXTS['chemistry|十一上|第6單元 酸鹼平衡進階'] = {
       terms: [
         { w: '當量點', d: '酸與鹼恰好完全反應的那一點。' }
       ],
+      viz: { type: 'titration', mode: 'weak' },
       q: {
         q: '課文說選擇指示劑的原則是什麼？',
         options: [
@@ -3502,6 +3528,7 @@ window.APP_TEXTS['chemistry|十一上|第7單元 沉澱與錯合物'] = {
       terms: [
         { w: '溶度積', d: '難溶鹽飽和時離子濃度乘積的定值。' }
       ],
+      viz: { type: 'solution' },
       q: {
         q: '課文說溶度積越小代表什麼？',
         options: [
@@ -3670,6 +3697,7 @@ window.APP_TEXTS['chemistry|十一上|第8單元 電化學'] = {
       terms: [
         { w: '伽凡尼電池', d: '利用自發氧化還原反應產生電流的裝置。' }
       ],
+      viz: { type: 'galvanic' },
       q: {
         q: '課文說伽凡尼電池中氧化發生在哪一極？',
         options: [
@@ -3983,6 +4011,7 @@ window.APP_TEXTS['chemistry|十一下|第1單元 有機結構與命名'] = {
       terms: [
         { w: '取代基', d: '接在主鏈上的原子團。' }
       ],
+      viz: { type: 'organic', mode: '羧酸' },
       q: {
         q: '課文說主鏈的選擇遇到雙鍵時要注意什麼？',
         options: [
@@ -4297,6 +4326,7 @@ window.APP_TEXTS['chemistry|十一下|第3單元 生物分子'] = {
       terms: [
         { w: '磷脂雙層', d: '磷脂質在水中自動排列成的雙層結構。' }
       ],
+      viz: { type: 'membrane', mode: 'diffusion' },
       q: {
         q: '課文說磷脂質在水中會自動排成雙層，原因是什麼？',
         options: [
@@ -4854,6 +4884,7 @@ window.APP_TEXTS['chemistry|十一下|第7單元 能源化學'] = {
       terms: [
         { w: '能量密度', d: '單位質量或體積所能儲存的能量。' }
       ],
+      viz: { type: 'galvanic' },
       q: {
         q: '課文說燃料電池與一般電池最大的差別是什麼？',
         options: [
@@ -5412,6 +5443,7 @@ window.APP_TEXTS['chemistry|十二上|第2單元 化學計量總複習'] = {
       terms: [
         { w: '係數比', d: '反應式中各物質的莫耳數比例。' }
       ],
+      viz: { type: 'chemeq' },
       q: {
         q: '課文說係數比什麼時候可以當成體積比？',
         options: [
@@ -5534,6 +5566,7 @@ window.APP_TEXTS['chemistry|十二上|第3單元 平衡總複習'] = {
       terms: [
         { w: '動態平衡', d: '正逆反應持續進行但速率相等的狀態。' }
       ],
+      viz: { type: 'ratecurve' },
       q: {
         q: '課文說平衡狀態下反應停止了嗎？',
         options: [
@@ -5771,6 +5804,7 @@ window.APP_TEXTS['chemistry|十二上|第4單元 氧化還原總複習'] = {
       terms: [
         { w: '金屬活性', d: '金屬失去電子形成離子的傾向大小。' }
       ],
+      viz: { type: 'galvanic' },
       q: {
         q: '課文說電池電壓的大小由什麼決定？',
         options: [
@@ -5824,6 +5858,7 @@ window.APP_TEXTS['chemistry|十二上|第5單元 有機總複習'] = {
       terms: [
         { w: '官能基', d: '決定有機化合物性質的原子團。' }
       ],
+      viz: { type: 'organic', mode: '酯' },
       q: {
         q: '課文說判讀有機分子的第一步是什麼？',
         options: [
@@ -6015,6 +6050,7 @@ window.APP_TEXTS['chemistry|十二上|第6單元 電化學總複習'] = {
       terms: [
         { w: '鹽橋', d: '連接兩半電池、維持電中性的通道。' }
       ],
+      viz: { type: 'galvanic' },
       q: {
         q: '課文說溶液中電荷是靠什麼傳遞的？',
         options: [
@@ -6886,6 +6922,7 @@ window.APP_TEXTS['chemistry|十二下|第3單元 化學與食品'] = {
       terms: [
         { w: '變性', d: '蛋白質立體結構被破壞的過程。' }
       ],
+      viz: { type: 'enzyme' },
       q: {
         q: '課文說用檸檬汁醃生魚讓魚肉變白，是什麼作用？',
         options: [

@@ -332,6 +332,7 @@ window.APP_TEXTS['biology|十上|第3單元 物質進出細胞'] = {
       terms: [
         { w: '擴散', d: '物質順濃度梯度自動散開的現象。' }
       ],
+      viz: { type: 'membrane', mode: 'diffusion' },
       q: {
         q: '課文說擴散需要消耗能量嗎？',
         options: [
@@ -378,6 +379,7 @@ window.APP_TEXTS['biology|十上|第3單元 物質進出細胞'] = {
       terms: [
         { w: '載體蛋白', d: '協助特定物質通過細胞膜的蛋白質。' }
       ],
+      viz: { type: 'membrane', mode: 'facilitated' },
       q: {
         q: '課文說協助擴散與主動運輸最大的差別是什麼？',
         options: [
@@ -401,6 +403,7 @@ window.APP_TEXTS['biology|十上|第3單元 物質進出細胞'] = {
       terms: [
         { w: '主動運輸', d: '消耗能量把物質逆濃度梯度運送的過程。' }
       ],
+      viz: { type: 'membrane', mode: 'active' },
       q: {
         q: '課文說鈉鉀幫浦維持的離子差有什麼用途？',
         options: [
@@ -770,6 +773,7 @@ window.APP_TEXTS['biology|十上|第6單元 呼吸作用'] = {
       terms: [
         { w: '粒線體', d: '進行呼吸作用主要階段、產生大量能量的胞器。' }
       ],
+      viz: { type: 'cell' },
       q: {
         q: '課文說呼吸作用的第一階段在哪裡進行？',
         options: [
@@ -938,6 +942,7 @@ window.APP_TEXTS['biology|十上|第7單元 細胞分裂'] = {
       terms: [
         { w: '有絲分裂', d: '產生兩個染色體數相同子細胞的分裂方式。' }
       ],
+      viz: { type: 'mitosis', mode: 'mitosis' },
       q: {
         q: '課文說有絲分裂產生的子細胞有什麼特點？',
         options: [
@@ -961,6 +966,7 @@ window.APP_TEXTS['biology|十上|第7單元 細胞分裂'] = {
       terms: [
         { w: '減數分裂', d: '產生染色體數減半的生殖細胞的分裂方式。' }
       ],
+      viz: { type: 'mitosis', mode: 'meiosis' },
       q: {
         q: '課文說減數分裂讓染色體數減半的意義是什麼？',
         options: [
@@ -1206,6 +1212,7 @@ window.APP_TEXTS['biology|十上|第9單元 DNA 與基因'] = {
       terms: [
         { w: '互補', d: '兩股序列依配對規則彼此對應的關係。' }
       ],
+      viz: { type: 'dna' },
       q: {
         q: '課文說雙股互補的意義是什麼？',
         options: [
@@ -1252,6 +1259,7 @@ window.APP_TEXTS['biology|十上|第9單元 DNA 與基因'] = {
       terms: [
         { w: '轉譯', d: '依核酸序列合成蛋白質的過程。' }
       ],
+      viz: { type: 'translation' },
       q: {
         q: '課文說基因如何影響性狀？',
         options: [
@@ -1589,6 +1597,7 @@ window.APP_TEXTS['biology|十下|第2單元 微生物與真菌'] = {
       terms: [
         { w: '傳染鏈', d: '病原、途徑與宿主構成的傳播環節。' }
       ],
+      viz: { type: 'immune', line: 1 },
       q: {
         q: '課文說洗手與戴口罩是在切斷哪一個環節？',
         options: [
@@ -2056,6 +2065,7 @@ window.APP_TEXTS['biology|十下|第6單元 呼吸與排泄'] = {
       terms: [
         { w: '肺泡', d: '肺內進行氣體交換的微小囊泡。' }
       ],
+      viz: { type: 'bodysystem' },
       q: {
         q: '課文說肺泡的構造特點是什麼？',
         options: [
@@ -2347,6 +2357,7 @@ window.APP_TEXTS['biology|十下|第8單元 免疫系統'] = {
       terms: [
         { w: '非專一性防禦', d: '不針對特定病原的一般性防禦機制。' }
       ],
+      viz: { type: 'immune', line: 1 },
       q: {
         q: '課文說第一道防線的特點是什麼？',
         options: [
@@ -2370,6 +2381,7 @@ window.APP_TEXTS['biology|十下|第8單元 免疫系統'] = {
       terms: [
         { w: '發炎反應', d: '受感染或受傷部位出現紅腫熱痛的防禦反應。' }
       ],
+      viz: { type: 'immune', line: 2 },
       q: {
         q: '課文說紅腫熱痛代表什麼？',
         options: [
@@ -2393,6 +2405,7 @@ window.APP_TEXTS['biology|十下|第8單元 免疫系統'] = {
       terms: [
         { w: '抗原', d: '能引發免疫反應的外來物質標記。' }
       ],
+      viz: { type: 'immune', line: 3 },
       q: {
         q: '課文說第三道防線的特點是什麼？',
         options: [
@@ -2754,6 +2767,7 @@ window.APP_TEXTS['biology|十一上|第1單元 生物體的組成物質'] = {
       terms: [
         { w: '核苷酸', d: '由磷酸、糖與鹼基構成的核酸單位。' }
       ],
+      viz: { type: 'dna' },
       q: {
         q: '課文說某些核糖核酸具有催化能力，暗示了什麼？',
         options: [
@@ -2783,6 +2797,7 @@ window.APP_TEXTS['biology|十一上|第2單元 基因表現'] = {
       terms: [
         { w: '轉錄', d: '以去氧核醣核酸為模板合成核糖核酸的過程。' }
       ],
+      viz: { type: 'translation' },
       q: {
         q: '課文說中心法則的訊息流向是什麼？',
         options: [
@@ -2951,6 +2966,7 @@ window.APP_TEXTS['biology|十一上|第3單元 生物技術'] = {
       terms: [
         { w: '聚合酶連鎖反應', d: '在體外大量複製特定核酸片段的技術。' }
       ],
+      viz: { type: 'dna' },
       q: {
         q: '課文說這項技術所用的酵素來自哪裡？',
         options: [
@@ -3142,6 +3158,7 @@ window.APP_TEXTS['biology|十一上|第4單元 演化的證據'] = {
       terms: [
         { w: '分子時鐘', d: '以序列差異估算物種分開時間的方法。' }
       ],
+      viz: { type: 'dna' },
       q: {
         q: '課文說分子證據與形態證據一致有什麼意義？',
         options: [
@@ -3218,6 +3235,7 @@ window.APP_TEXTS['biology|十一上|第5單元 族群遺傳與物種形成'] = {
       terms: [
         { w: '基因庫', d: '一個族群中所有基因的總和。' }
       ],
+      viz: { type: 'punnett' },
       q: {
         q: '課文說演化的單位是什麼？',
         options: [
@@ -3823,6 +3841,7 @@ window.APP_TEXTS['biology|十一上|第9單元 恆定性'] = {
       terms: [
         { w: '負回饋', d: '偏離設定值時被反向修正的調節方式。' }
       ],
+      viz: { type: 'feedback', topic: 'temp', start: -1 },
       q: {
         q: '課文用什麼比喻負回饋？',
         options: [
@@ -3869,6 +3888,7 @@ window.APP_TEXTS['biology|十一上|第9單元 恆定性'] = {
       terms: [
         { w: '蒸發散熱', d: '汗水蒸發時帶走體熱的散熱方式。' }
       ],
+      viz: { type: 'feedback', topic: 'sugar', start: 1 },
       q: {
         q: '課文說濕度高時為什麼特別悶熱難受？',
         options: [
@@ -3968,6 +3988,7 @@ window.APP_TEXTS['biology|十一下|第1單元 動物的生殖與發育'] = {
       terms: [
         { w: '配子', d: '參與有性生殖的生殖細胞。' }
       ],
+      viz: { type: 'mitosis', mode: 'meiosis' },
       q: {
         q: '課文說卵細胞為什麼比精子大很多？',
         options: [
@@ -5252,6 +5273,7 @@ window.APP_TEXTS['biology|十二上|第1單元 細胞學總複習'] = {
       terms: [
         { w: '構造功能對應', d: '構造特徵反映其所執行功能的原則。' }
       ],
+      viz: { type: 'cell' },
       q: {
         q: '課文說看到細胞內粒線體特別多，可以推測什麼？',
         options: [
@@ -5275,6 +5297,7 @@ window.APP_TEXTS['biology|十二上|第1單元 細胞學總複習'] = {
       terms: [
         { w: '濃度梯度', d: '物質在兩處濃度的差異。' }
       ],
+      viz: { type: 'membrane', mode: 'facilitated' },
       q: {
         q: '課文說協助擴散與主動運輸的差別是什麼？',
         options: [
@@ -5420,6 +5443,7 @@ window.APP_TEXTS['biology|十二上|第2單元 遺傳學總複習'] = {
       terms: [
         { w: '系譜圖', d: '呈現家族成員性狀與親屬關係的圖。' }
       ],
+      viz: { type: 'punnett' },
       q: {
         q: '課文說雙親正常而子代出現該性狀，代表什麼？',
         options: [
@@ -5634,6 +5658,7 @@ window.APP_TEXTS['biology|十二上|第3單元 生理學總複習'] = {
       terms: [
         { w: '專一性免疫', d: '針對特定病原並具記憶的免疫反應。' }
       ],
+      viz: { type: 'immune', line: 3 },
       q: {
         q: '課文說第三道防線與前兩道最大的差別是什麼？',
         options: [
@@ -5687,6 +5712,7 @@ window.APP_TEXTS['biology|十二上|第4單元 生態學總複習'] = {
       terms: [
         { w: '營養階層', d: '生物在食物鏈中所處的層級。' }
       ],
+      viz: { type: 'foodweb' },
       q: {
         q: '課文說能量在營養階層之間傳遞的比例大約是多少？',
         options: [
@@ -6626,6 +6652,7 @@ window.APP_TEXTS['biology|十二下|第1單元 分子生物學進階'] = {
       terms: [
         { w: '修飾', d: '合成後對蛋白質進行的化學改變。' }
       ],
+      viz: { type: 'translation' },
       q: {
         q: '課文說折疊出錯的蛋白質會怎樣？',
         options: [
@@ -6725,6 +6752,7 @@ window.APP_TEXTS['biology|十二下|第2單元 免疫學進階'] = {
       terms: [
         { w: '體液免疫', d: '以抗體對付細胞外病原的免疫反應。' }
       ],
+      viz: { type: 'immune', line: 3 },
       q: {
         q: '課文說對付躲在細胞內的病毒主要靠什麼？',
         options: [
@@ -6847,6 +6875,7 @@ window.APP_TEXTS['biology|十二下|第3單元 神經與行為進階'] = {
       terms: [
         { w: '閾值', d: '引發神經訊號所需的最小刺激強度。' }
       ],
+      viz: { type: 'nerve' },
       q: {
         q: '課文說刺激強度不到閾值時會怎樣？',
         options: [
@@ -6992,6 +7021,7 @@ window.APP_TEXTS['biology|十二下|第4單元 植物生理進階'] = {
       terms: [
         { w: '內聚力', d: '同種分子之間互相吸引的力。' }
       ],
+      viz: { type: 'plantparts' },
       q: {
         q: '課文說植物把水運到樹頂需要消耗能量嗎？',
         options: [

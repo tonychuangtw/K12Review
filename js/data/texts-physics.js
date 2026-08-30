@@ -616,6 +616,7 @@ window.APP_TEXTS['physics|十上|第5單元 摩擦力與圓周運動'] = {
       terms: [
         { w: '最大靜摩擦力', d: '物體即將滑動前，靜摩擦力能達到的最大值。' }
       ],
+      viz: { type: 'force' },
       q: {
         q: '課文說靜摩擦力的大小由什麼決定？',
         options: [
@@ -709,6 +710,7 @@ window.APP_TEXTS['physics|十上|第5單元 摩擦力與圓周運動'] = {
       terms: [
         { w: '向心力', d: '指向圓心、使物體做圓周運動的淨力。' }
       ],
+      viz: { type: 'vector' },
       q: {
         q: '課文說繩子甩球時，向心力是誰提供的？',
         options: [
@@ -907,6 +909,7 @@ window.APP_TEXTS['physics|十上|第7單元 動能與位能'] = {
       terms: [
         { w: '動能', d: '物體因為在運動而具有的能量。' }
       ],
+      viz: { type: 'energyball' },
       q: {
         q: '課文說速率變成兩倍時，動能會變成幾倍？',
         options: [
@@ -930,6 +933,7 @@ window.APP_TEXTS['physics|十上|第7單元 動能與位能'] = {
       terms: [
         { w: '基準面', d: '計算重力位能時自行選定的零位置。' }
       ],
+      viz: { type: 'energyball' },
       q: {
         q: '課文說重力位能的基準面該怎麼選？',
         options: [
@@ -1053,6 +1057,7 @@ window.APP_TEXTS['physics|十上|第8單元 能量守恆'] = {
       terms: [
         { w: '力學能', d: '動能與位能的總和。' }
       ],
+      viz: { type: 'energyball' },
       q: {
         q: '課文說力學能守恆的成立條件是什麼？',
         options: [
@@ -1122,6 +1127,7 @@ window.APP_TEXTS['physics|十上|第8單元 能量守恆'] = {
       terms: [
         { w: '能量轉換', d: '能量從一種形式變成另一種形式。' }
       ],
+      viz: { type: 'energyball' },
       q: {
         q: '課文說雲霄飛車後面的坡為什麼不能比起點高？',
         options: [
@@ -1198,6 +1204,7 @@ window.APP_TEXTS['physics|十上|第9單元 動量與衝量'] = {
       terms: [
         { w: '動量', d: '質量與速度的乘積，是向量。' }
       ],
+      viz: { type: 'motionplay' },
       q: {
         q: '課文說卡車開得慢，動量卻可能比轎車大，原因是什麼？',
         options: [
@@ -1244,6 +1251,7 @@ window.APP_TEXTS['physics|十上|第9單元 動量與衝量'] = {
       terms: [
         { w: '緩衝', d: '延長受力時間以降低最大受力的做法。' }
       ],
+      viz: { type: 'workgraph', mode: 'ramp', F: 8, d: 4 },
       q: {
         q: '課文說安全氣囊保護人的原理是什麼？',
         options: [
@@ -1489,6 +1497,7 @@ window.APP_TEXTS['physics|十下|第2單元 簡諧運動'] = {
       terms: [
         { w: '回復力', d: '把振動物體拉回平衡位置的力。' }
       ],
+      viz: { type: 'trigwave' },
       q: {
         q: '課文說簡諧運動的回復力和位移是什麼關係？',
         options: [
@@ -1581,6 +1590,7 @@ window.APP_TEXTS['physics|十下|第2單元 簡諧運動'] = {
       terms: [
         { w: '平衡位置', d: '振動系統中回復力為零的位置。' }
       ],
+      viz: { type: 'energyball' },
       q: {
         q: '課文說簡諧運動在哪裡動能最大？',
         options: [
@@ -2218,6 +2228,7 @@ window.APP_TEXTS['physics|十下|第7單元 光的干涉與繞射'] = {
       terms: [
         { w: '干涉條紋', d: '兩波重疊後在屏幕上形成的明暗相間圖樣。' }
       ],
+      viz: { type: 'optics' },
       q: {
         q: '課文說雙狹縫實驗證明了光的什麼性質？',
         options: [
@@ -2264,6 +2275,7 @@ window.APP_TEXTS['physics|十下|第7單元 光的干涉與繞射'] = {
       terms: [
         { w: '條紋間距', d: '相鄰兩條亮紋之間的距離。' }
       ],
+      viz: { type: 'soundwave' },
       q: {
         q: '課文說紅光的干涉條紋為什麼比藍光疏？',
         options: [
@@ -3265,6 +3277,7 @@ window.APP_TEXTS['physics|十一上|第5單元 轉動運動學'] = {
       terms: [
         { w: '角速度', d: '單位時間轉過的角度。' }
       ],
+      viz: { type: 'motion' },
       q: {
         q: '課文說旋轉唱片上各點的角速度如何？',
         options: [
@@ -3387,6 +3400,7 @@ window.APP_TEXTS['physics|十一上|第6單元 力矩與轉動慣量'] = {
       terms: [
         { w: '力矩', d: '使物體轉動的效果，等於力與力臂的乘積。' }
       ],
+      viz: { type: 'lever' },
       q: {
         q: '課文說什麼情況下力不產生力矩？',
         options: [
@@ -3577,6 +3591,7 @@ window.APP_TEXTS['physics|十一上|第7單元 角動量守恆'] = {
       terms: [
         { w: '角動量守恆', d: '無外力矩時系統角動量保持不變。' }
       ],
+      viz: { type: 'lever' },
       q: {
         q: '課文說溜冰選手收手後增加的轉動動能，來自哪裡？',
         options: [
@@ -4453,6 +4468,7 @@ window.APP_TEXTS['physics|十一下|第4單元 電流與電阻'] = {
       terms: [
         { w: '歐姆定律', d: '電壓等於電流與電阻的乘積。' }
       ],
+      viz: { type: 'ohm' },
       q: {
         q: '課文說燈泡為什麼不完全符合歐姆定律？',
         options: [
@@ -4499,6 +4515,7 @@ window.APP_TEXTS['physics|十一下|第4單元 電流與電阻'] = {
       terms: [
         { w: '電功率', d: '單位時間消耗的電能。' }
       ],
+      viz: { type: 'circuit' },
       q: {
         q: '課文說電費計算的依據是什麼？',
         options: [
@@ -5574,6 +5591,7 @@ window.APP_TEXTS['physics|十二上|第3單元 波粒二象性'] = {
       terms: [
         { w: '波粒二象性', d: '同一對象兼具波動與粒子性質的性質。' }
       ],
+      viz: { type: 'energylevel' },
       q: {
         q: '課文說面對兩組互相衝突的實驗，物理學家的結論是什麼？',
         options: [
@@ -6619,6 +6637,7 @@ window.APP_TEXTS['physics|十二下|第1單元 力學總複習'] = {
       terms: [
         { w: '受力圖', d: '把單一物體所受各力畫出來的示意圖。' }
       ],
+      viz: { type: 'force' },
       q: {
         q: '課文說檢查力圖的方法是什麼？',
         options: [
@@ -6740,6 +6759,7 @@ window.APP_TEXTS['physics|十二下|第2單元 熱學總複習'] = {
       terms: [
         { w: '狀態量', d: '只由系統當下狀態決定的物理量。' }
       ],
+      viz: { type: 'heat' },
       q: {
         q: '課文說哪一個量是過程量？',
         options: [
@@ -6786,6 +6806,7 @@ window.APP_TEXTS['physics|十二下|第2單元 熱學總複習'] = {
       terms: [
         { w: '熱平衡', d: '接觸物體溫度相同、不再交換淨熱量的狀態。' }
       ],
+      viz: { type: 'statechange' },
       q: {
         q: '課文提醒熱平衡計算時要特別檢查什麼？',
         options: [
@@ -7248,6 +7269,7 @@ window.APP_TEXTS['physics|十二下|第5單元 近代物理總複習'] = {
       terms: [
         { w: '核反應', d: '原子核組成改變的反應。' }
       ],
+      viz: { type: 'fission' },
       q: {
         q: '課文說化學反應改變的是什麼？',
         options: [
@@ -7662,6 +7684,7 @@ window.APP_TEXTS['physics|十二下|第8單元 物理建模與估算'] = {
       terms: [
         { w: '費米估算', d: '以合理假設快速估出數量級的方法。' }
       ],
+      viz: { type: 'accuracy', mode: 'precise' },
       q: {
         q: '課文說費米估算追求的是什麼？',
         options: [
@@ -7784,6 +7807,7 @@ window.APP_TEXTS['physics|十二下|第9單元 跨科素養與應用'] = {
       terms: [
         { w: '輻射平衡', d: '地球吸收與放出輻射能量相等的狀態。' }
       ],
+      viz: { type: 'greenhouse', ghg: 4 },
       q: {
         q: '課文說海洋升溫造成海平面上升的物理原因是什麼？',
         options: [

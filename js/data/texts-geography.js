@@ -63,6 +63,7 @@ window.APP_TEXTS['geography|十上|第1單元 地理學與地圖'] = {
       terms: [
         { w: '比例尺', d: '圖上距離與實際距離的比值。' }
       ],
+      viz: { type: 'mapdir', mode: 'scale' },
       q: {
         q: '課文說要看細節應該選什麼樣的比例尺？',
         options: [
@@ -86,6 +87,7 @@ window.APP_TEXTS['geography|十上|第1單元 地理學與地圖'] = {
       terms: [
         { w: '等高線', d: '地圖上連接相同高度各點的線。' }
       ],
+      viz: { type: 'contour' },
       q: {
         q: '課文說等高線疏代表什麼？',
         options: [
@@ -162,6 +164,7 @@ window.APP_TEXTS['geography|十上|第2單元 地形'] = {
       terms: [
         { w: '內營力', d: '源自地球內部而改變地形的作用力。' }
       ],
+      viz: { type: 'plates' },
       q: {
         q: '課文說外營力的能量來源是什麼？',
         options: [
@@ -185,6 +188,7 @@ window.APP_TEXTS['geography|十上|第2單元 地形'] = {
       terms: [
         { w: '曲流', d: '河道彎曲擺盪所形成的地形。' }
       ],
+      viz: { type: 'rivercross' },
       q: {
         q: '課文說三角洲出現在河流的哪一段？',
         options: [
@@ -399,6 +403,7 @@ window.APP_TEXTS['geography|十上|第3單元 氣候'] = {
       terms: [
         { w: '季風', d: '隨季節改變方向的盛行風。' }
       ],
+      viz: { type: 'weathermap' },
       q: {
         q: '課文說季風氣候的降水特徵是什麼？',
         options: [
@@ -452,6 +457,7 @@ window.APP_TEXTS['geography|十上|第4單元 水文與土壤'] = {
       terms: [
         { w: '水循環', d: '水在地表大氣之間持續循環的過程。' }
       ],
+      viz: { type: 'cycle' },
       q: {
         q: '課文說缺水問題的本質是什麼？',
         options: [
@@ -620,6 +626,7 @@ window.APP_TEXTS['geography|十上|第5單元 自然災害'] = {
       terms: [
         { w: '海嘯', d: '海底擾動引發的巨大長波。' }
       ],
+      viz: { type: 'plates' },
       q: {
         q: '課文說海嘯在接近岸邊時會怎樣？',
         options: [
@@ -643,6 +650,7 @@ window.APP_TEXTS['geography|十上|第5單元 自然災害'] = {
       terms: [
         { w: '都市洪水', d: '因排水不及而在都市地區發生的淹水。' }
       ],
+      viz: { type: 'weathermap' },
       q: {
         q: '課文說都市洪水的特點是什麼？',
         options: [
@@ -765,6 +773,7 @@ window.APP_TEXTS['geography|十上|第6單元 人口'] = {
       terms: [
         { w: '人口轉型', d: '出生率與死亡率隨發展改變的階段模式。' }
       ],
+      viz: { type: 'poppyramid' },
       q: {
         q: '課文說人口快速成長發生在哪一階段？',
         options: [
@@ -788,6 +797,7 @@ window.APP_TEXTS['geography|十上|第6單元 人口'] = {
       terms: [
         { w: '人口金字塔', d: '以圖形呈現各年齡性別人口結構的圖表。' }
       ],
+      viz: { type: 'poppyramid' },
       q: {
         q: '課文說人口金字塔底部窄代表什麼？',
         options: [
@@ -1246,6 +1256,7 @@ window.APP_TEXTS['geography|十上|第9單元 空間分析與應用'] = {
       terms: [
         { w: '遙測', d: '從遠處取得地表資訊的技術。' }
       ],
+      viz: { type: 'imaging' },
       q: {
         q: '課文說遙測資料為什麼需要地面資料？',
         options: [
@@ -1345,6 +1356,7 @@ window.APP_TEXTS['geography|十下|第1單元 臺灣的自然環境'] = {
       terms: [
         { w: '斷層海岸', d: '因斷層作用形成而陡峭的海岸。' }
       ],
+      viz: { type: 'taiwan' },
       q: {
         q: '課文說臺灣東西部地形的主要差異是什麼？',
         options: [
@@ -1414,6 +1426,7 @@ window.APP_TEXTS['geography|十下|第1單元 臺灣的自然環境'] = {
       terms: [
         { w: '垂直分帶', d: '環境隨海拔高度變化而分層。' }
       ],
+      viz: { type: 'contour' },
       q: {
         q: '課文說臺灣生物多樣性高的原因之一是什麼？',
         options: [
@@ -1490,6 +1503,7 @@ window.APP_TEXTS['geography|十下|第2單元 臺灣的人口與聚落'] = {
       terms: [
         { w: '生育率', d: '平均每位婦女生育的子女數。' }
       ],
+      viz: { type: 'poppyramid' },
       q: {
         q: '課文說臺灣目前的人口狀況是什麼？',
         options: [
@@ -1757,6 +1771,7 @@ window.APP_TEXTS['geography|十下|第4單元 臺灣的區域特色'] = {
       terms: [
         { w: '區域中心', d: '在區域中扮演核心功能的地區。' }
       ],
+      viz: { type: 'taiwan' },
       q: {
         q: '課文說北部冬季多雨的原因是什麼？',
         options: [
@@ -1902,6 +1917,7 @@ window.APP_TEXTS['geography|十下|第5單元 臺灣的環境議題'] = {
       terms: [
         { w: '水庫淤積', d: '泥沙堆積使水庫容量下降。' }
       ],
+      viz: { type: 'cycle' },
       q: {
         q: '課文說最實際的水資源做法是什麼？',
         options: [
@@ -3398,6 +3414,7 @@ window.APP_TEXTS['geography|十一上|第6單元 資源與能源'] = {
       terms: [
         { w: '能源轉型', d: '能源結構由化石燃料轉向低碳來源。' }
       ],
+      viz: { type: 'energyflow' },
       q: {
         q: '課文說各國能源結構不同的原因是什麼？',
         options: [
@@ -3520,6 +3537,7 @@ window.APP_TEXTS['geography|十一上|第7單元 全球環境變遷'] = {
       terms: [
         { w: '輻射平衡', d: '吸收與放出輻射相等的狀態。' }
       ],
+      viz: { type: 'greenhouse', ghg: 4 },
       q: {
         q: '課文說暖化的基本機制是什麼？',
         options: [
@@ -3955,6 +3973,7 @@ window.APP_TEXTS['geography|十一下|第1單元 農業與糧食'] = {
       terms: [
         { w: '農業區位', d: '影響農業活動選址的各項條件。' }
       ],
+      viz: { type: 'supply' },
       q: {
         q: '課文說農業分布的決定因素不只是什麼？',
         options: [
@@ -4077,6 +4096,7 @@ window.APP_TEXTS['geography|十一下|第2單元 交通與運輸'] = {
       terms: [
         { w: '時空收斂', d: '因交通進步而使地點間時間距離縮短。' }
       ],
+      viz: { type: 'mapdir', mode: 'compass' },
       q: {
         q: '課文說交通建設對區域的影響是什麼？',
         options: [

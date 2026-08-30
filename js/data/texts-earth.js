@@ -602,6 +602,7 @@ window.APP_TEXTS['earth|十上|第5單元 火山與地質作用'] = {
       terms: [
         { w: '岩漿', d: '地下高溫熔融的岩石物質。' }
       ],
+      viz: { type: 'plates' },
       q: {
         q: '課文說岩漿為什麼會上升？',
         options: [
@@ -747,6 +748,7 @@ window.APP_TEXTS['earth|十上|第6單元 地質時間與化石'] = {
       terms: [
         { w: '疊置定律', d: '未擾動地層中下層較老的原則。' }
       ],
+      viz: { type: 'strata' },
       q: {
         q: '課文說疊置定律成立的前提是什麼？',
         options: [
@@ -839,6 +841,7 @@ window.APP_TEXTS['earth|十上|第6單元 地質時間與化石'] = {
       terms: [
         { w: '地質年代', d: '依地層與生物演變劃分的時間單位。' }
       ],
+      viz: { type: 'timeline' },
       q: {
         q: '課文說地質年代的分界常常是什麼事件？',
         options: [
@@ -1084,6 +1087,7 @@ window.APP_TEXTS['earth|十上|第8單元 天氣現象'] = {
       terms: [
         { w: '鋒面', d: '性質不同的兩個氣團之間的交界。' }
       ],
+      viz: { type: 'weathermap' },
       q: {
         q: '課文說冷鋒的降雨特徵是什麼？',
         options: [
@@ -1398,6 +1402,7 @@ window.APP_TEXTS['earth|十下|第1單元 地球在宇宙中的位置'] = {
       terms: [
         { w: '類地行星', d: '以岩石為主、位於內側的行星。' }
       ],
+      viz: { type: 'solarsys' },
       q: {
         q: '課文說小行星帶位於哪裡？',
         options: [
@@ -1812,6 +1817,7 @@ window.APP_TEXTS['earth|十下|第4單元 恆星與宇宙'] = {
       terms: [
         { w: '表面溫度', d: '恆星外層可觀測到的溫度。' }
       ],
+      viz: { type: 'hrdiagram' },
       q: {
         q: '課文說哪一種顏色的恆星表面溫度最高？',
         options: [
@@ -1835,6 +1841,7 @@ window.APP_TEXTS['earth|十下|第4單元 恆星與宇宙'] = {
       terms: [
         { w: '主序星', d: '核心進行氫融合的穩定階段恆星。' }
       ],
+      viz: { type: 'hrdiagram' },
       q: {
         q: '課文說恆星一生中最長的階段是什麼？',
         options: [
@@ -2226,6 +2233,7 @@ window.APP_TEXTS['earth|十下|第7單元 自然災害與防災'] = {
       terms: [
         { w: '暴潮', d: '颱風低壓與強風使海水異常上升的現象。' }
       ],
+      viz: { type: 'weathermap' },
       q: {
         q: '課文說判斷颱風威脅時除了風速還要看什麼？',
         options: [
@@ -2854,6 +2862,7 @@ window.APP_TEXTS['earth|十一上|第2單元 太陽與太陽系'] = {
       terms: [
         { w: '巨行星', d: '以氣體或冰為主、體積龐大的外側行星。' }
       ],
+      viz: { type: 'solarsys' },
       q: {
         q: '課文說類地行星與巨行星差異的原因是什麼？',
         options: [
@@ -2930,6 +2939,7 @@ window.APP_TEXTS['earth|十一上|第3單元 地球的歷史'] = {
       terms: [
         { w: '分異', d: '物質依密度分層的過程。' }
       ],
+      viz: { type: 'timeline' },
       q: {
         q: '課文說地核形成的原因是什麼？',
         options: [
@@ -3075,6 +3085,7 @@ window.APP_TEXTS['earth|十一上|第4單元 大氣物理'] = {
       terms: [
         { w: '氣壓遞減', d: '氣壓隨高度上升而降低的現象。' }
       ],
+      viz: { type: 'pressure' },
       q: {
         q: '課文說氣壓隨高度下降的方式是什麼？',
         options: [
@@ -3191,6 +3202,7 @@ window.APP_TEXTS['earth|十一上|第4單元 大氣物理'] = {
       terms: [
         { w: '輻射平衡', d: '吸收與放出輻射能量相等的狀態。' }
       ],
+      viz: { type: 'greenhouse', ghg: 3 },
       q: {
         q: '課文說暖化的物理本質是什麼？',
         options: [
@@ -3220,6 +3232,7 @@ window.APP_TEXTS['earth|十一上|第5單元 海洋科學進階'] = {
       terms: [
         { w: '溫鹽環流', d: '由溫度與鹽度差異驅動的海洋環流。' }
       ],
+      viz: { type: 'density' },
       q: {
         q: '課文說哪一種海水會下沉？',
         options: [
@@ -3580,6 +3593,7 @@ window.APP_TEXTS['earth|十一上|第7單元 地球資源與能源'] = {
       terms: [
         { w: '間歇性', d: '發電量隨自然條件變動而不穩定。' }
       ],
+      viz: { type: 'energyflow' },
       q: {
         q: '課文說再生能源配置的原則是什麼？',
         options: [
@@ -3992,6 +4006,7 @@ window.APP_TEXTS['earth|十一下|第1單元 地圖與空間資訊'] = {
       terms: [
         { w: '比例尺', d: '圖上距離與實際距離的比值。' }
       ],
+      viz: { type: 'mapdir' },
       q: {
         q: '課文說小比例尺地圖的特點是什麼？',
         options: [
@@ -4015,6 +4030,7 @@ window.APP_TEXTS['earth|十一下|第1單元 地圖與空間資訊'] = {
       terms: [
         { w: '等高線', d: '地圖上連接相同高度各點的線。' }
       ],
+      viz: { type: 'contour' },
       q: {
         q: '課文說等高線密集代表什麼？',
         options: [
@@ -5862,6 +5878,7 @@ window.APP_TEXTS['earth|十二上|第5單元 地球系統整合'] = {
       terms: [
         { w: '停留時間', d: '物質在某一儲庫中平均停留的時間。' }
       ],
+      viz: { type: 'cycle' },
       q: {
         q: '課文說碳在哪一個儲庫停留最久？',
         options: [
@@ -6129,6 +6146,7 @@ window.APP_TEXTS['earth|十二上|第7單元 地科與生活'] = {
       terms: [
         { w: '體感溫度', d: '考慮濕度與風後人體感受到的溫度。' }
       ],
+      viz: { type: 'weathermap' },
       q: {
         q: '課文說降雨機率七成的意思是什麼？',
         options: [

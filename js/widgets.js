@@ -9550,6 +9550,845 @@
     host.appendChild(box);
   };
 
+  /* ── 化學與生物補的圖（2026-08-30 第二批）─────────────────────────── */
+
+  /* 三種化學鍵：電子是「給出去」「共用」還是「大家共有」*/
+  REG.bonding = function (host, spec) {
+    var MODES = [
+      ['ionic', '離子鍵', '金屬把電子給非金屬，變成正負離子互相吸引'],
+      ['covalent', '共價鍵', '兩個非金屬共用電子對'],
+      ['metallic', '金屬鍵', '價電子不屬於特定原子，像電子海包住金屬離子']
+    ];
+    var mi = 0;
+    MODES.forEach(function (m, i) { if (m[0] === spec.mode) mi = i; });
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function dot(x, y, col) {
+      svg.appendChild(el('circle', { cx: x, cy: y, r: 4 }, 'fill:var(--' + (col || 'accent') + ')'));
+    }
+    function atom(x, y, r, label, col) {
+      svg.appendChild(el('circle', { cx: x, cy: y, r: r, 'fill-opacity': '.35' },
+        'fill:var(--' + col + ');stroke:var(--' + col + ');stroke-width:2'));
+      svg.appendChild(txt(x, y, label, 'font-size:14px;font-weight:700'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var m = MODES[mi];
+      svg.appendChild(txt(160, 22, m[1], 'font-size:15px;font-weight:700;fill:var(--accent)'));
+      if (m[0] === 'ionic') {
+        atom(96, 104, 30, '＋', 'bad');
+        atom(224, 104, 34, '−', 'accent');
+        svg.appendChild(el('line', { x1: 128, y1: 104, x2: 188, y2: 104 },
+          'stroke:var(--dim);stroke-width:2;stroke-dasharray:5 4'));
+        dot(160, 88, 'good');
+        svg.appendChild(txt(160, 72, '電子搬過去了', 'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(160, 160, '固態排成晶格、不導電；熔化或溶於水才導電',
+          'font-size:11px;fill:var(--dim)'));
+      } else if (m[0] === 'covalent') {
+        atom(112, 104, 30, 'H', 'accent');
+        atom(208, 104, 30, 'Cl', 'accent');
+        dot(154, 98, 'good'); dot(166, 98, 'good');
+        svg.appendChild(txt(160, 76, '這一對電子兩邊共用', 'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(160, 160, '共用一對是單鍵，兩對雙鍵、三對參鍵，鍵數越多越短越強',
+          'font-size:11px;fill:var(--dim)'));
+      } else {
+        for (var r = 0; r < 2; r++) for (var c = 0; c < 4; c++) {
+          atom(96 + c * 44, 84 + r * 40, 16, '＋', 'bad');
+        }
+        for (var i = 0; i < 14; i++) {
+          dot(84 + (i % 7) * 26, 66 + Math.floor(i / 7) * 40 + (i % 3) * 6, 'good');
+        }
+        svg.appendChild(txt(160, 160, '自由電子可以到處跑 → 導電導熱好、可延展、有金屬光澤',
+          'font-size:11px;fill:var(--dim)'));
+      }
+      read.appendChild(div('wg-read-main', m[1] + '：' + m[2]));
+      read.appendChild(div('wg-read-sub',
+        '原子單獨存在時通常不穩定，結合之後總能量比較低，所以會自發形成鍵。' +
+        '差別只在電子怎麼處理：電負度差很大就整個搬過去（離子鍵），差不多就共用（共價鍵），' +
+        '金屬之間則是誰都不獨佔（金屬鍵）。' +
+        '⚠ 判斷性質先看是哪一種鍵——離子化合物熔點高、固態不導電；' +
+        '共價分子熔點低；金屬導電且可延展。'));
+    }
+    var row = div('wg-ctrl');
+    MODES.forEach(function (m, i) { row.appendChild(btn(m[1], function () { mi = i; paint(); })); });
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 反應速率與平衡：正逆速率隨時間變化，相等之後濃度就不再變 */
+  REG.ratecurve = function (host, spec) {
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 44, Y0 = 156, W = 240, H = 112;
+    function gx(t) { return X0 + W * t; }
+    function fwd(t) { return Math.exp(-3.2 * t); }          // 正反應速率：反應物變少而下降
+    function rev(t) { return 1 - Math.exp(-3.2 * t); }      // 逆反應速率：產物累積而上升
+    function gy(v) { return Y0 - H * v * 0.9; }
+    function draw(t) {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X0 + W, y2: Y0 },
+        'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X0, y2: Y0 - H },
+        'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(txt(22, Y0 - H + 8, '速率', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(X0 + W + 14, Y0, '時間', 'font-size:11px;fill:var(--dim)'));
+      var pf = '', pr = '', st;
+      for (st = 0; st <= 40; st++) {
+        var u = t * st / 40;
+        pf += (st ? ' L' : 'M') + gx(u) + ',' + gy(fwd(u));
+        pr += (st ? ' L' : 'M') + gx(u) + ',' + gy(rev(u));
+      }
+      if (t > 0) {
+        svg.appendChild(el('path', { d: pf }, 'fill:none;stroke:var(--bad);stroke-width:2.5'));
+        svg.appendChild(el('path', { d: pr }, 'fill:none;stroke:var(--good);stroke-width:2.5'));
+      }
+      svg.appendChild(txt(160, 20, '正反應與逆反應的速率', 'font-size:13px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(250, 44, '正反應', 'font-size:11px;fill:var(--bad)'));
+      svg.appendChild(txt(250, 62, '逆反應', 'font-size:11px;fill:var(--good)'));
+      if (t > 0.75) {
+        svg.appendChild(el('line', { x1: gx(0.75), y1: Y0, x2: gx(0.75), y2: gy(0.5) },
+          'stroke:var(--dim);stroke-width:1.5;stroke-dasharray:4 4'));
+        svg.appendChild(txt(gx(0.75), 178, '達到平衡', 'font-size:11px;fill:var(--dim)'));
+      }
+      svg.appendChild(txt(160, 194, '兩條線交會之後：速率相等，濃度不再變，但反應沒有停',
+        'font-size:11px;fill:var(--dim)'));
+    }
+    box.appendChild(player(box, draw, { duration: 3000, steps: 6 }));
+    read.appendChild(div('wg-read-main', '平衡＝正逆速率相等，不是反應停止'));
+    read.appendChild(div('wg-read-sub',
+      '一開始反應物多，正反應快；產物還沒累積，逆反應是零。' +
+      '隨著反應進行，反應物變少（正反應變慢）、產物變多（逆反應變快），' +
+      '兩條線終究會相遇。之後濃度看起來都不動了，但兩個方向都還在以相同速率進行。' +
+      '⚠ 這是動態平衡——加催化劑只會讓兩條線更快相遇，不會改變相遇的位置。'));
+    host.appendChild(box);
+  };
+
+  /* 電化學電池：氧化在陽極、還原在陰極，電子走外線、離子走鹽橋 */
+  REG.galvanic = function (host, spec) {
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function arrow(x1, y1, x2, y2, col) {
+      svg.appendChild(el('line', { x1: x1, y1: y1, x2: x2, y2: y2 },
+        'stroke:var(--' + col + ');stroke-width:2'));
+      var a = Math.atan2(y2 - y1, x2 - x1);
+      svg.appendChild(el('path', { d: 'M' + x2 + ',' + y2 +
+        ' L' + (x2 - 8 * Math.cos(a - 0.4)) + ',' + (y2 - 8 * Math.sin(a - 0.4)) +
+        ' L' + (x2 - 8 * Math.cos(a + 0.4)) + ',' + (y2 - 8 * Math.sin(a + 0.4)) + ' Z' },
+        'fill:var(--' + col + ')'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      [[24, 'bad', '陽極（氧化）', '失去電子'], [188, 'accent', '陰極（還原）', '得到電子']]
+        .forEach(function (c) {
+          svg.appendChild(el('rect', { x: c[0], y: 78, width: 108, height: 92, rx: 5 },
+            'fill:var(--' + c[1] + ');fill-opacity:.12;stroke:var(--' + c[1] + ');stroke-width:2'));
+          svg.appendChild(el('rect', { x: c[0] + 46, y: 58, width: 14, height: 84 },
+            'fill:var(--' + c[1] + ');fill-opacity:.7'));
+          svg.appendChild(txt(c[0] + 54, 186, c[2], 'font-size:11px;font-weight:700;fill:var(--' + c[1] + ')'));
+          svg.appendChild(txt(c[0] + 54, 160, c[3], 'font-size:10px;fill:var(--dim)'));
+        });
+      // 外線與電子流
+      svg.appendChild(el('path', { d: 'M78,58 L78,34 L242,34 L242,58' },
+        'fill:none;stroke:var(--border);stroke-width:2'));
+      arrow(120, 34, 200, 34, 'good');
+      svg.appendChild(txt(160, 20, '電子只走外面的導線', 'font-size:12px;font-weight:700;fill:var(--good)'));
+      // 鹽橋
+      svg.appendChild(el('path', { d: 'M132,92 L132,74 L188,74 L188,92' },
+        'fill:none;stroke:var(--dim);stroke-width:8;stroke-opacity:.35'));
+      svg.appendChild(txt(160, 66, '鹽橋', 'font-size:11px;fill:var(--dim)'));
+      arrow(150, 84, 176, 84, 'dim');
+      svg.appendChild(txt(160, 104, '離子在這裡走，維持兩邊電中性', 'font-size:10px;fill:var(--dim)'));
+      read.appendChild(div('wg-read-main', '氧化在陽極、還原在陰極；電子走外線，離子走鹽橋'));
+      read.appendChild(div('wg-read-sub',
+        '把氧化和還原分開在兩個半電池，電子就被迫繞外面的導線走 —— 那就是電流。' +
+        '⚠ 兩件事最常記反：一是電子只在外部導線流動，溶液裡靠的是離子移動；' +
+        '二是不管伽凡尼電池還是電解池，「氧化一定在陽極」，' +
+        '差別在伽凡尼電池的陽極是負極，電解池的陽極接電源正端。' +
+        '沒有鹽橋的話兩邊很快積起電荷，電流馬上停。'));
+    }
+    paint();
+    host.appendChild(box);
+  };
+
+  /* 滴定曲線：當量點附近酸鹼值會急遽跳動，指示劑要選在跳動區間 */
+  REG.titration = function (host, spec) {
+    var strong = spec.mode !== 'weak';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 44, Y0 = 164, W = 238, H = 128;
+    function ph(v) {                                  // v: 0–1 加入的鹼量
+      var eq = 0.5, base = strong ? 1.2 : 3.4;
+      var k = strong ? 26 : 16;
+      return base + (12.8 - base) / (1 + Math.exp(-k * (v - eq)));
+    }
+    function gx(v) { return X0 + W * v; }
+    function gy(p) { return Y0 - H * (p - 0) / 14; }
+    function draw(t) {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X0 + W, y2: Y0 },
+        'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X0, y2: Y0 - H },
+        'stroke:var(--border);stroke-width:2'));
+      [0, 7, 14].forEach(function (p) {
+        svg.appendChild(txt(X0 - 16, gy(p), String(p), 'font-size:10px;fill:var(--dim)'));
+        if (p === 7) svg.appendChild(el('line', { x1: X0, y1: gy(7), x2: X0 + W, y2: gy(7) },
+          'stroke:var(--dim);stroke-width:1;stroke-dasharray:4 4'));
+      });
+      svg.appendChild(txt(22, Y0 - H + 4, 'pH', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(160, 188, '加入的鹼量', 'font-size:11px;fill:var(--dim)'));
+      var d = '', st;
+      for (st = 0; st <= 60; st++) {
+        var v = t * st / 60;
+        d += (st ? ' L' : 'M') + gx(v) + ',' + gy(ph(v));
+      }
+      if (t > 0) svg.appendChild(el('path', { d: d }, 'fill:none;stroke:var(--accent);stroke-width:2.5'));
+      if (t >= 0.5) {
+        svg.appendChild(el('circle', { cx: gx(0.5), cy: gy(ph(0.5)), r: 5 }, 'fill:var(--bad)'));
+        svg.appendChild(txt(gx(0.5) + 44, gy(ph(0.5)), '當量點 pH ' + ph(0.5).toFixed(1),
+          'font-size:11px;fill:var(--bad)'));
+      }
+      svg.appendChild(txt(160, 20, strong ? '強酸 ＋ 強鹼' : '弱酸 ＋ 強鹼',
+        'font-size:13px;font-weight:700;fill:var(--accent)'));
+    }
+    box.appendChild(player(box, draw, { duration: 3000, steps: 6 }));
+    read.appendChild(div('wg-read-main',
+      strong ? '強酸強鹼：當量點在 pH 7，跳動範圍最寬' : '弱酸強鹼：當量點偏鹼（pH 大於 7）'));
+    read.appendChild(div('wg-read-sub',
+      '一開始加鹼，pH 只慢慢爬；快到當量點時，一兩滴就讓 pH 跳好幾個單位；過了之後又變平。' +
+      '選指示劑的規則就從這裡來：變色範圍必須落在那段陡直的跳動區間裡，才會在對的時候變色。' +
+      '⚠ 當量點不一定是 pH 7 —— 弱酸配強鹼時，生成的鹽會水解使溶液偏鹼。'));
+    host.appendChild(box);
+  };
+
+  /* 細胞膜的三種運輸：順濃度不耗能、逆濃度要耗能 */
+  REG.membrane = function (host, spec) {
+    var MODES = [
+      ['diffusion', '擴散', '順濃度、不耗能、直接穿過脂雙層'],
+      ['facilitated', '協助擴散', '順濃度、不耗能，但要靠通道或載體蛋白'],
+      ['active', '主動運輸', '逆濃度、要耗能，靠幫浦把物質推上去']
+    ];
+    var mi = 0;
+    MODES.forEach(function (m, i) { if (m[0] === spec.mode) mi = i; });
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var m = MODES[mi], TOP = 78, BOT = 112;
+      for (var i = 0; i < 16; i++) {                    // 磷脂雙層
+        var x = 18 + i * 19;
+        svg.appendChild(el('circle', { cx: x, cy: TOP, r: 6, 'fill-opacity': '.6' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:1'));
+        svg.appendChild(el('circle', { cx: x, cy: BOT, r: 6, 'fill-opacity': '.6' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:1'));
+        svg.appendChild(el('line', { x1: x, y1: TOP + 6, x2: x, y2: BOT - 6 },
+          'stroke:var(--accent);stroke-width:1.5;stroke-opacity:.5'));
+      }
+      svg.appendChild(txt(160, 20, m[1], 'font-size:14px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(160, 42, '膜外（濃度高）', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(160, 158, '膜內（濃度低）', 'font-size:11px;fill:var(--dim)'));
+      var up = m[0] === 'active';
+      if (m[0] !== 'diffusion') {                      // 蛋白質通道
+        svg.appendChild(el('rect', { x: 142, y: TOP - 12, width: 36, height: BOT - TOP + 24, rx: 7 },
+          'fill:var(--panel2);stroke:var(--' + (up ? 'bad' : 'good') + ');stroke-width:2.5'));
+        svg.appendChild(txt(160, 130, up ? '幫浦' : '通道蛋白',
+          'font-size:10px;fill:var(--' + (up ? 'bad' : 'good') + ')'));
+      }
+      var col = up ? 'bad' : 'good';
+      var y1 = up ? 138 : 52, y2 = up ? 52 : 138;
+      svg.appendChild(el('line', { x1: 160, y1: y1, x2: 160, y2: y2 },
+        'stroke:var(--' + col + ');stroke-width:3'));
+      var a = y2 > y1 ? 1 : -1;
+      svg.appendChild(el('path', { d: 'M160,' + y2 + ' L152,' + (y2 - 10 * a) +
+        ' L168,' + (y2 - 10 * a) + ' Z' }, 'fill:var(--' + col + ')'));
+      if (up) svg.appendChild(txt(212, 96, '要耗能', 'font-size:11px;font-weight:700;fill:var(--bad)'));
+      else svg.appendChild(txt(212, 96, '不耗能', 'font-size:11px;font-weight:700;fill:var(--good)'));
+      read.appendChild(div('wg-read-main', m[1] + '：' + m[2]));
+      read.appendChild(div('wg-read-sub',
+        '判斷只看兩件事：往濃度高的還是低的走，以及要不要蛋白質幫忙。' +
+        '順著濃度走一定不耗能（擴散、協助擴散），逆著濃度走一定要耗能（主動運輸）。' +
+        '⚠ 「要蛋白質」不等於「要耗能」——協助擴散有蛋白質但不耗能，這是最常搞混的一點。' +
+        '鈉鉀幫浦就是主動運輸，它撐起的離子差是神經傳導的基礎。'));
+    }
+    var row = div('wg-ctrl');
+    MODES.forEach(function (m, i) { row.appendChild(btn(m[1], function () { mi = i; paint(); })); });
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 轉錄與轉譯：訊息從去氧核醣核酸到核糖核酸再到蛋白質 */
+  REG.translation = function (host, spec) {
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var STEPS = [
+      ['細胞核裡：雙股解開', 'var(--accent)'],
+      ['轉錄：照模板做出訊息核糖核酸', 'var(--good)'],
+      ['訊息核糖核酸離開細胞核', 'var(--good)'],
+      ['核糖體讀密碼子，三個一組', 'var(--bad)'],
+      ['轉譯：每個密碼子接上一個胺基酸', 'var(--bad)'],
+      ['多胜肽鏈折疊成有功能的蛋白質', 'var(--bad)']
+    ];
+    function draw(t) {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var si = clamp(Math.floor(t * STEPS.length), 0, STEPS.length - 1);
+      svg.appendChild(txt(160, 20, '從基因到蛋白質', 'font-size:13px;font-weight:700;fill:var(--accent)'));
+      // 雙股
+      var y = 56;
+      svg.appendChild(el('line', { x1: 26, y1: y, x2: 294, y2: y },
+        'stroke:var(--accent);stroke-width:3'));
+      svg.appendChild(el('line', { x1: 26, y1: y + (si >= 1 ? 16 : 8), x2: 294, y2: y + (si >= 1 ? 16 : 8) },
+        'stroke:var(--accent);stroke-width:3;stroke-opacity:.45'));
+      svg.appendChild(txt(160, y - 14, '去氧核醣核酸（雙股）', 'font-size:10px;fill:var(--dim)'));
+      // 訊息核糖核酸
+      if (si >= 1) {
+        svg.appendChild(el('line', { x1: 26, y1: 108, x2: 26 + (si >= 2 ? 268 : 150), y2: 108 },
+          'stroke:var(--good);stroke-width:3'));
+        svg.appendChild(txt(160, 94, '訊息核糖核酸（單股）', 'font-size:10px;fill:var(--good)'));
+      }
+      // 核糖體與胺基酸
+      if (si >= 3) {
+        var rx = 60 + (si - 3) * 70;
+        svg.appendChild(el('ellipse', { cx: rx, cy: 108, rx: 22, ry: 15, 'fill-opacity': '.4' },
+          'fill:var(--bad);stroke:var(--bad);stroke-width:2'));
+        svg.appendChild(txt(rx, 108, '核糖體', 'font-size:9px'));
+      }
+      if (si >= 4) {
+        var n = si >= 5 ? 6 : 3;
+        for (var i = 0; i < n; i++) {
+          svg.appendChild(el('circle', { cx: 62 + i * 32, cy: 152, r: 9, 'fill-opacity': '.6' },
+            'fill:var(--bad);stroke:var(--bad);stroke-width:2'));
+          if (i) svg.appendChild(el('line', { x1: 62 + (i - 1) * 32 + 9, y1: 152, x2: 62 + i * 32 - 9, y2: 152 },
+            'stroke:var(--bad);stroke-width:2'));
+        }
+        svg.appendChild(txt(160, 172, si >= 5 ? '折疊成蛋白質' : '胺基酸一個一個接上',
+          'font-size:10px;fill:var(--bad)'));
+      }
+      svg.appendChild(txt(160, 192, (si + 1) + '. ' + STEPS[si][0],
+        'font-size:12px;font-weight:700;fill:' + STEPS[si][1]));
+    }
+    box.appendChild(player(box, draw, { duration: 4200, steps: 6 }));
+    read.appendChild(div('wg-read-main', '去氧核醣核酸 → 訊息核糖核酸 → 蛋白質'));
+    read.appendChild(div('wg-read-sub',
+      '轉錄在細胞核裡進行，照著模板做出單股的訊息核糖核酸；轉譯在核糖體上進行，' +
+      '每三個鹼基（一個密碼子）對應一個胺基酸，一個一個接成多胜肽鏈，' +
+      '折疊之後才是有功能的蛋白質。' +
+      '⚠ 基因不會直接變成性狀——中間一定要經過蛋白質；蛋白質的形狀決定功能，形狀壞了就失去作用。'));
+    host.appendChild(box);
+  };
+
+  /* 免疫三道防線：前兩道不挑對象，第三道才認得出特定病原並記住 */
+  REG.immune = function (host, spec) {
+    var at = clamp(spec.line ? spec.line - 1 : 0, 0, 2);
+    var LINES = [
+      ['第一道：屏障', '皮膚、黏膜、胃酸、纖毛', '擋在外面，不針對特定病原', 'good'],
+      ['第二道：發炎與吞噬', '吞噬細胞、發炎反應、發燒', '突破表層才出動，仍然不挑對象', 'accent'],
+      ['第三道：專一性免疫', '淋巴球、抗體、記憶細胞', '認得出特定病原，而且會記住', 'bad']
+    ];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      LINES.forEach(function (L, i) {
+        var on = i <= at;
+        var x = 18 + i * 98;
+        svg.appendChild(el('rect', { x: x, y: 54, width: 88, height: 92, rx: 8,
+          'fill-opacity': on ? '.22' : '.05' },
+          'fill:var(--' + L[3] + ');stroke:var(--' + L[3] + ');stroke-width:' + (i === at ? 3 : 1.5) +
+          ';stroke-opacity:' + (on ? 1 : 0.4)));
+        svg.appendChild(txt(x + 44, 74, L[0].split('：')[0],
+          'font-size:11px;font-weight:700;fill:var(--' + L[3] + ')'));
+        svg.appendChild(txt(x + 44, 96, L[0].split('：')[1], 'font-size:12px;font-weight:700'));
+        if (i < 2) {
+          svg.appendChild(el('line', { x1: x + 88, y1: 100, x2: x + 96, y2: 100 },
+            'stroke:var(--dim);stroke-width:2'));
+        }
+      });
+      svg.appendChild(el('circle', { cx: 18 + at * 98 + 44, cy: 34, r: 8 },
+        'fill:var(--bad);fill-opacity:.7;stroke:var(--bad);stroke-width:2'));
+      svg.appendChild(txt(160, 16, '病原突破到第 ' + (at + 1) + ' 道',
+        'font-size:12px;font-weight:700;fill:var(--dim)'));
+      svg.appendChild(txt(160, 168, LINES[at][1], 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(160, 184, LINES[at][2], 'font-size:11px;fill:var(--' + LINES[at][3] + ')'));
+      read.appendChild(div('wg-read-main', LINES[at][0] + '：' + LINES[at][2]));
+      read.appendChild(div('wg-read-sub',
+        '三道防線是由外而內的順序，不是三選一。前兩道不針對特定病原、反應快；' +
+        '第三道慢一些，但認得出是誰，而且會留下記憶細胞——這就是疫苗的原理：' +
+        '在不生病的前提下先讓身體認識它。' +
+        '⚠ 紅腫熱痛是第二道在運作，不是免疫失效；發燒也能抑制部分病原繁殖。'));
+    }
+    var row = div('wg-ctrl');
+    LINES.forEach(function (L, i) {
+      row.appendChild(btn('第' + (i + 1) + '道', function () { at = i; paint(); }));
+    });
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 負回饋：偏離設定值就被反向拉回來（血糖、體溫都是同一套） */
+  REG.feedback = function (host, spec) {
+    var TOPICS = {
+      glucose: { name: '血糖', unit: '', set: 100, hi: '胰島素分泌 → 細胞把糖收進去', lo: '升糖素分泌 → 把肝醣分解回葡萄糖' },
+      temp: { name: '體溫', unit: '℃', set: 37, hi: '血管擴張、排汗散熱', lo: '血管收縮、顫抖產熱' }
+    };
+    var T = TOPICS[spec.topic] || TOPICS.glucose;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var off = spec.start == null ? 1 : spec.start;      // -1 低、0 正常、1 高
+    function draw(t) {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var mid = 104, amp = 46;
+      svg.appendChild(el('line', { x1: 30, y1: mid, x2: 290, y2: mid },
+        'stroke:var(--good);stroke-width:2;stroke-dasharray:5 4'));
+      svg.appendChild(txt(160, mid - 12, '設定值（' + T.set + T.unit + '）',
+        'font-size:11px;fill:var(--good)'));
+      var d = '', st;
+      for (st = 0; st <= 50; st++) {
+        var u = t * st / 50;
+        var y = mid - off * amp * Math.exp(-3.4 * u) * Math.cos(1.4 * u);
+        d += (st ? ' L' : 'M') + (30 + 260 * u) + ',' + y;
+      }
+      if (t > 0) svg.appendChild(el('path', { d: d }, 'fill:none;stroke:var(--accent);stroke-width:2.5'));
+      svg.appendChild(txt(160, 20, T.name + '的負回饋調節',
+        'font-size:13px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(160, 44, off > 0 ? '偏高 → ' + T.hi : '偏低 → ' + T.lo,
+        'font-size:11px;fill:var(--bad)'));
+      svg.appendChild(txt(160, 176, '偏離就被反向拉回來，最後在設定值附近上下小幅擺動',
+        'font-size:11px;fill:var(--dim)'));
+    }
+    box.appendChild(player(box, draw, { duration: 3000, steps: 6 }));
+    read.appendChild(div('wg-read-main',
+      T.name + '偏' + (off > 0 ? '高' : '低') + '時：' + (off > 0 ? T.hi : T.lo)));
+    read.appendChild(div('wg-read-sub',
+      '負回饋是恆定性最主要的機制：偵測到偏離設定值，就啟動把它推回去的反應。' +
+      '因為要先偏離才會被偵測到，所以實際上永遠是在設定值附近小幅擺動，不會完全不動。' +
+      '⚠ 別和正回饋搞混——正回饋是把變化放大（分娩時的子宮收縮、血液凝固），比較少見但必要。'));
+    host.appendChild(box);
+  };
+
+  /* 活化能與反應座標：催化劑降低山頭，但不改變兩端的高度差 */
+  REG.actenergy = function (host, spec) {
+    var cat = false;                                  // 有沒有加催化劑
+    var exo = spec.mode !== 'endo';                   // 放熱（產物比較低）
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 40, X1 = 288, Y0 = 168;
+    function hy(v) { return Y0 - v; }                 // v 越大越高
+    function curve(peak) {
+      var yR = exo ? 100 : 46, yP = exo ? 46 : 100;   // 反應物／產物的能量高度
+      var d = 'M' + X0 + ',' + hy(yR);
+      for (var i = 0; i <= 40; i++) {
+        var t = i / 40;
+        var base = yR + (yP - yR) * t;
+        var hump = peak * Math.exp(-Math.pow((t - 0.5) / 0.17, 2));
+        d += ' L' + (X0 + (X1 - X0) * t) + ',' + hy(base + hump);
+      }
+      return d;
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var peak = cat ? 34 : 70;
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X1, y2: Y0 },
+        'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X0, y2: 24 },
+        'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(txt(20, 34, '能量', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(214, 186, '反應進行的過程', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(el('path', { d: curve(peak) },
+        'fill:none;stroke:var(--' + (cat ? 'good' : 'accent') + ');stroke-width:2.5'));
+      if (cat) {
+        svg.appendChild(el('path', { d: curve(70) },
+          'fill:none;stroke:var(--dim);stroke-width:1.5;stroke-dasharray:4 4'));
+      }
+      var yR = exo ? 100 : 46, yP = exo ? 46 : 100;
+      // 活化能：從反應物那一端量到山頭
+      svg.appendChild(el('line', { x1: 164, y1: hy(yR), x2: 164, y2: hy(yR + peak) },
+        'stroke:var(--bad);stroke-width:2'));
+      svg.appendChild(txt(196, hy(yR + peak / 2), '活化能', 'font-size:11px;fill:var(--bad)'));
+      svg.appendChild(txt(X0 + 26, hy(yR) + 16, '反應物', 'font-size:11px;fill:var(--fg)'));
+      svg.appendChild(txt(X1 - 30, hy(yP) + 16, '產物', 'font-size:11px;fill:var(--fg)'));
+      svg.appendChild(txt(160, 20,
+        (exo ? '放熱反應' : '吸熱反應') + (cat ? '（已加催化劑）' : ''),
+        'font-size:14px;font-weight:700;fill:var(--accent)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', cat
+        ? '催化劑降低活化能：山頭變矮，但兩端高度沒變'
+        : '要翻過活化能這座山，反應才進行得起來'));
+      read.appendChild(div('wg-read-sub',
+        '反應熱＝產物與反應物的高度差，' + (exo ? '產物比較低就是放熱' : '產物比較高就是吸熱') +
+        '；活化能＝從反應物爬到山頭的高度，決定反應快不快。' +
+        '⚠ 這兩件事是分開的：放熱反應不一定快（活化能可能很高），' +
+        '催化劑只把山頭挖矮，不會改變反應熱，也不會改變平衡的位置。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('加催化劑／拿掉', function () { cat = !cat; paint(); }));
+    row.appendChild(btn('換放熱／吸熱', function () { exo = !exo; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 分子形狀（電子對互斥）：孤對電子也要算，但畫形狀時不出現 */
+  REG.vsepr = function (host, spec) {
+    var SHAPES = [
+      ['線形', 2, 0, 'CO₂', '180°', [[0, 0]]],
+      ['平面三角', 3, 0, 'BF₃', '120°', []],
+      ['四面體', 4, 0, 'CH₄', '109.5°', []],
+      ['三角錐', 3, 1, 'NH₃', '約 107°', []],
+      ['彎曲形', 2, 2, 'H₂O', '約 104.5°', []]
+    ];
+    var si = 2;
+    SHAPES.forEach(function (s, i) { if (s[3] === spec.mol) si = i; });
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var CX = 160, CY = 110, R = 56;
+    /* 每種形狀的鍵結方向（度，0 = 右、逆時針為正），畫成平面示意 */
+    var DIRS = {
+      '線形': [0, 180], '平面三角': [90, 210, 330], '四面體': [70, 160, 290, 20],
+      '三角錐': [90, 205, 335], '彎曲形': [128, 52]
+    };
+    var LONE = { '三角錐': [270], '彎曲形': [250, 290] };
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var s = SHAPES[si], name = s[0];
+      svg.appendChild(txt(160, 22, name + '　' + s[3],
+        'font-size:15px;font-weight:700;fill:var(--accent)'));
+      (LONE[name] || []).forEach(function (a) {
+        var r = a * Math.PI / 180;
+        svg.appendChild(el('ellipse', {
+          cx: CX + Math.cos(r) * 34, cy: CY - Math.sin(r) * 34, rx: 15, ry: 10,
+          'fill-opacity': '.3'
+        }, 'fill:var(--bad);stroke:var(--bad);stroke-width:1.5'));
+      });
+      (DIRS[name] || []).forEach(function (a) {
+        var r = a * Math.PI / 180, x = CX + Math.cos(r) * R, y = CY - Math.sin(r) * R;
+        svg.appendChild(el('line', { x1: CX, y1: CY, x2: x, y2: y },
+          'stroke:var(--fg);stroke-width:2.5'));
+        svg.appendChild(el('circle', { cx: x, cy: y, r: 15, 'fill-opacity': '.35' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+      });
+      svg.appendChild(el('circle', { cx: CX, cy: CY, r: 19, 'fill-opacity': '.45' },
+        'fill:var(--good);stroke:var(--good);stroke-width:2'));
+      svg.appendChild(txt(CX, CY, '中心', 'font-size:11px;font-weight:700'));
+      if (s[2]) svg.appendChild(txt(160, 186, '紅色的是孤對電子（不畫進形狀，但會擠壓鍵角）',
+        'font-size:11px;fill:var(--bad)'));
+      else svg.appendChild(txt(160, 186, '沒有孤對電子，鍵角最對稱',
+        'font-size:11px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main',
+        name + '：' + s[1] + ' 個鍵結對 ＋ ' + s[2] + ' 個孤對，鍵角 ' + s[4]));
+      read.appendChild(div('wg-read-sub',
+        '電子對互斥的規則只有一句：中心原子周圍的電子對會盡量互相遠離。' +
+        '先數電子對總數（鍵結對＋孤對）決定排列方式，再把孤對拿掉才是看得到的形狀。' +
+        '⚠ 孤對佔的空間比鍵結對大，所以每多一個孤對，鍵角就被壓小一點' +
+        '（109.5° → 107° → 104.5° 就是這樣來的）。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一種形狀', function () { si = (si + 1) % SHAPES.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 分子間作用力：三種力的強弱與對沸點的影響 */
+  REG.imf = function (host, spec) {
+    var FORCES = [
+      ['分散力', 1, '非極性分子', '瞬間偶極互相誘導，分子越大越強'],
+      ['偶極作用力', 2, '極性分子', '正端對負端，比分散力強'],
+      ['氫鍵', 3, '氫接 氟／氧／氮', '特別強的偶極作用力，讓水的沸點異常高']
+    ];
+    var fi = 2;
+    FORCES.forEach(function (f, i) { if (f[0] === spec.mode) fi = i; });
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function blob(x, y, label, pol) {
+      svg.appendChild(el('ellipse', { cx: x, cy: y, rx: 30, ry: 22, 'fill-opacity': '.3' },
+        'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+      svg.appendChild(txt(x, y, label, 'font-size:12px;font-weight:700'));
+      if (pol) {
+        svg.appendChild(txt(x - 22, y - 16, 'δ＋', 'font-size:10px;fill:var(--bad)'));
+        svg.appendChild(txt(x + 22, y - 16, 'δ−', 'font-size:10px;fill:var(--good)'));
+      }
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var f = FORCES[fi];
+      svg.appendChild(txt(160, 22, f[0] + '（' + f[2] + '）',
+        'font-size:14px;font-weight:700;fill:var(--accent)'));
+      blob(84, 96, fi === 2 ? 'H－O' : (fi === 1 ? 'H－Cl' : 'Cl₂'), fi > 0);
+      blob(236, 96, fi === 2 ? 'H－O' : (fi === 1 ? 'H－Cl' : 'Cl₂'), fi > 0);
+      var n = fi + 1;                                  // 力越強，虛線畫越多條
+      for (var i = 0; i < n; i++) {
+        var y = 96 - (n - 1) * 7 + i * 14;
+        svg.appendChild(el('line', { x1: 118, y1: y, x2: 202, y2: y },
+          'stroke:var(--' + (fi === 2 ? 'bad' : 'dim') + ');stroke-width:2;stroke-dasharray:5 4'));
+      }
+      svg.appendChild(txt(160, 62, ['最弱', '中等', '最強'][fi],
+        'font-size:11px;fill:var(--' + (fi === 2 ? 'bad' : 'dim') + ')'));
+      svg.appendChild(txt(160, 158, '沸點：分子間的力越強，要拆開就要越多能量',
+        'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(160, 178, '水 100℃　硫化氫 −60℃　—— 差別就在氫鍵',
+        'font-size:11px;fill:var(--fg)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', f[0] + '：' + f[3]));
+      read.appendChild(div('wg-read-sub',
+        '分子內的化學鍵決定分子怎麼組成，分子間的作用力決定它是氣體、液體還是固體。' +
+        '判斷順序：先看有沒有氫鍵（氫直接接在氟、氧、氮上），沒有就看極不極性，' +
+        '都不是就只剩分散力，這時比分子大小。' +
+        '⚠ 氫鍵是分子「之間」的力，不是化學鍵——燒開水只是把氫鍵拆開，水分子本身沒被拆。'));
+    }
+    var row = div('wg-ctrl');
+    FORCES.forEach(function (f, i) { row.appendChild(btn(f[0], function () { fi = i; paint(); })); });
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 有機化合物：碳的鍵數固定為四，官能基決定性質 */
+  REG.organic = function (host, spec) {
+    var GROUPS = [
+      ['烷', '單鍵', 'C－C', '飽和，性質安定'],
+      ['烯', '雙鍵', 'C＝C', '不飽和，容易加成'],
+      ['炔', '參鍵', 'C≡C', '不飽和，反應性更強'],
+      ['醇', '羥基', '－OH', '可溶於水，沸點偏高'],
+      ['羧酸', '羧基', '－COOH', '有酸性，可與鹼中和'],
+      ['酯', '酯基', '－COO－', '多半有香味，酸＋醇而來']
+    ];
+    var gi = 0;
+    GROUPS.forEach(function (g, i) { if (g[0] === spec.mode) gi = i; });
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function node(x, y, label, col) {
+      svg.appendChild(el('circle', { cx: x, cy: y, r: 17, 'fill-opacity': '.35' },
+        'fill:var(--' + col + ');stroke:var(--' + col + ');stroke-width:2'));
+      svg.appendChild(txt(x, y, label, 'font-size:13px;font-weight:700'));
+    }
+    function bond(x1, y1, x2, y2, n) {
+      for (var i = 0; i < n; i++) {
+        var off = (i - (n - 1) / 2) * 5;
+        svg.appendChild(el('line', { x1: x1, y1: y1 + off, x2: x2, y2: y2 + off },
+          'stroke:var(--fg);stroke-width:2'));
+      }
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var g = GROUPS[gi];
+      svg.appendChild(txt(160, 22, g[0] + '　' + g[1] + '　' + g[2],
+        'font-size:15px;font-weight:700;fill:var(--accent)'));
+      node(92, 104, 'C', 'accent');
+      if (gi < 3) {
+        bond(109, 104, 187, 104, gi + 1);
+        node(204, 104, 'C', 'accent');
+        svg.appendChild(txt(148, 134, ['單鍵', '雙鍵', '參鍵'][gi] + '：共用 ' + (gi + 1) + ' 對電子',
+          'font-size:11px;fill:var(--dim)'));
+      } else {
+        bond(109, 104, 187, 104, 1);
+        node(204, 104, gi === 3 ? 'O' : (gi === 4 ? 'O' : 'O'), 'bad');
+        if (gi === 3) {
+          bond(221, 104, 258, 104, 1);
+          node(275, 104, 'H', 'good');
+        } else {
+          bond(92, 87, 92, 56, 2);
+          node(92, 46, 'O', 'bad');
+          bond(221, 104, 258, 104, 1);
+          node(275, 104, gi === 4 ? 'H' : 'C', gi === 4 ? 'good' : 'accent');
+        }
+        svg.appendChild(txt(180, 150, '官能基 ' + g[2] + ' 才是決定性質的那一段',
+          'font-size:11px;fill:var(--bad)'));
+      }
+      svg.appendChild(txt(160, 182, '碳一定接滿四個鍵——數不到四就是漏畫氫',
+        'font-size:11px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', g[0] + '：' + g[3]));
+      read.appendChild(div('wg-read-sub',
+        '有機化合物幾乎都是碳骨架加官能基。碳可以接四個鍵，又能一個接一個串下去，' +
+        '所以種類才會這麼多。看到一個結構式先做兩件事：找官能基、數碳數。' +
+        '⚠ 同分異構物是「化學式一樣、結構不一樣」，性質可以差很多，' +
+        '所以寫分子式不夠，要寫結構式才說得清楚。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一種', function () { gi = (gi + 1) % GROUPS.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 細胞分裂：有絲分裂與減數分裂的染色體去向 */
+  REG.mitosis = function (host, spec) {
+    var meio = spec.mode === 'meiosis';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 210', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function cell(x, y, r, chr, label) {
+      svg.appendChild(el('circle', { cx: x, cy: y, r: r, 'fill-opacity': '.14' },
+        'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+      for (var i = 0; i < chr; i++) {
+        var a = -Math.PI / 2 + i * 2 * Math.PI / Math.max(chr, 1);
+        svg.appendChild(el('rect', {
+          x: x + Math.cos(a) * r * 0.42 - 3, y: y + Math.sin(a) * r * 0.42 - 8,
+          width: 6, height: 16, rx: 3
+        }, 'fill:var(--' + (i % 2 ? 'bad' : 'good') + ')'));
+      }
+      if (label) svg.appendChild(txt(x, y + r + 14, label, 'font-size:10px;fill:var(--dim)'));
+    }
+    function arrow(x1, x2, y) {
+      svg.appendChild(el('line', { x1: x1, y1: y, x2: x2, y2: y },
+        'stroke:var(--dim);stroke-width:2'));
+      svg.appendChild(el('path', { d: 'M' + x2 + ',' + y + ' L' + (x2 - 7) + ',' + (y - 4) +
+        ' L' + (x2 - 7) + ',' + (y + 4) + ' Z' }, 'fill:var(--dim)'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(txt(160, 20, meio ? '減數分裂（產生配子）' : '有絲分裂（產生體細胞）',
+        'font-size:15px;font-weight:700;fill:var(--accent)'));
+      cell(50, 92, 30, 4, '母細胞 2n');
+      arrow(86, 118, 92);
+      if (meio) {
+        cell(154, 92, 26, 4, '第一次分裂');
+        arrow(184, 214, 92);
+        cell(244, 60, 18, 1, '');
+        cell(244, 124, 18, 1, '');
+        cell(292, 60, 18, 1, '');
+        cell(292, 124, 18, 1, '');
+        svg.appendChild(txt(268, 158, '4 個 n（染色體減半）', 'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(160, 186, '分裂兩次、只複製一次 → 染色體數減半，而且每個都不一樣',
+          'font-size:11px;fill:var(--dim)'));
+      } else {
+        cell(160, 92, 30, 8, '複製後排中央');
+        arrow(196, 226, 92);
+        cell(258, 60, 24, 4, '');
+        cell(258, 132, 24, 4, '');
+        svg.appendChild(txt(258, 172, '2 個 2n（一模一樣）', 'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(160, 196, '複製一次、分裂一次 → 染色體數不變，兩個子細胞完全相同',
+          'font-size:11px;fill:var(--dim)'));
+      }
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', meio
+        ? '減數分裂：2n → 4 個 n，而且彼此不同'
+        : '有絲分裂：2n → 2 個 2n，兩個完全相同'));
+      read.appendChild(div('wg-read-sub',
+        '兩者都先複製一次去氧核醣核酸。差別在分裂幾次：有絲分裂分一次，數目不變，' +
+        '用來長大與修補；減數分裂分兩次，數目減半，用來做精卵。' +
+        '⚠ 減數分裂的變異來自兩件事——同源染色體的互換，以及分開時的隨機組合，' +
+        '這正是同一對父母的孩子長得不一樣的原因。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一種分裂', function () { meio = !meio; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 赫羅圖：恆星的顏色、亮度與一生 */
+  REG.hrdiagram = function (host, spec) {
+    var stage = 0;                                     // 0 主序帶 1 紅巨星 2 結局
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 210', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 46, X1 = 292, Y0 = 172, Y1 = 40;
+    // 橫軸：左邊高溫（藍）、右邊低溫（紅），這是赫羅圖的傳統畫法
+    function px(t) { return X1 - (X1 - X0) * t; }       // t：0 冷 → 1 熱
+    function py(l) { return Y0 - (Y0 - Y1) * l; }       // l：0 暗 → 1 亮
+    function star(t, l, r, col, label) {
+      svg.appendChild(el('circle', { cx: px(t), cy: py(l), r: r },
+        'fill:var(--' + col + ')'));
+      if (label) svg.appendChild(txt(px(t), py(l) - r - 7, label, 'font-size:10px;fill:var(--fg)'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X1, y2: Y0 },
+        'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X0, y2: Y1 },
+        'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(txt(24, 52, '亮', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(24, 168, '暗', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(X0 + 24, 192, '高溫（藍）', 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(X1 - 26, 192, '低溫（紅）', 'font-size:10px;fill:var(--dim)'));
+      // 主序帶：左上到右下的一條斜帶
+      var d = '';
+      for (var i = 0; i <= 20; i++) {
+        var t = i / 20;
+        d += (i ? ' L' : 'M') + px(t) + ',' + py(t * 0.82 + 0.06);
+      }
+      svg.appendChild(el('path', { d: d },
+        'fill:none;stroke:var(--accent);stroke-width:9;stroke-opacity:.28;stroke-linecap:round'));
+      svg.appendChild(txt(140, 118, '主序帶', 'font-size:11px;fill:var(--accent)'));
+      star(0.5, 0.47, 5, 'good', '太陽');
+      if (stage >= 1) star(0.14, 0.84, 11, 'bad', '紅巨星');
+      if (stage >= 2) {
+        star(0.9, 0.1, 4, 'accent', '白矮星');
+        svg.appendChild(el('line', { x1: px(0.14), y1: py(0.84), x2: px(0.9), y2: py(0.1) },
+          'stroke:var(--dim);stroke-width:1.5;stroke-dasharray:4 4'));
+      }
+      if (stage >= 1) {
+        svg.appendChild(el('line', { x1: px(0.5), y1: py(0.47), x2: px(0.14), y2: py(0.84) },
+          'stroke:var(--dim);stroke-width:1.5;stroke-dasharray:4 4'));
+      }
+      svg.appendChild(txt(160, 20, ['① 主序帶：燃燒氫', '② 氫燒完 → 膨脹成紅巨星',
+        '③ 外層散掉 → 剩下白矮星'][stage],
+        'font-size:13px;font-weight:700;fill:var(--accent)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main',
+        ['恆星一生大部分時間都待在主序帶上', '氫燒完之後外層膨脹、表面變冷變紅',
+         '像太陽這種質量的恆星，最後留下白矮星'][stage]));
+      read.appendChild(div('wg-read-sub',
+        '赫羅圖的橫軸是表面溫度（左熱右冷，和一般圖相反），縱軸是亮度。' +
+        '恆星不是在圖上亂跑——它們沿著一生的路徑移動，' +
+        '所以看一顆星在圖上的位置，就大致知道它處在哪個階段。' +
+        '⚠ 質量決定結局：像太陽的最後成為白矮星，質量大得多的才會超新星爆炸，' +
+        '留下中子星或黑洞。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一階段', function () { stage = (stage + 1) % 3; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },
