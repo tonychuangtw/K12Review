@@ -9707,6 +9707,7 @@ window.APP_TEXTS['english|四下|第1單元 購物與價錢'] = {
       terms: [
         { w: 'How much', d: '多少，用來問價錢。' }
       ],
+      viz: {"type":"compareexp","factor":"單數還是複數","a":{"label":"單數","note":"How much is it? / How much is this shirt?"},"b":{"label":"複數","note":"How much are they? / How much are these shoes?"},"same":["問價錢一律用 How much"]},
       q: {
         q: '課文說問價錢一律用哪一個？',
         options: [
@@ -9829,6 +9830,7 @@ window.APP_TEXTS['english|四下|第1單元 購物與價錢'] = {
       terms: [
         { w: '結帳', d: '付錢完成交易。' }
       ],
+      viz: {"type":"energyflow","steps":["店員：Can I help you?","顧客：How much is this shirt?","店員：It is five hundred dollars.","顧客：That is a little expensive. Do you have anything cheaper?"]},
       q: {
         q: '課文說覺得太貴時可以怎麼說？',
         options: [
@@ -9933,6 +9935,7 @@ window.APP_TEXTS['english|四下|第2單元 城市地點與方向'] = {
       terms: [
         { w: 'across from', d: '在對面。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"旁邊","items":["next to the bank 在銀行旁邊"]},{"label":"對面","items":["across from the park 在公園對面"]},{"label":"之間","items":["between the bank and the post office"]}]},
       q: {
         q: '課文說 across from 是什麼意思？',
         options: [
@@ -9981,6 +9984,7 @@ window.APP_TEXTS['english|四下|第2單元 城市地點與方向'] = {
       terms: [
         { w: '對話', d: '兩個人一來一往的談話。' }
       ],
+      viz: {"type":"energyflow","steps":["Excuse me, how can I get to the library?","Go straight for two blocks, then turn left.","It is on your right.","Thank you!"]},
       q: {
         q: '課文說問路結束時要記得說什麼？',
         options: [
@@ -10011,6 +10015,7 @@ window.APP_TEXTS['english|四下|第3單元 食物與飲食習慣'] = {
       terms: [
         { w: '三餐', d: '早餐、午餐與晚餐。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"三餐","items":["breakfast 早餐","lunch 午餐","dinner 晚餐"]},{"label":"點心","items":["snack 點心"]},{"label":"用法","items":["have breakfast（三餐前面不加冠詞）"]}]},
       q: {
         q: '課文說三餐前面要不要加冠詞？',
         options: [
@@ -10035,6 +10040,7 @@ window.APP_TEXTS['english|四下|第3單元 食物與飲食習慣'] = {
       terms: [
         { w: '計量', d: '用單位表示數量多少。' }
       ],
+      viz: {"type":"compareexp","factor":"能不能一個一個數","a":{"label":"可數","note":"an apple、two eggs、three sandwiches"},"b":{"label":"不可數","note":"rice、bread、water、milk、soup、meat"},"same":["不可數的要數就借容器：a bowl of rice"]},
       q: {
         q: '課文說不可數名詞要怎麼計量？',
         options: [
@@ -10163,6 +10169,7 @@ window.APP_TEXTS['english|四下|第4單元 運動與休閒'] = {
       terms: [
         { w: '球類', d: '用球進行的運動。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"球類（室內外皆有）","items":["basketball 籃球","baseball 棒球","soccer 足球"]},{"label":"隔網對打","items":["volleyball 排球","tennis 網球","badminton 羽球"]},{"label":"個人項目","items":["swimming 游泳","running 跑步"]}]},
       q: {
         q: '課文說球類前面要不要加冠詞？',
         options: [
@@ -10187,6 +10194,7 @@ window.APP_TEXTS['english|四下|第4單元 運動與休閒'] = {
       terms: [
         { w: '搭配', d: '固定要一起使用的詞組。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"play ＋ 球類","items":["play basketball","play soccer","play tennis"]},{"label":"go ＋ 動詞ing","items":["go swimming","go running","go shopping"]},{"label":"do ＋ 某些項目","items":["do yoga","do exercise"]}]},
       q: {
         q: '課文說 go swimming 用的是哪一個動詞？',
         options: [
@@ -10340,6 +10348,7 @@ window.APP_TEXTS['english|四下|第5單元 服裝與外表描述'] = {
       terms: [
         { w: '外表', d: '一個人看起來的樣子。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"身高體型","items":["tall 高","short 矮","big／small 體型"]},{"label":"年紀","items":["young 年輕","old 年長"]},{"label":"髮型與眼睛","items":["long hair 長髮","short hair 短髮","brown eyes 褐色眼睛"]}]},
       q: {
         q: '課文說描述眼睛顏色要用哪一個動詞？',
         options: [
@@ -10437,6 +10446,7 @@ window.APP_TEXTS['english|四下|第5單元 服裝與外表描述'] = {
       terms: [
         { w: '順序', d: '說話時安排內容的先後。' }
       ],
+      viz: {"type":"energyflow","steps":["身材：He is tall and thin.","五官髮型：He has short black hair.","穿著：He is wearing a blue jacket and jeans.","（照這個順序講，別人一聽就找得到人）"]},
       q: {
         q: '課文說描述一個人要先說什麼？',
         options: [
@@ -10541,6 +10551,7 @@ window.APP_TEXTS['english|四下|第6單元 電話與邀約用語'] = {
       terms: [
         { w: '婉拒', d: '客氣地拒絕別人。' }
       ],
+      viz: {"type":"compareexp","factor":"接受還是婉拒","a":{"label":"接受","note":"Sure. / That sounds great. / I would love to."},"b":{"label":"婉拒","note":"Sorry, I can not. I have to study tonight.（最好補一句理由）"},"same":["只回一個 No 會顯得很冷淡"]},
       q: {
         q: '課文說婉拒時最好再加什麼？',
         options: [
@@ -10589,6 +10600,7 @@ window.APP_TEXTS['english|四下|第6單元 電話與邀約用語'] = {
       terms: [
         { w: '對話', d: '兩個人一來一往的談話。' }
       ],
+      viz: {"type":"energyflow","steps":["Hello, this is Amy. May I speak to Ben?","This is Ben speaking.","Do you want to play basketball this afternoon?","Sure. Let us meet at three at the school gate."]},
       q: {
         q: '課文說打電話的第一步是什麼？',
         options: [
@@ -10619,6 +10631,7 @@ window.APP_TEXTS['english|四下|第7單元 祈使句與指示'] = {
       terms: [
         { w: '祈使句', d: '直接要求別人做某件事的句子。' }
       ],
+      viz: {"type":"compareexp","factor":"祈使句的兩種開頭","a":{"label":"一般動詞","note":"Open the door. / Sit down.（直接用原形動詞）"},"b":{"label":"be 動詞","note":"Be careful. / Be quiet.（要用 Be 開頭）"},"same":["主詞 you 都被省略掉了"]},
       q: {
         q: '課文說祈使句省略了哪一個主詞？',
         options: [
@@ -10668,6 +10681,7 @@ window.APP_TEXTS['english|四下|第7單元 祈使句與指示'] = {
       terms: [
         { w: '客氣', d: '說話有禮貌不強硬。' }
       ],
+      viz: {"type":"compareexp","factor":"語氣強弱","a":{"label":"直接","note":"Open the window.（對長輩可能顯得強硬）"},"b":{"label":"客氣","note":"Could you open the window, please?"},"same":["加 please 就柔和許多，句首句尾都可以放"]},
       q: {
         q: '課文說怎麼讓祈使句更客氣？',
         options: [
@@ -10771,6 +10785,7 @@ window.APP_TEXTS['english|四下|第8單元 連接詞 and / but / or'] = {
       terms: [
         { w: '並列', d: '把相似的東西排在一起。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"連接名詞","items":["I like apples and bananas."]},{"label":"連接形容詞","items":["He is tall and thin."]},{"label":"連接三個以上","items":["A, B, and C（最後一個前面才放 and）"]}]},
       q: {
         q: '課文說連接三個以上要怎麼寫？',
         options: [
@@ -10844,6 +10859,7 @@ window.APP_TEXTS['english|四下|第8單元 連接詞 and / but / or'] = {
       terms: [
         { w: '原因', d: '事情發生的理由。' }
       ],
+      viz: {"type":"compareexp","factor":"前後順序剛好相反","a":{"label":"because 接原因","note":"I stayed home because it rained."},"b":{"label":"so 接結果","note":"It rained, so I stayed home."},"same":["同一句裡不能同時用 because 和 so"]},
       q: {
         q: '課文說 because 和 so 可不可以在同一句中同時用？',
         options: [
@@ -10948,6 +10964,7 @@ window.APP_TEXTS['english|四下|第9單元 短文閱讀理解'] = {
       terms: [
         { w: '主旨', d: '一篇文章最主要的重點。' }
       ],
+      viz: {"type":"cycle","steps":["先看第一句","再看最後一句","問自己：這篇主要在講誰？","問自己：在講什麼事？"]},
       q: {
         q: '課文說主旨常出現在哪裡？',
         options: [
@@ -10996,6 +11013,7 @@ window.APP_TEXTS['english|四下|第9單元 短文閱讀理解'] = {
       terms: [
         { w: '上下文', d: '一個字前後的句子。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"看上下文","items":["前後句","舉的例子","對比詞（but、however）"]},{"label":"看字首","items":["un- 表示「不」：unhappy"]},{"label":"看字尾","items":["-er 表示「人」：teacher","-ful 表示「充滿」：helpful"]}]},
       q: {
         q: '課文說 er 結尾通常表示什麼？',
         options: [
@@ -11098,6 +11116,7 @@ window.APP_TEXTS['english|五上|第1單元 字母與母音字母'] = {
       terms: [
         { w: '子音', d: '氣流被擋住所發出的音。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"母音字母","items":["a","e","i","o","u"]},{"label":"有時當母音","items":["y（my、happy）"]},{"label":"重要規則","items":["每個音節都要有一個母音"]}]},
       q: {
         q: '課文說每個音節一定要有什麼？',
         options: [
@@ -11147,6 +11166,7 @@ window.APP_TEXTS['english|五上|第1單元 字母與母音字母'] = {
       terms: [
         { w: '音節', d: '發音的基本單位。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"一個音節","items":["cat","dog","book"]},{"label":"兩個音節","items":["rab-bit","pen-cil"]},{"label":"三個以上","items":["ba-na-na（3）","in-ter-est-ing（4）"]}]},
       q: {
         q: '課文說怎麼數一個字有幾個音節？',
         options: [
@@ -11274,6 +11294,7 @@ window.APP_TEXTS['english|五上|第2單元 自然發音'] = {
       terms: [
         { w: 'magic e', d: '字尾不發音但使母音變長的 e。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"短音 ↔ 長音","items":["cap ↔ cape","kit ↔ kite"]},{"label":"更多例子","items":["hop ↔ hope","cub ↔ cube"]},{"label":"規則","items":["字尾的 e 不發音，但讓前面的母音唸自己的名字"]}]},
       q: {
         q: '課文說 magic e 本身發不發音？',
         options: [
@@ -11323,6 +11344,7 @@ window.APP_TEXTS['english|五上|第2單元 自然發音'] = {
       terms: [
         { w: 'r 控制母音', d: '母音後面接 r 而改變的音。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"oo 兩種音","items":["book（短）","moon（長）"]},{"label":"ou／ow","items":["house","cow"]},{"label":"oi／oy","items":["coin","boy"]}]},
       q: {
         q: '課文說 oo 有幾種發音？',
         options: [
@@ -11402,6 +11424,7 @@ window.APP_TEXTS['english|五上|第3單元 be 動詞與自我介紹'] = {
       terms: [
         { w: '狀態', d: '人或物目前的樣子。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"說身分","items":["I am a student.（後接名詞）"]},{"label":"說狀態","items":["She is happy.（後接形容詞）"]},{"label":"說位置","items":["They are in the classroom.（後接地點）"]}]},
       q: {
         q: '課文說 be 動詞後面不接什麼？',
         options: [
@@ -11475,6 +11498,7 @@ window.APP_TEXTS['english|五上|第3單元 be 動詞與自我介紹'] = {
       terms: [
         { w: '年級', d: '在學校讀第幾年。' }
       ],
+      viz: {"type":"energyflow","steps":["名字：My name is Amy.","年齡：I am eleven years old.","年級：I am in the fifth grade.","興趣：I like reading and swimming."]},
       q: {
         q: '課文說講年級要用哪一種數字？',
         options: [
@@ -11602,6 +11626,7 @@ window.APP_TEXTS['english|五上|第4單元 一般動詞與日常作息'] = {
       terms: [
         { w: '動詞片語', d: '好幾個字合起來當一個動詞用。' }
       ],
+      viz: {"type":"energyflow","steps":["get up 起床","take a shower / brush my teeth 洗澡、刷牙","have breakfast 吃早餐","go to school 上學"]},
       q: {
         q: '課文說 take a shower 是什麼意思？',
         options: [
@@ -11651,6 +11676,7 @@ window.APP_TEXTS['english|五上|第4單元 一般動詞與日常作息'] = {
       terms: [
         { w: '描述', d: '把事情說明給別人聽。' }
       ],
+      viz: {"type":"energyflow","steps":["I get up at six thirty.","I have breakfast at seven.","I go to school at seven forty.","After school I play basketball, and I go to bed at nine."]},
       q: {
         q: '課文建議用幾句話描述一天？',
         options: [
@@ -11730,6 +11756,7 @@ window.APP_TEXTS['english|五上|第5單元 現在進行式'] = {
       terms: [
         { w: '線索', d: '幫助判斷的字詞。' }
       ],
+      viz: {"type":"compareexp","factor":"線索字","a":{"label":"簡單式","note":"every day、usually、often → I play basketball on Sundays."},"b":{"label":"進行式","note":"now、look、listen → I am playing basketball now."},"same":["看到線索字就知道要用哪一種"]},
       q: {
         q: '課文說看到 usually 要用哪一種時態？',
         options: [
@@ -11834,6 +11861,7 @@ window.APP_TEXTS['english|五上|第6單元 地點介系詞'] = {
       terms: [
         { w: '介系詞', d: '表示位置或時間關係的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"in 在空間內","items":["in the box","in the room","in Taipei"]},{"label":"on 在表面上","items":["on the desk","on the wall"]},{"label":"at 在某個點","items":["at the door","at the bus stop"]}]},
       q: {
         q: '課文說 at 表示什麼？',
         options: [
@@ -11883,6 +11911,7 @@ window.APP_TEXTS['english|五上|第6單元 地點介系詞'] = {
       terms: [
         { w: '接觸', d: '兩個東西碰在一起。' }
       ],
+      viz: {"type":"compareexp","factor":"有沒有接觸","a":{"label":"on","note":"The book is on the desk.（書碰到桌子）"},"b":{"label":"over","note":"The lamp is over the table.（燈懸在上方，沒有碰到）"},"same":["中文都說「在上面」，英文分得很清楚"]},
       q: {
         q: '課文說 over 表示有沒有接觸？',
         options: [
@@ -11907,6 +11936,7 @@ window.APP_TEXTS['english|五上|第6單元 地點介系詞'] = {
       terms: [
         { w: '固定搭配', d: '約定俗成、不能隨意更改的說法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"用 at","items":["at home 在家","at school 在學校","at work 在上班"]},{"label":"用 in","items":["in bed 在床上睡覺","in the car 在車上"]},{"label":"用 on","items":["on the bus 在公車上","on the train 在火車上"]}]},
       q: {
         q: '課文說「在公車上」要用哪一個介系詞？',
         options: [
@@ -12010,6 +12040,7 @@ window.APP_TEXTS['english|五上|第7單元 數字、時間與日期'] = {
       terms: [
         { w: '大數字', d: '百以上的數字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"單位","items":["hundred 百","thousand 千","million 百萬"]},{"label":"唸法","items":["365 → three hundred and sixty-five"]},{"label":"提醒","items":["hundred、thousand 當單位時不加 s"]}]},
       q: {
         q: '課文說 hundred 前面有數字時要不要加 s？',
         options: [
