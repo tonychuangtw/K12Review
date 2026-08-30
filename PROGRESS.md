@@ -4,7 +4,7 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 帶讀配圖收尾中（Tony 2026-08-30：先做完帶讀圖全部，再回頭做誘答重寫）。目前 25.0%（1,758/7,020 段），1,170 單元有 1,003 個至少一張圖。還很低的是公民 6%／歷史 8%／地科 13%／化學 14%／生物 14%／地理 16%，瓶頸是這幾科的概念卡本身九成是文字排版，沒有真圖可接 —— 要照 v85/v86 的做法繼續「畫新元件 → 掛到概念卡（tools/set-card-viz.js）或直接掛到帶讀段落（tools/set-text-viz.js）→ 跑 seed-text-viz --no-texty --min 0.38 --write」
+NEXT_ACTION: 帶讀配圖的「每個單元至少一張圖」已完成（1,170/1,170，v87）。剩下的是把配圖率從 27.7% 往每單元 3 段的上限（50%）推，這是可以慢慢做的加值，不急。Tony 2026-08-30 的順序是「先做完帶讀圖全部，再做誘答重寫」—— 帶讀圖的主要目標已達成，所以下一件事回到誘答重寫：國小自然 71%／國小社會 85%／英文 42% 還沒修，且不能用 tools/fix-distractors.js 的「借同課正解」（英文會借到另一個也對的答案、國小題目太短會借到語意上也成立的敘述），要改成「把原本的短誘答加長成型別相符的錯誤敘述」，逐課寫或另寫工具；做之前先問 Tony 要不要做
 並指示「先做完 1（配圖）再做 2（誘答重寫）」。
 已完成：數學 215 單元 465 段、自然 125 單元 273 段（十二年級全部），覆蓋率 math 36%／science 37%。
 工具：tools/seed-text-viz.js <科目> [--write]。做法＝把同單元概念卡已配好的 viz 接到帶讀最相似的段落
@@ -30,6 +30,20 @@ galvanic（電化學電池含鹽橋與電子流）、titration（滴定曲線）
 粒子模型、平衡、地層、天體運動…），再接到帶讀與概念卡。這是一件比接圖大的工程，做完再回頭做誘答重寫。
 【做完配圖後】才做誘答重寫：tools/fix-distractors.js（同課其他題的正解當誘答，公民試跑 99.8%→8.5%），
 要逐課抽查再寫入；test/test.js 已有「正解最長」門檻表，每修好一科就把該科上限調降。
+
+【v87 已完成 2026-08-30】帶讀配圖收尾：**1,170 個單元全部至少有一張圖**（原本 167 個單元掛零）。
+新增十一種元件：公民 lawrank／crimetest／payoff／externality／stakeholder／contractflow，
+歷史 sourcelevel／worldflow，共用 expdesign／riskmatrix／matchpair。
+全站配圖 25.0% → 27.7%（1,946/7,020 段）。各科：自然 37、數學 36、英文 30、國小社會 29、
+地理 24、物理 23、公民 20、化學 20、歷史 19、生物 19、地科 19、國語 18（%）。
+互動元件累計 192 種、494 組設定，widget-audit 全過。
+做法備忘（要再往上推就照這個）：
+1. 看哪些單元沒圖：讀 texts-<科>.js，找 segs 沒有 viz 的
+2. 缺圖就先畫元件（js/widgets.js），登記到 test/test.js 的 WIDGETS
+3. 掛到概念卡用 tools/set-card-viz.js，直接掛到帶讀段落用 tools/set-text-viz.js
+4. 有概念卡的科目也可以跑 `node tools/seed-text-viz.js <科> --no-texty --min 0.38 --write`
+5. 每批跑 test.js + widget-audit.mjs（找不到 chrome-headless-shell 會自動跳過）
+⚠ 寧可留白也不要放圖文不符的圖 —— 配之前先確認那張圖真的在講那一段的內容。
 
 【v86 已完成 2026-08-30】國語課文帶讀從零開始有圖：108 篇裡 105 篇有圖（113 段）。
 國語沒有概念卡系統，seed-text-viz 接不到東西，所以新增 tools/set-text-viz.js
@@ -150,7 +164,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 19:05 台北
+UPDATED: 2026-08-30 21:10 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
