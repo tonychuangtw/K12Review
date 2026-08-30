@@ -605,7 +605,12 @@ console.log('解析確認題');
                    'actenergy', 'vsepr', 'imf', 'organic', 'mitosis', 'hrdiagram',
                    // 社會科補的圖（2026-08-30 第三批）：公民／歷史／地理的概念卡也是九成文字排版
                    'climograph', 'landuse', 'demotrans', 'lorenz', 'courtlevel',
-                   'checksbalance', 'dynastyband'];  // 與 js/widgets.js 的 REG 同步
+                   'checksbalance', 'dynastyband',
+                   // 國語（語文常識）用的圖（2026-08-30 第四批）：國語沒有概念卡，直接掛在帶讀段落
+                   'zhuyinparts', 'charparts', 'punctcut', 'sentparts',
+                   'poemform', 'essayform', 'narrorder', 'letterform',
+                   'wenyanflow', 'wordtree', 'strokeorder', 'readlayer',
+                   'rhetoricmap', 'wordscale'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

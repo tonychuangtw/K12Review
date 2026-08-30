@@ -44,6 +44,7 @@ window.APP_TEXTS['chinese|1|第1篇 注音符號怎麼拼'] = {
       terms: [
         { w: '介音', d: '夾在聲母和韻母中間的那個符號。' }
       ],
+      viz: {"type":"zhuyinparts"},
       q: {
         q: '課文說注音的順序是什麼？',
         options: [
@@ -170,6 +171,7 @@ window.APP_TEXTS['chinese|1|第2篇 國字的筆順'] = {
       terms: [
         { w: '筆順', d: '寫一個字時各筆畫的先後順序。' }
       ],
+      viz: {"type":"strokeorder"},
       q: {
         q: '課文說「三」要先寫哪一橫？',
         options: [
@@ -320,6 +322,7 @@ window.APP_TEXTS['chinese|1|第3篇 部首是什麼'] = {
       terms: [
         { w: '部首', d: '國字裡用來分類與查字的那個部分。' }
       ],
+      viz: {"type":"charparts"},
       q: {
         q: '課文說查字典是靠什麼來找字？',
         options: [
@@ -590,6 +593,7 @@ window.APP_TEXTS['chinese|1|第4篇 句號逗號問號'] = {
       terms: [
         { w: '意思', d: '一句話想表達的內容。' }
       ],
+      viz: {"type":"punctcut"},
       q: {
         q: '課文說標點放錯地方會怎樣？',
         options: [
@@ -794,6 +798,7 @@ window.APP_TEXTS['chinese|1|第6篇 相反的詞'] = {
       terms: [
         { w: '形容', d: '說出東西是什麼樣子。' }
       ],
+      viz: {"type":"wordtree"},
       q: {
         q: '課文說「厚」的相反詞是什麼？',
         options: [
@@ -920,6 +925,7 @@ window.APP_TEXTS['chinese|1|第7篇 一句話要完整'] = {
       terms: [
         { w: '完整', d: '該說的都說到了。' }
       ],
+      viz: {"type":"sentparts"},
       q: {
         q: '課文說一句完整的話要說清楚哪兩件事？',
         options: [
@@ -1070,6 +1076,7 @@ window.APP_TEXTS['chinese|1|第8篇 把話說得有順序'] = {
       terms: [
         { w: '先後', d: '事情發生的順序。' }
       ],
+      viz: {"type":"narrorder"},
       q: {
         q: '課文說說事情要照什麼順序？',
         options: [
@@ -1244,6 +1251,7 @@ window.APP_TEXTS['chinese|1|第9篇 讀一段話'] = {
       terms: [
         { w: '主角', d: '一段話裡主要在講的那個人。' }
       ],
+      viz: {"type":"sentparts"},
       q: {
         q: '課文說讀完一段要先問自己什麼？',
         options: [
@@ -1370,6 +1378,7 @@ window.APP_TEXTS['chinese|2|第1篇 部首和字義'] = {
       terms: [
         { w: '豎心旁', d: '寫在左邊的心部部首。' }
       ],
+      viz: {"type":"charparts"},
       q: {
         q: '課文說心部的字多半和什麼有關？',
         options: [
@@ -1520,6 +1529,7 @@ window.APP_TEXTS['chinese|2|第2篇 一個字好幾個音'] = {
       terms: [
         { w: '多音字', d: '有兩種以上讀音的字。' }
       ],
+      viz: {"type":"zhuyinparts"},
       q: {
         q: '課文說多音字的不同讀音常常代表什麼？',
         options: [
@@ -1916,6 +1926,7 @@ window.APP_TEXTS['chinese|2|第4篇 頓號和驚嘆號'] = {
       terms: [
         { w: '換氣', d: '說話中間停一下再繼續。' }
       ],
+      viz: {"type":"punctcut"},
       q: {
         q: '課文說並列的詞中間要用哪一個符號？',
         options: [
@@ -1994,6 +2005,7 @@ window.APP_TEXTS['chinese|2|第5篇 形容詞讓句子有畫面'] = {
       terms: [
         { w: '畫面', d: '讀了之後心裡浮現的樣子。' }
       ],
+      viz: {"type":"sentparts"},
       q: {
         q: '課文說加形容詞的好處是什麼？',
         options: [
@@ -2144,6 +2156,7 @@ window.APP_TEXTS['chinese|2|第6篇 意思相近的詞'] = {
       terms: [
         { w: '程度', d: '感覺的強弱等級。' }
       ],
+      viz: {"type":"wordscale"},
       q: {
         q: '課文說「狂喜」和「高興」哪一個比較強？',
         options: [
@@ -2390,6 +2403,7 @@ window.APP_TEXTS['chinese|2|第7篇 把句子接起來'] = {
       terms: [
         { w: '關係', d: '兩件事之間的連結。' }
       ],
+      viz: {"type":"sentparts"},
       q: {
         q: '課文說挑連接詞前要先想什麼？',
         options: [
@@ -2420,6 +2434,7 @@ window.APP_TEXTS['chinese|2|第8篇 用譬喻寫東西'] = {
       terms: [
         { w: '譬喻', d: '用另一樣東西來比方的寫法。' }
       ],
+      viz: {"type":"rhetoricmap"},
       q: {
         q: '課文說譬喻是把一樣東西怎麼樣？',
         options: [
@@ -2690,6 +2705,7 @@ window.APP_TEXTS['chinese|2|第9篇 讀懂一段故事'] = {
       terms: [
         { w: '摘要', d: '用幾句話把重點說完。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說用四句話說故事的最後一句要說什麼？',
         options: [
@@ -2744,6 +2760,7 @@ window.APP_TEXTS['chinese|3|第1篇 象形字與指事字'] = {
       terms: [
         { w: '象形字', d: '照著實物形狀畫出來的字。' }
       ],
+      viz: {"type":"charparts"},
       q: {
         q: '課文說「山」原本畫的是什麼？',
         options: [
@@ -2894,6 +2911,7 @@ window.APP_TEXTS['chinese|3|第2篇 用部首查字典'] = {
       terms: [
         { w: '判斷', d: '想清楚並做出決定。' }
       ],
+      viz: {"type":"charparts"},
       q: {
         q: '課文說部首通常在字的哪些位置？',
         options: [
@@ -2918,6 +2936,7 @@ window.APP_TEXTS['chinese|3|第2篇 用部首查字典'] = {
       terms: [
         { w: '筆畫', d: '寫一個字所需要的線條數。' }
       ],
+      viz: {"type":"strokeorder"},
       q: {
         q: '課文說三點水有幾畫？',
         options: [
@@ -3044,6 +3063,7 @@ window.APP_TEXTS['chinese|3|第3篇 成語是怎麼組成的'] = {
       terms: [
         { w: '對稱', d: '前後結構一樣、互相對應。' }
       ],
+      viz: {"type":"wordtree"},
       q: {
         q: '課文說「一心一意」的前後兩半結構如何？',
         options: [
@@ -3266,6 +3286,7 @@ window.APP_TEXTS['chinese|3|第4篇 冒號和引號'] = {
       terms: [
         { w: '位置', d: '標點該擺放的地方。' }
       ],
+      viz: {"type":"punctcut"},
       q: {
         q: '課文說完整句子的句號要放在引號的哪裡？',
         options: [
@@ -3368,6 +3389,7 @@ window.APP_TEXTS['chinese|3|第5篇 譬喻與擬人'] = {
       terms: [
         { w: '賦予', d: '把某種特質給某樣東西。' }
       ],
+      viz: {"type":"rhetoricmap"},
       q: {
         q: '課文說「月亮在對我微笑」用了哪一種寫法？',
         options: [
@@ -3470,6 +3492,7 @@ window.APP_TEXTS['chinese|3|第6篇 一段話的重點句'] = {
       terms: [
         { w: '重點句', d: '一段裡說出主要意思的句子。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說一段話裡通常有幾句是重點？',
         options: [
@@ -3620,6 +3643,7 @@ window.APP_TEXTS['chinese|3|第7篇 記事情的順序'] = {
       terms: [
         { w: '順序', d: '事情發生的先後。' }
       ],
+      viz: {"type":"narrorder"},
       q: {
         q: '課文說記事情最簡單的順序是什麼？',
         options: [
@@ -3644,6 +3668,7 @@ window.APP_TEXTS['chinese|3|第7篇 記事情的順序'] = {
       terms: [
         { w: '交代', d: '把該說明的先說清楚。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說開頭要先交代什麼？',
         options: [
@@ -3794,6 +3819,7 @@ window.APP_TEXTS['chinese|3|第8篇 找出關鍵詞'] = {
       terms: [
         { w: '圈選', d: '把重要的部分畫起來。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說找關鍵詞時要圈哪些東西？',
         options: [
@@ -3920,6 +3946,7 @@ window.APP_TEXTS['chinese|3|第9篇 寫一封信'] = {
       terms: [
         { w: '署名', d: '在信末寫上自己的名字。' }
       ],
+      viz: {"type":"letterform"},
       q: {
         q: '課文說信的第一個部分是什麼？',
         options: [
@@ -4070,6 +4097,7 @@ window.APP_TEXTS['chinese|4|第1篇 會意字與形聲字'] = {
       terms: [
         { w: '會意字', d: '合併兩個字義而造出的新字。' }
       ],
+      viz: {"type":"charparts"},
       q: {
         q: '課文說「明」是哪兩個字合起來的？',
         options: [
@@ -4490,6 +4518,7 @@ window.APP_TEXTS['chinese|4|第3篇 分號破折號刪節號'] = {
       terms: [
         { w: '濫用', d: '用得太多太隨便。' }
       ],
+      viz: {"type":"punctcut"},
       q: {
         q: '課文說一篇文章這些符號用幾次比較好？',
         options: [
@@ -4544,6 +4573,7 @@ window.APP_TEXTS['chinese|4|第4篇 排比與誇飾'] = {
       terms: [
         { w: '結構', d: '句子各部分的組合方式。' }
       ],
+      viz: {"type":"sentparts"},
       q: {
         q: '課文說排比的句子要求什麼？',
         options: [
@@ -4640,6 +4670,7 @@ window.APP_TEXTS['chinese|4|第4篇 排比與誇飾'] = {
       terms: [
         { w: '氣勢', d: '文字讀起來的力量感。' }
       ],
+      viz: {"type":"rhetoricmap"},
       q: {
         q: '課文說這兩種修辭在哪裡用效果最好？',
         options: [
@@ -4670,6 +4701,7 @@ window.APP_TEXTS['chinese|4|第5篇 記敘文的六要素'] = {
       terms: [
         { w: '要素', d: '一定要有的組成部分。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說記敘文有幾個要素？',
         options: [
@@ -4820,6 +4852,7 @@ window.APP_TEXTS['chinese|4|第6篇 說明文怎麼寫'] = {
       terms: [
         { w: '說明文', d: '用來介紹或解釋事物的文章。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說說明文的目標是什麼？',
         options: [
@@ -4970,6 +5003,7 @@ window.APP_TEXTS['chinese|4|第7篇 從線索推出答案'] = {
       terms: [
         { w: '推論', d: '從線索推出沒明講的答案。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說推論是從什麼推出來的？',
         options: [
@@ -5120,6 +5154,7 @@ window.APP_TEXTS['chinese|4|第8篇 寫日記與便條'] = {
       terms: [
         { w: '日記', d: '記錄每天發生的事的文章。' }
       ],
+      viz: {"type":"letterform"},
       q: {
         q: '課文說日記第一行要寫什麼？',
         options: [
@@ -5270,6 +5305,7 @@ window.APP_TEXTS['chinese|4|第9篇 把句子寫長一點'] = {
       terms: [
         { w: '擴充', d: '把句子加長、加詳細。' }
       ],
+      viz: {"type":"sentparts"},
       q: {
         q: '課文說擴充句子要從什麼開始？',
         options: [
@@ -5420,6 +5456,7 @@ window.APP_TEXTS['chinese|5|第1篇 詞性入門'] = {
       terms: [
         { w: '名詞', d: '人事物的名稱。' }
       ],
+      viz: {"type":"wordtree"},
       q: {
         q: '課文說名詞是什麼的名稱？',
         options: [
@@ -5516,6 +5553,7 @@ window.APP_TEXTS['chinese|5|第1篇 詞性入門'] = {
       terms: [
         { w: '詞性', d: '一個詞屬於名詞動詞或形容詞。' }
       ],
+      viz: {"type":"sentparts"},
       q: {
         q: '課文說判斷詞性要看什麼？',
         options: [
@@ -5570,6 +5608,7 @@ window.APP_TEXTS['chinese|5|第2篇 詞的組成方式'] = {
       terms: [
         { w: '並列', d: '兩部分地位相同排在一起。' }
       ],
+      viz: {"type":"wordtree"},
       q: {
         q: '課文說並列式的兩個字地位如何？',
         options: [
@@ -5720,6 +5759,7 @@ window.APP_TEXTS['chinese|5|第3篇 成語用對地方'] = {
       terms: [
         { w: '褒貶', d: '稱讚或批評的意思傾向。' }
       ],
+      viz: {"type":"wordscale"},
       q: {
         q: '課文說用成語前要先弄清楚什麼？',
         options: [
@@ -5990,6 +6030,7 @@ window.APP_TEXTS['chinese|5|第4篇 標點符號總複習'] = {
       terms: [
         { w: '結構', d: '句子各部分的組合方式。' }
       ],
+      viz: {"type":"punctcut"},
       q: {
         q: '課文說改標點之前要先看什麼？',
         options: [
@@ -6044,6 +6085,7 @@ window.APP_TEXTS['chinese|5|第5篇 對偶與轉化'] = {
       terms: [
         { w: '工整', d: '前後對得整齊而準確。' }
       ],
+      viz: {"type":"poemform"},
       q: {
         q: '課文說對偶時名詞要對什麼？',
         options: [
@@ -6116,6 +6158,7 @@ window.APP_TEXTS['chinese|5|第5篇 對偶與轉化'] = {
       terms: [
         { w: '形式', d: '文字排列的樣子。' }
       ],
+      viz: {"type":"rhetoricmap"},
       q: {
         q: '課文說對偶重視的是什麼？',
         options: [
@@ -6170,6 +6213,7 @@ window.APP_TEXTS['chinese|5|第6篇 文章的結構'] = {
       terms: [
         { w: '總分總', d: '先總說、再分說、最後總結。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說總分總的第一段要做什麼？',
         options: [
@@ -6242,6 +6286,7 @@ window.APP_TEXTS['chinese|5|第6篇 文章的結構'] = {
       terms: [
         { w: '流水帳', d: '只是照順序記事而沒有重點。' }
       ],
+      viz: {"type":"narrorder"},
       q: {
         q: '課文說用時間順序時要注意什麼？',
         options: [
@@ -6320,6 +6365,7 @@ window.APP_TEXTS['chinese|5|第7篇 議論文的三要素'] = {
       terms: [
         { w: '論點', d: '文章要主張的核心看法。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說論點要具備什麼？',
         options: [
@@ -6470,6 +6516,7 @@ window.APP_TEXTS['chinese|5|第8篇 抓主旨與細節'] = {
       terms: [
         { w: '主旨', d: '一篇文章最主要的重點。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說細節的功能是什麼？',
         options: [
@@ -6644,6 +6691,7 @@ window.APP_TEXTS['chinese|5|第9篇 應用文：啟事與報告'] = {
       terms: [
         { w: '啟事', d: '公開告訴大家一件事的短文。' }
       ],
+      viz: {"type":"letterform"},
       q: {
         q: '課文說啟事一定要留下什麼？',
         options: [
@@ -6890,6 +6938,7 @@ window.APP_TEXTS['chinese|6|第1篇 文言文入門'] = {
       terms: [
         { w: '斷句', d: '把沒有標點的句子切開。' }
       ],
+      viz: {"type":"wenyanflow"},
       q: {
         q: '課文說讀文言的第一步是什麼？',
         options: [
@@ -6944,6 +6993,7 @@ window.APP_TEXTS['chinese|6|第2篇 古今意思不一樣'] = {
       terms: [
         { w: '走', d: '古文中多指「跑」。' }
       ],
+      viz: {"type":"wenyanflow"},
       q: {
         q: '課文說古文裡的「走」是什麼意思？',
         options: [
@@ -7070,6 +7120,7 @@ window.APP_TEXTS['chinese|6|第3篇 修辭總複習'] = {
       terms: [
         { w: '畫面感', d: '讀了之後心裡有畫面。' }
       ],
+      viz: {"type":"rhetoricmap"},
       q: {
         q: '課文說譬喻靠什麼？',
         options: [
@@ -7244,6 +7295,7 @@ window.APP_TEXTS['chinese|6|第4篇 詩歌的節奏'] = {
       terms: [
         { w: '五言', d: '每句五個字的詩。' }
       ],
+      viz: {"type":"poemform"},
       q: {
         q: '課文說七言常在第幾個字後面停頓？',
         options: [
@@ -7370,6 +7422,7 @@ window.APP_TEXTS['chinese|6|第5篇 順敘倒敘與插敘'] = {
       terms: [
         { w: '順敘', d: '照時間先後敘述。' }
       ],
+      viz: {"type":"narrorder"},
       q: {
         q: '課文說最自然、最容易跟上的敘述方式是什麼？',
         options: [
@@ -7520,6 +7573,7 @@ window.APP_TEXTS['chinese|6|第6篇 說明順序怎麼選'] = {
       terms: [
         { w: '過程', d: '事情從頭到尾怎麼進行。' }
       ],
+      viz: {"type":"narrorder"},
       q: {
         q: '課文說介紹一個過程最常用哪一種順序？',
         options: [
@@ -7568,6 +7622,7 @@ window.APP_TEXTS['chinese|6|第6篇 說明順序怎麼選'] = {
       terms: [
         { w: '邏輯', d: '概念之間合理的關係。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說介紹一個道理常用哪一種順序？',
         options: [
@@ -7694,6 +7749,7 @@ window.APP_TEXTS['chinese|6|第7篇 讀出作者的立場'] = {
       terms: [
         { w: '態度', d: '對一件事贊成或反對的傾向。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說判斷作者態度最好的線索是什麼？',
         options: [
@@ -7820,6 +7876,7 @@ window.APP_TEXTS['chinese|6|第8篇 審題與立意'] = {
       terms: [
         { w: '審題', d: '看清楚題目的要求。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說審題錯了會怎樣？',
         options: [
@@ -7994,6 +8051,7 @@ window.APP_TEXTS['chinese|6|第9篇 修改自己的文章'] = {
       terms: [
         { w: '結構', d: '文章各部分的安排方式。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說第一次修改要看什麼？',
         options: [
@@ -8144,6 +8202,7 @@ window.APP_TEXTS['chinese|7|第1篇 六書完整介紹'] = {
       terms: [
         { w: '抽象', d: '看不見摸不到的概念。' }
       ],
+      viz: {"type":"charparts"},
       q: {
         q: '課文說指事字用什麼來表示意思？',
         options: [
@@ -8270,6 +8329,7 @@ window.APP_TEXTS['chinese|7|第2篇 文言虛字'] = {
       terms: [
         { w: '虛字', d: '沒有實際意義、負責語氣結構的字。' }
       ],
+      viz: {"type":"wenyanflow"},
       q: {
         q: '課文說虛字負責什麼？',
         options: [
@@ -8468,6 +8528,7 @@ window.APP_TEXTS['chinese|7|第3篇 成語辨義'] = {
       terms: [
         { w: '程度', d: '語氣的輕重強弱。' }
       ],
+      viz: {"type":"wordscale"},
       q: {
         q: '課文說程度用錯可能造成什麼？',
         options: [
@@ -8570,6 +8631,7 @@ window.APP_TEXTS['chinese|7|第4篇 句子的成分'] = {
       terms: [
         { w: '主語', d: '句子在講的那個人或東西。' }
       ],
+      viz: {"type":"sentparts"},
       q: {
         q: '課文說句子的骨幹是哪兩個成分？',
         options: [
@@ -8720,6 +8782,7 @@ window.APP_TEXTS['chinese|7|第5篇 病句怎麼改'] = {
       terms: [
         { w: '殘缺', d: '該有的部分少了。' }
       ],
+      viz: {"type":"sentparts"},
       q: {
         q: '課文說句子少了主語或謂語叫什麼？',
         options: [
@@ -8870,6 +8933,7 @@ window.APP_TEXTS['chinese|7|第6篇 記敘文的描寫'] = {
       terms: [
         { w: '具體', d: '明確而可以想像的細節。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說什麼比十個形容詞更有效？',
         options: [
@@ -9020,6 +9084,7 @@ window.APP_TEXTS['chinese|7|第7篇 閱讀的三個層次'] = {
       terms: [
         { w: '字面', d: '文章表面直接寫出來的意思。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說閱讀的第一層是什麼？',
         options: [
@@ -9194,6 +9259,7 @@ window.APP_TEXTS['chinese|7|第8篇 摘要怎麼寫'] = {
       terms: [
         { w: '重點句', d: '一段裡說出主要意思的句子。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說寫摘要的第一步是什麼？',
         options: [
@@ -9344,6 +9410,7 @@ window.APP_TEXTS['chinese|7|第9篇 引用與抄襲'] = {
       terms: [
         { w: '直接引用', d: '一字不改地引用原話。' }
       ],
+      viz: {"type":"punctcut"},
       q: {
         q: '課文說直接引用要用什麼符號？',
         options: [
@@ -9566,6 +9633,7 @@ window.APP_TEXTS['chinese|8|第1篇 文言句型：判斷句'] = {
       terms: [
         { w: '翻譯', d: '把文言改寫成白話。' }
       ],
+      viz: {"type":"wenyanflow"},
       q: {
         q: '課文說翻譯判斷句時要補上哪一個字？',
         options: [
@@ -9740,6 +9808,7 @@ window.APP_TEXTS['chinese|8|第2篇 文言句型：倒裝與省略'] = {
       terms: [
         { w: '流程', d: '固定的做事步驟。' }
       ],
+      viz: {"type":"wenyanflow"},
       q: {
         q: '課文說翻譯的第三步是什麼？',
         options: [
@@ -9794,6 +9863,7 @@ window.APP_TEXTS['chinese|8|第3篇 詞語的感情色彩'] = {
       terms: [
         { w: '褒義', d: '帶有讚美的意思。' }
       ],
+      viz: {"type":"wordscale"},
       q: {
         q: '課文說「果斷」屬於哪一類詞？',
         options: [
@@ -9920,6 +9990,7 @@ window.APP_TEXTS['chinese|8|第4篇 論說文的論證方法'] = {
       terms: [
         { w: '論證', d: '用理由與證據支持主張的過程。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說舉完例子之後還要做什麼？',
         options: [
@@ -10070,6 +10141,7 @@ window.APP_TEXTS['chinese|8|第5篇 說明文的說明方法'] = {
       terms: [
         { w: '定義', d: '說明一樣東西是什麼。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說定義要怎樣？',
         options: [
@@ -10244,6 +10316,7 @@ window.APP_TEXTS['chinese|8|第6篇 抒情的方法'] = {
       terms: [
         { w: '藉景抒情', d: '藉著寫景來表達心情。' }
       ],
+      viz: {"type":"rhetoricmap"},
       q: {
         q: '課文說藉景抒情有沒有直接說出心情？',
         options: [
@@ -10394,6 +10467,7 @@ window.APP_TEXTS['chinese|8|第7篇 古典詩的格律'] = {
       terms: [
         { w: '絕句', d: '四句的近體詩。' }
       ],
+      viz: {"type":"poemform"},
       q: {
         q: '課文說八句的近體詩叫什麼？',
         options: [
@@ -10544,6 +10618,7 @@ window.APP_TEXTS['chinese|8|第8篇 小說的三要素'] = {
       terms: [
         { w: '衝突', d: '故事裡對立或矛盾的力量。' }
       ],
+      viz: {"type":"narrorder"},
       q: {
         q: '課文說沒有衝突會怎樣？',
         options: [
@@ -10694,6 +10769,7 @@ window.APP_TEXTS['chinese|8|第9篇 應用文：會議紀錄與履歷'] = {
       terms: [
         { w: '議題', d: '會議上要討論的事項。' }
       ],
+      viz: {"type":"letterform"},
       q: {
         q: '課文說會議紀錄裡最重要的是哪一項？',
         options: [
@@ -10916,6 +10992,7 @@ window.APP_TEXTS['chinese|9|第1篇 文言實詞'] = {
       terms: [
         { w: '上下文', d: '一句話前後的內容。' }
       ],
+      viz: {"type":"wenyanflow"},
       q: {
         q: '課文說判斷實詞意思最可靠的方法是什麼？',
         options: [
@@ -10970,6 +11047,7 @@ window.APP_TEXTS['chinese|9|第2篇 文章的深層意義'] = {
       terms: [
         { w: '深層', d: '字面下面更深的一層意思。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說好文章的兩層常常怎樣？',
         options: [
@@ -11168,6 +11246,7 @@ window.APP_TEXTS['chinese|9|第3篇 比較兩篇文章'] = {
       terms: [
         { w: '主題', d: '文章最主要的重點。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說同樣寫故鄉的兩篇可能有什麼不同？',
         options: [
@@ -11318,6 +11397,7 @@ window.APP_TEXTS['chinese|9|第4篇 會考國文的題型'] = {
       terms: [
         { w: '辨識', d: '分辨出是哪一種。' }
       ],
+      viz: {"type":"sentparts"},
       q: {
         q: '課文說練文法修辭最好的方法是什麼？',
         options: [
@@ -11492,6 +11572,7 @@ window.APP_TEXTS['chinese|9|第5篇 寫作測驗怎麼準備'] = {
       terms: [
         { w: '大綱', d: '寫作前先列的內容架構。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說列大綱要花多久？',
         options: [
@@ -11594,6 +11675,7 @@ window.APP_TEXTS['chinese|9|第6篇 圖表與非連續文本'] = {
       terms: [
         { w: '圖例', d: '說明圖中符號代表什麼的說明。' }
       ],
+      viz: {"type":"bargraph","unit":"人","data":[{"label":"搭校車","value":18},{"label":"走路","value":11},{"label":"腳踏車","value":6},{"label":"家長接送","value":15}]},
       q: {
         q: '課文說看圖表要先看哪三個地方？',
         options: [
@@ -11744,6 +11826,7 @@ window.APP_TEXTS['chinese|9|第7篇 常見的錯字'] = {
       terms: [
         { w: '形近', d: '字形很相似。' }
       ],
+      viz: {"type":"strokeorder"},
       q: {
         q: '課文說形近字要靠什麼分辨？',
         options: [
@@ -11768,6 +11851,7 @@ window.APP_TEXTS['chinese|9|第7篇 常見的錯字'] = {
       terms: [
         { w: '部首', d: '國字裡表示意義類別的部分。' }
       ],
+      viz: {"type":"charparts"},
       q: {
         q: '課文說寫字前想一下什麼可以避免錯字？',
         options: [
@@ -11918,6 +12002,7 @@ window.APP_TEXTS['chinese|9|第8篇 語文與生活'] = {
       terms: [
         { w: '查證', d: '確認資訊是否正確。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說判斷資訊要看哪三件事？',
         options: [
@@ -12044,6 +12129,7 @@ window.APP_TEXTS['chinese|9|第9篇 國中國文總複習'] = {
       terms: [
         { w: '斷句', d: '把沒有標點的句子切開。' }
       ],
+      viz: {"type":"wenyanflow"},
       q: {
         q: '課文說讀文言的第一步是什麼？',
         options: [
@@ -12170,6 +12256,7 @@ window.APP_TEXTS['chinese|10|第1篇 先秦諸子的文章'] = {
       terms: [
         { w: '諸子', d: '先秦時期各學派的思想家。' }
       ],
+      viz: {"type":"dynastyband","title":"諸子出現的年代","min":-800,"max":-200,"rows":[{"label":"時代","items":[{"n":"春秋","a":-770,"b":-476,"d":"周天子權威下降，各國爭霸，舊秩序開始鬆動。"},{"n":"戰國","a":-475,"b":-221,"d":"兼併加劇，各國急需治國的辦法，學說因此百家爭鳴。"}]},{"label":"諸子","items":[{"n":"孔子","a":-551,"b":-479,"d":"論語多為簡短的對話，語氣平實，重在做人與為政。"},{"n":"墨子","a":-470,"b":-391,"d":"主張兼愛非攻，文章條理分明、反覆論證。"},{"n":"孟子","a":-372,"b":-289,"d":"善用譬喻與層層追問，氣勢很強。"},{"n":"莊子","a":-369,"b":-286,"d":"用寓言說理，想像奇特，讀起來像故事。"},{"n":"韓非","a":-280,"b":-233,"d":"文章冷靜嚴密，常用歷史故事說明法術勢。"}]}]},
       q: {
         q: '課文說先秦諸子散文出現在什麼時期？',
         options: [
@@ -12416,6 +12503,7 @@ window.APP_TEXTS['chinese|10|第2篇 唐詩的世界'] = {
       terms: [
         { w: '鍊字', d: '推敲每一個字用得準不準。' }
       ],
+      viz: {"type":"poemform"},
       q: {
         q: '課文說一首詩最精采的地方常常在哪裡？',
         options: [
@@ -12518,6 +12606,7 @@ window.APP_TEXTS['chinese|10|第3篇 散文的閱讀'] = {
       terms: [
         { w: '線索', d: '貫串全文的那條主軸。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說散文的線索可能是什麼？',
         options: [
@@ -12644,6 +12733,7 @@ window.APP_TEXTS['chinese|10|第4篇 文言文的翻譯'] = {
       terms: [
         { w: '直譯', d: '照字面逐字對應地翻譯。' }
       ],
+      viz: {"type":"wenyanflow"},
       q: {
         q: '課文說什麼時候才用意譯？',
         options: [
@@ -12770,6 +12860,7 @@ window.APP_TEXTS['chinese|10|第5篇 論說文的結構'] = {
       terms: [
         { w: '論說文', d: '提出主張並加以論證的文章。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說論說文的第一段要做什麼？',
         options: [
@@ -12944,6 +13035,7 @@ window.APP_TEXTS['chinese|10|第6篇 語體與風格'] = {
       terms: [
         { w: '正式', d: '比較慎重、講究的用法。' }
       ],
+      viz: {"type":"wordscale"},
       q: {
         q: '課文說正式語體要少用什麼？',
         options: [
@@ -13070,6 +13162,7 @@ window.APP_TEXTS['chinese|10|第7篇 修辭的深入運用'] = {
       terms: [
         { w: '修辭', d: '把話說得更準確生動的方法。' }
       ],
+      viz: {"type":"rhetoricmap"},
       q: {
         q: '課文說判斷修辭好壞要看什麼？',
         options: [
@@ -13220,6 +13313,7 @@ window.APP_TEXTS['chinese|10|第8篇 分辨事實與意見'] = {
       terms: [
         { w: '事實', d: '可以查證是否為真的陳述。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說事實和意見的差別在哪裡？',
         options: [
@@ -13466,6 +13560,7 @@ window.APP_TEXTS['chinese|10|第9篇 資料的整理與引用'] = {
       terms: [
         { w: '出處', d: '一段資料是從哪裡來的。' }
       ],
+      viz: {"type":"letterform"},
       q: {
         q: '課文說網路資料還要多記什麼？',
         options: [
@@ -13544,6 +13639,7 @@ window.APP_TEXTS['chinese|11|第1篇 史傳文學'] = {
       terms: [
         { w: '性格', d: '一個人的個性特質。' }
       ],
+      viz: {"type":"narrorder"},
       q: {
         q: '課文說史傳怎麼表現人物性格？',
         options: [
@@ -13718,6 +13814,7 @@ window.APP_TEXTS['chinese|11|第2篇 詞的特色'] = {
       terms: [
         { w: '長短句', d: '句子長短不一的詞的別稱。' }
       ],
+      viz: {"type":"poemform"},
       q: {
         q: '課文說詞和近體詩在句子上最大的差別是什麼？',
         options: [
@@ -13844,6 +13941,7 @@ window.APP_TEXTS['chinese|11|第3篇 現代散文的閱讀'] = {
       terms: [
         { w: '以小見大', d: '從小事看出更大的意義。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說題材很小代不代表沒內容？',
         options: [
@@ -13994,6 +14092,7 @@ window.APP_TEXTS['chinese|11|第4篇 小說的敘事技巧'] = {
       terms: [
         { w: '懸念', d: '讓讀者想知道後續的張力。' }
       ],
+      viz: {"type":"narrorder"},
       q: {
         q: '課文說改變敘事順序會影響什麼？',
         options: [
@@ -14120,6 +14219,7 @@ window.APP_TEXTS['chinese|11|第5篇 議論的深度'] = {
       terms: [
         { w: '深度', d: '思考挖掘的層次多寡。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說只描述現象算不算議論？',
         options: [
@@ -14294,6 +14394,7 @@ window.APP_TEXTS['chinese|11|第6篇 學術寫作的規範'] = {
       terms: [
         { w: '格式', d: '書寫時遵循的固定形式。' }
       ],
+      viz: {"type":"letterform"},
       q: {
         q: '課文說引用格式選定之後要怎樣？',
         options: [
@@ -14468,6 +14569,7 @@ window.APP_TEXTS['chinese|11|第7篇 文本的互文與比較'] = {
       terms: [
         { w: '基準', d: '比較時所依據的標準。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說比較兩個文本時基準要怎樣？',
         options: [
@@ -14594,6 +14696,7 @@ window.APP_TEXTS['chinese|11|第8篇 語言與思考'] = {
       terms: [
         { w: '模糊', d: '不明確、說不清楚。' }
       ],
+      viz: {"type":"wordscale"},
       q: {
         q: '課文說換一個更準的詞會有什麼效果？',
         options: [
@@ -14744,6 +14847,7 @@ window.APP_TEXTS['chinese|11|第9篇 口語表達與簡報'] = {
       terms: [
         { w: '結論', d: '最主要的那個結果或主張。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說口語表達為什麼要先講結論？',
         options: [
@@ -14870,6 +14974,7 @@ window.APP_TEXTS['chinese|12|第1篇 學測國文的題型'] = {
       terms: [
         { w: '題組', d: '同一份材料底下的一組題目。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"白話閱讀","value":40},{"label":"文言閱讀","value":30},{"label":"字詞與語法","value":20},{"label":"文學常識","value":10}]},
       q: {
         q: '課文說字詞成語通常怎麼考？',
         options: [
@@ -15092,6 +15197,7 @@ window.APP_TEXTS['chinese|12|第2篇 知性題的寫作'] = {
       terms: [
         { w: '分點', d: '把內容分成幾個要點來寫。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說知性題的第一段要寫什麼？',
         options: [
@@ -15242,6 +15348,7 @@ window.APP_TEXTS['chinese|12|第3篇 情意題的寫作'] = {
       terms: [
         { w: '轉折', d: '想法或情感的轉變。' }
       ],
+      viz: {"type":"narrorder"},
       q: {
         q: '課文說沒有轉折的情意文會怎樣？',
         options: [
@@ -15344,6 +15451,7 @@ window.APP_TEXTS['chinese|12|第4篇 文言文總複習'] = {
       terms: [
         { w: '句型', d: '句子的固定結構。' }
       ],
+      viz: {"type":"wenyanflow"},
       q: {
         q: '課文說被動句常用哪些字？',
         options: [
@@ -15470,6 +15578,7 @@ window.APP_TEXTS['chinese|12|第5篇 閱讀策略總複習'] = {
       terms: [
         { w: '略讀', d: '快速瀏覽抓住大意。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說找特定資訊要用哪一種讀法？',
         options: [
@@ -15668,6 +15777,7 @@ window.APP_TEXTS['chinese|12|第6篇 寫作的整體規劃'] = {
       terms: [
         { w: '大綱', d: '寫作前先列的內容架構。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說大綱每一段要寫幾句？',
         options: [
@@ -15818,6 +15928,7 @@ window.APP_TEXTS['chinese|12|第7篇 常見的失分點'] = {
       terms: [
         { w: '鬆散', d: '結構不緊密、缺少連貫。' }
       ],
+      viz: {"type":"essayform"},
       q: {
         q: '課文說結構鬆散通常是因為什麼？',
         options: [
@@ -15944,6 +16055,7 @@ window.APP_TEXTS['chinese|12|第8篇 從閱讀到寫作'] = {
       terms: [
         { w: '寫法', d: '作者採用的表達方式。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說要寫作的人讀文章時還要看什麼？',
         options: [
@@ -16070,6 +16182,7 @@ window.APP_TEXTS['chinese|12|第9篇 語文能力總結'] = {
       terms: [
         { w: '能力', d: '實際做得到的本事。' }
       ],
+      viz: {"type":"cycle","steps":["讀（輸入）","聽（輸入）","想（整理）","說與寫（輸出）"]},
       q: {
         q: '課文說四種語文能力的關係是什麼？',
         options: [

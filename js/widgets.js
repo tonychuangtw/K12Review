@@ -10889,6 +10889,954 @@
     host.appendChild(box);
   };
 
+
+  /* ── 國語（語文常識）用的圖（2026-08-30 第四批）────────────────────────
+     國語的帶讀有 108 篇、648 段，一張圖都沒有 —— 因為它沒有概念卡可以接。
+     這幾種是直接掛在帶讀段落上的：注音結構、國字拆解、標點斷句、句子成分、
+     韻文格律、文體結構。 */
+
+  /* 注音的三段：聲母＋介音＋韻母，聲調另外標。
+     小一「注音符號怎麼拼」最需要的一張圖 —— 讓學生看到位置是固定的、不會顛倒。 */
+  REG.zhuyinparts = function (host, spec) {
+    var EX = spec.items || [
+      { c: '花', p: ['ㄏ', 'ㄨ', 'ㄚ'], t: '', say: '三段都有：聲母ㄏ、介音ㄨ、韻母ㄚ，一聲不標調號。' },
+      { c: '風', p: ['ㄈ', '', 'ㄥ'], t: '', say: '沒有介音，中間就空著，聲母直接接韻母。' },
+      { c: '想', p: ['ㄒ', 'ㄧ', 'ㄤ'], t: 'ˇ', say: '三段都有，再加上三聲的調號。' },
+      { c: '愛', p: ['', '', 'ㄞ'], t: 'ˋ', say: '只有韻母，前面兩格都空著 —— 一個符號也能自成一個字。' },
+      { c: '說', p: ['ㄕ', 'ㄨ', 'ㄛ'], t: '', say: '介音ㄨ夾在中間，念的時候要滑過去，不是分開念三個音。' },
+      { c: '的', p: ['ㄉ', '', 'ㄜ'], t: '˙', say: '輕聲的點要放在最前面，這是注音裡唯一放前面的調號。' }
+    ];
+    var i = 0;
+    var LAB = ['聲母', '介音', '韻母'];
+    var COL = ['var(--accent)', 'var(--accent2)', 'var(--good)'];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var e = EX[i];
+      svg.appendChild(el('rect', { x: 18, y: 44, width: 62, height: 62, rx: 10 },
+        'fill:var(--panel2);stroke:var(--border);stroke-width:1.5'));
+      svg.appendChild(txt(49, 75, e.c, 'font-size:36px;fill:var(--text)'));
+      svg.appendChild(txt(49, 120, '這個字', 'font-size:10px;fill:var(--dim)'));
+      // 箭頭：字 → 拆成三格
+      svg.appendChild(el('line', { x1: 86, y1: 75, x2: 108, y2: 75 }, 'stroke:var(--dim);stroke-width:2'));
+      svg.appendChild(el('polygon', { points: '114,75 105,70 105,80' }, 'fill:var(--dim)'));
+      for (var k = 0; k < 3; k++) {
+        var x = 122 + k * 58, has = !!e.p[k];
+        svg.appendChild(el('rect', { x: x, y: 44, width: 50, height: 62, rx: 8 },
+          'fill:' + COL[k] + ';fill-opacity:' + (has ? 0.26 : 0.06) +
+          ';stroke:var(--border);stroke-width:1.5' + (has ? '' : ';stroke-dasharray:4 3')));
+        svg.appendChild(txt(x + 25, 75, has ? e.p[k] : '（沒有）',
+          has ? 'font-size:28px;fill:var(--text)' : 'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(txt(x + 25, 120, LAB[k], 'font-size:11px;fill:' + COL[k]));
+      }
+      // 聲調標在韻母右上角，位置本來就有意義
+      svg.appendChild(txt(160, 22, e.t ? '聲調：' + e.t : '聲調：一聲（不標調號）',
+        'font-size:12px;font-weight:700;fill:var(--text)'));
+      svg.appendChild(txt(160, 148, '順序固定：聲母 → 介音 → 韻母，不會顛倒',
+        'font-size:11px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', e.say));
+      read.appendChild(div('wg-read-sub',
+        '注音最多只有三格，而且順序是固定的。有的字三格都有（花ㄏㄨㄚ），' +
+        '有的少一格（風ㄈㄥ沒有介音），有的只有一格（愛ㄞ）。' +
+        '⚠ 調號是額外加上去的，不占格子：一聲不標，二三四聲標在最後一個符號的右上角，' +
+        '輕聲的點則放在最前面。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一個字', function () { i = (i + 1) % EX.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 六書：象形、指事、會意、形聲各一個字，拆給你看。
+     形聲字那格特別重要 —— 現代國字九成是形聲，看懂「形符管意思、聲符管讀音」
+     就能自己猜生字。 */
+  REG.charparts = function (host, spec) {
+    var EX = spec.items || [
+      { k: '象形', c: '山', draw: 'mount', say: '照著東西的樣子畫下來，三個山峰就是「山」。' },
+      { k: '象形', c: '日', draw: 'sun', say: '一個圓圈中間一點，就是太陽。' },
+      { k: '指事', c: '上', draw: 'up', say: '畫不出來的意思，就在基準線上加一個記號：橫線之上就是「上」。' },
+      { k: '指事', c: '本', draw: 'root', say: '在「木」的下面加一橫，指出樹根的位置，就是「本」。' },
+      { k: '會意', c: '休', a: '人', b: '木', say: '人靠在樹旁邊，合起來就是休息的「休」。' },
+      { k: '會意', c: '明', a: '日', b: '月', say: '太陽加月亮，兩個會發光的東西合起來就是「明」。' },
+      { k: '形聲', c: '清', a: '氵', b: '青', say: '氵管意思（跟水有關），青管讀音，所以念作ㄑㄧㄥ。' },
+      { k: '形聲', c: '晴', a: '日', b: '青', say: '同樣用青當聲符，形符換成日 —— 意思變成跟太陽有關。' },
+      { k: '形聲', c: '跑', a: '足', b: '包', say: '足管意思（跟腳有關），包管讀音。' }
+    ];
+    var i = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function pic(kind, cx, cy) {
+      // 象形／指事：用最簡單的線條畫出「這個字本來在畫什麼」
+      if (kind === 'mount') {
+        svg.appendChild(el('polyline', { points: (cx - 24) + ',' + (cy + 18) + ' ' + (cx - 12) + ',' + (cy - 12) +
+          ' ' + cx + ',' + (cy + 6) + ' ' + (cx + 12) + ',' + (cy - 18) + ' ' + (cx + 24) + ',' + (cy + 18) },
+          'fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linejoin:round'));
+      } else if (kind === 'sun') {
+        svg.appendChild(el('circle', { cx: cx, cy: cy, r: 18 }, 'fill:none;stroke:var(--accent);stroke-width:2.5'));
+        svg.appendChild(el('circle', { cx: cx, cy: cy, r: 3 }, 'fill:var(--accent)'));
+      } else if (kind === 'up') {
+        svg.appendChild(el('line', { x1: cx - 24, y1: cy + 10, x2: cx + 24, y2: cy + 10 },
+          'stroke:var(--dim);stroke-width:2.5'));
+        svg.appendChild(el('line', { x1: cx - 6, y1: cy - 10, x2: cx + 6, y2: cy - 10 },
+          'stroke:var(--bad);stroke-width:3.5'));
+        svg.appendChild(txt(cx + 34, cy - 10, '記號', 'font-size:9px;fill:var(--bad)'));
+      } else if (kind === 'root') {
+        svg.appendChild(el('line', { x1: cx, y1: cy - 20, x2: cx, y2: cy + 18 }, 'stroke:var(--dim);stroke-width:2.5'));
+        svg.appendChild(el('line', { x1: cx - 18, y1: cy - 6, x2: cx + 18, y2: cy - 6 }, 'stroke:var(--dim);stroke-width:2.5'));
+        svg.appendChild(el('line', { x1: cx - 12, y1: cy + 12, x2: cx + 12, y2: cy + 12 },
+          'stroke:var(--bad);stroke-width:3.5'));
+        svg.appendChild(txt(cx + 34, cy + 12, '記號', 'font-size:9px;fill:var(--bad)'));
+      }
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var e = EX[i];
+      svg.appendChild(txt(160, 18, '六書：' + e.k, 'font-size:13px;font-weight:700;fill:var(--accent)'));
+      if (e.draw) {
+        pic(e.draw, 90, 84);
+        svg.appendChild(el('line', { x1: 132, y1: 84, x2: 168, y2: 84 }, 'stroke:var(--dim);stroke-width:2'));
+        svg.appendChild(el('polygon', { points: '174,84 165,79 165,89' }, 'fill:var(--dim)'));
+        svg.appendChild(el('rect', { x: 196, y: 54, width: 60, height: 60, rx: 10 },
+          'fill:var(--panel2);stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(226, 85, e.c, 'font-size:36px;fill:var(--text)'));
+        svg.appendChild(txt(90, 132, e.k === '象形' ? '本來在畫的東西' : '基準的字＋一個記號',
+          'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(txt(226, 132, '這個字', 'font-size:10px;fill:var(--dim)'));
+      } else {
+        var isXS = e.k === '形聲';
+        [[42, e.a, isXS ? '形符（管意思）' : '一半', 'var(--accent)'],
+         [122, e.b, isXS ? '聲符（管讀音）' : '另一半', 'var(--accent2)']].forEach(function (p) {
+          svg.appendChild(el('rect', { x: p[0], y: 54, width: 58, height: 58, rx: 10 },
+            'fill:' + p[3] + ';fill-opacity:.22;stroke:var(--border);stroke-width:1.5'));
+          svg.appendChild(txt(p[0] + 29, 84, p[1], 'font-size:30px;fill:var(--text)'));
+          svg.appendChild(txt(p[0] + 29, 130, p[2], 'font-size:10px;fill:' + p[3]));
+        });
+        svg.appendChild(txt(110, 84, '＋', 'font-size:18px;fill:var(--dim)'));
+        svg.appendChild(el('line', { x1: 186, y1: 84, x2: 212, y2: 84 }, 'stroke:var(--dim);stroke-width:2'));
+        svg.appendChild(el('polygon', { points: '218,84 209,79 209,89' }, 'fill:var(--dim)'));
+        svg.appendChild(el('rect', { x: 234, y: 54, width: 58, height: 58, rx: 10 },
+          'fill:var(--panel2);stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(263, 84, e.c, 'font-size:34px;fill:var(--text)'));
+        svg.appendChild(txt(263, 130, '合起來', 'font-size:10px;fill:var(--dim)'));
+      }
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', e.say));
+      read.appendChild(div('wg-read-sub',
+        '象形是照著樣子畫，指事是在基準上加記號，會意是兩個字合起來變出新意思，' +
+        '形聲是一半管意思、一半管讀音。⚠ 現代國字裡形聲字占了絕大多數 —— ' +
+        '所以看到不認識的字，先找形符猜意思（三點水跟水有關）、再找聲符猜讀音，' +
+        '常常能猜個八九不離十。但聲符不一定準：讀音經過幾千年會變，' +
+        '「清」念ㄑㄧㄥ、「猜」卻念ㄘㄞ。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一個字', function () { i = (i + 1) % EX.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 標點斷句：同一串字，逗號點在不同地方，意思整個翻過來。
+     講標點的重要性，這比任何說明都有力。 */
+  REG.punctcut = function (host, spec) {
+    var EX = spec.items || [
+      { raw: '下雨天留客天留我不留',
+        v: [{ cut: [3, 6, 9], marks: ['，', '，', '？'], end: '！',
+              say: '主人的意思：下雨天是留客的天，要留我嗎？留啊！' },
+            { cut: [3, 6], marks: ['，', '，'], end: '。',
+              say: '客人的意思：下雨天，留客天，留我不留。（等於沒答應）' }] },
+      { raw: '明天不下雨我們就去爬山',
+        v: [{ cut: [4], marks: ['，'], end: '。', say: '照常理讀：只要明天不下雨，我們就去爬山。' },
+            { cut: [3, 6], marks: ['，', '，'], end: '。', say: '斷錯地方就變成另一回事了，讀起來也不通順。' }] },
+      { raw: '這件事我知道了沒關係',
+        v: [{ cut: [5], marks: ['，'], end: '。', say: '安慰別人：這件事我知道了，沒關係。' },
+            { cut: [5], marks: ['？'], end: '。', say: '變成質問：這件事我知道了？沒關係。（語氣完全不同）' }] }
+    ];
+    var i = 0, v = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 150', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var e = EX[i], w = e.v[v], cs = e.raw.split('');
+      // 原句：一個字一格，沒有任何標點
+      var bw = Math.min(24, 292 / cs.length);
+      var x0 = 160 - cs.length * bw / 2;
+      cs.forEach(function (c, k) {
+        svg.appendChild(el('rect', { x: x0 + k * bw, y: 34, width: bw - 2, height: bw + 4, rx: 3 },
+          'fill:var(--panel2);stroke:var(--border);stroke-width:1'));
+        svg.appendChild(txt(x0 + k * bw + (bw - 2) / 2, 34 + (bw + 4) / 2, c,
+          'font-size:' + Math.min(15, bw - 6) + 'px;fill:var(--text)'));
+      });
+      svg.appendChild(txt(160, 22, '同一串字，沒有標點', 'font-size:11px;fill:var(--dim)'));
+      // 斷句後：在切點插入標點
+      var out = '';
+      var last = 0;
+      w.cut.forEach(function (p, k) { out += e.raw.slice(last, p) + w.marks[k]; last = p; });
+      out += e.raw.slice(last) + w.end;
+      svg.appendChild(el('line', { x1: 40, y1: 78, x2: 280, y2: 78 },
+        'stroke:var(--border);stroke-width:1;stroke-dasharray:4 4'));
+      svg.appendChild(txt(160, 102, out, 'font-size:16px;font-weight:700;fill:var(--accent)'));
+      // 切點用紅色小三角標出來
+      w.cut.forEach(function (p) {
+        var cx = x0 + p * bw - 1;
+        svg.appendChild(el('polygon', { points: cx + ',30 ' + (cx - 5) + ',22 ' + (cx + 5) + ',22' },
+          'fill:var(--bad)'));
+      });
+      svg.appendChild(txt(160, 130, '第 ' + (v + 1) + ' 種斷法（共 ' + e.v.length + ' 種）',
+        'font-size:10px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', w.say));
+      read.appendChild(div('wg-read-sub',
+        '古書本來沒有標點，讀書人要自己斷句 —— 斷在哪裡，意思就差在哪裡。' +
+        '今天寫字一定要加標點，就是為了把「你想表達的那一種意思」固定下來，' +
+        '不要留給讀的人去猜。⚠ 逗號不是「唸到這裡換氣」而已，' +
+        '它標的是意思的段落；標錯地方，別人讀到的就是另一句話。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一種斷法', function () {
+      var e = EX[i]; v++; if (v >= e.v.length) { v = 0; i = (i + 1) % EX.length; } paint();
+    }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 句子成分：把一句話拆成主語、述語、賓語，再看修飾語掛在誰身上。
+     「一句話要完整」「把句子寫長一點」「詞性入門」都用得到。 */
+  REG.sentparts = function (host, spec) {
+    var EX = spec.items || [
+      { seg: [['小明', 0], ['讀', 1], ['書', 2]], say: '最短的完整句：誰、做什麼、對象是什麼。' },
+      { seg: [['小明', 0], ['慢慢地', 3], ['讀完了', 1], ['那本有趣的', 4], ['書', 2]],
+        say: '加上修飾語就變長了，但骨架還是「小明－讀完了－書」三塊。' },
+      { seg: [['弟弟', 0], ['把蛋糕', 5], ['吃光了', 1]],
+        say: '「把」字句：賓語提到動詞前面，強調「那個東西被怎麼了」。' },
+      { seg: [['這朵花', 0], ['開得', 1], ['很美', 6]],
+        say: '補語補在動詞後面，說明動作到什麼程度。' },
+      { seg: [['天', 0], ['亮', 1]], say: '沒有賓語也可以是完整句 —— 有些動作不需要對象。' }
+    ];
+    var LAB = ['主語（誰）', '述語（做什麼）', '賓語（對象）', '狀語（怎麼做）', '定語（哪一個）',
+               '介詞短語', '補語（到什麼程度）'];
+    var COL = ['var(--accent)', 'var(--bad)', 'var(--good)', 'var(--accent2)', 'var(--accent2)',
+               'var(--dim)', 'var(--good)'];
+    var i = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var e = EX[i];
+      var total = e.seg.reduce(function (a, s) { return a + s[0].length; }, 0);
+      var unit = Math.min(20, 268 / total);
+      var x = 160 - total * unit / 2;
+      e.seg.forEach(function (s) {
+        var w = s[0].length * unit;
+        svg.appendChild(el('rect', { x: x, y: 44, width: w - 3, height: 34, rx: 6 },
+          'fill:' + COL[s[1]] + ';fill-opacity:.26;stroke:var(--border);stroke-width:1'));
+        svg.appendChild(txt(x + (w - 3) / 2, 61, s[0], 'font-size:' + Math.min(15, unit - 3) + 'px;fill:var(--text)'));
+        // 標籤交錯放上下兩層，短句才不會擠在一起
+        var below = 96;
+        svg.appendChild(el('line', { x1: x + (w - 3) / 2, y1: 80, x2: x + (w - 3) / 2, y2: below - 8 },
+          'stroke:' + COL[s[1]] + ';stroke-width:1'));
+        svg.appendChild(txt(x + (w - 3) / 2, below, LAB[s[1]].split('（')[0],
+          'font-size:10px;fill:' + COL[s[1]]));
+        x += w;
+      });
+      svg.appendChild(txt(160, 22, '把句子拆成幾塊', 'font-size:12px;font-weight:700;fill:var(--text)'));
+      // 圖例：這一句用到哪幾種
+      var used = [];
+      e.seg.forEach(function (s) { if (used.indexOf(s[1]) < 0) used.push(s[1]); });
+      used.forEach(function (u, k) {
+        var lx = 20 + (k % 2) * 152, ly = 122 + Math.floor(k / 2) * 16;
+        svg.appendChild(el('rect', { x: lx, y: ly - 7, width: 10, height: 10, rx: 2 },
+          'fill:' + COL[u] + ';fill-opacity:.5;stroke:var(--border)'));
+        var t = el('text', { x: lx + 15, y: ly + 2 }, 'font-size:9px;fill:var(--dim)');
+        t.textContent = LAB[u]; svg.appendChild(t);
+      });
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', e.say));
+      read.appendChild(div('wg-read-sub',
+        '一個完整的句子至少要有「誰」和「做什麼」，也就是主語和述語；' +
+        '有沒有賓語要看那個動作需不需要對象（「天亮」就不需要）。' +
+        '其他成分都是掛上去的修飾語：定語修飾名詞、狀語修飾動作、補語補在動作後面說明程度。' +
+        '⚠ 句子變長不是把字堆多，是把修飾語掛對地方 —— 骨架一直都是那幾塊。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一個句子', function () { i = (i + 1) % EX.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 韻文格律：絕句與律詩的骨架 —— 幾句、每句幾字、韻腳落在哪、律詩哪兩聯要對仗。
+     ⚠ 這裡只畫確定的結構（句數、字數、押韻位置、對仗聯），不標每個字的平仄：
+     平仄要逐字查中古音，畫錯反而害人。 */
+  REG.poemform = function (host, spec) {
+    var FORM = spec.items || [
+      { k: '五言絕句', n: 4, w: 5, rhyme: [1, 3], couplet: [],
+        eg: ['白日依山盡', '黃河入海流', '欲窮千里目', '更上一層樓'],
+        say: '四句、每句五字。韻腳落在第二、四句的最後一字：流、樓。' },
+      { k: '七言絕句', n: 4, w: 7, rhyme: [0, 1, 3], couplet: [],
+        eg: ['朝辭白帝彩雲間', '千里江陵一日還', '兩岸猿聲啼不住', '輕舟已過萬重山'],
+        say: '四句、每句七字。這一首首句也入韻：間、還、山三個字押同一個韻。' },
+      { k: '五言律詩', n: 8, w: 5, rhyme: [1, 3, 5, 7], couplet: [[2, 3], [4, 5]],
+        eg: ['空山新雨後', '天氣晚來秋', '明月松間照', '清泉石上流',
+             '竹喧歸浣女', '蓮動下漁舟', '隨意春芳歇', '王孫自可留'],
+        say: '八句、每句五字。第三四句（頷聯）與第五六句（頸聯）要對仗。' }
+    ];
+    var i = 0;
+    var box = div('wg');
+    var read = div('wg-read');
+    function paint(svg) {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var f = FORM[i];
+      var cell = f.w > 5 ? 22 : 26;
+      var x0 = 160 - f.w * cell / 2, y0 = 34, rowh = f.n > 4 ? 20 : 30;
+      // 對仗的兩聯先鋪底色，才不會蓋住字
+      (f.couplet || []).forEach(function (c) {
+        svg.appendChild(el('rect', { x: x0 - 6, y: y0 + c[0] * rowh - 3,
+          width: f.w * cell + 12, height: rowh * 2 - 2, rx: 6 },
+          'fill:var(--accent2);fill-opacity:.14;stroke:var(--accent2);stroke-width:1;stroke-dasharray:4 3'));
+        svg.appendChild(txt(x0 - 22, y0 + (c[0] + 1) * rowh, '對仗',
+          'font-size:9px;fill:var(--accent2)'));
+      });
+      for (var r = 0; r < f.n; r++) {
+        for (var c2 = 0; c2 < f.w; c2++) {
+          var last = c2 === f.w - 1, isR = last && f.rhyme.indexOf(r) >= 0;
+          svg.appendChild(el('rect', { x: x0 + c2 * cell, y: y0 + r * rowh,
+            width: cell - 3, height: rowh - 4, rx: 3 },
+            'fill:' + (isR ? 'var(--bad)' : 'var(--panel2)') + ';fill-opacity:' + (isR ? 0.3 : 1) +
+            ';stroke:' + (isR ? 'var(--bad)' : 'var(--border)') + ';stroke-width:1'));
+          svg.appendChild(txt(x0 + c2 * cell + (cell - 3) / 2, y0 + r * rowh + (rowh - 4) / 2,
+            f.eg[r].charAt(c2), 'font-size:' + (rowh > 24 ? 15 : 12) + 'px;fill:var(--text)'));
+        }
+        var t = el('text', { x: x0 + f.w * cell + 12, y: y0 + r * rowh + (rowh - 4) / 2 + 4 },
+          'font-size:9px;fill:var(--dim)');
+        t.textContent = '第' + (r + 1) + '句'; svg.appendChild(t);
+      }
+      svg.appendChild(txt(160, 20, f.k + '　' + f.n + ' 句 × 每句 ' + f.w + ' 字',
+        'font-size:12px;font-weight:700;fill:var(--text)'));
+      svg.appendChild(txt(160, y0 + f.n * rowh + 14, '紅框＝韻腳（押同一個韻的字）',
+        'font-size:10px;fill:var(--bad)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', f.say));
+      read.appendChild(div('wg-read-sub',
+        '近體詩的規矩可以先記三件事：句數固定（絕句四句、律詩八句）、' +
+        '每句字數固定（五言或七言）、偶數句的最後一字要押韻（首句可押可不押）。' +
+        '律詩多一條：中間兩聯要對仗 —— 詞性相對、結構相同。' +
+        '⚠ 還有一套平仄規則，那要逐字查字的聲調，這張圖先不畫，' +
+        '免得記成錯的。'));
+    }
+    var H = 0;
+    var svg = el('svg', { class: 'wg-svg' });
+    box.appendChild(svg);
+    box.appendChild(read);
+    function repaint() {
+      var f = FORM[i];
+      H = 34 + f.n * (f.n > 4 ? 20 : 30) + 26;
+      svg.setAttribute('viewBox', '0 0 320 ' + H);
+      paint(svg);
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一種詩體', function () { i = (i + 1) % FORM.length; repaint(); }));
+    repaint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 文體的骨架：記敘文是一條時間線、說明文是一棵分層的樹、議論文是一座金字塔。
+     三種形狀真的不一樣 —— 這正是「換一種文體就要換一種寫法」的意思。 */
+  REG.essayform = function (host, spec) {
+    var kind = 0;
+    var NAME = ['記敘文', '說明文', '議論文'];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      if (kind === 0) {
+        // 時間線：事情照發生的順序往前走
+        svg.appendChild(el('line', { x1: 30, y1: 108, x2: 292, y2: 108 },
+          'stroke:var(--accent);stroke-width:3'));
+        svg.appendChild(el('polygon', { points: '298,108 288,102 288,114' }, 'fill:var(--accent)'));
+        ['起因', '經過', '高潮', '結果'].forEach(function (s, k) {
+          var x = 56 + k * 72;
+          svg.appendChild(el('circle', { cx: x, cy: 108, r: 15 },
+            'fill:var(--accent);fill-opacity:.3;stroke:var(--border);stroke-width:1.5'));
+          svg.appendChild(txt(x, 108, s, 'font-size:11px;fill:var(--text)'));
+        });
+        svg.appendChild(txt(160, 150, '六要素：時間、地點、人物、起因、經過、結果',
+          'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(txt(160, 74, '時間往這邊走 →', 'font-size:10px;fill:var(--dim)'));
+      } else if (kind === 1) {
+        // 樹：總說在上，分項在下，最後收回總結
+        svg.appendChild(el('rect', { x: 118, y: 34, width: 84, height: 28, rx: 6 },
+          'fill:var(--good);fill-opacity:.3;stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(160, 48, '總說', 'font-size:12px;fill:var(--text)'));
+        ['特徵一', '特徵二', '特徵三'].forEach(function (s, k) {
+          var x = 44 + k * 96;
+          svg.appendChild(el('line', { x1: 160, y1: 62, x2: x + 38, y2: 96 },
+            'stroke:var(--border);stroke-width:1.5'));
+          svg.appendChild(el('rect', { x: x, y: 96, width: 76, height: 28, rx: 6 },
+            'fill:var(--accent);fill-opacity:.22;stroke:var(--border);stroke-width:1'));
+          svg.appendChild(txt(x + 38, 110, s, 'font-size:11px;fill:var(--text)'));
+        });
+        svg.appendChild(el('rect', { x: 118, y: 150, width: 84, height: 28, rx: 6 },
+          'fill:var(--good);fill-opacity:.3;stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(160, 164, '總結', 'font-size:12px;fill:var(--text)'));
+        [44, 140, 236].forEach(function (x) {
+          svg.appendChild(el('line', { x1: x + 38, y1: 124, x2: 160, y2: 150 },
+            'stroke:var(--border);stroke-width:1.5'));
+        });
+      } else {
+        // 金字塔：底下鋪論據，往上收成一個論點
+        var LV = [['論點（你主張什麼）', 34, 96], ['論據（憑什麼這樣說）', 84, 170],
+                  ['論證（怎麼從證據推到主張）', 134, 240]];
+        LV.forEach(function (L, k) {
+          svg.appendChild(el('rect', { x: 160 - L[2] / 2, y: L[1], width: L[2], height: 40, rx: 6 },
+            'fill:var(--accent)' + ';fill-opacity:' + (0.34 - k * 0.08) + ';stroke:var(--border);stroke-width:1.5'));
+          svg.appendChild(txt(160, L[1] + 20, L[0], 'font-size:11px;fill:var(--text)'));
+        });
+        svg.appendChild(el('line', { x1: 300, y1: 172, x2: 300, y2: 54 },
+          'stroke:var(--bad);stroke-width:2'));
+        svg.appendChild(el('polygon', { points: '300,48 295,58 305,58' }, 'fill:var(--bad)'));
+        svg.appendChild(txt(286, 112, '往上收', 'font-size:9px;fill:var(--bad)'));
+      }
+      svg.appendChild(txt(160, 18, NAME[kind] + '的骨架', 'font-size:13px;font-weight:700;fill:var(--text)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', [
+        '記敘文照時間走：把事情按發生的先後說清楚，讀者才跟得上。',
+        '說明文是總—分—總：先講這是什麼，再一項一項說明，最後收回來。',
+        '議論文由下往上收：先有證據，再說明證據怎麼支持你的主張。'
+      ][kind]));
+      read.appendChild(div('wg-read-sub',
+        '三種文體的骨架形狀不一樣，這就是「換一種文體要換一種寫法」的意思：' +
+        '記敘文最怕順序亂跳，說明文最怕分項之間互相重疊，' +
+        '議論文最怕只有主張沒有證據。⚠ 動筆之前先決定要寫哪一種，' +
+        '再照那個骨架把材料放進去 —— 先想結構再想句子，比一路寫下去容易得多。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一種文體', function () { kind = (kind + 1) % 3; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+
+  /* 敘述順序：順敘、倒敘、插敘。事情發生的順序是固定的，
+     變的是「作者從哪裡開始講、中間跳去哪裡」—— 兩條線一比就清楚。 */
+  REG.narrorder = function (host, spec) {
+    var mode = 0;
+    var NAME = ['順敘', '倒敘', '插敘'];
+    var EV = ['起因', '經過', '高潮', '結果'];
+    var ORDER = [[0, 1, 2, 3], [3, 0, 1, 2], [0, 1, 4, 2, 3]];   // 4 = 插進來的往事
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      // 上排：事情真正發生的順序（永遠一樣）
+      svg.appendChild(txt(160, 20, '事情真正發生的順序', 'font-size:11px;fill:var(--dim)'));
+      var pos = [];
+      EV.forEach(function (e, k) {
+        var x = 46 + k * 76;
+        pos.push(x);
+        svg.appendChild(el('rect', { x: x - 30, y: 30, width: 60, height: 26, rx: 6 },
+          'fill:var(--panel2);stroke:var(--border);stroke-width:1'));
+        svg.appendChild(txt(x, 43, e, 'font-size:11px;fill:var(--text)'));
+      });
+      svg.appendChild(el('line', { x1: 16, y1: 66, x2: 304, y2: 66 },
+        'stroke:var(--border);stroke-width:1;stroke-dasharray:4 4'));
+      // 下排：作者實際講的順序
+      svg.appendChild(txt(160, 84, '作者實際講的順序（' + NAME[mode] + '）',
+        'font-size:11px;font-weight:700;fill:var(--accent)'));
+      var seq = ORDER[mode];
+      seq.forEach(function (id, k) {
+        var x = 160 - seq.length * 30 + k * 60 + 30;
+        var lab = id === 4 ? '往事' : EV[id];
+        svg.appendChild(el('rect', { x: x - 27, y: 96, width: 54, height: 26, rx: 6 },
+          'fill:' + (id === 4 ? 'var(--accent2)' : 'var(--accent)') +
+          ';fill-opacity:.28;stroke:var(--border);stroke-width:1'));
+        svg.appendChild(txt(x, 109, lab, 'font-size:11px;fill:var(--text)'));
+        svg.appendChild(txt(x, 138, String(k + 1), 'font-size:10px;fill:var(--dim)'));
+        // 連回上排，看得出「跳到哪裡」
+        if (id < 4) {
+          svg.appendChild(el('line', { x1: x, y1: 96, x2: pos[id], y2: 56 },
+            'stroke:' + (k && seq[k - 1] > id ? 'var(--bad)' : 'var(--dim)') +
+            ';stroke-width:' + (k && seq[k - 1] > id ? 2 : 1) + ';stroke-dasharray:3 3'));
+        }
+      });
+      svg.appendChild(txt(160, 158, '下排的號碼＝讀者讀到的先後', 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(160, 176, mode === 0 ? '兩排完全對齊，沒有跳'
+        : mode === 1 ? '先把結果搬到最前面，再從頭說' : '講到一半插進一段往事，再接回來',
+        'font-size:11px;fill:var(--bad)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', [
+        '順敘：照事情發生的先後講，最清楚也最不容易亂。',
+        '倒敘：先講結果或最緊張的一刻，再回頭交代怎麼來的 —— 用來抓住讀者。',
+        '插敘：講到一半停下來補一段往事，補完再接回原來的地方。'
+      ][mode]));
+      read.appendChild(div('wg-read-sub',
+        '事情發生的順序是固定的，變的只是「說故事的順序」。' +
+        '倒敘與插敘會讓時間跳來跳去，所以一定要給讀者訊號 —— ' +
+        '「那是三年前的事了」「回到眼前」這類句子就是路標。' +
+        '⚠ 跳太多次讀者會迷路：一篇文章裡倒敘用一次、插敘一到兩次就夠了。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一種敘述順序', function () { mode = (mode + 1) % 3; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 應用文的版面：書信、日記、便條、會議紀錄各有固定欄位與位置。
+     這種東西用講的記不住，看一次版面圖就記住了。 */
+  REG.letterform = function (host, spec) {
+    var kind = 0;
+    var FORMS = [
+      { k: '書信', rows: [['稱呼', 'left', '親愛的奶奶：'], ['問候', 'indent', '您好嗎？天氣轉涼了……'],
+          ['正文', 'indent', '今天想跟您說一件事……'], ['祝福', 'left2', '敬祝　身體健康'],
+          ['署名', 'right', '孫女　小美　敬上'], ['日期', 'right', '十月十五日']],
+        say: '五個部分的位置都是固定的：稱呼頂格、正文空兩格、祝福語另起一行、署名與日期靠右。' },
+      { k: '日記', rows: [['日期天氣', 'right', '十月十五日　晴'], ['正文', 'indent', '今天發生了一件事……'],
+          ['細節', 'indent', '當時我心裡很緊張……'], ['感想', 'indent', '我才知道原來……']],
+        say: '日記重點在「一件事＋你的感覺」，不是把一整天流水帳寫完。' },
+      { k: '便條', rows: [['稱呼', 'left', '小明：'], ['事情', 'indent', '你的課本我先帶回家了。'],
+          ['時間地點', 'indent', '明天早自習還你。'], ['署名', 'right', '小華　留'], ['日期時間', 'right', '10/15 下午 4:20']],
+        say: '便條要短，但四件事不能少：給誰、什麼事、怎麼處理、誰留的。' },
+      { k: '會議紀錄', rows: [['會議名稱', 'center', '班級幹部會議紀錄'],
+          ['時間地點', 'left', '時間：10/15 13:10　地點：三年二班教室'],
+          ['出席', 'left', '出席：班長等 8 人　主席：班長　紀錄：小美'],
+          ['討論事項', 'left', '一、校慶園遊會攤位……'], ['決議', 'left', '決議：由美宣組負責海報，10/20 前完成。']],
+        say: '會議紀錄要能讓沒到場的人看懂：誰、什麼時候、討論什麼、最後決定什麼。' }
+    ];
+    var box = div('wg');
+    var svg = el('svg', { class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      var f = FORMS[kind];
+      var H = 46 + f.rows.length * 30 + 12;
+      svg.setAttribute('viewBox', '0 0 320 ' + H);
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(el('rect', { x: 58, y: 30, width: 250, height: f.rows.length * 30 + 8, rx: 6 },
+        'fill:var(--panel2);stroke:var(--border);stroke-width:1.5'));
+      svg.appendChild(txt(160, 18, f.k + '的版面', 'font-size:13px;font-weight:700;fill:var(--text)'));
+      f.rows.forEach(function (r, k) {
+        var y = 52 + k * 30;
+        // 左邊標欄位名，右邊照真實位置排內容
+        var lb = el('text', { x: 4, y: y + 4 }, 'font-size:9px;fill:var(--accent)');
+        lb.textContent = r[0]; svg.appendChild(lb);
+        var x = 66, anchor = 'start';
+        if (r[1] === 'indent') x = 82;
+        else if (r[1] === 'left2') x = 74;
+        else if (r[1] === 'right') { x = 300; anchor = 'end'; }
+        else if (r[1] === 'center') { x = 183; anchor = 'middle'; }
+        var t = el('text', { x: x, y: y + 4, 'text-anchor': anchor }, 'font-size:11px;fill:var(--text)');
+        t.textContent = r[2]; svg.appendChild(t);
+        svg.appendChild(el('line', { x1: 62, y1: y + 12, x2: 304, y2: y + 12 },
+          'stroke:var(--border);stroke-width:0.5;stroke-dasharray:2 3'));
+      });
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', f.say));
+      read.appendChild(div('wg-read-sub',
+        '應用文和作文不一樣：作文比的是寫得好不好，應用文比的是「該有的有沒有、位置對不對」。' +
+        '格式本身就是資訊 —— 看到靠右的署名就知道是誰寫的，看到頂格的稱呼就知道給誰。' +
+        '⚠ 寫完先檢查欄位有沒有缺，再檢查文句；缺了欄位，寫得再好也不合格。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一種應用文', function () { kind = (kind + 1) % FORMS.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 文言翻譯五步驟：留、補、調、換、刪。一句原文，一步一步變成白話 ——
+     這比背五個字有用得多。 */
+  REG.wenyanflow = function (host, spec) {
+    var EX = spec.items || [
+      { raw: '陳勝者，陽城人也。',
+        steps: [
+          { n: '留', t: '陳勝者，陽城人也。', d: '人名、地名照抄不譯：陳勝、陽城留著。' },
+          { n: '換', t: '陳勝者，陽城人也。', d: '把文言詞換成白話詞 —— 這句沒有要換的實詞。' },
+          { n: '補', t: '陳勝者，（是）陽城人也。', d: '判斷句翻譯時要補上「是」。' },
+          { n: '刪', t: '陳勝（），（是）陽城人（）。', d: '「者」「也」只是句型的記號，不譯。' },
+          { n: '成', t: '陳勝是陽城人。', d: '整理成通順的白話。' }] },
+      { raw: '何陋之有？',
+        steps: [
+          { n: '留', t: '何陋之有？', d: '沒有專有名詞要留。' },
+          { n: '換', t: '何（什麼）陋（簡陋）之有？', d: '把文言字換成白話：陋＝簡陋。' },
+          { n: '調', t: '有何陋？', d: '賓語前置要調回來：「何陋之有」＝「有何陋」。' },
+          { n: '刪', t: '有何陋？', d: '「之」是前置的記號，不譯。' },
+          { n: '成', t: '有什麼簡陋的呢？', d: '整理成通順的白話。' }] }
+    ];
+    var i = 0, st = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 176', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var KEY = ['留', '補', '調', '換', '刪'];
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var e = EX[i], s = e.steps[st];
+      svg.appendChild(txt(160, 18, '原文：' + e.raw, 'font-size:13px;font-weight:700;fill:var(--text)'));
+      // 五個步驟的進度條
+      KEY.forEach(function (k, n) {
+        var x = 40 + n * 60, on = s.n === k, done = e.steps.slice(0, st).some(function (p) { return p.n === k; });
+        svg.appendChild(el('circle', { cx: x, cy: 54, r: 16 },
+          'fill:' + (on ? 'var(--bad)' : done ? 'var(--good)' : 'var(--panel2)') +
+          ';fill-opacity:' + (on || done ? 0.34 : 1) + ';stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(x, 54, k, 'font-size:14px;fill:var(--text)'));
+        if (n < 4) svg.appendChild(el('line', { x1: x + 17, y1: 54, x2: x + 43, y2: 54 },
+          'stroke:var(--border);stroke-width:1'));
+      });
+      svg.appendChild(txt(160, 96, s.n === '成' ? '整理完成' : '這一步：' + s.n,
+        'font-size:12px;font-weight:700;fill:var(--bad)'));
+      svg.appendChild(txt(160, 126, s.t, 'font-size:15px;fill:var(--accent)'));
+      svg.appendChild(txt(160, 158, '第 ' + (st + 1) + ' / ' + e.steps.length + ' 步',
+        'font-size:10px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', s.d));
+      read.appendChild(div('wg-read-sub',
+        '文言翻譯有五個動作：留（人名地名官名照抄）、換（文言字換白話字）、' +
+        '補（省略的主語賓語要補回來）、調（倒裝的語序調正）、刪（只有語法作用的虛字不譯）。' +
+        '⚠ 以直譯為主：先一個字一個字對過去，再讓句子通順，不要一開始就「大概是這個意思」—— ' +
+        '那樣很容易漏掉關鍵字。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一步', function () {
+      st++; if (st >= EX[i].steps.length) { st = 0; i = (i + 1) % EX.length; } paint();
+    }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 詞的組成方式：並列、偏正、動賓、主謂。用兩個方塊加一條關係線表示，
+     每一種的關係方向不一樣。 */
+  REG.wordtree = function (host, spec) {
+    var EX = spec.items || [
+      { k: '並列式', w: '朋友', a: '朋', b: '友', rel: 'both', say: '兩個字意思相近、地位相等，誰在前面都說得通。' },
+      { k: '並列式', w: '大小', a: '大', b: '小', rel: 'both', say: '兩個字意思相反，合起來變成一個新的概念。' },
+      { k: '偏正式', w: '紅花', a: '紅', b: '花', rel: 'toB', say: '前面的字修飾後面的字，重點在「花」。' },
+      { k: '偏正式', w: '飛快', a: '飛', b: '快', rel: 'toB', say: '「飛」用來形容「快」的程度，重點還是在「快」。' },
+      { k: '動賓式', w: '讀書', a: '讀', b: '書', rel: 'act', say: '前面是動作、後面是對象，「讀」什麼？讀「書」。' },
+      { k: '動賓式', w: '關心', a: '關', b: '心', rel: 'act', say: '同樣是動作加對象，只是已經凝固成一個詞了。' },
+      { k: '主謂式', w: '地震', a: '地', b: '震', rel: 'subj', say: '前面是主語、後面是述語，「地」怎麼了？「震」。' },
+      { k: '主謂式', w: '心疼', a: '心', b: '疼', rel: 'subj', say: '「心」在「疼」，主語加述語構成一個詞。' }
+    ];
+    var i = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var e = EX[i];
+      svg.appendChild(txt(160, 20, '「' + e.w + '」是' + e.k, 'font-size:13px;font-weight:700;fill:var(--accent)'));
+      [[92, e.a], [204, e.b]].forEach(function (p) {
+        svg.appendChild(el('rect', { x: p[0] - 28, y: 52, width: 56, height: 56, rx: 10 },
+          'fill:var(--panel2);stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(p[0], 80, p[1], 'font-size:30px;fill:var(--text)'));
+      });
+      // 關係線：四種結構的箭頭方向不一樣，這就是差別本身
+      var lab = '';
+      if (e.rel === 'both') {
+        svg.appendChild(el('line', { x1: 124, y1: 80, x2: 172, y2: 80 }, 'stroke:var(--good);stroke-width:2.5'));
+        svg.appendChild(el('polygon', { points: '178,80 169,75 169,85' }, 'fill:var(--good)'));
+        svg.appendChild(el('polygon', { points: '118,80 127,75 127,85' }, 'fill:var(--good)'));
+        lab = '地位相等，兩邊互相';
+      } else if (e.rel === 'toB') {
+        svg.appendChild(el('line', { x1: 124, y1: 80, x2: 172, y2: 80 }, 'stroke:var(--accent2);stroke-width:2.5'));
+        svg.appendChild(el('polygon', { points: '178,80 169,75 169,85' }, 'fill:var(--accent2)'));
+        lab = '前面修飾後面，重點在右邊';
+      } else if (e.rel === 'act') {
+        svg.appendChild(el('line', { x1: 124, y1: 80, x2: 172, y2: 80 }, 'stroke:var(--bad);stroke-width:2.5'));
+        svg.appendChild(el('polygon', { points: '178,80 169,75 169,85' }, 'fill:var(--bad)'));
+        lab = '動作 → 對象';
+      } else {
+        svg.appendChild(el('line', { x1: 124, y1: 80, x2: 172, y2: 80 }, 'stroke:var(--accent);stroke-width:2.5'));
+        svg.appendChild(el('polygon', { points: '178,80 169,75 169,85' }, 'fill:var(--accent)'));
+        lab = '主語 → 它怎麼了';
+      }
+      svg.appendChild(txt(148, 124, lab, 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(160, 150, '四種結構：並列、偏正、動賓、主謂', 'font-size:10px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', e.say));
+      read.appendChild(div('wg-read-sub',
+        '兩個字合成一個詞，關係只有幾種：地位相等（並列）、前面修飾後面（偏正）、' +
+        '動作加對象（動賓）、主語加述語（主謂）。判斷的方法是把它拆開唸唸看，' +
+        '問「這兩個字之間是什麼關係」。⚠ 知道結構的好處是造詞與辨義：' +
+        '偏正式的重點一定在後面那個字，所以「紅花」是花、「花紅」就不是了。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一個詞', function () { i = (i + 1) % EX.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+
+  /* 筆順的五個規則：一筆一筆畫給你看。
+     「先上後下」用講的很抽象，看著筆畫依序長出來就懂了。 */
+  REG.strokeorder = function (host, spec) {
+    var RULES = [
+      { k: '先上後下', c: '三',
+        st: [['M25,32 L75,32'], ['M28,50 L72,50'], ['M22,70 L78,70']],
+        say: '三橫由上往下寫，不會先寫中間那一橫。' },
+      { k: '先左後右', c: '川',
+        st: [['M30,30 L28,68'], ['M50,26 L50,74'], ['M70,26 L70,78']],
+        say: '三豎由左往右寫，順序跟眼睛看的方向一樣。' },
+      { k: '先橫後豎', c: '十',
+        st: [['M20,50 L80,50'], ['M50,20 L50,80']],
+        say: '橫豎交叉時先寫橫、再寫豎，「十」「木」「本」都一樣。' },
+      { k: '先中間後兩邊', c: '小',
+        st: [['M50,22 L50,76'], ['M36,34 L31,56'], ['M64,34 L69,58']],
+        say: '中間那一豎先寫，左右兩點才有依靠。' },
+      { k: '先外後內再封口', c: '日',
+        st: [['M32,24 L32,78'], ['M32,24 L68,24 L68,78'], ['M32,50 L68,50'], ['M32,78 L68,78']],
+        say: '先寫外框的左豎與橫折，再寫裡面的橫，最後才把底下封起來。' }
+    ];
+    var i = 0, n = 1;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 170', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var r = RULES[i];
+      // 田字格：寫字的人最熟悉的參考線
+      var X = 110, Y = 30, S = 110;
+      svg.appendChild(el('rect', { x: X, y: Y, width: S, height: S, rx: 4 },
+        'fill:var(--panel2);stroke:var(--border);stroke-width:1.5'));
+      svg.appendChild(el('line', { x1: X + S / 2, y1: Y, x2: X + S / 2, y2: Y + S },
+        'stroke:var(--border);stroke-width:0.8;stroke-dasharray:4 4'));
+      svg.appendChild(el('line', { x1: X, y1: Y + S / 2, x2: X + S, y2: Y + S / 2 },
+        'stroke:var(--border);stroke-width:0.8;stroke-dasharray:4 4'));
+      function map(d) {
+        // 把 0-100 的座標搬到田字格裡
+        return d.replace(/([ML])(\d+),(\d+)/g, function (m, c, a, b) {
+          return c + (X + Number(a) * S / 100) + ',' + (Y + Number(b) * S / 100);
+        });
+      }
+      r.st.forEach(function (s, k) {
+        if (k >= n) return;
+        var cur = k === n - 1;
+        svg.appendChild(el('path', { d: map(s[0]) },
+          'fill:none;stroke:' + (cur ? 'var(--bad)' : 'var(--text)') +
+          ';stroke-width:' + (cur ? 5 : 4) + ';stroke-linecap:round;stroke-linejoin:round'));
+        // 筆畫號碼標在起點旁邊
+        var m = s[0].match(/M(\d+),(\d+)/);
+        svg.appendChild(txt(X + Number(m[1]) * S / 100 - 9, Y + Number(m[2]) * S / 100 - 9,
+          String(k + 1), 'font-size:11px;font-weight:700;fill:' + (cur ? 'var(--bad)' : 'var(--dim)')));
+      });
+      svg.appendChild(txt(160, 18, '規則 ' + (i + 1) + '：' + r.k, 'font-size:13px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(160, 156, '「' + r.c + '」第 ' + n + ' / ' + r.st.length + ' 筆',
+        'font-size:11px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', r.say));
+      read.appendChild(div('wg-read-sub',
+        '筆順不是規定來刁難人的：照著寫，字的比例才會勻稱，寫快了也不會走形，' +
+        '而且查字典數筆畫、用手機手寫輸入都靠它。' +
+        '⚠ 五個規則會互相搭配 —— 例如「木」先橫後豎（規則三），再先左後右寫兩撇（規則二）。' +
+        '遇到不確定的字，查字典或教育部的筆順網站，不要自己發明。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('寫下一筆', function () {
+      n++; if (n > RULES[i].st.length) { n = 1; i = (i + 1) % RULES.length; } paint();
+    }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 閱讀的三個層次：讀懂字面 → 讀出推論 → 讀出評價。
+     金字塔＋同一個短文的三種問法，一次看懂「這一題在問哪一層」。 */
+  REG.readlayer = function (host, spec) {
+    var lv = 0;
+    var TXT = '他把傘遞給我，自己淋著雨走回家。';
+    var Q = [
+      { q: '他把傘給了誰？', a: '給了「我」。答案就寫在句子裡，照著讀就找得到。',
+        d: '第一層只問文章明講的事：人物、時間、地點、發生什麼。答案一定回得去原文畫線。' },
+      { q: '他為什麼要這樣做？', a: '因為他在乎我，不想讓我淋濕 —— 這是從動作推出來的。',
+        d: '第二層要從線索推：文章沒有明說「他很體貼」，但把傘給人、自己淋雨這個動作透露了。' },
+      { q: '你覺得這樣做好嗎？為什麼？', a: '可以說好（他願意付出），也可以說不好（兩個人可以一起撐），重點是理由。',
+        d: '第三層是評價：要有自己的判斷，但判斷必須建立在前兩層之上，不能憑感覺。' }
+    ];
+    var NAME = ['第一層：讀懂字面', '第二層：讀出推論', '第三層：讀出評價'];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      // 金字塔：底層最寬（要先站穩），往上愈窄
+      var W = [230, 170, 110];
+      for (var k = 2; k >= 0; k--) {
+        var y = 40 + (2 - k) * 40;
+        svg.appendChild(el('rect', { x: 160 - W[k] / 2, y: y, width: W[k], height: 34, rx: 6 },
+          'fill:' + (k === lv ? 'var(--bad)' : 'var(--accent)') +
+          ';fill-opacity:' + (k === lv ? 0.36 : 0.18) + ';stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(160, y + 17, NAME[k], 'font-size:11px;fill:var(--text)'));
+      }
+      svg.appendChild(el('line', { x1: 296, y1: 152, x2: 296, y2: 52 },
+        'stroke:var(--dim);stroke-width:1.5;stroke-dasharray:3 3'));
+      svg.appendChild(el('polygon', { points: '296,46 291,56 301,56' }, 'fill:var(--dim)'));
+      svg.appendChild(txt(160, 172, '短文：' + TXT, 'font-size:11px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', '問題：' + Q[lv].q + '　→　' + Q[lv].a));
+      read.appendChild(div('wg-read-sub', Q[lv].d +
+        '　三層要照順序：字面沒讀對，推論一定會歪；推論沒有依據，評價就只是喊口號。' +
+        '⚠ 考試題目常常混在一起出，先判斷「這題在問哪一層」，' +
+        '再決定要回原文找、還是要自己推。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一層看', function () { lv = (lv + 1) % 3; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 修辭對照：同一個意思，用不同的修辭改寫，差別一次看清楚。
+     中間是原句，往外是各種寫法。 */
+  REG.rhetoricmap = function (host, spec) {
+    var base = spec.base || '月亮很亮。';
+    var WAYS = spec.ways || [
+      { k: '譬喻', t: '月亮像一盞燈，掛在天上。', d: '用另一個東西來比，兩者要真的有相似點（都會發光、都在上方）。' },
+      { k: '擬人', t: '月亮悄悄探出頭來看我們。', d: '把東西當成人來寫，給它人的動作或心情。' },
+      { k: '誇飾', t: '月光亮得可以在院子裡看書。', d: '把程度說得誇張，但要讓人一看就知道是誇張，不是騙人。' },
+      { k: '排比', t: '月亮亮著，風靜著，蟲鳴停著。', d: '三個以上結構相似的句子並排，讀起來有節奏。' },
+      { k: '對偶', t: '月明如晝，星稀似塵。', d: '兩句字數相同、詞性相對，像對聯一樣工整。' },
+      { k: '轉化', t: '月光淌了一地。', d: '把月光當成可以流動的液體 —— 把抽象的東西寫成摸得到的。' }
+    ];
+    var i = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var CX = 160, CY = 106, R = 74;
+      WAYS.forEach(function (w, k) {
+        var a = -Math.PI / 2 + k * Math.PI * 2 / WAYS.length;
+        var x = CX + R * Math.cos(a) * 1.62, y = CY + R * Math.sin(a);
+        var on = k === i;
+        svg.appendChild(el('line', { x1: CX, y1: CY, x2: x, y2: y },
+          'stroke:' + (on ? 'var(--bad)' : 'var(--border)') + ';stroke-width:' + (on ? 2 : 1)));
+        svg.appendChild(el('circle', { cx: x, cy: y, r: 21 },
+          'fill:' + (on ? 'var(--bad)' : 'var(--panel2)') + ';fill-opacity:' + (on ? 0.34 : 1) +
+          ';stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(x, y, w.k, 'font-size:12px;fill:var(--text)'));
+      });
+      svg.appendChild(el('circle', { cx: CX, cy: CY, r: 30 },
+        'fill:var(--accent);fill-opacity:.26;stroke:var(--border);stroke-width:1.5'));
+      svg.appendChild(txt(CX, CY - 6, '原句', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(CX, CY + 10, base.replace('。', ''), 'font-size:12px;fill:var(--text)'));
+      svg.appendChild(txt(160, 190, WAYS[i].t, 'font-size:13px;font-weight:700;fill:var(--bad)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', WAYS[i].k + '：' + WAYS[i].d));
+      read.appendChild(div('wg-read-sub',
+        '同一個意思可以有很多種寫法，修辭就是在選「要讓讀者看見什麼」。' +
+        '⚠ 修辭不是愈多愈好：一句話裡塞三種，讀者只會覺得吵。' +
+        '先確定你想讓人感受到什麼，再挑一種最貼近的用 —— 用得準比用得多重要。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一種修辭', function () { i = (i + 1) % WAYS.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+
+  /* 詞語量尺：把意思相近的詞排在一條線上，看它們差在哪。
+     兩種軸可以切：程度（輕 → 重）與褒貶（貶 → 中性 → 褒）。
+     「意思相近的詞」「成語辨義」「感情色彩」「語體」都用同一張圖。 */
+  REG.wordscale = function (host, spec) {
+    var SETS = spec.items || [
+      { k: '程度不一樣', lo: '輕', hi: '重',
+        w: [{ t: '有點難過', p: 0.12 }, { t: '難過', p: 0.34 }, { t: '傷心', p: 0.58 },
+            { t: '悲傷', p: 0.76 }, { t: '悲痛欲絕', p: 0.95 }],
+        say: '五個詞都在講「不開心」，差別在程度 —— 用錯就會過重或太輕。' },
+      { k: '褒貶不一樣', lo: '貶義', hi: '褒義',
+        w: [{ t: '固執', p: 0.1 }, { t: '倔強', p: 0.3 }, { t: '堅持', p: 0.62 },
+            { t: '擇善固執', p: 0.88 }],
+        say: '四個詞描述的是同一種行為，但作者的態度完全不同 —— 換一個詞就換了立場。' },
+      { k: '成語也有褒貶', lo: '貶義', hi: '褒義',
+        w: [{ t: '好高騖遠', p: 0.08 }, { t: '獨樹一幟', p: 0.55 }, { t: '別出心裁', p: 0.72 },
+            { t: '推陳出新', p: 0.9 }],
+        say: '「好高騖遠」是批評，其他三個是稱讚 —— 用來誇人卻挑錯詞，意思會整個相反。' },
+      { k: '語體不一樣', lo: '口語', hi: '正式',
+        w: [{ t: '搞定了', p: 0.06 }, { t: '弄好了', p: 0.28 }, { t: '完成了', p: 0.62 },
+            { t: '業已完成', p: 0.94 }],
+        say: '同一件事，寫給朋友和寫進公文用的詞不一樣 —— 這叫語體，一篇文章裡要一致。' }
+    ];
+    var i = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 180', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 34, X1 = 292;
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var s = SETS[i], Y = 112;
+      svg.appendChild(el('line', { x1: X0, y1: Y, x2: X1, y2: Y },
+        'stroke:var(--border);stroke-width:2.5'));
+      svg.appendChild(el('polygon', { points: X1 + ',' + Y + ' ' + (X1 - 9) + ',' + (Y - 5) +
+        ' ' + (X1 - 9) + ',' + (Y + 5) }, 'fill:var(--border)'));
+      svg.appendChild(txt(X0 + 6, Y + 20, s.lo, 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(X1 - 16, Y + 20, s.hi, 'font-size:11px;fill:var(--dim)'));
+      s.w.forEach(function (w, k) {
+        var x = X0 + (X1 - X0 - 14) * w.p;
+        // 標籤上下錯開，長詞才不會互相蓋住
+        var up = k % 2 === 0;
+        var ly = up ? Y - 26 : Y + 40;
+        svg.appendChild(el('line', { x1: x, y1: Y, x2: x, y2: up ? ly + 8 : ly - 10 },
+          'stroke:var(--accent);stroke-width:1'));
+        svg.appendChild(el('circle', { cx: x, cy: Y, r: 5 },
+          'fill:var(--accent);stroke:var(--bg);stroke-width:1.5'));
+        svg.appendChild(txt(clamp(x, 32, 288), ly, w.t, 'font-size:12px;fill:var(--text)'));
+      });
+      svg.appendChild(txt(160, 20, s.k, 'font-size:13px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(160, 166, '同一條線上的詞意思相近，位置不同就是差別所在',
+        'font-size:10px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', s.say));
+      read.appendChild(div('wg-read-sub',
+        '近義詞不是可以隨便互換的同義詞。差別通常有三種：程度（難過／悲痛欲絕）、' +
+        '褒貶（固執／堅持）、語體（搞定／業已完成）。' +
+        '⚠ 查字典時不要只看解釋，要看例句 —— 例句才看得出這個詞平常用在什麼場合、' +
+        '帶著什麼態度。換詞之前先問自己：我想讓讀者感覺到什麼？'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一組詞', function () { i = (i + 1) % SETS.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },
