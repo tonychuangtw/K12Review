@@ -40,6 +40,7 @@ window.APP_TEXTS['geography|十上|第1單元 地理學與地圖'] = {
       terms: [
         { w: '相對位置', d: '相對於其他地點的位置關係。' }
       ],
+      viz: {"type":"coordplane"},
       q: {
         q: '課文說什麼樣的位置會隨時間改變？',
         options: [
@@ -1134,6 +1135,7 @@ window.APP_TEXTS['geography|十上|第8單元 產業活動'] = {
       terms: [
         { w: '附加價值', d: '生產過程中新增的價值。' }
       ],
+      viz: {"type":"linegraph","a":-1.5,"b":11,"min":0,"max":12},
       q: {
         q: '課文說全球分工中利益分配不均的原因是什麼？',
         options: [
@@ -1380,6 +1382,7 @@ window.APP_TEXTS['geography|十下|第1單元 臺灣的自然環境'] = {
       terms: [
         { w: '北回歸線', d: '太陽直射點最北的緯線。' }
       ],
+      viz: {"type":"weathermap"},
       q: {
         q: '課文說臺灣冬季主要受什麼影響？',
         options: [
@@ -1695,6 +1698,7 @@ window.APP_TEXTS['geography|十下|第3單元 臺灣的產業'] = {
       terms: [
         { w: '三級產業', d: '提供服務而非生產實體商品的產業。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"服務業","value":60},{"label":"工業","value":35},{"label":"農業","value":5}]},
       q: {
         q: '課文說臺灣就業人口比重最高的是哪一級產業？',
         options: [
@@ -2132,6 +2136,7 @@ window.APP_TEXTS['geography|十下|第6單元 中國地理概論'] = {
       terms: [
         { w: '人口分界', d: '人口密度顯著不同的分界線。' }
       ],
+      viz: {"type":"poppyramid"},
       q: {
         q: '課文說人口集中東部的原因是什麼？',
         options: [
@@ -3223,6 +3228,7 @@ window.APP_TEXTS['geography|十一上|第5單元 全球化與世界城市'] = {
       terms: [
         { w: '世界城市', d: '在全球經濟網絡中居樞紐地位的城市。' }
       ],
+      viz: {"type":"mapdir"},
       q: {
         q: '課文說世界城市的特點是什麼？',
         options: [
@@ -3391,6 +3397,7 @@ window.APP_TEXTS['geography|十一上|第6單元 資源與能源'] = {
       terms: [
         { w: '地緣風險', d: '因地理與政治因素造成的供應風險。' }
       ],
+      viz: {"type":"mapdir"},
       q: {
         q: '課文說資源分布集中造成什麼問題？',
         options: [
@@ -3438,6 +3445,7 @@ window.APP_TEXTS['geography|十一上|第6單元 資源與能源'] = {
       terms: [
         { w: '間歇性', d: '發電量隨自然條件變動的特性。' }
       ],
+      viz: {"type":"linegraph","a":1,"b":2,"min":0,"max":12},
       q: {
         q: '課文說推動再生能源除了發電設備還需要什麼？',
         options: [
@@ -6707,6 +6715,7 @@ window.APP_TEXTS['geography|十二下|第2單元 臺灣專題：能源'] = {
       terms: [
         { w: '能源自給率', d: '本地生產能源佔總需求的比例。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"燃煤與燃氣","value":80},{"label":"再生能源","value":12},{"label":"核能","value":8}]},
       q: {
         q: '課文說臺灣能源的最大特徵是什麼？',
         options: [
@@ -6753,6 +6762,7 @@ window.APP_TEXTS['geography|十二下|第2單元 臺灣專題：能源'] = {
       terms: [
         { w: '在地條件', d: '當地的自然與社會環境特性。' }
       ],
+      viz: {"type":"taiwan"},
       q: {
         q: '課文說再生能源配置的原則是什麼？',
         options: [
@@ -6968,6 +6978,7 @@ window.APP_TEXTS['geography|十二下|第3單元 臺灣專題：城鄉'] = {
       terms: [
         { w: '城鄉互補', d: '城市與鄉村各自提供對方所需的功能。' }
       ],
+      viz: {"type":"cycle","steps":["鄉村提供糧食與水源","都市提供市場與資金","資源相互流動","共同維持系統"]},
       q: {
         q: '課文說城鄉關係應該怎麼看？',
         options: [
@@ -7020,6 +7031,7 @@ window.APP_TEXTS['geography|十二下|第4單元 全球專題：氣候'] = {
       terms: [
         { w: '氣候脆弱度', d: '受氣候變化衝擊的敏感程度。' }
       ],
+      viz: {"type":"taiwan"},
       q: {
         q: '課文說排放與受害的分布關係是什麼？',
         options: [

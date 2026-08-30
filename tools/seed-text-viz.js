@@ -67,7 +67,15 @@ Object.keys(T).forEach((key) => {
   });
   rows.sort((a, b) => b.v - a.v);
   const usedCard = {}, usedType = {};
+  /* 已經配好的也要算進上限，這支才可以重複跑（2026-08-30）。
+     原本 n／texty 每次都從 0 起算，跑第二次就會在同一個單元再疊 3 段上去，
+     跑幾輪之後一個單元六段全是圖，「每單元最多 3」等於沒有。 */
   let n = 0, texty = 0;
+  segs.forEach((g) => {
+    if (!g.viz || !g.viz.type) return;
+    n++; if (TEXTY.has(g.viz.type)) texty++;
+    usedType[g.viz.type] = 1;
+  });
   rows.forEach((r) => {
     if (n >= PER) return;
     if (usedCard[r.j] || usedType[r.c.viz.type]) return;  // 同單元不重複用同一張／同一型

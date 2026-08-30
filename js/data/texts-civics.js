@@ -5002,6 +5002,7 @@ window.APP_TEXTS['civics|十一下|第8單元 綜合演練'] = {
       terms: [
         { w: '統計判讀', d: '正確解讀統計圖表的能力。' }
       ],
+      viz: {"type":"linegraph","a":0.6,"b":4,"min":0,"max":12},
       q: {
         q: '課文說看圖表要特別注意的區分是什麼？',
         options: [

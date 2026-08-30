@@ -18,6 +18,7 @@ window.APP_TEXTS['english|一上|第1單元 字母 A–I'] = {
       terms: [
         { w: '大寫', d: '字母比較大的那一種寫法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"大寫","items":["A","B","C","D","E"]},{"label":"小寫","items":["a","b","c","d","e"]}]},
       q: {
         q: '課文說什麼時候要用大寫？',
         options: [
@@ -90,6 +91,7 @@ window.APP_TEXTS['english|一上|第1單元 字母 A–I'] = {
       terms: [
         { w: '筆畫', d: '寫一個字母所需要的線條。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"girl","parts":["g","irl"],"hit":0,"s":"G 的音","mean":"女孩"},{"w":"hat","parts":["h","at"],"hit":0,"s":"H 的音","mean":"帽子"},{"w":"ice","parts":["i","ce"],"hit":0,"s":"I 的音","mean":"冰"}]},
       q: {
         q: '課文說小寫的 i 上面有什麼？',
         options: [
@@ -168,6 +170,7 @@ window.APP_TEXTS['english|一上|第2單元 字母 J–R'] = {
       terms: [
         { w: '勾', d: '字母下方彎起來的那一筆。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"jump","parts":["j","ump"],"hit":0,"s":"J 的音","mean":"跳"},{"w":"kite","parts":["k","ite"],"hit":0,"s":"K 的音","mean":"風箏"},{"w":"lion","parts":["l","ion"],"hit":0,"s":"L 的音","mean":"獅子"}]},
       q: {
         q: '課文說小寫 j 和 i 的差別在哪裡？',
         options: [
@@ -264,6 +267,7 @@ window.APP_TEXTS['english|一上|第2單元 字母 J–R'] = {
       terms: [
         { w: '母音字母', d: 'A、E、I、O、U 這五個字母。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"母音字母","items":["A","E","I","O"]},{"label":"子音字母","items":["B","C","D","F","G","H"]}]},
       q: {
         q: '課文說每個英文單字至少要有幾個母音？',
         options: [
@@ -318,6 +322,7 @@ window.APP_TEXTS['english|一上|第3單元 字母 S–Z'] = {
       terms: [
         { w: '母音', d: '氣流順暢通過所發出的音。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"sun","parts":["s","un"],"hit":0,"s":"S 的音","mean":"太陽"},{"w":"tiger","parts":["t","iger"],"hit":0,"s":"T 的音","mean":"老虎"},{"w":"umbrella","parts":["u","mbrella"],"hit":0,"s":"U 的音","mean":"雨傘"}]},
       q: {
         q: '課文說 U 是第幾個母音字母？',
         options: [
@@ -414,6 +419,7 @@ window.APP_TEXTS['english|一上|第3單元 字母 S–Z'] = {
       terms: [
         { w: '字母歌', d: '把字母順序編成的歌。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"開頭","items":["A","B","C","D"]},{"label":"中間","items":["L","M","N","O"]},{"label":"結尾","items":["W","X","Y","Z"]}]},
       q: {
         q: '課文說怎麼檢查自己有沒有真的記住順序？',
         options: [
@@ -468,6 +474,7 @@ window.APP_TEXTS['english|一上|第4單元 打招呼與自我介紹'] = {
       terms: [
         { w: '口語', d: '平常說話時用的、比較輕鬆的說法。' }
       ],
+      viz: {"type":"sentence","label":"打招呼","items":[{"t":"Hello","r":"你好"}],"note":"最基本也最好用的招呼語。","alt":[{"label":"較口語","items":[{"t":"Hi","r":"嗨"}],"note":"朋友之間常用。"}]},
       q: {
         q: '課文說哪一個打招呼比較正式？',
         options: [
@@ -564,6 +571,7 @@ window.APP_TEXTS['english|一上|第4單元 打招呼與自我介紹'] = {
       terms: [
         { w: '道別', d: '離開時對別人說的話。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"道別","items":["Goodbye","Bye","See you"]},{"label":"加上時間","items":["See you tomorrow","See you later"]}]},
       q: {
         q: '課文說朋友之間最常用哪一個道別？',
         options: [
@@ -690,6 +698,7 @@ window.APP_TEXTS['english|一上|第5單元 顏色'] = {
       terms: [
         { w: '名詞', d: '人、事、物的名稱。' }
       ],
+      viz: {"type":"sentence","label":"顏色在前","items":[{"t":"a","r":"一個"},{"t":"red","r":"顏色"},{"t":"apple","r":"名詞"}],"note":"顏色放在名詞前面。"},
       q: {
         q: '課文說顏色要放在名詞的哪一邊？',
         options: [
@@ -738,6 +747,7 @@ window.APP_TEXTS['english|一上|第5單元 顏色'] = {
       terms: [
         { w: '練習', d: '重複做以熟練某件事。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"自然中的顏色","items":["blue sky","green grass","white snow"]},{"label":"紅綠燈","items":["red = stop","green = go"]}]},
       q: {
         q: '課文說紅綠燈的綠燈代表什麼？',
         options: [
@@ -768,6 +778,7 @@ window.APP_TEXTS['english|一上|第6單元 數字 1–10'] = {
       terms: [
         { w: '不發音', d: '寫出來但唸的時候不出聲的字母。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"one","parts":["o","ne"],"hit":0,"s":"數字 1","mean":"一"},{"w":"two","parts":["t","wo"],"hit":1,"s":"w 不發音","mean":"二"},{"w":"three","parts":["th","ree"],"hit":0,"s":"th 的音","mean":"三"}]},
       q: {
         q: '課文說 two 裡面哪一個字母不發音？',
         options: [
@@ -816,6 +827,7 @@ window.APP_TEXTS['english|一上|第6單元 數字 1–10'] = {
       terms: [
         { w: '複數', d: '數量超過一個的形式。' }
       ],
+      viz: {"type":"sentence","label":"單數","items":[{"t":"one","r":"數字 1"},{"t":"apple","r":"單數名詞"}],"note":"一個東西時名詞不加 s。","alt":[{"label":"複數","items":[{"t":"two","r":"數字 2"},{"t":"apples","r":"複數名詞"}],"note":"兩個以上要在名詞後面加 s。"}]},
       q: {
         q: '課文說超過一個時名詞要怎麼變？',
         options: [
@@ -888,6 +900,7 @@ window.APP_TEXTS['english|一上|第6單元 數字 1–10'] = {
       terms: [
         { w: '應用', d: '把學到的東西用在生活裡。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"生活中的數字","items":["電話號碼","樓層","年齡","時間"]}]},
       q: {
         q: '課文建議怎麼練習數字？',
         options: [
@@ -942,6 +955,7 @@ window.APP_TEXTS['english|一上|第7單元 教室用品'] = {
       terms: [
         { w: '教室', d: '上課的地方。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"家具","items":["desk","chair"]},{"label":"教室設備","items":["door","window","blackboard","clock"]}]},
       q: {
         q: '課文說 window 是什麼？',
         options: [
@@ -1014,6 +1028,7 @@ window.APP_TEXTS['english|一上|第7單元 教室用品'] = {
       terms: [
         { w: 'my', d: '我的。' }
       ],
+      viz: {"type":"sentence","label":"說是誰的","items":[{"t":"This is","r":"這是"},{"t":"my","r":"我的"},{"t":"pen","r":"名詞"}],"note":"所有格後面要接名詞。"},
       q: {
         q: '課文說 my 和 your 後面要接什麼？',
         options: [
@@ -1092,6 +1107,7 @@ window.APP_TEXTS['english|一上|第8單元 家人'] = {
       terms: [
         { w: '兄弟', d: '同一家庭的男性手足。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"兄弟","items":["brother","older brother","younger brother"]},{"label":"姊妹","items":["sister","older sister","younger sister"]}]},
       q: {
         q: '課文說英文的 brother 分不分哥哥弟弟？',
         options: [
@@ -1140,6 +1156,7 @@ window.APP_TEXTS['english|一上|第8單元 家人'] = {
       terms: [
         { w: '介紹', d: '讓別人認識某個人。' }
       ],
+      viz: {"type":"sentence","label":"介紹家人","items":[{"t":"This is","r":"這是"},{"t":"my","r":"我的"},{"t":"father","r":"家人"}],"note":"介紹身邊的人用 This is。"},
       q: {
         q: '課文說介紹在場的人要用什麼開頭？',
         options: [
@@ -1218,6 +1235,7 @@ window.APP_TEXTS['english|一上|第9單元 身體部位'] = {
       terms: [
         { w: '複數', d: '數量超過一個的形式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"單數","items":["head","face","nose","mouth"]},{"label":"常用複數","items":["eyes","ears"]}]},
       q: {
         q: '課文說眼睛通常用什麼形式？',
         options: [
@@ -1266,6 +1284,7 @@ window.APP_TEXTS['english|一上|第9單元 身體部位'] = {
       terms: [
         { w: '祈使句', d: '直接叫人做某件事的句子。' }
       ],
+      viz: {"type":"sentence","label":"祈使句","items":[{"t":"Touch","r":"動詞"},{"t":"your nose","r":"受詞"}],"note":"祈使句直接用動詞開頭，主詞 you 省略。"},
       q: {
         q: '課文說祈使句用什麼開頭？',
         options: [
@@ -1368,6 +1387,7 @@ window.APP_TEXTS['english|一下|第1單元 子音的自然發音'] = {
       terms: [
         { w: '氣流', d: '說話時從嘴巴出來的空氣。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"母音字母","items":["a","e","i","o","u"]},{"label":"子音字母（部分）","items":["b","c","d","f","g","h"]}]},
       q: {
         q: '課文說子音的聲音是怎麼發出來的？',
         options: [
@@ -1488,6 +1508,7 @@ window.APP_TEXTS['english|一下|第1單元 子音的自然發音'] = {
       terms: [
         { w: '拼讀', d: '把每個音連起來唸成一個字。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"bat","parts":["b","a","t"],"hit":0,"s":"子音開頭","mean":"球棒"},{"w":"map","parts":["m","a","p"],"hit":0,"s":"子音開頭","mean":"地圖"}]},
       q: {
         q: '課文說拼讀的第一步是什麼？',
         options: [
@@ -1542,6 +1563,7 @@ window.APP_TEXTS['english|一下|第2單元 短母音 a、e'] = {
       terms: [
         { w: '嘴型', d: '發音時嘴巴張開的大小。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"bed","parts":["b","e","d"],"hit":1,"s":"e 的短音","mean":"床"},{"w":"pen","parts":["p","e","n"],"hit":1,"s":"e 的短音","mean":"筆"},{"w":"ten","parts":["t","e","n"],"hit":1,"s":"e 的短音","mean":"十"}]},
       q: {
         q: '課文說短音 e 的嘴型和 a 比起來如何？',
         options: [
@@ -1614,6 +1636,7 @@ window.APP_TEXTS['english|一下|第2單元 短母音 a、e'] = {
       terms: [
         { w: '常用字', d: '生活中出現頻率很高的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"短音 a","items":["cat","hat","bag","map","dad"]},{"label":"短音 e","items":["bed","pen","ten","red","net"]}]},
       q: {
         q: '課文說這些短母音單字有什麼特點？',
         options: [
@@ -1788,6 +1811,7 @@ window.APP_TEXTS['english|一下|第3單元 短母音 i、o、u'] = {
       terms: [
         { w: '自學', d: '自己學習、不用別人教。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"run","parts":["r","u","n"],"hit":1,"s":"u 的短音","mean":"跑"},{"w":"win","parts":["w","i","n"],"hit":1,"s":"i 的短音","mean":"贏"},{"w":"job","parts":["j","o","b"],"hit":1,"s":"o 的短音","mean":"工作"}]},
       q: {
         q: '課文說每天練五個字，一個月能練幾個？',
         options: [
@@ -1866,6 +1890,7 @@ window.APP_TEXTS['english|一下|第4單元 動物'] = {
       terms: [
         { w: '野生動物', d: '生活在野外的動物。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"大型","items":["lion","tiger","elephant","bear"]},{"label":"特別的","items":["giraffe","monkey"]}]},
       q: {
         q: '課文說 giraffe 是什麼動物？',
         options: [
@@ -1890,6 +1915,7 @@ window.APP_TEXTS['english|一下|第4單元 動物'] = {
       terms: [
         { w: '原形動詞', d: '沒有加任何字尾的動詞。' }
       ],
+      viz: {"type":"sentence","label":"說能力","items":[{"t":"Birds","r":"主詞"},{"t":"can","r":"會"},{"t":"fly","r":"原形動詞"}],"note":"can 後面永遠接原形動詞。"},
       q: {
         q: '課文說 can 後面要接什麼？',
         options: [
@@ -2016,6 +2042,7 @@ window.APP_TEXTS['english|一下|第5單元 食物與飲料'] = {
       terms: [
         { w: '飲料', d: '可以喝的東西。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"飲料","items":["water","milk","juice","tea"]},{"label":"計量方式","items":["a glass of","a cup of","a bottle of"]}]},
       q: {
         q: '課文說要說一杯飲料要用什麼？',
         options: [
@@ -2040,6 +2067,7 @@ window.APP_TEXTS['english|一下|第5單元 食物與飲料'] = {
       terms: [
         { w: '否定句', d: '表示「不」的句子。' }
       ],
+      viz: {"type":"sentence","label":"說喜好","items":[{"t":"I like","r":"我喜歡"},{"t":"apples","r":"複數名詞"}],"note":"喜歡某一類食物時用複數。"},
       q: {
         q: '課文說「我不喜歡」要怎麼說？',
         options: [
@@ -2118,6 +2146,7 @@ window.APP_TEXTS['english|一下|第6單元 玩具與物品'] = {
       terms: [
         { w: '玩具', d: '拿來玩的東西。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"玩具","items":["ball","doll","robot","kite"]},{"label":"常用複數","items":["blocks","crayons"]}]},
       q: {
         q: '課文說 blocks 為什麼用複數？',
         options: [
@@ -2238,6 +2267,7 @@ window.APP_TEXTS['english|一下|第6單元 玩具與物品'] = {
       terms: [
         { w: '順序', d: '好幾個形容詞排列的先後。' }
       ],
+      viz: {"type":"sentence","label":"形容詞順序","items":[{"t":"a","r":"冠詞"},{"t":"big","r":"大小"},{"t":"red","r":"顏色"},{"t":"ball","r":"名詞"}],"note":"大小通常放在顏色前面。"},
       q: {
         q: '課文說大小和顏色哪一個放前面？',
         options: [
@@ -2268,6 +2298,7 @@ window.APP_TEXTS['english|一下|第7單元 數字 11–20'] = {
       terms: [
         { w: '例外', d: '不符合一般規則的情況。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"eleven","parts":["e","leven"],"hit":0,"s":"數字 11","mean":"十一"},{"w":"twelve","parts":["twel","ve"],"hit":0,"s":"數字 12","mean":"十二"}]},
       q: {
         q: '課文說 eleven 和 twelve 為什麼要單獨記？',
         options: [
@@ -2364,6 +2395,7 @@ window.APP_TEXTS['english|一下|第7單元 數字 11–20'] = {
       terms: [
         { w: '年齡', d: '一個人活了幾年。' }
       ],
+      viz: {"type":"sentence","label":"說年齡","items":[{"t":"I","r":"我"},{"t":"am","r":"be 動詞"},{"t":"eight","r":"數字"}],"note":"英文說年齡用 be 動詞加數字。"},
       q: {
         q: '課文說講年齡不能用哪一個動詞？',
         options: [
@@ -2388,6 +2420,7 @@ window.APP_TEXTS['english|一下|第7單元 數字 11–20'] = {
       terms: [
         { w: '電話號碼', d: '打電話時要撥的一串數字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"生活應用","items":["電話號碼","班級","年齡","數量"]}]},
       q: {
         q: '課文說唸電話號碼要怎麼唸？',
         options: [
@@ -2418,6 +2451,7 @@ window.APP_TEXTS['english|一下|第8單元 天氣與季節'] = {
       terms: [
         { w: '天氣', d: '某個時間的空氣狀況。' }
       ],
+      viz: {"type":"sentence","label":"說天氣","items":[{"t":"It","r":"主詞（固定用 it）"},{"t":"is","r":"be 動詞"},{"t":"sunny","r":"形容詞"}],"note":"天氣的主詞固定用 it。"},
       q: {
         q: '課文說講天氣時主詞要用什麼？',
         options: [
@@ -2466,6 +2500,7 @@ window.APP_TEXTS['english|一下|第8單元 天氣與季節'] = {
       terms: [
         { w: '季節', d: '一年當中的四個時期。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"四季","items":["spring","summer","fall","winter"]},{"label":"搭配的天氣","items":["warm","hot","cool","cold"]}]},
       q: {
         q: '課文說秋天有哪兩種說法？',
         options: [
@@ -2568,6 +2603,7 @@ window.APP_TEXTS['english|一下|第9單元 課堂用語'] = {
       terms: [
         { w: '指令', d: '要求別人做某件事的話。' }
       ],
+      viz: {"type":"sentence","label":"祈使句","items":[{"t":"Open","r":"動詞"},{"t":"your book","r":"受詞"}],"note":"祈使句以動詞開頭，主詞 you 省略。"},
       q: {
         q: '課文說這些課堂指令是什麼句型？',
         options: [
@@ -2664,6 +2700,7 @@ window.APP_TEXTS['english|一下|第9單元 課堂用語'] = {
       terms: [
         { w: '鼓勵', d: '讓別人有信心繼續努力。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"稱讚","items":["Good job!","Very good!","Well done!"]},{"label":"鼓勵","items":["Try again.","Do not give up.","You can do it!"]}]},
       q: {
         q: '課文說 Do not give up 是什麼意思？',
         options: [
@@ -2718,6 +2755,7 @@ window.APP_TEXTS['english|二上|第1單元 This is 句型'] = {
       terms: [
         { w: 'this', d: '這個，指近處的人或物。' }
       ],
+      viz: {"type":"sentence","label":"介紹","items":[{"t":"This","r":"這個（近）"},{"t":"is","r":"be 動詞"},{"t":"a book","r":"介紹的對象"}],"note":"介紹近處的人或物用 This is。"},
       q: {
         q: '課文說 this 指的是什麼？',
         options: [
@@ -2766,6 +2804,7 @@ window.APP_TEXTS['english|二上|第1單元 This is 句型'] = {
       terms: [
         { w: '複數', d: '數量超過一個的形式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"單數（用 is）","items":["This is","That is"]},{"label":"複數（用 are）","items":["These are","Those are"]}]},
       q: {
         q: '課文說複數時 be 動詞要用哪一個？',
         options: [
@@ -2892,6 +2931,7 @@ window.APP_TEXTS['english|二上|第2單元 be 動詞 am／is／are'] = {
       terms: [
         { w: '狀態', d: '人或物目前的樣子或位置。' }
       ],
+      viz: {"type":"compareexp","factor":"be 動詞的兩種用法","a":{"label":"表示「是」","note":"I am a student."},"b":{"label":"表示「在」","note":"He is at home."},"same":["都用同一套 am／is／are"]},
       q: {
         q: '課文說 be 動詞表示什麼？',
         options: [
@@ -2940,6 +2980,7 @@ window.APP_TEXTS['english|二上|第2單元 be 動詞 am／is／are'] = {
       terms: [
         { w: '否定', d: '表示不是或沒有。' }
       ],
+      viz: {"type":"sentence","label":"否定","items":[{"t":"She","r":"主詞"},{"t":"is not","r":"否定的 be 動詞"},{"t":"here","r":"補語"}],"note":"be 動詞後面直接加 not。"},
       q: {
         q: '課文說哪一個沒有常見縮寫？',
         options: [
@@ -3018,6 +3059,7 @@ window.APP_TEXTS['english|二上|第3單元 數字與 How many'] = {
       terms: [
         { w: 'How many', d: '用來問可數東西的數量。' }
       ],
+      viz: {"type":"sentence","label":"問數量","items":[{"t":"How many","r":"幾個"},{"t":"books","r":"複數名詞"}],"note":"How many 後面接可數名詞的複數。"},
       q: {
         q: '課文說 How many 後面的名詞要用什麼形式？',
         options: [
@@ -3114,6 +3156,7 @@ window.APP_TEXTS['english|二上|第3單元 數字與 How many'] = {
       terms: [
         { w: 'There is', d: '表示某處有某樣東西。' }
       ],
+      viz: {"type":"compareexp","factor":"後面的名詞","a":{"label":"There is","note":"後面接單數：a book"},"b":{"label":"There are","note":"後面接複數：five books"},"same":["都表示「有」某樣東西"]},
       q: {
         q: '課文說 There 後面接複數時要用哪一個？',
         options: [
@@ -3168,6 +3211,7 @@ window.APP_TEXTS['english|二上|第4單元 食物與飲料'] = {
       terms: [
         { w: '冠詞', d: '放在名詞前面的 a、an、the。' }
       ],
+      viz: {"type":"sentence","label":"說三餐","items":[{"t":"I have","r":"我吃"},{"t":"breakfast","r":"三餐（不加冠詞）"},{"t":"at seven","r":"時間"}],"note":"吃三餐用 have，前面不加 a。"},
       q: {
         q: '課文說三餐前面要不要加冠詞？',
         options: [
@@ -3240,6 +3284,7 @@ window.APP_TEXTS['english|二上|第4單元 食物與飲料'] = {
       terms: [
         { w: '量詞', d: '用來計算不可數東西的單位。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"杯裝","items":["a glass of water","a cup of tea"]},{"label":"塊片碗","items":["a piece of bread","a bowl of rice"]}]},
       q: {
         q: '課文說一碗飯的英文是什麼？',
         options: [
@@ -3318,6 +3363,7 @@ window.APP_TEXTS['english|二上|第5單元 I like 句型'] = {
       terms: [
         { w: 'like', d: '喜歡。' }
       ],
+      viz: {"type":"sentence","label":"說喜好","items":[{"t":"I like","r":"我喜歡"},{"t":"dogs","r":"複數（整類）"}],"note":"喜歡某一整類時用複數。"},
       q: {
         q: '課文說喜歡一整類東西時可數名詞用什麼形式？',
         options: [
@@ -3342,6 +3388,7 @@ window.APP_TEXTS['english|二上|第5單元 I like 句型'] = {
       terms: [
         { w: '第三人稱單數', d: 'he、she、it 或某一個人。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"動詞原形","items":["I like","you like","we like","they like"]},{"label":"動詞加 s","items":["he likes","she likes","Amy likes"]}]},
       q: {
         q: '課文說主詞是第三人稱單數時動詞要怎麼變？',
         options: [
@@ -3468,6 +3515,7 @@ window.APP_TEXTS['english|二上|第6單元 動作動詞'] = {
       terms: [
         { w: '動作動詞', d: '表示身體或心裡動作的動詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"身體動作","items":["run","jump","walk","swim"]},{"label":"日常動作","items":["eat","drink","read","write"]}]},
       q: {
         q: '課文說一般動詞要不要配 be 動詞？',
         options: [
@@ -3564,6 +3612,7 @@ window.APP_TEXTS['english|二上|第6單元 動作動詞'] = {
       terms: [
         { w: '現在進行式', d: '表示此刻正在進行的動作。' }
       ],
+      viz: {"type":"sentence","label":"正在進行","items":[{"t":"She","r":"主詞"},{"t":"is","r":"be 動詞"},{"t":"eating","r":"動詞加 ing"}],"note":"現在進行式是 be 動詞加動詞 ing。"},
       q: {
         q: '課文說現在進行式的公式是什麼？',
         options: [
@@ -3618,6 +3667,7 @@ window.APP_TEXTS['english|二上|第7單元 學校地點與科目'] = {
       terms: [
         { w: '校園', d: '學校的範圍。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"室內","items":["classroom","library","office","gym"]},{"label":"室外","items":["playground","garden"]}]},
       q: {
         q: '課文說 gym 是什麼地方？',
         options: [
@@ -3714,6 +3764,7 @@ window.APP_TEXTS['english|二上|第7單元 學校地點與科目'] = {
       terms: [
         { w: 'because', d: '因為，用來說明理由。' }
       ],
+      viz: {"type":"sentence","label":"說理由","items":[{"t":"I like science","r":"主要句子"},{"t":"because","r":"因為"},{"t":"it is fun","r":"理由"}],"note":"because 後面接完整的理由句。"},
       q: {
         q: '課文說 because 是用來做什麼的？',
         options: [
@@ -3816,6 +3867,7 @@ window.APP_TEXTS['english|二上|第8單元 星期與作息'] = {
       terms: [
         { w: '動詞片語', d: '好幾個字合起來當一個動詞用。' }
       ],
+      viz: {"type":"energyflow","steps":["get up","have breakfast","go to school","do homework","go to bed"]},
       q: {
         q: '課文說這些作息要怎麼記比較好？',
         options: [
@@ -3888,6 +3940,7 @@ window.APP_TEXTS['english|二上|第8單元 星期與作息'] = {
       terms: [
         { w: '週末', d: '星期六和星期日。' }
       ],
+      viz: {"type":"sentence","label":"說週末","items":[{"t":"On Sunday","r":"時間（放句首要加逗號）"},{"t":"I visit my grandparents","r":"做什麼"}],"note":"時間放句首時後面加逗號。"},
       q: {
         q: '課文說「每個星期六」要怎麼說？',
         options: [
@@ -3966,6 +4019,7 @@ window.APP_TEXTS['english|二上|第9單元 形容詞：大小與外形'] = {
       terms: [
         { w: '形狀', d: '東西的外形樣子。' }
       ],
+      viz: {"type":"sentence","label":"形容詞順序","items":[{"t":"a","r":"冠詞"},{"t":"big","r":"大小"},{"t":"round","r":"形狀"},{"t":"red","r":"顏色"},{"t":"ball","r":"名詞"}],"note":"大小、形狀、顏色的順序。"},
       q: {
         q: '課文說形容詞的順序是什麼？',
         options: [
@@ -4038,6 +4092,7 @@ window.APP_TEXTS['english|二上|第9單元 形容詞：大小與外形'] = {
       terms: [
         { w: '連接詞', d: '把兩個部分連起來的字。' }
       ],
+      viz: {"type":"compareexp","factor":"連接詞","a":{"label":"and","note":"連接方向相同的描述"},"b":{"label":"but","note":"連接有轉折的描述"},"same":["都用來把兩個描述接起來"]},
       q: {
         q: '課文說連接相反的意思要用哪一個字？',
         options: [
@@ -4092,6 +4147,7 @@ window.APP_TEXTS['english|二下|第1單元 人稱代名詞'] = {
       terms: [
         { w: '受格', d: '當動作對象用的代名詞。' }
       ],
+      viz: {"type":"sentence","label":"主格與受格","items":[{"t":"She","r":"主格（當主詞）"},{"t":"likes","r":"動詞"},{"t":"him","r":"受格（當受詞）"}],"note":"動詞後面要用受格。"},
       q: {
         q: '課文說受格要放在哪裡？',
         options: [
@@ -4140,6 +4196,7 @@ window.APP_TEXTS['english|二下|第1單元 人稱代名詞'] = {
       terms: [
         { w: '所有代名詞', d: '本身就代表某人東西的字。' }
       ],
+      viz: {"type":"compareexp","factor":"後面接不接名詞","a":{"label":"my（所有格）","note":"後面要接名詞：my book"},"b":{"label":"mine（所有代名詞）","note":"後面不接名詞：It is mine."},"same":["都表示這是我的"]},
       q: {
         q: '課文說所有代名詞後面要不要接名詞？',
         options: [
@@ -4242,6 +4299,7 @@ window.APP_TEXTS['english|二下|第2單元 Yes/No 問句與簡答'] = {
       terms: [
         { w: '原形', d: '動詞沒有加字尾的樣子。' }
       ],
+      viz: {"type":"sentence","label":"問句結構","items":[{"t":"Does","r":"助動詞"},{"t":"he","r":"主詞"},{"t":"play","r":"原形動詞"}],"note":"有了 does，動詞就用原形。"},
       q: {
         q: '課文說用了 does 之後動詞要用什麼形式？',
         options: [
@@ -4314,6 +4372,7 @@ window.APP_TEXTS['english|二下|第2單元 Yes/No 問句與簡答'] = {
       terms: [
         { w: '肯定', d: '表示「是」的回答。' }
       ],
+      viz: {"type":"compareexp","factor":"能不能縮寫","a":{"label":"肯定簡答","note":"Yes, I am.（不縮寫）"},"b":{"label":"否定簡答","note":"No, I’m not.（可縮寫）"},"same":["都要跟著主詞調整動詞"]},
       q: {
         q: '課文說肯定簡答可不可以縮寫？',
         options: [
@@ -4368,6 +4427,7 @@ window.APP_TEXTS['english|二下|第3單元 疑問詞 What 與 Who'] = {
       terms: [
         { w: '疑問詞', d: '用來問人事時地物的字。' }
       ],
+      viz: {"type":"sentence","label":"What 問句","items":[{"t":"What","r":"疑問詞"},{"t":"is","r":"be 動詞"},{"t":"this","r":"主詞"}],"note":"疑問詞放在最前面。"},
       q: {
         q: '課文說疑問詞要放在哪裡？',
         options: [
@@ -4488,6 +4548,7 @@ window.APP_TEXTS['english|二下|第3單元 疑問詞 What 與 Who'] = {
       terms: [
         { w: '句型', d: '常用的固定句子結構。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"What 加名詞","items":["What time","What color","What day"]},{"label":"What 單獨用","items":["What is this?","What do you like?"]}]},
       q: {
         q: '課文說 What 後面接名詞會變成什麼意思？',
         options: [
@@ -4518,6 +4579,7 @@ window.APP_TEXTS['english|二下|第4單元 疑問詞 Where 與 When'] = {
       terms: [
         { w: 'Where', d: '哪裡，用來問地點。' }
       ],
+      viz: {"type":"sentence","label":"Where 問句","items":[{"t":"Where","r":"疑問詞"},{"t":"do","r":"助動詞"},{"t":"you live","r":"主詞加原形動詞"}],"note":"一般動詞的問句要用 do。"},
       q: {
         q: '課文說一般動詞的 Where 問句要借什麼？',
         options: [
@@ -4590,6 +4652,7 @@ window.APP_TEXTS['english|二下|第4單元 疑問詞 Where 與 When'] = {
       terms: [
         { w: '介系詞', d: '表示時間或位置關係的字。' }
       ],
+      viz: {"type":"energyflow","steps":["at（時刻，最小）","on（日期、星期）","in（月、年、季節，最大）"]},
       q: {
         q: '課文說月份前面要用哪一個介系詞？',
         options: [
@@ -4716,6 +4779,7 @@ window.APP_TEXTS['english|二下|第5單元 職業'] = {
       terms: [
         { w: '母音', d: 'a、e、i、o、u 所發的音。' }
       ],
+      viz: {"type":"compareexp","factor":"字首的發音","a":{"label":"a","note":"字首是子音：a teacher"},"b":{"label":"an","note":"字首是母音：an artist"},"same":["都表示「一個」"]},
       q: {
         q: '課文說什麼情況要用 an？',
         options: [
@@ -4764,6 +4828,7 @@ window.APP_TEXTS['english|二下|第5單元 職業'] = {
       terms: [
         { w: '現在簡單式', d: '描述習慣或事實的時態。' }
       ],
+      viz: {"type":"sentence","label":"描述工作","items":[{"t":"A teacher","r":"職業"},{"t":"teaches","r":"動詞加 es"},{"t":"students","r":"受詞"}],"note":"陳述常態時用現在簡單式。"},
       q: {
         q: '課文說描述職業工作內容要用什麼時態？',
         options: [
@@ -4818,6 +4883,7 @@ window.APP_TEXTS['english|二下|第6單元 交通工具'] = {
       terms: [
         { w: '交通工具', d: '載人或載物移動的工具。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"陸上","items":["bus","car","bike","train"]},{"label":"海上與空中","items":["ship","boat","plane"]}]},
       q: {
         q: '課文說 scooter 是什麼？',
         options: [
@@ -4842,6 +4908,7 @@ window.APP_TEXTS['english|二下|第6單元 交通工具'] = {
       terms: [
         { w: 'by', d: '藉由，用來說交通方式。' }
       ],
+      viz: {"type":"sentence","label":"說交通方式","items":[{"t":"I go to school","r":"去哪裡"},{"t":"by bus","r":"交通方式（不加冠詞）"}],"note":"by 後面直接接交通工具。"},
       q: {
         q: '課文說 by 後面的交通工具要不要加冠詞？',
         options: [
@@ -4968,6 +5035,7 @@ window.APP_TEXTS['english|二下|第7單元 房間與家具'] = {
       terms: [
         { w: '合成字', d: '兩個字合起來變成的新字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"合成字","items":["bedroom","bathroom","classroom"]},{"label":"兩個字分開寫","items":["living room","dining room"]}]},
       q: {
         q: '課文說 bedroom 是怎麼組成的？',
         options: [
@@ -5016,6 +5084,7 @@ window.APP_TEXTS['english|二下|第7單元 房間與家具'] = {
       terms: [
         { w: '位置', d: '東西所在的地方。' }
       ],
+      viz: {"type":"sentence","label":"說位置","items":[{"t":"The lamp","r":"東西"},{"t":"is","r":"be 動詞"},{"t":"on the desk","r":"位置"}],"note":"介系詞加地點說明位置。"},
       q: {
         q: '課文說 under 是什麼意思？',
         options: [
@@ -5118,6 +5187,7 @@ window.APP_TEXTS['english|二下|第8單元 情緒與感受'] = {
       terms: [
         { w: '情緒', d: '心裡的感受。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"正面","items":["happy","excited","glad"]},{"label":"負面","items":["sad","angry","scared","tired"]}]},
       q: {
         q: '課文說這些情緒的字是什麼詞類？',
         options: [
@@ -5166,6 +5236,7 @@ window.APP_TEXTS['english|二下|第8單元 情緒與感受'] = {
       terms: [
         { w: 'because', d: '因為，用來說明原因。' }
       ],
+      viz: {"type":"sentence","label":"說原因","items":[{"t":"I am happy","r":"心情"},{"t":"because","r":"因為"},{"t":"it is my birthday","r":"原因（完整句）"}],"note":"because 後面要接完整的句子。"},
       q: {
         q: '課文說 because 後面要接什麼？',
         options: [
@@ -5268,6 +5339,7 @@ window.APP_TEXTS['english|二下|第9單元 節慶與祝賀'] = {
       terms: [
         { w: '節日', d: '一年當中特別慶祝的日子。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"台灣的節日","items":["Chinese New Year","Mid-Autumn Festival","Dragon Boat Festival"]},{"label":"西方的節日","items":["Christmas","Halloween","Easter"]}]},
       q: {
         q: '課文說節日的字首要怎麼寫？',
         options: [
@@ -5364,6 +5436,7 @@ window.APP_TEXTS['english|二下|第9單元 節慶與祝賀'] = {
       terms: [
         { w: '邀請', d: '請別人來參加。' }
       ],
+      viz: {"type":"sentence","label":"邀請","items":[{"t":"Would you like","r":"你想要嗎（禮貌）"},{"t":"to come","r":"to 加原形動詞"}],"note":"would like to 後面接原形動詞。"},
       q: {
         q: '課文說哪一句是比較有禮貌的邀請？',
         options: [
@@ -5538,6 +5611,7 @@ window.APP_TEXTS['english|三上|第1單元 短母音 a、e、i'] = {
       terms: [
         { w: '比較', d: '把相似的字放在一起對照。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"pan","parts":["p","a","n"],"hit":1,"s":"a 的短音","mean":"平底鍋"},{"w":"pen","parts":["p","e","n"],"hit":1,"s":"e 的短音","mean":"筆"},{"w":"pin","parts":["p","i","n"],"hit":1,"s":"i 的短音","mean":"別針"}]},
       q: {
         q: '課文說聽力練習的重點是什麼？',
         options: [
@@ -5640,6 +5714,7 @@ window.APP_TEXTS['english|三上|第2單元 短母音 o、u'] = {
       terms: [
         { w: '最小對比', d: '只差一個音的一組字。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"cat","parts":["c","a","t"],"hit":1,"s":"a 的短音","mean":"貓"},{"w":"cot","parts":["c","o","t"],"hit":1,"s":"o 的短音","mean":"小床"},{"w":"cut","parts":["c","u","t"],"hit":1,"s":"u 的短音","mean":"切"}]},
       q: {
         q: '課文說最小對比可以用來練什麼？',
         options: [
@@ -5838,6 +5913,7 @@ window.APP_TEXTS['english|三上|第3單元 magic e 長母音'] = {
       terms: [
         { w: '例外', d: '不符合一般規則的情況。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"have","parts":["h","a","v","e"],"hit":1,"s":"這裡是短音（例外）","mean":"有"},{"w":"cake","parts":["c","a","k","e"],"hit":1,"s":"a 的長音（規則）","mean":"蛋糕"}]},
       q: {
         q: '課文說遇到發音的例外要怎麼辦？',
         options: [
@@ -5892,6 +5968,7 @@ window.APP_TEXTS['english|三上|第4單元 字母組合 sh、ch、th'] = {
       terms: [
         { w: '字尾', d: '一個字最後面的部分。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"shop","parts":["sh","o","p"],"hit":0,"s":"sh 的音","mean":"商店"},{"w":"wash","parts":["w","a","sh"],"hit":2,"s":"sh 的音","mean":"洗"}]},
       q: {
         q: '課文說 sh 可以出現在哪些位置？',
         options: [
@@ -6114,6 +6191,7 @@ window.APP_TEXTS['english|三上|第5單元 打招呼與介紹他人'] = {
       terms: [
         { w: '道別', d: '離開時說的話。' }
       ],
+      viz: {"type":"sentence","label":"道別","items":[{"t":"See","r":"看見"},{"t":"you","r":"你"},{"t":"tomorrow","r":"明天"}],"note":"直譯是「明天見到你」，也就是中文的「明天見」。"},
       q: {
         q: '課文說哪一個道別最口語？',
         options: [
@@ -6138,6 +6216,7 @@ window.APP_TEXTS['english|三上|第5單元 打招呼與介紹他人'] = {
       terms: [
         { w: 'Excuse me', d: '不好意思，用在打擾別人之前。' }
       ],
+      viz: {"type":"compareexp","factor":"兩種抱歉的用法","a":{"label":"Excuse me","note":"想引起注意、借過或提問之前"},"b":{"label":"Sorry","note":"做錯事或造成困擾時道歉"},"same":["都是禮貌用語"]},
       q: {
         q: '課文說想借過時要說哪一句？',
         options: [
@@ -6168,6 +6247,7 @@ window.APP_TEXTS['english|三上|第6單元 教室與學校用語'] = {
       terms: [
         { w: '實物', d: '真正看得到摸得到的東西。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"文具","items":["pen","pencil","eraser","ruler"]},{"label":"教室設備","items":["desk","chair","blackboard","door"]}]},
       q: {
         q: '課文說記這些單字最好的方法是什麼？',
         options: [
@@ -6192,6 +6272,7 @@ window.APP_TEXTS['english|三上|第6單元 教室與學校用語'] = {
       terms: [
         { w: '祈使句', d: '直接要求別人做某件事的句子。' }
       ],
+      viz: {"type":"sentence","label":"祈使句","items":[{"t":"(You)","r":"主詞省略"},{"t":"Open","r":"動詞"},{"t":"your book","r":"受詞"}],"note":"祈使句用來要求或指示，主詞 you 通常省略不說。"},
       q: {
         q: '課文說這些課堂用語是什麼句型？',
         options: [
@@ -6318,6 +6399,7 @@ window.APP_TEXTS['english|三上|第7單元 顏色與形狀'] = {
       terms: [
         { w: '顏色', d: '東西看起來的色彩。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"三原色（光）","items":["red","green","blue"]},{"label":"其他常見","items":["yellow","black","white","pink","brown"]}]},
       q: {
         q: '課文說 orange 有哪兩個意思？',
         options: [
@@ -6438,6 +6520,7 @@ window.APP_TEXTS['english|三上|第7單元 顏色與形狀'] = {
       terms: [
         { w: '造句', d: '用學到的字組成句子。' }
       ],
+      viz: {"type":"sentence","label":"造句練習","items":[{"t":"I","r":"主詞"},{"t":"have","r":"動詞"},{"t":"a yellow pencil","r":"受詞"}],"note":"主詞＋動詞＋受詞是英文最基本的句型。"},
       q: {
         q: '課文說哪一種練習比較有效？',
         options: [
@@ -6564,6 +6647,7 @@ window.APP_TEXTS['english|三上|第8單元 數字 1–30 與年齡'] = {
       terms: [
         { w: '複數', d: '數量超過一個的形式。' }
       ],
+      viz: {"type":"sentence","label":"問數量","items":[{"t":"How many","r":"疑問詞組"},{"t":"books","r":"複數名詞"},{"t":"do you have","r":"助動詞＋主詞＋動詞"}],"note":"How many 後面一定接可數名詞的複數形。"},
       q: {
         q: '課文說回答數量時名詞要用什麼形式？',
         options: [
@@ -6588,6 +6672,7 @@ window.APP_TEXTS['english|三上|第8單元 數字 1–30 與年齡'] = {
       terms: [
         { w: '序數', d: '表示第幾的數字。' }
       ],
+      viz: {"type":"compareexp","factor":"兩種數字","a":{"label":"基數","note":"one、two、three，用來數數量"},"b":{"label":"序數","note":"first、second、third，用來表示順序"},"same":["都是數字的表達方式"]},
       q: {
         q: '課文說樓層要用哪一種數字？',
         options: [
@@ -6618,6 +6703,7 @@ window.APP_TEXTS['english|三上|第9單元 我的家庭'] = {
       terms: [
         { w: '家庭成員', d: '家裡的每一個人。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"父母","items":["father","mother"]},{"label":"兄弟姊妹","items":["brother","sister"]},{"label":"祖父母","items":["grandfather","grandmother"]}]},
       q: {
         q: '課文說英文的 brother 分不分哥哥弟弟？',
         options: [
@@ -6642,6 +6728,7 @@ window.APP_TEXTS['english|三上|第9單元 我的家庭'] = {
       terms: [
         { w: '代名詞', d: '用來代替人或東西的字。' }
       ],
+      viz: {"type":"sentence","label":"介紹","items":[{"t":"This","r":"這位"},{"t":"is","r":"be 動詞"},{"t":"my father","r":"說明"}],"note":"介紹在場的人用 This is。","alt":[{"label":"說明職業","items":[{"t":"He","r":"主詞"},{"t":"is","r":"be 動詞"},{"t":"a teacher","r":"職業"}],"note":"職業前面要加冠詞 a 或 an。"}]},
       q: {
         q: '課文說指物品時要用哪一個代名詞？',
         options: [
@@ -6714,6 +6801,7 @@ window.APP_TEXTS['english|三上|第9單元 我的家庭'] = {
       terms: [
         { w: '描述', d: '說出某個人是什麼樣子。' }
       ],
+      viz: {"type":"tense","verb":"play","highlight":"現在簡單式"},
       q: {
         q: '課文說主詞是第三人稱單數時 be 動詞要用哪一個？',
         options: [
@@ -6864,6 +6952,7 @@ window.APP_TEXTS['english|三下|第1單元 一般動詞現在式'] = {
       terms: [
         { w: '時間詞', d: '說明什麼時候的字詞。' }
       ],
+      viz: {"type":"sentence","label":"加上時間","items":[{"t":"I","r":"主詞"},{"t":"play","r":"動詞"},{"t":"basketball","r":"受詞"},{"t":"after school","r":"時間"}],"note":"時間片語通常放在句尾。"},
       q: {
         q: '課文說這些時間詞常放在句子的哪裡？',
         options: [
@@ -6918,6 +7007,7 @@ window.APP_TEXTS['english|三下|第2單元 第三人稱單數 -s'] = {
       terms: [
         { w: '人稱', d: '說話者、聽話者與第三者的區分。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"動詞加 s","items":["he","she","it","Amy","my brother"]},{"label":"動詞不加 s","items":["I","you","we","they","my friends"]}]},
       q: {
         q: '課文說哪一種主詞後面動詞要加 s？',
         options: [
@@ -6966,6 +7056,7 @@ window.APP_TEXTS['english|三下|第2單元 第三人稱單數 -s'] = {
       terms: [
         { w: 'has', d: 'have 的第三人稱單數形式。' }
       ],
+      viz: {"type":"sentence","label":"第一人稱","items":[{"t":"I","r":"主詞"},{"t":"have","r":"動詞原形"},{"t":"a dog","r":"受詞"}],"note":"主詞是 I 時用 have。","alt":[{"label":"第三人稱","items":[{"t":"He","r":"主詞"},{"t":"has","r":"動詞變化"},{"t":"a dog","r":"受詞"}],"note":"have 的第三人稱單數形是 has。"}]},
       q: {
         q: '課文說 have 的第三人稱單數是什麼？',
         options: [
@@ -7038,6 +7129,7 @@ window.APP_TEXTS['english|三下|第2單元 第三人稱單數 -s'] = {
       terms: [
         { w: '判斷', d: '依情況決定要用哪一種形式。' }
       ],
+      viz: {"type":"tense","verb":"play","highlight":"現在簡單式"},
       q: {
         q: '課文說判斷動詞要不要加 s 時要看什麼？',
         options: [
@@ -7092,6 +7184,7 @@ window.APP_TEXTS['english|三下|第3單元 頻率副詞與作息'] = {
       terms: [
         { w: '位置', d: '一個字在句子裡擺放的地方。' }
       ],
+      viz: {"type":"sentence","label":"一般動詞前","items":[{"t":"I","r":"主詞"},{"t":"always","r":"頻率副詞"},{"t":"get up","r":"一般動詞"},{"t":"at seven","r":"時間"}],"note":"頻率副詞放在一般動詞的前面。","alt":[{"label":"be 動詞後","items":[{"t":"I","r":"主詞"},{"t":"am","r":"be 動詞"},{"t":"always","r":"頻率副詞"},{"t":"happy","r":"形容詞"}],"note":"遇到 be 動詞時，頻率副詞放在後面。"}]},
       q: {
         q: '課文說頻率副詞要放在 be 動詞的哪一邊？',
         options: [
@@ -7140,6 +7233,7 @@ window.APP_TEXTS['english|三下|第3單元 頻率副詞與作息'] = {
       terms: [
         { w: '作息', d: '每天固定的生活安排。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"早上","items":["get up","wash my face","have breakfast"]},{"label":"白天","items":["go to school","have lunch","study"]},{"label":"晚上","items":["do my homework","take a shower","go to bed"]}]},
       q: {
         q: '課文說 wash my face 是什麼意思？',
         options: [
@@ -7266,6 +7360,7 @@ window.APP_TEXTS['english|三下|第4單元 時間：幾點鐘'] = {
       terms: [
         { w: 'quarter', d: '一刻鐘，也就是十五分鐘。' }
       ],
+      viz: {"type":"clock","h":7,"m":15},
       q: {
         q: '課文說 to 在時間裡代表什麼意思？',
         options: [
@@ -7314,6 +7409,7 @@ window.APP_TEXTS['english|三下|第4單元 時間：幾點鐘'] = {
       terms: [
         { w: 'What time', d: '幾點，用來問時刻。' }
       ],
+      viz: {"type":"sentence","label":"問作息","items":[{"t":"What time","r":"疑問詞組"},{"t":"do you","r":"助動詞＋主詞"},{"t":"go to bed","r":"動詞片語"}],"note":"問幾點做某事，用 What time 加助動詞。"},
       q: {
         q: '課文說問「幾點做某事」要用什麼開頭？',
         options: [
@@ -7338,6 +7434,7 @@ window.APP_TEXTS['english|三下|第4單元 時間：幾點鐘'] = {
       terms: [
         { w: '應用', d: '把學到的東西用在實際情境。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"at（時間點）","items":["at seven","at noon","at night"]},{"label":"on（日期）","items":["on Monday","on May 5"]},{"label":"in（較長時段）","items":["in May","in 2026","in the morning"]}]},
       q: {
         q: '課文說月份前面要用哪一個介系詞？',
         options: [
@@ -7368,6 +7465,7 @@ window.APP_TEXTS['english|三下|第5單元 食物與點餐'] = {
       terms: [
         { w: '不可數名詞', d: '不能一個兩個去數的名詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"可數","items":["egg","apple","sandwich","cookie"]},{"label":"不可數","items":["rice","bread","soup","water"]}]},
       q: {
         q: '課文說哪一個食物通常用複數？',
         options: [
@@ -7416,6 +7514,7 @@ window.APP_TEXTS['english|三下|第5單元 食物與點餐'] = {
       terms: [
         { w: '喜好', d: '喜歡或不喜歡什麼。' }
       ],
+      viz: {"type":"sentence","label":"說喜好","items":[{"t":"I","r":"主詞"},{"t":"like","r":"動詞"},{"t":"apples","r":"複數受詞"}],"note":"表達喜歡某一類東西時，可數名詞用複數。"},
       q: {
         q: '課文說表達喜歡某類食物時可數名詞用什麼形式？',
         options: [
@@ -7590,6 +7689,7 @@ window.APP_TEXTS['english|三下|第6單元 動物與棲地'] = {
       terms: [
         { w: 'can', d: '會、能夠。' }
       ],
+      viz: {"type":"sentence","label":"能力","items":[{"t":"Birds","r":"主詞"},{"t":"can","r":"助動詞"},{"t":"fly","r":"原形動詞"}],"note":"can 後面永遠接原形動詞。"},
       q: {
         q: '課文說 can 後面的動詞會不會隨主詞變化？',
         options: [
@@ -7614,6 +7714,7 @@ window.APP_TEXTS['english|三下|第6單元 動物與棲地'] = {
       terms: [
         { w: '不規則', d: '不照一般規則變化的。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"加 s","items":["dogs","cats","birds"]},{"label":"不規則","items":["mice","geese","children"]},{"label":"單複數同形","items":["sheep","fish","deer"]}]},
       q: {
         q: '課文說 mouse 的複數是什麼？',
         options: [
@@ -7692,6 +7793,7 @@ window.APP_TEXTS['english|三下|第7單元 身體與健康'] = {
       terms: [
         { w: '症狀', d: '生病時身體出現的狀況。' }
       ],
+      viz: {"type":"sentence","label":"說症狀","items":[{"t":"I","r":"主詞"},{"t":"have","r":"動詞"},{"t":"a headache","r":"症狀"}],"note":"英文描述生病常用 have 加症狀名詞。"},
       q: {
         q: '課文說講不舒服要用哪一個動詞？',
         options: [
@@ -7740,6 +7842,7 @@ window.APP_TEXTS['english|三下|第7單元 身體與健康'] = {
       terms: [
         { w: '習慣', d: '經常重複做的事。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"好習慣","items":["exercise","eat vegetables","sleep early","wash hands"]},{"label":"要避免","items":["stay up late","eat too much junk food"]}]},
       q: {
         q: '課文說建議別人時常用什麼句型？',
         options: [
@@ -7818,6 +7921,7 @@ window.APP_TEXTS['english|三下|第8單元 天氣與衣物'] = {
       terms: [
         { w: '天氣', d: '某個時間的空氣狀況。' }
       ],
+      viz: {"type":"sentence","label":"說天氣","items":[{"t":"It","r":"主詞"},{"t":"is","r":"be 動詞"},{"t":"sunny","r":"形容詞"},{"t":"today","r":"時間"}],"note":"天氣的主詞固定用 it。"},
       q: {
         q: '課文說 cool 是什麼意思？',
         options: [
@@ -7914,6 +8018,7 @@ window.APP_TEXTS['english|三下|第8單元 天氣與衣物'] = {
       terms: [
         { w: 'put on', d: '穿上，指動作。' }
       ],
+      viz: {"type":"compareexp","factor":"兩個動詞","a":{"label":"wear","note":"表示穿著的狀態"},"b":{"label":"put on","note":"表示穿上的動作"},"same":["都與衣物有關"]},
       q: {
         q: '課文說 put on 指的是什麼？',
         options: [
@@ -8040,6 +8145,7 @@ window.APP_TEXTS['english|三下|第9單元 can 與能力'] = {
       terms: [
         { w: '許可', d: '得到別人的同意。' }
       ],
+      viz: {"type":"compareexp","factor":"請求許可的語氣","a":{"label":"Can I…?","note":"日常口語，較隨意"},"b":{"label":"May I…?","note":"較正式禮貌，適合對長輩或陌生人"},"same":["都是請求許可"]},
       q: {
         q: '課文說對長輩用哪一個比較好？',
         options: [
@@ -8064,6 +8170,7 @@ window.APP_TEXTS['english|三下|第9單元 can 與能力'] = {
       terms: [
         { w: 'a little', d: '一點點。' }
       ],
+      viz: {"type":"sentence","label":"說能力","items":[{"t":"I","r":"主詞"},{"t":"can speak","r":"助動詞＋動詞"},{"t":"English","r":"受詞"},{"t":"a little","r":"程度"}],"note":"加上程度副詞能讓表達更精確。"},
       q: {
         q: '課文說 a little 通常放在句子的哪裡？',
         options: [
@@ -8142,6 +8249,7 @@ window.APP_TEXTS['english|四上|第1單元 現在進行式'] = {
       terms: [
         { w: '線索', d: '幫助判斷用哪種時態的字詞。' }
       ],
+      viz: {"type":"tense","verb":"eat","highlight":"現在進行式"},
       q: {
         q: '課文說看到 now 通常要用哪一種時態？',
         options: [
@@ -8190,6 +8298,7 @@ window.APP_TEXTS['english|四上|第1單元 現在進行式'] = {
       terms: [
         { w: '否定句', d: '表示沒有在做某件事的句子。' }
       ],
+      viz: {"type":"sentence","label":"否定","items":[{"t":"He","r":"主詞"},{"t":"is not","r":"be 動詞＋not"},{"t":"sleeping","r":"動詞-ing"}],"note":"進行式的否定只要在 be 動詞後面加 not。"},
       q: {
         q: '課文說進行式的否定要不要用 do？',
         options: [
@@ -8340,6 +8449,7 @@ window.APP_TEXTS['english|四上|第2單元 -ing 拼寫規則'] = {
       terms: [
         { w: '短音', d: '發得很短促的母音。' }
       ],
+      viz: {"type":"compareexp","factor":"重複與不重複","a":{"label":"hoping","note":"來自 hope，母音是長音"},"b":{"label":"hopping","note":"來自 hop，母音是短音"},"same":["都是 -ing 形"]},
       q: {
         q: '課文說重複子音的目的是什麼？',
         options: [
@@ -8418,6 +8528,7 @@ window.APP_TEXTS['english|四上|第3單元 現在進行式問句與否定'] = {
       terms: [
         { w: '是非問句', d: '只要回答是或不是的問句。' }
       ],
+      viz: {"type":"sentence","label":"陳述句","items":[{"t":"You","r":"主詞"},{"t":"are","r":"be 動詞"},{"t":"studying","r":"動詞-ing"}],"note":"陳述句的順序是主詞在前。","alt":[{"label":"疑問句","items":[{"t":"Are","r":"be 動詞"},{"t":"you","r":"主詞"},{"t":"studying","r":"動詞-ing"}],"note":"把 be 動詞移到主詞前面。"}]},
       q: {
         q: '課文說進行式問句為什麼不用 do？',
         options: [
@@ -8514,6 +8625,7 @@ window.APP_TEXTS['english|四上|第3單元 現在進行式問句與否定'] = {
       terms: [
         { w: '口語', d: '平常說話時的用法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"可以縮寫","items":["isn’t","aren’t","he’s not","they’re not"]},{"label":"沒有這種縮寫","items":["amn’t"]}]},
       q: {
         q: '課文說 I am not 有幾種縮寫方式？',
         options: [
@@ -8640,6 +8752,7 @@ window.APP_TEXTS['english|四上|第4單元 地點介系詞'] = {
       terms: [
         { w: 'There is', d: '表示某處有某樣東西。' }
       ],
+      viz: {"type":"sentence","label":"單數","items":[{"t":"There is","r":"有"},{"t":"a book","r":"單數名詞"},{"t":"on the desk","r":"地點"}],"note":"單數名詞用 There is。","alt":[{"label":"複數","items":[{"t":"There are","r":"有"},{"t":"two books","r":"複數名詞"},{"t":"on the desk","r":"地點"}],"note":"複數名詞用 There are。"}]},
       q: {
         q: '課文說 There 句型的 be 動詞要配合什麼？',
         options: [
@@ -8664,6 +8777,7 @@ window.APP_TEXTS['english|四上|第4單元 地點介系詞'] = {
       terms: [
         { w: '固定用法', d: '約定俗成、不能隨意更改的說法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"用 at","items":["at home","at school","at work"]},{"label":"用 in","items":["in the park","in the room","in Taipei"]},{"label":"用 on","items":["on the playground","on the street"]}]},
       q: {
         q: '課文說 at home 後面要不要加 the？',
         options: [
@@ -8718,6 +8832,7 @@ window.APP_TEXTS['english|四上|第5單元 There is / There are'] = {
       terms: [
         { w: '句型', d: '句子的固定結構。' }
       ],
+      viz: {"type":"sentence","label":"單數","items":[{"t":"There is","r":"句型"},{"t":"a cat","r":"真正的主詞"},{"t":"in the box","r":"地點"}],"note":"be 動詞要配合後面的名詞，不是配合 there。","alt":[{"label":"複數","items":[{"t":"There are","r":"句型"},{"t":"two cats","r":"複數主詞"},{"t":"in the box","r":"地點"}],"note":"後面是複數名詞時用 There are。"}]},
       q: {
         q: '課文說這個句型真正的主詞是什麼？',
         options: [
@@ -8742,6 +8857,7 @@ window.APP_TEXTS['english|四上|第5單元 There is / There are'] = {
       terms: [
         { w: '不可數名詞', d: '不能一個兩個去數的名詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"用 There is","items":["a book","some water","milk","rice"]},{"label":"用 There are","items":["two books","some apples","many students"]}]},
       q: {
         q: '課文說不可數名詞要用 There is 還是 There are？',
         options: [
@@ -8941,6 +9057,7 @@ window.APP_TEXTS['english|四上|第6單元 月份與日期'] = {
       terms: [
         { w: '美式', d: '美國常用的寫法。' }
       ],
+      viz: {"type":"sentence","label":"日期","items":[{"t":"May","r":"月份"},{"t":"5","r":"日（唸序數）"},{"t":"2026","r":"年"}],"note":"寫的是數字，唸的時候要用序數。"},
       q: {
         q: '課文說唸日期時要用哪一種數字？',
         options: [
@@ -8989,6 +9106,7 @@ window.APP_TEXTS['english|四上|第6單元 月份與日期'] = {
       terms: [
         { w: '節日', d: '一年當中特別慶祝的日子。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"用 on（具體日期）","items":["on June 10","on Monday","on my birthday"]},{"label":"用 in（月份年份）","items":["in June","in 2026","in summer"]}]},
       q: {
         q: '課文說只講月份時要用哪一個介系詞？',
         options: [
@@ -9067,6 +9185,7 @@ window.APP_TEXTS['english|四上|第7單元 序數'] = {
       terms: [
         { w: '複合數字', d: '由十位和個位組成的數字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"整十","items":["twentieth","thirtieth","fortieth"]},{"label":"複合","items":["twenty-first","twenty-second","thirty-third"]}]},
       q: {
         q: '課文說複合數字哪一位要變成序數？',
         options: [
@@ -9115,6 +9234,7 @@ window.APP_TEXTS['english|四上|第7單元 序數'] = {
       terms: [
         { w: '名次', d: '比賽的排名。' }
       ],
+      viz: {"type":"sentence","label":"名次","items":[{"t":"He","r":"主詞"},{"t":"won","r":"動詞（過去式）"},{"t":"first place","r":"名次"}],"note":"win 的過去式是 won。"},
       q: {
         q: '課文說「他得第一名」的英文是什麼？',
         options: [
@@ -9169,6 +9289,7 @@ window.APP_TEXTS['english|四上|第8單元 學校科目與課表'] = {
       terms: [
         { w: '科目', d: '學校裡教的各種課程。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"學科","items":["math","science","social studies"]},{"label":"語言","items":["Chinese","English"]},{"label":"藝能","items":["music","art","PE"]}]},
       q: {
         q: '課文說 PE 是哪一科？',
         options: [
@@ -9217,6 +9338,7 @@ window.APP_TEXTS['english|四上|第8單元 學校科目與課表'] = {
       terms: [
         { w: 'because', d: '因為，用來說明原因。' }
       ],
+      viz: {"type":"sentence","label":"說原因","items":[{"t":"I like science","r":"主要子句"},{"t":"because","r":"連接詞"},{"t":"it is interesting","r":"原因子句"}],"note":"because 後面要接完整的句子（有主詞與動詞）。"},
       q: {
         q: '課文說 because 後面要接什麼？',
         options: [
@@ -9319,6 +9441,7 @@ window.APP_TEXTS['english|四上|第9單元 興趣與嗜好'] = {
       terms: [
         { w: '嗜好', d: '空閒時喜歡做的事。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"靜態","items":["reading","drawing","listening to music"]},{"label":"動態","items":["swimming","dancing","playing basketball"]}]},
       q: {
         q: '課文說 drawing 是什麼嗜好？',
         options: [
@@ -9391,6 +9514,7 @@ window.APP_TEXTS['english|四上|第9單元 興趣與嗜好'] = {
       terms: [
         { w: '加強語氣', d: '讓語氣更強烈的說法。' }
       ],
+      viz: {"type":"sentence","label":"加強語氣","items":[{"t":"I","r":"主詞"},{"t":"really like","r":"副詞＋動詞"},{"t":"music","r":"受詞"}],"note":"really 放在動詞前面加強語氣。"},
       q: {
         q: '課文說哪些字可以加強語氣？',
         options: [
@@ -9493,6 +9617,7 @@ window.APP_TEXTS['english|四下|第1單元 購物與價錢'] = {
       terms: [
         { w: 'dollar', d: '元，貨幣單位。' }
       ],
+      viz: {"type":"sentence","label":"說價錢","items":[{"t":"It","r":"主詞"},{"t":"is","r":"be 動詞"},{"t":"fifty dollars","r":"價錢"}],"note":"金額大於一時 dollar 要加 s。"},
       q: {
         q: '課文說兩元以上的 dollar 要怎麼寫？',
         options: [
@@ -9565,6 +9690,7 @@ window.APP_TEXTS['english|四下|第1單元 購物與價錢'] = {
       terms: [
         { w: 'change', d: '找回來的零錢。' }
       ],
+      viz: {"type":"energyflow","steps":["挑選","詢問價錢","決定購買","結帳付款"]},
       q: {
         q: '課文說 change 在購物時是什麼意思？',
         options: [
@@ -9619,6 +9745,7 @@ window.APP_TEXTS['english|四下|第2單元 城市地點與方向'] = {
       terms: [
         { w: '地點', d: '某個地方。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"公共設施","items":["school","hospital","library","post office"]},{"label":"商業","items":["bank","supermarket","restaurant"]},{"label":"交通","items":["bus stop","train station"]}]},
       q: {
         q: '課文說 post office 是什麼地方？',
         options: [
@@ -9667,6 +9794,7 @@ window.APP_TEXTS['english|四下|第2單元 城市地點與方向'] = {
       terms: [
         { w: '街區', d: '兩條路之間的一段。' }
       ],
+      viz: {"type":"sentence","label":"指路","items":[{"t":"Turn","r":"動詞（祈使）"},{"t":"left","r":"方向"},{"t":"at the corner","r":"地點"}],"note":"指路時用祈使句，主詞 you 省略。"},
       q: {
         q: '課文說指路用語是什麼句型？',
         options: [
@@ -9817,6 +9945,7 @@ window.APP_TEXTS['english|四下|第3單元 食物與飲食習慣'] = {
       terms: [
         { w: '喜好', d: '喜歡或不喜歡什麼。' }
       ],
+      viz: {"type":"sentence","label":"最愛的食物","items":[{"t":"My favorite food","r":"主詞"},{"t":"is","r":"be 動詞"},{"t":"dumplings","r":"補語"}],"note":"這個句型用來說明最喜歡的東西。"},
       q: {
         q: '課文說表達喜歡某類食物時可數名詞用什麼形式？',
         options: [
@@ -9841,6 +9970,7 @@ window.APP_TEXTS['english|四下|第3單元 食物與飲食習慣'] = {
       terms: [
         { w: '口味', d: '食物吃起來的味道。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"味道","items":["sweet","salty","sour","spicy","bitter"]},{"label":"評價","items":["delicious","fresh","healthy"]}]},
       q: {
         q: '課文說「有點辣」要怎麼說？',
         options: [
@@ -9991,6 +10121,7 @@ window.APP_TEXTS['english|四下|第4單元 運動與休閒'] = {
       terms: [
         { w: '休閒', d: '空閒時做的放鬆活動。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"室內","items":["watch TV","read books","play video games"]},{"label":"室外","items":["take a walk","go to the movies","go hiking"]}]},
       q: {
         q: '課文說 take a walk 是什麼意思？',
         options: [
@@ -10039,6 +10170,7 @@ window.APP_TEXTS['english|四下|第4單元 運動與休閒'] = {
       terms: [
         { w: 'be good for', d: '對某件事有益。' }
       ],
+      viz: {"type":"sentence","label":"說好處","items":[{"t":"Exercise","r":"主詞"},{"t":"is good for","r":"固定片語"},{"t":"your health","r":"受詞"}],"note":"be good for 表示對某事有益。"},
       q: {
         q: '課文說 help 後面可以接什麼？',
         options: [
@@ -10069,6 +10201,7 @@ window.APP_TEXTS['english|四下|第5單元 服裝與外表描述'] = {
       terms: [
         { w: '服裝', d: '身上穿的衣服。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"上半身","items":["shirt","sweater","jacket","coat"]},{"label":"下半身","items":["pants","shorts","skirt"]},{"label":"配件","items":["shoes","socks","hat","glasses"]}]},
       q: {
         q: '課文說 shorts 是什麼？',
         options: [
@@ -10117,6 +10250,7 @@ window.APP_TEXTS['english|四下|第5單元 服裝與外表描述'] = {
       terms: [
         { w: 'wear', d: '穿著，指狀態。' }
       ],
+      viz: {"type":"sentence","label":"描述穿著","items":[{"t":"He","r":"主詞"},{"t":"is wearing","r":"進行式"},{"t":"a blue shirt","r":"受詞"}],"note":"描述此刻的穿著常用現在進行式。"},
       q: {
         q: '課文說描述此刻的穿著常用什麼時態？',
         options: [
@@ -10219,6 +10353,7 @@ window.APP_TEXTS['english|四下|第6單元 電話與邀約用語'] = {
       terms: [
         { w: '接電話', d: '拿起電話回應對方。' }
       ],
+      viz: {"type":"sentence","label":"電話用語","items":[{"t":"This","r":"主詞（電話專用）"},{"t":"is","r":"be 動詞"},{"t":"Amy","r":"名字"}],"note":"電話中自我介紹固定用 This is。"},
       q: {
         q: '課文說電話中介紹自己要用什麼？',
         options: [
@@ -10243,6 +10378,7 @@ window.APP_TEXTS['english|四下|第6單元 電話與邀約用語'] = {
       terms: [
         { w: '留言', d: '請人轉達的話。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"請對方等","items":["Just a moment","Hold on, please"]},{"label":"留言","items":["Can I take a message?","Please tell him to call me."]}]},
       q: {
         q: '課文說「要留言嗎」的英文是什麼？',
         options: [
@@ -10393,6 +10529,7 @@ window.APP_TEXTS['english|四下|第7單元 祈使句與指示'] = {
       terms: [
         { w: '否定', d: '表示不要做某件事。' }
       ],
+      viz: {"type":"sentence","label":"否定祈使句","items":[{"t":"Do not","r":"否定"},{"t":"run","r":"原形動詞"},{"t":"in the hallway","r":"地點"}],"note":"否定祈使句在動詞前加 Do not。"},
       q: {
         q: '課文說 be 動詞的否定祈使句要怎麼寫？',
         options: [
@@ -10441,6 +10578,7 @@ window.APP_TEXTS['english|四下|第7單元 祈使句與指示'] = {
       terms: [
         { w: '標語', d: '公共場所提醒大家的短句。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"要做","items":["Keep quiet","Watch your step","Line up"]},{"label":"不要做","items":["No smoking","Do not touch","No parking"]}]},
       q: {
         q: '課文說 Watch your step 是什麼意思？',
         options: [
@@ -10543,6 +10681,7 @@ window.APP_TEXTS['english|四下|第8單元 連接詞 and / but / or'] = {
       terms: [
         { w: '轉折', d: '意思往相反方向轉。' }
       ],
+      viz: {"type":"sentence","label":"轉折","items":[{"t":"I like math","r":"前半"},{"t":"but","r":"轉折"},{"t":"I do not like tests","r":"後半"}],"note":"but 連接意思相反的兩個部分。"},
       q: {
         q: '課文說 but 連接兩個完整句子時前面要加什麼？',
         options: [
@@ -10615,6 +10754,7 @@ window.APP_TEXTS['english|四下|第8單元 連接詞 and / but / or'] = {
       terms: [
         { w: '逗號', d: '句子中間停頓用的標點。' }
       ],
+      viz: {"type":"compareexp","factor":"要不要加逗號","a":{"label":"連接完整句子","note":"前面加逗號：…, but…"},"b":{"label":"連接單字片語","note":"不加逗號：A and B"},"same":["都使用連接詞"]},
       q: {
         q: '課文說連接兩個單字時要不要加逗號？',
         options: [
@@ -10669,6 +10809,7 @@ window.APP_TEXTS['english|四下|第9單元 短文閱讀理解'] = {
       terms: [
         { w: '預測', d: '讀之前先猜內容大概是什麼。' }
       ],
+      viz: {"type":"energyflow","steps":["看標題與圖","快速掃過一遍","再讀細節","回答問題"]},
       q: {
         q: '課文說看到不認識的字要怎麼辦？',
         options: [
@@ -10867,6 +11008,7 @@ window.APP_TEXTS['english|五上|第1單元 字母與母音字母'] = {
       terms: [
         { w: '長音', d: '唸成字母本身名字的母音。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"cap","parts":["c","a","p"],"hit":1,"s":"a 的短音","mean":"帽子"},{"w":"cape","parts":["c","a","p","e"],"hit":1,"s":"a 的長音","mean":"斗篷"}]},
       q: {
         q: '課文說長音怎麼唸？',
         options: [
@@ -10939,6 +11081,7 @@ window.APP_TEXTS['english|五上|第1單元 字母與母音字母'] = {
       terms: [
         { w: '規則', d: '固定成立的原則。' }
       ],
+      viz: {"type":"compareexp","factor":"字母與發音","a":{"label":"同字母不同音","note":"cat 的 a 與 cake 的 a"},"b":{"label":"不同拼法同音","note":"see 與 sea"},"same":["都說明英文拼音不是一對一"]},
       q: {
         q: '課文說學發音應該重視什麼？',
         options: [
@@ -11041,6 +11184,7 @@ window.APP_TEXTS['english|五上|第2單元 自然發音'] = {
       terms: [
         { w: '母音組合', d: '兩個母音字母合起來發一個音。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"rain","parts":["r","ai","n"],"hit":1,"s":"ai 發 a 的長音","mean":"雨"},{"w":"see","parts":["s","ee"],"hit":1,"s":"ee 發 e 的長音","mean":"看見"},{"w":"boat","parts":["b","oa","t"],"hit":1,"s":"oa 發 o 的長音","mean":"船"}]},
       q: {
         q: '課文的口訣說兩個母音在一起時哪一個發音？',
         options: [
@@ -11089,6 +11233,7 @@ window.APP_TEXTS['english|五上|第2單元 自然發音'] = {
       terms: [
         { w: '自學', d: '自己學習、不用別人教。' }
       ],
+      viz: {"type":"energyflow","steps":["找出母音","判斷結構","試著拼讀","查證確認"]},
       q: {
         q: '課文說看到新字的第一步是什麼？',
         options: [
@@ -11167,6 +11312,7 @@ window.APP_TEXTS['english|五上|第3單元 be 動詞與自我介紹'] = {
       terms: [
         { w: '否定句', d: '表示不是的句子。' }
       ],
+      viz: {"type":"sentence","label":"否定","items":[{"t":"He","r":"主詞"},{"t":"is not","r":"be＋not"},{"t":"tall","r":"形容詞"}],"note":"be 動詞的否定直接加 not。"},
       q: {
         q: '課文說 be 動詞的否定要不要用 do？',
         options: [
@@ -11269,6 +11415,7 @@ window.APP_TEXTS['english|五上|第4單元 一般動詞與日常作息'] = {
       terms: [
         { w: '一般動詞', d: '表示動作或行為的動詞。' }
       ],
+      viz: {"type":"compareexp","factor":"兩類動詞","a":{"label":"be 動詞","note":"說明狀態、身分與位置"},"b":{"label":"一般動詞","note":"說明動作與行為"},"same":["都是句子的主要動詞"]},
       q: {
         q: '課文說一般動詞用來說明什麼？',
         options: [
@@ -11365,6 +11512,7 @@ window.APP_TEXTS['english|五上|第4單元 一般動詞與日常作息'] = {
       terms: [
         { w: '頻率副詞', d: '表示做某事多常的字。' }
       ],
+      viz: {"type":"sentence","label":"完整句","items":[{"t":"She","r":"主詞"},{"t":"usually","r":"頻率副詞"},{"t":"goes to bed","r":"動詞片語"},{"t":"at ten","r":"時間"}],"note":"頻率副詞在動詞前，時間片語在句尾。"},
       q: {
         q: '課文說時間片語通常放在哪裡？',
         options: [
@@ -11419,6 +11567,7 @@ window.APP_TEXTS['english|五上|第5單元 現在進行式'] = {
       terms: [
         { w: '現在進行式', d: '表示此刻正在做的動作。' }
       ],
+      viz: {"type":"tense","verb":"play","highlight":"現在進行式"},
       q: {
         q: '課文說現在進行式表示什麼？',
         options: [
@@ -11491,6 +11640,7 @@ window.APP_TEXTS['english|五上|第5單元 現在進行式'] = {
       terms: [
         { w: '否定', d: '表示沒有在做某件事。' }
       ],
+      viz: {"type":"sentence","label":"疑問句","items":[{"t":"Are","r":"be 動詞"},{"t":"they","r":"主詞"},{"t":"playing","r":"動詞-ing"}],"note":"把 be 動詞移到句首形成疑問句。"},
       q: {
         q: '課文說進行式的否定與疑問靠什麼？',
         options: [
@@ -11515,6 +11665,7 @@ window.APP_TEXTS['english|五上|第5單元 現在進行式'] = {
       terms: [
         { w: '狀態動詞', d: '表示狀態而非動作的動詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"通常不用進行式","items":["like","know","want","need"]},{"label":"可以用進行式","items":["have lunch","play","run","study"]}]},
       q: {
         q: '課文說 like 可不可以用進行式？',
         options: [
@@ -11593,6 +11744,7 @@ window.APP_TEXTS['english|五上|第6單元 地點介系詞'] = {
       terms: [
         { w: 'among', d: '在三者以上之間。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"上下","items":["under","over","above","below"]},{"label":"前後","items":["in front of","behind"]},{"label":"之間","items":["between","among"]}]},
       q: {
         q: '課文說三者以上之間要用哪一個字？',
         options: [
@@ -11719,6 +11871,7 @@ window.APP_TEXTS['english|五上|第7單元 數字、時間與日期'] = {
       terms: [
         { w: '序數', d: '表示第幾的數字。' }
       ],
+      viz: {"type":"compareexp","factor":"兩種數字","a":{"label":"基數","note":"表示數量：two books"},"b":{"label":"序數","note":"表示順序：the second book"},"same":["都是數字的表達方式"]},
       q: {
         q: '課文說哪些場合要用序數？',
         options: [
@@ -11767,6 +11920,7 @@ window.APP_TEXTS['english|五上|第7單元 數字、時間與日期'] = {
       terms: [
         { w: '整點', d: '剛好幾點、沒有分鐘。' }
       ],
+      viz: {"type":"clock","h":7,"m":45,"edit":true},
       q: {
         q: '課文說差幾分到整點要用哪一個字？',
         options: [
@@ -11839,6 +11993,7 @@ window.APP_TEXTS['english|五上|第7單元 數字、時間與日期'] = {
       terms: [
         { w: '應用', d: '把學到的東西用在實際情境。' }
       ],
+      viz: {"type":"sentence","label":"多個時間片語","items":[{"t":"School starts","r":"主要內容"},{"t":"at eight","r":"時間點"},{"t":"in the morning","r":"時段"}],"note":"英文的時間片語通常由小到大排列。"},
       q: {
         q: '課文說一句話裡可不可能有好幾個時間介系詞？',
         options: [
@@ -11869,6 +12024,7 @@ window.APP_TEXTS['english|五上|第8單元 疑問詞與日常對話'] = {
       terms: [
         { w: '疑問詞', d: '用來問人事時地物的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"問人事物","items":["who","what","whose","which"]},{"label":"問時間地點","items":["when","where"]},{"label":"問原因方式","items":["why","how"]}]},
       q: {
         q: '課文說疑問詞要放在句子的哪裡？',
         options: [
@@ -11893,6 +12049,7 @@ window.APP_TEXTS['english|五上|第8單元 疑問詞與日常對話'] = {
       terms: [
         { w: '語序', d: '句子裡各部分排列的順序。' }
       ],
+      viz: {"type":"sentence","label":"be 動詞句","items":[{"t":"Where","r":"疑問詞"},{"t":"is","r":"be 動詞"},{"t":"your school","r":"主詞"}],"note":"be 動詞句直接把 be 動詞放在主詞前面。","alt":[{"label":"一般動詞句","items":[{"t":"Where","r":"疑問詞"},{"t":"do","r":"助動詞"},{"t":"you","r":"主詞"},{"t":"live","r":"原形動詞"}],"note":"一般動詞句要加助動詞 do 或 does。"}]},
       q: {
         q: '課文說最常見的錯誤是什麼？',
         options: [
@@ -12019,6 +12176,7 @@ window.APP_TEXTS['english|五上|第9單元 主題字彙與生活用語'] = {
       terms: [
         { w: '主題', d: '同一類別的內容。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"學校","items":["classroom","teacher","homework","test"]},{"label":"食物","items":["rice","noodles","fruit","juice"]},{"label":"天氣","items":["sunny","rainy","cloudy","windy"]}]},
       q: {
         q: '課文說用主題記單字為什麼有效？',
         options: [
@@ -12067,6 +12225,7 @@ window.APP_TEXTS['english|五上|第9單元 主題字彙與生活用語'] = {
       terms: [
         { w: '感受', d: '心裡的感覺。' }
       ],
+      viz: {"type":"sentence","label":"說感受","items":[{"t":"I","r":"主詞"},{"t":"am","r":"be 動詞"},{"t":"tired","r":"形容詞"}],"note":"感受用 be 動詞加形容詞表達。"},
       q: {
         q: '課文說「我很累」要用哪一種動詞？',
         options: [
@@ -12217,6 +12376,7 @@ window.APP_TEXTS['english|五下|第1單元 可數與不可數名詞'] = {
       terms: [
         { w: '容器', d: '裝東西的杯瓶碗盤。' }
       ],
+      viz: {"type":"sentence","label":"計量單位","items":[{"t":"two glasses","r":"容器（複數）"},{"t":"of","r":"介系詞"},{"t":"water","r":"不可數名詞"}],"note":"複數要加在容器上，不可數名詞本身不變。"},
       q: {
         q: '課文說要說兩杯水時要把什麼變複數？',
         options: [
@@ -12241,6 +12401,7 @@ window.APP_TEXTS['english|五下|第1單元 可數與不可數名詞'] = {
       terms: [
         { w: '搭配', d: '主詞和動詞要互相配合。' }
       ],
+      viz: {"type":"compareexp","factor":"動詞的選擇","a":{"label":"不可數名詞","note":"動詞用單數：Water is…"},"b":{"label":"可數複數","note":"動詞用複數：Books are…"},"same":["都是主詞"]},
       q: {
         q: '課文說 Books 當主詞時動詞要用哪一個？',
         options: [
@@ -12319,6 +12480,7 @@ window.APP_TEXTS['english|五下|第2單元 some／any／a lot of'] = {
       terms: [
         { w: 'some', d: '一些，主要用在肯定句。' }
       ],
+      viz: {"type":"sentence","label":"some 的用法","items":[{"t":"I have","r":"主詞＋動詞"},{"t":"some","r":"限定詞"},{"t":"questions","r":"可數複數"}],"note":"some 可以搭配可數複數或不可數名詞。"},
       q: {
         q: '課文說 some 主要用在哪一種句子？',
         options: [
@@ -12367,6 +12529,7 @@ window.APP_TEXTS['english|五下|第2單元 some／any／a lot of'] = {
       terms: [
         { w: '邀請', d: '請對方接受某樣東西。' }
       ],
+      viz: {"type":"compareexp","factor":"疑問句中的選擇","a":{"label":"一般詢問","note":"Do you have any questions? 用 any"},"b":{"label":"邀請或請求","note":"Would you like some tea? 用 some"},"same":["都是疑問句"]},
       q: {
         q: '課文說邀請時用 some 的原因是什麼？',
         options: [
@@ -12517,6 +12680,7 @@ window.APP_TEXTS['english|五下|第3單元 所有格'] = {
       terms: [
         { w: '所有格形容詞', d: '放在名詞前表示所屬的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"所有格形容詞","items":["my","your","his","her","its","our","their"]},{"label":"常見混淆","items":["its（它的）","it’s（it is）"]}]},
       q: {
         q: '課文說 its 有沒有撇號？',
         options: [
@@ -12589,6 +12753,7 @@ window.APP_TEXTS['english|五下|第3單元 所有格'] = {
       terms: [
         { w: '綜合', d: '把好幾種用法合在一起。' }
       ],
+      viz: {"type":"sentence","label":"雙重所有格","items":[{"t":"my brother’s","r":"名詞所有格"},{"t":"bike","r":"名詞"}],"note":"my 修飾 brother，brother’s 修飾 bike。"},
       q: {
         q: '課文說同一句中可不可能有好幾種所有格？',
         options: [
@@ -12619,6 +12784,7 @@ window.APP_TEXTS['english|五下|第4單元 受格代名詞'] = {
       terms: [
         { w: '受格', d: '當動作對象用的代名詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"主格","items":["I","he","she","we","they"]},{"label":"受格","items":["me","him","her","us","them"]}]},
       q: {
         q: '課文說哪兩個代名詞的主格受格同形？',
         options: [
@@ -12691,6 +12857,7 @@ window.APP_TEXTS['english|五下|第4單元 受格代名詞'] = {
       terms: [
         { w: '虛主詞', d: '沒有實際意義、只為湊主詞的字。' }
       ],
+      viz: {"type":"sentence","label":"虛主詞","items":[{"t":"It","r":"虛主詞（無意義）"},{"t":"is","r":"be 動詞"},{"t":"raining","r":"動詞-ing"}],"note":"天氣、時間、距離的句子用 it 當主詞。"},
       q: {
         q: '課文說天氣句裡的 it 有沒有實際意義？',
         options: [
@@ -12841,6 +13008,7 @@ window.APP_TEXTS['english|五下|第5單元 冠詞與指示詞'] = {
       terms: [
         { w: '指示詞', d: '指出遠近與單複數的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"近（this/these）","items":["this book","these books"]},{"label":"遠（that/those）","items":["that book","those books"]}]},
       q: {
         q: '課文說 those 指的是什麼？',
         options: [
@@ -12865,6 +13033,7 @@ window.APP_TEXTS['english|五下|第5單元 冠詞與指示詞'] = {
       terms: [
         { w: '一致', d: '主詞和動詞形式互相配合。' }
       ],
+      viz: {"type":"sentence","label":"單數","items":[{"t":"This","r":"指示詞（單數）"},{"t":"is","r":"be 動詞"},{"t":"my book","r":"補語"}],"note":"單數指示詞配 is。","alt":[{"label":"複數","items":[{"t":"These","r":"指示詞（複數）"},{"t":"are","r":"be 動詞"},{"t":"my books","r":"補語"}],"note":"複數指示詞配 are。"}]},
       q: {
         q: '課文說 These 後面要用哪一個 be 動詞？',
         options: [
@@ -12919,6 +13088,7 @@ window.APP_TEXTS['english|五下|第6單元 五感與描述'] = {
       terms: [
         { w: '五感', d: '視聽嗅味觸五種感覺。' }
       ],
+      viz: {"type":"sentence","label":"五感動詞","items":[{"t":"It","r":"主詞"},{"t":"looks","r":"五感動詞"},{"t":"good","r":"形容詞"}],"note":"五感動詞後面直接接形容詞。"},
       q: {
         q: '課文說五感動詞後面要接什麼？',
         options: [
@@ -12943,6 +13113,7 @@ window.APP_TEXTS['english|五下|第6單元 五感與描述'] = {
       terms: [
         { w: 'like', d: '像，用來連接名詞。' }
       ],
+      viz: {"type":"compareexp","factor":"後面接什麼","a":{"label":"接形容詞","note":"It looks nice. 不加 like"},"b":{"label":"接名詞","note":"It looks like a cat. 要加 like"},"same":["都用五感動詞"]},
       q: {
         q: '課文說什麼時候要加 like？',
         options: [
@@ -13069,6 +13240,7 @@ window.APP_TEXTS['english|五下|第7單元 節慶與慶祝'] = {
       terms: [
         { w: '節日', d: '一年當中特別慶祝的日子。' }
       ],
+      viz: {"type":"timeline","events":[{"y":"1/1","t":"New Year","d":"元旦，慶祝新的一年開始。"},{"y":"2/14","t":"Valentine","d":"情人節，交換卡片與禮物。"},{"y":"10/31","t":"Halloween","d":"萬聖節，變裝與要糖果。"},{"y":"12/25","t":"Christmas","d":"聖誕節，家人團聚與交換禮物。"}]},
       q: {
         q: '課文說 Thanksgiving 是什麼節日？',
         options: [
@@ -13093,6 +13265,7 @@ window.APP_TEXTS['english|五下|第7單元 節慶與慶祝'] = {
       terms: [
         { w: '傳統節日', d: '長久流傳下來的慶祝日子。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"台灣節日","items":["Chinese New Year","Dragon Boat Festival","Mid-Autumn Festival"]},{"label":"相關活動","items":["red envelopes","dragon boat races","moon cakes"]}]},
       q: {
         q: '課文說 Dragon Boat Festival 是什麼節日？',
         options: [
@@ -13189,6 +13362,7 @@ window.APP_TEXTS['english|五下|第7單元 節慶與慶祝'] = {
       terms: [
         { w: '禁忌', d: '某個文化中避免做的事。' }
       ],
+      viz: {"type":"sentence","label":"禮貌詢問","items":[{"t":"Is it OK","r":"詢問"},{"t":"if I","r":"假設"},{"t":"take a photo","r":"動作"}],"note":"不確定時先問，是尊重對方文化的表現。"},
       q: {
         q: '課文說不確定禮節時該怎麼做？',
         options: [
@@ -13219,6 +13393,7 @@ window.APP_TEXTS['english|五下|第8單元 校園活動與社團'] = {
       terms: [
         { w: '校園活動', d: '學校舉辦的各種活動。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"活動","items":["sports day","field trip","graduation"]},{"label":"比賽","items":["speech contest","singing contest","science fair"]}]},
       q: {
         q: '課文說 field trip 是什麼活動？',
         options: [
@@ -13291,6 +13466,7 @@ window.APP_TEXTS['english|五下|第8單元 校園活動與社團'] = {
       terms: [
         { w: '合作', d: '幾個人一起完成一件事。' }
       ],
+      viz: {"type":"sentence","label":"請求協助","items":[{"t":"Can you help","r":"請求"},{"t":"me","r":"受格"},{"t":"with the poster","r":"協助的事項"}],"note":"help ＋ 人 ＋ with ＋ 事情。"},
       q: {
         q: '課文說「幫我做海報」中間要用哪一個介系詞？',
         options: [
@@ -13315,6 +13491,7 @@ window.APP_TEXTS['english|五下|第8單元 校園活動與社團'] = {
       terms: [
         { w: '過去式', d: '描述已經發生的事的時態。' }
       ],
+      viz: {"type":"tense","verb":"play","highlight":"過去簡單式"},
       q: {
         q: '課文說描述過去的活動要用什麼時態？',
         options: [
@@ -13465,6 +13642,7 @@ window.APP_TEXTS['english|五下|第9單元 短文閱讀入門'] = {
       terms: [
         { w: '對應', d: '把代名詞連回它所指的東西。' }
       ],
+      viz: {"type":"energyflow","steps":["看到代名詞","往前找名詞","確認單複數","確定指誰"]},
       q: {
         q: '課文說找代名詞所指的對象要怎麼找？',
         options: [
@@ -13543,6 +13721,7 @@ window.APP_TEXTS['english|六上|第1單元 be 動詞過去式'] = {
       terms: [
         { w: '時間詞', d: '說明什麼時候的字詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"過去的時間詞","items":["yesterday","last week","two days ago","in 2020"]},{"label":"現在的時間詞","items":["now","today","every day"]}]},
       q: {
         q: '課文說 ago 是什麼意思？',
         options: [
@@ -13615,6 +13794,7 @@ window.APP_TEXTS['english|六上|第1單元 be 動詞過去式'] = {
       terms: [
         { w: '搭配', d: '動詞形式要和名詞配合。' }
       ],
+      viz: {"type":"sentence","label":"過去有什麼","items":[{"t":"There were","r":"過去有"},{"t":"many students","r":"複數名詞"},{"t":"in the hall","r":"地點"}],"note":"後面是複數名詞要用 were。"},
       q: {
         q: '課文說 There 句型的過去式 be 動詞要配合什麼？',
         options: [
@@ -13639,6 +13819,7 @@ window.APP_TEXTS['english|六上|第1單元 be 動詞過去式'] = {
       terms: [
         { w: '狀態', d: '人或物當時的樣子。' }
       ],
+      viz: {"type":"tense","verb":"play","highlight":"過去簡單式"},
       q: {
         q: '課文說描述過去的身分要用什麼？',
         options: [
@@ -13693,6 +13874,7 @@ window.APP_TEXTS['english|六上|第2單元 規則動詞過去式'] = {
       terms: [
         { w: '拼寫', d: '一個字用哪些字母寫出來。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"只加 d","items":["liked","lived","moved"]},{"label":"去 y 加 ied","items":["studied","cried","tried"]},{"label":"重複子音","items":["stopped","planned","shopped"]}]},
       q: {
         q: '課文說 study 的過去式是什麼？',
         options: [
@@ -13717,6 +13899,7 @@ window.APP_TEXTS['english|六上|第2單元 規則動詞過去式'] = {
       terms: [
         { w: '無聲子音', d: '發音時聲帶不振動的子音。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"worked","parts":["work","ed"],"hit":1,"s":"ed 唸 t","mean":"工作（過去式）"},{"w":"played","parts":["play","ed"],"hit":1,"s":"ed 唸 d","mean":"玩（過去式）"},{"w":"wanted","parts":["want","ed"],"hit":1,"s":"ed 唸 id","mean":"想要（過去式）"}]},
       q: {
         q: '課文說字尾是 t 或 d 時 ed 要唸什麼？',
         options: [
@@ -13741,6 +13924,7 @@ window.APP_TEXTS['english|六上|第2單元 規則動詞過去式'] = {
       terms: [
         { w: '原形', d: '動詞沒有加字尾的樣子。' }
       ],
+      viz: {"type":"sentence","label":"否定","items":[{"t":"I","r":"主詞"},{"t":"did not","r":"助動詞（過去）"},{"t":"play","r":"原形動詞"},{"t":"basketball","r":"受詞"}],"note":"用了 did 之後動詞回到原形。"},
       q: {
         q: '課文說用了 did not 之後動詞要用什麼形式？',
         options: [
@@ -13819,6 +14003,7 @@ window.APP_TEXTS['english|六上|第3單元 不規則動詞過去式'] = {
       terms: [
         { w: '不規則動詞', d: '過去式不加 ed 的動詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"完全改變","items":["go→went","eat→ate","see→saw"]},{"label":"只改母音","items":["come→came","give→gave","sing→sang"]},{"label":"不變","items":["put→put","cut→cut","read→read"]}]},
       q: {
         q: '課文說不規則動詞多半是什麼樣的字？',
         options: [
@@ -13915,6 +14100,7 @@ window.APP_TEXTS['english|六上|第3單元 不規則動詞過去式'] = {
       terms: [
         { w: '一律', d: '所有情況都一樣。' }
       ],
+      viz: {"type":"sentence","label":"否定","items":[{"t":"I","r":"主詞"},{"t":"did not","r":"助動詞"},{"t":"go","r":"原形動詞"}],"note":"用了 did 之後不規則變化就用不到了。"},
       q: {
         q: '課文說用 did 之後不規則動詞要用什麼形式？',
         options: [
@@ -13969,6 +14155,7 @@ window.APP_TEXTS['english|六上|第4單元 過去式否定與問句'] = {
       terms: [
         { w: '助動詞', d: '幫助造否定或疑問句的動詞。' }
       ],
+      viz: {"type":"sentence","label":"肯定","items":[{"t":"I","r":"主詞"},{"t":"went","r":"過去式"},{"t":"to school","r":"地點"}],"note":"肯定句直接用過去式。","alt":[{"label":"否定","items":[{"t":"I","r":"主詞"},{"t":"did not","r":"助動詞"},{"t":"go","r":"原形"},{"t":"to school","r":"地點"}],"note":"過去的資訊移到 did 上面，動詞回原形。"}]},
       q: {
         q: '課文說用了 did 之後動詞為什麼要回原形？',
         options: [
@@ -14065,6 +14252,7 @@ window.APP_TEXTS['english|六上|第4單元 過去式否定與問句'] = {
       terms: [
         { w: '受詞', d: '動作所指向的對象。' }
       ],
+      viz: {"type":"compareexp","factor":"疑問詞的角色","a":{"label":"Who called you?","note":"who 是主詞，動詞直接用過去式"},"b":{"label":"Who did you call?","note":"who 是受詞，要用 did"},"same":["都以 Who 開頭"]},
       q: {
         q: '課文說疑問詞當主詞時要不要用 did？',
         options: [
@@ -14167,6 +14355,7 @@ window.APP_TEXTS['english|六上|第5單元 未來式 be going to'] = {
       terms: [
         { w: '計畫', d: '事先想好要做的事。' }
       ],
+      viz: {"type":"sentence","label":"否定","items":[{"t":"He","r":"主詞"},{"t":"is not going to","r":"否定"},{"t":"come","r":"原形動詞"}],"note":"否定時在 be 動詞後面加 not。"},
       q: {
         q: '課文說 be going to 的否定要在哪裡加 not？',
         options: [
@@ -14215,6 +14404,7 @@ window.APP_TEXTS['english|六上|第5單元 未來式 be going to'] = {
       terms: [
         { w: '時間詞', d: '說明什麼時候的字詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"未來的時間詞","items":["tomorrow","next week","tonight","soon"]},{"label":"過去的時間詞","items":["yesterday","last week","ago"]}]},
       q: {
         q: '課文說 in two days 是什麼意思？',
         options: [
@@ -14269,6 +14459,7 @@ window.APP_TEXTS['english|六上|第6單元 未來式 will'] = {
       terms: [
         { w: 'will', d: '將會，表示未來。' }
       ],
+      viz: {"type":"tense","verb":"go","highlight":"未來式"},
       q: {
         q: '課文說 will 會不會隨主詞變化？',
         options: [
@@ -14293,6 +14484,7 @@ window.APP_TEXTS['english|六上|第6單元 未來式 will'] = {
       terms: [
         { w: '預測', d: '猜測將來會發生什麼。' }
       ],
+      viz: {"type":"compareexp","factor":"兩種未來式","a":{"label":"will","note":"當下決定、預測、承諾"},"b":{"label":"be going to","note":"事先計畫、有明顯跡象"},"same":["都表達未來"]},
       q: {
         q: '課文說當下才決定的事要用哪一個？',
         options: [
@@ -14365,6 +14557,7 @@ window.APP_TEXTS['english|六上|第6單元 未來式 will'] = {
       terms: [
         { w: '不確定', d: '不能肯定會不會發生。' }
       ],
+      viz: {"type":"sentence","label":"預測","items":[{"t":"I think","r":"表達推測"},{"t":"it will rain","r":"未來式"},{"t":"tomorrow","r":"時間"}],"note":"加上 I think 讓語氣變成推測。"},
       q: {
         q: '課文說做預測時常搭配哪些字？',
         options: [
@@ -14443,6 +14636,7 @@ window.APP_TEXTS['english|六上|第7單元 比較級'] = {
       terms: [
         { w: '音節', d: '發音的基本單位。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"加 er","items":["taller","faster","smaller"]},{"label":"用 more","items":["more beautiful","more difficult","more important"]}]},
       q: {
         q: '課文說可不可以同時用 more 和 er？',
         options: [
@@ -14539,6 +14733,7 @@ window.APP_TEXTS['english|六上|第7單元 比較級'] = {
       terms: [
         { w: '原級', d: '形容詞沒有變化的原本形式。' }
       ],
+      viz: {"type":"sentence","label":"同級比較","items":[{"t":"He is","r":"主詞＋be"},{"t":"as tall as","r":"同級比較"},{"t":"his brother","r":"比較對象"}],"note":"兩個 as 中間放原級形容詞。"},
       q: {
         q: '課文說兩個 as 中間要用什麼形式？',
         options: [
@@ -14593,6 +14788,7 @@ window.APP_TEXTS['english|六上|第8單元 最高級'] = {
       terms: [
         { w: 'most', d: '最，用在長形容詞前面。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"加 est","items":["tallest","smallest","fastest"]},{"label":"用 most","items":["most beautiful","most difficult","most popular"]}]},
       q: {
         q: '課文說 the most tallest 對不對？',
         options: [
@@ -14641,6 +14837,7 @@ window.APP_TEXTS['english|六上|第8單元 最高級'] = {
       terms: [
         { w: '範圍', d: '比較所涵蓋的對象群。' }
       ],
+      viz: {"type":"sentence","label":"最高級句型","items":[{"t":"He is","r":"主詞＋be"},{"t":"the tallest","r":"最高級"},{"t":"in our class","r":"範圍"}],"note":"最高級前面要加 the，後面說明比較的範圍。"},
       q: {
         q: '課文說範圍是團體時要用哪一個介系詞？',
         options: [
@@ -14743,6 +14940,7 @@ window.APP_TEXTS['english|六上|第9單元 旅遊與計畫'] = {
       terms: [
         { w: 'luggage', d: '行李，不可數名詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"出發前","items":["passport","ticket","luggage","booking"]},{"label":"旅途中","items":["flight","hotel","sightseeing","souvenir"]}]},
       q: {
         q: '課文說 luggage 是可數還是不可數？',
         options: [
@@ -14767,6 +14965,7 @@ window.APP_TEXTS['english|六上|第9單元 旅遊與計畫'] = {
       terms: [
         { w: '描述', d: '說出某個地方是什麼樣子。' }
       ],
+      viz: {"type":"sentence","label":"比較地點","items":[{"t":"Taipei is","r":"主詞＋be"},{"t":"bigger than","r":"比較級"},{"t":"Tainan","r":"比較對象"}],"note":"比較兩個地方用比較級。"},
       q: {
         q: '課文說描述地方常用哪兩種形式？',
         options: [
@@ -14791,6 +14990,7 @@ window.APP_TEXTS['english|六上|第9單元 旅遊與計畫'] = {
       terms: [
         { w: '經驗', d: '曾經做過的事。' }
       ],
+      viz: {"type":"tense","verb":"go","highlight":"過去簡單式"},
       q: {
         q: '課文說分享過去的旅遊要用什麼時態？',
         options: [
@@ -14869,6 +15069,7 @@ window.APP_TEXTS['english|六下|第1單元 時態綜合複習'] = {
       terms: [
         { w: '時態', d: '動詞表示時間的形式。' }
       ],
+      viz: {"type":"tense","verb":"eat","highlight":"現在簡單式"},
       q: {
         q: '課文說現在完成式講的是什麼？',
         options: [
@@ -14917,6 +15118,7 @@ window.APP_TEXTS['english|六下|第1單元 時態綜合複習'] = {
       terms: [
         { w: '狀態動詞', d: '表示狀態而非動作的動詞。' }
       ],
+      viz: {"type":"compareexp","factor":"兩種現在式","a":{"label":"簡單式","note":"習慣或事實"},"b":{"label":"進行式","note":"此刻正在進行"},"same":["都描述現在"]},
       q: {
         q: '課文說哪些動詞通常不用進行式？',
         options: [
@@ -15019,6 +15221,7 @@ window.APP_TEXTS['english|六下|第2單元 助動詞 can／must／should'] = {
       terms: [
         { w: '助動詞', d: '幫助主要動詞表達語氣的動詞。' }
       ],
+      viz: {"type":"sentence","label":"助動詞句","items":[{"t":"He","r":"主詞"},{"t":"can","r":"助動詞（不變）"},{"t":"swim","r":"原形動詞"}],"note":"助動詞不隨主詞變化，後面接原形動詞。"},
       q: {
         q: '課文說助動詞會不會隨主詞變化？',
         options: [
@@ -15139,6 +15342,7 @@ window.APP_TEXTS['english|六下|第2單元 助動詞 can／must／should'] = {
       terms: [
         { w: '委婉', d: '說得比較客氣不直接。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"強","items":["must","have to"]},{"label":"中","items":["should","ought to"]},{"label":"弱（委婉）","items":["could","might","maybe you can"]}]},
       q: {
         q: '課文說對不熟的人建議時可以怎麼說？',
         options: [
@@ -15217,6 +15421,7 @@ window.APP_TEXTS['english|六下|第3單元 動名詞與不定詞'] = {
       terms: [
         { w: '動名詞', d: '動詞加 ing 當名詞用。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"只接動名詞","items":["enjoy","finish","practice","mind","keep"]}]},
       q: {
         q: '課文說 enjoy 後面要接什麼？',
         options: [
@@ -15289,6 +15494,7 @@ window.APP_TEXTS['english|六下|第3單元 動名詞與不定詞'] = {
       terms: [
         { w: '介系詞', d: '表示關係的字，如 for、at、in。' }
       ],
+      viz: {"type":"sentence","label":"介系詞後","items":[{"t":"Thank you for","r":"介系詞 for"},{"t":"helping","r":"動名詞"},{"t":"me","r":"受詞"}],"note":"介系詞後面的動詞要用動名詞。"},
       q: {
         q: '課文說介系詞後面接動詞時要用什麼形式？',
         options: [
@@ -15367,6 +15573,7 @@ window.APP_TEXTS['english|六下|第4單元 疑問句綜合'] = {
       terms: [
         { w: '主詞', d: '句子裡做動作的那個人事物。' }
       ],
+      viz: {"type":"compareexp","factor":"疑問詞的角色","a":{"label":"疑問詞當主詞","note":"Who called? 不用助動詞"},"b":{"label":"疑問詞當受詞","note":"Who did you call? 要用助動詞"},"same":["都以疑問詞開頭"]},
       q: {
         q: '課文說疑問詞當主詞時要不要用助動詞？',
         options: [
@@ -15439,6 +15646,7 @@ window.APP_TEXTS['english|六下|第4單元 疑問句綜合'] = {
       terms: [
         { w: '禮貌', d: '說話有分寸、尊重對方。' }
       ],
+      viz: {"type":"sentence","label":"客氣的問法","items":[{"t":"Could you tell me","r":"禮貌開場"},{"t":"where","r":"疑問詞"},{"t":"the station is","r":"不倒裝"}],"note":"客氣的問法後面用間接問句的語序。"},
       q: {
         q: '課文說用 Could you tell me 開頭後面要用什麼語序？',
         options: [
@@ -15517,6 +15725,7 @@ window.APP_TEXTS['english|六下|第5單元 連接詞與句子連結'] = {
       terms: [
         { w: '時間子句', d: '說明時間的那個子句。' }
       ],
+      viz: {"type":"sentence","label":"時間子句","items":[{"t":"I will call you","r":"主要子句（未來）"},{"t":"when","r":"連接詞"},{"t":"I arrive","r":"時間子句（現在式）"}],"note":"時間子句中用現在式表示未來。"},
       q: {
         q: '課文說時間子句中可不可以用未來式？',
         options: [
@@ -15589,6 +15798,7 @@ window.APP_TEXTS['english|六下|第5單元 連接詞與句子連結'] = {
       terms: [
         { w: '轉承語', d: '銜接前後句意的詞語。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"補充","items":["also","in addition","besides"]},{"label":"轉折","items":["however","on the other hand"]},{"label":"舉例","items":["for example","such as"]}]},
       q: {
         q: '課文說轉承語後面通常要加什麼？',
         options: [
@@ -15619,6 +15829,7 @@ window.APP_TEXTS['english|六下|第6單元 日常對話情境'] = {
       terms: [
         { w: '寒暄', d: '見面時的簡短問候。' }
       ],
+      viz: {"type":"energyflow","steps":["打招呼","簡短回應","反問對方","延伸話題"]},
       q: {
         q: '課文說寒暄要怎麼回應？',
         options: [
@@ -15667,6 +15878,7 @@ window.APP_TEXTS['english|六下|第6單元 日常對話情境'] = {
       terms: [
         { w: '試穿', d: '把衣服穿上看看合不合適。' }
       ],
+      viz: {"type":"sentence","label":"試穿","items":[{"t":"Can I try","r":"請求"},{"t":"it","r":"代名詞（放中間）"},{"t":"on","r":"介副詞"}],"note":"代名詞當受詞時要放在動詞與介副詞之間。"},
       q: {
         q: '課文說「可以試穿嗎」的英文是什麼？',
         options: [
@@ -15769,6 +15981,7 @@ window.APP_TEXTS['english|六下|第7單元 形容詞與副詞'] = {
       terms: [
         { w: '形容詞', d: '用來修飾名詞的字。' }
       ],
+      viz: {"type":"sentence","label":"形容詞","items":[{"t":"a","r":"冠詞"},{"t":"beautiful","r":"形容詞"},{"t":"flower","r":"名詞"}],"note":"形容詞放在名詞前面修飾它。"},
       q: {
         q: '課文說形容詞不能修飾什麼？',
         options: [
@@ -15817,6 +16030,7 @@ window.APP_TEXTS['english|六下|第7單元 形容詞與副詞'] = {
       terms: [
         { w: '拼寫', d: '一個字用哪些字母寫出來。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"加 ly","items":["slowly","carefully","quietly"]},{"label":"去 y 加 ily","items":["happily","easily","angrily"]},{"label":"不規則","items":["good→well","fast→fast","hard→hard"]}]},
       q: {
         q: '課文說 happy 的副詞是什麼？',
         options: [
@@ -16039,6 +16253,7 @@ window.APP_TEXTS['english|六下|第8單元 短文閱讀理解'] = {
       terms: [
         { w: '閱讀量', d: '累積讀過的文字總量。' }
       ],
+      viz: {"type":"energyflow","steps":["每天讀一段","說出大意","記三個字","造句使用"]},
       q: {
         q: '課文說什麼是英文能力的基礎？',
         options: [
@@ -16069,6 +16284,7 @@ window.APP_TEXTS['english|六下|第9單元 寫作基本句型'] = {
       terms: [
         { w: '句型', d: '句子的固定結構。' }
       ],
+      viz: {"type":"sentence","label":"主詞＋動詞＋受詞","items":[{"t":"I","r":"主詞"},{"t":"like","r":"動詞"},{"t":"music","r":"受詞"}],"note":"這是最常用的句型。","alt":[{"label":"主詞＋be＋補語","items":[{"t":"She","r":"主詞"},{"t":"is","r":"be 動詞"},{"t":"a teacher","r":"補語"}],"note":"說明主詞是什麼。"},{"label":"雙受詞","items":[{"t":"He","r":"主詞"},{"t":"gave","r":"動詞"},{"t":"me","r":"間接受詞"},{"t":"a book","r":"直接受詞"}],"note":"有些動詞後面可以接兩個受詞。"}]},
       q: {
         q: '課文說英文有幾種基本句型？',
         options: [
@@ -16165,6 +16381,7 @@ window.APP_TEXTS['english|六下|第9單元 寫作基本句型'] = {
       terms: [
         { w: '檢查', d: '寫完後再看一次有沒有錯。' }
       ],
+      viz: {"type":"energyflow","steps":["句子完整嗎","時態一致嗎","主詞動詞一致嗎","拼字標點對嗎"]},
       q: {
         q: '課文說檢查和多寫兩句哪一個更能提高分數？',
         options: [
@@ -16219,6 +16436,7 @@ window.APP_TEXTS['english|七上|第1單元 Be 動詞現在式'] = {
       terms: [
         { w: 'be 動詞', d: 'am、is、are 這一組動詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"am","items":["I"]},{"label":"is","items":["he","she","it","my brother","the book"]},{"label":"are","items":["you","we","they","the books"]}]},
       q: {
         q: '課文說判斷 be 動詞的關鍵是什麼？',
         options: [
@@ -16315,6 +16533,7 @@ window.APP_TEXTS['english|七上|第1單元 Be 動詞現在式'] = {
       terms: [
         { w: '中心名詞', d: '主詞裡真正被描述的那個名詞。' }
       ],
+      viz: {"type":"sentence","label":"找出真正的主詞","items":[{"t":"The book","r":"真正的主詞（單數）"},{"t":"on the shelves","r":"修飾語（不影響動詞）"},{"t":"is new","r":"be 動詞跟主詞一致"}],"note":"介系詞片語不會改變主詞的單複數。"},
       q: {
         q: '課文說主詞後面的修飾語會不會影響 be 動詞？',
         options: [
@@ -16393,6 +16612,7 @@ window.APP_TEXTS['english|七上|第2單元 代名詞與所有格'] = {
       terms: [
         { w: '受格', d: '當動作對象用的代名詞。' }
       ],
+      viz: {"type":"sentence","label":"主格與受格","items":[{"t":"He","r":"主格（做動作的人）"},{"t":"called","r":"動詞"},{"t":"me","r":"受格（被打電話的人）"}],"note":"動詞前用主格，動詞後用受格。"},
       q: {
         q: '課文說判斷主格受格的方法是什麼？',
         options: [
@@ -16465,6 +16685,7 @@ window.APP_TEXTS['english|七上|第2單元 代名詞與所有格'] = {
       terms: [
         { w: '縮寫', d: '把兩個字合併變短的寫法。' }
       ],
+      viz: {"type":"compareexp","factor":"代回 it is 通不通","a":{"label":"it’s","note":"It’s cold.→ It is cold. 通"},"b":{"label":"its","note":"Its tail is long.→ It is tail… 不通"},"same":["發音完全相同"]},
       q: {
         q: '課文說怎麼檢查該用哪一個？',
         options: [
@@ -16519,6 +16740,7 @@ window.APP_TEXTS['english|七上|第3單元 一般動詞現在式'] = {
       terms: [
         { w: '現在簡單式', d: '描述習慣或事實的時態。' }
       ],
+      viz: {"type":"tense","verb":"play","highlight":"現在簡單式","pick":false},
       q: {
         q: '課文說現在簡單式是不是講現在正在做？',
         options: [
@@ -16567,6 +16789,7 @@ window.APP_TEXTS['english|七上|第3單元 一般動詞現在式'] = {
       terms: [
         { w: '助動詞', d: '幫助造否定或疑問句的動詞。' }
       ],
+      viz: {"type":"sentence","label":"否定的結構","items":[{"t":"He","r":"第三人稱單數"},{"t":"doesn’t","r":"助動詞（已帶 s）"},{"t":"like","r":"原形動詞"}],"note":"s 只出現一次，在助動詞上。"},
       q: {
         q: '課文說用了 does not 之後動詞要用什麼形式？',
         options: [
@@ -16639,6 +16862,7 @@ window.APP_TEXTS['english|七上|第3單元 一般動詞現在式'] = {
       terms: [
         { w: '時間副詞', d: '說明頻率或時間的副詞。' }
       ],
+      viz: {"type":"energyflow","steps":["always（總是）","usually（通常）","often（常常）","sometimes（有時）","never（從不）"]},
       q: {
         q: '課文說看到 every day 通常代表什麼時態？',
         options: [
@@ -16669,6 +16893,7 @@ window.APP_TEXTS['english|七上|第4單元 疑問詞'] = {
       terms: [
         { w: '疑問詞', d: '用來問人事時地物的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"問人事物","items":["What","Who","Whose"]},{"label":"問時間地點","items":["When","Where"]},{"label":"問原因方式","items":["Why","How"]}]},
       q: {
         q: '課文說疑問詞問句可不可以用 Yes 回答？',
         options: [
@@ -16693,6 +16918,7 @@ window.APP_TEXTS['english|七上|第4單元 疑問詞'] = {
       terms: [
         { w: '語序', d: '句子裡各部分排列的順序。' }
       ],
+      viz: {"type":"sentence","label":"疑問句語序","items":[{"t":"Where","r":"疑問詞"},{"t":"do","r":"助動詞"},{"t":"you","r":"主詞"},{"t":"live","r":"原形動詞"}],"note":"疑問詞在前，後面照疑問句排列。"},
       q: {
         q: '課文說疑問詞加在句子的哪裡？',
         options: [
@@ -16867,6 +17093,7 @@ window.APP_TEXTS['english|七上|第5單元 名詞與冠詞'] = {
       terms: [
         { w: '發音', d: '一個字實際唸出來的聲音。' }
       ],
+      viz: {"type":"compareexp","factor":"判斷依據","a":{"label":"看字母（錯）","note":"university 開頭是 u，就用 an？"},"b":{"label":"看發音（對）","note":"university 唸起來是子音開頭，用 a"},"same":["都表示「一個」"]},
       q: {
         q: '課文說判斷 a 和 an 要看什麼？',
         options: [
@@ -16939,6 +17166,7 @@ window.APP_TEXTS['english|七上|第5單元 名詞與冠詞'] = {
       terms: [
         { w: '單位', d: '計算數量所用的量詞。' }
       ],
+      viz: {"type":"sentence","label":"計量的結構","items":[{"t":"two glasses","r":"單位（變複數）"},{"t":"of","r":"介系詞"},{"t":"water","r":"不可數名詞（不變）"}],"note":"複數變在單位上，不在名詞上。"},
       q: {
         q: '課文說要說兩杯咖啡時哪個字要變複數？',
         options: [
@@ -16969,6 +17197,7 @@ window.APP_TEXTS['english|七上|第6單元 指示代名詞'] = {
       terms: [
         { w: '指示代名詞', d: '指出遠近與單複數的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"近（this／these）","items":["this book","these books"]},{"label":"遠（that／those）","items":["that book","those books"]}]},
       q: {
         q: '課文說選指示代名詞要先問什麼？',
         options: [
@@ -16993,6 +17222,7 @@ window.APP_TEXTS['english|七上|第6單元 指示代名詞'] = {
       terms: [
         { w: '一致', d: '主詞和動詞形式互相配合。' }
       ],
+      viz: {"type":"sentence","label":"三個地方要一致","items":[{"t":"These","r":"複數主詞"},{"t":"are","r":"複數 be 動詞"},{"t":"my books","r":"複數名詞"}],"note":"主詞、動詞、補語三處要一致。"},
       q: {
         q: '課文說主詞是複數時哪些要跟著變？',
         options: [
@@ -17119,6 +17349,7 @@ window.APP_TEXTS['english|七上|第7單元 數字、時間與日期'] = {
       terms: [
         { w: '序數', d: '表示第幾的數字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"不規則序數","items":["first","second","third"]},{"label":"拼法要改","items":["fifth","ninth","twelfth","twentieth"]},{"label":"直接加 th","items":["fourth","sixth","tenth"]}]},
       q: {
         q: '課文說序數多半是怎麼變的？',
         options: [
@@ -17239,6 +17470,7 @@ window.APP_TEXTS['english|七上|第7單元 數字、時間與日期'] = {
       terms: [
         { w: '價格', d: '東西要花多少錢。' }
       ],
+      viz: {"type":"sentence","label":"問價錢","items":[{"t":"How much","r":"多少錢"},{"t":"is","r":"be 動詞"},{"t":"this shirt","r":"主詞"}],"note":"問價錢用 How much 加 be 動詞。"},
       q: {
         q: '課文說電話號碼要怎麼唸？',
         options: [
@@ -17269,6 +17501,7 @@ window.APP_TEXTS['english|七上|第8單元 祈使句'] = {
       terms: [
         { w: '祈使句', d: '直接要求別人做某件事的句子。' }
       ],
+      viz: {"type":"sentence","label":"祈使句結構","items":[{"t":"(You)","r":"主詞省略"},{"t":"Open","r":"原形動詞"},{"t":"the door","r":"受詞"}],"note":"祈使句直接用原形動詞開頭。"},
       q: {
         q: '課文說 be 動詞的祈使句要用哪一個字開頭？',
         options: [
@@ -17293,6 +17526,7 @@ window.APP_TEXTS['english|七上|第8單元 祈使句'] = {
       terms: [
         { w: '否定', d: '表示不要做某件事。' }
       ],
+      viz: {"type":"compareexp","factor":"肯定與否定","a":{"label":"肯定","note":"Be careful."},"b":{"label":"否定","note":"Don’t be careless."},"same":["都省略主詞，都用原形動詞"]},
       q: {
         q: '課文說 be 動詞的否定祈使句要怎麼開頭？',
         options: [
@@ -17419,6 +17653,7 @@ window.APP_TEXTS['english|七上|第9單元 現在進行式'] = {
       terms: [
         { w: '現在進行式', d: '表示此刻正在做的動作。' }
       ],
+      viz: {"type":"tense","verb":"play","highlight":"現在進行式","pick":false},
       q: {
         q: '課文說現在進行式缺一不可的兩部分是什麼？',
         options: [
@@ -17539,6 +17774,7 @@ window.APP_TEXTS['english|七上|第9單元 現在進行式'] = {
       terms: [
         { w: '安排', d: '已經約好、定下來的事。' }
       ],
+      viz: {"type":"compareexp","factor":"確定的程度","a":{"label":"現在進行式","note":"已安排好：I am leaving at six."},"b":{"label":"will","note":"當下決定或單純預測"},"same":["都可以指未來的事"]},
       q: {
         q: '課文說用進行式表達計畫時語氣如何？',
         options: [
@@ -17569,6 +17805,7 @@ window.APP_TEXTS['english|七下|第1單元 助動詞 can／may'] = {
       terms: [
         { w: '助動詞', d: '幫助主要動詞表達語氣的動詞。' }
       ],
+      viz: {"type":"sentence","label":"助動詞句型","items":[{"t":"He","r":"主詞"},{"t":"can","r":"助動詞（不隨主詞變化）"},{"t":"swim","r":"原形動詞"}],"note":"助動詞後面永遠接原形動詞。"},
       q: {
         q: '課文說有了助動詞還需不需要 do？',
         options: [
@@ -17617,6 +17854,7 @@ window.APP_TEXTS['english|七下|第1單元 助動詞 can／may'] = {
       terms: [
         { w: '縮寫', d: '把兩個字合併變短的寫法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"正確寫法","items":["cannot","can’t"]},{"label":"容易寫錯","items":["can not（較少用）","cann’t（錯）"]}]},
       q: {
         q: '課文說 cannot 要寫成幾個字？',
         options: [
@@ -17767,6 +18005,7 @@ window.APP_TEXTS['english|七下|第2單元 頻率副詞'] = {
       terms: [
         { w: 'How often', d: '多久一次，用來問頻率。' }
       ],
+      viz: {"type":"sentence","label":"問頻率","items":[{"t":"How often","r":"多常"},{"t":"do you","r":"助動詞加主詞"},{"t":"exercise","r":"原形動詞"}],"note":"How often 問的是次數或頻率。"},
       q: {
         q: '課文說回答 How often 可以用哪兩種方式？',
         options: [
@@ -17839,6 +18078,7 @@ window.APP_TEXTS['english|七下|第2單元 頻率副詞'] = {
       terms: [
         { w: '雙重否定', d: '同一句裡出現兩個否定。' }
       ],
+      viz: {"type":"energyflow","steps":["先看動詞是哪一種","be 動詞放後面","一般動詞放前面","否定詞不重複"]},
       q: {
         q: '課文說 never 和 not 可不可以同時出現？',
         options: [
@@ -17917,6 +18157,7 @@ window.APP_TEXTS['english|七下|第3單元 時間介系詞'] = {
       terms: [
         { w: 'since', d: '自從，後面接時間起點。' }
       ],
+      viz: {"type":"compareexp","factor":"後面接什麼","a":{"label":"for","note":"接時間長度：for two years"},"b":{"label":"since","note":"接起始點：since 2020"},"same":["常和完成式一起用"]},
       q: {
         q: '課文說 for 後面接什麼？',
         options: [
@@ -18091,6 +18332,7 @@ window.APP_TEXTS['english|七下|第4單元 地點介系詞'] = {
       terms: [
         { w: '方向', d: '移動所朝向的那一邊。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"位置（靜態）","items":["in","on","at","under"]},{"label":"方向（動態）","items":["to","into","through","across"]}]},
       q: {
         q: '課文說方向介系詞多半和什麼一起用？',
         options: [
@@ -18169,6 +18411,7 @@ window.APP_TEXTS['english|七下|第5單元 There is／There are'] = {
       terms: [
         { w: '引導詞', d: '只用來開頭、沒有實際意義的字。' }
       ],
+      viz: {"type":"sentence","label":"真正的主詞在後面","items":[{"t":"There","r":"引導詞（不是主詞）"},{"t":"are","r":"跟著後面的名詞變"},{"t":"two books","r":"真正的主詞"}],"note":"動詞跟著後面的名詞決定單複數。"},
       q: {
         q: '課文說 There 句型真正的主詞在哪裡？',
         options: [
@@ -18265,6 +18508,7 @@ window.APP_TEXTS['english|七下|第5單元 There is／There are'] = {
       terms: [
         { w: '邀請句', d: '請對方接受某樣東西的句子。' }
       ],
+      viz: {"type":"compareexp","factor":"句子的類型","a":{"label":"some","note":"肯定句、邀請句"},"b":{"label":"any","note":"否定句、一般疑問句"},"same":["都表示不確定的數量"]},
       q: {
         q: '課文說邀請句要用哪一個字？',
         options: [
@@ -18319,6 +18563,7 @@ window.APP_TEXTS['english|七下|第6單元 形容詞與副詞'] = {
       terms: [
         { w: '修飾', d: '用一個字說明另一個字。' }
       ],
+      viz: {"type":"compareexp","factor":"修飾誰","a":{"label":"形容詞","note":"修飾名詞：a slow car"},"b":{"label":"副詞","note":"修飾動詞：drives slowly"},"same":["字根相同，字尾不同"]},
       q: {
         q: '課文說判斷用形容詞還是副詞的方法是什麼？',
         options: [
@@ -18391,6 +18636,7 @@ window.APP_TEXTS['english|七下|第6單元 形容詞與副詞'] = {
       terms: [
         { w: '連綴動詞', d: '連接主詞與其狀態的動詞。' }
       ],
+      viz: {"type":"sentence","label":"連綴動詞","items":[{"t":"The soup","r":"主詞"},{"t":"tastes","r":"連綴動詞"},{"t":"good","r":"形容詞（描述主詞）"}],"note":"連綴動詞後面要用形容詞。"},
       q: {
         q: '課文說連綴動詞後面要接什麼？',
         options: [
@@ -18541,6 +18787,7 @@ window.APP_TEXTS['english|七下|第7單元 過去式 be 動詞'] = {
       terms: [
         { w: '時間副詞', d: '說明什麼時候的字詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"過去的訊號字","items":["yesterday","last week","two days ago","in 2019"]},{"label":"現在的訊號字","items":["now","today","every day"]}]},
       q: {
         q: '課文說 ago 要放在哪裡？',
         options: [
@@ -18565,6 +18812,7 @@ window.APP_TEXTS['english|七下|第7單元 過去式 be 動詞'] = {
       terms: [
         { w: '單複數', d: '一個或多個的區別。' }
       ],
+      viz: {"type":"sentence","label":"過去的存在句","items":[{"t":"There","r":"引導詞"},{"t":"were","r":"跟著後面的名詞"},{"t":"many trees","r":"真正的主詞（複數）"}],"note":"動詞跟著後面的名詞決定單複數。"},
       q: {
         q: '課文說 There 句型過去式要跟著什麼決定？',
         options: [
@@ -18643,6 +18891,7 @@ window.APP_TEXTS['english|七下|第8單元 規則動詞過去式'] = {
       terms: [
         { w: '有聲', d: '發音時聲帶會振動。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"唸 t","items":["stopped","watched","washed"]},{"label":"唸 id","items":["wanted","needed","started"]},{"label":"唸 d","items":["played","lived","opened"]}]},
       q: {
         q: '課文說 wanted 的 ed 要唸什麼？',
         options: [
@@ -18667,6 +18916,7 @@ window.APP_TEXTS['english|七下|第8單元 規則動詞過去式'] = {
       terms: [
         { w: '原形', d: '動詞沒有加字尾的樣子。' }
       ],
+      viz: {"type":"sentence","label":"過去式否定","items":[{"t":"I","r":"主詞"},{"t":"didn’t","r":"助動詞（已表過去）"},{"t":"watch","r":"原形動詞"}],"note":"過去的訊息只出現一次，在助動詞上。"},
       q: {
         q: '課文說用 did not 之後動詞要用什麼形式？',
         options: [
@@ -18715,6 +18965,7 @@ window.APP_TEXTS['english|七下|第8單元 規則動詞過去式'] = {
       terms: [
         { w: '結束', d: '事情已經完成、不再繼續。' }
       ],
+      viz: {"type":"tense","verb":"play","highlight":"過去簡單式","pick":false},
       q: {
         q: '課文說過去式強調什麼？',
         options: [
@@ -18769,6 +19020,7 @@ window.APP_TEXTS['english|七下|第9單元 不規則動詞過去式'] = {
       terms: [
         { w: '三態', d: '原形、過去式與過去分詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"三態相同","items":["cut","put","hit","cost","let","hurt"]}]},
       q: {
         q: '課文說三態相同的動詞要怎麼判斷時態？',
         options: [
@@ -18817,6 +19069,7 @@ window.APP_TEXTS['english|七下|第9單元 不規則動詞過去式'] = {
       terms: [
         { w: '不規則', d: '不照一般規則變化的。' }
       ],
+      viz: {"type":"tense","verb":"write","highlight":"過去簡單式","pick":false},
       q: {
         q: '課文說 eat 的三態是什麼？',
         options: [
@@ -18919,6 +19172,7 @@ window.APP_TEXTS['english|八上|第1單元 未來式'] = {
       terms: [
         { w: 'will', d: '將會，表示未來。' }
       ],
+      viz: {"type":"tense","verb":"go","highlight":"未來式","pick":false},
       q: {
         q: '課文說 will 會不會隨主詞變化？',
         options: [
@@ -19015,6 +19269,7 @@ window.APP_TEXTS['english|八上|第1單元 未來式'] = {
       terms: [
         { w: '時間副詞', d: '說明什麼時候的字詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"未來的訊號字","items":["tomorrow","next month","soon","in two hours"]},{"label":"過去的訊號字","items":["yesterday","last week","two days ago"]}]},
       q: {
         q: '課文說未來式裡的 in three days 是什麼意思？',
         options: [
@@ -19039,6 +19294,7 @@ window.APP_TEXTS['english|八上|第1單元 未來式'] = {
       terms: [
         { w: '子句', d: '句子裡的一個完整結構。' }
       ],
+      viz: {"type":"sentence","label":"主句與附屬子句","items":[{"t":"I will call you","r":"主要子句（用 will）"},{"t":"when I arrive","r":"附屬子句（用現在式）"}],"note":"時間與條件子句裡不用 will。"},
       q: {
         q: '課文說時間子句裡要用什麼時態？',
         options: [
@@ -19069,6 +19325,7 @@ window.APP_TEXTS['english|八上|第2單元 比較級'] = {
       terms: [
         { w: '比較級', d: '用來比較兩者的形容詞形式。' }
       ],
+      viz: {"type":"sentence","label":"比較級句型","items":[{"t":"John is","r":"主詞加 be 動詞"},{"t":"taller","r":"比較級"},{"t":"than Mike","r":"比較的對象"}],"note":"比較級後面用 than 接對象。"},
       q: {
         q: '課文說比較句一定要有哪一個字？',
         options: [
@@ -19141,6 +19398,7 @@ window.APP_TEXTS['english|八上|第2單元 比較級'] = {
       terms: [
         { w: '不規則', d: '不照一般規則變化的。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"不規則比較級","items":["better","worse","more","less","farther"]}]},
       q: {
         q: '課文說 far 的兩個比較級有什麼差別？',
         options: [
@@ -19243,6 +19501,7 @@ window.APP_TEXTS['english|八上|第3單元 最高級'] = {
       terms: [
         { w: '範圍', d: '比較所涵蓋的對象群。' }
       ],
+      viz: {"type":"compareexp","factor":"後面接什麼","a":{"label":"in","note":"接地點或團體：in my family"},"b":{"label":"of","note":"接同類的複數：of the four"},"same":["都在指定比較的範圍"]},
       q: {
         q: '課文說後面接群體成員時要用哪一個？',
         options: [
@@ -19315,6 +19574,7 @@ window.APP_TEXTS['english|八上|第3單元 最高級'] = {
       terms: [
         { w: '之一', d: '一群當中的某一個。' }
       ],
+      viz: {"type":"sentence","label":"其中之一","items":[{"t":"one of","r":"其中之一"},{"t":"the best","r":"最高級"},{"t":"movies","r":"複數名詞"}],"note":"這個句型後面的名詞要用複數。"},
       q: {
         q: '課文說 one of the 最高級後面名詞要用什麼？',
         options: [
@@ -19393,6 +19653,7 @@ window.APP_TEXTS['english|八上|第4單元 動名詞'] = {
       terms: [
         { w: '介系詞', d: '表示關係的字，如 for、at、in。' }
       ],
+      viz: {"type":"sentence","label":"介系詞加動名詞","items":[{"t":"good at","r":"介系詞片語"},{"t":"playing","r":"動名詞"}],"note":"介系詞後面要用動名詞。"},
       q: {
         q: '課文提醒哪一個字有時候是介系詞？',
         options: [
@@ -19417,6 +19678,7 @@ window.APP_TEXTS['english|八上|第4單元 動名詞'] = {
       terms: [
         { w: '口訣', d: '幫助記憶的簡短說法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"只接動名詞","items":["enjoy","finish","mind","practice","avoid","keep"]},{"label":"只接不定詞","items":["want","hope","decide","plan"]}]},
       q: {
         q: '課文說 enjoy 後面要接什麼？',
         options: [
@@ -19591,6 +19853,7 @@ window.APP_TEXTS['english|八上|第5單元 不定詞'] = {
       terms: [
         { w: '目的', d: '做某件事所要達成的事。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"表示目的的說法","items":["to catch","in order to catch","so as to catch"]}]},
       q: {
         q: '課文說怎麼確認不定詞是不是表示目的？',
         options: [
@@ -19615,6 +19878,7 @@ window.APP_TEXTS['english|八上|第5單元 不定詞'] = {
       terms: [
         { w: '名詞子句', d: '整個子句當名詞用。' }
       ],
+      viz: {"type":"sentence","label":"疑問詞加不定詞","items":[{"t":"I don’t know","r":"主要句子"},{"t":"what to do","r":"疑問詞加不定詞"}],"note":"這個結構等於一個受詞。"},
       q: {
         q: '課文說疑問詞加不定詞相當於什麼？',
         options: [
@@ -19669,6 +19933,7 @@ window.APP_TEXTS['english|八上|第6單元 連綴動詞與感官動詞'] = {
       terms: [
         { w: '連綴動詞', d: '連接主詞與其狀態的動詞。' }
       ],
+      viz: {"type":"sentence","label":"連綴動詞結構","items":[{"t":"He","r":"主詞"},{"t":"became","r":"連綴動詞"},{"t":"famous","r":"形容詞（描述主詞）"}],"note":"連綴動詞後面接形容詞而不是副詞。"},
       q: {
         q: '課文說連綴動詞表不表示動作？',
         options: [
@@ -19717,6 +19982,7 @@ window.APP_TEXTS['english|八上|第6單元 連綴動詞與感官動詞'] = {
       terms: [
         { w: 'like', d: '像，用來連接名詞。' }
       ],
+      viz: {"type":"compareexp","factor":"後面接什麼","a":{"label":"接形容詞","note":"It looks nice.（不加 like）"},"b":{"label":"接名詞","note":"It looks like a toy.（要加 like）"},"same":["都在描述主詞給人的感覺"]},
       q: {
         q: '課文說什麼時候要加 like？',
         options: [
@@ -19891,6 +20157,7 @@ window.APP_TEXTS['english|八上|第7單元 對等連接詞'] = {
       terms: [
         { w: '相關連接詞', d: '成對出現的連接詞組。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"兩者都","items":["both…and"]},{"label":"二選一","items":["either…or"]},{"label":"都不","items":["neither…nor"]}]},
       q: {
         q: '課文說 neither A nor B 是什麼意思？',
         options: [
@@ -19915,6 +20182,7 @@ window.APP_TEXTS['english|八上|第7單元 對等連接詞'] = {
       terms: [
         { w: '一致', d: '主詞和動詞形式互相配合。' }
       ],
+      viz: {"type":"sentence","label":"就近原則","items":[{"t":"Neither he nor","r":"前面的不算"},{"t":"I","r":"最靠近動詞的主詞"},{"t":"am wrong","r":"動詞跟著 I"}],"note":"動詞跟著最靠近的主詞。"},
       q: {
         q: '課文說 either A or B 的動詞要跟著誰？',
         options: [
@@ -19993,6 +20261,7 @@ window.APP_TEXTS['english|八上|第8單元 附屬連接詞'] = {
       terms: [
         { w: '時間子句', d: '說明時間的那個子句。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"時間點","items":["when","as soon as","before","after"]},{"label":"持續期間","items":["while","until","since"]}]},
       q: {
         q: '課文說 while 後面通常接什麼時態？',
         options: [
@@ -20089,6 +20358,7 @@ window.APP_TEXTS['english|八上|第8單元 附屬連接詞'] = {
       terms: [
         { w: '子句', d: '句子裡的一個完整結構。' }
       ],
+      viz: {"type":"sentence","label":"兩邊時態不同","items":[{"t":"I will call you","r":"主句：未來式"},{"t":"when I get there","r":"時間子句：現在式"}],"note":"時間與條件子句裡不用 will。"},
       q: {
         q: '課文說主句和子句分別用什麼時態？',
         options: [
@@ -20119,6 +20389,7 @@ window.APP_TEXTS['english|八上|第9單元 過去進行式'] = {
       terms: [
         { w: '過去進行式', d: '描述過去某時正在做的動作。' }
       ],
+      viz: {"type":"sentence","label":"過去進行式","items":[{"t":"I","r":"主詞"},{"t":"was","r":"過去的 be 動詞"},{"t":"studying","r":"動詞 ing"}],"note":"be 動詞用過去式，動詞保持 ing。"},
       q: {
         q: '課文說過去進行式和現在進行式差在哪裡？',
         options: [
@@ -20215,6 +20486,7 @@ window.APP_TEXTS['english|八上|第9單元 過去進行式'] = {
       terms: [
         { w: '變化', d: '句型改變時字形的調整。' }
       ],
+      viz: {"type":"energyflow","steps":["He was reading.","否定：wasn’t reading","疑問：Was he reading?","簡答：Yes, he was."]},
       q: {
         q: '課文說過去進行式的變化發生在哪裡？',
         options: [
@@ -20269,6 +20541,7 @@ window.APP_TEXTS['english|八下|第1單元 現在完成式（經驗）'] = {
       terms: [
         { w: '過去分詞', d: '完成式與被動語態用的動詞形式。' }
       ],
+      viz: {"type":"tense","verb":"go","highlight":"現在完成式","pick":false},
       q: {
         q: '課文說主詞是第三人稱單數時要用哪一個？',
         options: [
@@ -20365,6 +20638,7 @@ window.APP_TEXTS['english|八下|第1單元 現在完成式（經驗）'] = {
       terms: [
         { w: '第三態', d: '動詞三態中的過去分詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"三態相同","items":["cut","put","hit"]},{"label":"二三態相同","items":["bought","taught","made"]},{"label":"三態都不同","items":["gone","seen","written","eaten"]}]},
       q: {
         q: '課文說完成式用的是第幾態？',
         options: [
@@ -20467,6 +20741,7 @@ window.APP_TEXTS['english|八下|第2單元 現在完成式（完成與持續）
       terms: [
         { w: '持續', d: '一直延續到現在。' }
       ],
+      viz: {"type":"compareexp","factor":"現在還是不是這樣","a":{"label":"現在完成式","note":"have lived — 現在還住著"},"b":{"label":"過去簡單式","note":"lived — 現在已經不住了"},"same":["都提到住了十年"]},
       q: {
         q: '課文說用過去式表示什麼？',
         options: [
@@ -20491,6 +20766,7 @@ window.APP_TEXTS['english|八下|第2單元 現在完成式（完成與持續）
       terms: [
         { w: 'since', d: '自從，後面接時間起點。' }
       ],
+      viz: {"type":"sentence","label":"兩種說法","items":[{"t":"for ten years","r":"持續多久"},{"t":"since 2016","r":"從何時開始"}],"note":"兩種說的是同一段時間。"},
       q: {
         q: '課文說 since 後面可以接什麼？',
         options: [
@@ -20569,6 +20845,7 @@ window.APP_TEXTS['english|八下|第3單元 被動語態（現在）'] = {
       terms: [
         { w: '被動語態', d: '主詞是動作承受者的句型。' }
       ],
+      viz: {"type":"sentence","label":"被動語態結構","items":[{"t":"English","r":"原本的受詞變主詞"},{"t":"is spoken","r":"be 動詞加過去分詞"},{"t":"by many people","r":"原本的主詞"}],"note":"受詞升格為主詞，動詞改成被動形式。"},
       q: {
         q: '課文說改被動時原本的受詞會變成什麼？',
         options: [
@@ -20689,6 +20966,7 @@ window.APP_TEXTS['english|八下|第3單元 被動語態（現在）'] = {
       terms: [
         { w: '不及物動詞', d: '後面不接受詞的動詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"不能用被動","items":["happen","occur","appear","arrive","rise"]},{"label":"可以用被動","items":["make","build","write","break"]}]},
       q: {
         q: '課文說什麼樣的動詞不能改被動？',
         options: [
@@ -20791,6 +21069,7 @@ window.APP_TEXTS['english|八下|第4單元 被動語態（過去）'] = {
       terms: [
         { w: '助動詞', d: '幫助主要動詞表達語氣的動詞。' }
       ],
+      viz: {"type":"sentence","label":"助動詞的被動","items":[{"t":"must","r":"助動詞"},{"t":"be","r":"原形 be"},{"t":"finished","r":"過去分詞"}],"note":"助動詞後面用原形的 be。"},
       q: {
         q: '課文說助動詞後面的 be 要用什麼形式？',
         options: [
@@ -20839,6 +21118,7 @@ window.APP_TEXTS['english|八下|第4單元 被動語態（過去）'] = {
       terms: [
         { w: '固定搭配', d: '約定俗成、不能隨意更改的說法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"搭配 in","items":["be interested in"]},{"label":"搭配 with","items":["be covered with","be filled with"]},{"label":"搭配 for／to","items":["be known for","be known to"]}]},
       q: {
         q: '課文說這些被動用法一定要用 by 嗎？',
         options: [
@@ -20893,6 +21173,7 @@ window.APP_TEXTS['english|八下|第5單元 關係代名詞'] = {
       terms: [
         { w: '先行詞', d: '關係代名詞所代替的那個名詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"人","items":["who","whom","whose"]},{"label":"物","items":["which","whose"]},{"label":"通用","items":["that"]}]},
       q: {
         q: '課文說先行詞是物時要用哪一個？',
         options: [
@@ -20965,6 +21246,7 @@ window.APP_TEXTS['english|八下|第5單元 關係代名詞'] = {
       terms: [
         { w: 'whose', d: '表示所有關係的關係代名詞。' }
       ],
+      viz: {"type":"sentence","label":"whose 的用法","items":[{"t":"a friend","r":"先行詞"},{"t":"whose","r":"所有格"},{"t":"father is a pilot","r":"名詞加動詞"}],"note":"whose 後面一定接名詞。"},
       q: {
         q: '課文說 whose 後面一定要接什麼？',
         options: [
@@ -21115,6 +21397,7 @@ window.APP_TEXTS['english|八下|第6單元 間接問句'] = {
       terms: [
         { w: '引導句', d: '放在間接問句前面的主句。' }
       ],
+      viz: {"type":"energyflow","steps":["Where is the station?（直接）","Do you know where the station is?（客氣）","Could you tell me where the station is?（更客氣）"]},
       q: {
         q: '課文說用間接問句問路語氣如何？',
         options: [
@@ -21169,6 +21452,7 @@ window.APP_TEXTS['english|八下|第7單元 使役動詞'] = {
       terms: [
         { w: '使役動詞', d: '表示叫別人做某事的動詞。' }
       ],
+      viz: {"type":"sentence","label":"使役動詞結構","items":[{"t":"made","r":"使役動詞"},{"t":"me","r":"受詞"},{"t":"clean","r":"原形動詞（不加 to）"}],"note":"使役動詞後面用原形動詞。"},
       q: {
         q: '課文說使役動詞後面的動詞要不要加 to？',
         options: [
@@ -21193,6 +21477,7 @@ window.APP_TEXTS['english|八下|第7單元 使役動詞'] = {
       terms: [
         { w: '語氣', d: '說話時表達的態度傾向。' }
       ],
+      viz: {"type":"compareexp","factor":"對方願不願意","a":{"label":"make","note":"強迫：made him apologize"},"b":{"label":"let","note":"允許：let him go"},"same":["後面都接原形動詞"]},
       q: {
         q: '課文說 let 帶有什麼意味？',
         options: [
@@ -21319,6 +21604,7 @@ window.APP_TEXTS['english|八下|第8單元 感官動詞與知覺'] = {
       terms: [
         { w: '感官動詞', d: '表達看聽感覺的動詞。' }
       ],
+      viz: {"type":"sentence","label":"感官動詞句型","items":[{"t":"saw","r":"感官動詞"},{"t":"him","r":"受詞"},{"t":"enter","r":"原形動詞（不加 to）"}],"note":"感官動詞後面不加 to。"},
       q: {
         q: '課文說感官動詞後面可以接哪兩種形式？',
         options: [
@@ -21415,6 +21701,7 @@ window.APP_TEXTS['english|八下|第8單元 感官動詞與知覺'] = {
       terms: [
         { w: '連綴用法', d: '動詞後面直接接形容詞的用法。' }
       ],
+      viz: {"type":"compareexp","factor":"後面接什麼","a":{"label":"連綴用法","note":"接形容詞：It looks nice."},"b":{"label":"知覺用法","note":"接受詞加動詞：I saw him run."},"same":["是同一批動詞"]},
       q: {
         q: '課文說後面接形容詞時是哪一種用法？',
         options: [
@@ -21469,6 +21756,7 @@ window.APP_TEXTS['english|八下|第9單元 too...to 與 enough to'] = {
       terms: [
         { w: '否定', d: '表示不能或沒有。' }
       ],
+      viz: {"type":"sentence","label":"too…to 結構","items":[{"t":"too young","r":"太年輕"},{"t":"to drive","r":"以致於不能開車"}],"note":"形式肯定，意思否定。"},
       q: {
         q: '課文說 too 加 to 的句子意思是肯定還是否定？',
         options: [
@@ -21517,6 +21805,7 @@ window.APP_TEXTS['english|八下|第9單元 too...to 與 enough to'] = {
       terms: [
         { w: 'enough', d: '足夠。' }
       ],
+      viz: {"type":"compareexp","factor":"修飾什麼","a":{"label":"修飾形容詞","note":"放後面：tall enough"},"b":{"label":"修飾名詞","note":"放前面：enough time"},"same":["都表示足夠"]},
       q: {
         q: '課文說 enough 放在形容詞的哪一邊？',
         options: [
@@ -21619,6 +21908,7 @@ window.APP_TEXTS['english|九上|第1單元 條件句'] = {
       terms: [
         { w: '條件句', d: '說明在什麼條件下會怎樣的句子。' }
       ],
+      viz: {"type":"sentence","label":"真實條件句","items":[{"t":"If it rains","r":"if 子句：現在式"},{"t":"I will stay home","r":"主句：未來式"}],"note":"if 子句用現在式代替未來式。"},
       q: {
         q: '課文說 if 子句裡可不可以用 will？',
         options: [
@@ -21739,6 +22029,7 @@ window.APP_TEXTS['english|九上|第1單元 條件句'] = {
       terms: [
         { w: 'in case', d: '以防萬一。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"條件類連接詞","items":["if","unless","as long as","in case","provided that"]}]},
       q: {
         q: '課文說這些連接詞後面可不可以用未來式？',
         options: [
@@ -21793,6 +22084,7 @@ window.APP_TEXTS['english|九上|第2單元 分詞'] = {
       terms: [
         { w: '情緒形容詞', d: '描述感受或引發感受的形容詞。' }
       ],
+      viz: {"type":"compareexp","factor":"形容誰","a":{"label":"ing 結尾","note":"事物讓人有感覺：exciting news"},"b":{"label":"ed 結尾","note":"人的感受：I am excited."},"same":["來自同一個動詞"]},
       q: {
         q: '課文說形容人的感受要用哪一種結尾？',
         options: [
@@ -21817,6 +22109,7 @@ window.APP_TEXTS['english|九上|第2單元 分詞'] = {
       terms: [
         { w: '分詞片語', d: '由分詞帶頭的一串修飾語。' }
       ],
+      viz: {"type":"sentence","label":"分詞片語","items":[{"t":"The girl","r":"被修飾的名詞"},{"t":"sitting by the window","r":"分詞片語（放後面）"},{"t":"is my sister","r":"主要動詞"}],"note":"分詞片語放在被修飾的名詞後面。"},
       q: {
         q: '課文說分詞帶著其他字時要放在名詞的哪一邊？',
         options: [
@@ -21919,6 +22212,7 @@ window.APP_TEXTS['english|九上|第3單元 名詞子句'] = {
       terms: [
         { w: '名詞子句', d: '整個子句當名詞用。' }
       ],
+      viz: {"type":"sentence","label":"名詞子句當受詞","items":[{"t":"I know","r":"主句"},{"t":"that he is honest","r":"名詞子句（當受詞）"}],"note":"整個子句扮演一個名詞的角色。"},
       q: {
         q: '課文說名詞子句可以放在哪些位置？',
         options: [
@@ -21943,6 +22237,7 @@ window.APP_TEXTS['english|九上|第3單元 名詞子句'] = {
       terms: [
         { w: '虛主詞', d: '沒有實際意義、只為湊主詞的字。' }
       ],
+      viz: {"type":"compareexp","factor":"在句中的位置","a":{"label":"當受詞","note":"that 可以省略"},"b":{"label":"當主詞","note":"that 不能省略，常用 it 代替"},"same":["都是完整的子句"]},
       q: {
         q: '課文說 that 當主詞時可不可以省略？',
         options: [
@@ -22069,6 +22364,7 @@ window.APP_TEXTS['english|九上|第4單元 疑問詞 + to V'] = {
       terms: [
         { w: '不定詞', d: 'to 加原形動詞的形式。' }
       ],
+      viz: {"type":"sentence","label":"結構","items":[{"t":"I don’t know","r":"主句"},{"t":"what to do","r":"疑問詞加不定詞"}],"note":"這整組當作一個受詞。"},
       q: {
         q: '課文說疑問詞加不定詞這一組相當於什麼？',
         options: [
@@ -22189,6 +22485,7 @@ window.APP_TEXTS['english|九上|第4單元 疑問詞 + to V'] = {
       terms: [
         { w: '搭配', d: '固定要一起使用的詞組。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"常見搭配","items":["know how to","learn how to","decide what to","show me how to"]}]},
       q: {
         q: '課文說哪一類動詞常接疑問詞加不定詞？',
         options: [
@@ -22219,6 +22516,7 @@ window.APP_TEXTS['english|九上|第5單元 授與動詞'] = {
       terms: [
         { w: '授與動詞', d: '後面可以接兩個受詞的動詞。' }
       ],
+      viz: {"type":"sentence","label":"兩個受詞","items":[{"t":"gave","r":"授與動詞"},{"t":"me","r":"間接受詞（人）"},{"t":"a book","r":"直接受詞（物）"}],"note":"人在前、物在後。"},
       q: {
         q: '課文說「給誰」是哪一種受詞？',
         options: [
@@ -22267,6 +22565,7 @@ window.APP_TEXTS['english|九上|第5單元 授與動詞'] = {
       terms: [
         { w: '傳遞', d: '把東西送到對方那裡。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"搭配 to","items":["give","send","show","teach","lend","pass"]}]},
       q: {
         q: '課文說用 to 的動詞有什麼共同點？',
         options: [
@@ -22441,6 +22740,7 @@ window.APP_TEXTS['english|九上|第6單元 反身代名詞'] = {
       terms: [
         { w: '片語', d: '好幾個字合起來的固定說法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"常見片語","items":["by myself","enjoy yourself","help yourself","teach myself"]}]},
       q: {
         q: '課文說 enjoy oneself 是什麼意思？',
         options: [
@@ -22543,6 +22843,7 @@ window.APP_TEXTS['english|九上|第7單元 不定代名詞'] = {
       terms: [
         { w: '複合', d: '由兩個部分合起來的字。' }
       ],
+      viz: {"type":"sentence","label":"一律當單數","items":[{"t":"Everyone","r":"不定代名詞（單數）"},{"t":"is","r":"單數動詞"},{"t":"here","r":"補語"}],"note":"這類字視為單數。"},
       q: {
         q: '課文說這些字後面的動詞要用什麼形式？',
         options: [
@@ -22639,6 +22940,7 @@ window.APP_TEXTS['english|九上|第7單元 不定代名詞'] = {
       terms: [
         { w: 'another', d: '另一個，用在三者以上。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"不特定","items":["another","others"]},{"label":"特定（剩下的）","items":["the other","the others"]}]},
       q: {
         q: '課文說有 the 表示什麼？',
         options: [
@@ -22789,6 +23091,7 @@ window.APP_TEXTS['english|九上|第8單元 附加問句'] = {
       terms: [
         { w: '語調', d: '說話時聲音的高低起伏。' }
       ],
+      viz: {"type":"compareexp","factor":"語調","a":{"label":"下降","note":"尋求認同，不是真的疑問"},"b":{"label":"上揚","note":"真的不確定，在問對方"},"same":["文字完全一樣"]},
       q: {
         q: '課文說語調上揚表示什麼？',
         options: [
@@ -22819,6 +23122,7 @@ window.APP_TEXTS['english|九上|第9單元 時態綜合複習'] = {
       terms: [
         { w: '時態', d: '動詞表示時間的形式。' }
       ],
+      viz: {"type":"tense","verb":"eat","highlight":"現在完成式"},
       q: {
         q: '課文說現在完成式講的是什麼？',
         options: [
@@ -22891,6 +23195,7 @@ window.APP_TEXTS['english|九上|第9單元 時態綜合複習'] = {
       terms: [
         { w: '子句', d: '句子裡的一個完整結構。' }
       ],
+      viz: {"type":"sentence","label":"時態一致","items":[{"t":"He said","r":"主句：過去式"},{"t":"that he was tired","r":"子句：也用過去式"}],"note":"主句是過去式時，子句通常跟著往前推。"},
       q: {
         q: '課文說主要子句是過去式時附屬子句通常用什麼？',
         options: [
@@ -22939,6 +23244,7 @@ window.APP_TEXTS['english|九上|第9單元 時態綜合複習'] = {
       terms: [
         { w: '檢查', d: '寫完後再看一次有沒有錯。' }
       ],
+      viz: {"type":"energyflow","steps":["找時間副詞","看主詞","判斷主動或被動","檢查完成"]},
       q: {
         q: '課文說三步驟檢查法的第一步是什麼？',
         options: [
@@ -22969,6 +23275,7 @@ window.APP_TEXTS['english|九下|第1單元 閱讀：主旨大意'] = {
       terms: [
         { w: '主旨', d: '一篇文章最主要的重點。' }
       ],
+      viz: {"type":"compareexp","factor":"涵蓋範圍","a":{"label":"主旨","note":"涵蓋整篇的中心想法"},"b":{"label":"細節","note":"只支持其中一段"},"same":["都出現在文章裡"]},
       q: {
         q: '課文說怎麼檢查一句話是不是主旨？',
         options: [
@@ -23215,6 +23522,7 @@ window.APP_TEXTS['english|九下|第2單元 閱讀：細節與推論'] = {
       terms: [
         { w: '態度', d: '作者對主題的立場或看法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"正面用字","items":["fortunately","impressive","remarkable"]},{"label":"負面用字","items":["unfortunately","sadly","disappointing"]},{"label":"中立","items":["according to","the data shows"]}]},
       q: {
         q: '課文說態度題要看什麼？',
         options: [
@@ -23269,6 +23577,7 @@ window.APP_TEXTS['english|九下|第3單元 字彙：字首與字尾'] = {
       terms: [
         { w: '字根', d: '一個字最核心的部分。' }
       ],
+      viz: {"type":"sentence","label":"拆解單字","items":[{"t":"un","r":"字首：否定"},{"t":"happi","r":"字根：快樂"},{"t":"ness","r":"字尾：名詞"}],"note":"字首管意思，字尾管詞性。"},
       q: {
         q: '課文說字尾決定什麼？',
         options: [
@@ -23317,6 +23626,7 @@ window.APP_TEXTS['english|九下|第3單元 字彙：字首與字尾'] = {
       terms: [
         { w: 'pre', d: '之前。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"時間","items":["pre（之前）","re（再一次）"]},{"label":"方向","items":["ex（向外）","inter（之間）","trans（橫越）"]}]},
       q: {
         q: '課文說 re 是什麼意思？',
         options: [
@@ -23443,6 +23753,7 @@ window.APP_TEXTS['english|九下|第4單元 常見片語動詞'] = {
       terms: [
         { w: '介副詞', d: '和動詞搭配的小品詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"take","items":["take off","take care of","take part in","take place"]},{"label":"get","items":["get up","get on","get along with","get over"]}]},
       q: {
         q: '課文說 take part in 是什麼意思？',
         options: [
@@ -23593,6 +23904,7 @@ window.APP_TEXTS['english|九下|第5單元 會話：問路與購物'] = {
       terms: [
         { w: '街區', d: '兩條路之間的一段。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"方向","items":["go straight","turn left","turn right"]},{"label":"距離與位置","items":["two blocks","on your left","across from"]}]},
       q: {
         q: '課文說 Walk two blocks 是什麼意思？',
         options: [
@@ -23665,6 +23977,7 @@ window.APP_TEXTS['english|九下|第5單元 會話：問路與購物'] = {
       terms: [
         { w: '折扣', d: '比原價便宜的優惠。' }
       ],
+      viz: {"type":"sentence","label":"詢問尺寸顏色","items":[{"t":"Do you have this","r":"你們有這個嗎"},{"t":"in a smaller size","r":"in 加尺寸"}],"note":"in 後面接尺寸或顏色。"},
       q: {
         q: '課文說覺得太貴時可以接著問什麼？',
         options: [
@@ -23719,6 +24032,7 @@ window.APP_TEXTS['english|九下|第6單元 會話：電話與邀約'] = {
       terms: [
         { w: '開場', d: '對話一開始說的話。' }
       ],
+      viz: {"type":"sentence","label":"電話用語","items":[{"t":"This is Amy","r":"自稱用 this"},{"t":"May I speak to…","r":"找人的固定說法"}],"note":"電話中自稱用 this is。"},
       q: {
         q: '課文說電話裡稱呼對方要用哪一個字？',
         options: [
@@ -23791,6 +24105,7 @@ window.APP_TEXTS['english|九下|第6單元 會話：電話與邀約'] = {
       terms: [
         { w: '邀約', d: '約別人一起做某件事。' }
       ],
+      viz: {"type":"compareexp","factor":"後面接什麼","a":{"label":"Would you like to","note":"接原形動詞：to go"},"b":{"label":"How about","note":"接動名詞：going"},"same":["都在提出邀約"]},
       q: {
         q: '課文說 How about 後面要接什麼？',
         options: [
@@ -23941,6 +24256,7 @@ window.APP_TEXTS['english|九下|第7單元 書信與電子郵件'] = {
       terms: [
         { w: '結尾語', d: '信末署名前的固定短語。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"正式","items":["Sincerely,","Yours sincerely,","Best regards,"]},{"label":"非正式","items":["Best,","Take care,","Love,"]}]},
       q: {
         q: '課文說結尾語後面要加什麼？',
         options: [
@@ -24043,6 +24359,7 @@ window.APP_TEXTS['english|九下|第8單元 圖表判讀'] = {
       terms: [
         { w: '趨勢', d: '數據隨時間變化的方向。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"上升","items":["increase","rise","grow","go up"]},{"label":"下降","items":["decrease","fall","drop","decline"]},{"label":"持平","items":["stay the same","remain stable"]}]},
       q: {
         q: '課文說 decline 是什麼意思？',
         options: [
@@ -24193,6 +24510,7 @@ window.APP_TEXTS['english|九下|第9單元 綜合演練'] = {
       terms: [
         { w: '訊號', d: '幫助判斷的提示。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"後面要名詞","items":["a／an／the","形容詞","介系詞"]},{"label":"後面要形容詞","items":["be 動詞","look／sound／feel"]}]},
       q: {
         q: '課文說介系詞後面要接什麼？',
         options: [
@@ -24319,6 +24637,7 @@ window.APP_TEXTS['english|十上|第1單元 時態綜合'] = {
       terms: [
         { w: '時態', d: '動詞表示時間與狀態的形式。' }
       ],
+      viz: {"type":"tense","verb":"write","highlight":"現在完成式"},
       q: {
         q: '課文說英文一共有幾種時態？',
         options: [
@@ -24343,6 +24662,7 @@ window.APP_TEXTS['english|十上|第1單元 時態綜合'] = {
       terms: [
         { w: '完成式', d: '連結兩個時間點的時態。' }
       ],
+      viz: {"type":"energyflow","steps":["過去完成（更早）","過去某時","現在完成（到現在）","未來完成（到未來）"]},
       q: {
         q: '課文說完成式的核心概念是什麼？',
         options: [
@@ -24493,6 +24813,7 @@ window.APP_TEXTS['english|十上|第2單元 被動語態進階'] = {
       terms: [
         { w: '語體', d: '文章所使用的語言風格。' }
       ],
+      viz: {"type":"compareexp","factor":"訊息的重心","a":{"label":"主動","note":"重心在行為者"},"b":{"label":"被動","note":"重心在受影響的對象"},"same":["敘述的是同一件事"]},
       q: {
         q: '課文說被動語態是不是比較高級？',
         options: [
@@ -24541,6 +24862,7 @@ window.APP_TEXTS['english|十上|第2單元 被動語態進階'] = {
       terms: [
         { w: '片語動詞', d: '動詞加介副詞形成的新意思。' }
       ],
+      viz: {"type":"sentence","label":"介副詞要保留","items":[{"t":"The child","r":"主詞"},{"t":"was looked","r":"be 動詞加過去分詞"},{"t":"after","r":"介副詞（要保留）"}],"note":"片語動詞的介副詞不能省略。"},
       q: {
         q: '課文說片語動詞改被動時介副詞要怎麼處理？',
         options: [
@@ -24667,6 +24989,7 @@ window.APP_TEXTS['english|十上|第3單元 關係子句'] = {
       terms: [
         { w: '介系詞', d: '表示關係的字，如 in、at、for。' }
       ],
+      viz: {"type":"compareexp","factor":"介系詞的位置","a":{"label":"介系詞在前","note":"in which（較正式，不可用 that）"},"b":{"label":"介系詞在後","note":"which…in（較口語，可用 that）"},"same":["意思相同"]},
       q: {
         q: '課文說介系詞提前時後面可以用哪些字？',
         options: [
@@ -24793,6 +25116,7 @@ window.APP_TEXTS['english|十上|第4單元 名詞子句'] = {
       terms: [
         { w: '成分', d: '句子裡各部分的角色。' }
       ],
+      viz: {"type":"compareexp","factor":"後面完不完整","a":{"label":"that","note":"後面是完整句子"},"b":{"label":"what","note":"後面缺主詞或受詞"},"same":["都引導名詞子句"]},
       q: {
         q: '課文說 what 後面的句子會怎樣？',
         options: [
@@ -24817,6 +25141,7 @@ window.APP_TEXTS['english|十上|第4單元 名詞子句'] = {
       terms: [
         { w: '虛主詞', d: '沒有實際意義、只為湊主詞的字。' }
       ],
+      viz: {"type":"sentence","label":"虛主詞句型","items":[{"t":"It","r":"虛主詞"},{"t":"is clear","r":"主要述語"},{"t":"that he lied","r":"真正的主詞"}],"note":"真正的主詞移到句尾。"},
       q: {
         q: '課文說用虛主詞是為了避免什麼？',
         options: [
@@ -24919,6 +25244,7 @@ window.APP_TEXTS['english|十上|第5單元 副詞子句'] = {
       terms: [
         { w: '副詞子句', d: '修飾主句、說明時地因果的子句。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"時間與條件","items":["when","while","if","unless"]},{"label":"原因與結果","items":["because","since","so that","so…that"]},{"label":"讓步","items":["although","even if","even though"]}]},
       q: {
         q: '課文說 unless 屬於哪一類？',
         options: [
@@ -25069,6 +25395,7 @@ window.APP_TEXTS['english|十上|第6單元 分詞構句'] = {
       terms: [
         { w: '分詞構句', d: '用分詞開頭簡化附屬子句。' }
       ],
+      viz: {"type":"energyflow","steps":["確認主詞相同","刪連接詞與主詞","動詞改分詞","完成"]},
       q: {
         q: '課文說改分詞構句的第一步是什麼？',
         options: [
@@ -25219,6 +25546,7 @@ window.APP_TEXTS['english|十上|第7單元 學術字彙入門'] = {
       terms: [
         { w: '學術字彙', d: '學科文章中常見的正式用字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"日常字彙","items":["get","make","thing","good"]},{"label":"學術字彙","items":["obtain","generate","factor","beneficial"]}]},
       q: {
         q: '課文說學術字彙的優點是什麼？',
         options: [
@@ -25465,6 +25793,7 @@ window.APP_TEXTS['english|十上|第8單元 閱讀：主旨與結構'] = {
       terms: [
         { w: '指涉', d: '代名詞所指的那個對象。' }
       ],
+      viz: {"type":"energyflow","steps":["看到代名詞","往前找最近的名詞","檢查單複數是否相符","代回句中確認語意"]},
       q: {
         q: '課文說找指涉對象要往哪個方向找？',
         options: [
@@ -25615,6 +25944,7 @@ window.APP_TEXTS['english|十上|第9單元 寫作：段落與句型'] = {
       terms: [
         { w: '連貫', d: '前後想法順序合理、能接上。' }
       ],
+      viz: {"type":"compareexp","factor":"兩個層次","a":{"label":"連貫","note":"想法之間有邏輯順序"},"b":{"label":"銜接","note":"用語言手段把句子接起來"},"same":["都讓文章更好讀"]},
       q: {
         q: '課文說只有連接詞但邏輯跳躍會怎樣？',
         options: [
@@ -25717,6 +26047,7 @@ window.APP_TEXTS['english|十下|第1單元 假設語氣'] = {
       terms: [
         { w: '混合條件句', d: '條件與結果分屬不同時間的句型。' }
       ],
+      viz: {"type":"sentence","label":"混合條件句","items":[{"t":"If I had studied","r":"過去的條件"},{"t":"I would be a doctor now","r":"現在的結果"}],"note":"兩邊的時間點不同。"},
       q: {
         q: '課文說混合條件句的主句要用什麼？',
         options: [
@@ -25789,6 +26120,7 @@ window.APP_TEXTS['english|十下|第1單元 假設語氣'] = {
       terms: [
         { w: '判斷步驟', d: '依序確認以決定用法。' }
       ],
+      viz: {"type":"energyflow","steps":["判斷是不是事實","判斷時間點","時態往後退一格","主句配 would"]},
       q: {
         q: '課文說假設語氣的核心觀念是什麼？',
         options: [
@@ -25819,6 +26151,7 @@ window.APP_TEXTS['english|十下|第2單元 倒裝句'] = {
       terms: [
         { w: '倒裝', d: '把動詞移到主詞前面的語序。' }
       ],
+      viz: {"type":"energyflow","steps":["I have never seen it.","Never 移到句首","助動詞跟著前移","Never have I seen it."]},
       q: {
         q: '課文說倒裝的方式和什麼一樣？',
         options: [
@@ -25843,6 +26176,7 @@ window.APP_TEXTS['english|十下|第2單元 倒裝句'] = {
       terms: [
         { w: '助動詞', d: '幫助造問句或倒裝的動詞。' }
       ],
+      viz: {"type":"sentence","label":"借助動詞","items":[{"t":"Rarely","r":"否定副詞"},{"t":"does","r":"借來的助動詞"},{"t":"he complain","r":"主詞加原形動詞"}],"note":"和疑問句的處理方式相同。"},
       q: {
         q: '課文說借了助動詞後主要動詞要用什麼形式？',
         options: [
@@ -26017,6 +26351,7 @@ window.APP_TEXTS['english|十下|第3單元 強調句型'] = {
       terms: [
         { w: '原形', d: '動詞沒有加字尾的樣子。' }
       ],
+      viz: {"type":"sentence","label":"強調動詞","items":[{"t":"I","r":"主詞"},{"t":"do","r":"強調用的助動詞"},{"t":"believe","r":"原形動詞"}],"note":"加了 do 之後動詞用原形。"},
       q: {
         q: '課文說強調動詞唯一的方式是什麼？',
         options: [
@@ -26089,6 +26424,7 @@ window.APP_TEXTS['english|十下|第3單元 強調句型'] = {
       terms: [
         { w: '精確', d: '用字準確、不含糊。' }
       ],
+      viz: {"type":"compareexp","factor":"表達方式","a":{"label":"堆疊副詞","note":"very very important"},"b":{"label":"精確用字","note":"crucial／significant"},"same":["都想表達重要"]},
       q: {
         q: '課文說學術寫作偏好什麼樣的用字？',
         options: [
@@ -26119,6 +26455,7 @@ window.APP_TEXTS['english|十下|第4單元 比較結構'] = {
       terms: [
         { w: '原級', d: '形容詞沒有變化的原本形式。' }
       ],
+      viz: {"type":"energyflow","steps":["原級：as…as（相等）","比較級：…than（兩者）","最高級：the…est（三者以上）"]},
       q: {
         q: '課文說最高級用來比較幾者？',
         options: [
@@ -26143,6 +26480,7 @@ window.APP_TEXTS['english|十下|第4單元 比較結構'] = {
       terms: [
         { w: '倍數', d: '幾倍的比例關係。' }
       ],
+      viz: {"type":"sentence","label":"倍數的位置","items":[{"t":"three times","r":"倍數"},{"t":"as large as","r":"原級比較"}],"note":"倍數放在第一個 as 前面。"},
       q: {
         q: '課文說倍數詞要放在哪裡？',
         options: [
@@ -26269,6 +26607,7 @@ window.APP_TEXTS['english|十下|第5單元 平行結構與精簡'] = {
       terms: [
         { w: '平行結構', d: '連接的成分形式一致。' }
       ],
+      viz: {"type":"sentence","label":"形式要一致","items":[{"t":"swimming","r":"動名詞"},{"t":"running","r":"動名詞"},{"t":"cycling","r":"動名詞"}],"note":"並列的成分形式要相同。"},
       q: {
         q: '課文說平行結構要求什麼？',
         options: [
@@ -26365,6 +26704,7 @@ window.APP_TEXTS['english|十下|第5單元 平行結構與精簡'] = {
       terms: [
         { w: '動詞化', d: '把名詞片語改成單一動詞。' }
       ],
+      viz: {"type":"compareexp","factor":"表達方式","a":{"label":"名詞化片語","note":"make a decision（拖沓）"},"b":{"label":"直接用動詞","note":"decide（有力）"},"same":["意思相同"]},
       q: {
         q: '課文說 make a decision 可以改成什麼？',
         options: [
@@ -26491,6 +26831,7 @@ window.APP_TEXTS['english|十下|第6單元 連接詞與轉折語'] = {
       terms: [
         { w: '轉折語', d: '銜接前後句意的詞語。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"增添","items":["moreover","in addition","besides"]},{"label":"對比","items":["however","in contrast","nevertheless"]},{"label":"因果","items":["therefore","thus","consequently"]}]},
       q: {
         q: '課文說 in contrast 屬於哪一類？',
         options: [
@@ -26593,6 +26934,7 @@ window.APP_TEXTS['english|十下|第7單元 字根字首進階'] = {
       terms: [
         { w: '狀態', d: '存在或感受的情況。' }
       ],
+      viz: {"type":"compareexp","factor":"意義相反的字根","a":{"label":"vit／viv","note":"生命：survive、vital"},"b":{"label":"mort","note":"死亡：mortal、mortgage"},"same":["都來自拉丁文"]},
       q: {
         q: '課文說 mort 這個字根是什麼意思？',
         options: [
@@ -26665,6 +27007,7 @@ window.APP_TEXTS['english|十下|第7單元 字根字首進階'] = {
       terms: [
         { w: '拆解', d: '把一個字分成幾個部分。' }
       ],
+      viz: {"type":"sentence","label":"拆解長字","items":[{"t":"in","r":"否定"},{"t":"com","r":"一起"},{"t":"prehens","r":"抓住"},{"t":"ible","r":"能夠的"}],"note":"拆開之後意思就浮現了。"},
       q: {
         q: '課文說遇到長單字要怎麼做？',
         options: [
@@ -26815,6 +27158,7 @@ window.APP_TEXTS['english|十下|第8單元 閱讀：推論與態度'] = {
       terms: [
         { w: '委婉語', d: '把話說得比較保留的用法。' }
       ],
+      viz: {"type":"compareexp","factor":"確定的程度","a":{"label":"保留","note":"may、might、seem"},"b":{"label":"肯定","note":"must、undoubtedly"},"same":["都在表達判斷"]},
       q: {
         q: '課文說學術寫作為什麼常用委婉語？',
         options: [
@@ -26941,6 +27285,7 @@ window.APP_TEXTS['english|十下|第9單元 寫作：段落發展'] = {
       terms: [
         { w: '比例', d: '各部分之間的長短分配。' }
       ],
+      viz: {"type":"compareexp","factor":"段落長度","a":{"label":"太短","note":"只有主題句，沒有發展"},"b":{"label":"太長","note":"塞了兩個以上的重點"},"same":["都是結構的問題"]},
       q: {
         q: '課文說一段太長通常代表什麼？',
         options: [
@@ -26965,6 +27310,7 @@ window.APP_TEXTS['english|十下|第9單元 寫作：段落發展'] = {
       terms: [
         { w: '過渡句', d: '銜接前後段落的句子。' }
       ],
+      viz: {"type":"sentence","label":"過渡句的兩個功能","items":[{"t":"While cost is one concern","r":"回顧上一段"},{"t":"safety matters even more","r":"預告這一段"}],"note":"一句話串起前後兩段。"},
       q: {
         q: '課文說好的過渡句要做哪兩件事？',
         options: [
@@ -27067,6 +27413,7 @@ window.APP_TEXTS['english|十一上|第1單元 不定詞與動名詞'] = {
       terms: [
         { w: '既成事實', d: '已經發生、無法改變的事。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"只接動名詞","items":["enjoy","avoid","suggest","consider","deny","postpone"]}]},
       q: {
         q: '課文說這些動詞的共同點是什麼？',
         options: [
@@ -27115,6 +27462,7 @@ window.APP_TEXTS['english|十一上|第1單元 不定詞與動名詞'] = {
       terms: [
         { w: '所有格', d: '表示「某人的」的形式。' }
       ],
+      viz: {"type":"sentence","label":"動名詞的主詞","items":[{"t":"his","r":"動名詞的主詞（所有格）"},{"t":"coming late","r":"動名詞片語"}],"note":"正式語體用所有格。"},
       q: {
         q: '課文說正式寫作中動名詞的主詞要用什麼格？',
         options: [
@@ -27193,6 +27541,7 @@ window.APP_TEXTS['english|十一上|第2單元 情態助動詞'] = {
       terms: [
         { w: '義務', d: '應該或必須要做的事。' }
       ],
+      viz: {"type":"compareexp","factor":"否定的意思","a":{"label":"must not","note":"禁止：絕對不可以"},"b":{"label":"don’t have to","note":"不必：可做可不做"},"same":["形式上都是否定"]},
       q: {
         q: '課文說 do not have to 是什麼意思？',
         options: [
@@ -27319,6 +27668,7 @@ window.APP_TEXTS['english|十一上|第3單元 助動詞 + 完成式'] = {
       terms: [
         { w: '完成式', d: '連結兩個時間點的時態。' }
       ],
+      viz: {"type":"sentence","label":"結構","items":[{"t":"must","r":"助動詞"},{"t":"have","r":"固定用 have"},{"t":"gone","r":"過去分詞"}],"note":"助動詞後面固定用原形的 have。"},
       q: {
         q: '課文說這個結構裡的 have 會不會變成 has？',
         options: [
@@ -27391,6 +27741,7 @@ window.APP_TEXTS['english|十一上|第3單元 助動詞 + 完成式'] = {
       terms: [
         { w: '保留', d: '不把話說滿、留有餘地。' }
       ],
+      viz: {"type":"energyflow","steps":["could have（也許）","may have（可能）","must have（一定）"]},
       q: {
         q: '課文說 may have 和 must have 比起來如何？',
         options: [
@@ -27469,6 +27820,7 @@ window.APP_TEXTS['english|十一上|第4單元 冠詞與限定詞'] = {
       terms: [
         { w: '冠詞', d: '放在名詞前面的 a、an、the。' }
       ],
+      viz: {"type":"energyflow","steps":["可數還是不可數","單數還是複數","特定還是泛指","決定冠詞"]},
       q: {
         q: '課文說決定冠詞要先問幾個問題？',
         options: [
@@ -27715,6 +28067,7 @@ window.APP_TEXTS['english|十一上|第5單元 介系詞片語'] = {
       terms: [
         { w: '動名詞', d: '動詞加 ing 當名詞用。' }
       ],
+      viz: {"type":"sentence","label":"介系詞加動名詞","items":[{"t":"good at","r":"形容詞加介系詞"},{"t":"solving","r":"動名詞"}],"note":"介系詞後面要用動名詞。"},
       q: {
         q: '課文說介系詞後面可以接什麼？',
         options: [
@@ -27739,6 +28092,7 @@ window.APP_TEXTS['english|十一上|第5單元 介系詞片語'] = {
       terms: [
         { w: '搭配詞', d: '經常一起出現的字組。' }
       ],
+      viz: {"type":"energyflow","steps":["遇到搭配就整組抄下來","放進句子","定期複習","寫作時查證"]},
       q: {
         q: '課文說搭配詞錯誤最常見的來源是什麼？',
         options: [
@@ -27769,6 +28123,7 @@ window.APP_TEXTS['english|十一上|第6單元 名詞化與正式語體'] = {
       terms: [
         { w: '名詞化', d: '把動詞或形容詞轉成名詞。' }
       ],
+      viz: {"type":"energyflow","steps":["動詞 develop","名詞化 development","句子變抽象","語體變正式"]},
       q: {
         q: '課文說名詞化讓句子變得怎樣？',
         options: [
@@ -27943,6 +28298,7 @@ window.APP_TEXTS['english|十一上|第7單元 搭配詞'] = {
       terms: [
         { w: 'make', d: '製造、造成某個結果。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"make","items":["make a decision","make progress","make an effort"]},{"label":"do","items":["do homework","do research","do business"]}]},
       q: {
         q: '課文說 do 用在什麼情況？',
         options: [
@@ -28093,6 +28449,7 @@ window.APP_TEXTS['english|十一上|第8單元 長句解析'] = {
       terms: [
         { w: '骨幹', d: '句子最核心的主詞與動詞。' }
       ],
+      viz: {"type":"sentence","label":"框掉修飾成分","items":[{"t":"The book","r":"主詞"},{"t":"(修飾成分)","r":"先框起來"},{"t":"is expensive","r":"主要動詞與補語"}],"note":"框掉修飾成分後骨幹就清楚了。"},
       q: {
         q: '課文說框出修飾成分之後剩下的是什麼？',
         options: [
@@ -28117,6 +28474,7 @@ window.APP_TEXTS['english|十一上|第8單元 長句解析'] = {
       terms: [
         { w: '層級', d: '句子結構的上下關係。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"同層級","items":["and","but","or"]},{"label":"下一層","items":["that","which","because","although","when"]}]},
       q: {
         q: '課文說看到 although 代表什麼？',
         options: [
@@ -28243,6 +28601,7 @@ window.APP_TEXTS['english|十一上|第9單元 主題句與論點'] = {
       terms: [
         { w: '引言', d: '文章開頭介紹主題的段落。' }
       ],
+      viz: {"type":"energyflow","steps":["吸引注意的開場","背景說明","論點（引言最後一句）","進入主體段"]},
       q: {
         q: '課文說英文議論文的論點通常放在哪裡？',
         options: [
@@ -28441,6 +28800,7 @@ window.APP_TEXTS['english|十一下|第1單元 虛主詞與虛受詞'] = {
       terms: [
         { w: '尾重原則', d: '把長的成分放在句子後面。' }
       ],
+      viz: {"type":"compareexp","factor":"句子的重心","a":{"label":"頭重腳輕","note":"長主詞在前，難讀"},"b":{"label":"尾重","note":"用 it 開頭，重點放後面"},"same":["意思相同"]},
       q: {
         q: '課文說主詞太長會造成什麼問題？',
         options: [
@@ -28489,6 +28849,7 @@ window.APP_TEXTS['english|十一下|第1單元 虛主詞與虛受詞'] = {
       terms: [
         { w: '常見錯誤', d: '很多人會犯的同一種錯。' }
       ],
+      viz: {"type":"sentence","label":"虛受詞句型","items":[{"t":"I find","r":"主詞加動詞"},{"t":"it","r":"虛受詞"},{"t":"difficult","r":"受詞補語"},{"t":"to concentrate","r":"真正的受詞"}],"note":"it 先佔住受詞的位置。"},
       q: {
         q: '課文說虛主詞只能用哪一個字？',
         options: [
@@ -28519,6 +28880,7 @@ window.APP_TEXTS['english|十一下|第2單元 同位語與插入語'] = {
       terms: [
         { w: '同位語', d: '緊接在名詞後補充說明的部分。' }
       ],
+      viz: {"type":"sentence","label":"同位語","items":[{"t":"My brother","r":"被說明的名詞"},{"t":"a doctor","r":"同位語（補充說明）"},{"t":"lives in Taipei","r":"主要動詞"}],"note":"同位語補充說明前面的名詞。"},
       q: {
         q: '課文說同位語可不可以拿掉？',
         options: [
@@ -28615,6 +28977,7 @@ window.APP_TEXTS['english|十一下|第2單元 同位語與插入語'] = {
       terms: [
         { w: '強度', d: '語氣的強弱程度。' }
       ],
+      viz: {"type":"energyflow","steps":["括號（最次要）","逗號（一般）","破折號（強調）"]},
       q: {
         q: '課文說哪一種標點的語氣最弱？',
         options: [
@@ -28669,6 +29032,7 @@ window.APP_TEXTS['english|十一下|第3單元 省略與替代'] = {
       terms: [
         { w: '省略', d: '把某個字拿掉而句子仍成立。' }
       ],
+      viz: {"type":"sentence","label":"省略重複的部分","items":[{"t":"She likes coffee","r":"完整"},{"t":"and he, tea","r":"省略了 likes"}],"note":"省略的動詞可以從前半句還原。"},
       q: {
         q: '課文說省略的前提是什麼？',
         options: [
@@ -28789,6 +29153,7 @@ window.APP_TEXTS['english|十一下|第3單元 省略與替代'] = {
       terms: [
         { w: '平行', d: '前後結構形式一致。' }
       ],
+      viz: {"type":"energyflow","steps":["檢查結構是否平行","確認能唯一還原","再決定省略","重讀確認清楚"]},
       q: {
         q: '課文說省略的目的是什麼？',
         options: [
@@ -28843,6 +29208,7 @@ window.APP_TEXTS['english|十一下|第4單元 複合形容詞與名詞片語'] 
       terms: [
         { w: '複合形容詞', d: '由兩個以上的字合成的形容詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"形容詞加名詞 ed","items":["blue-eyed","kind-hearted","left-handed"]},{"label":"數字加名詞","items":["a two-hour film","a 100-meter race"]},{"label":"名詞加分詞","items":["time-consuming","man-made","English-speaking"]}]},
       q: {
         q: '課文說數字加名詞的複合形容詞裡名詞要用什麼形式？',
         options: [
@@ -28891,6 +29257,7 @@ window.APP_TEXTS['english|十一下|第4單元 複合形容詞與名詞片語'] 
       terms: [
         { w: '修飾', d: '用其他字說明一個名詞。' }
       ],
+      viz: {"type":"sentence","label":"名詞片語的結構","items":[{"t":"the recently published","r":"前置修飾"},{"t":"research paper","r":"核心名詞"},{"t":"on climate change","r":"後置修飾"}],"note":"核心名詞的前後都可以掛修飾語。"},
       q: {
         q: '課文說名詞片語可以被幾邊修飾？',
         options: [
@@ -29089,6 +29456,7 @@ window.APP_TEXTS['english|十一下|第5單元 語氣與委婉表達'] = {
       terms: [
         { w: '含糊', d: '意思不明確、讓人猜不透。' }
       ],
+      viz: {"type":"compareexp","factor":"有沒有立場","a":{"label":"適度委婉","note":"語氣柔和但立場清楚"},"b":{"label":"過度委婉","note":"疊字太多，看不出立場"},"same":["都用了緩和語"]},
       q: {
         q: '課文說疊太多緩和語會怎樣？',
         options: [
@@ -29239,6 +29607,7 @@ window.APP_TEXTS['english|十一下|第6單元 標點與句構'] = {
       terms: [
         { w: '結構', d: '句子各部分的組合方式。' }
       ],
+      viz: {"type":"energyflow","steps":["數句子裡有幾個完整子句","判斷子句之間的關係","選擇對應的標點","重讀確認"]},
       q: {
         q: '課文說修正標點前要先問自己什麼？',
         options: [
@@ -29365,6 +29734,7 @@ window.APP_TEXTS['english|十一下|第7單元 同義辨析'] = {
       terms: [
         { w: '易混字', d: '拼字相近而容易搞錯的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"常見易混字","items":["affect／effect","accept／except","principal／principle","lose／loose"]}]},
       q: {
         q: '課文說 effect 是什麼詞性？',
         options: [
@@ -29467,6 +29837,7 @@ window.APP_TEXTS['english|十一下|第8單元 圖表與資料題'] = {
       terms: [
         { w: '幅度', d: '變化的大小程度。' }
       ],
+      viz: {"type":"compareexp","factor":"兩種說法","a":{"label":"動詞加副詞","note":"Sales rose sharply."},"b":{"label":"形容詞加名詞","note":"There was a sharp rise in sales."},"same":["意思相同"]},
       q: {
         q: '課文說 abruptly 是形容什麼？',
         options: [
@@ -29617,6 +29988,7 @@ window.APP_TEXTS['english|十一下|第9單元 說明文與議論文'] = {
       terms: [
         { w: '架構', d: '文章各部分的安排順序。' }
       ],
+      viz: {"type":"energyflow","steps":["引言與論點","理由與證據","反方與反駁","結論"]},
       q: {
         q: '課文說議論文在結論之前要處理什麼？',
         options: [
@@ -29815,6 +30187,7 @@ window.APP_TEXTS['english|十二上|第1單元 語法綜合診斷（一）'] = {
       terms: [
         { w: '助動詞', d: '幫助主要動詞表達語氣的動詞。' }
       ],
+      viz: {"type":"energyflow","steps":["確認有沒有助動詞","後面用原形動詞","不重複助動詞","不再加 do"]},
       q: {
         q: '課文說兩個助動詞可不可以連用？',
         options: [
@@ -29869,6 +30242,7 @@ window.APP_TEXTS['english|十二上|第2單元 語法綜合診斷（二）'] = {
       terms: [
         { w: '冠詞', d: '放在名詞前面的 a、an、the。' }
       ],
+      viz: {"type":"energyflow","steps":["可數嗎","單數還是複數","特定還是泛指","選 a／the／零冠詞"]},
       q: {
         q: '課文說中文母語者最常犯的冠詞錯誤是什麼？',
         options: [
@@ -29941,6 +30315,7 @@ window.APP_TEXTS['english|十二上|第2單元 語法綜合診斷（二）'] = {
       terms: [
         { w: '平行結構', d: '連接的成分形式一致。' }
       ],
+      viz: {"type":"sentence","label":"形式一致","items":[{"t":"reading","r":"動名詞"},{"t":"writing","r":"動名詞"},{"t":"speaking","r":"動名詞"}],"note":"並列的成分形式要相同。"},
       q: {
         q: '課文說 not only but also 的兩邊要怎樣？',
         options: [
@@ -30115,6 +30490,7 @@ window.APP_TEXTS['english|十二上|第3單元 文意選填'] = {
       terms: [
         { w: '策略', d: '解題時採取的方法與順序。' }
       ],
+      viz: {"type":"energyflow","steps":["掃過全部空格","先填有把握的","刪去已用的選項","回頭處理難的"]},
       q: {
         q: '課文說為什麼要先填有把握的？',
         options: [
@@ -30169,6 +30545,7 @@ window.APP_TEXTS['english|十二上|第4單元 篇章結構'] = {
       terms: [
         { w: '篇章結構', d: '句子與段落之間的組織關係。' }
       ],
+      viz: {"type":"energyflow","steps":["讀空格前一句","讀空格後一句","判斷需要什麼樣的句子","從選項中找"]},
       q: {
         q: '課文說這種題型考的是什麼？',
         options: [
@@ -30319,6 +30696,7 @@ window.APP_TEXTS['english|十二上|第5單元 克漏字技巧'] = {
       terms: [
         { w: '克漏字', d: '在文章中挖空讓人填答的題型。' }
       ],
+      viz: {"type":"energyflow","steps":["快速讀完全段","掌握主題","逐格作答","通讀檢查"]},
       q: {
         q: '課文說為什麼要先讀完再作答？',
         options: [
@@ -30565,6 +30943,7 @@ window.APP_TEXTS['english|十二上|第6單元 閱讀：科普類'] = {
       terms: [
         { w: '相關', d: '兩件事一起變化但未必互為原因。' }
       ],
+      viz: {"type":"compareexp","factor":"兩個容易混淆的概念","a":{"label":"correlation","note":"兩件事一起變動"},"b":{"label":"causation","note":"一件事造成另一件事"},"same":["都在描述兩個變數的關係"]},
       q: {
         q: '課文說相關等不等於因果？',
         options: [
@@ -30715,6 +31094,7 @@ window.APP_TEXTS['english|十二上|第7單元 閱讀：人文社會類'] = {
       terms: [
         { w: '抽象概念', d: '看不見摸不到的觀念。' }
       ],
+      viz: {"type":"energyflow","steps":["遇到抽象概念","找文章給的定義","找具體例子","用例子理解概念"]},
       q: {
         q: '課文說抽象概念的意思由什麼界定？',
         options: [
@@ -30793,6 +31173,7 @@ window.APP_TEXTS['english|十二上|第8單元 混合題型與素養題'] = {
       terms: [
         { w: '定位', d: '在材料中找到需要的部分。' }
       ],
+      viz: {"type":"compareexp","factor":"閱讀順序","a":{"label":"先看題目","note":"帶著目標找資訊，效率高"},"b":{"label":"先讀完材料","note":"花時間且容易失焦"},"same":["都要讀材料"]},
       q: {
         q: '課文說材料很多時要先做什麼？',
         options: [
@@ -30943,6 +31324,7 @@ window.APP_TEXTS['english|十二上|第9單元 學術字彙 AWL'] = {
       terms: [
         { w: '分析', d: '拆解並研究事物的組成。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"研究過程","items":["research","method","data","sample"]},{"label":"分析評估","items":["analyze","evaluate","assess","examine"]}]},
       q: {
         q: '課文說哪一組學術字彙在任何學科都會出現？',
         options: [
@@ -31165,6 +31547,7 @@ window.APP_TEXTS['english|十二下|第1單元 中譯英'] = {
       terms: [
         { w: '把握', d: '有信心能寫對。' }
       ],
+      viz: {"type":"compareexp","factor":"風險與分數","a":{"label":"正確的簡單句","note":"穩穩拿分"},"b":{"label":"錯誤的複雜句","note":"扣分風險高"},"same":["都在表達同一個意思"]},
       q: {
         q: '課文說簡單句和複雜句哪一個比較好？',
         options: [
@@ -31267,6 +31650,7 @@ window.APP_TEXTS['english|十二下|第2單元 引導式作文'] = {
       terms: [
         { w: '過渡', d: '段落之間的銜接。' }
       ],
+      viz: {"type":"energyflow","steps":["第一段引出主題","第二段發展內容","第三段總結收尾"]},
       q: {
         q: '課文說第一段要做什麼？',
         options: [
@@ -31369,6 +31753,7 @@ window.APP_TEXTS['english|十二下|第3單元 圖表寫作'] = {
       terms: [
         { w: '改寫', d: '用不同說法表達相同意思。' }
       ],
+      viz: {"type":"sentence","label":"開頭句","items":[{"t":"The chart shows","r":"圖表呈現"},{"t":"the changes in…","r":"主題"},{"t":"between 2010 and 2020","r":"時間範圍"}],"note":"用自己的話重述題目。"},
       q: {
         q: '課文說照抄題目會怎樣？',
         options: [
@@ -31417,6 +31802,7 @@ window.APP_TEXTS['english|十二下|第3單元 圖表寫作'] = {
       terms: [
         { w: '分組', d: '把相似的資料放在一起。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"好的寫法","items":["分組","比較","選重點"]},{"label":"差的寫法","items":["流水帳","照抄所有數字"]}]},
       q: {
         q: '課文說分組描述能顯示什麼？',
         options: [
@@ -31591,6 +31977,7 @@ window.APP_TEXTS['english|十二下|第4單元 看圖說故事'] = {
       terms: [
         { w: '節奏', d: '敘述的快慢與起伏。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"時間推進","items":["At first","Then","Later","Finally"]},{"label":"製造轉折","items":["Suddenly","To his surprise","However"]}]},
       q: {
         q: '課文說轉折詞的作用是什麼？',
         options: [
@@ -31615,6 +32002,7 @@ window.APP_TEXTS['english|十二下|第4單元 看圖說故事'] = {
       terms: [
         { w: '心理描寫', d: '描寫人物內心的想法感受。' }
       ],
+      viz: {"type":"sentence","label":"對話的標點","items":[{"t":"\"Are you OK?\"","r":"引號內的句子"},{"t":"he asked","r":"引述動詞"}],"note":"引號內的第一個字要大寫。"},
       q: {
         q: '課文提醒寫對話時要注意什麼？',
         options: [
@@ -31693,6 +32081,7 @@ window.APP_TEXTS['english|十二下|第5單元 論說文的論證'] = {
       terms: [
         { w: '相關', d: '和主題有直接關係。' }
       ],
+      viz: {"type":"energyflow","steps":["提出主張","舉出證據","解釋兩者的關聯","完成論證"]},
       q: {
         q: '課文說舉完證據之後要做什麼？',
         options: [
@@ -31939,6 +32328,7 @@ window.APP_TEXTS['english|十二下|第6單元 聽力理解策略'] = {
       terms: [
         { w: '跟讀', d: '跟著錄音一起唸出來。' }
       ],
+      viz: {"type":"energyflow","steps":["先聽一遍","看稿對照","找出沒聽懂的","跟讀練習"]},
       q: {
         q: '課文說只聽不對照會怎樣？',
         options: [
@@ -31969,6 +32359,7 @@ window.APP_TEXTS['english|十二下|第7單元 口語表達策略'] = {
       terms: [
         { w: '流暢', d: '說話順暢不停頓。' }
       ],
+      viz: {"type":"compareexp","factor":"優先順序","a":{"label":"流暢","note":"把意思說完，溝通成立"},"b":{"label":"完美","note":"一直修正，反而卡住"},"same":["都想說好英文"]},
       q: {
         q: '課文說口說的目標是什麼？',
         options: [
@@ -32119,6 +32510,7 @@ window.APP_TEXTS['english|十二下|第8單元 常見錯誤總複習'] = {
       terms: [
         { w: '一致', d: '前後保持相同、不互相矛盾。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"動詞常見錯誤","items":["忘記加 s","did 後未用原形","與 be 動詞並用","時態不一致"]}]},
       q: {
         q: '課文說這四項動詞錯誤占了多少比例？',
         options: [
@@ -32269,6 +32661,7 @@ window.APP_TEXTS['english|十二下|第9單元 綜合演練'] = {
       terms: [
         { w: '輸入', d: '透過聽與讀吸收語言。' }
       ],
+      viz: {"type":"energyflow","steps":["大量輸入（聽與讀）","整理吸收","嘗試輸出（說與寫）","得到回饋再修正"]},
       q: {
         q: '課文說不輸出會怎樣？',
         options: [
