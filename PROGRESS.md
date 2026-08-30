@@ -64,7 +64,19 @@ NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
      3 組變序／錯字重複（鶴發童顏vs鶴髮童顏、傾城傾國vs傾國傾城、磊落光明、翼翼小心）、
      3 個錯字（卧虎藏龍、舍本逐末、文風不動）、2 條語意寫錯（臨危授命、烈火烹油）。
      換掉條目時**一定要同步改 checks-*.js**，test.js 已加守門：確認題題目裡「」引的詞必須在該條目資料裡找得到。
- (6) src 歷屆出處：全庫目前 0 條。做法＝找教育部／心測中心公開釋出的會考、基測題目，據此新增題目並標真實出處；⛔ 不可把既有自撰題回頭貼上假出處。
+ (6) 歷屆試題 ← 2026-09-07 進度：**匯入題庫本來就有 1,761 題會考／基測**（90 年基測～115 年會考，
+     book="會考"／"基測"／"特招"，lesson="114年會考" 這種），所以不必另外建新題庫。
+     已修：112／113／114 三年的題組**帶文章的頭題整批掉了**，只剩「（承上題）根據本文…」＝無解。
+       照心測中心官方試題本補回 21 篇文章（工具 `node tools/set-custom-passage.js <file.json> --write`），
+       另刪 94 題補不回來的孤兒（工具 `node tools/del-custom.js <id,id,...> --write`，刪完要跑 gen-counts.js）。
+       test.js 已加守門「承上題都找得到它的文章」，不會再整批壞掉。
+     官方試題本網址（公開下載，pdftotext -layout 就讀得出來）：
+       https://cap.rcpet.edu.tw/exam/<年>/<年>P_Chinese.pdf（試題本）
+       https://cap.rcpet.edu.tw/exam/<年>/<年>P_Answer.pdf（各科參考答案一覽表）
+       ⚠ 只有正試（P）有，補考／陸考沒有公開；圖片題（看圖表、看賽程表）文字重現不了，跳過。
+     待辦：112／113/114 每份原卷 42 題，題庫裡只有 13～15 題，缺的單題可以照官方試題本補齊
+       （純文字題約每份 15～20 題）。答案一律對照官方參考答案，解析要自己寫（官方只給答案）。
+     ⛔ 不可把既有自撰題回頭貼上假出處。
  (7) 匯入題庫（英文／數學／高中七科）＝ Tony 之後陸續給題本，不主動做。
  (8) 高中七科擴題 ← 2026-09-06 掃出擋路的問題，已問 Tony 要走哪條路（甲修品質／乙先擴題／丙兩者）：
      高中七科 12,096 題裡有 10,951 題（90.5%）的三個誘答是從**同一課別張卡片借來的句子**，
@@ -238,7 +250,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-07 09:20 台北
+UPDATED: 2026-09-07 12:10 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
