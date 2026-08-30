@@ -51,6 +51,13 @@ patch.forEach((p) => {
   if (p.exp) {
     if (p.exp.indexOf('各自都對，但不是這一題在問的') >= 0) { console.log('✗ ' + p.id + ' 解析還留著舊的自白句'); bad++; return; }
     if (p.exp.indexOf('✅') < 0 || p.exp.indexOf('❌') < 0 || p.exp.indexOf('📚') < 0) { console.log('✗ ' + p.id + ' 解析要有 ✅ ❌ 📚 三段'); bad++; return; }
+    /* ✅ 與 📚 兩行一字不能改：確認題（checks-*.js）有兩種題型直接拿這兩行當正解，
+       改了字面就會變成「正解在解析裡找不到根據」（2026-08-31 公民 12 條踩過）。
+       這一輪要改寫的只有 ❌ 段。 */
+    const oldL = String(it.exp || '').split('\n'), newL = p.exp.split('\n');
+    const pick = (ls, sym) => ls.find((l) => l.indexOf(sym) === 0) || '';
+    if (pick(oldL, '✅') && pick(newL, '✅') !== pick(oldL, '✅')) { console.log('✗ ' + p.id + ' ✅ 那一行被改了，要原文照抄'); bad++; return; }
+    if (pick(oldL, '📚') && pick(newL, '📚') !== pick(oldL, '📚')) { console.log('✗ ' + p.id + ' 📚 那一行被改了，要原文照抄'); bad++; return; }
   }
   const a = w.i % 4;
   const options = []; let k = 0;
