@@ -4,7 +4,7 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 帶讀配圖的「每個單元至少一張圖」已完成（1,170/1,170，v87）。剩下的是把配圖率從 27.7% 往每單元 3 段的上限（50%）推，這是可以慢慢做的加值，不急。Tony 2026-08-30 的順序是「先做完帶讀圖全部，再做誘答重寫」—— 帶讀圖的主要目標已達成，所以下一件事回到誘答重寫：國小自然 71%／國小社會 85%／英文 42% 還沒修，且不能用 tools/fix-distractors.js 的「借同課正解」（英文會借到另一個也對的答案、國小題目太短會借到語意上也成立的敘述），要改成「把原本的短誘答加長成型別相符的錯誤敘述」，逐課寫或另寫工具；做之前先問 Tony 要不要做
+NEXT_ACTION: 誘答重寫第一階段（垃圾誘答）已全數完成 —— 11 科自編題庫「正解≥15字且最長誘答≤8字」的題目歸零（原本 4,143 題）。第二階段待做：正解仍明顯比誘答長的題目（正解≥誘答最長值的 1.5 倍）——國小社會 1,637 題、國小自然 1,447 題、英文 1,147 題，共約 4,230 題。做法照第一階段：`node -e` 濾出清單 → 逐題手寫三個誘答的 JSON → `node tools/set-distractors.js <file> --write` → 有 ⚠ 就用 tools/check-distractor-len.js 對長度再補 → `node test/test.js` → `python3 tools/stamp-version.py` → commit push。每批 80 題左右。⛔ 不可用 tools/fix-distractors.js 的「借同課正解」（會借到另一個也對的答案）
 並指示「先做完 1（配圖）再做 2（誘答重寫）」。
 已完成：數學 215 單元 465 段、自然 125 單元 273 段（十二年級全部），覆蓋率 math 36%／science 37%。
 工具：tools/seed-text-viz.js <科目> [--write]。做法＝把同單元概念卡已配好的 viz 接到帶讀最相似的段落
@@ -164,7 +164,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 21:10 台北
+UPDATED: 2026-08-30 20:23 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
@@ -587,3 +587,15 @@ mitosis；地科 hrdiagram。
 **下一步（項目 2）**：誘答重寫。`tools/fix-distractors.js` 已寫好但還沒套用到任何科目，
 做法是借同一課其他題的正解當誘答，公民乾跑可把「正解最長」從 99.8% 降到 8.5%。
 逐科套用 → 逐課抽查 → 把 `test/test.js` 的 BASELINE 上限往下調。
+
+【v88 已完成 2026-09-01】誘答重寫第一階段全數完成。
+範圍：11 科自編題庫裡「正解 ≥15 字、最長誘答 ≤8 字」的題目（不必讀題挑最長就會對）——
+國小社會 1,448、國小自然 928、數學 405、英文 595、高中七科殘餘 125（機器不敢動的數字題與精確定義題），
+加上先前已完成的高中七科批次，全部歸零。全程逐題手寫，未交 subagent。
+「正解是唯一最長」比例：science 55.8%、social 50.7%、english 40.9%、math 21.8%、高中七科 8-12%，
+全部低於 test/test.js 的基準值。
+工具：tools/set-distractors.js（吃 [{id,d:[3]}] 或 [{id,one}]，答案位置用 index%4 打散）、
+tools/check-distractor-len.js（先檢查誘答長度夠不夠，避免寫完才被退）、
+tools/pad-distractors.py（差 4 字以內時在句首補「其實／基本上／一般來說」，差更多要自己補內容）。
+⚠ 英文的音標題（誘答是 /s/ /h/ /tʃ/）與數學的計算題不在範圍內 —— 那些誘答本來就設計得好，
+過濾條件要求「每個誘答至少 3 個中文字」就是為了排除它們。
