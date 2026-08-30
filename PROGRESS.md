@@ -29,8 +29,11 @@ NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
        wordtree strokeorder readlayer rhetoricmap wordscale matchpair（matchpair 最泛用，要自己寫 pairs/note）。
      ⚠ 改完跑 `node test/test.js`、`node test/viz-match.mjs`（檢查卡片自帶的字有沒有真的畫在圖上）。
 
- (4) 成語 wordExp 逐字解析補齊（現 786/1200，缺 414 條）。
- (5) 成語 syn 同義詞補齊（現 358/1200）。
+ (4) 成語 wordExp 逐字解析補齊 ✅ 已完成（2026-09-06，v92）：1200/1200 全數有逐字解析。
+     工具：`node tools/set-idiom-wordexp.js <file.json> --write`（file = [{id, wordExp}]，≥12 字，已有的自動跳過）。
+     寫法＝拆到每個字「字＝意思」，破音字直接標注音，有典故的寫明出處；一批 45–95 條，每批跑 test.js 後 commit。
+ (5) 成語 syn 同義詞補齊（現 358/1200，缺 842）← 進行中。syn 是字串陣列，前端用來出「同義成語」題，
+     所以每個 syn 必須是**真的同義**（會被當正解／誘答用），寧缺勿濫；查不到確實同義的就不寫。
  (6) src 歷屆出處：全庫目前 0 條。做法＝找教育部／心測中心公開釋出的會考、基測題目，據此新增題目並標真實出處；⛔ 不可把既有自撰題回頭貼上假出處。
  (7) 匯入題庫（英文／數學／高中七科）＝ Tony 之後陸續給題本，不主動做。
  (8) 高中七科擴題：物化生地科史地公各 1,728 題（每年級 576），要往上補。
@@ -197,7 +200,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 20:23 台北
+UPDATED: 2026-09-06 21:40 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
