@@ -23563,6 +23563,7 @@ window.APP_TEXTS['english|九下|第1單元 閱讀：主旨大意'] = {
       terms: [
         { w: '轉折詞', d: '表示語意轉向的連接詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"轉折（重點常在後面）","items":["however","but","although"],"note":"前面是鋪陳，後面才是作者的主張"},{"label":"結論","items":["therefore","so","thus"],"note":"帶出結果"},{"label":"補充","items":["moreover","in addition"],"note":"和前面同方向"}]},
       q: {
         q: '課文說看到 for example 代表後面是什麼？',
         options: [
@@ -23611,6 +23612,7 @@ window.APP_TEXTS['english|九下|第1單元 閱讀：主旨大意'] = {
       terms: [
         { w: '誘答', d: '看起來像對的錯誤選項。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"範圍太小","items":["只講到某一段的細節"],"note":"文章有寫，但不是主旨"},{"label":"範圍太大","items":["超出文章談的內容"],"note":"文章沒有講到那麼廣"},{"label":"張冠李戴","items":["文章確實提到，但不是主要論點"],"note":"這三種涵蓋了大多數的錯誤選項"}]},
       q: {
         q: '課文說主旨的範圍要如何？',
         options: [
@@ -23635,6 +23637,7 @@ window.APP_TEXTS['english|九下|第1單元 閱讀：主旨大意'] = {
       terms: [
         { w: '歸納', d: '把內容整理成一句重點。' }
       ],
+      viz: {"type":"cycle","steps":["先看題目，知道要找什麼","掃過每段的首尾句","用自己的話歸納出一句主旨","再去比對選項，選最接近的"]},
       q: {
         q: '課文說要在什麼時候才看選項？',
         options: [
@@ -23689,6 +23692,7 @@ window.APP_TEXTS['english|九下|第2單元 閱讀：細節與推論'] = {
       terms: [
         { w: '同義改寫', d: '用不同說法表達相同意思。' }
       ],
+      viz: {"type":"compareexp","factor":"正確選項很少照抄原文","a":{"label":"原文","note":"The store closes at nine."},"b":{"label":"選項","note":"The store is open until nine.（換句話說）"},"same":["⚠ 字面和原文一模一樣的選項，反而常常是陷阱"]},
       q: {
         q: '課文說正確選項通常會怎樣？',
         options: [
@@ -23713,6 +23717,7 @@ window.APP_TEXTS['english|九下|第2單元 閱讀：細節與推論'] = {
       terms: [
         { w: '推論', d: '從線索推出沒明講的答案。' }
       ],
+      viz: {"type":"compareexp","factor":"推論的界線","a":{"label":"✔ 合理推論","note":"文章寫他帶了雨傘又穿雨鞋 → 推論外面在下雨"},"b":{"label":"✗ 超出範圍","note":"文章沒寫他怕不怕 → 不能說他一定很怕淋雨"},"same":["檢查方法：能不能在文章裡指出支持這個推論的句子"]},
       q: {
         q: '課文說檢查推論的方法是什麼？',
         options: [
@@ -23786,6 +23791,7 @@ window.APP_TEXTS['english|九下|第2單元 閱讀：細節與推論'] = {
       terms: [
         { w: '字義', d: '一個字的意思。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"看定義","items":["…, which means…","…, that is,…"],"note":"後面直接解釋"},{"label":"看對比","items":["unlike","however"],"note":"後面是相反的意思"},{"label":"看例子","items":["such as","for example"],"note":"從例子反推那個字的範圍"}]},
       q: {
         q: '課文說遇到生字要怎麼辦？',
         options: [
@@ -23841,6 +23847,7 @@ window.APP_TEXTS['english|九下|第3單元 字彙：字首與字尾'] = {
       terms: [
         { w: '字首', d: '加在字前面改變意思的部分。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"un-","items":["unhappy","unfair"],"note":"最常見的否定字首"},{"label":"in- / im- / ir- / il-","items":["impossible","irregular","illegal"],"note":"後面的字母決定用哪一個"},{"label":"dis-","items":["disagree","dislike"],"note":"也是否定"}]},
       q: {
         q: '課文說 dis 是什麼意思？',
         options: [
@@ -23914,6 +23921,7 @@ window.APP_TEXTS['english|九下|第3單元 字彙：字首與字尾'] = {
       terms: [
         { w: '形容詞字尾', d: '讓一個字變成形容詞的結尾。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"有／充滿","items":["-ful：helpful、useful"],"note":"形容詞"},{"label":"沒有","items":["-less：useless、careless"],"note":"和 -ful 相反"},{"label":"能夠","items":["-able：comfortable、readable"],"note":"形容詞"},{"label":"其他","items":["-ous、-ive、-al"],"note":"famous、active、natural"}]},
       q: {
         q: '課文說 less 這個字尾表示什麼？',
         options: [
@@ -23968,6 +23976,7 @@ window.APP_TEXTS['english|九下|第4單元 常見片語動詞'] = {
       terms: [
         { w: '片語動詞', d: '動詞加介副詞形成的新意思。' }
       ],
+      viz: {"type":"compareexp","factor":"加了介副詞就變意思","a":{"label":"原本","note":"look = 看"},"b":{"label":"加上去之後","note":"look after = 照顧／look for = 尋找／look up = 查（字典）"},"same":["片語動詞不能拆開猜，要整組記"]},
       q: {
         q: '課文說片語動詞要怎麼記？',
         options: [
@@ -24017,6 +24026,7 @@ window.APP_TEXTS['english|九下|第4單元 常見片語動詞'] = {
       terms: [
         { w: '可分離', d: '受詞可以放在動詞與介副詞中間。' }
       ],
+      viz: {"type":"compareexp","factor":"受詞放哪裡","a":{"label":"受詞是名詞","note":"turn on the light 或 turn the light on，兩種都可以"},"b":{"label":"受詞是代名詞","note":"turn it on（✗ turn on it——一定要放中間）"},"same":["不可分離的片語動詞則一律放後面：look after him"]},
       q: {
         q: '課文說受詞是代名詞時要放哪裡？',
         options: [
@@ -24089,6 +24099,7 @@ window.APP_TEXTS['english|九下|第4單元 常見片語動詞'] = {
       terms: [
         { w: '意象', d: '一個字給人的整體感覺。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"依動詞分組","items":["look 家族","take 家族","get 家族"],"note":"一次記一整組"},{"label":"依介副詞的意象","items":["up：完成或增加","off：離開或取消"],"note":"eat up、call off"},{"label":"提醒","items":["整組記比一個一個背有效"]}]},
       q: {
         q: '課文說 up 這個介副詞常表示什麼？',
         options: [
@@ -24119,6 +24130,7 @@ window.APP_TEXTS['english|九下|第5單元 會話：問路與購物'] = {
       terms: [
         { w: '間接問句', d: '放在另一個句子裡的問句。' }
       ],
+      viz: {"type":"sentence","label":"問路的開場","items":[{"t":"Excuse me, how can I get to the train station?","r":"不好意思，請問火車站怎麼走？"}],"note":"先說 Excuse me 再問。","alt":[{"label":"更客氣的說法","items":[{"t":"Could you tell me where the post office is?","r":"可以告訴我郵局在哪裡嗎？"}],"note":"用間接問句，語序要改回主詞在前。"}]},
       q: {
         q: '課文說問路前要先說哪一句？',
         options: [
@@ -24168,6 +24180,7 @@ window.APP_TEXTS['english|九下|第5單元 會話：問路與購物'] = {
       terms: [
         { w: '確認', d: '再問一次以確定沒有誤解。' }
       ],
+      viz: {"type":"sentence","label":"聽不懂的時候","items":[{"t":"Sorry, could you say that again?","r":"抱歉，可以再說一次嗎？"}],"note":"不要不好意思問。","alt":[{"label":"請對方慢一點","items":[{"t":"Could you speak more slowly, please?","r":"可以說慢一點嗎？"}],"note":"比 speak slow 自然。"},{"label":"確認自己的理解","items":[{"t":"So you mean I should turn left?","r":"所以你的意思是要左轉？"}],"note":"最有效的一招。"}]},
       q: {
         q: '課文說聽不懂時最好怎麼做？',
         options: [
@@ -24296,6 +24309,7 @@ window.APP_TEXTS['english|九下|第6單元 會話：電話與邀約'] = {
       terms: [
         { w: '轉接', d: '把電話轉給另一個人。' }
       ],
+      viz: {"type":"sentence","label":"接電話","items":[{"t":"Speaking.","r":"我就是。"}],"note":"對方找的就是你的時候。","alt":[{"label":"請對方稍等","items":[{"t":"Hold on, please. / Just a moment.","r":"請稍等。"}],"note":"要去叫人時說。"},{"label":"對方不在","items":[{"t":"He's not here right now.","r":"他現在不在。"}],"note":"可以接著問要不要留言。"}]},
       q: {
         q: '課文說「我就是」的英文是什麼？',
         options: [
@@ -24423,6 +24437,7 @@ window.APP_TEXTS['english|九下|第7單元 書信與電子郵件'] = {
       terms: [
         { w: '署名', d: '在信末寫上自己的名字。' }
       ],
+      viz: {"type":"energyflow","steps":["稱呼（Dear …）","開場：說明寫信的目的","主體：詳細內容","結尾＋署名（期待回覆或道謝 → Best regards, 名字）"]},
       q: {
         q: '課文說信件的第二個部分是什麼？',
         options: [
@@ -24447,6 +24462,7 @@ window.APP_TEXTS['english|九下|第7單元 書信與電子郵件'] = {
       terms: [
         { w: '稱呼', d: '信件開頭對收信人的稱謂。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"認識的人","items":["Dear Amy,"],"note":"後面用逗號"},{"label":"正式場合","items":["Dear Mr. Lin,","Dear Ms. Chen,"],"note":"用姓氏，不用名字"},{"label":"不知道對方是誰","items":["Dear Sir or Madam,","To Whom It May Concern,"],"note":"最正式的寫法"}]},
       q: {
         q: '課文說 Mr. 後面要接什麼？',
         options: [
@@ -24520,6 +24536,7 @@ window.APP_TEXTS['english|九下|第7單元 書信與電子郵件'] = {
       terms: [
         { w: '主旨', d: '電子郵件標題欄的內容。' }
       ],
+      viz: {"type":"compareexp","factor":"主旨怎麼寫","a":{"label":"✗ 太模糊","note":"Hello／Question／（空白）"},"b":{"label":"✔ 短而具體","note":"Question about the summer camp schedule"},"same":["收信人一眼要看得出這封信在講什麼"]},
       q: {
         q: '課文說好的主旨要怎樣？',
         options: [
@@ -24574,6 +24591,7 @@ window.APP_TEXTS['english|九下|第8單元 圖表判讀'] = {
       terms: [
         { w: '圖例', d: '說明圖中符號代表什麼的說明。' }
       ],
+      viz: {"type":"cycle","steps":["看標題：這張圖在講什麼","看座標軸與單位：橫軸、縱軸各是什麼","看圖例：不同顏色代表誰","這三個看完，再開始讀數字"]},
       q: {
         q: '課文說看圖表要先看哪三個地方？',
         options: [
@@ -24623,6 +24641,7 @@ window.APP_TEXTS['english|九下|第8單元 圖表判讀'] = {
       terms: [
         { w: '幅度', d: '變化的大小程度。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"大幅","items":["sharply","dramatically","significantly"],"note":"變化很明顯"},{"label":"小幅","items":["slightly","gradually"],"note":"慢慢地"},{"label":"方向","items":["rise / increase","fall / decrease","remain stable"],"note":"上升、下降、持平"}]},
       q: {
         q: '課文說 slightly 表示什麼幅度？',
         options: [
@@ -24671,6 +24690,7 @@ window.APP_TEXTS['english|九下|第8單元 圖表判讀'] = {
       terms: [
         { w: '陷阱', d: '容易讓人判斷錯誤的地方。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"單位陷阱","items":["人數 vs 百分比"],"note":"最常見"},{"label":"對錯組別","items":["年份或組別看錯"],"note":"圖例要看清楚"},{"label":"最高最低","items":["選項寫最多，圖上其實是第二多"],"note":"要實際比"},{"label":"過度推論","items":["超出圖表能顯示的範圍"],"note":"圖表不會告訴你原因"}]},
       q: {
         q: '課文說圖表會不會說明原因？',
         options: [
@@ -24725,6 +24745,7 @@ window.APP_TEXTS['english|九下|第9單元 綜合演練'] = {
       terms: [
         { w: '詞性', d: '一個字屬於名詞動詞或形容詞。' }
       ],
+      viz: {"type":"cycle","steps":["看空格前後：需要什麼詞性","看時間副詞：決定時態","看主詞：決定動詞形式","大部分文法題三步就能解掉"]},
       q: {
         q: '課文說文法題的第一步是什麼？',
         options: [
@@ -24822,6 +24843,7 @@ window.APP_TEXTS['english|九下|第9單元 綜合演練'] = {
       terms: [
         { w: '常見錯誤', d: '很多人會犯的同一種錯。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"動詞形式","items":["第三人稱單數忘記加 s","用了 did／does 之後動詞沒回原形"],"note":"最常見的兩個"},{"label":"句型","items":["be 動詞和一般動詞並用"],"note":"✗ I am go to school."},{"label":"其他","items":["時態前後不一致","名詞單複數"],"note":"寫完檢查一次就抓得到"}]},
       q: {
         q: '課文說第五個常見錯誤是什麼？',
         options: [
