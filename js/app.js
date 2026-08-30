@@ -1088,7 +1088,8 @@
     loadScript('js/data/lessons-' + k + '.js', cb || function () {});
   }
   // 課文帶讀的短文：跟概念卡一樣，進到單元才載；沒有這一科的課文檔就安靜跳過
-  var TEXT_FILES = { social: 1, science: 1, math: 1, english: 1, chinese: 1 };
+  var TEXT_FILES = { social: 1, science: 1, math: 1, english: 1, chinese: 1,
+    physics: 1, chemistry: 1, biology: 1, earth: 1, history: 1, geography: 1, civics: 1 };
   function ensureTexts(cb, forceKey) {
     var k = forceKey || mainCat();   // 國語沒有 mainCat（回傳 null），語文常識帶讀要自己指定 'chinese'
     if (!k || !TEXT_FILES[k] || (W.APP_TEXTS && W.__textsLoaded === k)) { if (cb) cb(null); return; }
