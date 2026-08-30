@@ -61,7 +61,9 @@ patch.forEach((p) => {
      test.js 另外加了一條更貼近實際的指標：正解比第二長的選項多 4 個字以上才算有破綻。 */
   /* 正解不能明顯比誘答長。短選項看絕對差（差 4 字就看得出來），長選項看比例
      （30 字的正解比 24 字的誘答長 6 字，其實看不出來），兩個條件都成立才擋。 */
-  if (cor.length - mx >= 4 && cor.length > mx * 1.25) { console.log('⚠ ' + p.id + ' 誘答比正解短太多（最長 ' + mx + ' vs 正解 ' + cor.length + '）'); bad++; return; }
+  /* 2026-09-03 Tony 定案「都人工寫，沒差那 291 題」→ 門檻改成純字數差 6 字。
+     （第二輪用的是「差 4 字且超過 1.25 倍」雙條件，那是為了先清最誇張的一批） */
+  if (cor.length - mx >= 6) { console.log('⚠ ' + p.id + ' 誘答比正解短太多（最長 ' + mx + ' vs 正解 ' + cor.length + '）'); bad++; return; }
   const a = w.i % 4;
   const options = []; let k = 0;
   for (let s = 0; s < 4; s++) options.push(s === a ? cor : String(p.d[k++]));
