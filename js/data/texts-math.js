@@ -9168,6 +9168,7 @@ window.APP_TEXTS['math|四上|第8單元 分數的認識'] = {
       terms: [
         { w: '真分數', d: '分子小於分母、值小於一的分數。' }
       ],
+      viz: {"type": "fracbar", "parts": 4, "shade": 3, "label": true},
       q: {
         q: '課文說分子等於分母的分數屬於哪一種？',
         options: [
@@ -9192,6 +9193,7 @@ window.APP_TEXTS['math|四上|第8單元 分數的認識'] = {
       terms: [
         { w: '分數線', d: '分數中間那一條線，等同除號。' }
       ],
+      viz: {"type": "grouping", "total": 11, "per": 4},
       q: {
         q: '課文說分數線其實等於什麼符號？',
         options: [
@@ -9216,6 +9218,7 @@ window.APP_TEXTS['math|四上|第8單元 分數的認識'] = {
       terms: [
         { w: '互換', d: '在帶分數與假分數之間轉換。' }
       ],
+      viz: {"type": "exprsteps", "steps": [{"expr": "2 又 3/4", "hint": "先看整數部分：2 個整的。"}, {"expr": "2 × 4 ＝ 8", "hint": "每個整的都是 4 個四分之一，2 個整的就是 8 個。"}, {"expr": "8 ＋ 3 ＝ 11", "hint": "再加上原本的 3 個四分之一。"}, {"expr": "＝ 11/4", "hint": "分母不變，還是四分之幾。"}]},
       q: {
         q: '課文說二又四分之三等於哪一個假分數？',
         options: [
@@ -9240,6 +9243,7 @@ window.APP_TEXTS['math|四上|第8單元 分數的認識'] = {
       terms: [
         { w: '等值分數', d: '寫法不同但大小相同的分數。' }
       ],
+      viz: {"type": "fracequiv", "parts": 2, "shade": 1, "upto": 4},
       q: {
         q: '課文說分子分母同時乘同一個數會怎麼樣？',
         options: [
@@ -9264,6 +9268,7 @@ window.APP_TEXTS['math|四上|第8單元 分數的認識'] = {
       terms: [
         { w: '數線', d: '把數依大小排在一條線上。' }
       ],
+      viz: {"type": "numberline", "min": 0, "max": 2, "step": 0.25, "marks": [{"v": 0.25, "label": "1/4"}, {"v": 0.5, "label": "1/2"}, {"v": 0.75, "label": "3/4"}, {"v": 1.25, "label": "5/4"}]},
       q: {
         q: '課文說假分數在數線上的位置在哪裡？',
         options: [
@@ -9288,6 +9293,7 @@ window.APP_TEXTS['math|四上|第8單元 分數的認識'] = {
       terms: [
         { w: '通分', d: '把分母化成相同以便比較或計算。' }
       ],
+      viz: {"type": "fraccompare", "a": {"parts": 7, "shade": 3}, "b": {"parts": 7, "shade": 5}, "edit": true},
       q: {
         q: '課文說分子相同時哪一個比較大？',
         options: [

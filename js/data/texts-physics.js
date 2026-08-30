@@ -165,6 +165,7 @@ window.APP_TEXTS['physics|十上|第2單元 直線運動'] = {
       terms: [
         { w: '位移', d: '從起點指向終點的有向線段，是向量。' }
       ],
+      viz: {"type": "compareexp", "factor": "有沒有方向", "a": {"label": "路徑長", "note": "純量，只看走了多遠"}, "b": {"label": "位移", "note": "向量，只看起點到終點"}, "same": ["單位都是公尺"]},
       q: {
         q: '課文說繞操場一圈回到原點時，位移是多少？',
         options: [
@@ -189,6 +190,7 @@ window.APP_TEXTS['physics|十上|第2單元 直線運動'] = {
       terms: [
         { w: '瞬時速度', d: '某一個時間點上的速度。' }
       ],
+      viz: {"type": "compareexp", "factor": "看的是哪一段時間", "a": {"label": "平均速度", "note": "整段的總位移 ÷ 總時間"}, "b": {"label": "瞬時速度", "note": "某一瞬間，速率表上的讀數"}, "same": ["單位都是公尺／秒"]},
       q: {
         q: '課文說平均速度怎麼算？',
         options: [
@@ -212,6 +214,7 @@ window.APP_TEXTS['physics|十上|第2單元 直線運動'] = {
       terms: [
         { w: '加速度', d: '單位時間內速度的變化量，是向量。' }
       ],
+      viz: {"type": "motion", "mode": "accel"},
       q: {
         q: '課文說加速度為負一定代表變慢嗎？',
         options: [
@@ -236,6 +239,7 @@ window.APP_TEXTS['physics|十上|第2單元 直線運動'] = {
       terms: [
         { w: '等加速運動', d: '加速度大小方向都固定的運動。' }
       ],
+      viz: {"type": "exprsteps", "steps": [{"expr": "v ＝ v₀ ＋ a t", "hint": "有時間就用這一條。"}, {"expr": "x ＝ v₀ t ＋ ½ a t²", "hint": "求位移，同樣需要時間。"}, {"expr": "v² ＝ v₀² ＋ 2 a x", "hint": "這一條裡面沒有 t。"}, {"expr": "題目沒給時間 → 用第三條", "hint": "先看題目缺哪個量，再選公式。"}]},
       q: {
         q: '課文說題目沒有給時間時，該用哪一條公式？',
         options: [
@@ -260,6 +264,7 @@ window.APP_TEXTS['physics|十上|第2單元 直線運動'] = {
       terms: [
         { w: '斜率', d: '圖形上縱軸變化量除以橫軸變化量。' }
       ],
+      viz: {"type": "motionplay", "mode": "accel", "v0": 0, "a": 1.5, "T": 4},
       q: {
         q: '課文說速度時間圖中，圖形圍出的面積代表什麼？',
         options: [
@@ -284,6 +289,7 @@ window.APP_TEXTS['physics|十上|第2單元 直線運動'] = {
       terms: [
         { w: '自由落體', d: '只受重力作用、忽略空氣阻力的落下運動。' }
       ],
+      viz: {"type": "motionplay", "mode": "accel", "v0": 0, "a": 9.8, "T": 2},
       q: {
         q: '課文說羽毛落得比鐵球慢，原因是什麼？',
         options: [

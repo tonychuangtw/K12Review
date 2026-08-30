@@ -594,7 +594,9 @@ console.log('解析確認題');
                    'static', 'ohm', 'solarsys',
                    'timeline', 'mapdir', 'taiwan', 'orgchart', 'poppyramid', 'supply', 'regionmap',
                    'rivercross', 'rainwalk', 'contour',
-                   'sentence', 'tense', 'phonics'];  // 與 js/widgets.js 的 REG 同步
+                   'sentence', 'tense', 'phonics',
+                   // 會動的（2026-08-30 加，課文帶讀用；播放列走 widgets.js 的 player）
+                   'fracequiv', 'floatsink', 'motionplay'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

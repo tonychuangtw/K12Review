@@ -32,14 +32,28 @@ for (const f of LESSON_FILES) {
   eval(src.replace(/^window\./gm, 'w.').replace(/window\.APP_LESSONS/g, 'w.APP_LESSONS'));
 }
 const specs = new Map();
+function collect(viz) {
+  if (!viz || !viz.type) return;
+  const list = specs.get(viz.type) || [];
+  const key = JSON.stringify(viz);
+  if (list.length < 3 && !list.some((x) => JSON.stringify(x) === key)) list.push(viz);
+  specs.set(viz.type, list);
+}
 Object.values(w.APP_LESSONS || {}).forEach((deck) => {
-  (deck.cards || []).forEach((c) => {
-    if (!c.viz || !c.viz.type) return;
-    const list = specs.get(c.viz.type) || [];
-    const key = JSON.stringify(c.viz);
-    if (list.length < 3 && !list.some((x) => JSON.stringify(x) === key)) list.push(c.viz);
-    specs.set(c.viz.type, list);
-  });
+  (deck.cards || []).forEach((c) => collect(c.viz));
+});
+/* 課文帶讀的段落也會放圖（2026-08-30 起）。只收概念卡的話，
+   只用在帶讀的元件（例如會動的那幾種）永遠不會被體檢到。 */
+const TEXT_FILES = ['math', 'science', 'social', 'english', 'chinese', 'physics',
+  'chemistry', 'biology', 'earth', 'history', 'geography', 'civics'];
+for (const f of TEXT_FILES) {
+  const fp = `${ROOT}/js/data/texts-${f}.js`;
+  if (!existsSync(fp)) continue;
+  // eslint-disable-next-line no-eval
+  eval(readFileSync(fp, 'utf8').replace(/^window\./gm, 'w.').replace(/window\.APP_TEXTS/g, 'w.APP_TEXTS'));
+}
+Object.values(w.APP_TEXTS || {}).forEach((unit) => {
+  (unit.segs || []).forEach((g) => collect(g.viz));
 });
 console.log(`收集到 ${specs.size} 種互動元件、${[...specs.values()].reduce((n, l) => n + l.length, 0)} 組 spec`);
 
@@ -218,6 +232,59 @@ try {
     });
     bad = bad.concat(promiseReport.map((r) => ({ type: r.type || '?', spec: r.key + ' card' + r.i, issues: [r.miss] })));
   }
+  /* 3. 動畫收尾檢查（2026-08-30 加）：會動的元件在畫面被換掉之後，
+        requestAnimationFrame 迴圈必須真的停下來。Widgets.render 只做
+        innerHTML=''，不會停計時器 —— 這種漏掉的迴圈在手機上會一直吃電，
+        而且畫面上完全看不出來，靠人工測不到。 */
+  const ANIM_TYPES = ['fracequiv', 'floatsink', 'motionplay'];
+  const animSpecs = ANIM_TYPES
+    .map((t) => (specs.get(t) || [])[0])
+    .filter(Boolean);
+  if (animSpecs.length) {
+    const leaks = await js(`(function(){
+     try {
+      var jobs = ${JSON.stringify(animSpecs)}, out = [];
+      var origRAF = window.requestAnimationFrame.bind(window);
+      var n = 0;
+      window.requestAnimationFrame = function (fn) { n++; return origRAF(fn); };
+      return jobs.reduce(function (p, spec) {
+        return p.then(function () {
+          var host = document.createElement('div');
+          // 放進可視範圍：不然 IntersectionObserver 會先把動畫停掉，
+          // 就測不到「換畫面時有沒有真的停」這件事（會假通過）
+          host.style.cssText = 'position:fixed;top:0;left:0;width:340px;z-index:99999';
+          document.body.appendChild(host);
+          window.Widgets.render(host, spec);
+          var play = host.querySelector('.wg-btn');
+          if (!play) { out.push({ type: spec.type, issue: '找不到播放鍵' }); host.remove(); return; }
+          play.click();                                   // 開始播
+          return new Promise(function (r) { setTimeout(r, 220); }).then(function () {
+            window.Widgets.render(host, { type: 'fracbar', parts: 2, shade: 1 });  // 畫面換掉
+            var before = n;
+            return new Promise(function (r) { setTimeout(r, 320); }).then(function () {
+              var after = n - before;
+              // 換畫面後最多容許 1 幀（切換當下可能有一幀已經排進去了）
+              if (after > 1) out.push({ type: spec.type,
+                issue: '畫面換掉之後動畫還在跑（又排了 ' + after + ' 幀）' });
+              host.remove();
+            });
+          });
+        });
+      }, Promise.resolve()).then(function () {
+        window.requestAnimationFrame = origRAF;
+        return out;
+      });
+     } catch (e) { return [{ type: '（動畫收尾檢查自己爆了）', issue: String(e && e.stack || e).slice(0, 300) }]; }
+    })()`);
+    if (leaks && leaks.length) {
+      console.log(`\n⚠️  動畫沒收乾淨：${leaks.length} 種`);
+      leaks.forEach((r) => console.log(`  ${r.type}：${r.issue}`));
+      bad = bad.concat(leaks.map((r) => ({ type: r.type, spec: '動畫收尾', issues: [r.issue] })));
+    } else {
+      console.log(`\n✅ 動畫收尾正常：${animSpecs.length} 種會動的元件，畫面換掉後迴圈都有停`);
+    }
+  }
+
   ws.close();
 } finally {
   chrome.kill(); server.kill();

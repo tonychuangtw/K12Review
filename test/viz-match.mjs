@@ -25,8 +25,8 @@ try {
       s.src='js/data/lessons-${f}.js'; s.onload=function(){res(1)}; s.onerror=function(){res(0)};
       document.head.appendChild(s); })`).catch(() => {});
   }
-  // 課文帶讀的每一段也可能有圖，一起檢查
-  for (const f of ['social']) {
+  // 課文帶讀的每一段也可能有圖，一起檢查（2026-08-30 起數理科也開始放圖）
+  for (const f of files) {
     await js(`new Promise(function(res){ var s=document.createElement('script');
       s.src='js/data/texts-${f}.js'; s.onload=function(){res(1)}; s.onerror=function(){res(0)};
       document.head.appendChild(s); })`).catch(() => {});

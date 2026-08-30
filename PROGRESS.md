@@ -4,7 +4,21 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【等 Tony 拍板 2026-08-30】課文帶讀加圖／互動／動畫。Tony 回報「12 個年級的帶讀全都是純文字，太死了」，
+NEXT_ACTION: 【樣板已完成，等 Tony 看過 2026-08-30】課文帶讀加圖／互動／動畫。Tony 選了「先做 3 個樣板」。
+已完成的三個樣板單元（18 段全部配圖）：math|四上|第8單元 分數的認識、science|八上|第3單元 密度與浮力、
+physics|十上|第2單元 直線運動。比例照 codex 建議：多數靜態、少數互動、每單元一個會動的。
+新增基礎工程（js/widgets.js）：player() 播放列 —— 一律按了才播、捲出畫面自動暫停（IntersectionObserver）、
+prefers-reduced-motion 時改成「按一下前進一格」、Widgets.render 前呼叫 stopAnims(host) 停掉舊迴圈
+（⚠ 比對要用 host.contains(a.host)，元件是畫在自己的 .wg 再掛進 host，只比 === 會漏掉）。
+新增三種會動的元件：fracequiv（等值分數愈切愈細但塗到長度不變）、floatsink（木頭／蠟／鐵走到各自平衡位置）、
+motionplay（球在跑＋速度時間圖同步長出來，面積＝位移）。三種都要登記到 test/test.js 的 WIDGETS 陣列。
+測試補強：test/widget-audit.mjs 現在也從 texts-*.js 收 spec（以前只看概念卡，只用在帶讀的元件永遠檢查不到），
+並加一節「動畫收尾檢查」（播到一半換畫面，數 requestAnimationFrame 有沒有繼續排；host 要放在可視範圍，
+否則 IntersectionObserver 會先停掉動畫造成假通過）；test/viz-match.mjs 從只看 social 擴到十二科。
+【下一步】等 Tony 看過樣板。他點頭就照五維度打分往外鋪（數理六科 3,348 段，第一波目標 15-25%）；
+要改就改樣板不要先放大。
+
+【等 Tony 拍板 2026-08-30】課文帶讀加圖／互動／動畫。Tony 回報「12 個年級的帶讀全都是純文字，太死了」，
 點名優先：小學國中的數學自然、高中的數學物理化學。查證結果：**引擎早就有，是寫帶讀時沒填 viz**——
 js/widgets.js 有 136 種 SVG 元件（27 種有真互動），帶讀渲染器本來就吃 seg.viz（js/app.js 約 5796 行 → Widgets.render），
 概念卡 6,373 張 100% 都有 viz（用到 137 種），但帶讀 7,020 段只有 102 段有 viz 且全在社會科，數理六科是 0。
@@ -77,7 +91,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 20:10 台北（等 Tony 在「帶讀加圖」的兩個選項中拍板；LanExamMock 聽力擴題暫緩）
+UPDATED: 2026-08-30 21:30 台北（3 個樣板單元完成，等 Tony 看過；LanExamMock 聽力擴題暫緩）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 

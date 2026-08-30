@@ -13816,6 +13816,7 @@ window.APP_TEXTS['science|八上|第3單元 密度與浮力'] = {
       terms: [
         { w: '密度', d: '單位體積內所含的質量。' }
       ],
+      viz: {"type": "density", "material": 4, "vol": 10},
       q: {
         q: '課文說把鐵塊切一半，密度會怎麼樣？',
         options: [
@@ -13840,6 +13841,7 @@ window.APP_TEXTS['science|八上|第3單元 密度與浮力'] = {
       terms: [
         { w: '固有性質', d: '不隨物體多寡改變的物質性質。' }
       ],
+      viz: {"type": "exprsteps", "steps": [{"expr": "M ＝ 54 g，V ＝ 20 cm³", "hint": "已知質量與體積，要求密度。"}, {"expr": "D ＝ M ÷ V", "hint": "密度就是每 1 立方公分有幾公克。"}, {"expr": "54 ÷ 20 ＝ 2.7", "hint": "算出來是 2.7 g/cm³。"}, {"expr": "＝ 鋁", "hint": "密度是固有性質，可以拿來辨認物質。"}]},
       q: {
         q: '課文說密度可以拿來做什麼？',
         options: [
@@ -13864,6 +13866,7 @@ window.APP_TEXTS['science|八上|第3單元 密度與浮力'] = {
       terms: [
         { w: '懸浮', d: '物體停在液體中間、不浮也不沉。' }
       ],
+      viz: {"type": "floatsink", "items": [{"n": "木頭", "d": 0.6}, {"n": "蠟", "d": 1.0}, {"n": "鐵", "d": 7.9}]},
       q: {
         q: '課文說密度和液體相等時會怎麼樣？',
         options: [
@@ -13888,6 +13891,7 @@ window.APP_TEXTS['science|八上|第3單元 密度與浮力'] = {
       terms: [
         { w: '阿基米德原理', d: '浮力等於物體排開液體的重量。' }
       ],
+      viz: {"type": "buoyancy", "mode": "float"},
       q: {
         q: '課文說浮力的大小取決於什麼？',
         options: [
@@ -13912,6 +13916,7 @@ window.APP_TEXTS['science|八上|第3單元 密度與浮力'] = {
       terms: [
         { w: '平均密度', d: '整個物體含內部空間在內的總體密度。' }
       ],
+      viz: {"type": "buoyancy", "mode": "boat"},
       q: {
         q: '課文說船會浮的關鍵是什麼？',
         options: [
@@ -13936,6 +13941,7 @@ window.APP_TEXTS['science|八上|第3單元 密度與浮力'] = {
       terms: [
         { w: '壓載水艙', d: '潛水艇中可注水或排水以改變密度的艙室。' }
       ],
+      viz: {"type": "buoyancy", "mode": "sink"},
       q: {
         q: '課文說潛水艇怎麼控制上浮下潛？',
         options: [

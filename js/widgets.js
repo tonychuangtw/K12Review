@@ -285,6 +285,102 @@
     return { el: wrap, sync: function () { v.textContent = String(get()); } };
   }
 
+  /* ── 動畫生命週期（2026-08-30 加）─────────────────────────────────────
+     Tony 回報課文帶讀「全是純文字，太死了」，要加圖、互動與動畫。
+     動畫最大的風險不是畫不出來，是「畫面換掉了計時器還在跑」——
+     Widgets.render 只做 host.innerHTML=''，不會停掉 requestAnimationFrame。
+     所以會動的元件一律走 player()，render 之前會先把舊的停掉。
+     另外兩件事也在這裡處理：
+       1. 捲出畫面就暫停（IntersectionObserver），手機不會在背景白白耗電
+       2. 系統設定「減少動態」時不連續播放，改成「按一下前進一格」
+          （也符合 Mayer 的 segmenting：讓學習者自己控制節奏）
+     ⚠ 一律「按了才播」，不自動播——與學習無關的自動動畫會分散注意力
+       （seductive details 會降低理解與遷移）。 */
+  var ANIMS = [];
+  function stopAnims(host) {
+    for (var i = ANIMS.length - 1; i >= 0; i--) {
+      var a = ANIMS[i];
+      var gone = !a.host || (document.body && !document.body.contains(a.host));
+      // 元件是畫在自己的 .wg 容器裡再掛進 host，所以要連子孫一起比對，
+      // 只比 a.host === host 會漏掉（漏掉的迴圈畫面上看不出來，只有耗電）
+      var inside = host && (a.host === host || (host.contains && host.contains(a.host)));
+      if (gone || inside) {
+        try { a.stop(); } catch (e) {}
+        ANIMS.splice(i, 1);
+      }
+    }
+  }
+  function reduceMotion() {
+    try {
+      return !!(window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    } catch (e) { return false; }
+  }
+  /* 播放列：draw(t) 收 0–1 的進度，自己畫出該格。
+     opts: { duration 毫秒, steps 逐格模式分幾格 } */
+  function player(host, draw, opts) {
+    opts = opts || {};
+    var dur = opts.duration || 3200, steps = opts.steps || 6;
+    var raf = 0, t0 = 0, at = 0, playing = false, io = null;
+    var reduced = reduceMotion();
+    /* 只放一顆鍵：播放 → 暫停 → 繼續 → 再播一次。
+       原本還有一顆「↺ 重來」，但在起點按它本來就不會有任何變化，
+       體檢會判成死按鈕，使用者看起來也像壞掉——播完那一顆會自己變成
+       「↻ 再播一次」，功能已經涵蓋到了，所以拿掉。 */
+    var row = div('wg-ctrl');
+    // 播放鍵不用 btn()：暫停時畫面本來就不會變，會被誤判成死按鈕
+    var play = document.createElement('button');
+    play.type = 'button';
+    play.className = 'wg-btn';
+    row.appendChild(play);
+    if (reduced) row.appendChild(div('wg-ctrl-label', '（系統設了減少動態，改成一格一格看）'));
+    function sync() {
+      play.textContent = reduced ? '▶ 下一格'
+        : playing ? '⏸ 暫停' : at >= 1 ? '↻ 再播一次' : at > 0 ? '▶ 繼續' : '▶ 播放';
+    }
+    function frame(ts) {
+      if (!playing) return;
+      if (!t0) t0 = ts - at * dur;
+      at = clamp((ts - t0) / dur, 0, 1);
+      draw(at);
+      if (at >= 1) { playing = false; t0 = 0; sync(); return; }
+      raf = requestAnimationFrame(frame);
+    }
+    function start() {
+      if (playing) return;
+      if (at >= 1) at = 0;
+      playing = true; t0 = 0; sync();
+      raf = requestAnimationFrame(frame);
+    }
+    function stop() {
+      playing = false; t0 = 0;
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0; sync();
+    }
+    function stepOnce() {
+      at = at >= 1 ? 0 : clamp(at + 1 / steps, 0, 1);
+      draw(at); sync();
+    }
+    play.addEventListener('click', function () {
+      if (reduced) { stepOnce(); return; }
+      if (playing) stop(); else start();
+    });
+    try {
+      if (window.IntersectionObserver) {
+        io = new IntersectionObserver(function (es) {
+          if (es && es[0] && !es[0].isIntersecting) stop();
+        }, { threshold: 0.01 });
+        io.observe(host);
+      }
+    } catch (e) {}
+    ANIMS.push({ host: host, stop: function () {
+      stop();
+      if (io) { try { io.disconnect(); } catch (e) {} }
+    } });
+    draw(0); sync();
+    return row;
+  }
+
   /* 臺灣輪廓（向量）：示意圖裡要放臺灣時用這個，不要貼 AI 點陣圖——
      線條圖配照片式插圖看起來不搭（2026-08-29 家長回報）。
      座標取自海岸線上的實際經緯度，再等比縮到指定的方框裡，形狀是真的。 */
@@ -8940,11 +9036,198 @@
     paint();
   };
 
+  /* ── 會動的元件（2026-08-30 加）──────────────────────────────────────
+     一律「按了才播」，播放列由 player() 產生（含逐格模式與捲出畫面自動暫停）。
+     只做「說到就要演到」的三種：等值分數、浮沉、直線運動＋速度時間圖。 */
+
+  /* 等值分數：長條愈切愈細，塗到的長度完全不變 —— 這是等值分數最難用文字講清楚的一點 */
+  REG.fracequiv = function (host, spec) {
+    var parts = Math.max(1, spec.parts || 2);
+    var shade = clamp(spec.shade == null ? 1 : spec.shade, 0, parts);
+    var upto = clamp(spec.upto || 4, 1, 6);
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 132', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X = 10, Y = 34, W = 300, H = 54;
+    function draw(t) {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var si = clamp(Math.floor(t * upto), 0, upto - 1);
+      var f = clamp(t * upto - si, 0, 1);
+      var k = si + 1;
+      svg.appendChild(el('rect', { x: X, y: Y, width: W, height: H, rx: 8 },
+        'fill:var(--panel2);stroke:var(--border);stroke-width:2'));
+      // 塗色的寬度只看 shade/parts，跟切成幾份無關 —— 動畫的重點就在這條寬度不會變
+      svg.appendChild(el('rect', { x: X, y: Y, width: W * shade / parts, height: H, rx: 8 },
+        'fill:var(--accent);fill-opacity:.85'));
+      var n = parts * k, i;
+      for (i = 1; i < n; i++) {
+        var isOld = (i % k) === 0;
+        svg.appendChild(el('line',
+          { x1: X + W * i / n, y1: Y, x2: X + W * i / n, y2: Y + H },
+          'stroke:var(--border);stroke-width:2;stroke-opacity:' + (isOld ? 1 : f.toFixed(2))));
+      }
+      svg.appendChild(el('rect', { x: X, y: Y, width: W, height: H, rx: 8 },
+        'fill:none;stroke:var(--border);stroke-width:2'));
+      svg.appendChild(txt(160, 18, (shade * k) + ' / ' + (parts * k),
+        'font-size:19px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(160, 108, '切成 ' + (parts * k) + ' 份，塗了 ' + (shade * k) + ' 份',
+        'font-size:12px;fill:var(--dim)'));
+      svg.appendChild(txt(160, 124, '塗到的長度：完全沒變',
+        'font-size:12px;fill:var(--good)'));
+    }
+    box.appendChild(player(box, draw, { duration: 3600, steps: upto }));
+    var chain = [];
+    for (var j = 1; j <= upto; j++) chain.push((shade * j) + '/' + (parts * j));
+    read.appendChild(div('wg-read-main', chain.join(' ＝ ')));
+    read.appendChild(div('wg-read-sub',
+      '按播放看長條被切得愈來愈細：份數變多、塗到的份數也跟著變多，' +
+      '但塗到的「長度」從頭到尾一樣。這就是等值分數 —— 分子和分母同時乘以同一個數，大小不變。' +
+      '⚠ 只有「同時」乘同一個數才成立，只乘分子就變大了。'));
+    host.appendChild(box);
+  };
+
+  /* 浮沉：三塊密度不同的東西同時放進水裡，各自走到自己的平衡位置 */
+  REG.floatsink = function (host, spec) {
+    var items = spec.items && spec.items.length ? spec.items
+      : [{ n: '木頭', d: 0.6 }, { n: '蠟', d: 1.0 }, { n: '鐵', d: 7.9 }];
+    items = items.slice(0, 3);
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var TX = 16, TW = 288, SURF = 66, BOT = 158, SIDE = 26;
+    function ease(t) { return t * t * (3 - 2 * t); }
+    function verdict(d) { return d < 1 ? '浮' : d > 1 ? '沉' : '懸浮'; }
+    function targetY(d) {
+      if (d < 1) return SURF - (1 - d) * SIDE;                 // 露出 (1−d) 那一段
+      if (d > 1) return BOT - SIDE;                            // 沉到底
+      return (SURF + BOT) / 2 - SIDE / 2;                      // 懸浮在中間
+    }
+    function draw(t) {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(el('rect', { x: TX, y: 30, width: TW, height: BOT - 30, rx: 6 },
+        'fill:none;stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('rect', { x: TX, y: SURF, width: TW, height: BOT - SURF },
+        'fill:var(--accent);fill-opacity:.12'));
+      svg.appendChild(el('line', { x1: TX, y1: SURF, x2: TX + TW, y2: SURF },
+        'stroke:var(--accent);stroke-width:2'));
+      svg.appendChild(txt(TX + 22, SURF - 9, '水面', 'font-size:11px;fill:var(--accent)'));
+      var e = ease(clamp(t, 0, 1));
+      items.forEach(function (it, i) {
+        var cx = TX + TW * (i + 0.5) / items.length;
+        var y0 = 34, y = y0 + (targetY(it.d) - y0) * e;
+        var col = it.d < 1 ? 'good' : it.d > 1 ? 'bad' : 'accent';
+        svg.appendChild(el('rect',
+          { x: cx - SIDE / 2, y: y, width: SIDE, height: SIDE, rx: 4, 'fill-opacity': '.6' },
+          'fill:var(--' + col + ');stroke:var(--' + col + ');stroke-width:2'));
+        svg.appendChild(txt(cx, 176, it.n + ' ' + it.d, 'font-size:11px;fill:var(--dim)'));
+        if (e > 0.92) svg.appendChild(txt(cx, y - 10, verdict(it.d),
+          'font-size:12px;font-weight:700;fill:var(--' + col + ')'));
+      });
+      svg.appendChild(txt(160, 18, '密度比水（1）小就浮，大就沉',
+        'font-size:12px;fill:var(--dim)'));
+    }
+    box.appendChild(player(box, draw, { duration: 2600, steps: 5 }));
+    read.appendChild(div('wg-read-main',
+      items.map(function (it) { return it.n + ' ' + it.d + ' → ' + verdict(it.d); }).join('　')));
+    read.appendChild(div('wg-read-sub',
+      '按播放看三塊東西各自走到自己的平衡位置。判斷只看一件事：密度和液體比誰大。' +
+      '浮起來的並不是「整塊露出水面」——密度 0.6 的木頭會有六成沉在水下，只露出四成。' +
+      '⚠ 跟大小、重量都無關：一根大木頭和一小塊木頭都浮，一顆小鐵釘照樣沉。'));
+    host.appendChild(box);
+  };
+
+  /* 直線運動：左邊球在跑，右邊速度時間圖同步長出來，圖形下的面積就是跑過的距離 */
+  REG.motionplay = function (host, spec) {
+    var accel = spec.mode === 'accel';
+    var v0 = spec.v0 == null ? (accel ? 0 : 3) : spec.v0;
+    var a = spec.a == null ? (accel ? 1.5 : 0) : spec.a;
+    var T = spec.T || 4;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var GX = 176, GY0 = 40, GY1 = 138, GW = 128;               // 圖的框
+    function vAt(s) { return v0 + a * s; }
+    function xAt(s) { return v0 * s + 0.5 * a * s * s; }
+    var vMax = Math.max(vAt(T), v0, 1) * 1.15;
+    var xMax = Math.max(xAt(T), 1);
+    function gx(s) { return GX + GW * s / T; }
+    function gy(v) { return GY1 - (GY1 - GY0) * v / vMax; }
+    function draw(t) {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var s = t * T, v = vAt(s), x = xAt(s);
+      // 左：軌道與球
+      svg.appendChild(el('line', { x1: 16, y1: 96, x2: 152, y2: 96 },
+        'stroke:var(--border);stroke-width:3'));
+      svg.appendChild(txt(84, 22, accel ? '等加速（愈跑愈快）' : '等速（速度不變）',
+        'font-size:12px;font-weight:700;fill:var(--accent)'));
+      var bx = 20 + 128 * (xMax ? x / xMax : 0);
+      svg.appendChild(el('circle', { cx: bx, cy: 86, r: 9, 'fill-opacity': '.75' },
+        'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+      for (var m = 0; m <= 4; m++) {
+        var mx = 20 + 128 * m / 4;
+        svg.appendChild(el('line', { x1: mx, y1: 96, x2: mx, y2: 102 },
+          'stroke:var(--border);stroke-width:1'));
+      }
+      svg.appendChild(txt(84, 118, '位置 ' + x.toFixed(1) + ' 公尺',
+        'font-size:12px;fill:var(--text)'));
+      svg.appendChild(txt(84, 136, '速度 ' + v.toFixed(1) + ' 公尺／秒',
+        'font-size:12px;fill:var(--text)'));
+      svg.appendChild(txt(84, 154, '時間 ' + s.toFixed(1) + ' 秒',
+        'font-size:12px;fill:var(--dim)'));
+      // 右：速度時間圖
+      svg.appendChild(el('line', { x1: GX, y1: GY1, x2: GX + GW, y2: GY1 },
+        'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('line', { x1: GX, y1: GY1, x2: GX, y2: GY0 },
+        'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(txt(GX + GW / 2, 22, '速度 — 時間圖',
+        'font-size:12px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(GX - 8, GY0 + 4, 'v', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(GX + GW + 6, GY1, 't', 'font-size:11px;fill:var(--dim)'));
+      if (t > 0) {
+        // 面積＝位移，跟著時間一起長出來
+        var pts = 'M' + gx(0) + ',' + GY1;
+        var st;
+        for (st = 0; st <= 20; st++) {
+          var ss = s * st / 20;
+          pts += ' L' + gx(ss) + ',' + gy(vAt(ss));
+        }
+        pts += ' L' + gx(s) + ',' + GY1 + ' Z';
+        svg.appendChild(el('path', { d: pts },
+          'fill:var(--good);fill-opacity:.22;stroke:none'));
+        svg.appendChild(el('line',
+          { x1: gx(0), y1: gy(v0), x2: gx(s), y2: gy(v) },
+          'stroke:var(--good);stroke-width:2.5'));
+        svg.appendChild(el('circle', { cx: gx(s), cy: gy(v), r: 4 },
+          'fill:var(--good)'));
+      }
+      svg.appendChild(txt(GX + GW / 2, 158, '灰綠色面積 ＝ 位移 ' + x.toFixed(1) + ' 公尺',
+        'font-size:11px;fill:var(--good)'));
+      svg.appendChild(txt(GX + GW / 2, 174,
+        accel ? '斜率＝加速度 ' + a.toFixed(1) : '斜率 0 ＝ 沒有加速度',
+        'font-size:11px;fill:var(--dim)'));
+    }
+    box.appendChild(player(box, draw, { duration: 3600, steps: 8 }));
+    read.appendChild(div('wg-read-main',
+      accel ? '等加速：速度線是斜的，面積是梯形' : '等速：速度線是水平的，面積是長方形'));
+    read.appendChild(div('wg-read-sub',
+      '左邊的球在跑，右邊的速度時間圖同時長出來，兩邊是同一件事的兩種畫法。' +
+      '看兩個地方：線的「斜率」是加速度（等速時斜率 0），線和時間軸圍出的「面積」是位移。' +
+      '⚠ 這張圖的縱軸是速度不是位置——線往上不代表球往上跑，是跑得愈來愈快。'));
+    host.appendChild(box);
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },
     render: function (host, spec) {
       if (!host) return false;
+      stopAnims(host);          // 換畫面前先停掉這個容器裡還在跑的動畫
       host.innerHTML = '';
       if (!spec || !REG[spec.type]) return false;
       try { REG[spec.type](host, spec); return true; }
