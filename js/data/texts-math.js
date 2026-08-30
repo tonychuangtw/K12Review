@@ -18,6 +18,7 @@ window.APP_TEXTS['math|一上|第1單元 10以內的數與數數'] = {
       terms: [
         { w: '數數', d: '一個一個點著算出總共有幾個。' }
       ],
+      viz: {"type":"counters","n":6,"group":1},
       q: {
         q: '課文說數完之後，哪一個數才是總數？',
         options: [
@@ -66,6 +67,7 @@ window.APP_TEXTS['math|一上|第1單元 10以內的數與數數'] = {
       terms: [
         { w: '十格框', d: '兩排各五格、用來看數量的方格工具。' }
       ],
+      viz: {"type":"tenframe","n":8},
       q: {
         q: '課文說十格框一共有幾格？',
         options: [
@@ -90,6 +92,7 @@ window.APP_TEXTS['math|一上|第1單元 10以內的數與數數'] = {
       terms: [
         { w: '零', d: '表示一個都沒有的數。' }
       ],
+      viz: {"type":"numberline","min":0,"max":10,"step":1,"value":0},
       q: {
         q: '課文說零排在哪一個數的前面？',
         options: [
@@ -168,6 +171,7 @@ window.APP_TEXTS['math|一上|第2單元 數的合成與分解'] = {
       terms: [
         { w: '合成', d: '把兩個數合起來變成一個數。' }
       ],
+      viz: {"type":"numbond","whole":5,"part":3},
       q: {
         q: '課文說「合成」對應到哪一種運算？',
         options: [
@@ -240,6 +244,7 @@ window.APP_TEXTS['math|一上|第2單元 數的合成與分解'] = {
       terms: [
         { w: '教具', d: '幫助理解的實物或工具。' }
       ],
+      viz: {"type":"tenframe","n":7},
       q: {
         q: '課文說為什麼要用十格框？',
         options: [
@@ -288,6 +293,7 @@ window.APP_TEXTS['math|一上|第2單元 數的合成與分解'] = {
       terms: [
         { w: '順序', d: '計算時先做哪一步。' }
       ],
+      viz: {"type":"counters","n":9,"group":3},
       q: {
         q: '課文說三個數相加時，先算哪兩個？',
         options: [
@@ -342,6 +348,7 @@ window.APP_TEXTS['math|一上|第3單元 10以內的加法'] = {
       terms: [
         { w: '往上數', d: '從一個數開始接著數下去。' }
       ],
+      viz: {"type":"numberline","min":0,"max":10,"step":1,"value":8,"marks":[{"v":6,"label":"從6開始"}]},
       q: {
         q: '課文說算二加六時，從哪個數開始數比較快？',
         options: [
@@ -390,6 +397,7 @@ window.APP_TEXTS['math|一上|第3單元 10以內的加法'] = {
       terms: [
         { w: '不變', d: '運算之後結果和原來一樣。' }
       ],
+      viz: {"type":"tenframe","n":5},
       q: {
         q: '課文說任何數加零會怎麼樣？',
         options: [
@@ -438,6 +446,7 @@ window.APP_TEXTS['math|一上|第3單元 10以內的加法'] = {
       terms: [
         { w: '關鍵詞', d: '題目中提示要用哪種運算的字詞。' }
       ],
+      viz: {"type":"numbond","whole":7,"part":4,"edit":false},
       q: {
         q: '課文說看到哪些字通常是加法？',
         options: [
@@ -468,6 +477,7 @@ window.APP_TEXTS['math|一上|第4單元 10以內的減法'] = {
       terms: [
         { w: '減法', d: '從一個數中拿走一部分的運算。' }
       ],
+      viz: {"type":"numbond","whole":5,"part":2,"edit":false},
       q: {
         q: '課文說減號代表什麼意思？',
         options: [
@@ -516,6 +526,7 @@ window.APP_TEXTS['math|一上|第4單元 10以內的減法'] = {
       terms: [
         { w: '相減', d: '兩數相減求相差多少。' }
       ],
+      viz: {"type":"tenframe","n":5},
       q: {
         q: '課文說五減五等於多少？',
         options: [
@@ -588,6 +599,7 @@ window.APP_TEXTS['math|一上|第4單元 10以內的減法'] = {
       terms: [
         { w: '讀題', d: '把題目的意思看清楚再列式。' }
       ],
+      viz: {"type":"compare","items":[{"label":"原本","len":8},{"label":"剩下","len":5}]},
       q: {
         q: '課文提醒只看關鍵字會怎麼樣？',
         options: [
@@ -618,6 +630,7 @@ window.APP_TEXTS['math|一上|第5單元 20以內的數'] = {
       terms: [
         { w: '十', d: '十個一合起來的一整包。' }
       ],
+      viz: {"type":"tenframe","n":13,"frames":2},
       q: {
         q: '課文說十四可以拆成什麼？',
         options: [
@@ -690,6 +703,7 @@ window.APP_TEXTS['math|一上|第5單元 20以內的數'] = {
       terms: [
         { w: '個位', d: '數字最右邊那一位。' }
       ],
+      viz: {"type":"numberline","min":10,"max":20,"step":1,"value":16,"marks":[{"v":13,"label":"13"}]},
       q: {
         q: '課文說十幾和個位數比大小，結果如何？',
         options: [
@@ -738,6 +752,7 @@ window.APP_TEXTS['math|一上|第5單元 20以內的數'] = {
       terms: [
         { w: '雙數', d: '能兩個兩個配對完的數。' }
       ],
+      viz: {"type":"counters","n":7,"group":2},
       q: {
         q: '課文說怎麼快速判斷雙數？',
         options: [
@@ -816,6 +831,7 @@ window.APP_TEXTS['math|一上|第6單元 20以內的加減'] = {
       terms: [
         { w: '拆十法', d: '個位不夠減時拆開十來減的方法。' }
       ],
+      viz: {"type":"numbond","whole":10,"part":5},
       q: {
         q: '課文說什麼時候要用拆十法？',
         options: [
@@ -888,6 +904,7 @@ window.APP_TEXTS['math|一上|第6單元 20以內的加減'] = {
       terms: [
         { w: '兩步驟', d: '需要算兩次才能得到答案的題目。' }
       ],
+      viz: {"type":"tenframe","n":10},
       q: {
         q: '課文說遇到兩步驟的題目要怎麼做？',
         options: [
@@ -966,6 +983,7 @@ window.APP_TEXTS['math|一上|第7單元 形狀與立體形體'] = {
       terms: [
         { w: '立體形體', d: '占有空間、有厚度的形體。' }
       ],
+      viz: {"type":"cuboid","l":3,"w":3,"h":3,"edit":false},
       q: {
         q: '課文說立體形體和平面圖形最大的差別是什麼？',
         options: [
@@ -990,6 +1008,7 @@ window.APP_TEXTS['math|一上|第7單元 形狀與立體形體'] = {
       terms: [
         { w: '曲面', d: '彎曲的表面。' }
       ],
+      viz: {"type":"cylinder","r":3,"h":4,"mode":"volume","edit":false},
       q: {
         q: '課文說哪一個形體不會滾？',
         options: [
@@ -1014,6 +1033,7 @@ window.APP_TEXTS['math|一上|第7單元 形狀與立體形體'] = {
       terms: [
         { w: '面', d: '立體形體外側的平坦或彎曲表面。' }
       ],
+      viz: {"type":"netbox","l":4,"w":3,"h":2,"edit":false},
       q: {
         q: '課文說圓柱的上下兩個面是什麼形狀？',
         options: [
@@ -1068,6 +1088,7 @@ window.APP_TEXTS['math|一上|第8單元 比長短與比多少'] = {
       terms: [
         { w: '對齊', d: '把起點放在同一條線上。' }
       ],
+      viz: {"type":"compare","items":[{"label":"鉛筆","len":6},{"label":"尺","len":9}]},
       q: {
         q: '課文說比長短時要注意什麼？',
         options: [
@@ -1290,6 +1311,7 @@ window.APP_TEXTS['math|一上|第9單元 次序與位置'] = {
       terms: [
         { w: '相對位置', d: '從不同人的角度看會不一樣的位置。' }
       ],
+      viz: {"type":"compare","items":[{"label":"我","len":5},{"label":"對面的人","len":5}]},
       q: {
         q: '課文說面對面時你的左邊是對方的哪一邊？',
         options: [
@@ -1314,6 +1336,7 @@ window.APP_TEXTS['math|一上|第9單元 次序與位置'] = {
       terms: [
         { w: '規律', d: '重複出現的固定模式。' }
       ],
+      viz: {"type":"counters","n":8,"group":2,"edit":false},
       q: {
         q: '課文說找規律的第一步是什麼？',
         options: [
@@ -1338,6 +1361,7 @@ window.APP_TEXTS['math|一上|第9單元 次序與位置'] = {
       terms: [
         { w: '相鄰', d: '排在隔壁的兩個數。' }
       ],
+      viz: {"type":"numberline","min":0,"max":10,"step":1,"value":9},
       q: {
         q: '課文說找數字規律的方法是什麼？',
         options: [
@@ -1368,6 +1392,7 @@ window.APP_TEXTS['math|一下|第1單元 100以內的數'] = {
       terms: [
         { w: '十個一數', d: '每次數十個、跳著往下數。' }
       ],
+      viz: {"type":"counters","n":30,"group":10},
       q: {
         q: '課文說十個十是多少？',
         options: [
@@ -1440,6 +1465,7 @@ window.APP_TEXTS['math|一下|第1單元 100以內的數'] = {
       terms: [
         { w: '百位', d: '三位數中最左邊那一位。' }
       ],
+      viz: {"type":"placevalue","value":99,"max":99},
       q: {
         q: '課文說一百是幾位數的開始？',
         options: [
@@ -1488,6 +1514,7 @@ window.APP_TEXTS['math|一下|第1單元 100以內的數'] = {
       terms: [
         { w: '百數表', d: '把一到一百排成方格的表。' }
       ],
+      viz: {"type":"numberline","min":0,"max":100,"step":10,"value":40},
       q: {
         q: '課文說在百數表上往下走一格是加多少？',
         options: [
@@ -1518,6 +1545,7 @@ window.APP_TEXTS['math|一下|第2單元 數的順序與大小'] = {
       terms: [
         { w: '十位', d: '兩位數中左邊那一位。' }
       ],
+      viz: {"type":"placevalue","value":47,"max":99},
       q: {
         q: '課文說比大小要先看哪一位？',
         options: [
@@ -1614,6 +1642,7 @@ window.APP_TEXTS['math|一下|第2單元 數的順序與大小'] = {
       terms: [
         { w: '排序', d: '把數依大小排列。' }
       ],
+      viz: {"type":"numberline","min":20,"max":60,"step":10,"value":43},
       q: {
         q: '課文說排序時要先做什麼？',
         options: [
@@ -1692,6 +1721,7 @@ window.APP_TEXTS['math|一下|第3單元 二位數的加法'] = {
       terms: [
         { w: '直式', d: '把數字上下對齊排列的計算方式。' }
       ],
+      viz: {"type":"column","a":34,"b":25,"op":"+"},
       q: {
         q: '課文說直式沒對齊會怎麼樣？',
         options: [
@@ -1740,6 +1770,7 @@ window.APP_TEXTS['math|一下|第3單元 二位數的加法'] = {
       terms: [
         { w: '判斷', d: '算之前先想清楚會發生什麼。' }
       ],
+      viz: {"type":"tenframe","n":13,"frames":2},
       q: {
         q: '課文說判斷會不會進位要看什麼？',
         options: [
@@ -1788,6 +1819,7 @@ window.APP_TEXTS['math|一下|第3單元 二位數的加法'] = {
       terms: [
         { w: '湊整', d: '先把兩數湊成整十再算。' }
       ],
+      viz: {"type":"numberline","min":0,"max":30,"step":5,"value":25},
       q: {
         q: '課文說三個數相加時要先算哪兩個？',
         options: [
@@ -1890,6 +1922,7 @@ window.APP_TEXTS['math|一下|第4單元 二位數的減法'] = {
       terms: [
         { w: '整十', d: '個位為零的數。' }
       ],
+      viz: {"type":"placevalue","value":40,"max":99},
       q: {
         q: '課文說整十數相減可以怎麼想？',
         options: [
@@ -1914,6 +1947,7 @@ window.APP_TEXTS['math|一下|第4單元 二位數的減法'] = {
       terms: [
         { w: '驗算', d: '用另一種算法檢查結果。' }
       ],
+      viz: {"type":"column","a":25,"b":27,"op":"+"},
       q: {
         q: '課文說驗算減法的方式是什麼？',
         options: [
@@ -1938,6 +1972,7 @@ window.APP_TEXTS['math|一下|第4單元 二位數的減法'] = {
       terms: [
         { w: '相差', d: '兩個數之間的差距。' }
       ],
+      viz: {"type":"compare","items":[{"label":"哥哥","len":45},{"label":"弟弟","len":28}]},
       q: {
         q: '課文說「相差多少」要用哪一種運算？',
         options: [
@@ -2040,6 +2075,7 @@ window.APP_TEXTS['math|一下|第5單元 加減應用與未知數'] = {
       terms: [
         { w: '長條圖', d: '用長短表示數量關係的圖。' }
       ],
+      viz: {"type":"numbond","whole":14,"part":6},
       q: {
         q: '課文說想不出來時可以怎麼做？',
         options: [
@@ -2088,6 +2124,7 @@ window.APP_TEXTS['math|一下|第5單元 加減應用與未知數'] = {
       terms: [
         { w: '兩步驟', d: '需要算兩次的題目。' }
       ],
+      viz: {"type":"numberline","min":0,"max":30,"step":5,"value":27},
       q: {
         q: '課文說兩步驟題目要怎麼算？',
         options: [
@@ -2118,6 +2155,7 @@ window.APP_TEXTS['math|一下|第6單元 長度的測量'] = {
       terms: [
         { w: '單位', d: '測量時大家講好的固定標準。' }
       ],
+      viz: {"type":"compare","items":[{"label":"桌子","len":12},{"label":"課本","len":3}]},
       q: {
         q: '課文說換一種東西量會怎麼樣？',
         options: [
@@ -2238,6 +2276,7 @@ window.APP_TEXTS['math|一下|第6單元 長度的測量'] = {
       terms: [
         { w: '估測', d: '不用工具先大略判斷數值。' }
       ],
+      viz: {"type":"numberline","min":0,"max":20,"step":5,"value":15},
       q: {
         q: '課文說為什麼要練習估測？',
         options: [
@@ -2340,6 +2379,7 @@ window.APP_TEXTS['math|一下|第7單元 時間：認識時鐘'] = {
       terms: [
         { w: '分鐘', d: '時間單位，六十分為一小時。' }
       ],
+      viz: {"type":"clock","h":8,"m":20,"edit":true},
       q: {
         q: '課文說長針指三是幾分？',
         options: [
@@ -2418,6 +2458,7 @@ window.APP_TEXTS['math|一下|第8單元 分與合、單數雙數'] = {
       terms: [
         { w: '分合', d: '把數拆開或合起來。' }
       ],
+      viz: {"type":"numbond","whole":20,"part":8},
       q: {
         q: '課文說分與合的關係在多大的數才成立？',
         options: [
@@ -2514,6 +2555,7 @@ window.APP_TEXTS['math|一下|第8單元 分與合、單數雙數'] = {
       terms: [
         { w: '交錯', d: '兩種情形輪流出現。' }
       ],
+      viz: {"type":"numberline","min":0,"max":10,"step":1,"value":6},
       q: {
         q: '課文說單數和雙數在數線上是怎麼排列的？',
         options: [
@@ -2538,6 +2580,7 @@ window.APP_TEXTS['math|一下|第8單元 分與合、單數雙數'] = {
       terms: [
         { w: '成雙', d: '兩個一組。' }
       ],
+      viz: {"type":"counters","n":12,"group":2,"edit":false},
       q: {
         q: '課文說兩兩分組不落單需要人數是什麼？',
         options: [
@@ -2568,6 +2611,7 @@ window.APP_TEXTS['math|一下|第9單元 圖形的分割與拼合'] = {
       terms: [
         { w: '對稱', d: '沿一條線摺起來兩邊剛好重合。' }
       ],
+      viz: {"type":"symmetry","shape":"heart"},
       q: {
         q: '課文說正方形對摺一次會變成什麼？',
         options: [
@@ -2592,6 +2636,7 @@ window.APP_TEXTS['math|一下|第9單元 圖形的分割與拼合'] = {
       terms: [
         { w: '對角線', d: '連接對角兩點的直線。' }
       ],
+      viz: {"type":"quad","kind":"rect","pick":false},
       q: {
         q: '課文說長方形沿對角線切會得到什麼？',
         options: [
@@ -2664,6 +2709,7 @@ window.APP_TEXTS['math|一下|第9單元 圖形的分割與拼合'] = {
       terms: [
         { w: '二分之一', d: '整體平分成兩份中的一份。' }
       ],
+      viz: {"type":"fraccircle","parts":4,"shade":1,"editShade":true},
       q: {
         q: '課文說切成分數的重點是什麼？',
         options: [
@@ -2718,6 +2764,7 @@ window.APP_TEXTS['math|二上|第1單元 二位數的加法'] = {
       terms: [
         { w: '直式', d: '把數字上下對齊的計算格式。' }
       ],
+      viz: {"type":"column","a":36,"b":27,"op":"+"},
       q: {
         q: '課文說直式加法要從哪一位開始算？',
         options: [
@@ -2790,6 +2837,7 @@ window.APP_TEXTS['math|二上|第1單元 二位數的加法'] = {
       terms: [
         { w: '心算', d: '不用紙筆直接在腦中計算。' }
       ],
+      viz: {"type":"placevalue","value":75,"max":99},
       q: {
         q: '課文說加整十數時個位會怎麼樣？',
         options: [
@@ -2838,6 +2886,7 @@ window.APP_TEXTS['math|二上|第1單元 二位數的加法'] = {
       terms: [
         { w: '估算', d: '先概略算出大約的答案。' }
       ],
+      viz: {"type":"numberline","min":0,"max":100,"step":20,"value":83},
       q: {
         q: '課文說估算的用處是什麼？',
         options: [
@@ -2868,6 +2917,7 @@ window.APP_TEXTS['math|二上|第2單元 二位數的減法'] = {
       terms: [
         { w: '借位', d: '向高位取一來補低位的做法。' }
       ],
+      viz: {"type":"column","a":62,"b":38,"op":"-"},
       q: {
         q: '課文說算減法前要先看什麼？',
         options: [
@@ -2964,6 +3014,7 @@ window.APP_TEXTS['math|二上|第2單元 二位數的減法'] = {
       terms: [
         { w: '差', d: '兩數相減的結果。' }
       ],
+      viz: {"type":"compare","vertical":true,"items":[{"label":"甲84","len":84},{"label":"乙67","len":67}]},
       q: {
         q: '課文說比較兩量相差多少要怎麼算？',
         options: [
@@ -3090,6 +3141,7 @@ window.APP_TEXTS['math|二上|第3單元 加減混合與應用'] = {
       terms: [
         { w: '線段圖', d: '用線段長短表示數量關係的圖。' }
       ],
+      viz: {"type":"compare","items":[{"label":"總共","len":45},{"label":"已知","len":18}]},
       q: {
         q: '課文說什麼時候一定要畫線段圖？',
         options: [
@@ -3114,6 +3166,7 @@ window.APP_TEXTS['math|二上|第3單元 加減混合與應用'] = {
       terms: [
         { w: '合理性', d: '答案在現實情境中說不說得通。' }
       ],
+      viz: {"type":"numberline","min":0,"max":60,"step":10,"value":27},
       q: {
         q: '課文說「花錢之後變多」代表什麼？',
         options: [
@@ -3138,6 +3191,7 @@ window.APP_TEXTS['math|二上|第3單元 加減混合與應用'] = {
       terms: [
         { w: '審題', d: '看清楚題目問的是什麼。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"讀題：它問的是什麼？","hint":"先找問句。"},{"expr":"列式：需要哪些數字？","hint":"多餘的數字不要用。"},{"expr":"檢查：答的是問題嗎？","hint":"算完回頭對一次問句。"}]},
       q: {
         q: '課文建議讀完題目先做什麼？',
         options: [
@@ -3192,6 +3246,7 @@ window.APP_TEXTS['math|二上|第4單元 乘法的意義'] = {
       terms: [
         { w: '前提', d: '使用某種方法之前必須成立的條件。' }
       ],
+      viz: {"type":"grouping","total":12,"per":3},
       q: {
         q: '課文說各堆不一樣多時要用什麼？',
         options: [
@@ -3264,6 +3319,7 @@ window.APP_TEXTS['math|二上|第4單元 乘法的意義'] = {
       terms: [
         { w: '倍', d: '有幾個那麼多。' }
       ],
+      viz: {"type":"array","rows":1,"cols":5,"split":false,"edit":false},
       q: {
         q: '課文說任何數乘以零等於多少？',
         options: [
@@ -3342,6 +3398,7 @@ window.APP_TEXTS['math|二上|第5單元 2、5、10 的乘法'] = {
       terms: [
         { w: '個位', d: '數字最右邊那一位。' }
       ],
+      viz: {"type":"counters","n":30,"group":5},
       q: {
         q: '課文說五的乘法個位有什麼規律？',
         options: [
@@ -3366,6 +3423,7 @@ window.APP_TEXTS['math|二上|第5單元 2、5、10 的乘法'] = {
       terms: [
         { w: '十的倍數', d: '十乘以整數所得的數。' }
       ],
+      viz: {"type":"placevalue","value":40,"max":99},
       q: {
         q: '課文說十乘以某數的答案怎麼寫？',
         options: [
@@ -3438,6 +3496,7 @@ window.APP_TEXTS['math|二上|第5單元 2、5、10 的乘法'] = {
       terms: [
         { w: '判斷', d: '依題意決定用哪一種運算。' }
       ],
+      viz: {"type":"grouping","total":20,"per":5,"edit":false},
       q: {
         q: '課文說判斷用加或用乘要先看什麼？',
         options: [
@@ -3468,6 +3527,7 @@ window.APP_TEXTS['math|二上|第6單元 乘法的應用'] = {
       terms: [
         { w: '幾個一數', d: '每次固定數幾個往下數。' }
       ],
+      viz: {"type":"counters","n":18,"group":3},
       q: {
         q: '課文說跳數和乘法的關係是什麼？',
         options: [
@@ -3516,6 +3576,7 @@ window.APP_TEXTS['math|二上|第6單元 乘法的應用'] = {
       terms: [
         { w: '單價', d: '一個東西的價錢。' }
       ],
+      viz: {"type":"array","rows":6,"cols":5,"split":false,"edit":false},
       q: {
         q: '課文說總價要怎麼算？',
         options: [
@@ -3564,6 +3625,7 @@ window.APP_TEXTS['math|二上|第6單元 乘法的應用'] = {
       terms: [
         { w: '兩步驟', d: '需要算兩次的題目。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"① 5 × 3 = 15","hint":"先算總共買了幾支。"},{"expr":"② 15 − 4 = 11","hint":"再扣掉用掉的。"}]},
       q: {
         q: '課文說這題的第一步要算什麼？',
         options: [
@@ -3666,6 +3728,7 @@ window.APP_TEXTS['math|二上|第7單元 長度：公分與公尺'] = {
       terms: [
         { w: '合理性', d: '結果在現實中說不說得通。' }
       ],
+      viz: {"type":"compare","items":[{"label":"橡皮擦","len":3},{"label":"身高","len":13}]},
       q: {
         q: '課文說橡皮擦五公尺為什麼不合理？',
         options: [
@@ -3738,6 +3801,7 @@ window.APP_TEXTS['math|二上|第7單元 長度：公分與公尺'] = {
       terms: [
         { w: '參考值', d: '拿來比較估計的已知長度。' }
       ],
+      viz: {"type":"numberline","min":0,"max":200,"step":50,"value":130},
       q: {
         q: '課文說一步大約多長？',
         options: [
@@ -3816,6 +3880,7 @@ window.APP_TEXTS['math|二上|第8單元 時間：幾點幾分'] = {
       terms: [
         { w: '上午', d: '中午之前的時段。' }
       ],
+      viz: {"type":"clock","h":8,"m":0,"edit":false},
       q: {
         q: '課文說為什麼要說明上午或下午？',
         options: [
@@ -3918,6 +3983,7 @@ window.APP_TEXTS['math|二上|第9單元 平面圖形與直角'] = {
       terms: [
         { w: '角', d: '兩條邊從同一點張開所形成的圖形。' }
       ],
+      viz: {"type":"angle","deg":60},
       q: {
         q: '課文說角的大小和什麼無關？',
         options: [
@@ -3990,6 +4056,7 @@ window.APP_TEXTS['math|二上|第9單元 平面圖形與直角'] = {
       terms: [
         { w: '四邊形', d: '有四個邊的圖形。' }
       ],
+      viz: {"type":"quad","kind":"rect","pick":false},
       q: {
         q: '課文說判斷長方形要先看什麼？',
         options: [
@@ -4014,6 +4081,7 @@ window.APP_TEXTS['math|二上|第9單元 平面圖形與直角'] = {
       terms: [
         { w: '多邊形', d: '由多條直線邊圍成的圖形。' }
       ],
+      viz: {"type":"polygon","sides":5},
       q: {
         q: '課文說五邊形有幾個角？',
         options: [
@@ -4116,6 +4184,7 @@ window.APP_TEXTS['math|二下|第1單元 三位數的認識'] = {
       terms: [
         { w: '占位', d: '用零表示某一位上沒有數量。' }
       ],
+      viz: {"type":"placevalue","value":308,"max":999},
       q: {
         q: '課文說三百零八的零代表什麼？',
         options: [
@@ -4140,6 +4209,7 @@ window.APP_TEXTS['math|二下|第1單元 三位數的認識'] = {
       terms: [
         { w: '比大小', d: '判斷兩數誰比較大。' }
       ],
+      viz: {"type":"numberline","min":400,"max":450,"step":10,"value":426},
       q: {
         q: '課文說三位數比大小要從哪一位開始？',
         options: [
@@ -4218,6 +4288,7 @@ window.APP_TEXTS['math|二下|第2單元 三位數的加法'] = {
       terms: [
         { w: '對齊', d: '把相同位數的數字排在同一直行。' }
       ],
+      viz: {"type":"column","a":234,"b":152,"op":"+"},
       q: {
         q: '課文說三位數直式的規矩和兩位數比起來如何？',
         options: [
@@ -4290,6 +4361,7 @@ window.APP_TEXTS['math|二下|第2單元 三位數的加法'] = {
       terms: [
         { w: '整百數', d: '十位與個位都是零的數。' }
       ],
+      viz: {"type":"placevalue","value":540,"max":999},
       q: {
         q: '課文說加整百數時十位與個位會怎麼樣？',
         options: [
@@ -4338,6 +4410,7 @@ window.APP_TEXTS['math|二下|第2單元 三位數的加法'] = {
       terms: [
         { w: '估算', d: '先大略算出接近的答案。' }
       ],
+      viz: {"type":"numberline","min":0,"max":500,"step":100,"value":386},
       q: {
         q: '課文說估算的目的是什麼？',
         options: [
@@ -4368,6 +4441,7 @@ window.APP_TEXTS['math|二下|第3單元 三位數的減法'] = {
       terms: [
         { w: '借位', d: '從高位取一補到低位。' }
       ],
+      viz: {"type":"column","a":486,"b":253,"op":"-"},
       q: {
         q: '課文說三位數減法從哪一位開始減？',
         options: [
@@ -4440,6 +4514,7 @@ window.APP_TEXTS['math|二下|第3單元 三位數的減法'] = {
       terms: [
         { w: '心算', d: '不用紙筆直接算出結果。' }
       ],
+      viz: {"type":"placevalue","value":340,"max":999},
       q: {
         q: '課文說五百四十減兩百等於多少？',
         options: [
@@ -4590,6 +4665,7 @@ window.APP_TEXTS['math|二下|第4單元 乘法九九（2～5的乘法）'] = {
       terms: [
         { w: '規律', d: '重複出現的固定模式。' }
       ],
+      viz: {"type":"counters","n":30,"group":5},
       q: {
         q: '課文說看時鐘可以練哪一組乘法？',
         options: [
@@ -4614,6 +4690,7 @@ window.APP_TEXTS['math|二下|第4單元 乘法九九（2～5的乘法）'] = {
       terms: [
         { w: '九九乘法表', d: '一到九兩兩相乘的結果表。' }
       ],
+      viz: {"type":"array","rows":3,"cols":7,"split":false},
       q: {
         q: '課文說九九乘法表其實只要背幾格？',
         options: [
@@ -4764,6 +4841,7 @@ window.APP_TEXTS['math|二下|第5單元 乘法九九（6～9的乘法）'] = {
       terms: [
         { w: '指算', d: '用手指幫助計算的方法。' }
       ],
+      viz: {"type":"counters","n":10,"group":5,"edit":false},
       q: {
         q: '課文說算九乘四要彎下第幾根手指？',
         options: [
@@ -4788,6 +4866,7 @@ window.APP_TEXTS['math|二下|第5單元 乘法九九（6～9的乘法）'] = {
       terms: [
         { w: '熟練', d: '練到不用想就答得出來。' }
       ],
+      viz: {"type":"array","rows":7,"cols":8,"split":false,"edit":false},
       q: {
         q: '課文說背熟乘法表對以後學什麼有幫助？',
         options: [
@@ -4842,6 +4921,7 @@ window.APP_TEXTS['math|二下|第6單元 乘法的應用與規律'] = {
       terms: [
         { w: '總數', d: '全部合起來的數量。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"① 6 × 4 = 24","hint":"先算買了幾個。"},{"expr":"② 24 − 5 = 19","hint":"再扣掉吃掉的。"}]},
       q: {
         q: '課文說這種題目的第一步要算什麼？',
         options: [
@@ -4890,6 +4970,7 @@ window.APP_TEXTS['math|二下|第6單元 乘法的應用與規律'] = {
       terms: [
         { w: '因數', d: '能整除某數的數。' }
       ],
+      viz: {"type":"factors","n":12},
       q: {
         q: '課文說十二可以拆成哪幾組乘法？',
         options: [
@@ -4914,6 +4995,7 @@ window.APP_TEXTS['math|二下|第6單元 乘法的應用與規律'] = {
       terms: [
         { w: '幾倍', d: '一個量是另一個量的多少倍。' }
       ],
+      viz: {"type":"array","rows":4,"cols":6,"split":false,"edit":false},
       q: {
         q: '課文說二十四是六的幾倍？',
         options: [
@@ -4968,6 +5050,7 @@ window.APP_TEXTS['math|二下|第7單元 容量：公升與毫升'] = {
       terms: [
         { w: '容量', d: '容器內部能裝的量。' }
       ],
+      viz: {"type":"compare","vertical":true,"items":[{"label":"A杯","len":6},{"label":"B杯","len":9}]},
       q: {
         q: '課文說杯壁厚的杯子會怎麼樣？',
         options: [
@@ -5064,6 +5147,7 @@ window.APP_TEXTS['math|二下|第7單元 容量：公升與毫升'] = {
       terms: [
         { w: '統一單位', d: '計算前把單位換成一致。' }
       ],
+      viz: {"type":"numberline","min":0,"max":2000,"step":500,"value":1500},
       q: {
         q: '課文說一公升加五百毫升等於多少？',
         options: [
@@ -5118,6 +5202,7 @@ window.APP_TEXTS['math|二下|第8單元 重量：公斤與公克'] = {
       terms: [
         { w: '重量', d: '物體的輕重程度。' }
       ],
+      viz: {"type":"compare","vertical":true,"items":[{"label":"棉花","len":2},{"label":"鐵球","len":9}]},
       q: {
         q: '課文說判斷重量要用什麼方法？',
         options: [
@@ -5238,6 +5323,7 @@ window.APP_TEXTS['math|二下|第8單元 重量：公斤與公克'] = {
       terms: [
         { w: '刻度間隔', d: '相鄰兩條刻度之間代表的量。' }
       ],
+      viz: {"type":"numberline","min":0,"max":1000,"step":100,"value":400},
       q: {
         q: '課文說讀秤之前要先看什麼？',
         options: [
@@ -5268,6 +5354,7 @@ window.APP_TEXTS['math|二下|第9單元 立體形體與圖形'] = {
       terms: [
         { w: '立體', d: '占有空間、有厚度的形體。' }
       ],
+      viz: {"type":"cuboid","l":4,"w":3,"h":2,"edit":false},
       q: {
         q: '課文說平面圖形只有什麼？',
         options: [
@@ -5292,6 +5379,7 @@ window.APP_TEXTS['math|二下|第9單元 立體形體與圖形'] = {
       terms: [
         { w: '圓錐', d: '底面是圓、上方收成一點的形體。' }
       ],
+      viz: {"type":"cylinder","r":3,"h":5,"mode":"volume","edit":false},
       q: {
         q: '課文說甜筒的形狀最接近哪一種？',
         options: [
@@ -5340,6 +5428,7 @@ window.APP_TEXTS['math|二下|第9單元 立體形體與圖形'] = {
       terms: [
         { w: '側面', d: '立體形體周圍的表面。' }
       ],
+      viz: {"type":"netbox","l":4,"w":3,"h":2,"edit":false},
       q: {
         q: '課文說圓柱側面攤開之後是什麼形狀？',
         options: [
@@ -5466,6 +5555,7 @@ window.APP_TEXTS['math|三上|第1單元 一萬以內的數'] = {
       terms: [
         { w: '讀數', d: '把數字唸出來的規則。' }
       ],
+      viz: {"type":"placevalue","value":3056,"max":9999},
       q: {
         q: '課文說尾巴的零要不要唸？',
         options: [
@@ -5514,6 +5604,7 @@ window.APP_TEXTS['math|三上|第1單元 一萬以內的數'] = {
       terms: [
         { w: '數線', d: '把數依大小排在一條線上的圖。' }
       ],
+      viz: {"type":"numberline","min":3000,"max":4000,"step":100,"value":3400},
       q: {
         q: '課文說數線除了比大小還能做什麼？',
         options: [
@@ -5568,6 +5659,7 @@ window.APP_TEXTS['math|三上|第2單元 四位數的加法'] = {
       terms: [
         { w: '對齊', d: '相同位數排在同一直行。' }
       ],
+      viz: {"type":"column","a":2345,"b":1234,"op":"+"},
       q: {
         q: '課文說直式數字要怎麼排？',
         options: [
@@ -5640,6 +5732,7 @@ window.APP_TEXTS['math|三上|第2單元 四位數的加法'] = {
       terms: [
         { w: '估算', d: '先概略算出接近的答案。' }
       ],
+      viz: {"type":"numberline","min":0,"max":10000,"step":1000,"value":6000,"marks":[{"v":6000,"label":"大約在這"}]},
       q: {
         q: '課文把估算比喻成什麼？',
         options: [
@@ -5688,6 +5781,7 @@ window.APP_TEXTS['math|三上|第2單元 四位數的加法'] = {
       terms: [
         { w: '情境', d: '題目描述的實際狀況。' }
       ],
+      viz: {"type":"placevalue","value":5000,"max":9999,"edit":false},
       q: {
         q: '課文說判斷用不用加法的關鍵問題是什麼？',
         options: [
@@ -5718,6 +5812,7 @@ window.APP_TEXTS['math|三上|第3單元 四位數的減法'] = {
       terms: [
         { w: '被減數', d: '減法中被拿走的那個總數。' }
       ],
+      viz: {"type":"column","a":4685,"b":2341,"op":"-"},
       q: {
         q: '課文說減法和加法最大的不同是什麼？',
         options: [
@@ -5814,6 +5909,7 @@ window.APP_TEXTS['math|三上|第3單元 四位數的減法'] = {
       terms: [
         { w: '相差', d: '兩數之間的差距。' }
       ],
+      viz: {"type":"numberline","min":0,"max":5000,"step":500,"edit":false,"marks":[{"v":1450,"label":"1450"},{"v":3200,"label":"3200"}]},
       q: {
         q: '課文說「兩數相差多少」要怎麼算？',
         options: [
@@ -5988,6 +6084,7 @@ window.APP_TEXTS['math|三上|第4單元 乘法：二位數乘一位數'] = {
       terms: [
         { w: '關鍵字', d: '提示要用哪種運算的字詞。' }
       ],
+      viz: {"type":"array","rows":6,"cols":24,"split":true},
       q: {
         q: '課文說每組不一樣多時要怎麼算？',
         options: [
@@ -6066,6 +6163,7 @@ window.APP_TEXTS['math|三上|第5單元 除法的意義與應用'] = {
       terms: [
         { w: '逆運算', d: '把運算反過來的關係。' }
       ],
+      viz: {"type":"array","rows":5,"cols":7,"split":false},
       q: {
         q: '課文說算除法最快的方法是什麼？',
         options: [
@@ -6138,6 +6236,7 @@ window.APP_TEXTS['math|三上|第5單元 除法的意義與應用'] = {
       terms: [
         { w: '總數', d: '全部合起來的數量。' }
       ],
+      viz: {"type":"grouping","total":24,"per":6},
       q: {
         q: '課文說給了每份多少、要求總數時要用什麼？',
         options: [
@@ -6192,6 +6291,7 @@ window.APP_TEXTS['math|三上|第6單元 有餘數的除法'] = {
       terms: [
         { w: '除數', d: '拿來分的那個數。' }
       ],
+      viz: {"type":"grouping","total":23,"per":4},
       q: {
         q: '課文說檢查除法答案要先看什麼？',
         options: [
@@ -6318,6 +6418,7 @@ window.APP_TEXTS['math|三上|第7單元 角與圓'] = {
       terms: [
         { w: '頂點', d: '角的兩條邊相交的那一點。' }
       ],
+      viz: {"type":"angle","deg":45},
       q: {
         q: '課文說角的大小和什麼無關？',
         options: [
@@ -6390,6 +6491,7 @@ window.APP_TEXTS['math|三上|第7單元 角與圓'] = {
       terms: [
         { w: '半徑', d: '圓心到圓周的線段。' }
       ],
+      viz: {"type":"circleparts"},
       q: {
         q: '課文說直徑必須符合什麼條件？',
         options: [
@@ -6468,6 +6570,7 @@ window.APP_TEXTS['math|三上|第8單元 分數的初步認識'] = {
       terms: [
         { w: '平分', d: '分成大小完全相同的幾份。' }
       ],
+      viz: {"type":"fracbar","parts":2,"shade":1,"equal":true,"toggleEqual":true},
       q: {
         q: '課文說要用分數表示，前提是什麼？',
         options: [
@@ -6588,6 +6691,7 @@ window.APP_TEXTS['math|三上|第8單元 分數的初步認識'] = {
       terms: [
         { w: '單位分數', d: '分子是一的分數。' }
       ],
+      viz: {"type":"fraccompare","a":{"parts":4,"shade":1},"b":{"parts":8,"shade":1},"edit":true},
       q: {
         q: '課文說四分之一和八分之一哪個大？',
         options: [
@@ -6618,6 +6722,7 @@ window.APP_TEXTS['math|三上|第9單元 時間的認識與計算'] = {
       terms: [
         { w: '分針', d: '時鐘上指示分鐘的長針。' }
       ],
+      viz: {"type":"clock","h":8,"m":20,"edit":true},
       q: {
         q: '課文說分針走一整圈，時針走多少？',
         options: [
@@ -6840,6 +6945,7 @@ window.APP_TEXTS['math|三下|第1單元 一萬以上的數'] = {
       terms: [
         { w: '讀數', d: '把數字唸出來的方式。' }
       ],
+      viz: {"type":"placevalue","value":40800,"max":99999},
       q: {
         q: '課文說唸大數的訣竅是什麼？',
         options: [
@@ -6864,6 +6970,7 @@ window.APP_TEXTS['math|三下|第1單元 一萬以上的數'] = {
       terms: [
         { w: '位數', d: '一個數有幾位。' }
       ],
+      viz: {"type":"numberline","min":0,"max":100000,"step":10000,"value":56000},
       q: {
         q: '課文說比大數時第一關要看什麼？',
         options: [
@@ -6942,6 +7049,7 @@ window.APP_TEXTS['math|三下|第2單元 除法直式'] = {
       terms: [
         { w: '循環步驟', d: '重複進行的固定操作順序。' }
       ],
+      viz: {"type":"grouping","total":87,"per":5,"edit":false},
       q: {
         q: '課文說直式除法的四個步驟是什麼？',
         options: [
@@ -7014,6 +7122,7 @@ window.APP_TEXTS['math|三下|第2單元 除法直式'] = {
       terms: [
         { w: '補零', d: '不夠除時在商上寫零占位。' }
       ],
+      viz: {"type":"placevalue","value":103,"max":999,"edit":false},
       q: {
         q: '課文說不夠除的那一位要在商上寫什麼？',
         options: [
@@ -7038,6 +7147,7 @@ window.APP_TEXTS['math|三下|第2單元 除法直式'] = {
       terms: [
         { w: '驗算', d: '用另一種算法檢查結果。' }
       ],
+      viz: {"type":"array","rows":5,"cols":17,"split":true},
       q: {
         q: '課文說為什麼直式除法特別需要驗算？',
         options: [
@@ -7116,6 +7226,7 @@ window.APP_TEXTS['math|三下|第3單元 乘法：三位數乘一位數'] = {
       terms: [
         { w: '占位', d: '用零標示該位沒有數量。' }
       ],
+      viz: {"type":"placevalue","value":2100,"max":9999,"edit":false},
       q: {
         q: '課文說十位是零時商要怎麼寫？',
         options: [
@@ -7140,6 +7251,7 @@ window.APP_TEXTS['math|三下|第3單元 乘法：三位數乘一位數'] = {
       terms: [
         { w: '估算', d: '先大略算出接近的結果。' }
       ],
+      viz: {"type":"numberline","min":0,"max":1000,"step":100,"value":730,"marks":[{"v":730,"label":"730"}]},
       q: {
         q: '課文說估算的作用是什麼？',
         options: [
@@ -7164,6 +7276,7 @@ window.APP_TEXTS['math|三下|第3單元 乘法：三位數乘一位數'] = {
       terms: [
         { w: '交換律', d: '兩數相乘交換順序結果不變。' }
       ],
+      viz: {"type":"array","rows":3,"cols":25,"split":true},
       q: {
         q: '課文說乘法驗算可以用哪兩種方法？',
         options: [
@@ -7290,6 +7403,7 @@ window.APP_TEXTS['math|三下|第4單元 同分母分數的加減'] = {
       terms: [
         { w: '帶分數', d: '整數與分數合寫的表示法。' }
       ],
+      viz: {"type":"fracbar","parts":4,"shade":1},
       q: {
         q: '課文說帶分數的好處是什麼？',
         options: [
@@ -7338,6 +7452,7 @@ window.APP_TEXTS['math|三下|第4單元 同分母分數的加減'] = {
       terms: [
         { w: '互換', d: '在帶分數與假分數之間轉換。' }
       ],
+      viz: {"type":"grouping","total":7,"per":3,"edit":false},
       q: {
         q: '課文說假分數換帶分數時，餘數變成什麼？',
         options: [
@@ -7368,6 +7483,7 @@ window.APP_TEXTS['math|三下|第5單元 小數的初步認識'] = {
       terms: [
         { w: '十分位', d: '小數點右邊第一位。' }
       ],
+      viz: {"type":"decimalgrid","cells":10,"filled":1,"edit":true},
       q: {
         q: '課文說零點一等於哪一個分數？',
         options: [
@@ -7464,6 +7580,7 @@ window.APP_TEXTS['math|三下|第5單元 小數的初步認識'] = {
       terms: [
         { w: '等值', d: '不同寫法但大小相同。' }
       ],
+      viz: {"type":"numberline","min":0,"max":1,"step":0.1,"edit":false,"marks":[{"v":0.5,"label":"0.5 = 5/10 = 一半"}]},
       q: {
         q: '課文說零點五讓人馬上想到什麼？',
         options: [
@@ -7518,6 +7635,7 @@ window.APP_TEXTS['math|三下|第6單元 小數的加減'] = {
       terms: [
         { w: '對齊', d: '相同位數排在同一直行。' }
       ],
+      viz: {"type":"decimalgrid","cells":10,"filled":7},
       q: {
         q: '課文說小數直式要對齊什麼？',
         options: [
@@ -7614,6 +7732,7 @@ window.APP_TEXTS['math|三下|第6單元 小數的加減'] = {
       terms: [
         { w: '小數點位置', d: '答案中小數點應該落下的地方。' }
       ],
+      viz: {"type":"numberline","min":0,"max":5,"step":0.1,"value":4.3},
       q: {
         q: '課文說答案的小數點應該寫在哪裡？',
         options: [
@@ -7668,6 +7787,7 @@ window.APP_TEXTS['math|三下|第7單元 周長'] = {
       terms: [
         { w: '周長', d: '圖形邊界一圈的總長度。' }
       ],
+      viz: {"type":"areagrid","w":5,"h":3,"show":"perimeter"},
       q: {
         q: '課文說周長算的是什麼？',
         options: [
@@ -7938,6 +8058,7 @@ window.APP_TEXTS['math|三下|第8單元 面積'] = {
       terms: [
         { w: '切割與補足', d: '把圖形分割或補齊以便計算面積。' }
       ],
+      viz: {"type":"areagrid","w":6,"h":4,"show":"area"},
       q: {
         q: '課文說算 L 形面積有哪兩種方法？',
         options: [
@@ -7968,6 +8089,7 @@ window.APP_TEXTS['math|三下|第9單元 重量與統計圖表'] = {
       terms: [
         { w: '公克', d: '較小的重量單位。' }
       ],
+      viz: {"type":"numberline","min":0,"max":3000,"step":500,"value":1000,"marks":[{"v":1000,"label":"1 公斤"}]},
       q: {
         q: '課文說一公斤等於幾公克？',
         options: [
@@ -8040,6 +8162,7 @@ window.APP_TEXTS['math|三下|第9單元 重量與統計圖表'] = {
       terms: [
         { w: '長條圖', d: '用長條高度表示數量的統計圖。' }
       ],
+      viz: {"type":"bargraph","unit":"人","data":[{"label":"搭車","value":12},{"label":"走路","value":8},{"label":"腳踏車","value":5},{"label":"家長載","value":15}]},
       q: {
         q: '課文說看長條圖要先看哪三件事？',
         options: [
@@ -8166,6 +8289,7 @@ window.APP_TEXTS['math|四上|第1單元 一億以內的數'] = {
       terms: [
         { w: '位值', d: '數字因位置而代表的大小。' }
       ],
+      viz: {"type":"placevalue","value":250000,"max":999999},
       q: {
         q: '課文說看到大數第一件事要做什麼？',
         options: [
@@ -8190,6 +8314,7 @@ window.APP_TEXTS['math|四上|第1單元 一億以內的數'] = {
       terms: [
         { w: '段數', d: '大數分節之後有幾段。' }
       ],
+      viz: {"type":"numberline","min":0,"max":1000000,"step":100000,"value":350000},
       q: {
         q: '課文說有了四位一撇之後可以先比什麼？',
         options: [
@@ -8238,6 +8363,7 @@ window.APP_TEXTS['math|四上|第1單元 一億以內的數'] = {
       terms: [
         { w: '概數', d: '取到某一位、表示大約多少的數。' }
       ],
+      viz: {"type":"rounding","value":23800,"unit":10000,"edit":false},
       q: {
         q: '課文說為什麼報導大數常用概數？',
         options: [
@@ -8340,6 +8466,7 @@ window.APP_TEXTS['math|四上|第2單元 大數的加減'] = {
       terms: [
         { w: '估算', d: '先概略算出接近的結果。' }
       ],
+      viz: {"type":"numberline","min":0,"max":500000,"step":50000,"value":203000,"marks":[{"v":200000,"label":"約 20 萬"}]},
       q: {
         q: '課文說大數為什麼更需要估算？',
         options: [
@@ -8364,6 +8491,7 @@ window.APP_TEXTS['math|四上|第2單元 大數的加減'] = {
       terms: [
         { w: '驗算', d: '用另一種方式檢查答案。' }
       ],
+      viz: {"type":"column","a":372000,"b":128000,"op":"+"},
       q: {
         q: '課文說減法要怎麼驗算？',
         options: [
@@ -8388,6 +8516,7 @@ window.APP_TEXTS['math|四上|第2單元 大數的加減'] = {
       terms: [
         { w: '判斷', d: '依題意決定用哪一種運算。' }
       ],
+      viz: {"type":"placevalue","value":300000,"max":999999,"edit":false},
       q: {
         q: '課文說數字變大會影響什麼？',
         options: [
@@ -8442,6 +8571,7 @@ window.APP_TEXTS['math|四上|第3單元 乘法：二位數乘二位數'] = {
       terms: [
         { w: '錯位', d: '直式中第二行往左移一格。' }
       ],
+      viz: {"type":"array","rows":14,"cols":23,"split":true},
       q: {
         q: '課文說第二行錯開一格等於做了什麼？',
         options: [
@@ -8514,6 +8644,7 @@ window.APP_TEXTS['math|四上|第3單元 乘法：二位數乘二位數'] = {
       terms: [
         { w: '檢查', d: '算完後確認有沒有出錯。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"❌ 230 寫成 23","hint":"第二行沒錯位，等於把 23×10 算成 23×1。"},{"expr":"23 ＋ 92 = 115","hint":"算出 115，比正確答案少了 207。"},{"expr":"✅ 230 ＋ 92 = 322","hint":"錯開一格（補 0）才對，答案是 322。"}]},
       q: {
         q: '課文說怎麼檢查第二行有沒有錯位？',
         options: [
@@ -8538,6 +8669,7 @@ window.APP_TEXTS['math|四上|第3單元 乘法：二位數乘二位數'] = {
       terms: [
         { w: '陣列圖', d: '用行列排列表示乘法的圖。' }
       ],
+      viz: {"type":"areagrid","w":12,"h":8},
       q: {
         q: '課文說面積和乘法的關係是什麼？',
         options: [
@@ -8664,6 +8796,7 @@ window.APP_TEXTS['math|四上|第4單元 除法：除以二位數'] = {
       terms: [
         { w: '餘數', d: '除不盡時剩下的數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"100 ÷ 12 = 8 餘 4","hint":"先檢查餘數 4 < 除數 12 ✓"},{"expr":"8 × 12 = 96","hint":"商乘除數。"},{"expr":"96 ＋ 4 = 100 ✓","hint":"回到被除數，答案正確。"}]},
       q: {
         q: '課文說除完之後還要檢查什麼？',
         options: [
@@ -8688,6 +8821,7 @@ window.APP_TEXTS['math|四上|第4單元 除法：除以二位數'] = {
       terms: [
         { w: '單位', d: '答案所代表的量的種類。' }
       ],
+      viz: {"type":"array","rows":12,"cols":12,"split":false},
       q: {
         q: '課文說這兩種題目的差別在哪裡？',
         options: [
@@ -8814,6 +8948,7 @@ window.APP_TEXTS['math|四上|第5單元 四則運算與括號'] = {
       terms: [
         { w: '約定', d: '大家共同遵守的規定。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"2 + 3 × 4","hint":"如果沒有規則，有人算 20、有人算 14。"},{"expr":"照規則：先乘除","hint":"3 × 4 = 12。"},{"expr":"2 + 12 = 14 ✓","hint":"全世界都算 14，答案才能溝通。"}]},
       q: {
         q: '課文說運算順序規則像什麼？',
         options: [
@@ -8916,6 +9051,7 @@ window.APP_TEXTS['math|四上|第6單元 角度的測量'] = {
       terms: [
         { w: '目測', d: '用眼睛大略判斷。' }
       ],
+      viz: {"type":"angle","deg":120},
       q: {
         q: '課文說先目測的好處是什麼？',
         options: [
@@ -8964,6 +9100,7 @@ window.APP_TEXTS['math|四上|第6單元 角度的測量'] = {
       terms: [
         { w: '作圖', d: '依規定條件把圖形畫出來。' }
       ],
+      viz: {"type":"protractor","deg":70},
       q: {
         q: '課文說畫角的第一步是什麼？',
         options: [
@@ -9090,6 +9227,7 @@ window.APP_TEXTS['math|四上|第7單元 垂直與平行'] = {
       terms: [
         { w: '對邊', d: '四邊形中相對的兩個邊。' }
       ],
+      viz: {"type":"quad","kind":"rect","pick":false},
       q: {
         q: '課文說長方形的鄰邊之間是什麼關係？',
         options: [
@@ -9138,6 +9276,7 @@ window.APP_TEXTS['math|四上|第7單元 垂直與平行'] = {
       terms: [
         { w: '截線', d: '穿過兩條平行線的第三條線。' }
       ],
+      viz: {"type":"lines","kind":"parallel","pick":false},
       q: {
         q: '課文說平行線被第三條線穿過時會怎麼樣？',
         options: [
@@ -9348,6 +9487,7 @@ window.APP_TEXTS['math|四上|第9單元 數量關係與規律'] = {
       terms: [
         { w: '倍數關係', d: '後一項是前一項的固定倍數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"1, 2, 4, 8, 16, ?","hint":"先看差：1、2、4、8——差本身在變，不是加法規律。"},{"expr":"試倍數：2÷1=2, 4÷2=2, 8÷4=2","hint":"每次都是乘 2，找到規律了。"},{"expr":"下一個 = 16 × 2 = 32","hint":"用規律就能預測下一個。"}]},
       q: {
         q: '課文說差沒有規律時可以試什麼？',
         options: [
@@ -9420,6 +9560,7 @@ window.APP_TEXTS['math|四上|第9單元 數量關係與規律'] = {
       terms: [
         { w: '圖形規律', d: '圖案數量隨次序變化的規則。' }
       ],
+      viz: {"type":"array","rows":1,"cols":9,"split":false,"edit":true},
       q: {
         q: '課文說遇到圖形規律要怎麼處理？',
         options: [
@@ -9444,6 +9585,7 @@ window.APP_TEXTS['math|四上|第9單元 數量關係與規律'] = {
       terms: [
         { w: '預測', d: '根據規律推算還沒發生的情形。' }
       ],
+      viz: {"type":"numberline","min":0,"max":60,"step":15,"edit":false,"marks":[{"v":0,"label":"第1班"},{"v":15,"label":"第2班"},{"v":30,"label":"第3班"},{"v":45,"label":"第4班"}]},
       q: {
         q: '課文說看出規律的好處是什麼？',
         options: [
@@ -9474,6 +9616,7 @@ window.APP_TEXTS['math|四下|第1單元 概數與估算'] = {
       terms: [
         { w: '概數', d: '取到某一位、表示大約多少的數。' }
       ],
+      viz: {"type":"rounding","value":368,"unit":100},
       q: {
         q: '課文說取概數的意義是什麼？',
         options: [
@@ -9594,6 +9737,7 @@ window.APP_TEXTS['math|四下|第1單元 概數與估算'] = {
       terms: [
         { w: '合理估算', d: '依情境選擇往大或往小估。' }
       ],
+      viz: {"type":"numberline","min":0,"max":500,"step":50,"value":350,"marks":[{"v":348,"label":"實際 348"}]},
       q: {
         q: '課文說買東西估算時要往哪個方向估？',
         options: [
@@ -9624,6 +9768,7 @@ window.APP_TEXTS['math|四下|第2單元 分數的加減與應用'] = {
       terms: [
         { w: '同分母', d: '分母相同的分數。' }
       ],
+      viz: {"type":"fracbar","parts":9,"shade":6,"editShade":true},
       q: {
         q: '課文說同分母相加時分母要不要加？',
         options: [
@@ -9648,6 +9793,7 @@ window.APP_TEXTS['math|四下|第2單元 分數的加減與應用'] = {
       terms: [
         { w: '約分', d: '把分子分母同除以公因數化簡。' }
       ],
+      viz: {"type":"fraccompare","a":{"parts":9,"shade":6},"b":{"parts":3,"shade":2}},
       q: {
         q: '課文說約分之後分數的大小會怎麼樣？',
         options: [
@@ -9774,6 +9920,7 @@ window.APP_TEXTS['math|四下|第3單元 小數的認識'] = {
       terms: [
         { w: '百分位', d: '小數點右邊第二位。' }
       ],
+      viz: {"type":"decimalgrid","cells":100,"filled":25,"edit":true},
       q: {
         q: '課文說一裡面有幾個零點零一？',
         options: [
@@ -9822,6 +9969,7 @@ window.APP_TEXTS['math|四下|第3單元 小數的認識'] = {
       terms: [
         { w: '逐位比較', d: '從最高位往下一位一位比。' }
       ],
+      viz: {"type":"numberline","min":0,"max":1,"step":0.05,"value":0.4},
       q: {
         q: '課文說零點三五和零點四哪個大？',
         options: [
@@ -9924,6 +10072,7 @@ window.APP_TEXTS['math|四下|第4單元 小數的加減'] = {
       terms: [
         { w: '對齊', d: '把小數點排在同一直行。' }
       ],
+      viz: {"type":"decimalgrid","cells":100,"filled":50},
       q: {
         q: '課文說小數直式對齊的關鍵是什麼？',
         options: [
@@ -9996,6 +10145,7 @@ window.APP_TEXTS['math|四下|第4單元 小數的加減'] = {
       terms: [
         { w: '失分點', d: '最常犯錯而被扣分的地方。' }
       ],
+      viz: {"type":"numberline","min":0,"max":5,"step":0.5,"value":3.75},
       q: {
         q: '課文說算完之後要先做什麼？',
         options: [
@@ -10122,6 +10272,7 @@ window.APP_TEXTS['math|四下|第5單元 三角形'] = {
       terms: [
         { w: '內角和', d: '多邊形所有內角相加的總和。' }
       ],
+      viz: {"type":"angle","deg":180,"edit":false},
       q: {
         q: '課文說三角形的內角和是幾度？',
         options: [
@@ -10194,6 +10345,7 @@ window.APP_TEXTS['math|四下|第5單元 三角形'] = {
       terms: [
         { w: '穩定性', d: '形狀不易被外力改變的性質。' }
       ],
+      viz: {"type":"triangle","kind":"scalene","pick":false},
       q: {
         q: '課文說工程結構為什麼常用三角形？',
         options: [
@@ -10272,6 +10424,7 @@ window.APP_TEXTS['math|四下|第6單元 四邊形'] = {
       terms: [
         { w: '正方形', d: '四邊等長且四角為直角的四邊形。' }
       ],
+      viz: {"type":"quad","kind":"rect"},
       q: {
         q: '課文說正方形和長方形的關係是什麼？',
         options: [
@@ -10422,6 +10575,7 @@ window.APP_TEXTS['math|四下|第7單元 面積'] = {
       terms: [
         { w: '公頃', d: '一萬平方公尺的面積單位。' }
       ],
+      viz: {"type":"areagrid","w":8,"h":6,"show":"area"},
       q: {
         q: '課文說單位選太小會怎麼樣？',
         options: [
@@ -10548,6 +10702,7 @@ window.APP_TEXTS['math|四下|第8單元 時間的計算'] = {
       terms: [
         { w: '換算', d: '在不同單位之間轉換。' }
       ],
+      viz: {"type":"numberline","min":0,"max":240,"step":60,"edit":false,"marks":[{"v":60,"label":"1時"},{"v":120,"label":"2時"},{"v":180,"label":"3時"}]},
       q: {
         q: '課文說大單位換小單位要用什麼運算？',
         options: [
@@ -10572,6 +10727,7 @@ window.APP_TEXTS['math|四下|第8單元 時間的計算'] = {
       terms: [
         { w: '餘數', d: '除不盡時剩下的數。' }
       ],
+      viz: {"type":"grouping","total":15,"per":6,"edit":false},
       q: {
         q: '課文說一百五十分鐘等於多久？',
         options: [
@@ -10596,6 +10752,7 @@ window.APP_TEXTS['math|四下|第8單元 時間的計算'] = {
       terms: [
         { w: '分段', d: '把時間切成幾段分別計算。' }
       ],
+      viz: {"type":"clock","h":9,"m":40,"addMin":100},
       q: {
         q: '課文說算跨小時的時間要怎麼做？',
         options: [
@@ -10794,6 +10951,7 @@ window.APP_TEXTS['math|四下|第9單元 統計圖表'] = {
       terms: [
         { w: '調查', d: '有計畫地收集資料的過程。' }
       ],
+      viz: {"type":"bargraph","unit":"人","data":[{"label":"走路","value":8},{"label":"腳踏車","value":5},{"label":"公車","value":12},{"label":"家長載","value":15}]},
       q: {
         q: '課文說畫圖時一定要標清楚什麼？',
         options: [
@@ -10848,6 +11006,7 @@ window.APP_TEXTS['math|五上|第1單元 因數與倍數'] = {
       terms: [
         { w: '配對', d: '兩個相乘等於原數的一組因數。' }
       ],
+      viz: {"type":"factors","n":18},
       q: {
         q: '課文說列因數時最容易漏掉什麼？',
         options: [
@@ -10896,6 +11055,7 @@ window.APP_TEXTS['math|五上|第1單元 因數與倍數'] = {
       terms: [
         { w: '倍數', d: '某數乘以整數所得的數。' }
       ],
+      viz: {"type":"numberline","min":0,"max":60,"step":12,"edit":false,"marks":[{"v":12,"label":"12"},{"v":24,"label":"24"},{"v":36,"label":"36"},{"v":48,"label":"48"}]},
       q: {
         q: '課文說因數和倍數最大的差別是什麼？',
         options: [
@@ -10920,6 +11080,7 @@ window.APP_TEXTS['math|五上|第1單元 因數與倍數'] = {
       terms: [
         { w: '判別法', d: '快速判斷是不是某數倍數的方法。' }
       ],
+      viz: {"type":"placevalue","value":123,"max":999},
       q: {
         q: '課文說判斷三的倍數要看什麼？',
         options: [
@@ -10998,6 +11159,7 @@ window.APP_TEXTS['math|五上|第2單元 公因數與公倍數'] = {
       terms: [
         { w: '最大公因數', d: '兩數公因數中最大的一個。' }
       ],
+      viz: {"type":"grouping","total":24,"per":12,"edit":false},
       q: {
         q: '課文說看到「最多分成幾組」要用什麼？',
         options: [
@@ -11046,6 +11208,7 @@ window.APP_TEXTS['math|五上|第2單元 公因數與公倍數'] = {
       terms: [
         { w: '最小公倍數', d: '兩數公倍數中最小的一個。' }
       ],
+      viz: {"type":"numberline","min":0,"max":24,"step":2,"edit":false,"marks":[{"v":12,"label":"同時"},{"v":24,"label":"同時"}]},
       q: {
         q: '課文說看到「下次同時」要用什麼？',
         options: [
@@ -11070,6 +11233,7 @@ window.APP_TEXTS['math|五上|第2單元 公因數與公倍數'] = {
       terms: [
         { w: '短除法', d: '用共同質因數連續相除的求法。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"2 ) 24　36","hint":"兩個都能被 2 整除，除下去 → 12、18"},{"expr":"2 ) 12　18","hint":"再除以 2 → 6、9"},{"expr":"3 )  6　 9","hint":"再除以 3 → 2、3（已經沒有公因數）"},{"expr":"最大公因數 = 2×2×3 = 12","hint":"左邊那排相乘。"},{"expr":"最小公倍數 = 12×2×3 = 72","hint":"再乘上底下剩的 2 和 3。"}]},
       q: {
         q: '課文說短除法左邊的那些數相乘會得到什麼？',
         options: [
@@ -11148,6 +11312,7 @@ window.APP_TEXTS['math|五上|第3單元 分數的加減（通分與約分）'] 
       terms: [
         { w: '共同分母', d: '通分後兩分數共用的分母。' }
       ],
+      viz: {"type":"fraccompare","a":{"parts":6,"shade":3},"b":{"parts":6,"shade":2}},
       q: {
         q: '課文說二分之一加三分之一等於多少？',
         options: [
@@ -11172,6 +11337,7 @@ window.APP_TEXTS['math|五上|第3單元 分數的加減（通分與約分）'] 
       terms: [
         { w: '最小公倍數', d: '兩數共同倍數中最小的。' }
       ],
+      viz: {"type":"numberline","min":0,"max":12,"step":2,"edit":false,"marks":[{"v":6,"label":"2和3的最小公倍數"}]},
       q: {
         q: '課文說通分時用最小公倍數的好處是什麼？',
         options: [
@@ -11220,6 +11386,7 @@ window.APP_TEXTS['math|五上|第3單元 分數的加減（通分與約分）'] 
       terms: [
         { w: '帶分數', d: '整數與分數合寫的形式。' }
       ],
+      viz: {"type":"fracbar","parts":6,"shade":5},
       q: {
         q: '課文說分數部分超過一時要怎麼辦？',
         options: [
@@ -11274,6 +11441,7 @@ window.APP_TEXTS['math|五上|第4單元 小數的乘法'] = {
       terms: [
         { w: '小數位數', d: '小數點後面有幾位。' }
       ],
+      viz: {"type":"decimalgrid","cells":10,"filled":6},
       q: {
         q: '課文說零點六乘四等於多少？',
         options: [
@@ -11322,6 +11490,7 @@ window.APP_TEXTS['math|五上|第4單元 小數的乘法'] = {
       terms: [
         { w: '直覺陷阱', d: '看起來理所當然卻不正確的想法。' }
       ],
+      viz: {"type":"numberline","min":0,"max":12,"step":1,"value":5,"marks":[{"v":10,"label":"原本 10"}]},
       q: {
         q: '課文說乘以零點五相當於做什麼？',
         options: [
@@ -11346,6 +11515,7 @@ window.APP_TEXTS['math|五上|第4單元 小數的乘法'] = {
       terms: [
         { w: '靠右對齊', d: '把數字末位對齊排列。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"1.25 × 4","hint":"先當成 125 × 4 算。"},{"expr":"125 × 4 = 500","hint":"整數的算法。"},{"expr":"1.25 有 2 位小數","hint":"所以答案要有 2 位小數。"},{"expr":"= 5.00 = 5","hint":"點回小數點：5.00，尾巴的 0 可以省略。"}]},
       q: {
         q: '課文說小數乘法直式要怎麼對齊？',
         options: [
@@ -11424,6 +11594,7 @@ window.APP_TEXTS['math|五上|第5單元 多邊形與扇形'] = {
       terms: [
         { w: '內角和', d: '所有內角相加的總和。' }
       ],
+      viz: {"type":"polygon","sides":3},
       q: {
         q: '課文說多邊形內角和公式的基礎是什麼？',
         options: [
@@ -11520,6 +11691,7 @@ window.APP_TEXTS['math|五上|第5單元 多邊形與扇形'] = {
       terms: [
         { w: '圓心角', d: '扇形兩條半徑所夾的角。' }
       ],
+      viz: {"type":"fraccircle","parts":4,"shade":1,"editShade":true},
       q: {
         q: '課文說扇形由什麼圍成？',
         options: [
@@ -11574,6 +11746,7 @@ window.APP_TEXTS['math|五上|第6單元 三角形與四邊形的面積'] = {
       terms: [
         { w: '高', d: '從底到對邊的垂直距離。' }
       ],
+      viz: {"type":"areaformula","shape":"parallelogram"},
       q: {
         q: '課文說平行四邊形的高是什麼？',
         options: [
@@ -11670,6 +11843,7 @@ window.APP_TEXTS['math|五上|第6單元 三角形與四邊形的面積'] = {
       terms: [
         { w: '配對', d: '底與其對應的高必須成組。' }
       ],
+      viz: {"type":"triangle","kind":"scalene","pick":false},
       q: {
         q: '課文說選不同的底來算，面積會怎麼樣？',
         options: [
@@ -11694,6 +11868,7 @@ window.APP_TEXTS['math|五上|第6單元 三角形與四邊形的面積'] = {
       terms: [
         { w: '複合圖形', d: '由多個基本圖形組成的圖形。' }
       ],
+      viz: {"type":"areagrid","w":8,"h":5,"show":"area"},
       q: {
         q: '課文說處理複合圖形的關鍵是什麼？',
         options: [
@@ -11844,6 +12019,7 @@ window.APP_TEXTS['math|五上|第7單元 面積的大單位'] = {
       terms: [
         { w: '好讀範圍', d: '數字大小適中、容易理解的範圍。' }
       ],
+      viz: {"type":"areagrid","w":6,"h":4,"show":"area"},
       q: {
         q: '課文說選單位的原則是什麼？',
         options: [
@@ -11994,6 +12170,7 @@ window.APP_TEXTS['math|五上|第8單元 體積與容積'] = {
       terms: [
         { w: '排水法', d: '用水位上升量測不規則物體體積。' }
       ],
+      viz: {"type":"cuboid","l":4,"w":4,"h":2,"edit":false},
       q: {
         q: '課文說排水法的原理是什麼？',
         options: [
@@ -12120,6 +12297,7 @@ window.APP_TEXTS['math|五上|第9單元 整數四則與數量關係'] = {
       terms: [
         { w: '線段圖', d: '用線段長短表示數量關係的圖。' }
       ],
+      viz: {"type":"array","rows":4,"cols":6,"split":false},
       q: {
         q: '課文說這一題總共可以分成幾段？',
         options: [
@@ -12144,6 +12322,7 @@ window.APP_TEXTS['math|五上|第9單元 整數四則與數量關係'] = {
       terms: [
         { w: '合理性', d: '答案在情境中是否說得通。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"35 人分成幾組，每組 4 人","hint":"35 ÷ 4 = 8 餘 3"},{"expr":"答案「8.75 組」合理嗎？","hint":"組數必須是整數，不能有小數。"},{"expr":"正確：8 組，還剩 3 人","hint":"要看題目問「最多幾組」還是「至少幾組」。"}]},
       q: {
         q: '課文說用常識檢查可以抓出什麼？',
         options: [
@@ -12246,6 +12425,7 @@ window.APP_TEXTS['math|五下|第1單元 分數的乘法'] = {
       terms: [
         { w: '真分數', d: '分子小於分母、值小於一的分數。' }
       ],
+      viz: {"type":"numberline","min":0,"max":14,"step":2,"value":3,"marks":[{"v":12,"label":"原本 12"}]},
       q: {
         q: '課文說乘以真分數之後答案會怎麼樣？',
         options: [
@@ -12270,6 +12450,7 @@ window.APP_TEXTS['math|五下|第1單元 分數的乘法'] = {
       terms: [
         { w: '先約分', d: '相乘前先化簡分子分母。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"4/9 × 3/8","hint":"先看有沒有可以約的：4 和 8、3 和 9。"},{"expr":"1/3 × 1/2","hint":"4÷4=1、8÷4=2；3÷3=1、9÷3=3。"},{"expr":"= 1/6","hint":"再相乘就很簡單了。"}]},
       q: {
         q: '課文說先約分的好處是什麼？',
         options: [
@@ -12294,6 +12475,7 @@ window.APP_TEXTS['math|五下|第1單元 分數的乘法'] = {
       terms: [
         { w: '假分數', d: '分子大於或等於分母的分數。' }
       ],
+      viz: {"type":"fracbar","parts":2,"shade":2,"editShade":true},
       q: {
         q: '課文說帶分數做乘除前要先做什麼？',
         options: [
@@ -12348,6 +12530,7 @@ window.APP_TEXTS['math|五下|第2單元 分數的除法'] = {
       terms: [
         { w: '包含除', d: '問一個量裡面有幾個另一個量。' }
       ],
+      viz: {"type":"fraccompare","a":{"parts":2,"shade":1},"b":{"parts":4,"shade":2}},
       q: {
         q: '課文說除法在問什麼？',
         options: [
@@ -12396,6 +12579,7 @@ window.APP_TEXTS['math|五下|第2單元 分數的除法'] = {
       terms: [
         { w: '直覺陷阱', d: '看似合理卻不正確的想法。' }
       ],
+      viz: {"type":"numberline","min":0,"max":14,"step":2,"value":12,"marks":[{"v":6,"label":"原本 6"}]},
       q: {
         q: '課文說六除以二分之一等於多少？',
         options: [
@@ -12444,6 +12628,7 @@ window.APP_TEXTS['math|五下|第2單元 分數的除法'] = {
       terms: [
         { w: '等分除', d: '把總量平分成幾份求每份多少。' }
       ],
+      viz: {"type":"fracbar","parts":8,"shade":6},
       q: {
         q: '課文說「每杯裝多少、可以裝幾杯」屬於哪一種？',
         options: [
@@ -12498,6 +12683,7 @@ window.APP_TEXTS['math|五下|第3單元 小數的除法'] = {
       terms: [
         { w: '同時移動', d: '被除數與除數小數點移相同位數。' }
       ],
+      viz: {"type":"numberline","min":0,"max":14,"step":2,"value":12,"marks":[{"v":6,"label":"原本 6"}]},
       q: {
         q: '課文說移小數點時被除數要怎麼處理？',
         options: [
@@ -12546,6 +12732,7 @@ window.APP_TEXTS['math|五下|第3單元 小數的除法'] = {
       terms: [
         { w: '四捨五入', d: '看下一位決定進位或捨去。' }
       ],
+      viz: {"type":"rounding","value":3.3,"unit":1,"edit":false},
       q: {
         q: '課文說除不盡時要依什麼決定寫幾位？',
         options: [
@@ -12648,6 +12835,7 @@ window.APP_TEXTS['math|五下|第4單元 比率與百分率'] = {
       terms: [
         { w: '百分率', d: '以一百為分母表示的比率。' }
       ],
+      viz: {"type":"decimalgrid","cells":100,"filled":25},
       q: {
         q: '課文說為什麼要統一成一百？',
         options: [
@@ -12744,6 +12932,7 @@ window.APP_TEXTS['math|五下|第4單元 比率與百分率'] = {
       terms: [
         { w: '基準', d: '計算百分比時所依據的整體。' }
       ],
+      viz: {"type":"numberline","min":0,"max":160,"step":20,"edit":false,"marks":[{"v":100,"label":"原本"},{"v":150,"label":"+50%"},{"v":75,"label":"再−50%"}]},
       q: {
         q: '課文說一百增加五成再減五成之後剩多少？',
         options: [
@@ -12822,6 +13011,7 @@ window.APP_TEXTS['math|五下|第5單元 折扣與生活中的百分率'] = {
       terms: [
         { w: '反推', d: '從結果倒推回原來的量。' }
       ],
+      viz: {"type":"numberline","min":0,"max":600,"step":100,"value":500,"marks":[{"v":400,"label":"折後 400"}]},
       q: {
         q: '課文說從售價回推原價要用什麼運算？',
         options: [
@@ -12846,6 +13036,7 @@ window.APP_TEXTS['math|五下|第5單元 折扣與生活中的百分率'] = {
       terms: [
         { w: '換算折數', d: '把促銷方式化成等效折扣。' }
       ],
+      viz: {"type":"decimalgrid","cells":100,"filled":50},
       q: {
         q: '課文說「第二件半價」相當於打幾折？',
         options: [
@@ -12894,6 +13085,7 @@ window.APP_TEXTS['math|五下|第5單元 折扣與生活中的百分率'] = {
       terms: [
         { w: '運算順序', d: '先做哪一步會影響最後結果。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"方案A：1000 × 0.8 − 100","hint":"先打折再折現。"},{"expr":"= 800 − 100 = 700","hint":"付 700 元。"},{"expr":"方案B：(1000 − 100) × 0.8","hint":"先折現再打折。"},{"expr":"= 900 × 0.8 = 720","hint":"付 720 元。方案 A 比較划算。"}]},
       q: {
         q: '課文說哪一種順序比較划算？',
         options: [
@@ -12972,6 +13164,7 @@ window.APP_TEXTS['math|五下|第6單元 體積與容積'] = {
       terms: [
         { w: '組合形體', d: '由多個基本立體組成的形體。' }
       ],
+      viz: {"type":"cuboid","l":4,"w":3,"h":2},
       q: {
         q: '課文說處理組合形體的方法和什麼一樣？',
         options: [
@@ -13194,6 +13387,7 @@ window.APP_TEXTS['math|五下|第7單元 表面積與展開圖'] = {
       terms: [
         { w: '應用', d: '把數學概念用在實際情境。' }
       ],
+      viz: {"type":"netbox","l":5,"w":4,"h":3},
       q: {
         q: '課文說油漆牆面要算什麼？',
         options: [
@@ -13224,6 +13418,7 @@ window.APP_TEXTS['math|五下|第8單元 線對稱圖形'] = {
       terms: [
         { w: '對稱軸', d: '對摺後兩邊完全重合的那條線。' }
       ],
+      viz: {"type":"symmetry","shape":"heart"},
       q: {
         q: '課文說線對稱圖形的判斷方式是什麼？',
         options: [
@@ -13248,6 +13443,7 @@ window.APP_TEXTS['math|五下|第8單元 線對稱圖形'] = {
       terms: [
         { w: '對稱軸數量', d: '一個圖形可有多條對稱軸。' }
       ],
+      viz: {"type":"quad","kind":"square","pick":false},
       q: {
         q: '課文說正方形有幾條對稱軸？',
         options: [
@@ -13296,6 +13492,7 @@ window.APP_TEXTS['math|五下|第8單元 線對稱圖形'] = {
       terms: [
         { w: '對稱點', d: '在對稱軸兩側互相對應的點。' }
       ],
+      viz: {"type":"lines","kind":"perpendicular","pick":false},
       q: {
         q: '課文說連接兩個對稱點的線段和對稱軸是什麼關係？',
         options: [
@@ -13422,6 +13619,7 @@ window.APP_TEXTS['math|五下|第9單元 時間的計算與速率初步'] = {
       terms: [
         { w: '公式變形', d: '同一關係改寫成不同求解形式。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"距離 = 速率 × 時間","hint":"記住這一個。"},{"expr":"速率 = 距離 ÷ 時間","hint":"把速率移到等號左邊。"},{"expr":"時間 = 距離 ÷ 速率","hint":"把時間移到等號左邊。"}]},
       q: {
         q: '課文說知道速率和時間可以求什麼？',
         options: [
@@ -13446,6 +13644,7 @@ window.APP_TEXTS['math|五下|第9單元 時間的計算與速率初步'] = {
       terms: [
         { w: '時速', d: '每小時行進的距離。' }
       ],
+      viz: {"type":"clock","h":12,"m":30,"edit":false},
       q: {
         q: '課文說三十分鐘走三公里，時速是多少？',
         options: [
@@ -13470,6 +13669,7 @@ window.APP_TEXTS['math|五下|第9單元 時間的計算與速率初步'] = {
       terms: [
         { w: '參考值', d: '用來判斷合理性的常見數值。' }
       ],
+      viz: {"type":"numberline","min":0,"max":300,"step":50,"edit":false,"marks":[{"v":5,"label":"走路"},{"v":60,"label":"汽車"},{"v":300,"label":"高鐵"}]},
       q: {
         q: '課文說聲音的速率大約是多少？',
         options: [
@@ -13548,6 +13748,7 @@ window.APP_TEXTS['math|六上|第1單元 分數的除法'] = {
       terms: [
         { w: '倒數', d: '相乘等於一的兩個數互為倒數。' }
       ],
+      viz: {"type":"fracbar","parts":3,"shade":2},
       q: {
         q: '課文說哪一個數沒有倒數？',
         options: [
@@ -13596,6 +13797,7 @@ window.APP_TEXTS['math|六上|第1單元 分數的除法'] = {
       terms: [
         { w: '判斷', d: '看除數大小預測答案變大或變小。' }
       ],
+      viz: {"type":"numberline","min":0,"max":14,"step":2,"value":12,"marks":[{"v":6,"label":"原本"}]},
       q: {
         q: '課文說除數大於一時答案會怎麼樣？',
         options: [
@@ -13644,6 +13846,7 @@ window.APP_TEXTS['math|六上|第1單元 分數的除法'] = {
       terms: [
         { w: '四則混合', d: '加減乘除混合在同一算式中。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"1/2 + 1/3 ÷ 2","hint":"先乘除後加減。"},{"expr":"1/2 + 1/6","hint":"1/3 ÷ 2 = 1/3 × 1/2 = 1/6。"},{"expr":"3/6 + 1/6 = 4/6","hint":"通分後相加。"},{"expr":"= 2/3","hint":"約分。"}]},
       q: {
         q: '課文說分數會不會改變運算順序規則？',
         options: [
@@ -13674,6 +13877,7 @@ window.APP_TEXTS['math|六上|第2單元 比與比值'] = {
       terms: [
         { w: '比', d: '兩個量相對關係的表示法。' }
       ],
+      viz: {"type":"ratiobar","a":3,"b":4,"labelA":"果汁","labelB":"水"},
       q: {
         q: '課文說六比八和三比四的關係是什麼？',
         options: [
@@ -13770,6 +13974,7 @@ window.APP_TEXTS['math|六上|第2單元 比與比值'] = {
       terms: [
         { w: '總份數', d: '比的前後項相加的結果。' }
       ],
+      viz: {"type":"fracbar","parts":5,"shade":2},
       q: {
         q: '課文說二比三中，甲占全部的幾分之幾？',
         options: [
@@ -13896,6 +14101,7 @@ window.APP_TEXTS['math|六上|第3單元 比例式與應用'] = {
       terms: [
         { w: '等比例', d: '按相同比例放大或縮小。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"3 個 : 60 元 ＝ 7 個 : □ 元","hint":"把已知和未知排成比例式。"},{"expr":"3 × □ ＝ 60 × 7","hint":"交叉相乘。"},{"expr":"3 × □ ＝ 420","hint":"算右邊。"},{"expr":"□ ＝ 140 元","hint":"也可以先算單價 20 元再乘 7。"}]},
       q: {
         q: '課文說三個六十元，七個要多少？',
         options: [
@@ -13944,6 +14150,7 @@ window.APP_TEXTS['math|六上|第3單元 比例式與應用'] = {
       terms: [
         { w: '合理性', d: '答案在情境中說不說得通。' }
       ],
+      viz: {"type":"ratiobar","a":3,"b":7,"labelA":"原","labelB":"新"},
       q: {
         q: '課文說檢查比例式答案的第一步是什麼？',
         options: [
@@ -14046,6 +14253,7 @@ window.APP_TEXTS['math|六上|第4單元 圓周長'] = {
       terms: [
         { w: '半圓', d: '圓被直徑分成的一半。' }
       ],
+      viz: {"type":"fraccircle","parts":2,"shade":1,"editShade":false},
       q: {
         q: '課文說算半圓周長最常忘記什麼？',
         options: [
@@ -14070,6 +14278,7 @@ window.APP_TEXTS['math|六上|第4單元 圓周長'] = {
       terms: [
         { w: '應用', d: '把公式用在實際情境。' }
       ],
+      viz: {"type":"circlearea","r":3,"mode":"circumference"},
       q: {
         q: '課文說車輪轉一圈走的距離等於什麼？',
         options: [
@@ -14124,6 +14333,7 @@ window.APP_TEXTS['math|六上|第5單元 圓面積'] = {
       terms: [
         { w: '圓面積', d: '圓所占的平面大小。' }
       ],
+      viz: {"type":"circlearea","r":5,"mode":"area"},
       q: {
         q: '課文說把圓切開重排會變成接近什麼形狀？',
         options: [
@@ -14346,6 +14556,7 @@ window.APP_TEXTS['math|六上|第6單元 扇形與複合圖形'] = {
       terms: [
         { w: '周長', d: '繞圖形一圈的總長度。' }
       ],
+      viz: {"type":"fraccircle","parts":4,"shade":1,"editShade":false},
       q: {
         q: '課文說扇形周長要加什麼？',
         options: [
@@ -14370,6 +14581,7 @@ window.APP_TEXTS['math|六上|第6單元 扇形與複合圖形'] = {
       terms: [
         { w: '複合圖形', d: '由多個基本圖形組成的圖形。' }
       ],
+      viz: {"type":"areagrid","w":8,"h":8,"show":"area","edit":false},
       q: {
         q: '課文說處理複合圖形前要先想清楚什麼？',
         options: [
@@ -14424,6 +14636,7 @@ window.APP_TEXTS['math|六上|第7單元 柱體的體積'] = {
       terms: [
         { w: '柱體', d: '上下底面全等、側面垂直的立體。' }
       ],
+      viz: {"type":"cuboid","l":4,"w":3,"h":3},
       q: {
         q: '課文說柱體體積的通用公式是什麼？',
         options: [
@@ -14472,6 +14685,7 @@ window.APP_TEXTS['math|六上|第7單元 柱體的體積'] = {
       terms: [
         { w: '三角柱', d: '底面為三角形的柱體。' }
       ],
+      viz: {"type":"triangle","kind":"right","pick":false},
       q: {
         q: '課文說算三角柱時要注意什麼？',
         options: [
@@ -14520,6 +14734,7 @@ window.APP_TEXTS['math|六上|第7單元 柱體的體積'] = {
       terms: [
         { w: '容積', d: '容器內部能裝的體積。' }
       ],
+      viz: {"type":"cylinder","r":4,"h":10,"mode":"volume","edit":false},
       q: {
         q: '課文說五百零二點四立方公分大約等於多少公升？',
         options: [
@@ -14574,6 +14789,7 @@ window.APP_TEXTS['math|六上|第8單元 柱體的表面積'] = {
       terms: [
         { w: '側面積', d: '柱體周圍那一圈的面積。' }
       ],
+      viz: {"type":"netbox","l":4,"w":3,"h":2},
       q: {
         q: '課文說柱體表面積由哪兩部分組成？',
         options: [
@@ -14694,6 +14910,7 @@ window.APP_TEXTS['math|六上|第8單元 柱體的表面積'] = {
       terms: [
         { w: '單位', d: '量的種類與大小的標準。' }
       ],
+      viz: {"type":"cylinder","r":3,"h":5,"mode":"volume"},
       q: {
         q: '課文說單位可以幫我們判斷什麼？',
         options: [
@@ -14748,6 +14965,7 @@ window.APP_TEXTS['math|六上|第9單元 速率'] = {
       terms: [
         { w: '移項', d: '把等式中的項換邊以求未知數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"距離 ＝ 速率 × 時間","hint":"核心公式，記這一個。"},{"expr":"速率 ＝ 距離 ÷ 時間","hint":"要求速率，就把時間除過去。"},{"expr":"時間 ＝ 距離 ÷ 速率","hint":"要求時間，就把速率除過去。"}]},
       q: {
         q: '課文說知道距離和速率可以求什麼？',
         options: [
@@ -14772,6 +14990,7 @@ window.APP_TEXTS['math|六上|第9單元 速率'] = {
       terms: [
         { w: '分速', d: '每分鐘行進的距離。' }
       ],
+      viz: {"type":"clock","h":12,"m":30,"edit":false},
       q: {
         q: '課文說算之前要先確認什麼？',
         options: [
@@ -14820,6 +15039,7 @@ window.APP_TEXTS['math|六上|第9單元 速率'] = {
       terms: [
         { w: '合速率', d: '兩者相向時速率相加的結果。' }
       ],
+      viz: {"type":"numberline","min":0,"max":100,"step":20,"edit":false,"marks":[{"v":0,"label":"甲"},{"v":100,"label":"乙"},{"v":60,"label":"相遇"}]},
       q: {
         q: '課文說同向追趕時速率要怎麼處理？',
         options: [
@@ -14874,6 +15094,7 @@ window.APP_TEXTS['math|六下|第1單元 比例尺與縮放'] = {
       terms: [
         { w: '比例尺', d: '圖上距離與實際距離的比。' }
       ],
+      viz: {"type":"ratiobar","a":1,"b":10,"labelA":"圖上","labelB":"實際"},
       q: {
         q: '課文說比例尺的前項代表什麼？',
         options: [
@@ -14898,6 +15119,7 @@ window.APP_TEXTS['math|六下|第1單元 比例尺與縮放'] = {
       terms: [
         { w: '換算', d: '在不同單位之間轉換。' }
       ],
+      viz: {"type":"numberline","min":0,"max":5,"step":1,"value":2,"marks":[{"v":2,"label":"2 公里"}]},
       q: {
         q: '課文說圖上四公分在一比五萬的地圖代表實際多遠？',
         options: [
@@ -14970,6 +15192,7 @@ window.APP_TEXTS['math|六下|第1單元 比例尺與縮放'] = {
       terms: [
         { w: '縮放', d: '按比例放大或縮小圖形。' }
       ],
+      viz: {"type":"areagrid","w":6,"h":4},
       q: {
         q: '課文說邊長變兩倍時面積變幾倍？',
         options: [
@@ -15048,6 +15271,7 @@ window.APP_TEXTS['math|六下|第2單元 正比與反比'] = {
       terms: [
         { w: '反比', d: '兩量的乘積固定的關係。' }
       ],
+      viz: {"type":"numberline","min":0,"max":4,"step":1,"edit":false,"marks":[{"v":2,"label":"時速50→2時"},{"v":1,"label":"時速100→1時"}]},
       q: {
         q: '課文說反比的判斷方法是什麼？',
         options: [
@@ -15072,6 +15296,7 @@ window.APP_TEXTS['math|六下|第2單元 正比與反比'] = {
       terms: [
         { w: '判斷', d: '用數據檢驗屬於哪種關係。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"數量 2→總價 40、數量 3→總價 60","hint":"試除：40÷2 = 20，60÷3 = 20 固定 → 正比。"},{"expr":"人數 2→天數 6、人數 3→天數 4","hint":"試乘：2×6 = 12，3×4 = 12 固定 → 反比。"},{"expr":"除固定＝正比，乘固定＝反比","hint":"兩組數字就能判斷。"}]},
       q: {
         q: '課文說判斷時可以怎麼做？',
         options: [
@@ -15144,6 +15369,7 @@ window.APP_TEXTS['math|六下|第2單元 正比與反比'] = {
       terms: [
         { w: '嚴格定義', d: '必須完全符合條件才算。' }
       ],
+      viz: {"type":"dotplot","values":[3,4,4,5,12]},
       q: {
         q: '課文說年齡和身高是不是正比？',
         options: [
@@ -15246,6 +15472,7 @@ window.APP_TEXTS['math|六下|第3單元 速率的應用'] = {
       terms: [
         { w: '追及', d: '同方向追趕直到趕上。' }
       ],
+      viz: {"type":"numberline","min":0,"max":100,"step":20,"edit":false,"marks":[{"v":20,"label":"慢的"},{"v":0,"label":"快的"}]},
       q: {
         q: '課文說兩人速率一樣時會怎麼樣？',
         options: [
@@ -15270,6 +15497,7 @@ window.APP_TEXTS['math|六下|第3單元 速率的應用'] = {
       terms: [
         { w: '權重', d: '各部分在平均中所占的影響大小。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"去程 120km ÷ 60 = 2 小時","hint":"分段算時間。"},{"expr":"回程 120km ÷ 40 = 3 小時","hint":"慢的花更久。"},{"expr":"總 240km ÷ 5 小時 = 48","hint":"不是 (60+40)÷2 = 50。"}]},
       q: {
         q: '課文說去程六十回程四十的平均速率是多少？',
         options: [
@@ -15294,6 +15522,7 @@ window.APP_TEXTS['math|六下|第3單元 速率的應用'] = {
       terms: [
         { w: '緩衝', d: '為突發狀況預留的額外時間。' }
       ],
+      viz: {"type":"clock","h":6,"m":0,"addMin":180},
       q: {
         q: '課文提醒實際規劃行程時還要考慮什麼？',
         options: [
@@ -15324,6 +15553,7 @@ window.APP_TEXTS['math|六下|第4單元 統計圖表'] = {
       terms: [
         { w: '橫軸', d: '圖表上水平的那一條軸。' }
       ],
+      viz: {"type":"bargraph","unit":"人","data":[{"label":"國語","value":12},{"label":"數學","value":18},{"label":"自然","value":9},{"label":"社會","value":15}]},
       q: {
         q: '課文說長條圖最適合做什麼？',
         options: [
@@ -15372,6 +15602,7 @@ window.APP_TEXTS['math|六下|第4單元 統計圖表'] = {
       terms: [
         { w: '圓形圖', d: '用扇形大小表示比例的圖表。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"睡覺","value":8},{"label":"上學","value":8},{"label":"玩樂","value":4},{"label":"其他","value":4}]},
       q: {
         q: '課文說圓形圖所有扇形加起來等於多少？',
         options: [
@@ -15396,6 +15627,7 @@ window.APP_TEXTS['math|六下|第4單元 統計圖表'] = {
       terms: [
         { w: '圓心角', d: '扇形在圓心所張開的角。' }
       ],
+      viz: {"type":"fraccircle","parts":4,"shade":1},
       q: {
         q: '課文說占百分之二十五的項目圓心角是幾度？',
         options: [
@@ -15570,6 +15802,7 @@ window.APP_TEXTS['math|六下|第5單元 平均數、中位數與眾數'] = {
       terms: [
         { w: '代表值', d: '用一個數代表整組資料。' }
       ],
+      viz: {"type":"dotplot","values":[4,5,5,6,7]},
       q: {
         q: '課文說房價統計比較適合用哪一個？',
         options: [
@@ -15696,6 +15929,7 @@ window.APP_TEXTS['math|六下|第6單元 可能性'] = {
       terms: [
         { w: '公正', d: '每種結果出現機會相同。' }
       ],
+      viz: {"type":"fraccircle","parts":6,"shade":1,"editShade":true},
       q: {
         q: '課文說灌鉛的骰子還能用六分之一算嗎？',
         options: [
@@ -15720,6 +15954,7 @@ window.APP_TEXTS['math|六下|第6單元 可能性'] = {
       terms: [
         { w: '獨立事件', d: '前一次結果不影響下一次。' }
       ],
+      viz: {"type":"numberline","min":0,"max":1,"step":0.5,"edit":false,"marks":[{"v":0.5,"label":"永遠是 1/2"}]},
       q: {
         q: '課文說連續五次正面後，第六次正面的可能性是多少？',
         options: [
@@ -15744,6 +15979,7 @@ window.APP_TEXTS['math|六下|第6單元 可能性'] = {
       terms: [
         { w: '長期傾向', d: '多次重複後呈現的比例。' }
       ],
+      viz: {"type":"decimalgrid","cells":100,"filled":70},
       q: {
         q: '課文說降雨機率七成的正確理解是什麼？',
         options: [
@@ -15798,6 +16034,7 @@ window.APP_TEXTS['math|六下|第7單元 數量關係與未知數'] = {
       terms: [
         { w: '等量公理', d: '等式兩邊做相同運算仍然相等。' }
       ],
+      viz: {"type":"balance","a":3,"b":5,"c":26},
       q: {
         q: '課文說解方程式的原理是什麼？',
         options: [
@@ -15870,6 +16107,7 @@ window.APP_TEXTS['math|六下|第7單元 數量關係與未知數'] = {
       terms: [
         { w: '代回', d: '把答案放回原式檢查。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"解出 x = 7","hint":"把答案代回原式檢查。"},{"expr":"3 × 7 + 5","hint":"代入 x = 7。"},{"expr":"= 21 + 5 = 26 ✓","hint":"和原式右邊相同，正確。"}]},
       q: {
         q: '課文說方程式怎麼驗算？',
         options: [
@@ -15948,6 +16186,7 @@ window.APP_TEXTS['math|六下|第8單元 立體圖形與視圖'] = {
       terms: [
         { w: '視圖', d: '從特定方向看到的平面圖形。' }
       ],
+      viz: {"type":"cuboid","l":4,"w":3,"h":2},
       q: {
         q: '課文說工程圖通常用幾個視圖？',
         options: [
@@ -15996,6 +16235,7 @@ window.APP_TEXTS['math|六下|第8單元 立體圖形與視圖'] = {
       terms: [
         { w: '球心', d: '球的正中心點。' }
       ],
+      viz: {"type":"circleparts","show":["radius"]},
       q: {
         q: '課文說從任何方向看球都是什麼形狀？',
         options: [
@@ -16020,6 +16260,7 @@ window.APP_TEXTS['math|六下|第8單元 立體圖形與視圖'] = {
       terms: [
         { w: '展開圖', d: '立體沿稜剪開攤平的平面圖。' }
       ],
+      viz: {"type":"netbox","l":3,"w":3,"h":3,"edit":false},
       q: {
         q: '課文說正方體的展開圖有幾種？',
         options: [
@@ -16098,6 +16339,7 @@ window.APP_TEXTS['math|六下|第9單元 生活中的數學'] = {
       terms: [
         { w: '單價比較', d: '換算成每單位價格再比較。' }
       ],
+      viz: {"type":"ratiobar","a":3,"b":5,"labelA":"A牌","labelB":"B牌"},
       q: {
         q: '課文說包裝不同時要怎麼比較？',
         options: [
@@ -16146,6 +16388,7 @@ window.APP_TEXTS['math|六下|第9單元 生活中的數學'] = {
       terms: [
         { w: '合理估算', d: '依情境選擇估的方向。' }
       ],
+      viz: {"type":"numberline","min":0,"max":400,"step":50,"value":350,"marks":[{"v":348,"label":"實際 348"}]},
       q: {
         q: '課文說買東西估算要往哪個方向估？',
         options: [
@@ -16194,6 +16437,7 @@ window.APP_TEXTS['math|六下|第9單元 生活中的數學'] = {
       terms: [
         { w: '素養', d: '把知識用來解決真實問題的能力。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"① 這是什麼類型的問題？","hint":"比例、百分比、速率、面積…先分類。"},{"expr":"② 用什麼方法？","hint":"列式、畫圖、找規律。"},{"expr":"③ 答案合理嗎？","hint":"用估算和常識檢查。"}]},
       q: {
         q: '課文說最重要的三件事不包括哪一項？',
         options: [
@@ -16344,6 +16588,7 @@ window.APP_TEXTS['math|七上|第1單元 正負數與數線'] = {
       terms: [
         { w: '約定', d: '事先講好哪個方向為正。' }
       ],
+      viz: {"type":"numberline","min":-10,"max":10,"step":5,"value":0},
       q: {
         q: '課文說使用正負數前要先做什麼？',
         options: [
@@ -16422,6 +16667,7 @@ window.APP_TEXTS['math|七上|第2單元 整數的加減'] = {
       terms: [
         { w: '轉換', d: '把減法改寫成加法的做法。' }
       ],
+      viz: {"type":"intchips","a":5,"b":-8},
       q: {
         q: '課文說減法要怎麼處理比較好？',
         options: [
@@ -16446,6 +16692,7 @@ window.APP_TEXTS['math|七上|第2單元 整數的加減'] = {
       terms: [
         { w: '減負數', d: '減去一個負數等於加上正數。' }
       ],
+      viz: {"type":"numberline","min":0,"max":10,"step":1,"value":8,"marks":[{"v":5,"label":"原本"}]},
       q: {
         q: '課文說五減負三等於多少？',
         options: [
@@ -16548,6 +16795,7 @@ window.APP_TEXTS['math|七上|第3單元 整數的乘除與四則'] = {
       terms: [
         { w: '方向', d: '正負號所代表的相反關係。' }
       ],
+      viz: {"type":"numberline","min":-6,"max":6,"step":1,"value":5,"marks":[{"v":-5,"label":"反一次"}]},
       q: {
         q: '課文用什麼比喻解釋負負得正？',
         options: [
@@ -16620,6 +16868,7 @@ window.APP_TEXTS['math|七上|第3單元 整數的乘除與四則'] = {
       terms: [
         { w: '次方', d: '同一個數連乘幾次的運算。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"−2 + 3 × (−4)","hint":"先乘除後加減。"},{"expr":"−2 + (−12)","hint":"3 × (−4) = −12。"},{"expr":"= −14","hint":"同號相加。"}]},
       q: {
         q: '課文說運算順序中次方排在第幾？',
         options: [
@@ -16644,6 +16893,7 @@ window.APP_TEXTS['math|七上|第3單元 整數的乘除與四則'] = {
       terms: [
         { w: '分配', d: '把括號外的數乘給裡面每一項。' }
       ],
+      viz: {"type":"algetile","mode":"distribute","x":1,"c":2,"k":2},
       q: {
         q: '課文說括號前有負號時要怎麼處理？',
         options: [
@@ -16698,6 +16948,7 @@ window.APP_TEXTS['math|七上|第4單元 指數與科學記號'] = {
       terms: [
         { w: '乘法律', d: '同底數相乘時指數相加的規則。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"2³ × 2⁴","hint":"底數都是 2。"},{"expr":"(2×2×2) × (2×2×2×2)","hint":"展開數一數。"},{"expr":"一共 7 個 2 = 2⁷","hint":"指數相加：3 + 4 = 7。"}]},
       q: {
         q: '課文說同底數相乘時指數要怎麼處理？',
         options: [
@@ -16794,6 +17045,7 @@ window.APP_TEXTS['math|七上|第4單元 指數與科學記號'] = {
       terms: [
         { w: '量級', d: '數字大約在幾個十的次方的規模。' }
       ],
+      viz: {"type":"numberline","min":0,"max":10,"step":2,"value":8,"marks":[{"v":5,"label":"10⁵"}]},
       q: {
         q: '課文說比科學記號大小要先看什麼？',
         options: [
@@ -16824,6 +17076,7 @@ window.APP_TEXTS['math|七上|第5單元 因數與倍數'] = {
       terms: [
         { w: '整除', d: '除得盡、沒有餘數。' }
       ],
+      viz: {"type":"factors","n":12},
       q: {
         q: '課文說因數和倍數的關係是什麼？',
         options: [
@@ -16896,6 +17149,7 @@ window.APP_TEXTS['math|七上|第5單元 因數與倍數'] = {
       terms: [
         { w: '判斷法', d: '不必實際相除就能判斷整除的方法。' }
       ],
+      viz: {"type":"primefac","n":36},
       q: {
         q: '課文說判斷能不能被九整除要看什麼？',
         options: [
@@ -16944,6 +17198,7 @@ window.APP_TEXTS['math|七上|第5單元 因數與倍數'] = {
       terms: [
         { w: '有限與無限', d: '個數是否有盡頭。' }
       ],
+      viz: {"type":"numberline","min":0,"max":20,"step":3,"value":12},
       q: {
         q: '課文說為什麼沒有「最大公倍數」？',
         options: [
@@ -17094,6 +17349,7 @@ window.APP_TEXTS['math|七上|第6單元 最大公因數與最小公倍數'] = {
       terms: [
         { w: '同時發生', d: '兩件週期性事件再度重合。' }
       ],
+      viz: {"type":"primefac","n":12,"m":18},
       q: {
         q: '課文說「下次同時」的問題要求什麼？',
         options: [
@@ -17124,6 +17380,7 @@ window.APP_TEXTS['math|七上|第7單元 分數的運算'] = {
       terms: [
         { w: '通分', d: '把分母化成相同以便加減。' }
       ],
+      viz: {"type":"fraccompare","a":{"parts":2,"shade":1},"b":{"parts":3,"shade":1}},
       q: {
         q: '課文說通分的分母通常取什麼？',
         options: [
@@ -17196,6 +17453,7 @@ window.APP_TEXTS['math|七上|第7單元 分數的運算'] = {
       terms: [
         { w: '負分數', d: '帶負號的分數。' }
       ],
+      viz: {"type":"numberline","min":-2,"max":2,"step":0.5,"value":-0.67},
       q: {
         q: '課文說負分數的符號規則和什麼一樣？',
         options: [
@@ -17220,6 +17478,7 @@ window.APP_TEXTS['math|七上|第7單元 分數的運算'] = {
       terms: [
         { w: '四則混合', d: '加減乘除混合在同一算式。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"1/2 + 1/3 × 3/4","hint":"先乘除後加減。"},{"expr":"1/2 + 1/4","hint":"1/3 × 3/4 = 3/12 = 1/4。"},{"expr":"= 2/4 + 1/4 = 3/4","hint":"通分後相加。"}]},
       q: {
         q: '課文說分數會不會改變運算順序？',
         options: [
@@ -17274,6 +17533,7 @@ window.APP_TEXTS['math|七上|第8單元 一元一次式的運算'] = {
       terms: [
         { w: '係數', d: '未知數前面的數字。' }
       ],
+      viz: {"type":"algetile","mode":"collect","x":3,"c":5,"x2":0,"c2":0},
       q: {
         q: '課文說「一次」是什麼意思？',
         options: [
@@ -17346,6 +17606,7 @@ window.APP_TEXTS['math|七上|第8單元 一元一次式的運算'] = {
       terms: [
         { w: '變號', d: '括號展開時符號改變。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"5 − (2x + 3)","hint":"括號前是減號。"},{"expr":"5 − 2x − 3","hint":"裡面每一項都變號（+3 變 −3）。"},{"expr":"= −2x + 2","hint":"合併常數項 5 − 3 = 2。"}]},
       q: {
         q: '課文說括號前是減號時要怎麼處理？',
         options: [
@@ -17424,6 +17685,7 @@ window.APP_TEXTS['math|七上|第9單元 一元一次方程式'] = {
       terms: [
         { w: '等式性質', d: '等號兩邊同時運算仍相等。' }
       ],
+      viz: {"type":"balance","a":3,"b":5,"c":26},
       q: {
         q: '課文說兩邊同除時要注意什麼？',
         options: [
@@ -17448,6 +17710,7 @@ window.APP_TEXTS['math|七上|第9單元 一元一次方程式'] = {
       terms: [
         { w: '移項', d: '把項從等號一邊搬到另一邊。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"3(x + 2) = 18","hint":"① 先展開括號。"},{"expr":"3x + 6 = 18","hint":"③ 移項：兩邊同減 6。"},{"expr":"3x = 12","hint":"⑤ 兩邊同除以 3。"},{"expr":"x = 4","hint":"解出來了。"}]},
       q: {
         q: '課文說解題的第一步是什麼？',
         options: [
@@ -17574,6 +17837,7 @@ window.APP_TEXTS['math|七下|第1單元 二元一次聯立方程式'] = {
       terms: [
         { w: '二元一次', d: '含兩個未知數且次數都是一的式子。' }
       ],
+      viz: {"type":"coordplane","edit":false,"min":-2,"max":5,"points":[{"x":1,"y":4},{"x":2,"y":3},{"x":3,"y":2}]},
       q: {
         q: '課文說只有一條二元一次方程式時答案有幾組？',
         options: [
@@ -17622,6 +17886,7 @@ window.APP_TEXTS['math|七下|第1單元 二元一次聯立方程式'] = {
       terms: [
         { w: '代入消去', d: '把一式代入另一式以消去未知數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"y = x + 1 … ①　　x + y = 7 … ②","hint":"把 ① 的 y（也就是 x + 1）代進 ②。"},{"expr":"x + (x + 1) = 7","hint":"式子裡只剩 x 了，這就是「消去」。"},{"expr":"2x + 1 = 7 → 2x = 6","hint":"合併同類項後移項。"},{"expr":"x = 3，代回 ① 得 y = 4","hint":"解是 x = 3、y = 4。"}]},
       q: {
         q: '課文說解聯立的中心思想是什麼？',
         options: [
@@ -17670,6 +17935,7 @@ window.APP_TEXTS['math|七下|第1單元 二元一次聯立方程式'] = {
       terms: [
         { w: '整條乘', d: '方程式每一項都乘同一個數。' }
       ],
+      viz: {"type":"algetile","mode":"distribute","x":2,"c":3,"k":2},
       q: {
         q: '課文說整條乘時最容易漏掉哪一項？',
         options: [
@@ -17724,6 +17990,7 @@ window.APP_TEXTS['math|七下|第2單元 直角坐標與函數'] = {
       terms: [
         { w: '坐標平面', d: '由兩條垂直數線構成的平面。' }
       ],
+      viz: {"type":"coordplane","x":3,"y":2},
       q: {
         q: '課文說坐標中第一個數管什麼？',
         options: [
@@ -17820,6 +18087,7 @@ window.APP_TEXTS['math|七下|第2單元 直角坐標與函數'] = {
       terms: [
         { w: '函數', d: '一個輸入只對應一個輸出的關係。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"y = 2x + 1","hint":"把它想成一台機器：丟 x 進去，吐 y 出來。"},{"expr":"x = 1 → y = 3","hint":"丟 1 進去，只會得到 3。"},{"expr":"x = 2 → y = 5","hint":"丟 2 進去，只會得到 5。"},{"expr":"每個 x 都只配一個 y → 這是函數","hint":"不會同一個 x 跑出兩種答案。"}]},
       q: {
         q: '課文說什麼情況下就不是函數？',
         options: [
@@ -17874,6 +18142,7 @@ window.APP_TEXTS['math|七下|第3單元 比與比例式'] = {
       terms: [
         { w: '前項後項', d: '比的前面與後面兩個數。' }
       ],
+      viz: {"type":"ratiobar","a":2,"b":3,"labelA":"果汁","labelB":"水"},
       q: {
         q: '課文說比在意的是什麼？',
         options: [
@@ -17946,6 +18215,7 @@ window.APP_TEXTS['math|七下|第3單元 比與比例式'] = {
       terms: [
         { w: '外項內項', d: '比例式最外側與最內側的兩項。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"3 : 4 = x : 12","hint":"先改寫成分數：3/4 = x/12。"},{"expr":"3 × 12 = 4 × x","hint":"外項（3 和 12）相乘＝內項（4 和 x）相乘。"},{"expr":"36 = 4x","hint":"兩邊同除以 4。"},{"expr":"x = 9","hint":"驗算：3 : 4 和 9 : 12 的比值都是 0.75 ✓"}]},
       q: {
         q: '課文說交叉相乘的規則是怎麼來的？',
         options: [
@@ -18120,6 +18390,7 @@ window.APP_TEXTS['math|七下|第4單元 正比與反比'] = {
       terms: [
         { w: '漸近', d: '越來越接近但不會碰到。' }
       ],
+      viz: {"type":"proportion","mode":"inverse","k":12},
       q: {
         q: '課文說反比曲線為什麼碰不到坐標軸？',
         options: [
@@ -18144,6 +18415,7 @@ window.APP_TEXTS['math|七下|第4單元 正比與反比'] = {
       terms: [
         { w: '解題流程', d: '固定的解題步驟順序。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"y 與 x 成正比，x = 4 時 y = 12","hint":"正比 → k = y ÷ x。"},{"expr":"k = 12 ÷ 4 = 3","hint":"所以 y = 3x。"},{"expr":"x = 7 → y = 3 × 7","hint":"把新的 x 代進去。"},{"expr":"y = 21","hint":"檢查：21 ÷ 7 = 3，比例常數沒變 ✓"}]},
       q: {
         q: '課文說解這類題目第一步要做什麼？',
         options: [
@@ -18174,6 +18446,7 @@ window.APP_TEXTS['math|七下|第5單元 一元一次不等式'] = {
       terms: [
         { w: '不等式', d: '用大於小於表示範圍的式子。' }
       ],
+      viz: {"type":"ineqline","op":">","value":3,"min":-2,"max":8},
       q: {
         q: '課文說不等式的答案有什麼特點？',
         options: [
@@ -18222,6 +18495,7 @@ window.APP_TEXTS['math|七下|第5單元 一元一次不等式'] = {
       terms: [
         { w: '移項', d: '把項搬到等號或不等號另一邊。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"x + 3 < 8","hint":"兩邊同時減 3。"},{"expr":"x < 5","hint":"解出來了：所有比 5 小的數。"},{"expr":"檢查：x = 4 → 4 + 3 = 7 < 8 ✓","hint":"隨便挑一個解代回去，成立就對了。"}]},
       q: {
         q: '課文說不等式和方程式的唯一差別在哪裡？',
         options: [
@@ -18396,6 +18670,7 @@ window.APP_TEXTS['math|七下|第6單元 線型函數與圖形'] = {
       terms: [
         { w: 'x 截距', d: '圖形與 x 軸交點的橫坐標。' }
       ],
+      viz: {"type":"linegraph","a":3,"b":-6},
       q: {
         q: '課文說求 x 截距要把什麼代成零？',
         options: [
@@ -18420,6 +18695,7 @@ window.APP_TEXTS['math|七下|第6單元 線型函數與圖形'] = {
       terms: [
         { w: '代入檢驗', d: '把坐標代入式子確認是否成立。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"點 (2, 5) 在 y = 2x + 1 上嗎？","hint":"把 x = 2 代進式子。"},{"expr":"y = 2 × 2 + 1 = 5","hint":"算出來的 y 是 5。"},{"expr":"和點的 y 一樣 → 在直線上 ✓","hint":"若算出來不是 5，就表示不在線上。"}]},
       q: {
         q: '課文說判斷點在不在線上要怎麼做？',
         options: [
@@ -18474,6 +18750,7 @@ window.APP_TEXTS['math|七下|第7單元 統計圖表'] = {
       terms: [
         { w: '長條圖', d: '用長條高度比較數量的圖表。' }
       ],
+      viz: {"type":"bargraph","unit":"人","data":[{"label":"搭車","value":12},{"label":"走路","value":8},{"label":"腳踏車","value":5},{"label":"家長載","value":15}]},
       q: {
         q: '課文說長條圖的縱軸要從幾開始？',
         options: [
@@ -18498,6 +18775,7 @@ window.APP_TEXTS['math|七下|第7單元 統計圖表'] = {
       terms: [
         { w: '趨勢', d: '資料隨時間變化的方向。' }
       ],
+      viz: {"type":"linechart","unit":"℃","data":[{"label":"一","value":22},{"label":"二","value":25},{"label":"三","value":24},{"label":"四","value":28},{"label":"五","value":26}]},
       q: {
         q: '課文說折線圖的重點是什麼？',
         options: [
@@ -18522,6 +18800,7 @@ window.APP_TEXTS['math|七下|第7單元 統計圖表'] = {
       terms: [
         { w: '圓形圖', d: '用扇形大小表示比例的圖表。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"睡覺","value":8},{"label":"上學","value":8},{"label":"玩樂","value":4},{"label":"其他","value":4}]},
       q: {
         q: '課文說占百分之二十五的項目圓心角是幾度？',
         options: [
@@ -18720,6 +18999,7 @@ window.APP_TEXTS['math|七下|第8單元 資料的分析'] = {
       terms: [
         { w: '極端值', d: '和其他資料差距特別大的數。' }
       ],
+      viz: {"type":"dotplot","values":[2,3,3,4,18]},
       q: {
         q: '課文說有極端值時該用哪一個代表值？',
         options: [
@@ -18822,6 +19102,7 @@ window.APP_TEXTS['math|七下|第9單元 生活中的數學應用'] = {
       terms: [
         { w: '單位統一', d: '計算前把單位換成一致。' }
       ],
+      viz: {"type":"proportion","mode":"direct","k":60,"xs":[1,2,3,4],"labelX":"小時","labelY":"公里"},
       q: {
         q: '課文說一小時十五分等於幾小時？',
         options: [
@@ -18846,6 +19127,7 @@ window.APP_TEXTS['math|七下|第9單元 生活中的數學應用'] = {
       terms: [
         { w: '溶液', d: '溶質與溶劑合起來的整體。' }
       ],
+      viz: {"type":"fracbar","parts":5,"shade":1,"editShade":true},
       q: {
         q: '課文說算濃度時分母要用什麼？',
         options: [
@@ -18894,6 +19176,7 @@ window.APP_TEXTS['math|七下|第9單元 生活中的數學應用'] = {
       terms: [
         { w: '檢查', d: '算完後確認結果是否合理。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"① 單位統一了嗎？","hint":"15 分鐘要先換成 0.25 小時再算。"},{"expr":"② 數字合理嗎？","hint":"算出時速 800 公里，一定是哪裡弄錯了。"},{"expr":"③ 需要取整數嗎？","hint":"人數、支數、段數不會有小數。"}]},
       q: {
         q: '課文說最後檢查的三件事不包括哪一項？',
         options: [
@@ -18924,6 +19207,7 @@ window.APP_TEXTS['math|八上|第1單元 乘法公式'] = {
       terms: [
         { w: '乘法公式', d: '常用的展開結果，可直接套用。' }
       ],
+      viz: {"type":"areamodel","mode":"square","a":3,"b":2},
       q: {
         q: '課文說和的平方展開後中間那一項是什麼？',
         options: [
@@ -18972,6 +19256,7 @@ window.APP_TEXTS['math|八上|第1單元 乘法公式'] = {
       terms: [
         { w: '平方差', d: '和與差相乘等於平方相減。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"(x + 5)(x − 5)","hint":"每一項乘每一項，共四個乘積。"},{"expr":"x² − 5x + 5x − 25","hint":"中間兩項一正一負，剛好抵消。"},{"expr":"x² − 25","hint":"只剩「平方減平方」。"}]},
       q: {
         q: '課文說平方差公式中間項為什麼消失？',
         options: [
@@ -19020,6 +19305,7 @@ window.APP_TEXTS['math|八上|第1單元 乘法公式'] = {
       terms: [
         { w: '一次項', d: '含未知數一次方的那一項。' }
       ],
+      viz: {"type":"crossmult","a1":1,"b1":2,"a2":1,"b2":3},
       q: {
         q: '課文說一次項係數是怎麼來的？',
         options: [
@@ -19074,6 +19360,7 @@ window.APP_TEXTS['math|八上|第2單元 多項式的運算'] = {
       terms: [
         { w: '多項式', d: '由若干項相加減組成的代數式。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"3x³ − 2x + 5","hint":"最高次方是 3 → 三次多項式。"},{"expr":"x³ 的係數是 3","hint":"係數就是項前面的數。"},{"expr":"x 的係數是 −2","hint":"負號要一起算進係數。"},{"expr":"常數項是 5","hint":"不含 x 的那一項。"}]},
       q: {
         q: '課文說多項式的次數看什麼？',
         options: [
@@ -19098,6 +19385,7 @@ window.APP_TEXTS['math|八上|第2單元 多項式的運算'] = {
       terms: [
         { w: '同類項', d: '未知數與次方都相同的項。' }
       ],
+      viz: {"type":"algetile","mode":"collect","x":2,"c":3,"x2":1,"c2":2},
       q: {
         q: '課文說合併同類項時次方會怎麼樣？',
         options: [
@@ -19146,6 +19434,7 @@ window.APP_TEXTS['math|八上|第2單元 多項式的運算'] = {
       terms: [
         { w: '展開', d: '把括號乘開成多項式。' }
       ],
+      viz: {"type":"areamodel","mode":"rect","a":1,"b":2,"c":1,"d":3},
       q: {
         q: '課文說 x 乘 x 的次方要怎麼處理？',
         options: [
@@ -19296,6 +19585,7 @@ window.APP_TEXTS['math|八上|第3單元 因式分解（一）'] = {
       terms: [
         { w: '完全平方式', d: '可以寫成某式平方的多項式。' }
       ],
+      viz: {"type":"areamodel","mode":"square","a":5,"b":1},
       q: {
         q: '課文說判斷完全平方式要看幾個條件？',
         options: [
@@ -19320,6 +19610,7 @@ window.APP_TEXTS['math|八上|第3單元 因式分解（一）'] = {
       terms: [
         { w: '分組分解', d: '把項分組後各自提公因式。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"ax + ay + bx + by","hint":"前兩項一組、後兩項一組。"},{"expr":"a(x + y) + b(x + y)","hint":"兩組括號長得一樣，這就是關鍵。"},{"expr":"(a + b)(x + y)","hint":"把 (x + y) 提出來。"}]},
       q: {
         q: '課文說四項式分組後要看什麼？',
         options: [
@@ -19398,6 +19689,7 @@ window.APP_TEXTS['math|八上|第4單元 因式分解（二）'] = {
       terms: [
         { w: '符號判斷', d: '依常數項與一次項決定正負。' }
       ],
+      viz: {"type":"crossmult","a1":1,"b1":-5,"a2":1,"b2":3},
       q: {
         q: '課文說常數項是負的代表兩數怎麼樣？',
         options: [
@@ -19494,6 +19786,7 @@ window.APP_TEXTS['math|八上|第4單元 因式分解（二）'] = {
       terms: [
         { w: '解題順序', d: '固定的分解步驟先後。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"3x² + 15x + 18","hint":"三項都能被 3 整除。"},{"expr":"3(x² + 5x + 6)","hint":"括號裡的數字變小了，好分解得多。"},{"expr":"3(x + 2)(x + 3)","hint":"找相乘 6、相加 5 的兩個數。"}]},
       q: {
         q: '課文說因式分解的第一步永遠是什麼？',
         options: [
@@ -19524,6 +19817,7 @@ window.APP_TEXTS['math|八上|第5單元 平方根與根式'] = {
       terms: [
         { w: '平方根', d: '平方後等於某數的那個數。' }
       ],
+      viz: {"type":"areagrid","w":7,"h":7,"edit":false},
       q: {
         q: '課文說根號四十九指的是哪一個數？',
         options: [
@@ -19572,6 +19866,7 @@ window.APP_TEXTS['math|八上|第5單元 平方根與根式'] = {
       terms: [
         { w: '同類根式', d: '根號內的數相同的根式。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"√8 + √2","hint":"先化簡 √8。"},{"expr":"2√2 + √2","hint":"現在兩項的根號裡都是 2，是同類根式。"},{"expr":"3√2","hint":"像同類項一樣，係數相加。"}]},
       q: {
         q: '課文說根號二加根號三等於什麼？',
         options: [
@@ -19644,6 +19939,7 @@ window.APP_TEXTS['math|八上|第5單元 平方根與根式'] = {
       terms: [
         { w: '無理數', d: '不能寫成分數的實數。' }
       ],
+      viz: {"type":"numberline","min":0,"max":4,"step":0.5,"edit":false,"marks":[{"v":1,"label":"1"},{"v":1.414,"label":"√2"},{"v":2,"label":"√4=2"}]},
       q: {
         q: '課文說根號二在生活中對應到什麼？',
         options: [
@@ -19674,6 +19970,7 @@ window.APP_TEXTS['math|八上|第6單元 畢氏定理'] = {
       terms: [
         { w: '斜邊', d: '直角三角形中對著直角的最長邊。' }
       ],
+      viz: {"type":"pythagoras","a":3,"b":4},
       q: {
         q: '課文說直角三角形最長的邊是哪一條？',
         options: [
@@ -19944,6 +20241,7 @@ window.APP_TEXTS['math|八上|第7單元 一元二次方程式（一）'] = {
       terms: [
         { w: '驗算', d: '把解代回原式檢查。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"x² − 3x + 2 = 0，檢驗 x = 2","hint":"把每一個 x 換成 2。"},{"expr":"2² − 3 × 2 + 2","hint":"= 4 − 6 + 2。"},{"expr":"= 0 ✓ 所以 x = 2 是解","hint":"算出來不是 0 就表示不是解。"}]},
       q: {
         q: '課文說驗算要代回哪一個式子？',
         options: [
@@ -19998,6 +20296,7 @@ window.APP_TEXTS['math|八上|第8單元 一元二次方程式（二）'] = {
       terms: [
         { w: '補項', d: '為湊成完全平方所加的數。' }
       ],
+      viz: {"type":"areamodel","mode":"complete","b":8},
       q: {
         q: '課文說要補的數怎麼算？',
         options: [
@@ -20046,6 +20345,7 @@ window.APP_TEXTS['math|八上|第8單元 一元二次方程式（二）'] = {
       terms: [
         { w: '判別式', d: '決定二次方程式解的個數的式子。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"b² − 4ac > 0","hint":"根號開得出來，± 給出兩個不同的答案。"},{"expr":"b² − 4ac = 0","hint":"± 加減 0，兩個答案重疊 → 重根。"},{"expr":"b² − 4ac < 0","hint":"負數開不了平方 → 沒有實數解。"}]},
       q: {
         q: '課文說判別式小於零代表什麼？',
         options: [
@@ -20148,6 +20448,7 @@ window.APP_TEXTS['math|八上|第9單元 統計資料的整理'] = {
       terms: [
         { w: '累積次數', d: '從第一組累加到本組的次數總和。' }
       ],
+      viz: {"type":"bargraph","unit":"人（累積）","data":[{"label":"42-55","value":3},{"label":"56-69","value":12},{"label":"70-83","value":28},{"label":"84-98","value":40}]},
       q: {
         q: '課文說最後一組的累積次數應該等於什麼？',
         options: [
@@ -20196,6 +20497,7 @@ window.APP_TEXTS['math|八上|第9單元 統計資料的整理'] = {
       terms: [
         { w: '百分位數', d: '表示資料在整體中的相對位置。' }
       ],
+      viz: {"type":"boxplot","values":[52,60,65,70,74,78,85,92]},
       q: {
         q: '課文說中位數相當於第幾百分位數？',
         options: [
@@ -20274,6 +20576,7 @@ window.APP_TEXTS['math|八下|第1單元 等差數列'] = {
       terms: [
         { w: '公差', d: '等差數列中相鄰兩項的固定差。' }
       ],
+      viz: {"type":"seq","a1":3,"d":4,"n":6,"edit":true},
       q: {
         q: '課文說找公差要怎麼算？',
         options: [
@@ -20448,6 +20751,7 @@ window.APP_TEXTS['math|八下|第2單元 等差級數'] = {
       terms: [
         { w: '級數', d: '把數列各項加起來的總和。' }
       ],
+      viz: {"type":"seq","a1":3,"d":4,"n":6,"sum":true},
       q: {
         q: '課文說求和公式為什麼要除以二？',
         options: [
@@ -20670,6 +20974,7 @@ window.APP_TEXTS['math|八下|第3單元 生活中的數列與規律'] = {
       terms: [
         { w: '流程', d: '固定的判斷步驟順序。' }
       ],
+      viz: {"type":"seq","kind":"sq","n":6},
       q: {
         q: '課文說找規律的第一步是什麼？',
         options: [
@@ -20772,6 +21077,7 @@ window.APP_TEXTS['math|八下|第4單元 三角形的基本性質'] = {
       terms: [
         { w: '三角不等式', d: '任兩邊之和大於第三邊的規則。' }
       ],
+      viz: {"type":"compare","items":[{"label":"甲","len":2},{"label":"乙","len":3},{"label":"丙","len":6}]},
       q: {
         q: '課文說快速判斷三邊能否成三角形要看什麼？',
         options: [
@@ -20820,6 +21126,7 @@ window.APP_TEXTS['math|八下|第4單元 三角形的基本性質'] = {
       terms: [
         { w: '正三角形', d: '三邊等長、三角都是六十度的三角形。' }
       ],
+      viz: {"type":"triangle","kind":"equilateral","pick":false},
       q: {
         q: '課文說正三角形每個內角是幾度？',
         options: [
@@ -20844,6 +21151,7 @@ window.APP_TEXTS['math|八下|第4單元 三角形的基本性質'] = {
       terms: [
         { w: '大邊對大角', d: '同一三角形中邊越長對角越大。' }
       ],
+      viz: {"type":"triangleangles","a":80,"b":60,"ext":false},
       q: {
         q: '課文提醒這個性質只能用在什麼情況？',
         options: [
@@ -20898,6 +21206,7 @@ window.APP_TEXTS['math|八下|第5單元 三角形的全等'] = {
       terms: [
         { w: '穩固性', d: '形狀不易被外力改變的性質。' }
       ],
+      viz: {"type":"congruent","kind":"SSS"},
       q: {
         q: '課文說三角形結構穩固的原因是什麼？',
         options: [
@@ -21048,6 +21357,7 @@ window.APP_TEXTS['math|八下|第6單元 平行線與截角'] = {
       terms: [
         { w: '內錯角', d: '在兩線之間、截線兩側的一對角。' }
       ],
+      viz: {"type":"cutangles","deg":65,"show":"alt"},
       q: {
         q: '課文說內錯角的形狀像哪一個字母？',
         options: [
@@ -21120,6 +21430,7 @@ window.APP_TEXTS['math|八下|第6單元 平行線與截角'] = {
       terms: [
         { w: '對頂角', d: '兩線相交時正對面的一對角。' }
       ],
+      viz: {"type":"lines","kind":"intersect","pick":false},
       q: {
         q: '課文說對頂角相等需不需要平行條件？',
         options: [
@@ -21144,6 +21455,7 @@ window.APP_TEXTS['math|八下|第6單元 平行線與截角'] = {
       terms: [
         { w: '餘角', d: '兩角相加等於九十度。' }
       ],
+      viz: {"type":"angle","deg":130},
       q: {
         q: '課文說兩角相加九十度叫什麼？',
         options: [
@@ -21198,6 +21510,7 @@ window.APP_TEXTS['math|八下|第7單元 平行四邊形'] = {
       terms: [
         { w: '對角', d: '四邊形中正對面的兩個角。' }
       ],
+      viz: {"type":"quad","kind":"parallelogram","pick":false},
       q: {
         q: '課文說平行四邊形的對角有什麼關係？',
         options: [
@@ -21222,6 +21535,7 @@ window.APP_TEXTS['math|八下|第7單元 平行四邊形'] = {
       terms: [
         { w: '相鄰角', d: '共用一條邊的兩個角。' }
       ],
+      viz: {"type":"cutangles","deg":70,"show":"same"},
       q: {
         q: '課文說平行四邊形一個角七十度時，相鄰角是幾度？',
         options: [
@@ -21246,6 +21560,7 @@ window.APP_TEXTS['math|八下|第7單元 平行四邊形'] = {
       terms: [
         { w: '互相平分', d: '兩線段的交點是彼此的中點。' }
       ],
+      viz: {"type":"quaddiag","kind":"parallelogram"},
       q: {
         q: '課文說平行四邊形的兩條對角線等不等長？',
         options: [
@@ -21396,6 +21711,7 @@ window.APP_TEXTS['math|八下|第8單元 特殊四邊形'] = {
       terms: [
         { w: '梯形', d: '只有一組對邊平行的四邊形。' }
       ],
+      viz: {"type":"quad","kind":"trapezoid","pick":false},
       q: {
         q: '課文說梯形面積為什麼要除以二？',
         options: [
@@ -21420,6 +21736,7 @@ window.APP_TEXTS['math|八下|第8單元 特殊四邊形'] = {
       terms: [
         { w: '等腰梯形', d: '兩腰等長的梯形。' }
       ],
+      viz: {"type":"quaddiag","kind":"isotrap"},
       q: {
         q: '課文說等腰梯形的對角線互不互相平分？',
         options: [
@@ -21498,6 +21815,7 @@ window.APP_TEXTS['math|八下|第9單元 幾何證明入門'] = {
       terms: [
         { w: '反例', d: '推翻一般敘述的具體例子。' }
       ],
+      viz: {"type":"quaddiag","kind":"isotrap"},
       q: {
         q: '課文說舉很多例子能不能證明全部成立？',
         options: [
@@ -21522,6 +21840,7 @@ window.APP_TEXTS['math|八下|第9單元 幾何證明入門'] = {
       terms: [
         { w: '逆敘述', d: '把條件與結論對調後的敘述。' }
       ],
+      viz: {"type":"cutangles","deg":60,"show":"co"},
       q: {
         q: '課文說逆敘述是怎麼來的？',
         options: [
@@ -21594,6 +21913,7 @@ window.APP_TEXTS['math|八下|第9單元 幾何證明入門'] = {
       terms: [
         { w: '反證法', d: '假設結論不成立並推出矛盾的證法。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"① 假設結論不成立","hint":"故意站到反方。"},{"expr":"② 依照推理推下去","hint":"每一步一樣要有理由。"},{"expr":"③ 推出矛盾","hint":"例如推出「1 = 2」這種不可能的事。"},{"expr":"④ 所以原本的結論成立","hint":"因為反方站不住腳。"}]},
       q: {
         q: '課文說反證法的做法是什麼？',
         options: [
@@ -21648,6 +21968,7 @@ window.APP_TEXTS['math|九上|第1單元 相似形與比例線段'] = {
       terms: [
         { w: '判定', d: '確認兩圖形相似所需的條件。' }
       ],
+      viz: {"type":"similar","k":2},
       q: {
         q: '課文說要判定兩三角形相似最少需要幾組角相等？',
         options: [
@@ -21720,6 +22041,7 @@ window.APP_TEXTS['math|九上|第1單元 相似形與比例線段'] = {
       terms: [
         { w: '截線段', d: '被平行線切出的線段。' }
       ],
+      viz: {"type":"cutangles","deg":62,"show":"co","pick":false},
       q: {
         q: '課文說平行線截出的線段有什麼關係？',
         options: [
@@ -21798,6 +22120,7 @@ window.APP_TEXTS['math|九上|第2單元 相似三角形的應用'] = {
       terms: [
         { w: '間接測量', d: '用比例推算無法直接量的長度。' }
       ],
+      viz: {"type":"similar","k":2},
       q: {
         q: '課文說用相似測量前要先確認什麼？',
         options: [
@@ -21972,6 +22295,7 @@ window.APP_TEXTS['math|九上|第3單元 圓的基本性質'] = {
       terms: [
         { w: '弦', d: '兩端都在圓上的線段。' }
       ],
+      viz: {"type":"circleparts"},
       q: {
         q: '課文說半徑算不算弦？',
         options: [
@@ -21996,6 +22320,7 @@ window.APP_TEXTS['math|九上|第3單元 圓的基本性質'] = {
       terms: [
         { w: '垂徑定理', d: '圓心到弦的垂線平分該弦。' }
       ],
+      viz: {"type":"circleline","mode":"secant","pick":false},
       q: {
         q: '課文說圓心對弦畫的垂線會做什麼？',
         options: [
@@ -22044,6 +22369,7 @@ window.APP_TEXTS['math|九上|第3單元 圓的基本性質'] = {
       terms: [
         { w: '扇形', d: '由兩條半徑與一段弧圍成的圖形。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"扇形","value":1},{"label":"其餘","value":3}]},
       q: {
         q: '課文說圓心角九十度的扇形佔整圓多少？',
         options: [
@@ -22098,6 +22424,7 @@ window.APP_TEXTS['math|九上|第4單元 圓心角與圓周角'] = {
       terms: [
         { w: '同弧', d: '所對的是同一段弧。' }
       ],
+      viz: {"type":"circleangles","mode":"inscribed","deg":100},
       q: {
         q: '課文說對同一段弧的圓周角彼此如何？',
         options: [
@@ -22170,6 +22497,7 @@ window.APP_TEXTS['math|九上|第4單元 圓心角與圓周角'] = {
       terms: [
         { w: '正比', d: '一量變大另一量同倍變大。' }
       ],
+      viz: {"type":"proportion","mode":"direct","k":2,"labelX":"圓心角","labelY":"弧長"},
       q: {
         q: '課文說圓心角和弧長是什麼關係？',
         options: [
@@ -22224,6 +22552,7 @@ window.APP_TEXTS['math|九上|第5單元 圓與切線'] = {
       terms: [
         { w: '切點', d: '切線與圓唯一的交點。' }
       ],
+      viz: {"type":"circleline","mode":"tangent"},
       q: {
         q: '課文說直線和圓有兩個交點時叫什麼？',
         options: [
@@ -22344,6 +22673,7 @@ window.APP_TEXTS['math|九上|第5單元 圓與切線'] = {
       terms: [
         { w: '圓心距', d: '兩圓圓心之間的距離。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"d > R + r","hint":"外離：兩圓分得開開的，沒有交點。"},{"expr":"d = R + r","hint":"外切：剛好碰到一點，兩圓在彼此外面。"},{"expr":"|R − r| < d < R + r","hint":"相交：有兩個交點。"},{"expr":"d = |R − r|","hint":"內切：小圓在大圓裡面，碰到一點。"}]},
       q: {
         q: '課文說兩圓圓心距等於兩半徑之和時是什麼關係？',
         options: [
@@ -22446,6 +22776,7 @@ window.APP_TEXTS['math|九上|第6單元 三角形的心'] = {
       terms: [
         { w: '垂心', d: '三條高所交會的點。' }
       ],
+      viz: {"type":"tricenters","kind":"ortho"},
       q: {
         q: '課文說直角三角形的垂心在哪裡？',
         options: [
@@ -22572,6 +22903,7 @@ window.APP_TEXTS['math|九上|第7單元 幾何與生活應用'] = {
       terms: [
         { w: '錐體', d: '由底面與一個頂點圍成的立體。' }
       ],
+      viz: {"type":"cylinder","r":3,"h":5,"mode":"volume"},
       q: {
         q: '課文說圓錐要倒幾次才裝滿同底同高的圓柱？',
         options: [
@@ -22596,6 +22928,7 @@ window.APP_TEXTS['math|九上|第7單元 幾何與生活應用'] = {
       terms: [
         { w: '表面積', d: '立體所有外表面的面積總和。' }
       ],
+      viz: {"type":"netbox","l":4,"w":3,"h":2},
       q: {
         q: '課文說「灌入」這類問題要算什麼？',
         options: [
@@ -22620,6 +22953,7 @@ window.APP_TEXTS['math|九上|第7單元 幾何與生活應用'] = {
       terms: [
         { w: '坪', d: '約三點三平方公尺的面積單位。' }
       ],
+      viz: {"type":"areagrid","w":5,"h":4,"edit":true},
       q: {
         q: '課文說一坪大約是多少平方公尺？',
         options: [
@@ -22674,6 +23008,7 @@ window.APP_TEXTS['math|九上|第8單元 二次函數的圖形'] = {
       terms: [
         { w: '拋物線', d: '二次函數的圖形，左右對稱。' }
       ],
+      viz: {"type":"parabola","a":1,"h":0,"k":0},
       q: {
         q: '課文說二次函數的哪個係數不能是零？',
         options: [
@@ -22944,6 +23279,7 @@ window.APP_TEXTS['math|九上|第9單元 二次函數的極值'] = {
       terms: [
         { w: '拋體運動', d: '物體被拋出後只受重力的運動。' }
       ],
+      viz: {"type":"parabola","a":-1,"h":2,"k":4,"min":-2,"max":6},
       q: {
         q: '課文說拋體運動的圖形頂點代表什麼？',
         options: [
@@ -22998,6 +23334,7 @@ window.APP_TEXTS['math|九下|第1單元 立體圖形與表面積'] = {
       terms: [
         { w: '正方體', d: '六個面都是正方形的立體。' }
       ],
+      viz: {"type":"netbox","l":3,"w":3,"h":3},
       q: {
         q: '課文說已知正方體表面積要先做什麼？',
         options: [
@@ -23022,6 +23359,7 @@ window.APP_TEXTS['math|九下|第1單元 立體圖形與表面積'] = {
       terms: [
         { w: '側面積', d: '不含上下底面的外表面積。' }
       ],
+      viz: {"type":"cylinder","r":3,"h":5,"mode":"surface"},
       q: {
         q: '課文說圓柱側面攤開後是什麼形狀？',
         options: [
@@ -23070,6 +23408,7 @@ window.APP_TEXTS['math|九下|第1單元 立體圖形與表面積'] = {
       terms: [
         { w: '母線', d: '圓錐頂點到底面圓周的斜線。' }
       ],
+      viz: {"type":"solid","kind":"cone","r":3,"h":4,"l":5},
       q: {
         q: '課文說圓錐側面積要用哪一個長度？',
         options: [
@@ -23124,6 +23463,7 @@ window.APP_TEXTS['math|九下|第2單元 立體圖形的體積'] = {
       terms: [
         { w: '立方單位', d: '體積所使用的單位。' }
       ],
+      viz: {"type":"cuboid","l":4,"w":3,"h":2},
       q: {
         q: '課文說體積的單位是什麼？',
         options: [
@@ -23172,6 +23512,7 @@ window.APP_TEXTS['math|九下|第2單元 立體圖形的體積'] = {
       terms: [
         { w: '圓柱', d: '上下底面為圓的柱體。' }
       ],
+      viz: {"type":"cylinder","r":5,"h":6,"mode":"volume"},
       q: {
         q: '課文提醒圓柱體積計算最容易犯什麼錯？',
         options: [
@@ -23244,6 +23585,7 @@ window.APP_TEXTS['math|九下|第2單元 立體圖形的體積'] = {
       terms: [
         { w: '錐體', d: '底面與一頂點連成的立體。' }
       ],
+      viz: {"type":"solid","kind":"pyramid","h":9},
       q: {
         q: '課文說四角錐底面積三十、高九的體積是多少？',
         options: [
@@ -23322,6 +23664,7 @@ window.APP_TEXTS['math|九下|第3單元 機率的意義'] = {
       terms: [
         { w: '不可能事件', d: '絕不會發生的事件。' }
       ],
+      viz: {"type":"probtable","kind":"dice1","want":[]},
       q: {
         q: '課文說「很少發生」的機率是多少？',
         options: [
@@ -23370,6 +23713,7 @@ window.APP_TEXTS['math|九下|第3單元 機率的意義'] = {
       terms: [
         { w: '花色', d: '撲克牌的四種圖案分類。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"紅心","value":13},{"label":"方塊","value":13},{"label":"黑桃","value":13},{"label":"梅花","value":13}]},
       q: {
         q: '課文說抽到 K 的機率是多少？',
         options: [
@@ -23424,6 +23768,7 @@ window.APP_TEXTS['math|九下|第4單元 機率的計算'] = {
       terms: [
         { w: '樣本空間', d: '所有可能結果所成的集合。' }
       ],
+      viz: {"type":"probtable","kind":"coin","n":2,"cond":"atleastone"},
       q: {
         q: '課文說兩枚硬幣一共有幾種結果？',
         options: [
@@ -23622,6 +23967,7 @@ window.APP_TEXTS['math|九下|第5單元 統計資料的呈現'] = {
       terms: [
         { w: '五數綜合', d: '最小值、三個四分位數與最大值。' }
       ],
+      viz: {"type":"boxplot","values":[12,15,18,22,25,28,35]},
       q: {
         q: '課文說盒子越短代表什麼？',
         options: [
@@ -23670,6 +24016,7 @@ window.APP_TEXTS['math|九下|第5單元 統計資料的呈現'] = {
       terms: [
         { w: '直方圖', d: '顯示數值分組次數的統計圖。' }
       ],
+      viz: {"type":"bargraph","unit":"人","data":[{"label":"60-69","value":4},{"label":"70-79","value":11},{"label":"80-89","value":17},{"label":"90-99","value":8}]},
       q: {
         q: '課文說直方圖的長條之間為什麼不留空隙？',
         options: [
@@ -23694,6 +24041,7 @@ window.APP_TEXTS['math|九下|第5單元 統計資料的呈現'] = {
       terms: [
         { w: '折線圖', d: '顯示隨時間變化趨勢的統計圖。' }
       ],
+      viz: {"type":"linechart","unit":"萬元","data":[{"label":"1月","value":32},{"label":"4月","value":41},{"label":"7月","value":38},{"label":"10月","value":52}]},
       q: {
         q: '課文說要看隨時間的變化該用什麼圖？',
         options: [
@@ -23724,6 +24072,7 @@ window.APP_TEXTS['math|九下|第6單元 資料的離散程度'] = {
       terms: [
         { w: '全距', d: '最大值與最小值的差。' }
       ],
+      viz: {"type":"boxplot","values":[12,15,18,22,25,28,35]},
       q: {
         q: '課文說全距的缺點是什麼？',
         options: [
@@ -23748,6 +24097,7 @@ window.APP_TEXTS['math|九下|第6單元 資料的離散程度'] = {
       terms: [
         { w: '標準差', d: '衡量資料離平均程度的指標。' }
       ],
+      viz: {"type":"spread","a":[78,79,80,81,82],"b":[62,71,80,89,98]},
       q: {
         q: '課文說標準差小代表什麼？',
         options: [
@@ -23844,6 +24194,7 @@ window.APP_TEXTS['math|九下|第6單元 資料的離散程度'] = {
       terms: [
         { w: '極端值', d: '明顯偏離其他資料的數值。' }
       ],
+      viz: {"type":"dotplot","values":[2,3,3,4,18]},
       q: {
         q: '課文說哪些統計量最不怕極端值？',
         options: [
@@ -23922,6 +24273,7 @@ window.APP_TEXTS['math|九下|第7單元 綜合應用：代數'] = {
       terms: [
         { w: '連續整數', d: '相差一的一串整數。' }
       ],
+      viz: {"type":"seq","a1":15,"d":1,"n":3,"sum":true},
       q: {
         q: '課文說三個連續整數設哪一個當未知數最省事？',
         options: [
@@ -23970,6 +24322,7 @@ window.APP_TEXTS['math|九下|第7單元 綜合應用：代數'] = {
       terms: [
         { w: '年齡差', d: '兩人年齡相減的固定值。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"x 年後：父 40 + x、子 10 + x","hint":"兩個人都要加。"},{"expr":"40 + x = 2(10 + x)","hint":"父是子的 2 倍。"},{"expr":"40 + x = 20 + 2x","hint":"展開括號後移項。"},{"expr":"x = 20（20 年後父 60、子 30）","hint":"60 是 30 的 2 倍 ✓"}]},
       q: {
         q: '課文說年齡問題最常見的錯是什麼？',
         options: [
@@ -24024,6 +24377,7 @@ window.APP_TEXTS['math|九下|第8單元 綜合應用：幾何'] = {
       terms: [
         { w: '外角和', d: '多邊形所有外角的總和。' }
       ],
+      viz: {"type":"polygon","sides":8},
       q: {
         q: '課文說多邊形的外角和是多少？',
         options: [
@@ -24048,6 +24402,7 @@ window.APP_TEXTS['math|九下|第8單元 綜合應用：幾何'] = {
       terms: [
         { w: '對角', d: '四邊形中正對面的兩個角。' }
       ],
+      viz: {"type":"circleangles","mode":"cyclicquad","pick":false},
       q: {
         q: '課文說圓內接四邊形的對角關係是什麼？',
         options: [
@@ -24072,6 +24427,7 @@ window.APP_TEXTS['math|九下|第8單元 綜合應用：幾何'] = {
       terms: [
         { w: '三邊比', d: '三角形三邊長度的比例。' }
       ],
+      viz: {"type":"triangleangles","a":30,"b":60,"ext":false,"edit":false},
       q: {
         q: '課文說四十五度直角三角形的三邊比是多少？',
         options: [
@@ -24222,6 +24578,7 @@ window.APP_TEXTS['math|九下|第9單元 綜合複習'] = {
       terms: [
         { w: '因式分解', d: '把多項式寫成連乘積。' }
       ],
+      viz: {"type":"crossmult","a1":1,"b1":-2,"a2":1,"b2":-3},
       q: {
         q: '課文說解一元二次方程式先試什麼方法？',
         options: [
@@ -24246,6 +24603,7 @@ window.APP_TEXTS['math|九下|第9單元 綜合複習'] = {
       terms: [
         { w: '絕對值', d: '數在數線上離原點的距離。' }
       ],
+      viz: {"type":"numberline","min":-8,"max":8,"step":1,"edit":false,"marks":[{"v":-7,"label":"−7"},{"v":3,"label":"3"}]},
       q: {
         q: '課文說負七加三再取絕對值等於多少？',
         options: [
@@ -24294,6 +24652,7 @@ window.APP_TEXTS['math|九下|第9單元 綜合複習'] = {
       terms: [
         { w: '消去法', d: '把一個未知數消掉再解的方法。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"x + y = 10 … ①　　x − y = 4 … ②","hint":"y 的係數相反 → 相加。"},{"expr":"① + ② → 2x = 14","hint":"y 被消掉了。"},{"expr":"x = 7","hint":"代回 ①：7 + y = 10。"},{"expr":"y = 3","hint":"驗算：7 − 3 = 4 ✓"}]},
       q: {
         q: '課文說係數相同時要用加還是減？',
         options: [
@@ -24324,6 +24683,7 @@ window.APP_TEXTS['math|十上|第1單元 實數與絕對值'] = {
       terms: [
         { w: '絕對值', d: '數在數線上離原點的距離。' }
       ],
+      viz: {"type":"numberline","min":-8,"max":8,"step":1,"edit":false,"marks":[{"v":-7,"label":"−7"},{"v":7,"label":"7"}]},
       q: {
         q: '課文說絕對值的結果一定滿足什麼？',
         options: [
@@ -24396,6 +24756,7 @@ window.APP_TEXTS['math|十上|第1單元 實數與絕對值'] = {
       terms: [
         { w: '區間', d: '數線上連續的一段範圍。' }
       ],
+      viz: {"type":"ineqline","op":"<=","value":5,"min":-3,"max":7},
       q: {
         q: '課文說絕對值大於某數時解會長成什麼樣？',
         options: [
@@ -24498,6 +24859,7 @@ window.APP_TEXTS['math|十上|第2單元 指數與根式'] = {
       terms: [
         { w: '倒數', d: '相乘等於一的兩個數互為倒數。' }
       ],
+      viz: {"type":"logexp","a":2,"x":0},
       q: {
         q: '課文說負次方代表什麼？',
         options: [
@@ -24522,6 +24884,7 @@ window.APP_TEXTS['math|十上|第2單元 指數與根式'] = {
       terms: [
         { w: '根式', d: '含有根號的式子。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"√3 × √12","hint":"乘法可以合併根號裡的數。"},{"expr":"= √36","hint":"3 × 12 = 36。"},{"expr":"= 6","hint":"剛好是平方數。"}]},
       q: {
         q: '課文說根號的哪一種運算不能直接合併？',
         options: [
@@ -24672,6 +25035,7 @@ window.APP_TEXTS['math|十上|第3單元 對數'] = {
       terms: [
         { w: '計算尺', d: '利用對數刻度做乘除的計算工具。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"log(8 × 4)","hint":"乘法可以拆開。"},{"expr":"= log 8 + log 4","hint":"以 2 為底的話：3 + 2。"},{"expr":"= 5 = log 32","hint":"8 × 4 = 32，log₂32 = 5 ✓"}]},
       q: {
         q: '課文說兩數相乘取對數後會變成什麼運算？',
         options: [
@@ -24744,6 +25108,7 @@ window.APP_TEXTS['math|十上|第3單元 對數'] = {
       terms: [
         { w: '對數尺度', d: '以倍數而非等差呈現的量尺。' }
       ],
+      viz: {"type":"logexp","a":2,"x":3},
       q: {
         q: '課文說規模七的地震能量約是規模六的幾倍？',
         options: [
@@ -24798,6 +25163,7 @@ window.APP_TEXTS['math|十上|第4單元 多項式函數'] = {
       terms: [
         { w: '平方差', d: '兩數平方相減可分解為和與差相乘。' }
       ],
+      viz: {"type":"crossmult","a1":1,"b1":1,"a2":1,"b2":2},
       q: {
         q: '課文說展開後的中間項是怎麼來的？',
         options: [
@@ -24870,6 +25236,7 @@ window.APP_TEXTS['math|十上|第4單元 多項式函數'] = {
       terms: [
         { w: '綜合除法', d: '除以一次式的簡便算法。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"x³ − 7x + 6 ÷ (x − 1)，係數 1, 0, −7, 6","hint":"缺項的係數要補 0。"},{"expr":"1 →（×1）→ 0 + 1 = 1","hint":"抄下 1，乘 1 加到下一項。"},{"expr":"−7 + 1 = −6 →（×1）→ 6 + (−6) = 0","hint":"最後一格是餘數 0。"},{"expr":"商 = x² + x − 6，餘 0","hint":"次數比原本少 1。"}]},
       q: {
         q: '課文說綜合除法最後一格代表什麼？',
         options: [
@@ -24894,6 +25261,7 @@ window.APP_TEXTS['math|十上|第4單元 多項式函數'] = {
       terms: [
         { w: '根', d: '使多項式等於零的數值。' }
       ],
+      viz: {"type":"parabola","a":1,"h":1,"k":-4,"min":-4,"max":6},
       q: {
         q: '課文說哪三件事其實是同一件事？',
         options: [
@@ -24972,6 +25340,7 @@ window.APP_TEXTS['math|十上|第5單元 方程式與不等式'] = {
       terms: [
         { w: '根與係數', d: '方程式的根與係數之間的關係。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"x² − 5x + 6 = 0","hint":"a = 1、b = −5、c = 6。"},{"expr":"兩根和 = −b/a = 5","hint":"注意有個負號。"},{"expr":"兩根積 = c/a = 6","hint":"驗算：2 + 3 = 5、2 × 3 = 6 ✓"}]},
       q: {
         q: '課文說兩根之和等於什麼？',
         options: [
@@ -25020,6 +25389,7 @@ window.APP_TEXTS['math|十上|第5單元 方程式與不等式'] = {
       terms: [
         { w: '虛數', d: '平方後為負的數，高二會學到。' }
       ],
+      viz: {"type":"parabola","a":1,"h":0,"k":4,"min":-3,"max":8},
       q: {
         q: '課文說 x 平方等於負四在實數範圍有沒有解？',
         options: [
@@ -25044,6 +25414,7 @@ window.APP_TEXTS['math|十上|第5單元 方程式與不等式'] = {
       terms: [
         { w: '反推', d: '由結果回頭求出原本的條件。' }
       ],
+      viz: {"type":"crossmult","a1":1,"b1":-2,"a2":1,"b2":-3},
       q: {
         q: '課文說由根寫方程式時哪裡最常寫錯？',
         options: [
@@ -25074,6 +25445,7 @@ window.APP_TEXTS['math|十上|第6單元 函數與圖形'] = {
       terms: [
         { w: '定義域', d: '函數允許代入的所有數值。' }
       ],
+      viz: {"type":"linegraph","a":2,"b":1},
       q: {
         q: '課文說哪兩件事會限制定義域？',
         options: [
@@ -25122,6 +25494,7 @@ window.APP_TEXTS['math|十上|第6單元 函數與圖形'] = {
       terms: [
         { w: '反直覺', d: '與第一印象相反的規則。' }
       ],
+      viz: {"type":"parabola","a":1,"h":3,"k":0,"min":-3,"max":7},
       q: {
         q: '課文說括號裡減三時圖形往哪邊移？',
         options: [
@@ -25146,6 +25519,7 @@ window.APP_TEXTS['math|十上|第6單元 函數與圖形'] = {
       terms: [
         { w: '對稱', d: '圖形沿某線或某點翻轉後重合。' }
       ],
+      viz: {"type":"coordplane","x":3,"y":2,"showSym":"y"},
       q: {
         q: '課文說兩個坐標都變號代表什麼對稱？',
         options: [
@@ -25224,6 +25598,7 @@ window.APP_TEXTS['math|十上|第7單元 三角比'] = {
       terms: [
         { w: '斜邊', d: '直角三角形中對著直角的最長邊。' }
       ],
+      viz: {"type":"trig","deg":40},
       q: {
         q: '課文說正切等於什麼？',
         options: [
@@ -25320,6 +25695,7 @@ window.APP_TEXTS['math|十上|第7單元 三角比'] = {
       terms: [
         { w: '恆等式', d: '對所有情況都成立的等式。' }
       ],
+      viz: {"type":"pythagoras","a":3,"b":4,"edit":false},
       q: {
         q: '課文說正弦五分之三時餘弦是多少？',
         options: [
@@ -25494,6 +25870,7 @@ window.APP_TEXTS['math|十上|第8單元 正弦與餘弦定理'] = {
       terms: [
         { w: '三角測量', d: '用三角形關係推算距離的方法。' }
       ],
+      viz: {"type":"triglaw","mode":"sin","A":40,"B":65,"a":30},
       q: {
         q: '課文說解這類題目的第一步是什麼？',
         options: [
@@ -25644,6 +26021,7 @@ window.APP_TEXTS['math|十上|第9單元 數列與級數'] = {
       terms: [
         { w: '總和記號', d: '表示連加的數學符號。' }
       ],
+      viz: {"type":"seq","a1":1,"d":1,"n":5,"sum":true},
       q: {
         q: '課文說總和記號上面那個數代表什麼？',
         options: [
@@ -25674,6 +26052,7 @@ window.APP_TEXTS['math|十下|第1單元 排列組合'] = {
       terms: [
         { w: '乘法原理', d: '分步驟時把各步方法數相乘。' }
       ],
+      viz: {"type":"counting","kind":"tree","groups":[{"label":"上衣","n":2},{"label":"褲子","n":3}]},
       q: {
         q: '課文說兩件上衣三件褲子兩雙鞋共幾種穿搭？',
         options: [
@@ -25824,6 +26203,7 @@ window.APP_TEXTS['math|十下|第2單元 機率'] = {
       terms: [
         { w: '必然事件', d: '機率為一、一定發生的事件。' }
       ],
+      viz: {"type":"probtable","kind":"dice1","want":[6]},
       q: {
         q: '課文說所有結果的機率加起來等於多少？',
         options: [
@@ -25920,6 +26300,7 @@ window.APP_TEXTS['math|十下|第2單元 機率'] = {
       terms: [
         { w: '互斥', d: '兩事件不可能同時發生。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"偶數：2,4,6,8,10 → 5/10","hint":"第一類。"},{"expr":"5 的倍數：5,10 → 2/10","hint":"第二類。"},{"expr":"10 兩邊都算到了 → 扣掉 1/10","hint":"避免重複計算。"},{"expr":"5/10 + 2/10 − 1/10 = 6/10 = 3/5","hint":"答案。"}]},
       q: {
         q: '課文說不互斥時要多做什麼動作？',
         options: [
@@ -25998,6 +26379,7 @@ window.APP_TEXTS['math|十下|第3單元 統計：資料整理'] = {
       terms: [
         { w: '代表性', d: '統計量能否反映多數情況。' }
       ],
+      viz: {"type":"dotplot","values":[3,4,4,5,30]},
       q: {
         q: '課文說有極端值時哪個代表值比較可信？',
         options: [
@@ -26022,6 +26404,7 @@ window.APP_TEXTS['math|十下|第3單元 統計：資料整理'] = {
       terms: [
         { w: '變異', d: '資料彼此之間的差異程度。' }
       ],
+      viz: {"type":"spread","a":[4,4,4,4],"b":[1,3,5,7]},
       q: {
         q: '課文說標準差和平均數的大小有沒有關係？',
         options: [
@@ -26094,6 +26477,7 @@ window.APP_TEXTS['math|十下|第3單元 統計：資料整理'] = {
       terms: [
         { w: '抽樣', d: '從全體中取一部分做調查。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"樣本","value":1},{"label":"未抽到","value":9}]},
       q: {
         q: '課文說抽樣最關鍵的條件是什麼？',
         options: [
@@ -26124,6 +26508,7 @@ window.APP_TEXTS['math|十下|第4單元 直線與圓'] = {
       terms: [
         { w: '距離公式', d: '由坐標算出兩點距離的公式。' }
       ],
+      viz: {"type":"coordplane","x":3,"y":4},
       q: {
         q: '課文說距離公式的原理是什麼？',
         options: [
@@ -26196,6 +26581,7 @@ window.APP_TEXTS['math|十下|第4單元 直線與圓'] = {
       terms: [
         { w: '負倒數', d: '取倒數後再加負號的數。' }
       ],
+      viz: {"type":"lines","kind":"perpendicular","pick":false},
       q: {
         q: '課文說和斜率二垂直的直線斜率是多少？',
         options: [
@@ -26244,6 +26630,7 @@ window.APP_TEXTS['math|十下|第4單元 直線與圓'] = {
       terms: [
         { w: '點線距離', d: '點到直線的最短距離。' }
       ],
+      viz: {"type":"circleline","mode":"tangent","pick":false},
       q: {
         q: '課文說點線距離公式的分子為什麼取絕對值？',
         options: [
@@ -26274,6 +26661,7 @@ window.APP_TEXTS['math|十下|第5單元 平面向量'] = {
       terms: [
         { w: '純量', d: '只有大小沒有方向的量。' }
       ],
+      viz: {"type":"vector","a":[3,1],"b":[1,3],"mode":"add"},
       q: {
         q: '課文說繞操場一圈的位移是多少？',
         options: [
@@ -26520,6 +26908,7 @@ window.APP_TEXTS['math|十下|第6單元 向量的內積'] = {
       terms: [
         { w: '銳角', d: '小於九十度的角。' }
       ],
+      viz: {"type":"vector","a":[3,1],"b":[-2,2],"mode":"dot"},
       q: {
         q: '課文說內積小於零代表夾角是什麼角？',
         options: [
@@ -26574,6 +26963,7 @@ window.APP_TEXTS['math|十下|第7單元 二次曲線'] = {
       terms: [
         { w: '圓錐曲線', d: '平面切圓錐所得到的曲線。' }
       ],
+      viz: {"type":"conic","kind":"ellipse","a":5,"b":4},
       q: {
         q: '課文說兩個平方項相減是哪一種曲線？',
         options: [
@@ -26748,6 +27138,7 @@ window.APP_TEXTS['math|十下|第8單元 矩陣入門'] = {
       terms: [
         { w: '零矩陣', d: '所有元素都是零的矩陣。' }
       ],
+      viz: {"type":"matrix","op":"add"},
       q: {
         q: '課文說什麼樣的兩個矩陣才能相加？',
         options: [
@@ -26946,6 +27337,7 @@ window.APP_TEXTS['math|十下|第9單元 線性規劃'] = {
       terms: [
         { w: '最佳解', d: '使目標函數達到極值的解。' }
       ],
+      viz: {"type":"linprog","vertices":[[0,0],[4,0],[2,2],[0,3]],"f":[2,3]},
       q: {
         q: '課文說最佳解一定出現在哪裡？',
         options: [
@@ -27048,6 +27440,7 @@ window.APP_TEXTS['math|十一上|第1單元 三角函數的定義'] = {
       terms: [
         { w: '扇形', d: '由兩條半徑與一段弧圍成的圖形。' }
       ],
+      viz: {"type":"unitcircle","deg":60},
       q: {
         q: '課文說用弧度算弧長的公式是什麼？',
         options: [
@@ -27120,6 +27513,7 @@ window.APP_TEXTS['math|十一上|第1單元 三角函數的定義'] = {
       terms: [
         { w: '週期', d: '函數重複一次所需的間隔。' }
       ],
+      viz: {"type":"trigwave","a":1,"b":1,"c":0},
       q: {
         q: '課文說正切的週期是多少？',
         options: [
@@ -27246,6 +27640,7 @@ window.APP_TEXTS['math|十一上|第2單元 三角恆等式'] = {
       terms: [
         { w: '代換', d: '用等價的式子替換原本的式子。' }
       ],
+      viz: {"type":"trigwave","a":1,"b":2,"c":0,"fn":"cos"},
       q: {
         q: '課文說餘弦倍角有幾種寫法？',
         options: [
@@ -27270,6 +27665,7 @@ window.APP_TEXTS['math|十一上|第2單元 三角恆等式'] = {
       terms: [
         { w: '精確值', d: '不取近似的確切數值。' }
       ],
+      viz: {"type":"unitcircle","deg":75},
       q: {
         q: '課文說七十五度可以拆成哪兩個角？',
         options: [
@@ -27324,6 +27720,7 @@ window.APP_TEXTS['math|十一上|第3單元 三角函數的應用'] = {
       terms: [
         { w: '基準角', d: '先找到的那個特殊角。' }
       ],
+      viz: {"type":"unitcircle","deg":60},
       q: {
         q: '課文說一個週期內通常有幾個解？',
         options: [
@@ -27420,6 +27817,7 @@ window.APP_TEXTS['math|十一上|第3單元 三角函數的應用'] = {
       terms: [
         { w: '參數', d: '決定函數形狀的數值。' }
       ],
+      viz: {"type":"trigwave","a":2,"b":2,"c":1},
       q: {
         q: '課文說振幅要怎麼從圖上讀出來？',
         options: [
@@ -27444,6 +27842,7 @@ window.APP_TEXTS['math|十一上|第3單元 三角函數的應用'] = {
       terms: [
         { w: '定位', d: '推算出物體所在的位置。' }
       ],
+      viz: {"type":"triglaw","mode":"sin","A":40,"B":65,"a":30},
       q: {
         q: '課文說解這類應用題的第一步是什麼？',
         options: [
@@ -27570,6 +27969,7 @@ window.APP_TEXTS['math|十一上|第4單元 指數與對數函數'] = {
       terms: [
         { w: '半衰期', d: '數量減為一半所需的時間。' }
       ],
+      viz: {"type":"seq","kind":"geo","a1":2,"d":2,"n":6},
       q: {
         q: '課文說指數變化的關鍵特徵是什麼？',
         options: [
@@ -27594,6 +27994,7 @@ window.APP_TEXTS['math|十一上|第4單元 指數與對數函數'] = {
       terms: [
         { w: '數量級', d: '以十的次方衡量的大小等級。' }
       ],
+      viz: {"type":"logexp","a":2,"x":5},
       q: {
         q: '課文提醒讀對數圖時要注意什麼？',
         options: [
@@ -27744,6 +28145,7 @@ window.APP_TEXTS['math|十一上|第5單元 數列的遞迴'] = {
       terms: [
         { w: '取捨', d: '依情況選擇較合適的方法。' }
       ],
+      viz: {"type":"seq","a1":2,"d":3,"n":6},
       q: {
         q: '課文說一般式的缺點是什麼？',
         options: [
@@ -27894,6 +28296,7 @@ window.APP_TEXTS['math|十一上|第6單元 級數與極限'] = {
       terms: [
         { w: '悖論', d: '看似矛盾但其實有解的論證。' }
       ],
+      viz: {"type":"limit","mode":"sum","a1":0.5,"r":0.5,"n":8},
       q: {
         q: '課文說無限多段時間加起來會怎樣？',
         options: [
@@ -28020,6 +28423,7 @@ window.APP_TEXTS['math|十一上|第7單元 空間概念與坐標'] = {
       terms: [
         { w: '交線', d: '兩平面相交所成的直線。' }
       ],
+      viz: {"type":"space3d","mode":"plane","normal":[2,3,-1]},
       q: {
         q: '課文說兩個平面相交時交出來的是什麼？',
         options: [
@@ -28146,6 +28550,7 @@ window.APP_TEXTS['math|十一上|第8單元 空間向量'] = {
       terms: [
         { w: '未知分量', d: '向量中尚待求出的那一格。' }
       ],
+      viz: {"type":"vector","a":[1,0],"b":[0,1],"mode":"dot"},
       q: {
         q: '課文說求未知分量最常用的條件是什麼？',
         options: [
@@ -28194,6 +28599,7 @@ window.APP_TEXTS['math|十一上|第8單元 空間向量'] = {
       terms: [
         { w: '共線', d: '三個點落在同一條直線上。' }
       ],
+      viz: {"type":"space3d","point":[3,2,2],"mode":"point"},
       q: {
         q: '課文說三點共線的向量條件是什麼？',
         options: [
@@ -28344,6 +28750,7 @@ window.APP_TEXTS['math|十一上|第9單元 空間中的平面與直線'] = {
       terms: [
         { w: '方向向量', d: '指出直線走向的向量。' }
       ],
+      viz: {"type":"space3d","mode":"plane","normal":[1,1,1]},
       q: {
         q: '課文說方向向量和法向量平行時直線與平面如何？',
         options: [
@@ -28422,6 +28829,7 @@ window.APP_TEXTS['math|十一下|第1單元 矩陣的運算'] = {
       terms: [
         { w: '交換律', d: '調換順序結果不變的性質。' }
       ],
+      viz: {"type":"matrix","op":"mul"},
       q: {
         q: '課文說矩陣和數字最大的差別是什麼？',
         options: [
@@ -28620,6 +29028,7 @@ window.APP_TEXTS['math|十一下|第2單元 線性變換'] = {
       terms: [
         { w: '行列式', d: '方陣對應的一個特徵數值。' }
       ],
+      viz: {"type":"lintrans","kind":"shear"},
       q: {
         q: '課文說旋轉矩陣的行列式是多少？',
         options: [
@@ -28644,6 +29053,7 @@ window.APP_TEXTS['math|十一下|第2單元 線性變換'] = {
       terms: [
         { w: '複合變換', d: '連續施加多個線性變換。' }
       ],
+      viz: {"type":"matrix","op":"mul","A":[[0,-1],[1,0]],"B":[[1,0],[0,-1]]},
       q: {
         q: '課文說連續變換時後做的矩陣寫在哪邊？',
         options: [
@@ -28698,6 +29108,7 @@ window.APP_TEXTS['math|十一下|第3單元 條件機率'] = {
       terms: [
         { w: '樣本空間', d: '所有可能結果所成的集合。' }
       ],
+      viz: {"type":"probtable","kind":"dice1","want":[2,4,6]},
       q: {
         q: '課文說已知是偶數時擲出六點的機率是多少？',
         options: [
@@ -28770,6 +29181,7 @@ window.APP_TEXTS['math|十一下|第3單元 條件機率'] = {
       terms: [
         { w: '互斥', d: '兩事件不可能同時發生。' }
       ],
+      viz: {"type":"condprob","total":30,"a":12,"b":12,"both":0,"labelA":"搭公車","labelB":"走路"},
       q: {
         q: '課文說兩個機率不為零的互斥事件獨不獨立？',
         options: [
@@ -28794,6 +29206,7 @@ window.APP_TEXTS['math|十一下|第3單元 條件機率'] = {
       terms: [
         { w: '樹狀圖', d: '把分層可能性畫成樹的圖示。' }
       ],
+      viz: {"type":"counting","kind":"tree","groups":[{"label":"第一次","n":2},{"label":"第二次","n":2}]},
       q: {
         q: '課文說疾病很罕見時陽性代表真的有病嗎？',
         options: [
@@ -28824,6 +29237,7 @@ window.APP_TEXTS['math|十一下|第4單元 隨機變數與分布'] = {
       terms: [
         { w: '機率分布', d: '各可能值與其機率的對應表。' }
       ],
+      viz: {"type":"probtable","kind":"dice1","want":[1,2,3,4,5,6]},
       q: {
         q: '課文說怎麼檢查機率分布有沒有列漏？',
         options: [
@@ -28920,6 +29334,7 @@ window.APP_TEXTS['math|十一下|第4單元 隨機變數與分布'] = {
       terms: [
         { w: '變異數', d: '衡量結果分散程度的統計量。' }
       ],
+      viz: {"type":"bargraph","unit":"機率(%)","data":[{"label":"3次","value":12},{"label":"4次","value":21},{"label":"5次","value":25},{"label":"6次","value":21},{"label":"7次","value":12}]},
       q: {
         q: '課文說擲十次硬幣正面次數的期望值是多少？',
         options: [
@@ -28944,6 +29359,7 @@ window.APP_TEXTS['math|十一下|第4單元 隨機變數與分布'] = {
       terms: [
         { w: '標準差', d: '變異數開根號後的分散程度指標。' }
       ],
+      viz: {"type":"spread","a":[4,5,5,5,6],"b":[1,3,5,7,9]},
       q: {
         q: '課文說標準差比變異數好在哪裡？',
         options: [
@@ -29094,6 +29510,7 @@ window.APP_TEXTS['math|十一下|第5單元 常態分布'] = {
       terms: [
         { w: '右偏', d: '分布右側拖著長尾的形狀。' }
       ],
+      viz: {"type":"normaldist","mean":100,"sd":15,"shade":3},
       q: {
         q: '課文說所得分布是什麼形狀？',
         options: [
@@ -29148,6 +29565,7 @@ window.APP_TEXTS['math|十一下|第6單元 抽樣與統計推論'] = {
       terms: [
         { w: '隨機抽樣', d: '每個個體機會均等的抽樣方式。' }
       ],
+      viz: {"type":"probtable","kind":"balls","balls":[{"label":"抽","n":3},{"label":"未","n":7}],"pick":"抽"},
       q: {
         q: '課文說簡單隨機抽樣的核心是什麼？',
         options: [
@@ -29196,6 +29614,7 @@ window.APP_TEXTS['math|十一下|第6單元 抽樣與統計推論'] = {
       terms: [
         { w: '偏誤', d: '系統性偏離真實值的誤差。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"被問到的","value":3},{"label":"沒被問到","value":17}]},
       q: {
         q: '課文說便利抽樣的偏誤能不能靠增加樣本解決？',
         options: [
@@ -29220,6 +29639,7 @@ window.APP_TEXTS['math|十一下|第6單元 抽樣與統計推論'] = {
       terms: [
         { w: '抽樣誤差', d: '因抽樣造成的估計誤差。' }
       ],
+      viz: {"type":"spread","a":[48,50,52],"b":[40,45,50,55,60],"labelA":"大樣本","labelB":"小樣本"},
       q: {
         q: '課文說誤差和樣本數的什麼成反比？',
         options: [
@@ -29394,6 +29814,7 @@ window.APP_TEXTS['math|十一下|第7單元 資料分析與迴歸'] = {
       terms: [
         { w: '干擾因子', d: '同時影響兩個變數的第三變數。' }
       ],
+      viz: {"type":"scatter"},
       q: {
         q: '課文說要建立因果關係需要什麼？',
         options: [
@@ -29448,6 +29869,7 @@ window.APP_TEXTS['math|十一下|第8單元 統計圖表的判讀'] = {
       terms: [
         { w: '折線圖', d: '用線段連接呈現變化趨勢的圖。' }
       ],
+      viz: {"type":"linechart","unit":"萬人","data":[{"label":"2016","value":2354},{"label":"2018","value":2358},{"label":"2020","value":2356},{"label":"2022","value":2326},{"label":"2024","value":2312}]},
       q: {
         q: '課文說折線圖的重點是什麼？',
         options: [
@@ -29472,6 +29894,7 @@ window.APP_TEXTS['math|十一下|第8單元 統計圖表的判讀'] = {
       terms: [
         { w: '直方圖', d: '呈現連續數值分組次數的圖。' }
       ],
+      viz: {"type":"bargraph","unit":"人","data":[{"label":"60-69","value":4},{"label":"70-79","value":11},{"label":"80-89","value":17},{"label":"90-99","value":8}]},
       q: {
         q: '課文說直方圖的長條為什麼相連？',
         options: [
@@ -29520,6 +29943,7 @@ window.APP_TEXTS['math|十一下|第8單元 統計圖表的判讀'] = {
       terms: [
         { w: '透視', d: '立體呈現造成的視覺變形。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"A","value":25},{"label":"B","value":25},{"label":"C","value":25},{"label":"D","value":25}]},
       q: {
         q: '課文說長寬都放大兩倍時面積變幾倍？',
         options: [
@@ -29598,6 +30022,7 @@ window.APP_TEXTS['math|十一下|第9單元 統計的綜合應用'] = {
       terms: [
         { w: '誘導性問題', d: '暗示特定答案的提問方式。' }
       ],
+      viz: {"type":"bargraph","unit":"%","data":[{"label":"同意","value":78},{"label":"不同意","value":12},{"label":"沒意見","value":10}]},
       q: {
         q: '課文說好的問卷選項要滿足什麼？',
         options: [
@@ -29622,6 +30047,7 @@ window.APP_TEXTS['math|十一下|第9單元 統計的綜合應用'] = {
       terms: [
         { w: '無回應偏誤', d: '不回答者與回答者系統性不同。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"有回覆","value":20},{"label":"未回覆","value":80}]},
       q: {
         q: '課文說回收率低的真正威脅是什麼？',
         options: [
@@ -29670,6 +30096,7 @@ window.APP_TEXTS['math|十一下|第9單元 統計的綜合應用'] = {
       terms: [
         { w: '資料清理', d: '分析前檢查並修正資料的過程。' }
       ],
+      viz: {"type":"dotplot","values":[160,165,168,170,300]},
       q: {
         q: '課文說不清理資料會影響什麼？',
         options: [
@@ -29820,6 +30247,7 @@ window.APP_TEXTS['math|十二上|第1單元 函數的極限'] = {
       terms: [
         { w: '單邊極限', d: '只從一側趨近所得的極限。' }
       ],
+      viz: {"type":"limit","values":[1,1,1,2,2,2],"limit":2,"note":"左邊的值一直是 1、右邊一直是 2 —— 兩邊不一樣，極限就不存在。"},
       q: {
         q: '課文說極限存在的條件是什麼？',
         options: [
@@ -29844,6 +30272,7 @@ window.APP_TEXTS['math|十二上|第1單元 函數的極限'] = {
       terms: [
         { w: '四則運算', d: '加減乘除四種基本運算。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"lim (x² + 3x)","hint":"可以拆成兩個極限相加。"},{"expr":"= lim x² + lim 3x","hint":"各自算。"},{"expr":"x → 2 時 = 4 + 6 = 10","hint":"合起來就是答案。"}]},
       q: {
         q: '課文說商的極限要注意什麼？',
         options: [
@@ -29922,6 +30351,7 @@ window.APP_TEXTS['math|十二上|第2單元 連續與函數性質'] = {
       terms: [
         { w: '跳躍不連續', d: '左右極限不相等的斷點。' }
       ],
+      viz: {"type":"limit","values":[1,1,1,2,2,2],"limit":2,"note":"整數點左邊是 1、右邊是 2，中間直接跳過去——這種洞補不起來。"},
       q: {
         q: '課文說跳躍不連續能不能補起來？',
         options: [
@@ -29946,6 +30376,7 @@ window.APP_TEXTS['math|十二上|第2單元 連續與函數性質'] = {
       terms: [
         { w: '垂直漸近線', d: '函數值趨向無限大的鉛直線。' }
       ],
+      viz: {"type":"curveplot","fn":"rational","pick":false},
       q: {
         q: '課文說找垂直漸近線要看什麼？',
         options: [
@@ -30096,6 +30527,7 @@ window.APP_TEXTS['math|十二上|第3單元 導數的定義'] = {
       terms: [
         { w: '法線', d: '通過切點且垂直切線的直線。' }
       ],
+      viz: {"type":"linegraph","a":2,"b":-1},
       q: {
         q: '課文說法線的斜率和切線是什麼關係？',
         options: [
@@ -30120,6 +30552,7 @@ window.APP_TEXTS['math|十二上|第3單元 導數的定義'] = {
       terms: [
         { w: '瞬時速度', d: '某一時刻的速度。' }
       ],
+      viz: {"type":"deriv","x0":2,"h":0.5},
       q: {
         q: '課文說車速表顯示的是什麼？',
         options: [
@@ -30144,6 +30577,7 @@ window.APP_TEXTS['math|十二上|第3單元 導數的定義'] = {
       terms: [
         { w: '可微', d: '該點的導數存在。' }
       ],
+      viz: {"type":"numberline","min":-3,"max":3,"step":1,"edit":false,"marks":[{"v":0,"label":"尖角處不可微"}]},
       q: {
         q: '課文說連續一定可微嗎？',
         options: [
@@ -30246,6 +30680,7 @@ window.APP_TEXTS['math|十二上|第4單元 微分公式'] = {
       terms: [
         { w: '商法則', d: '兩函數相除的微分規則。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"(f/g)′","hint":"套商法則。"},{"expr":"= (f′g − fg′) / g²","hint":"注意分子是減、順序固定。"},{"expr":"例：(1/x)′ = (0·x − 1·1)/x² = −1/x²","hint":"也符合冪次法則 (x⁻¹)′ ＝ −x⁻²。"}]},
       q: {
         q: '課文說商法則的分子中間是什麼號？',
         options: [
@@ -30348,6 +30783,7 @@ window.APP_TEXTS['math|十二上|第5單元 微分的應用：極值'] = {
       terms: [
         { w: '變號', d: '函數值由正轉負或由負轉正。' }
       ],
+      viz: {"type":"curveplot","fn":"cubic","pick":false},
       q: {
         q: '課文說導數由負變正代表那一點是什麼？',
         options: [
@@ -30444,6 +30880,7 @@ window.APP_TEXTS['math|十二上|第5單元 微分的應用：極值'] = {
       terms: [
         { w: '最佳化', d: '在限制下求最大或最小值。' }
       ],
+      viz: {"type":"parabola","a":-1,"h":5,"k":25,"min":-2,"max":30},
       q: {
         q: '課文說消成單一變數要靠什麼？',
         options: [
@@ -30594,6 +31031,7 @@ window.APP_TEXTS['math|十二上|第6單元 微分與函數圖形'] = {
       terms: [
         { w: '判讀', d: '由圖形讀出函數的性質。' }
       ],
+      viz: {"type":"curveplot","fn":"cubic","pick":false},
       q: {
         q: '課文說圖形往右下時導數是什麼符號？',
         options: [
@@ -30624,6 +31062,7 @@ window.APP_TEXTS['math|十二上|第7單元 積分的概念'] = {
       terms: [
         { w: '不定積分', d: '微分的反運算，結果含任意常數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"∫x³ dx","hint":"指數加 1 變成 4。"},{"expr":"= x⁴/4 + C","hint":"再除以新指數 4。"},{"expr":"驗算：(x⁴/4)′ = x³ ✓","hint":"微分回去對得上就正確。"}]},
       q: {
         q: '課文說不定積分為什麼要加常數？',
         options: [
@@ -30648,6 +31087,7 @@ window.APP_TEXTS['math|十二上|第7單元 積分的概念'] = {
       terms: [
         { w: '反導函數', d: '微分後等於原函數的那個函數。' }
       ],
+      viz: {"type":"linegraph","a":5,"b":0,"min":-3,"max":3},
       q: {
         q: '課文說什麼函數微分後會得到常數？',
         options: [
@@ -30744,6 +31184,7 @@ window.APP_TEXTS['math|十二上|第7單元 積分的概念'] = {
       terms: [
         { w: '逆運算', d: '互相抵消的一對運算。' }
       ],
+      viz: {"type":"integralarea","n":20},
       q: {
         q: '課文說微積分基本定理連起了哪兩件事？',
         options: [
@@ -30798,6 +31239,7 @@ window.APP_TEXTS['math|十二上|第8單元 定積分與面積'] = {
       terms: [
         { w: '驗證', d: '用已知結果檢查新方法。' }
       ],
+      viz: {"type":"integralarea","a":0,"b":3,"n":8},
       q: {
         q: '課文說積分和國小的面積公式關係如何？',
         options: [
@@ -30846,6 +31288,7 @@ window.APP_TEXTS['math|十二上|第8單元 定積分與面積'] = {
       terms: [
         { w: '負值', d: '積分結果小於零的情形。' }
       ],
+      viz: {"type":"curveplot","fn":"cubic","pick":false},
       q: {
         q: '課文說要求真正的面積必須怎麼做？',
         options: [
@@ -30972,6 +31415,7 @@ window.APP_TEXTS['math|十二上|第9單元 積分的應用'] = {
       terms: [
         { w: '路程', d: '實際走過的總距離。' }
       ],
+      viz: {"type":"curveplot","fn":"cubic","pick":false},
       q: {
         q: '課文說速度變負時路程會怎樣？',
         options: [
@@ -31020,6 +31464,7 @@ window.APP_TEXTS['math|十二上|第9單元 積分的應用'] = {
       terms: [
         { w: '圓錐', d: '底面為圓、頂點在軸上的立體。' }
       ],
+      viz: {"type":"solid","kind":"cone","r":1,"h":1,"l":1.41},
       q: {
         q: '課文說圓錐體積公式是怎麼來的？',
         options: [
@@ -31044,6 +31489,7 @@ window.APP_TEXTS['math|十二上|第9單元 積分的應用'] = {
       terms: [
         { w: '累積', d: '把許多小量加總起來。' }
       ],
+      viz: {"type":"integralarea","n":20},
       q: {
         q: '課文說看到什麼字眼就要想到積分？',
         options: [
@@ -31170,6 +31616,7 @@ window.APP_TEXTS['math|十二下|第1單元 複數與運算'] = {
       terms: [
         { w: '共軛複數', d: '虛部變號後所得的複數。' }
       ],
+      viz: {"type":"complexplane","re":3,"im":-4},
       q: {
         q: '課文說複數乘上共軛之後會得到什麼？',
         options: [
@@ -31296,6 +31743,7 @@ window.APP_TEXTS['math|十二下|第2單元 複數平面與極式'] = {
       terms: [
         { w: '旋轉', d: '繞原點轉動一個角度。' }
       ],
+      viz: {"type":"complexplane","re":2,"im":1,"re2":0,"im2":1,"mode":"mult"},
       q: {
         q: '課文說乘以虛數單位的幾何意義是什麼？',
         options: [
@@ -31344,6 +31792,7 @@ window.APP_TEXTS['math|十二下|第2單元 複數平面與極式'] = {
       terms: [
         { w: '單位根', d: '次方等於一的複數解。' }
       ],
+      viz: {"type":"unitcircle","deg":120},
       q: {
         q: '課文說單位根在複數平面上排成什麼？',
         options: [
@@ -31374,6 +31823,7 @@ window.APP_TEXTS['math|十二下|第3單元 多項式與複數根'] = {
       terms: [
         { w: '代數基本定理', d: 'n 次方程式在複數中有 n 個根。' }
       ],
+      viz: {"type":"crossmult","a1":1,"b1":-2,"a2":1,"b2":-3},
       q: {
         q: '課文說四次方程式在複數範圍有幾個根？',
         options: [
@@ -31398,6 +31848,7 @@ window.APP_TEXTS['math|十二下|第3單元 多項式與複數根'] = {
       terms: [
         { w: '共軛根', d: '成對出現的一對共軛虛根。' }
       ],
+      viz: {"type":"complexplane","re":1,"im":1},
       q: {
         q: '課文說奇次實係數方程式至少有幾個實根？',
         options: [
@@ -31494,6 +31945,7 @@ window.APP_TEXTS['math|十二下|第3單元 多項式與複數根'] = {
       terms: [
         { w: '判別式', d: '判斷二次方程式根的性質的式子。' }
       ],
+      viz: {"type":"parabola","a":1,"h":0,"k":2,"min":-4,"max":6},
       q: {
         q: '課文說判別式小於零時有什麼根？',
         options: [
@@ -31524,6 +31976,7 @@ window.APP_TEXTS['math|十二下|第4單元 圓錐曲線：拋物線'] = {
       terms: [
         { w: '準線', d: '定義拋物線時使用的固定直線。' }
       ],
+      viz: {"type":"conic","kind":"parabola","a":4,"pick":false},
       q: {
         q: '課文說拋物線的頂點在哪裡？',
         options: [
@@ -31644,6 +32097,7 @@ window.APP_TEXTS['math|十二下|第4單元 圓錐曲線：拋物線'] = {
       terms: [
         { w: '平移', d: '圖形整體移動而形狀不變。' }
       ],
+      viz: {"type":"parabola","a":1,"h":2,"k":1,"min":-3,"max":7},
       q: {
         q: '課文說遇到平移過的拋物線第一步要做什麼？',
         options: [
@@ -31794,6 +32248,7 @@ window.APP_TEXTS['math|十二下|第5單元 圓錐曲線：橢圓'] = {
       terms: [
         { w: '回音廊', d: '橢圓形使聲音聚焦的房間。' }
       ],
+      viz: {"type":"conic","kind":"ellipse","a":5,"b":4,"pick":false},
       q: {
         q: '課文說回音廊要站在哪裡才聽得清楚？',
         options: [
@@ -31824,6 +32279,7 @@ window.APP_TEXTS['math|十二下|第6單元 圓錐曲線：雙曲線'] = {
       terms: [
         { w: '雙曲線', d: '到兩焦點距離差固定的曲線。' }
       ],
+      viz: {"type":"conic","kind":"hyperbola","a":3,"b":4,"pick":false},
       q: {
         q: '課文說雙曲線的圖形有幾支？',
         options: [
@@ -32022,6 +32478,7 @@ window.APP_TEXTS['math|十二下|第7單元 數學建模'] = {
       terms: [
         { w: '指數模型', d: '每期乘固定倍數的成長模型。' }
       ],
+      viz: {"type":"seq","kind":"geo","a1":2,"d":2,"n":6},
       q: {
         q: '課文說指數模型固定的是什麼？',
         options: [
@@ -32070,6 +32527,7 @@ window.APP_TEXTS['math|十二下|第7單元 數學建模'] = {
       terms: [
         { w: '環境承載量', d: '環境所能支持的族群數量上限。' }
       ],
+      viz: {"type":"limit","values":[1,2,4,7,9,9.7,9.9,10],"limit":10,"note":"一開始像指數快速上升，接近上限之後越來越慢——這就是 S 形曲線。"},
       q: {
         q: '課文說邏輯斯模型的曲線是什麼形狀？',
         options: [
@@ -32094,6 +32552,7 @@ window.APP_TEXTS['math|十二下|第7單元 數學建模'] = {
       terms: [
         { w: '適用範圍', d: '模型仍然有效的條件範圍。' }
       ],
+      viz: {"type":"scatter"},
       q: {
         q: '課文說用模型往外推有什麼危險？',
         options: [
@@ -32196,6 +32655,7 @@ window.APP_TEXTS['math|十二下|第8單元 綜合複習：代數'] = {
       terms: [
         { w: '組合', d: '取出但不考慮順序的取法。' }
       ],
+      viz: {"type":"counting","kind":"perm","n":4,"r":2},
       q: {
         q: '課文說組合和排列的關係是什麼？',
         options: [
@@ -32220,6 +32680,7 @@ window.APP_TEXTS['math|十二下|第8單元 綜合複習：代數'] = {
       terms: [
         { w: '公式解', d: '用係數直接算出根的公式。' }
       ],
+      viz: {"type":"parabola","a":1,"h":-1,"k":-9,"min":-6,"max":6},
       q: {
         q: '課文說開口向上的二次不等式小於零時解在哪裡？',
         options: [
@@ -32244,6 +32705,7 @@ window.APP_TEXTS['math|十二下|第8單元 綜合複習：代數'] = {
       terms: [
         { w: '棣美弗定理', d: '複數取次方的模與輻角規則。' }
       ],
+      viz: {"type":"complexplane","re":3,"im":4},
       q: {
         q: '課文說複數除法的關鍵步驟是什麼？',
         options: [
@@ -32322,6 +32784,7 @@ window.APP_TEXTS['math|十二下|第9單元 綜合複習：幾何與統計'] = {
       terms: [
         { w: '點斜式', d: '由一點與斜率寫出的直線式。' }
       ],
+      viz: {"type":"linegraph","a":3,"b":-1},
       q: {
         q: '課文說垂直時斜率要怎麼取？',
         options: [
@@ -32370,6 +32833,7 @@ window.APP_TEXTS['math|十二下|第9單元 綜合複習：幾何與統計'] = {
       terms: [
         { w: '離散程度', d: '資料分散開來的大小。' }
       ],
+      viz: {"type":"dotplot","values":[3,5,7,9,11]},
       q: {
         q: '課文說資料整體加一個數時離散程度會怎樣？',
         options: [
@@ -32394,6 +32858,7 @@ window.APP_TEXTS['math|十二下|第9單元 綜合複習：幾何與統計'] = {
       terms: [
         { w: '系統性偏誤', d: '抽樣方法本身造成的偏差。' }
       ],
+      viz: {"type":"normaldist","mean":75,"sd":5,"shade":1,"mark":85},
       q: {
         q: '課文說樣本大能不能解決系統性偏誤？',
         options: [

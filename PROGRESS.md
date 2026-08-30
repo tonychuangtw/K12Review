@@ -4,7 +4,21 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【樣板已完成，等 Tony 看過 2026-08-30】課文帶讀加圖／互動／動畫。Tony 選了「先做 3 個樣板」。
+NEXT_ACTION: 【進行中 2026-08-30 下午】課文帶讀配圖，Tony 看過樣板說「很好，照你規劃全部 12 個年級相關的都做」，
+並指示「先做完 1（配圖）再做 2（誘答重寫）」。
+已完成：數學 215 單元 465 段、自然 125 單元 273 段（十二年級全部），覆蓋率 math 36%／science 37%。
+工具：tools/seed-text-viz.js <科目> [--write]。做法＝把同單元概念卡已配好的 viz 接到帶讀最相似的段落
+（數學／自然的帶讀與概念卡是同序對齊 99.5%／100%，其餘四科不是，靠相似度挑），
+一個單元最多 3 段、文字排版類元件（compareexp／classify／energyflow／levels／orgchart）一個單元最多 1 個。
+【下一步】高中物理／化學／生物／地科的帶讀還沒配圖，原因不是沒接好而是**概念卡本身就缺真正的圖**：
+文字排版類佔比 physics 72%、earth 85%、biology 90%、chemistry 90%；
+且「一張真的圖都沒有」的單元 physics 11／chemistry 36／biology 27／earth 18（各科共 54 單元）。
+所以這四科要先「畫圖」而不是「接圖」：依單元主題挑或新增 SVG 元件（力圖、波形、電路、能階、
+粒子模型、平衡、地層、天體運動…），再接到帶讀與概念卡。這是一件比接圖大的工程，做完再回頭做誘答重寫。
+【做完配圖後】才做誘答重寫：tools/fix-distractors.js（同課其他題的正解當誘答，公民試跑 99.8%→8.5%），
+要逐課抽查再寫入；test/test.js 已有「正解最長」門檻表，每修好一科就把該科上限調降。
+
+【樣板已完成 2026-08-30】課文帶讀加圖／互動／動畫。Tony 選了「先做 3 個樣板」。
 已完成的三個樣板單元（18 段全部配圖）：math|四上|第8單元 分數的認識、science|八上|第3單元 密度與浮力、
 physics|十上|第2單元 直線運動。比例照 codex 建議：多數靜態、少數互動、每單元一個會動的。
 新增基礎工程（js/widgets.js）：player() 播放列 —— 一律按了才播、捲出畫面自動暫停（IntersectionObserver）、
@@ -91,7 +105,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 21:30 台北（3 個樣板單元完成，等 Tony 看過；LanExamMock 聽力擴題暫緩）
+UPDATED: 2026-08-30 22:40 台北（數學／自然帶讀配圖完成 738 段；高中四科待補真正的圖；誘答重寫排在配圖之後）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
