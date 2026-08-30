@@ -43,6 +43,7 @@ window.APP_TEXTS['math|一上|第1單元 10以內的數與數數'] = {
       terms: [
         { w: '基準', d: '拿來當作比較起點的那個數。' }
       ],
+      viz: {"type":"tenframe","n":7},
       q: {
         q: '課文說七可以想成什麼？',
         options: [
@@ -220,6 +221,7 @@ window.APP_TEXTS['math|一上|第2單元 數的合成與分解'] = {
       terms: [
         { w: '湊十', d: '兩個數合起來剛好是十。' }
       ],
+      viz: {"type":"numbond","whole":10,"part":4},
       q: {
         q: '課文說四的好朋友是哪一個數？',
         options: [
@@ -373,6 +375,7 @@ window.APP_TEXTS['math|一上|第3單元 10以內的加法'] = {
       terms: [
         { w: '交換律', d: '兩數相加交換位置結果不變。' }
       ],
+      viz: {"type":"array","rows":3,"cols":5,"split":false,"edit":true},
       q: {
         q: '課文說兩數相加換位置之後答案會怎麼樣？',
         options: [
@@ -502,6 +505,7 @@ window.APP_TEXTS['math|一上|第4單元 10以內的減法'] = {
       terms: [
         { w: '比較', d: '算出兩個數量相差多少。' }
       ],
+      viz: {"type":"compare","items":[{"label":"哥哥","len":7},{"label":"弟弟","len":4}]},
       q: {
         q: '課文說「多幾顆」這種題目要用什麼運算？',
         options: [
@@ -728,6 +732,7 @@ window.APP_TEXTS['math|一上|第5單元 20以內的數'] = {
       terms: [
         { w: '跳數', d: '每次固定加同一個數往下數。' }
       ],
+      viz: {"type":"seq","a1":2,"d":2,"n":10,"edit":true},
       q: {
         q: '課文說五個一數的順序是什麼？',
         options: [
@@ -807,6 +812,7 @@ window.APP_TEXTS['math|一上|第6單元 20以內的加減'] = {
       terms: [
         { w: '湊十法', d: '先把一個數湊成十再加剩下的。' }
       ],
+      viz: {"type":"tenframe","n":10},
       q: {
         q: '課文說湊十法的第一步是什麼？',
         options: [
@@ -880,6 +886,7 @@ window.APP_TEXTS['math|一上|第6單元 20以內的加減'] = {
       terms: [
         { w: '互逆', d: '兩種運算可以互相還原。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"8 + 5 = 13","hint":"先算出答案。"},{"expr":"檢查：13 − 5 = 8","hint":"用減法把加上去的拿回來，回到原本的數就對了。"},{"expr":"13 − 5 = 8","hint":"減法也一樣。"},{"expr":"檢查：8 + 5 = 13","hint":"用加法把拿走的加回去。"}]},
       q: {
         q: '課文說檢查加法可以用哪一種運算？',
         options: [
@@ -1115,6 +1122,7 @@ window.APP_TEXTS['math|一上|第8單元 比長短與比多少'] = {
       terms: [
         { w: '錯覺', d: '眼睛看到的和實際不一樣。' }
       ],
+      viz: {"type":"compare","items":[{"label":"起點沒對齊（看起來比較長）","len":9},{"label":"對齊之後（其實比較短）","len":6}]},
       q: {
         q: '課文說起點沒對齊會怎麼樣？',
         options: [
@@ -1163,6 +1171,7 @@ window.APP_TEXTS['math|一上|第8單元 比長短與比多少'] = {
       terms: [
         { w: '一對一對應', d: '把兩堆東西一個配一個來比較數量。' }
       ],
+      viz: {"type":"compare","items":[{"label":"杯子","len":5},{"label":"吸管","len":7}]},
       q: {
         q: '課文說配對之後吸管有剩，代表什麼？',
         options: [
@@ -1211,6 +1220,7 @@ window.APP_TEXTS['math|一上|第8單元 比長短與比多少'] = {
       terms: [
         { w: '容量', d: '容器能裝多少東西。' }
       ],
+      viz: {"type":"grouping","total":12,"per":4},
       q: {
         q: '課文說比較容量的通用方法是什麼？',
         options: [
@@ -1265,6 +1275,7 @@ window.APP_TEXTS['math|一上|第9單元 次序與位置'] = {
       terms: [
         { w: '方向', d: '從哪一邊開始計算。' }
       ],
+      viz: {"type":"compare","items":[{"label":"從左數第 3 個","len":3},{"label":"從右數第 3 個（在另一端）","len":3}]},
       q: {
         q: '課文說講位置時一定要說清楚什麼？',
         options: [
@@ -1443,6 +1454,7 @@ window.APP_TEXTS['math|一下|第1單元 100以內的數'] = {
       terms: [
         { w: '數字系統', d: '用位置表示大小的記數方式。' }
       ],
+      viz: {"type":"placevalue","value":46,"max":99},
       q: {
         q: '課文說同一個數字四在不同位置代表什麼？',
         options: [
@@ -1572,6 +1584,7 @@ window.APP_TEXTS['math|一下|第2單元 數的順序與大小'] = {
       terms: [
         { w: '個位', d: '兩位數中右邊那一位。' }
       ],
+      viz: {"type":"compare","items":[{"label":"63","len":63},{"label":"68","len":68}]},
       q: {
         q: '課文說什麼時候才要比個位？',
         options: [
@@ -1620,6 +1633,7 @@ window.APP_TEXTS['math|一下|第2單元 數的順序與大小'] = {
       terms: [
         { w: '跨十', d: '個位滿十進到下一個十的地方。' }
       ],
+      viz: {"type":"numberline","min":35,"max":45,"step":1,"value":40},
       q: {
         q: '課文說三十九的後一個數是多少？',
         options: [
@@ -1901,6 +1915,7 @@ window.APP_TEXTS['math|一下|第4單元 二位數的減法'] = {
       terms: [
         { w: '借位', d: '從高位取一來補低位的做法。' }
       ],
+      viz: {"type":"column","a":52,"b":27,"op":"-"},
       q: {
         q: '課文說判斷要不要退位，要比較什麼？',
         options: [
@@ -2006,6 +2021,7 @@ window.APP_TEXTS['math|一下|第5單元 加減應用與未知數'] = {
       terms: [
         { w: '未知數', d: '算式中還不知道是多少的那個數。' }
       ],
+      viz: {"type":"numbond","whole":8,"part":5},
       q: {
         q: '課文說五加方框等於八時，方框是多少？',
         options: [
@@ -2054,6 +2070,7 @@ window.APP_TEXTS['math|一下|第5單元 加減應用與未知數'] = {
       terms: [
         { w: '被減數', d: '減法算式中被拿走的那個總數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"12 − □ = 7","hint":"方框在被減的後面：用 12 − 7 = 5，代表拿走了 5。"},{"expr":"□ − 4 = 6","hint":"方框在最前面：用 6 + 4 = 10，代表原本有 10。"},{"expr":"5 + □ = 8","hint":"方框在加法裡：用 8 − 5 = 3。"},{"expr":"位置不同，求法就不同","hint":"先看方框站在哪裡，再決定用加還是用減。"}]},
       q: {
         q: '課文說方框減四等於六時，方框是多少？',
         options: [
@@ -2207,6 +2224,7 @@ window.APP_TEXTS['math|一下|第6單元 長度的測量'] = {
       terms: [
         { w: '刻度', d: '尺上表示長度的線與數字。' }
       ],
+      viz: {"type":"numberline","min":0,"max":15,"step":1,"value":0},
       q: {
         q: '課文說量長度時要對準哪裡？',
         options: [
@@ -2255,6 +2273,7 @@ window.APP_TEXTS['math|一下|第6單元 長度的測量'] = {
       terms: [
         { w: '加減', d: '把數量合起來或拿走。' }
       ],
+      viz: {"type":"compare","items":[{"label":"第一段 8 公分","len":8},{"label":"第二段 5 公分","len":5},{"label":"接起來 13 公分","len":13}]},
       q: {
         q: '課文說什麼情況下長度才能直接加減？',
         options: [
@@ -2334,6 +2353,7 @@ window.APP_TEXTS['math|一下|第7單元 時間：認識時鐘'] = {
       terms: [
         { w: '整點', d: '剛好幾點、分針指十二的時刻。' }
       ],
+      viz: {"type":"clock","h":3,"m":0,"edit":true},
       q: {
         q: '課文說整點時長針指著哪裡？',
         options: [
@@ -2358,6 +2378,7 @@ window.APP_TEXTS['math|一下|第7單元 時間：認識時鐘'] = {
       terms: [
         { w: '半點', d: '幾點三十分的時刻。' }
       ],
+      viz: {"type":"clock","h":3,"m":30,"edit":true},
       q: {
         q: '課文說三點半時短針在哪裡？',
         options: [
@@ -2431,6 +2452,7 @@ window.APP_TEXTS['math|一下|第7單元 時間：認識時鐘'] = {
       terms: [
         { w: '時距', d: '兩個時刻之間經過的時間。' }
       ],
+      viz: {"type":"numberline","min":3,"max":6,"step":1,"value":5},
       q: {
         q: '課文說算經過多久要用什麼方法？',
         options: [
@@ -2486,6 +2508,7 @@ window.APP_TEXTS['math|一下|第8單元 分與合、單數雙數'] = {
       terms: [
         { w: '平分', d: '分成一樣多的幾份。' }
       ],
+      viz: {"type":"grouping","total":10,"per":5},
       q: {
         q: '課文說七能不能平分成兩堆一樣多？',
         options: [
@@ -2793,6 +2816,7 @@ window.APP_TEXTS['math|二上|第1單元 二位數的加法'] = {
       terms: [
         { w: '進位', d: '個位滿十換成十位的一。' }
       ],
+      viz: {"type":"column","a":36,"b":27,"op":"+"},
       q: {
         q: '課文說進位的道理是什麼？',
         options: [
@@ -2946,6 +2970,7 @@ window.APP_TEXTS['math|二上|第2單元 二位數的減法'] = {
       terms: [
         { w: '拆十', d: '把一個十拆開成十個一。' }
       ],
+      viz: {"type":"column","a":62,"b":38,"op":"-"},
       q: {
         q: '課文說借位之後個位變成多少？',
         options: [
@@ -3043,6 +3068,7 @@ window.APP_TEXTS['math|二上|第2單元 二位數的減法'] = {
       terms: [
         { w: '逆推', d: '從結果倒推回原來的數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"用掉 25 元，剩下 38 元","hint":"問的是「原本有多少」。"},{"expr":"倒著想：原本 = 剩下 + 用掉","hint":"用掉的要補回來。"},{"expr":"38 + 25 = 63","hint":"所以原本有 63 元。"},{"expr":"檢查：63 − 25 = 38","hint":"回到題目給的數字，就對了。"}]},
       q: {
         q: '課文說求「原本有多少」通常用什麼運算？',
         options: [
@@ -3097,6 +3123,7 @@ window.APP_TEXTS['math|二上|第3單元 加減混合與應用'] = {
       terms: [
         { w: '運算順序', d: '算式中先算哪一部分的規則。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"45 − 18 + 20","hint":"只有加減，一律從左邊算到右邊。"},{"expr":"先算 45 − 18 = 27","hint":"左邊那一步先做。"},{"expr":"再算 27 + 20 = 47","hint":"把結果帶進下一步。"},{"expr":"✗ 不能先算 18 + 20","hint":"那樣答案會變成 45 − 38 = 7，錯了。"}]},
       q: {
         q: '課文說只有加減的算式要從哪邊開始算？',
         options: [
@@ -3226,6 +3253,7 @@ window.APP_TEXTS['math|二上|第4單元 乘法的意義'] = {
       terms: [
         { w: '乘法', d: '相同數重複相加的簡便寫法。' }
       ],
+      viz: {"type":"array","rows":4,"cols":3,"split":false,"edit":true},
       q: {
         q: '課文說乘法其實是什麼的簡便寫法？',
         options: [
@@ -3299,6 +3327,7 @@ window.APP_TEXTS['math|二上|第4單元 乘法的意義'] = {
       terms: [
         { w: '交換律', d: '兩數相乘交換順序結果不變。' }
       ],
+      viz: {"type":"array","rows":3,"cols":4,"split":false,"edit":true},
       q: {
         q: '課文說九九乘法表為什麼只要背一半？',
         options: [
@@ -3557,6 +3586,7 @@ window.APP_TEXTS['math|二上|第6單元 乘法的應用'] = {
       terms: [
         { w: '方陣', d: '排成整齊行列的排列。' }
       ],
+      viz: {"type":"array","rows":5,"cols":4,"split":false,"edit":true},
       q: {
         q: '課文說五排每排四人共有幾人？',
         options: [
@@ -3709,6 +3739,7 @@ window.APP_TEXTS['math|二上|第7單元 長度：公分與公尺'] = {
       terms: [
         { w: '換算', d: '把一種單位改寫成另一種單位。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"1 公尺 = 100 公分","hint":"這是要背起來的關係。"},{"expr":"公尺 → 公分：× 100","hint":"也就是後面加兩個零。"},{"expr":"公分 → 公尺：÷ 100","hint":"反過來就是除以 100。"},{"expr":"8 公尺 = 800 公分","hint":"檢查：800 ÷ 100 = 8，對得起來。"}]},
       q: {
         q: '課文說公尺換成公分要怎麼做？',
         options: [
@@ -3782,6 +3813,7 @@ window.APP_TEXTS['math|二上|第7單元 長度：公分與公尺'] = {
       terms: [
         { w: '統一單位', d: '計算前把單位改成一樣。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"2 公尺 + 50 公分","hint":"單位不同，不能直接加。"},{"expr":"先統一：2 公尺 = 200 公分","hint":"換成同一個單位。"},{"expr":"200 + 50 = 250 公分","hint":"這時候才能相加。"},{"expr":"✗ 直接算 2 + 50 = 52","hint":"這是換算題最常見的錯。"}]},
       q: {
         q: '課文說兩公尺加五十公分要先做什麼？',
         options: [
@@ -3837,6 +3869,7 @@ window.APP_TEXTS['math|二上|第8單元 時間：幾點幾分'] = {
       terms: [
         { w: '大格', d: '時鐘上兩個數字之間的間隔。' }
       ],
+      viz: {"type":"clock","h":3,"m":35,"edit":true},
       q: {
         q: '課文說分針指七是幾分？',
         options: [
@@ -3861,6 +3894,7 @@ window.APP_TEXTS['math|二上|第8單元 時間：幾點幾分'] = {
       terms: [
         { w: '小格', d: '兩個數字之間的細分刻度。' }
       ],
+      viz: {"type":"clock","h":3,"m":17,"edit":true},
       q: {
         q: '課文說讀分鐘的順序是什麼？',
         options: [
@@ -3934,6 +3968,7 @@ window.APP_TEXTS['math|二上|第8單元 時間：幾點幾分'] = {
       terms: [
         { w: '整點', d: '分針指十二的時刻。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"3:10 → 3:45","hint":"同一個小時內。"},{"expr":"45 − 10 = 35","hint":"直接減分鐘就好。"},{"expr":"經過 35 分鐘","hint":"答案。"},{"expr":"跨小時就先算到整點","hint":"例如 3:50 → 4:20，先算到 4:00（10 分），再加 20 分。"}]},
       q: {
         q: '課文說跨小時要怎麼算？',
         options: [
