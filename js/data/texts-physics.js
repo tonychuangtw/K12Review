@@ -112,6 +112,7 @@ window.APP_TEXTS['physics|十上|第1單元 物理量與測量'] = {
       terms: [
         { w: '系統誤差', d: '每次都往同一方向偏的誤差，靠平均無法消除。' }
       ],
+      viz: {"type": "accuracy", "mode": "precise"},
       q: {
         q: '課文說多量幾次取平均，能減少哪一種誤差？',
         options: [
@@ -366,6 +367,7 @@ window.APP_TEXTS['physics|十上|第3單元 牛頓運動定律'] = {
       terms: [
         { w: '反作用力', d: '甲對乙施力時，乙同時對甲施的等大反向的力。' }
       ],
+      viz: {"type":"newton","mode":"third"},
       q: {
         q: '課文說施力與反作用力為什麼不會互相抵消？',
         options: [
@@ -438,6 +440,7 @@ window.APP_TEXTS['physics|十上|第3單元 牛頓運動定律'] = {
       terms: [
         { w: '視重', d: '體重計上量到的正向力，會因加速度而改變。' }
       ],
+      viz: {"type":"force","mode":"effect"},
       q: {
         q: '課文說電梯向上加速時，體重計讀數會怎樣？',
         options: [
@@ -583,6 +586,7 @@ window.APP_TEXTS['physics|十上|第4單元 力與平衡'] = {
       terms: [
         { w: '力臂', d: '轉軸到力的作用線的垂直距離。' }
       ],
+      viz: {"type":"lever","mode":"lever"},
       q: {
         q: '課文說推門時為什麼要推門把？',
         options: [
@@ -758,6 +762,7 @@ window.APP_TEXTS['physics|十上|第6單元 功與功率'] = {
       terms: [
         { w: '功', d: '力沿其方向使物體移動時所轉移的能量。' }
       ],
+      viz: {"type": "workgraph", "mode": "const", "F": 6, "d": 5},
       q: {
         q: '課文說提著書包水平走路時，提的力做多少功？',
         options: [
@@ -1384,6 +1389,7 @@ window.APP_TEXTS['physics|十下|第1單元 萬有引力與行星運動'] = {
       terms: [
         { w: '橢圓', d: '到兩個焦點距離之和固定的封閉曲線。' }
       ],
+      viz: {"type":"solarsys"},
       q: {
         q: '課文說行星什麼時候跑得比較快？',
         options: [
@@ -1696,6 +1702,7 @@ window.APP_TEXTS['physics|十下|第3單元 波動的基本性質'] = {
       terms: [
         { w: '折射', d: '波進入不同介質時傳播方向改變的現象。' }
       ],
+      viz: {"type":"optics","mode":"refract"},
       q: {
         q: '課文說波折射時，哪一個量不會改變？',
         options: [
@@ -1743,6 +1750,7 @@ window.APP_TEXTS['physics|十下|第3單元 波動的基本性質'] = {
       terms: [
         { w: '繞射', d: '波繞過障礙物或通過狹縫後擴散的現象。' }
       ],
+      viz: {"type":"trigwave","a":1,"b":2,"c":0,"fn":"sin"},
       q: {
         q: '課文說隔著牆聽得到聲音卻看不到人，是因為什麼？',
         options: [
@@ -1818,6 +1826,7 @@ window.APP_TEXTS['physics|十下|第4單元 聲波'] = {
       terms: [
         { w: '音色', d: '由波形決定、可分辨不同樂器的聲音特質。' }
       ],
+      viz: {"type":"soundwave","amp":2,"freq":3},
       q: {
         q: '課文說鋼琴與小提琴彈同一個音，差別在哪裡？',
         options: [
@@ -1940,6 +1949,7 @@ window.APP_TEXTS['physics|十下|第5單元 光的反射與折射'] = {
       terms: [
         { w: '法線', d: '通過入射點且垂直於界面的假想直線。' }
       ],
+      viz: {"type":"optics","mode":"mirror"},
       q: {
         q: '課文說反射角是從哪裡量起的？',
         options: [
@@ -1963,6 +1973,7 @@ window.APP_TEXTS['physics|十下|第5單元 光的反射與折射'] = {
       terms: [
         { w: '虛像', d: '由光線反向延長線交會而成、無法投在屏幕上的像。' }
       ],
+      viz: {"type":"imaging","mode":"cmirror","u":40},
       q: {
         q: '課文說虛像有什麼特點？',
         options: [
@@ -2061,6 +2072,7 @@ window.APP_TEXTS['physics|十下|第6單元 透鏡與光學儀器'] = {
       terms: [
         { w: '焦距', d: '透鏡中心到焦點的距離。' }
       ],
+      viz: {"type":"imaging","mode":"lens","u":40},
       q: {
         q: '課文說凸透鏡對平行光有什麼作用？',
         options: [
@@ -2176,6 +2188,7 @@ window.APP_TEXTS['physics|十下|第6單元 透鏡與光學儀器'] = {
       terms: [
         { w: '物鏡', d: '靠近被觀察物體的那一片透鏡。' }
       ],
+      viz: {"type":"microscope"},
       q: {
         q: '課文說天文望遠鏡最重視的是什麼？',
         options: [
@@ -2419,6 +2432,7 @@ window.APP_TEXTS['physics|十下|第8單元 溫度與熱量'] = {
       terms: [
         { w: '潛熱', d: '物質改變狀態時吸收或放出而溫度不變的熱量。' }
       ],
+      viz: {"type":"statechange","mode":"boil"},
       q: {
         q: '課文說冰在融化時溫度為什麼不上升？',
         options: [
@@ -2442,6 +2456,7 @@ window.APP_TEXTS['physics|十下|第8單元 溫度與熱量'] = {
       terms: [
         { w: '對流', d: '流體因密度差整體流動而傳熱的方式。' }
       ],
+      viz: {"type":"heat","mode":"conduct"},
       q: {
         q: '課文說保溫瓶鍍銀是為了擋哪一種傳熱？',
         options: [
@@ -2541,6 +2556,7 @@ window.APP_TEXTS['physics|十下|第9單元 氣體與熱力學'] = {
       terms: [
         { w: '理想氣體', d: '分子體積可忽略、之間無作用力的簡化氣體模型。' }
       ],
+      viz: {"type":"pressure","mode":"air"},
       q: {
         q: '課文說用氣體定律計算時，溫度要用什麼單位？',
         options: [
@@ -2640,6 +2656,7 @@ window.APP_TEXTS['physics|十一上|第1單元 平面運動與拋體'] = {
       terms: [
         { w: '運動獨立性', d: '互相垂直的兩方向運動彼此不影響的性質。' }
       ],
+      viz: {"type":"vector","a":[4,0],"b":[0,-3],"mode":"add"},
       q: {
         q: '課文說平面運動的兩個方向，靠什麼連接起來？',
         options: [
@@ -2686,6 +2703,7 @@ window.APP_TEXTS['physics|十一上|第1單元 平面運動與拋體'] = {
       terms: [
         { w: '拋物線', d: '只受重力的拋體所走出的曲線。' }
       ],
+      viz: {"type":"parabola","a":-0.15,"b":1.5,"c":0},
       q: {
         q: '課文說拋體在最高點時速度是多少？',
         options: [
@@ -2831,6 +2849,7 @@ window.APP_TEXTS['physics|十一上|第2單元 相對運動'] = {
       terms: [
         { w: '合速度', d: '各分速度的向量和，即實際運動速度。' }
       ],
+      viz: {"type":"rivercross","width":100,"boat":4,"flow":2},
       q: {
         q: '課文說想要用最短時間渡河，船頭要怎麼指？',
         options: [
@@ -2854,6 +2873,7 @@ window.APP_TEXTS['physics|十一上|第2單元 相對運動'] = {
       terms: [
         { w: '相對觀測', d: '從運動中的觀察者看到的運動情形。' }
       ],
+      viz: {"type":"rainwalk","rain":6,"walk":0},
       q: {
         q: '課文說走路時雨看起來變斜，原因是什麼？',
         options: [
@@ -3022,6 +3042,7 @@ window.APP_TEXTS['physics|十一上|第3單元 動量守恆與碰撞'] = {
       terms: [
         { w: '二維碰撞', d: '碰撞後兩物體不在同一直線上運動的碰撞。' }
       ],
+      viz: {"type":"vector","a":[3,2],"b":[1,-2],"mode":"add"},
       q: {
         q: '課文說等質量球體彈性斜碰後，兩者路徑的夾角是多少？',
         options: [
@@ -3075,6 +3096,7 @@ window.APP_TEXTS['physics|十一上|第4單元 質心運動'] = {
       terms: [
         { w: '質心', d: '系統質量分布的平均位置。' }
       ],
+      viz: {"type":"lever","mode":"lever"},
       q: {
         q: '課文說質心一定落在物體上嗎？',
         options: [
@@ -3770,6 +3792,7 @@ window.APP_TEXTS['physics|十一上|第8單元 靜力平衡與剛體'] = {
       terms: [
         { w: '正向力', d: '接觸面垂直於自身推物體的力。' }
       ],
+      viz: {"type":"force","mode":"friction"},
       q: {
         q: '課文說梯子不滑倒靠的是什麼力？',
         options: [
@@ -3845,6 +3868,7 @@ window.APP_TEXTS['physics|十一上|第9單元 流體力學'] = {
       terms: [
         { w: '巴斯卡原理', d: '封閉流體中壓力變化均勻傳遞到各處。' }
       ],
+      viz: {"type":"pressure","mode":"liquid"},
       q: {
         q: '課文說油壓千斤頂能舉起重物，靠的是什麼原理？',
         options: [
@@ -3868,6 +3892,7 @@ window.APP_TEXTS['physics|十一上|第9單元 流體力學'] = {
       terms: [
         { w: '浮力', d: '流體對浸入物體向上的托力。' }
       ],
+      viz: {"type":"buoyancy","mode":"float"},
       q: {
         q: '課文說鋼鐵造的船為什麼能浮起來？',
         options: [
@@ -4036,6 +4061,7 @@ window.APP_TEXTS['physics|十一下|第1單元 靜電力與電場'] = {
       terms: [
         { w: '靜電平衡', d: '導體中電荷不再移動、內部電場為零的狀態。' }
       ],
+      viz: {"type":"static","mode":"ground"},
       q: {
         q: '課文說靜電平衡時，導體內部的電場是多少？',
         options: [
@@ -4158,6 +4184,7 @@ window.APP_TEXTS['physics|十一下|第2單元 電位與電位能'] = {
       terms: [
         { w: '等位面', d: '電位相同的各點所構成的面。' }
       ],
+      viz: {"type": "fieldlines", "mode": "point"},
       q: {
         q: '課文說沿著等位面移動電荷，電力做多少功？',
         options: [
@@ -4257,6 +4284,7 @@ window.APP_TEXTS['physics|十一下|第3單元 電容器'] = {
       terms: [
         { w: '電容', d: '每單位電位差能儲存的電量。' }
       ],
+      viz: {"type": "fieldlines", "mode": "plates"},
       q: {
         q: '課文說把兩板拉得更遠時，電容會怎樣？',
         options: [
@@ -4524,6 +4552,7 @@ window.APP_TEXTS['physics|十一下|第5單元 直流電路'] = {
       terms: [
         { w: '串聯', d: '元件首尾相接、只有一條電流路徑的接法。' }
       ],
+      viz: {"type":"ohm","v":12,"r":3,"mode":"series"},
       q: {
         q: '課文說串聯電路中，各元件相同的是什麼？',
         options: [
@@ -4670,6 +4699,7 @@ window.APP_TEXTS['physics|十一下|第6單元 電流磁效應'] = {
       terms: [
         { w: '磁場', d: '磁力作用的空間分布。' }
       ],
+      viz: {"type":"magnet","mode":"compass"},
       q: {
         q: '課文說厄斯特的實驗證明了什麼？',
         options: [
@@ -4815,6 +4845,7 @@ window.APP_TEXTS['physics|十一下|第7單元 載流導線受力'] = {
       terms: [
         { w: '磁力', d: '磁場對運動電荷或電流所施的力。' }
       ],
+      viz: {"type":"magnet","mode":"poles"},
       q: {
         q: '課文說什麼情況下通電導線不受磁力？',
         options: [
@@ -4959,6 +4990,7 @@ window.APP_TEXTS['physics|十一下|第8單元 電磁感應'] = {
       terms: [
         { w: '電磁感應', d: '磁通量變化在線圈中產生感應電動勢的現象。' }
       ],
+      viz: {"type":"circuit","mode":"generator"},
       q: {
         q: '課文說產生感應電流的關鍵是什麼？',
         options: [
@@ -5104,6 +5136,7 @@ window.APP_TEXTS['physics|十一下|第9單元 交流電與變壓器'] = {
       terms: [
         { w: '有效值', d: '與交流電產生相同熱效應的直流電數值。' }
       ],
+      viz: {"type":"trigwave","a":1,"b":1,"c":0,"fn":"sin"},
       q: {
         q: '課文說為什麼不用平均值描述交流電？',
         options: [
@@ -5295,6 +5328,7 @@ window.APP_TEXTS['physics|十二上|第1單元 光電效應'] = {
       terms: [
         { w: '光子', d: '光的能量最小單位，能量與頻率成正比。' }
       ],
+      viz: {"type": "energylevel"},
       q: {
         q: '課文說能否打出電子取決於什麼？',
         options: [
@@ -5463,6 +5497,7 @@ window.APP_TEXTS['physics|十二上|第2單元 原子模型'] = {
       terms: [
         { w: '能階', d: '原子中電子被允許具有的特定能量值。' }
       ],
+      viz: {"type":"atom","z":1,"n":0,"e":1},
       q: {
         q: '課文說電子什麼時候才會放出光子？',
         options: [
@@ -5684,6 +5719,7 @@ window.APP_TEXTS['physics|十二上|第4單元 原子核與放射性'] = {
       terms: [
         { w: '同位素', d: '質子數相同而中子數不同的原子。' }
       ],
+      viz: {"type":"atom","z":6,"n":8,"e":6},
       q: {
         q: '課文說決定一個原子是什麼元素的是什麼？',
         options: [
@@ -5875,6 +5911,7 @@ window.APP_TEXTS['physics|十二上|第5單元 核反應與核能'] = {
       terms: [
         { w: '連鎖反應', d: '一次反應放出的中子引發更多反應的過程。' }
       ],
+      viz: {"type": "fission"},
       q: {
         q: '課文說核分裂能持續進行的關鍵是什麼？',
         options: [
@@ -6143,6 +6180,7 @@ window.APP_TEXTS['physics|十二上|第7單元 量子現象'] = {
       terms: [
         { w: '能階躍遷', d: '電子在不同能階之間跳躍並吸放光子的過程。' }
       ],
+      viz: {"type": "energylevel", "levels": [-13.6, -3.4, -1.51]},
       q: {
         q: '課文用什麼比喻說明能量的分立？',
         options: [
@@ -6312,6 +6350,7 @@ window.APP_TEXTS['physics|十二上|第8單元 半導體與電子元件'] = {
       terms: [
         { w: '整流', d: '把交流電轉換成單方向直流電的過程。' }
       ],
+      viz: {"type":"lamp","mode":"closed"},
       q: {
         q: '課文說二極體最基本的性質是什麼？',
         options: [
@@ -6527,6 +6566,7 @@ window.APP_TEXTS['physics|十二上|第9單元 基本粒子與宇宙'] = {
       terms: [
         { w: '暗物質', d: '不發光但具有引力效應的未知物質。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"暗能量","value":68},{"label":"暗物質","value":27},{"label":"一般物質","value":5}]},
       q: {
         q: '課文說暗物質存在的證據是什麼？',
         options: [
@@ -6845,6 +6885,7 @@ window.APP_TEXTS['physics|十二下|第3單元 波動與光學總複習'] = {
       terms: [
         { w: '波速', d: '波在介質中前進的速率。' }
       ],
+      viz: {"type":"soundwave","amp":1,"freq":2},
       q: {
         q: '課文說波換介質時，哪一個量不變？',
         options: [
@@ -6868,6 +6909,7 @@ window.APP_TEXTS['physics|十二下|第3單元 波動與光學總複習'] = {
       terms: [
         { w: '全反射', d: '入射角大於臨界角時光完全反射回原介質。' }
       ],
+      viz: {"type":"optics","mode":"refract"},
       q: {
         q: '課文說全反射發生在什麼情形？',
         options: [
@@ -7060,6 +7102,7 @@ window.APP_TEXTS['physics|十二下|第4單元 電磁學總複習'] = {
       terms: [
         { w: '感應電動勢', d: '磁通量變化在線圈中產生的電壓。' }
       ],
+      viz: {"type":"circuit","mode":"generator"},
       q: {
         q: '課文說感應電流的方向由什麼決定？',
         options: [
@@ -7350,6 +7393,7 @@ window.APP_TEXTS['physics|十二下|第6單元 實驗與測量誤差'] = {
       terms: [
         { w: '精密度', d: '多次測量結果彼此接近的程度。' }
       ],
+      viz: {"type": "accuracy", "mode": "both"},
       q: {
         q: '課文說很精密卻不準確，通常代表什麼？',
         options: [
@@ -7495,6 +7539,7 @@ window.APP_TEXTS['physics|十二下|第7單元 圖表與數據分析'] = {
       terms: [
         { w: '最佳直線', d: '最能代表整組數據趨勢的直線。' }
       ],
+      viz: {"type":"scatter","points":[[1,2.1],[2,3.9],[3,6.2],[4,7.8],[5,10.1]],"line":true},
       q: {
         q: '課文說畫最佳直線時常犯的錯誤是什麼？',
         options: [

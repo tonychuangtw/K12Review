@@ -10,7 +10,20 @@ NEXT_ACTION: 【進行中 2026-08-30 下午】課文帶讀配圖，Tony 看過�
 工具：tools/seed-text-viz.js <科目> [--write]。做法＝把同單元概念卡已配好的 viz 接到帶讀最相似的段落
 （數學／自然的帶讀與概念卡是同序對齊 99.5%／100%，其餘四科不是，靠相似度挑），
 一個單元最多 3 段、文字排版類元件（compareexp／classify／energyflow／levels／orgchart）一個單元最多 1 個。
-【下一步】高中物理／化學／生物／地科的帶讀還沒配圖，原因不是沒接好而是**概念卡本身就缺真正的圖**：
+【已完成第二批 2026-08-30 晚】高中四科：新增六種真圖（js/widgets.js）——
+accuracy（準確度vs精密度靶圖，4 種可切換）、workgraph（力-位移圖，按播放面積長出來＝功）、
+fieldlines（電場線與等位面，點電荷／平行板）、energylevel（能階躍遷，按吸收／放出）、
+fission（核分裂連鎖反應，可播放）、greenhouse（溫室效應，拉濃度滑桿看平衡溫度）。
+三種都要登記到 test/test.js 的 WIDGETS 陣列。
+並用 `node tools/seed-text-viz.js <科目> --no-texty --write` 把四科概念卡裡「本來就是真圖」的接到帶讀
+（物理 37／地科 22／生物 16／化學 8 段）。文字排版類一律不接。
+目前帶讀配圖率：math 36%、science 37%、physics 16%、earth 7%、biology 5%、chemistry 2%、全站 13.5%。
+【下一步】化學與生物還很薄，要再補一批圖：
+化學 —— bonding（離子／共價／金屬鍵）、vsepr（分子形狀）、ratecurve（反應速率與平衡曲線）、
+galvanic（電化學電池含鹽橋與電子流）、titration（滴定曲線）；
+生物 —— membrane（細胞膜三種運輸）、translation（轉錄轉譯）、immune（三道防線）、feedback（負回饋調節）。
+畫好後同樣接到帶讀（也可順便補進概念卡，概念卡目前仍是文字排版為主）。
+【原本的下一步，仍待處理】高中物理／化學／生物／地科的帶讀還沒配滿，原因不是沒接好而是**概念卡本身就缺真正的圖**：
 文字排版類佔比 physics 72%、earth 85%、biology 90%、chemistry 90%；
 且「一張真的圖都沒有」的單元 physics 11／chemistry 36／biology 27／earth 18（各科共 54 單元）。
 所以這四科要先「畫圖」而不是「接圖」：依單元主題挑或新增 SVG 元件（力圖、波形、電路、能階、
@@ -105,7 +118,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 22:40 台北（數學／自然帶讀配圖完成 738 段；高中四科待補真正的圖；誘答重寫排在配圖之後）
+UPDATED: 2026-08-30 23:40 台北（高中四科第一批真圖完成；化學生物待補第二批；誘答重寫排在配圖之後）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 

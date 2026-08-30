@@ -133,6 +133,7 @@ window.APP_TEXTS['biology|十上|第1單元 生命的特性與研究方法'] = {
       terms: [
         { w: '視野', d: '顯微鏡下能看到的範圍。' }
       ],
+      viz: {"type":"microscope"},
       q: {
         q: '課文說轉到高倍後為什麼只能調微調輪？',
         options: [
@@ -278,6 +279,7 @@ window.APP_TEXTS['biology|十上|第2單元 細胞的構造'] = {
       terms: [
         { w: '細胞學說', d: '關於細胞是生命基本單位的三項基本主張。' }
       ],
+      viz: {"type":"cell","kind":"animal"},
       q: {
         q: '課文說細胞學說的第三點推翻了什麼？',
         options: [
@@ -452,6 +454,7 @@ window.APP_TEXTS['biology|十上|第4單元 酵素與代謝'] = {
       terms: [
         { w: '活化能', d: '反應發生前必須跨越的能量門檻。' }
       ],
+      viz: {"type":"enzyme"},
       q: {
         q: '課文說酵素加速反應的方式是什麼？',
         options: [
@@ -521,6 +524,7 @@ window.APP_TEXTS['biology|十上|第4單元 酵素與代謝'] = {
       terms: [
         { w: '最適酸鹼值', d: '酵素活性最高時的酸鹼條件。' }
       ],
+      viz: {"type":"phscale","value":2,"marks":[{"v":2,"label":"胃蛋白酶"},{"v":7,"label":"多數酵素"},{"v":8,"label":"胰蛋白酶"}]},
       q: {
         q: '課文說胃蛋白酶的最適環境是什麼？',
         options: [
@@ -666,6 +670,7 @@ window.APP_TEXTS['biology|十上|第5單元 光合作用'] = {
       terms: [
         { w: '碳固定', d: '把二氧化碳併入有機分子的過程。' }
       ],
+      viz: {"type":"cycle","steps":["固定二氧化碳","還原","再生受體","循環繼續"]},
       q: {
         q: '課文說碳反應為什麼仍然依賴光？',
         options: [
@@ -1055,6 +1060,7 @@ window.APP_TEXTS['biology|十上|第8單元 遺傳法則'] = {
       terms: [
         { w: '隱性', d: '成對基因中被遮蓋而不表現的形式。' }
       ],
+      viz: {"type":"punnett","a":"Aa","b":"Aa"},
       q: {
         q: '課文說外表相同的個體，基因組成一定相同嗎？',
         options: [
@@ -1612,6 +1618,7 @@ window.APP_TEXTS['biology|十下|第3單元 植物的構造與功能'] = {
       terms: [
         { w: '根毛', d: '根表皮延伸出的細長構造，增加吸收面積。' }
       ],
+      viz: {"type":"plantparts"},
       q: {
         q: '課文說根毛的作用是什麼？',
         options: [
@@ -1780,6 +1787,7 @@ window.APP_TEXTS['biology|十下|第4單元 植物的生殖'] = {
       terms: [
         { w: '胚珠', d: '雌蕊中發育成種子的構造。' }
       ],
+      viz: {"type":"plantparts"},
       q: {
         q: '課文說風媒花為什麼常常沒有鮮豔花瓣？',
         options: [
@@ -1925,6 +1933,7 @@ window.APP_TEXTS['biology|十下|第5單元 動物的消化與循環'] = {
       terms: [
         { w: '絨毛', d: '小腸內壁的指狀突起，增加吸收面積。' }
       ],
+      viz: {"type":"bodysystem","mode":"digest"},
       q: {
         q: '課文說消化與吸收的主要場所是哪裡？',
         options: [
@@ -2192,6 +2201,7 @@ window.APP_TEXTS['biology|十下|第7單元 神經與內分泌'] = {
       terms: [
         { w: '軸突', d: '神經元中把訊息傳出去的長突起。' }
       ],
+      viz: {"type":"nerve"},
       q: {
         q: '課文說髓鞘的作用是什麼？',
         options: [
@@ -2528,6 +2538,7 @@ window.APP_TEXTS['biology|十下|第9單元 生態系'] = {
       terms: [
         { w: '食物網', d: '多條食物鏈交錯構成的取食關係網絡。' }
       ],
+      viz: {"type":"foodweb"},
       q: {
         q: '課文說食物網越複雜代表什麼？',
         options: [
@@ -3497,6 +3508,7 @@ window.APP_TEXTS['biology|十一上|第7單元 族群與群落'] = {
       terms: [
         { w: '年齡結構', d: '族群中各年齡層個體所佔的比例。' }
       ],
+      viz: {"type":"poppyramid"},
       q: {
         q: '課文說年齡結構的用途是什麼？',
         options: [
@@ -3665,6 +3677,7 @@ window.APP_TEXTS['biology|十一上|第8單元 生態系的物質循環'] = {
       terms: [
         { w: '碳匯', d: '能長期吸收並儲存碳的系統。' }
       ],
+      viz: {"type":"cycle","steps":["大氣中的二氧化碳","光合作用固定","沿食物鏈傳遞","呼吸與分解釋回"]},
       q: {
         q: '課文說燃燒化石燃料造成的問題是什麼？',
         options: [
@@ -4100,6 +4113,7 @@ window.APP_TEXTS['biology|十一下|第2單元 感覺與運動'] = {
       terms: [
         { w: '視網膜', d: '眼球後方接收影像的感光層。' }
       ],
+      viz: {"type":"imaging","mode":"lens","u":35},
       q: {
         q: '課文說昏暗中分不清顏色的原因是什麼？',
         options: [
@@ -4802,6 +4816,7 @@ window.APP_TEXTS['biology|十一下|第7單元 生物實驗技術'] = {
       terms: [
         { w: '解析度', d: '能分辨兩個相鄰點的最小距離。' }
       ],
+      viz: {"type":"microscope"},
       q: {
         q: '課文說電子顯微鏡的限制是什麼？',
         options: [
@@ -7458,6 +7473,7 @@ window.APP_TEXTS['biology|十二下|第7單元 分科綜合演練（一）'] = {
       terms: [
         { w: '棋盤格', d: '列出配子組合以求後代比例的表格。' }
       ],
+      viz: {"type":"punnett","a":"AaBb","b":"AaBb"},
       q: {
         q: '課文提醒遺傳計算最後要注意什麼？',
         options: [

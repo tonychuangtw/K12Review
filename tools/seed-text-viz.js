@@ -22,6 +22,9 @@ const SUBJ = process.argv[2];
 const WRITE = process.argv.includes('--write');
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? Number(process.argv[i + 1]) : d; };
 const MIN = arg('--min', 0.5), PER = arg('--per', 3);
+/* --no-texty：完全不要文字排版類元件。高中理科用這個 ——
+   那四科的概念卡九成是文字排版，接過去等於把同一段文字換個框再看一次。 */
+const NO_TEXTY = process.argv.includes('--no-texty');
 if (!SUBJ) { console.error('用法：node tools/seed-text-viz.js <科目> [--write]'); process.exit(1); }
 
 global.window = {};
@@ -55,6 +58,7 @@ Object.keys(T).forEach((key) => {
     let best = null;
     cards.forEach((c, j) => {
       if (!c.viz || !c.viz.type) return;
+      if (NO_TEXTY && TEXTY.has(c.viz.type)) return;
       const raw = sim(st, (c.title || '') + ' ' + (c.body || ''));
       const v = raw + (TEXTY.has(c.viz.type) ? 0 : BONUS);
       if (!best || v > best.v) best = { v, raw, j, c };

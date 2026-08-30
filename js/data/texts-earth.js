@@ -109,6 +109,7 @@ window.APP_TEXTS['earth|十上|第1單元 地球的組成與構造'] = {
       terms: [
         { w: '地磁反轉', d: '地球磁場南北極對調的現象。' }
       ],
+      viz: {"type":"magnet","mode":"compass"},
       q: {
         q: '課文說地球磁場的來源是什麼？',
         options: [
@@ -208,6 +209,7 @@ window.APP_TEXTS['earth|十上|第2單元 板塊構造'] = {
       terms: [
         { w: '聚合邊界', d: '兩板塊互相靠近碰撞的邊界。' }
       ],
+      viz: {"type":"plates","mode":"collide"},
       q: {
         q: '課文說地震與火山主要集中在哪裡？',
         options: [
@@ -353,6 +355,7 @@ window.APP_TEXTS['earth|十上|第3單元 岩石與礦物'] = {
       terms: [
         { w: '沉積岩', d: '由碎屑或化學沉澱物堆積膠結而成的岩石。' }
       ],
+      viz: {"type":"strata"},
       q: {
         q: '課文說哪一類岩石最可能含有化石？',
         options: [
@@ -399,6 +402,7 @@ window.APP_TEXTS['earth|十上|第3單元 岩石與礦物'] = {
       terms: [
         { w: '岩石循環', d: '三大類岩石互相轉變的循環過程。' }
       ],
+      viz: {"type":"cycle","steps":["岩漿冷卻成火成岩","風化沉積成沉積岩","高溫高壓成變質岩","熔化回岩漿"]},
       q: {
         q: '課文說岩石循環的意思是什麼？',
         options: [
@@ -452,6 +456,7 @@ window.APP_TEXTS['earth|十上|第4單元 地震'] = {
       terms: [
         { w: '斷層', d: '岩層破裂並發生相對位移的構造。' }
       ],
+      viz: {"type":"plates","mode":"quake"},
       q: {
         q: '課文說地震發生的直接原因是什麼？',
         options: [
@@ -887,6 +892,7 @@ window.APP_TEXTS['earth|十上|第7單元 大氣的組成與結構'] = {
       terms: [
         { w: '溫室氣體', d: '能吸收地表紅外輻射的氣體。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"氮","value":78},{"label":"氧","value":21},{"label":"其他","value":1}]},
       q: {
         q: '課文說二氧化碳的特點是什麼？',
         options: [
@@ -1269,6 +1275,7 @@ window.APP_TEXTS['earth|十上|第9單元 海洋'] = {
       terms: [
         { w: '潮差', d: '高潮與低潮之間的水位差。' }
       ],
+      viz: {"type":"moonphase"},
       q: {
         q: '課文說大潮發生在什麼時候？',
         options: [
@@ -1490,6 +1497,7 @@ window.APP_TEXTS['earth|十下|第2單元 地球的運動'] = {
       terms: [
         { w: '地軸傾斜', d: '地球自轉軸相對公轉面傾斜的角度。' }
       ],
+      viz: {"type":"earthsun"},
       q: {
         q: '課文說四季形成的原因是什麼？',
         options: [
@@ -1612,6 +1620,7 @@ window.APP_TEXTS['earth|十下|第3單元 月球與日月食'] = {
       terms: [
         { w: '月相', d: '月球被照亮部分在地球看來的變化。' }
       ],
+      viz: {"type":"moonphase"},
       q: {
         q: '課文說月相變化的原因是什麼？',
         options: [
@@ -1902,6 +1911,7 @@ window.APP_TEXTS['earth|十下|第5單元 大氣運動與氣候'] = {
       terms: [
         { w: '氣壓梯度', d: '單位距離內氣壓的差異。' }
       ],
+      viz: {"type":"weathermap"},
       q: {
         q: '課文說風的根本來源是什麼？',
         options: [
@@ -2047,6 +2057,7 @@ window.APP_TEXTS['earth|十下|第6單元 水循環與水資源'] = {
       terms: [
         { w: '蒸散', d: '水分經植物散失到大氣中的過程。' }
       ],
+      viz: {"type":"cycle","steps":["海洋蒸發","水氣凝結成雲","降水到地表","逕流回海洋"]},
       q: {
         q: '課文說水循環的動力主要來自什麼？',
         options: [
@@ -2337,6 +2348,7 @@ window.APP_TEXTS['earth|十下|第8單元 全球環境變遷'] = {
       terms: [
         { w: '長波輻射', d: '地表放出的紅外線輻射。' }
       ],
+      viz: {"type": "greenhouse", "ghg": 3},
       q: {
         q: '課文說溫室氣體主要吸收哪一種輻射？',
         options: [
@@ -2627,6 +2639,7 @@ window.APP_TEXTS['earth|十一上|第1單元 天球與星空觀測'] = {
       terms: [
         { w: '天球', d: '為描述天體方位而假想的球面。' }
       ],
+      viz: {"type":"space3d"},
       q: {
         q: '課文說天球是什麼？',
         options: [
@@ -2650,6 +2663,7 @@ window.APP_TEXTS['earth|十一上|第1單元 天球與星空觀測'] = {
       terms: [
         { w: '方位角', d: '從正北順時針量到天體方向的角度。' }
       ],
+      viz: {"type":"protractor"},
       q: {
         q: '課文說地平座標的缺點是什麼？',
         options: [
@@ -3351,6 +3365,7 @@ window.APP_TEXTS['earth|十一上|第6單元 台灣的地質'] = {
       terms: [
         { w: '造山運動', d: '板塊擠壓使地層隆起形成山脈的作用。' }
       ],
+      viz: {"type":"plates","mode":"collide"},
       q: {
         q: '課文說台灣的山還在長高的原因是什麼？',
         options: [
@@ -4557,6 +4572,7 @@ window.APP_TEXTS['earth|十一下|第5單元 氣候變遷科學'] = {
       terms: [
         { w: '歸因', d: '判斷觀測到的變化是由哪些原因造成。' }
       ],
+      viz: {"type": "greenhouse", "ghg": 5},
       q: {
         q: '課文說判斷人為影響的方法是什麼？',
         options: [
@@ -4702,6 +4718,7 @@ window.APP_TEXTS['earth|十一下|第6單元 永續發展'] = {
       terms: [
         { w: '循環經濟', d: '讓材料持續循環使用的經濟模式。' }
       ],
+      viz: {"type":"cycle","steps":["設計易拆解的產品","延長使用壽命","維修與再製造","材料回到生產循環"]},
       q: {
         q: '課文說循環經濟的關鍵在哪一個階段？',
         options: [
@@ -5259,6 +5276,7 @@ window.APP_TEXTS['earth|十二上|第1單元 固體地球總複習'] = {
       terms: [
         { w: '張裂邊界', d: '兩板塊分離的邊界。' }
       ],
+      viz: {"type":"plates","mode":"collide"},
       q: {
         q: '課文說看到海溝時應該想到什麼邊界？',
         options: [
@@ -5305,6 +5323,7 @@ window.APP_TEXTS['earth|十二上|第1單元 固體地球總複習'] = {
       terms: [
         { w: '截切關係', d: '切割者比被切割者年輕的原則。' }
       ],
+      viz: {"type":"strata"},
       q: {
         q: '課文說給出絕對年代要靠什麼方法？',
         options: [
@@ -5427,6 +5446,7 @@ window.APP_TEXTS['earth|十二上|第2單元 大氣總複習'] = {
       terms: [
         { w: '輻合', d: '氣流由四周向中心聚集。' }
       ],
+      viz: {"type":"weathermap"},
       q: {
         q: '課文說高壓籠罩時通常天氣如何？',
         options: [
@@ -5595,6 +5615,7 @@ window.APP_TEXTS['earth|十二上|第3單元 海洋總複習'] = {
       terms: [
         { w: '大潮', d: '潮差最大的時期。' }
       ],
+      viz: {"type":"moonphase"},
       q: {
         q: '課文說小潮發生在什麼時候？',
         options: [
@@ -5671,6 +5692,7 @@ window.APP_TEXTS['earth|十二上|第4單元 天文總複習'] = {
       terms: [
         { w: '地軸傾斜', d: '自轉軸相對公轉面的傾斜。' }
       ],
+      viz: {"type":"earthsun"},
       q: {
         q: '課文說四季的成因是什麼？',
         options: [
@@ -5694,6 +5716,7 @@ window.APP_TEXTS['earth|十二上|第4單元 天文總複習'] = {
       terms: [
         { w: '月相', d: '月球被照亮部分在地球看來的變化。' }
       ],
+      viz: {"type":"moonphase"},
       q: {
         q: '課文說滿月時三者的位置關係是什麼？',
         options: [
@@ -6541,6 +6564,7 @@ window.APP_TEXTS['earth|十二下|第1單元 台灣的自然環境'] = {
       terms: [
         { w: '地形落差', d: '短距離內海拔高度的差異。' }
       ],
+      viz: {"type":"taiwan"},
       q: {
         q: '課文說台灣地形最大的特色是什麼？',
         options: [

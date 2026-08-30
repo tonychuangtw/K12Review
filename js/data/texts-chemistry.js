@@ -109,6 +109,7 @@ window.APP_TEXTS['chemistry|十上|第1單元 物質的組成與分類'] = {
       terms: [
         { w: '粒子觀點', d: '用微觀粒子的排列與運動解釋物質性質的方式。' }
       ],
+      viz: {"type":"statechange","mode":"states"},
       q: {
         q: '課文說氣體可以被壓縮，是因為什麼？',
         options: [
@@ -185,6 +186,7 @@ window.APP_TEXTS['chemistry|十上|第2單元 原子結構'] = {
       terms: [
         { w: '原子序', d: '原子核中質子的數目。' }
       ],
+      viz: {"type":"atom","z":8,"n":8,"e":8},
       q: {
         q: '課文說原子的質量幾乎集中在哪裡？',
         options: [
@@ -307,6 +309,7 @@ window.APP_TEXTS['chemistry|十上|第3單元 週期表'] = {
       terms: [
         { w: '族', d: '週期表中的直行，價電子數相同。' }
       ],
+      viz: {"type":"ptable","highlight":"group"},
       q: {
         q: '課文說同一族的元素性質相似，是因為什麼？',
         options: [
@@ -742,6 +745,7 @@ window.APP_TEXTS['chemistry|十上|第6單元 溶液'] = {
       terms: [
         { w: '溶液', d: '溶質均勻分散在溶劑中形成的混合物。' }
       ],
+      viz: {"type":"solution","solute":3,"max":10,"water":5},
       q: {
         q: '課文說為什麼過濾不能分開溶液中的溶質？',
         options: [
@@ -1322,6 +1326,7 @@ window.APP_TEXTS['chemistry|十下|第1單元 氣體'] = {
       terms: [
         { w: '理想氣體', d: '假設粒子體積可忽略、彼此無作用力的氣體模型。' }
       ],
+      viz: {"type":"statechange","mode":"expand"},
       q: {
         q: '課文說氣體壓力來自什麼？',
         options: [
@@ -4077,6 +4082,7 @@ window.APP_TEXTS['chemistry|十一下|第2單元 有機反應類型'] = {
       terms: [
         { w: '取代反應', d: '分子中一個基團被另一個基團替換的反應。' }
       ],
+      viz: {"type":"chemeq","mode":"type"},
       q: {
         q: '課文說烷類與鹵素的取代反應有什麼缺點？',
         options: [
@@ -5260,6 +5266,7 @@ window.APP_TEXTS['chemistry|十二上|第1單元 物質三態與相變'] = {
       terms: [
         { w: '昇華', d: '固體不經液態直接變成氣體的過程。' }
       ],
+      viz: {"type":"statechange","mode":"boil"},
       q: {
         q: '課文舉的昇華例子是什麼？',
         options: [
@@ -6588,6 +6595,7 @@ window.APP_TEXTS['chemistry|十二下|第1單元 無機化學選讀'] = {
       terms: [
         { w: '氧化態', d: '元素在化合物中所呈現的氧化數。' }
       ],
+      viz: {"type":"ptable","highlight":"metal"},
       q: {
         q: '課文說過渡金屬化合物常有顏色，這與什麼有關？',
         options: [

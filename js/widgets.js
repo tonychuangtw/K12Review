@@ -9222,6 +9222,334 @@
     host.appendChild(box);
   };
 
+  /* ── 高中理科補的圖（2026-08-30）────────────────────────────────────
+     這四科的概念卡九成是「文字排在框裡」（compareexp／classify／energyflow），
+     不是真的圖，所以帶讀接不到東西可用。以下是依單元主題補的真圖，
+     一張要能服務多個單元，不為單一段落做拋棄式插圖。 */
+
+  /* 精密度 vs 準確度：靶紙上的彈著點 —— 物理十上測量、十二下誤差、建模三個單元共用 */
+  REG.accuracy = function (host, spec) {
+    var MODES = [
+      ['both', '又準又精密', [[0, 0], [4, -3], [-3, 3], [2, 4], [-4, -2]], '集中，而且集中在靶心'],
+      ['precise', '精密但不準', [[34, -26], [38, -22], [30, -30], [36, -30], [32, -24]], '很集中，但整組偏掉了（系統誤差）'],
+      ['accurate', '準但不精密', [[-26, 20], [30, -24], [4, 34], [-30, -18], [22, 26]], '平均在靶心附近，但散得很開（隨機誤差）'],
+      ['neither', '又不準又不精密', [[38, 30], [-40, 12], [10, 44], [44, -8], [-14, 40]], '既散又偏，兩種誤差都大']
+    ];
+    var mi = 0;
+    MODES.forEach(function (m, i) { if (m[0] === spec.mode) mi = i; });
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      var cx = 108, cy = 100, m = MODES[mi];
+      [60, 44, 28, 12].forEach(function (r, i) {
+        svg.appendChild(el('circle', { cx: cx, cy: cy, r: r },
+          'fill:' + (i % 2 ? 'var(--panel2)' : 'transparent') +
+          ';stroke:var(--border);stroke-width:1.5'));
+      });
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: 4 }, 'fill:var(--dim)'));
+      m[2].forEach(function (p) {
+        svg.appendChild(el('circle', { cx: cx + p[0], cy: cy + p[1], r: 5, 'fill-opacity': '.75' },
+          'fill:var(--accent);stroke:var(--accent);stroke-width:1.5'));
+      });
+      svg.appendChild(txt(cx, 22, m[1], 'font-size:14px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(cx, 182, m[3], 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(250, 60, '準確', 'font-size:12px;font-weight:700;fill:var(--good)'));
+      svg.appendChild(txt(250, 78, '＝靠不靠近靶心', 'font-size:11px;fill:var(--dim)'));
+      svg.appendChild(txt(250, 112, '精密', 'font-size:12px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(250, 130, '＝彼此集不集中', 'font-size:11px;fill:var(--dim)'));
+      read.appendChild(div('wg-read-main', m[1] + '：' + m[3]));
+      read.appendChild(div('wg-read-sub',
+        '兩個詞常被混用，其實是兩件事。準確＝平均值接近真值，精密＝重複測量彼此接近。' +
+        '⚠ 很集中卻整組偏掉的那一種最危險——數據看起來很漂亮，其實是儀器沒校正的系統誤差，' +
+        '再多測幾次取平均也救不回來；隨機誤差才可以靠多測幾次壓下去。'));
+    }
+    var row = div('wg-ctrl');
+    MODES.forEach(function (m, i) { row.appendChild(btn(m[1], function () { mi = i; paint(); })); });
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 力—位移圖：圖形下的面積就是功（等力＝長方形、線性變力＝三角形）*/
+  REG.workgraph = function (host, spec) {
+    var ramp = spec.mode === 'ramp';
+    var F = spec.F == null ? 6 : spec.F, d = spec.d == null ? 5 : spec.d;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 46, Y0 = 148, W = 236, H = 104;
+    function fAt(x) { return ramp ? F * x / d : F; }
+    function draw(t) {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var cur = d * t;
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X0 + W, y2: Y0 },
+        'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X0, y2: Y0 - H },
+        'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(txt(X0 - 24, Y0 - H + 6, '力', 'font-size:12px;fill:var(--dim)'));
+      svg.appendChild(txt(X0 + W + 14, Y0, '位移', 'font-size:12px;fill:var(--dim)'));
+      var gx = function (x) { return X0 + W * x / d; };
+      var gy = function (f) { return Y0 - H * f / (F * 1.15); };
+      if (cur > 0) {
+        var pts = 'M' + gx(0) + ',' + Y0 + ' L' + gx(0) + ',' + gy(fAt(0)) +
+          ' L' + gx(cur) + ',' + gy(fAt(cur)) + ' L' + gx(cur) + ',' + Y0 + ' Z';
+        svg.appendChild(el('path', { d: pts }, 'fill:var(--good);fill-opacity:.25'));
+      }
+      svg.appendChild(el('line', { x1: gx(0), y1: gy(fAt(0)), x2: gx(d), y2: gy(fAt(d)) },
+        'stroke:var(--accent);stroke-width:2.5'));
+      var w = ramp ? 0.5 * fAt(cur) * cur : F * cur;
+      svg.appendChild(txt(160, 22, ramp ? '力隨位移變大（彈簧）' : '固定的力',
+        'font-size:13px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(160, 40, '面積 ＝ 功 ＝ ' + w.toFixed(1) + ' 焦耳',
+        'font-size:12px;fill:var(--good)'));
+      svg.appendChild(txt(160, 172, ramp ? '三角形：功 ＝ ½ × 力 × 位移' : '長方形：功 ＝ 力 × 位移',
+        'font-size:11px;fill:var(--dim)'));
+    }
+    box.appendChild(player(box, draw, { duration: 2600, steps: 5 }));
+    read.appendChild(div('wg-read-main',
+      ramp ? '力會變時，用面積算功：½ × ' + F + ' × ' + d + ' ＝ ' + (0.5 * F * d).toFixed(1) + ' 焦耳'
+           : '力固定時，功 ＝ ' + F + ' × ' + d + ' ＝ ' + (F * d).toFixed(1) + ' 焦耳'));
+    read.appendChild(div('wg-read-sub',
+      '功不是「有出力」就有，是「力讓東西沿著力的方向移動」才有。' +
+      '把力對位移作圖，圖形下的面積就是功——力固定時是長方形，力隨位移變大時是三角形。' +
+      '⚠ 力與位移垂直時不做功（提著書包水平走路），圖上等於高度是 0。'));
+    host.appendChild(box);
+  };
+
+  /* 電場線與等位面：點電荷／平行板兩種，等位面永遠垂直於電場線 */
+  REG.fieldlines = function (host, spec) {
+    var plates = spec.mode === 'plates';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function arrow(x1, y1, x2, y2, col) {
+      svg.appendChild(el('line', { x1: x1, y1: y1, x2: x2, y2: y2 },
+        'stroke:var(--' + col + ');stroke-width:2'));
+      var a = Math.atan2(y2 - y1, x2 - x1);
+      svg.appendChild(el('path', { d: 'M' + x2 + ',' + y2 +
+        ' L' + (x2 - 8 * Math.cos(a - 0.4)) + ',' + (y2 - 8 * Math.sin(a - 0.4)) +
+        ' L' + (x2 - 8 * Math.cos(a + 0.4)) + ',' + (y2 - 8 * Math.sin(a + 0.4)) + ' Z' },
+        'fill:var(--' + col + ')'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      if (plates) {
+        svg.appendChild(el('rect', { x: 60, y: 44, width: 200, height: 7 },
+          'fill:var(--bad)'));
+        svg.appendChild(el('rect', { x: 60, y: 150, width: 200, height: 7 },
+          'fill:var(--accent)'));
+        svg.appendChild(txt(38, 47, '＋', 'font-size:16px;font-weight:700;fill:var(--bad)'));
+        svg.appendChild(txt(38, 154, '−', 'font-size:16px;font-weight:700;fill:var(--accent)'));
+        for (var i = 0; i < 5; i++) arrow(80 + i * 40, 54, 80 + i * 40, 146, 'bad');
+        [76, 100, 124].forEach(function (y, k) {
+          svg.appendChild(el('line', { x1: 62, y1: y, x2: 258, y2: y },
+            'stroke:var(--good);stroke-width:1.6;stroke-dasharray:5 4'));
+          svg.appendChild(txt(282, y, '等位面', 'font-size:10px;fill:var(--good)'));
+        });
+        svg.appendChild(txt(160, 24, '平行板：電場均勻，等位面是平行的平面',
+          'font-size:12px;font-weight:700;fill:var(--accent)'));
+        svg.appendChild(txt(160, 182, '電場強度 ＝ 電位差 ÷ 板距', 'font-size:11px;fill:var(--dim)'));
+      } else {
+        var cx = 150, cy = 106;
+        svg.appendChild(el('circle', { cx: cx, cy: cy, r: 13 },
+          'fill:var(--bad);fill-opacity:.75;stroke:var(--bad);stroke-width:2'));
+        svg.appendChild(txt(cx, cy, '＋', 'font-size:15px;font-weight:700;fill:var(--panel)'));
+        for (var a = 0; a < 8; a++) {
+          var th = a * Math.PI / 4;
+          arrow(cx + 17 * Math.cos(th), cy + 17 * Math.sin(th),
+                cx + 66 * Math.cos(th), cy + 66 * Math.sin(th), 'bad');
+        }
+        [34, 52, 74].forEach(function (r) {
+          svg.appendChild(el('circle', { cx: cx, cy: cy, r: r },
+            'fill:none;stroke:var(--good);stroke-width:1.6;stroke-dasharray:5 4'));
+        });
+        svg.appendChild(txt(160, 24, '點電荷：電場線放射狀，等位面是同心球面',
+          'font-size:12px;font-weight:700;fill:var(--accent)'));
+        svg.appendChild(txt(160, 190, '離電荷越遠，電場越弱、等位面越疏',
+          'font-size:11px;fill:var(--dim)'));
+      }
+      read.appendChild(div('wg-read-main',
+        plates ? '平行板：電場處處相同，等位面是一層一層的平面'
+               : '點電荷：電場線由正電荷向外放射，等位面是一圈一圈的球面'));
+      read.appendChild(div('wg-read-sub',
+        '虛線是等位面（上面每一點電位都一樣），實線箭頭是電場。' +
+        '兩者永遠互相垂直——因為沿著等位面移動電荷不必作功，電場方向必定沒有沿面的分量。' +
+        '⚠ 電場指向電位「下降最快」的方向，不是指向電位高的地方。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('點電荷', function () { plates = false; paint(); }, 'wg-btn', '已經在看點電荷了'));
+    row.appendChild(btn('平行板', function () { plates = true; paint(); }, 'wg-btn', '已經在看平行板了'));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 能階與光子：吸收往上跳、放出往下掉，光子能量＝兩階之差 */
+  REG.energylevel = function (host, spec) {
+    var LV = spec.levels && spec.levels.length ? spec.levels : [-13.6, -3.4, -1.51, -0.85];
+    var at = 0, mode = 'up';
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function y(i) { return 168 - i * (128 / Math.max(1, LV.length - 1)); }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      LV.forEach(function (e, i) {
+        svg.appendChild(el('line', { x1: 60, y1: y(i), x2: 226, y2: y(i) },
+          'stroke:var(--border);stroke-width:' + (i === at ? 3 : 2) +
+          ';stroke-opacity:' + (i === at ? 1 : 0.7)));
+        svg.appendChild(txt(248, y(i), 'n＝' + (i + 1), 'font-size:11px;fill:var(--dim)'));
+        svg.appendChild(txt(34, y(i), e.toFixed(2), 'font-size:10px;fill:var(--dim)'));
+      });
+      svg.appendChild(el('circle', { cx: 78, cy: y(at) - 8, r: 6 },
+        'fill:var(--accent);stroke:var(--accent);stroke-width:2'));
+      svg.appendChild(txt(160, 20, '電子在第 ' + (at + 1) + ' 階',
+        'font-size:13px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(160, 190,
+        mode === 'up' ? '吸收光子才跳得上去' : '掉下來就放出光子',
+        'font-size:11px;fill:var(--dim)'));
+    }
+    function jump(dir) {
+      var to = clamp(at + dir, 0, LV.length - 1);
+      if (to === at) return false;
+      var dE = Math.abs(LV[to] - LV[at]);
+      mode = dir > 0 ? 'up' : 'down';
+      at = to;
+      paint();
+      read.appendChild(div('wg-read-main',
+        (dir > 0 ? '吸收' : '放出') + '一個能量 ' + dE.toFixed(2) + ' 電子伏特的光子'));
+      read.appendChild(div('wg-read-sub',
+        '能階是分立的，電子只能停在這幾條線上，不能停在中間。' +
+        '所以吸收或放出的光子能量只能剛好等於兩階之差——這就是為什麼每種元素的光譜是' +
+        '一條一條的亮線，而不是連續的顏色。⚠ 光子能量看的是「頻率」不是亮度：' +
+        '光再亮，單顆光子能量不夠仍然跳不上去。'));
+      return true;
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('↑ 吸收光子', function () { jump(1); }, 'wg-btn', '已經在最高階了'));
+    row.appendChild(btn('↓ 放出光子', function () { jump(-1); }, 'wg-btn', '已經在基態了'));
+    paint();
+    read.appendChild(div('wg-read-main', '按上面的鍵讓電子在能階之間跳'));
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 核分裂連鎖反應：一顆中子打進去，分裂成兩塊並放出更多中子 */
+  REG.fission = function (host, spec) {
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function draw(t) {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var cx = 160, cy = 96;
+      svg.appendChild(txt(160, 20, '核分裂：一顆中子 → 兩塊碎片 ＋ 更多中子',
+        'font-size:12px;font-weight:700;fill:var(--accent)'));
+      if (t < 0.34) {                                  // 中子飛過來
+        var p = t / 0.34;
+        svg.appendChild(el('circle', { cx: cx, cy: cy, r: 26 },
+          'fill:var(--accent);fill-opacity:.5;stroke:var(--accent);stroke-width:2'));
+        svg.appendChild(txt(cx, cy, '鈾', 'font-size:14px;font-weight:700'));
+        svg.appendChild(el('circle', { cx: 24 + (cx - 50) * p, cy: cy, r: 6 },
+          'fill:var(--good)'));
+        svg.appendChild(txt(160, 176, '中子飛向鈾核', 'font-size:11px;fill:var(--dim)'));
+      } else {                                          // 分裂
+        var q = (t - 0.34) / 0.66;
+        var off = 8 + 54 * q;
+        [-1, 1].forEach(function (d) {
+          svg.appendChild(el('circle', { cx: cx + d * off, cy: cy, r: 18 },
+            'fill:var(--bad);fill-opacity:.55;stroke:var(--bad);stroke-width:2'));
+        });
+        svg.appendChild(txt(cx - off, cy, '碎片', 'font-size:11px'));
+        svg.appendChild(txt(cx + off, cy, '碎片', 'font-size:11px'));
+        [[-0.8, -1], [0.8, -1], [0, 1]].forEach(function (v) {
+          svg.appendChild(el('circle',
+            { cx: cx + v[0] * 70 * q, cy: cy + v[1] * 56 * q, r: 5 }, 'fill:var(--good)'));
+        });
+        svg.appendChild(txt(160, 176, '放出 2–3 顆中子，去打下一顆鈾核',
+          'font-size:11px;fill:var(--good)'));
+      }
+    }
+    box.appendChild(player(box, draw, { duration: 2800, steps: 5 }));
+    read.appendChild(div('wg-read-main', '一次分裂放出的中子，會再引發下一次分裂'));
+    read.appendChild(div('wg-read-sub',
+      '分裂後兩塊碎片的質量總和比原來的鈾核少一點，少掉的質量變成能量（質能等價）。' +
+      '同時放出的 2–3 顆中子會去打下一顆鈾核，形成連鎖反應。' +
+      '⚠ 核電廠靠控制棒吸掉多餘的中子，讓平均「每次分裂剛好再引發一次」，' +
+      '反應才穩定；控制棒插深一點反應就慢下來。'));
+    host.appendChild(box);
+  };
+
+  /* 溫室效應：進來的短波、地表放出的長波、被溫室氣體再輻射回地面 */
+  REG.greenhouse = function (host, spec) {
+    var ghg = spec.ghg == null ? 3 : spec.ghg;          // 1–6
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function arrow(x1, y1, x2, y2, col, w) {
+      svg.appendChild(el('line', { x1: x1, y1: y1, x2: x2, y2: y2 },
+        'stroke:var(--' + col + ');stroke-width:' + (w || 2)));
+      var a = Math.atan2(y2 - y1, x2 - x1);
+      svg.appendChild(el('path', { d: 'M' + x2 + ',' + y2 +
+        ' L' + (x2 - 9 * Math.cos(a - 0.4)) + ',' + (y2 - 9 * Math.sin(a - 0.4)) +
+        ' L' + (x2 - 9 * Math.cos(a + 0.4)) + ',' + (y2 - 9 * Math.sin(a + 0.4)) + ' Z' },
+        'fill:var(--' + col + ')'));
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      read.innerHTML = '';
+      svg.appendChild(el('rect', { x: 12, y: 150, width: 296, height: 40, rx: 5 },
+        'fill:var(--good);fill-opacity:.3;stroke:var(--good);stroke-width:2'));
+      svg.appendChild(txt(160, 170, '地表', 'font-size:12px;font-weight:700'));
+      svg.appendChild(el('rect', { x: 12, y: 46, width: 296, height: 34, rx: 5 },
+        'fill:var(--accent);fill-opacity:' + (0.06 + ghg * 0.045).toFixed(2) +
+        ';stroke:var(--accent);stroke-width:1.5;stroke-dasharray:5 4'));
+      svg.appendChild(txt(160, 63, '大氣中的溫室氣體（濃度 ' + ghg + '）',
+        'font-size:11px;fill:var(--accent)'));
+      arrow(48, 16, 68, 148, 'accent', 3);
+      svg.appendChild(txt(34, 100, '陽光', 'font-size:11px;fill:var(--accent)'));
+      var out = Math.max(1, 7 - ghg);
+      arrow(160, 148, 160, 16, 'bad', out);
+      svg.appendChild(txt(186, 110, '散得出去的熱', 'font-size:11px;fill:var(--bad)'));
+      for (var i = 0; i < ghg; i++) {
+        arrow(236 + i * 9, 78, 236 + i * 9, 146, 'bad', 2);
+      }
+      svg.appendChild(txt(268, 108, '被擋回來', 'font-size:11px;fill:var(--bad)'));
+      var temp = (14 + (ghg - 3) * 1.4).toFixed(1);
+      svg.appendChild(txt(160, 32, '地表平均溫度 ' + temp + ' ℃',
+        'font-size:13px;font-weight:700;fill:var(--bad)'));
+      read.appendChild(div('wg-read-main',
+        '溫室氣體濃度 ' + ghg + ' → 散得出去的熱變少，地表要更熱才能重新平衡（約 ' + temp + ' ℃）'));
+      read.appendChild(div('wg-read-sub',
+        '陽光是短波，穿得過大氣；地表放出的是長波（紅外線），會被溫室氣體吸收再輻射回來。' +
+        '溫室氣體變多不是「太陽變強」，是「散熱變慢」，所以地表必須升到更高的溫度，' +
+        '進出的輻射才會重新相等。⚠ 溫室效應本身是必要的——沒有它地表平均約零下 18 度；' +
+        '問題出在濃度上升得太快。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(div('wg-ctrl-label', '溫室氣體濃度'));
+    row.appendChild(slider(1, 6, ghg, 1, function (v) { ghg = v; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },

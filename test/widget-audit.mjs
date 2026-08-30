@@ -236,7 +236,7 @@ try {
         requestAnimationFrame 迴圈必須真的停下來。Widgets.render 只做
         innerHTML=''，不會停計時器 —— 這種漏掉的迴圈在手機上會一直吃電，
         而且畫面上完全看不出來，靠人工測不到。 */
-  const ANIM_TYPES = ['fracequiv', 'floatsink', 'motionplay'];
+  const ANIM_TYPES = ['fracequiv', 'floatsink', 'motionplay', 'workgraph', 'fission'];
   const animSpecs = ANIM_TYPES
     .map((t) => (specs.get(t) || [])[0])
     .filter(Boolean);
