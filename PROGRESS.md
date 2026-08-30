@@ -4,7 +4,7 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【進行中 2026-08-30 下午】課文帶讀配圖，Tony 看過樣板說「很好，照你規劃全部 12 個年級相關的都做」，
+NEXT_ACTION: 項目 1（帶讀配圖）已完工，接著做項目 2 —— 用 tools/fix-distractors.js 逐科重寫誘答（先 --dry-run 看比例，再逐課抽查），改完把 test/test.js 的 BASELINE 上限往下調
 並指示「先做完 1（配圖）再做 2（誘答重寫）」。
 已完成：數學 215 單元 465 段、自然 125 單元 273 段（十二年級全部），覆蓋率 math 36%／science 37%。
 工具：tools/seed-text-viz.js <科目> [--write]。做法＝把同單元概念卡已配好的 viz 接到帶讀最相似的段落
@@ -118,7 +118,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 23:40 台北（高中四科第一批真圖完成；化學生物待補第二批；誘答重寫排在配圖之後）
+UPDATED: 2026-08-30 16:05 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
@@ -516,3 +516,28 @@ Tony 2026-08-27 回報（附 Daily practice history 截圖）與查證結果：
 K12Review codex 體檢修正：A/B 兩級全部修完上線（5c578c0／396a792／8b92341／後端 5595871）。
 2026-08-27 Tony 裁示剩下兩項維持現狀不改：(1) 同步的資料最小化與 opt-in (2) token 存 localStorage
 與 CSP。以後再有人提這兩點直接引裁示，不用重問。
+
+## 2026-08-30 v82／v83
+
+**v82 帶讀配圖第二輪（項目 1 完工）**
+新增 14 種互動元件（js/widgets.js 153 → 160）：化學 bonding／vsepr／imf／actenergy／
+ratecurve／galvanic／titration／organic；生物 membrane／translation／immune／feedback／
+mitosis；地科 hrdiagram。
+帶讀配圖率：化學 2%→14%、生物 5%→14%、地科 7%→13%、物理 16%→23%、
+歷史 0→4%（十二條自撰的互動時間軸）、地理 0→6%、公民 0→4%；全站 9%→16%（1,104/7,020 段）。
+驗證：test.js／widget-audit（160 種、452 組、9 種動畫收尾）／viz-match／browser-smoke 全綠。
+
+**v83 跨裝置同步（Tony 當日回報的 bug）**
+症狀：同一個帳號，手機做完今日練習，旁邊開著的 iPad 一直顯示「今天還沒做」。
+查到兩個獨立的原因，都修了：
+1. `js/sync.js` 定時輪詢只呼叫 `push()`，而 `push()` 開頭有「本機沒變動就 return」的短路，
+   短路時連查雲端的 GET 都不發 → 可見但閒置的分頁永遠拉不到別台的新進度。
+   改成每一輪先 `pull()` 再 `push()`，並補上 focus／pageshow 兩個拉取時機。
+2. `js/app.js` 判斷「今天完成了沒」是用帶學期後綴的 key（日期|科目|上），
+   兩台學期晶片不同就算資料同步過去也顯示不一致 → 新增 `dailyDoneRec()` 忽略學期後綴；
+   國語連續天數改吃 `subjMap`。
+（當時已確認雲端資料本身是對的：progress.db 裡 15:18:59 那筆確實有 `2026-08-30|上`。）
+
+**下一步（項目 2）**：誘答重寫。`tools/fix-distractors.js` 已寫好但還沒套用到任何科目，
+做法是借同一課其他題的正解當誘答，公民乾跑可把「正解最長」從 99.8% 降到 8.5%。
+逐科套用 → 逐課抽查 → 把 `test/test.js` 的 BASELINE 上限往下調。
