@@ -813,7 +813,7 @@ window.APP_TEXTS['english|一上|第6單元 數字 1–10'] = {
       terms: [
         { w: '拼法', d: '一個字用哪些字母組成。' }
       ],
-      viz: {"type":"phonics","words":[{"w":"six","parts":["si","x"],"hit":1,"s":"六","mean":"6"},{"w":"eight","parts":["ei","ght"],"hit":1,"s":"gh 不發音，唸起來很短","mean":"8"},{"w":"nine","parts":["n","ine"],"hit":0,"s":"九","mean":"9"}]},
+      viz: {"type":"phonics","words":[{"w":"six","parts":["si","x"],"hit":1,"s":"x 唸成 ks 兩個音","mean":"六"},{"w":"eight","parts":["ei","ght"],"hit":1,"s":"gh 不發音，所以唸起來很短","mean":"八"},{"w":"nine","parts":["n","ine"],"hit":1,"s":"ine 唸成長音 i","mean":"九"}]},
       q: {
         q: '課文說 eight 有什麼要注意的地方？',
         options: [
