@@ -3558,15 +3558,32 @@
   function writeKey() { return state.grades.join(',') + termSuffix() + (state.writeLesson ? '|' + state.writeLesson : ''); }
   /* 手寫練習可以只練某一冊某一課（Tony 2026-08-28：照課本進度複習）。
      state.writeLesson = '四上|第1課'，空字串＝全部。有課次資料的字才進得了篩選。 */
+  /* 手寫練習一個字只留一題（2026-08-30 Tony 回報「同一次練習裡同一個字出現兩次」）。
+     字形題庫裡有 99 個字有兩題以上（同年級的如四年級的揮／插／絕／懶／版／訊，
+     跨年級的如潔／易／搭／達同時出現在小三和小四），而抽題是用題目 id 去重的，
+     所以只要學習範圍涵蓋到，同一個字就可能在同一輪出現兩次。
+     手寫練習練的是「字」不是「題」，所以這裡直接依字去重，一個字只留第一題。 */
+  function byChar(list) {
+    var seen = {}, out = [];
+    list.forEach(function (it) {
+      var c = it && it.answer;
+      if (!c || seen[c]) return;
+      seen[c] = 1;
+      out.push(it);
+    });
+    return out;
+  }
   function writePool() {
+    // 先照範圍／課次篩，最後才依字去重 —— 順序反過來的話，
+    // 某個字若同時出現在兩課，去重會把後面那一課的字砍掉
     var all = pool('chars');
-    if (!state.writeLesson) return all;
+    if (!state.writeLesson) return byChar(all);
     var p = state.writeLesson.split('|');
-    var sub = all.filter(function (it) { return it.book === p[0] && it.lesson === p[1]; });
+    var sub = byChar(all.filter(function (it) { return it.book === p[0] && it.lesson === p[1]; }));
     /* 換年級之後，上次選的冊課通常不屬於新年級（有課次資料的只有國小四年級與八上八下），
        以前會直接變成「這個年級目前沒有題目」——Tony 2026-08-29 回報「手寫練習很多年級都沒有」。
        現在選的範圍在這個年級找不到字就自動回到「全部」。 */
-    if (!sub.length) { state.writeLesson = ''; save(); return all; }
+    if (!sub.length) { state.writeLesson = ''; save(); return byChar(all); }
     return sub;
   }
   // 目前年級有哪些冊／課（依 id 序，沒有課次資料的字不列）
@@ -4202,9 +4219,10 @@
       wBtn.textContent = '🖌 手寫重練（' + writeOnes.length + '）';
       wBtn.addEventListener('click', function () {
         if (needLogin()) return;
-        var items = shuffle(writeOnes).slice(0, 10)
+        // 錯題本裡同一個字可能有兩題（字形題庫有 99 個字有多題），先依字去重再取 10 個
+        var items = byChar(shuffle(writeOnes)
           .map(function (w) { return findItem('chars', w.id); })
-          .filter(Boolean);
+          .filter(Boolean)).slice(0, 10);
         startWrite(items, 'wrongbook');
       });
       tools.appendChild(wBtn);

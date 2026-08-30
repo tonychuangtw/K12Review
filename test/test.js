@@ -695,6 +695,52 @@ console.log('解析確認題');
 /* ---- 題數清單（js/data/counts.js）必須跟題庫一致 ----
    科目主題庫與匯入題庫改成動態載入後（2026-08-27），科目選擇頁靠這份清單顯示題數。
    清單過期的話使用者會看到錯的題數、甚至被當成「這個年級沒有這一科」而整科消失。 */
+/* ── 正解不能總是最長的那一個（2026-08-30 Tony 回報）─────────────────────
+   使用者發現「各科目裡的正確答案幾乎都是描述最長的那一個」。實測屬實：
+   公民 99.8%、地理 98.3%、歷史 97.7%、地科 94.7%、生物 93.9% 的題目，
+   正解都是四個選項中唯一最長的——正解平均 23 字、誘答只有 4-6 字
+   （「兩者相同」「固定不變」「只有法律」這種），學生不必讀題就能猜對。
+   隨機的話應該只有 25%。
+   誘答要逐題重寫（一題三個），數量很大，所以先立這道門檻擋住繼續惡化：
+   每個題庫都不得超過下面記錄的基準值，修好一批就把基準值調降一次，
+   目標是全部降到 40% 以下。 */
+{
+  console.log('\n選項長度（正解會不會一眼就看出來）');
+  const BASELINE = {           // 上限；註記「待修」的是已知有問題、正在逐批重寫的
+    custom: 15, math: 30, socialCustom: 27, scienceCustom: 35,
+    english: 45,                                        // 待修
+    physics: 65, science: 73, chemistry: 85, social: 86, // 待修
+    biology: 95, earth: 96, history: 98, geography: 99, civics: 100 // 待修
+  };
+  const rows = [];
+  Object.keys(D).forEach((k) => {
+    const arr = D[k];
+    if (!Array.isArray(arr) || !arr.length || !arr[0] || !arr[0].options) return;
+    let n = 0, longest = 0;
+    arr.forEach((it) => {
+      const o = it.options, a = it.answer;
+      if (!Array.isArray(o) || o.length !== 4) return;
+      if (typeof a !== 'number' || a < 0 || a > 3) return;
+      const L = o.map((x) => String(x).length);
+      const max = Math.max(...L);
+      if (L[a] === max && L.filter((x) => x === max).length === 1) longest++;
+      n++;
+    });
+    if (!n) return;
+    const pct = 100 * longest / n;
+    rows.push({ k, n, pct });
+  });
+  const over = rows.filter((r) => pct2(r.pct) > (BASELINE[r.k] == null ? 40 : BASELINE[r.k]));
+  rows.sort((a, b) => b.pct - a.pct).forEach((r) => {
+    const cap = BASELINE[r.k] == null ? 40 : BASELINE[r.k];
+    console.log('    ' + r.k.padEnd(14) + String(r.n).padStart(6) + ' 題　正解是最長的：' +
+      pct2(r.pct).toFixed(1) + '%　上限 ' + cap + '%' + (r.pct > 40 ? '　⚠ 待修' : ''));
+  });
+  ok(!over.length, '沒有題庫的「正解最長」比例超過基準' +
+    (over.length ? '——' + over.map((r) => r.k + ' ' + pct2(r.pct).toFixed(1) + '%').join('、') : ''));
+}
+function pct2(v) { return Math.round(v * 10) / 10; }
+
 console.log('題數清單 counts.js');
 {
   const countsPath = path.join(root, 'js/data/counts.js');
