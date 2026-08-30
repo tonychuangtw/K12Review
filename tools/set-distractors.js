@@ -23,7 +23,7 @@ if (!PATCH) { console.error('用法：node tools/set-distractors.js <patch.json>
 const patch = JSON.parse(fs.readFileSync(PATCH, 'utf8'));
 
 global.window = {};
-['science', 'social', 'english', 'math'].forEach((s) => {
+['science', 'social', 'english', 'math', 'civics', 'geography', 'history', 'physics', 'chemistry', 'biology', 'earth'].forEach((s) => {
   const f = path.join(ROOT, 'js/data', s + '.js');
   if (fs.existsSync(f)) require(f);
 });
