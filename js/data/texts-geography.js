@@ -335,6 +335,7 @@ window.APP_TEXTS['geography|十上|第3單元 氣候'] = {
       terms: [
         { w: '大陸性氣候', d: '溫差大而降水較少的內陸氣候型態。' }
       ],
+      viz: {"type":"earthsun"},
       q: {
         q: '課文說內陸溫差大的原因是什麼？',
         options: [
@@ -722,6 +723,7 @@ window.APP_TEXTS['geography|十上|第5單元 自然災害'] = {
       terms: [
         { w: '非工程手段', d: '以規劃教育與制度而非工程進行的防災。' }
       ],
+      viz: {"type":"cycle","steps":["減災","整備","應變","復原"]},
       q: {
         q: '課文說最根本的減災手段是什麼？',
         options: [
@@ -944,6 +946,7 @@ window.APP_TEXTS['geography|十上|第7單元 聚落與都市'] = {
       terms: [
         { w: '可及性', d: '從各地到達某地點的方便程度。' }
       ],
+      viz: {"type":"landuse"},
       q: {
         q: '課文提醒使用都市結構模型時要注意什麼？',
         options: [
@@ -1722,6 +1725,7 @@ window.APP_TEXTS['geography|十下|第3單元 臺灣的產業'] = {
       terms: [
         { w: '區域分工', d: '不同地區承擔不同產業角色。' }
       ],
+      viz: {"type":"taiwan"},
       q: {
         q: '課文說東部產業的主要特色是什麼？',
         options: [
@@ -2090,6 +2094,7 @@ window.APP_TEXTS['geography|十下|第6單元 中國地理概論'] = {
       terms: [
         { w: '季風區', d: '受季風影響而降水集中的區域。' }
       ],
+      viz: {"type":"mapdir"},
       q: {
         q: '課文說西北內陸的氣候特徵是什麼？',
         options: [
@@ -2259,6 +2264,7 @@ window.APP_TEXTS['geography|十下|第7單元 東亞與東南亞'] = {
       terms: [
         { w: '熱帶氣候', d: '全年高溫的氣候型態。' }
       ],
+      viz: {"type":"mapdir"},
       q: {
         q: '課文說東南亞地形的特徵是什麼？',
         options: [
@@ -2381,6 +2387,7 @@ window.APP_TEXTS['geography|十下|第8單元 南亞與西亞'] = {
       terms: [
         { w: '季風降水', d: '由季風帶來且集中於特定季節的降水。' }
       ],
+      viz: {"type":"climograph","set":5},
       q: {
         q: '課文說南亞農業最依賴什麼？',
         options: [
@@ -2404,6 +2411,7 @@ window.APP_TEXTS['geography|十下|第8單元 南亞與西亞'] = {
       terms: [
         { w: '綠洲', d: '乾燥地區有水源而可居住的地點。' }
       ],
+      viz: {"type":"mapdir"},
       q: {
         q: '課文說西亞人口分布的決定因素是什麼？',
         options: [
@@ -2648,6 +2656,7 @@ window.APP_TEXTS['geography|十一上|第1單元 歐洲'] = {
       terms: [
         { w: '海洋性氣候', d: '受海洋調節而溫差小的氣候型態。' }
       ],
+      viz: {"type":"mapdir"},
       q: {
         q: '課文說歐洲西部氣候溫和的原因是什麼？',
         options: [
@@ -2717,6 +2726,7 @@ window.APP_TEXTS['geography|十一上|第1單元 歐洲'] = {
       terms: [
         { w: '單一市場', d: '成員國之間商品人員自由流動的市場。' }
       ],
+      viz: {"type":"timeline","events":[{"y":"1952","t":"煤鋼共同體"},{"y":"1993","t":"歐洲聯盟成立"},{"y":"2002","t":"歐元流通"}]},
       q: {
         q: '課文說歐洲整合的主要爭議在哪裡？',
         options: [
@@ -2793,6 +2803,7 @@ window.APP_TEXTS['geography|十一上|第2單元 非洲'] = {
       terms: [
         { w: '莽原', d: '以草原為主並散布樹木的熱帶植被帶。' }
       ],
+      viz: {"type":"climograph","set":1},
       q: {
         q: '課文說非洲氣候帶的分布特徵是什麼？',
         options: [
@@ -2816,6 +2827,7 @@ window.APP_TEXTS['geography|十一上|第2單元 非洲'] = {
       terms: [
         { w: '人口紅利', d: '工作年齡人口比例高所帶來的發展機會。' }
       ],
+      viz: {"type":"poppyramid"},
       q: {
         q: '課文說非洲年輕的人口結構代表什麼？',
         options: [
@@ -2862,6 +2874,7 @@ window.APP_TEXTS['geography|十一上|第2單元 非洲'] = {
       terms: [
         { w: '人為邊界', d: '不依自然或族群分布而劃定的界線。' }
       ],
+      viz: {"type":"mapdir"},
       q: {
         q: '課文說殖民劃界造成的問題是什麼？',
         options: [
@@ -3030,6 +3043,7 @@ window.APP_TEXTS['geography|十一上|第3單元 美洲'] = {
       terms: [
         { w: '非正式聚落', d: '未經正式規劃而形成的居住區。' }
       ],
+      viz: {"type":"lorenz","k":3.2},
       q: {
         q: '課文說拉丁美洲都市化的特點是什麼？',
         options: [
@@ -3106,6 +3120,7 @@ window.APP_TEXTS['geography|十一上|第4單元 大洋洲與極地'] = {
       terms: [
         { w: '乾燥內陸', d: '降水稀少而人煙罕至的內陸地帶。' }
       ],
+      viz: {"type":"mapdir"},
       q: {
         q: '課文說澳洲人口集中在哪裡？',
         options: [
@@ -3152,6 +3167,7 @@ window.APP_TEXTS['geography|十一上|第4單元 大洋洲與極地'] = {
       terms: [
         { w: '極地', d: '地球南北兩端的高緯度地區。' }
       ],
+      viz: {"type":"climograph","set":6},
       q: {
         q: '課文說南極與北極的根本差別是什麼？',
         options: [
@@ -5143,6 +5159,7 @@ window.APP_TEXTS['geography|十一下|第9單元 地理與未來'] = {
       terms: [
         { w: '高齡友善', d: '使環境與服務適合長者需求的規劃。' }
       ],
+      viz: {"type":"demotrans"},
       q: {
         q: '課文說高齡化在哪裡更為嚴重？',
         options: [
@@ -5410,6 +5427,7 @@ window.APP_TEXTS['geography|十二上|第2單元 人文地理總複習'] = {
       terms: [
         { w: '人口結構', d: '各年齡與性別人口的組成比例。' }
       ],
+      viz: {"type":"poppyramid"},
       q: {
         q: '課文說從人口金字塔可以看出什麼？',
         options: [
@@ -6862,6 +6880,7 @@ window.APP_TEXTS['geography|十二下|第3單元 臺灣專題：城鄉'] = {
       terms: [
         { w: '可及性', d: '取得服務或設施的便利程度。' }
       ],
+      viz: {"type":"taiwan"},
       q: {
         q: '課文說城鄉差距為什麼會自我強化？',
         options: [

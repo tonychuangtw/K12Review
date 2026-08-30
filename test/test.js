@@ -602,7 +602,10 @@ console.log('解析確認題');
                    // 化學與生物補的圖（2026-08-30 第二批）
                    'bonding', 'ratecurve', 'galvanic', 'titration',
                    'membrane', 'translation', 'immune', 'feedback',
-                   'actenergy', 'vsepr', 'imf', 'organic', 'mitosis', 'hrdiagram'];  // 與 js/widgets.js 的 REG 同步
+                   'actenergy', 'vsepr', 'imf', 'organic', 'mitosis', 'hrdiagram',
+                   // 社會科補的圖（2026-08-30 第三批）：公民／歷史／地理的概念卡也是九成文字排版
+                   'climograph', 'landuse', 'demotrans', 'lorenz', 'courtlevel',
+                   'checksbalance', 'dynastyband'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

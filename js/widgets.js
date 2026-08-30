@@ -10389,6 +10389,506 @@
     host.appendChild(box);
   };
 
+  /* ── 社會科補的真圖（2026-08-30 第三批）──────────────────────────────
+     公民 42／歷史 38／地理 32 個單元的帶讀完全沒有圖，原因和高中理科一樣：
+     概念卡九成是「把文字排進框裡」（左右對照、流程步驟、分類表），沒有圖可接。
+     這裡補的是社會科真正會畫的那幾張圖。 */
+
+  /* 雨溫圖：地理課最常出現的一張圖。長條是月降水量（右軸）、折線是月均溫（左軸）。
+     六種氣候各一組真實數據，按鈕切換 —— 重點是讓學生看出「同樣是熱，
+     沙漠和雨林的降水完全不一樣」「地中海型是夏乾冬雨」。 */
+  REG.climograph = function (host, spec) {
+    var SETS = [
+      { k: '熱帶雨林（新加坡）', t: [26, 27, 27, 28, 28, 28, 28, 28, 28, 27, 27, 27],
+        r: [240, 160, 160, 190, 170, 160, 160, 180, 180, 200, 250, 290],
+        say: '全年又熱又濕，每個月都下很多雨，沒有乾季。' },
+      { k: '莽原（奈洛比）', t: [20, 21, 21, 20, 19, 17, 16, 17, 19, 20, 19, 19],
+        r: [60, 60, 100, 220, 160, 40, 20, 25, 30, 55, 155, 100],
+        say: '同樣在熱帶，但雨集中在幾個月，其他月份很乾 —— 這就是乾濕季分明。' },
+      { k: '沙漠（開羅）', t: [14, 15, 18, 22, 26, 28, 29, 29, 27, 24, 19, 15],
+        r: [5, 4, 4, 1, 0, 0, 0, 0, 0, 1, 3, 6],
+        say: '一整年幾乎不下雨，長條低到看不見，溫差卻很大。' },
+      { k: '地中海型（羅馬）', t: [8, 9, 11, 14, 18, 22, 25, 25, 22, 17, 12, 9],
+        r: [80, 75, 65, 70, 45, 30, 15, 30, 70, 110, 110, 100],
+        say: '夏天最熱的時候反而最乾，雨下在冬天 —— 夏乾冬雨是它的招牌。' },
+      { k: '溫帶海洋性（倫敦）', t: [5, 5, 7, 9, 13, 16, 18, 18, 15, 11, 8, 6],
+        r: [55, 40, 40, 45, 45, 45, 45, 50, 50, 70, 60, 55],
+        say: '冬天不太冷、夏天不太熱，全年都有雨但都不多 —— 溫差小是海洋的功勞。' },
+      { k: '副熱帶季風（臺北）', t: [16, 16, 18, 22, 25, 28, 30, 29, 27, 24, 21, 18],
+        r: [85, 170, 180, 180, 235, 325, 245, 320, 360, 150, 85, 75],
+        say: '夏天又熱又多雨（梅雨和颱風都在這幾個月），冬天溫和但仍有雨。' },
+      { k: '副極地（雅庫次克）', t: [-40, -34, -21, -6, 7, 15, 19, 15, 6, -8, -28, -38],
+        r: [8, 6, 5, 7, 16, 37, 39, 40, 29, 17, 14, 11],
+        say: '冬夏溫差超過五十度，全年降水卻很少 —— 冷不等於濕。' }
+    ];
+    var i = 0;
+    if (typeof spec.set === 'number') i = clamp(spec.set, 0, SETS.length - 1);
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 34, X1 = 288, Y0 = 156, Y1 = 30;
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var s = SETS[i];
+      var rmax = Math.max(60, Math.ceil(Math.max.apply(null, s.r) / 50) * 50);
+      var tlo = Math.min.apply(null, s.t), thi = Math.max.apply(null, s.t);
+      tlo = Math.floor(Math.min(tlo, 0) / 10) * 10; thi = Math.ceil(thi / 10) * 10;
+      if (thi - tlo < 20) thi = tlo + 20;
+      var bw = (X1 - X0) / 12;
+      function ry(v) { return Y0 - (Y0 - Y1) * (v / rmax); }
+      function ty(v) { return Y0 - (Y0 - Y1) * ((v - tlo) / (thi - tlo)); }
+      svg.appendChild(el('line', { x1: X0, y1: Y1, x2: X0, y2: Y0 }, 'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('line', { x1: X1, y1: Y1, x2: X1, y2: Y0 }, 'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X1, y2: Y0 }, 'stroke:var(--border);stroke-width:2'));
+      // 0℃ 那條線：溫帶以北的圖看得出冬天結不結冰
+      if (tlo < 0) {
+        svg.appendChild(el('line', { x1: X0, y1: ty(0), x2: X1, y2: ty(0) },
+          'stroke:var(--dim);stroke-width:1;stroke-dasharray:3 3'));
+        svg.appendChild(txt(X0 + 14, ty(0) - 7, '0℃', 'font-size:9px;fill:var(--dim)'));
+      }
+      // 降水長條
+      for (var m = 0; m < 12; m++) {
+        var h = Y0 - ry(s.r[m]);
+        if (h > 0) svg.appendChild(el('rect',
+          { x: X0 + bw * m + 1.5, y: ry(s.r[m]), width: bw - 3, height: h, rx: 1 },
+          'fill:var(--accent);fill-opacity:.42'));
+      }
+      // 氣溫折線
+      var d = '';
+      for (var n = 0; n < 12; n++) d += (n ? ' L' : 'M') + (X0 + bw * n + bw / 2) + ',' + ty(s.t[n]);
+      svg.appendChild(el('path', { d: d }, 'fill:none;stroke:var(--bad);stroke-width:2.5;stroke-linejoin:round'));
+      for (var p = 0; p < 12; p++)
+        svg.appendChild(el('circle', { cx: X0 + bw * p + bw / 2, cy: ty(s.t[p]), r: 2 }, 'fill:var(--bad)'));
+      // 月份只標 1／4／7／10，全標會擠成一團
+      [0, 3, 6, 9].forEach(function (m2) {
+        svg.appendChild(txt(X0 + bw * m2 + bw / 2, Y0 + 12, (m2 + 1) + '月', 'font-size:10px;fill:var(--dim)'));
+      });
+      svg.appendChild(txt(16, Y1 + 6, '℃', 'font-size:10px;fill:var(--bad)'));
+      svg.appendChild(txt(X1 + 18, Y1 + 6, 'mm', 'font-size:10px;fill:var(--accent)'));
+      svg.appendChild(txt(160, 16, s.k, 'font-size:13px;font-weight:700;fill:var(--text)'));
+      svg.appendChild(txt(X0 + 46, Y0 - 6, '年雨量 ' + s.r.reduce(function (a, b) { return a + b; }, 0) + ' mm',
+        'font-size:9px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', s.say));
+      read.appendChild(div('wg-read-sub',
+        '看雨溫圖只要問三件事：① 折線（氣溫）最高在幾月 —— 七月最高是北半球，一月最高是南半球；' +
+        '② 長條（降水）集中在哪幾個月 —— 集中在夏天是季風，集中在冬天是地中海型，' +
+        '全年平均是溫帶海洋，全年幾乎沒有是沙漠；③ 冬夏溫差多大 —— 溫差小是海洋或熱帶，溫差大是內陸。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一種氣候', function () { i = (i + 1) % SETS.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 都市內部結構三模式：同心圓、扇形、多核心。地理「聚落與都市」單元的核心圖，
+     用文字講「由中心往外分層」永遠不如直接畫出來。 */
+  REG.landuse = function (host, spec) {
+    var mode = 0;
+    var NAMES = ['同心圓模式', '扇形模式', '多核心模式'];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var CX = 150, CY = 104;
+    var COL = ['var(--bad)', 'var(--accent)', 'var(--accent2)', 'var(--good)'];
+    var ZONE = ['商業中心', '工業與過渡帶', '住宅區', '通勤帶'];
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      if (mode === 0) {
+        for (var i = 3; i >= 0; i--)
+          svg.appendChild(el('circle', { cx: CX, cy: CY, r: 22 + i * 22 },
+            'fill:' + COL[i] + ';fill-opacity:' + (0.5 - i * 0.09) + ';stroke:var(--border);stroke-width:1'));
+      } else if (mode === 1) {
+        svg.appendChild(el('circle', { cx: CX, cy: CY, r: 84 },
+          'fill:var(--panel2);stroke:var(--border);stroke-width:1'));
+        // 扇形：沿著交通線往外長，所以是一瓣一瓣而不是一圈一圈
+        [[-100, -20, 1], [-20, 60, 2], [60, 150, 3], [150, 260, 2]].forEach(function (w, k) {
+          var a0 = w[0] * Math.PI / 180, a1 = w[1] * Math.PI / 180;
+          svg.appendChild(el('path', {
+            d: 'M' + CX + ',' + CY + ' L' + (CX + 84 * Math.cos(a0)) + ',' + (CY + 84 * Math.sin(a0)) +
+               ' A84,84 0 ' + ((w[1] - w[0]) > 180 ? 1 : 0) + ',1 ' +
+               (CX + 84 * Math.cos(a1)) + ',' + (CY + 84 * Math.sin(a1)) + ' Z'
+          }, 'fill:' + COL[w[2]] + ';fill-opacity:.34;stroke:var(--border);stroke-width:1'));
+        });
+        svg.appendChild(el('circle', { cx: CX, cy: CY, r: 24 }, 'fill:var(--bad);fill-opacity:.5;stroke:var(--border)'));
+      } else {
+        svg.appendChild(el('rect', { x: 66, y: 26, width: 168, height: 156, rx: 8 },
+          'fill:var(--panel2);stroke:var(--border);stroke-width:1'));
+        // 多核心：不只一個中心，各自帶起一片
+        [[110, 62, 20, 0], [190, 56, 15, 1], [96, 140, 17, 2], [188, 132, 22, 3], [222, 96, 13, 2]]
+          .forEach(function (c) {
+            svg.appendChild(el('circle', { cx: c[0], cy: c[1], r: c[2] },
+              'fill:' + COL[c[3]] + ';fill-opacity:.45;stroke:var(--border);stroke-width:1'));
+          });
+      }
+      svg.appendChild(txt(160, 14, NAMES[mode], 'font-size:13px;font-weight:700;fill:var(--text)'));
+      // 圖例畫在左邊，不壓到圖
+      ZONE.forEach(function (z, k) {
+        svg.appendChild(el('rect', { x: 6, y: 34 + k * 20, width: 11, height: 11, rx: 2 },
+          'fill:' + COL[k] + ';fill-opacity:.5;stroke:var(--border)'));
+        var t = el('text', { x: 21, y: 43 + k * 20 }, 'font-size:9px;fill:var(--dim)');
+        t.textContent = z; svg.appendChild(t);
+      });
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', [
+        '同心圓：以商業中心為圓心，一圈一圈往外換成工業、住宅、通勤帶。',
+        '扇形：沿著鐵路、大馬路往外延伸，所以是一瓣一瓣，不是整齊的圓圈。',
+        '多核心：城市不只一個中心，副都心、工業區、大學各自帶起一片。'
+      ][mode]));
+      read.appendChild(div('wg-read-sub',
+        '三個模式不是誰對誰錯，是同一座城市在不同角度下的樣子：' +
+        '早期的城市比較接近同心圓，有了交通幹線就往扇形發展，' +
+        '大到一定程度、加上捷運與重劃區之後就變成多核心。' +
+        '看自己住的城市屬於哪一種，通常三種都有一點。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一種模式', function () { mode = (mode + 1) % 3; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 人口轉型五階段：出生率與死亡率兩條線，中間夾出來的面積就是人口成長。
+     公民與地理都會用到 —— 「為什麼會少子化」看這張圖最快。 */
+  REG.demotrans = function (host, spec) {
+    var st = 0;
+    var LAB = ['① 高出生高死亡', '② 死亡率先降', '③ 出生率跟著降', '④ 兩者都低', '⑤ 出生低於死亡'];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 34, X1 = 300, Y0 = 152, Y1 = 34;
+    function bx(u) { return X0 + (X1 - X0) * u; }        // u：0→1 走完五個階段
+    function by(v) { return Y0 - (Y0 - Y1) * (v / 45); } // v：每千人的比率
+    // 兩條線的節點（每千人）：出生率一直高到第三階段才掉，死亡率第二階段就掉了
+    var BIRTH = [40, 39, 36, 24, 13, 9], DEATH = [38, 30, 16, 11, 9, 11];
+    function pathOf(a) {
+      var d = '';
+      for (var i = 0; i < a.length; i++) d += (i ? ' L' : 'M') + bx(i / 5) + ',' + by(a[i]);
+      return d;
+    }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(el('line', { x1: X0, y1: Y1, x2: X0, y2: Y0 }, 'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X1, y2: Y0 }, 'stroke:var(--border);stroke-width:2'));
+      // 目前階段用直條標出來
+      svg.appendChild(el('rect', { x: bx(st / 5), y: Y1, width: (X1 - X0) / 5, height: Y0 - Y1 },
+        'fill:var(--accent);fill-opacity:.13'));
+      for (var i = 1; i < 5; i++)
+        svg.appendChild(el('line', { x1: bx(i / 5), y1: Y1, x2: bx(i / 5), y2: Y0 },
+          'stroke:var(--border);stroke-width:1;stroke-dasharray:3 3'));
+      // 兩線之間填色 = 自然增加（出生>死亡）或自然減少
+      var area = '';
+      for (var a = 0; a < 6; a++) area += (a ? ' L' : 'M') + bx(a / 5) + ',' + by(BIRTH[a]);
+      for (var b = 5; b >= 0; b--) area += ' L' + bx(b / 5) + ',' + by(DEATH[b]);
+      svg.appendChild(el('path', { d: area + ' Z' }, 'fill:var(--good);fill-opacity:.18'));
+      svg.appendChild(el('path', { d: pathOf(BIRTH) }, 'fill:none;stroke:var(--accent);stroke-width:2.5'));
+      svg.appendChild(el('path', { d: pathOf(DEATH) }, 'fill:none;stroke:var(--bad);stroke-width:2.5'));
+      svg.appendChild(txt(bx(0.12), by(BIRTH[0]) - 10, '出生率', 'font-size:10px;fill:var(--accent)'));
+      svg.appendChild(txt(bx(0.12), by(DEATH[0]) + 12, '死亡率', 'font-size:10px;fill:var(--bad)'));
+      for (var k = 0; k < 5; k++)
+        svg.appendChild(txt(bx((k + 0.5) / 5), Y0 + 12, String(k + 1), 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(16, Y1 + 6, '‰', 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(160, 18, LAB[st], 'font-size:13px;font-weight:700;fill:var(--accent)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', [
+        '醫療與糧食都不足，生得多也死得多，人口幾乎不增加。',
+        '公共衛生與糧食改善，死亡率先掉下來，出生率還很高 —— 人口爆炸就發生在這裡。',
+        '教育普及、都市化、養小孩變貴，出生率開始追著死亡率往下掉。',
+        '兩者都降到很低，人口成長趨緩，這是多數已開發國家的位置。',
+        '出生率掉到死亡率以下，人口開始自然減少，臺灣已經走到這一階段。'
+      ][st]));
+      read.appendChild(div('wg-read-sub',
+        '兩條線中間夾出來的面積就是「自然增加」。第二階段死亡率先降、出生率沒跟上，' +
+        '面積最大 —— 所以人口爆炸不是因為突然生更多，是因為死得少了。' +
+        '⚠ 到第五階段面積翻到另一邊：出生比死亡少，就算沒有人搬走，人口也會減少。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一階段', function () { st = (st + 1) % 5; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 洛倫茲曲線與吉尼係數：公民「所得分配不均」單元的正牌圖。
+     滑桿一拉就看到曲線往下彎、吉尼變大 —— 比背定義有用得多。 */
+  REG.lorenz = function (host, spec) {
+    var k = spec.k == null ? 2.2 : spec.k;               // 不均程度：1 = 完全平均
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 210', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 44, X1 = 268, Y0 = 176, Y1 = 26;
+    function px(u) { return X0 + (X1 - X0) * u; }
+    function py(v) { return Y0 - (Y0 - Y1) * v; }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(el('line', { x1: X0, y1: Y1, x2: X0, y2: Y0 }, 'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X1, y2: Y0 }, 'stroke:var(--border);stroke-width:2'));
+      // 完全平均線（45 度）
+      svg.appendChild(el('line', { x1: px(0), y1: py(0), x2: px(1), y2: py(1) },
+        'stroke:var(--good);stroke-width:2;stroke-dasharray:5 4'));
+      // 洛倫茲曲線 y = x^k，k 愈大愈不平均
+      var d = '', area = 'M' + px(0) + ',' + py(0);
+      for (var i = 0; i <= 40; i++) {
+        var u = i / 40, v = Math.pow(u, k);
+        d += (i ? ' L' : 'M') + px(u) + ',' + py(v);
+        area += ' L' + px(u) + ',' + py(v);
+      }
+      // 兩線之間就是不平均的量：面積 A ÷ 三角形面積 = 吉尼係數
+      area += ' L' + px(1) + ',' + py(1) + ' Z';
+      svg.appendChild(el('path', { d: area }, 'fill:var(--bad);fill-opacity:.22'));
+      svg.appendChild(el('path', { d: d }, 'fill:none;stroke:var(--bad);stroke-width:2.5'));
+      var gini = (k - 1) / (k + 1);                       // ∫x^k 的封閉解，不用數值積分
+      svg.appendChild(txt(px(0.62), py(0.28), 'A', 'font-size:13px;font-weight:700;fill:var(--bad)'));
+      svg.appendChild(txt(px(0.86), py(0.14), 'B', 'font-size:13px;font-weight:700;fill:var(--dim)'));
+      svg.appendChild(txt(160, 14, '吉尼係數 = A ÷ (A+B) = ' + gini.toFixed(2),
+        'font-size:13px;font-weight:700;fill:var(--text)'));
+      svg.appendChild(txt(px(0.5), Y0 + 16, '所得由低到高的人口累積比例', 'font-size:9px;fill:var(--dim)'));
+      var yl = el('text', { x: 14, y: py(0.5), 'text-anchor': 'middle',
+        transform: 'rotate(-90 14 ' + py(0.5) + ')' }, 'font-size:9px;fill:var(--dim)');
+      yl.textContent = '所得累積比例'; svg.appendChild(yl);
+      svg.appendChild(txt(px(0.3), py(0.62), '完全平均', 'font-size:9px;fill:var(--good)'));
+      read.innerHTML = '';
+      var says = gini < 0.3 ? '分配相當平均：最窮的一半人也拿到接近一半的所得。'
+        : gini < 0.4 ? '一般已開發國家的位置，通常視為可接受的範圍。'
+        : gini < 0.5 ? '不均已經明顯：最窮的一半人只拿到很小一部分。'
+        : '高度不均，多數所得集中在少數人手上。';
+      read.appendChild(div('wg-read-main', says));
+      read.appendChild(div('wg-read-sub',
+        '橫軸是「把人從最窮排到最富的累積比例」，縱軸是「這些人合計拿到多少所得」。' +
+        '如果人人所得相同，兩者一定同步成長 —— 那就是那條 45 度虛線。' +
+        '實際上窮的人拿得少，所以曲線一定往下彎。彎得愈厲害，A 這塊面積愈大，吉尼係數愈接近 1；' +
+        '完全平均是 0，一個人拿走全部是 1。⚠ 吉尼看的是分配，不是有沒有錢：' +
+        '兩個國家吉尼相同，平均所得可以差十倍。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(div('wg-ctrl-label', '拉拉看：分配愈不平均，曲線愈往下彎'));
+    row.appendChild(slider(10, 60, Math.round(k * 10), 1, function (v) { k = v / 10; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 三級三審與審級救濟：公民「司法程序」單元的圖。
+     切換民事／刑事，看得出來誰告誰、誰是上訴的一方，以及第三審只審法律不再認定事實。 */
+  REG.courtlevel = function (host, spec) {
+    var kind = 0;                                        // 0 刑事 1 民事
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 210', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var TIER = [
+      { n: '最高法院', s: '第三審　法律審', y: 30 },
+      { n: '高等法院', s: '第二審　事實審', y: 90 },
+      { n: '地方法院', s: '第一審　事實審', y: 150 }
+    ];
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      TIER.forEach(function (t, i) {
+        var col = i === 0 ? 'var(--accent2)' : 'var(--accent)';
+        svg.appendChild(el('rect', { x: 74, y: t.y - 20, width: 172, height: 40, rx: 8 },
+          'fill:' + col + ';fill-opacity:' + (i === 0 ? 0.3 : 0.18) + ';stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(160, t.y - 6, t.n, 'font-size:13px;font-weight:700;fill:var(--text)'));
+        svg.appendChild(txt(160, t.y + 10, t.s, 'font-size:10px;fill:var(--dim)'));
+      });
+      // 上訴箭頭：由下往上
+      [[150, 90], [90, 30]].forEach(function (p) {
+        svg.appendChild(el('line', { x1: 262, y1: p[0] - 18, x2: 262, y2: p[1] + 22 },
+          'stroke:var(--good);stroke-width:2.5'));
+        svg.appendChild(el('polygon',
+          { points: '262,' + (p[1] + 18) + ' 257,' + (p[1] + 27) + ' 267,' + (p[1] + 27) },
+          'fill:var(--good)'));
+        svg.appendChild(txt(288, (p[0] + p[1]) / 2, '上訴', 'font-size:10px;fill:var(--good)'));
+      });
+      var who = kind === 0 ? '檢察官起訴被告' : '原告告被告';
+      svg.appendChild(txt(160, 190, '起點：' + who + '，從地方法院開始',
+        'font-size:11px;fill:var(--text)'));
+      svg.appendChild(txt(160, 14, kind === 0 ? '刑事訴訟' : '民事訴訟',
+        'font-size:13px;font-weight:700;fill:var(--text)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', kind === 0
+        ? '刑事案件由檢察官代表國家起訴，被告不必自己證明無罪。'
+        : '民事案件是人民告人民，由主張的一方負責舉證。'));
+      read.appendChild(div('wg-read-sub',
+        '一、二審是「事實審」：可以傳證人、調證據，重新認定到底發生了什麼事。' +
+        '第三審是「法律審」：只看下級法院有沒有用錯法律或程序違法，原則上不再認定事實 —— ' +
+        '所以第三審不是「再吵一次」，而是檢查前面判得合不合法。' +
+        '⚠ 三級三審是原則不是保證：輕罪、小額訴訟等案件依法不能上訴到第三審。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換民事／刑事', function () { kind = 1 - kind; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 權力分立與制衡：點一個機關，看它被誰牽制、又牽制誰。
+     用文字列「行政院對立法院負責」很抽象，箭頭一畫就懂。 */
+  REG.checksbalance = function (host, spec) {
+    var sel = 0;
+    var ORG = [
+      { n: '行政院', x: 160, y: 44 },
+      { n: '立法院', x: 62, y: 148 },
+      { n: '司法院', x: 258, y: 148 }
+    ];
+    // from → to：這個機關用什麼手段牽制對方
+    var LINK = [
+      { f: 0, t: 1, s: '覆議、提預算案' },
+      { f: 1, t: 0, s: '審預算、質詢、倒閣' },
+      { f: 2, t: 1, s: '違憲審查法律' },
+      { f: 2, t: 0, s: '審查行政命令' },
+      { f: 0, t: 2, s: '提名大法官（經同意）' },
+      { f: 1, t: 2, s: '同意大法官人選' }
+    ];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 210', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      LINK.forEach(function (L) {
+        var on = L.f === sel;
+        var a = ORG[L.f], b = ORG[L.t];
+        var dx = b.x - a.x, dy = b.y - a.y, len = Math.sqrt(dx * dx + dy * dy);
+        var ux = dx / len, uy = dy / len;
+        // 兩個方向的箭頭錯開一點，不然會疊在同一條線上
+        var ox = -uy * 7, oy = ux * 7;
+        var x1 = a.x + ux * 34 + ox, y1 = a.y + uy * 34 + oy;
+        var x2 = b.x - ux * 34 + ox, y2 = b.y - uy * 34 + oy;
+        svg.appendChild(el('line', { x1: x1, y1: y1, x2: x2, y2: y2 },
+          'stroke:' + (on ? 'var(--bad)' : 'var(--border)') + ';stroke-width:' + (on ? 2.5 : 1.5)));
+        var ang = Math.atan2(y2 - y1, x2 - x1);
+        svg.appendChild(el('polygon', {
+          points: x2 + ',' + y2 + ' ' + (x2 - 9 * Math.cos(ang - 0.4)) + ',' + (y2 - 9 * Math.sin(ang - 0.4)) +
+                  ' ' + (x2 - 9 * Math.cos(ang + 0.4)) + ',' + (y2 - 9 * Math.sin(ang + 0.4))
+        }, 'fill:' + (on ? 'var(--bad)' : 'var(--border)')));
+      });
+      ORG.forEach(function (o, i) {
+        svg.appendChild(el('rect', { x: o.x - 40, y: o.y - 18, width: 80, height: 36, rx: 8 },
+          'fill:' + (i === sel ? 'var(--accent)' : 'var(--panel2)') +
+          ';fill-opacity:' + (i === sel ? 0.34 : 1) + ';stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(o.x, o.y, o.n, 'font-size:13px;font-weight:700;fill:var(--text)'));
+      });
+      var mine = LINK.filter(function (L) { return L.f === sel; });
+      svg.appendChild(txt(160, 200, ORG[sel].n + ' 用這些方式牽制別人（紅箭頭）',
+        'font-size:10px;fill:var(--bad)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', mine.map(function (L) {
+        return ORG[sel].n + ' → ' + ORG[L.t].n + '：' + L.s;
+      }).join('；')));
+      read.appendChild(div('wg-read-sub',
+        '權力分立不只是「把工作分開」，重點在後面那半句：分開之後還要互相牽制。' +
+        '每個機關都同時是箭頭的起點和終點 —— 它能限制別人，也被別人限制，' +
+        '任何一個都沒辦法自己說了算。⚠ 我國是五權，這裡先看與日常最相關的三個；' +
+        '考試院、監察院同樣在這張網裡（例如監察院可以彈劾失職的公務員）。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一個機關看', function () { sel = (sel + 1) % 3; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 時期對照帶：把幾條時間線按同一個年代尺畫在一起，一眼看出「這邊在打仗的時候，那邊在幹嘛」。
+     spec: { rows:[{ label:'臺灣', items:[{n:'荷西',a:1624,b:1662}, ...] }], min, max } */
+  REG.dynastyband = function (host, spec) {
+    var rows = spec.rows || [];
+    var all = [];
+    rows.forEach(function (r) { (r.items || []).forEach(function (t) { all.push(t.a, t.b); }); });
+    var lo = spec.min != null ? spec.min : (all.length ? Math.min.apply(null, all) : 0);
+    var hi = spec.max != null ? spec.max : (all.length ? Math.max.apply(null, all) : 100);
+    if (hi <= lo) hi = lo + 100;
+    var sel = -1;
+    var box = div('wg');
+    var H = 46 + rows.length * 40;
+    var svg = el('svg', { viewBox: '0 0 320 ' + H, class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 52, X1 = 308;
+    function bx(y) { return X0 + (X1 - X0) * (y - lo) / (hi - lo); }
+    function yearLabel(y) { return y < 0 ? '前' + (-y) : String(y); }
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var axisY = H - 18;
+      svg.appendChild(el('line', { x1: X0, y1: axisY, x2: X1, y2: axisY },
+        'stroke:var(--border);stroke-width:2'));
+      // 年代刻度：只放五格，多了會擠成一團
+      for (var i = 0; i <= 4; i++) {
+        var y = lo + (hi - lo) * i / 4;
+        svg.appendChild(el('line', { x1: bx(y), y1: axisY, x2: bx(y), y2: axisY + 4 },
+          'stroke:var(--border);stroke-width:1'));
+        svg.appendChild(txt(bx(y), axisY + 12, yearLabel(Math.round(y)), 'font-size:9px;fill:var(--dim)'));
+      }
+      var flat = [];
+      rows.forEach(function (r, ri) {
+        var y0 = 26 + ri * 40;
+        var lb = el('text', { x: 4, y: y0 + 14 }, 'font-size:10px;fill:var(--dim)');
+        lb.textContent = r.label; svg.appendChild(lb);
+        (r.items || []).forEach(function (t) {
+          var idx = flat.length; flat.push(t);
+          var x = bx(t.a), w = Math.max(4, bx(t.b) - bx(t.a));
+          var on = idx === sel;
+          svg.appendChild(el('rect', { x: x, y: y0, width: w, height: 26, rx: 4 },
+            'fill:var(--accent);fill-opacity:' + (on ? 0.62 : 0.26) +
+            ';stroke:' + (on ? 'var(--bad)' : 'var(--border)') + ';stroke-width:' + (on ? 2 : 1)));
+          // 塞得下才寫字，塞不下靠點選帶出說明
+          if (w > t.n.length * 10 + 6)
+            svg.appendChild(txt(x + w / 2, y0 + 13, t.n, 'font-size:10px;fill:var(--text)'));
+        });
+      });
+      if (sel >= 0 && flat[sel]) {
+        var t2 = flat[sel];
+        svg.appendChild(el('line', { x1: bx(t2.a), y1: 20, x2: bx(t2.a), y2: axisY },
+          'stroke:var(--bad);stroke-width:1;stroke-dasharray:3 3'));
+        svg.appendChild(el('line', { x1: bx(t2.b), y1: 20, x2: bx(t2.b), y2: axisY },
+          'stroke:var(--bad);stroke-width:1;stroke-dasharray:3 3'));
+      }
+      svg.appendChild(txt(160, 12, spec.title || '同一個年代，各地在做什麼',
+        'font-size:12px;font-weight:700;fill:var(--text)'));
+      read.innerHTML = '';
+      if (sel >= 0 && flat[sel]) {
+        var t3 = flat[sel];
+        read.appendChild(div('wg-read-main',
+          t3.n + '（' + yearLabel(t3.a) + '–' + yearLabel(t3.b) + '）' + (t3.d ? '：' + t3.d : '')));
+        // 同時期：兩條虛線之間，別條線上有哪些
+        var same = [];
+        rows.forEach(function (r) {
+          (r.items || []).forEach(function (o) {
+            if (o !== t3 && o.a < t3.b && o.b > t3.a) same.push(r.label + '「' + o.n + '」');
+          });
+        });
+        read.appendChild(div('wg-read-sub', same.length
+          ? '同一段時間裡，另一邊正在：' + same.join('、') + '。'
+          : '這段時間在其他線上沒有對應的時期。'));
+      } else {
+        read.appendChild(div('wg-read-main', '按下面的按鈕逐一點過去，兩條虛線會標出那段時間。'));
+        read.appendChild(div('wg-read-sub',
+          '時間軸並排的用處是「對時間」：歷史容易變成一條一條各背各的，' +
+          '放在同一把尺上就會發現某些事其實同時發生。⚠ 分期的年份是方便理解的整數，' +
+          '實際的起訖常有重疊與爭議。'));
+      }
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一個時期', function () {
+      var n = 0; rows.forEach(function (r) { n += (r.items || []).length; });
+      sel = n ? (sel + 1) % n : -1; paint();
+    }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },

@@ -408,7 +408,7 @@ window.APP_LESSONS['civics|十上|第3單元 民主與政治'] = {
       body: '★ 行政、立法、司法各司其職並互相制衡。\n' +
             '⚠ 目的不是提高效率，\n' +
             '而是防止權力集中被濫用。',
-      viz: { type: 'orgchart' },
+      viz: {"type":"checksbalance"},
       check: {
         q: '權力分立設計的主要目的是什麼？',
         options: [
@@ -3304,7 +3304,7 @@ window.APP_LESSONS['civics|十一上|第3單元 司法程序'] = {
             '　 不服判決可以上訴。\n' +
             '⚠ 第三審通常是法律審，\n' +
             '主要審查法律適用而非重新認定事實。',
-      viz: { type: 'levels', items: ['地方法院', '高等法院', '最高法院'] },
+      viz: {"type":"courtlevel"},
       check: {
         q: '第三審通常審查什麼？',
         options: [
@@ -4349,7 +4349,7 @@ window.APP_LESSONS['civics|十一下|第1單元 憲政體制'] = {
       body: '★ 行政與立法融合，多數黨組閣。\n' +
             '⚠ 國會可以倒閣，內閣也可解散國會，\n' +
             '因此有解決僵局的機制。',
-      viz: { type: 'energyflow', steps: ['國會選舉', '多數黨組閣', '內閣對國會負責', '倒閣或解散化解僵局'] },
+      viz: {"type":"checksbalance"},
       check: {
         q: '內閣制中「倒閣」與「解散國會」機制的作用是什麼？',
         options: [
@@ -4478,7 +4478,7 @@ window.APP_LESSONS['civics|十一下|第2單元 社會不平等'] = {
             '　 形成不同的位置。\n' +
             '⚠ 這些資源常互相轉換：\n' +
             '有錢可以買到教育，教育又帶來更高的收入。',
-      viz: { type: 'levels', items: ['經濟資本', '文化資本', '社會資本', '整體優勢'] },
+      viz: {"type":"lorenz","k":2.8},
       check: {
         q: '為什麼社會不平等容易世代延續？',
         options: [
@@ -5170,11 +5170,7 @@ window.APP_LESSONS['civics|十一下|第6單元 經濟議題'] = {
             '⚠ 消費稅具累退性質：\n' +
             '低所得者把較高比例的收入用於消費，\n' +
             '負擔比例相對較重。',
-      viz: { type: 'compareexp',
-             factor: '兩類稅',
-             a: { label: '累進稅', note: '所得越高稅率越高' },
-             b: { label: '累退效果', note: '低所得者負擔比例較重' },
-             same: ['都是稅收來源'] },
+      viz: {"type":"lorenz","k":2.4},
       check: {
         q: '為什麼說消費稅具有累退的性質？',
         options: [
@@ -5227,7 +5223,7 @@ window.APP_LESSONS['civics|十一下|第6單元 經濟議題'] = {
             '⚠ 可能的因應：提高勞動參與率、\n' +
             '提升生產力、引進移民、\n' +
             '調整退休與年金制度。',
-      viz: { type: 'poppyramid' },
+      viz: {"type":"demotrans"},
       check: {
         q: '面對勞動人口減少，下列哪一項是常見的因應方式？',
         options: [
@@ -5933,8 +5929,7 @@ window.APP_LESSONS['civics|十二上|第2單元 政治學總複習'] = {
       body: '★ 自由公平的選舉、政黨競爭、\n' +
             '　 言論與結社自由、法治、權力制衡\n' +
             '⚠ 缺少任一項，民主的品質都會受損。',
-      viz: { type: 'classify', groups: [
-        { label: '民主的要件', items: ['自由選舉', '政黨競爭', '言論自由', '法治與制衡'] }] },
+      viz: {"type":"checksbalance"},
       check: {
         q: '有定期選舉但媒體與反對黨受到嚴格壓制，該如何評價？',
         options: [
@@ -7703,8 +7698,7 @@ window.APP_LESSONS['civics|十二下|第4單元 專題：司法與正義'] = {
             '　 鑑定瑕疵、程序不當\n' +
             '⚠ 因此需要再審與非常上訴等\n' +
             '事後的救濟管道。',
-      viz: { type: 'classify', groups: [
-        { label: '冤案的成因', items: ['證據誤判', '不可靠自白', '鑑識瑕疵', '程序缺失'] }] },
+      viz: {"type":"courtlevel"},
       check: {
         q: '為什麼刑事程序特別強調自白須有其他證據補強？',
         options: [

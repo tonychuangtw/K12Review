@@ -668,6 +668,7 @@ window.APP_TEXTS['civics|十上|第5單元 政府與治理'] = {
       terms: [
         { w: '預算', d: '政府一定期間內收支的計畫。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"社福與衛生","value":30},{"label":"教育科技","value":25},{"label":"國防","value":20},{"label":"經濟建設與其他","value":25}]},
       q: {
         q: '課文說從預算可以看出什麼？',
         options: [
@@ -1830,6 +1831,7 @@ window.APP_TEXTS['civics|十下|第4單元 消費與理財'] = {
       terms: [
         { w: '分散風險', d: '把資金分配到不同標的以降低損失。' }
       ],
+      viz: {"type":"scatter","points":[[1,1],[2,2],[3,4],[4,5],[5,8],[6,9]]},
       q: {
         q: '課文說保證高報酬的說法通常代表什麼？',
         options: [
@@ -2969,6 +2971,7 @@ window.APP_TEXTS['civics|十一上|第3單元 司法程序'] = {
       terms: [
         { w: '證據裁判', d: '事實認定必須依據證據的原則。' }
       ],
+      viz: {"type":"courtlevel"},
       q: {
         q: '課文說法院認定事實的依據是什麼？',
         options: [
@@ -3987,6 +3990,7 @@ window.APP_TEXTS['civics|十一下|第1單元 憲政體制'] = {
       terms: [
         { w: '分立政府', d: '行政與立法由不同政黨掌握的情形。' }
       ],
+      viz: {"type":"checksbalance"},
       q: {
         q: '課文說行政與立法由不同政黨掌握可能造成什麼？',
         options: [
@@ -4086,6 +4090,7 @@ window.APP_TEXTS['civics|十一下|第2單元 社會不平等'] = {
       terms: [
         { w: '結構性不平等', d: '因制度結構而長期存在的不平等。' }
       ],
+      viz: {"type":"lorenz","k":2.8},
       q: {
         q: '課文說不同面向的不平等之間有什麼關係？',
         options: [
@@ -4712,6 +4717,7 @@ window.APP_TEXTS['civics|十一下|第6單元 經濟議題'] = {
       terms: [
         { w: '累進稅', d: '所得越高適用稅率越高的稅制。' }
       ],
+      viz: {"type":"lorenz","k":2.4},
       q: {
         q: '課文說間接稅的特點是什麼？',
         options: [
@@ -7036,6 +7042,7 @@ window.APP_TEXTS['civics|十二下|第4單元 專題：司法與正義'] = {
       terms: [
         { w: '再審', d: '對確定判決重新審理的救濟程序。' }
       ],
+      viz: {"type":"courtlevel"},
       q: {
         q: '課文說媒體審判的問題是什麼？',
         options: [
@@ -7761,6 +7768,7 @@ window.APP_TEXTS['civics|十二下|第9單元 邁向公民生活'] = {
       terms: [
         { w: '民主素養', d: '在分歧中維持理性討論的能力。' }
       ],
+      viz: {"type":"cycle","steps":["表達自己的看法","理解他人的理由","依程序協商","共同承擔結果"]},
       q: {
         q: '課文說民主社會中分歧的性質是什麼？',
         options: [

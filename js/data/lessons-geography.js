@@ -458,7 +458,7 @@ window.APP_LESSONS['geography|十上|第3單元 氣候'] = {
             '　 ① 看最冷月均溫判斷熱帶／溫帶／寒帶\n' +
             '　 ② 看年雨量判斷乾濕\n' +
             '　 ③ 看雨量集中在哪一季判斷類型',
-      viz: { type: 'energyflow', steps: ['看最冷月均溫', '看年雨量多寡', '看降雨的季節分配', '判定氣候類型'] },
+      viz: {"type":"climograph","set":3},
       check: {
         q: '判讀氣候圖時，判斷熱帶或溫帶要先看什麼？',
         options: [
@@ -854,7 +854,7 @@ window.APP_LESSONS['geography|十上|第6單元 人口'] = {
             '　 低出生低死亡\n' +
             '⚠ 中間階段死亡率先下降、出生率後下降，\n' +
             '這個時間差就是人口爆炸的原因。',
-      viz: { type: 'linegraph', a: -0.7, b: 9, min: 0, max: 12 },
+      viz: {"type":"demotrans"},
       check: {
         q: '人口轉型過程中人口快速增加的原因是什麼？',
         options: [
@@ -1035,7 +1035,7 @@ window.APP_LESSONS['geography|十上|第7單元 聚落與都市'] = {
             '★ 向外依序為住宅區、工業區、郊區\n' +
             '⚠ 地價的空間差異，\n' +
             '是決定土地用途最主要的力量。',
-      viz: { type: 'levels', items: ['中心商業區', '舊市區', '住宅區', '郊區'] },
+      viz: {"type":"landuse"},
       check: {
         q: '為什麼商業活動集中在都市中心？',
         options: [
@@ -1594,7 +1594,7 @@ window.APP_LESSONS['geography|十下|第2單元 臺灣的人口與聚落'] = {
       body: '★ 戰後高成長 → 家庭計畫推動 → 生育率持續下降\n' +
             '⚠ 目前總生育率遠低於人口替代水準，\n' +
             '人口已進入減少階段。',
-      viz: { type: 'linegraph', a: -0.8, b: 10, min: 0, max: 12 },
+      viz: {"type":"demotrans"},
       check: {
         q: '「總生育率低於替代水準」代表什麼？',
         options: [
@@ -2375,7 +2375,7 @@ window.APP_LESSONS['geography|十下|第7單元 東亞與東南亞'] = {
             '　 → 適合精耕細作的水稻農業\n' +
             '⚠ 單位面積產量高，\n' +
             '因此可以養活密集的人口。',
-      viz: { type: 'energyflow', steps: ['高溫多雨', '適合水稻', '單位產量高', '支撐稠密人口'] },
+      viz: {"type":"climograph","set":5},
       check: {
         q: '季風亞洲人口特別稠密的農業基礎是什麼？',
         options: [
@@ -2527,7 +2527,7 @@ window.APP_LESSONS['geography|十下|第8單元 南亞與西亞'] = {
       body: '★ 西南季風帶來全年大部分的降雨。\n' +
             '⚠ 季風來得早晚與強弱，\n' +
             '直接影響當年的農業收成與經濟。',
-      viz: { type: 'linegraph', a: 2.5, b: 0, min: 0, max: 12 },
+      viz: {"type":"climograph","set":5},
       check: {
         q: '為什麼季風的變化對南亞影響特別大？',
         options: [
@@ -2839,11 +2839,7 @@ window.APP_LESSONS['geography|十一上|第1單元 歐洲'] = {
       body: '★ 受北大西洋暖流與盛行西風影響，\n' +
             '　 冬季比同緯度地區溫暖，全年有雨。\n' +
             '⚠ 這是洋流影響氣候最經典的例子。',
-      viz: { type: 'compareexp',
-             factor: '同緯度比較',
-             a: { label: '西歐', note: '受暖流與西風，冬季溫和' },
-             b: { label: '同緯內陸', note: '冬季嚴寒、溫差大' },
-             same: ['緯度相近'] },
+      viz: {"type":"climograph","set":4},
       check: {
         q: '西歐冬季比同緯度地區溫暖的原因是什麼？',
         options: [
@@ -2866,7 +2862,7 @@ window.APP_LESSONS['geography|十一上|第1單元 歐洲'] = {
       body: '★ 夏乾冬雨，是全球少見的雨量集中在冬季的類型。\n' +
             '⚠ 成因是夏季受副熱帶高壓籠罩、\n' +
             '冬季西風帶南移帶來降雨。',
-      viz: { type: 'linegraph', a: -0.8, b: 10, min: 0, max: 12 },
+      viz: {"type":"climograph","set":3},
       check: {
         q: '地中海型氣候夏季乾燥的原因是什麼？',
         options: [
@@ -2973,7 +2969,7 @@ window.APP_LESSONS['geography|十一上|第2單元 非洲'] = {
             '　 沙漠 → 地中海型\n' +
             '⚠ 這種對稱來自氣壓帶與風帶的緯度分布，\n' +
             '是全球最清楚的例子。',
-      viz: { type: 'levels', items: ['熱帶雨林', '莽原', '沙漠', '地中海型'] },
+      viz: {"type":"climograph","set":1},
       check: {
         q: '非洲氣候帶呈南北對稱分布的原因是什麼？',
         options: [
@@ -3223,11 +3219,7 @@ window.APP_LESSONS['geography|十一上|第3單元 美洲'] = {
       body: '★ 拉丁美洲都市化程度高，\n' +
             '　 但貧富差距也居世界前列。\n' +
             '⚠ 大城市周邊常出現大規模的非正式聚落。',
-      viz: { type: 'compareexp',
-             factor: '都市內部',
-             a: { label: '核心區', note: '現代商業與高級住宅' },
-             b: { label: '邊緣區', note: '非正式聚落與基礎設施不足' },
-             same: ['同屬一座城市'] },
+      viz: {"type":"lorenz","k":3.2},
       check: {
         q: '非正式聚落大量出現的主要原因是什麼？',
         options: [
@@ -3363,11 +3355,7 @@ window.APP_LESSONS['geography|十一上|第4單元 大洋洲與極地'] = {
             '　 南極是被海洋包圍的大陸。\n' +
             '⚠ 因此南極比北極更冷：\n' +
             '它是有厚冰層的高海拔大陸。',
-      viz: { type: 'compareexp',
-             factor: '兩極差異',
-             a: { label: '北極', note: '海洋為主，有原住民居住' },
-             b: { label: '南極', note: '大陸為主，僅有科研站' },
-             same: ['都終年寒冷'] },
+      viz: {"type":"climograph","set":6},
       check: {
         q: '南極比北極更寒冷的主要原因是什麼？',
         options: [
@@ -5178,7 +5166,7 @@ window.APP_LESSONS['geography|十一下|第7單元 綜合演練（一）'] = {
       body: '★ 三步驟：最冷月均溫 → 年雨量 → 雨量的季節分配\n' +
             '⚠ 最冷月均溫超過 18 度為熱帶；\n' +
             '低於 0 度多為大陸性或寒帶。',
-      viz: { type: 'linegraph', a: 1.2, b: 5, min: 0, max: 12 },
+      viz: {"type":"climograph","set":3},
       check: {
         q: '某地最冷月均溫 20 度、年雨量集中在夏季，最可能是什麼氣候？',
         options: [
@@ -5380,7 +5368,7 @@ window.APP_LESSONS['geography|十一下|第8單元 綜合演練（二）'] = {
             '　 都市問題與規劃對策\n' +
             '⚠ 記住核心邏輯：\n' +
             '可及性 → 地價 → 土地利用。',
-      viz: { type: 'energyflow', steps: ['可及性高低', '影響地價', '決定土地利用', '形成機能分區'] },
+      viz: {"type":"landuse"},
       check: {
         q: '都市土地利用分區的核心決定機制是什麼？',
         options: [
@@ -5540,7 +5528,7 @@ window.APP_LESSONS['geography|十一下|第9單元 地理與未來'] = {
             '　 面臨高齡化與人口減少。\n' +
             '⚠ 這會改變住宅需求、交通規劃\n' +
             '與公共服務的配置方式。',
-      viz: { type: 'poppyramid' },
+      viz: {"type":"demotrans"},
       check: {
         q: '人口減少的社會在空間規劃上需要面對什麼？',
         options: [
@@ -5672,7 +5660,7 @@ window.APP_LESSONS['geography|十二上|第1單元 自然地理總複習'] = {
       body: '★ 緯度 → 太陽輻射量 → 氣壓帶位置 →\n' +
             '　 風向 → 水氣來源 → 降水\n' +
             '⚠ 再加上海陸、地形與洋流的修正。',
-      viz: { type: 'energyflow', steps: ['緯度決定受熱', '形成氣壓帶', '產生風系', '決定降水分布'] },
+      viz: {"type":"climograph","set":2},
       check: {
         q: '判斷某地氣候時，最基本的出發點是什麼？',
         options: [
@@ -5974,8 +5962,7 @@ window.APP_LESSONS['geography|十二上|第3單元 區域地理總複習'] = {
       body: '★ 東亞與東南亞：季風、水稻、人口稠密、製造\n' +
             '★ 南亞：季風、人口大國、農業依賴雨季\n' +
             '★ 西亞與中亞：乾燥、石油、水資源爭議',
-      viz: { type: 'classify', groups: [
-        { label: '亞洲各區關鍵字', items: ['東亞：製造與人口', '東南亞：海運樞紐', '南亞：季風農業', '西亞：乾燥與石油'] }] },
+      viz: {"type":"climograph","set":5},
       check: {
         q: '季風亞洲人口稠密的共同基礎是什麼？',
         options: [
