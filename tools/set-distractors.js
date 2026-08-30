@@ -39,13 +39,23 @@ patch.forEach((p) => {
   const w = where[p.id];
   if (!w) { console.log('✗ 找不到題目 ' + p.id); bad++; return; }
   const it = D[w.bank][w.i];
+  /* 只換一個誘答：{ id, one } —— 把目前最長的那個誘答換成 one。
+     用在「三個誘答都寫好了，但沒有任何一個比正解長」的補救，不必整題重寫。 */
+  if (p.one && !p.d) {
+    const cur = it.options.map((o, k) => ({ o: String(o), k })).filter((x) => x.k !== it.answer);
+    cur.sort((a, b) => b.o.length - a.o.length);
+    p = { id: p.id, d: [String(p.one), cur[1].o, cur[2].o] };
+  }
   if (!Array.isArray(p.d) || p.d.length !== 3) { console.log('✗ ' + p.id + ' 要剛好三個誘答'); bad++; return; }
   const cor = String(it.options[it.answer]);
   if (p.d.some((x) => String(x) === cor)) { console.log('✗ ' + p.id + ' 誘答跟正解一樣'); bad++; return; }
   if (new Set(p.d.map(String)).size !== 3) { console.log('✗ ' + p.id + ' 三個誘答有重複'); bad++; return; }
-  // 長度要拉近：最長的誘答至少要有正解的七成，否則等於沒修
+  /* 長度守門（2026-08-30 收緊）：至少要有一個誘答不比正解短。
+     原本只要求「最長的誘答有正解的七成」，結果正解仍然是四個選項裡唯一最長的那一個 ——
+     破綻只是從「一眼看出」變成「看兩眼看出」，test.js 的比例也降不下來。
+     現在要求 max(誘答長度) ≥ 正解長度，正解就不可能是唯一最長的。 */
   const mx = Math.max(...p.d.map((x) => String(x).length));
-  if (mx < 0.7 * cor.length) { console.log('⚠ ' + p.id + ' 誘答還是太短（' + mx + ' vs 正解 ' + cor.length + '）'); bad++; return; }
+  if (mx < cor.length) { console.log('⚠ ' + p.id + ' 沒有任何一個誘答比正解長（最長 ' + mx + ' vs 正解 ' + cor.length + '）'); bad++; return; }
   const a = w.i % 4;
   const options = []; let k = 0;
   for (let s = 0; s < 4; s++) options.push(s === a ? cor : String(p.d[k++]));
