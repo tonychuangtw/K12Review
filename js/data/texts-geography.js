@@ -17,6 +17,7 @@ window.APP_TEXTS['geography|十上|第1單元 地理學與地圖'] = {
       terms: [
         { w: '空間分布', d: '現象在地表上的分布狀況。' }
       ],
+      viz: {"type":"compareexp","factor":"兩種地理學習","a":{"label":"記憶地名","note":"知道在哪裡"},"b":{"label":"解釋分布","note":"說明為什麼在那裡"},"same":["都需要位置的知識"]},
       q: {
         q: '課文說地理學的核心關懷是什麼？',
         options: [
@@ -213,6 +214,7 @@ window.APP_TEXTS['geography|十上|第2單元 地形'] = {
       terms: [
         { w: '輸沙平衡', d: '海岸沙源供給與流失的平衡狀態。' }
       ],
+      viz: {"type":"compareexp","factor":"海岸作用","a":{"label":"侵蝕為主","note":"岩岸、海蝕崖"},"b":{"label":"堆積為主","note":"沙岸、沙洲、潟湖"},"same":["都由波浪作用形成"]},
       q: {
         q: '課文說人為工程可能造成什麼海岸問題？',
         options: [
@@ -382,6 +384,7 @@ window.APP_TEXTS['geography|十上|第3單元 氣候'] = {
       terms: [
         { w: '氣候類型', d: '依溫度與降水特徵劃分的氣候分類。' }
       ],
+      viz: {"type":"climograph","set":3},
       q: {
         q: '課文說氣候分類的主要依據是什麼？',
         options: [
@@ -506,6 +509,7 @@ window.APP_TEXTS['geography|十上|第4單元 水文與土壤'] = {
       terms: [
         { w: '含水層', d: '地下能儲水並供水的岩層。' }
       ],
+      viz: {"type":"energyflow","steps":["過量抽取地下水","水位持續下降","地層壓密","地面永久下陷"]},
       q: {
         q: '課文說超抽地下水在沿海的後果是什麼？',
         options: [
@@ -753,6 +757,7 @@ window.APP_TEXTS['geography|十上|第6單元 人口'] = {
       terms: [
         { w: '人口密度', d: '單位面積上的人口數。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"影響人口分布的因素","items":["氣候","地形","水源","交通","歷史發展"]}]},
       q: {
         q: '課文說人口分布不均的主要影響因素不包含下列哪一項？',
         options: [
@@ -900,6 +905,7 @@ window.APP_TEXTS['geography|十上|第7單元 聚落與都市'] = {
       terms: [
         { w: '區位', d: '某活動所在位置及其形成條件。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"聚落區位因素","items":["水源","防禦","農地","交通","避災"]}]},
       q: {
         q: '課文說聚落的位置反映什麼？',
         options: [
@@ -1046,6 +1052,7 @@ window.APP_TEXTS['geography|十上|第8單元 產業活動'] = {
       terms: [
         { w: '產業結構', d: '各級產業在經濟中所佔的比重。' }
       ],
+      viz: {"type":"levels","items":["一級：農林漁牧","二級：製造加工","三級：服務","知識與資訊服務"]},
       q: {
         q: '課文說經濟發展通常伴隨什麼變化？',
         options: [
@@ -1338,6 +1345,7 @@ window.APP_TEXTS['geography|十下|第1單元 臺灣的自然環境'] = {
       terms: [
         { w: '板塊交界', d: '兩個板塊接觸並互相作用的地帶。' }
       ],
+      viz: {"type":"plates","mode":"collide"},
       q: {
         q: '課文說決定臺灣自然條件的三個位置因素不包含哪一項？',
         options: [
@@ -1409,6 +1417,7 @@ window.APP_TEXTS['geography|十下|第1單元 臺灣的自然環境'] = {
       terms: [
         { w: '含沙量', d: '河水中所含泥沙的濃度。' }
       ],
+      viz: {"type":"linegraph","a":1.8,"b":0.5,"min":0,"max":12},
       q: {
         q: '課文說臺灣河川的特徵不包含下列哪一項？',
         options: [
@@ -1486,6 +1495,7 @@ window.APP_TEXTS['geography|十下|第2單元 臺灣的人口與聚落'] = {
       terms: [
         { w: '西部走廊', d: '臺灣西部平原地帶的人口與產業集中帶。' }
       ],
+      viz: {"type":"taiwan"},
       q: {
         q: '課文說臺灣人口集中在西部的原因是什麼？',
         options: [
@@ -1603,6 +1613,7 @@ window.APP_TEXTS['geography|十下|第2單元 臺灣的人口與聚落'] = {
       terms: [
         { w: '新住民', d: '因婚姻或工作移居並定居的外來居民。' }
       ],
+      viz: {"type":"compareexp","factor":"移工政策的兩面","a":{"label":"需求面","note":"補充照護與製造人力"},"b":{"label":"權益面","note":"工時、居住與轉換雇主"},"same":["都需要制度回應"]},
       q: {
         q: '課文說移入人口帶來的變化之一是什麼？',
         options: [
@@ -1750,6 +1761,7 @@ window.APP_TEXTS['geography|十下|第3單元 臺灣的產業'] = {
       terms: [
         { w: '產業升級', d: '提高附加價值與技術層次的轉型。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"產業面臨的挑戰","items":["供應鏈重組","人力短缺","能源與淨零","技術競爭"]}]},
       q: {
         q: '課文說面對挑戰的態度應該是什麼？',
         options: [
@@ -1803,6 +1815,7 @@ window.APP_TEXTS['geography|十下|第4單元 臺灣的區域特色'] = {
       terms: [
         { w: '精密機械', d: '製造高精度零組件與工具機的產業。' }
       ],
+      viz: {"type":"energyflow","steps":["零組件供應商聚集","工具機組裝廠","技術互相支援","形成產業聚落"]},
       q: {
         q: '課文說中部的產業特色是什麼？',
         options: [
@@ -1949,6 +1962,7 @@ window.APP_TEXTS['geography|十下|第5單元 臺灣的環境議題'] = {
       terms: [
         { w: '逆溫', d: '氣溫隨高度上升的異常分布，抑制擴散。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"空污來源","items":["交通","工業","電力","境外傳輸","揚塵"]}]},
       q: {
         q: '課文說冬季空品較差的氣象原因是什麼？',
         options: [
@@ -2071,6 +2085,7 @@ window.APP_TEXTS['geography|十下|第6單元 中國地理概論'] = {
       terms: [
         { w: '地勢', d: '地表高低起伏的整體形勢。' }
       ],
+      viz: {"type":"levels","items":["青藏高原","內陸高原與盆地","東部平原","沿海"]},
       q: {
         q: '課文說主要河川多由西向東流的原因是什麼？',
         options: [
@@ -2311,6 +2326,7 @@ window.APP_TEXTS['geography|十下|第7單元 東亞與東南亞'] = {
       terms: [
         { w: '區域整合', d: '鄰近國家在經濟等領域加強合作。' }
       ],
+      viz: {"type":"compareexp","factor":"區域整合","a":{"label":"動力","note":"擴大市場與談判力"},"b":{"label":"阻力","note":"發展與體制差異大"},"same":["都影響整合的深度"]},
       q: {
         q: '課文說區域整合深度受限的原因是什麼？',
         options: [
@@ -2482,6 +2498,7 @@ window.APP_TEXTS['geography|十下|第8單元 南亞與西亞'] = {
       terms: [
         { w: '殖民遺產', d: '殖民統治留下並持續影響的問題。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"衝突的成因","items":["水源分配","族群宗教","資源利益","歷史疆界"]}]},
       q: {
         q: '課文說解釋該區域衝突時要注意什麼？',
         options: [
@@ -2775,6 +2792,7 @@ window.APP_TEXTS['geography|十一上|第1單元 歐洲'] = {
       terms: [
         { w: '能源安全', d: '穩定取得所需能源的能力。' }
       ],
+      viz: {"type":"poppyramid"},
       q: {
         q: '課文說看待歐洲經驗的態度應該是什麼？',
         options: [
@@ -2899,6 +2917,7 @@ window.APP_TEXTS['geography|十一上|第2單元 非洲'] = {
       terms: [
         { w: '跳躍式發展', d: '略過某些階段直接採用新技術。' }
       ],
+      viz: {"type":"compareexp","factor":"兩種發展路徑","a":{"label":"循序式","note":"依序建設基礎設施"},"b":{"label":"跳蛙式","note":"直接採用新技術"},"same":["都在提供服務"]},
       q: {
         q: '課文舉行動支付為例是為了說明什麼？',
         options: [
@@ -2952,6 +2971,7 @@ window.APP_TEXTS['geography|十一上|第3單元 美洲'] = {
       terms: [
         { w: '山脈走向', d: '山脈延伸的主要方向。' }
       ],
+      viz: {"type":"levels","items":["西部山脈","中部平原","東部山地","沿海平原"]},
       q: {
         q: '課文說美洲地形結構的特點是什麼？',
         options: [
@@ -3192,6 +3212,7 @@ window.APP_TEXTS['geography|十一上|第4單元 大洋洲與極地'] = {
       terms: [
         { w: '反照率', d: '地表反射太陽輻射的比例。' }
       ],
+      viz: {"type":"energyflow","steps":["氣溫上升","海冰融化","反射率下降吸熱增加","融化速度加快"]},
       q: {
         q: '課文說海冰減少造成的正回饋是什麼？',
         options: [
@@ -3586,6 +3607,7 @@ window.APP_TEXTS['geography|十一上|第7單元 全球環境變遷'] = {
       terms: [
         { w: '氣候正義', d: '關注氣候影響與責任分配公平性的主張。' }
       ],
+      viz: {"type":"compareexp","factor":"責任與衝擊","a":{"label":"主要排放者","note":"工業化程度高的國家"},"b":{"label":"主要受害者","note":"低地與貧窮地區"},"same":["共處同一個大氣"]},
       q: {
         q: '課文說氣候問題也是公平問題的原因是什麼？',
         options: [
@@ -3802,6 +3824,7 @@ window.APP_TEXTS['geography|十一上|第8單元 空間資訊應用'] = {
       terms: [
         { w: '視覺化選擇', d: '呈現資料時的分類與配色決定。' }
       ],
+      viz: {"type":"compareexp","factor":"同一份資料","a":{"label":"分區方式甲","note":"得到某種分布結論"},"b":{"label":"分區方式乙","note":"可能得到相反結論"},"same":["底層資料完全相同"]},
       q: {
         q: '課文說看主題地圖時要注意什麼？',
         options: [
@@ -3948,6 +3971,7 @@ window.APP_TEXTS['geography|十一上|第9單元 地理視野'] = {
       terms: [
         { w: '地理素養', d: '運用空間思維理解與判斷的能力。' }
       ],
+      viz: {"type":"compareexp","factor":"設施分配","a":{"label":"利益設施","note":"公園、捷運、醫院"},"b":{"label":"嫌惡設施","note":"焚化爐、變電所"},"same":["都涉及空間分配"]},
       q: {
         q: '課文說地理訓練最終希望養成什麼？',
         options: [
@@ -4024,6 +4048,7 @@ window.APP_TEXTS['geography|十一下|第1單元 農業與糧食'] = {
       terms: [
         { w: '綠色革命', d: '以高產品種與化學投入提升產量的農業變革。' }
       ],
+      viz: {"type":"compareexp","factor":"綠色革命","a":{"label":"成效","note":"產量大增，緩解飢荒"},"b":{"label":"代價","note":"投入成本高、環境負擔"},"same":["都來自同一套技術"]},
       q: {
         q: '課文說綠色革命的代價之一是什麼？',
         options: [
@@ -4147,6 +4172,7 @@ window.APP_TEXTS['geography|十一下|第2單元 交通與運輸'] = {
       terms: [
         { w: '運具選擇', d: '依成本時間與貨物特性選用運輸方式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"運輸方式","items":["公路","鐵路","海運","空運"]}]},
       q: {
         q: '課文說海運的主要優勢是什麼？',
         options: [
@@ -4292,6 +4318,7 @@ window.APP_TEXTS['geography|十一下|第3單元 觀光與文化'] = {
       terms: [
         { w: '漏損', d: '觀光收益流出當地的現象。' }
       ],
+      viz: {"type":"energyflow","steps":["遊客消費","部分支付外來業者","收益流出當地","在地實得有限"]},
       q: {
         q: '課文說觀光收益不一定留在當地的原因是什麼？',
         options: [
@@ -4656,6 +4683,7 @@ window.APP_TEXTS['geography|十一下|第5單元 全球議題'] = {
       terms: [
         { w: '數位落差', d: '不同群體在資訊取得上的差距。' }
       ],
+      viz: {"type":"compareexp","factor":"數位落差","a":{"label":"接取落差","note":"有沒有網路與設備"},"b":{"label":"使用落差","note":"會不會有效運用"},"same":["都影響實際機會"]},
       q: {
         q: '課文說數位化可能造成什麼風險？',
         options: [
@@ -4709,6 +4737,7 @@ window.APP_TEXTS['geography|十一下|第6單元 地理實察'] = {
       terms: [
         { w: '實察', d: '到現場進行觀察與訪查的方法。' }
       ],
+      viz: {"type":"energyflow","steps":["設定觀察主題","蒐集背景資料","規劃路線","準備紀錄工具"]},
       q: {
         q: '課文說實察前最重要的準備是什麼？',
         options: [
@@ -5655,6 +5684,7 @@ window.APP_TEXTS['geography|十二上|第3單元 區域地理總複習'] = {
       terms: [
         { w: '區域整合', d: '鄰近國家加強經濟與政治合作。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"歐美關鍵字","items":["歐洲：整合與老化","北美：平原與農業帶","拉美：垂直分帶"]}]},
       q: {
         q: '課文說拉丁美洲的共同課題是什麼？',
         options: [
@@ -6140,6 +6170,7 @@ window.APP_TEXTS['geography|十二上|第6單元 學測綜合演練'] = {
       terms: [
         { w: '作答節奏', d: '在有限時間內分配答題速度。' }
       ],
+      viz: {"type":"energyflow","steps":["快速掃卷","先做把握高的題","標記困難題","回頭處理並檢查"]},
       q: {
         q: '課文說遇到卡住的題目應該怎麼做？',
         options: [
@@ -6169,6 +6200,7 @@ window.APP_TEXTS['geography|十二上|第7單元 地理與生活'] = {
       terms: [
         { w: '生活機能', d: '周邊設施提供日常需求的便利程度。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"選址要查的資料","items":["交通可及性","生活機能","災害潛勢","都市計畫"]}]},
       q: {
         q: '課文說選擇居住地時應該查詢什麼？',
         options: [
@@ -6432,6 +6464,7 @@ window.APP_TEXTS['geography|十二上|第8單元 永續與未來'] = {
       terms: [
         { w: '集體行動', d: '多數人共同採取的一致行動。' }
       ],
+      viz: {"type":"levels","items":["個人選擇","企業行為","國家政策","國際協定"]},
       q: {
         q: '課文說個人行動與制度改變的關係是什麼？',
         options: [
@@ -6461,6 +6494,7 @@ window.APP_TEXTS['geography|十二上|第9單元 地理素養總結'] = {
       terms: [
         { w: '位置', d: '事物在地表上所處的地點。' }
       ],
+      viz: {"type":"energyflow","steps":["觀察現象","確認位置與分布","追問成因","評估影響"]},
       q: {
         q: '課文說地理思考的起點是什麼？',
         options: [
@@ -6725,6 +6759,7 @@ window.APP_TEXTS['geography|十二下|第1單元 臺灣專題：水土'] = {
       terms: [
         { w: '流域管理', d: '以整個流域為單位的水資源治理。' }
       ],
+      viz: {"type":"energyflow","steps":["上游水土保持","中游滯洪空間","下游排水系統","整體降低風險"]},
       q: {
         q: '課文說水資源治理應以什麼為單位？',
         options: [
@@ -6778,6 +6813,7 @@ window.APP_TEXTS['geography|十二下|第2單元 臺灣專題：能源'] = {
       terms: [
         { w: '取捨', d: '在不同目標之間做出選擇。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"各有取捨","items":["燃煤：便宜高排放","燃氣：較潔淨需設施","核能：低碳有廢料","再生：低碳不穩定"]}]},
       q: {
         q: '課文說各種能源選項的共同點是什麼？',
         options: [
@@ -7604,6 +7640,7 @@ window.APP_TEXTS['geography|十二下|第7單元 分科綜合演練（一）'] =
       terms: [
         { w: '檢查清單', d: '作答後逐項確認的固定項目。' }
       ],
+      viz: {"type":"energyflow","steps":["作答完成","檢查是否引用資料","檢查理由是否充分","確認有回答題目"]},
       q: {
         q: '課文列出的檢查項目不包含下列哪一項？',
         options: [

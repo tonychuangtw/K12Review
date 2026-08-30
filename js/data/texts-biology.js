@@ -63,6 +63,7 @@ window.APP_TEXTS['biology|十上|第1單元 生命的特性與研究方法'] = {
       terms: [
         { w: '生態系', d: '生物群落與其環境交互作用形成的系統。' }
       ],
+      viz: {"type":"energyflow","steps":["細胞","組織與器官","個體","族群與生態系"]},
       q: {
         q: '課文說每往上一個組織層次，會出現什麼？',
         options: [
@@ -232,6 +233,7 @@ window.APP_TEXTS['biology|十上|第2單元 細胞的構造'] = {
       terms: [
         { w: '高基氏體', d: '負責修飾與包裝蛋白質並運送的胞器。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"能量相關","items":["粒線體","葉綠體"]},{"label":"蛋白質相關","items":["核糖體","內質網","高基氏體"]},{"label":"分解與儲存","items":["溶體","液泡"]}]},
       q: {
         q: '課文說平滑內質網負責什麼？',
         options: [
@@ -356,6 +358,7 @@ window.APP_TEXTS['biology|十上|第3單元 物質進出細胞'] = {
       terms: [
         { w: '半透膜', d: '只允許部分物質通過的膜。' }
       ],
+      viz: {"type":"compareexp","factor":"溶液的濃度","a":{"label":"低張溶液","note":"水進入細胞，細胞脹大"},"b":{"label":"高張溶液","note":"水離開細胞，細胞萎縮"},"same":["都是滲透作用"]},
       q: {
         q: '課文說細胞放在高張溶液中會怎樣？',
         options: [
@@ -481,6 +484,7 @@ window.APP_TEXTS['biology|十上|第4單元 酵素與代謝'] = {
       terms: [
         { w: '活性部位', d: '酵素上與受質結合並催化反應的區域。' }
       ],
+      viz: {"type":"compareexp","factor":"結合的方式","a":{"label":"鎖與鑰匙","note":"形狀完全互補（早期模型）"},"b":{"label":"誘導契合","note":"結合時活性部位會微調形狀"},"same":["都強調形狀的互補"]},
       q: {
         q: '課文說比鎖鑰比喻更精確的說法是什麼？',
         options: [
@@ -627,6 +631,7 @@ window.APP_TEXTS['biology|十上|第5單元 光合作用'] = {
       terms: [
         { w: '葉綠素', d: '吸收光能以進行光合作用的綠色色素。' }
       ],
+      viz: {"type":"cell","kind":"plant"},
       q: {
         q: '課文說葉子看起來是綠色的原因是什麼？',
         options: [
@@ -697,6 +702,7 @@ window.APP_TEXTS['biology|十上|第5單元 光合作用'] = {
       terms: [
         { w: '限制因子', d: '當下限制反應速率的那一項條件。' }
       ],
+      viz: {"type":"compareexp","factor":"限制因子","a":{"label":"光弱時","note":"光是限制因子"},"b":{"label":"光足夠時","note":"二氧化碳或溫度成為限制因子"},"same":["都影響光合速率"]},
       q: {
         q: '課文說光合作用速率由什麼決定？',
         options: [
@@ -797,6 +803,7 @@ window.APP_TEXTS['biology|十上|第6單元 呼吸作用'] = {
       terms: [
         { w: '發酵', d: '無氧狀態下分解有機物取得能量的過程。' }
       ],
+      viz: {"type":"compareexp","factor":"產物","a":{"label":"動物無氧呼吸","note":"產生乳酸"},"b":{"label":"酵母發酵","note":"產生酒精與二氧化碳"},"same":["都不需要氧氣，ATP 產量少"]},
       q: {
         q: '課文說酵母菌無氧呼吸的產物是什麼？',
         options: [
@@ -1014,6 +1021,7 @@ window.APP_TEXTS['biology|十上|第7單元 細胞分裂'] = {
       terms: [
         { w: '檢查點', d: '細胞週期中確認條件是否合格的管控機制。' }
       ],
+      viz: {"type":"compareexp","factor":"調控是否正常","a":{"label":"正常細胞","note":"受檢查點調控，適時停止"},"b":{"label":"癌細胞","note":"失去調控，持續增殖"},"same":["都進行細胞分裂"]},
       q: {
         q: '課文說細胞週期調控失效可能導致什麼？',
         options: [
@@ -1043,6 +1051,7 @@ window.APP_TEXTS['biology|十上|第8單元 遺傳法則'] = {
       terms: [
         { w: '性狀', d: '生物可觀察到的特徵。' }
       ],
+      viz: {"type":"energyflow","steps":["選純品系","雜交","統計後代比例","歸納出規律"]},
       q: {
         q: '課文說孟德爾成功的關鍵方法是什麼？',
         options: [
@@ -1236,6 +1245,7 @@ window.APP_TEXTS['biology|十上|第9單元 DNA 與基因'] = {
       terms: [
         { w: '半保留複製', d: '新分子各保留一條原有股的複製方式。' }
       ],
+      viz: {"type":"energyflow","steps":["雙股解開","各股當模板","依互補配對合成","得到兩個相同的 DNA"]},
       q: {
         q: '課文說半保留複製的意思是什麼？',
         options: [
@@ -1359,6 +1369,7 @@ window.APP_TEXTS['biology|十下|第1單元 生物的分類'] = {
       terms: [
         { w: '種', d: '能互相交配並產生有生殖力後代的生物群。' }
       ],
+      viz: {"type":"levels","kind":"taxon"},
       q: {
         q: '課文說判斷是否同種的標準是什麼？',
         options: [
@@ -1482,6 +1493,7 @@ window.APP_TEXTS['biology|十下|第2單元 微生物與真菌'] = {
       terms: [
         { w: '原核生物', d: '沒有細胞核的單細胞生物。' }
       ],
+      viz: {"type":"cell","kind":"animal"},
       q: {
         q: '課文說大多數細菌對人的影響是什麼？',
         options: [
@@ -1528,6 +1540,7 @@ window.APP_TEXTS['biology|十下|第2單元 微生物與真菌'] = {
       terms: [
         { w: '分解者', d: '把生物遺體分解回無機物的生物。' }
       ],
+      viz: {"type":"compareexp","factor":"取得養分的方式","a":{"label":"植物","note":"自營，行光合作用"},"b":{"label":"真菌","note":"異營，分解吸收"},"same":["都有細胞壁"]},
       q: {
         q: '課文說真菌取得養分的方式是什麼？',
         options: [
@@ -1551,6 +1564,7 @@ window.APP_TEXTS['biology|十下|第2單元 微生物與真菌'] = {
       terms: [
         { w: '物質循環', d: '元素在生物與環境之間反覆流轉的過程。' }
       ],
+      viz: {"type":"cycle","steps":["生物死亡","分解者作用","養分回到土壤","被生產者吸收"]},
       q: {
         q: '課文說如果沒有分解者會怎樣？',
         options: [
@@ -1652,6 +1666,7 @@ window.APP_TEXTS['biology|十下|第3單元 植物的構造與功能'] = {
       terms: [
         { w: '韌皮部', d: '運送有機養分的維管組織。' }
       ],
+      viz: {"type":"compareexp","factor":"運送的內容與方向","a":{"label":"木質部","note":"水與礦物質，由根往上"},"b":{"label":"韌皮部","note":"有機養分，雙向運送"},"same":["合稱維管束"]},
       q: {
         q: '課文說環狀剝皮為什麼會讓樹木枯死？',
         options: [
@@ -1774,6 +1789,7 @@ window.APP_TEXTS['biology|十下|第4單元 植物的生殖'] = {
       terms: [
         { w: '無性生殖', d: '不經配子結合而產生後代的生殖方式。' }
       ],
+      viz: {"type":"compareexp","factor":"遺傳變異","a":{"label":"有性生殖","note":"後代多樣，適應力強"},"b":{"label":"無性生殖","note":"後代相同，缺乏變異"},"same":["都能產生後代"]},
       q: {
         q: '課文說無性生殖最大的缺點是什麼？',
         options: [
@@ -2013,6 +2029,7 @@ window.APP_TEXTS['biology|十下|第5單元 動物的消化與循環'] = {
       terms: [
         { w: '血紅素', d: '紅血球中負責攜帶氧氣的蛋白質。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"細胞成分","items":["紅血球","白血球","血小板"]},{"label":"液體成分","items":["血漿"]}]},
       q: {
         q: '課文說血小板的功能是什麼？',
         options: [
@@ -2113,6 +2130,7 @@ window.APP_TEXTS['biology|十下|第6單元 呼吸與排泄'] = {
       terms: [
         { w: '氣體交換', d: '氧與二氧化碳在肺泡與血液之間的擴散。' }
       ],
+      viz: {"type":"compareexp","factor":"交換的位置","a":{"label":"肺泡","note":"血液獲得氧，排出二氧化碳"},"b":{"label":"組織","note":"細胞獲得氧，排出二氧化碳"},"same":["都靠擴散，依分壓差"]},
       q: {
         q: '課文說氣體交換的動力是什麼？',
         options: [
@@ -2236,6 +2254,7 @@ window.APP_TEXTS['biology|十下|第7單元 神經與內分泌'] = {
       terms: [
         { w: '神經傳導物質', d: '在突觸間傳遞訊息的化學物質。' }
       ],
+      viz: {"type":"energyflow","steps":["電訊號到達軸突末端","釋放神經傳導物質","擴散通過突觸間隙","結合受體引發新訊號"]},
       q: {
         q: '課文說訊息在突觸為什麼只能單向傳遞？',
         options: [
@@ -2453,6 +2472,7 @@ window.APP_TEXTS['biology|十下|第8單元 免疫系統'] = {
       terms: [
         { w: '自體免疫', d: '免疫系統攻擊自身組織的異常狀態。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"反應過度","items":["過敏","自體免疫疾病"]},{"label":"反應不足","items":["免疫缺乏症"]}]},
       q: {
         q: '課文說過敏的本質是什麼？',
         options: [
@@ -2506,6 +2526,7 @@ window.APP_TEXTS['biology|十下|第9單元 生態系'] = {
       terms: [
         { w: '非生物因素', d: '生態系中不具生命的環境條件。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"生物因子","items":["生產者","消費者","分解者"]},{"label":"非生物因子","items":["陽光","水","溫度","土壤"]}]},
       q: {
         q: '課文說生態系由哪兩大部分組成？',
         options: [
@@ -2744,6 +2765,7 @@ window.APP_TEXTS['biology|十一上|第1單元 生物體的組成物質'] = {
       terms: [
         { w: '固醇', d: '具有特定環狀結構、可作為激素原料的脂質。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"儲能","items":["三酸甘油酯"]},{"label":"構造","items":["磷脂","膽固醇"]},{"label":"訊息","items":["類固醇激素"]}]},
       q: {
         q: '課文說構成細胞膜的脂質是哪一種？',
         options: [
@@ -2891,6 +2913,7 @@ window.APP_TEXTS['biology|十一上|第2單元 基因表現'] = {
       terms: [
         { w: '表觀遺傳', d: '不改變序列卻影響基因表現的調控機制。' }
       ],
+      viz: {"type":"compareexp","factor":"改變的層次","a":{"label":"基因突變","note":"改變 DNA 序列本身"},"b":{"label":"表觀遺傳","note":"不改序列，改變表現與否"},"same":["都影響最終的性狀"]},
       q: {
         q: '課文說表觀調控改變的是什麼？',
         options: [
@@ -3090,6 +3113,7 @@ window.APP_TEXTS['biology|十一上|第4單元 演化的證據'] = {
       terms: [
         { w: '過渡化石', d: '兼具兩類生物特徵的化石。' }
       ],
+      viz: {"type":"strata"},
       q: {
         q: '課文說過渡型化石的意義是什麼？',
         options: [
@@ -3113,6 +3137,7 @@ window.APP_TEXTS['biology|十一上|第4單元 演化的證據'] = {
       terms: [
         { w: '同源構造', d: '來自共同祖先、基本結構相似的器官。' }
       ],
+      viz: {"type":"compareexp","factor":"相似的原因","a":{"label":"同源器官","note":"共同祖先，構造相似"},"b":{"label":"同功器官","note":"相似環境，功能相似"},"same":["都是演化的證據"]},
       q: {
         q: '課文說同源構造代表什麼？',
         options: [
@@ -3283,6 +3308,7 @@ window.APP_TEXTS['biology|十一上|第5單元 族群遺傳與物種形成'] = {
       terms: [
         { w: '遺傳漂變', d: '因隨機因素造成族群基因比例改變。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"有方向性","items":["天擇"]},{"label":"隨機","items":["遺傳漂變","突變"]},{"label":"族群間交流","items":["基因流"]}]},
       q: {
         q: '課文說遺傳漂變在哪一種族群中影響最大？',
         options: [
@@ -3382,6 +3408,7 @@ window.APP_TEXTS['biology|十一上|第6單元 動物行為'] = {
       terms: [
         { w: '本能', d: '不需學習即具備的先天行為。' }
       ],
+      viz: {"type":"compareexp","factor":"是否需要經驗","a":{"label":"先天行為","note":"生下來就會"},"b":{"label":"學習行為","note":"需要經驗才形成"},"same":["都有遺傳的基礎"]},
       q: {
         q: '課文說大多數行為的來源是什麼？',
         options: [
@@ -3575,6 +3602,7 @@ window.APP_TEXTS['biology|十一上|第7單元 族群與群落'] = {
       terms: [
         { w: '密度相關因子', d: '影響程度隨族群密度改變的因素。' }
       ],
+      viz: {"type":"compareexp","factor":"與密度的關係","a":{"label":"密度依賴","note":"族群越密影響越強"},"b":{"label":"密度非依賴","note":"與族群密度無關"},"same":["都限制族群成長"]},
       q: {
         q: '課文說颱風屬於哪一種限制因子？',
         options: [
@@ -3820,6 +3848,7 @@ window.APP_TEXTS['biology|十一上|第9單元 恆定性'] = {
       terms: [
         { w: '恆定性', d: '維持體內環境穩定的能力。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"需要維持恆定的","items":["體溫","血糖","水分","血液酸鹼","離子濃度"]}]},
       q: {
         q: '課文說為什麼需要恆定性？',
         options: [
@@ -3967,6 +3996,7 @@ window.APP_TEXTS['biology|十一下|第1單元 動物的生殖與發育'] = {
       terms: [
         { w: '有性生殖', d: '經由配子結合產生後代的生殖方式。' }
       ],
+      viz: {"type":"compareexp","factor":"後代的變異","a":{"label":"無性生殖","note":"後代與親代相同"},"b":{"label":"有性生殖","note":"後代具有變異"},"same":["都能產生後代"]},
       q: {
         q: '課文說有性生殖的主要優勢是什麼？',
         options: [
@@ -4183,6 +4213,7 @@ window.APP_TEXTS['biology|十一下|第2單元 感覺與運動'] = {
       terms: [
         { w: '風味', d: '味覺與嗅覺共同構成的整體感受。' }
       ],
+      viz: {"type":"compareexp","factor":"接收的分子","a":{"label":"味覺","note":"溶在唾液中的分子"},"b":{"label":"嗅覺","note":"空氣中的揮發性分子"},"same":["都是化學受器"]},
       q: {
         q: '課文說鼻塞時覺得食物沒味道，原因是什麼？',
         options: [
@@ -4376,6 +4407,7 @@ window.APP_TEXTS['biology|十一下|第3單元 生物與環境'] = {
       terms: [
         { w: '生態廊道', d: '連接破碎棲地、供生物移動的通道。' }
       ],
+      viz: {"type":"compareexp","factor":"棲地的完整性","a":{"label":"完整棲地","note":"族群大，基因交流順暢"},"b":{"label":"破碎棲地","note":"小族群易滅絕，近親繁殖"},"same":["總面積可能相同"]},
       q: {
         q: '課文說保育除了劃設保護區還要注意什麼？',
         options: [
@@ -4405,6 +4437,7 @@ window.APP_TEXTS['biology|十一下|第4單元 人體健康與疾病'] = {
       terms: [
         { w: '非傳染病', d: '不會在人之間傳播的慢性疾病。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"傳染病","items":["流感","結核","登革熱"]},{"label":"非傳染病","items":["高血壓","糖尿病","癌症"]}]},
       q: {
         q: '課文說多數常見疾病的成因是什麼？',
         options: [
@@ -4668,6 +4701,7 @@ window.APP_TEXTS['biology|十一下|第5單元 生物與生活應用'] = {
       terms: [
         { w: '對照試驗', d: '設有對照組以檢驗效果的研究設計。' }
       ],
+      viz: {"type":"energyflow","steps":["看到健康資訊","查證來源與研究","分辨相關與因果","再決定要不要相信"]},
       q: {
         q: '課文說看到健康宣稱時第一個該問的是什麼？',
         options: [
@@ -4697,6 +4731,7 @@ window.APP_TEXTS['biology|十一下|第6單元 保育與永續'] = {
       terms: [
         { w: '生物多樣性', d: '涵蓋基因、物種與生態系三層次的多樣程度。' }
       ],
+      viz: {"type":"levels","kind":"taxon"},
       q: {
         q: '課文說生物多樣性包含哪三個層次？',
         options: [
@@ -4936,6 +4971,7 @@ window.APP_TEXTS['biology|十一下|第7單元 生物實驗技術'] = {
       terms: [
         { w: '知情同意', d: '受試者充分了解後自願參與的程序。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"動物實驗的 3R","items":["替代","減量","精緻化"]},{"label":"人體研究","items":["倫理審查","知情同意","資料保密"]}]},
       q: {
         q: '課文說動物實驗應遵守的原則不包括下列哪一項？',
         options: [
@@ -5252,6 +5288,7 @@ window.APP_TEXTS['biology|十一下|第9單元 生物學的應用與素養'] = {
       terms: [
         { w: '確認偏誤', d: '傾向只接受支持自己想法的資訊。' }
       ],
+      viz: {"type":"energyflow","steps":["理解原理","判斷資訊","形成觀點","依新證據修正"]},
       q: {
         q: '課文說遇到與自己想法相反的證據時該怎麼做？',
         options: [
@@ -5399,6 +5436,7 @@ window.APP_TEXTS['biology|十二上|第1單元 細胞學總複習'] = {
       terms: [
         { w: '判讀', d: '從圖形或資料推論結論的能力。' }
       ],
+      viz: {"type":"compareexp","factor":"三者的差異","a":{"label":"共有","note":"細胞膜、細胞質、核糖體、DNA"},"b":{"label":"不同","note":"細胞核、細胞壁、葉綠體的有無"},"same":["都是細胞"]},
       q: {
         q: '課文說判讀細胞圖的第一步是什麼？',
         options: [
@@ -5890,6 +5928,7 @@ window.APP_TEXTS['biology|十二上|第5單元 演化與多樣性總複習'] = {
       terms: [
         { w: '目的論誤解', d: '誤以為演化為了達成某個目的而發生。' }
       ],
+      viz: {"type":"compareexp","factor":"誤解與正解","a":{"label":"常見誤解","note":"演化有方向、生物主動改變"},"b":{"label":"正確理解","note":"隨機變異加上環境篩選"},"same":["都在描述演化"]},
       q: {
         q: '課文說「為了適應而改變」這句話錯在哪裡？',
         options: [
@@ -6105,6 +6144,7 @@ window.APP_TEXTS['biology|十二上|第6單元 學測綜合演練（一）'] = {
       terms: [
         { w: '作答策略', d: '安排答題順序與時間的方法。' }
       ],
+      viz: {"type":"energyflow","steps":["快速掃全卷","先做有把握的","處理情境題","檢查與補答"]},
       q: {
         q: '課文說長題幹的題目有什麼特點？',
         options: [
@@ -6275,6 +6315,7 @@ window.APP_TEXTS['biology|十二上|第7單元 生物與科技'] = {
       terms: [
         { w: '技術風險', d: '技術應用可能帶來的負面後果。' }
       ],
+      viz: {"type":"compareexp","factor":"技術的應用方向","a":{"label":"正面","note":"治療疾病、改善生活"},"b":{"label":"風險","note":"不平等、誤用、生物安全"},"same":["技術本身相同"]},
       q: {
         q: '課文說面對新技術最重要的態度是什麼？',
         options: [
@@ -6304,6 +6345,7 @@ window.APP_TEXTS['biology|十二上|第8單元 生物與社會議題'] = {
       terms: [
         { w: '價值判斷', d: '關於何者重要的判斷，超出科學範圍。' }
       ],
+      viz: {"type":"compareexp","factor":"兩種問題","a":{"label":"科學問題","note":"事實是什麼"},"b":{"label":"價值問題","note":"我們想要什麼"},"same":["公共決策都需要"]},
       q: {
         q: '課文說科學能回答的問題是什麼？',
         options: [
@@ -6473,6 +6515,7 @@ window.APP_TEXTS['biology|十二上|第9單元 生物學的整體視野'] = {
       terms: [
         { w: '結構功能原則', d: '結構特徵決定其功能表現的通則。' }
       ],
+      viz: {"type":"energyflow","steps":["觀察構造","問它的形狀特點","推測功能上的優勢","驗證假設"]},
       q: {
         q: '課文說結構決定功能的原則適用在哪些尺度？',
         options: [
@@ -6619,6 +6662,7 @@ window.APP_TEXTS['biology|十二下|第1單元 分子生物學進階'] = {
       terms: [
         { w: '轉錄因子', d: '與調控序列結合以影響轉錄的蛋白質。' }
       ],
+      viz: {"type":"energyflow","steps":["轉錄調控","剪接調控","轉譯調控","蛋白質修飾與降解"]},
       q: {
         q: '課文說決定基因何時被轉錄的是什麼？',
         options: [
@@ -6789,6 +6833,7 @@ window.APP_TEXTS['biology|十二下|第2單元 免疫學進階'] = {
       terms: [
         { w: '自我耐受', d: '免疫系統不攻擊自身組織的性質。' }
       ],
+      viz: {"type":"compareexp","factor":"耐受機制","a":{"label":"正常","note":"攻擊自身的淋巴球被清除"},"b":{"label":"失效","note":"產生自體免疫疾病"},"same":["都涉及同一套辨識機制"]},
       q: {
         q: '課文說自體免疫疾病的成因是什麼？',
         options: [
@@ -6935,6 +6980,7 @@ window.APP_TEXTS['biology|十二下|第3單元 神經與行為進階'] = {
       terms: [
         { w: '可塑性', d: '神經連結強度可隨使用而改變的性質。' }
       ],
+      viz: {"type":"energyflow","steps":["反覆使用某條路徑","突觸連結加強","反應變快變準","形成熟練的技能"]},
       q: {
         q: '課文說學習與記憶的細胞基礎是什麼？',
         options: [
@@ -7151,6 +7197,7 @@ window.APP_TEXTS['biology|十二下|第4單元 植物生理進階'] = {
       terms: [
         { w: '化學防禦', d: '以有毒或難吃的物質阻止被取食。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"物理防禦","items":["刺","蠟質層","硬毛"]},{"label":"化學防禦","items":["生物鹼","單寧","揮發物"]}]},
       q: {
         q: '課文說有些植物被啃食時會做什麼？',
         options: [
@@ -7180,6 +7227,7 @@ window.APP_TEXTS['biology|十二下|第5單元 生態議題深探'] = {
       terms: [
         { w: '物候錯配', d: '互相依賴的物種活動時間不再同步。' }
       ],
+      viz: {"type":"energyflow","steps":["氣溫上升","物種分布改變","交互作用時序錯開","生態關係瓦解"]},
       q: {
         q: '課文說氣候變遷造成的物候錯配是什麼意思？',
         options: [
@@ -7373,6 +7421,7 @@ window.APP_TEXTS['biology|十二下|第6單元 生物實驗探究'] = {
       terms: [
         { w: '預試', d: '正式實驗前的小規模試作。' }
       ],
+      viz: {"type":"energyflow","steps":["初步設計","小規模預試","修正方法","正式執行"]},
       q: {
         q: '課文說預試的好處是什麼？',
         options: [
@@ -7857,6 +7906,7 @@ window.APP_TEXTS['biology|十二下|第9單元 生物學與未來'] = {
       terms: [
         { w: '生活應用', d: '把所學用在日常判斷與決策。' }
       ],
+      viz: {"type":"energyflow","steps":["觀察現象","提出問題","尋找證據","形成並修正判斷"]},
       q: {
         q: '課文說生物學的用處主要在哪裡？',
         options: [

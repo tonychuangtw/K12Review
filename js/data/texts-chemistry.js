@@ -63,6 +63,7 @@ window.APP_TEXTS['chemistry|十上|第1單元 物質的組成與分類'] = {
       terms: [
         { w: '化學變化', d: '生成新物質的變化。' }
       ],
+      viz: {"type":"compareexp","factor":"有沒有產生新物質","a":{"label":"物理變化","note":"水結成冰，還是水"},"b":{"label":"化學變化","note":"鐵生鏽，變成氧化鐵"},"same":["都是物質的變化"]},
       q: {
         q: '課文說判斷是不是化學變化的關鍵是什麼？',
         options: [
@@ -256,6 +257,7 @@ window.APP_TEXTS['chemistry|十上|第2單元 原子結構'] = {
       terms: [
         { w: '陽離子', d: '失去電子而帶正電的原子或原子團。' }
       ],
+      viz: {"type":"compareexp","factor":"得失電子","a":{"label":"金屬","note":"容易失去電子成陽離子"},"b":{"label":"非金屬","note":"容易得到電子成陰離子"},"same":["都為了達到穩定結構"]},
       q: {
         q: '課文說金屬原子在形成離子時通常會怎樣？',
         options: [
@@ -402,6 +404,7 @@ window.APP_TEXTS['chemistry|十上|第3單元 週期表'] = {
       terms: [
         { w: '游離能', d: '移去原子最外層一個電子所需的能量。' }
       ],
+      viz: {"type":"compareexp","factor":"週期表中的方向","a":{"label":"由左到右","note":"半徑變小"},"b":{"label":"由上到下","note":"半徑變大"},"same":["都由電子結構決定"]},
       q: {
         q: '課文說同一週期由左到右原子半徑變小的原因是什麼？',
         options: [
@@ -550,6 +553,7 @@ window.APP_TEXTS['chemistry|十上|第4單元 化學鍵'] = {
       terms: [
         { w: '電負度', d: '原子吸引共用電子對的能力。' }
       ],
+      viz: {"type":"compareexp","factor":"鍵與分子","a":{"label":"極性鍵","note":"電子分布不均"},"b":{"label":"極性分子","note":"整體不對稱才有"},"same":["都與電負度差有關"]},
       q: {
         q: '課文說兩原子的電負度差距極大時，會形成什麼鍵？',
         options: [
@@ -603,6 +607,7 @@ window.APP_TEXTS['chemistry|十上|第5單元 化學式與莫耳'] = {
       terms: [
         { w: '實驗式', d: '表示元素原子數最簡整數比的化學式。' }
       ],
+      viz: {"type":"compareexp","factor":"提供的資訊","a":{"label":"實驗式","note":"只有比例"},"b":{"label":"分子式","note":"實際的原子數目"},"same":["都是化學式"]},
       q: {
         q: '課文說結構式比分子式多提供了什麼資訊？',
         options: [
@@ -773,6 +778,7 @@ window.APP_TEXTS['chemistry|十上|第6單元 溶液'] = {
       terms: [
         { w: '溶解度', d: '定溫下定量溶劑所能溶解溶質的最大量。' }
       ],
+      viz: {"type":"compareexp","factor":"溫度的影響","a":{"label":"固體溶質","note":"溫度高，溶解度大"},"b":{"label":"氣體溶質","note":"溫度高，溶解度小"},"same":["都受溫度影響"]},
       q: {
         q: '課文說氣體的溶解度與溫度的關係是什麼？',
         options: [
@@ -988,6 +994,7 @@ window.APP_TEXTS['chemistry|十上|第7單元 酸鹼'] = {
       terms: [
         { w: '中和', d: '酸與鹼作用生成鹽和水的反應。' }
       ],
+      viz: {"type":"chemeq","mode":"type"},
       q: {
         q: '課文說中和反應在能量上有什麼特徵？',
         options: [
@@ -1065,6 +1072,7 @@ window.APP_TEXTS['chemistry|十上|第8單元 氧化還原'] = {
       terms: [
         { w: '還原劑', d: '提供電子而自己被氧化的物質。' }
       ],
+      viz: {"type":"compareexp","factor":"電子的流向","a":{"label":"氧化","note":"失去電子"},"b":{"label":"還原","note":"得到電子"},"same":["一定同時發生"]},
       q: {
         q: '課文說還原劑自己會發生什麼變化？',
         options: [
@@ -1258,6 +1266,7 @@ window.APP_TEXTS['chemistry|十上|第9單元 化學反應與能量'] = {
       terms: [
         { w: '催化劑', d: '能加速反應而本身不被消耗的物質。' }
       ],
+      viz: {"type":"compareexp","factor":"有沒有催化劑","a":{"label":"沒有","note":"活化能高，反應慢"},"b":{"label":"有","note":"活化能低，反應快"},"same":["反應的總能量變化相同"]},
       q: {
         q: '課文說催化劑不會改變什麼？',
         options: [
@@ -1359,6 +1368,7 @@ window.APP_TEXTS['chemistry|十下|第1單元 氣體'] = {
       terms: [
         { w: '絕對溫度', d: '從絕對零度算起的溫度，單位是克耳文。' }
       ],
+      viz: {"type":"pressure","mode":"air"},
       q: {
         q: '課文說定壓時體積與什麼成正比？',
         options: [
@@ -1574,6 +1584,7 @@ window.APP_TEXTS['chemistry|十下|第2單元 化學反應速率與平衡'] = {
       terms: [
         { w: '勒沙特列原理', d: '平衡系統會往抵消外界改變的方向移動。' }
       ],
+      viz: {"type":"energyflow","steps":["平衡被干擾","系統反應","往減輕干擾的方向移動","達到新的平衡"]},
       q: {
         q: '課文說加壓時平衡會往哪一邊移動？',
         options: [
@@ -1674,6 +1685,7 @@ window.APP_TEXTS['chemistry|十下|第3單元 有機化合物基礎'] = {
       terms: [
         { w: '同分異構物', d: '分子式相同而結構不同的化合物。' }
       ],
+      viz: {"type":"compareexp","factor":"結構的差別","a":{"label":"直鏈","note":"分子間接觸面大，沸點較高"},"b":{"label":"支鏈","note":"較接近球形，沸點較低"},"same":["分子式完全相同"]},
       q: {
         q: '課文說同分異構物有什麼共同點？',
         options: [
@@ -1845,6 +1857,7 @@ window.APP_TEXTS['chemistry|十下|第4單元 有機化合物的應用'] = {
       terms: [
         { w: '界面活性劑', d: '一端親水一端親油、能乳化油汙的分子。' }
       ],
+      viz: {"type":"compareexp","factor":"分子的兩端","a":{"label":"親水端","note":"溶於水"},"b":{"label":"親油端","note":"溶於油汙"},"same":["在同一個分子上"]},
       q: {
         q: '課文說肥皂去汙的原理是什麼？',
         options: [
@@ -1944,6 +1957,7 @@ window.APP_TEXTS['chemistry|十下|第5單元 生物體中的化學'] = {
       terms: [
         { w: '膳食纖維', d: '人體無法消化但有助腸道健康的多醣。' }
       ],
+      viz: {"type":"energyflow","steps":["單醣（葡萄糖）","兩個結合成雙醣","許多個結合成多醣","澱粉與纖維素"]},
       q: {
         q: '課文說人無法消化纖維素的原因是什麼？',
         options: [
@@ -2137,6 +2151,7 @@ window.APP_TEXTS['chemistry|十下|第6單元 材料化學'] = {
       terms: [
         { w: '複合材料', d: '結合兩種以上材料以取得綜合優點的材料。' }
       ],
+      viz: {"type":"compareexp","factor":"各自的強項","a":{"label":"混凝土","note":"耐壓但不耐拉"},"b":{"label":"鋼筋","note":"耐拉"},"same":["結合後兩種力都能承受"]},
       q: {
         q: '課文說鋼筋混凝土中，鋼筋負責什麼？',
         options: [
@@ -2236,6 +2251,7 @@ window.APP_TEXTS['chemistry|十下|第7單元 化學與環境'] = {
       terms: [
         { w: '酸雨', d: '酸鹼值明顯偏低的降水。' }
       ],
+      viz: {"type":"phscale","value":4,"marks":[{"v":4,"label":"酸雨"},{"v":5.6,"label":"正常雨水"},{"v":7,"label":"純水"}]},
       q: {
         q: '課文說正常雨水為什麼本來就略帶酸性？',
         options: [
@@ -2330,6 +2346,7 @@ window.APP_TEXTS['chemistry|十下|第7單元 化學與環境'] = {
       terms: [
         { w: '原子經濟性', d: '反應物原子轉化為目標產物的比例。' }
       ],
+      viz: {"type":"compareexp","factor":"處理汙染的時機","a":{"label":"傳統","note":"產生汙染後再處理"},"b":{"label":"綠色化學","note":"設計時就避免產生"},"same":["都想減少環境負荷"]},
       q: {
         q: '課文說綠色化學的核心想法是什麼？',
         options: [
@@ -2476,6 +2493,7 @@ window.APP_TEXTS['chemistry|十下|第8單元 化學實驗操作'] = {
       terms: [
         { w: '廢液分類', d: '依性質分別收集實驗廢液的做法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"分類回收","items":["酸性廢液","鹼性廢液","有機溶劑","重金屬廢液"]}]},
       q: {
         q: '課文說把不同廢液混在一起可能造成什麼？',
         options: [
@@ -2505,6 +2523,7 @@ window.APP_TEXTS['chemistry|十下|第9單元 化學與生活'] = {
       terms: [
         { w: '添加物', d: '為特定目的加入食品中的物質。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"延長保存","items":["防腐劑","抗氧化劑"]},{"label":"改善感官","items":["著色劑","甜味劑","香料"]}]},
       q: {
         q: '課文說判斷食品添加物該注意什麼？',
         options: [
@@ -2698,6 +2717,7 @@ window.APP_TEXTS['chemistry|十一上|第1單元 原子軌域與電子組態'] =
       terms: [
         { w: '自旋', d: '電子的一種內在量子性質，有兩種方向。' }
       ],
+      viz: {"type":"energyflow","steps":["1s","2s 2p","3s 3p","4s 再 3d"]},
       q: {
         q: '課文說同一組軌域中電子為什麼先各填一個？',
         options: [
@@ -2798,6 +2818,7 @@ window.APP_TEXTS['chemistry|十一上|第2單元 分子結構與形狀'] = {
       terms: [
         { w: '孤對電子', d: '未參與成鍵、成對存在的價電子。' }
       ],
+      viz: {"type":"energyflow","steps":["算總價電子數","畫出骨架","補滿八隅體","不足時改成多重鍵"]},
       q: {
         q: '課文說路易斯結構中電子不夠用時該怎麼辦？',
         options: [
@@ -3016,6 +3037,7 @@ window.APP_TEXTS['chemistry|十一上|第3單元 分子間作用力'] = {
       terms: [
         { w: '氫鍵', d: '氫與氟氧氮之間特別強的分子間吸引力。' }
       ],
+      viz: {"type":"energyflow","steps":["判斷有無氫鍵","比較極性","比較分子量","推斷沸點高低"]},
       q: {
         q: '課文說水的沸點特別高，原因是什麼？',
         options: [
@@ -3210,6 +3232,7 @@ window.APP_TEXTS['chemistry|十一上|第4單元 化學熱力學'] = {
       terms: [
         { w: '動力學', d: '研究反應速率與機構的化學分支。' }
       ],
+      viz: {"type":"compareexp","factor":"回答的問題","a":{"label":"熱力學","note":"反應會不會自發"},"b":{"label":"動力學","note":"反應有多快"},"same":["都在描述同一個反應"]},
       q: {
         q: '課文說鑽石不會馬上變成石墨，原因是什麼？',
         options: [
@@ -3309,6 +3332,7 @@ window.APP_TEXTS['chemistry|十一上|第5單元 反應動力學'] = {
       terms: [
         { w: '速率決定步驟', d: '多步驟反應中最慢、決定整體速率的一步。' }
       ],
+      viz: {"type":"energyflow","steps":["步驟一（快）","步驟二（慢，決定速率）","步驟三（快）","整體速率由最慢步驟決定"]},
       q: {
         q: '課文用什麼比喻說明速率決定步驟？',
         options: [
@@ -3385,6 +3409,7 @@ window.APP_TEXTS['chemistry|十一上|第6單元 酸鹼平衡進階'] = {
       terms: [
         { w: '自解離', d: '純水自身微量解離成離子的現象。' }
       ],
+      viz: {"type":"phscale","value":7,"marks":[{"v":0,"label":"強酸"},{"v":7,"label":"中性"},{"v":14,"label":"強鹼"}]},
       q: {
         q: '課文說酸性溶液中還有氫氧根離子嗎？',
         options: [
@@ -3454,6 +3479,7 @@ window.APP_TEXTS['chemistry|十一上|第6單元 酸鹼平衡進階'] = {
       terms: [
         { w: '緩衝溶液', d: '能抵抗酸鹼值劇烈變化的溶液。' }
       ],
+      viz: {"type":"energyflow","steps":["加入少量酸","共軛鹼吸收 H⁺","pH 幾乎不變","緩衝作用"]},
       q: {
         q: '課文說緩衝溶液由什麼組成？',
         options: [
@@ -3601,6 +3627,7 @@ window.APP_TEXTS['chemistry|十一上|第7單元 沉澱與錯合物'] = {
       terms: [
         { w: '定性分析', d: '判斷樣品中含有哪些成分的分析方法。' }
       ],
+      viz: {"type":"energyflow","steps":["溶液含多種金屬離子","緩慢加入沉澱劑","Ksp 最小的先沉澱","逐一分離"]},
       q: {
         q: '課文說逐步沉澱能分離離子，是利用什麼差異？',
         options: [
@@ -3747,6 +3774,7 @@ window.APP_TEXTS['chemistry|十一上|第8單元 電化學'] = {
       terms: [
         { w: '電解', d: '用外加電能驅動非自發氧化還原反應。' }
       ],
+      viz: {"type":"compareexp","factor":"能量的方向","a":{"label":"電池","note":"化學能轉電能，自發"},"b":{"label":"電解","note":"電能轉化學能，非自發"},"same":["都是氧化還原反應"]},
       q: {
         q: '課文說電解與伽凡尼電池最根本的差別是什麼？',
         options: [
@@ -3823,6 +3851,7 @@ window.APP_TEXTS['chemistry|十一上|第9單元 化學分析'] = {
       terms: [
         { w: '定量分析', d: '測定樣品中各成分含量的分析。' }
       ],
+      viz: {"type":"compareexp","factor":"回答的問題","a":{"label":"定性","note":"有沒有、是什麼"},"b":{"label":"定量","note":"有多少"},"same":["都是化學分析"]},
       q: {
         q: '課文說分析的順序通常是什麼？',
         options: [
@@ -3992,6 +4021,7 @@ window.APP_TEXTS['chemistry|十一下|第1單元 有機結構與命名'] = {
       terms: [
         { w: '主鏈', d: '命名時選定的最長碳鏈。' }
       ],
+      viz: {"type":"energyflow","steps":["找最長碳鏈","決定編號方向","標出取代基位置","組合成名稱"]},
       q: {
         q: '課文說編號應該從哪一端開始？',
         options: [
@@ -4162,6 +4192,7 @@ window.APP_TEXTS['chemistry|十一下|第2單元 有機反應類型'] = {
       terms: [
         { w: '消去反應', d: '分子失去小分子並形成不飽和鍵的反應。' }
       ],
+      viz: {"type":"compareexp","factor":"反應的方向","a":{"label":"加成","note":"雙鍵打開，接上原子"},"b":{"label":"消去","note":"失去小分子，形成雙鍵"},"same":["互為逆反應"]},
       q: {
         q: '課文說消去反應與哪一種反應互為相反？',
         options: [
@@ -4284,6 +4315,7 @@ window.APP_TEXTS['chemistry|十一下|第3單元 生物分子'] = {
       terms: [
         { w: '胜肽鍵', d: '連接兩個胺基酸的醯胺鍵。' }
       ],
+      viz: {"type":"energyflow","steps":["一級：胺基酸序列","二級：局部摺疊","三級：整體立體結構","四級：多鏈組合"]},
       q: {
         q: '課文說多胜肽鏈要經過什麼才成為有功能的蛋白質？',
         options: [
@@ -4307,6 +4339,7 @@ window.APP_TEXTS['chemistry|十一下|第3單元 生物分子'] = {
       terms: [
         { w: '鹼基配對', d: '核酸中特定鹼基之間以氫鍵一一對應的規則。' }
       ],
+      viz: {"type":"dna"},
       q: {
         q: '課文說雙股核酸為什麼一股就能決定另一股？',
         options: [
@@ -4477,6 +4510,7 @@ window.APP_TEXTS['chemistry|十一下|第4單元 高分子材料'] = {
       terms: [
         { w: '交聯', d: '高分子鏈之間形成化學鍵的結構。' }
       ],
+      viz: {"type":"compareexp","factor":"分子間有無交聯","a":{"label":"熱塑性","note":"長鏈彼此獨立，可滑動"},"b":{"label":"熱固性","note":"交聯成網狀，無法滑動"},"same":["都是高分子"]},
       q: {
         q: '課文說橡膠硫化的作用是什麼？',
         options: [
@@ -4623,6 +4657,7 @@ window.APP_TEXTS['chemistry|十一下|第5單元 藥物與化學'] = {
       terms: [
         { w: '抗藥性', d: '病原體對原本有效藥物產生抵抗的能力。' }
       ],
+      viz: {"type":"energyflow","steps":["族群中有少數抗藥菌","用藥殺死敏感菌","抗藥菌大量繁殖","藥物失效"]},
       q: {
         q: '課文說抗生素為什麼對感冒常常沒有幫助？',
         options: [
@@ -4699,6 +4734,7 @@ window.APP_TEXTS['chemistry|十一下|第6單元 工業化學'] = {
       terms: [
         { w: '量產', d: '把小規模製程放大到工業規模的生產。' }
       ],
+      viz: {"type":"compareexp","factor":"主要考量","a":{"label":"實驗室","note":"純度與產率"},"b":{"label":"工業","note":"成本、安全、環境"},"same":["都要化學反應成功"]},
       q: {
         q: '課文說工業製程為什麼不一定選產率最高的方法？',
         options: [
@@ -4868,6 +4904,7 @@ window.APP_TEXTS['chemistry|十一下|第7單元 能源化學'] = {
       terms: [
         { w: '碳排放強度', d: '產生單位能量所排放的二氧化碳量。' }
       ],
+      viz: {"type":"compareexp","factor":"單位能量的碳排","a":{"label":"天然氣","note":"碳排最低"},"b":{"label":"煤","note":"碳排最高"},"same":["都是化石燃料"]},
       q: {
         q: '課文說三種化石燃料中，哪一種碳排最低？',
         options: [
@@ -4991,6 +5028,7 @@ window.APP_TEXTS['chemistry|十一下|第8單元 化學實驗設計'] = {
       terms: [
         { w: '可檢驗性', d: '問題能被實驗驗證的性質。' }
       ],
+      viz: {"type":"compareexp","factor":"能不能檢驗","a":{"label":"可檢驗","note":"有明確的測量方式"},"b":{"label":"不可檢驗","note":"涉及主觀或無法測量"},"same":["都是問題"]},
       q: {
         q: '課文說把問題變得可檢驗的關鍵是什麼？',
         options: [
@@ -5207,6 +5245,7 @@ window.APP_TEXTS['chemistry|十一下|第9單元 化學與永續'] = {
       terms: [
         { w: '綠色化學', d: '從設計階段減少危害與廢棄物的化學理念。' }
       ],
+      viz: {"type":"compareexp","factor":"思考的階段","a":{"label":"傳統","note":"產生汙染後處理"},"b":{"label":"綠色化學","note":"設計時就避免產生"},"same":["都想減少環境衝擊"]},
       q: {
         q: '課文說綠色化學最優先的原則是什麼？',
         options: [
@@ -5376,6 +5415,7 @@ window.APP_TEXTS['chemistry|十二上|第1單元 物質三態與相變'] = {
       terms: [
         { w: '三相點', d: '固液氣三態能同時共存的溫度與壓力。' }
       ],
+      viz: {"type":"compareexp","factor":"固液界線的斜率","a":{"label":"大多數物質","note":"向右傾斜，加壓有利於固態"},"b":{"label":"水","note":"向左傾斜，加壓有利於液態"},"same":["都可以畫相圖"]},
       q: {
         q: '課文說超過臨界點之後會發生什麼？',
         options: [
@@ -5429,6 +5469,7 @@ window.APP_TEXTS['chemistry|十二上|第2單元 化學計量總複習'] = {
       terms: [
         { w: '莫耳', d: '表示物質數量的基本單位。' }
       ],
+      viz: {"type":"energyflow","steps":["算各溶液的莫耳數","相加得總莫耳數","體積相加","相除得新濃度"]},
       q: {
         q: '課文說解計量題的第一步是什麼？',
         options: [
@@ -5622,6 +5663,7 @@ window.APP_TEXTS['chemistry|十二上|第3單元 平衡總複習'] = {
       terms: [
         { w: '平衡移動', d: '外界條件改變後平衡位置的調整。' }
       ],
+      viz: {"type":"compareexp","factor":"會不會改變 K","a":{"label":"溫度","note":"會改變 K"},"b":{"label":"濃度與壓力","note":"移動平衡但 K 不變"},"same":["都能移動平衡位置"]},
       q: {
         q: '課文說三種擾動中，哪一種會改變平衡常數？',
         options: [
@@ -5790,6 +5832,7 @@ window.APP_TEXTS['chemistry|十二上|第4單元 氧化還原總複習'] = {
       terms: [
         { w: '半反應法', d: '把氧化還原拆成兩個半反應分別配平的方法。' }
       ],
+      viz: {"type":"energyflow","steps":["拆成兩個半反應","平衡原子","加電子平衡電荷","電子數相等後合併"]},
       q: {
         q: '課文說鹼性環境配平時用什麼補平？',
         options: [
@@ -5914,6 +5957,7 @@ window.APP_TEXTS['chemistry|十二上|第5單元 有機總複習'] = {
       terms: [
         { w: '相似互溶', d: '極性相近的物質容易互溶的原則。' }
       ],
+      viz: {"type":"compareexp","factor":"碳鏈長度","a":{"label":"短鏈","note":"極性部分佔優，易溶於水"},"b":{"label":"長鏈","note":"非極性部分佔優，難溶於水"},"same":["都含有羥基"]},
       q: {
         q: '課文說長鏈醇為什麼不易溶於水？',
         options: [
@@ -6106,6 +6150,7 @@ window.APP_TEXTS['chemistry|十二上|第6單元 電化學總複習'] = {
       terms: [
         { w: '電解水溶液', d: '在水溶液中進行電解，水也可能參與反應。' }
       ],
+      viz: {"type":"compareexp","factor":"兩極的競爭","a":{"label":"陰極","note":"還原電位最高者先反應"},"b":{"label":"陽極","note":"氧化最容易者先反應"},"same":["都要與水競爭"]},
       q: {
         q: '課文說電解水溶液時要特別注意什麼？',
         options: [
@@ -6276,6 +6321,7 @@ window.APP_TEXTS['chemistry|十二上|第7單元 學測綜合演練（一）'] =
       terms: [
         { w: '作答策略', d: '安排答題順序與時間的方法。' }
       ],
+      viz: {"type":"energyflow","steps":["快速掃過全卷","先做有把握的","標記難題","回頭處理並檢查"]},
       q: {
         q: '課文說遇到卡住的題目該怎麼做？',
         options: [
@@ -6305,6 +6351,7 @@ window.APP_TEXTS['chemistry|十二上|第8單元 學測綜合演練（二）'] =
       terms: [
         { w: '跨單元題', d: '同時涉及多個章節觀念的題目。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"一個燃燒反應可考","items":["計量","氧化還原","反應熱","環境影響"]}]},
       q: {
         q: '課文說複習時應該注意什麼？',
         options: [
@@ -6498,6 +6545,7 @@ window.APP_TEXTS['chemistry|十二上|第9單元 化學與現代科技'] = {
       terms: [
         { w: '光阻', d: '受光後性質改變、用於微影製程的材料。' }
       ],
+      viz: {"type":"energyflow","steps":["矽砂提純","長成單晶","光刻與蝕刻","摻雜與封裝"]},
       q: {
         q: '課文說半導體製程中化學品純度為什麼重要？',
         options: [
@@ -6667,6 +6715,7 @@ window.APP_TEXTS['chemistry|十二下|第1單元 無機化學選讀'] = {
       terms: [
         { w: '碳酸鈣', d: '構成石灰岩與貝殼的主要化合物。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"鈣的化合物","items":["碳酸鈣","氧化鈣","氫氧化鈣","硫酸鈣"]},{"label":"鈉的化合物","items":["氯化鈉","碳酸氫鈉","氫氧化鈉"]}]},
       q: {
         q: '課文說檢驗碳酸鹽的常見方法是什麼？',
         options: [
@@ -6743,6 +6792,7 @@ window.APP_TEXTS['chemistry|十二下|第2單元 分析技術與應用'] = {
       terms: [
         { w: '檢驗極限', d: '儀器能可靠偵測到的最低濃度。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"應用領域","items":["食品安全","環境監測","醫學檢驗","鑑識科學"]}]},
       q: {
         q: '課文說分析技術最根本的價值是什麼？',
         options: [
@@ -6912,6 +6962,7 @@ window.APP_TEXTS['chemistry|十二下|第3單元 化學與食品'] = {
       terms: [
         { w: '焦糖化', d: '糖類單獨受熱分解產生褐色與香氣的反應。' }
       ],
+      viz: {"type":"compareexp","factor":"需要的成分","a":{"label":"梅納反應","note":"糖與胺基酸"},"b":{"label":"焦糖化","note":"只要糖"},"same":["都產生褐色與香氣"]},
       q: {
         q: '課文說焦糖化與梅納反應最大的差別是什麼？',
         options: [
@@ -7105,6 +7156,7 @@ window.APP_TEXTS['chemistry|十二下|第4單元 化學與生活應用'] = {
       terms: [
         { w: '一氧化碳', d: '無色無味、會阻礙血液攜氧的有毒氣體。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"無色無味的危險","items":["一氧化碳","天然氣（有加臭味）"]},{"label":"安全措施","items":["通風","偵測器","定期檢查"]}]},
       q: {
         q: '課文說一氧化碳最危險的特性是什麼？',
         options: [
@@ -7250,6 +7302,7 @@ window.APP_TEXTS['chemistry|十二下|第5單元 化學史與科學方法'] = {
       terms: [
         { w: '預測力', d: '理論推導出尚未觀察到的現象的能力。' }
       ],
+      viz: {"type":"energyflow","steps":["依性質排列元素","發現週期性","為未知元素留空位","預測應驗"]},
       q: {
         q: '課文說好理論的重要標誌是什麼？',
         options: [
@@ -7374,6 +7427,7 @@ window.APP_TEXTS['chemistry|十二下|第6單元 跨科整合'] = {
       terms: [
         { w: '海洋酸化', d: '海水吸收二氧化碳後酸鹼值下降的現象。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"岩石圈","items":["風化","成岩作用"]},{"label":"大氣圈","items":["臭氧","溫室氣體"]},{"label":"水圈","items":["海洋酸化","碳酸鹽平衡"]}]},
       q: {
         q: '課文說海洋吸收二氧化碳後會造成什麼問題？',
         options: [
@@ -7496,6 +7550,7 @@ window.APP_TEXTS['chemistry|十二下|第7單元 分科綜合演練（一）'] =
       terms: [
         { w: '有效位數', d: '測量值中有意義的數字位數。' }
       ],
+      viz: {"type":"energyflow","steps":["先做有把握的","計算寫出步驟","檢查單位","確認合理性"]},
       q: {
         q: '課文說寫出完整過程的好處是什麼？',
         options: [
@@ -7789,6 +7844,7 @@ window.APP_TEXTS['chemistry|十二下|第9單元 化學的未來'] = {
       terms: [
         { w: '機器學習', d: '從資料中自動找出規律的計算方法。' }
       ],
+      viz: {"type":"energyflow","steps":["大量候選分子","電腦快速篩選","挑出少數候選","實驗驗證"]},
       q: {
         q: '課文說機器學習預測的限制是什麼？',
         options: [

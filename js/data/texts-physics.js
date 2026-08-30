@@ -17,6 +17,7 @@ window.APP_TEXTS['physics|十上|第1單元 物理量與測量'] = {
       terms: [
         { w: '物理量', d: '可以用數字加單位描述的性質。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"基本量","items":["長度 m","質量 kg","時間 s","電流 A"]},{"label":"導出量","items":["速度 m/s","力 N","功 J","功率 W"]}]},
       q: {
         q: '課文說國際單位制的三個基本力學單位是什麼？',
         options: [
@@ -392,6 +393,7 @@ window.APP_TEXTS['physics|十上|第3單元 牛頓運動定律'] = {
       terms: [
         { w: '重量', d: '物體所受重力的大小，單位是牛頓。' }
       ],
+      viz: {"type":"compareexp","factor":"會不會隨地點改變","a":{"label":"質量","note":"不變，單位 kg"},"b":{"label":"重量","note":"隨重力場改變，單位 N"},"same":["都與物體本身有關"]},
       q: {
         q: '課文說人到月球後，什麼不會改變？',
         options: [
@@ -517,6 +519,7 @@ window.APP_TEXTS['physics|十上|第4單元 力與平衡'] = {
       terms: [
         { w: '分量', d: '把一個力沿某方向拆出來的部分。' }
       ],
+      viz: {"type":"vector","a":[4,3],"b":[0,0],"mode":"add"},
       q: {
         q: '課文說分解力的方向該怎麼選？',
         options: [
@@ -686,6 +689,7 @@ window.APP_TEXTS['physics|十上|第5單元 摩擦力與圓周運動'] = {
       terms: [
         { w: '向心加速度', d: '圓周運動中指向圓心的加速度。' }
       ],
+      viz: {"type":"energyflow","steps":["速率不變","方向一直改變","所以有加速度","加速度指向圓心"]},
       q: {
         q: '課文說等速圓周運動為什麼還有加速度？',
         options: [
@@ -788,6 +792,7 @@ window.APP_TEXTS['physics|十上|第6單元 功與功率'] = {
       terms: [
         { w: '負功', d: '力與位移方向相反時所做的功，會取走物體的能量。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"正功","items":["推車前進的推力","自由落下的重力"]},{"label":"負功","items":["摩擦力","煞車力","上拋時的重力"]}]},
       q: {
         q: '課文說把箱子舉起時，重力做的是什麼功？',
         options: [
@@ -981,6 +986,7 @@ window.APP_TEXTS['physics|十上|第7單元 動能與位能'] = {
       terms: [
         { w: '保守力', d: '做功只與起終點有關、與路徑無關的力。' }
       ],
+      viz: {"type":"compareexp","factor":"做功與路徑的關係","a":{"label":"保守力","note":"只看起點與終點"},"b":{"label":"非保守力","note":"走得越遠損失越多"},"same":["都會做功"]},
       q: {
         q: '課文說判斷保守力的標準是什麼？',
         options: [
@@ -1298,6 +1304,7 @@ window.APP_TEXTS['physics|十上|第9單元 動量與衝量'] = {
       terms: [
         { w: '完全非彈性碰撞', d: '碰撞後兩物體結合在一起的碰撞。' }
       ],
+      viz: {"type":"compareexp","factor":"動能守不守恆","a":{"label":"彈性碰撞","note":"動能也守恆"},"b":{"label":"非彈性碰撞","note":"動能有損失"},"same":["動量都守恆"]},
       q: {
         q: '課文說各種碰撞都守恆的是什麼？',
         options: [
@@ -1322,6 +1329,7 @@ window.APP_TEXTS['physics|十上|第9單元 動量與衝量'] = {
       terms: [
         { w: '反衝', d: '系統一部分向前運動時，另一部分向後運動的現象。' }
       ],
+      viz: {"type":"newton","mode":"third"},
       q: {
         q: '課文說火箭為什麼在真空中也能前進？',
         options: [
@@ -1468,6 +1476,7 @@ window.APP_TEXTS['physics|十下|第1單元 萬有引力與行星運動'] = {
       terms: [
         { w: '失重', d: '與周圍一起自由落下時感覺不到重量的狀態。' }
       ],
+      viz: {"type":"compareexp","factor":"有沒有重力","a":{"label":"常見誤解","note":"太空中沒有重力"},"b":{"label":"正確理解","note":"有重力，但一起自由落下"},"same":["都看到漂浮的現象"]},
       q: {
         q: '課文說太空人飄浮的真正原因是什麼？',
         options: [
@@ -1521,6 +1530,7 @@ window.APP_TEXTS['physics|十下|第2單元 簡諧運動'] = {
       terms: [
         { w: '頻率', d: '單位時間內完成振動的次數。' }
       ],
+      viz: {"type":"compareexp","factor":"互為倒數","a":{"label":"週期 T","note":"一次振動要多久"},"b":{"label":"頻率 f","note":"一秒振動幾次"},"same":["描述同一個振動"]},
       q: {
         q: '課文說週期與頻率的關係是什麼？',
         options: [
@@ -1689,6 +1699,7 @@ window.APP_TEXTS['physics|十下|第3單元 波動的基本性質'] = {
       terms: [
         { w: '波長', d: '波形上相鄰兩個相同狀態點之間的距離。' }
       ],
+      viz: {"type":"soundwave","amp":1,"freq":2},
       q: {
         q: '課文說在同一介質中，頻率越高的波，波長會怎樣？',
         options: [
@@ -1736,6 +1747,7 @@ window.APP_TEXTS['physics|十下|第3單元 波動的基本性質'] = {
       terms: [
         { w: '重疊原理', d: '兩波相遇時，合成位移等於各波位移之和。' }
       ],
+      viz: {"type":"compareexp","factor":"兩波的相位","a":{"label":"同相疊加","note":"振幅相加，變強"},"b":{"label":"反相疊加","note":"互相抵消，變弱"},"same":["都遵守疊加原理"]},
       q: {
         q: '課文說兩列波相遇之後會怎樣？',
         options: [
@@ -1860,6 +1872,7 @@ window.APP_TEXTS['physics|十下|第4單元 聲波'] = {
       terms: [
         { w: '超音波', d: '頻率高於人耳可聽上限的聲波。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"次聲波","items":["地震波","大象低頻叫聲"]},{"label":"可聽聲","items":["說話","音樂"]},{"label":"超聲波","items":["蝙蝠定位","醫學超音波","工業探傷"]}]},
       q: {
         q: '課文說超音波指的是什麼？',
         options: [
@@ -2252,6 +2265,7 @@ window.APP_TEXTS['physics|十下|第7單元 光的干涉與繞射'] = {
       terms: [
         { w: '路程差', d: '兩束光到達同一點所走距離的差。' }
       ],
+      viz: {"type":"compareexp","factor":"光程差","a":{"label":"整數倍波長","note":"同相加強，明紋"},"b":{"label":"半波長的奇數倍","note":"反相抵消，暗紋"},"same":["都由兩路徑的差決定"]},
       q: {
         q: '課文說中央為什麼一定是亮紋？',
         options: [
@@ -2421,6 +2435,7 @@ window.APP_TEXTS['physics|十下|第8單元 溫度與熱量'] = {
       terms: [
         { w: '比熱', d: '單位質量物質升高一度所需的熱量。' }
       ],
+      viz: {"type":"compareexp","factor":"比熱大小","a":{"label":"水（比熱大）","note":"溫度不易改變"},"b":{"label":"砂石（比熱小）","note":"溫度變化快"},"same":["吸收同樣的熱量"]},
       q: {
         q: '課文說沿海地區日夜溫差較小的原因是什麼？',
         options: [
@@ -2592,6 +2607,7 @@ window.APP_TEXTS['physics|十下|第9單元 氣體與熱力學'] = {
       terms: [
         { w: '內能', d: '系統內所有粒子的動能與位能總和。' }
       ],
+      viz: {"type":"energyflow","steps":["系統吸熱 Q","對外做功 W","剩下的變成內能","ΔU ＝ Q − W"]},
       q: {
         q: '課文說熱力學第一定律本質上是什麼？',
         options: [
@@ -2838,6 +2854,7 @@ window.APP_TEXTS['physics|十一上|第2單元 相對運動'] = {
       terms: [
         { w: '相對速度', d: '一物體相對另一物體的速度，等於兩速度之差。' }
       ],
+      viz: {"type":"vector","a":[4,0],"b":[2,0],"mode":"sub"},
       q: {
         q: '課文說兩車反向行駛時，相對速度怎麼算？',
         options: [
@@ -2909,6 +2926,7 @@ window.APP_TEXTS['physics|十一上|第2單元 相對運動'] = {
       terms: [
         { w: '慣性參考系', d: '牛頓運動定律在其中成立的參考系。' }
       ],
+      viz: {"type":"compareexp","factor":"參考系有沒有加速","a":{"label":"慣性系","note":"牛頓定律直接成立"},"b":{"label":"非慣性系","note":"要加入假想力才成立"},"same":["都能描述運動"]},
       q: {
         q: '課文說在加速的車廂中要解釋現象，需要引入什麼？',
         options: [
@@ -3079,6 +3097,7 @@ window.APP_TEXTS['physics|十一上|第3單元 動量守恆與碰撞'] = {
       terms: [
         { w: '恢復係數', d: '碰撞後分離速率與碰撞前接近速率的比值。' }
       ],
+      viz: {"type":"energyflow","steps":["e ＝ 0（黏住）","0 ＜ e ＜ 1（一般）","e ＝ 1（完全彈性）"]},
       q: {
         q: '課文說完全非彈性碰撞的恢復係數是多少？',
         options: [
@@ -3201,6 +3220,7 @@ window.APP_TEXTS['physics|十一上|第4單元 質心運動'] = {
       terms: [
         { w: '穩定度', d: '物體抵抗傾倒的能力。' }
       ],
+      viz: {"type":"compareexp","factor":"質心的高低","a":{"label":"質心低","note":"穩定，不易翻倒"},"b":{"label":"質心高","note":"不穩定，容易翻倒"},"same":["都受重力作用"]},
       q: {
         q: '課文說物體什麼時候才會傾倒？',
         options: [
@@ -3254,6 +3274,7 @@ window.APP_TEXTS['physics|十一上|第5單元 轉動運動學'] = {
       terms: [
         { w: '角位移', d: '轉動時角度的變化量，以弧度表示。' }
       ],
+      viz: {"type":"circleangles"},
       q: {
         q: '課文說同一根轉動棒上，離軸越遠的點有什麼特點？',
         options: [
@@ -3447,6 +3468,7 @@ window.APP_TEXTS['physics|十一上|第6單元 力矩與轉動慣量'] = {
       terms: [
         { w: '飛輪', d: '轉動慣量大、用來平穩儲存轉動能量的輪子。' }
       ],
+      viz: {"type":"compareexp","factor":"兩個定律的對應","a":{"label":"平移","note":"F ＝ ma"},"b":{"label":"轉動","note":"τ ＝ Iα"},"same":["結構完全相同"]},
       q: {
         q: '課文說力矩相同時，轉動慣量越大則角加速度如何？',
         options: [
@@ -3615,6 +3637,7 @@ window.APP_TEXTS['physics|十一上|第7單元 角動量守恆'] = {
       terms: [
         { w: '進動', d: '轉動物體的轉軸在力矩作用下緩慢繞行的現象。' }
       ],
+      viz: {"type":"energyflow","steps":["陀螺高速旋轉","角動量很大","重力矩改變其方向","轉軸緩慢進動而不倒"]},
       q: {
         q: '課文說陀螺的軸慢慢繞圈的現象叫什麼？',
         options: [
@@ -3638,6 +3661,7 @@ window.APP_TEXTS['physics|十一上|第7單元 角動量守恆'] = {
       terms: [
         { w: '中子星', d: '大質量恆星塌縮後密度極高的天體。' }
       ],
+      viz: {"type":"solarsys"},
       q: {
         q: '課文說克卜勒第二定律的物理原因是什麼？',
         options: [
@@ -3691,6 +3715,7 @@ window.APP_TEXTS['physics|十一上|第8單元 靜力平衡與剛體'] = {
       terms: [
         { w: '靜力平衡', d: '淨力與淨力矩都為零的狀態。' }
       ],
+      viz: {"type":"balance","a":3,"b":5,"c":26},
       q: {
         q: '課文說只有力平衡而力矩不平衡時，物體會怎樣？',
         options: [
@@ -3714,6 +3739,7 @@ window.APP_TEXTS['physics|十一上|第8單元 靜力平衡與剛體'] = {
       terms: [
         { w: '支點', d: '計算力矩時所選的參考轉軸位置。' }
       ],
+      viz: {"type":"energyflow","steps":["找出所有未知力","把轉軸選在其中一個作用點","該力的力矩為零","方程式變簡單"]},
       q: {
         q: '課文說轉軸該選在哪裡最省事？',
         options: [
@@ -3931,6 +3957,7 @@ window.APP_TEXTS['physics|十一上|第9單元 流體力學'] = {
       terms: [
         { w: '白努利原理', d: '流體流速越快處壓力越小的規律。' }
       ],
+      viz: {"type":"compareexp","factor":"流速","a":{"label":"流速快","note":"壓力小"},"b":{"label":"流速慢","note":"壓力大"},"same":["總能量守恆"]},
       q: {
         q: '課文說往兩張紙中間吹氣，紙會怎樣？',
         options: [
@@ -4053,6 +4080,7 @@ window.APP_TEXTS['physics|十一下|第1單元 靜電力與電場'] = {
       terms: [
         { w: '電力線', d: '用來表示電場方向與強弱的假想曲線。' }
       ],
+      viz: {"type":"energyflow","steps":["從正電荷出發","沿電場方向","終止於負電荷","密度代表強度"]},
       q: {
         q: '課文說電力線為什麼不會相交？',
         options: [
@@ -4153,6 +4181,7 @@ window.APP_TEXTS['physics|十一下|第2單元 電位與電位能'] = {
       terms: [
         { w: '電位', d: '單位電荷在該處具有的電位能，單位是伏特。' }
       ],
+      viz: {"type":"compareexp","factor":"純量還是向量","a":{"label":"電場 E","note":"向量，要考慮方向"},"b":{"label":"電位 V","note":"純量，直接相加"},"same":["都描述空間的電性質"]},
       q: {
         q: '課文說電位比電場好算的原因是什麼？',
         options: [
@@ -4347,6 +4376,7 @@ window.APP_TEXTS['physics|十一下|第3單元 電容器'] = {
       terms: [
         { w: '並聯', d: '元件兩端分別接在同兩點上的接法。' }
       ],
+      viz: {"type":"compareexp","factor":"與電阻比較","a":{"label":"電容並聯","note":"直接相加（像電阻串聯）"},"b":{"label":"電容串聯","note":"倒數相加（像電阻並聯）"},"same":["都是組合元件"]},
       q: {
         q: '課文說電容器並聯時總電容怎麼算？',
         options: [
@@ -4422,6 +4452,7 @@ window.APP_TEXTS['physics|十一下|第4單元 電流與電阻'] = {
       terms: [
         { w: '電流', d: '單位時間內通過導體截面的電量。' }
       ],
+      viz: {"type":"compareexp","factor":"方向","a":{"label":"電流方向","note":"正電荷流動的方向（慣例）"},"b":{"label":"電子流動","note":"與電流方向相反"},"same":["描述同一個導電現象"]},
       q: {
         q: '課文說金屬中實際移動的載子是什麼？',
         options: [
@@ -4640,6 +4671,7 @@ window.APP_TEXTS['physics|十一下|第5單元 直流電路'] = {
       terms: [
         { w: '節點', d: '電路中三條以上導線交會的點。' }
       ],
+      viz: {"type":"compareexp","factor":"兩條定律的來源","a":{"label":"節點定律","note":"電荷守恆"},"b":{"label":"迴路定律","note":"能量守恆"},"same":["都是守恆定律的展現"]},
       q: {
         q: '課文說節點定律其實反映的是什麼守恆？',
         options: [
@@ -4740,6 +4772,7 @@ window.APP_TEXTS['physics|十一下|第6單元 電流磁效應'] = {
       terms: [
         { w: '右手定則', d: '用右手判斷電流與磁場方向關係的方法。' }
       ],
+      viz: {"type":"energyflow","steps":["右手握住導線","拇指指向電流方向","四指環繞的方向","就是磁場方向"]},
       q: {
         q: '課文說長直導線周圍磁場的形狀是什麼？',
         options: [
@@ -4932,6 +4965,7 @@ window.APP_TEXTS['physics|十一下|第7單元 載流導線受力'] = {
       terms: [
         { w: '換向器', d: '直流馬達中定時改變線圈電流方向的裝置。' }
       ],
+      viz: {"type":"circuit","mode":"motor"},
       q: {
         q: '課文說直流馬達為什麼需要換向器？',
         options: [
@@ -4955,6 +4989,7 @@ window.APP_TEXTS['physics|十一下|第7單元 載流導線受力'] = {
       terms: [
         { w: '勞侖茲力', d: '磁場對運動電荷施加的力。' }
       ],
+      viz: {"type":"compareexp","factor":"磁力的特點","a":{"label":"改變","note":"運動的方向"},"b":{"label":"不改變","note":"速率與動能"},"same":["因為磁力永遠垂直於速度"]},
       q: {
         q: '課文說磁力對運動電荷做多少功？',
         options: [
@@ -5124,6 +5159,7 @@ window.APP_TEXTS['physics|十一下|第8單元 電磁感應'] = {
       terms: [
         { w: '互感', d: '一線圈的電流變化在另一線圈中感應電動勢的現象。' }
       ],
+      viz: {"type":"compareexp","factor":"感應發生在哪裡","a":{"label":"自感","note":"同一個線圈"},"b":{"label":"互感","note":"兩個不同的線圈"},"same":["都源自電磁感應"]},
       q: {
         q: '課文說無線充電為什麼要貼很近？',
         options: [
@@ -5223,6 +5259,7 @@ window.APP_TEXTS['physics|十一下|第9單元 交流電與變壓器'] = {
       terms: [
         { w: '直流電', d: '方向固定不變的電流。' }
       ],
+      viz: {"type":"energyflow","steps":["原線圈通交流電","鐵芯中磁通量變化","副線圈感應出電動勢","電壓依匝數比改變"]},
       q: {
         q: '課文說直流電為什麼不能用變壓器升壓？',
         options: [
@@ -5369,6 +5406,7 @@ window.APP_TEXTS['physics|十二上|第1單元 光電效應'] = {
       terms: [
         { w: '功函數', d: '把電子從金屬表面移出所需的最小能量。' }
       ],
+      viz: {"type":"energyflow","steps":["光子能量 hf","扣掉功函數 W","剩下變成電子動能","hf 小於 W 就打不出電子"]},
       q: {
         q: '課文說光電子的最大動能怎麼算？',
         options: [
@@ -5562,6 +5600,7 @@ window.APP_TEXTS['physics|十二上|第2單元 原子模型'] = {
       terms: [
         { w: '電子雲', d: '用機率分布描述電子在原子中出現位置的圖像。' }
       ],
+      viz: {"type":"compareexp","factor":"對電子位置的描述","a":{"label":"波耳模型","note":"確定的圓形軌道"},"b":{"label":"量子力學","note":"機率分布的電子雲"},"same":["能階都是量子化的"]},
       q: {
         q: '課文說現代模型如何描述電子的位置？',
         options: [
@@ -5684,6 +5723,7 @@ window.APP_TEXTS['physics|十二上|第3單元 波粒二象性'] = {
       terms: [
         { w: '測不準原理', d: '位置與動量無法同時被精確測定的原理。' }
       ],
+      viz: {"type":"compareexp","factor":"兩個量的取捨","a":{"label":"位置測準","note":"動量的不確定變大"},"b":{"label":"動量測準","note":"位置的不確定變大"},"same":["乘積有下限"]},
       q: {
         q: '課文說測不準原理的根源是什麼？',
         options: [
@@ -5784,6 +5824,7 @@ window.APP_TEXTS['physics|十二上|第4單元 原子核與放射性'] = {
       terms: [
         { w: '加馬射線', d: '原子核放出的高能電磁波，穿透力極強。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"穿透力弱","items":["α 射線（紙可擋）"]},{"label":"穿透力中等","items":["β 射線（鋁板）"]},{"label":"穿透力強","items":["γ 射線（厚鉛板）"]}]},
       q: {
         q: '課文說擋住加馬射線需要什麼？',
         options: [
@@ -5977,6 +6018,7 @@ window.APP_TEXTS['physics|十二上|第5單元 核反應與核能'] = {
       terms: [
         { w: '核融合', d: '輕原子核結合成較重原子核並釋放能量的反應。' }
       ],
+      viz: {"type":"compareexp","factor":"反應的方向","a":{"label":"核分裂","note":"重核裂成輕核"},"b":{"label":"核融合","note":"輕核合成重核"},"same":["都因質量虧損而釋能"]},
       q: {
         q: '課文說核融合難以實用化的原因是什麼？',
         options: [
@@ -6030,6 +6072,7 @@ window.APP_TEXTS['physics|十二上|第6單元 狹義相對論'] = {
       terms: [
         { w: '光速不變', d: '真空中光速對所有慣性觀察者皆相同的原理。' }
       ],
+      viz: {"type":"compareexp","factor":"速度的疊加","a":{"label":"日常直覺","note":"追著光跑，光速會變慢"},"b":{"label":"實驗事實","note":"不管怎麼跑，光速都是 c"},"same":["都在測量同一束光"]},
       q: {
         q: '課文說狹義相對論中最反直覺的假設是哪一條？',
         options: [
@@ -6176,6 +6219,7 @@ window.APP_TEXTS['physics|十二上|第7單元 量子現象'] = {
       terms: [
         { w: '量子化', d: '物理量只能取特定分立數值的性質。' }
       ],
+      viz: {"type":"energyflow","steps":["低溫：紅光為主","中溫：黃白光","高溫：藍白光","溫度決定峰值波長"]},
       q: {
         q: '課文說普朗克為了解決黑體輻射問題，提出了什麼假設？',
         options: [
@@ -6416,6 +6460,7 @@ window.APP_TEXTS['physics|十二上|第8單元 半導體與電子元件'] = {
       terms: [
         { w: '積體電路', d: '在單一晶片上整合大量電子元件的技術。' }
       ],
+      viz: {"type":"energyflow","steps":["單顆電晶體","積體電路","大規模積體電路","逼近物理極限"]},
       q: {
         q: '課文說製程繼續微縮時遇到的困難是什麼？',
         options: [
@@ -6492,6 +6537,7 @@ window.APP_TEXTS['physics|十二上|第9單元 基本粒子與宇宙'] = {
       terms: [
         { w: '弱核力', d: '負責某些粒子衰變的基本作用力。' }
       ],
+      viz: {"type":"energyflow","steps":["強核力（最強）","電磁力","弱核力","重力（最弱）"]},
       q: {
         q: '課文說哪一種力最弱卻主宰天體？',
         options: [
@@ -6731,6 +6777,7 @@ window.APP_TEXTS['physics|十二下|第1單元 力學總複習'] = {
       terms: [
         { w: '圖形分析', d: '從圖形的斜率與面積讀出物理量的方法。' }
       ],
+      viz: {"type":"motion","mode":"accel"},
       q: {
         q: '課文說看到物理圖形時應該先問什麼？',
         options: [
@@ -6979,6 +7026,7 @@ window.APP_TEXTS['physics|十二下|第3單元 波動與光學總複習'] = {
       terms: [
         { w: '路程差', d: '兩束波抵達同一點所走距離的差。' }
       ],
+      viz: {"type":"compareexp","factor":"產生的原因","a":{"label":"干涉","note":"多個波源疊加"},"b":{"label":"繞射","note":"波繞過障礙或通過狹縫"},"same":["都是波動性的證據"]},
       q: {
         q: '課文說什麼情況下繞射最明顯？',
         options: [
@@ -7055,6 +7103,7 @@ window.APP_TEXTS['physics|十二下|第4單元 電磁學總複習'] = {
       terms: [
         { w: '電位', d: '單位電荷在該處具有的電位能。' }
       ],
+      viz: {"type":"static","mode":"force"},
       q: {
         q: '課文說靜電問題為什麼優先用電位計算？',
         options: [
@@ -7078,6 +7127,7 @@ window.APP_TEXTS['physics|十二下|第4單元 電磁學總複習'] = {
       terms: [
         { w: '克希荷夫定律', d: '以電荷守恆與能量守恆解電路的兩條規則。' }
       ],
+      viz: {"type":"ohm","v":12,"r":4,"mode":"series"},
       q: {
         q: '課文說並聯電路中相同的是什麼？',
         options: [
@@ -7294,6 +7344,7 @@ window.APP_TEXTS['physics|十二下|第5單元 近代物理總複習'] = {
       terms: [
         { w: '狹義相對論', d: '處理高速慣性運動的物理理論。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"狹義相對論的結論","items":["時間膨脹","長度收縮","同時性相對","質能等效"]}]},
       q: {
         q: '課文說相對論效應什麼時候才明顯？',
         options: [
@@ -7440,6 +7491,7 @@ window.APP_TEXTS['physics|十二下|第6單元 實驗與測量誤差'] = {
       terms: [
         { w: '有效位數', d: '測量值中有意義的數字位數。' }
       ],
+      viz: {"type":"compareexp","factor":"運算類型","a":{"label":"乘除","note":"看有效數字的位數"},"b":{"label":"加減","note":"看小數點後的位數"},"same":["結果不能比原始資料更精密"]},
       q: {
         q: '課文說相加減時，有效位數該看什麼？',
         options: [
@@ -7516,6 +7568,7 @@ window.APP_TEXTS['physics|十二下|第7單元 圖表與數據分析'] = {
       terms: [
         { w: '正比', d: '一量增為兩倍時另一量也增為兩倍的關係。' }
       ],
+      viz: {"type":"linegraph","a":2,"b":0},
       q: {
         q: '課文說看到雙曲線形狀時，代表什麼關係？',
         options: [
@@ -7639,6 +7692,7 @@ window.APP_TEXTS['physics|十二下|第8單元 物理建模與估算'] = {
       terms: [
         { w: '物理模型', d: '為了計算而對真實情況所做的簡化描述。' }
       ],
+      viz: {"type":"compareexp","factor":"模型與現實","a":{"label":"模型","note":"簡化，可計算"},"b":{"label":"現實","note":"複雜，細節無窮"},"same":["在適用範圍內結果接近"]},
       q: {
         q: '課文說使用模型時最重要的事情是什麼？',
         options: [
@@ -7785,6 +7839,7 @@ window.APP_TEXTS['physics|十二下|第9單元 跨科素養與應用'] = {
       terms: [
         { w: '能源轉換效率', d: '有用輸出能量佔輸入能量的比例。' }
       ],
+      viz: {"type":"ptable"},
       q: {
         q: '課文說比較發電方式時要同時看哪些面向？',
         options: [
@@ -7879,6 +7934,7 @@ window.APP_TEXTS['physics|十二下|第9單元 跨科素養與應用'] = {
       terms: [
         { w: '頻段', d: '無線通訊所使用的電磁波頻率範圍。' }
       ],
+      viz: {"type":"plates","mode":"quake"},
       q: {
         q: '課文說光纖傳送資料靠的是什麼原理？',
         options: [

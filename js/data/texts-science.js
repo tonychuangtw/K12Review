@@ -3513,6 +3513,7 @@ window.APP_TEXTS['science|四上|第6單元 認識天氣'] = {
       terms: [
         { w: '氣候', d: '長時間累積下來的平均天氣狀況。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"天氣要素","items":["氣溫","雨量","風向風速","雲量","濕度"]}]},
       q: {
         q: '課文說「臺灣夏天多雨」講的是什麼？',
         options: [
@@ -3586,6 +3587,7 @@ window.APP_TEXTS['science|四上|第6單元 認識天氣'] = {
       terms: [
         { w: '雨量筒', d: '收集並測量降雨深度的儀器。' }
       ],
+      viz: {"type":"bargraph","unit":"mm","data":[{"label":"小雨","value":5},{"label":"中雨","value":20},{"label":"大雨","value":80},{"label":"豪雨","value":200}]},
       q: {
         q: '課文說雨量和雨量筒的粗細有沒有關係？',
         options: [
@@ -4934,6 +4936,7 @@ window.APP_TEXTS['science|四下|第6單元 溫度與熱量'] = {
       terms: [
         { w: '平視', d: '眼睛與刻度同高、正對著看。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"正確","items":["球部浸入","不碰底和壁","等穩定","平視讀數"]},{"label":"錯誤","items":["拿出來才讀","斜著看","碰到杯底"]}]},
       q: {
         q: '課文說讀數前要等到什麼時候？',
         options: [
@@ -5796,6 +5799,7 @@ window.APP_TEXTS['science|五上|第3單元 動物的繁殖與環境'] = {
       terms: [
         { w: '鴨嘴獸', d: '少數會產卵的哺乳類動物。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"卵生","items":["魚","青蛙","蛇","雞","蝴蝶"],"note":"在卵裡發育"},{"label":"胎生","items":["狗","貓","鯨魚","蝙蝠"],"note":"在媽媽體內發育"}]},
       q: {
         q: '課文說鴨嘴獸特別的地方是什麼？',
         options: [
@@ -6528,6 +6532,7 @@ window.APP_TEXTS['science|五上|第7單元 月亮與星空觀測'] = {
       terms: [
         { w: '光害', d: '人造燈光讓夜空變亮、看不清星星的現象。' }
       ],
+      viz: {"type":"bargraph","unit":"顆（示意）","data":[{"label":"市中心","value":20},{"label":"郊區","value":200},{"label":"高山","value":2000}]},
       q: {
         q: '課文說觀星前眼睛要適應黑暗多久？',
         options: [
@@ -9167,6 +9172,7 @@ window.APP_TEXTS['science|六上|第7單元 力與運動：速度'] = {
       terms: [
         { w: '單位換算', d: '把不同單位化成相同標準再計算。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"30 分鐘 = 0.5 小時","hint":"先把單位換成小時。"},{"expr":"速度 = 6 ÷ 0.5","hint":"距離除以時間。"},{"expr":"= 12 公里／小時","hint":"答案要附單位。"}]},
       q: {
         q: '課文說算速度前最重要的一步是什麼？',
         options: [
@@ -9927,6 +9933,7 @@ window.APP_TEXTS['science|六下|第3單元 環境變遷與保育'] = {
       terms: [
         { w: '外來入侵種', d: '被引入後大量繁殖、危害本地生態的物種。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"入侵種造成的問題","items":["排擠本地種","破壞農作","傳播疾病","難以根除"]}]},
       q: {
         q: '課文說防治外來入侵種最實際的做法是什麼？',
         options: [
@@ -13776,6 +13783,7 @@ window.APP_TEXTS['science|八上|第1單元 基本測量與單位'] = {
       terms: [
         { w: '重量', d: '物體所受重力的大小，會隨地點改變。' }
       ],
+      viz: {"type":"compareexp","factor":"所在的位置","a":{"label":"在地球","note":"質量 60 kg／重量較大"},"b":{"label":"在月球","note":"質量還是 60 kg／重量只剩約 1/6"},"same":["同一個人","同樣的物質量"]},
       q: {
         q: '課文說到月球上質量會怎麼樣？',
         options: [
@@ -15048,6 +15056,7 @@ window.APP_TEXTS['science|八上|第9單元 光學儀器與色光'] = {
       terms: [
         { w: '紅外線', d: '波長比紅光長、具熱效應的不可見光。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"紅外線","items":["遙控器","熱像儀","夜視鏡"]},{"label":"可見光","items":["紅到紫的七色"]},{"label":"紫外線","items":["殺菌燈","會曬傷","驗鈔燈"]}]},
       q: {
         q: '課文說防曬乳主要擋的是什麼？',
         options: [
@@ -16266,6 +16275,7 @@ window.APP_TEXTS['science|八下|第8單元 有機化合物'] = {
       terms: [
         { w: '分餾', d: '利用沸點不同把混合液體分開的方法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"化石燃料","items":["煤","石油","天然氣"]},{"label":"再生能源","items":["太陽能","風力","水力","地熱"]}]},
       q: {
         q: '課文說石油用什麼方法分成汽油柴油等？',
         options: [
@@ -17131,6 +17141,7 @@ window.APP_TEXTS['science|九上|第5單元 摩擦力與運動'] = {
       terms: [
         { w: '滾珠軸承', d: '用滾動取代滑動以減少摩擦的元件。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"需要增加摩擦","items":["輪胎紋路","止滑墊","運動鞋底","煞車皮"]},{"label":"需要減少摩擦","items":["潤滑油","滾珠軸承","氣墊","打蠟"]}]},
       q: {
         q: '課文說滾珠軸承的作用是什麼？',
         options: [

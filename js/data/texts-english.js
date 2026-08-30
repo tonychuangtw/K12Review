@@ -6880,6 +6880,7 @@ window.APP_TEXTS['english|三下|第1單元 一般動詞現在式'] = {
       terms: [
         { w: '現在簡單式', d: '描述習慣、事實或道理的時態。' }
       ],
+      viz: {"type":"tense","verb":"go","highlight":"現在簡單式"},
       q: {
         q: '課文說現在簡單式是不是講此刻正在做？',
         options: [

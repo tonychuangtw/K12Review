@@ -935,6 +935,7 @@ window.APP_TEXTS['math|一上|第7單元 形狀與立體形體'] = {
       terms: [
         { w: '平面圖形', d: '畫在平面上、沒有厚度的圖形。' }
       ],
+      viz: {"type":"triangle","kind":"equilateral","pick":false},
       q: {
         q: '課文說分辨形狀最快的方法是什麼？',
         options: [
@@ -1058,6 +1059,7 @@ window.APP_TEXTS['math|一上|第7單元 形狀與立體形體'] = {
       terms: [
         { w: '拼合', d: '把小圖形合成大圖形。' }
       ],
+      viz: {"type":"quad","kind":"rect","pick":false},
       q: {
         q: '課文說幾個正方形可以摺成一個正方體？',
         options: [
@@ -1795,6 +1797,7 @@ window.APP_TEXTS['math|一下|第3單元 二位數的加法'] = {
       terms: [
         { w: '整十數', d: '個位是零的兩位數。' }
       ],
+      viz: {"type":"placevalue","value":70,"max":99},
       q: {
         q: '課文說整十數相加可以怎麼想？',
         options: [
@@ -2685,6 +2688,7 @@ window.APP_TEXTS['math|一下|第9單元 圖形的分割與拼合'] = {
       terms: [
         { w: '七巧板', d: '由七塊圖形組成、可拼出各種圖案的教具。' }
       ],
+      viz: {"type":"triangle","kind":"right","pick":false},
       q: {
         q: '課文說七巧板裡有幾個三角形？',
         options: [
@@ -3472,6 +3476,7 @@ window.APP_TEXTS['math|二上|第5單元 2、5、10 的乘法'] = {
       terms: [
         { w: '一組', d: '固定數量為一份的單位。' }
       ],
+      viz: {"type":"array","rows":5,"cols":2,"split":false,"edit":false},
       q: {
         q: '課文說看到什麼句型通常用乘法？',
         options: [
@@ -4946,6 +4951,7 @@ window.APP_TEXTS['math|二下|第6單元 乘法的應用與規律'] = {
       terms: [
         { w: '倍數判別', d: '快速判斷某數是不是某數的倍數。' }
       ],
+      viz: {"type":"counters","n":20,"group":5,"edit":false},
       q: {
         q: '課文說判斷五的倍數要看什麼？',
         options: [
@@ -8620,6 +8626,7 @@ window.APP_TEXTS['math|四上|第3單元 乘法：二位數乘二位數'] = {
       terms: [
         { w: '量級', d: '答案大約在幾位數的規模。' }
       ],
+      viz: {"type":"numberline","min":0,"max":600,"step":100,"value":322,"marks":[{"v":300,"label":"估約 300"}]},
       q: {
         q: '課文說兩位數乘兩位數的答案通常是幾位數？',
         options: [
@@ -11258,6 +11265,7 @@ window.APP_TEXTS['math|五上|第2單元 公因數與公倍數'] = {
       terms: [
         { w: '互質', d: '兩數的公因數只有一。' }
       ],
+      viz: {"type":"factors","n":9,"edit":false},
       q: {
         q: '課文說互質兩數的最小公倍數怎麼求？',
         options: [
@@ -12377,6 +12385,7 @@ window.APP_TEXTS['math|五下|第1單元 分數的乘法'] = {
       terms: [
         { w: '約分', d: '把分數化到最簡。' }
       ],
+      viz: {"type":"fraccompare","a":{"parts":12,"shade":6},"b":{"parts":2,"shade":1}},
       q: {
         q: '課文說分數乘法需不需要通分？',
         options: [
@@ -12506,6 +12515,7 @@ window.APP_TEXTS['math|五下|第2單元 分數的除法'] = {
       terms: [
         { w: '倒數', d: '把分數上下顛倒後的數。' }
       ],
+      viz: {"type":"grouping","total":2,"per":1,"edit":false},
       q: {
         q: '課文說四分之一的倒數是多少？',
         options: [
@@ -12604,6 +12614,7 @@ window.APP_TEXTS['math|五下|第2單元 分數的除法'] = {
       terms: [
         { w: '步驟', d: '固定的計算順序。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"2又1/2 ÷ 1/2","hint":"第一步：帶分數化成假分數。"},{"expr":"5/2 ÷ 1/2","hint":"2×2+1 = 5，所以是 5/2。"},{"expr":"5/2 × 2/1","hint":"第二步：除數顛倒，除號改乘號。"},{"expr":"= 10/2 = 5","hint":"相乘後約分。"}]},
       q: {
         q: '課文說分數除法的第一步是什麼？',
         options: [
@@ -13724,6 +13735,7 @@ window.APP_TEXTS['math|六上|第1單元 分數的除法'] = {
       terms: [
         { w: '顛倒相乘', d: '除以分數改成乘它的倒數。' }
       ],
+      viz: {"type":"fraccompare","a":{"parts":4,"shade":3},"b":{"parts":2,"shade":1}},
       q: {
         q: '課文說分數除法要把哪一個數顛倒？',
         options: [
@@ -15321,6 +15333,7 @@ window.APP_TEXTS['math|六下|第2單元 正比與反比'] = {
       terms: [
         { w: '單價', d: '一個單位的價錢。' }
       ],
+      viz: {"type":"ratiobar","a":3,"b":7,"labelA":"3支","labelB":"7支"},
       q: {
         q: '課文說七支筆要多少錢？',
         options: [
@@ -16211,6 +16224,7 @@ window.APP_TEXTS['math|六下|第8單元 立體圖形與視圖'] = {
       terms: [
         { w: '錐體', d: '一個底面向上收成頂點的立體。' }
       ],
+      viz: {"type":"cylinder","r":3,"h":5,"mode":"volume","edit":false},
       q: {
         q: '課文說錐體的體積是同底同高柱體的幾分之幾？',
         options: [
@@ -17301,6 +17315,7 @@ window.APP_TEXTS['math|七上|第6單元 最大公因數與最小公倍數'] = {
       terms: [
         { w: '乘積關係', d: '兩數乘積等於最大公因數乘最小公倍數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"GCD × LCM = 兩數相乘","hint":"這個關係永遠成立。"},{"expr":"6 × 36 = 216","hint":"左邊。"},{"expr":"12 × 18 = 216 ✓","hint":"右邊，相等。"}]},
       q: {
         q: '課文說最大公因數乘最小公倍數等於什麼？',
         options: [
@@ -17405,6 +17420,7 @@ window.APP_TEXTS['math|七上|第7單元 分數的運算'] = {
       terms: [
         { w: '約分', d: '把分子分母同除以公因數。' }
       ],
+      viz: {"type":"fracbar","parts":2,"shade":1},
       q: {
         q: '課文說分數乘法和加減最大的不同是什麼？',
         options: [
@@ -17503,6 +17519,7 @@ window.APP_TEXTS['math|七上|第7單元 分數的運算'] = {
       terms: [
         { w: '互換', d: '在分數、小數與百分率間轉換。' }
       ],
+      viz: {"type":"decimalgrid","cells":100,"filled":25},
       q: {
         q: '課文說分數換小數要怎麼做？',
         options: [
@@ -21609,6 +21626,7 @@ window.APP_TEXTS['math|八下|第7單元 平行四邊形'] = {
       terms: [
         { w: '高', d: '底邊到對邊的垂直距離。' }
       ],
+      viz: {"type":"areaformula","shape":"parallelogram"},
       q: {
         q: '課文說平行四邊形的高是什麼？',
         options: [
@@ -22271,6 +22289,7 @@ window.APP_TEXTS['math|九上|第3單元 圓的基本性質'] = {
       terms: [
         { w: '圓周率', d: '圓周長與直徑的固定比值。' }
       ],
+      viz: {"type":"circlearea","r":5,"mode":"area"},
       q: {
         q: '課文說半徑五的圓面積是多少？',
         options: [
@@ -22978,6 +22997,7 @@ window.APP_TEXTS['math|九上|第7單元 幾何與生活應用'] = {
       terms: [
         { w: '密鋪', d: '用同一形狀無縫鋪滿平面。' }
       ],
+      viz: {"type":"polygon","sides":6},
       q: {
         q: '課文說能無縫鋪滿平面的正多邊形有幾種？',
         options: [
@@ -23919,6 +23939,7 @@ window.APP_TEXTS['math|九下|第5單元 統計資料的呈現'] = {
       terms: [
         { w: '中位數', d: '資料排序後位在中間的數。' }
       ],
+      viz: {"type":"dotplot","values":[3,7,8,10,12]},
       q: {
         q: '課文說找中位數前一定要先做什麼？',
         options: [
@@ -24476,6 +24497,7 @@ window.APP_TEXTS['math|九下|第8單元 綜合應用：幾何'] = {
       terms: [
         { w: '體積比', d: '相似立體體積的比值。' }
       ],
+      viz: {"type":"similar","k":3,"edit":false},
       q: {
         q: '課文說立體圖形的體積比是邊長比的幾次方？',
         options: [
@@ -24500,6 +24522,7 @@ window.APP_TEXTS['math|九下|第8單元 綜合應用：幾何'] = {
       terms: [
         { w: '切線', d: '與圓只有一個交點的直線。' }
       ],
+      viz: {"type":"circleline","mode":"tangent","pick":false},
       q: {
         q: '課文說切線和過切點的半徑是什麼關係？',
         options: [
@@ -26429,6 +26452,7 @@ window.APP_TEXTS['math|十下|第3單元 統計：資料整理'] = {
       terms: [
         { w: '盒狀圖', d: '用五個統計量呈現分布的圖。' }
       ],
+      viz: {"type":"boxplot","values":[12,15,18,22,25,28,35]},
       q: {
         q: '課文說盒子的長度代表什麼？',
         options: [
@@ -26557,6 +26581,7 @@ window.APP_TEXTS['math|十下|第4單元 直線與圓'] = {
       terms: [
         { w: '斜率', d: '直線傾斜程度的量化值。' }
       ],
+      viz: {"type":"linegraph","a":2,"b":-1},
       q: {
         q: '課文說算斜率時分子分母的順序要怎樣？',
         options: [
@@ -29133,6 +29158,7 @@ window.APP_TEXTS['math|十一下|第3單元 條件機率'] = {
       terms: [
         { w: '條件', d: '已知成立的前提資訊。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"紅心","value":13},{"label":"方塊","value":13},{"label":"黑色","value":26}]},
       q: {
         q: '課文說已知紅色時抽到紅心的機率是多少？',
         options: [
@@ -29590,6 +29616,7 @@ window.APP_TEXTS['math|十一下|第6單元 抽樣與統計推論'] = {
       terms: [
         { w: '分層抽樣', d: '先分組再按比例抽取的方法。' }
       ],
+      viz: {"type":"bargraph","unit":"人","data":[{"label":"一年級","value":50},{"label":"二年級","value":30},{"label":"三年級","value":20}]},
       q: {
         q: '課文說分層抽樣的好處是什麼？',
         options: [
@@ -29664,6 +29691,7 @@ window.APP_TEXTS['math|十一下|第6單元 抽樣與統計推論'] = {
       terms: [
         { w: '信賴區間', d: '估計母體參數所給的範圍。' }
       ],
+      viz: {"type":"normaldist","mean":45,"sd":1.5,"shade":2},
       q: {
         q: '課文說信賴區間裡浮動的是什麼？',
         options: [
@@ -30121,6 +30149,7 @@ window.APP_TEXTS['math|十一下|第9單元 統計的綜合應用'] = {
       terms: [
         { w: '觀察性研究', d: '不介入分組、只做觀察的研究。' }
       ],
+      viz: {"type":"normaldist","mean":42,"sd":1,"shade":2},
       q: {
         q: '課文說觀察性研究能不能說「造成」？',
         options: [
@@ -31367,6 +31396,7 @@ window.APP_TEXTS['math|十二上|第9單元 積分的應用'] = {
       terms: [
         { w: '初始條件', d: '起始時刻的已知數值。' }
       ],
+      viz: {"type":"linegraph","a":2,"b":0,"min":-1,"max":5},
       q: {
         q: '課文說初始條件的作用是什麼？',
         options: [
@@ -32454,6 +32484,7 @@ window.APP_TEXTS['math|十二下|第7單元 數學建模'] = {
       terms: [
         { w: '線性模型', d: '變化量固定的一次函數模型。' }
       ],
+      viz: {"type":"linegraph","a":2,"b":3},
       q: {
         q: '課文說線性模型的特徵是什麼？',
         options: [
@@ -32503,6 +32534,7 @@ window.APP_TEXTS['math|十二下|第7單元 數學建模'] = {
       terms: [
         { w: '週期模型', d: '描述規律重複現象的模型。' }
       ],
+      viz: {"type":"trigwave","a":2,"b":1,"c":2},
       q: {
         q: '課文說週期模型裡的常數代表什麼？',
         options: [
@@ -32583,6 +32615,7 @@ window.APP_TEXTS['math|十二下|第8單元 綜合複習：代數'] = {
       terms: [
         { w: '指數律', d: '指數運算的基本規則。' }
       ],
+      viz: {"type":"logexp","a":2,"x":5},
       q: {
         q: '課文說次方的次方要怎麼運算？',
         options: [
@@ -32631,6 +32664,7 @@ window.APP_TEXTS['math|十二下|第8單元 綜合複習：代數'] = {
       terms: [
         { w: '公差', d: '等差數列相鄰兩項的固定差。' }
       ],
+      viz: {"type":"seq","a1":10,"d":4,"n":6},
       q: {
         q: '課文說由兩項求公差要怎麼算？',
         options: [
@@ -32736,6 +32770,7 @@ window.APP_TEXTS['math|十二下|第9單元 綜合複習：幾何與統計'] = {
       terms: [
         { w: '內積', d: '兩向量相乘得到一個數的運算。' }
       ],
+      viz: {"type":"vector","a":[3,4],"b":[1,0],"mode":"dot"},
       q: {
         q: '課文說內積等於零代表兩向量如何？',
         options: [
@@ -32760,6 +32795,7 @@ window.APP_TEXTS['math|十二下|第9單元 綜合複習：幾何與統計'] = {
       terms: [
         { w: '斜率', d: '直線傾斜程度的量化值。' }
       ],
+      viz: {"type":"circleline","mode":"tangent","pick":false},
       q: {
         q: '課文說判斷直線和圓的關係要算什麼？',
         options: [
