@@ -804,6 +804,21 @@ function pct2(v) { return Math.round(v * 10) / 10; }
   });
   ok(!bad.length, '自編原創題庫沒有混進西里爾字母／假名／諺文' +
     (bad.length ? '——' + bad.slice(0, 8).join('、') : ''));
+
+  /* 也不可以有英文單字直接黏在中文旁邊（2026-08-30 加）。
+     抓到兩筆：社會一題的解析寫成「支薪very常見」、自然一題寫成「把水completely趕走」。
+     ⛔ 英文科與匯入題庫不在此限（英文題本來就要出現英文）。
+     只抓「小寫英文字母 4 個以上緊貼中文」——LED、GPS、WTO、kWh 這種縮寫不會誤判。 */
+  const eng = [];
+  ORIG.filter((k) => k !== 'english').forEach((k) => {
+    if (!Array.isArray(D[k])) return;
+    D[k].forEach((it) => {
+      const t = [it.q, ...(it.options || []), it.exp, it.deep].join('\u3000');
+      if (/[\u4e00-\u9fff][a-z]{4,}|[a-z]{4,}[\u4e00-\u9fff]/.test(t)) eng.push(k + '/' + it.id);
+    });
+  });
+  ok(!eng.length, '自編原創題庫沒有英文單字黏在中文旁邊' +
+    (eng.length ? '——' + eng.slice(0, 8).join('、') : ''));
 }
 
 
