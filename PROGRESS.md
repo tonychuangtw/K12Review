@@ -9,8 +9,8 @@ NEXT_ACTION: 【進行中 2026-08-30】各科往下鋪＝把「課文帶讀」�
 做法：scratchpad 的 tmpl_head.py ＋ body_<科><冊>_<a|b|c>.py ＋ tmpl_tail.py 串成 mk_*.py，
 `python3 mk_xxx.py <科目key>` 會 append 到 js/data/texts-<科>.js（正解位置由 tail 自動輪流）。一檔 3 單元，一冊 3 檔。
 每單元 6 段，每段：小標 h、s 至少 3 句且每句 ≤60 字、terms 1 條、q 四選一含 why（正解那格 null）。
-已完成：物理、化學、生物三科各 54 單元 324 段（六冊全部），共 972 段。
-接下來依序：地科 → 歷史 → 地理 → 公民，各 6 冊 54 單元。
+已完成：物理、化學、生物、地科四科各 54 單元 324 段（六冊全部），共 1,296 段。
+接下來依序：歷史 → 地理 → 公民，各 6 冊 54 單元。
 單元名稱一律照 js/data/lessons-<科>.js 的鍵，一字不差（test.js 會擋）。
 已完成的前置：js/app.js 的 TEXT_FILES 加了七科、test/test.js 第 26 行的載入清單加了七個檔名、七個 texts-*.js 檔頭已建好。
 全部鋪完要記得：node test/test.js、node test/browser-smoke.mjs、python3 tools/stamp-version.py、js/versions.js 加一條。
@@ -52,7 +52,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 13:50 台北（物理、化學、生物三科課文帶讀完成，共 162 單元 972 段）
+UPDATED: 2026-08-30 15:10 台北（物理、化學、生物、地科四科課文帶讀完成，共 216 單元 1,296 段）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
