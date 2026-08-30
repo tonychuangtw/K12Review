@@ -23,8 +23,11 @@ NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
        b. 國語沒有概念卡系統，要手寫 plan：`node tools/set-text-viz.js <plan.json> --write`
           plan = [{key:"chinese|年級|第N篇 篇名", seg:段號從1起, viz:{type:"…", …}}]
           每單元上限 4 段（2026-09-05 由 3 放寬；要再放寬下 --per N）。國語 18% → 33%。
-     各科現況（2026-09-05）：social 42%、physics 41%、math 39%、science 38%、chemistry 37%、earth/geography/biology 35-36%、
-       civics 33%、chinese 33%、history 31%、english 30%。
+     2026-09-06：國語 33% → 60%（十二個年級走完一遍，手寫 174 段），全站 36.0% → 38.4%。
+     各科現況（2026-09-06）：chinese 60%、social 42%、physics 41%、math 39%、science 38%、chemistry 37%、
+       earth/geography/biology 35-36%、civics 33%、history 31%、english 30%（英文與歷史最薄，下一輪從這兩科開始）。
+     ⚠ 語文類元件多半吃 spec.items 覆寫內建範例（charparts／wordtree／punctcut 都可以），
+       但最泛用的還是 matchpair（自己寫 title/left/right/note/pairs），cycle 適合流程、piechart 適合配比。
      語文類可用元件：zhuyinparts charparts punctcut sentparts poemform essayform narrorder letterform wenyanflow
        wordtree strokeorder readlayer rhetoricmap wordscale matchpair（matchpair 最泛用，要自己寫 pairs/note）。
      ⚠ 改完跑 `node test/test.js`、`node test/viz-match.mjs`（檢查卡片自帶的字有沒有真的畫在圖上）。
@@ -217,7 +220,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-07 00:20 台北
+UPDATED: 2026-09-07 02:10 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
