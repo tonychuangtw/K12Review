@@ -20807,6 +20807,7 @@ window.APP_TEXTS['english|八下|第1單元 現在完成式（經驗）'] = {
       terms: [
         { w: 'been', d: 'be 的過去分詞。' }
       ],
+      viz: {"type":"compareexp","factor":"been 和 gone","a":{"label":"have been to","note":"去過，而且已經回來了：He has been to Japan.（人在這裡）"},"b":{"label":"have gone to","note":"去了，人還在那裡：He has gone to Japan.（人不在這裡）"},"same":["中文都說「去日本了」，英文差很多"]},
       q: {
         q: '課文說 have gone to 表示那個人在哪裡？',
         options: [
@@ -20831,6 +20832,7 @@ window.APP_TEXTS['english|八下|第1單元 現在完成式（經驗）'] = {
       terms: [
         { w: '時間點', d: '明確指出的某個時刻。' }
       ],
+      viz: {"type":"compareexp","factor":"能不能配明確的過去時間","a":{"label":"✗ 錯誤","note":"I have seen him yesterday."},"b":{"label":"✔ 正確","note":"I saw him yesterday.（用過去式）／ I have seen him before.（用 before）"},"same":["現在完成式不搭 yesterday、last week、ago"]},
       q: {
         q: '課文說有明確過去時間時要用什麼時態？',
         options: [
@@ -20934,6 +20936,7 @@ window.APP_TEXTS['english|八下|第2單元 現在完成式（完成與持續）
       terms: [
         { w: 'yet', d: '還沒，用在否定與疑問句。' }
       ],
+      viz: {"type":"compareexp","factor":"already 和 yet","a":{"label":"already","note":"用在肯定句：They have already left."},"b":{"label":"yet","note":"用在否定句與疑問句，而且要放句尾：I haven't finished yet. / Have you finished yet?"},"same":["兩個都在講「已經／還沒」，差別在句型"]},
       q: {
         q: '課文說 yet 要放在哪裡？',
         options: [
@@ -21032,6 +21035,7 @@ window.APP_TEXTS['english|八下|第2單元 現在完成式（完成與持續）
       terms: [
         { w: '整理', d: '把學過的內容歸納起來。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"經驗","items":["have been to","have ever seen"],"note":"做過沒有"},{"label":"完成","items":["have just finished","have already left"],"note":"剛完成"},{"label":"持續","items":["have lived here for 5 years"],"note":"從過去到現在還在繼續"}]},
       q: {
         q: '課文說三種用法要靠什麼來分辨？',
         options: [
@@ -21111,6 +21115,7 @@ window.APP_TEXTS['english|八下|第3單元 被動語態（現在）'] = {
       terms: [
         { w: '客觀陳述', d: '不帶個人立場的說明。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"不知道／不重要是誰做的","items":["My bike was stolen."],"note":"小偷是誰不知道"},{"label":"想強調被影響的對象","items":["The window was broken."],"note":"重點在窗戶"},{"label":"客觀陳述","items":["The water is heated to 100°C."],"note":"科學與新聞常用"}]},
       q: {
         q: '課文說科學與新聞為什麼常用被動？',
         options: [
@@ -21135,6 +21140,7 @@ window.APP_TEXTS['english|八下|第3單元 被動語態（現在）'] = {
       terms: [
         { w: '行為者', d: '做出動作的那個人或東西。' }
       ],
+      viz: {"type":"compareexp","factor":"by 要不要寫","a":{"label":"可以省略","note":"Rice is grown in Taiwan.（by farmers 太明顯，不必說）"},"b":{"label":"要寫出來","note":"The book was written by my mother.（行為者是重點）"},"same":["問自己：不寫的話讀者會不會想知道"]},
       q: {
         q: '課文說什麼情況可以省略 by 片語？',
         options: [
@@ -21238,6 +21244,7 @@ window.APP_TEXTS['english|八下|第4單元 被動語態（過去）'] = {
       terms: [
         { w: '步驟', d: '做一件事的先後順序。' }
       ],
+      viz: {"type":"energyflow","steps":["原句：Tom broke the window.","第一步：把受詞移到句首 → The window","第二步：動詞改成 be + 過去分詞（配合原時態）→ was broken","第三步：原主詞加 by 放句尾 → by Tom"]},
       q: {
         q: '課文說改被動的第一步是什麼？',
         options: [
@@ -21262,6 +21269,7 @@ window.APP_TEXTS['english|八下|第4單元 被動語態（過去）'] = {
       terms: [
         { w: '時態', d: '動詞表示時間的形式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"現在","items":["is / are + p.p."],"note":"The room is cleaned every day."},{"label":"過去","items":["was / were + p.p."],"note":"The house was built in 1990."},{"label":"未來","items":["will be + p.p."],"note":"It will be finished tomorrow."},{"label":"完成式","items":["have / has been + p.p."],"note":"時態由 be 動詞決定"}]},
       q: {
         q: '課文說各種時態的被動裡什麼永遠不變？',
         options: [
@@ -21366,6 +21374,7 @@ window.APP_TEXTS['english|八下|第5單元 關係代名詞'] = {
       terms: [
         { w: '關係代名詞', d: '代替名詞並連接兩句的字。' }
       ],
+      viz: {"type":"energyflow","steps":["I know a boy. He speaks five languages.","把 He 換成 who","I know a boy who speaks five languages.","→ 關係代名詞同時做兩件事：代替 + 連接"]},
       q: {
         q: '課文說關係代名詞有哪兩個功能？',
         options: [
@@ -21415,6 +21424,7 @@ window.APP_TEXTS['english|八下|第5單元 關係代名詞'] = {
       terms: [
         { w: '主格', d: '在子句中當主詞的形式。' }
       ],
+      viz: {"type":"compareexp","factor":"看後面缺什麼","a":{"label":"主格","note":"後面直接接動詞：The man who lives next door is a doctor."},"b":{"label":"受格","note":"後面接主詞+動詞：The man whom I met is a doctor."},"same":["缺主詞就用主格，缺受詞就用受格"]},
       q: {
         q: '課文說主格後面直接接什麼？',
         options: [
@@ -21518,6 +21528,7 @@ window.APP_TEXTS['english|八下|第6單元 間接問句'] = {
       terms: [
         { w: '間接問句', d: '放在另一個句子裡的問句。' }
       ],
+      viz: {"type":"compareexp","factor":"放進句子裡就要換語序","a":{"label":"直接問句","note":"Where is he?（be 動詞在主詞前）"},"b":{"label":"間接問句","note":"I don't know where he is.（改回主詞在前）"},"same":["最常見的錯：I don't know where is he."]},
       q: {
         q: '課文說間接問句的語序要改成什麼？',
         options: [
@@ -21566,6 +21577,7 @@ window.APP_TEXTS['english|八下|第6單元 間接問句'] = {
       terms: [
         { w: 'whether', d: '是否，用來引導間接問句。' }
       ],
+      viz: {"type":"compareexp","factor":"沒有疑問詞的時候","a":{"label":"直接問句","note":"Is he a teacher?"},"b":{"label":"間接問句","note":"I wonder if / whether he is a teacher.（要補 if 或 whether）"},"same":["語序一樣要改回陳述句"]},
       q: {
         q: '課文說沒有疑問詞時要用什麼引導？',
         options: [
@@ -21590,6 +21602,7 @@ window.APP_TEXTS['english|八下|第6單元 間接問句'] = {
       terms: [
         { w: '標點', d: '句子裡的符號，如句點問號。' }
       ],
+      viz: {"type":"compareexp","factor":"句尾要用什麼標點","a":{"label":"整句是問句","note":"Do you know where he is?（問號）"},"b":{"label":"整句是陳述句","note":"I don't know where he is.（句號）"},"same":["看的是「最外面那一層」是問句還是陳述句"]},
       q: {
         q: '課文說標點要看什麼決定？',
         options: [
@@ -21719,6 +21732,7 @@ window.APP_TEXTS['english|八下|第7單元 使役動詞'] = {
       terms: [
         { w: 'help', d: '幫助。' }
       ],
+      viz: {"type":"compareexp","factor":"help 特別在哪","a":{"label":"使役動詞（make／let／have）","note":"後面一律接原形動詞，不能加 to"},"b":{"label":"help","note":"加不加 to 都對：She helped me (to) move the boxes."},"same":["結構都是「動詞 + 受詞 + 動詞」"]},
       q: {
         q: '課文說 help 後面的 to 可不可以省略？',
         options: [
@@ -21791,6 +21805,7 @@ window.APP_TEXTS['english|八下|第7單元 使役動詞'] = {
       terms: [
         { w: '結構', d: '句子各部分的組合方式。' }
       ],
+      viz: {"type":"compareexp","factor":"接原形還是接 to","a":{"label":"接原形","note":"make／let／have + 受詞 + 原形"},"b":{"label":"接 to","note":"ask／tell／want／advise + 受詞 + to + 原形"},"same":["兩組長得很像，記錯就整句錯"]},
       q: {
         q: '課文說 ask 後面的動詞前面要不要加 to？',
         options: [
@@ -21846,6 +21861,7 @@ window.APP_TEXTS['english|八下|第8單元 感官動詞與知覺'] = {
       terms: [
         { w: '片段', d: '整個過程中的一小段。' }
       ],
+      viz: {"type":"compareexp","factor":"原形還是 ing","a":{"label":"接原形","note":"I saw him cross the street.（看到他走完整條路）"},"b":{"label":"接 ing","note":"I saw him crossing the street.（看到他正在過馬路的片段）"},"same":["看到的是「全程」還是「一段」"]},
       q: {
         q: '課文說用原形表示看到什麼？',
         options: [
@@ -21943,6 +21959,7 @@ window.APP_TEXTS['english|八下|第8單元 感官動詞與知覺'] = {
       terms: [
         { w: '整理', d: '把學過的內容歸納起來。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"使役動詞","items":["+ 受詞 + 原形"],"note":"make／let／have"},{"label":"感官動詞","items":["+ 受詞 + 原形或 ing"],"note":"see／hear／watch"},{"label":"受詞是被動時","items":["改用過去分詞"],"note":"I heard my name called."},{"label":"改成被動時","items":["要補上 to"],"note":"He was made to apologize."}]},
       q: {
         q: '課文說這四條規則涵蓋了什麼？',
         options: [
@@ -22047,6 +22064,7 @@ window.APP_TEXTS['english|八下|第9單元 too...to 與 enough to'] = {
       terms: [
         { w: '肯定', d: '表示可以或有。' }
       ],
+      viz: {"type":"compareexp","factor":"意思剛好相反","a":{"label":"too…to","note":"太……以致於不能：He is too young to drive.（不能開）"},"b":{"label":"enough to","note":"夠……可以：She is old enough to vote.（可以投票）"},"same":["都可以改寫成 so…that，只是一個接否定、一個接肯定"]},
       q: {
         q: '課文說 enough to 的意思是肯定還是否定？',
         options: [
@@ -22174,6 +22192,7 @@ window.APP_TEXTS['english|九上|第1單元 條件句'] = {
       terms: [
         { w: '假設語氣', d: '表示與事實相反的說法。' }
       ],
+      viz: {"type":"compareexp","factor":"為什麼用過去式","a":{"label":"形式","note":"If I were you…（be 動詞一律用 were，即使主詞是 I）"},"b":{"label":"意思","note":"我其實不是你——用過去式表示「不是事實」，不是在講過去"},"same":["這是假設語氣，不是時態"]},
       q: {
         q: '課文說與現在事實相反時 be 動詞要用哪一個？',
         options: [
@@ -22222,6 +22241,7 @@ window.APP_TEXTS['english|九上|第1單元 條件句'] = {
       terms: [
         { w: '可能性', d: '事情有多大機會成真。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"未來有可能","items":["If it rains, we will stay home."],"note":"現在式 + will"},{"label":"與現在事實相反","items":["If I were you, I would apologize."],"note":"過去式 + would"},{"label":"與過去事實相反","items":["If I had studied, I would have passed."],"note":"過去完成 + would have"},{"label":"恆真","items":["If you heat water to 100°C, it boils."],"note":"兩邊都用現在式"}]},
       q: {
         q: '課文說越不可能的條件句時態會怎樣？',
         options: [
@@ -22277,6 +22297,7 @@ window.APP_TEXTS['english|九上|第2單元 分詞'] = {
       terms: [
         { w: '分詞', d: '由動詞變來、當形容詞用的形式。' }
       ],
+      viz: {"type":"compareexp","factor":"被修飾的名詞是做還是被做","a":{"label":"現在分詞（-ing）","note":"主動或進行：the running boy（男孩在跑）"},"b":{"label":"過去分詞（p.p.）","note":"被動或完成：the broken window（窗戶被打破）"},"same":["先問：這個名詞是動作的執行者還是承受者"]},
       q: {
         q: '課文說過去分詞表示什麼？',
         options: [
@@ -22351,6 +22372,7 @@ window.APP_TEXTS['english|九上|第2單元 分詞'] = {
       terms: [
         { w: '簡化', d: '把句子改寫得更精簡。' }
       ],
+      viz: {"type":"energyflow","steps":["the boy who is running","省略關係代名詞與 be 動詞","→ the running boy","被動的也一樣：the window which was broken → the broken window"]},
       q: {
         q: '課文說分詞片語是省略了哪兩個東西？',
         options: [
