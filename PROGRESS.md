@@ -74,8 +74,11 @@ NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
        https://cap.rcpet.edu.tw/exam/<年>/<年>P_Chinese.pdf（試題本）
        https://cap.rcpet.edu.tw/exam/<年>/<年>P_Answer.pdf（各科參考答案一覽表）
        ⚠ 只有正試（P）有，補考／陸考沒有公開；圖片題（看圖表、看賽程表）文字重現不了，跳過。
-     待辦：112／113/114 每份原卷 42 題，題庫裡只有 13～15 題，缺的單題可以照官方試題本補齊
-       （純文字題約每份 15～20 題）。答案一律對照官方參考答案，解析要自己寫（官方只給答案）。
+     ✅ 2026-09-08（v96）已補：112／113/114 三年各補上缺的單題（14→26／14→28／13→29 題）。
+       工具：`node tools/add-custom.js <file.json> --write`（id 挑現有題目之間的空號，才會排在原卷的位置）。
+       解析格式：✅正解為什麼對＋❌其他三個選項各自錯在哪＋📚這一類題怎麼下手。
+     待辦：111 年以前的年份也可以照同樣方式補（目前 90～111 年每份約 26～50 題，原卷 48 題左右，
+       缺的多半是圖片題，補的空間比 112～114 小）。
      ⛔ 不可把既有自撰題回頭貼上假出處。
  (7) 匯入題庫（英文／數學／高中七科）＝ Tony 之後陸續給題本，不主動做。
  (8) 高中七科擴題 ← 2026-09-06 掃出擋路的問題，已問 Tony 要走哪條路（甲修品質／乙先擴題／丙兩者）：
@@ -250,7 +253,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-07 12:10 台北
+UPDATED: 2026-09-08 02:30 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
