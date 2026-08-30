@@ -18024,6 +18024,7 @@ window.APP_TEXTS['english|七下|第1單元 助動詞 can／may'] = {
       terms: [
         { w: '上下文', d: '一句話前後的內容。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"能力","items":["I can swim."],"note":"會不會"},{"label":"許可","items":["You can go now."],"note":"可不可以"},{"label":"請求","items":["Can you help me?"],"note":"幫不幫忙"}]},
       q: {
         q: '課文說怎麼判斷 can 是哪一種意思？',
         options: [
@@ -18097,6 +18098,7 @@ window.APP_TEXTS['english|七下|第1單元 助動詞 can／may'] = {
       terms: [
         { w: 'be able to', d: '能夠，可用於各種時態。' }
       ],
+      viz: {"type":"compareexp","factor":"can 與 be able to","a":{"label":"can","note":"只有現在（can）與過去（could）兩種形式"},"b":{"label":"be able to","note":"跟著 be 動詞變，所以有未來式：will be able to"},"same":["表示能力時意思相同"]},
       q: {
         q: '課文說要表達未來的能力要用什麼？',
         options: [
@@ -18151,6 +18153,7 @@ window.APP_TEXTS['english|七下|第2單元 頻率副詞'] = {
       terms: [
         { w: '頻率', d: '做某件事有多常。' }
       ],
+      viz: {"type":"levels","items":["always 100%","usually / often 常常","sometimes 有時","seldom / rarely 很少 → never 0%"]},
       q: {
         q: '課文說 never 可不可以再加 not？',
         options: [
@@ -18224,6 +18227,7 @@ window.APP_TEXTS['english|七下|第2單元 頻率副詞'] = {
       terms: [
         { w: '次數', d: '做了幾回。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"一次、兩次有專用字","items":["once","twice"],"note":"不說 one time／two times"},{"label":"三次以上","items":["three times","five times"],"note":"數字 + times"},{"label":"加期間","items":["once a week","twice a month"],"note":"a 就是「每」"}]},
       q: {
         q: '課文說「兩次」的英文是什麼？',
         options: [
@@ -18303,6 +18307,7 @@ window.APP_TEXTS['english|七下|第3單元 時間介系詞'] = {
       terms: [
         { w: '介系詞', d: '表示時間或位置關係的字。' }
       ],
+      viz: {"type":"levels","items":["at：時間點（at 7:00、at noon）","on：某一天（on Monday、on May 5）","in：較長的期間（in May、in 2026、in the morning）","範圍由小到大：at → on → in"]},
       q: {
         q: '課文說某一天要用哪一個介系詞？',
         options: [
@@ -18327,6 +18332,7 @@ window.APP_TEXTS['english|七下|第3單元 時間介系詞'] = {
       terms: [
         { w: '例外', d: '不符合一般規則的情況。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"用 at 的例外","items":["at night","at noon","at midnight"],"note":"✗ in the night"},{"label":"但指定某一天就用 on","items":["on Monday morning"],"note":"因為變成「某一天的早上」"},{"label":"一般的早上用 in","items":["in the morning"],"note":"沒有指定哪一天"}]},
       q: {
         q: '課文說指定某一天的早上要用哪一個介系詞？',
         options: [
@@ -18400,6 +18406,7 @@ window.APP_TEXTS['english|七下|第3單元 時間介系詞'] = {
       terms: [
         { w: 'by', d: '不晚於某個時間。' }
       ],
+      viz: {"type":"compareexp","factor":"by 和 until","a":{"label":"by","note":"不晚於：Finish it by 5.（五點前做完就好）"},"b":{"label":"until","note":"持續到：Wait until 5.（一直等到五點）"},"same":["from A to B 則是「從 A 到 B」"]},
       q: {
         q: '課文說 by 強調什麼？',
         options: [
@@ -18454,6 +18461,7 @@ window.APP_TEXTS['english|七下|第4單元 地點介系詞'] = {
       terms: [
         { w: '介系詞', d: '表示位置關係的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"at（點）","items":["at the door","at the bus stop","at school"],"note":"把地方看成一個點"},{"label":"on（面）","items":["on the table","on the wall"],"note":"有接觸的平面"},{"label":"in（體）","items":["in the box","in the room"],"note":"有內部空間"}]},
       q: {
         q: '課文說 on 表示什麼？',
         options: [
@@ -18502,6 +18510,7 @@ window.APP_TEXTS['english|七下|第4單元 地點介系詞'] = {
       terms: [
         { w: 'over', d: '在正上方且不接觸。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"上方","items":["over（正上方，不接觸）","above（在上方）"],"note":"燈在桌子 over"},{"label":"下方","items":["under（正下方）","below（在下方）"],"note":"貓在椅子 under"},{"label":"內外","items":["inside","outside"],"note":"強調界線"}]},
       q: {
         q: '課文說 on 和 over 的差別是什麼？',
         options: [
@@ -18575,6 +18584,7 @@ window.APP_TEXTS['english|七下|第4單元 地點介系詞'] = {
       terms: [
         { w: '慣用法', d: '約定俗成的固定說法。' }
       ],
+      viz: {"type":"compareexp","factor":"加不加冠詞，意思不同","a":{"label":"at school","note":"在上學、在校（強調在做那件事）"},"b":{"label":"in the school","note":"在校園這個地方裡（強調位置）"},"same":["at home、at work 同理，都不加冠詞"]},
       q: {
         q: '課文說搭公車要用哪一個介系詞？',
         options: [
@@ -18630,6 +18640,7 @@ window.APP_TEXTS['english|七下|第5單元 There is／There are'] = {
       terms: [
         { w: '習慣用法', d: '母語者通常會這樣說。' }
       ],
+      viz: {"type":"compareexp","factor":"「有」怎麼說","a":{"label":"✗ 中式英文","note":"The classroom has thirty students."},"b":{"label":"✔ 正確","note":"There are thirty students in the classroom."},"same":["「某處有某物」一律用 There is／There are"]},
       q: {
         q: '課文說表示某地有某物時英文習慣用什麼？',
         options: [
@@ -18654,6 +18665,7 @@ window.APP_TEXTS['english|七下|第5單元 There is／There are'] = {
       terms: [
         { w: '就近原則', d: '動詞配合最靠近的名詞。' }
       ],
+      viz: {"type":"compareexp","factor":"be 動詞跟著最靠近的名詞","a":{"label":"單數在前","note":"There is a pen and two books.（跟 a pen）"},"b":{"label":"複數在前","note":"There are two books and a pen.（跟 two books）"},"same":["順序換了，動詞就要跟著換"]},
       q: {
         q: '課文說有好幾個東西時 be 動詞跟著哪一個？',
         options: [
@@ -18782,6 +18794,7 @@ window.APP_TEXTS['english|七下|第6單元 形容詞與副詞'] = {
       terms: [
         { w: '副詞', d: '修飾動詞、形容詞或副詞的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"一般","items":["quick → quickly","slow → slowly"],"note":"加 ly"},{"label":"子音 + y","items":["happy → happily","easy → easily"],"note":"y 改成 ily"},{"label":"字尾 le","items":["simple → simply"],"note":"去 e 加 y"},{"label":"不規則","items":["good → well","fast → fast"],"note":"要背"}]},
       q: {
         q: '課文說 good 的副詞是什麼？',
         options: [
@@ -18806,6 +18819,7 @@ window.APP_TEXTS['english|七下|第6單元 形容詞與副詞'] = {
       terms: [
         { w: '陷阱', d: '容易讓人判斷錯誤的地方。' }
       ],
+      viz: {"type":"compareexp","factor":"ly 結尾不一定是副詞","a":{"label":"是形容詞","note":"friendly、lovely、lonely、ugly"},"b":{"label":"所以不能當副詞用","note":"✗ He smiled friendly.　✔ He gave a friendly smile."},"same":["看到 ly 先確認它是形容詞還是副詞"]},
       q: {
         q: '課文說 friendly 是什麼詞類？',
         options: [
@@ -18909,6 +18923,7 @@ window.APP_TEXTS['english|七下|第7單元 過去式 be 動詞'] = {
       terms: [
         { w: '過去式', d: '描述已經發生的事的時態。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"was","items":["I","he","she","it","單數名詞"],"note":"am／is 的過去式"},{"label":"were","items":["you","we","they","複數名詞"],"note":"are 的過去式"},{"label":"用法","items":["和現在式完全一樣，只是時間換成過去"]}]},
       q: {
         q: '課文說 be 動詞的過去式有幾個形式？',
         options: [
@@ -19031,6 +19046,7 @@ window.APP_TEXTS['english|七下|第7單元 過去式 be 動詞'] = {
       terms: [
         { w: '過去進行式', d: '描述過去某時正在做的動作。' }
       ],
+      viz: {"type":"compareexp","factor":"背景與突發","a":{"label":"過去進行式","note":"I was watching TV…（當時正在做的背景）"},"b":{"label":"過去簡單式","note":"…when he called.（突然發生的那件事）"},"same":["一長一短：長的用進行式，短的用簡單式"]},
       q: {
         q: '課文說過去進行式用來描述什麼？',
         options: [
@@ -19061,6 +19077,7 @@ window.APP_TEXTS['english|七下|第8單元 規則動詞過去式'] = {
       terms: [
         { w: '規則動詞', d: '過去式加 ed 的動詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"一般","items":["watch → watched","play → played"],"note":"加 ed"},{"label":"字尾 e","items":["like → liked","live → lived"],"note":"只加 d"},{"label":"子音 + y","items":["study → studied","cry → cried"],"note":"y 改成 ied"},{"label":"重複子音","items":["stop → stopped","plan → planned"],"note":"短母音＋單子音、重音在後"}]},
       q: {
         q: '課文說字尾是 e 的動詞要怎麼加？',
         options: [
@@ -19288,6 +19305,7 @@ window.APP_TEXTS['english|七下|第9單元 不規則動詞過去式'] = {
       terms: [
         { w: '規律', d: '重複出現的變化模式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"i → a → u","items":["sing, sang, sung","drink, drank, drunk"],"note":"最好記的一組"},{"label":"還有","items":["swim, swam, swum","begin, began, begun"],"note":"同一個規律"},{"label":"提醒","items":["有規律的先歸一組記，剩下的再一個一個背"]}]},
       q: {
         q: '課文說 sing 的三態母音怎麼變？',
         options: [
@@ -19415,6 +19433,7 @@ window.APP_TEXTS['english|八上|第1單元 未來式'] = {
       terms: [
         { w: '跡象', d: '事情即將發生的徵兆。' }
       ],
+      viz: {"type":"compareexp","factor":"什麼時候決定的","a":{"label":"will","note":"說話當下才決定，或單純預測：The phone is ringing. I'll get it."},"b":{"label":"be going to","note":"早就計畫好，或有明顯跡象：Look at the clouds. It's going to rain."},"same":["兩者都在講未來"]},
       q: {
         q: '課文說看到烏雲說快下雨了要用哪一個？',
         options: [
@@ -19568,6 +19587,7 @@ window.APP_TEXTS['english|八上|第2單元 比較級'] = {
       terms: [
         { w: '音節', d: '發音的基本單位。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"用 more","items":["more beautiful","more expensive"],"note":"三音節以上"},{"label":"多數兩音節也用 more","items":["more careful","more useful"],"note":"-ful、-ous、-ing 結尾"},{"label":"例外","items":["happy → happier","easy → easier"],"note":"子音 + y 結尾仍加 er"}]},
       q: {
         q: '課文說可不可以同時用 more 和 er？',
         options: [
@@ -19641,6 +19661,7 @@ window.APP_TEXTS['english|八上|第2單元 比較級'] = {
       terms: [
         { w: '原級', d: '形容詞沒有變化的原本形式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"一樣","items":["as tall as"],"note":"as + 原級 + as"},{"label":"沒那麼","items":["not as tall as"],"note":"否定的 as…as"},{"label":"越來越","items":["hotter and hotter"],"note":"比較級 and 比較級"}]},
       q: {
         q: '課文說「越來越熱」要怎麼說？',
         options: [
@@ -19671,6 +19692,7 @@ window.APP_TEXTS['english|八上|第3單元 最高級'] = {
       terms: [
         { w: '最高級', d: '表示三者以上中最那個的形式。' }
       ],
+      viz: {"type":"energyflow","steps":["the","最高級（tallest／most beautiful）","in 或 of + 範圍","→ He is the tallest in the class."]},
       q: {
         q: '課文說最高級前面要加什麼？',
         options: [
@@ -19744,6 +19766,7 @@ window.APP_TEXTS['english|八上|第3單元 最高級'] = {
       terms: [
         { w: '序數', d: '表示第幾的數字。' }
       ],
+      viz: {"type":"compareexp","factor":"序數放哪裡","a":{"label":"✔ 正確","note":"the second largest city（the → 序數 → 最高級）"},"b":{"label":"✗ 錯誤","note":"the largest second city"},"same":["位置是固定的，放錯句子就不通"]},
       q: {
         q: '課文說序數要放在哪裡？',
         options: [
