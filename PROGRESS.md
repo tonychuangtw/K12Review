@@ -4,7 +4,7 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 帶讀配圖收尾中（Tony 2026-08-30：先做完帶讀圖全部，再回頭做誘答重寫）。目前 23.4%（1,645/7,020 段）。下一步：繼續替公民／歷史／地理／地科／化學／生物畫新元件並掛到概念卡，再跑 `node tools/seed-text-viz.js <科> --no-texty --min 0.38 --write`；國語（0%，108 單元 648 段）沒有概念卡系統，要另外設計語文用的元件（部首結構、句型、修辭、文體結構）直接掛到帶讀段落
+NEXT_ACTION: 帶讀配圖收尾中（Tony 2026-08-30：先做完帶讀圖全部，再回頭做誘答重寫）。目前 25.0%（1,758/7,020 段），1,170 單元有 1,003 個至少一張圖。還很低的是公民 6%／歷史 8%／地科 13%／化學 14%／生物 14%／地理 16%，瓶頸是這幾科的概念卡本身九成是文字排版，沒有真圖可接 —— 要照 v85/v86 的做法繼續「畫新元件 → 掛到概念卡（tools/set-card-viz.js）或直接掛到帶讀段落（tools/set-text-viz.js）→ 跑 seed-text-viz --no-texty --min 0.38 --write」
 並指示「先做完 1（配圖）再做 2（誘答重寫）」。
 已完成：數學 215 單元 465 段、自然 125 單元 273 段（十二年級全部），覆蓋率 math 36%／science 37%。
 工具：tools/seed-text-viz.js <科目> [--write]。做法＝把同單元概念卡已配好的 viz 接到帶讀最相似的段落
@@ -30,6 +30,15 @@ galvanic（電化學電池含鹽橋與電子流）、titration（滴定曲線）
 粒子模型、平衡、地層、天體運動…），再接到帶讀與概念卡。這是一件比接圖大的工程，做完再回頭做誘答重寫。
 【做完配圖後】才做誘答重寫：tools/fix-distractors.js（同課其他題的正解當誘答，公民試跑 99.8%→8.5%），
 要逐課抽查再寫入；test/test.js 已有「正解最長」門檻表，每修好一科就把該科上限調降。
+
+【v86 已完成 2026-08-30】國語課文帶讀從零開始有圖：108 篇裡 105 篇有圖（113 段）。
+國語沒有概念卡系統，seed-text-viz 接不到東西，所以新增 tools/set-text-viz.js
+（指定「哪一篇第幾段配哪張圖」，已有圖的段跳過、超過每單元 3 段會擋，可重複跑），
+並新畫十三種語文元件：zhuyinparts／charparts／strokeorder／punctcut／sentparts／
+wordtree／wordscale／rhetoricmap／narrorder／essayform／wenyanflow／readlayer／letterform。
+⚠ 有三筆圖文不符的沒有配（量詞、疊字、成語典故）——寧可留白也不要放錯的圖，
+這是 2026-08-29 Tony 回報「高二地理氣候的圖是生物的細胞層次」那件事的教訓。
+互動元件累計 181 種、479 組設定，widget-audit 全過。
 
 【v85 已完成 2026-08-30】帶讀配圖第三／四輪。
 第三輪＝撿現成的：英文 0→30%（393 段，概念卡本來就有 388 張真圖沒接到）、國小社會 13→26%、
@@ -141,7 +150,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 17:40 台北
+UPDATED: 2026-08-30 19:05 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
