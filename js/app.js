@@ -209,7 +209,16 @@
     // 同義成語題：從 syn 挑一個當正解，干擾項取庫內非同義成語
     var syn = (item.syn || []).slice();
     var ans = syn[Math.floor(Math.random() * syn.length)];
-    var cand = pool.filter(function (o) { return syn.indexOf(o.term) < 0 && o.term !== ans; });
+    /* 誘答不只要「不在本題 syn 裡」，還不能跟本題共用任何一個同義詞
+       —— 例如「虎頭蛇尾」和「淺嘗輒止」都列了「半途而廢」，那兩個互相當誘答
+       等於出了一題有兩個正解。2026-09-06 補（syn 補到 1200/1200 之後才浮現）。 */
+    var cand = pool.filter(function (o) {
+      if (syn.indexOf(o.term) >= 0 || o.term === ans) return false;
+      var os = o.syn || [];
+      if (os.indexOf(item.term) >= 0) return false;
+      for (var i = 0; i < os.length; i++) if (syn.indexOf(os[i]) >= 0) return false;
+      return true;
+    });
     var distractItems = pickOthers(cand, item, 'term', 3);
     var opts = shuffle([ans].concat(distractItems.map(function (o) { return o.term; })));
     return {
