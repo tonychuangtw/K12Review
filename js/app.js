@@ -1403,7 +1403,7 @@
     }
     ph.classList.add('hidden');
     if (!cn) {
-      var sRec = (state.daily || {})[subjKey(today())];
+      var sRec = dailyDoneRec();
       var sCard = document.querySelector('.card[data-go="daily"]');
       $('cnt-daily').textContent = sRec && sRec.done ? '今天完成了 ✅' : '今天還沒做';
       if (sCard) sCard.classList.toggle('daily-done', !!(sRec && sRec.done));
@@ -1430,14 +1430,14 @@
     $('cnt-reading').textContent = pool('reading').length + ' 篇可練';
     // 每日練習紀錄的 key 是「日期|科目|學期」（國語沿用純日期）：這裡若只查純日期，
     // 非國語科目或選了上／下學期時，明明做完了首頁還是寫「今天還沒做」（2026-08-27 codex 體檢）
-    var rec = dailyRec();
+    var rec = dailyDoneRec();
     var dCard = document.querySelector('.card[data-go="daily"]');
     $('cnt-daily').textContent = rec && rec.done ? '今天完成了 ✅' : '今天還沒做';
     if (dCard) dCard.classList.toggle('daily-done', !!(rec && rec.done));
     var due = dueCards().length;
     $('cnt-flash').textContent = due ? due + ' 張到期' : '間隔複習';
     $('cnt-wrong').textContent = state.wrong.length + ' 題待複習';
-    var ds = dailyStreak(state.daily || {}, today());
+    var ds = dailyStreak(subjMap(state.daily || {}), today());
     $('cnt-streak').textContent = ds ? '每日練習連續 ' + ds + ' 天' : '開始累積吧';
     var dueN = state.wrong.filter(function (w) { return (w.due || '') <= today(); }).length;
     if (dueN) $('cnt-wrong').textContent = state.wrong.length + ' 題待複習 · ' + dueN + ' 題到期';
@@ -3120,6 +3120,23 @@
   /* ---------- 每日練習 ---------- */
 
   function dailyRec() { return (state.daily = state.daily || {})[subjKey(today())]; }
+  /* 首頁「今天完成了沒」用這支，不用 dailyRec()。
+     紀錄的 key 帶著學期（日期|科目|上），但「今天做過了沒」是那一天的事實，跟現在把
+     學期晶片切到哪一格無關。兩者綁在一起的後果：手機用上學期做完，iPad 停在「整年」，
+     同一個帳號、資料也同步過去了，iPad 還是寫「今天還沒做」（2026-08-30 Tony 回報，
+     兩台都登入同一個帳號、雲端也確實有 2026-08-30|上 這筆）。
+     所以查的時候把學期那一段忽略掉，只要今天這一科有任何一筆做完就算完成。 */
+  function dailyDoneRec(date) {
+    var d = date || today(), map = state.daily = state.daily || {}, hit = null;
+    Object.keys(map).forEach(function (k) {
+      var p = k.split('|');
+      if (p[0] !== d) return;
+      var subj = (p[1] && ['全', '上', '下'].indexOf(p[1]) < 0) ? p[1] : 'chinese';
+      if (subj !== curSubj()) return;
+      if (!hit || (map[k] && map[k].done)) hit = map[k];
+    });
+    return hit;
+  }
   // 中途進度的範圍鍵：科目＋實際年級組合＋學期。少了任何一項，換範圍後會續做舊範圍的題目
   // 卻把成績記到新範圍（2026-08-27 codex 體檢）。分開存還能讓不同科目各自保留自己的進度。
   function dailyScope() {

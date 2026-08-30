@@ -431,7 +431,20 @@
 
     if (!IN_WEBVIEW) loadGis();
 
-    setInterval(function () { if (signedIn()) push(); }, PUSH_INTERVAL_MS);
+    // ⚠️ 這一輪一定要先 pull 再 push，不可以只呼叫 push()。
+    // push() 開頭有一道「本機沒變動就直接 return」的短路（h === lastPushedHash），
+    // 短路時連那支查雲端的 GET 都不會發 —— 也就是「開著沒動的分頁永遠拉不到別台的新進度」。
+    // 2026-08-30 Tony 回報：同一個帳號，手機做完今日練習（雲端 15:18 已寫入），
+    // 旁邊開著的 iPad 一直顯示「今天還沒做」，就是卡在這裡（那台分頁是可見的，
+    // 不會觸發 visibilitychange，於是唯一的更新機會被短路吃掉）。
+    setInterval(function () {
+      if (!signedIn()) return;
+      if (document.visibilityState === "hidden") return;   // 背景分頁不必輪詢
+      pull(function (err, applied) {
+        if (applied) { safeReload(); return; }
+        push();
+      });
+    }, PUSH_INTERVAL_MS);
     document.addEventListener("visibilitychange", function () {
       if (document.visibilityState === "hidden" && signedIn()) push();
       // 切回分頁時拉一次雲端（2026-08-08）：修「另一台做完、這台舊分頁看不到」——
@@ -439,6 +452,14 @@
       if (document.visibilityState === "visible" && signedIn()) {
         pull(function (err, applied) { if (applied) safeReload(); });
       }
+    });
+    // iPad／桌機常常是「分頁一直可見、只是切走視窗」，那不會觸發 visibilitychange。
+    // 回到視窗、或從上一頁按返回回到這頁（bfcache）時，也各拉一次。
+    window.addEventListener("focus", function () {
+      if (signedIn()) pull(function (err, applied) { if (applied) safeReload(); });
+    });
+    window.addEventListener("pageshow", function (e) {
+      if (e.persisted && signedIn()) pull(function (err, applied) { if (applied) safeReload(); });
     });
     // 開頁時若已是登入狀態（30 天 sess token）：續期一次再拉雲端進度
     if (signedIn()) {
