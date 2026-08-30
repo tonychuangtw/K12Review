@@ -15,6 +15,10 @@ const arr = window.APP_DATA[SUBJ];
 let todo = arr.filter((x) => x.exp && x.exp.indexOf('各自都對，但不是這一題在問的') >= 0);
 if (FROM) todo = todo.filter((x) => x.id >= FROM);
 console.log('# ' + SUBJ + ' 待修 ' + todo.length + ' 題，以下列出 ' + Math.min(N, todo.length) + ' 題');
+/* ✅ 與 📚 兩行要原文照抄回 patch 的 exp（確認題以它們為正解），所以一併印出來 */
 todo.slice(0, N).forEach((x) => {
-  console.log(x.id + '｜' + x.book + '｜' + x.lesson + '｜' + x.q + '｜正解[' + String(x.options[x.answer]).length + ']：' + x.options[x.answer]);
+  const L = String(x.exp || '').split('\n');
+  console.log(x.id + '｜' + x.book + '｜' + x.lesson + '｜' + x.q + '｜正解[' + String(x.options[x.answer]).length + ']');
+  console.log('   ' + (L.find((l) => l.indexOf('✅') === 0) || ''));
+  console.log('   ' + (L.find((l) => l.indexOf('📚') === 0) || ''));
 });
