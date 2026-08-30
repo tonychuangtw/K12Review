@@ -3850,7 +3850,7 @@ window.APP_CHECKS = Object.assign(window.APP_CHECKS || {}, {
   "e3846": {"q":"解析標出的課綱重點是什麼？","o":["以 Where 詢問地點", "in the＋場所", "場所與活動的配對", "Where is ...? 的回答"],"a":1},
   "e3847": {"q":"解析怎麼說明正解？","o":["It is on the second floor.——Where 問地點，要回答位置", "library——在圖書館", "playground（操場、遊戲場）", "office（辦公室）——老師常在辦公室"],"a":2},
   "e3848": {"q":"解析說其他選項各錯在哪？","o":["English 是英文；science 是自然；music 是音樂", "社會是 social studies；體育是 P.E.；美術是 art", "音樂是 music；美術是 art；電腦是 computer", "老師、上學、簡答都不是科目"],"a":3},
-  "e3849": {"q":"解析標出的課綱重點是什麼？","o":["школ身分單字", "校園裡的人", "職業與工作場所", "職業類字彙"],"a":0},
+  "e3849": {"q":"解析標出的課綱重點是什麼？","o":["學校與身分的單字", "校園裡的人", "職業與工作場所", "職業類字彙"],"a":0},
   "e3850": {"q":"解析怎麼說明正解？","o":["library——圖書館是 library", "保健室——受傷或不舒服時去找護理師", "classroom——教室是 classroom（class ＋ room）", "操場（遊戲場）——playground 是玩耍運動的地方"],"a":1},
   "e3851": {"q":"解析說其他選項各錯在哪？","o":["English 是英文；science 是自然；music 是音樂", "社會是 social studies；體育是 P.E.；美術是 art", "英文是 English；音樂是 music；美術是 art", "音樂是 music；美術是 art；電腦是 computer"],"a":2},
   "e3852": {"q":"解析標出的課綱重點是什麼？","o":["以 Where 詢問地點", "in the＋場所", "場所與活動的配對", "Where is ...? 的回答"],"a":3},

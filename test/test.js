@@ -762,6 +762,26 @@ console.log('解析確認題');
     (over.length ? '——' + over.map((r) => r.k + ' ' + pct2(r.pct).toFixed(1) + '%').join('、') : ''));
 }
 function pct2(v) { return Math.round(v * 10) / 10; }
+/* ── 自編原創題庫不可以混進西里爾字母／假名／諺文（2026-08-30 加）──────────
+   教材與帶讀本來就有這道守門，題庫卻沒有。實際抓到三筆：英文一題的課綱重點
+   寫成「школ身分單字」（西里爾）、自然與英文各一處用了片假名的中點「・」。
+   ⛔ 匯入題庫（家長提供的題本轉檔）不在此限：那是照原書轉的，「・」本來就是
+   原書的排版符號，全庫用了 4998 次。 */
+{
+  const ORIG = ['social', 'science', 'english', 'math', 'civics', 'geography', 'history',
+                'physics', 'chemistry', 'biology', 'earth', 'idioms', 'phonics', 'chars', 'slang'];
+  const bad = [];
+  ORIG.forEach((k) => {
+    if (!Array.isArray(D[k])) return;
+    D[k].forEach((it) => {
+      const t = [it.q, ...(it.options || []), it.exp, it.deep].join('');
+      if (/[\u0400-\u04FF\u3040-\u30FF\uAC00-\uD7AF]/.test(t)) bad.push(k + '/' + it.id);
+    });
+  });
+  ok(!bad.length, '自編原創題庫沒有混進西里爾字母／假名／諺文' +
+    (bad.length ? '——' + bad.slice(0, 8).join('、') : ''));
+}
+
 
 console.log('題數清單 counts.js');
 {
