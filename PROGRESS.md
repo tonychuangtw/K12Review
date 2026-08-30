@@ -45,7 +45,15 @@ NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
      換掉條目時**一定要同步改 checks-*.js**，test.js 已加守門：確認題題目裡「」引的詞必須在該條目資料裡找得到。
  (6) src 歷屆出處：全庫目前 0 條。做法＝找教育部／心測中心公開釋出的會考、基測題目，據此新增題目並標真實出處；⛔ 不可把既有自撰題回頭貼上假出處。
  (7) 匯入題庫（英文／數學／高中七科）＝ Tony 之後陸續給題本，不主動做。
- (8) 高中七科擴題：物化生地科史地公各 1,728 題（每年級 576），要往上補。
+ (8) 高中七科擴題 ← 2026-09-06 掃出擋路的問題，已問 Tony 要走哪條路（甲修品質／乙先擴題／丙兩者）：
+     高中七科 12,096 題裡有 10,951 題（90.5%）的三個誘答是從**同一課別張卡片借來的句子**，
+     解析裡還留著自白「（另外三個選項是本課『○○』的說明，各自都對，但不是這一題在問的。）」；
+     93.6% 的「❌ 其他選項」只有一句話、沒有逐個交代。
+     判斷方式：`grep -c "各自都對，但不是這一題在問的" js/data/<科>.js`。
+     國小自然／社會／數學／英文沒有這個問題（那 1,910 題是 2026-09-05 逐題人工重寫的）。
+     ⚠ 高中七科在誘答重寫三輪裡幾乎沒被抓到，因為借來的句子天生就夠長，長度門檻抓不到。
+     已知個案：ph0001「下列哪一組全部都是 SI 基本單位」的誘答「克耳文（K）」本身也是基本單位＝兩個正解。
+     我的建議是先修品質再擴題。
 
 【誘答重寫流程（第二、三輪共用）】逐題手寫三個誘答的 JSON → `python3 tools/pad-distractors.py <file>` → `node tools/check-distractor-len.js <file>` → 手補報「需手補」的 → `node tools/set-distractors.js <file> --write` → `node test/test.js` → `python3 tools/stamp-version.py 202609XXy` → commit push。每批 60–70 題。長度標準：`cor-max>=4 && cor>max*1.25` 兩條同時成立才算太短。⛔ 不可用 tools/fix-distractors.js 的「借同課正解」（會借到另一個也對的答案）；⛔ 英文的音標題與數學的純計算題不改。
 【已完成】誘答重寫第一階段（正解≥15字且最長誘答≤8字）11 科 4,143 題歸零；第二階段（多 ≥10 字）國小自然 511／國小社會 830／數學 205／英文 262 共 1,808 題歸零（2026-09-03，v89）。
@@ -209,7 +217,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-06 23:55 台北
+UPDATED: 2026-09-07 00:20 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
