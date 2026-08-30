@@ -2534,6 +2534,7 @@ window.APP_TEXTS['geography|十下|第9單元 區域比較與整合'] = {
       terms: [
         { w: '環境限制', d: '自然條件對人類活動設下的邊界。' }
       ],
+      viz: {"type":"climograph","set":1},
       q: {
         q: '課文說自然條件與發展結果的關係是什麼？',
         options: [
@@ -3707,6 +3708,7 @@ window.APP_TEXTS['geography|十一上|第8單元 空間資訊應用'] = {
       terms: [
         { w: '潛勢圖', d: '標示各地災害可能性的地圖。' }
       ],
+      viz: {"type":"contour","mode":"slope"},
       q: {
         q: '課文說防災應用的基礎是什麼？',
         options: [
@@ -3852,6 +3854,7 @@ window.APP_TEXTS['geography|十一上|第9單元 地理視野'] = {
       terms: [
         { w: '尺度', d: '分析所採用的空間範圍大小。' }
       ],
+      viz: {"type":"mapdir"},
       q: {
         q: '課文說使用全國平均值的風險是什麼？',
         options: [
@@ -4335,6 +4338,7 @@ window.APP_TEXTS['geography|十一下|第3單元 觀光與文化'] = {
       terms: [
         { w: '文化商品化', d: '文化被包裝成商品出售的現象。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說觀光對當地文化可能造成什麼影響？',
         options: [
@@ -4411,6 +4415,7 @@ window.APP_TEXTS['geography|十一下|第4單元 環境與社會'] = {
       terms: [
         { w: '環境正義', d: '關注環境負擔分配是否公平的主張。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說弱勢地區承受較多環境風險的原因是什麼？',
         options: [
@@ -4503,6 +4508,7 @@ window.APP_TEXTS['geography|十一下|第4單元 環境與社會'] = {
       terms: [
         { w: '鄰避效應', d: '居民反對必要設施設在自家附近的現象。' }
       ],
+      viz: {"type":"externality"},
       q: {
         q: '課文說面對鄰避問題的關鍵是什麼？',
         options: [
@@ -4556,6 +4562,7 @@ window.APP_TEXTS['geography|十一下|第5單元 全球議題'] = {
       terms: [
         { w: '相對貧窮', d: '相對於社會平均水準的貧窮狀態。' }
       ],
+      viz: {"type":"lorenz","k":3.6},
       q: {
         q: '課文說教育與健康差距影響深遠的原因是什麼？',
         options: [
@@ -4579,6 +4586,7 @@ window.APP_TEXTS['geography|十一下|第5單元 全球議題'] = {
       terms: [
         { w: '被迫遷移', d: '因威脅而非自願離開家園的移動。' }
       ],
+      viz: {"type":"worldflow"},
       q: {
         q: '課文說難民議題常被忽略的面向是什麼？',
         options: [
@@ -4724,6 +4732,7 @@ window.APP_TEXTS['geography|十一下|第6單元 地理實察'] = {
       terms: [
         { w: '田野筆記', d: '在現場即時記錄觀察內容的筆記。' }
       ],
+      viz: {"type":"mapdir"},
       q: {
         q: '課文說最有價值的線索常常是什麼？',
         options: [
@@ -4892,6 +4901,7 @@ window.APP_TEXTS['geography|十一下|第7單元 綜合演練（一）'] = {
       terms: [
         { w: '雨溫圖', d: '同時呈現氣溫與降水的圖表。' }
       ],
+      viz: {"type":"climograph","set":3},
       q: {
         q: '課文說判斷南北半球的方法是什麼？',
         options: [
@@ -4991,6 +5001,7 @@ window.APP_TEXTS['geography|十一下|第8單元 綜合演練（二）'] = {
       terms: [
         { w: '人地互動', d: '人類活動與自然環境互相影響的關係。' }
       ],
+      viz: {"type":"contour","mode":"slope"},
       q: {
         q: '課文說回答地理題時要同時考慮什麼？',
         options: [
@@ -5305,6 +5316,7 @@ window.APP_TEXTS['geography|十二上|第1單元 自然地理總複習'] = {
       terms: [
         { w: '氣候因子', d: '影響某地氣候特徵的各項因素。' }
       ],
+      viz: {"type":"climograph","set":2},
       q: {
         q: '課文說學氣候比背分類表更有用的是什麼？',
         options: [
@@ -5619,6 +5631,7 @@ window.APP_TEXTS['geography|十二上|第3單元 區域地理總複習'] = {
       terms: [
         { w: '出口導向', d: '以外銷帶動成長的發展策略。' }
       ],
+      viz: {"type":"climograph","set":5},
       q: {
         q: '課文說東南亞文化多元的歷史原因是什麼？',
         options: [
@@ -5787,6 +5800,7 @@ window.APP_TEXTS['geography|十二上|第4單元 空間分析總複習'] = {
       terms: [
         { w: '分級方式', d: '把連續資料切成等級的規則。' }
       ],
+      viz: {"type":"contour","mode":"slope"},
       q: {
         q: '課文說製圖時必須說明什麼？',
         options: [
@@ -5886,6 +5900,7 @@ window.APP_TEXTS['geography|十二上|第5單元 議題探究'] = {
       terms: [
         { w: '問題界定', d: '把關切轉化為可分析的具體問題。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說界定問題時要同時確定什麼？',
         options: [
@@ -6031,6 +6046,7 @@ window.APP_TEXTS['geography|十二上|第6單元 學測綜合演練'] = {
       terms: [
         { w: '判讀步驟', d: '有順序解讀圖表的方法。' }
       ],
+      viz: {"type":"climograph","set":4},
       q: {
         q: '課文說判讀圖表時最後一步是什麼？',
         options: [
@@ -6222,6 +6238,7 @@ window.APP_TEXTS['geography|十二上|第7單元 地理與生活'] = {
       terms: [
         { w: '體感溫度', d: '考慮濕度與風後人體感受的溫度。' }
       ],
+      viz: {"type":"climograph","set":5},
       q: {
         q: '課文說降雨機率代表的是什麼？',
         options: [
@@ -6344,6 +6361,7 @@ window.APP_TEXTS['geography|十二上|第8單元 永續與未來'] = {
       terms: [
         { w: '公正轉型', d: '轉型過程中兼顧受影響群體權益的原則。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"火力","value":48},{"label":"燃氣","value":26},{"label":"再生能源","value":18},{"label":"其他","value":8}]},
       q: {
         q: '課文說能源轉型要顧及什麼？',
         options: [
@@ -6535,6 +6553,7 @@ window.APP_TEXTS['geography|十二上|第9單元 地理素養總結'] = {
       terms: [
         { w: '空間正義', d: '關注資源與風險空間分配公平性的主張。' }
       ],
+      viz: {"type":"lorenz","k":3},
       q: {
         q: '課文說地理與公平連在一起的原因是什麼？',
         options: [
@@ -6588,6 +6607,7 @@ window.APP_TEXTS['geography|十二下|第1單元 臺灣專題：水土'] = {
       terms: [
         { w: '人均水量', d: '平均每人可分配到的水資源量。' }
       ],
+      viz: {"type":"taiwan"},
       q: {
         q: '課文說臺灣缺水的原因不包含下列哪一項？',
         options: [
@@ -6657,6 +6677,7 @@ window.APP_TEXTS['geography|十二下|第1單元 臺灣專題：水土'] = {
       terms: [
         { w: '侵蝕速率', d: '單位時間內土壤被移除的量。' }
       ],
+      viz: {"type":"rivercross","width":100,"boat":4,"flow":2},
       q: {
         q: '課文說臺灣侵蝕速率高的原因不包含下列哪一項？',
         options: [
@@ -7173,6 +7194,7 @@ window.APP_TEXTS['geography|十二下|第5單元 全球專題：移動'] = {
       terms: [
         { w: '人口遷移', d: '人群跨區域或跨國移動居住。' }
       ],
+      viz: {"type":"worldflow"},
       q: {
         q: '課文說人口移動的影響範圍是什麼？',
         options: [
@@ -7196,6 +7218,7 @@ window.APP_TEXTS['geography|十二下|第5單元 全球專題：移動'] = {
       terms: [
         { w: '供應鏈韌性', d: '供應體系承受中斷並快速恢復的能力。' }
       ],
+      viz: {"type":"worldflow"},
       q: {
         q: '課文說全球分工需要平衡什麼？',
         options: [
@@ -7410,6 +7433,7 @@ window.APP_TEXTS['geography|十二下|第6單元 探究實作'] = {
       terms: [
         { w: '替代解釋', d: '同樣能說明現象的其他可能原因。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說提出解釋後還要做什麼？',
         options: [
@@ -7486,6 +7510,7 @@ window.APP_TEXTS['geography|十二下|第7單元 分科綜合演練（一）'] =
       terms: [
         { w: '尺度一致', d: '比較的資料採用相同的空間或時間範圍。' }
       ],
+      viz: {"type":"contour","mode":"slope"},
       q: {
         q: '課文說整合多張圖時要先確認什麼？',
         options: [
@@ -7677,6 +7702,7 @@ window.APP_TEXTS['geography|十二下|第8單元 分科綜合演練（二）'] =
       terms: [
         { w: '政策評估', d: '分析政策目標手段與影響的過程。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說政策評估要涵蓋的面向不包含下列哪一項？',
         options: [
@@ -7799,6 +7825,7 @@ window.APP_TEXTS['geography|十二下|第9單元 地理的未來'] = {
       terms: [
         { w: '資料倫理', d: '資料蒐集與使用應遵守的道德規範。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說空間分析可能被誤用於什麼？',
         options: [

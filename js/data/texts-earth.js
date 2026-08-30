@@ -2571,6 +2571,7 @@ window.APP_TEXTS['earth|十下|第9單元 地科的觀測與應用'] = {
       terms: [
         { w: '數值預報', d: '以數學模式計算未來天氣的方法。' }
       ],
+      viz: {"type":"weathermap"},
       q: {
         q: '課文說預報時間越長準確度下降的原因是什麼？',
         options: [
@@ -3739,6 +3740,7 @@ window.APP_TEXTS['earth|十一上|第8單元 地球環境的監測'] = {
       terms: [
         { w: '地層下陷', d: '地表因地下水超抽等原因而下沉。' }
       ],
+      viz: {"type":"plates","mode":"collide"},
       q: {
         q: '課文說監測地表緩慢位移可以用什麼方法？',
         options: [
@@ -3838,6 +3840,7 @@ window.APP_TEXTS['earth|十一上|第9單元 地球科學與社會'] = {
       terms: [
         { w: '風險溝通', d: '把風險資訊清楚傳達給大眾的過程。' }
       ],
+      viz: {"type":"riskmatrix"},
       q: {
         q: '課文說過度保證的後果是什麼？',
         options: [
@@ -4153,6 +4156,7 @@ window.APP_TEXTS['earth|十一下|第2單元 大氣汙染與空品'] = {
       terms: [
         { w: '逆溫', d: '氣溫隨高度上升的異常分布，抑制對流。' }
       ],
+      viz: {"type":"weathermap"},
       q: {
         q: '課文說逆溫層對空氣品質的影響是什麼？',
         options: [
@@ -4298,6 +4302,7 @@ window.APP_TEXTS['earth|十一下|第3單元 水汙染與水質'] = {
       terms: [
         { w: '優養化', d: '營養鹽過多造成藻類大量繁殖的現象。' }
       ],
+      viz: {"type":"cycle","steps":["營養鹽流入","藻類大量繁殖","藻體分解耗氧","水中缺氧、生物死亡"]},
       q: {
         q: '課文說優養化造成生物死亡的直接原因是什麼？',
         options: [
@@ -4420,6 +4425,7 @@ window.APP_TEXTS['earth|十一下|第4單元 土壤與土地'] = {
       terms: [
         { w: '土壤剖面', d: '從地表往下切開所見的土壤分層。' }
       ],
+      viz: {"type":"strata"},
       q: {
         q: '課文說土壤最上層顏色較深的原因是什麼？',
         options: [
@@ -4880,6 +4886,7 @@ window.APP_TEXTS['earth|十一下|第7單元 地科探究與實作'] = {
       terms: [
         { w: '取樣頻率', d: '單位時間內進行觀測的次數。' }
       ],
+      viz: {"type":"expdesign"},
       q: {
         q: '課文說決定觀測頻率的依據是什麼？',
         options: [
@@ -5048,6 +5055,7 @@ window.APP_TEXTS['earth|十一下|第8單元 綜合演練（一）'] = {
       terms: [
         { w: '鋒面', d: '兩個性質不同氣團的交界。' }
       ],
+      viz: {"type":"weathermap"},
       q: {
         q: '課文說等壓線疏密可以判斷什麼？',
         options: [
@@ -5124,6 +5132,7 @@ window.APP_TEXTS['earth|十一下|第9單元 綜合演練（二）'] = {
       terms: [
         { w: '成因連結', d: '不同現象共有的根本原因。' }
       ],
+      viz: {"type":"riskmatrix"},
       q: {
         q: '課文說台灣地形與地震的共同成因是什麼？',
         options: [
@@ -6047,6 +6056,7 @@ window.APP_TEXTS['earth|十二上|第6單元 學測綜合演練'] = {
       terms: [
         { w: '判讀步驟', d: '有順序地解讀圖表的方法。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說判讀圖表的第一步是什麼？',
         options: [
@@ -6315,6 +6325,7 @@ window.APP_TEXTS['earth|十二上|第8單元 探索與未來'] = {
       terms: [
         { w: '樣本回收', d: '把太空天體物質帶回地球分析的任務。' }
       ],
+      viz: {"type":"solarsys"},
       q: {
         q: '課文說太空樣本的價值是什麼？',
         options: [
@@ -6506,6 +6517,7 @@ window.APP_TEXTS['earth|十二上|第9單元 地科學習的整體視野'] = {
       terms: [
         { w: '可接受風險', d: '社會願意承擔的風險程度。' }
       ],
+      viz: {"type":"riskmatrix"},
       q: {
         q: '課文說防災的合理目標是什麼？',
         options: [
@@ -6751,6 +6763,7 @@ window.APP_TEXTS['earth|十二下|第2單元 資源與永續'] = {
       terms: [
         { w: '能源自給率', d: '本地生產能源佔總需求的比例。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"火力","value":48},{"label":"燃氣","value":26},{"label":"再生能源","value":18},{"label":"其他","value":8}]},
       q: {
         q: '課文說節能的雙重好處是什麼？',
         options: [
@@ -6896,6 +6909,7 @@ window.APP_TEXTS['earth|十二下|第3單元 防災與韌性'] = {
       terms: [
         { w: '建築規範', d: '規定建築物耐震等安全標準的法規。' }
       ],
+      viz: {"type":"riskmatrix"},
       q: {
         q: '課文說減災投入的特點是什麼？',
         options: [
@@ -7064,6 +7078,7 @@ window.APP_TEXTS['earth|十二下|第4單元 探究實作'] = {
       terms: [
         { w: '方法描述', d: '足以讓他人重現研究的作法說明。' }
       ],
+      viz: {"type":"expdesign"},
       q: {
         q: '課文說方法要寫到什麼程度？',
         options: [
@@ -7209,6 +7224,7 @@ window.APP_TEXTS['earth|十二下|第5單元 分科綜合演練（一）'] = {
       terms: [
         { w: '客觀描述', d: '先陳述觀察到的事實而不加解釋。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說分析圖表的正確順序是什麼？',
         options: [
@@ -7354,6 +7370,7 @@ window.APP_TEXTS['earth|十二下|第6單元 分科綜合演練（二）'] = {
       terms: [
         { w: '表面矛盾', d: '因條件不同而看似衝突的結果。' }
       ],
+      viz: {"type":"sourcelevel"},
       q: {
         q: '課文說資料看似衝突時，常見的原因是什麼？',
         options: [
@@ -7499,6 +7516,7 @@ window.APP_TEXTS['earth|十二下|第7單元 科學與社會'] = {
       terms: [
         { w: '標題誤導', d: '標題與內文實質不符的呈現方式。' }
       ],
+      viz: {"type":"sourcelevel"},
       q: {
         q: '課文說看到驚人標題時該怎麼做？',
         options: [
@@ -7621,6 +7639,7 @@ window.APP_TEXTS['earth|十二下|第8單元 地球與人類的未來'] = {
       terms: [
         { w: '情境分析', d: '以不同假設推演出多種可能未來。' }
       ],
+      viz: {"type":"greenhouse"},
       q: {
         q: '課文說模式中的情境代表什麼？',
         options: [
@@ -7743,6 +7762,7 @@ window.APP_TEXTS['earth|十二下|第9單元 總結與展望'] = {
       terms: [
         { w: '地球科學', d: '研究地球與其所處環境的學科總稱。' }
       ],
+      viz: {"type":"cycle","steps":["大氣圈","水圈","岩石圈","生物圈互相牽動"]},
       q: {
         q: '課文說地球科學涵蓋哪四個主要領域？',
         options: [

@@ -17,6 +17,7 @@ window.APP_TEXTS['civics|十上|第1單元 自我與社會'] = {
       terms: [
         { w: '社會化', d: '個人學習社會規範與角色的過程。' }
       ],
+      viz: {"type":"cycle","steps":["接觸社會情境","觀察與學習規範","內化為行為準則","在新情境中再調整"]},
       q: {
         q: '課文說社會化會持續多久？',
         options: [
@@ -109,6 +110,7 @@ window.APP_TEXTS['civics|十上|第1單元 自我與社會'] = {
       terms: [
         { w: '社會流動', d: '個人或群體在社會階層間的移動。' }
       ],
+      viz: {"type":"lorenz","k":2.6},
       q: {
         q: '課文說社會流動的主要管道是什麼？',
         options: [
@@ -185,6 +187,7 @@ window.APP_TEXTS['civics|十上|第2單元 家庭與性別'] = {
       terms: [
         { w: '多元家庭', d: '各種不同組成形式的家庭。' }
       ],
+      viz: {"type":"demotrans"},
       q: {
         q: '課文說把家庭定義得太窄會造成什麼？',
         options: [
@@ -453,6 +456,7 @@ window.APP_TEXTS['civics|十上|第4單元 憲法與人權'] = {
       terms: [
         { w: '根本大法', d: '效力最高、其他法律不得牴觸的法。' }
       ],
+      viz: {"type":"lawrank"},
       q: {
         q: '課文說憲法的兩大功能是什麼？',
         options: [
@@ -522,6 +526,7 @@ window.APP_TEXTS['civics|十上|第4單元 憲法與人權'] = {
       terms: [
         { w: '違憲審查', d: '審查法律是否牴觸憲法的制度。' }
       ],
+      viz: {"type":"courtlevel"},
       q: {
         q: '課文說違憲審查的作用是什麼？',
         options: [
@@ -814,6 +819,7 @@ window.APP_TEXTS['civics|十上|第6單元 選舉與民意'] = {
       terms: [
         { w: '抽樣', d: '從母體中選取部分對象進行調查。' }
       ],
+      viz: {"type":"bargraph","unit":"%","data":[{"label":"支持甲案","value":42},{"label":"支持乙案","value":31},{"label":"沒意見","value":19},{"label":"拒答","value":8}]},
       q: {
         q: '課文說看民調時要注意什麼？',
         options: [
@@ -913,6 +919,7 @@ window.APP_TEXTS['civics|十上|第7單元 法律與生活'] = {
       terms: [
         { w: '法律位階', d: '不同法規之間效力高低的順序。' }
       ],
+      viz: {"type":"lawrank"},
       q: {
         q: '課文說命令與法律牴觸時如何處理？',
         options: [
@@ -982,6 +989,7 @@ window.APP_TEXTS['civics|十上|第7單元 法律與生活'] = {
       terms: [
         { w: '定型化契約', d: '由一方預先擬定的制式契約條款。' }
       ],
+      viz: {"type":"contractflow"},
       q: {
         q: '課文說簽契約前最重要的是什麼？',
         options: [
@@ -1350,6 +1358,7 @@ window.APP_TEXTS['civics|十下|第1單元 社會團體與組織'] = {
       terms: [
         { w: '科層組織', d: '依階層與規則運作的正式組織。' }
       ],
+      viz: {"type":"orgchart"},
       q: {
         q: '課文說組織規則與階層的作用是什麼？',
         options: [
@@ -1541,6 +1550,7 @@ window.APP_TEXTS['civics|十下|第2單元 媒體與資訊'] = {
       terms: [
         { w: '同溫層', d: '只接觸相似意見而形成的封閉資訊環境。' }
       ],
+      viz: {"type":"payoff"},
       q: {
         q: '課文說對抗同溫層的方式是什麼？',
         options: [
@@ -1686,6 +1696,7 @@ window.APP_TEXTS['civics|十下|第3單元 勞動與經濟生活'] = {
       terms: [
         { w: '非典型就業', d: '有別於全職長期僱用的工作型態。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"全時受僱","value":62},{"label":"部分工時","value":14},{"label":"派遣與外包","value":11},{"label":"自營與接案","value":13}]},
       q: {
         q: '課文說非典型就業的主要問題是什麼？',
         options: [
@@ -2146,6 +2157,7 @@ window.APP_TEXTS['civics|十下|第6單元 國際關係'] = {
       terms: [
         { w: '跨國治理', d: '多國共同處理超越國界問題的機制。' }
       ],
+      viz: {"type":"payoff"},
       q: {
         q: '課文說跨國合作進展緩慢的原因是什麼？',
         options: [
@@ -2345,6 +2357,7 @@ window.APP_TEXTS['civics|十下|第8單元 環境與永續'] = {
       terms: [
         { w: '跨世代影響', d: '當代行為對後代造成的影響。' }
       ],
+      viz: {"type":"payoff"},
       q: {
         q: '課文說環境問題難以處理的原因不包含下列哪一項？',
         options: [
@@ -2368,6 +2381,7 @@ window.APP_TEXTS['civics|十下|第8單元 環境與永續'] = {
       terms: [
         { w: '外部成本內化', d: '把環境社會代價計入產品價格。' }
       ],
+      viz: {"type":"externality"},
       q: {
         q: '課文說碳定價的目的是什麼？',
         options: [
@@ -2536,6 +2550,7 @@ window.APP_TEXTS['civics|十下|第9單元 公民行動'] = {
       terms: [
         { w: '集體行動', d: '多人共同採取的一致行動。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說組織的價值是什麼？',
         options: [
@@ -2681,6 +2696,7 @@ window.APP_TEXTS['civics|十一上|第1單元 民法基礎'] = {
       terms: [
         { w: '意思表示', d: '表達內心欲發生法律效果的行為。' }
       ],
+      viz: {"type":"contractflow"},
       q: {
         q: '課文說契約成立的要件是什麼？',
         options: [
@@ -2803,6 +2819,7 @@ window.APP_TEXTS['civics|十一上|第2單元 刑法基礎'] = {
       terms: [
         { w: '構成要件', d: '法律所規定犯罪成立的具體條件。' }
       ],
+      viz: {"type":"crimetest"},
       q: {
         q: '課文說犯罪成立需要幾個要素？',
         options: [
@@ -2849,6 +2866,7 @@ window.APP_TEXTS['civics|十一上|第2單元 刑法基礎'] = {
       terms: [
         { w: '正當防衛', d: '為排除現在不法侵害所為的必要防衛行為。' }
       ],
+      viz: {"type":"crimetest"},
       q: {
         q: '課文說主張正當防衛的限制是什麼？',
         options: [
@@ -3187,6 +3205,7 @@ window.APP_TEXTS['civics|十一上|第4單元 人權議題'] = {
       terms: [
         { w: '利益衡量', d: '在具體案件中權衡相衝突權利的方法。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說權利衝突時應該怎麼處理？',
         options: [
@@ -3409,6 +3428,7 @@ window.APP_TEXTS['civics|十一上|第6單元 國際經濟'] = {
       terms: [
         { w: '匯率', d: '兩種貨幣之間的兌換比例。' }
       ],
+      viz: {"type":"linechart","zero":false,"unit":"元","data":[{"label":"1月","value":31.2},{"label":"3月","value":30.8},{"label":"5月","value":31.5},{"label":"7月","value":32.4},{"label":"9月","value":31},{"label":"11月","value":29.8}]},
       q: {
         q: '課文說本國貨幣貶值的影響是什麼？',
         options: [
@@ -3577,6 +3597,7 @@ window.APP_TEXTS['civics|十一上|第7單元 政治參與進階'] = {
       terms: [
         { w: '公民投票', d: '由公民直接就特定議題投票決定。' }
       ],
+      viz: {"type":"bargraph","unit":"%","data":[{"label":"同意","value":38},{"label":"不同意","value":34},{"label":"未投票","value":28}]},
       q: {
         q: '課文說公民投票的限制是什麼？',
         options: [
@@ -3676,6 +3697,7 @@ window.APP_TEXTS['civics|十一上|第8單元 全球議題與公民'] = {
       terms: [
         { w: '搭便車', d: '不付出卻享用共同成果的行為。' }
       ],
+      viz: {"type":"payoff"},
       q: {
         q: '課文說解決集體行動困境需要什麼？',
         options: [
@@ -3821,6 +3843,7 @@ window.APP_TEXTS['civics|十一上|第9單元 公民探究'] = {
       terms: [
         { w: '爭議類型', d: '爭議屬於事實層面或價值層面的區分。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說界定問題時要分辨什麼？',
         options: [
@@ -4352,6 +4375,7 @@ window.APP_TEXTS['civics|十一下|第3單元 文化與認同'] = {
       terms: [
         { w: '刻板印象', d: '對特定群體過於簡化的固定看法。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說面對文化差異時最有幫助的是什麼？',
         options: [
@@ -4404,6 +4428,7 @@ window.APP_TEXTS['civics|十一下|第4單元 科技與社會'] = {
       terms: [
         { w: '知情同意', d: '在充分了解後自願同意的程序。' }
       ],
+      viz: {"type":"externality"},
       q: {
         q: '課文說實質知情同意困難的原因是什麼？',
         options: [
@@ -4526,6 +4551,7 @@ window.APP_TEXTS['civics|十一下|第5單元 公共政策分析'] = {
       terms: [
         { w: '問題界定', d: '明確描述待解決問題的過程。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說政策分析最關鍵的一步是什麼？',
         options: [
@@ -4572,6 +4598,7 @@ window.APP_TEXTS['civics|十一下|第5單元 公共政策分析'] = {
       terms: [
         { w: '政策評估', d: '依標準衡量政策優劣的分析。' }
       ],
+      viz: {"type":"cycle","steps":["問題認定","規劃與合法化","執行","評估與修正"]},
       q: {
         q: '課文列出的評估標準不包含下列哪一項？',
         options: [
@@ -4817,6 +4844,7 @@ window.APP_TEXTS['civics|十一下|第7單元 法律實務'] = {
       terms: [
         { w: '舉證責任', d: '主張事實者須提出證據的責任。' }
       ],
+      viz: {"type":"contractflow"},
       q: {
         q: '課文說重要約定為什麼要留書面？',
         options: [
@@ -5131,6 +5159,7 @@ window.APP_TEXTS['civics|十一下|第9單元 公民行動實踐'] = {
       terms: [
         { w: '資源盤點', d: '評估可運用的人力時間與資金。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說高估自己的後果是什麼？',
         options: [
@@ -5345,6 +5374,7 @@ window.APP_TEXTS['civics|十二上|第1單元 社會學總複習'] = {
       terms: [
         { w: '代間傳遞', d: '優勢或劣勢從父母傳給子女的現象。' }
       ],
+      viz: {"type":"lorenz","k":2.6},
       q: {
         q: '課文說教育對不平等的作用取決於什麼？',
         options: [
@@ -5544,6 +5574,7 @@ window.APP_TEXTS['civics|十二上|第3單元 法律學總複習'] = {
       terms: [
         { w: '法律位階', d: '不同法規效力高低的順序。' }
       ],
+      viz: {"type":"lawrank"},
       q: {
         q: '課文說法律牴觸憲法時如何處理？',
         options: [
@@ -5567,6 +5598,7 @@ window.APP_TEXTS['civics|十二上|第3單元 法律學總複習'] = {
       terms: [
         { w: '法域', d: '法律依規範對象所分的領域。' }
       ],
+      viz: {"type":"crimetest"},
       q: {
         q: '課文說同一事件可能涉及什麼？',
         options: [
@@ -5881,6 +5913,7 @@ window.APP_TEXTS['civics|十二上|第5單元 議題整合'] = {
       terms: [
         { w: '利害關係人', d: '受議題影響或能影響議題的各方。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說分析時要特別注意誰？',
         options: [
@@ -6049,6 +6082,7 @@ window.APP_TEXTS['civics|十二上|第6單元 學測綜合演練'] = {
       terms: [
         { w: '統計判讀', d: '正確解讀統計圖表的能力。' }
       ],
+      viz: {"type":"bargraph","unit":"%","data":[{"label":"非常同意","value":18},{"label":"同意","value":34},{"label":"不同意","value":29},{"label":"非常不同意","value":19}]},
       q: {
         q: '課文說看公民圖表最容易混淆的是什麼？',
         options: [
@@ -6125,6 +6159,7 @@ window.APP_TEXTS['civics|十二上|第7單元 公民與生活'] = {
       terms: [
         { w: '契約', d: '雙方合意所成立的法律關係。' }
       ],
+      viz: {"type":"contractflow"},
       q: {
         q: '課文說簽約前最重要的動作是什麼？',
         options: [
@@ -6485,6 +6520,7 @@ window.APP_TEXTS['civics|十二上|第9單元 公民素養總結'] = {
       terms: [
         { w: '論證能力', d: '以理由與證據支持主張的能力。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說比大聲更有說服力的是什麼？',
         options: [
@@ -6607,6 +6643,7 @@ window.APP_TEXTS['civics|十二下|第1單元 專題：勞動'] = {
       terms: [
         { w: '平台工作', d: '透過網路平台接案的工作型態。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"全時受僱","value":62},{"label":"部分工時","value":14},{"label":"派遣與外包","value":11},{"label":"自營與接案","value":13}]},
       q: {
         q: '課文說非典型就業的主要爭議是什麼？',
         options: [
@@ -6729,6 +6766,7 @@ window.APP_TEXTS['civics|十二下|第2單元 專題：教育'] = {
       terms: [
         { w: '教育機會均等', d: '不同背景者能取得相當教育機會。' }
       ],
+      viz: {"type":"lorenz","k":2.4},
       q: {
         q: '課文說教育不平等的來源之一是什麼？',
         options: [
@@ -6897,6 +6935,7 @@ window.APP_TEXTS['civics|十二下|第3單元 專題：醫療與健康'] = {
       terms: [
         { w: '醫療可及性', d: '民眾取得醫療服務的便利程度。' }
       ],
+      viz: {"type":"demotrans"},
       q: {
         q: '課文說偏遠地區的主要問題是什麼？',
         options: [
@@ -7165,6 +7204,7 @@ window.APP_TEXTS['civics|十二下|第5單元 專題：國際與兩岸'] = {
       terms: [
         { w: '事實與價值', d: '可驗證的陳述與涉及偏好的主張之分。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說價值差異應該如何處理？',
         options: [
@@ -7310,6 +7350,7 @@ window.APP_TEXTS['civics|十二下|第6單元 探究與實作'] = {
       terms: [
         { w: '利害關係人', d: '受議題影響或能影響議題的各方。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說界定爭議的結果會決定什麼？',
         options: [
@@ -7501,6 +7542,7 @@ window.APP_TEXTS['civics|十二下|第7單元 分科綜合演練（一）'] = {
       terms: [
         { w: '立場比較', d: '並列不同主張並分析其理由。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說只呈現一方立場會怎樣？',
         options: [
@@ -7646,6 +7688,7 @@ window.APP_TEXTS['civics|十二下|第8單元 分科綜合演練（二）'] = {
       terms: [
         { w: '價值兩難', d: '不同價值互相衝突而必須取捨的情境。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說回答兩難題的重點是什麼？',
         options: [

@@ -1428,6 +1428,7 @@ window.APP_TEXTS['biology|十下|第1單元 生物的分類'] = {
       terms: [
         { w: '共同祖先', d: '兩個以上物種所共有的祖先。' }
       ],
+      viz: {"type":"timeline","events":[{"y":"38 億年前","t":"最早的生命"},{"y":"21 億年前","t":"真核細胞出現"},{"y":"6 億年前","t":"多細胞動物"},{"y":"5.4 億年前","t":"寒武紀大爆發"}]},
       q: {
         q: '課文說判讀演化樹時要看什麼？',
         options: [
@@ -3404,6 +3405,7 @@ window.APP_TEXTS['biology|十一上|第6單元 動物行為'] = {
       terms: [
         { w: '印痕', d: '幼年特定時期形成且難以改變的學習。' }
       ],
+      viz: {"type":"nerve"},
       q: {
         q: '課文說印痕學習的特點是什麼？',
         options: [
@@ -4257,6 +4259,7 @@ window.APP_TEXTS['biology|十一下|第3單元 生物與環境'] = {
       terms: [
         { w: '耐受範圍', d: '物種能存活的環境條件區間。' }
       ],
+      viz: {"type":"feedback"},
       q: {
         q: '課文說生物在耐受範圍邊界會怎樣？',
         options: [
@@ -4425,6 +4428,7 @@ window.APP_TEXTS['biology|十一下|第4單元 人體健康與疾病'] = {
       terms: [
         { w: '風險因子', d: '會提高疾病發生機率的因素。' }
       ],
+      viz: {"type":"bodysystem","mode":"digest"},
       q: {
         q: '課文說慢性病風險因子的共同特點是什麼？',
         options: [
@@ -4593,6 +4597,7 @@ window.APP_TEXTS['biology|十一下|第5單元 生物與生活應用'] = {
       terms: [
         { w: '排斥反應', d: '免疫系統攻擊移植器官的反應。' }
       ],
+      viz: {"type":"immune"},
       q: {
         q: '課文說使用免疫抑制藥物的代價是什麼？',
         options: [
@@ -4738,6 +4743,7 @@ window.APP_TEXTS['biology|十一下|第6單元 保育與永續'] = {
       terms: [
         { w: '棲地破壞', d: '生物生存環境被破壞或消失。' }
       ],
+      viz: {"type":"foodweb"},
       q: {
         q: '課文說對生物多樣性最主要的威脅是什麼？',
         options: [
@@ -5029,6 +5035,7 @@ window.APP_TEXTS['biology|十一下|第8單元 生命的起源與歷史'] = {
       terms: [
         { w: '大氧化事件', d: '大氣中氧氣濃度大幅上升的地質事件。' }
       ],
+      viz: {"type":"timeline","events":[{"y":"46 億年前","t":"地球形成"},{"y":"38 億年前","t":"最早的生命"},{"y":"24 億年前","t":"大氧化事件"},{"y":"5.4 億年前","t":"寒武紀大爆發"}]},
       q: {
         q: '課文說氧氣累積對當時的生物有什麼影響？',
         options: [
@@ -5151,6 +5158,7 @@ window.APP_TEXTS['biology|十一下|第9單元 生物學的應用與素養'] = {
       terms: [
         { w: '外推', d: '把研究結果推廣到未研究對象的做法。' }
       ],
+      viz: {"type":"expdesign"},
       q: {
         q: '課文說細胞實驗的結果可以直接套用到人身上嗎？',
         options: [
@@ -5858,6 +5866,7 @@ window.APP_TEXTS['biology|十二上|第5單元 演化與多樣性總複習'] = {
       terms: [
         { w: '適應度', d: '個體留下後代的相對能力。' }
       ],
+      viz: {"type":"punnett","a":"Aa","b":"Aa"},
       q: {
         q: '課文說提供新變異的機制是什麼？',
         options: [
@@ -6026,6 +6035,7 @@ window.APP_TEXTS['biology|十二上|第6單元 學測綜合演練（一）'] = {
       terms: [
         { w: '控制變因', d: '實驗中必須固定不變的條件。' }
       ],
+      viz: {"type":"expdesign"},
       q: {
         q: '課文說實驗中最常見的設計缺陷是什麼？',
         options: [
@@ -6217,6 +6227,7 @@ window.APP_TEXTS['biology|十二上|第7單元 生物與科技'] = {
       terms: [
         { w: '精準醫療', d: '依個人特徵選擇治療策略的醫療方式。' }
       ],
+      viz: {"type":"dna"},
       q: {
         q: '課文說同一種藥效果因人而異的原因之一是什麼？',
         options: [
@@ -6316,6 +6327,7 @@ window.APP_TEXTS['biology|十二上|第8單元 生物與社會議題'] = {
       terms: [
         { w: '個案評估', d: '逐一評估每個案例而非一概而論。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說評估基因改造作物安全性的正確方式是什麼？',
         options: [
@@ -6484,6 +6496,7 @@ window.APP_TEXTS['biology|十二上|第9單元 生物學的整體視野'] = {
       terms: [
         { w: '回饋調節', d: '依偏離程度自動修正的控制機制。' }
       ],
+      viz: {"type":"feedback"},
       q: {
         q: '課文說回饋調節出現在哪些層次？',
         options: [
@@ -7213,6 +7226,7 @@ window.APP_TEXTS['biology|十二下|第5單元 生態議題深探'] = {
       terms: [
         { w: '檢疫', d: '防止有害生物隨貨物人員傳入的措施。' }
       ],
+      viz: {"type":"foodweb"},
       q: {
         q: '課文說處理外來種的成本比較是什麼？',
         options: [
@@ -7335,6 +7349,7 @@ window.APP_TEXTS['biology|十二下|第6單元 生物實驗探究'] = {
       terms: [
         { w: '測量指標', d: '用來量化結果的具體數值。' }
       ],
+      viz: {"type":"expdesign"},
       q: {
         q: '課文說設計實驗時要事先決定什麼？',
         options: [
@@ -7603,6 +7618,7 @@ window.APP_TEXTS['biology|十二下|第8單元 分科綜合演練（二）'] = {
       terms: [
         { w: '因果鏈', d: '由原因逐步導致結果的一連串環節。' }
       ],
+      viz: {"type":"cell","kind":"animal"},
       q: {
         q: '課文說解跨層次題目的關鍵能力是什麼？',
         options: [
@@ -7817,6 +7833,7 @@ window.APP_TEXTS['biology|十二下|第9單元 生物學與未來'] = {
       terms: [
         { w: '知識界線', d: '目前已知與未知之間的分界。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說「還不知道」與「不可能知道」的差別在哪裡？',
         options: [

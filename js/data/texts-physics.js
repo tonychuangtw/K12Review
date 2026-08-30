@@ -6053,6 +6053,7 @@ window.APP_TEXTS['physics|十二上|第6單元 狹義相對論'] = {
       terms: [
         { w: '時間膨脹', d: '運動中的時鐘相對靜止觀察者走得較慢。' }
       ],
+      viz: {"type":"linechart","zero":false,"unit":"倍","data":[{"label":"0.0c","value":1},{"label":"0.5c","value":1.15},{"label":"0.8c","value":1.67},{"label":"0.9c","value":2.29},{"label":"0.95c","value":3.2},{"label":"0.99c","value":7.09}]},
       q: {
         q: '課文說緲子能到達地面，證明了什麼？',
         options: [

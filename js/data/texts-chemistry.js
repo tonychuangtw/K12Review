@@ -2067,6 +2067,7 @@ window.APP_TEXTS['chemistry|十下|第6單元 材料化學'] = {
       terms: [
         { w: '合金', d: '由兩種以上元素熔合而成、性質改良的金屬材料。' }
       ],
+      viz: {"type":"bonding"},
       q: {
         q: '課文說不鏽鋼不易生鏽的原因是什麼？',
         options: [
@@ -2427,6 +2428,7 @@ window.APP_TEXTS['chemistry|十下|第8單元 化學實驗操作'] = {
       terms: [
         { w: '容量瓶', d: '用來配製精確體積溶液的玻璃器材。' }
       ],
+      viz: {"type":"expdesign"},
       q: {
         q: '課文說配製精確濃度的溶液應該用什麼？',
         options: [
@@ -2572,6 +2574,7 @@ window.APP_TEXTS['chemistry|十下|第9單元 化學與生活'] = {
       terms: [
         { w: '重金屬汙染', d: '重金屬進入環境並累積於生物體的汙染。' }
       ],
+      viz: {"type":"galvanic"},
       q: {
         q: '課文說鋰電池受損時可能發生什麼？',
         options: [
@@ -3866,6 +3869,7 @@ window.APP_TEXTS['chemistry|十一上|第9單元 化學分析'] = {
       terms: [
         { w: '標準溶液', d: '濃度已被精確測定的溶液。' }
       ],
+      viz: {"type":"titration"},
       q: {
         q: '課文說容量分析的準確度主要取決於什麼？',
         options: [
@@ -4403,6 +4407,7 @@ window.APP_TEXTS['chemistry|十一下|第4單元 高分子材料'] = {
       terms: [
         { w: '加成聚合', d: '單體以雙鍵打開直接相連、無副產物的聚合。' }
       ],
+      viz: {"type":"organic"},
       q: {
         q: '課文說加成聚合的特點是什麼？',
         options: [
@@ -4571,6 +4576,7 @@ window.APP_TEXTS['chemistry|十一下|第5單元 藥物與化學'] = {
       terms: [
         { w: '治療窗', d: '藥物有效且相對安全的劑量範圍。' }
       ],
+      viz: {"type":"ratecurve"},
       q: {
         q: '課文說治療窗窄代表什麼？',
         options: [
@@ -4716,6 +4722,7 @@ window.APP_TEXTS['chemistry|十一下|第6單元 工業化學'] = {
       terms: [
         { w: '氮肥', d: '提供植物氮元素的肥料。' }
       ],
+      viz: {"type":"ratecurve"},
       q: {
         q: '課文說合成氨製程最主要的問題是什麼？',
         options: [
@@ -5007,6 +5014,7 @@ window.APP_TEXTS['chemistry|十一下|第8單元 化學實驗設計'] = {
       terms: [
         { w: '控制變因', d: '實驗中必須保持固定的條件。' }
       ],
+      viz: {"type":"expdesign"},
       q: {
         q: '課文說同時改變兩個變因會有什麼問題？',
         options: [
@@ -5152,6 +5160,7 @@ window.APP_TEXTS['chemistry|十一下|第9單元 化學與永續'] = {
       terms: [
         { w: '循環經濟', d: '讓材料反覆循環利用的經濟模式。' }
       ],
+      viz: {"type":"cycle","steps":["原料","製造","使用","回收再製"]},
       q: {
         q: '課文說回收做不好的根源常常在哪裡？',
         options: [
@@ -6173,6 +6182,7 @@ window.APP_TEXTS['chemistry|十二上|第7單元 學測綜合演練（一）'] =
       terms: [
         { w: '轉折點', d: '圖形趨勢明顯改變的位置。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說圖形上的水平段常代表什麼？',
         options: [
@@ -6387,6 +6397,7 @@ window.APP_TEXTS['chemistry|十二上|第8單元 學測綜合演練（二）'] =
       terms: [
         { w: '控制比較', d: '固定其他條件只比較單一變因的做法。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說比較表格數據時應該怎麼做？',
         options: [
@@ -6463,6 +6474,7 @@ window.APP_TEXTS['chemistry|十二上|第9單元 化學與現代科技'] = {
       terms: [
         { w: '固態電池', d: '以固體電解質取代液態電解液的電池。' }
       ],
+      viz: {"type":"galvanic"},
       q: {
         q: '課文說固態電池的主要優點是什麼？',
         options: [
@@ -6777,6 +6789,7 @@ window.APP_TEXTS['chemistry|十二下|第2單元 分析技術與應用'] = {
       terms: [
         { w: '紅外光譜', d: '藉分子振動吸收判斷官能基的分析方法。' }
       ],
+      viz: {"type":"titration"},
       q: {
         q: '課文說要判斷有哪些官能基，適合用哪一種光譜？',
         options: [
@@ -7022,6 +7035,7 @@ window.APP_TEXTS['chemistry|十二下|第4單元 化學與生活應用'] = {
       terms: [
         { w: '水垢', d: '硬水中鈣鎂化合物沉積形成的白色物質。' }
       ],
+      viz: {"type":"solution","solute":3,"max":10,"water":5},
       q: {
         q: '課文說要去除水垢應該用哪一類清潔劑？',
         options: [
@@ -7283,6 +7297,7 @@ window.APP_TEXTS['chemistry|十二下|第5單元 化學史與科學方法'] = {
       terms: [
         { w: '假設', d: '對現象提出的暫時性解釋。' }
       ],
+      viz: {"type":"expdesign"},
       q: {
         q: '課文說科學方法的循環有終點嗎？',
         options: [
@@ -7312,6 +7327,7 @@ window.APP_TEXTS['chemistry|十二下|第6單元 跨科整合'] = {
       terms: [
         { w: '熱力學', d: '研究能量轉換與方向的科學。' }
       ],
+      viz: {"type":"actenergy"},
       q: {
         q: '課文說化學鍵的本質是什麼作用力？',
         options: [
@@ -7503,6 +7519,7 @@ window.APP_TEXTS['chemistry|十二下|第7單元 分科綜合演練（一）'] =
       terms: [
         { w: '起始濃度', d: '反應開始前各物質的濃度。' }
       ],
+      viz: {"type":"chemeq","mode":"balance"},
       q: {
         q: '課文說平衡與計量合併題的處理順序是什麼？',
         options: [
@@ -7626,6 +7643,7 @@ window.APP_TEXTS['chemistry|十二下|第8單元 分科綜合演練（二）'] =
       terms: [
         { w: '多階段反應', d: '前後接續進行的一系列反應。' }
       ],
+      viz: {"type":"ratecurve"},
       q: {
         q: '課文說多階段反應中每一段都要重新做什麼？',
         options: [
@@ -7794,6 +7812,7 @@ window.APP_TEXTS['chemistry|十二下|第9單元 化學的未來'] = {
       terms: [
         { w: '碳捕捉', d: '把二氧化碳從氣體中分離收集的技術。' }
       ],
+      viz: {"type":"greenhouse"},
       q: {
         q: '課文說把二氧化碳轉成燃料的前提是什麼？',
         options: [

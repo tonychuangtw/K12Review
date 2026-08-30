@@ -610,7 +610,14 @@ console.log('解析確認題');
                    'zhuyinparts', 'charparts', 'punctcut', 'sentparts',
                    'poemform', 'essayform', 'narrorder', 'letterform',
                    'wenyanflow', 'wordtree', 'strokeorder', 'readlayer',
-                   'rhetoricmap', 'wordscale'];  // 與 js/widgets.js 的 REG 同步
+                   'rhetoricmap', 'wordscale',
+                   // 公民科補的圖（2026-08-30 第五批）
+                   'lawrank', 'crimetest', 'payoff', 'externality',
+                   'stakeholder', 'contractflow',
+                   // 歷史科補的圖（2026-08-30 第五批）
+                   'sourcelevel', 'worldflow',
+                   // 探究與實作／風險判斷共用（2026-08-30 第五批）
+                   'expdesign', 'riskmatrix', 'matchpair'];  // 與 js/widgets.js 的 REG 同步
   const bad = [];
   keys.forEach(k => {
     const [subj, book, lesson] = k.split('|');

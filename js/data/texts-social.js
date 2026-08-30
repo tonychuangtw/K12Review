@@ -8217,6 +8217,7 @@ window.APP_TEXTS['social|六上|第8單元 全球化與國際貿易'] = {
       terms: [
         { w: '比較利益', d: '各自生產機會成本較低的商品再交換，雙方都獲益。' }
       ],
+      viz: {"type":"worldflow"},
       q: {
         q: '課文說「比較利益」的重點是什麼？',
         options: [
@@ -9194,6 +9195,7 @@ window.APP_TEXTS['social|六下|第4單元 世界的文化多樣性'] = {
       terms: [
         { w: '文化傳播', d: '文化元素從一個地方傳到另一個地方。' }
       ],
+      viz: {"type":"worldflow"},
       q: {
         q: '課文說文化傳播是單向的還是雙向的？',
         options: [
@@ -9981,6 +9983,7 @@ window.APP_TEXTS['social|六下|第9單元 世界公民的責任'] = {
       terms: [
         { w: '媒體素養', d: '判讀媒體訊息、辨別真偽與立場的能力。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說假訊息常見的手法是什麼？',
         options: [
@@ -10029,6 +10032,7 @@ window.APP_TEXTS['social|六下|第9單元 世界公民的責任'] = {
       terms: [
         { w: '在地行動', d: '從自己所在的地方開始採取具體行動。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說「全球思考，在地行動」要提醒我們什麼？',
         options: [
@@ -10868,6 +10872,7 @@ window.APP_TEXTS['social|三上|第6單元 社區的設施與資源'] = {
       terms: [
         { w: '公共設施', d: '供大家共同使用的設施。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說公共設施的特點是什麼？',
         options: [
@@ -12131,6 +12136,7 @@ window.APP_TEXTS['social|三下|第5單元 家鄉的公共設施'] = {
         { w: '鄰避效應', d: '需要某設施但不希望設在自家附近的現象。' },
         { w: '回饋', d: '對受影響的居民提供補償或建設。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說面對鄰避設施的做法是什麼？',
         options: [
@@ -14178,6 +14184,7 @@ window.APP_TEXTS['social|七上|第9單元 公民：學校與社區'] = {
       terms: [
         { w: '公民素養', d: '參與公共事務所需的知識、態度與能力。' }
       ],
+      viz: {"type":"checksbalance"},
       q: {
         q: '課文說班會和議會的差別在哪裡？',
         options: [
@@ -15139,6 +15146,7 @@ window.APP_TEXTS['social|七下|第7單元 公民：社會規範與法律'] = {
         { w: '位階', d: '不同法規之間的高低順序。' },
         { w: '依法行政', d: '政府的行為必須有法律授權並遵守法律。' }
       ],
+      viz: {"type":"lawrank"},
       q: {
         q: '課文說法規的位階由高到低是什麼？',
         options: [
@@ -15189,6 +15197,7 @@ window.APP_TEXTS['social|七下|第7單元 公民：社會規範與法律'] = {
         { w: '罪刑法定', d: '犯罪與刑罰都必須由法律事先明文規定。' },
         { w: '無罪推定', d: '未經審判確定有罪之前，都應被視為無罪。' }
       ],
+      viz: {"type":"crimetest"},
       q: {
         q: '課文說「罪刑法定」的意思是什麼？',
         options: [
@@ -15315,6 +15324,7 @@ window.APP_TEXTS['social|七下|第8單元 公民：權利與義務'] = {
       terms: [
         { w: '比例原則', d: '手段與目的要相稱，不能為小目的用過重的手段。' }
       ],
+      viz: {"type":"lawrank"},
       q: {
         q: '課文說限制人民自由必須用什麼方式？',
         options: [
@@ -15414,6 +15424,7 @@ window.APP_TEXTS['social|七下|第9單元 公民：多元文化與性別'] = {
       terms: [
         { w: '多元文化主義', d: '主張各種文化平等共存、彼此尊重的觀點。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"閩南","value":70},{"label":"客家","value":14},{"label":"外省","value":12},{"label":"原住民族與新住民","value":4}]},
       q: {
         q: '課文說多元文化主義和同化政策的差別在哪裡？',
         options: [
@@ -16342,6 +16353,7 @@ window.APP_TEXTS['social|八上|第7單元 公民：政府的組織與運作'] =
       terms: [
         { w: '制衡', d: '各機關互相牽制，避免權力集中。' }
       ],
+      viz: {"type":"checksbalance"},
       q: {
         q: '課文說五權分立最主要的目的是什麼？',
         options: [
@@ -16413,6 +16425,7 @@ window.APP_TEXTS['social|八上|第7單元 公民：政府的組織與運作'] =
       terms: [
         { w: '審級制度', d: '同一案件可以逐級上訴、由不同法院審理的設計。' }
       ],
+      viz: {"type":"courtlevel"},
       q: {
         q: '課文說審級制度的作用是什麼？',
         options: [
@@ -16514,6 +16527,7 @@ window.APP_TEXTS['social|八上|第8單元 公民：民主與選舉'] = {
       terms: [
         { w: '不分區', d: '不綁地方選區、依政黨得票率分配的席次。' }
       ],
+      viz: {"type":"bargraph","unit":"席","data":[{"label":"甲黨","value":54},{"label":"乙黨","value":38},{"label":"丙黨","value":13},{"label":"無黨籍","value":8}]},
       q: {
         q: '課文說臺灣立委選舉的兩票分別投給什麼？',
         options: [
@@ -18004,6 +18018,7 @@ window.APP_TEXTS['social|八下|第9單元 公民：勞動與消費者權益'] =
       terms: [
         { w: '童工', d: '未滿十六歲、法律特別保護的受僱者。' }
       ],
+      viz: {"type":"contractflow"},
       q: {
         q: '課文說雇主不可以做的是哪一件事？',
         options: [
@@ -19068,6 +19083,7 @@ window.APP_TEXTS['social|九上|第7單元 公民：全球化與國際關係'] =
       terms: [
         { w: '比較利益', d: '生產某物的機會成本相對較低，就該專精生產它。' }
       ],
+      viz: {"type":"worldflow"},
       q: {
         q: '課文說臺灣高度仰賴進口的是什麼？',
         options: [
@@ -19369,6 +19385,7 @@ window.APP_TEXTS['social|九上|第9單元 公民：媒體識讀'] = {
       terms: [
         { w: '置入性行銷', d: '把商業訊息藏在內容裡的廣告方式。' }
       ],
+      viz: {"type":"readlayer"},
       q: {
         q: '課文說事實和意見最大的差別是什麼？',
         options: [
@@ -19393,6 +19410,7 @@ window.APP_TEXTS['social|九上|第9單元 公民：媒體識讀'] = {
       terms: [
         { w: '以圖搜圖', d: '用圖片反查原始出處與時間的查證方法。' }
       ],
+      viz: {"type":"sourcelevel"},
       q: {
         q: '課文說看到「快轉傳」時應該怎麼做？',
         options: [
@@ -19997,6 +20015,7 @@ window.APP_TEXTS['social|九下|第4單元 地理：世界的區域差異'] = {
       terms: [
         { w: '資源詛咒', d: '資源豐富的國家反而因分配與治理問題發展不佳。' }
       ],
+      viz: {"type":"lorenz","k":3.4},
       q: {
         q: '課文說「資源詛咒」的意思是什麼？',
         options: [
@@ -20045,6 +20064,7 @@ window.APP_TEXTS['social|九下|第4單元 地理：世界的區域差異'] = {
       terms: [
         { w: '巨型都市', d: '人口超過千萬的超大型都市。' }
       ],
+      viz: {"type":"landuse"},
       q: {
         q: '課文說開發中國家出現貧民窟的原因是什麼？',
         options: [
@@ -20426,6 +20446,7 @@ window.APP_TEXTS['social|九下|第7單元 公民：永續與環境'] = {
       terms: [
         { w: '外部成本', d: '由社會而非製造者承擔的成本。' }
       ],
+      viz: {"type":"externality"},
       q: {
         q: '課文說「內部化」的意思是什麼？',
         options: [
@@ -20498,6 +20519,7 @@ window.APP_TEXTS['social|九下|第7單元 公民：永續與環境'] = {
       terms: [
         { w: '程序正義', d: '決策過程本身要公開、公平、讓相關人有機會參與。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說什麼能讓爭議的決定更容易被接受？',
         options: [
@@ -20600,6 +20622,7 @@ window.APP_TEXTS['social|九下|第8單元 公民：公民行動與參與'] = {
       terms: [
         { w: '權責單位', d: '依法對該事務有處理職權與責任的機關。' }
       ],
+      viz: {"type":"stakeholder"},
       q: {
         q: '課文說什麼比「只表達不滿」更容易促成改變？',
         options: [

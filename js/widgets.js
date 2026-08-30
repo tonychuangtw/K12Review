@@ -11837,6 +11837,702 @@
     host.appendChild(box);
   };
 
+
+  /* ── 公民科補的真圖（2026-08-30 第五批）──────────────────────────────── */
+
+  /* 法律位階：憲法 → 法律 → 命令 → 自治法規。上位階牴觸者無效，
+     這是「為什麼可以宣告一條法律違憲」的答案。 */
+  REG.lawrank = function (host, spec) {
+    var sel = 0;
+    var LV = [
+      { n: '憲法', w: 110, by: '制憲、修憲（公民複決）', d: '國家的根本大法，其他規範都不能牴觸它。' },
+      { n: '法律', w: 170, by: '立法院三讀、總統公布', d: '名稱是法、律、條例、通則；限制人民權利原則上要有法律依據。' },
+      { n: '命令', w: 224, by: '行政機關訂定', d: '規程、規則、細則、辦法、標準、準則；用來執行法律，不能超出法律的授權。' },
+      { n: '自治法規', w: 272, by: '地方議會或地方政府', d: '自治條例與自治規則，只在該地方適用，也不能牴觸上位階。' }
+    ];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      LV.forEach(function (L, k) {
+        var y = 34 + k * 38;
+        svg.appendChild(el('rect', { x: 160 - L.w / 2, y: y, width: L.w, height: 32, rx: 6 },
+          'fill:' + (k === sel ? 'var(--bad)' : 'var(--accent)') +
+          ';fill-opacity:' + (k === sel ? 0.38 : 0.2 - k * 0.03) + ';stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(160, y + 16, L.n, 'font-size:13px;font-weight:700;fill:var(--text)'));
+      });
+      // 右側箭頭：牴觸上位階者無效，方向由上往下管
+      svg.appendChild(el('line', { x1: 302, y1: 40, x2: 302, y2: 168 }, 'stroke:var(--dim);stroke-width:2'));
+      svg.appendChild(el('polygon', { points: '302,174 297,164 307,164' }, 'fill:var(--dim)'));
+      svg.appendChild(txt(160, 190, '下位階牴觸上位階者，無效', 'font-size:11px;fill:var(--bad)'));
+      svg.appendChild(txt(160, 20, '法律位階', 'font-size:13px;font-weight:700;fill:var(--text)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', LV[sel].n + '：' + LV[sel].d));
+      read.appendChild(div('wg-read-sub',
+        '由誰訂的：' + LV[sel].by + '。位階的意義在於「誰說了算」—— ' +
+        '所以憲法法庭可以宣告一條法律違憲失效，法院也可以拒絕適用牴觸法律的命令。' +
+        '⚠ 位階高不等於比較重要或比較常用：日常生活最常碰到的是命令與自治法規，' +
+        '但它們的效力來源都要一路追回到法律與憲法。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一階', function () { sel = (sel + 1) % LV.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 犯罪三階層：構成要件該當 → 違法 → 有責。三關都過才叫犯罪，
+     任何一關擋下來就不成立 —— 「正當防衛為什麼不算犯罪」看這張圖最清楚。 */
+  REG.crimetest = function (host, spec) {
+    var CASES = [
+      { c: '甲拿刀砍傷乙', pass: [1, 1, 1], v: '成立傷害罪',
+        d: ['砍傷別人，符合傷害罪的構成要件。', '沒有正當防衛等阻卻違法事由，是違法的。',
+            '甲成年且精神狀態正常，有責任能力。'] },
+      { c: '乙被砍，反擊打傷甲', pass: [1, 0, 0], v: '不成立（正當防衛）',
+        d: ['打傷別人，一樣符合傷害罪的構成要件。',
+            '但這是正當防衛 —— 阻卻違法事由，在這一關就擋下來了。', '前一關沒過，不必再談責任。'] },
+      { c: '十歲的丙打破別人的窗戶', pass: [1, 1, 0], v: '不成立犯罪（但仍有民事賠償）',
+        d: ['打破窗戶符合毀損罪的構成要件。', '沒有阻卻違法事由。',
+            '未滿十四歲無責任能力，第三關沒過，不成立犯罪 —— 但父母仍可能要負民事賠償。'] }
+    ];
+    var i = 0, st = 0;
+    var NAME = ['① 構成要件該當', '② 違法', '③ 有責'];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var c = CASES[i];
+      svg.appendChild(txt(160, 18, '案例：' + c.c, 'font-size:12px;font-weight:700;fill:var(--text)'));
+      NAME.forEach(function (n, k) {
+        var y = 36 + k * 44, shown = k <= st, ok = c.pass[k] === 1;
+        var col = !shown ? 'var(--panel2)' : ok ? 'var(--good)' : 'var(--bad)';
+        svg.appendChild(el('rect', { x: 46, y: y, width: 196, height: 34, rx: 8 },
+          'fill:' + col + ';fill-opacity:' + (shown ? 0.3 : 1) + ';stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(144, y + 17, n, 'font-size:12px;fill:var(--text)'));
+        if (shown) svg.appendChild(txt(262, y + 17, ok ? '通過' : '擋下來',
+          'font-size:11px;font-weight:700;fill:' + col));
+        if (k < 2) {
+          svg.appendChild(el('line', { x1: 144, y1: y + 34, x2: 144, y2: y + 44 },
+            'stroke:var(--border);stroke-width:1.5'));
+          svg.appendChild(el('polygon', { points: '144,' + (y + 44) + ' 139,' + (y + 36) + ' 149,' + (y + 36) },
+            'fill:var(--border)'));
+        }
+      });
+      svg.appendChild(txt(160, 176, st >= 2 ? '結論：' + c.v : '三關都過才叫犯罪',
+        'font-size:12px;font-weight:700;fill:' + (st >= 2 ? 'var(--bad)' : 'var(--dim)')));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', NAME[st] + '：' + c.d[st]));
+      read.appendChild(div('wg-read-sub',
+        '判斷一個行為是不是犯罪要照順序過三關：先看行為符不符合法條寫的樣子（構成要件），' +
+        '再看有沒有正當防衛、緊急避難這類讓它變成不違法的理由，最後看行為人有沒有責任能力。' +
+        '⚠ 任何一關沒過就不成立犯罪，後面的關卡也不必再談 —— ' +
+        '但「不成立犯罪」不等於「什麼責任都沒有」，民事賠償是另一回事。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一關', function () {
+      st++; if (st > 2) { st = 0; i = (i + 1) % CASES.length; } paint();
+    }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 賽局矩陣：囚犯困境與公地悲劇。兩邊各自選對自己好的，
+     結果卻是兩邊都比較差 —— 這就是集體行動的困境。 */
+  REG.payoff = function (host, spec) {
+    var G = spec.games || [
+      { k: '囚犯困境', a: '甲', b: '乙', c1: '不招', c2: '招供',
+        p: [[[-1, -1], [-10, 0]], [[0, -10], [-6, -6]]],
+        note: '兩人都不招最好（各 −1），但各自都想招 —— 最後落在都招（各 −6）。',
+        nash: [1, 1] },
+      { k: '公地悲劇', a: '漁民甲', b: '漁民乙', c1: '節制', c2: '多捕',
+        p: [[[3, 3], [0, 4]], [[4, 0], [1, 1]]],
+        note: '一起節制大家都拿 3，但各自都想多捕 —— 最後魚被抓光，各拿 1。',
+        nash: [1, 1] },
+      { k: '減碳談判', a: 'A 國', b: 'B 國', c1: '減碳', c2: '不減',
+        p: [[[3, 3], [0, 4]], [[4, 0], [1, 1]]],
+        note: '別人減、自己不減最划算 —— 大家都這樣想，就沒有人減。',
+        nash: [1, 1] }
+    ];
+    var i = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var g = G[i], X = 96, Y = 56, W = 96, H = 46;
+      svg.appendChild(txt(160, 16, g.k, 'font-size:13px;font-weight:700;fill:var(--accent)'));
+      svg.appendChild(txt(X + W, 34, g.b + '的選擇', 'font-size:10px;fill:var(--dim)'));
+      var yl = el('text', { x: 16, y: Y + H, 'text-anchor': 'middle',
+        transform: 'rotate(-90 16 ' + (Y + H) + ')' }, 'font-size:10px;fill:var(--dim)');
+      yl.textContent = g.a + '的選擇'; svg.appendChild(yl);
+      [g.c1, g.c2].forEach(function (c, k) {
+        svg.appendChild(txt(X + W / 2 + k * W, 48, c, 'font-size:11px;fill:var(--dim)'));
+        svg.appendChild(txt(X - 22, Y + H / 2 + k * H, c, 'font-size:11px;fill:var(--dim)'));
+      });
+      for (var r = 0; r < 2; r++) for (var c2 = 0; c2 < 2; c2++) {
+        var on = g.nash[0] === r && g.nash[1] === c2;
+        svg.appendChild(el('rect', { x: X + c2 * W, y: Y + r * H, width: W - 2, height: H - 2, rx: 4 },
+          'fill:' + (on ? 'var(--bad)' : 'var(--panel2)') + ';fill-opacity:' + (on ? 0.3 : 1) +
+          ';stroke:' + (on ? 'var(--bad)' : 'var(--border)') + ';stroke-width:' + (on ? 2 : 1)));
+        var v = g.p[r][c2];
+        svg.appendChild(txt(X + c2 * W + W / 2, Y + r * H + H / 2,
+          g.a.slice(0, 1) + ' ' + v[0] + '　' + g.b.slice(0, 1) + ' ' + v[1],
+          'font-size:12px;fill:var(--text)'));
+      }
+      svg.appendChild(txt(160, 176, '紅框＝雙方各自算計後真的會落到的格子',
+        'font-size:10px;fill:var(--bad)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', g.note));
+      read.appendChild(div('wg-read-sub',
+        '每個人都選對自己最有利的，結果整體卻更差 —— 這叫集體行動的困境。' +
+        '重點是：這不是因為誰笨或誰壞，而是規則讓「背叛」變成理性選擇。' +
+        '⚠ 所以解法不是叫大家有良心，而是改變報酬：訂規則罰背叛（法律）、' +
+        '讓大家看得見彼此的行為（監測與揭露）、把一次性的賽局變成長期往來（重複賽局）。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('換一個情境', function () { i = (i + 1) % G.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 外部成本：市場只算私人成本，社會成本更高。
+     兩條供給線之間的差距就是外部成本，也是「汙染者付費」要補上的那一段。 */
+  REG.externality = function (host, spec) {
+    var tax = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 40, X1 = 288, Y0 = 164, Y1 = 26;
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(el('line', { x1: X0, y1: Y1, x2: X0, y2: Y0 }, 'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X1, y2: Y0 }, 'stroke:var(--border);stroke-width:2'));
+      svg.appendChild(txt(20, Y1 + 8, '價格', 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(X1 - 10, Y0 + 14, '數量', 'font-size:10px;fill:var(--dim)'));
+      // 需求：由左上往右下；私人供給：由左下往右上；社會供給＝私人供給往上移
+      var gap = 46;
+      function dY(x) { return Y1 + 24 + (x - X0) * 0.42; }
+      function sY(x, up) { return Y0 - 18 - (x - X0) * 0.42 - up; }
+      svg.appendChild(el('line', { x1: X0 + 8, y1: dY(X0 + 8), x2: X1 - 10, y2: dY(X1 - 10) },
+        'stroke:var(--accent);stroke-width:2.5'));
+      svg.appendChild(txt(X1 - 26, dY(X1 - 10) - 10, '需求', 'font-size:10px;fill:var(--accent)'));
+      svg.appendChild(el('line', { x1: X0 + 8, y1: sY(X0 + 8, 0), x2: X1 - 10, y2: sY(X1 - 10, 0) },
+        'stroke:var(--good);stroke-width:2.5'));
+      svg.appendChild(txt(X1 - 22, sY(X1 - 10, 0) + 12, '私人供給', 'font-size:10px;fill:var(--good)'));
+      svg.appendChild(el('line', { x1: X0 + 8, y1: sY(X0 + 8, gap), x2: X1 - 10, y2: sY(X1 - 10, gap) },
+        'stroke:var(--bad);stroke-width:2.5;stroke-dasharray:6 4'));
+      svg.appendChild(txt(X1 - 22, sY(X1 - 10, gap) - 10, '社會供給', 'font-size:10px;fill:var(--bad)'));
+      // 兩個交點：市場實際產量、與社會最適產量
+      function cross(up) {
+        // Y1+24+(x-X0)*0.42 = Y0-18-(x-X0)*0.42-up
+        var x = X0 + (Y0 - 18 - up - Y1 - 24) / 0.84;
+        return { x: x, y: dY(x) };
+      }
+      var m = cross(0), s = cross(gap), cur = cross(tax);
+      [[m, 'var(--good)', '市場產量'], [s, 'var(--bad)', '社會最適']].forEach(function (p) {
+        svg.appendChild(el('circle', { cx: p[0].x, cy: p[0].y, r: 4.5 }, 'fill:' + p[1]));
+        svg.appendChild(el('line', { x1: p[0].x, y1: p[0].y, x2: p[0].x, y2: Y0 },
+          'stroke:' + p[1] + ';stroke-width:1;stroke-dasharray:3 3'));
+      });
+      svg.appendChild(txt(m.x, Y0 + 13, '市場', 'font-size:9px;fill:var(--good)'));
+      svg.appendChild(txt(s.x, Y0 + 13, '社會最適', 'font-size:9px;fill:var(--bad)'));
+      if (tax > 0) {
+        svg.appendChild(el('circle', { cx: cur.x, cy: cur.y, r: 5.5 },
+          'fill:none;stroke:var(--accent2);stroke-width:2.5'));
+      }
+      svg.appendChild(txt(160, 14, '外部成本：市場算的成本比社會少一截',
+        'font-size:12px;font-weight:700;fill:var(--text)'));
+      read.innerHTML = '';
+      var pct = Math.round(100 * tax / gap);
+      read.appendChild(div('wg-read-main', tax === 0
+        ? '沒有課稅時，工廠只算自己的成本，產量停在綠點 —— 比社會最適（紅點）多。'
+        : pct >= 96 ? '把外部成本整個內部化之後，產量剛好落在社會最適的位置。'
+        : '課了 ' + pct + '% 的外部成本，產量往社會最適靠過去了一些。'));
+      read.appendChild(div('wg-read-sub',
+        '工廠排廢水，處理成本由下游承擔 —— 這筆錢沒有進到價格裡，就叫外部成本。' +
+        '因為成本被低估，東西賣得太便宜、產得太多。' +
+        '解法是把外部成本「內部化」：課汙染稅、排放收費、碳交易，' +
+        '讓價格反映真實成本。⚠ 也有正的外部性（打疫苗、種樹），那時市場會提供得太少，' +
+        '所以要用補貼往另一個方向推。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(div('wg-ctrl-label', '拉拉看：把外部成本課進價格裡'));
+    row.appendChild(slider(0, 46, 0, 1, function (v) { tax = v; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 利害關係人圖：一個議題放中間，各方放外圈，用顏色標立場、用距離標受影響程度。
+     公共政策分析與議題探究都用得到。 */
+  REG.stakeholder = function (host, spec) {
+    var CASES = spec.cases || [
+      { k: '要不要蓋新的焚化爐', who: [
+        { n: '附近居民', s: -1, near: 1, d: '直接承受氣味、車流與房價的影響，最反對。' },
+        { n: '全市市民', s: 1, near: 0, d: '垃圾要有地方去，多數支持但不想蓋在自家旁邊。' },
+        { n: '市政府', s: 1, near: 0, d: '要處理垃圾問題，也要承擔抗爭的政治成本。' },
+        { n: '環保團體', s: 0, near: 0, d: '關心的是減量與分類，未必反對設施本身。' },
+        { n: '營運廠商', s: 1, near: 1, d: '有明確的經濟利益。' },
+        { n: '下一代', s: 0, near: 0, d: '承擔長期後果，卻沒有人代表他們發言。' }] },
+      { k: '要不要調高基本工資', who: [
+        { n: '低薪勞工', s: 1, near: 1, d: '收入直接增加，最支持。' },
+        { n: '小型店家', s: -1, near: 1, d: '人事成本上升，可能要減人或漲價。' },
+        { n: '大企業', s: 0, near: 0, d: '影響相對小，立場多半中性。' },
+        { n: '待業青年', s: -1, near: 0, d: '若企業減少徵人，最先受影響的是沒有經驗的人。' },
+        { n: '消費者', s: 0, near: 0, d: '成本可能轉嫁到物價上。' },
+        { n: '政府', s: 1, near: 0, d: '要在保障勞工與維持就業之間取得平衡。' }] }
+    ];
+    var i = 0, sel = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var c = CASES[i], CX = 160, CY = 104;
+      c.who.forEach(function (w, k) {
+        var a = -Math.PI / 2 + k * Math.PI * 2 / c.who.length;
+        var R = w.near ? 58 : 82;
+        var x = CX + R * Math.cos(a) * 1.55, y = CY + R * Math.sin(a);
+        var col = w.s > 0 ? 'var(--good)' : w.s < 0 ? 'var(--bad)' : 'var(--dim)';
+        svg.appendChild(el('line', { x1: CX, y1: CY, x2: x, y2: y },
+          'stroke:' + (k === sel ? col : 'var(--border)') + ';stroke-width:' + (k === sel ? 2.5 : 1)));
+        svg.appendChild(el('circle', { cx: x, cy: y, r: 23 },
+          'fill:' + col + ';fill-opacity:' + (k === sel ? 0.4 : 0.16) +
+          ';stroke:' + (k === sel ? col : 'var(--border)') + ';stroke-width:1.5'));
+        svg.appendChild(txt(x, y, w.n, 'font-size:9px;fill:var(--text)'));
+      });
+      svg.appendChild(el('circle', { cx: CX, cy: CY, r: 30 },
+        'fill:var(--accent);fill-opacity:.24;stroke:var(--border);stroke-width:1.5'));
+      svg.appendChild(txt(CX, CY, '議題', 'font-size:11px;fill:var(--text)'));
+      svg.appendChild(txt(160, 16, c.k, 'font-size:12px;font-weight:700;fill:var(--text)'));
+      svg.appendChild(txt(160, 192, '綠＝支持　紅＝反對　灰＝中性或不明；離中心愈近＝受影響愈直接',
+        'font-size:9px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', c.who[sel].n + '：' + c.who[sel].d));
+      read.appendChild(div('wg-read-sub',
+        '討論公共議題時，先把「誰會受影響」列出來，再問三件事：' +
+        '受影響有多直接、立場是什麼、有沒有辦法發聲。' +
+        '⚠ 最容易被忽略的是「受影響很深、卻沒有代表的人」—— ' +
+        '例如下一代、外籍移工、還沒出生的人。一個方案如果只讓聲音大的人滿意，' +
+        '通常代價是由聲音小的人承擔。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一個關係人', function () {
+      sel++; if (sel >= CASES[i].who.length) { sel = 0; i = (i + 1) % CASES.length; } paint();
+    }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 契約的一生：要約 → 承諾 → 成立 → 履行；出事就走違約與救濟。
+     生活法律（租屋、打工、網購）全都靠這條線。 */
+  REG.contractflow = function (host, spec) {
+    var st = 0;
+    var STEP = [
+      { n: '要約', d: '一方提出明確的條件：「這台腳踏車三千元賣你」。' },
+      { n: '承諾', d: '另一方同意那個條件：「好，我買」。' },
+      { n: '契約成立', d: '意思一致就成立了 —— 口頭也算數，不是非要白紙黑字。' },
+      { n: '履行', d: '一方交車、一方付錢，雙方都照約定做完，契約就結束了。' },
+      { n: '違約', d: '有人沒照做：不交車、不付錢、東西有瑕疵。' },
+      { n: '救濟', d: '可以請求履行、解除契約、要求減價或損害賠償；談不攏就走調解或訴訟。' }
+    ];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 190', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      // 上排四步是正常的路，下排兩步是出事才走的岔路
+      for (var k = 0; k < 4; k++) {
+        var x = 42 + k * 76, on = k === st;
+        svg.appendChild(el('rect', { x: x - 32, y: 46, width: 64, height: 34, rx: 8 },
+          'fill:' + (on ? 'var(--bad)' : 'var(--accent)') + ';fill-opacity:' + (on ? 0.38 : 0.18) +
+          ';stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(x, 63, STEP[k].n, 'font-size:11px;fill:var(--text)'));
+        if (k < 3) {
+          svg.appendChild(el('line', { x1: x + 32, y1: 63, x2: x + 38, y2: 63 },
+            'stroke:var(--border);stroke-width:1.5'));
+          svg.appendChild(el('polygon', { points: (x + 44) + ',63 ' + (x + 36) + ',58 ' + (x + 36) + ',68' },
+            'fill:var(--border)'));
+        }
+      }
+      // 岔路從「履行」往下
+      svg.appendChild(el('line', { x1: 270, y1: 80, x2: 270, y2: 108 },
+        'stroke:var(--bad);stroke-width:1.5;stroke-dasharray:4 3'));
+      for (var j = 4; j < 6; j++) {
+        var x2 = 190 - (j - 4) * 0 + (j === 4 ? 80 : -20), on2 = j === st;
+        var px = j === 4 ? 270 : 160;
+        svg.appendChild(el('rect', { x: px - 36, y: 110, width: 72, height: 34, rx: 8 },
+          'fill:' + (on2 ? 'var(--bad)' : 'var(--panel2)') + ';fill-opacity:' + (on2 ? 0.38 : 1) +
+          ';stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(px, 127, STEP[j].n, 'font-size:11px;fill:var(--text)'));
+      }
+      svg.appendChild(el('line', { x1: 234, y1: 127, x2: 202, y2: 127 }, 'stroke:var(--bad);stroke-width:1.5'));
+      svg.appendChild(el('polygon', { points: '196,127 205,122 205,132' }, 'fill:var(--bad)'));
+      svg.appendChild(txt(160, 30, '契約的一生', 'font-size:13px;font-weight:700;fill:var(--text)'));
+      svg.appendChild(txt(160, 166, '上面是正常的路，下面是出事才會走的', 'font-size:10px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', STEP[st].n + '：' + STEP[st].d));
+      read.appendChild(div('wg-read-sub',
+        '契約不是「簽了名的那張紙」，而是「雙方講好的內容」—— 口頭約定一樣有效，' +
+        '寫成書面只是為了日後好證明。⚠ 所以租屋、打工、網購遇到糾紛時，' +
+        '第一件事是把當初講好的條件找出來（對話紀錄、廣告頁面、收據都算），' +
+        '那才是判斷誰違約的依據。未成年人簽的契約另有規定，需要法定代理人同意。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一步', function () { st = (st + 1) % STEP.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+
+  /* ── 歷史科補的真圖（2026-08-30 第五批）──────────────────────────────── */
+
+  /* 史料的距離：離事件愈遠，經過的轉手愈多。一手、二手、再述各是什麼，
+     以及「誰寫的、為誰寫的」為什麼要先問。 */
+  REG.sourcelevel = function (host, spec) {
+    var sel = 0;
+    var LV = [
+      { n: '事件本身', w: 90, eg: '1947 年二月底發生的事',
+        d: '事件過去了就無法重現 —— 我們能碰到的，永遠只是留下來的痕跡。' },
+      { n: '一手史料', w: 150, eg: '當事人的日記、當時的公文、照片、報紙、實物',
+        d: '事件發生時或當時的人留下的。最接近，但仍然有立場：寫的人只看得到自己那一角。' },
+      { n: '二手研究', w: 210, eg: '學者根據一手史料寫的專書與論文',
+        d: '把很多份一手史料對照後的整理與解釋。可靠與否要看它引了什麼、怎麼推論。' },
+      { n: '再述與流傳', w: 268, eg: '教科書、影視作品、網路懶人包、口耳相傳',
+        d: '為了好懂而簡化，也最容易走樣。看到這一層的說法，要往回追它根據什麼。' }
+    ];
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      LV.forEach(function (L, k) {
+        var y = 32 + k * 38;
+        svg.appendChild(el('rect', { x: 160 - L.w / 2, y: y, width: L.w, height: 32, rx: 6 },
+          'fill:' + (k === sel ? 'var(--bad)' : 'var(--accent)') +
+          ';fill-opacity:' + (k === sel ? 0.38 : 0.24 - k * 0.04) + ';stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(160, y + 16, L.n, 'font-size:12px;font-weight:700;fill:var(--text)'));
+        if (k < 3) {
+          svg.appendChild(el('line', { x1: 160, y1: y + 32, x2: 160, y2: y + 38 },
+            'stroke:var(--dim);stroke-width:1.5'));
+          svg.appendChild(el('polygon', { points: '160,' + (y + 38) + ' 155,' + (y + 31) + ' 165,' + (y + 31) },
+            'fill:var(--dim)'));
+        }
+      });
+      svg.appendChild(el('line', { x1: 306, y1: 40, x2: 306, y2: 172 }, 'stroke:var(--dim);stroke-width:1.5'));
+      svg.appendChild(el('polygon', { points: '306,178 301,168 311,168' }, 'fill:var(--dim)'));
+      svg.appendChild(txt(160, 192, '愈往下，經手的人愈多，也離事件愈遠',
+        'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(160, 18, '史料離事件有多遠', 'font-size:13px;font-weight:700;fill:var(--text)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', LV[sel].n + '：' + LV[sel].d));
+      read.appendChild(div('wg-read-sub',
+        '例如：' + LV[sel].eg + '。讀任何史料都先問五件事：誰寫的、什麼時候寫的、寫給誰看、' +
+        '為什麼寫、他怎麼知道的。⚠ 一手史料不等於真話 —— 當事人也會誇大、隱瞞、記錯；' +
+        '二手研究也不等於偏見 —— 好的研究會把不同史料互相對照。' +
+        '判斷可信度靠的是「有沒有交代依據」，不是「離事件近不近」。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一層', function () { sel = (sel + 1) % LV.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 跨區域的流動：把區域畫成方框，用箭頭標出來回流動的是什麼。
+     三角貿易、白銀、技術、疾病、移民，同一張圖可以換好幾個情境。
+     ⚠ 這是關係示意圖不是地圖，方框位置照「上北下南、左西右東」的相對方位擺，
+     但不畫海岸線 —— 免得被當成真的地圖。 */
+  REG.worldflow = function (host, spec) {
+    var CASES = spec.cases || [
+      { k: '大西洋三角貿易', nodes: [
+          { n: '歐洲', x: 160, y: 44 }, { n: '非洲', x: 210, y: 148 }, { n: '美洲', x: 62, y: 116 }],
+        arrows: [[0, 1, '工業品、槍枝'], [1, 2, '被販賣的人'], [2, 0, '糖、棉花、菸草']],
+        say: '三段航程各載不同的貨，其中一段載的是人 —— 這是奴隸貿易的實際運作方式。' },
+      { k: '白銀與東亞', nodes: [
+          { n: '美洲', x: 58, y: 116 }, { n: '歐洲', x: 160, y: 44 }, { n: '東亞', x: 266, y: 116 }],
+        arrows: [[0, 1, '白銀'], [1, 2, '白銀'], [2, 1, '絲綢、瓷器、茶葉']],
+        say: '美洲的白銀經由歐洲商人流進東亞，換走絲綢瓷器 —— 東亞很早就在全球貿易裡。' },
+      { k: '技術與知識的傳播', nodes: [
+          { n: '東亞', x: 258, y: 106 }, { n: '伊斯蘭世界', x: 160, y: 158 }, { n: '歐洲', x: 62, y: 60 }],
+        arrows: [[0, 1, '造紙、印刷、火藥'], [1, 2, '數學、天文、醫學'], [2, 0, '近代科學與工業技術']],
+        say: '技術不是單向流動：造紙術往西走，數學與天文往西再往北，近代之後方向又反過來。' },
+      { k: '人的移動', nodes: [
+          { n: '歐洲', x: 150, y: 46 }, { n: '美洲', x: 58, y: 122 }, { n: '東南亞', x: 258, y: 138 }],
+        arrows: [[0, 1, '移民'], [2, 1, '契約勞工'], [1, 2, '資金與商品']],
+        say: '十九世紀之後大規模移動：歐洲人往美洲，亞洲的契約勞工也被帶往美洲與各地礦場。' }
+    ];
+    var i = 0, a = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var c = CASES[i];
+      compassRose(svg, 26, 176);
+      c.arrows.forEach(function (ar, k) {
+        var p = c.nodes[ar[0]], q = c.nodes[ar[1]];
+        var dx = q.x - p.x, dy = q.y - p.y, len = Math.sqrt(dx * dx + dy * dy) || 1;
+        var ux = dx / len, uy = dy / len;
+        var x1 = p.x + ux * 32, y1 = p.y + uy * 26, x2 = q.x - ux * 34, y2 = q.y - uy * 28;
+        var on = k === a;
+        svg.appendChild(el('line', { x1: x1, y1: y1, x2: x2, y2: y2 },
+          'stroke:' + (on ? 'var(--bad)' : 'var(--border)') + ';stroke-width:' + (on ? 3 : 1.5)));
+        var ang = Math.atan2(y2 - y1, x2 - x1);
+        svg.appendChild(el('polygon', {
+          points: x2 + ',' + y2 + ' ' + (x2 - 10 * Math.cos(ang - 0.4)) + ',' + (y2 - 10 * Math.sin(ang - 0.4)) +
+            ' ' + (x2 - 10 * Math.cos(ang + 0.4)) + ',' + (y2 - 10 * Math.sin(ang + 0.4))
+        }, 'fill:' + (on ? 'var(--bad)' : 'var(--border)')));
+        if (on) svg.appendChild(txt((x1 + x2) / 2, (y1 + y2) / 2 - 8, ar[2],
+          'font-size:10px;font-weight:700;fill:var(--bad)'));
+      });
+      c.nodes.forEach(function (n) {
+        svg.appendChild(el('rect', { x: n.x - 32, y: n.y - 15, width: 64, height: 30, rx: 8 },
+          'fill:var(--accent);fill-opacity:.24;stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(n.x, n.y, n.n, 'font-size:11px;fill:var(--text)'));
+      });
+      svg.appendChild(txt(160, 16, c.k, 'font-size:13px;font-weight:700;fill:var(--text)'));
+      svg.appendChild(txt(200, 192, '這是關係示意圖，不是地圖', 'font-size:9px;fill:var(--dim)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', c.arrows[a][2] + '：從' +
+        c.nodes[c.arrows[a][0]].n + '到' + c.nodes[c.arrows[a][1]].n + '。'));
+      read.appendChild(div('wg-read-sub', c.say +
+        '　看跨區域的歷史，重點不是背哪一年，而是看清楚「什麼東西往哪個方向流、誰得到好處、誰付出代價」。' +
+        '⚠ 流動幾乎不會是單向的，也很少是平等的 —— 同一條航線上，一邊運的是商品，' +
+        '另一邊運的可能是人。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一條路線', function () {
+      a++; if (a >= CASES[i].arrows.length) { a = 0; i = (i + 1) % CASES.length; } paint();
+    }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+
+  /* ── 探究與實作／風險判斷用的圖（2026-08-30 第五批）──────────────────
+     化學、生物、地科、物理各有好幾個「探究與實作」「實驗設計」單元，
+     內容其實是同一套科學方法，所以做成共用的元件。 */
+
+  /* 實驗設計：三種變因 + 對照組 + 重複。
+     按鈕可以把控制變因「放掉」，看結論為什麼就不能成立了。 */
+  REG.expdesign = function (host, spec) {
+    var bad = 0;                                   // 0 正確設計 1 沒控制變因 2 沒有對照組 3 只做一次
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var Q = '光照時間會不會影響植物長高？';
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(txt(160, 16, '問題：' + Q, 'font-size:12px;font-weight:700;fill:var(--text)'));
+      // 兩組盆栽：對照組與實驗組
+      var groups = [
+        { n: '對照組', light: '每天 6 小時', other: '同土同水同溫', x: 88, show: bad !== 2 },
+        { n: '實驗組', light: '每天 12 小時', other: bad === 1 ? '換了另一種土' : '同土同水同溫', x: 220, show: 1 }
+      ];
+      groups.forEach(function (g) {
+        if (!g.show) return;
+        svg.appendChild(el('rect', { x: g.x - 56, y: 34, width: 112, height: 84, rx: 8 },
+          'fill:var(--panel2);stroke:var(--border);stroke-width:1.5'));
+        svg.appendChild(txt(g.x, 48, g.n, 'font-size:11px;font-weight:700;fill:var(--accent)'));
+        svg.appendChild(txt(g.x, 68, '光照：' + g.light, 'font-size:10px;fill:var(--text)'));
+        svg.appendChild(txt(g.x, 86, '其他：' + g.other,
+          'font-size:10px;fill:' + (bad === 1 && g.n === '實驗組' ? 'var(--bad)' : 'var(--dim)')));
+        svg.appendChild(txt(g.x, 106, bad === 3 ? '做 1 盆' : '各做 5 盆',
+          'font-size:10px;fill:' + (bad === 3 ? 'var(--bad)' : 'var(--dim)')));
+      });
+      if (bad === 2) svg.appendChild(txt(88, 76, '（沒有對照組）', 'font-size:11px;fill:var(--bad)'));
+      // 三種變因
+      var V = [['操縱變因', '光照時間', 'var(--bad)'], ['控制變因', '土、水、溫度', 'var(--good)'],
+               ['應變變因', '植株高度', 'var(--accent2)']];
+      V.forEach(function (v, k) {
+        var x = 56 + k * 104;
+        svg.appendChild(el('rect', { x: x - 46, y: 130, width: 92, height: 34, rx: 6 },
+          'fill:' + v[2] + ';fill-opacity:.22;stroke:var(--border);stroke-width:1'));
+        svg.appendChild(txt(x, 141, v[0], 'font-size:10px;fill:' + v[2]));
+        svg.appendChild(txt(x, 156, v[1], 'font-size:10px;fill:var(--text)'));
+      });
+      var VERD = ['✔ 這樣才能說「是光照造成的」',
+                  '✘ 土也換了 —— 長得比較高，說不清是光照還是土',
+                  '✘ 沒有對照組 —— 沒有東西可以比',
+                  '✘ 只做一盆 —— 可能剛好那一株比較會長'];
+      svg.appendChild(txt(160, 184, VERD[bad],
+        'font-size:11px;font-weight:700;fill:' + (bad ? 'var(--bad)' : 'var(--good)')));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', [
+        '只讓一個變因不一樣、其他都一樣，結果的差異才能歸給那個變因。',
+        '同時改了兩個東西，就沒辦法知道是哪一個造成差異 —— 這叫變因沒有控制好。',
+        '沒有對照組，就算實驗組長高了，也不知道「不照那麼久會怎樣」。',
+        '只做一次可能是巧合。重複多次、取平均，才知道差異不是運氣。'
+      ][bad]));
+      read.appendChild(div('wg-read-sub',
+        '設計實驗要先把三種變因分清楚：你要動的（操縱變因）、你要固定的（控制變因）、' +
+        '你要量的（應變變因）。再加上對照組與足夠的重複次數，結論才站得住。' +
+        '⚠ 有差異不等於有因果：如果同時改了兩個東西，或樣本太少，' +
+        '看到的差異可能來自別的原因。寫結論時要一併說明限制。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看一種常見錯誤', function () { bad = (bad + 1) % 4; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+  /* 風險矩陣：機率 × 影響。防災、風險溝通、政策評估都用同一張圖 ——
+     重點是「機率低但影響巨大」的那一格常常被忽略。 */
+  REG.riskmatrix = function (host, spec) {
+    var CASES = spec.cases || [
+      { n: '颱風豪雨', p: 2, i: 2, d: '每年都會來、影響也大 —— 屬於一定要事先整備的類型。' },
+      { n: '大規模地震', p: 0, i: 2, d: '幾十年才一次，但一次就足以毀掉城市。最容易被低估的就是這一格。' },
+      { n: '停電數小時', p: 2, i: 0, d: '常發生但影響有限，準備手電筒與行動電源就夠了。' },
+      { n: '隕石撞擊', p: 0, i: 1, d: '機率極低，投入大量資源防範並不合理 —— 風險管理也要考慮成本。' },
+      { n: '土石流', p: 1, i: 2, d: '在特定地形與雨量下機率明顯上升，屬於可以事先劃出範圍的風險。' }
+    ];
+    var sel = 0;
+    var box = div('wg');
+    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    var X0 = 62, Y0 = 34, CW = 74, CH = 44;
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      for (var r = 0; r < 3; r++) for (var c = 0; c < 3; c++) {
+        // 右上角（機率高、影響大）最危險，用顏色深淺表示
+        var lvl = (2 - r) + c;
+        svg.appendChild(el('rect', { x: X0 + c * CW, y: Y0 + r * CH, width: CW - 3, height: CH - 3, rx: 4 },
+          'fill:var(--bad);fill-opacity:' + (0.05 + lvl * 0.085) + ';stroke:var(--border);stroke-width:1'));
+      }
+      ['低', '中', '高'].forEach(function (s, k) {
+        svg.appendChild(txt(X0 + k * CW + CW / 2, Y0 + 3 * CH + 12, s, 'font-size:10px;fill:var(--dim)'));
+        svg.appendChild(txt(X0 - 16, Y0 + (2 - k) * CH + CH / 2, s, 'font-size:10px;fill:var(--dim)'));
+      });
+      svg.appendChild(txt(X0 + 1.5 * CW, Y0 + 3 * CH + 28, '影響程度 →', 'font-size:10px;fill:var(--dim)'));
+      var yl = el('text', { x: 22, y: Y0 + 1.5 * CH, 'text-anchor': 'middle',
+        transform: 'rotate(-90 22 ' + (Y0 + 1.5 * CH) + ')' }, 'font-size:10px;fill:var(--dim)');
+      yl.textContent = '發生機率 →'; svg.appendChild(yl);
+      CASES.forEach(function (c, k) {
+        var x = X0 + c.i * CW + CW / 2, y = Y0 + (2 - c.p) * CH + CH / 2;
+        var on = k === sel;
+        // 同一格可能有兩個，稍微錯開
+        var off = (k % 2) * 14 - 7;
+        svg.appendChild(el('circle', { cx: x + off, cy: y, r: on ? 8 : 5 },
+          'fill:' + (on ? 'var(--bad)' : 'var(--accent)') + ';stroke:var(--bg);stroke-width:1.5'));
+        if (on) svg.appendChild(txt(x + off, y - 16, c.n, 'font-size:10px;font-weight:700;fill:var(--bad)'));
+      });
+      svg.appendChild(txt(160, 18, '風險 ＝ 發生機率 × 影響程度',
+        'font-size:12px;font-weight:700;fill:var(--text)'));
+      read.innerHTML = '';
+      read.appendChild(div('wg-read-main', CASES[sel].n + '：' + CASES[sel].d));
+      read.appendChild(div('wg-read-sub',
+        '風險不只看「會不會發生」，還要看「發生了有多嚴重」。' +
+        '兩件事都要問，才知道資源該放在哪裡。' +
+        '⚠ 最危險的盲點是左上角那一格：機率低、影響巨大（大地震、海嘯、核事故）。' +
+        '因為很少發生，人會覺得「應該不會輪到我」，結果毫無整備 —— ' +
+        '減災與整備要花的錢，遠比事後復原少。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一個風險', function () { sel = (sel + 1) % CASES.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
+
+  /* 配對圖：左邊一欄、右邊一欄，按一下連出正確的那條線。
+     量詞配物品、成語配典故、疊字配用途，都是同一種「兩欄對應」的關係。
+     spec: { title, left:'物品', right:'量詞', pairs:[{a,b,d}] } */
+  REG.matchpair = function (host, spec) {
+    var pairs = spec.pairs || [];
+    var i = -1;
+    var box = div('wg');
+    var H = 40 + pairs.length * 30 + 16;
+    var svg = el('svg', { viewBox: '0 0 320 ' + H, class: 'wg-svg' });
+    box.appendChild(svg);
+    var read = div('wg-read');
+    box.appendChild(read);
+    // 右欄故意打亂，不然一眼就對上了，看不出「要想一下」
+    var order = pairs.map(function (_, k) { return (k * 3 + 1) % pairs.length; });
+    (function dedupe() {
+      var seen = {}, free = [];
+      pairs.forEach(function (_, k) { free.push(k); });
+      order = order.map(function (v) {
+        if (seen[v]) return -1;
+        seen[v] = 1; return v;
+      });
+      var rest = free.filter(function (k) { return !seen[k]; });
+      order = order.map(function (v) { return v < 0 ? rest.shift() : v; });
+    })();
+    function paint() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(txt(160, 18, spec.title || '把左右兩邊配起來',
+        'font-size:12px;font-weight:700;fill:var(--text)'));
+      svg.appendChild(txt(76, 34, spec.left || '左', 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(244, 34, spec.right || '右', 'font-size:10px;fill:var(--dim)'));
+      pairs.forEach(function (p, k) {
+        var y = 48 + k * 30, on = k === i;
+        svg.appendChild(el('rect', { x: 12, y: y, width: 128, height: 24, rx: 5 },
+          'fill:' + (on ? 'var(--bad)' : 'var(--accent)') + ';fill-opacity:' + (on ? 0.34 : 0.16) +
+          ';stroke:var(--border);stroke-width:1'));
+        svg.appendChild(txt(76, y + 12, p.a, 'font-size:11px;fill:var(--text)'));
+      });
+      order.forEach(function (src, k) {
+        var y = 48 + k * 30, on = src === i;
+        svg.appendChild(el('rect', { x: 180, y: y, width: 128, height: 24, rx: 5 },
+          'fill:' + (on ? 'var(--bad)' : 'var(--good)') + ';fill-opacity:' + (on ? 0.34 : 0.16) +
+          ';stroke:var(--border);stroke-width:1'));
+        svg.appendChild(txt(244, y + 12, pairs[src].b, 'font-size:11px;fill:var(--text)'));
+      });
+      if (i >= 0) {
+        var ly = 48 + i * 30 + 12;
+        var ry = 48 + order.indexOf(i) * 30 + 12;
+        svg.appendChild(el('line', { x1: 140, y1: ly, x2: 180, y2: ry },
+          'stroke:var(--bad);stroke-width:2.5'));
+        svg.appendChild(el('circle', { cx: 140, cy: ly, r: 3.5 }, 'fill:var(--bad)'));
+        svg.appendChild(el('circle', { cx: 180, cy: ry, r: 3.5 }, 'fill:var(--bad)'));
+      }
+      read.innerHTML = '';
+      if (i >= 0) {
+        read.appendChild(div('wg-read-main', pairs[i].a + ' ↔ ' + pairs[i].b +
+          (pairs[i].d ? '：' + pairs[i].d : '')));
+      } else {
+        read.appendChild(div('wg-read-main', '先自己在心裡配一次，再按按鈕看答案。'));
+      }
+      read.appendChild(div('wg-read-sub', spec.note ||
+        '兩欄對應的關係要一組一組記，不能用猜的 —— 猜對一次不代表下次還會對。'));
+    }
+    var row = div('wg-ctrl');
+    row.appendChild(btn('看下一組答案', function () { i = (i + 1) % pairs.length; paint(); }));
+    paint();
+    box.appendChild(row);
+    host.appendChild(box);
+  };
+
   window.Widgets = {
     register: function (type, fn) { REG[type] = fn; },
     has: function (type) { return !!REG[type]; },
