@@ -36,7 +36,11 @@ plan.forEach((p) => {
   if (g.viz) { console.log('－ 已經有圖，跳過：' + p.key + ' 第' + p.seg + '段'); return; }
   const has = (u.segs || []).filter((x) => x.viz).length;
   perUnit[p.key] = (perUnit[p.key] || has) + 1;
-  if (perUnit[p.key] > 3) { console.log('✗ 超過每單元 3 段的上限：' + p.key); bad++; return; }
+  /* 2026-09-05 Tony 要求提高帶讀配圖比例 → 上限由 3 放寬到 4。
+     一個單元 6 段，配 4 段留 2 段純文字，還是保有變化（Mayer 的 redundancy 原則）。
+     要再放寬就下 --per N。 */
+  const PER = (function () { const i = process.argv.indexOf('--per'); return i > 0 ? Number(process.argv[i + 1]) : 4; })();
+  if (perUnit[p.key] > PER) { console.log('✗ 超過每單元 ' + PER + ' 段的上限：' + p.key); bad++; return; }
   good.push({ ...p, h: g.h });
 });
 
