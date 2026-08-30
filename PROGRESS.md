@@ -6,7 +6,11 @@ STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
 NEXT_ACTION: 【2026-08-31 Tony 核定：先做 (8) 丙＝高中七科先修品質再擴題，做完回頭把 (3) 剩下的 984 段配圖補完】
  目前手上：(8) 品質修復，逐科逐批人工重寫誘答＋解析。工具 `node tools/dump-qfix-todo.js <科目> [n]` 列待辦 →
- 手寫 patch.json `[{id, d:[三個誘答], exp}]` → `node tools/set-qfix.js <file> --write` → `node test/test.js` → commit。每批 60 題。
+ 手寫 patch.json `[{id, d:[三個誘答], exp}]` → `node tools/set-qfix.js <file> --write`
+ → `node tools/regen-checks.js <科目> --write`（❌ 段改寫後，舊的「解析說其他選項各錯在哪」確認題會失根，要重建）
+ → `node test/test.js` → commit。每批 60 題。
+ ⚠ 誘答長度：最長的誘答不得比正解短 6 字以上（工具會擋），寫的時候一律比正解多寫 2~6 字。
+ 已完成：公民 ci0001–ci0100（100 題）。
  順序：公民 1718 → 地理 1697 → 歷史 1671 → 地科 1622 → 生物 1619 → 化學 1477 → 物理 1147（共 10,951 題）。
  查還剩多少：`grep -c "各自都對，但不是這一題在問的" js/data/<科>.js`
 【原本的八項清單，其餘照舊】
