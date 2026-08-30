@@ -6989,6 +6989,7 @@ window.APP_TEXTS['english|三下|第1單元 一般動詞現在式'] = {
       terms: [
         { w: '助動詞', d: '幫助造否定或疑問句的動詞。' }
       ],
+      viz: {"type":"compareexp","factor":"否定句借哪個字","a":{"label":"I / you / we / they","note":"I do not like it.（縮寫 don't）"},"b":{"label":"he / she / it","note":"He does not like it.（縮寫 doesn't）"},"same":["借了 do／does 之後，主要動詞用原形"]},
       q: {
         q: '課文說用了 does 之後動詞要用什麼形式？',
         options: [
@@ -7062,6 +7063,7 @@ window.APP_TEXTS['english|三下|第1單元 一般動詞現在式'] = {
       terms: [
         { w: '句型', d: '句子的固定結構。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"肯定","items":["I eat breakfast every morning."]},{"label":"否定","items":["I do not eat breakfast on Sundays."]},{"label":"疑問","items":["Do you eat breakfast?"]}]},
       q: {
         q: '課文說三種句型的差別在哪裡？',
         options: [
@@ -7117,6 +7119,7 @@ window.APP_TEXTS['english|三下|第2單元 第三人稱單數 -s'] = {
       terms: [
         { w: '字尾', d: '一個字最後面的字母。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"直接加 s","items":["play → plays","like → likes","read → reads"]},{"label":"加 es（s、x、sh、ch、o 結尾）","items":["go → goes","watch → watches","fix → fixes"]},{"label":"子音+y → ies","items":["study → studies","fly → flies"]}]},
       q: {
         q: '課文說字尾是子音加 y 時要怎麼變？',
         options: [
@@ -7245,6 +7248,7 @@ window.APP_TEXTS['english|三下|第3單元 頻率副詞與作息'] = {
       terms: [
         { w: '頻率副詞', d: '表示做某事多常的字。' }
       ],
+      viz: {"type":"levels","items":["always 總是（幾乎 100%）","usually 通常 / often 常常","sometimes 有時","seldom 很少 / never 從不"]},
       q: {
         q: '課文說 never 可不可以再加 not？',
         options: [
@@ -7294,6 +7298,7 @@ window.APP_TEXTS['english|三下|第3單元 頻率副詞與作息'] = {
       terms: [
         { w: 'How often', d: '多久一次，用來問頻率。' }
       ],
+      viz: {"type":"sentence","label":"問頻率","items":[{"t":"How often do you exercise?","r":"你多常運動？"}],"note":"問「多常」用 How often。","alt":[{"label":"回答次數","items":[{"t":"Three times a week","r":"一週三次"}],"note":"once 一次、twice 兩次，三次以上用 times。"}]},
       q: {
         q: '課文說「兩次」的英文是什麼？',
         options: [
@@ -7421,6 +7426,7 @@ window.APP_TEXTS['english|三下|第4單元 時間：幾點鐘'] = {
       terms: [
         { w: '整點', d: '剛好幾點、沒有分鐘。' }
       ],
+      viz: {"type":"compareexp","factor":"半點的兩種說法","a":{"label":"英式","note":"half past five（五點過了半小時）"},"b":{"label":"直接唸數字","note":"five thirty"},"same":["整點固定用 o'clock：five o'clock"]},
       q: {
         q: '課文說 o 加撇號 clock 只能用在什麼時候？',
         options: [
@@ -7575,6 +7581,7 @@ window.APP_TEXTS['english|三下|第5單元 食物與點餐'] = {
       terms: [
         { w: '可數名詞', d: '可以一個兩個去數的名詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"飲料","items":["water 水","milk 牛奶","juice 果汁","tea 茶","coffee 咖啡"]},{"label":"常見水果","items":["apple 蘋果","banana 香蕉","orange 柳橙"]},{"label":"其他水果","items":["grape 葡萄","watermelon 西瓜","strawberry 草莓"]}]},
       q: {
         q: '課文說水果大多是可數還是不可數？',
         options: [
@@ -7672,6 +7679,7 @@ window.APP_TEXTS['english|三下|第5單元 食物與點餐'] = {
       terms: [
         { w: '對話', d: '兩個人一來一往的談話。' }
       ],
+      viz: {"type":"energyflow","steps":["店員：May I take your order?","顧客：I would like a hamburger and a milk.","店員：Anything else?","顧客：No, thank you."]},
       q: {
         q: '課文說店員在顧客點完後會再問什麼？',
         options: [
@@ -7702,6 +7710,7 @@ window.APP_TEXTS['english|三下|第6單元 動物與棲地'] = {
       terms: [
         { w: '寵物', d: '養在家裡陪伴人的動物。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"寵物","items":["dog","cat","bird","fish","rabbit"]},{"label":"農場動物","items":["cow","pig","horse","duck","chicken"]},{"label":"野生動物","items":["lion","tiger","elephant","monkey"]}]},
       q: {
         q: '課文說 horse 屬於哪一類動物？',
         options: [
@@ -7726,6 +7735,7 @@ window.APP_TEXTS['english|三下|第6單元 動物與棲地'] = {
       terms: [
         { w: '棲地', d: '動物生活的地方。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"人造的","items":["farm 農場","zoo 動物園"]},{"label":"陸地","items":["forest 森林","jungle 叢林","desert 沙漠"]},{"label":"水域","items":["ocean／sea 海洋","river 河"]}]},
       q: {
         q: '課文說「住在哪裡」要用哪一個說法？',
         options: [
@@ -7854,6 +7864,7 @@ window.APP_TEXTS['english|三下|第7單元 身體與健康'] = {
       terms: [
         { w: '成對', d: '兩個一組的東西。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"頭部","items":["head 頭","hair 頭髮","eye 眼睛","ear 耳朵"]},{"label":"臉","items":["nose 鼻子","mouth 嘴巴"]},{"label":"四肢","items":["hand 手","arm 手臂","leg 腿","foot 腳"]}]},
       q: {
         q: '課文說成對的身體部位常用什麼形式？',
         options: [
@@ -7952,6 +7963,7 @@ window.APP_TEXTS['english|三下|第7單元 身體與健康'] = {
       terms: [
         { w: '看診', d: '醫生為病人檢查與治療。' }
       ],
+      viz: {"type":"energyflow","steps":["醫生：What is wrong?","病人：I have a fever and a headache.","醫生：How long have you felt sick?","醫生：Get some rest and drink more water."]},
       q: {
         q: '課文說醫生問完症狀之後通常會再問什麼？',
         options: [
@@ -8055,6 +8067,7 @@ window.APP_TEXTS['english|三下|第8單元 天氣與衣物'] = {
       terms: [
         { w: '季節', d: '一年當中的四個時期。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"春夏","items":["spring 春","summer 夏"]},{"label":"秋冬","items":["fall／autumn 秋","winter 冬"]},{"label":"用法","items":["季節前面用 in：in summer"]}]},
       q: {
         q: '課文說季節前面要用哪一個介系詞？',
         options: [
@@ -8079,6 +8092,7 @@ window.APP_TEXTS['english|三下|第8單元 天氣與衣物'] = {
       terms: [
         { w: '衣物', d: '身上穿的東西。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"上身","items":["shirt 襯衫","T-shirt 短袖上衣","coat 外套"]},{"label":"下身","items":["pants 褲子","skirt 裙子","dress 洋裝"]},{"label":"配件","items":["shoes 鞋子","socks 襪子","hat 帽子"]}]},
       q: {
         q: '課文說哪些衣物要用複數？',
         options: [
@@ -8158,6 +8172,7 @@ window.APP_TEXTS['english|三下|第9單元 can 與能力'] = {
       terms: [
         { w: '助動詞', d: '幫助主要動詞表達語氣的動詞。' }
       ],
+      viz: {"type":"compareexp","factor":"can 的兩種意思","a":{"label":"能力（會）","note":"I can swim.（我會游泳）"},"b":{"label":"許可（可以）","note":"Can I go now?（我可以走了嗎）"},"same":["can 後面永遠接原形動詞，而且不加 s"]},
       q: {
         q: '課文說 can 後面要接什麼？',
         options: [
@@ -8206,6 +8221,7 @@ window.APP_TEXTS['english|三下|第9單元 can 與能力'] = {
       terms: [
         { w: '疑問句', d: '用來發問的句子。' }
       ],
+      viz: {"type":"sentence","label":"問能力","items":[{"t":"Can you swim?","r":"你會游泳嗎？"}],"note":"can 搬到句首就是疑問句。","alt":[{"label":"會","items":[{"t":"Yes, I can","r":"會"}],"note":"簡答不縮寫。"},{"label":"不會","items":[{"t":"No, I can't","r":"不會"}],"note":"否定簡答可以縮寫。"}]},
       q: {
         q: '課文說 can 的疑問句要怎麼造？',
         options: [
@@ -8310,6 +8326,7 @@ window.APP_TEXTS['english|四上|第1單元 現在進行式'] = {
       terms: [
         { w: '現在進行式', d: '表示此刻正在做的動作。' }
       ],
+      viz: {"type":"energyflow","steps":["主詞：I","be 動詞：am","動詞加 ing：eating","→ I am eating.（兩個都不能少）"]},
       q: {
         q: '課文說現在進行式缺一不可的兩個部分是什麼？',
         options: [
@@ -8359,6 +8376,7 @@ window.APP_TEXTS['english|四上|第1單元 現在進行式'] = {
       terms: [
         { w: '主詞', d: '句子裡做動作的那個人事物。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"am","items":["I"]},{"label":"is","items":["he","she","it","單數名詞"]},{"label":"are","items":["you","we","they","複數名詞"]}]},
       q: {
         q: '課文說主詞是複數名詞時要用哪一個 be 動詞？',
         options: [
@@ -8462,6 +8480,7 @@ window.APP_TEXTS['english|四上|第2單元 -ing 拼寫規則'] = {
       terms: [
         { w: '拼寫規則', d: '單字變化時字母怎麼寫的規定。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"直接加 ing","items":["play → playing","read → reading","eat → eating"]},{"label":"字尾 y 不用變","items":["study → studying","play → playing"]},{"label":"提醒","items":["大部分動詞都屬於這一類"]}]},
       q: {
         q: '課文說字尾是 y 時加 ing 要不要改成 i？',
         options: [
@@ -8486,6 +8505,7 @@ window.APP_TEXTS['english|四上|第2單元 -ing 拼寫規則'] = {
       terms: [
         { w: '不發音的 e', d: '寫出來但不唸的字尾 e。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"去 e 再加 ing","items":["make → making","write → writing"]},{"label":"更多例子","items":["come → coming","dance → dancing","ride → riding"]},{"label":"條件","items":["字尾是不發音的 e"]}]},
       q: {
         q: '課文說字尾是不發音的 e 時要怎麼加 ing？',
         options: [
@@ -8510,6 +8530,7 @@ window.APP_TEXTS['english|四上|第2單元 -ing 拼寫規則'] = {
       terms: [
         { w: '單音節', d: '只有一個母音的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"重複字尾子音","items":["run → running","sit → sitting"]},{"label":"更多例子","items":["swim → swimming","get → getting","stop → stopping"]},{"label":"條件","items":["單音節","短母音 + 單一子音結尾"]}]},
       q: {
         q: '課文說什麼情況要重複字尾子音？',
         options: [
@@ -8662,6 +8683,7 @@ window.APP_TEXTS['english|四上|第3單元 現在進行式問句與否定'] = {
       terms: [
         { w: '疑問詞', d: '用來問人事時地物的字。' }
       ],
+      viz: {"type":"sentence","label":"疑問詞＋進行式","items":[{"t":"What are you doing?","r":"你正在做什麼？"}],"note":"疑問詞放最前面，be 動詞跟在後面。","alt":[{"label":"問地點","items":[{"t":"Where is he going?","r":"他要去哪裡？"}],"note":"Where 問地點。"},{"label":"問人","items":[{"t":"Who is singing?","r":"誰在唱歌？"}],"note":"Who 當主詞時後面直接接 is。"}]},
       q: {
         q: '課文說疑問詞問句的語序是什麼？',
         options: [
@@ -8765,6 +8787,7 @@ window.APP_TEXTS['english|四上|第4單元 地點介系詞'] = {
       terms: [
         { w: '介系詞', d: '表示位置或時間關係的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"in 在裡面","items":["The book is in the bag."]},{"label":"on 在上面（有接觸）","items":["The book is on the desk."]},{"label":"under 在下面","items":["The cat is under the chair."]}]},
       q: {
         q: '課文說 on 表示什麼位置？',
         options: [
@@ -8789,6 +8812,7 @@ window.APP_TEXTS['english|四上|第4單元 地點介系詞'] = {
       terms: [
         { w: 'between', d: '在兩者之間。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"前後","items":["in front of 在前面","behind 在後面"]},{"label":"旁邊","items":["next to／beside 在旁邊","near 在附近"]},{"label":"之間","items":["between A and B 在兩者之間"]}]},
       q: {
         q: '課文說三者以上要用哪一個字？',
         options: [
@@ -8992,6 +9016,7 @@ window.APP_TEXTS['english|四上|第5單元 There is / There are'] = {
       terms: [
         { w: '疑問句', d: '用來發問的句子。' }
       ],
+      viz: {"type":"sentence","label":"There 的疑問句","items":[{"t":"Is there a book on the desk?","r":"桌上有一本書嗎？"}],"note":"把 is 搬到 there 前面。","alt":[{"label":"複數","items":[{"t":"Are there any books?","r":"有書嗎？"}],"note":"疑問句用 any。"},{"label":"回答","items":[{"t":"Yes, there is / No, there is not","r":"有／沒有"}],"note":"回答時也要用 there。"}]},
       q: {
         q: '課文說回答 There 句型的問句時要用什麼字？',
         options: [
@@ -9094,6 +9119,7 @@ window.APP_TEXTS['english|四上|第6單元 月份與日期'] = {
       terms: [
         { w: '星期', d: '一週當中的七天。' }
       ],
+      viz: {"type":"compareexp","factor":"單數還是複數","a":{"label":"某一個星期一","note":"on Monday（這個星期一）"},"b":{"label":"每個星期一","note":"on Mondays（固定每週一）"},"same":["星期的字首都要大寫"]},
       q: {
         q: '課文說「每個星期一」要怎麼說？',
         options: [
@@ -9167,6 +9193,7 @@ window.APP_TEXTS['english|四上|第6單元 月份與日期'] = {
       terms: [
         { w: 'date', d: '日期，幾月幾號。' }
       ],
+      viz: {"type":"compareexp","factor":"date 還是 day","a":{"label":"問幾號","note":"What is the date today? → It is May 5."},"b":{"label":"問星期幾","note":"What day is it today? → It is Monday."},"same":["兩句都以 today 結尾，但問的東西不同"]},
       q: {
         q: '課文說 day 問的是什麼？',
         options: [
@@ -9222,6 +9249,7 @@ window.APP_TEXTS['english|四上|第7單元 序數'] = {
       terms: [
         { w: '基數', d: '表示數量的數字。' }
       ],
+      viz: {"type":"compareexp","factor":"數量還是順序","a":{"label":"基數（數量）","note":"one、two、three——回答 How many"},"b":{"label":"序數（順序）","note":"first、second、third——前面通常加 the"},"same":["前三個長得完全不一樣，要背"]},
       q: {
         q: '課文說序數前面通常要加什麼？',
         options: [
@@ -9246,6 +9274,7 @@ window.APP_TEXTS['english|四上|第7單元 序數'] = {
       terms: [
         { w: '序數', d: '表示第幾的數字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"完全不規則","items":["one → first","two → second","three → third"]},{"label":"要改拼法","items":["five → fifth","nine → ninth","twelve → twelfth"]},{"label":"直接加 th","items":["four → fourth","six → sixth","ten → tenth"]}]},
       q: {
         q: '課文說哪三個序數和基數長得完全不一樣？',
         options: [
