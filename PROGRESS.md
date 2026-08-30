@@ -4,7 +4,7 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 項目 2（誘答重寫）高中七科已完工（v84）。剩下國小自然 71%／國小社會 85%／英文 42% —— 這三科不能用 tools/fix-distractors.js 的「借同課正解」做法（英文選項是單字，借過來會中英文混在一起、甚至借到另一個也對的答案；國小題目短、同課概念太接近，實測借到「讓靜止的物體動起來」這種語意上也成立的敘述）。要改成「把原本的短誘答加長成型別相符的錯誤敘述」，逐題人工或另寫工具，做之前先問 Tony 要不要做
+NEXT_ACTION: 帶讀配圖收尾中（Tony 2026-08-30：先做完帶讀圖全部，再回頭做誘答重寫）。目前 23.4%（1,645/7,020 段）。下一步：繼續替公民／歷史／地理／地科／化學／生物畫新元件並掛到概念卡，再跑 `node tools/seed-text-viz.js <科> --no-texty --min 0.38 --write`；國語（0%，108 單元 648 段）沒有概念卡系統，要另外設計語文用的元件（部首結構、句型、修辭、文體結構）直接掛到帶讀段落
 並指示「先做完 1（配圖）再做 2（誘答重寫）」。
 已完成：數學 215 單元 465 段、自然 125 單元 273 段（十二年級全部），覆蓋率 math 36%／science 37%。
 工具：tools/seed-text-viz.js <科目> [--write]。做法＝把同單元概念卡已配好的 viz 接到帶讀最相似的段落
@@ -30,6 +30,19 @@ galvanic（電化學電池含鹽橋與電子流）、titration（滴定曲線）
 粒子模型、平衡、地層、天體運動…），再接到帶讀與概念卡。這是一件比接圖大的工程，做完再回頭做誘答重寫。
 【做完配圖後】才做誘答重寫：tools/fix-distractors.js（同課其他題的正解當誘答，公民試跑 99.8%→8.5%），
 要逐課抽查再寫入；test/test.js 已有「正解最長」門檻表，每修好一科就把該科上限調降。
+
+【v85 已完成 2026-08-30】帶讀配圖第三／四輪。
+第三輪＝撿現成的：英文 0→30%（393 段，概念卡本來就有 388 張真圖沒接到）、國小社會 13→26%、
+地理 +12、歷史 +5、公民 +1。並修好 seed-text-viz.js 的 idempotency
+（n／texty 每次從 0 起算，跑第二次會在同一單元再疊 3 段，「每單元最多 3」形同虛設）。
+第四輪＝畫新圖：js/widgets.js 新增七種社會科真圖 —— climograph（雨溫圖，七種氣候真實數據）、
+landuse（都市內部結構三模式）、demotrans（人口轉型五階段）、lorenz（洛倫茲曲線與吉尼係數）、
+courtlevel（三級三審）、checksbalance（權力分立與制衡）、dynastyband（時期對照帶，spec 帶年代資料）。
+新增 tools/set-card-viz.js（lessons-*.js 是手寫 JS，用大括號配對只換 viz 那一段），30 張概念卡換上新圖。
+⚠ 這三科的帶讀與概念卡是各自寫的，字面重疊低於數學自然，seed 要用 `--min 0.38`（預設 0.5 幾乎接不到）。
+目前配圖率：國語 0%、公民 6%、歷史 8%、地科 13%、化學 14%、生物 14%、地理 16%、物理 23%、
+國小社會 26%、英文 30%、數學 36%、自然 37%；全站 23.4%。
+數學／自然／英文已達「每單元最多 3 段」的上限，接不到更多。
 
 【v84 已完成 2026-08-30 16:xx】誘答重寫，高中七科 10,951 題。
 「正解是唯一最長」：公民 99.8→8.6、地理 98.3→8.8、歷史 97.7→9.4、地科 94.7→11.2、
@@ -128,7 +141,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 16:30 台北
+UPDATED: 2026-08-30 17:40 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
