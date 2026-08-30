@@ -343,7 +343,8 @@ console.log('全科架構 / 自創分冊分課 / 解析強化');
   ok(dq.explain.indexOf('典故與成語意思') >= 0, '典故解析會出現在答題回饋');
   const dq2 = PURE.buildIdiomQ(D.idioms.find(i => i.id === 'i001'), D.idioms);
   ok(dq2.explain.indexOf('注音比較') >= 0, '沒寫 deep 的成語也自動有注音比較');
-  for (const k of ['idioms', 'phonics', 'chars']) {
+  // 2026-09-03 起俚語也要 100% deep（Tony 指示補齊，成語/字音/字形本來就有）
+  for (const k of ['idioms', 'slang', 'phonics', 'chars']) {
     const n = D[k].filter(i => i.deep && i.deep.length >= 30).length;
     ok(n === D[k].length, `${k} 深度解析全數覆蓋（${n}/${D[k].length}）`);
   }
@@ -517,6 +518,9 @@ console.log('解析確認題');
   });
   ok(bad.length === 0,
     `匯入／各科確認題格式與根據正確（${ids.length} 筆，問題 ${bad.length} 筆${bad.length ? '：' + bad.slice(0, 5).join('；') : ''}）`);
+  // 俚語 100% 覆蓋是硬性門檻（2026-09-03 起）：新增 slang.js 條目要一併寫 checks-slang.js
+  const slangCov = D.slang.filter(it => CHK[it.id]).length;
+  ok(slangCov === D.slang.length, `俚語確認題全數覆蓋（${slangCov}/${D.slang.length}）`);
   if (ids.length) {
     const dist = [0, 0, 0, 0];
     ids.forEach(id => dist[CHK[id].a]++);
