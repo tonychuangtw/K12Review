@@ -24948,6 +24948,7 @@ window.APP_TEXTS['english|十上|第1單元 時態綜合'] = {
       terms: [
         { w: '倒敘', d: '先講後面的事再回頭講先前的。' }
       ],
+      viz: {"type":"compareexp","factor":"什麼時候需要過去完成式","a":{"label":"需要","note":"兩件過去的事要分先後：He had left before I arrived."},"b":{"label":"不一定需要","note":"已經有 before／after 標明先後時，用過去式就夠了"},"same":["過去完成式是為了「標出更早的那一件」"]},
       q: {
         q: '課文說有 before 標明先後時過去完成式如何？',
         options: [
@@ -24972,6 +24973,7 @@ window.APP_TEXTS['english|十上|第1單元 時態綜合'] = {
       terms: [
         { w: '完成進行式', d: '強調動作持續進行的時態。' }
       ],
+      viz: {"type":"compareexp","factor":"完成式與完成進行式","a":{"label":"完成式","note":"強調結果：I have read three books.（讀完三本）"},"b":{"label":"完成進行式","note":"強調過程與持續：I have been reading for three hours.（讀了三小時，可能還在讀）"},"same":["兩者都從過去延伸到現在"]},
       q: {
         q: '課文說完成進行式強調什麼？',
         options: [
@@ -25050,6 +25052,7 @@ window.APP_TEXTS['english|十上|第2單元 被動語態進階'] = {
       terms: [
         { w: '被動語態', d: '主詞是動作承受者的句型。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"簡單式","items":["is / was / will be + p.p."],"note":"最基本"},{"label":"進行式","items":["is being + p.p."],"note":"正在被……"},{"label":"完成式","items":["has been + p.p."],"note":"已經被……"},{"label":"要點","items":["時態由 be 動詞決定，被動由 p.p. 決定"]}]},
       q: {
         q: '課文說各時態的被動裡什麼在變？',
         options: [
@@ -25148,6 +25151,7 @@ window.APP_TEXTS['english|十上|第2單元 被動語態進階'] = {
       terms: [
         { w: '不及物動詞', d: '後面不接受詞的動詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"不及物動詞","items":["happen","occur","appear","arrive","rise"],"note":"沒有受詞就不能變被動"},{"label":"部分狀態動詞","items":["have（擁有）","resemble","lack"],"note":"✗ The car is had by him."},{"label":"判斷方法","items":["先問：這個動詞有沒有受詞"]}]},
       q: {
         q: '課文說 cost 可不可以用被動？',
         options: [
@@ -25202,6 +25206,7 @@ window.APP_TEXTS['english|十上|第3單元 關係子句'] = {
       terms: [
         { w: '限定用法', d: '用來縮小範圍的關係子句。' }
       ],
+      viz: {"type":"compareexp","factor":"有沒有逗號","a":{"label":"限定用法（沒有逗號）","note":"The students who studied hard passed.（只有用功的那些通過）——不能拿掉"},"b":{"label":"非限定用法（有逗號）","note":"My car, which is red, is new.（補充說明）——拿掉句意仍完整"},"same":["逗號一個都不能少，也不能多"]},
       q: {
         q: '課文說非限定用法有什麼特徵？',
         options: [
@@ -25275,6 +25280,7 @@ window.APP_TEXTS['english|十上|第3單元 關係子句'] = {
       terms: [
         { w: '關係副詞', d: '兼具連接與副詞功能的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"where（地方）","items":["the house where I live"],"note":"= in which"},{"label":"when（時間）","items":["the day when we met"],"note":"= on which"},{"label":"why（原因）","items":["the reason why he left"],"note":"= for which"}]},
       q: {
         q: '課文說關係副詞後面接什麼？',
         options: [
@@ -25299,6 +25305,7 @@ window.APP_TEXTS['english|十上|第3單元 關係子句'] = {
       terms: [
         { w: '省略', d: '把某個字拿掉而句子仍成立。' }
       ],
+      viz: {"type":"compareexp","factor":"能不能省略","a":{"label":"可以省","note":"受格關代：the book (which) I read；關代 + be 動詞：the boy (who is) running"},"b":{"label":"不能省","note":"主格關代（後面沒有 be 動詞時）：the man who lives here"},"same":["省略之後句子要還讀得通"]},
       q: {
         q: '課文說主格關代單獨出現時可不可以省略？',
         options: [
@@ -25353,6 +25360,7 @@ window.APP_TEXTS['english|十上|第4單元 名詞子句'] = {
       terms: [
         { w: '引導詞', d: '帶出子句的那個字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"that","items":["I know that he lied."],"note":"陳述事實"},{"label":"whether / if","items":["I wonder whether it works."],"note":"表示「是否」"},{"label":"疑問詞","items":["I don't know where he lives."],"note":"what／where／who／how"}]},
       q: {
         q: '課文說哪一個引導詞用來陳述事實？',
         options: [
@@ -25451,6 +25459,7 @@ window.APP_TEXTS['english|十上|第4單元 名詞子句'] = {
       terms: [
         { w: '介系詞', d: '表示關係的字，如 about、of。' }
       ],
+      viz: {"type":"compareexp","factor":"介系詞後面用哪一個","a":{"label":"✔ whether","note":"I'm not sure about whether he will come."},"b":{"label":"✗ if","note":"介系詞後面不能用 if"},"same":["that 子句一般也不直接放在介系詞後面"]},
       q: {
         q: '課文說介系詞後面只能用哪一個字？',
         options: [
@@ -25554,6 +25563,7 @@ window.APP_TEXTS['english|十上|第5單元 副詞子句'] = {
       terms: [
         { w: '連接詞', d: '把兩個部分連起來的字。' }
       ],
+      viz: {"type":"compareexp","factor":"中文的關聯詞不能照搬","a":{"label":"中文","note":"「雖然……但是……」「因為……所以……」兩個都要"},"b":{"label":"英文","note":"只能擇一：Although it rained, we went out.（✗ 再加 but）"},"same":["一個句子只能有一個連接詞"]},
       q: {
         q: '課文說英文一個句子能有幾個連接詞？',
         options: [
@@ -25578,6 +25588,7 @@ window.APP_TEXTS['english|十上|第5單元 副詞子句'] = {
       terms: [
         { w: '目的', d: '做某件事所要達成的事。' }
       ],
+      viz: {"type":"compareexp","factor":"目的與結果","a":{"label":"目的（還沒發生）","note":"He studied hard so that he could pass."},"b":{"label":"結果（已經發生）","note":"He studied so hard that he passed."},"same":["so that 是目的，so…that 是結果，差一個位置"]},
       q: {
         q: '課文說結果句型的中間要放什麼？',
         options: [
@@ -25602,6 +25613,7 @@ window.APP_TEXTS['english|十上|第5單元 副詞子句'] = {
       terms: [
         { w: '子句', d: '句子裡的一個完整結構。' }
       ],
+      viz: {"type":"compareexp","factor":"什麼時候不用未來式","a":{"label":"時間與條件子句","note":"When he arrives, I will leave.（子句用現在式）"},"b":{"label":"名詞子句","note":"I don't know when he will arrive.（這裡就可以用未來式）"},"same":["同樣是 when，看它在句中扮演什麼角色"]},
       q: {
         q: '課文說時間子句要用什麼時態代替未來式？',
         options: [
@@ -25681,6 +25693,7 @@ window.APP_TEXTS['english|十上|第6單元 分詞構句'] = {
       terms: [
         { w: '主動', d: '主詞自己做出動作。' }
       ],
+      viz: {"type":"compareexp","factor":"用 ing 還是過去分詞","a":{"label":"主動 → -ing","note":"Walking on the street, I met him.（我主動走路）"},"b":{"label":"被動 → p.p.","note":"Written in simple English, the book is easy to read.（書是被寫的）"},"same":["先問：主句的主詞是做這個動作，還是被這個動作影響"]},
       q: {
         q: '課文說主詞是被做的時候要用什麼？',
         options: [
@@ -25729,6 +25742,7 @@ window.APP_TEXTS['english|十上|第6單元 分詞構句'] = {
       terms: [
         { w: '先後', d: '兩件事發生的順序。' }
       ],
+      viz: {"type":"energyflow","steps":["兩個動作有明顯先後","先發生的那個用 Having + p.p.","Having finished his homework, he went out.","= After he had finished his homework, he went out."]},
       q: {
         q: '課文說 Having 加過去分詞表示什麼？',
         options: [
@@ -25753,6 +25767,7 @@ window.APP_TEXTS['english|十上|第6單元 分詞構句'] = {
       terms: [
         { w: '懸垂分詞', d: '分詞的主詞與主句不一致的錯誤。' }
       ],
+      viz: {"type":"compareexp","factor":"懸垂分詞","a":{"label":"✗ 錯誤","note":"Walking on the street, the shop was closed.（店不會走路）"},"b":{"label":"✔ 正確","note":"Walking on the street, I found the shop closed."},"same":["分詞的動作要屬於主句的主詞"]},
       q: {
         q: '課文說分詞的動作要由誰來做？',
         options: [
@@ -25832,6 +25847,7 @@ window.APP_TEXTS['english|十上|第7單元 學術字彙入門'] = {
       terms: [
         { w: '語體', d: '文章所使用的語言風格。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"get","items":["obtain","acquire"],"note":"取得"},{"label":"show","items":["demonstrate","indicate"],"note":"顯示"},{"label":"a lot of","items":["numerous","substantial"],"note":"大量的"},{"label":"提醒","items":["學術寫作偏好精確的字，不是難的字"]}]},
       q: {
         q: '課文說 show 的正式說法是什麼？',
         options: [
@@ -25880,6 +25896,7 @@ window.APP_TEXTS['english|十上|第7單元 學術字彙入門'] = {
       terms: [
         { w: '因果', d: '原因與結果的關係。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"表示原因","items":["due to","owing to","result from","stem from"],"note":"後面接原因"},{"label":"表示結果","items":["lead to","result in","give rise to"],"note":"後面接結果"},{"label":"提醒","items":["result from 和 result in 方向相反"],"note":"最容易寫反的一組"}]},
       q: {
         q: '課文說 result in 是什麼意思？',
         options: [
@@ -25904,6 +25921,7 @@ window.APP_TEXTS['english|十上|第7單元 學術字彙入門'] = {
       terms: [
         { w: '程度', d: '多少或強弱的等級。' }
       ],
+      viz: {"type":"levels","items":["significant 顯著的","considerable 相當大的","moderate 中等的","negligible 微不足道的"]},
       q: {
         q: '課文說 negligible 是什麼意思？',
         options: [
@@ -25958,6 +25976,7 @@ window.APP_TEXTS['english|十上|第8單元 閱讀：主旨與結構'] = {
       terms: [
         { w: '結構', d: '文章各部分的安排方式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"總分總","items":["先立論 → 舉證 → 總結"],"note":"最常見"},{"label":"比較對照","items":["講兩者的異同"],"note":"注意轉折詞"},{"label":"問題解決","items":["提出問題 → 分析 → 提出方案"],"note":"科普與社論常用"}]},
       q: {
         q: '課文說認出結構有什麼好處？',
         options: [
@@ -26006,6 +26025,7 @@ window.APP_TEXTS['english|十上|第8單元 閱讀：主旨與結構'] = {
       terms: [
         { w: '路標', d: '指引方向的標示。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"並列","items":["moreover","furthermore","in addition"],"note":"同方向"},{"label":"對比","items":["however","on the contrary","nevertheless"],"note":"轉折，重點常在後面"},{"label":"因果","items":["therefore","as a result","consequently"],"note":"帶出結論"}]},
       q: {
         q: '課文說 nevertheless 屬於哪一類？',
         options: [
@@ -26030,6 +26050,7 @@ window.APP_TEXTS['english|十上|第8單元 閱讀：主旨與結構'] = {
       terms: [
         { w: '略讀', d: '快速瀏覽抓住大意。' }
       ],
+      viz: {"type":"compareexp","factor":"兩種讀法","a":{"label":"略讀（skim）","note":"抓大意——看標題與各段首句"},"b":{"label":"掃讀（scan）","note":"找特定資訊——數字、人名、年份"},"same":["考試時：先略讀抓結構，再依題目掃讀定位"]},
       q: {
         q: '課文說考試時要先做什麼？',
         options: [
