@@ -451,6 +451,33 @@ console.log('解析確認題');
     if (byId[id] === 'chars' && k.o[k.a] === src.answer) bad.push(id + ' 正解與原題答案相同（等於再問一次原題）');
   });
   ok(bad.length === 0, `確認題格式正確（問題 ${bad.length} 筆${bad.length ? '：' + bad.slice(0, 5).join('；') : ''}）`);
+
+  /* 確認題「還在講同一條」的守門（2026-09-06 加）：題庫條目被換掉／改字之後，
+     很容易忘了同步改 checks-*.js，結果解析確認題還在問一個已經不存在的成語。
+     規則＝題目裡用「」引起來的詞，必須在該條目自己的資料裡出現得到。
+     例外是刻意拿變體或例句片語來出的題，列在 QUOTE_OK 並註明原因。 */
+  const QUOTE_OK = {
+    'i1059': ['秀外惠中'],   // 就是要考「慧／惠」哪個才對
+    'p441': ['種下種子'],    // 用例句片語問破音字
+    'p613': ['好惡'],        // 同上
+    'c344': ['人潮湧入'],
+    'c432': ['進攻'],
+    's307': ['打開天窗說亮話'] // 條目本身寫成「打開天窗──說亮話」
+  };
+  const stale = [];
+  ['idioms', 'phonics', 'chars', 'slang'].forEach(c => D[c].forEach(it => {
+    const k = CHK[it.id];
+    if (!k) return;
+    const all = JSON.stringify(it);
+    (k.q.match(/「([^」]{2,8})」/g) || []).forEach(raw => {
+      const t = raw.slice(1, -1);
+      if (all.indexOf(t) >= 0) return;
+      if ((QUOTE_OK[it.id] || []).indexOf(t) >= 0) return;
+      stale.push(it.id + ' 問「' + t + '」但條目裡沒有這個詞');
+    });
+  }));
+  ok(stale.length === 0,
+    `確認題問的還是同一條（問題 ${stale.length} 筆${stale.length ? '：' + stale.slice(0, 5).join('；') : ''}）`);
   const cover = {};
   ['idioms', 'phonics', 'chars'].forEach(c => {
     cover[c] = D[c].filter(it => CHK[it.id]).length;
