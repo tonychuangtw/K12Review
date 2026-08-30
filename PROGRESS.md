@@ -2,9 +2,20 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: done
+STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【已完成】字音題補題（phonics.js）—— 十二個年級全部補到 100 題，全庫 660→1200（共新增 540 題）：
+NEXT_ACTION: 【進行中 2026-08-30】各科往下鋪＝把「課文帶讀」補到高中分科七科（物理／化學／生物／地科／歷史／地理／公民）。
+原本只有國語 108、數學 216、英文 216、自然 126、社會 126 共 792 篇，高中七科一篇都沒有；每科 6 冊 × 9 單元 = 54 篇，七科共 378 篇。
+做法：scratchpad 的 tmpl_head.py ＋ body_<科><冊>_<a|b|c>.py ＋ tmpl_tail.py 串成 mk_*.py，
+`python3 mk_xxx.py <科目key>` 會 append 到 js/data/texts-<科>.js（正解位置由 tail 自動輪流）。一檔 3 單元，一冊 3 檔。
+每單元 6 段，每段：小標 h、s 至少 3 句且每句 ≤60 字、terms 1 條、q 四選一含 why（正解那格 null）。
+已完成：物理十上（9 單元 54 段，commit 56be213）。
+接下來依序：物理十下→十一上→十一下→十二上→十二下，再換化學、生物、地科、歷史、地理、公民。
+單元名稱一律照 js/data/lessons-<科>.js 的鍵，一字不差（test.js 會擋）。
+已完成的前置：js/app.js 的 TEXT_FILES 加了七科、test/test.js 第 26 行的載入清單加了七個檔名、七個 texts-*.js 檔頭已建好。
+全部鋪完要記得：node test/test.js、node test/browser-smoke.mjs、python3 tools/stamp-version.py、js/versions.js 加一條。
+
+【已完成，備查】【已完成】字音題補題（phonics.js）—— 十二個年級全部補到 100 題，全庫 660→1200（共新增 540 題）：
 小一 26→100／小二 43→100／小三 49→100／小四 54→100／小五 54→100／小六 56→100／
 國一 62→100／國二 62→100／國三 63→100／高一 68→100／高二 64→100／高三 59→100。
 每題含 word/target/zhuyin/pinyin/wz（整詞注音）/wrong(≥2)/note/deep（1. 注音比較 2. 國字拆解與造字原因），
@@ -41,7 +52,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 05:05 台北（收尾：test.js／zy-check／browser-smoke 三項全綠，Pages 部署成功，全部已 push）
+UPDATED: 2026-08-30 11:20 台北（Tony 指示「各科往下鋪」，開始補高中七科的課文帶讀）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
