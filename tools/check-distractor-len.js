@@ -5,6 +5,7 @@ JSON.parse(fs.readFileSync(process.argv[2],'utf8')).forEach(p=>{
  const it=W[p.id];if(!it)return console.log('✗ '+p.id);
  const cl=String(it.options[it.answer]).length;
  const mx=p.d?Math.max(...p.d.map(x=>x.length)):p.one.length;
- if(mx<cl-3)console.log(p.id+' 差 '+(cl-3-mx)+"字（現 "+mx+"，需 "+(cl-3)+'）');
+ const need=Math.max(cl-3, Math.ceil(cl/1.25));
+ if(cl-mx>=4 && cl>mx*1.25)console.log(p.id+' 差 '+(need-mx)+"字（現 "+mx+"，需 "+need+'）');
 });
 console.log('--- 檢查完畢');

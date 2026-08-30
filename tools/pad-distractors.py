@@ -17,12 +17,12 @@ for e in data:
     if d > 4:
         big += 1; print("需手補：" + e["id"] + " 差 " + str(d) + "字"); continue
     if "one" in e:
-        if e["one"].startswith(("其實","基本上","一般來說")):
+        if e["one"].startswith(tuple(PRE.values())):
             big += 1; print("需手補：" + e["id"] + " 差 " + str(d) + "字"); continue
         e["one"] = PRE[d] + e["one"]; n += 1
     elif "d" in e:
         i = max(range(len(e["d"])), key=lambda k: len(e["d"][k]))
-        if e["d"][i].startswith(("其實","基本上","一般來說")):
+        if e["d"][i].startswith(tuple(PRE.values())):
             big += 1; print("需手補：" + e["id"] + " 差 " + str(d) + "字"); continue
         e["d"][i] = PRE[d] + e["d"][i]; n += 1
 json.dump(data, open(p,"w"), ensure_ascii=False, indent=0)
