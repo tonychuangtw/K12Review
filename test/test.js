@@ -643,6 +643,20 @@ console.log('解析確認題');
       });
     });
     ok(hits.length === 0, `教材文字沒有混進西里爾字母／假名／諺文（${hits.slice(0, 5).join('、') || '乾淨'}）`);
+    // 課文帶讀也要擋西里爾字母（2026-08-30：高中七科補課文時打字滑出 систем／колапс）。
+    // 這裡只查西里爾，不查假名 —— 既有的社會課文用了「・」(U+30FB) 當並列符號。
+    const CYR = /[\u0400-\u04FF]/;
+    const tHits = [];
+    ['texts-social', 'texts-science', 'texts-math', 'texts-english', 'texts-chinese',
+     'texts-physics', 'texts-chemistry', 'texts-biology', 'texts-earth',
+     'texts-history', 'texts-geography', 'texts-civics'].forEach(f => {
+      const fp = path.join(root, 'js/data', f + '.js');
+      if (!fs.existsSync(fp)) return;
+      fs.readFileSync(fp, 'utf8').split('\n').forEach((line, i) => {
+        if (CYR.test(line)) tHits.push(`${f}.js:${i + 1}`);
+      });
+    });
+    ok(tHits.length === 0, `課文帶讀沒有混進西里爾字母（${tHits.slice(0, 5).join('、') || '乾淨'}）`);
     // 同一類問題的另一種形態：英文單字直接黏在中文旁邊（例如「地殼活動activo頻繁」）。
     // 正常的專有名詞（pH 值、log₂ 32、sin θ）前後都會有空格或標點，黏在一起的幾乎都是誤植。
     const GLUED = /[\u4e00-\u9fff][A-Za-z]{3,}|[A-Za-z]{3,}[\u4e00-\u9fff]/;
