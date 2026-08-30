@@ -32,8 +32,17 @@ NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
  (4) 成語 wordExp 逐字解析補齊 ✅ 已完成（2026-09-06，v92）：1200/1200 全數有逐字解析。
      工具：`node tools/set-idiom-wordexp.js <file.json> --write`（file = [{id, wordExp}]，≥12 字，已有的自動跳過）。
      寫法＝拆到每個字「字＝意思」，破音字直接標注音，有典故的寫明出處；一批 45–95 條，每批跑 test.js 後 commit。
- (5) 成語 syn 同義詞補齊（現 358/1200，缺 842）← 進行中。syn 是字串陣列，前端用來出「同義成語」題，
-     所以每個 syn 必須是**真的同義**（會被當正解／誘答用），寧缺勿濫；查不到確實同義的就不寫。
+ (5) 成語 syn 同義詞補齊 ✅ 已完成（2026-09-06，v93）：1200/1200，平均每條 2.18 個同義詞。
+     工具：`node tools/set-idiom-syn.js <file.json> --write --merge`。輸入用**同義群**格式
+     `{"clusters":[["成語A","成語B","成語C"], …]}`，群裡在題庫內的成語各自把其他成員寫成 syn，
+     自動對稱（A 說 B 同義、B 一定也說 A 同義）；不在題庫裡的同義詞照樣可以列，只是不會被寫成條目。
+     ⚠ syn 會被拿去出「同義成語」題，每一條都必須真的同義，寧缺勿濫。
+     ⚠ 已在 js/app.js 的 buildSynQ 加了防線：誘答會排除「跟本題共用任何一個同義詞」的成語
+     （例：虎頭蛇尾與淺嘗輒止都列了半途而廢，互相當誘答就變成兩個正解）。
+ (5b) 同一輪清掉的資料問題（做法可複製到其他題庫）：12 條「典故由來」自承是湊出來的假成語、
+     3 組變序／錯字重複（鶴發童顏vs鶴髮童顏、傾城傾國vs傾國傾城、磊落光明、翼翼小心）、
+     3 個錯字（卧虎藏龍、舍本逐末、文風不動）、2 條語意寫錯（臨危授命、烈火烹油）。
+     換掉條目時**一定要同步改 checks-*.js**，test.js 已加守門：確認題題目裡「」引的詞必須在該條目資料裡找得到。
  (6) src 歷屆出處：全庫目前 0 條。做法＝找教育部／心測中心公開釋出的會考、基測題目，據此新增題目並標真實出處；⛔ 不可把既有自撰題回頭貼上假出處。
  (7) 匯入題庫（英文／數學／高中七科）＝ Tony 之後陸續給題本，不主動做。
  (8) 高中七科擴題：物化生地科史地公各 1,728 題（每年級 576），要往上補。
@@ -200,7 +209,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-06 21:40 台北
+UPDATED: 2026-09-06 23:55 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
