@@ -402,6 +402,33 @@ console.log('全科架構 / 自創分冊分課 / 解析強化');
   {
     const fs2 = require('fs');
     const path2 = require('path');
+  /* 「（承上題）…」一定要找得到它的文章（2026-09-07 加）
+     匯入題庫的題組是「一題帶文章 + 後面幾題承上題」。轉檔時只要漏掉帶文章的那一題，
+     學生就會看到「（承上題）根據本文…」卻沒有本文，整題無解——112／113／114 年會考
+     曾經整批這樣壞掉（已照心測中心官方試題本補回）。
+     判準：同一個 冊|課 裡，往前找到第一個不是承上題的題目，它要帶得動文章。 */
+{
+  const banks = [['匯入國語', D.custom], ['社會', D.socialCustom], ['自然', D.scienceCustom],
+                 ['英文', D.englishCustom], ['數學', D.mathCustom]];
+  const isFollow = x => /^（承上題/.test(x.q || '');
+  const hasText = x => x && (x.q.length >= 120 || /閱讀下|請閱讀|回答問題|回答下列/.test(x.q));
+  const bad = [];
+  for (const [name, bank] of banks) {
+    if (!Array.isArray(bank)) continue;
+    const arr = bank.slice().sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }));
+    arr.forEach((x, i) => {
+      if (!isFollow(x)) return;
+      let j = i - 1;
+      while (j >= 0 && isFollow(arr[j])) j--;
+      const head = j >= 0 ? arr[j] : null;
+      const sameUnit = head && head.book === x.book && head.lesson === x.lesson;
+      if (!sameUnit || !hasText(head)) bad.push(name + '/' + x.id + '（' + x.book + '|' + x.lesson + '）');
+    });
+  }
+  ok(bad.length === 0,
+    `「承上題」都找得到它的文章（問題 ${bad.length} 題${bad.length ? '：' + bad.slice(0, 5).join('、') : ''}）`);
+}
+
     const root = path2.join(__dirname, '..');
     const withImg = [];
     for (const bank of [D.custom, D.social, D.socialCustom, D.science, D.scienceCustom,
