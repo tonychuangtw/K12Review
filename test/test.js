@@ -760,6 +760,30 @@ console.log('解析確認題');
   });
   ok(!over.length, '沒有題庫的「正解最長」比例超過基準' +
     (over.length ? '——' + over.map((r) => r.k + ' ' + pct2(r.pct).toFixed(1) + '%').join('、') : ''));
+
+  /* 更貼近實際的指標（2026-08-30 加）：「唯一最長」在差一兩個字時其實看不出來，
+     真正的破綻是「正解明顯比別人長」。這裡算的是正解比第二長的選項多 4 個字以上。 */
+  console.log('    ——「正解明顯最長」（比第二長多 4 字以上）——');
+  rows.length = 0;
+  Object.keys(D).forEach((k) => {
+    const arr = D[k];
+    if (!Array.isArray(arr) || !arr.length || !arr[0] || !arr[0].options) return;
+    let n = 0, obv = 0;
+    arr.forEach((it) => {
+      const o = it.options, a = it.answer;
+      if (!Array.isArray(o) || o.length !== 4) return;
+      if (typeof a !== 'number' || a < 0 || a > 3) return;
+      const L = o.map((x) => String(x).length);
+      const others = L.filter((_, i) => i !== a);
+      if (L[a] - Math.max(...others) >= 4) obv++;
+      n++;
+    });
+    if (n) rows.push({ k: k, n: n, pct: 100 * obv / n });
+  });
+  rows.sort((a, b) => b.pct - a.pct).forEach((r) => {
+    console.log('    ' + r.k.padEnd(14) + String(r.n).padStart(6) + ' 題　' +
+      pct2(r.pct).toFixed(1) + '%');
+  });
 }
 function pct2(v) { return Math.round(v * 10) / 10; }
 /* ── 自編原創題庫不可以混進西里爾字母／假名／諺文（2026-08-30 加）──────────

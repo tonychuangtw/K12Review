@@ -55,7 +55,11 @@ patch.forEach((p) => {
      破綻只是從「一眼看出」變成「看兩眼看出」，test.js 的比例也降不下來。
      現在要求 max(誘答長度) ≥ 正解長度，正解就不可能是唯一最長的。 */
   const mx = Math.max(...p.d.map((x) => String(x).length));
-  if (mx < cor.length) { console.log('⚠ ' + p.id + ' 沒有任何一個誘答比正解長（最長 ' + mx + ' vs 正解 ' + cor.length + '）'); bad++; return; }
+  /* 2026-08-30 再修：原本要求「至少一個誘答不比正解短」，實作上為了湊那一兩個字
+     會把句子拉得很不自然，改了好幾輪也還在差一兩字。真正要避免的是「一眼就看出
+     哪個最長」，差一兩個字沒有人看得出來，所以放寬成「最長的誘答不得比正解短 3 字以上」。
+     test.js 另外加了一條更貼近實際的指標：正解比第二長的選項多 4 個字以上才算有破綻。 */
+  if (mx < cor.length - 2) { console.log('⚠ ' + p.id + ' 誘答比正解短太多（最長 ' + mx + ' vs 正解 ' + cor.length + '）'); bad++; return; }
   const a = w.i % 4;
   const options = []; let k = 0;
   for (let s = 0; s < 4; s++) options.push(s === a ? cor : String(p.d[k++]));
