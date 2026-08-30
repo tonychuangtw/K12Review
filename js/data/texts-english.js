@@ -15266,6 +15266,7 @@ window.APP_TEXTS['english|六下|第1單元 時態綜合複習'] = {
       terms: [
         { w: '線索', d: '幫助判斷的字詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"現在簡單式","items":["every day","usually","often"],"note":"講習慣"},{"label":"現在進行式","items":["now","Look!","Listen!"],"note":"講此刻"},{"label":"過去式","items":["yesterday","last week","ago"],"note":"有明確的過去時間點"},{"label":"未來式","items":["tomorrow","next week"],"note":"還沒發生"}]},
       q: {
         q: '課文說看到 ago 要用哪一種時態？',
         options: [
@@ -15315,6 +15316,7 @@ window.APP_TEXTS['english|六下|第1單元 時態綜合複習'] = {
       terms: [
         { w: '現在完成式', d: '連結過去與現在的時態。' }
       ],
+      viz: {"type":"compareexp","factor":"有沒有明確的過去時間","a":{"label":"過去式","note":"I went to Japan last year.（重點在「去年去了」這件事）"},"b":{"label":"現在完成式","note":"I have been to Japan.（重點在「我有過這個經驗」）"},"same":["⚠ 有 yesterday、last year 這種明確時間詞時，不能用現在完成式"]},
       q: {
         q: '課文說有明確過去時間詞時能不能用現在完成式？',
         options: [
@@ -15442,6 +15444,7 @@ window.APP_TEXTS['english|六下|第2單元 助動詞 can／must／should'] = {
       terms: [
         { w: '禁止', d: '不准做某件事。' }
       ],
+      viz: {"type":"compareexp","factor":"must not 不是「不必」","a":{"label":"must not","note":"禁止：You must not touch it.（絕對不可以碰）"},"b":{"label":"do not have to","note":"不必：You do not have to come.（來不來都可以）"},"same":["中文都會說「不用」，英文差很多"]},
       q: {
         q: '課文說 must not 是什麼意思？',
         options: [
@@ -15490,6 +15493,7 @@ window.APP_TEXTS['english|六下|第2單元 助動詞 can／must／should'] = {
       terms: [
         { w: '外在規定', d: '別人或制度訂下的要求。' }
       ],
+      viz: {"type":"compareexp","factor":"必須從哪裡來","a":{"label":"have to","note":"來自外在規定：I have to wear a uniform.（學校規定）"},"b":{"label":"must","note":"來自說話者自己的判斷：You must see a doctor.（我強烈認為）"},"same":["have to 有時態變化（had to），must 沒有"]},
       q: {
         q: '課文說哪一個有時態變化？',
         options: [
@@ -15618,6 +15622,7 @@ window.APP_TEXTS['english|六下|第3單元 動名詞與不定詞'] = {
       terms: [
         { w: '不定詞', d: 'to 加原形動詞的形式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"只接不定詞（to + 原形）","items":["want","hope","plan","decide"],"note":"I hope to see you."},{"label":"還有這些","items":["need","learn","would like","promise"],"note":"都指向「還沒做的事」"},{"label":"提醒","items":["✗ I want going"],"note":"要說 I want to go"}]},
       q: {
         q: '課文說 hope 後面要接什麼？',
         options: [
@@ -15642,6 +15647,7 @@ window.APP_TEXTS['english|六下|第3單元 動名詞與不定詞'] = {
       terms: [
         { w: '意思改變', d: '同一個動詞搭配不同形式意思不同。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"兩種都可以","items":["like","love","hate"],"note":"I like swimming. / I like to swim."},{"label":"也是","items":["start","begin"],"note":"意思幾乎一樣"},{"label":"只接動名詞","items":["enjoy","finish","mind"],"note":"I enjoy reading.（✗ enjoy to read）"}]},
       q: {
         q: '課文說 stop 加不定詞是什麼意思？',
         options: [
@@ -15721,6 +15727,7 @@ window.APP_TEXTS['english|六下|第4單元 疑問句綜合'] = {
       terms: [
         { w: '疑問詞', d: '用來問人事時地物的字。' }
       ],
+      viz: {"type":"energyflow","steps":["疑問詞（What／Where／Who）","助動詞或 be 動詞（do／did／is）","主詞（you／he）","動詞（doing／go）→ What are you doing?"]},
       q: {
         q: '課文說疑問詞要放在哪裡？',
         options: [
@@ -15770,6 +15777,7 @@ window.APP_TEXTS['english|六下|第4單元 疑問句綜合'] = {
       terms: [
         { w: '附加問句', d: '句尾用來確認的小問句。' }
       ],
+      viz: {"type":"compareexp","factor":"附加問句的規則","a":{"label":"前面肯定","note":"You are a student, aren't you?（後面用否定）"},"b":{"label":"前面否定","note":"He can't swim, can he?（後面用肯定）"},"same":["前後一律相反，這是唯一要記的規則"]},
       q: {
         q: '課文說前面是肯定句時附加問句要用什麼？',
         options: [
@@ -15849,6 +15857,7 @@ window.APP_TEXTS['english|六下|第5單元 連接詞與句子連結'] = {
       terms: [
         { w: '對等連接詞', d: '連接地位相同兩部分的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"並列","items":["and"],"note":"方向相同"},{"label":"轉折","items":["but"],"note":"方向相反"},{"label":"選擇","items":["or"],"note":"二選一"},{"label":"結果","items":["so"],"note":"前因後果"}]},
       q: {
         q: '課文說 so 表示什麼？',
         options: [
@@ -15946,6 +15955,7 @@ window.APP_TEXTS['english|六下|第5單元 連接詞與句子連結'] = {
       terms: [
         { w: '條件句', d: '說明在什麼條件下會怎樣的句子。' }
       ],
+      viz: {"type":"compareexp","factor":"if 子句不用未來式","a":{"label":"if 子句","note":"If it rains tomorrow…（用現在式）"},"b":{"label":"主要子句","note":"…we will stay home.（才用未來式）"},"same":["時間子句（when、before、after）也是同一條規則"]},
       q: {
         q: '課文說 if 子句要用什麼時態？',
         options: [
@@ -16026,6 +16036,7 @@ window.APP_TEXTS['english|六下|第6單元 日常對話情境'] = {
       terms: [
         { w: '菜單', d: '餐廳列出餐點的單子。' }
       ],
+      viz: {"type":"sentence","label":"在餐廳","items":[{"t":"A table for two, please.","r":"兩位，麻煩你。"}],"note":"進門第一句。","alt":[{"label":"要菜單","items":[{"t":"May I see the menu?","r":"可以看菜單嗎？"}],"note":"用 May I 比較有禮貌。"},{"label":"點餐","items":[{"t":"I would like the chicken, please.","r":"我要雞肉，謝謝。"}],"note":"would like 比 want 客氣。"}]},
       q: {
         q: '課文說要結帳時可以說什麼？',
         options: [
@@ -16099,6 +16110,7 @@ window.APP_TEXTS['english|六下|第6單元 日常對話情境'] = {
       terms: [
         { w: '意見', d: '自己對某件事的看法。' }
       ],
+      viz: {"type":"sentence","label":"表達意見","items":[{"t":"I think…","r":"我認為……"}],"note":"最常用的開頭。","alt":[{"label":"正式一點","items":[{"t":"In my opinion,…","r":"依我看……"}],"note":"寫作文也用得上。"},{"label":"同意","items":[{"t":"I agree.","r":"我同意。"}],"note":"簡短有力。"},{"label":"不同意","items":[{"t":"I don't agree.","r":"我不同意。"}],"note":"後面最好補一句理由。"}]},
       q: {
         q: '課文說表達不同意時可以先做什麼？',
         options: [
@@ -16227,6 +16239,7 @@ window.APP_TEXTS['english|六下|第7單元 形容詞與副詞'] = {
       terms: [
         { w: 'hardly', d: '幾乎不。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"同形的字","items":["fast","hard","early","late","high"],"note":"形容詞和副詞長得一樣"},{"label":"當形容詞","items":["a fast car"],"note":"修飾名詞"},{"label":"當副詞","items":["He runs fast."],"note":"修飾動詞（✗ fastly）"}]},
       q: {
         q: '課文說 hardly 是什麼意思？',
         options: [
@@ -16251,6 +16264,7 @@ window.APP_TEXTS['english|六下|第7單元 形容詞與副詞'] = {
       terms: [
         { w: '方式副詞', d: '說明動作怎麼進行的副詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"頻率副詞","items":["always、usually、never"],"note":"一般動詞前、be 動詞後"},{"label":"方式副詞","items":["fluently、carefully"],"note":"通常放句尾"},{"label":"程度副詞","items":["very、too、quite"],"note":"放在被修飾的字前面"}]},
       q: {
         q: '課文說方式副詞通常放在哪裡？',
         options: [
@@ -16305,6 +16319,7 @@ window.APP_TEXTS['english|六下|第8單元 短文閱讀理解'] = {
       terms: [
         { w: '主題句', d: '一段裡說明重點的那一句。' }
       ],
+      viz: {"type":"energyflow","steps":["主題句（第一句，說這段要講什麼）","支持細節（例子、理由、數據）","支持細節","結論句（把重點收回來）"]},
       q: {
         q: '課文說主題句通常在哪裡？',
         options: [
@@ -16329,6 +16344,7 @@ window.APP_TEXTS['english|六下|第8單元 短文閱讀理解'] = {
       terms: [
         { w: '涵蓋', d: '把整篇的內容都包含進去。' }
       ],
+      viz: {"type":"compareexp","factor":"兩種題目，兩種解法","a":{"label":"主旨題","note":"問「這篇主要在講什麼」——答案要能涵蓋全文，太細的都不對"},"b":{"label":"細節題","note":"問何時、何地、誰、什麼——答案通常在文中找得到原句"},"same":["先看題目屬於哪一種，再決定要略讀還是定位"]},
       q: {
         q: '課文說主旨題的答案要符合什麼條件？',
         options: [
@@ -16505,6 +16521,7 @@ window.APP_TEXTS['english|六下|第9單元 寫作基本句型'] = {
       terms: [
         { w: '支持句', d: '用來說明主題句的句子。' }
       ],
+      viz: {"type":"energyflow","steps":["主題句：說明這一段要講什麼","支持句：用例子或理由撐住它","支持句","結論句：把重點收回來（換重點就換一段）"]},
       q: {
         q: '課文說一段應該講幾個重點？',
         options: [
@@ -16633,6 +16650,7 @@ window.APP_TEXTS['english|七上|第1單元 Be 動詞現在式'] = {
       terms: [
         { w: '語意', d: '一個字所表達的意思。' }
       ],
+      viz: {"type":"compareexp","factor":"be 動詞的兩種用法","a":{"label":"表示「是」","note":"She is a nurse. / The soup is hot.（接身分或性質）"},"b":{"label":"表示「在」","note":"My key is in the drawer.（接地點）"},"same":["用的是同一套 am／is／are"]},
       q: {
         q: '課文說 be 動詞的第二種語意是什麼？',
         options: [
@@ -16657,6 +16675,7 @@ window.APP_TEXTS['english|七上|第1單元 Be 動詞現在式'] = {
       terms: [
         { w: '縮寫', d: '把兩個字合併變短的寫法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"可以縮寫","items":["is not → isn't","are not → aren't"],"note":"口語幾乎都縮"},{"label":"沒有縮寫","items":["am not"],"note":"只能寫成 I'm not"},{"label":"提醒","items":["簡答時不縮寫"],"note":"Yes, I am.（✗ Yes, I'm.）"}]},
       q: {
         q: '課文說哪一個 be 動詞沒有一般的否定縮寫？',
         options: [
@@ -16760,6 +16779,7 @@ window.APP_TEXTS['english|七上|第2單元 代名詞與所有格'] = {
       terms: [
         { w: '代名詞', d: '用來代替名詞的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"主格","items":["I","you","he","she","they"]},{"label":"所有格","items":["my","your","his","her","their"]},{"label":"受格","items":["me","you","him","her","them"]},{"label":"所有代名詞","items":["mine","yours","his","hers","theirs"]}]},
       q: {
         q: '課文說代名詞有幾種形式？',
         options: [
@@ -16833,6 +16853,7 @@ window.APP_TEXTS['english|七上|第2單元 代名詞與所有格'] = {
       terms: [
         { w: '所有格', d: '表示東西屬於誰的形式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"單數名詞","items":["the boy's book"],"note":"加撇號 s"},{"label":"複數已有 s","items":["the students' books"],"note":"只加撇號"},{"label":"複數沒有 s","items":["the children's books"],"note":"仍然加撇號 s"}]},
       q: {
         q: '課文說複數字尾已有 s 時撇號放哪裡？',
         options: [
@@ -17010,6 +17031,7 @@ window.APP_TEXTS['english|七上|第3單元 一般動詞現在式'] = {
       terms: [
         { w: 'has', d: 'have 的第三人稱單數形式。' }
       ],
+      viz: {"type":"compareexp","factor":"have 的變化","a":{"label":"I / you / we / they","note":"have"},"b":{"label":"he / she / it","note":"has（✗ haves）"},"same":["否定與疑問仍然用 do／does，動詞回原形：He doesn't have…"]},
       q: {
         q: '課文說 have 的第三人稱單數是什麼？',
         options: [
