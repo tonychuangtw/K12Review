@@ -23,11 +23,13 @@ NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
        b. 國語沒有概念卡系統，要手寫 plan：`node tools/set-text-viz.js <plan.json> --write`
           plan = [{key:"chinese|年級|第N篇 篇名", seg:段號從1起, viz:{type:"…", …}}]
           每單元上限 4 段（2026-09-05 由 3 放寬；要再放寬下 --per N）。國語 18% → 33%。
-     2026-09-06～07（v94）：歷史 31%→66%（到上限）、公民 33%→63%、國語 33%→60%、地理 36%→47%、
-       生物 35%→44%、英文 30%→44%，共手寫 622 段，全站 36.0% → 44.8%。
-     ⚠ 每篇 6 段、上限 4 段 → 全站理論上限 66.7%；目前還剩約 1,600 段空位。
-     剩最多空位的：math（367 段）、english（299）、science（217）、social（196）。下一輪從 math／science 開始。
-     查還剩多少空位：把每個單元的 min(4, 段數) 減去已有 viz 的段數加總（見本檔歷史紀錄的一行 node -e）。
+     2026-09-06～08（v94 起）：全站 36.0% → 49.3%（2,525 → 3,463 段，共手寫 938 段）。
+     各科：history 66%（到上限）、civics 63%、chinese 60%、biology 50%、science 47%、english 47%、
+       geography 47%、chemistry 47%、social 46%、physics 46%、math 45%、earth 42%。
+     ⚠ 每篇 6 段、上限 4 段 → 全站理論上限 66.7%；目前還剩 1,241 段空位。
+     剩最多空位的：math、english、science、social（都是 756～1296 段的大科）。
+     查還剩多少空位（一行）：
+       `node -e 'global.window=global;const fs=require("fs");fs.readdirSync("js/data").filter(f=>/^texts-/.test(f)).forEach(f=>require("./js/data/"+f));const T=global.APP_TEXTS;let free=0;Object.keys(T).forEach(k=>{const h=T[k].segs.filter(x=>x.viz).length;free+=Math.max(0,Math.min(4,T[k].segs.length)-h)});console.log(free)'`
      各科可用的元件不同，先跑 `node -e` 把該科現用的 viz 型別與一個範例 spec 印出來再動手：
        歷史／公民：timeline（events:[{y,t}]）、classify（groups:[{label,items[]}]）、compareexp（factor/a/b/same）、
                    energyflow（steps[]）、cycle（steps[]）、levels（items[]）、dynastyband、piechart、bargraph
@@ -253,7 +255,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-08 02:30 台北
+UPDATED: 2026-09-08 08:40 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
