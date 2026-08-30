@@ -4,7 +4,8 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 誘答重寫第一階段（垃圾誘答）已全數完成 —— 11 科自編題庫「正解≥15字且最長誘答≤8字」的題目歸零（原本 4,143 題）。第二階段待做：正解仍明顯比誘答長的題目（正解≥誘答最長值的 1.5 倍）——國小社會 1,637 題、國小自然 1,447 題、英文 1,147 題，共約 4,230 題。做法照第一階段：`node -e` 濾出清單 → 逐題手寫三個誘答的 JSON → `node tools/set-distractors.js <file> --write` → 有 ⚠ 就用 tools/check-distractor-len.js 對長度再補 → `node test/test.js` → `python3 tools/stamp-version.py` → commit push。每批 80 題左右。⛔ 不可用 tools/fix-distractors.js 的「借同課正解」（會借到另一個也對的答案）
+NEXT_ACTION: 誘答重寫第一、第二階段皆已完成（2026-09-03）。第一階段（正解≥15字且最長誘答≤8字）11 科共 4,143 題歸零；第二階段（正解比最長誘答多 ≥10 字）國小自然 511／國小社會 830／數學 205／英文 262，共 1,808 題歸零。目前四大題庫這兩項指標都是 0。下一輪若還要往下清，門檻改成「正解比最長誘答多 ≥6 字」，濾法見 /tmp 的 dump.js（改 `c-m<10` 為 `c-m<6`），流程不變：逐題手寫三個誘答的 JSON → `python3 tools/pad-distractors.py <file>` → `node tools/check-distractor-len.js <file>` → 手補報「需手補」的 → `node tools/set-distractors.js <file> --write` → `node test/test.js` → `python3 tools/stamp-version.py 202609XXy` → commit push。每批 60–70 題。長度標準：`cor-max>=4 && cor>max*1.25` 兩條同時成立才算太短。⛔ 不可用 tools/fix-distractors.js 的「借同課正解」（會借到另一個也對的答案）；⛔ 英文的音標題與數學的純計算題不改。
+
 並指示「先做完 1（配圖）再做 2（誘答重寫）」。
 已完成：數學 215 單元 465 段、自然 125 單元 273 段（十二年級全部），覆蓋率 math 36%／science 37%。
 工具：tools/seed-text-viz.js <科目> [--write]。做法＝把同單元概念卡已配好的 viz 接到帶讀最相似的段落
