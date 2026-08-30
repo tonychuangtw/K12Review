@@ -7,8 +7,8 @@ OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到�
 NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
  (1) 俚語 452 條補 deep 深度解析 ＋ 新建 js/data/checks-slang.js 452 題解析確認題（成語/字音/字形三類都已 100%，俚語是唯一沒有的）。同時改 buildSlangQ 讓回饋帶 deep 與其他選項意思，並在 test.js 加 slang 的 deep／checks 100% 守門。← 進行中
  (2) 誘答重寫第三輪（進行中）：Tony 2026-08-30「都人工寫沒差那 291 題」→ 門檻＝純字數差，正解比最長誘答多 6 字以上就要改（不再看比例）。原本 1,910 題。
-     已完成：高中七科 179 題全數歸零（物理31／化學50／生物31／地科31／公民9／地理11／歷史16）、數學 249 題全數歸零、英文 264 題全數歸零。
-     還沒做：國小自然 610、國小社會 608。
+     已完成：高中七科 179 題全數歸零（物理31／化學50／生物31／地科31／公民9／地理11／歷史16）、數學 249 題全數歸零、英文 264 題全數歸零、國小自然 610 題全數歸零。
+     還沒做：國小社會 608。
      工具：`node tools/dump-distractor-todo.js <科目> [n]` 列待辦（[誘答需≥N] 就是最長誘答要寫到幾字）→ 手寫 JSON
      → `python3 tools/check-distractor-target.py <file>` 對長度 → `node tools/set-distractors.js <file> --write`
      → `node test/test.js` → `python3 tools/stamp-version.py 202609XXy` → commit push。每批 40 題。
