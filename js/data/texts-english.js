@@ -43,6 +43,7 @@ window.APP_TEXTS['english|一上|第1單元 字母 A–I'] = {
       terms: [
         { w: '字母的聲音', d: '字母在單字裡實際發出的音。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"apple","parts":["a","pple"],"hit":0,"s":"A 的音","mean":"蘋果"},{"w":"ball","parts":["b","all"],"hit":0,"s":"B 的音","mean":"球"},{"w":"cat","parts":["c","at"],"hit":0,"s":"C 的音","mean":"貓"}]},
       q: {
         q: '課文說 C 可以用哪一個單字來記？',
         options: [
@@ -67,6 +68,7 @@ window.APP_TEXTS['english|一上|第1單元 字母 A–I'] = {
       terms: [
         { w: '方向', d: '字母凸出來的部分朝哪一邊。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"dog","parts":["d","og"],"hit":0,"s":"D 的音","mean":"狗"},{"w":"egg","parts":["e","gg"],"hit":0,"s":"E 的音","mean":"蛋"},{"w":"fish","parts":["f","ish"],"hit":0,"s":"F 的音","mean":"魚"}]},
       q: {
         q: '課文說怎麼分辨小寫的 b 和 d？',
         options: [
@@ -195,6 +197,7 @@ window.APP_TEXTS['english|一上|第2單元 字母 J–R'] = {
       terms: [
         { w: '駝峰', d: '字母上方凸起來的圓弧。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"monkey","parts":["m","onkey"],"hit":0,"s":"M 的音","mean":"猴子"},{"w":"nose","parts":["n","ose"],"hit":0,"s":"N 的音","mean":"鼻子"},{"w":"orange","parts":["o","range"],"hit":0,"s":"O 的音","mean":"柳橙"}]},
       q: {
         q: '課文說怎麼分辨小寫的 m 和 n？',
         options: [
@@ -219,6 +222,7 @@ window.APP_TEXTS['english|一上|第2單元 字母 J–R'] = {
       terms: [
         { w: '搭配', d: '兩個字母常常一起出現。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"pig","parts":["p","ig"],"hit":0,"s":"P 的音","mean":"豬"},{"w":"queen","parts":["qu","een"],"hit":0,"s":"Q 後面幾乎都跟著 u","mean":"皇后"},{"w":"rabbit","parts":["r","abbit"],"hit":0,"s":"R 的音","mean":"兔子"}]},
       q: {
         q: '課文說 q 後面幾乎都跟著哪一個字母？',
         options: [
@@ -347,6 +351,7 @@ window.APP_TEXTS['english|一上|第3單元 字母 S–Z'] = {
       terms: [
         { w: '字首', d: '單字最前面的那個字母。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"van","parts":["v","an"],"hit":0,"s":"V 的音","mean":"廂型車"},{"w":"water","parts":["w","ater"],"hit":0,"s":"W 的音","mean":"水"},{"w":"box","parts":["bo","x"],"hit":1,"s":"x 多半在中間或結尾","mean":"盒子"}]},
       q: {
         q: '課文說 x 通常出現在單字的哪裡？',
         options: [
@@ -395,6 +400,7 @@ window.APP_TEXTS['english|一上|第3單元 字母 S–Z'] = {
       terms: [
         { w: '字母表', d: '二十六個字母的完整排列。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"母音字母（5 個）","items":["A","E","I","O","U"]},{"label":"子音字母（21 個）","items":["B","C","D","F","G","H","J","K","L","M","N","P"]},{"label":"子音字母（續）","items":["Q","R","S","T","V","W","X","Y","Z"]}]},
       q: {
         q: '課文說英文一共有幾個字母？',
         options: [
@@ -499,6 +505,7 @@ window.APP_TEXTS['english|一上|第4單元 打招呼與自我介紹'] = {
       terms: [
         { w: '時段', d: '一天當中的不同時間區間。' }
       ],
+      viz: {"type":"sentence","label":"依時間打招呼","items":[{"t":"Good morning","r":"早安（中午前）"}],"note":"見面時用的招呼語，看時間選一句。","alt":[{"label":"下午","items":[{"t":"Good afternoon","r":"午安（中午到傍晚）"}],"note":"下午見面時用。"},{"label":"晚上見面","items":[{"t":"Good evening","r":"晚安（晚上見面）"}],"note":"晚上遇到人時用。"},{"label":"睡前","items":[{"t":"Good night","r":"晚安（道別、睡前）"}],"note":"這句是道別，不是打招呼。"}]},
       q: {
         q: '課文說 Good night 什麼時候說？',
         options: [
@@ -523,6 +530,7 @@ window.APP_TEXTS['english|一上|第4單元 打招呼與自我介紹'] = {
       terms: [
         { w: '自我介紹', d: '向別人說明自己是誰。' }
       ],
+      viz: {"type":"sentence","label":"說出自己的名字","items":[{"t":"I am Amy","r":"我是 Amy"}],"note":"比較口語的說法。名字的第一個字母要大寫。","alt":[{"label":"另一種說法","items":[{"t":"My name is Amy","r":"我的名字是 Amy"}],"note":"兩種都可以用。"}]},
       q: {
         q: '課文說名字的第一個字母要怎麼寫？',
         options: [
@@ -650,6 +658,7 @@ window.APP_TEXTS['english|一上|第5單元 顏色'] = {
       terms: [
         { w: '一字多義', d: '同一個字有好幾個意思。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"先記這三個","items":["red 紅","blue 藍","yellow 黃"]},{"label":"再記這四個","items":["green 綠","black 黑","white 白","brown 棕"]},{"label":"還有這三個","items":["orange 橘","purple 紫","pink 粉紅"]}]},
       q: {
         q: '課文說 orange 有哪兩個意思？',
         options: [
@@ -674,6 +683,7 @@ window.APP_TEXTS['english|一上|第5單元 顏色'] = {
       terms: [
         { w: '回答', d: '對別人的問題做出回應。' }
       ],
+      viz: {"type":"sentence","label":"問顏色","items":[{"t":"What color is it","r":"它是什麼顏色？"}],"note":"問東西的顏色最常用的一句。","alt":[{"label":"回答","items":[{"t":"It is red","r":"它是紅色的"}],"note":"回答時不用重複整個問題。"}]},
       q: {
         q: '課文說回答顏色時要用什麼開頭？',
         options: [
@@ -803,6 +813,7 @@ window.APP_TEXTS['english|一上|第6單元 數字 1–10'] = {
       terms: [
         { w: '拼法', d: '一個字用哪些字母組成。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"six","parts":["si","x"],"hit":1,"s":"六","mean":"6"},{"w":"eight","parts":["ei","ght"],"hit":1,"s":"gh 不發音，唸起來很短","mean":"8"},{"w":"nine","parts":["n","ine"],"hit":0,"s":"九","mean":"9"}]},
       q: {
         q: '課文說 eight 有什麼要注意的地方？',
         options: [
@@ -931,6 +942,7 @@ window.APP_TEXTS['english|一上|第7單元 教室用品'] = {
       terms: [
         { w: '文具', d: '寫字讀書會用到的用品。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"寫字用的","items":["pen 筆","pencil 鉛筆"]},{"label":"改和量用的","items":["eraser 橡皮擦","ruler 尺"]},{"label":"裝東西的","items":["book 書","notebook 筆記本","bag 書包"]}]},
       q: {
         q: '課文說 eraser 是什麼？',
         options: [
@@ -980,6 +992,7 @@ window.APP_TEXTS['english|一上|第7單元 教室用品'] = {
       terms: [
         { w: '單數', d: '數量只有一個的形式。' }
       ],
+      viz: {"type":"sentence","label":"問這是什麼","items":[{"t":"What is this","r":"這是什麼？"}],"note":"指著眼前的東西問。","alt":[{"label":"回答","items":[{"t":"It is a pen","r":"這是一枝筆"}],"note":"單數名詞前面要加 a 或 an。"}]},
       q: {
         q: '課文說回答單數名詞時前面要加什麼？',
         options: [
@@ -1083,6 +1096,7 @@ window.APP_TEXTS['english|一上|第8單元 家人'] = {
       terms: [
         { w: '正式', d: '比較慎重、有禮貌的說法。' }
       ],
+      viz: {"type":"compareexp","factor":"正式與口語","a":{"label":"比較正式","note":"father 爸爸／mother 媽媽"},"b":{"label":"比較口語","note":"dad 爸爸／mom 媽媽"},"same":["兩種都可以用，看場合"]},
       q: {
         q: '課文說哪一組比較口語？',
         options: [
@@ -1132,6 +1146,7 @@ window.APP_TEXTS['english|一上|第8單元 家人'] = {
       terms: [
         { w: '祖父母', d: '爸爸或媽媽的父母。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"爺爺／外公","items":["grandfather（正式）","grandpa（口語）"]},{"label":"奶奶／外婆","items":["grandmother（正式）","grandma（口語）"]},{"label":"要注意","items":["英文不分內外，爺爺和外公同一個字"]}]},
       q: {
         q: '課文說英文的 grandfather 包含哪些人？',
         options: [
@@ -1260,6 +1275,7 @@ window.APP_TEXTS['english|一上|第9單元 身體部位'] = {
       terms: [
         { w: '不規則變化', d: '複數不是直接加 s 的變法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"上半身","items":["hand 手","arm 手臂","finger 手指"]},{"label":"下半身","items":["leg 腿","foot 腳","toe 腳趾"]},{"label":"不規則複數","items":["foot → feet（不是加 s）"]}]},
       q: {
         q: '課文說 foot 的複數是什麼？',
         options: [
@@ -1333,6 +1349,7 @@ window.APP_TEXTS['english|一上|第9單元 身體部位'] = {
       terms: [
         { w: '形容詞', d: '用來形容人或東西的字。' }
       ],
+      viz: {"type":"compareexp","factor":"主詞不同，動詞就不同","a":{"label":"I / You / We / They","note":"I have big eyes.（用 have）"},"b":{"label":"He / She / It","note":"She has long hair.（用 has）"},"same":["形容詞都放在名詞前面"]},
       q: {
         q: '課文說主詞是 she 時 have 要變成什麼？',
         options: [
@@ -1412,6 +1429,7 @@ window.APP_TEXTS['english|一下|第1單元 子音的自然發音'] = {
       terms: [
         { w: '兩種音', d: '同一個字母在不同位置發不同的音。' }
       ],
+      viz: {"type":"compareexp","factor":"字母 c 的兩種音","a":{"label":"硬音（像 k）","note":"在 a、o、u 前面：cat、cup、cold"},"b":{"label":"軟音（像 s）","note":"在 e、i、y 前面：city、cent、cycle"},"same":["同一個字母 c，看後面接什麼母音"]},
       q: {
         q: '課文說 c 在 e、i、y 前面發什麼音？',
         options: [
@@ -1436,6 +1454,7 @@ window.APP_TEXTS['english|一下|第1單元 子音的自然發音'] = {
       terms: [
         { w: '硬音', d: '喉嚨後方發出的較重的音。' }
       ],
+      viz: {"type":"compareexp","factor":"字母 g 的兩種音","a":{"label":"硬音","note":"go、girl、game"},"b":{"label":"軟音（像 j）","note":"giant、gym、gentle"},"same":["和 c 一樣，看後面接什麼母音"]},
       q: {
         q: '課文說 g 在 gym 裡發什麼音？',
         options: [
@@ -1588,6 +1607,7 @@ window.APP_TEXTS['english|一下|第2單元 短母音 a、e'] = {
       terms: [
         { w: '對比', d: '把相似的兩個字放在一起比較。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"短音 a","items":["bat 球棒","pan 平底鍋","bad 壞的","mat 墊子"]},{"label":"短音 e","items":["bet 打賭","pen 筆","bed 床","met 遇見"]},{"label":"提醒","items":["只差一個母音，意思完全不同"]}]},
       q: {
         q: '課文說聽力練習時要特別注意什麼？',
         options: [
@@ -1612,6 +1632,7 @@ window.APP_TEXTS['english|一下|第2單元 短母音 a、e'] = {
       terms: [
         { w: '步驟', d: '做一件事的先後順序。' }
       ],
+      viz: {"type":"energyflow","steps":["分開唸每個音：c–a–t","慢慢連起來：c-a-t","加快變成完整的字：cat","用手指著字母一個一個唸"]},
       q: {
         q: '課文說拼讀的第三步是什麼？',
         options: [
@@ -1691,6 +1712,7 @@ window.APP_TEXTS['english|一下|第3單元 短母音 i、o、u'] = {
       terms: [
         { w: '尖', d: '聲音位置比較高、比較細。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"pig","parts":["p","i","g"],"hit":1,"s":"短音 i：聲音尖而短","mean":"豬"},{"w":"sit","parts":["s","i","t"],"hit":1,"s":"嘴巴只要微微張開","mean":"坐"},{"w":"six","parts":["s","i","x"],"hit":1,"s":"短音 i","mean":"六"}]},
       q: {
         q: '課文說短音 i 的聲音有什麼特點？',
         options: [
@@ -1715,6 +1737,7 @@ window.APP_TEXTS['english|一下|第3單元 短母音 i、o、u'] = {
       terms: [
         { w: '圓形', d: '嘴唇圍成圓圈的形狀。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"dog","parts":["d","o","g"],"hit":1,"s":"短音 o：嘴巴張開成圓形","mean":"狗"},{"w":"hot","parts":["h","o","t"],"hit":1,"s":"聲音短促","mean":"熱的"},{"w":"box","parts":["b","o","x"],"hit":1,"s":"短音 o","mean":"盒子"}]},
       q: {
         q: '課文說發短音 o 時嘴巴要張成什麼形狀？',
         options: [
@@ -1739,6 +1762,7 @@ window.APP_TEXTS['english|一下|第3單元 短母音 i、o、u'] = {
       terms: [
         { w: '放鬆', d: '不用特別出力的狀態。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"cup","parts":["c","u","p"],"hit":1,"s":"短音 u：嘴型放鬆","mean":"杯子"},{"w":"bus","parts":["b","u","s"],"hit":1,"s":"接近「啊」但更短","mean":"公車"},{"w":"sun","parts":["s","u","n"],"hit":1,"s":"短音 u","mean":"太陽"}]},
       q: {
         q: '課文說短音 u 的嘴型如何？',
         options: [
@@ -1842,6 +1866,7 @@ window.APP_TEXTS['english|一下|第4單元 動物'] = {
       terms: [
         { w: '寵物', d: '養在家裡陪伴人的動物。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"寵物","items":["dog 狗","cat 貓","bird 鳥","rabbit 兔子"]},{"label":"單複數同形","items":["fish 魚（複數還是 fish）"]},{"label":"練習","items":["說說看你家有什麼寵物"]}]},
       q: {
         q: '課文說 fish 的複數是什麼？',
         options: [
@@ -1866,6 +1891,7 @@ window.APP_TEXTS['english|一下|第4單元 動物'] = {
       terms: [
         { w: '單複數同形', d: '單數和複數長得一樣。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"大型","items":["cow 牛","horse 馬"]},{"label":"中小型","items":["pig 豬","duck 鴨","chicken 雞"]},{"label":"單複數同形","items":["sheep 羊（複數還是 sheep）"]}]},
       q: {
         q: '課文說哪一個動物的單複數同形？',
         options: [
@@ -1994,6 +2020,7 @@ window.APP_TEXTS['english|一下|第5單元 食物與飲料'] = {
       terms: [
         { w: '不可數', d: '不能一個兩個去數的東西。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"主食","items":["rice 飯","bread 麵包","noodles 麵（常用複數）"]},{"label":"蛋白質","items":["egg 蛋","meat 肉","fish 魚"]},{"label":"湯品","items":["soup 湯"]}]},
       q: {
         q: '課文說哪一個食物通常用複數？',
         options: [
@@ -2018,6 +2045,7 @@ window.APP_TEXTS['english|一下|第5單元 食物與飲料'] = {
       terms: [
         { w: '可數', d: '可以一個兩個去數的東西。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"一顆一顆的","items":["apple 蘋果","orange 柳橙","grape 葡萄"]},{"label":"一根／一大顆","items":["banana 香蕉","watermelon 西瓜"]},{"label":"小顆的","items":["strawberry 草莓（複數 strawberries）"]}]},
       q: {
         q: '課文說水果的複數要怎麼變？',
         options: [
@@ -2171,6 +2199,7 @@ window.APP_TEXTS['english|一下|第6單元 玩具與物品'] = {
       terms: [
         { w: 'this', d: '這個，指近處的東西。' }
       ],
+      viz: {"type":"compareexp","factor":"距離遠近","a":{"label":"this 近的","note":"What is this? → It is a ball."},"b":{"label":"that 遠的","note":"What is that? → It is a kite."},"same":["回答時都用 It is"]},
       q: {
         q: '課文說 that 指的是什麼？',
         options: [
@@ -2219,6 +2248,7 @@ window.APP_TEXTS['english|一下|第6單元 玩具與物品'] = {
       terms: [
         { w: '所有格', d: '表示東西屬於誰的寫法。' }
       ],
+      viz: {"type":"sentence","label":"問這是誰的","items":[{"t":"Whose ball is this?","r":"這是誰的球？"}],"note":"Whose 問所有人。","alt":[{"label":"是我的","items":[{"t":"It is mine","r":"是我的"}],"note":"mine 就是「我的（東西）」。"},{"label":"是某人的","items":[{"t":"It is Amy's","r":"是 Amy 的"}],"note":"人名後面加撇號 s，表示「某人的」。"}]},
       q: {
         q: '課文說要表示某人的東西要在人名後面加什麼？',
         options: [
@@ -2323,6 +2353,7 @@ window.APP_TEXTS['english|一下|第7單元 數字 11–20'] = {
       terms: [
         { w: 'teen', d: '十幾這個數字的字尾。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"照規則","items":["fourteen 14","sixteen 16","seventeen 17","nineteen 19"]},{"label":"要特別記","items":["thirteen 13（不是 threeteen）","fifteen 15（不是 fiveteen）"]},{"label":"少一個字母","items":["eighteen 18（eight + teen，只有一個 t）"]}]},
       q: {
         q: '課文說十三到十九的規則是什麼？',
         options: [
@@ -2476,6 +2507,7 @@ window.APP_TEXTS['english|一下|第8單元 天氣與季節'] = {
       terms: [
         { w: '問句', d: '用來提出問題的句子。' }
       ],
+      viz: {"type":"sentence","label":"問天氣","items":[{"t":"How is the weather?","r":"天氣如何？"}],"note":"最常見的問法。","alt":[{"label":"另一種問法","items":[{"t":"What is the weather like?","r":"天氣怎麼樣？"}],"note":"意思一樣。"},{"label":"回答","items":[{"t":"It is rainy","r":"在下雨"}],"note":"講天氣的主詞固定用 It。"}]},
       q: {
         q: '課文說除了 How is the weather 還可以怎麼問？',
         options: [
@@ -2549,6 +2581,7 @@ window.APP_TEXTS['english|一下|第8單元 天氣與季節'] = {
       terms: [
         { w: 'wear', d: '穿著，表示狀態。' }
       ],
+      viz: {"type":"compareexp","factor":"put on 和 wear","a":{"label":"put on","note":"「穿上」那個動作：Put on your coat.（現在把外套穿上）"},"b":{"label":"wear","note":"「穿著」的狀態：She wears a T-shirt.（她身上穿著 T 恤）"},"same":["中文都翻成「穿」，英文分得很清楚"]},
       q: {
         q: '課文說 put on 和 wear 差在哪裡？',
         options: [
@@ -2652,6 +2685,7 @@ window.APP_TEXTS['english|一下|第9單元 課堂用語'] = {
       terms: [
         { w: '發言', d: '在課堂上開口說話。' }
       ],
+      viz: {"type":"sentence","label":"上課時的三句話","items":[{"t":"Raise your hand","r":"舉手"}],"note":"老師常說的一句。","alt":[{"label":"想發問","items":[{"t":"May I ask a question?","r":"我可以問問題嗎？"}],"note":"用 May I 開頭比較有禮貌。"},{"label":"聽不懂","items":[{"t":"I do not understand","r":"我不懂"}],"note":"不懂就要說出來，這是學習最重要的一句。"}]},
       q: {
         q: '課文說不懂的時候應該怎麼做？',
         options: [
@@ -2676,6 +2710,7 @@ window.APP_TEXTS['english|一下|第9單元 課堂用語'] = {
       terms: [
         { w: 'May I', d: '請求許可的禮貌說法。' }
       ],
+      viz: {"type":"sentence","label":"請求許可","items":[{"t":"May I go to the restroom?","r":"我可以去洗手間嗎？"}],"note":"用 May I 開頭，比直接說要有禮貌。","alt":[{"label":"想喝水","items":[{"t":"May I drink some water?","r":"我可以喝水嗎？"}],"note":"同樣的句型換一個動作。"}]},
       q: {
         q: '課文說 May I 開頭比什麼有禮貌？',
         options: [
@@ -2829,6 +2864,7 @@ window.APP_TEXTS['english|二上|第1單元 This is 句型'] = {
       terms: [
         { w: '否定句', d: '表示「不是」的句子。' }
       ],
+      viz: {"type":"compareexp","factor":"be 動詞的否定","a":{"label":"單數","note":"This is not a cat.（is + not）"},"b":{"label":"複數","note":"These are not books.（are + not）"},"same":["都只是在 be 動詞後面加 not，不用借別的字"]},
       q: {
         q: '課文說 be 動詞的否定要怎麼寫？',
         options: [
@@ -2853,6 +2889,7 @@ window.APP_TEXTS['english|二上|第1單元 This is 句型'] = {
       terms: [
         { w: '疑問句', d: '用來發問的句子。' }
       ],
+      viz: {"type":"sentence","label":"be 動詞疑問句","items":[{"t":"Is this a book?","r":"這是書嗎？"}],"note":"把 be 動詞搬到最前面就變疑問句。","alt":[{"label":"肯定回答","items":[{"t":"Yes, it is","r":"是的"}],"note":"簡答時 be 動詞不縮寫。"},{"label":"否定回答","items":[{"t":"No, it is not","r":"不是"}],"note":"這裡可以縮寫成 isn't。"}]},
       q: {
         q: '課文說 be 動詞的疑問句要怎麼造？',
         options: [
@@ -2907,6 +2944,7 @@ window.APP_TEXTS['english|二上|第2單元 be 動詞 am／is／are'] = {
       terms: [
         { w: 'be 動詞', d: 'am、is、are 這一組動詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"am","items":["I"]},{"label":"is","items":["he","she","it","單數名詞"]},{"label":"are","items":["you","we","they","複數名詞"]}]},
       q: {
         q: '課文說「我」要用哪一個 be 動詞？',
         options: [
@@ -3029,6 +3067,7 @@ window.APP_TEXTS['english|二上|第2單元 be 動詞 am／is／are'] = {
       terms: [
         { w: '一般動詞', d: '表示動作的動詞。' }
       ],
+      viz: {"type":"compareexp","factor":"有沒有動作","a":{"label":"有動作 → 不用 be 動詞","note":"I go to school.（✗ I am go to school.）"},"b":{"label":"沒動作，接形容詞或名詞 → 用 be 動詞","note":"I am happy. / I am a student."},"same":["一個句子只能有一個「主要動詞」"]},
       q: {
         q: '課文說 be 動詞和一般動詞可不可以同時出現？',
         options: [
@@ -3108,6 +3147,7 @@ window.APP_TEXTS['english|二上|第3單元 數字與 How many'] = {
       terms: [
         { w: '幾十', d: '二十、三十這一類的整數。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"照規則加 ty","items":["sixty 60","seventy 70","ninety 90"]},{"label":"要特別記","items":["twenty 20","thirty 30","forty 40（沒有 u）","fifty 50"]},{"label":"一百","items":["one hundred 100"]}]},
       q: {
         q: '課文說哪一個數字的拼法要特別注意？',
         options: [
@@ -3236,6 +3276,7 @@ window.APP_TEXTS['english|二上|第4單元 食物與飲料'] = {
       terms: [
         { w: '不可數名詞', d: '不能一個兩個去數的名詞。' }
       ],
+      viz: {"type":"compareexp","factor":"數不數得出來","a":{"label":"可數名詞","note":"an apple、two apples——可以加 a／an，也可以加 s"},"b":{"label":"不可數名詞","note":"water、milk、rice、bread——不加 s，也不直接加 a"},"same":["不可數的要數，就借容器：a glass of water"]},
       q: {
         q: '課文說不可數名詞可不可以加 s？',
         options: [
@@ -3260,6 +3301,7 @@ window.APP_TEXTS['english|二上|第4單元 食物與飲料'] = {
       terms: [
         { w: 'some', d: '一些，用在肯定句。' }
       ],
+      viz: {"type":"compareexp","factor":"some 還是 any","a":{"label":"肯定句用 some","note":"I have some milk."},"b":{"label":"疑問句與否定句常用 any","note":"Do you have any bread? / I do not have any bread."},"same":["兩個都是「一些」的意思"]},
       q: {
         q: '課文說疑問句常用哪一個字？',
         options: [
@@ -3485,6 +3527,7 @@ window.APP_TEXTS['english|二上|第5單元 I like 句型'] = {
       terms: [
         { w: '程度', d: '感覺的強弱等級。' }
       ],
+      viz: {"type":"levels","items":["I love it 很愛","I like it 喜歡","I do not like it 不喜歡","I hate it 討厭"]},
       q: {
         q: '課文說程度最強的喜歡是哪一個？',
         options: [
@@ -3540,6 +3583,7 @@ window.APP_TEXTS['english|二上|第6單元 動作動詞'] = {
       terms: [
         { w: '不規則變化', d: '不是單純加 s 的變法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"直接加 s","items":["run → runs","eat → eats","jump → jumps"]},{"label":"加 es","items":["go → goes","do → does","watch → watches"]},{"label":"子音+y → ies","items":["study → studies","cry → cries"]}]},
       q: {
         q: '課文說 study 的第三人稱單數是什麼？',
         options: [
@@ -3588,6 +3632,7 @@ window.APP_TEXTS['english|二上|第6單元 動作動詞'] = {
       terms: [
         { w: '否定', d: '表示不做某件事。' }
       ],
+      viz: {"type":"compareexp","factor":"否定句怎麼寫","a":{"label":"be 動詞","note":"I am not happy.（直接加 not）"},"b":{"label":"一般動詞","note":"I do not eat meat. / He does not run.（要先借 do／does）"},"same":["借了 do／does 之後，主要動詞就用原形"]},
       q: {
         q: '課文說一般動詞的否定要用什麼？',
         options: [
@@ -3716,6 +3761,7 @@ window.APP_TEXTS['english|二上|第7單元 學校地點與科目'] = {
       terms: [
         { w: '介系詞', d: '表示位置或時間關係的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"上下裡外","items":["in 在裡面","on 在上面","under 在下面"]},{"label":"前後旁","items":["next to 在旁邊","behind 在後面","in front of 在前面"]},{"label":"樓層固定用 on","items":["on the third floor"]}]},
       q: {
         q: '課文說 behind 是什麼意思？',
         options: [
@@ -3740,6 +3786,7 @@ window.APP_TEXTS['english|二上|第7單元 學校地點與科目'] = {
       terms: [
         { w: '科目', d: '學校裡教的各種課程。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"語文","items":["Chinese 國語","English 英語"]},{"label":"數理","items":["math 數學","science 自然"]},{"label":"社會與藝能","items":["social studies 社會","art 美術","PE 體育","music 音樂"]}]},
       q: {
         q: '課文說哪一類科目的字首要大寫？',
         options: [
@@ -3819,6 +3866,7 @@ window.APP_TEXTS['english|二上|第8單元 星期與作息'] = {
       terms: [
         { w: '大寫', d: '字母比較大的那一種寫法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"平日","items":["Monday","Tuesday","Wednesday","Thursday","Friday"]},{"label":"週末","items":["Saturday","Sunday"]},{"label":"要注意","items":["字首一定大寫","Wednesday 的第一個 d 不發音但要寫"]}]},
       q: {
         q: '課文說星期的字首要怎麼寫？',
         options: [
@@ -3916,6 +3964,7 @@ window.APP_TEXTS['english|二上|第8單元 星期與作息'] = {
       terms: [
         { w: '頻率副詞', d: '表示做某件事有多常的字。' }
       ],
+      viz: {"type":"levels","items":["always 總是（100%）","usually 通常（約 80%）","sometimes 有時（約 50%）","never 從不（0%）"]},
       q: {
         q: '課文說頻率副詞要放在 be 動詞的哪一邊？',
         options: [
@@ -3971,6 +4020,7 @@ window.APP_TEXTS['english|二上|第9單元 形容詞：大小與外形'] = {
       terms: [
         { w: '形容詞', d: '用來形容人或東西的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"大小","items":["big 大 ↔ small 小"]},{"label":"長短高矮","items":["long 長 ↔ short 短","tall 高 ↔ short 矮"]},{"label":"胖瘦","items":["fat 胖 ↔ thin 瘦"]}]},
       q: {
         q: '課文說 short 有哪兩個意思？',
         options: [
@@ -4044,6 +4094,7 @@ window.APP_TEXTS['english|二上|第9單元 形容詞：大小與外形'] = {
       terms: [
         { w: 'too', d: '太，帶有超過而不好的意思。' }
       ],
+      viz: {"type":"compareexp","factor":"very、so、too","a":{"label":"very／so","note":"很、好：very big、so tall——單純加強程度"},"b":{"label":"too","note":"太……了：The shoes are too small.——帶有「超過了、不好」的意思"},"same":["都放在形容詞前面"]},
       q: {
         q: '課文說 too 帶有什麼意思？',
         options: [
