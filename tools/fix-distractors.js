@@ -57,12 +57,19 @@ Object.values(byLesson).forEach((idxs) => {
     if (NEG.test(it.q)) { skipped++; return; }
     if (!Array.isArray(it.options) || it.options.length !== 4) { skipped++; return; }
     const cor = String(it.options[it.answer]);
+    /* 數值題不動：正解是「3 m/s²」這種的話，借來的敘述型誘答會變成
+       「四個選項只有一個是數字」，反而更好猜。原本的數值誘答型別相符，
+       實測最長率本來就只有 12-15%，沒有問題。（2026-08-30） */
+    const NUM = (t) => /[0-9]/.test(String(t));
+    const numOrigDistr = it.options.filter((o, i) => i !== it.answer && NUM(o)).length;
+    if (NUM(cor) || numOrigDistr >= 2) { skipped++; return; }
     const cands = idxs
       .filter((j) => j !== gi)
       .map((j) => ({ t: String(A[j].options[A[j].answer]), j,
                      d: Math.abs(String(A[j].options[A[j].answer]).length - cor.length) +
                         Math.abs(idxs.indexOf(j) - pos) * 0.3 }))
       .filter((c) => c.t !== cor
+        && !NUM(c.t)
         && overlap(c.t, cor) < 0.6
         && overlap(String(A[c.j].q), String(it.q)) < 0.75
         && !String(it.q).includes(c.t.slice(0, 6))
@@ -84,24 +91,27 @@ Object.values(byLesson).forEach((idxs) => {
   });
 });
 
-/* 統計：改完之後「正解是唯一最長」的比例 */
-function longestRate(get) {
+/* 統計：改完之後「正解是唯一最長／最短」的比例 */
+function extremeRate(get, pickExtreme) {
   let n = 0, hit = 0;
   A.forEach((it, i) => {
     const p = plan.get(i);
     const o = get(it, p), a = p ? p.answer : it.answer;
     if (!Array.isArray(o) || o.length !== 4) return;
     const L = o.map((x) => String(x).length);
-    const max = Math.max(...L);
-    if (L[a] === max && L.filter((x) => x === max).length === 1) hit++;
+    const m = pickExtreme(...L);
+    if (L[a] === m && L.filter((x) => x === m).length === 1) hit++;
     n++;
   });
   return 100 * hit / n;
 }
-const before = longestRate((it) => it.options);
-const after = longestRate((it, p) => (p ? p.options : it.options));
+const before = extremeRate((it) => it.options, Math.max);
+const after = extremeRate((it, p) => (p ? p.options : it.options), Math.max);
+const sBefore = extremeRate((it) => it.options, Math.min);
+const sAfter = extremeRate((it, p) => (p ? p.options : it.options), Math.min);
 console.log(`${BANK}：共 ${A.length} 題，可重寫 ${plan.size} 題，跳過 ${skipped} 題`);
 console.log(`「正解是唯一最長」：${before.toFixed(1)}% → ${after.toFixed(1)}%`);
+console.log(`「正解是唯一最短」：${sBefore.toFixed(1)}% → ${sAfter.toFixed(1)}%`);
 
 /* 抽樣給人看（每 8 課抽一題） */
 const keys = Object.keys(byLesson);
@@ -117,29 +127,38 @@ keys.filter((_, i) => i % 8 === 0).slice(0, 6).forEach((k) => {
 
 if (!WRITE) { console.log('\n（沒有加 --write，只看不改）'); process.exit(0); }
 
-/* 寫回檔案：逐題以原字串為錨點做取代，不重排版面 */
+/* 解析補一句：說明三個誘答分別是本課的哪些概念（原本的 ✅／❌／📚 三行一字不動） */
+function patchExp(exp, names) {
+  const who = names.length
+    ? '本課「' + names.join('」「') + '」的說明'
+    : '本課其他概念的說明';
+  const note = '（另外三個選項是' + who + '，各自都對，但不是這一題在問的。）';
+  const lines = String(exp || '').split('\n');
+  if (lines.some((l) => l.indexOf(note) >= 0)) return exp;
+  const at = lines.findIndex((l) => l.trim().startsWith('📚'));
+  if (at < 0) lines.push(note); else lines.splice(at, 0, note);
+  return lines.join('\n');
+}
+
+/* 寫回檔案：每題本來就是一行 compact JSON（已驗證 1:1 round-trip），
+ * 所以逐行 parse → 改 options／answer／exp → stringify 寫回，版面不變。 */
 const file = path.join(ROOT, 'js/data', BANK + '.js');
-let src = fs.readFileSync(file, 'utf8');
+const byId = new Map();
+A.forEach((it, i) => { if (plan.has(i)) byId.set(it.id, plan.get(i)); });
 let changed = 0, missed = 0;
-A.forEach((it, i) => {
-  const p = plan.get(i);
-  if (!p) return;
-  const oldOpts = JSON.stringify(it.options, null, 0);
-  // 檔案裡的 options 陣列（原樣），用 id 定位該題再換
-  const idPos = src.indexOf('"' + it.id + '"');
-  if (idPos < 0) { missed++; return; }
-  const optKey = src.indexOf('"options"', idPos);
-  const optEnd = src.indexOf(']', optKey);
-  const ansKey = src.indexOf('"answer"', optEnd);
-  const ansEnd = src.indexOf(',', ansKey);
-  if (optKey < 0 || optEnd < 0 || ansKey < 0) { missed++; return; }
-  const newOpts = '"options":' + JSON.stringify(p.options);
-  const newAns = '"answer":' + p.answer;
-  src = src.slice(0, optKey) + newOpts + src.slice(optEnd + 1);
-  const shift = newOpts.length - (optEnd + 1 - optKey);
-  const ak = ansKey + shift, ae = ansEnd + shift;
-  src = src.slice(0, ak) + newAns + src.slice(ae);
+const out = fs.readFileSync(file, 'utf8').split('\n').map((line) => {
+  if (!line.startsWith('{"id":')) return line;
+  const tail = line.endsWith(',') ? ',' : '';
+  const body = tail ? line.slice(0, -1) : line;
+  let o;
+  try { o = JSON.parse(body); } catch (e) { missed++; return line; }
+  const p = byId.get(o.id);
+  if (!p) return line;
+  o.options = p.options;
+  o.answer = p.answer;
+  o.exp = patchExp(o.exp, p.names);
   changed++;
+  return JSON.stringify(o) + tail;
 });
-fs.writeFileSync(file, src);
-console.log(`\n寫回 ${file}：改了 ${changed} 題，找不到錨點 ${missed} 題`);
+fs.writeFileSync(file, out.join('\n'));
+console.log(`\n寫回 ${file}：改了 ${changed} 題，parse 失敗 ${missed} 行`);

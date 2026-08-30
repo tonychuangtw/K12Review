@@ -714,9 +714,10 @@ console.log('解析確認題');
   console.log('\n選項長度（正解會不會一眼就看出來）');
   const BASELINE = {           // 上限；註記「待修」的是已知有問題、正在逐批重寫的
     custom: 15, math: 30, socialCustom: 27, scienceCustom: 35,
-    english: 45,                                        // 待修
-    physics: 65, science: 73, chemistry: 85, social: 86, // 待修
-    biology: 95, earth: 96, history: 98, geography: 99, civics: 100 // 待修
+    // 高中七科 2026-08-30 已用 tools/fix-distractors.js 重寫完（原本 63-99.8%）
+    civics: 15, geography: 15, history: 15, earth: 15,
+    biology: 15, chemistry: 15, physics: 15,
+    english: 45, science: 73, social: 86  // 待修（國小題型不適用同課借正解，見 PROGRESS）
   };
   const rows = [];
   Object.keys(D).forEach((k) => {
