@@ -4,7 +4,20 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【進行中 2026-08-30】LanExamMock 聽力擴題 —— 每級目前只有 30 組（每組一段對話或獨白＋5 題），
+NEXT_ACTION: 【等 Tony 拍板 2026-08-30】課文帶讀加圖／互動／動畫。Tony 回報「12 個年級的帶讀全都是純文字，太死了」，
+點名優先：小學國中的數學自然、高中的數學物理化學。查證結果：**引擎早就有，是寫帶讀時沒填 viz**——
+js/widgets.js 有 136 種 SVG 元件（27 種有真互動），帶讀渲染器本來就吃 seg.viz（js/app.js 約 5796 行 → Widgets.render），
+概念卡 6,373 張 100% 都有 viz（用到 137 種），但帶讀 7,020 段只有 102 段有 viz 且全在社會科，數理六科是 0。
+136 種元件目前沒有一種會動（無 requestAnimationFrame／SVG animate），全站也沒處理 prefers-reduced-motion。
+已問過 codex（Tony 明確授權），它同意「復用既有元件、不新建引擎」，並補三點：
+(1) 不要加裝飾動畫——Mayer 的 seductive details 研究顯示會降低理解與遷移；
+(2) 優先序 靜態圖 > 可操作互動 > 自動動畫，比例約 6-7:2-3:1，動畫要學生自己按（segmenting）；
+(3) 用五維度打分挑段落（視覺必要性／動態因果／誤解風險／元件覆蓋／課程重要度，各 0-2 分，8 分以上第一波），
+目標每個數理單元 2-3 個有用視覺、先覆蓋數理段落 15-25%（數理六科共 3,348 段 → 約 500-840 段）。
+已提兩個選項給 Tony：(A) 先做 3 個樣板單元（小學數學／國中自然／高中物理各 1 個，各 6 段）再放大，或 (B) 直接整批鋪。訊息 id 1212。
+不論選哪個都要做的基礎工程：輕量動畫生命週期（離開畫面停、支援 prefers-reduced-motion）＋widget-audit 補一節檢查動畫不漏計時器。
+
+【暫緩，等上面定案】LanExamMock 聽力擴題 —— 每級目前只有 30 組（每組一段對話或獨白＋5 題），
 是五個題庫中最薄的（閱讀 mc140/gap100/match70/tfng30/head30、用法文法約 2,000–2,400、單字 2,200–2,340）。
 目標每級擴到 60 組（＋30 組／級，五級共 150 組新稿 750 題），順序 FCE → CAE → CPE → PET → KET。
 做法：新增 js/levels/<級>/banks/listening-w6.js 起的檔案，每檔 6 組，
@@ -64,7 +77,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-30 19:20 台北（K12Review 高中七科課文帶讀完成並上線；LanExamMock 家長頁長度標記 v43 上線；下一步：LanExamMock 聽力擴題）
+UPDATED: 2026-08-30 20:10 台北（等 Tony 在「帶讀加圖」的兩個選項中拍板；LanExamMock 聽力擴題暫緩）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
