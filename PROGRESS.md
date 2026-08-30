@@ -16,7 +16,19 @@ NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
         二來誤答全用同樣開頭反而變成新的破綻。tools/fit-distractors.py 已改成只報告長度、不自動加字。
      ⛔ 不可用 tools/fix-distractors.js 的「借同課正解」（會借到另一個也對的答案）；⛔ 英文的音標題與數學的純計算題不改。
 
- (3) 課文帶讀配圖續衝（現 27.7%，1946/7020 段）。示意圖自己畫向量（js/widgets.js），整張圖當主角的才呼叫 claude-shared/tools/gen-image.sh（Tony 2026-08-30 核可）。
+ (3) 課文帶讀配圖續衝（進行中）：Tony 2026-08-30 核可「需要向量圖的直接畫，需要 AI 圖的呼叫 gemini」。
+     2026-09-05：27.7% → 36.0%（1,946 → 2,525 段）。做法分兩條：
+       a. `node tools/seed-text-viz.js <科目> --min 0.35 --per 5 --write` 把概念卡已配好的 viz 接到帶讀最相似的段落。
+          這條路已經接近榨乾（門檻再往下就開始亂配），2026-09-05 這一輪撈到 +479 段。
+       b. 國語沒有概念卡系統，要手寫 plan：`node tools/set-text-viz.js <plan.json> --write`
+          plan = [{key:"chinese|年級|第N篇 篇名", seg:段號從1起, viz:{type:"…", …}}]
+          每單元上限 4 段（2026-09-05 由 3 放寬；要再放寬下 --per N）。國語 18% → 33%。
+     各科現況（2026-09-05）：social 42%、physics 41%、math 39%、science 38%、chemistry 37%、earth/geography/biology 35-36%、
+       civics 33%、chinese 33%、history 31%、english 30%。
+     語文類可用元件：zhuyinparts charparts punctcut sentparts poemform essayform narrorder letterform wenyanflow
+       wordtree strokeorder readlayer rhetoricmap wordscale matchpair（matchpair 最泛用，要自己寫 pairs/note）。
+     ⚠ 改完跑 `node test/test.js`、`node test/viz-match.mjs`（檢查卡片自帶的字有沒有真的畫在圖上）。
+
  (4) 成語 wordExp 逐字解析補齊（現 786/1200，缺 414 條）。
  (5) 成語 syn 同義詞補齊（現 358/1200）。
  (6) src 歷屆出處：全庫目前 0 條。做法＝找教育部／心測中心公開釋出的會考、基測題目，據此新增題目並標真實出處；⛔ 不可把既有自撰題回頭貼上假出處。
