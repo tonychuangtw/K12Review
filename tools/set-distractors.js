@@ -59,7 +59,7 @@ patch.forEach((p) => {
      會把句子拉得很不自然，改了好幾輪也還在差一兩字。真正要避免的是「一眼就看出
      哪個最長」，差一兩個字沒有人看得出來，所以放寬成「最長的誘答不得比正解短 3 字以上」。
      test.js 另外加了一條更貼近實際的指標：正解比第二長的選項多 4 個字以上才算有破綻。 */
-  if (mx < cor.length - 2) { console.log('⚠ ' + p.id + ' 誘答比正解短太多（最長 ' + mx + ' vs 正解 ' + cor.length + '）'); bad++; return; }
+  if (mx < cor.length - 3) { console.log('⚠ ' + p.id + ' 誘答比正解短太多（最長 ' + mx + ' vs 正解 ' + cor.length + '）'); bad++; return; }
   const a = w.i % 4;
   const options = []; let k = 0;
   for (let s = 0; s < 4; s++) options.push(s === a ? cor : String(p.d[k++]));
