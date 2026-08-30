@@ -4,7 +4,18 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 誘答重寫第一、第二階段皆已完成（2026-09-03）。第一階段（正解≥15字且最長誘答≤8字）11 科共 4,143 題歸零；第二階段（正解比最長誘答多 ≥10 字）國小自然 511／國小社會 830／數學 205／英文 262，共 1,808 題歸零。目前四大題庫這兩項指標都是 0。下一輪若還要往下清，門檻改成「正解比最長誘答多 ≥6 字」，濾法見 /tmp 的 dump.js（改 `c-m<10` 為 `c-m<6`），流程不變：逐題手寫三個誘答的 JSON → `python3 tools/pad-distractors.py <file>` → `node tools/check-distractor-len.js <file>` → 手補報「需手補」的 → `node tools/set-distractors.js <file> --write` → `node test/test.js` → `python3 tools/stamp-version.py 202609XXy` → commit push。每批 60–70 題。長度標準：`cor-max>=4 && cor>max*1.25` 兩條同時成立才算太短。⛔ 不可用 tools/fix-distractors.js 的「借同課正解」（會借到另一個也對的答案）；⛔ 英文的音標題與數學的純計算題不改。
+NEXT_ACTION: 【2026-08-30 Tony 核定的八項擴充，依序做】
+ (1) 俚語 452 條補 deep 深度解析 ＋ 新建 js/data/checks-slang.js 452 題解析確認題（成語/字音/字形三類都已 100%，俚語是唯一沒有的）。同時改 buildSlangQ 讓回饋帶 deep 與其他選項意思，並在 test.js 加 slang 的 deep／checks 100% 守門。← 進行中
+ (2) 誘答重寫第三輪：門檻由「多 10 字」降到「多 6 字」。目前國小自然 31.7%／國小社會 24.9%／英文 17.9%「正解明顯最長」，約 2,500 題。
+ (3) 課文帶讀配圖續衝（現 27.7%，1946/7020 段）。示意圖自己畫向量（js/widgets.js），整張圖當主角的才呼叫 claude-shared/tools/gen-image.sh（Tony 2026-08-30 核可）。
+ (4) 成語 wordExp 逐字解析補齊（現 786/1200，缺 414 條）。
+ (5) 成語 syn 同義詞補齊（現 358/1200）。
+ (6) src 歷屆出處：全庫目前 0 條。做法＝找教育部／心測中心公開釋出的會考、基測題目，據此新增題目並標真實出處；⛔ 不可把既有自撰題回頭貼上假出處。
+ (7) 匯入題庫（英文／數學／高中七科）＝ Tony 之後陸續給題本，不主動做。
+ (8) 高中七科擴題：物化生地科史地公各 1,728 題（每年級 576），要往上補。
+
+【誘答重寫流程（第二、三輪共用）】逐題手寫三個誘答的 JSON → `python3 tools/pad-distractors.py <file>` → `node tools/check-distractor-len.js <file>` → 手補報「需手補」的 → `node tools/set-distractors.js <file> --write` → `node test/test.js` → `python3 tools/stamp-version.py 202609XXy` → commit push。每批 60–70 題。長度標準：`cor-max>=4 && cor>max*1.25` 兩條同時成立才算太短。⛔ 不可用 tools/fix-distractors.js 的「借同課正解」（會借到另一個也對的答案）；⛔ 英文的音標題與數學的純計算題不改。
+【已完成】誘答重寫第一階段（正解≥15字且最長誘答≤8字）11 科 4,143 題歸零；第二階段（多 ≥10 字）國小自然 511／國小社會 830／數學 205／英文 262 共 1,808 題歸零（2026-09-03，v89）。
 
 並指示「先做完 1（配圖）再做 2（誘答重寫）」。
 已完成：數學 215 單元 465 段、自然 125 單元 273 段（十二年級全部），覆蓋率 math 36%／science 37%。
