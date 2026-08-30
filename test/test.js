@@ -12,7 +12,7 @@ for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'c
                  'civics', 'civics-custom']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
-for (const f of ['checks-idioms', 'checks-phonics', 'checks-chars', 'checks-custom',
+for (const f of ['checks-idioms', 'checks-slang', 'checks-phonics', 'checks-chars', 'checks-custom',
                  'checks-math', 'checks-science', 'checks-english', 'checks-social',
                  'checks-physics', 'checks-chemistry', 'checks-biology', 'checks-earth',
                  'checks-history', 'checks-geography', 'checks-civics']) {   // 各科自編原創題的確認題，一科一檔
@@ -509,7 +509,9 @@ console.log('解析確認題');
     if (k.o.some(o => BAD_OPTS.test(o.trim()))) return bad.push(id + ' 有「以上皆非」這類爛誘答');
     if (POS_REF.test(k.q) || k.o.some(o => POS_REF.test(o))) return bad.push(id + ' 有位置指涉');
     const src = D[cat].find(x => x.id === id);
-    if (!groundedIn(k.o[k.a], src && src.exp)) {
+    // 俚語沒有 exp 欄位，它的「解析」＝意思＋例句＋deep 深度解析
+    const srcExp = src ? (src.exp || [src.meaning, src.example, src.deep].filter(Boolean).join('\n')) : '';
+    if (!groundedIn(k.o[k.a], srcExp)) {
       bad.push(id + ' 正解在該題解析裡找不到根據（' + String(k.o[k.a]).slice(0, 14) + '）');
     }
   });

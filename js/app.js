@@ -116,6 +116,10 @@
 
   // 深度解析（存 item.deep，逐條人工撰寫）：
   // 成語＝典故與成語意思（注音比較自動生成，不含國字拆解）；字音/字形＝注音比較＋國字拆解與造字原因
+  function otherSlangExp(others) {
+    if (!others.length) return '';
+    return '\n📖 其他選項：' + others.map(function (o) { return o.term + '（' + o.kind + '）＝' + o.meaning; }).join('；');
+  }
   function deepExp(item) {
     var isIdiom = item.id && item.id.charAt(0) === 'i';
     var auto = isIdiom ? idiomZyCompare(item) : '';
@@ -156,7 +160,7 @@
       question: '「' + item.term + '」（' + item.kind + '）的意思是？',
       options: opts.map(function (o) { return o.meaning; }),
       correct: opts.indexOf(item),
-      explain: '例句：' + item.example
+      explain: '例句：' + item.example + otherSlangExp(others) + deepExp(item)
     };
   }
 
