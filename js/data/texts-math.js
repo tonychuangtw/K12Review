@@ -22146,6 +22146,7 @@ window.APP_TEXTS['math|九上|第1單元 相似形與比例線段'] = {
       terms: [
         { w: '相似', d: '對應角相等且對應邊成比例。' }
       ],
+      viz: {"type":"similar","k":2},
       q: {
         q: '課文說全等和相似的關係是什麼？',
         options: [
@@ -22219,6 +22220,7 @@ window.APP_TEXTS['math|九上|第1單元 相似形與比例線段'] = {
       terms: [
         { w: '面積比', d: '相似圖形面積的比值。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"兩個相似三角形，邊長比 2 ： 3","hint":"先確認對應邊的比。"},{"expr":"周長比也是 2 ： 3","hint":"周長是邊長相加，比值不變。"},{"expr":"面積比 ＝ 2² ： 3² ＝ 4 ： 9","hint":"面積是長乘寬，所以要平方。"},{"expr":"體積比 ＝ 2³ ： 3³ ＝ 8 ： 27","hint":"體積再多乘一次，所以是立方。"}]},
       q: {
         q: '課文說對應邊比二比三時面積比是多少？',
         options: [
@@ -22298,6 +22300,7 @@ window.APP_TEXTS['math|九上|第2單元 相似三角形的應用'] = {
       terms: [
         { w: '高影比', d: '物體高度與影長的比值。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"竿子高 1 公尺，影長 0.8 公尺","hint":"同一時間，太陽光可視為平行。"},{"expr":"大樓影長 12 公尺，求高度 h","hint":"兩個三角形相似。"},{"expr":"1 ： 0.8 ＝ h ： 12","hint":"對應邊成比例。"},{"expr":"h ＝ 15 公尺","hint":"交叉相乘就能解出來。"}]},
       q: {
         q: '課文算出影子六公尺的旗桿有多高？',
         options: [
@@ -22371,6 +22374,7 @@ window.APP_TEXTS['math|九上|第2單元 相似三角形的應用'] = {
       terms: [
         { w: '開根號', d: '求出平方後等於該數的正數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"已知面積比 9 ： 16","hint":"面積比是邊長比的平方。"},{"expr":"邊長比 ＝ √9 ： √16","hint":"要開平方才回得到邊長比。"},{"expr":"＝ 3 ： 4","hint":"這就是對應邊的比。"},{"expr":"若再求體積比則是 27 ： 64","hint":"邊長比的立方。"}]},
       q: {
         q: '課文說面積比九比十六時邊長比是多少？',
         options: [
@@ -22395,6 +22399,7 @@ window.APP_TEXTS['math|九上|第2單元 相似三角形的應用'] = {
       terms: [
         { w: '長寬比', d: '圖形長與寬的比值。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"原照片 4 ： 3，放大後寬 8","hint":"放大要維持長寬比。"},{"expr":"4 ： 3 ＝ 8 ： x","hint":"列出比例式。"},{"expr":"4x ＝ 24","hint":"交叉相乘。"},{"expr":"x ＝ 6，所以是 8 乘 6","hint":"只放大一邊會變形。"}]},
       q: {
         q: '課文說四乘三放大成八乘多少才不變形？',
         options: [
@@ -22603,6 +22608,7 @@ window.APP_TEXTS['math|九上|第4單元 圓心角與圓周角'] = {
       terms: [
         { w: '圓周角', d: '頂點在圓上、兩邊為弦的角。' }
       ],
+      viz: {"type":"circleangles","mode":"inscribed","deg":100},
       q: {
         q: '課文說圓心角八十度時圓周角是幾度？',
         options: [
@@ -22676,6 +22682,7 @@ window.APP_TEXTS['math|九上|第4單元 圓心角與圓周角'] = {
       terms: [
         { w: '內接', d: '所有頂點都在圓上。' }
       ],
+      viz: {"type":"circleangles","mode":"cyclicquad","deg":110},
       q: {
         q: '課文說圓內接四邊形一個角七十度時對角幾度？',
         options: [
@@ -22804,6 +22811,7 @@ window.APP_TEXTS['math|九上|第5單元 圓與切線'] = {
       terms: [
         { w: '切線長', d: '圓外一點到切點的距離。' }
       ],
+      viz: {"type":"circleline","mode":"twotangents","pick":false},
       q: {
         q: '課文說點在圓內時能畫幾條切線？',
         options: [
@@ -22828,6 +22836,7 @@ window.APP_TEXTS['math|九上|第5單元 圓與切線'] = {
       terms: [
         { w: '相離', d: '直線與圓沒有交點。' }
       ],
+      viz: {"type":"circleline","mode":"apart","pick":false},
       q: {
         q: '課文說 d 小於 r 時直線和圓有幾個交點？',
         options: [
@@ -22907,6 +22916,7 @@ window.APP_TEXTS['math|九上|第6單元 三角形的心'] = {
       terms: [
         { w: '外心', d: '三邊垂直平分線的交點。' }
       ],
+      viz: {"type":"tricenters","kind":"circum"},
       q: {
         q: '課文說直角三角形的外心在哪裡？',
         options: [
@@ -22931,6 +22941,7 @@ window.APP_TEXTS['math|九上|第6單元 三角形的心'] = {
       terms: [
         { w: '內心', d: '三條角平分線的交點。' }
       ],
+      viz: {"type":"tricenters","kind":"incenter"},
       q: {
         q: '課文說內心一定在哪裡？',
         options: [
@@ -22955,6 +22966,7 @@ window.APP_TEXTS['math|九上|第6單元 三角形的心'] = {
       terms: [
         { w: '中線', d: '頂點到對邊中點的線段。' }
       ],
+      viz: {"type":"tricenters","kind":"centroid"},
       q: {
         q: '課文說重心把中線分成什麼比例？',
         options: [
@@ -23237,6 +23249,7 @@ window.APP_TEXTS['math|九上|第8單元 二次函數的圖形'] = {
       terms: [
         { w: '開口', d: '拋物線兩端張開的方向。' }
       ],
+      viz: {"type":"parabola","a":-1,"h":0,"k":0},
       q: {
         q: '課文說判斷開口方向要看哪一個係數？',
         options: [
@@ -23261,6 +23274,7 @@ window.APP_TEXTS['math|九上|第8單元 二次函數的圖形'] = {
       terms: [
         { w: '絕對值', d: '不看正負號的大小。' }
       ],
+      viz: {"type":"parabola","a":3,"h":0,"k":0},
       q: {
         q: '課文說 a 的絕對值越大圖形會怎樣？',
         options: [
@@ -23309,6 +23323,7 @@ window.APP_TEXTS['math|九上|第8單元 二次函數的圖形'] = {
       terms: [
         { w: '平移', d: '圖形整體移動而形狀不變。' }
       ],
+      viz: {"type":"parabola","a":1,"h":4,"k":0},
       q: {
         q: '課文說往右移四時式子怎麼寫？',
         options: [
@@ -23363,6 +23378,7 @@ window.APP_TEXTS['math|九上|第9單元 二次函數的極值'] = {
       terms: [
         { w: '最小值', d: '函數所能取到的最小數值。' }
       ],
+      viz: {"type":"parabola","a":1,"h":2,"k":-3},
       q: {
         q: '課文說開口向上的二次函數有沒有最大值？',
         options: [
@@ -23411,6 +23427,7 @@ window.APP_TEXTS['math|九上|第9單元 二次函數的極值'] = {
       terms: [
         { w: '配方', d: '把二次式整理成完全平方的形式。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"y ＝ x² − 6x + 11","hint":"一般式看不出頂點在哪。"},{"expr":"y ＝ (x² − 6x + 9) − 9 + 11","hint":"一次項係數一半的平方是 9，補進去再扣掉。"},{"expr":"y ＝ (x − 3)² + 2","hint":"整理成頂點式。"},{"expr":"頂點 (3, 2)，最小值是 2","hint":"開口向上，頂點就是最低點。"}]},
       q: {
         q: '課文說配方時補上的九要怎麼處理？',
         options: [
@@ -23435,6 +23452,7 @@ window.APP_TEXTS['math|九上|第9單元 二次函數的極值'] = {
       terms: [
         { w: '極值問題', d: '求最大或最小值的應用題。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"長 ＋ 寬 ＝ 10，設長為 x","hint":"周長 20 公尺的長方形。"},{"expr":"面積 y ＝ x(10 − x)","hint":"寬就是 10 減長。"},{"expr":"y ＝ −x² + 10x ＝ −(x − 5)² + 25","hint":"配方後看出頂點。"},{"expr":"x ＝ 5 時面積最大為 25 平方公尺","hint":"正方形時面積最大。"}]},
       q: {
         q: '課文說周長固定時什麼形狀面積最大？',
         options: [
@@ -23514,6 +23532,7 @@ window.APP_TEXTS['math|九下|第1單元 立體圖形與表面積'] = {
       terms: [
         { w: '表面積', d: '立體所有外表面積的總和。' }
       ],
+      viz: {"type":"netbox","l":5,"w":3,"h":2,"edit":false},
       q: {
         q: '課文算出長八寬五高二的長方體表面積是多少？',
         options: [
@@ -23741,6 +23760,7 @@ window.APP_TEXTS['math|九下|第2單元 立體圖形的體積'] = {
       terms: [
         { w: '同底同高', d: '底面相同且高度相同。' }
       ],
+      viz: {"type":"solid","kind":"cone","r":3,"h":4,"l":5},
       q: {
         q: '課文說圓錐體積要再做什麼運算？',
         options: [
@@ -23844,6 +23864,7 @@ window.APP_TEXTS['math|九下|第3單元 機率的意義'] = {
       terms: [
         { w: '公正骰子', d: '每一面出現機會均等的骰子。' }
       ],
+      viz: {"type":"probtable","kind":"dice2","want":[]},
       q: {
         q: '課文說「大於四」含不含四？',
         options: [
@@ -23942,6 +23963,7 @@ window.APP_TEXTS['math|九下|第3單元 機率的意義'] = {
       terms: [
         { w: '分母', d: '機率算式中代表全部情況數的數。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"紅球","value":2},{"label":"綠球","value":3},{"label":"藍球","value":5}]},
       q: {
         q: '課文說取球問題的分母應該用什麼？',
         options: [
@@ -23997,6 +24019,7 @@ window.APP_TEXTS['math|九下|第4單元 機率的計算'] = {
       terms: [
         { w: '乘法原理', d: '分步驟時把各步的方法數相乘。' }
       ],
+      viz: {"type":"counting","kind":"tree","groups":[{"label":"第一顆骰子","n":6},{"label":"第二顆骰子","n":6}]},
       q: {
         q: '課文說兩顆骰子和為七有幾種組合？',
         options: [
@@ -24069,6 +24092,7 @@ window.APP_TEXTS['math|九下|第4單元 機率的計算'] = {
       terms: [
         { w: '獨立', d: '一事件不影響另一事件的機率。' }
       ],
+      viz: {"type":"probtable","kind":"coin","want":[]},
       q: {
         q: '課文說「而且」的關係要用什麼運算？',
         options: [
@@ -24093,6 +24117,7 @@ window.APP_TEXTS['math|九下|第4單元 機率的計算'] = {
       terms: [
         { w: '放回', d: '取出後再放回原處。' }
       ],
+      viz: {"type":"compareexp","factor":"取球之後有沒有放回去","a":{"label":"放回","note":"第二次仍是 10 顆，機率 4/10 × 4/10 ＝ 4/25"},"b":{"label":"不放回","note":"第二次只剩 9 顆，機率 4/10 × 3/9 ＝ 2/15"},"same":["第一次抽中紅球的機率都是 4/10"]},
       q: {
         q: '課文說不放回時第二次剩幾顆球？',
         options: [
@@ -24351,6 +24376,7 @@ window.APP_TEXTS['math|九下|第6單元 資料的離散程度'] = {
       terms: [
         { w: '穩定度', d: '成績起伏大小的程度。' }
       ],
+      viz: {"type":"spread","a":[77,79,80,81,83],"b":[62,71,80,89,98]},
       q: {
         q: '課文說要挑穩定的人要看什麼？',
         options: [
@@ -24430,6 +24456,7 @@ window.APP_TEXTS['math|九下|第7單元 綜合應用：代數'] = {
       terms: [
         { w: '乘法公式', d: '和的平方等於平方和加兩倍乘積。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"已知 x ＋ 1/x ＝ 4","hint":"不必真的把 x 解出來。"},{"expr":"兩邊平方：(x ＋ 1/x)² ＝ 16","hint":"平方後會出現想要的項。"},{"expr":"x² ＋ 2 ＋ 1/x² ＝ 16","hint":"中間項剛好是 2。"},{"expr":"x² ＋ 1/x² ＝ 14","hint":"把 2 移過去就得到答案。"}]},
       q: {
         q: '課文說平方展開後多出來的二是怎麼來的？',
         options: [
@@ -24503,6 +24530,7 @@ window.APP_TEXTS['math|九下|第7單元 綜合應用：代數'] = {
       terms: [
         { w: '聯立', d: '同時滿足多個方程式。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"雞 x 隻、兔 y 隻，頭共 20 個","hint":"每隻都只有一個頭。"},{"expr":"x ＋ y ＝ 20","hint":"這是頭數的式子。"},{"expr":"2x ＋ 4y ＝ 56","hint":"雞 2 隻腳、兔 4 隻腳。"},{"expr":"解得 x ＝ 12、y ＝ 8","hint":"用代入或加減消去法都可以。"}]},
       q: {
         q: '課文算出兔子有幾隻？',
         options: [
@@ -24835,6 +24863,7 @@ window.APP_TEXTS['math|九下|第9單元 綜合複習'] = {
       terms: [
         { w: '科學記號', d: '用十的次方表示極大或極小的數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"把 3200000 寫成科學記號","hint":"先把小數點移到第一個數字後面。"},{"expr":"3.2（小數點往左移了 6 位）","hint":"a 必須大於等於 1 且小於 10。"},{"expr":"＝ 3.2 × 10⁶","hint":"往左移幾位，次方就是正幾。"},{"expr":"0.00047 ＝ 4.7 × 10⁻⁴","hint":"往右移就是負次方。"}]},
       q: {
         q: '課文說小數點往右搬時指數是正還是負？',
         options: [
