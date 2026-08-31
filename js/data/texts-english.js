@@ -31819,6 +31819,7 @@ window.APP_TEXTS['english|十二下|第1單元 中譯英'] = {
       terms: [
         { w: '骨幹', d: '句子最核心的主詞與動詞。' }
       ],
+      viz: {"type":"cycle","steps":["先找出中文句子的主詞是誰","再找出主要動詞是做什麼","確認受詞或補語是什麼","最後把修飾語一個一個掛回去"]},
       q: {
         q: '課文說中文和英文在主詞上有什麼差別？',
         options: [
@@ -31843,6 +31844,7 @@ window.APP_TEXTS['english|十二下|第1單元 中譯英'] = {
       terms: [
         { w: '直譯', d: '照字面一個字一個字翻譯。' }
       ],
+      viz: {"type":"compareexp","factor":"逐字翻與意譯的差別","a":{"label":"逐字翻（不自然）","note":"他的英文很好 → His English is very good.（勉強可通）"},"b":{"label":"自然的英文","note":"He speaks English well. 或 He is good at English."},"same":["兩者意思相同，但英文習慣用動詞而非一直用 be 動詞"]},
       q: {
         q: '課文說下筆前要先想什麼？',
         options: [
@@ -31867,6 +31869,7 @@ window.APP_TEXTS['english|十二下|第1單元 中譯英'] = {
       terms: [
         { w: '時態標記', d: '表示時間的動詞變化。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"要補冠詞","items":["I have a book."],"note":"中文沒有冠詞，英文單數可數名詞要加"},{"label":"要補主詞","items":["It is raining."],"note":"中文可以說「下雨了」，英文一定要有主詞"},{"label":"要補複數與時態","items":["Two books were sold."],"note":"中文靠語境，英文靠字形"}]},
       q: {
         q: '課文說中譯英最常漏掉哪四項？',
         options: [
@@ -31970,6 +31973,7 @@ window.APP_TEXTS['english|十二下|第2單元 引導式作文'] = {
       terms: [
         { w: '文體', d: '文章的類型與寫法。' }
       ],
+      viz: {"type":"cycle","steps":["確認文體是記敘、說明還是議論","確認要寫幾段、幾個字","圈出題目要求的每一個要點","確認人稱與時態該用哪一種"]},
       q: {
         q: '課文說漏掉指定要點會怎樣？',
         options: [
@@ -31994,6 +31998,7 @@ window.APP_TEXTS['english|十二下|第2單元 引導式作文'] = {
       terms: [
         { w: '大綱', d: '寫作前先列的內容架構。' }
       ],
+      viz: {"type":"cycle","steps":["列出主題句：這篇要說什麼","列出兩到三個支持的理由","每個理由想一個具體例子","想好結尾要怎麼收"]},
       q: {
         q: '課文說沒有大綱就下筆會有什麼風險？',
         options: [
@@ -32043,6 +32048,7 @@ window.APP_TEXTS['english|十二下|第2單元 引導式作文'] = {
       terms: [
         { w: '具體', d: '明確而可以想像的細節。' }
       ],
+      viz: {"type":"compareexp","factor":"抽象與具體的差別","a":{"label":"抽象（無感）","note":"I had a great time.（讀者不知道發生了什麼）"},"b":{"label":"具體（有畫面）","note":"We laughed so hard that my stomach hurt.（畫面出來了）"},"same":["兩句都在說很開心，具體的細節才讓讀者感受得到"]},
       q: {
         q: '課文說空泛的形容詞會怎樣？',
         options: [
@@ -32146,6 +32152,7 @@ window.APP_TEXTS['english|十二下|第3單元 圖表寫作'] = {
       terms: [
         { w: '概述', d: '整體性的簡要說明。' }
       ],
+      viz: {"type":"cycle","steps":["先看整張圖最明顯的走向","找出最高點與最低點","用一到兩句話概括這個趨勢","不要在概述裡塞太多數字"]},
       q: {
         q: '課文說閱卷者最看重哪一部分？',
         options: [
@@ -32195,6 +32202,7 @@ window.APP_TEXTS['english|十二下|第3單元 圖表寫作'] = {
       terms: [
         { w: '句型', d: '句子的固定結構。' }
       ],
+      viz: {"type":"matchpair","title":"圖表寫作常用句型","left":"要表達的意思","right":"英文句型","pairs":[{"a":"從多少上升到多少","b":"rose from 20% to 45%"},{"a":"占多少比例","b":"accounted for 30% of the total"},{"a":"與某項相比","b":"compared with the previous year"},{"a":"維持穩定","b":"remained stable at around 15%"}]},
       q: {
         q: '課文說交替使用句型有什麼好處？',
         options: [
@@ -32273,6 +32281,7 @@ window.APP_TEXTS['english|十二下|第4單元 看圖說故事'] = {
       terms: [
         { w: '邏輯', d: '事情之間合理的關係。' }
       ],
+      viz: {"type":"cycle","steps":["圖中有誰？他們的關係是什麼","發生了什麼事？順序是什麼","轉折點出現在哪一張圖","結局是什麼？想傳達什麼"]},
       q: {
         q: '課文說四格圖的典型順序是什麼？',
         options: [
@@ -32321,6 +32330,7 @@ window.APP_TEXTS['english|十二下|第4單元 看圖說故事'] = {
       terms: [
         { w: '指涉', d: '代名詞所指的那個對象。' }
       ],
+      viz: {"type":"compareexp","factor":"角色寫得具體與否","a":{"label":"模糊","note":"A boy did something.（讀者沒有畫面）"},"b":{"label":"具體","note":"Tom, a shy fifth grader, dropped his lunchbox."},"same":["兩句都在介紹角色，具體的細節能讓故事活起來"]},
       q: {
         q: '課文說給角色名字還有什麼好處？',
         options: [
@@ -32425,6 +32435,7 @@ window.APP_TEXTS['english|十二下|第5單元 論說文的論證'] = {
       terms: [
         { w: '論證', d: '用理由與證據支持主張的過程。' }
       ],
+      viz: {"type":"cycle","steps":["主張：我認為什麼","理由：為什麼這樣認為","證據：有什麼資料或例子支持","小結：回扣主張並帶到下一段"]},
       q: {
         q: '課文說論證由哪三個部分組成？',
         options: [
@@ -32474,6 +32485,7 @@ window.APP_TEXTS['english|十二下|第5單元 論說文的論證'] = {
       terms: [
         { w: '公允', d: '公正而不偏頗。' }
       ],
+      viz: {"type":"cycle","steps":["公允陳述反方的主要觀點","承認其中合理的部分","指出它忽略了什麼","說明為什麼自己的立場仍然成立"]},
       q: {
         q: '課文說扭曲反方的說法會怎樣？',
         options: [
@@ -32522,6 +32534,7 @@ window.APP_TEXTS['english|十二下|第5單元 論說文的論證'] = {
       terms: [
         { w: '用語', d: '特定場合使用的固定說法。' }
       ],
+      viz: {"type":"matchpair","title":"論證常用語","left":"功能","right":"用語","pairs":[{"a":"提出主張","b":"I would argue that …"},{"a":"補充理由","b":"Moreover, / What is more,"},{"a":"讓步反方","b":"Admittedly, / It is true that …"},{"a":"作出結論","b":"In conclusion, / Overall,"}]},
       q: {
         q: '課文說引入證據時可以用哪一個說法？',
         options: [
@@ -32576,6 +32589,7 @@ window.APP_TEXTS['english|十二下|第6單元 聽力理解策略'] = {
       terms: [
         { w: '預測', d: '事先猜測會出現的內容。' }
       ],
+      viz: {"type":"cycle","steps":["播放前先掃過題目與四個選項","圈出題目裡的關鍵字","預測可能會聽到什麼內容","播放時只聽與題目相關的部分"]},
       q: {
         q: '課文說看選項可以知道什麼？',
         options: [
@@ -32624,6 +32638,7 @@ window.APP_TEXTS['english|十二下|第6單元 聽力理解策略'] = {
       terms: [
         { w: '強調', d: '特別突顯某個部分。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"轉折後是重點","items":["but","however","actually"],"note":"前面常是鋪陳，後面才是答案"},{"label":"強調語氣","items":["in fact","especially","the key is"],"note":"說話者刻意提高重要性"},{"label":"舉例或補充","items":["for example","such as"],"note":"通常是支持前面的說法"}]},
       q: {
         q: '課文說說話者語氣加重時通常代表什麼？',
         options: [
@@ -32648,6 +32663,7 @@ window.APP_TEXTS['english|十二下|第6單元 聽力理解策略'] = {
       terms: [
         { w: '重音', d: '一個字裡唸得最重的音節。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"thirteen","parts":["thir","teen"],"hit":1,"s":"重音在後面的 teen，母音拉長","mean":"十三"},{"w":"thirty","parts":["thir","ty"],"hit":0,"s":"重音在前面的 thir，尾音短","mean":"三十"},{"w":"desert","parts":["de","sert"],"hit":0,"s":"重音在前是沙漠，在後是拋棄","mean":"沙漠"}],"note":"相似音要靠重音與尾音判斷，別只聽開頭。"},
       q: {
         q: '課文說 thirteen 和 thirty 的差別在哪裡？',
         options: [
@@ -32752,6 +32768,7 @@ window.APP_TEXTS['english|十二下|第7單元 口語表達策略'] = {
       terms: [
         { w: '填補語', d: '爭取時間思考時說的短句。' }
       ],
+      viz: {"type":"matchpair","title":"爭取思考時間的說法","left":"情境","right":"可以說","pairs":[{"a":"需要幾秒想一下","b":"That is an interesting question."},{"a":"想確認題意","b":"Do you mean … ?"},{"a":"重新整理思緒","b":"Let me put it another way."},{"a":"承認自己不確定","b":"I am not entirely sure, but I think …"}]},
       q: {
         q: '課文說填補語比什麼好？',
         options: [
@@ -32776,6 +32793,7 @@ window.APP_TEXTS['english|十二下|第7單元 口語表達策略'] = {
       terms: [
         { w: '溝通策略', d: '克服語言困難的應變方法。' }
       ],
+      viz: {"type":"compareexp","factor":"想不起某個字時怎麼辦","a":{"label":"卡住不說","note":"停下來想很久，對話就中斷了"},"b":{"label":"換句話說","note":"忘了 thermometer 就說 the thing you use to check your temperature"},"same":["目標是把意思傳達出去，不是背出那個單字"]},
       q: {
         q: '課文說想不起某個字時可以怎麼辦？',
         options: [
@@ -32800,6 +32818,7 @@ window.APP_TEXTS['english|十二下|第7單元 口語表達策略'] = {
       terms: [
         { w: '結構', d: '回答時內容的安排順序。' }
       ],
+      viz: {"type":"cycle","steps":["先表態：我認為 / 我不同意","給理由：因為……","舉例子：例如……","收束：所以我覺得……"]},
       q: {
         q: '課文說意見題的第一步是什麼？',
         options: [
@@ -32903,6 +32922,7 @@ window.APP_TEXTS['english|十二下|第8單元 常見錯誤總複習'] = {
       terms: [
         { w: '可數性', d: '一個名詞能不能被數。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"漏掉冠詞","items":["I am student.（少了 a）"],"note":"單數可數名詞前一定要有限定詞"},{"label":"可數不可數混用","items":["many informations（應為 much information）"],"note":"information 不可數"},{"label":"單複數不一致","items":["three book（應為 three books）"],"note":"數詞後面要用複數形"}]},
       q: {
         q: '課文說檢查名詞時要問哪三件事？',
         options: [
@@ -32951,6 +32971,7 @@ window.APP_TEXTS['english|十二下|第8單元 常見錯誤總複習'] = {
       terms: [
         { w: '中式英文', d: '受中文影響而不自然的英文。' }
       ],
+      viz: {"type":"compareexp","factor":"中文結構直接搬到英文","a":{"label":"中式英文","note":"Although it rained, but we went.（雖然…但是連用）"},"b":{"label":"正確英文","note":"Although it rained, we went. 兩者只能留一個"},"same":["中文可以「雖然…但是」並用，英文只能擇一"]},
       q: {
         q: '課文說中式英文最主要的來源是什麼？',
         options: [
@@ -32975,6 +32996,7 @@ window.APP_TEXTS['english|十二下|第8單元 常見錯誤總複習'] = {
       terms: [
         { w: '易混字', d: '拼字相近而容易搞錯的字。' }
       ],
+      viz: {"type":"matchpair","title":"最常寫錯的一組字","left":"字","right":"用法","pairs":[{"a":"affect","b":"動詞：影響（The rain affected the game.）"},{"a":"effect","b":"名詞：效果（The effect was clear.）"},{"a":"its","b":"所有格：它的（沒有撇號）"},{"a":"it's","b":"縮寫：it is 或 it has"}]},
       q: {
         q: '課文說這些字有什麼共同點？',
         options: [
@@ -33054,6 +33076,7 @@ window.APP_TEXTS['english|十二下|第9單元 綜合演練'] = {
       terms: [
         { w: '時間分配', d: '安排各部分所花的時間。' }
       ],
+      viz: {"type":"cycle","steps":["先掃過整份考卷估算各題時間","從最有把握的題型開始寫","不會的先標記，不要卡住","最後留五分鐘檢查作答與畫記"]},
       q: {
         q: '課文說最可惜的失分原因是什麼？',
         options: [
@@ -33078,6 +33101,7 @@ window.APP_TEXTS['english|十二下|第9單元 綜合演練'] = {
       terms: [
         { w: '解法', d: '解題所依循的方法。' }
       ],
+      viz: {"type":"cycle","steps":["看空格前後判斷需要的詞性","再看整句的語意與時態","檢查有沒有固定搭配可以直接對上","刪去明顯不合文法的選項"]},
       q: {
         q: '課文說文法題的第一步是什麼？',
         options: [
@@ -33126,6 +33150,7 @@ window.APP_TEXTS['english|十二下|第9單元 綜合演練'] = {
       terms: [
         { w: '順序', d: '做事的先後安排。' }
       ],
+      viz: {"type":"cycle","steps":["有沒有切題、要點有沒有寫到","主詞動詞是否一致、時態是否統一","冠詞、單複數與拼字有沒有錯","字數是否符合要求"]},
       q: {
         q: '課文說檢查要先看哪一項？',
         options: [
