@@ -24,6 +24,7 @@
 | ch11b-add4.jsonl | 化學十一下加題（2026-08-26，補到每單元 32 題） | — |
 | ch12-add4.jsonl | 化學十二上加題（2026-08-26，補到每單元 32 題） | — |
 | ch12b-add4.jsonl | 化學十二下加題（2026-08-26，補到每單元 32 題） | — |
+| ch10-add5.jsonl | 十上加題（2026-09-05，補「易」難度入門題與實驗／圖表／素養題，每單元 8 題→40 題） | — |
 
 重建：
 
@@ -56,6 +57,7 @@ node tools/tikuconv/build-bank.js chemistry js/data/chemistry.js $CF/header.txt 
   $CF/ch11-add4.jsonl \
   $CF/ch11b-add4.jsonl \
   $CF/ch12-add4.jsonl \
-  $CF/ch12b-add4.jsonl
+  $CF/ch12b-add4.jsonl \
+  $CF/ch10-add5.jsonl
 node test/test.js
 ```
