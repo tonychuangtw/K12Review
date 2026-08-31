@@ -3172,6 +3172,7 @@ window.APP_TEXTS['english|二上|第3單元 數字與 How many'] = {
       terms: [
         { w: '連字號', d: '連接兩個字的短橫線。' }
       ],
+      viz: {"type":"matchpair","title":"二十一到九十九的組合","left":"數字","right":"英文","pairs":[{"a":"21","b":"twenty-one"},{"a":"35","b":"thirty-five"},{"a":"48","b":"forty-eight"},{"a":"99","b":"ninety-nine"}]},
       q: {
         q: '課文說十位和個位之間要加什麼？',
         options: [
@@ -3479,6 +3480,7 @@ window.APP_TEXTS['english|二上|第5單元 I like 句型'] = {
       terms: [
         { w: '助動詞', d: '幫助造疑問句或否定句的動詞。' }
       ],
+      viz: {"type":"sentence","label":"問對方喜歡嗎","items":[{"t":"Do you like","r":"你喜歡嗎"},{"t":"apples?","r":"複數表示泛指"}],"note":"回答用 Yes, I do 或 No, I do not。","alt":[{"label":"否定說法","items":[{"t":"I do not like","r":"我不喜歡"},{"t":"fish.","r":"魚"}],"note":"一般動詞的否定要用 do not。"}]},
       q: {
         q: '課文說一般動詞的疑問句要借什麼？',
         options: [
@@ -5609,6 +5611,7 @@ window.APP_TEXTS['english|三上|第1單元 短母音 a、e、i'] = {
       terms: [
         { w: '嘴型', d: '發音時嘴巴的形狀。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"bed","parts":["b","e","d"],"hit":1,"s":"短母音 e，嘴巴微開發短音","mean":"床"},{"w":"pen","parts":["p","e","n"],"hit":1,"s":"同樣是短母音 e","mean":"筆"},{"w":"ten","parts":["t","e","n"],"hit":1,"s":"三個字只差第一個子音","mean":"十"}],"note":"子音加母音再加子音的結構裡，中間的母音通常發短音。"},
       q: {
         q: '課文說短母音 e 的嘴型和 a 比起來如何？',
         options: [
@@ -6532,6 +6535,7 @@ window.APP_TEXTS['english|三上|第7單元 顏色與形狀'] = {
       terms: [
         { w: '語序', d: '句子裡各部分排列的順序。' }
       ],
+      viz: {"type":"sentence","label":"形容詞放名詞前面","items":[{"t":"a red","r":"顏色形容詞"},{"t":"apple","r":"名詞"}],"note":"英文的形容詞放在名詞前面，和中文順序相同。","alt":[{"label":"顏色加形狀","items":[{"t":"a big red","r":"大小在前、顏色在後"},{"t":"circle","r":"名詞"}],"note":"多個形容詞有固定的順序。"}]},
       q: {
         q: '課文說形容詞放名詞前面這一點和中文比起來如何？',
         options: [
@@ -6556,6 +6560,7 @@ window.APP_TEXTS['english|三上|第7單元 顏色與形狀'] = {
       terms: [
         { w: '形狀', d: '東西的外形。' }
       ],
+      viz: {"type":"matchpair","title":"基本形狀","left":"英文","right":"中文","pairs":[{"a":"circle","b":"圓形"},{"a":"square","b":"正方形"},{"a":"triangle","b":"三角形"},{"a":"rectangle","b":"長方形"}]},
       q: {
         q: '課文說 rectangle 是什麼形狀？',
         options: [
@@ -6659,6 +6664,7 @@ window.APP_TEXTS['english|三上|第8單元 數字 1–30 與年齡'] = {
       terms: [
         { w: '拼法', d: '一個字用哪些字母組成。' }
       ],
+      viz: {"type":"matchpair","title":"十三到十九都以 teen 結尾","left":"數字","right":"英文","pairs":[{"a":"13","b":"thirteen"},{"a":"15","b":"fifteen"},{"a":"18","b":"eighteen"},{"a":"19","b":"nineteen"}]},
       q: {
         q: '課文說十三到十九的規則是什麼？',
         options: [
@@ -6707,6 +6713,7 @@ window.APP_TEXTS['english|三上|第8單元 數字 1–30 與年齡'] = {
       terms: [
         { w: '年齡', d: '一個人活了幾年。' }
       ],
+      viz: {"type":"sentence","label":"問年齡","items":[{"t":"How old","r":"幾歲"},{"t":"are you?","r":"你"}],"note":"回答用 I am nine years old。","alt":[{"label":"回答","items":[{"t":"I am","r":"我是"},{"t":"nine years old.","r":"九歲"}],"note":"years old 可以省略。"}]},
       q: {
         q: '課文說講年齡要用哪一種動詞？',
         options: [
@@ -6837,6 +6844,7 @@ window.APP_TEXTS['english|三上|第9單元 我的家庭'] = {
       terms: [
         { w: '所有格', d: '表示「某人的」的字。' }
       ],
+      viz: {"type":"matchpair","title":"所有格形容詞","left":"主詞","right":"所有格","pairs":[{"a":"I","b":"my（我的）"},{"a":"you","b":"your（你的）"},{"a":"he","b":"his（他的）"},{"a":"she","b":"her（她的）"}]},
       q: {
         q: '課文說所有格後面一定要接什麼？',
         options: [
@@ -8659,6 +8667,7 @@ window.APP_TEXTS['english|四上|第3單元 現在進行式問句與否定'] = {
       terms: [
         { w: '縮寫', d: '把兩個字合併變短的寫法。' }
       ],
+      viz: {"type":"sentence","label":"現在進行式的簡答","items":[{"t":"Are you eating?","r":"你正在吃嗎"},{"t":"Yes, I am.","r":"肯定簡答"}],"note":"用 be 動詞問，就用 be 動詞答。","alt":[{"label":"否定簡答","items":[{"t":"Are you eating?","r":"你正在吃嗎"},{"t":"No, I am not.","r":"否定簡答"}],"note":"不能回答 No, I do not。"}]},
       q: {
         q: '課文說肯定簡答可不可以縮寫？',
         options: [
@@ -8991,6 +9000,7 @@ window.APP_TEXTS['english|四上|第5單元 There is / There are'] = {
       terms: [
         { w: 'any', d: '任何，常用在否定與疑問句。' }
       ],
+      viz: {"type":"compareexp","factor":"There is 與 There are 的否定","a":{"label":"單數","note":"There is not a book. 也可以說 There is no book."},"b":{"label":"複數","note":"There are not any books. 也可以說 There are no books."},"same":["兩者都在說「沒有」，差別在後面名詞的單複數"]},
       q: {
         q: '課文說否定句中常用哪一個字？',
         options: [
@@ -9428,6 +9438,7 @@ window.APP_TEXTS['english|四上|第8單元 學校科目與課表'] = {
       terms: [
         { w: '課表', d: '每天上什麼課的表格。' }
       ],
+      viz: {"type":"sentence","label":"問課表","items":[{"t":"What class","r":"什麼課"},{"t":"do you have","r":"你有"},{"t":"on Monday?","r":"星期一"}],"note":"星期前面用介系詞 on。","alt":[{"label":"回答","items":[{"t":"I have English","r":"我有英文課"},{"t":"at nine.","r":"時刻前面用 at"}],"note":"時刻用 at、星期用 on。"}]},
       q: {
         q: '課文說問最喜歡哪一科要用哪一個字？',
         options: [
@@ -9477,6 +9488,7 @@ window.APP_TEXTS['english|四上|第8單元 學校科目與課表'] = {
       terms: [
         { w: 'interesting', d: '令人感興趣的。' }
       ],
+      viz: {"type":"matchpair","title":"形容課程的常用形容詞","left":"英文","right":"中文","pairs":[{"a":"interesting","b":"有趣的"},{"a":"boring","b":"無聊的"},{"a":"difficult","b":"困難的"},{"a":"easy","b":"簡單的"}]},
       q: {
         q: '課文說要說自己感到有興趣要用哪一個字？',
         options: [
@@ -9580,6 +9592,7 @@ window.APP_TEXTS['english|四上|第9單元 興趣與嗜好'] = {
       terms: [
         { w: '動名詞', d: '動詞加 ing 當名詞用。' }
       ],
+      viz: {"type":"compareexp","factor":"like 後面接動名詞還是不定詞","a":{"label":"I like swimming.","note":"強調享受這件事本身"},"b":{"label":"I like to swim.","note":"強調選擇去做這件事"},"same":["like 後面兩種都可以，意思幾乎沒有差別"]},
       q: {
         q: '課文說 enjoy 後面只能接什麼？',
         options: [
@@ -9604,6 +9617,7 @@ window.APP_TEXTS['english|四上|第9單元 興趣與嗜好'] = {
       terms: [
         { w: 'free time', d: '空閒的時間。' }
       ],
+      viz: {"type":"sentence","label":"問興趣","items":[{"t":"What do you like to do","r":"你喜歡做什麼"},{"t":"in your free time?","r":"空閒時間"}],"note":"這是最常用的問興趣句型。","alt":[{"label":"回答","items":[{"t":"I like to read","r":"我喜歡看書"},{"t":"comic books.","r":"漫畫"}],"note":"回答時可以再補上細節。"}]},
       q: {
         q: '課文說 What are your hobbies 是在問什麼？',
         options: [
@@ -10989,6 +11003,7 @@ window.APP_TEXTS['english|四下|第9單元 短文閱讀理解'] = {
       terms: [
         { w: '關鍵字', d: '題目裡最重要的那幾個字。' }
       ],
+      viz: {"type":"cycle","steps":["先看題目問的是誰、何時、何地還是什麼","回文章找出相對應的那一句","對照選項與原文的用字","選出有原文根據的答案"]},
       q: {
         q: '課文說找細節的技巧是什麼？',
         options: [
@@ -11400,6 +11415,7 @@ window.APP_TEXTS['english|五上|第3單元 be 動詞與自我介紹'] = {
       terms: [
         { w: 'be 動詞', d: 'am、is、are 這一組動詞。' }
       ],
+      viz: {"type":"matchpair","title":"be 動詞的三種形式","left":"主詞","right":"be 動詞","pairs":[{"a":"I","b":"am"},{"a":"you / we / they","b":"are"},{"a":"he / she / it","b":"is"},{"a":"Tom and Mary","b":"are（兩個人是複數）"}]},
       q: {
         q: '課文說主詞是單數名詞時要用哪一個？',
         options: [
@@ -12219,6 +12235,7 @@ window.APP_TEXTS['english|五上|第8單元 疑問詞與日常對話'] = {
       terms: [
         { w: '程度', d: '多少、多久、多遠這類量。' }
       ],
+      viz: {"type":"matchpair","title":"how 的延伸用法","left":"問法","right":"問什麼","pairs":[{"a":"How old","b":"幾歲"},{"a":"How many","b":"多少個（可數）"},{"a":"How much","b":"多少（不可數或價錢）"},{"a":"How often","b":"多常"}]},
       q: {
         q: '課文說 How far 問的是什麼？',
         options: [
@@ -12243,6 +12260,7 @@ window.APP_TEXTS['english|五上|第8單元 疑問詞與日常對話'] = {
       terms: [
         { w: '是非問句', d: '只要回答是或不是的問句。' }
       ],
+      viz: {"type":"compareexp","factor":"疑問詞問句不能用 Yes 或 No 回答","a":{"label":"Yes / No 問句","note":"Do you like it? — Yes, I do."},"b":{"label":"疑問詞問句","note":"What do you like? — I like music.（要給出內容）"},"same":["兩種問句的回答方式完全不同"]},
       q: {
         q: '課文說疑問詞問句可不可以用 Yes 回答？',
         options: [
@@ -12346,6 +12364,7 @@ window.APP_TEXTS['english|五上|第9單元 主題字彙與生活用語'] = {
       terms: [
         { w: '常用語', d: '每天都會用到的句子。' }
       ],
+      viz: {"type":"matchpair","title":"一天中的招呼語","left":"時間","right":"說法","pairs":[{"a":"早上","b":"Good morning."},{"a":"中午過後","b":"Good afternoon."},{"a":"傍晚以後","b":"Good evening."},{"a":"睡前道別","b":"Good night."}]},
       q: {
         q: '課文說在學校不懂的時候可以說什麼？',
         options: [
@@ -12419,6 +12438,7 @@ window.APP_TEXTS['english|五上|第9單元 主題字彙與生活用語'] = {
       terms: [
         { w: '固定用語', d: '整組一起使用的常見短句。' }
       ],
+      viz: {"type":"matchpair","title":"常見的固定用語","left":"英文","right":"用在什麼時候","pairs":[{"a":"No problem.","b":"對方道謝或道歉時"},{"a":"Excuse me.","b":"要引起注意或借過"},{"a":"Never mind.","b":"要對方別放在心上"},{"a":"You are welcome.","b":"回應 Thank you"}]},
       q: {
         q: '課文說 It is up to you 是什麼意思？',
         options: [
@@ -13730,6 +13750,7 @@ window.APP_TEXTS['english|五下|第9單元 短文閱讀入門'] = {
       terms: [
         { w: '主旨', d: '一段文字最主要的重點。' }
       ],
+      viz: {"type":"cycle","steps":["先讀第一句找主題","再讀最後一句看有沒有總結","問自己：這篇主要在講誰","問自己：在講什麼事"]},
       q: {
         q: '課文說主旨是不是某個細節？',
         options: [
@@ -14936,6 +14957,7 @@ window.APP_TEXTS['english|六上|第8單元 最高級'] = {
       terms: [
         { w: '最高級', d: '表示三者以上中最那個的形式。' }
       ],
+      viz: {"type":"levels","items":["tall 原級：本來的樣子","taller 比較級：兩者相比","the tallest 最高級：三者以上","要記得最高級前面加 the"]},
       q: {
         q: '課文說最高級前面要加什麼？',
         options: [
@@ -14985,6 +15007,7 @@ window.APP_TEXTS['english|六上|第8單元 最高級'] = {
       terms: [
         { w: '三級', d: '原級、比較級與最高級。' }
       ],
+      viz: {"type":"matchpair","title":"不規則的三級變化","left":"原級","right":"比較級與最高級","pairs":[{"a":"good","b":"better / best"},{"a":"bad","b":"worse / worst"},{"a":"many","b":"more / most"},{"a":"little","b":"less / least"}]},
       q: {
         q: '課文說 good 的最高級是什麼？',
         options: [
@@ -15187,6 +15210,7 @@ window.APP_TEXTS['english|六上|第9單元 旅遊與計畫'] = {
       terms: [
         { w: '實用句', d: '實際情境中常用的句子。' }
       ],
+      viz: {"type":"matchpair","title":"旅遊實用句","left":"情境","right":"說法","pairs":[{"a":"找洗手間","b":"Where is the restroom?"},{"a":"問價錢","b":"How much is it?"},{"a":"點餐","b":"I would like a sandwich."},{"a":"問路","b":"How can I get to the station?"}]},
       q: {
         q: '課文說「可以幫我們拍照嗎」的開頭是什麼？',
         options: [
@@ -16393,6 +16417,7 @@ window.APP_TEXTS['english|六下|第8單元 短文閱讀理解'] = {
       terms: [
         { w: '字首', d: '加在字前面改變意思的部分。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"從定義猜","items":["… , which means …"],"note":"文章直接給了解釋"},{"label":"從例子猜","items":["such as、for example"],"note":"由例子推回原字的意思"},{"label":"從對比猜","items":["unlike、however"],"note":"由相反的字推出大概意思"}]},
       q: {
         q: '課文說 less 這個字尾表示什麼？',
         options: [
@@ -16497,6 +16522,7 @@ window.APP_TEXTS['english|六下|第9單元 寫作基本句型'] = {
       terms: [
         { w: '完整句', d: '主詞動詞齊全且意思完整的句子。' }
       ],
+      viz: {"type":"sentence","label":"完整句的三要素","items":[{"t":"My brother","r":"主詞"},{"t":"plays","r":"動詞"},{"t":"basketball.","r":"受詞"}],"note":"少了主詞或動詞就不是完整的句子。","alt":[{"label":"不完整的句子","items":[{"t":"Because it rained.","r":"只有從屬子句"}],"note":"缺少主要子句，不能單獨成句。"}]},
       q: {
         q: '課文說完整句要有哪幾個要素？',
         options: [
@@ -19268,6 +19294,7 @@ window.APP_TEXTS['english|七下|第9單元 不規則動詞過去式'] = {
       terms: [
         { w: '過去分詞', d: '完成式與被動語態用的動詞形式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"三態同形","items":["cut / cut / cut","put / put / put"],"note":"完全不變"},{"label":"後兩態相同","items":["buy / bought / bought"],"note":"過去式與過去分詞一樣"},{"label":"三態都不同","items":["go / went / gone"],"note":"要一個一個記"}]},
       q: {
         q: '課文說 teach 的過去式是什麼？',
         options: [
@@ -22039,6 +22066,7 @@ window.APP_TEXTS['english|八下|第9單元 too...to 與 enough to'] = {
       terms: [
         { w: '改寫', d: '用不同說法表達相同意思。' }
       ],
+      viz: {"type":"compareexp","factor":"同一句話的兩種寫法","a":{"label":"too … to","note":"He is too young to drive.（太年輕以致於不能開車）"},"b":{"label":"so … that … not","note":"He is so young that he cannot drive."},"same":["兩句意思完全相同，too…to 已含否定，不用再加 not"]},
       q: {
         q: '課文說改寫時要補上什麼？',
         options: [
@@ -22703,6 +22731,7 @@ window.APP_TEXTS['english|九上|第4單元 疑問詞 + to V'] = {
       terms: [
         { w: 'whether', d: '是否，可以接不定詞。' }
       ],
+      viz: {"type":"sentence","label":"whether 也可以接不定詞","items":[{"t":"I cannot decide","r":"我無法決定"},{"t":"whether to go or stay.","r":"要走還是留"}],"note":"疑問詞加不定詞的結構，whether 也適用。","alt":[{"label":"完整寫法","items":[{"t":"I cannot decide","r":"我無法決定"},{"t":"whether I should go or stay.","r":"名詞子句"}],"note":"兩者意思相同，簡化後更精簡。"}]},
       q: {
         q: '課文說 if 可不可以接不定詞？',
         options: [
@@ -23090,6 +23119,7 @@ window.APP_TEXTS['english|九上|第7單元 不定代名詞'] = {
       terms: [
         { w: '不定代名詞', d: '不指明特定對象的代名詞。' }
       ],
+      viz: {"type":"compareexp","factor":"some 與 any 的使用時機","a":{"label":"some","note":"用在肯定句，或期待肯定回答的請求：Would you like some tea?"},"b":{"label":"any","note":"用在否定句與一般疑問句：I do not have any money."},"same":["兩者都表示「一些」，差別在句子的性質"]},
       q: {
         q: '課文說邀請句要用哪一個字？',
         options: [
@@ -23187,6 +23217,7 @@ window.APP_TEXTS['english|九上|第7單元 不定代名詞'] = {
       terms: [
         { w: 'neither', d: '兩者都不。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"both","items":["兩者都（用複數動詞）"],"note":"Both are good."},{"label":"either","items":["兩者之一（用單數動詞）"],"note":"Either is fine."},{"label":"neither","items":["兩者都不（用單數動詞）"],"note":"Neither is correct."}]},
       q: {
         q: '課文說 either 後面的動詞要用什麼？',
         options: [
@@ -23242,6 +23273,7 @@ window.APP_TEXTS['english|九上|第8單元 附加問句'] = {
       terms: [
         { w: '附加問句', d: '句尾用來確認的小問句。' }
       ],
+      viz: {"type":"compareexp","factor":"附加問句的前後要相反","a":{"label":"前肯後否","note":"You are a student, aren't you?"},"b":{"label":"前否後肯","note":"You are not a student, are you?"},"same":["主要子句是肯定就用否定的附加問句，反之亦然"]},
       q: {
         q: '課文說前面是否定句時附加問句要用什麼？',
         options: [
@@ -23266,6 +23298,7 @@ window.APP_TEXTS['english|九上|第8單元 附加問句'] = {
       terms: [
         { w: '助動詞', d: '幫助造問句的動詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"be 動詞句","items":["He is tall, isn't he?"],"note":"用 be 動詞附加"},{"label":"一般動詞句","items":["You like it, don't you?"],"note":"用 do / does / did"},{"label":"有助動詞","items":["She can swim, can't she?"],"note":"直接沿用該助動詞"}]},
       q: {
         q: '課文說一般動詞句的附加問句要用什麼？',
         options: [
@@ -23338,6 +23371,7 @@ window.APP_TEXTS['english|九上|第8單元 附加問句'] = {
       terms: [
         { w: '否定詞', d: '讓句子變成否定意思的字。' }
       ],
+      viz: {"type":"compareexp","factor":"句中已有否定詞時","a":{"label":"含 never、seldom","note":"He never comes, does he?（前面已是否定，後面用肯定）"},"b":{"label":"一般肯定句","note":"He often comes, doesn't he?"},"same":["never、seldom、hardly 都算否定詞，會影響附加問句的形式"]},
       q: {
         q: '課文說句中有 never 時附加問句要用什麼？',
         options: [
@@ -23418,6 +23452,7 @@ window.APP_TEXTS['english|九上|第9單元 時態綜合複習'] = {
       terms: [
         { w: '時間副詞', d: '說明什麼時候的字詞。' }
       ],
+      viz: {"type":"matchpair","title":"靠時間副詞判斷時態","left":"時間副詞","right":"該用的時態","pairs":[{"a":"every day、usually","b":"現在簡單式"},{"a":"now、right now","b":"現在進行式"},{"a":"yesterday、last week","b":"過去簡單式"},{"a":"since、for、already","b":"現在完成式"}]},
       q: {
         q: '課文說 since 通常配哪一種時態？',
         options: [
@@ -24415,6 +24450,7 @@ window.APP_TEXTS['english|九下|第6單元 會話：電話與邀約'] = {
       terms: [
         { w: '婉拒', d: '客氣地拒絕別人。' }
       ],
+      viz: {"type":"matchpair","title":"接受與婉拒的說法","left":"情境","right":"說法","pairs":[{"a":"爽快接受","b":"Sure, I would love to."},{"a":"接受但要確認","b":"That sounds great. What time?"},{"a":"客氣婉拒","b":"I would love to, but I have plans."},{"a":"提出改期","b":"How about next Saturday instead?"}]},
       q: {
         q: '課文說婉拒時要加什麼語氣才好？',
         options: [
@@ -24827,6 +24863,7 @@ window.APP_TEXTS['english|九下|第9單元 綜合演練'] = {
       terms: [
         { w: '克漏字', d: '在文章中挖空讓人填答的題型。' }
       ],
+      viz: {"type":"cycle","steps":["先快速看一遍整段抓住主題","從最有把握的空格開始填","利用上下文的邏輯關係判斷","全部填完後再從頭讀一次檢查"]},
       q: {
         q: '課文說克漏字考的是什麼？',
         options: [
@@ -26162,6 +26199,7 @@ window.APP_TEXTS['english|十上|第9單元 寫作：段落與句型'] = {
       terms: [
         { w: '結論句', d: '一段最後用來收尾的句子。' }
       ],
+      viz: {"type":"cycle","steps":["主題句：說明這一段要講什麼","支持句：用理由與例子展開","細節句：加入具體的描述","結論句：收束並帶到下一段"]},
       q: {
         q: '課文說一段應該講幾個重點？',
         options: [
@@ -26210,6 +26248,7 @@ window.APP_TEXTS['english|十上|第9單元 寫作：段落與句型'] = {
       terms: [
         { w: '複句', d: '含有附屬子句的句子。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"簡單句","items":["I like coffee."],"note":"一個主要子句"},{"label":"合句","items":["I like coffee, but he likes tea."],"note":"兩個對等的主要子句"},{"label":"複句","items":["Although I like coffee, I drink tea."],"note":"主句加從屬子句"}]},
       q: {
         q: '課文說全部用簡單句會怎樣？',
         options: [
@@ -26283,6 +26322,7 @@ window.APP_TEXTS['english|十上|第9單元 寫作：段落與句型'] = {
       terms: [
         { w: '修改', d: '寫完後回頭調整內容。' }
       ],
+      viz: {"type":"cycle","steps":["每一段是不是只講一個重點","主題句與內容有沒有對上","句型有沒有變化、開頭有沒有重複","文法、拼字與標點是否正確"]},
       q: {
         q: '課文說寫完後最好怎麼做？',
         options: [
@@ -28931,6 +28971,7 @@ window.APP_TEXTS['english|十一上|第9單元 主題句與論點'] = {
       terms: [
         { w: '論點', d: '整篇文章要主張的核心看法。' }
       ],
+      viz: {"type":"compareexp","factor":"好論點與弱論點的差別","a":{"label":"弱論點","note":"Pollution is bad.（太籠統，沒有可展開的角度）"},"b":{"label":"好論點","note":"Cities should ban single-use plastics because …（明確且可論證）"},"same":["兩者都在談環境，好的論點能自然分出支持的段落"]},
       q: {
         q: '課文說好的論點要具備哪三個條件？',
         options: [
@@ -29028,6 +29069,7 @@ window.APP_TEXTS['english|十一上|第9單元 主題句與論點'] = {
       terms: [
         { w: '反駁', d: '說明對方觀點為何不成立。' }
       ],
+      viz: {"type":"cycle","steps":["先公允陳述反方的觀點","承認其中合理的部分","指出它忽略了哪些證據","說明自己的立場為何仍然成立"]},
       q: {
         q: '課文說處理反方觀點的順序是什麼？',
         options: [
@@ -29052,6 +29094,7 @@ window.APP_TEXTS['english|十一上|第9單元 主題句與論點'] = {
       terms: [
         { w: '演化', d: '想法在過程中逐漸改變。' }
       ],
+      viz: {"type":"cycle","steps":["回頭檢查論點是否夠明確","確認每一段都能對應回論點","看看有沒有離題的段落","必要時修改論點而不是硬撐"]},
       q: {
         q: '課文說寫作過程中改論點正不正常？',
         options: [
@@ -31749,6 +31792,7 @@ window.APP_TEXTS['english|十二上|第9單元 學術字彙 AWL'] = {
       terms: [
         { w: '因果', d: '原因與結果的關係。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"原因類","items":["factor","cause","source"],"note":"指向事情發生的來源"},{"label":"結果類","items":["consequence","impact","outcome"],"note":"指向事情造成的影響"},{"label":"關係類","items":["correlation","link","relationship"],"note":"描述兩者之間的關聯"}]},
       q: {
         q: '課文提醒這一組字要注意什麼？',
         options: [
@@ -31773,6 +31817,7 @@ window.APP_TEXTS['english|十二上|第9單元 學術字彙 AWL'] = {
       terms: [
         { w: '轉述', d: '把別人的話改用自己的話說。' }
       ],
+      viz: {"type":"levels","items":["state 只是陳述","suggest / imply 暗示","argue / contend 主張","assert 強烈斷言"]},
       q: {
         q: '課文說論述類的字主要用來做什麼？',
         options: [
@@ -31797,6 +31842,7 @@ window.APP_TEXTS['english|十二上|第9單元 學術字彙 AWL'] = {
       terms: [
         { w: '程度', d: '多少或強弱的等級。' }
       ],
+      viz: {"type":"matchpair","title":"程度與結構常用字","left":"英文","right":"意思","pairs":[{"a":"significant","b":"顯著的、重要的"},{"a":"considerable","b":"相當可觀的"},{"a":"substantial","b":"實質而大量的"},{"a":"marginal","b":"邊際的、影響很小的"}]},
       q: {
         q: '課文說 substantial 屬於哪一類字？',
         options: [
