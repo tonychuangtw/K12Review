@@ -4048,6 +4048,7 @@ window.APP_TEXTS['math|二上|第9單元 平面圖形與直角'] = {
       terms: [
         { w: '直角', d: '九十度、方正的角。' }
       ],
+      viz: {"type":"angle","deg":90},
       q: {
         q: '課文說怎麼確認一個角是不是直角？',
         options: [
@@ -6535,6 +6536,7 @@ window.APP_TEXTS['math|三上|第7單元 角與圓'] = {
       terms: [
         { w: '平角', d: '兩邊成一直線、一百八十度的角。' }
       ],
+      viz: {"type":"angle","deg":130},
       q: {
         q: '課文說平角是幾度？',
         options: [
@@ -6584,6 +6586,7 @@ window.APP_TEXTS['math|三上|第7單元 角與圓'] = {
       terms: [
         { w: '直徑', d: '通過圓心、兩端在圓周上的線段。' }
       ],
+      viz: {"type":"circleparts","show":["radius","diameter"],"r":4},
       q: {
         q: '課文說半徑五公分的圓，直徑是多少？',
         options: [
@@ -6663,6 +6666,7 @@ window.APP_TEXTS['math|三上|第8單元 分數的初步認識'] = {
       terms: [
         { w: '分母', d: '分數下方、表示平分成幾份的數。' }
       ],
+      viz: {"type":"fracbar","parts":4,"shade":1,"equal":true,"toggleEqual":true},
       q: {
         q: '課文說分母記錄的是什麼？',
         options: [
@@ -6735,6 +6739,7 @@ window.APP_TEXTS['math|三上|第8單元 分數的初步認識'] = {
       terms: [
         { w: '同分母', d: '分母相同的兩個分數。' }
       ],
+      viz: {"type":"fraccompare","a":{"parts":5,"shade":2},"b":{"parts":5,"shade":3},"edit":false,"shape":"bar"},
       q: {
         q: '課文說分母相同時要比什麼？',
         options: [
@@ -6839,6 +6844,7 @@ window.APP_TEXTS['math|三上|第9單元 時間的認識與計算'] = {
       terms: [
         { w: '湊整點', d: '先算到整點再算剩下的方法。' }
       ],
+      viz: {"type":"clock","h":8,"m":20},
       q: {
         q: '課文說算經過時間的好方法是什麼？',
         options: [
@@ -6863,6 +6869,7 @@ window.APP_TEXTS['math|三上|第9單元 時間的認識與計算'] = {
       terms: [
         { w: '時間進位', d: '分鐘滿六十換成一小時。' }
       ],
+      viz: {"type":"clock","h":10,"m":40},
       q: {
         q: '課文說八十分等於多少？',
         options: [
@@ -6911,6 +6918,7 @@ window.APP_TEXTS['math|三上|第9單元 時間的認識與計算'] = {
       terms: [
         { w: '分段計算', d: '把小時與分鐘分開處理再合併。' }
       ],
+      viz: {"type":"clock","h":7,"m":30},
       q: {
         q: '課文說做時間計算時建議怎麼處理？',
         options: [
@@ -8789,6 +8797,7 @@ window.APP_TEXTS['math|四上|第4單元 除法：除以二位數'] = {
       terms: [
         { w: '被除數', d: '被分的那個總數。' }
       ],
+      viz: {"type":"column","a":144,"b":12,"op":"÷"},
       q: {
         q: '課文說除以兩位數時要先看被除數的哪一部分？',
         options: [
@@ -8813,6 +8822,7 @@ window.APP_TEXTS['math|四上|第4單元 除法：除以二位數'] = {
       terms: [
         { w: '試商', d: '先估一個商再驗證是否正確。' }
       ],
+      viz: {"type":"column","a":156,"b":13,"op":"÷"},
       q: {
         q: '課文說試商的做法是什麼？',
         options: [
@@ -8941,6 +8951,7 @@ window.APP_TEXTS['math|四上|第5單元 四則運算與括號'] = {
       terms: [
         { w: '運算順序', d: '算式中先算哪一部分的規則。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"12 ＋ 8 × 3","hint":"不能從左邊直接加。"},{"expr":"先算 8 × 3 ＝ 24","hint":"先乘除後加減。"},{"expr":"12 ＋ 24","hint":"再回來做加法。"},{"expr":"＝ 36","hint":"如果先加會得到 60，就錯了。"}]},
       q: {
         q: '課文說十二加八乘三的答案是多少？',
         options: [
@@ -8965,6 +8976,7 @@ window.APP_TEXTS['math|四上|第5單元 四則運算與括號'] = {
       terms: [
         { w: '括號', d: '表示要優先計算的符號。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"(12 ＋ 8) × 3","hint":"括號要先算。"},{"expr":"先算 12 ＋ 8 ＝ 20","hint":"括號的優先權最高。"},{"expr":"20 × 3","hint":"再做乘法。"},{"expr":"＝ 60","hint":"加不加括號，答案差很多。"}]},
       q: {
         q: '課文說完整的運算順序是什麼？',
         options: [
@@ -9062,6 +9074,7 @@ window.APP_TEXTS['math|四上|第5單元 四則運算與括號'] = {
       terms: [
         { w: '列式', d: '把題意寫成數學算式。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"買 3 支筆，每支 15 元，付 100 元","hint":"先算出總共花多少。"},{"expr":"100 − 15 × 3","hint":"寫成一個算式。"},{"expr":"＝ 100 − 45","hint":"先乘後減。"},{"expr":"＝ 55 元","hint":"這就是找回的錢。"}]},
       q: {
         q: '課文說寫成一個算式時靠什麼讓乘法先算？',
         options: [
@@ -9092,6 +9105,7 @@ window.APP_TEXTS['math|四上|第6單元 角度的測量'] = {
       terms: [
         { w: '量角器', d: '用來測量角度的半圓形工具。' }
       ],
+      viz: {"type":"protractor","deg":50},
       q: {
         q: '課文說量角器的中心點要對準什麼？',
         options: [
@@ -9165,6 +9179,7 @@ window.APP_TEXTS['math|四上|第6單元 角度的測量'] = {
       terms: [
         { w: '周角', d: '繞一整圈三百六十度的角。' }
       ],
+      viz: {"type":"angle","deg":180},
       q: {
         q: '課文說半個直角是幾度？',
         options: [
@@ -9244,6 +9259,7 @@ window.APP_TEXTS['math|四上|第7單元 垂直與平行'] = {
       terms: [
         { w: '垂直', d: '兩線相交成九十度。' }
       ],
+      viz: {"type":"lines","kind":"perpendicular","pick":false},
       q: {
         q: '課文說垂直的定義是什麼？',
         options: [
@@ -9268,6 +9284,7 @@ window.APP_TEXTS['math|四上|第7單元 垂直與平行'] = {
       terms: [
         { w: '平行', d: '兩線永不相交、距離處處相等。' }
       ],
+      viz: {"type":"lines","kind":"parallel","pick":false},
       q: {
         q: '課文說判斷平行最可靠的方法是什麼？',
         options: [
@@ -9552,6 +9569,7 @@ window.APP_TEXTS['math|四上|第9單元 數量關係與規律'] = {
       terms: [
         { w: '數列', d: '按某種規律排列的一串數。' }
       ],
+      viz: {"type":"seq","a1":2,"d":2,"n":8,"edit":true},
       q: {
         q: '課文說找規律的第一步是什麼？',
         options: [
@@ -11399,6 +11417,7 @@ window.APP_TEXTS['math|五上|第3單元 分數的加減（通分與約分）'] 
       terms: [
         { w: '通分', d: '把分母化成相同以便計算。' }
       ],
+      viz: {"type":"fracequiv","parts":2,"shade":1,"upto":4},
       q: {
         q: '課文說分母不同為什麼不能直接相加？',
         options: [
@@ -11577,6 +11596,7 @@ window.APP_TEXTS['math|五上|第4單元 小數的乘法'] = {
       terms: [
         { w: '位數相加', d: '兩因數的小數位數相加即答案位數。' }
       ],
+      viz: {"type":"decimalgrid","cells":100,"filled":12,"edit":false},
       q: {
         q: '課文說零點三乘零點四等於多少？',
         options: [
@@ -11730,6 +11750,7 @@ window.APP_TEXTS['math|五上|第5單元 多邊形與扇形'] = {
       terms: [
         { w: '對角線', d: '連接不相鄰兩頂點的線段。' }
       ],
+      viz: {"type":"polygon","sides":6},
       q: {
         q: '課文說五邊形可以切成幾個三角形？',
         options: [
@@ -11827,6 +11848,7 @@ window.APP_TEXTS['math|五上|第5單元 多邊形與扇形'] = {
       terms: [
         { w: '比例', d: '部分占整體的比率。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"上學","value":90},{"label":"睡覺","value":180},{"label":"玩樂","value":90}]},
       q: {
         q: '課文說圓心角一百二十度的扇形占整圓多少？',
         options: [
@@ -11882,6 +11904,7 @@ window.APP_TEXTS['math|五上|第6單元 三角形與四邊形的面積'] = {
       terms: [
         { w: '底', d: '計算面積時所選的那一邊。' }
       ],
+      viz: {"type":"areaformula","shape":"triangle"},
       q: {
         q: '課文說三角形面積為什麼要除以二？',
         options: [
@@ -12010,6 +12033,7 @@ window.APP_TEXTS['math|五上|第7單元 面積的大單位'] = {
       terms: [
         { w: '平方公尺', d: '邊長一公尺正方形的面積。' }
       ],
+      viz: {"type":"areagrid","w":4,"h":3,"show":"area"},
       q: {
         q: '課文說面積換算為什麼要用平方？',
         options: [
@@ -12058,6 +12082,7 @@ window.APP_TEXTS['math|五上|第7單元 面積的大單位'] = {
       terms: [
         { w: '公頃', d: '一萬平方公尺的面積單位。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"1 公頃 ＝ 邊長 100 公尺的正方形","hint":"先想成一個大正方形。"},{"expr":"100 × 100 ＝ 10000","hint":"面積要兩邊相乘。"},{"expr":"1 公頃 ＝ 10000 平方公尺","hint":"約等於一個標準足球場多一點。"},{"expr":"1 平方公里 ＝ 100 公頃","hint":"再往上一個單位。"}]},
       q: {
         q: '課文說一公頃等於幾公畝？',
         options: [
@@ -12106,6 +12131,7 @@ window.APP_TEXTS['math|五上|第7單元 面積的大單位'] = {
       terms: [
         { w: '換算倍數', d: '單位轉換時要乘或除的數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"1 公尺 ＝ 100 公分","hint":"長度換算是乘 100。"},{"expr":"1 平方公尺 ＝ ？平方公分","hint":"面積要兩邊都換。"},{"expr":"100 × 100 ＝ 10000","hint":"長寬都乘 100。"},{"expr":"1 平方公尺 ＝ 10000 平方公分","hint":"面積換算是長度換算的平方。"}]},
       q: {
         q: '課文說面積換算倍數和長度的關係是什麼？',
         options: [
@@ -12161,6 +12187,7 @@ window.APP_TEXTS['math|五上|第8單元 體積與容積'] = {
       terms: [
         { w: '體積', d: '物體所占空間的大小。' }
       ],
+      viz: {"type":"cuboid","l":4,"w":3,"h":2,"edit":false},
       q: {
         q: '課文說長方體體積怎麼算？',
         options: [
@@ -12209,6 +12236,7 @@ window.APP_TEXTS['math|五上|第8單元 體積與容積'] = {
       terms: [
         { w: '三次方', d: '同一個數連乘三次。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"1 公尺 ＝ 100 公分","hint":"先看長度的換算。"},{"expr":"1 立方公尺 ＝ ？立方公分","hint":"體積要三邊都換。"},{"expr":"100 × 100 × 100","hint":"長寬高各乘 100。"},{"expr":"＝ 1000000 立方公分","hint":"體積換算是長度換算的立方。"}]},
       q: {
         q: '課文說一立方公尺等於幾立方公分？',
         options: [
@@ -12257,6 +12285,7 @@ window.APP_TEXTS['math|五上|第8單元 體積與容積'] = {
       terms: [
         { w: '毫升', d: '容量單位，等於一立方公分。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"1 立方公分 ＝ 1 毫升","hint":"這是最基本的對應。"},{"expr":"1 公升 ＝ 1000 毫升","hint":"公升與毫升差 1000 倍。"},{"expr":"所以 1 公升 ＝ 1000 立方公分","hint":"也就是邊長 10 公分的正方體。"},{"expr":"10 × 10 × 10 ＝ 1000","hint":"驗算一下確實吻合。"}]},
       q: {
         q: '課文說邊長十公分的正方體能裝多少水？',
         options: [
@@ -12360,6 +12389,7 @@ window.APP_TEXTS['math|五上|第9單元 整數四則與數量關係'] = {
       terms: [
         { w: '括號', d: '表示要優先計算的符號。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"每組有 1 支 25 元筆與 1 本 60 元本子","hint":"先算一組多少錢。"},{"expr":"買 3 組要多少？","hint":"先加再乘，所以要括號。"},{"expr":"(25 ＋ 60) × 3","hint":"沒有括號會變成先乘。"},{"expr":"＝ 85 × 3 ＝ 255 元","hint":"括號決定了先算誰。"}]},
       q: {
         q: '課文說不加括號會變成什麼意思？',
         options: [
@@ -13666,6 +13696,7 @@ window.APP_TEXTS['math|五下|第8單元 線對稱圖形'] = {
       terms: [
         { w: '對稱美', d: '對稱帶來的平衡與穩定感。' }
       ],
+      viz: {"type":"symmetry","shape":"butterfly"},
       q: {
         q: '課文說剪紙為什麼一定是對稱的？',
         options: [
@@ -14158,6 +14189,7 @@ window.APP_TEXTS['math|六上|第3單元 比例式與應用'] = {
       terms: [
         { w: '比例式', d: '兩個相等的比所組成的等式。' }
       ],
+      viz: {"type":"ratiobar","a":3,"b":5,"labelA":"果汁","labelB":"開水"},
       q: {
         q: '課文說兩個比相等是指什麼相同？',
         options: [
@@ -14335,6 +14367,7 @@ window.APP_TEXTS['math|六上|第4單元 圓周長'] = {
       terms: [
         { w: '直徑', d: '通過圓心、兩端在圓周上的線段。' }
       ],
+      viz: {"type":"circlearea","r":4,"mode":"circumference"},
       q: {
         q: '課文說直徑十公分的圓周長是多少？',
         options: [
@@ -14359,6 +14392,7 @@ window.APP_TEXTS['math|六上|第4單元 圓周長'] = {
       terms: [
         { w: '反推', d: '從結果倒算回原來的量。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"圓周長 31.4 公分，求直徑","hint":"圓周長 ＝ 直徑 × 圓周率。"},{"expr":"31.4 ＝ 直徑 × 3.14","hint":"把公式反過來用。"},{"expr":"直徑 ＝ 31.4 ÷ 3.14","hint":"兩邊同除以圓周率。"},{"expr":"＝ 10 公分","hint":"半徑就是 5 公分。"}]},
       q: {
         q: '課文說知道圓周長求直徑要用什麼運算？',
         options: [
@@ -14488,6 +14522,7 @@ window.APP_TEXTS['math|六上|第5單元 圓面積'] = {
       terms: [
         { w: '平方', d: '同一個數乘自己。' }
       ],
+      viz: {"type":"circlearea","r":5,"mode":"area"},
       q: {
         q: '課文說半徑五公分的圓面積是多少？',
         options: [
@@ -14560,6 +14595,7 @@ window.APP_TEXTS['math|六上|第5單元 圓面積'] = {
       terms: [
         { w: '環形', d: '大圓挖掉同心小圓後的圖形。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"大圓半徑 5、小圓半徑 3","hint":"環形就是大圓挖掉小圓。"},{"expr":"大圓面積 ＝ 25π","hint":"半徑平方乘圓周率。"},{"expr":"小圓面積 ＝ 9π","hint":"同樣算一次。"},{"expr":"環形面積 ＝ 25π − 9π ＝ 16π","hint":"相減就是答案。"}]},
       q: {
         q: '課文說算環形面積的方法是什麼？',
         options: [
@@ -14584,6 +14620,7 @@ window.APP_TEXTS['math|六上|第5單元 圓面積'] = {
       terms: [
         { w: '放大效果', d: '因平方使變化被放大。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"半徑 2 的圓，面積 ＝ 4π","hint":"半徑平方是 4。"},{"expr":"半徑 4 的圓，面積 ＝ 16π","hint":"半徑變成 2 倍。"},{"expr":"16π ÷ 4π ＝ 4","hint":"面積變成 4 倍。"},{"expr":"半徑加倍，面積變四倍","hint":"因為面積和半徑的平方成正比。"}]},
       q: {
         q: '課文說半徑變兩倍時面積變幾倍？',
         options: [
@@ -14614,6 +14651,7 @@ window.APP_TEXTS['math|六上|第6單元 扇形與複合圖形'] = {
       terms: [
         { w: '圓心角', d: '扇形兩條半徑所夾的角。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"扇形部分","value":90},{"label":"其餘部分","value":270}]},
       q: {
         q: '課文說圓心角九十度的扇形占整圓多少？',
         options: [
@@ -14638,6 +14676,7 @@ window.APP_TEXTS['math|六上|第6單元 扇形與複合圖形'] = {
       terms: [
         { w: '扇形', d: '由兩條半徑與一段弧圍成的圖形。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"半徑 6、圓心角 90 度的扇形","hint":"先算整個圓的面積。"},{"expr":"整圓面積 ＝ 36π","hint":"半徑平方乘圓周率。"},{"expr":"扇形占 90 ÷ 360 ＝ 1/4","hint":"圓心角決定占多少。"},{"expr":"扇形面積 ＝ 36π × 1/4 ＝ 9π","hint":"弧長也是同樣的比例。"}]},
       q: {
         q: '課文說算扇形面積的步驟建議是什麼？',
         options: [
@@ -14840,6 +14879,7 @@ window.APP_TEXTS['math|六上|第7單元 柱體的體積'] = {
       terms: [
         { w: '圓柱', d: '底面為圓形的柱體。' }
       ],
+      viz: {"type":"cylinder","r":3,"h":5,"mode":"volume","edit":false},
       q: {
         q: '課文算出的圓柱體積是多少？',
         options: [
@@ -14944,6 +14984,7 @@ window.APP_TEXTS['math|六上|第8單元 柱體的表面積'] = {
       terms: [
         { w: '展開', d: '把立體表面攤成平面。' }
       ],
+      viz: {"type":"cylinder","r":3,"h":5,"mode":"surface","edit":false},
       q: {
         q: '課文說圓柱側面攤平後長方形的長等於什麼？',
         options: [
@@ -14992,6 +15033,7 @@ window.APP_TEXTS['math|六上|第8單元 柱體的表面積'] = {
       terms: [
         { w: '底面周長', d: '底面一圈的長度。' }
       ],
+      viz: {"type":"netbox","l":5,"w":4,"h":3,"edit":false},
       q: {
         q: '課文說長方體表面積有幾種算法？',
         options: [
@@ -15071,6 +15113,7 @@ window.APP_TEXTS['math|六上|第9單元 速率'] = {
       terms: [
         { w: '時速', d: '每小時行進的距離。' }
       ],
+      viz: {"type":"proportion","mode":"direct","k":60},
       q: {
         q: '課文說速率的定義是什麼？',
         options: [
@@ -17072,6 +17115,7 @@ window.APP_TEXTS['math|七上|第4單元 指數與科學記號'] = {
       terms: [
         { w: '指數', d: '表示底數要連乘幾次的數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"2⁵ 代表 2 乘 5 次","hint":"不是 2 乘以 5。"},{"expr":"＝ 2 × 2 × 2 × 2 × 2","hint":"把 2 寫五次。"},{"expr":"＝ 32","hint":"2 × 5 只有 10，差很多。"},{"expr":"指數說的是「乘幾次」","hint":"這是最常見的誤會。"}]},
       q: {
         q: '課文說二的五次方等於多少？',
         options: [
@@ -17145,6 +17189,7 @@ window.APP_TEXTS['math|七上|第4單元 指數與科學記號'] = {
       terms: [
         { w: '科學記號', d: '用一位整數乘十的次方表示數。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"把 45000 寫成科學記號","hint":"先把小數點移到第一位數之後。"},{"expr":"4.5（往左移了 4 位）","hint":"前面的數要大於等於 1 小於 10。"},{"expr":"＝ 4.5 × 10⁴","hint":"往左移幾位就是正幾次方。"},{"expr":"0.0032 ＝ 3.2 × 10⁻³","hint":"往右移就是負次方。"}]},
       q: {
         q: '課文說科學記號前面那個數要在什麼範圍？',
         options: [
@@ -17273,6 +17318,7 @@ window.APP_TEXTS['math|七上|第5單元 因數與倍數'] = {
       terms: [
         { w: '質因數', d: '本身是質數的因數。' }
       ],
+      viz: {"type":"primefac","n":60},
       q: {
         q: '課文說質因數分解的結果有幾種？',
         options: [
@@ -17377,6 +17423,7 @@ window.APP_TEXTS['math|七上|第6單元 最大公因數與最小公倍數'] = {
       terms: [
         { w: '最大公因數', d: '能同時整除兩數的最大正整數。' }
       ],
+      viz: {"type":"factors","n":18},
       q: {
         q: '課文說十二和十八的最大公因數是多少？',
         options: [
@@ -17401,6 +17448,7 @@ window.APP_TEXTS['math|七上|第6單元 最大公因數與最小公倍數'] = {
       terms: [
         { w: '共同質因數', d: '兩數分解後都有的質因數。' }
       ],
+      viz: {"type":"primefac","n":48},
       q: {
         q: '課文說求最大公因數時次數要怎麼取？',
         options: [
@@ -17709,6 +17757,7 @@ window.APP_TEXTS['math|七上|第8單元 一元一次式的運算'] = {
       terms: [
         { w: '同類項', d: '未知數與次方都相同的項。' }
       ],
+      viz: {"type":"algetile","mode":"collect","x":2,"c":3,"k":1},
       q: {
         q: '課文說三倍的 x 加五能不能合併成八 x？',
         options: [
@@ -17733,6 +17782,7 @@ window.APP_TEXTS['math|七上|第8單元 一元一次式的運算'] = {
       terms: [
         { w: '分配律', d: '把括號外的數乘給裡面每一項。' }
       ],
+      viz: {"type":"algetile","mode":"distribute","x":2,"c":1,"k":3},
       q: {
         q: '課文說分配律最常見的錯誤是什麼？',
         options: [
@@ -17886,6 +17936,7 @@ window.APP_TEXTS['math|七上|第9單元 一元一次方程式'] = {
       terms: [
         { w: '變號', d: '移項時正負號要改變。' }
       ],
+      viz: {"type":"balance","a":3,"b":6,"c":18},
       q: {
         q: '課文說移項時符號要怎麼樣？',
         options: [
@@ -17958,6 +18009,7 @@ window.APP_TEXTS['math|七上|第9單元 一元一次方程式'] = {
       terms: [
         { w: '設未知數', d: '選一個量用符號代表。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"哥哥比弟弟大 5 歲，年齡和 27","hint":"先設弟弟的年齡為 x。"},{"expr":"弟弟 x 歲，哥哥 x ＋ 5 歲","hint":"用同一個未知數表示兩人。"},{"expr":"x ＋ (x ＋ 5) ＝ 27","hint":"列出方程式。"},{"expr":"2x ＝ 22，x ＝ 11","hint":"弟弟 11 歲、哥哥 16 歲。"}]},
       q: {
         q: '課文說通常要設哪一個為未知數？',
         options: [
