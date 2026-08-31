@@ -4,8 +4,9 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【2026-08-31 Tony 核定：先做 (8) 丙＝高中七科先修品質再擴題，做完回頭把 (3) 剩下的 984 段配圖補完】
- 目前手上：(8) 品質修復，逐科逐批人工重寫誘答＋解析。工具 `node tools/dump-qfix-todo.js <科目> [n]` 列待辦 →
+NEXT_ACTION: 【2026-08-31 Tony 核定：先做 (8) 丙＝高中七科先修品質再擴題，做完回頭把 (3) 剩下的配圖補完】
+ 目前手上：(8) 品質修復已於 2026-09-05 完工（下方紀錄），接著做 (8) 後半的「擴題」，再回頭做 (3)。
+ 以下為品質修復那一輪的做法紀錄（下次同類工作照抄）：工具 `node tools/dump-qfix-todo.js <科目> [n]` 列待辦 →
  手寫 patch.json `[{id, d:[三個誘答], exp}]` → `node tools/set-qfix.js <file> --write`
  → `node tools/regen-checks.js <科目> --write`（❌ 段改寫後，舊的「解析說其他選項各錯在哪」確認題會失根，要重建）
  → `node test/test.js` → commit。每批 60 題。
@@ -17,7 +18,9 @@ NEXT_ACTION: 【2026-08-31 Tony 核定：先做 (8) 丙＝高中七科先修品�
  ⚠ ❌ 段不可寫「第一個選項」這種位置指涉（工具會擋）：選項順序是 index%4 打散的，位置不固定，
    而且確認題會把這些小句抓去當選項，test.js 的 POS_REF 會擋。要指名就引用那句誘答的原文。
  進度查法（不要記數字，直接查）：`grep -c "各自都對，但不是這一題在問的" js/data/civics.js`
- 已完成：公民 1,728 ✅、地理 1,697 ✅、歷史 1,671 ✅、地科 1,622 ✅、生物 1,619 ✅、化學 1,477 ✅、物理 405／1,147（共 10,219 題，93%）。剩 物理 742。下一批直接跑 dump-qfix-todo physics 從列出的第一題接續。
+ ✅ 2026-09-05 全數完成：公民 1,728、地理 1,697、歷史 1,671、地科 1,622、生物 1,619、化學 1,477、物理 1,147＝10,951 題全部重寫完畢。
+ 驗證：`for f in js/data/*.js; do grep -c "各自都對，但不是這一題在問的" $f; done` 全為 0；node test/test.js 全過。
+ 下一步＝(8) 的後半「擴題」：高中七科依課綱加題（工具與規格同 docs/bank-maintain-sop.md）。
  ⚠ 實務提醒：誘答長度用手寫很難一次抓準，流程是「寫好 → 跑 set-qfix（不加 --write）看 ⚠ 清單 →
    用 python 把被點名的那一題最長誘答換成更長的句子（記得 assert 長度）→ 再跑一次 --write」。
    一批 30-36 題大概要來回兩次，這是正常的，不要為了省這一步就把誘答寫短。
@@ -279,7 +282,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-01 10:40 台北
+UPDATED: 2026-09-05 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
