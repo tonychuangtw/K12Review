@@ -29050,6 +29050,7 @@ window.APP_TEXTS['english|十一下|第1單元 虛主詞與虛受詞'] = {
       terms: [
         { w: '虛主詞', d: '沒有實際意義、只為湊主詞的字。' }
       ],
+      viz: {"type":"sentence","label":"虛主詞句型","items":[{"t":"It","r":"虛主詞（沒有意義）"},{"t":"is important","r":"評價"},{"t":"to learn English.","r":"真主詞"}],"note":"真主詞太長時先用 It 佔位，把真主詞移到句尾。","alt":[{"label":"不用虛主詞","items":[{"t":"To learn English","r":"真主詞放句首"},{"t":"is important.","r":"顯得頭重腳輕"}],"note":"文法沒錯，但讀起來不順。"}]},
       q: {
         q: '課文說虛主詞句型裡真正的主詞在哪裡？',
         options: [
@@ -29098,6 +29099,7 @@ window.APP_TEXTS['english|十一下|第1單元 虛主詞與虛受詞'] = {
       terms: [
         { w: '虛受詞', d: '只佔位置、沒有實義的受詞。' }
       ],
+      viz: {"type":"sentence","label":"虛受詞句型","items":[{"t":"I find","r":"主詞與動詞"},{"t":"it","r":"虛受詞"},{"t":"difficult","r":"受詞補語"},{"t":"to finish on time.","r":"真受詞"}],"note":"動詞後面若接不定詞當受詞又有補語，要先用 it 佔位。","alt":[{"label":"錯誤寫法","items":[{"t":"I find to finish on time","r":"真受詞直接放"},{"t":"difficult.","r":"讀起來卡住"}],"note":"少了 it，句子就不成立。"}]},
       q: {
         q: '課文說虛受詞用的是哪一個字？',
         options: [
@@ -29227,6 +29229,7 @@ window.APP_TEXTS['english|十一下|第2單元 同位語與插入語'] = {
       terms: [
         { w: '限定', d: '用來縮小範圍、不能省略。' }
       ],
+      viz: {"type":"compareexp","factor":"同位語要不要加逗號","a":{"label":"非限定（加逗號）","note":"My brother, a doctor, lives here.（只有一個哥哥，補充說明）"},"b":{"label":"限定（不加逗號）","note":"My friend Tom called.（朋友很多，用 Tom 指定是哪一個）"},"same":["逗號的有無決定了那段話是補充還是限定"]},
       q: {
         q: '課文說限定的同位語要不要加逗號？',
         options: [
@@ -29251,6 +29254,7 @@ window.APP_TEXTS['english|十一下|第2單元 同位語與插入語'] = {
       terms: [
         { w: '同位語子句', d: '說明前面名詞內容的子句。' }
       ],
+      viz: {"type":"sentence","label":"that 引導的同位語子句","items":[{"t":"The fact","r":"抽象名詞"},{"t":"that he lied","r":"同位語子句（說明 fact 的內容）"},{"t":"shocked us.","r":"主要動詞"}],"note":"這裡的 that 不能省略，也不是關係代名詞。","alt":[{"label":"形容詞子句比較","items":[{"t":"The book that he wrote","r":"that 在子句中當受詞"},{"t":"sold well.","r":"主要動詞"}],"note":"形容詞子句的 that 可省略，同位語子句不行。"}]},
       q: {
         q: '課文說同位語子句後面的句子有什麼特徵？',
         options: [
@@ -29379,6 +29383,7 @@ window.APP_TEXTS['english|十一下|第3單元 省略與替代'] = {
       terms: [
         { w: '替代', d: '用一個字取代前面提過的部分。' }
       ],
+      viz: {"type":"sentence","label":"用 do 替代前面的動詞","items":[{"t":"He runs faster","r":"他跑得比較快"},{"t":"than I do.","r":"do 替代 run"}],"note":"避免重複同一個動詞，改用 do、does、did 代替。","alt":[{"label":"重複寫法","items":[{"t":"He runs faster","r":"他跑得比較快"},{"t":"than I run.","r":"重複而累贅"}],"note":"文法沒錯，但不夠簡潔。"}]},
       q: {
         q: '課文說 do 可以代替什麼？',
         options: [
@@ -29427,6 +29432,7 @@ window.APP_TEXTS['english|十一下|第3單元 省略與替代'] = {
       terms: [
         { w: '子句', d: '句子裡的一個完整結構。' }
       ],
+      viz: {"type":"compareexp","factor":"用 so 與 not 代替整個子句","a":{"label":"肯定用 so","note":"Will it rain? — I think so.（我想會）"},"b":{"label":"否定用 not","note":"Will it rain? — I hope not.（希望不會）"},"same":["兩者都是為了不重複前面已經說過的整句話"]},
       q: {
         q: '課文說 not 用來代替什麼？',
         options: [
@@ -29506,6 +29512,7 @@ window.APP_TEXTS['english|十一下|第4單元 複合形容詞與名詞片語'] 
       terms: [
         { w: '連字號', d: '連接兩個字的短橫線。' }
       ],
+      viz: {"type":"compareexp","factor":"複合形容詞的連字號","a":{"label":"放在名詞前","note":"a well-known writer（要加連字號）"},"b":{"label":"放在名詞後","note":"The writer is well known.（不加連字號）"},"same":["位置決定要不要連字號，意思本身沒有改變"]},
       q: {
         q: '課文說複合形容詞放在名詞後面時要不要加連字號？',
         options: [
@@ -29604,6 +29611,7 @@ window.APP_TEXTS['english|十一下|第4單元 複合形容詞與名詞片語'] 
       terms: [
         { w: '核心名詞', d: '名詞片語中真正的中心字。' }
       ],
+      viz: {"type":"cycle","steps":["先把所有介系詞片語畫掉","再把形容詞子句畫掉","剩下的那個名詞就是核心","把修飾語一層一層加回來確認"]},
       q: {
         q: '課文說找出核心名詞有什麼用？',
         options: [
@@ -29682,6 +29690,7 @@ window.APP_TEXTS['english|十一下|第5單元 語氣與委婉表達'] = {
       terms: [
         { w: '距離', d: '語氣上的間隔與緩衝。' }
       ],
+      viz: {"type":"levels","items":["Can you help me? 直接","Could you help me? 較客氣","I wonder if you could help. 更客氣","I was wondering if you could help. 最客氣"]},
       q: {
         q: '課文說委婉句裡的過去式作用是什麼？',
         options: [
@@ -29706,6 +29715,7 @@ window.APP_TEXTS['english|十一下|第5單元 語氣與委婉表達'] = {
       terms: [
         { w: '模糊限制語', d: '讓陳述留有餘地的詞語。' }
       ],
+      viz: {"type":"matchpair","title":"模糊限制語讓語氣變軟","left":"直白","right":"加了限制語","pairs":[{"a":"It is wrong.","b":"It seems somewhat problematic."},{"a":"This causes cancer.","b":"This may contribute to cancer risk."},{"a":"Everyone agrees.","b":"Many researchers tend to agree."},{"a":"It is useless.","b":"It appears to have limited value."}]},
       q: {
         q: '課文說學術寫作用模糊限制語是為了什麼？',
         options: [
@@ -29730,6 +29740,7 @@ window.APP_TEXTS['english|十一下|第5單元 語氣與委婉表達'] = {
       terms: [
         { w: '淡化', d: '讓某個部分不那麼突出。' }
       ],
+      viz: {"type":"compareexp","factor":"要不要指名道姓","a":{"label":"主動指人","note":"You made a mistake.（你犯了錯，聽起來像指責）"},"b":{"label":"被動淡化","note":"A mistake was made.（錯誤發生了，不點名）"},"same":["兩句陳述同一件事，被動語態把焦點從人移到事情上"]},
       q: {
         q: '課文說用被動可以達到什麼效果？',
         options: [
@@ -29833,6 +29844,7 @@ window.APP_TEXTS['english|十一下|第6單元 標點與句構'] = {
       terms: [
         { w: '獨立子句', d: '能單獨成句的那一部分。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"分號","items":["連接兩個緊密的獨立子句"],"note":"It was late; we went home."},{"label":"冒號","items":["引出清單或說明"],"note":"We need three things: pens, paper, and glue."},{"label":"破折號","items":["插入補充或強調"],"note":"語氣比逗號更強"}]},
       q: {
         q: '課文說分號前後要是什麼？',
         options: [
@@ -29881,6 +29893,7 @@ window.APP_TEXTS['english|十一下|第6單元 標點與句構'] = {
       terms: [
         { w: '並列項目', d: '一連串地位相同的東西。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"分隔並列","items":["red, blue, and green"],"note":"三項以上用逗號隔開"},{"label":"分隔從屬子句","items":["When it rains, we stay home."],"note":"從屬子句在前要加逗號"},{"label":"分隔非限定修飾","items":["My brother, a doctor, is here."],"note":"補充說明前後都要逗號"}]},
       q: {
         q: '課文提醒不要在哪裡亂加逗號？',
         options: [
@@ -29905,6 +29918,7 @@ window.APP_TEXTS['english|十一下|第6單元 標點與句構'] = {
       terms: [
         { w: '撇號', d: '表示所有格或縮寫的符號。' }
       ],
+      viz: {"type":"compareexp","factor":"撇號的兩種用途","a":{"label":"所有格","note":"the student's book（一個學生）／the students' books（多個學生）"},"b":{"label":"縮寫","note":"it's ＝ it is；its 才是所有格，沒有撇號"},"same":["兩種用法都用同一個符號，最常混淆的是 its 與 it's"]},
       q: {
         q: '課文說複數名詞要不要加撇號？',
         options: [
@@ -29960,6 +29974,7 @@ window.APP_TEXTS['english|十一下|第7單元 同義辨析'] = {
       terms: [
         { w: '語體', d: '文章所使用的語言風格。' }
       ],
+      viz: {"type":"levels","items":["kids 最口語","children 中性通用","youngsters 略帶書面","minors 法律用語最正式"]},
       q: {
         q: '課文說寫學術報告要用哪一組字？',
         options: [
@@ -30008,6 +30023,7 @@ window.APP_TEXTS['english|十一下|第7單元 同義辨析'] = {
       terms: [
         { w: '搭配', d: '固定要一起使用的詞組。' }
       ],
+      viz: {"type":"compareexp","factor":"high 與 tall 的搭配對象不同","a":{"label":"tall","note":"用於細長的人或物：a tall man、a tall tree"},"b":{"label":"high","note":"用於離地高度或非細長物：a high mountain、a high price"},"same":["兩者中文都翻成「高」，錯在搭配的名詞不同"]},
       q: {
         q: '課文說形容人很高要用哪一個字？',
         options: [
@@ -30032,6 +30048,7 @@ window.APP_TEXTS['english|十一下|第7單元 同義辨析'] = {
       terms: [
         { w: '可數性', d: '一個名詞能不能被數。' }
       ],
+      viz: {"type":"compareexp","factor":"work 與 job 的可數性不同","a":{"label":"work（不可數）","note":"I have a lot of work.（不能說 a work）"},"b":{"label":"job（可數）","note":"I have a good job.／two jobs"},"same":["兩者都指工作，錯在冠詞與複數形的用法"]},
       q: {
         q: '課文說 advice 是可數還是不可數？',
         options: [
@@ -30111,6 +30128,7 @@ window.APP_TEXTS['english|十一下|第8單元 圖表與資料題'] = {
       terms: [
         { w: '圖表', d: '把資料視覺化呈現的圖形。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"折線圖","items":["line graph"],"note":"看隨時間變化的趨勢"},{"label":"長條圖","items":["bar chart"],"note":"比較不同類別的多寡"},{"label":"圓形圖","items":["pie chart"],"note":"看各部分占整體的比例"}]},
       q: {
         q: '課文說圓餅圖適合用來看什麼？',
         options: [
@@ -30135,6 +30153,7 @@ window.APP_TEXTS['english|十一下|第8單元 圖表與資料題'] = {
       terms: [
         { w: '趨勢', d: '資料隨時間變化的方向。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"上升","items":["increase","rise","climb","surge"],"note":"surge 表示急遽上升"},{"label":"下降","items":["decrease","fall","decline","plunge"],"note":"plunge 表示驟降"},{"label":"持平或波動","items":["remain stable","fluctuate"],"note":"沒有明顯方向時使用"}]},
       q: {
         q: '課文說 plummet 是什麼意思？',
         options: [
@@ -30208,6 +30227,7 @@ window.APP_TEXTS['english|十一下|第8單元 圖表與資料題'] = {
       terms: [
         { w: '概述', d: '整體性的簡要說明。' }
       ],
+      viz: {"type":"cycle","steps":["開頭：改寫題目說明這張圖在呈現什麼","總述：先講最明顯的一兩個趨勢","分述：分段描述細節與比較","結尾：不加入圖表以外的個人意見"]},
       q: {
         q: '課文說圖表題可不可以推測原因？',
         options: [
@@ -30262,6 +30282,7 @@ window.APP_TEXTS['english|十一下|第9單元 說明文與議論文'] = {
       terms: [
         { w: '議論文', d: '提出立場並說服讀者的文章。' }
       ],
+      viz: {"type":"compareexp","factor":"說明文與議論文的目的不同","a":{"label":"說明文","note":"解釋事物是什麼、如何運作，態度中性"},"b":{"label":"議論文","note":"提出立場並用證據說服讀者接受"},"same":["兩者都需要清楚的結構與具體的例子"]},
       q: {
         q: '課文說說明文的態度應該如何？',
         options: [
@@ -30335,6 +30356,7 @@ window.APP_TEXTS['english|十一下|第9單元 說明文與議論文'] = {
       terms: [
         { w: '證據', d: '用來支持論點的具體材料。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"統計數據","items":["Studies show that 60% …"],"note":"要註明來源才有說服力"},{"label":"專家意見","items":["According to researchers …"],"note":"引用權威但需可查證"},{"label":"具體事例","items":["For instance, in 2020 …"],"note":"生動但不能以偏概全"}]},
       q: {
         q: '課文說「大家都知道」算不算證據？',
         options: [
@@ -30359,6 +30381,7 @@ window.APP_TEXTS['english|十一下|第9單元 說明文與議論文'] = {
       terms: [
         { w: '謬誤', d: '推理過程中的錯誤。' }
       ],
+      viz: {"type":"matchpair","title":"常見的邏輯謬誤","left":"謬誤","right":"問題在哪裡","pairs":[{"a":"以偏概全","b":"一個例子就推論到全部"},{"a":"人身攻擊","b":"攻擊提出主張的人而非主張本身"},{"a":"滑坡推論","b":"沒說明中間環節就斷定極端後果"},{"a":"訴諸群眾","b":"以「大家都這樣」當成理由"}]},
       q: {
         q: '課文說把先後當成因果叫什麼謬誤？',
         options: [
@@ -30413,6 +30436,7 @@ window.APP_TEXTS['english|十二上|第1單元 語法綜合診斷（一）'] = {
       terms: [
         { w: '一致', d: '主詞和動詞形式互相配合。' }
       ],
+      viz: {"type":"sentence","label":"找出真正的主詞","items":[{"t":"The box","r":"真主詞（單數）"},{"t":"of apples","r":"介系詞片語（不是主詞）"},{"t":"is","r":"動詞跟著 box"},{"t":"heavy.","r":"補語"}],"note":"介系詞片語裡的名詞不會是主詞，先把它畫掉再判斷單複數。","alt":[{"label":"常見錯誤","items":[{"t":"The box of apples","r":"被 apples 誤導"},{"t":"are heavy.","r":"動詞用錯"}],"note":"看到複數就配複數動詞，是最常見的失誤。"}]},
       q: {
         q: '課文說介系詞片語會不會影響主詞的單複數？',
         options: [
@@ -30461,6 +30485,7 @@ window.APP_TEXTS['english|十二上|第1單元 語法綜合診斷（一）'] = {
       terms: [
         { w: '恆真', d: '永遠成立、不會改變。' }
       ],
+      viz: {"type":"tense","verb":"say","highlight":"過去簡單式"},
       q: {
         q: '課文說什麼情況下附屬子句可以保持現在式？',
         options: [
@@ -30485,6 +30510,7 @@ window.APP_TEXTS['english|十二上|第1單元 語法綜合診斷（一）'] = {
       terms: [
         { w: '動名詞', d: '動詞加 ing 當名詞用。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"接不定詞","items":["want","hope","decide","plan","agree"],"note":"指向未來還沒發生"},{"label":"接動名詞","items":["enjoy","finish","avoid","mind","suggest"],"note":"指向已發生或一般狀態"},{"label":"兩者皆可","items":["begin","start","like","continue"],"note":"意思幾乎沒有差別"}]},
       q: {
         q: '課文說 suggest 後面要接什麼？',
         options: [
@@ -30613,6 +30639,7 @@ window.APP_TEXTS['english|十二上|第2單元 語法綜合診斷（二）'] = {
       terms: [
         { w: '懸垂修飾語', d: '修飾對象不明確或錯誤的修飾語。' }
       ],
+      viz: {"type":"compareexp","factor":"分詞構句的主詞要一致","a":{"label":"懸垂修飾（錯）","note":"Running for the bus, my bag fell.（變成包包在跑）"},"b":{"label":"修正後","note":"Running for the bus, I dropped my bag."},"same":["分詞的動作者必須和主要子句的主詞是同一個人"]},
       q: {
         q: '課文說分詞的動作要由誰來做？',
         options: [
@@ -30662,6 +30689,7 @@ window.APP_TEXTS['english|十二上|第2單元 語法綜合診斷（二）'] = {
       terms: [
         { w: '句子片段', d: '不能獨立成句的殘缺句子。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"句子片段","items":["Because it was raining."],"note":"只有從屬子句，缺少主要子句"},{"label":"逗號拼接","items":["It rained, we stayed home."],"note":"兩個完整句只用逗號連接"},{"label":"正確寫法","items":["Because it rained, we stayed home."],"note":"從屬子句加上主要子句才完整"}]},
       q: {
         q: '課文說每個句子都要具備什麼？',
         options: [
@@ -30716,6 +30744,7 @@ window.APP_TEXTS['english|十二上|第3單元 文意選填'] = {
       terms: [
         { w: '詞性', d: '一個字屬於名詞動詞或形容詞。' }
       ],
+      viz: {"type":"cycle","steps":["先看空格前後判斷需要什麼詞性","再讀整句確認語意與邏輯方向","檢查有沒有固定搭配可以直接對上","最後檢查單複數與時態是否正確"]},
       q: {
         q: '課文說判斷詞性有什麼效果？',
         options: [
@@ -30764,6 +30793,7 @@ window.APP_TEXTS['english|十二上|第3單元 文意選填'] = {
       terms: [
         { w: '搭配詞', d: '經常一起出現的字組。' }
       ],
+      viz: {"type":"matchpair","title":"文意選填常考的搭配","left":"空格前後","right":"該選的搭配","pairs":[{"a":"take ___ of","b":"advantage（take advantage of）"},{"a":"make a ___","b":"decision（make a decision）"},{"a":"pay ___ to","b":"attention（pay attention to）"},{"a":"in ___ of","b":"favor（in favor of）"}]},
       q: {
         q: '課文說看到動詞的空格要先想什麼？',
         options: [
@@ -30837,6 +30867,7 @@ window.APP_TEXTS['english|十二上|第3單元 文意選填'] = {
       terms: [
         { w: '語感', d: '對語言自然的直覺。' }
       ],
+      viz: {"type":"cycle","steps":["把填好的整段從頭讀一次","確認每一句都讀得通","檢查有沒有同一個選項用了兩次","最後確認剩下的選項確實不合適"]},
       q: {
         q: '課文說讀起來卡卡的地方代表什麼？',
         options: [
@@ -30892,6 +30923,7 @@ window.APP_TEXTS['english|十二上|第4單元 篇章結構'] = {
       terms: [
         { w: '線索', d: '幫助判斷答案的提示。' }
       ],
+      viz: {"type":"matchpair","title":"從代名詞找線索","left":"選項開頭","right":"代表前一句提到什麼","pairs":[{"a":"This idea …","b":"前一句提出了一個想法或主張"},{"a":"These findings …","b":"前一句提到研究結果（複數）"},{"a":"Such a change …","b":"前一句描述了某種改變"},{"a":"He later …","b":"前一句出現過一位男性人物"}]},
       q: {
         q: '課文說哪一種線索最強？',
         options: [
@@ -30916,6 +30948,7 @@ window.APP_TEXTS['english|十二上|第4單元 篇章結構'] = {
       terms: [
         { w: '連接詞', d: '表示句子之間關係的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"轉折","items":["However","Nevertheless"],"note":"前後語意相反"},{"label":"因果","items":["Therefore","As a result"],"note":"前面是原因，後面是結果"},{"label":"補充","items":["Moreover","In addition"],"note":"與前面同方向再加一層"}]},
       q: {
         q: '課文說選項開頭是 For example 時前面應該有什麼？',
         options: [
@@ -30988,6 +31021,7 @@ window.APP_TEXTS['english|十二上|第4單元 篇章結構'] = {
       terms: [
         { w: '連鎖效應', d: '一處錯誤導致後續一連串錯誤。' }
       ],
+      viz: {"type":"cycle","steps":["把所有選項填進去","從頭連著讀一遍整篇","檢查代名詞與連接詞是否對得上","若某一格讀起來卡住，重新調整順序"]},
       q: {
         q: '課文說篇章結構題為什麼要整體檢查？',
         options: [
@@ -31043,6 +31077,7 @@ window.APP_TEXTS['english|十二上|第5單元 克漏字技巧'] = {
       terms: [
         { w: '類型', d: '按特徵分成的幾種。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"文法型","items":["時態","詞性","介系詞"],"note":"看空格前後的結構就能判斷"},{"label":"詞彙型","items":["同義字辨析","搭配詞"],"note":"要讀懂整句的語意"},{"label":"連貫型","items":["連接詞","轉折語"],"note":"要看前後句的邏輯關係"}]},
       q: {
         q: '課文說判斷空格類型有什麼用？',
         options: [
@@ -31115,6 +31150,7 @@ window.APP_TEXTS['english|十二上|第5單元 克漏字技巧'] = {
       terms: [
         { w: '常考點', d: '考試中經常出現的重點。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"時態與一致","items":["主詞動詞一致","時態呼應"],"note":"最常考也最好拿分"},{"label":"詞性","items":["形容詞或副詞","名詞或動詞"],"note":"看空格在句中的位置"},{"label":"連接與指涉","items":["連接詞","代名詞"],"note":"要看上下文才能決定"}]},
       q: {
         q: '課文說哪四類文法幾乎每年都考？',
         options: [
@@ -31139,6 +31175,7 @@ window.APP_TEXTS['english|十二上|第5單元 克漏字技巧'] = {
       terms: [
         { w: '時間管理', d: '安排各題所花的時間。' }
       ],
+      viz: {"type":"cycle","steps":["先刪掉明顯不合文法的選項","再看語意方向是正是反","看看有沒有固定搭配可以對上","真的不會就選與上下文語意最接近的"]},
       q: {
         q: '課文建議一格最多花多久？',
         options: [
@@ -31169,6 +31206,7 @@ window.APP_TEXTS['english|十二上|第6單元 閱讀：科普類'] = {
       terms: [
         { w: '結構', d: '文章各部分的安排方式。' }
       ],
+      viz: {"type":"cycle","steps":["第一段：提出現象或問題","中間段：說明研究方法與發現","後段：解釋機制或提出應用","結尾：指出限制或未來方向"]},
       q: {
         q: '課文說科普文章最後通常討論什麼？',
         options: [
@@ -31217,6 +31255,7 @@ window.APP_TEXTS['english|十二上|第6單元 閱讀：科普類'] = {
       terms: [
         { w: '推論', d: '從資料推出的可能結論。' }
       ],
+      viz: {"type":"compareexp","factor":"事實與推論要分開","a":{"label":"事實","note":"The temperature rose by two degrees.（可觀測、可驗證）"},"b":{"label":"推論","note":"This may lead to more storms.（帶有 may、suggest 等推測用語）"},"same":["兩者都出現在科普文章中，作答時要看清楚題目問的是哪一種"]},
       q: {
         q: '課文說看到 suggest 代表那是什麼？',
         options: [
@@ -31290,6 +31329,7 @@ window.APP_TEXTS['english|十二上|第6單元 閱讀：科普類'] = {
       terms: [
         { w: '保留說法', d: '不把結論說死的表達方式。' }
       ],
+      viz: {"type":"cycle","steps":["先掃過各段第一句掌握文章結構","回題目確認要找的是事實還是推論","回原文定位相關句子","比對選項，選有原文根據的那個"]},
       q: {
         q: '課文說把結論說得太滿的選項通常如何？',
         options: [
@@ -31344,6 +31384,7 @@ window.APP_TEXTS['english|十二上|第7單元 閱讀：人文社會類'] = {
       terms: [
         { w: '陣營', d: '持相同立場的一群人。' }
       ],
+      viz: {"type":"matchpair","title":"分辨誰在說話","left":"句子開頭","right":"是誰的觀點","pairs":[{"a":"Critics argue that …","b":"批評者的觀點，不是作者的"},{"a":"Supporters claim that …","b":"支持者的觀點"},{"a":"The author contends that …","b":"作者本人的立場"},{"a":"It is widely believed that …","b":"一般大眾的看法"}]},
       q: {
         q: '課文說 Critics argue that 後面是誰的觀點？',
         options: [
@@ -31368,6 +31409,7 @@ window.APP_TEXTS['english|十二上|第7單元 閱讀：人文社會類'] = {
       terms: [
         { w: '評價性用字', d: '帶有立場或判斷的形容詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"作者不認同","items":["flawed","questionable","oversimplified"],"note":"帶有負面評價"},{"label":"作者認同","items":["compelling","insightful","well-founded"],"note":"帶有正面評價"},{"label":"作者保留","items":["arguably","to some extent"],"note":"部分同意但有保留"}]},
       q: {
         q: '課文說作者的立場常藏在哪裡？',
         options: [
@@ -31441,6 +31483,7 @@ window.APP_TEXTS['english|十二上|第7單元 閱讀：人文社會類'] = {
       terms: [
         { w: '保守', d: '不誇大、留有餘地。' }
       ],
+      viz: {"type":"cycle","steps":["先分辨每個觀點是誰提出的","找出作者自己的評價性用字","確認題目問的是誰的立場","回原文找出直接的依據再作答"]},
       q: {
         q: '課文說人文社會類的正確選項通常怎樣？',
         options: [
@@ -31471,6 +31514,7 @@ window.APP_TEXTS['english|十二上|第8單元 混合題型與素養題'] = {
       terms: [
         { w: '素養題', d: '結合多種材料與情境的題型。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"材料多元","items":["文章","圖表","對話"],"note":"同一題組可能同時出現"},{"label":"題型多元","items":["選擇題","簡答題"],"note":"要看清楚各題的作答方式"},{"label":"能力導向","items":["整合","應用","判斷"],"note":"不只考記憶與翻譯"}]},
       q: {
         q: '課文說混合題型的答案常在哪裡？',
         options: [
@@ -31520,6 +31564,7 @@ window.APP_TEXTS['english|十二上|第8單元 混合題型與素養題'] = {
       terms: [
         { w: '佐證', d: '用另一份資料支持某個說法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"互補","items":["文章講原因，圖表給數據"],"note":"要合起來看才完整"},{"label":"印證","items":["圖表支持文章的主張"],"note":"兩者方向一致"},{"label":"衝突","items":["圖表與文章的說法不一致"],"note":"這種矛盾常是題目的考點"}]},
       q: {
         q: '課文說圖表支持文章說法屬於哪一種關係？',
         options: [
@@ -31544,6 +31589,7 @@ window.APP_TEXTS['english|十二上|第8單元 混合題型與素養題'] = {
       terms: [
         { w: '簡答題', d: '用簡短文字作答的題型。' }
       ],
+      viz: {"type":"cycle","steps":["先看清楚字數或句數的限制","回原文找出可以直接引用的關鍵字","用自己的話改寫成完整的句子","檢查拼字與文法後再謄寫"]},
       q: {
         q: '課文說簡答題最重要的是什麼？',
         options: [
