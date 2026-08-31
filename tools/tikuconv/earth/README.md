@@ -27,6 +27,7 @@
 | es10-add5.jsonl | 十上加題（2026-09-06，補「易」難度入門題與計算／實驗／圖表題，每單元 8 題→40 題） | — |
 | es10b-add5.jsonl | 十下加題（2026-09-06，同上） | — |
 | es11-add5.jsonl | 十一上加題（2026-09-06，同上） | — |
+| es11b-add5.jsonl | 十一下加題（2026-09-06，同上） | — |
 
 重建：
 
@@ -62,6 +63,7 @@ node tools/tikuconv/build-bank.js earth js/data/earth.js $EF/header.txt --renumb
   $EF/es12b-add4.jsonl \
   $EF/es10-add5.jsonl \
   $EF/es10b-add5.jsonl \
-  $EF/es11-add5.jsonl
+  $EF/es11-add5.jsonl \
+  $EF/es11b-add5.jsonl
 node test/test.js
 ```
