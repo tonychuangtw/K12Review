@@ -47,7 +47,11 @@ patch.forEach((p) => {
   if (p.d.some((x) => String(x) === cor)) { console.log('✗ ' + p.id + ' 誘答跟正解一樣'); bad++; return; }
   if (new Set(p.d.map(String)).size !== 3) { console.log('✗ ' + p.id + ' 三個誘答有重複'); bad++; return; }
   const mx = Math.max(...p.d.map((x) => String(x).length));
-  if (cor.length - mx >= 6) { console.log('⚠ ' + p.id + ' 誘答比正解短太多（最長 ' + mx + ' vs 正解 ' + cor.length + '）'); bad++; return; }
+  /* 2026-08-31 收緊：至少要有一個誘答不比正解短。
+     原本只擋「短 6 字以上」，結果正解仍是四個選項裡唯一最長的那個，
+     test.js 的「正解最長」比例反而被推高（公民做到 280 題就從 8.6% 升到 15.5%）。
+     長度不是唯一破綻，但它是唯一可以機械守門的那一個，就守到底。 */
+  if (mx < cor.length) { console.log('⚠ ' + p.id + ' 要有一個誘答不比正解短（最長 ' + mx + ' vs 正解 ' + cor.length + '）'); bad++; return; }
   if (p.exp) {
     if (p.exp.indexOf('各自都對，但不是這一題在問的') >= 0) { console.log('✗ ' + p.id + ' 解析還留著舊的自白句'); bad++; return; }
     if (p.exp.indexOf('✅') < 0 || p.exp.indexOf('❌') < 0 || p.exp.indexOf('📚') < 0) { console.log('✗ ' + p.id + ' 解析要有 ✅ ❌ 📚 三段'); bad++; return; }
