@@ -43,7 +43,10 @@ const targets = pool.filter((it) => {
   const k = CHK[it.id];
   /* 舊題型「解析說其他選項各錯在哪？」與本工具產生的「解析說第一個誘答錯在哪？」都要能重建，
      否則改寫過的題再次調整 ❌ 段時就補不回來。 */
-  return k && typeof k.q === 'string' && (k.q.indexOf('其他選項各錯在哪') >= 0 || k.q.indexOf('第一個誘答錯在哪') >= 0);
+  if (!k || typeof k.q !== 'string') return false;
+  if (k.q.indexOf('其他選項各錯在哪') < 0 && k.q.indexOf('第一個誘答錯在哪') < 0) return false;
+  /* 已經重建過而且正解仍對得上本題 ❌ 段的，就不要再動 —— 否則每跑一次都會換一批誘答，diff 全是雜訊 */
+  return k.o[k.a] !== clauseOf(it);
 });
 console.log('要重建的確認題 ' + targets.length + ' 題');
 if (targets.length && ids.length < 4) { console.error('素材不足四題，先多改幾批再跑'); process.exit(1); }
