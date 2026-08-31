@@ -28,6 +28,7 @@
 | es10b-add5.jsonl | 十下加題（2026-09-06，同上） | — |
 | es11-add5.jsonl | 十一上加題（2026-09-06，同上） | — |
 | es11b-add5.jsonl | 十一下加題（2026-09-06，同上） | — |
+| es12-add5.jsonl | 十二上加題（2026-09-06，同上） | — |
 
 重建：
 
@@ -64,6 +65,7 @@ node tools/tikuconv/build-bank.js earth js/data/earth.js $EF/header.txt --renumb
   $EF/es10-add5.jsonl \
   $EF/es10b-add5.jsonl \
   $EF/es11-add5.jsonl \
-  $EF/es11b-add5.jsonl
+  $EF/es11b-add5.jsonl \
+  $EF/es12-add5.jsonl
 node test/test.js
 ```
