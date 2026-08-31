@@ -4,8 +4,9 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【(8) 已全部完工（品質修復 2026-09-05、擴題 2026-09-07）。下一步＝回頭做 (3)：把剩下的課文帶讀 viz 配圖補完】
- 目前手上：(3) 課文帶讀配圖。查法：`node tools/text-viz-report.js`（若無此工具，直接數 js/data/texts-*.js 裡沒有 viz 的段落）。
+NEXT_ACTION: 【(8) 已全部完工（品質修復 2026-09-05、擴題 2026-09-07）；(3) 課文帶讀配圖也已全部完工（2026-09-08，
+ 4,704/7,020＝67.0%，每單元 4 段上限全滿、剩餘空位 0）。下一步＝等 Tony 指派新工作，或回頭做本檔下方尚未勾掉的項目】
+ 查空位一行指令見 (3) 那一段；跑出來是 0 就代表沒有可補的位置了。
  以下為品質修復那一輪的做法紀錄（下次同類工作照抄）：工具 `node tools/dump-qfix-todo.js <科目> [n]` 列待辦 →
  手寫 patch.json `[{id, d:[三個誘答], exp}]` → `node tools/set-qfix.js <file> --write`
  → `node tools/regen-checks.js <科目> --write`（❌ 段改寫後，舊的「解析說其他選項各錯在哪」確認題會失根，要重建）
@@ -71,12 +72,11 @@ NEXT_ACTION: 【(8) 已全部完工（品質修復 2026-09-05、擴題 2026-09-0
           plan = [{key:"chinese|年級|第N篇 篇名", seg:段號從1起, viz:{type:"…", …}}]
           每單元上限 4 段（2026-09-05 由 3 放寬；要再放寬下 --per N）。國語 18% → 33%。
      2026-09-06～08（v94 起）：全站 36.0% → 53.0%（2,525 → 3,720 段，共手寫 1,195 段）。
-     各科：civics 66%、history 66%（兩科已到 4 段上限）、chinese 62%、science 53%、english 52%、
-       social 51%、physics 51%、biology 50%、geography 50%、math 49%、chemistry 47%、earth 47%。
-     ⚠ 每篇 6 段、上限 4 段 → 全站理論上限 66.7%；目前還剩 984 段空位。
-     剩最多空位的：math 233、english 189、social 126、science 108、chemistry 65。
-     ⚠ 還沒動過的年段：數學七下～十二、英文十下～十二、社會七年級以上、自然七下～九、化學十一下～十二。
-     ⚠ 已經配到上限、不用再看的：公民、歷史；國語只剩零星幾段。
+     ✅ **2026-09-08 全部做完：4,704 / 7,020 段＝67.0%，剩餘空位 0**（每單元上限 4 段，已達理論上限）。
+       最後這一輪手寫 984 段：數學 233、英文 189、社會 126、自然 108、化學 65、地科 65、
+       地理 55、生物 54、物理 53、國語 32、公民 2、歷史 2、數學補 1。
+       12 科全部「空位 0」。要再往上加只能放寬每單元上限（`--per N`），Tony 沒指示前不要動。
+     ⚠ 想再擴充時的注意事項：上限放寬後每篇 6 段全配，等於整篇都是圖，先問過 Tony。
      查還剩多少空位（一行）：
        `node -e 'global.window=global;const fs=require("fs");fs.readdirSync("js/data").filter(f=>/^texts-/.test(f)).forEach(f=>require("./js/data/"+f));const T=global.APP_TEXTS;let free=0;Object.keys(T).forEach(k=>{const h=T[k].segs.filter(x=>x.viz).length;free+=Math.max(0,Math.min(4,T[k].segs.length)-h)});console.log(free)'`
      各科可用的元件不同，先跑 `node -e` 把該科現用的 viz 型別與一個範例 spec 印出來再動手：
