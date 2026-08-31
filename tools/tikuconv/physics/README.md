@@ -28,6 +28,7 @@
 | ph11-add5.jsonl | 十一上加題（2026-09-05，同上） | — |
 | ph11b-add5.jsonl | 十一下加題（2026-09-05，同上） | — |
 | ph12-add5.jsonl | 十二上加題（2026-09-05，同上） | — |
+| ph12b-add5.jsonl | 十二下加題（2026-09-05，同上） | — |
 
 重建：
 
@@ -65,6 +66,7 @@ node tools/tikuconv/build-bank.js physics js/data/physics.js $PF/header.txt --re
   $PF/ph10b-add5.jsonl \
   $PF/ph11-add5.jsonl \
   $PF/ph11b-add5.jsonl \
-  $PF/ph12-add5.jsonl
+  $PF/ph12-add5.jsonl \
+  $PF/ph12b-add5.jsonl
 node test/test.js
 ```
