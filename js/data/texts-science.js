@@ -3738,6 +3738,7 @@ window.APP_TEXTS['science|四上|第7單元 天氣的變化與災害'] = {
       terms: [
         { w: '排水', d: '把地面積水導流走的過程。' }
       ],
+      viz: {"type":"cycle","steps":["短時間下超大的雨","水溝來不及把水排走","低窪地區的水位上升","積水漫到路面造成淹水"]},
       q: {
         q: '課文說都市容易淹水的原因之一是什麼？',
         options: [
@@ -3866,6 +3867,7 @@ window.APP_TEXTS['science|四上|第8單元 電路的組成'] = {
       terms: [
         { w: '電路', d: '電流可以循環流動的完整路徑。' }
       ],
+      viz: {"type":"lamp","mode":"closed"},
       q: {
         q: '課文說開關的作用是什麼？',
         options: [
@@ -3939,6 +3941,7 @@ window.APP_TEXTS['science|四上|第8單元 電路的組成'] = {
       terms: [
         { w: '串聯', d: '元件接成一條路徑、電流只有一條路可走的接法。' }
       ],
+      viz: {"type":"lamp","mode":"series"},
       q: {
         q: '課文說串聯時拿掉一顆燈泡會怎麼樣？',
         options: [
@@ -4018,6 +4021,7 @@ window.APP_TEXTS['science|四上|第9單元 電的應用與節能'] = {
       terms: [
         { w: '電能', d: '電所具有、可以轉換成其他形式的能量。' }
       ],
+      viz: {"type":"energyflow","steps":["電池或插座提供電能","電流通過電器","電燈變成光能、電扇變成動能","過程中同時產生一些熱能"],"note":"沒有一種電器能把電能百分之百變成想要的那一種能量"},
       q: {
         q: '課文說電風扇把電能變成什麼？',
         options: [
@@ -5403,6 +5407,7 @@ window.APP_TEXTS['science|四下|第9單元 簡單機械：輪軸與滑輪'] = {
       terms: [
         { w: '輪軸', d: '大輪與細軸固定同轉的省力裝置。' }
       ],
+      viz: {"type":"lever","mode":"wheel"},
       q: {
         q: '課文說在輪軸的哪一部分施力可以省力？',
         options: [
@@ -5556,6 +5561,7 @@ window.APP_TEXTS['science|五上|第1單元 動物的構造與運動'] = {
       terms: [
         { w: '無脊椎動物', d: '體內沒有脊椎骨的動物。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"脊椎動物","items":["魚類","兩生類","爬蟲類","鳥類","哺乳類"],"note":"身體裡有脊椎骨"},{"label":"無脊椎動物","items":["昆蟲","蝦蟹","蚯蚓","水母"],"note":"沒有脊椎骨，有的用外骨骼支撐"}]},
       q: {
         q: '課文說無脊椎動物靠什麼撐住身體？',
         options: [
@@ -6325,6 +6331,7 @@ window.APP_TEXTS['science|五上|第6單元 太陽、地球與四季'] = {
       terms: [
         { w: '自轉', d: '地球繞著自己的軸旋轉。' }
       ],
+      viz: {"type":"earthsun","mode":"day"},
       q: {
         q: '課文說地球自轉的方向是什麼？',
         options: [
@@ -6374,6 +6381,7 @@ window.APP_TEXTS['science|五上|第6單元 太陽、地球與四季'] = {
       terms: [
         { w: '日晷', d: '利用竿影位置判斷時間的古代儀器。' }
       ],
+      viz: {"type":"earthsun","mode":"shadow"},
       q: {
         q: '課文說上午時竿影朝哪個方向？',
         options: [
@@ -6422,6 +6430,7 @@ window.APP_TEXTS['science|五上|第6單元 太陽、地球與四季'] = {
       terms: [
         { w: '直射', d: '陽光垂直照射地面。' }
       ],
+      viz: {"type":"earthsun","mode":"season"},
       q: {
         q: '課文說地球離太陽最近是什麼時候？',
         options: [
@@ -6630,6 +6639,7 @@ window.APP_TEXTS['science|五上|第8單元 燃燒與空氣'] = {
       terms: [
         { w: '燃點', d: '物質開始燃燒所需的溫度。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"可燃物","items":["紙","木材","蠟燭"],"note":"會燒起來的東西"},{"label":"助燃物","items":["氧氣"],"note":"空氣中約占五分之一"},{"label":"達到燃點","items":["足夠的溫度"],"note":"溫度不夠就點不著"}]},
       q: {
         q: '課文說滅火的原理是什麼？',
         options: [
@@ -6752,6 +6762,7 @@ window.APP_TEXTS['science|五上|第8單元 燃燒與空氣'] = {
       terms: [
         { w: '滅火毯', d: '覆蓋在火源上隔絕氧氣的防火布。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"移除可燃物","items":["關掉瓦斯開關"],"note":"沒有東西可燒"},{"label":"隔絕氧氣","items":["蓋鍋蓋","蓋滅火毯"],"note":"油鍋起火用這一招"},{"label":"降低溫度","items":["灑水"],"note":"電器與油鍋火災不可用水"}]},
       q: {
         q: '課文說油鍋起火時絕對不能做什麼？',
         options: [
@@ -6806,6 +6817,7 @@ window.APP_TEXTS['science|五上|第9單元 生鏽與物質變化'] = {
       terms: [
         { w: '化學變化', d: '產生新物質的變化。' }
       ],
+      viz: {"type":"compareexp","factor":"有沒有產生新物質","a":{"label":"物理變化","note":"水結冰、紙撕破、糖溶進水裡，物質本身沒變"},"b":{"label":"化學變化","note":"鐵生鏽、紙燃燒、食物腐敗，產生了新的物質"},"same":["兩者外觀都改變了，關鍵是有沒有變成別的物質"]},
       q: {
         q: '課文說水沸騰冒泡屬於哪一種變化？',
         options: [
@@ -6855,6 +6867,7 @@ window.APP_TEXTS['science|五上|第9單元 生鏽與物質變化'] = {
       terms: [
         { w: '鍍鋅', d: '在鐵表面鍍上一層鋅以防鏽。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"隔絕水與氧氣","items":["上油","烤漆","鍍上其他金屬"],"note":"讓鐵碰不到水和氧氣"},{"label":"保持乾燥","items":["擦乾","放乾燥劑"],"note":"沒有水就不容易生鏽"},{"label":"換材質","items":["不鏽鋼"],"note":"表面會形成保護層"}]},
       q: {
         q: '課文說防鏽方法的共同原理是什麼？',
         options: [
@@ -6903,6 +6916,7 @@ window.APP_TEXTS['science|五上|第9單元 生鏽與物質變化'] = {
       terms: [
         { w: '操作變因', d: '實驗中刻意改變的那一個條件。' }
       ],
+      viz: {"type":"cycle","steps":["先想清楚要驗證哪一個因素","只改變那一個條件，這是操作變因","其他條件全部保持相同，這是控制變因","比較結果的差異，這是應變變因"]},
       q: {
         q: '課文說一次改變兩個條件會怎麼樣？',
         options: [
@@ -8547,6 +8561,7 @@ window.APP_TEXTS['science|六上|第2單元 微生物與人類生活'] = {
       terms: [
         { w: '真空包裝', d: '抽掉空氣以抑制微生物生長的包裝方式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"降低溫度","items":["冷藏","冷凍"],"note":"讓微生物長得很慢"},{"label":"去除水分","items":["曬乾","脫水","加鹽加糖"],"note":"微生物沒有水就無法繁殖"},{"label":"隔絕或殺菌","items":["罐頭","真空包裝","高溫殺菌"],"note":"先殺死再不讓新的進去"}]},
       q: {
         q: '課文說真空包裝的原理是什麼？',
         options: [
@@ -8626,6 +8641,7 @@ window.APP_TEXTS['science|六上|第3單元 人體的消化與營養'] = {
       terms: [
         { w: '消化', d: '把食物分解成可被吸收的小分子。' }
       ],
+      viz: {"type":"bodysystem","mode":"digest"},
       q: {
         q: '課文說牙齒在消化中負責什麼？',
         options: [
@@ -8853,6 +8869,7 @@ window.APP_TEXTS['science|六上|第4單元 人體的呼吸與循環'] = {
       terms: [
         { w: '血紅素', d: '紅血球中負責攜帶氧氣的成分。' }
       ],
+      viz: {"type":"bodysystem","mode":"blood"},
       q: {
         q: '課文說負責止血的是哪一種血球成分？',
         options: [
@@ -8957,6 +8974,7 @@ window.APP_TEXTS['science|六上|第5單元 電流的磁效應'] = {
       terms: [
         { w: '電磁鐵', d: '通電才具磁性的線圈加鐵芯裝置。' }
       ],
+      viz: {"type":"circuit","mode":"magnet"},
       q: {
         q: '課文說電磁鐵和永久磁鐵最大的差別是什麼？',
         options: [
@@ -9029,6 +9047,7 @@ window.APP_TEXTS['science|六上|第5單元 電流的磁效應'] = {
       terms: [
         { w: '迴路', d: '電流可完整流通的封閉路徑。' }
       ],
+      viz: {"type":"lamp","mode":"closed"},
       q: {
         q: '課文說短路為什麼危險？',
         options: [
@@ -9084,6 +9103,7 @@ window.APP_TEXTS['science|六上|第6單元 電動機與發電'] = {
       terms: [
         { w: '馬達', d: '把電能轉換成轉動的裝置。' }
       ],
+      viz: {"type":"circuit","mode":"motor"},
       q: {
         q: '課文說馬達的能量轉換方向是什麼？',
         options: [
@@ -9391,6 +9411,7 @@ window.APP_TEXTS['science|六上|第8單元 能量的形式與轉換'] = {
       terms: [
         { w: '化學能', d: '儲存在物質中、可經反應釋放的能量。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"跟運動有關","items":["動能","位能"],"note":"物體在動或在高處"},{"label":"看得到摸得到","items":["光能","熱能","聲能"],"note":"感官可以感受"},{"label":"儲存起來的","items":["電能","化學能"],"note":"電池與食物裡的能量"}]},
       q: {
         q: '課文說下列哪一項不是能量的形式？',
         options: [
@@ -9415,6 +9436,7 @@ window.APP_TEXTS['science|六上|第8單元 能量的形式與轉換'] = {
       terms: [
         { w: '能量轉換', d: '能量從一種形式變成另一種形式。' }
       ],
+      viz: {"type":"energyflow","steps":["電池儲存化學能","接上電路變成電能","燈泡變成光能","同時也散失成熱能"],"note":"每一次轉換都會有一部分變成熱跑掉"},
       q: {
         q: '課文說太陽能板的能量轉換是什麼？',
         options: [
@@ -9439,6 +9461,7 @@ window.APP_TEXTS['science|六上|第8單元 能量的形式與轉換'] = {
       terms: [
         { w: '能量守恆', d: '能量轉換前後總量保持不變。' }
       ],
+      viz: {"type":"compareexp","factor":"能量守恆要怎麼理解","a":{"label":"總量不變","note":"能量只會換形式，不會憑空消失或增加"},"b":{"label":"卻好像變少了","note":"變成熱能散到空氣中，就不好再利用了"},"same":["兩句話並不矛盾：總量沒少，只是變成不好用的形式"]},
       q: {
         q: '課文說「消失」的能量通常變成什麼？',
         options: [
@@ -9567,6 +9590,7 @@ window.APP_TEXTS['science|六上|第9單元 節約能源與永續'] = {
       terms: [
         { w: '待機電力', d: '電器未使用但仍插電時消耗的電。' }
       ],
+      viz: {"type":"bargraph","unit":"家庭用電占比（示意，％）","data":[{"label":"冷氣","value":28},{"label":"電熱水器","value":16},{"label":"冰箱","value":14},{"label":"照明","value":10},{"label":"其他","value":32}]},
       q: {
         q: '課文說最有效的節電要從哪一類電器下手？',
         options: [
@@ -9615,6 +9639,7 @@ window.APP_TEXTS['science|六上|第9單元 節約能源與永續'] = {
       terms: [
         { w: '源頭減量', d: '從一開始就減少廢棄物的產生。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"減量","items":["自備購物袋","少買用不到的東西"],"note":"最有效的一招：一開始就不要產生"},{"label":"重複使用","items":["環保杯","二手衣物"],"note":"不用經過處理就再用一次"},{"label":"回收再製","items":["紙類","塑膠","金屬"],"note":"要耗能重製，排在最後"}]},
       q: {
         q: '課文說三件事的優先順序是什麼？',
         options: [
@@ -11258,6 +11283,7 @@ window.APP_TEXTS['science|七上|第2單元 細胞的構造與功能'] = {
       terms: [
         { w: '胞器', d: '細胞內具特定功能的構造。' }
       ],
+      viz: {"type":"cell","mode":"animal"},
       q: {
         q: '課文說細胞膜的功能是什麼？',
         options: [
@@ -11387,6 +11413,7 @@ window.APP_TEXTS['science|七上|第3單元 細胞分裂與生物體的組成'] 
       terms: [
         { w: '細胞分裂', d: '一個細胞分成兩個細胞的過程。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"生長","items":["細胞數目增加"],"note":"個體因此變大"},{"label":"修補","items":["傷口癒合","舊細胞汰換"],"note":"補上死掉的細胞"},{"label":"繁殖","items":["單細胞生物分裂"],"note":"分裂就等於生出新個體"}]},
       q: {
         q: '課文說生物長大主要是靠什麼？',
         options: [
@@ -11411,6 +11438,7 @@ window.APP_TEXTS['science|七上|第3單元 細胞分裂與生物體的組成'] 
       terms: [
         { w: '細胞板', d: '植物細胞分裂時在中間形成的新細胞壁構造。' }
       ],
+      viz: {"type":"dna","mode":"mitosis"},
       q: {
         q: '課文說植物細胞分裂時如何分開？',
         options: [
@@ -11460,6 +11488,7 @@ window.APP_TEXTS['science|七上|第3單元 細胞分裂與生物體的組成'] 
       terms: [
         { w: '器官系統', d: '多個器官合作完成一整套功能的組合。' }
       ],
+      viz: {"type":"levels","items":["細胞：構成生物體的基本單位","組織：形態功能相似的細胞聚在一起","器官：不同組織合作完成一項工作","器官系統：多個器官合作完成一套功能","個體：所有系統協調運作的完整生物"]},
       q: {
         q: '課文說植物缺少哪一個層次？',
         options: [
@@ -11562,6 +11591,7 @@ window.APP_TEXTS['science|七上|第4單元 養分與酵素'] = {
       terms: [
         { w: '本氏液', d: '檢驗還原糖的試劑，加熱後變橙紅色。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"澱粉","items":["碘液"],"note":"變成藍黑色"},{"label":"葡萄糖","items":["本氏液加熱"],"note":"由藍色變成磚紅色"},{"label":"蛋白質","items":["雙縮脲試劑"],"note":"變成紫色"},{"label":"脂質","items":["蘇丹三號","紙上油斑"],"note":"變成紅色或留下透光油斑"}]},
       q: {
         q: '課文說檢驗蛋白質要用什麼試劑？',
         options: [
@@ -11610,6 +11640,7 @@ window.APP_TEXTS['science|七上|第4單元 養分與酵素'] = {
       terms: [
         { w: '變性', d: '蛋白質結構被破壞而失去功能。' }
       ],
+      viz: {"type":"compareexp","factor":"什麼會讓酵素失效","a":{"label":"溫度太高","note":"蛋白質變性，形狀被破壞就再也回不來"},"b":{"label":"溫度太低","note":"只是反應變慢，回到體溫又能繼續作用"},"same":["酸鹼太強也會讓酵素變性，和高溫一樣是不可逆的"]},
       q: {
         q: '課文說酵素遇到高溫會怎麼樣？',
         options: [
@@ -11690,6 +11721,7 @@ window.APP_TEXTS['science|七上|第5單元 植物的營養與運輸'] = {
       terms: [
         { w: '光合作用', d: '植物利用光能把二氧化碳與水合成養分的作用。' }
       ],
+      viz: {"type":"plantparts","mode":"photo"},
       q: {
         q: '課文說光合作用會消耗什麼？',
         options: [
@@ -11763,6 +11795,7 @@ window.APP_TEXTS['science|七上|第5單元 植物的營養與運輸'] = {
       terms: [
         { w: '肥傷', d: '施肥過濃使植物反而失水受害。' }
       ],
+      viz: {"type":"plantparts","mode":"transport"},
       q: {
         q: '課文說施肥太濃為什麼會傷害植物？',
         options: [
@@ -11842,6 +11875,7 @@ window.APP_TEXTS['science|七上|第6單元 動物的消化與吸收'] = {
       terms: [
         { w: '消化腺', d: '分泌消化液但食物不經過的腺體。' }
       ],
+      viz: {"type":"bodysystem","mode":"digest"},
       q: {
         q: '課文說下列哪一個器官食物不會經過？',
         options: [
@@ -11866,6 +11900,7 @@ window.APP_TEXTS['science|七上|第6單元 動物的消化與吸收'] = {
       terms: [
         { w: '蠕動', d: '消化道肌肉波狀收縮推送食物。' }
       ],
+      viz: {"type":"compareexp","factor":"食物成分有沒有改變","a":{"label":"物理性消化","note":"牙齒咀嚼、胃的蠕動，把食物弄小但成分不變"},"b":{"label":"化學性消化","note":"消化酵素把大分子拆成小分子，成分改變了"},"same":["兩種同時進行，弄小是為了讓酵素更好作用"]},
       q: {
         q: '課文說膽汁乳化脂肪屬於哪一種消化？',
         options: [
@@ -11994,6 +12029,7 @@ window.APP_TEXTS['science|七上|第7單元 呼吸與排泄'] = {
       terms: [
         { w: '纖毛', d: '氣管內壁能擺動、把異物推出的細毛。' }
       ],
+      viz: {"type":"energyflow","steps":["鼻腔：加溫、加溼、過濾灰塵","咽與喉：氣體與食物的共同通道","氣管與支氣管：分支送往兩肺","肺泡：真正進行氣體交換的地方"],"note":"肺泡壁只有一層細胞，外面纏著微血管，氣體才能快速交換"},
       q: {
         q: '課文說咳出痰和哪一個構造有關？',
         options: [
@@ -12091,6 +12127,7 @@ window.APP_TEXTS['science|七上|第7單元 呼吸與排泄'] = {
       terms: [
         { w: '排遺', d: '把未被吸收的食物殘渣排出體外。' }
       ],
+      viz: {"type":"compareexp","factor":"廢物從哪裡來","a":{"label":"排泄","note":"細胞代謝產生的廢物，如尿素、二氧化碳、汗"},"b":{"label":"排遺","note":"沒被吸收的食物殘渣，從來沒進過細胞"},"same":["兩者都是排出體外，來源完全不同"]},
       q: {
         q: '課文說糞便屬於排泄還是排遺？',
         options: [
@@ -12146,6 +12183,7 @@ window.APP_TEXTS['science|七上|第8單元 循環與免疫'] = {
       terms: [
         { w: '血漿', d: '血液中的液體部分，負責運送物質。' }
       ],
+      viz: {"type":"piechart","data":[{"label":"血漿","value":55},{"label":"紅血球","value":43},{"label":"白血球與血小板","value":2}]},
       q: {
         q: '課文說負責運送氧氣的是什麼？',
         options: [
@@ -12219,6 +12257,7 @@ window.APP_TEXTS['science|七上|第8單元 循環與免疫'] = {
       terms: [
         { w: '肺循環', d: '血液由心臟到肺再回到心臟的循環路徑。' }
       ],
+      viz: {"type":"bodysystem","mode":"blood"},
       q: {
         q: '課文說肺動脈裡流的是什麼血？',
         options: [
@@ -12298,6 +12337,7 @@ window.APP_TEXTS['science|七上|第9單元 神經與內分泌'] = {
       terms: [
         { w: '神經元', d: '負責接收與傳遞訊息的神經細胞。' }
       ],
+      viz: {"type":"levels","items":["神經系統","中樞神經系統：腦與脊髓，負責判斷","周圍神經系統：腦神經與脊神經","感覺神經：把訊息送進中樞","運動神經：把命令送到肌肉與腺體"]},
       q: {
         q: '課文說中樞神經系統包括哪兩部分？',
         options: [
@@ -12346,6 +12386,7 @@ window.APP_TEXTS['science|七上|第9單元 神經與內分泌'] = {
       terms: [
         { w: '反射弧', d: '反射動作所經過的神經路徑。' }
       ],
+      viz: {"type":"nerve","mode":"reflex"},
       q: {
         q: '課文說反射動作特別快的原因是什麼？',
         options: [
@@ -12450,6 +12491,7 @@ window.APP_TEXTS['science|七下|第1單元 生殖'] = {
       terms: [
         { w: '出芽', d: '母體長出小芽再分離成新個體的繁殖方式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"分裂與出芽","items":["細菌分裂","酵母菌出芽","水螅出芽"],"note":"由母體直接產生新個體"},{"label":"孢子","items":["蕨類","黴菌"],"note":"孢子落地就能長成新個體"},{"label":"營養器官","items":["馬鈴薯塊莖","草莓匍匐莖"],"note":"用根莖葉繁殖，後代與母體相同"}]},
       q: {
         q: '課文說無性生殖最大的缺點是什麼？',
         options: [
@@ -12499,6 +12541,7 @@ window.APP_TEXTS['science|七下|第1單元 生殖'] = {
       terms: [
         { w: '減數分裂', d: '形成生殖細胞時染色體數目減半的分裂。' }
       ],
+      viz: {"type":"compareexp","factor":"分裂後染色體數目","a":{"label":"有絲分裂","note":"複製一次分裂一次，子細胞與母細胞數目相同"},"b":{"label":"減數分裂","note":"複製一次分裂兩次，數目減半並產生四個細胞"},"same":["精卵結合後數目才會恢復，這樣代代才不會加倍"]},
       q: {
         q: '課文說減數分裂最重要的理由是什麼？',
         options: [
@@ -12626,6 +12669,7 @@ window.APP_TEXTS['science|七下|第2單元 遺傳法則'] = {
       terms: [
         { w: '顯性', d: '成對基因中只要有一個就表現出來的性狀。' }
       ],
+      viz: {"type":"compareexp","factor":"成對基因怎麼決定外表","a":{"label":"顯性表現","note":"只要有一個顯性基因，外表就是顯性性狀"},"b":{"label":"隱性表現","note":"必須兩個都是隱性基因，才會表現隱性性狀"},"same":["隱性基因沒有消失，只是被蓋住而已"]},
       q: {
         q: '課文提醒隱性性狀的正確理解是什麼？',
         options: [
@@ -12650,6 +12694,7 @@ window.APP_TEXTS['science|七下|第2單元 遺傳法則'] = {
       terms: [
         { w: '基因型', d: '個體所具有的基因組合。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"純種","items":["AA","aa"],"note":"成對基因相同，又叫同型合子"},{"label":"雜種","items":["Aa"],"note":"成對基因不同，又叫異型合子"},{"label":"外表型","items":["顯性性狀","隱性性狀"],"note":"AA 與 Aa 的外表一樣，基因型卻不同"}]},
       q: {
         q: '課文說 AA 和 Aa 有什麼相同、什麼不同？',
         options: [
@@ -12699,6 +12744,7 @@ window.APP_TEXTS['science|七下|第2單元 遺傳法則'] = {
       terms: [
         { w: '試交', d: '與隱性純種交配以判斷未知基因型的方法。' }
       ],
+      viz: {"type":"punnett","a":"Aa","b":"aa","trait":["顯性","隱性"]},
       q: {
         q: '課文說試交要和什麼樣的個體交配？',
         options: [
@@ -12753,6 +12799,7 @@ window.APP_TEXTS['science|七下|第3單元 基因與染色體'] = {
       terms: [
         { w: 'DNA', d: '攜帶遺傳訊息的長鏈分子。' }
       ],
+      viz: {"type":"levels","items":["細胞核：位在細胞中央","染色體：由 DNA 纏繞蛋白質形成","DNA：雙股螺旋的長鏈分子","基因：DNA 上決定某一性狀的片段"]},
       q: {
         q: '課文說基因是什麼？',
         options: [
@@ -12801,6 +12848,7 @@ window.APP_TEXTS['science|七下|第3單元 基因與染色體'] = {
       terms: [
         { w: '性染色體', d: '決定生物性別的那一對染色體。' }
       ],
+      viz: {"type":"dna","mode":"sex"},
       q: {
         q: '課文說孩子的性別由誰的染色體決定？',
         options: [
@@ -12930,6 +12978,7 @@ window.APP_TEXTS['science|七下|第4單元 生物的演化'] = {
       terms: [
         { w: '天擇', d: '環境篩選出較能適應個體的過程。' }
       ],
+      viz: {"type":"cycle","steps":["族群中本來就存在各種變異","環境資源有限，個體之間競爭","比較適應環境的個體活得久、留下較多後代","有利的特徵在族群中比例越來越高"]},
       q: {
         q: '課文說天擇的正確順序是什麼？',
         options: [
@@ -12954,6 +13003,7 @@ window.APP_TEXTS['science|七下|第4單元 生物的演化'] = {
       terms: [
         { w: '抗藥性', d: '病原體對藥物不再敏感的特性。' }
       ],
+      viz: {"type":"compareexp","factor":"樹皮顏色改變之後","a":{"label":"工業革命前","note":"樹皮淺色，淺色蛾不易被發現，數量較多"},"b":{"label":"工業革命後","note":"煤灰使樹皮變黑，深色蛾反而不易被發現"},"same":["蛾沒有變色，是環境改變了誰比較容易活下來"]},
       q: {
         q: '課文說抗藥性細菌是怎麼變成主流的？',
         options: [
@@ -13081,6 +13131,7 @@ window.APP_TEXTS['science|七下|第5單元 生物的分類'] = {
       terms: [
         { w: '種', d: '能互相交配並產生可生育後代的一群生物。' }
       ],
+      viz: {"type":"levels","items":["界：範圍最大","門","綱","目","科","屬","種：範圍最小，親緣關係最近"]},
       q: {
         q: '課文說馬和驢為什麼是不同種？',
         options: [
@@ -13105,6 +13156,7 @@ window.APP_TEXTS['science|七下|第5單元 生物的分類'] = {
       terms: [
         { w: '二名法', d: '以屬名加種小名為生物命名的方法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"屬名","items":["第一個字","字首大寫"],"note":"表示牠屬於哪一屬"},{"label":"種小名","items":["第二個字","全部小寫"],"note":"描述特徵或紀念發現者"},{"label":"書寫規定","items":["用拉丁文","要斜體或加底線"],"note":"全世界通用，避免俗名混淆"}]},
       q: {
         q: '課文說學名由哪兩部分組成？',
         options: [
@@ -13129,6 +13181,7 @@ window.APP_TEXTS['science|七下|第5單元 生物的分類'] = {
       terms: [
         { w: '原核生物', d: '沒有核膜包住細胞核的生物。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"原核生物界","items":["細菌","藍綠菌"],"note":"沒有核膜包住的細胞核"},{"label":"原生生物界","items":["草履蟲","變形蟲","藻類"],"note":"真核，構造較簡單"},{"label":"菌物界","items":["黴菌","蕈類","酵母菌"],"note":"分解者，細胞壁含幾丁質"},{"label":"植物界與動物界","items":["會行光合作用","要攝食"],"note":"依取得養分的方式區分"}]},
       q: {
         q: '課文說真菌界取得養分的方式是什麼？',
         options: [
@@ -13208,6 +13261,7 @@ window.APP_TEXTS['science|七下|第6單元 族群與群集'] = {
       terms: [
         { w: '群集', d: '同一地區所有生物族群的總和。' }
       ],
+      viz: {"type":"levels","items":["個體：一隻臺灣獼猴","族群：這座山上所有的臺灣獼猴","群集：這座山上所有種類的生物","生態系：群集加上陽光、空氣、水與土壤"]},
       q: {
         q: '課文說群集和生態系的差別是什麼？',
         options: [
@@ -13385,6 +13439,7 @@ window.APP_TEXTS['science|七下|第7單元 生態系與能量流動'] = {
       terms: [
         { w: '食物網', d: '多條食物鏈交織成的取食關係。' }
       ],
+      viz: {"type":"foodweb","mode":"chain"},
       q: {
         q: '課文說食物網越複雜，生態系會怎麼樣？',
         options: [
@@ -13409,6 +13464,7 @@ window.APP_TEXTS['science|七下|第7單元 生態系與能量流動'] = {
       terms: [
         { w: '營養階層', d: '生物在食物鏈中所處的層級。' }
       ],
+      viz: {"type":"foodweb","mode":"pyramid"},
       q: {
         q: '課文說食物鏈階數有限的原因是什麼？',
         options: [
@@ -13513,6 +13569,7 @@ window.APP_TEXTS['science|七下|第8單元 物質循環'] = {
       terms: [
         { w: '碳循環', d: '碳在生物與環境之間循環的過程。' }
       ],
+      viz: {"type":"cycle","mode":"carbon"},
       q: {
         q: '課文說把二氧化碳拿走的是什麼作用？',
         options: [
@@ -13666,6 +13723,7 @@ window.APP_TEXTS['science|七下|第9單元 生物多樣性與保育'] = {
       terms: [
         { w: '遺傳多樣性', d: '同種生物之間基因組成的差異程度。' }
       ],
+      viz: {"type":"levels","items":["遺傳多樣性：同一種生物之間的基因差異","物種多樣性：一個地區有多少不同的物種","生態系多樣性：森林、溪流、海岸等不同環境"]},
       q: {
         q: '課文說遺傳多樣性低會有什麼風險？',
         options: [
@@ -13739,6 +13797,7 @@ window.APP_TEXTS['science|七下|第9單元 生物多樣性與保育'] = {
       terms: [
         { w: '原生種', d: '本來就分布在該地區的物種。' }
       ],
+      viz: {"type":"cycle","steps":["外來種被人為引入","當地沒有天敵又適應良好","數量大量增加、搶走資源","本土物種數量下降甚至消失"]},
       q: {
         q: '課文說隨意放生會造成什麼？',
         options: [
@@ -13972,6 +14031,7 @@ window.APP_TEXTS['science|八上|第2單元 物質的組成與性質'] = {
       terms: [
         { w: '純物質', d: '只由一種物質組成、性質固定的物質。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"純物質－元素","items":["氧氣","銅","碳"],"note":"不能再用化學方法分解"},{"label":"純物質－化合物","items":["水","二氧化碳","食鹽"],"note":"由不同元素以固定比例組成"},{"label":"混合物","items":["空氣","海水","糖水"],"note":"各成分保有原本性質，可用物理方法分離"}]},
       q: {
         q: '課文說下列哪一項是純物質？',
         options: [
@@ -14069,6 +14129,7 @@ window.APP_TEXTS['science|八上|第2單元 物質的組成與性質'] = {
       terms: [
         { w: '粒子模型', d: '用微小粒子的排列與運動解釋物質狀態。' }
       ],
+      viz: {"type":"statechange","mode":"states"},
       q: {
         q: '課文說液體的粒子有什麼特性？',
         options: [
@@ -14304,6 +14365,7 @@ window.APP_TEXTS['science|八上|第4單元 溶液與濃度'] = {
       terms: [
         { w: '重量百分濃度', d: '溶質重量占溶液總重量的百分比。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"20 公克糖 + 80 公克水","hint":"溶質重 20，溶劑重 80"},{"expr":"溶液重 = 20 + 80 = 100","hint":"溶液重是溶質加溶劑，不是只有水"},{"expr":"20 ÷ 100 × 100% = 20%","hint":"重量百分濃度＝溶質重 ÷ 溶液重 × 100%"}]},
       q: {
         q: '課文說計算濃度時分母是什麼？',
         options: [
@@ -14507,6 +14569,7 @@ window.APP_TEXTS['science|八上|第5單元 溫度與熱'] = {
       terms: [
         { w: '輻射', d: '不需介質、以電磁波傳遞熱的方式。' }
       ],
+      viz: {"type":"heat","mode":"conduct"},
       q: {
         q: '課文說保溫瓶鍍銀是為了擋哪一種傳熱？',
         options: [
@@ -14586,6 +14649,7 @@ window.APP_TEXTS['science|八上|第6單元 波動與聲音'] = {
       terms: [
         { w: '波長', d: '一個完整波形的長度。' }
       ],
+      viz: {"type":"soundwave","amp":3,"freq":4,"edit":false},
       q: {
         q: '課文說水波上的落葉會怎麼樣？',
         options: [
@@ -14683,6 +14747,7 @@ window.APP_TEXTS['science|八上|第6單元 波動與聲音'] = {
       terms: [
         { w: '超聲波', d: '頻率高於人耳可聽上限的聲波。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"次聲波","items":["低於 20 赫茲"],"note":"大象與地震會產生，人耳聽不到"},{"label":"可聽聲","items":["20 到 20000 赫茲"],"note":"人耳能聽到的範圍"},{"label":"超聲波","items":["高於 20000 赫茲"],"note":"蝙蝠定位、醫學超音波、聲納都用它"}]},
       q: {
         q: '課文說狗笛人聽不見的原因是什麼？',
         options: [
@@ -14738,6 +14803,7 @@ window.APP_TEXTS['science|八上|第7單元 光的反射與面鏡'] = {
       terms: [
         { w: '針孔成像', d: '光經小孔在屏幕上形成倒立實像的現象。' }
       ],
+      viz: {"type":"optics","mode":"straight"},
       q: {
         q: '課文說針孔成像的像是什麼樣子？',
         options: [
@@ -14762,6 +14828,7 @@ window.APP_TEXTS['science|八上|第7單元 光的反射與面鏡'] = {
       terms: [
         { w: '法線', d: '垂直於反射面、用來量角度的基準線。' }
       ],
+      viz: {"type":"optics","mode":"mirror"},
       q: {
         q: '課文說入射角要從哪裡量起？',
         options: [
@@ -14939,6 +15006,7 @@ window.APP_TEXTS['science|八上|第8單元 光的折射與透鏡'] = {
       terms: [
         { w: '焦距', d: '透鏡中心到焦點的距離。' }
       ],
+      viz: {"type":"imaging","mode":"lens"},
       q: {
         q: '課文說投影機的物體放在哪個位置？',
         options: [
@@ -15012,6 +15080,7 @@ window.APP_TEXTS['science|八上|第8單元 光的折射與透鏡'] = {
       terms: [
         { w: '視網膜', d: '眼球後方感光成像的膜。' }
       ],
+      viz: {"type":"compareexp","factor":"影像成在哪裡","a":{"label":"近視","note":"影像成在視網膜前方，看遠不清楚，要戴凹透鏡"},"b":{"label":"遠視","note":"影像成在視網膜後方，看近不清楚，要戴凸透鏡"},"same":["兩者都是水晶體的調節能力與眼球長度不搭配"]},
       q: {
         q: '課文說近視的像成在視網膜的哪裡？',
         options: [
@@ -15196,6 +15265,7 @@ window.APP_TEXTS['science|八下|第1單元 原子與分子'] = {
       terms: [
         { w: '質子', d: '原子核中帶正電的粒子。' }
       ],
+      viz: {"type":"atom","z":6},
       q: {
         q: '課文說中性原子的質子數和電子數關係是什麼？',
         options: [
@@ -15374,6 +15444,7 @@ window.APP_TEXTS['science|八下|第2單元 元素與週期表'] = {
       terms: [
         { w: '延展性', d: '可被拉長或壓薄而不斷裂的性質。' }
       ],
+      viz: {"type":"ptable","highlight":"metal"},
       q: {
         q: '課文說哪一個是「非金屬卻能導電」的例外？',
         options: [
@@ -15398,6 +15469,7 @@ window.APP_TEXTS['science|八下|第2單元 元素與週期表'] = {
       terms: [
         { w: '惰性氣體', d: '最外層電子已滿、幾乎不與其他元素反應的氣體。' }
       ],
+      viz: {"type":"ptable","highlight":"group"},
       q: {
         q: '課文說鈉為什麼要保存在油中？',
         options: [
@@ -15550,6 +15622,7 @@ window.APP_TEXTS['science|八下|第3單元 化學反應與方程式'] = {
       terms: [
         { w: '配平', d: '調整係數使反應式兩邊原子數相等。' }
       ],
+      viz: {"type":"chemeq","mode":"balance"},
       q: {
         q: '課文說配平時絕對不能動什麼？',
         options: [
@@ -15574,6 +15647,7 @@ window.APP_TEXTS['science|八下|第3單元 化學反應與方程式'] = {
       terms: [
         { w: '取代反應', d: '活性大的元素把化合物中元素置換出來的反應。' }
       ],
+      viz: {"type":"chemeq","mode":"type"},
       q: {
         q: '課文說電解水屬於哪一種反應？',
         options: [
@@ -15702,6 +15776,7 @@ window.APP_TEXTS['science|八下|第4單元 質量守恆與計算'] = {
       terms: [
         { w: '分子量', d: '分子中所有原子的原子量總和。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"2 H₂ + O₂ → 2 H₂O","hint":"第一步：先把方程式配平"},{"expr":"4 : 32 : 36","hint":"第二步：算出各物質的質量比"},{"expr":"8 公克氫氣 → 需要 64 公克氧氣","hint":"第三步：依比例放大或縮小"}]},
       q: {
         q: '課文說係數比是什麼比？',
         options: [
@@ -15751,6 +15826,7 @@ window.APP_TEXTS['science|八下|第4單元 質量守恆與計算'] = {
       terms: [
         { w: '密閉系統', d: '物質不能進出的實驗系統。' }
       ],
+      viz: {"type":"chemeq","mode":"mass"},
       q: {
         q: '課文說驗證質量守恆為什麼要用密閉容器？',
         options: [
@@ -15805,6 +15881,7 @@ window.APP_TEXTS['science|八下|第5單元 酸鹼鹽'] = {
       terms: [
         { w: '碳酸鹽', d: '含碳酸根的鹽類，遇酸會放出二氧化碳。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"共同性質","items":["有酸味","使藍色石蕊變紅"],"note":"絕對不可以用嚐的來判斷"},{"label":"與金屬反應","items":["產生氫氣"],"note":"鎂或鋅加鹽酸會冒泡"},{"label":"與碳酸鹽反應","items":["產生二氧化碳"],"note":"蛋殼加醋會冒泡就是這個反應"}]},
       q: {
         q: '課文說酸和活性大的金屬反應會產生什麼？',
         options: [
@@ -15854,6 +15931,7 @@ window.APP_TEXTS['science|八下|第5單元 酸鹼鹽'] = {
       terms: [
         { w: 'pH 值', d: '表示溶液酸鹼強度的數值。' }
       ],
+      viz: {"type":"phscale"},
       q: {
         q: '課文說 pH 三和 pH 五的酸性差幾倍？',
         options: [
@@ -15957,6 +16035,7 @@ window.APP_TEXTS['science|八下|第6單元 氧化還原'] = {
       terms: [
         { w: '還原', d: '物質失去氧或得到電子的變化。' }
       ],
+      viz: {"type":"compareexp","factor":"氧或電子往哪邊跑","a":{"label":"氧化","note":"得到氧，或說失去電子"},"b":{"label":"還原","note":"失去氧，或說得到電子"},"same":["兩者一定同時發生：有人得到電子，就有人失去電子"]},
       q: {
         q: '課文說氧化和還原的關係是什麼？',
         options: [
@@ -16029,6 +16108,7 @@ window.APP_TEXTS['science|八下|第6單元 氧化還原'] = {
       terms: [
         { w: '脫氧劑', d: '吸收包裝內氧氣以延長保存的物質。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"劇烈氧化","items":["燃燒","爆炸"],"note":"短時間放出大量光和熱"},{"label":"緩慢氧化","items":["生鏽","食物腐敗","呼吸作用"],"note":"不發光，熱慢慢放出"},{"label":"共同點","items":["都是與氧結合"],"note":"差別只在反應的快慢"}]},
       q: {
         q: '課文說食品包裝充氮氣的目的是什麼？',
         options: [
@@ -16109,6 +16189,7 @@ window.APP_TEXTS['science|八下|第7單元 電解與電池'] = {
       terms: [
         { w: '電解質', d: '溶於水或熔融後能導電的物質。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"電解質","items":["食鹽水","鹽酸","氫氧化鈉溶液"],"note":"溶於水會解離出離子，因此能導電"},{"label":"非電解質","items":["糖水","酒精水溶液"],"note":"溶於水不解離，不能導電"},{"label":"判斷方法","items":["接上燈泡測試"],"note":"燈泡亮就是電解質溶液"}]},
       q: {
         q: '課文說固體食鹽為什麼不導電？',
         options: [
@@ -16231,6 +16312,7 @@ window.APP_TEXTS['science|八下|第7單元 電解與電池'] = {
       terms: [
         { w: '自發', d: '不需外加能量就會進行。' }
       ],
+      viz: {"type":"compareexp","factor":"能量往哪個方向轉換","a":{"label":"電池","note":"化學能變成電能，是自發進行的反應"},"b":{"label":"電解","note":"電能變成化學能，要外接電源才會進行"},"same":["兩者都在同一個裝置概念上，方向剛好相反"]},
       q: {
         q: '課文說充電的本質是什麼？',
         options: [
@@ -16440,6 +16522,7 @@ window.APP_TEXTS['science|八下|第9單元 化學與生活'] = {
       terms: [
         { w: '防腐劑', d: '抑制微生物生長以延長食品保存期的添加物。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"延長保存","items":["防腐劑","抗氧化劑"],"note":"抑制微生物或減緩氧化"},{"label":"改善外觀口感","items":["著色劑","甜味劑","香料"],"note":"不影響安全但要標示"},{"label":"使用原則","items":["合法","適量"],"note":"合法添加物在限量內才安全"}]},
       q: {
         q: '課文說食品添加物的問題通常出在哪裡？',
         options: [
@@ -16568,6 +16651,7 @@ window.APP_TEXTS['science|九上|第1單元 力的作用與測量'] = {
       terms: [
         { w: '交互作用', d: '兩個物體之間互相施力的關係。' }
       ],
+      viz: {"type":"force","mode":"effect"},
       q: {
         q: '課文說力有沒有可能單獨存在？',
         options: [
@@ -16819,6 +16903,7 @@ window.APP_TEXTS['science|九上|第2單元 力的合成與平衡'] = {
       terms: [
         { w: '力矩', d: '力與力臂的乘積，決定轉動效果。' }
       ],
+      viz: {"type":"lever","mode":"lever"},
       q: {
         q: '課文說力臂是什麼距離？',
         options: [
@@ -16874,6 +16959,7 @@ window.APP_TEXTS['science|九上|第3單元 牛頓運動定律（一）'] = {
       terms: [
         { w: '位移', d: '起點到終點的直線距離與方向。' }
       ],
+      viz: {"type":"compareexp","factor":"有沒有考慮方向","a":{"label":"路徑長","note":"實際走過的長度，是純量，只有大小"},"b":{"label":"位移","note":"起點到終點的直線距離與方向，是向量"},"same":["繞操場一圈回到原點：路徑長 400 公尺，位移是 0"]},
       q: {
         q: '課文說繞操場一圈回到原點，位移是多少？',
         options: [
@@ -16923,6 +17009,7 @@ window.APP_TEXTS['science|九上|第3單元 牛頓運動定律（一）'] = {
       terms: [
         { w: '加速度', d: '單位時間內速度的變化量。' }
       ],
+      viz: {"type":"motion","mode":"accel"},
       q: {
         q: '課文說高速等速行駛的車，加速度是多少？',
         options: [
@@ -17026,6 +17113,7 @@ window.APP_TEXTS['science|九上|第4單元 牛頓運動定律（二、三）'] 
       terms: [
         { w: '牛頓', d: '力的單位，使一公斤產生一單位加速度的力。' }
       ],
+      viz: {"type":"newton","mode":"second"},
       q: {
         q: '課文說加速度的方向和什麼相同？',
         options: [
@@ -17099,6 +17187,7 @@ window.APP_TEXTS['science|九上|第4單元 牛頓運動定律（二、三）'] 
       terms: [
         { w: '受力分析', d: '只看某一物體所受各個力的分析方法。' }
       ],
+      viz: {"type":"newton","mode":"third"},
       q: {
         q: '課文說判斷車會不會動，要看什麼？',
         options: [
@@ -17123,6 +17212,7 @@ window.APP_TEXTS['science|九上|第4單元 牛頓運動定律（二、三）'] 
       terms: [
         { w: '動量', d: '質量與速度的乘積，代表運動的量。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"p = m × v","hint":"動量等於質量乘以速度，方向與速度相同"},{"expr":"2 公斤 × 3 公尺/秒 = 6","hint":"單位是公斤·公尺/秒"},{"expr":"質量大或速度快 → 動量大","hint":"這就是大車比小車難停下來的原因"}]},
       q: {
         q: '課文說緩衝裝置減小衝擊力的原理是什麼？',
         options: [
@@ -17356,6 +17446,7 @@ window.APP_TEXTS['science|九上|第6單元 功與功率'] = {
       terms: [
         { w: '功', d: '力使物體沿力方向移動所轉移的能量。' }
       ],
+      viz: {"type":"exprsteps","steps":[{"expr":"W = F × s","hint":"功等於力乘以沿力方向移動的距離"},{"expr":"20 牛頓 × 3 公尺 = 60 焦耳","hint":"單位是焦耳"},{"expr":"推牆不動 → s = 0 → W = 0","hint":"再用力，只要沒移動就沒有作功"}]},
       q: {
         q: '課文說二十牛頓推三公尺做了多少功？',
         options: [
@@ -17484,6 +17575,7 @@ window.APP_TEXTS['science|九上|第7單元 能量與能量守恆'] = {
       terms: [
         { w: '能量', d: '做功的能力，單位為焦耳。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"動能","items":["移動中的車","流動的水"],"note":"與質量和速度平方有關"},{"label":"位能","items":["高處的球","壓緊的彈簧"],"note":"因位置或形變而儲存"},{"label":"力學能","items":["動能 + 位能"],"note":"兩者的總和"}]},
       q: {
         q: '課文說能量的單位是什麼？',
         options: [
@@ -17557,6 +17649,7 @@ window.APP_TEXTS['science|九上|第7單元 能量與能量守恆'] = {
       terms: [
         { w: '力學能', d: '動能與位能的總和。' }
       ],
+      viz: {"type":"energyball"},
       q: {
         q: '課文說球往下掉時能量怎麼轉換？',
         options: [
@@ -17660,6 +17753,7 @@ window.APP_TEXTS['science|九上|第8單元 簡單機械'] = {
       terms: [
         { w: '省力槓桿', d: '施力臂較長、可以省力的槓桿。' }
       ],
+      viz: {"type":"lever","mode":"lever"},
       q: {
         q: '課文說費力槓桿換來的是什麼？',
         options: [
@@ -17708,6 +17802,7 @@ window.APP_TEXTS['science|九上|第8單元 簡單機械'] = {
       terms: [
         { w: '組合滑輪', d: '定滑輪與動滑輪合用的裝置。' }
       ],
+      viz: {"type":"lever","mode":"pulley"},
       q: {
         q: '課文說定滑輪的作用是什麼？',
         options: [
@@ -17812,6 +17907,7 @@ window.APP_TEXTS['science|九上|第9單元 壓力與流體'] = {
       terms: [
         { w: '液體壓力', d: '液體因重量而對各處產生的壓力。' }
       ],
+      viz: {"type":"pressure","mode":"liquid"},
       q: {
         q: '課文說液體壓力和什麼無關？',
         options: [
@@ -17836,6 +17932,7 @@ window.APP_TEXTS['science|九上|第9單元 壓力與流體'] = {
       terms: [
         { w: '大氣壓力', d: '空氣重量所造成的壓力。' }
       ],
+      viz: {"type":"pressure","mode":"air"},
       q: {
         q: '課文說用吸管喝飲料的真正原因是什麼？',
         options: [
@@ -17965,6 +18062,7 @@ window.APP_TEXTS['science|九下|第1單元 靜電與電流'] = {
       terms: [
         { w: '靜電感應', d: '帶電體使附近物體電荷重新分布的現象。' }
       ],
+      viz: {"type":"static","mode":"force"},
       q: {
         q: '課文說帶電體能吸引碎紙屑的原因是什麼？',
         options: [
@@ -18117,6 +18215,7 @@ window.APP_TEXTS['science|九下|第2單元 歐姆定律與電阻'] = {
       terms: [
         { w: '歐姆定律', d: '電流與電壓成正比、與電阻成反比的關係。' }
       ],
+      viz: {"type":"ohm","v":6,"r":3},
       q: {
         q: '課文說沒接電時導體的電阻會怎麼樣？',
         options: [
@@ -18246,6 +18345,7 @@ window.APP_TEXTS['science|九下|第3單元 電功率與電能'] = {
       terms: [
         { w: '電功率', d: '單位時間內消耗的電能。' }
       ],
+      viz: {"type":"ohm","mode":"power","v":110,"r":55},
       q: {
         q: '課文說電功率的意義是什麼？',
         options: [
@@ -18449,6 +18549,7 @@ window.APP_TEXTS['science|九下|第4單元 電流的磁效應'] = {
       terms: [
         { w: '鐵芯', d: '插在線圈中增強磁性的鐵質核心。' }
       ],
+      viz: {"type":"circuit","mode":"magnet"},
       q: {
         q: '課文說電磁鐵勝過永久磁鐵的地方是什麼？',
         options: [
@@ -18521,6 +18622,7 @@ window.APP_TEXTS['science|九下|第4單元 電流的磁效應'] = {
       terms: [
         { w: '換向器', d: '週期性改變電流方向、使線圈持續轉動的元件。' }
       ],
+      viz: {"type":"circuit","mode":"motor"},
       q: {
         q: '課文說沒有換向器的馬達會怎麼樣？',
         options: [
@@ -18575,6 +18677,7 @@ window.APP_TEXTS['science|九下|第5單元 電磁感應與發電'] = {
       terms: [
         { w: '渦輪', d: '被蒸汽或水流推動旋轉的葉片裝置。' }
       ],
+      viz: {"type":"circuit","mode":"generator"},
       q: {
         q: '課文說哪一種發電方式不靠轉動線圈？',
         options: [
@@ -18803,6 +18906,7 @@ window.APP_TEXTS['science|九下|第6單元 地球的組成與板塊'] = {
       terms: [
         { w: '車籠埔斷層', d: '造成 1999 年九二一地震的斷層。' }
       ],
+      viz: {"type":"plates","mode":"collide"},
       q: {
         q: '課文說臺灣的山還在長高，原因是什麼？',
         options: [
@@ -18906,6 +19010,7 @@ window.APP_TEXTS['science|九下|第7單元 天氣與氣候'] = {
       terms: [
         { w: '滯留鋒', d: '冷暖氣團勢均力敵、停留不動的鋒面。' }
       ],
+      viz: {"type":"weathermap","mode":"front"},
       q: {
         q: '課文說臺灣的梅雨是哪一種鋒面造成的？',
         options: [
@@ -18930,6 +19035,7 @@ window.APP_TEXTS['science|九下|第7單元 天氣與氣候'] = {
       terms: [
         { w: '輻合', d: '氣流向中心聚集的現象。' }
       ],
+      viz: {"type":"weathermap","mode":"typhoon"},
       q: {
         q: '課文說北半球颱風的旋轉方向是什麼？',
         options: [
@@ -19058,6 +19164,7 @@ window.APP_TEXTS['science|九下|第8單元 天文與太陽系'] = {
       terms: [
         { w: '朔望月', d: '月相變化一個完整週期的時間。' }
       ],
+      viz: {"type":"moonphase"},
       q: {
         q: '課文說月相變化的原因是什麼？',
         options: [
@@ -19212,6 +19319,7 @@ window.APP_TEXTS['science|九下|第9單元 環境與永續'] = {
       terms: [
         { w: '資源循環', d: '讓材料重複被利用、減少廢棄的做法。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"減量","items":["少用一次性用品","自備容器"],"note":"最優先：源頭不產生"},{"label":"重複使用","items":["環保杯","二手交換"],"note":"不必再加工就能再用"},{"label":"回收再製","items":["紙","塑膠","金屬","玻璃"],"note":"要耗能重製，排最後"}]},
       q: {
         q: '課文說三個原則中哪一個最優先？',
         options: [
