@@ -19,6 +19,25 @@
 唯二共用的是前端過濾邏輯（`js/app.js` 的 `CUSTOM_CATS`/`bankCat()` 等，加題不會碰到）
 和 `test/test.js`（兩套都會檢查，這是好事）。
 
+## 0.5 ⚠ 直接改 js/data 的工具，改完一定要同步回 jsonl（2026-09-05 血淚）
+
+`js/data/<科>.js` 是 `build-bank.js` 從 `tools/tikuconv/<科>/*.jsonl` **產生**出來的。
+但「逐題人工重寫」那一類工具（`set-qfix.js`、`set-distractors.js`）為了方便是**直接改 js/data**。
+兩邊一旦分岔，下次照流程 A 加題重建，人工重寫的成果就會被 jsonl 的舊內容**靜默洗掉**。
+
+2026-09-05 高中七科 10,951 題誘答重寫完，就是差一步全部沒了（當時 physics 有 1,147 題只存在於 js/data）。
+
+**規則：任何直接改 js/data 的批次收工後，跑一次同步再 commit。**
+
+```bash
+python3 tools/sync-bank-to-jsonl.py <科目>            # 先看不改，報幾題不同
+python3 tools/sync-bank-to-jsonl.py <科目> --write    # 寫回 jsonl
+```
+
+它照 README 重建指令的檔案順序把「第 N 題對第 N 題」，逐題核對 `q` 全對得上才寫回
+`options`／`answer`／`exp`；對不上會直接停下來不寫（順序走鐘時不要硬幹）。
+驗收：重跑一次 README 的重建指令，`js/data/<科>.js` 應該**一個字都不變**。
+
 ## 1. 流程 A：原創題庫加題（最常見的例行工作）
 
 一次做一冊（例：數學三上）。**一冊 = 一個 commit**。
