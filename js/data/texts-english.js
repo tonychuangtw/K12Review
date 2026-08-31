@@ -17161,6 +17161,7 @@ window.APP_TEXTS['english|七上|第4單元 疑問詞'] = {
       terms: [
         { w: '程度', d: '多少、多久、多遠這類量。' }
       ],
+      viz: {"type":"matchpair","title":"How 的家族","left":"問法","right":"問什麼","pairs":[{"a":"How old","b":"幾歲"},{"a":"How tall","b":"多高"},{"a":"How far","b":"多遠"},{"a":"How often","b":"多常、頻率"}]},
       q: {
         q: '課文說 How often 問的是什麼？',
         options: [
@@ -17185,6 +17186,7 @@ window.APP_TEXTS['english|七上|第4單元 疑問詞'] = {
       terms: [
         { w: '可數', d: '可以一個兩個去數的。' }
       ],
+      viz: {"type":"compareexp","factor":"How many 與 How much","a":{"label":"How many","note":"後接可數名詞複數：How many books do you have?"},"b":{"label":"How much","note":"後接不可數名詞：How much water do you need?"},"same":["兩者都在問數量，差別在名詞可不可數"]},
       q: {
         q: '課文說判斷用 many 還是 much 要看什麼？',
         options: [
@@ -17239,6 +17241,7 @@ window.APP_TEXTS['english|七上|第5單元 名詞與冠詞'] = {
       terms: [
         { w: '抽象概念', d: '看不見摸不到的想法或事物。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"可數名詞","items":["book","apple","car"],"note":"可以說 one、two，也有複數形"},{"label":"不可數名詞","items":["water","information","rice"],"note":"不能直接加 s，也不能加 a"},{"label":"要用單位詞","items":["a glass of water","a piece of paper"],"note":"不可數名詞要靠單位詞計數"}]},
       q: {
         q: '課文說為什麼這裡最容易出錯？',
         options: [
@@ -17263,6 +17266,7 @@ window.APP_TEXTS['english|七上|第5單元 名詞與冠詞'] = {
       terms: [
         { w: '複數', d: '數量超過一個的形式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"直接加 s","items":["books","pens"],"note":"最常見的規則"},{"label":"加 es","items":["boxes","watches"],"note":"字尾是 s、x、ch、sh"},{"label":"不規則","items":["children","feet","teeth"],"note":"要個別記住"}]},
       q: {
         q: '課文說字尾是 fe 的名詞複數要怎麼變？',
         options: [
@@ -17441,6 +17445,7 @@ window.APP_TEXTS['english|七上|第6單元 指示代名詞'] = {
       terms: [
         { w: '指示形容詞', d: '放在名詞前面指出哪一個的字。' }
       ],
+      viz: {"type":"compareexp","factor":"當代名詞還是當形容詞","a":{"label":"指示代名詞","note":"This is my book.（this 自己當主詞）"},"b":{"label":"指示形容詞","note":"This book is mine.（this 放在名詞前面修飾）"},"same":["同一個字，看它後面有沒有名詞就知道是哪一種用法"]},
       q: {
         q: '課文說 these 後面的名詞要用什麼形式？',
         options: [
@@ -17465,6 +17470,7 @@ window.APP_TEXTS['english|七上|第6單元 指示代名詞'] = {
       terms: [
         { w: '慣用法', d: '約定俗成的固定說法。' }
       ],
+      viz: {"type":"sentence","label":"電話中的固定說法","items":[{"t":"This is Tom","r":"我是湯姆（自稱用 this）"},{"t":"speaking.","r":"固定說法"}],"note":"英文電話中自稱用 this，問對方用 that。","alt":[{"label":"問對方","items":[{"t":"Is that","r":"你是……嗎（問對方用 that）"},{"t":"Mary?","r":"對方的名字"}],"note":"中文習慣說「我是」「你是」，英文的用字不同。"}]},
       q: {
         q: '課文說電話中自稱要用哪一個字？',
         options: [
@@ -17568,6 +17574,7 @@ window.APP_TEXTS['english|七上|第7單元 數字、時間與日期'] = {
       terms: [
         { w: 'past', d: '過了，用在幾點過幾分。' }
       ],
+      viz: {"type":"clock","h":7,"m":15},
       q: {
         q: '課文說 to 用在什麼情況？',
         options: [
@@ -17592,6 +17599,7 @@ window.APP_TEXTS['english|七上|第7單元 數字、時間與日期'] = {
       terms: [
         { w: '介系詞', d: '表示時間或位置關係的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"at","items":["at six","at noon","at night"],"note":"用在明確的時刻"},{"label":"on","items":["on Monday","on May 5"],"note":"用在特定的日期或星期"},{"label":"in","items":["in May","in 2026","in the morning"],"note":"用在較長的時間範圍"}]},
       q: {
         q: '課文說 at night 用的是哪一個介系詞？',
         options: [
@@ -17745,6 +17753,7 @@ window.APP_TEXTS['english|七上|第8單元 祈使句'] = {
       terms: [
         { w: '客氣', d: '說話有禮貌不強硬。' }
       ],
+      viz: {"type":"levels","items":["Close the door. 最直接","Please close the door. 加了 please","Could you close the door? 客氣","Would you mind closing the door? 最客氣"]},
       q: {
         q: '課文說最簡單讓語氣客氣的方法是什麼？',
         options: [
@@ -17793,6 +17802,7 @@ window.APP_TEXTS['english|七上|第8單元 祈使句'] = {
       terms: [
         { w: '連接詞', d: '把兩個部分連起來的字。' }
       ],
+      viz: {"type":"compareexp","factor":"祈使句後面接 and 還是 or","a":{"label":"接 and","note":"Hurry up, and you will catch the bus.（就會…）"},"b":{"label":"接 or","note":"Hurry up, or you will miss the bus.（否則就會…）"},"same":["兩句的前半段一樣，連接詞決定了後半段是好結果還是壞結果"]},
       q: {
         q: '課文說接 or 表示什麼結果？',
         options: [
@@ -17872,6 +17882,7 @@ window.APP_TEXTS['english|七上|第9單元 現在進行式'] = {
       terms: [
         { w: '重音', d: '一個字裡唸得最重的音節。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"直接加 ing","items":["playing","reading"],"note":"最常見的情況"},{"label":"去 e 加 ing","items":["making","writing"],"note":"字尾是不發音的 e"},{"label":"重複字尾再加","items":["running","sitting"],"note":"短母音加單子音結尾"}]},
       q: {
         q: '課文說字尾是不發音的 e 要怎麼加 ing？',
         options: [
@@ -17920,6 +17931,7 @@ window.APP_TEXTS['english|七上|第9單元 現在進行式'] = {
       terms: [
         { w: '訊號字', d: '幫助判斷時態的字詞。' }
       ],
+      viz: {"type":"compareexp","factor":"現在簡單式與現在進行式","a":{"label":"現在簡單式","note":"I play basketball.（習慣、經常做的事）"},"b":{"label":"現在進行式","note":"I am playing basketball.（此刻正在做）"},"same":["兩者都用現在，差別在講的是習慣還是當下"]},
       q: {
         q: '課文說看到 now 要用哪一種時態？',
         options: [
@@ -19846,6 +19858,7 @@ window.APP_TEXTS['english|八上|第4單元 動名詞'] = {
       terms: [
         { w: '動名詞', d: '動詞加 ing 當名詞用。' }
       ],
+      viz: {"type":"sentence","label":"動名詞當主詞","items":[{"t":"Swimming","r":"動名詞當主詞"},{"t":"is","r":"動詞用單數"},{"t":"good exercise.","r":"補語"}],"note":"動詞加 ing 之後具有名詞的功能，可以當主詞或受詞。","alt":[{"label":"當受詞","items":[{"t":"I enjoy","r":"主詞與動詞"},{"t":"swimming.","r":"動名詞當受詞"}],"note":"enjoy 後面只能接動名詞。"}]},
       q: {
         q: '課文說動名詞當主詞時動詞要用什麼？',
         options: [
@@ -19944,6 +19957,7 @@ window.APP_TEXTS['english|八上|第4單元 動名詞'] = {
       terms: [
         { w: '語意差異', d: '同一個字搭配不同形式意思不同。' }
       ],
+      viz: {"type":"matchpair","title":"意思會改變的動詞","left":"用法","right":"意思","pairs":[{"a":"stop doing","b":"停止做這件事"},{"a":"stop to do","b":"停下來去做另一件事"},{"a":"forget doing","b":"忘記做過了"},{"a":"forget to do","b":"忘記要去做"}]},
       q: {
         q: '課文說 remember to do 是什麼意思？',
         options: [
@@ -19998,6 +20012,7 @@ window.APP_TEXTS['english|八上|第5單元 不定詞'] = {
       terms: [
         { w: '不定詞', d: 'to 加原形動詞的形式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"當名詞","items":["To learn English is fun."],"note":"可以當主詞或受詞"},{"label":"當形容詞","items":["something to eat"],"note":"放在名詞後面修飾"},{"label":"當副詞","items":["I came to help."],"note":"表示目的或結果"}]},
       q: {
         q: '課文說不定詞有幾種角色？',
         options: [
@@ -20046,6 +20061,7 @@ window.APP_TEXTS['english|八上|第5單元 不定詞'] = {
       terms: [
         { w: '虛主詞', d: '沒有實際意義、只為湊主詞的字。' }
       ],
+      viz: {"type":"sentence","label":"用 It 當虛主詞","items":[{"t":"It","r":"虛主詞"},{"t":"is important","r":"評價"},{"t":"to learn English.","r":"真主詞"}],"note":"真主詞太長時，先用 It 佔住主詞的位置。","alt":[{"label":"不用虛主詞","items":[{"t":"To learn English","r":"真主詞放前面"},{"t":"is important.","r":"頭重腳輕"}],"note":"文法可以，但英文習慣用虛主詞。"}]},
       q: {
         q: '課文說主詞太長時可以怎麼做？',
         options: [
@@ -20175,6 +20191,7 @@ window.APP_TEXTS['english|八上|第6單元 連綴動詞與感官動詞'] = {
       terms: [
         { w: '感官動詞', d: '表達五種感覺的動詞。' }
       ],
+      viz: {"type":"matchpair","title":"五種感官動詞","left":"動詞","right":"意思","pairs":[{"a":"look","b":"看起來（接形容詞）"},{"a":"sound","b":"聽起來"},{"a":"smell","b":"聞起來"},{"a":"taste","b":"嚐起來"}]},
       q: {
         q: '課文說感官動詞後面要接什麼？',
         options: [
@@ -20272,6 +20289,7 @@ window.APP_TEXTS['english|八上|第6單元 連綴動詞與感官動詞'] = {
       terms: [
         { w: '陷阱', d: '容易讓人判斷錯誤的地方。' }
       ],
+      viz: {"type":"compareexp","factor":"連綴動詞後面接形容詞還是副詞","a":{"label":"錯誤","note":"You look beautifully.（連綴動詞不接副詞）"},"b":{"label":"正確","note":"You look beautiful.（接形容詞當主詞補語）"},"same":["兩句都想說「你看起來很美」，錯在詞性選錯"]},
       q: {
         q: '課文說檢查方法是什麼？',
         options: [
@@ -20302,6 +20320,7 @@ window.APP_TEXTS['english|八上|第7單元 對等連接詞'] = {
       terms: [
         { w: '對等連接詞', d: '連接地位相同兩部分的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"and","items":["並列、增加"],"note":"前後同方向"},{"label":"but","items":["轉折、相反"],"note":"前後語意相反"},{"label":"or / so","items":["選擇、因果"],"note":"or 是二選一，so 是所以"}]},
       q: {
         q: '課文說對等連接詞前後的東西要怎樣？',
         options: [
@@ -20350,6 +20369,7 @@ window.APP_TEXTS['english|八上|第7單元 對等連接詞'] = {
       terms: [
         { w: '擇一', d: '兩個當中只能選一個。' }
       ],
+      viz: {"type":"compareexp","factor":"中文的「因為…所以…」不能直接搬","a":{"label":"中式英文","note":"Because it rained, so we stayed home.（兩個都用）"},"b":{"label":"正確英文","note":"Because it rained, we stayed home. 或 It rained, so we stayed home."},"same":["中文可以並用，英文只能留一個連接詞"]},
       q: {
         q: '課文說 because 和 so 可不可以同時用？',
         options: [
@@ -20454,6 +20474,7 @@ window.APP_TEXTS['english|八上|第8單元 附屬連接詞'] = {
       terms: [
         { w: '附屬子句', d: '不能單獨成句的那個子句。' }
       ],
+      viz: {"type":"sentence","label":"主句與附屬子句","items":[{"t":"When I got home,","r":"附屬子句（前面要加逗號）"},{"t":"my mom","r":"主句主詞"},{"t":"was cooking.","r":"主句動詞"}],"note":"附屬子句本身不能單獨成句，一定要配一個主句。","alt":[{"label":"換位置","items":[{"t":"My mom was cooking","r":"主句放前面"},{"t":"when I got home.","r":"這時不用逗號"}],"note":"位置不同，逗號的用法也不同。"}]},
       q: {
         q: '課文說附屬子句放句首時後面要加什麼？',
         options: [
@@ -20527,6 +20548,7 @@ window.APP_TEXTS['english|八上|第8單元 附屬連接詞'] = {
       terms: [
         { w: '讓步', d: '先承認一件事再說相反的。' }
       ],
+      viz: {"type":"compareexp","factor":"although 與 but 不能一起用","a":{"label":"中式英文","note":"Although it rained, but we went.（雖然…但是連用）"},"b":{"label":"正確英文","note":"Although it rained, we went."},"same":["兩者都在表達讓步，英文只能擇一使用"]},
       q: {
         q: '課文說英文可不可以同時用 although 和 but？',
         options: [
@@ -20631,6 +20653,7 @@ window.APP_TEXTS['english|八上|第9單元 過去進行式'] = {
       terms: [
         { w: '背景', d: '事情發生時的環境或狀態。' }
       ],
+      viz: {"type":"compareexp","factor":"when 與 while 後面接什麼","a":{"label":"when","note":"後接短暫動作，多用過去簡單式：when the phone rang"},"b":{"label":"while","note":"後接持續動作，多用過去進行式：while I was sleeping"},"same":["兩者都表示「當…的時候」，搭配的時態不同"]},
       q: {
         q: '課文說 while 後面接哪一種時態？',
         options: [
@@ -20679,6 +20702,7 @@ window.APP_TEXTS['english|八上|第9單元 過去進行式'] = {
       terms: [
         { w: '打斷', d: '一件事讓正在進行的事中止。' }
       ],
+      viz: {"type":"sentence","label":"被打斷的動作","items":[{"t":"I was sleeping","r":"持續中的動作（過去進行式）"},{"t":"when the alarm rang.","r":"打斷它的短暫動作（過去簡單式）"}],"note":"長動作用進行式，打斷它的短動作用簡單式。","alt":[{"label":"兩件事同時進行","items":[{"t":"While I was cooking,","r":"進行式"},{"t":"he was reading.","r":"也用進行式"}],"note":"兩件事都持續時，兩邊都用進行式。"}]},
       q: {
         q: '課文說兩個都用簡單式會變成什麼意思？',
         options: [
@@ -22501,6 +22525,7 @@ window.APP_TEXTS['english|九上|第3單元 名詞子句'] = {
       terms: [
         { w: '語序', d: '句子裡各部分排列的順序。' }
       ],
+      viz: {"type":"sentence","label":"疑問詞引導的名詞子句","items":[{"t":"I do not know","r":"主句"},{"t":"where he lives.","r":"名詞子句（用直述句語序）"}],"note":"名詞子句要用直述句的語序，不能寫成 where does he live。","alt":[{"label":"常見錯誤","items":[{"t":"I do not know","r":"主句"},{"t":"where does he live.","r":"錯：不能用疑問句語序"}],"note":"這是最常見的錯誤之一。"}]},
       q: {
         q: '課文說疑問詞引導的名詞子句語序是什麼？',
         options: [
@@ -22525,6 +22550,7 @@ window.APP_TEXTS['english|九上|第3單元 名詞子句'] = {
       terms: [
         { w: 'whether', d: '是否，用來引導名詞子句。' }
       ],
+      viz: {"type":"compareexp","factor":"whether 與 if 都表示「是否」","a":{"label":"whether","note":"可放句首、可接 or not、可接不定詞，用法最廣"},"b":{"label":"if","note":"多用在動詞後面當受詞，不能放句首當主詞"},"same":["當受詞時兩者常可互換，其餘位置只能用 whether"]},
       q: {
         q: '課文說後面接 or not 時要用哪一個？',
         options: [
@@ -22628,6 +22654,7 @@ window.APP_TEXTS['english|九上|第4單元 疑問詞 + to V'] = {
       terms: [
         { w: '簡化', d: '把句子改寫得更精簡。' }
       ],
+      viz: {"type":"sentence","label":"由名詞子句簡化而來","items":[{"t":"I do not know","r":"主句"},{"t":"what to do.","r":"疑問詞 ＋ 不定詞"}],"note":"原句是 I do not know what I should do，簡化後更精簡。","alt":[{"label":"完整寫法","items":[{"t":"I do not know","r":"主句"},{"t":"what I should do.","r":"名詞子句"}],"note":"兩者意思相同，簡化後省掉主詞與助動詞。"}]},
       q: {
         q: '課文說簡化成不定詞要滿足哪兩個條件？',
         options: [
@@ -22780,6 +22807,7 @@ window.APP_TEXTS['english|九上|第5單元 授與動詞'] = {
       terms: [
         { w: '介系詞', d: '表示關係的字，如 to、for。' }
       ],
+      viz: {"type":"compareexp","factor":"授與動詞的兩種語序","a":{"label":"雙受詞","note":"He gave me a book.（人在前、物在後）"},"b":{"label":"換順序","note":"He gave a book to me.（物在前，人前面要加 to）"},"same":["兩句意思相同，換順序時一定要補上介系詞"]},
       q: {
         q: '課文說物放前面時人的前面要加什麼？',
         options: [
@@ -22829,6 +22857,7 @@ window.APP_TEXTS['english|九上|第5單元 授與動詞'] = {
       terms: [
         { w: 'for', d: '為了，表示為某人做。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"用 to","items":["give","send","show","tell"],"note":"東西交到對方手上"},{"label":"用 for","items":["buy","make","cook","get"],"note":"為對方做某件事"},{"label":"只能一種語序","items":["explain","introduce","suggest"],"note":"必須說 explain it to me"}]},
       q: {
         q: '課文說 buy 換順序時要用哪一個介系詞？',
         options: [
@@ -22907,6 +22936,7 @@ window.APP_TEXTS['english|九上|第6單元 反身代名詞'] = {
       terms: [
         { w: '反身代名詞', d: '動作回到自己身上時用的代名詞。' }
       ],
+      viz: {"type":"matchpair","title":"反身代名詞對照","left":"主詞","right":"反身代名詞","pairs":[{"a":"I","b":"myself"},{"a":"you（單數）","b":"yourself"},{"a":"they","b":"themselves"},{"a":"we","b":"ourselves"}]},
       q: {
         q: '課文說複數的反身代名詞用什麼結尾？',
         options: [
@@ -22931,6 +22961,7 @@ window.APP_TEXTS['english|九上|第6單元 反身代名詞'] = {
       terms: [
         { w: '受詞', d: '動作所指向的對象。' }
       ],
+      viz: {"type":"compareexp","factor":"受詞是不是同一個人","a":{"label":"是同一個人","note":"He hurt himself.（他弄傷了自己）"},"b":{"label":"是別人","note":"He hurt him.（他弄傷了另一個男生）"},"same":["只差一個字，意思完全不同"]},
       q: {
         q: '課文說主詞和受詞是同一人時受詞要用什麼？',
         options: [
@@ -23004,6 +23035,7 @@ window.APP_TEXTS['english|九上|第6單元 反身代名詞'] = {
       terms: [
         { w: '日常動作', d: '每天固定會做的事。' }
       ],
+      viz: {"type":"compareexp","factor":"日常動作不用反身代名詞","a":{"label":"中式英文","note":"I dress myself every morning.（英文不這樣說）"},"b":{"label":"自然英文","note":"I get dressed every morning."},"same":["中文說「自己穿衣服」，英文的 dress、wash 本身就含這個意思"]},
       q: {
         q: '課文說日常動作要不要加反身代名詞？',
         options: [
