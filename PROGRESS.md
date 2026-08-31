@@ -33,7 +33,8 @@ NEXT_ACTION: 【2026-08-31 Tony 核定：先做 (8) 丙＝高中七科先修品�
    一定要看到 `<科> NNNN 題 → js/data/<科>.js` 才算建成。
  進度：物理 ✅（1728→2160；易 40→470、實驗 8→69、圖表 14→62、素養 8→78）
       化學 ✅（1728→2160；易 5→437、實驗 16→90、圖表 9→83、素養 48→112、計算 139→259）
- 剩 5 科 30 冊：生物、地科、公民、地理、歷史。
+      生物 ✅（1728→2160；易 2→434、計算 49→201、實驗 18→92、圖表 5→100）
+ 剩 4 科 24 冊：地科、公民、地理、歷史。
  ⚠ 越後面的冊（十二年級的總複習／應用冊）基本題空間越滿：物理十上撞 13 題、化學十一下撞 31、化學十二下撞 35。
    對這類冊子直接**以計算題為主**下筆（數值型練習不會撞題，也正是學生需要反覆練的），
    定義型的觀念題留給前面幾冊。
@@ -298,7 +299,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-05 台北
+UPDATED: 2026-09-06 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
