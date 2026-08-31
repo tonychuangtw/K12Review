@@ -2,7 +2,7 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: in-progress
+STATUS: done
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
 NEXT_ACTION: 【(1) 俚語、(8) 高中七科、(3) 課文帶讀配圖、(6) 歷屆會考補題都已完工。
  2026-08-31 兩輪共補 147 題（103～115 各年＋111 補考＋112 陸考），無文可讀的承上題已歸零。
@@ -331,7 +331,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 補記：各科自編原創題（science/math/english/history…）的解析是「✅正解：… ❌其他選項：… 📚課綱重點：…」
 的固定三段式，同一支腳本加一種形狀就能生（問「其他選項」那段或「課綱重點」那段），要做隨時可以接。
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
+BLOCKERS: 無可自行推進的工作（2026-08-31 歷屆補題做完後再次確認）。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
 UPDATED: 2026-08-31 台北
 
