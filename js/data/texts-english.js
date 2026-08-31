@@ -26281,6 +26281,7 @@ window.APP_TEXTS['english|十下|第1單元 假設語氣'] = {
       terms: [
         { w: '假設語氣', d: '表示與事實相反的說法。' }
       ],
+      viz: {"type":"compareexp","factor":"與現在事實相反的假設","a":{"label":"事實","note":"I am not rich, so I cannot buy it.（我不有錢，所以買不起）"},"b":{"label":"假設語氣","note":"If I were rich, I would buy it.（如果我有錢，我就會買）"},"same":["兩句描述的是同一件事，只是假設語氣把它想成相反的情況"]},
       q: {
         q: '課文說假設語氣裡的 be 動詞要用哪一個？',
         options: [
@@ -26305,6 +26306,7 @@ window.APP_TEXTS['english|十下|第1單元 假設語氣'] = {
       terms: [
         { w: '後悔', d: '對已發生的事感到遺憾。' }
       ],
+      viz: {"type":"sentence","label":"與過去事實相反","items":[{"t":"If","r":"如果"},{"t":"I had studied","r":"had ＋ 過去分詞"},{"t":"harder,","r":"更用功"},{"t":"I would have passed.","r":"would have ＋ 過去分詞"}],"note":"與過去事實相反：if 子句用過去完成式，主要子句用 would have ＋ 過去分詞。","alt":[{"label":"與現在事實相反","items":[{"t":"If I studied harder,","r":"if ＋ 過去式"},{"t":"I would pass.","r":"would ＋ 原形"}],"note":"與現在相反時，時態各往回退一格。"}]},
       q: {
         q: '課文說與過去事實相反的主句要用什麼？',
         options: [
@@ -26483,6 +26485,7 @@ window.APP_TEXTS['english|十下|第2單元 倒裝句'] = {
       terms: [
         { w: '主句', d: '句子裡能單獨成立的那一部分。' }
       ],
+      viz: {"type":"sentence","label":"Not until 的倒裝","items":[{"t":"Not until he arrived","r":"直到他到達"},{"t":"did","r":"助動詞提前"},{"t":"we","r":"主詞"},{"t":"start.","r":"動詞用原形"}],"note":"否定副詞放句首時，後面的主詞與助動詞要倒裝。","alt":[{"label":"不倒裝的說法","items":[{"t":"We did not start","r":"我們沒有開始"},{"t":"until he arrived.","r":"直到他到達"}],"note":"語氣比較平淡，但意思相同。"}]},
       q: {
         q: '課文說 Not until 句型倒裝的是哪一部分？',
         options: [
@@ -26555,6 +26558,7 @@ window.APP_TEXTS['english|十下|第2單元 倒裝句'] = {
       terms: [
         { w: '附和', d: '表示自己也一樣。' }
       ],
+      viz: {"type":"compareexp","factor":"附和對方時用 So 還是 Neither","a":{"label":"附和肯定句","note":"A：I like coffee. B：So do I.（我也喜歡）"},"b":{"label":"附和否定句","note":"A：I do not like coffee. B：Neither do I.（我也不喜歡）"},"same":["兩者都要倒裝，助動詞放在主詞前面"]},
       q: {
         q: '課文說否定的附和要用哪一個字？',
         options: [
@@ -26585,6 +26589,7 @@ window.APP_TEXTS['english|十下|第3單元 強調句型'] = {
       terms: [
         { w: '分裂句', d: '把句子拆開以強調某部分的句型。' }
       ],
+      viz: {"type":"sentence","label":"分裂句強調主詞","items":[{"t":"It was","r":"固定開頭"},{"t":"John","r":"被強調的部分"},{"t":"that","r":"連接"},{"t":"broke the window.","r":"其餘部分"}],"note":"原句是 John broke the window，把 John 拉出來強調。","alt":[{"label":"強調時間","items":[{"t":"It was yesterday","r":"強調時間"},{"t":"that he came.","r":"其餘部分"}],"note":"同一個句子可以強調不同的部分。"}]},
       q: {
         q: '課文說分裂句可以強調什麼？',
         options: [
@@ -26658,6 +26663,7 @@ window.APP_TEXTS['english|十下|第3單元 強調句型'] = {
       terms: [
         { w: '反身代名詞', d: '動作回到自己身上時用的代名詞。' }
       ],
+      viz: {"type":"sentence","label":"反身代名詞加強語氣","items":[{"t":"The manager","r":"主詞"},{"t":"himself","r":"親自（可省略）"},{"t":"apologized.","r":"動詞"}],"note":"反身代名詞放在主詞後面表示「親自」，拿掉也不影響句子完整。","alt":[{"label":"放句尾","items":[{"t":"The manager apologized","r":"經理道歉"},{"t":"himself.","r":"親自"}],"note":"位置可換，語氣稍微不同。"}]},
       q: {
         q: '課文說反身代名詞強調用法可不可以省略？',
         options: [
@@ -26787,6 +26793,7 @@ window.APP_TEXTS['english|十下|第4單元 比較結構'] = {
       terms: [
         { w: '句型', d: '句子的固定結構。' }
       ],
+      viz: {"type":"sentence","label":"越來越與越某越某","items":[{"t":"It is getting","r":"變得"},{"t":"colder and colder.","r":"比較級 ＋ and ＋ 比較級"}],"note":"重複比較級表示「越來越」。","alt":[{"label":"越某越某","items":[{"t":"The more you practice,","r":"the ＋ 比較級"},{"t":"the better you get.","r":"the ＋ 比較級"}],"note":"兩個 the 開頭的比較級搭配使用。"}]},
       q: {
         q: '課文說「越練習越進步」要用哪一種句型？',
         options: [
@@ -26811,6 +26818,7 @@ window.APP_TEXTS['english|十下|第4單元 比較結構'] = {
       terms: [
         { w: '對等', d: '性質相同、可以互相比較。' }
       ],
+      viz: {"type":"compareexp","factor":"比較的對象必須對等","a":{"label":"錯誤","note":"My car is faster than you.（把車和「你」比）"},"b":{"label":"正確","note":"My car is faster than yours.（車和車比）"},"same":["比較時兩邊的詞類與性質要一致，否則句意會走樣"]},
       q: {
         q: '課文說比較的兩邊要滿足什麼條件？',
         options: [
@@ -26914,6 +26922,7 @@ window.APP_TEXTS['english|十下|第5單元 平行結構與精簡'] = {
       terms: [
         { w: '對應', d: '前後兩部分互相配合。' }
       ],
+      viz: {"type":"sentence","label":"相關連接詞要平行","items":[{"t":"not only","r":"不只"},{"t":"to sing","r":"不定詞"},{"t":"but also","r":"而且"},{"t":"to dance","r":"也要用不定詞"}],"note":"not only A but also B 的 A 與 B 詞類必須相同。","alt":[{"label":"錯誤示範","items":[{"t":"not only to sing","r":"不定詞"},{"t":"but also dancing","r":"動名詞（不平行）"}],"note":"一邊不定詞一邊動名詞就破壞了平行。"}]},
       q: {
         q: '課文說相關連接詞的兩邊要怎樣？',
         options: [
@@ -26938,6 +26947,7 @@ window.APP_TEXTS['english|十下|第5單元 平行結構與精簡'] = {
       terms: [
         { w: '贅字', d: '沒有作用、可以刪掉的字。' }
       ],
+      viz: {"type":"matchpair","title":"贅字改成精簡說法","left":"冗長","right":"精簡","pairs":[{"a":"due to the fact that","b":"because"},{"a":"at this point in time","b":"now"},{"a":"in the event that","b":"if"},{"a":"has the ability to","b":"can"}]},
       q: {
         q: '課文說 at this point in time 可以改成什麼？',
         options: [
@@ -27041,6 +27051,7 @@ window.APP_TEXTS['english|十下|第6單元 連接詞與轉折語'] = {
       terms: [
         { w: '連接副詞', d: '連接前後句意的副詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"對等連接詞","items":["and","but","or","so"],"note":"連接兩個地位相同的子句"},{"label":"從屬連接詞","items":["because","although","when","if"],"note":"帶出從屬子句"},{"label":"連接副詞","items":["however","therefore","moreover"],"note":"前面要用分號或句號，不能只用逗號"}]},
       q: {
         q: '課文說 however 屬於哪一類？',
         options: [
@@ -27089,6 +27100,7 @@ window.APP_TEXTS['english|十下|第6單元 連接詞與轉折語'] = {
       terms: [
         { w: '逗號拼接', d: '只用逗號連接兩個完整句的錯誤。' }
       ],
+      viz: {"type":"compareexp","factor":"兩個完整句子之間該用什麼","a":{"label":"逗號連接（錯）","note":"It was late, we went home.（逗號不能連接兩個完整句）"},"b":{"label":"正確寫法","note":"It was late, so we went home. 或 It was late; we went home."},"same":["兩句都想表達「天色晚了所以回家」，差別只在連接的方式"]},
       q: {
         q: '課文說逗號拼接要怎麼修正？',
         options: [
@@ -27138,6 +27150,7 @@ window.APP_TEXTS['english|十下|第6單元 連接詞與轉折語'] = {
       terms: [
         { w: '介系詞', d: '後面接名詞的功能詞。' }
       ],
+      viz: {"type":"compareexp","factor":"後面接名詞還是接子句","a":{"label":"介系詞","note":"despite / in spite of ＋ 名詞：despite the rain"},"b":{"label":"連接詞","note":"although / though ＋ 子句：although it rained"},"same":["兩者的意思都是「雖然」，錯在後面接的東西不對"]},
       q: {
         q: '課文說 despite 後面要接什麼？',
         options: [
@@ -27192,6 +27205,7 @@ window.APP_TEXTS['english|十下|第7單元 字根字首進階'] = {
       terms: [
         { w: '字根', d: '一個字最核心的部分。' }
       ],
+      viz: {"type":"phonics","words":[{"w":"inspect","parts":["in","spect"],"hit":1,"s":"spect 是看，in 是往內，所以是檢查","mean":"檢查"},{"w":"prospect","parts":["pro","spect"],"hit":1,"s":"pro 是向前，往前看就是前景","mean":"前景"},{"w":"spectator","parts":["spect","ator"],"hit":0,"s":"看的人就是觀眾","mean":"觀眾"}],"note":"認出 spect 這個字根，一整串字都能猜到大概的意思。"},
       q: {
         q: '課文說 dict 這個字根是什麼意思？',
         options: [
@@ -27241,6 +27255,7 @@ window.APP_TEXTS['english|十下|第7單元 字根字首進階'] = {
       terms: [
         { w: '字首', d: '加在字前面改變意思的部分。' }
       ],
+      viz: {"type":"matchpair","title":"數字字首","left":"字首","right":"意思與例字","pairs":[{"a":"mono / uni","b":"一：monologue、unicorn"},{"a":"bi / du","b":"二：bicycle、duet"},{"a":"tri","b":"三：triangle、tricycle"},{"a":"multi / poly","b":"多：multimedia、polygon"}]},
       q: {
         q: '課文說 tri 這個字首是什麼意思？',
         options: [
@@ -27368,6 +27383,7 @@ window.APP_TEXTS['english|十下|第8單元 閱讀：推論與態度'] = {
       terms: [
         { w: '褒義', d: '帶有正面評價的意思。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"褒義用字","items":["innovative","remarkable","promising"],"note":"作者可能持正面態度"},{"label":"貶義用字","items":["questionable","flawed","misleading"],"note":"作者可能持批判態度"},{"label":"中性用字","items":["report","state","describe"],"note":"作者傾向客觀陳述"}]},
       q: {
         q: '課文說態度藏在哪些字裡？',
         options: [
@@ -27392,6 +27408,7 @@ window.APP_TEXTS['english|十下|第8單元 閱讀：推論與態度'] = {
       terms: [
         { w: '態度', d: '作者對主題的立場或看法。' }
       ],
+      viz: {"type":"matchpair","title":"常見的態度選項","left":"英文","right":"中文與判斷線索","pairs":[{"a":"objective","b":"客觀：只陳述事實，少用情緒字"},{"a":"critical","b":"批判：出現 however、flawed 等字"},{"a":"skeptical","b":"存疑：常用 claim、alleged"},{"a":"supportive","b":"支持：多用正面形容詞"}]},
       q: {
         q: '課文說 skeptical 是什麼態度？',
         options: [
@@ -27465,6 +27482,7 @@ window.APP_TEXTS['english|十下|第8單元 閱讀：推論與態度'] = {
       terms: [
         { w: '保守', d: '不誇大、留有餘地。' }
       ],
+      viz: {"type":"cycle","steps":["先讀懂題目問的是哪一種推論","回原文找出相關的那幾句","注意作者用的形容詞與轉折語","選出有原文根據的選項，不要自行加戲"]},
       q: {
         q: '課文說推論題通常哪一種選項是對的？',
         options: [
@@ -27495,6 +27513,7 @@ window.APP_TEXTS['english|十下|第9單元 寫作：段落發展'] = {
       terms: [
         { w: '段落發展', d: '把一段內容擴充完整的方式。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"舉例與說明","items":["example","illustration"],"note":"用 for example、such as 帶出"},{"label":"比較與對照","items":["comparison","contrast"],"note":"用 similarly、in contrast 帶出"},{"label":"因果與分類","items":["cause and effect","classification"],"note":"用 because、as a result 帶出"}]},
       q: {
         q: '課文說段落發展有幾種方式？',
         options: [
@@ -27617,6 +27636,7 @@ window.APP_TEXTS['english|十下|第9單元 寫作：段落發展'] = {
       terms: [
         { w: '論點', d: '整篇文章要主張的核心看法。' }
       ],
+      viz: {"type":"cycle","steps":["引言：先寫背景再帶出論點","主體段一：第一個理由加例子","主體段二：第二個理由加例子","結論：回扣論點並收束"]},
       q: {
         q: '課文說結論可不可以直接重抄引言？',
         options: [
@@ -27647,6 +27667,7 @@ window.APP_TEXTS['english|十一上|第1單元 不定詞與動名詞'] = {
       terms: [
         { w: '語感', d: '對語言自然的直覺。' }
       ],
+      viz: {"type":"compareexp","factor":"不定詞與動名詞的核心語感","a":{"label":"to ＋ 原形（不定詞）","note":"指向未來、尚未發生：I want to go.（想去，還沒去）"},"b":{"label":"V-ing（動名詞）","note":"指向已發生或一般狀態：I enjoy going.（享受去這件事）"},"same":["兩者都可以當主詞或受詞，差別在時間感與動詞的搭配習慣"]},
       q: {
         q: '課文說動名詞指向什麼？',
         options: [
@@ -27671,6 +27692,7 @@ window.APP_TEXTS['english|十一上|第1單元 不定詞與動名詞'] = {
       terms: [
         { w: '語意差異', d: '同一個字搭配不同形式意思不同。' }
       ],
+      viz: {"type":"matchpair","title":"接不定詞與接動名詞意思會變的動詞","left":"用法","right":"意思","pairs":[{"a":"stop to smoke","b":"停下來去抽菸"},{"a":"stop smoking","b":"戒菸，不再抽了"},{"a":"remember to lock","b":"記得要去鎖（還沒鎖）"},{"a":"remember locking","b":"記得鎖過了（已經鎖）"}]},
       q: {
         q: '課文說 try 加動名詞是什麼意思？',
         options: [
@@ -27799,6 +27821,7 @@ window.APP_TEXTS['english|十一上|第2單元 情態助動詞'] = {
       terms: [
         { w: '情態助動詞', d: '表達語氣與可能性的助動詞。' }
       ],
+      viz: {"type":"levels","items":["must 一定是（最強）","should 應該是","may / might 可能是","cannot 不可能（否定最強）"]},
       q: {
         q: '課文說哪一個助動詞表達的可能性最強？',
         options: [
@@ -27848,6 +27871,7 @@ window.APP_TEXTS['english|十一上|第2單元 情態助動詞'] = {
       terms: [
         { w: '委婉', d: '說得比較客氣不直接。' }
       ],
+      viz: {"type":"levels","items":["Can I …? 最口語","Could I …? 較有禮貌","May I …? 正式有禮","Would you mind …? 最客氣"]},
       q: {
         q: '課文說請求句裡的 could 是不是過去式？',
         options: [
@@ -27872,6 +27896,7 @@ window.APP_TEXTS['english|十一上|第2單元 情態助動詞'] = {
       terms: [
         { w: '狀態', d: '持續存在的情況而非動作。' }
       ],
+      viz: {"type":"compareexp","factor":"used to 與 would 都講過去，用法不同","a":{"label":"used to","note":"過去的習慣或狀態：I used to live in Tainan.（狀態也可以）"},"b":{"label":"would","note":"只講過去反覆的動作：He would visit us every summer."},"same":["兩者都表示現在已經不是這樣了"]},
       q: {
         q: '課文說 would 可不可以用來講過去的狀態？',
         options: [
@@ -27975,6 +28000,7 @@ window.APP_TEXTS['english|十一上|第3單元 助動詞 + 完成式'] = {
       terms: [
         { w: '推測', d: '根據線索猜測事情如何。' }
       ],
+      viz: {"type":"sentence","label":"must have 表肯定推測","items":[{"t":"The ground is wet.","r":"看到的證據"},{"t":"It must have rained.","r":"一定下過雨"}],"note":"must have ＋ 過去分詞表示對過去的肯定推測。","alt":[{"label":"否定推測","items":[{"t":"He cannot have finished","r":"他不可能寫完了"},{"t":"so quickly.","r":"這麼快"}],"note":"否定推測用 cannot have ＋ 過去分詞。"}]},
       q: {
         q: '課文說 must have 的確定度如何？',
         options: [
@@ -27999,6 +28025,7 @@ window.APP_TEXTS['english|十一上|第3單元 助動詞 + 完成式'] = {
       terms: [
         { w: '遺憾', d: '對過去的事感到可惜。' }
       ],
+      viz: {"type":"compareexp","factor":"should have 與 could have 的語氣不同","a":{"label":"should have","note":"後悔或責備：You should have told me.（你早該告訴我）"},"b":{"label":"could have","note":"本來可以但沒做：You could have called me.（本來可以打給我）"},"same":["兩者都在講過去沒有實際發生的事"]},
       q: {
         q: '課文說 should have 帶有什麼意味？',
         options: [
@@ -28127,6 +28154,7 @@ window.APP_TEXTS['english|十一上|第4單元 冠詞與限定詞'] = {
       terms: [
         { w: '不定冠詞', d: 'a 和 an 這兩個冠詞。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"用 a","items":["a book","a university"],"note":"後面接子音開頭的音"},{"label":"用 an","items":["an apple","an hour"],"note":"後面接母音開頭的音，看發音不看字母"},{"label":"不用冠詞","items":["water","information"],"note":"不可數名詞泛指時不加"}]},
       q: {
         q: '課文說選 a 或 an 要依什麼決定？',
         options: [
@@ -28151,6 +28179,7 @@ window.APP_TEXTS['english|十一上|第4單元 冠詞與限定詞'] = {
       terms: [
         { w: '定冠詞', d: 'the 這個冠詞。' }
       ],
+      viz: {"type":"matchpair","title":"the 的常見用法","left":"情況","right":"例子","pairs":[{"a":"前面提過的東西","b":"I saw a dog. The dog was black."},{"a":"世界上獨一無二","b":"the sun、the moon"},{"a":"有後位修飾限定","b":"the book on the table"},{"a":"最高級與序數","b":"the tallest、the first"}]},
       q: {
         q: '課文說最高級前面要用什麼冠詞？',
         options: [
@@ -28199,6 +28228,7 @@ window.APP_TEXTS['english|十一上|第4單元 冠詞與限定詞'] = {
       terms: [
         { w: '限定詞', d: '放在名詞前限定數量或範圍的字。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"只配可數名詞","items":["many","a few","few","several"],"note":"後面接複數形"},{"label":"只配不可數名詞","items":["much","a little","little"],"note":"後面接單數形"},{"label":"兩者都可以","items":["some","any","a lot of"],"note":"最保險的說法"}]},
       q: {
         q: '課文說 few 和 a few 差在哪裡？',
         options: [
@@ -28277,6 +28307,7 @@ window.APP_TEXTS['english|十一上|第5單元 介系詞片語'] = {
       terms: [
         { w: '搭配', d: '固定要一起使用的詞組。' }
       ],
+      viz: {"type":"matchpair","title":"動詞與介系詞的固定搭配","left":"搭配","right":"意思","pairs":[{"a":"depend on","b":"取決於、依賴"},{"a":"consist of","b":"由…組成"},{"a":"result in","b":"導致（後接結果）"},{"a":"result from","b":"起因於（後接原因）"}]},
       q: {
         q: '課文說 agree with 後面接什麼？',
         options: [
@@ -28301,6 +28332,7 @@ window.APP_TEXTS['english|十一上|第5單元 介系詞片語'] = {
       terms: [
         { w: '形容詞片語', d: '形容詞加介系詞的固定組合。' }
       ],
+      viz: {"type":"matchpair","title":"形容詞與介系詞的搭配","left":"搭配","right":"意思","pairs":[{"a":"be interested in","b":"對…有興趣"},{"a":"be good at","b":"擅長於"},{"a":"be afraid of","b":"害怕"},{"a":"be responsible for","b":"對…負責"}]},
       q: {
         q: '課文說 be famous as 是什麼意思？',
         options: [
@@ -28430,6 +28462,7 @@ window.APP_TEXTS['english|十一上|第6單元 名詞化與正式語體'] = {
       terms: [
         { w: '緊湊', d: '結構密實、字數精簡。' }
       ],
+      viz: {"type":"compareexp","factor":"同一件事的口語與書面寫法","a":{"label":"口語（動詞為主）","note":"Scientists discovered the virus, and this changed medicine."},"b":{"label":"書面（名詞化）","note":"The discovery of the virus transformed medicine."},"same":["兩句意思相同，名詞化讓句子更精簡也更正式"]},
       q: {
         q: '課文說名詞化之後句子會怎樣？',
         options: [
@@ -28478,6 +28511,7 @@ window.APP_TEXTS['english|十一上|第6單元 名詞化與正式語體'] = {
       terms: [
         { w: '語體', d: '文章所使用的語言風格。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"正式語體","items":["do not（不縮寫）","however","obtain"],"note":"學術寫作偏好"},{"label":"口語語體","items":["don't","but","get"],"note":"日常對話與非正式書信"},{"label":"兩者都可","items":["because","show","help"],"note":"中性詞彙最安全"}]},
       q: {
         q: '課文說正式語體要避免哪一類動詞？',
         options: [
@@ -28502,6 +28536,7 @@ window.APP_TEXTS['english|十一上|第6單元 名詞化與正式語體'] = {
       terms: [
         { w: '客觀', d: '不帶個人立場的陳述。' }
       ],
+      viz: {"type":"compareexp","factor":"主觀與客觀的表達方式","a":{"label":"主觀","note":"I think this is wrong.（我認為這是錯的）"},"b":{"label":"客觀","note":"The evidence suggests otherwise.（證據顯示並非如此）"},"same":["兩者都在表達不同意，但客觀說法在學術寫作中較被接受"]},
       q: {
         q: '課文說學術寫作把重點放在什麼上？',
         options: [
@@ -28556,6 +28591,7 @@ window.APP_TEXTS['english|十一上|第7單元 搭配詞'] = {
       terms: [
         { w: '搭配詞', d: '經常一起出現的字組。' }
       ],
+      viz: {"type":"compareexp","factor":"文法對但不自然的搭配","a":{"label":"不自然","note":"thick coffee、do a mistake（母語者不會這樣說）"},"b":{"label":"自然","note":"strong coffee、make a mistake"},"same":["兩種寫法文法都沒錯，差別在於是否符合慣用的搭配"]},
       q: {
         q: '課文說文法沒錯卻不自然，通常是什麼問題？',
         options: [
@@ -28605,6 +28641,7 @@ window.APP_TEXTS['english|十一上|第7單元 搭配詞'] = {
       terms: [
         { w: '分組', d: '把相似的東西放在一起。' }
       ],
+      viz: {"type":"classify","groups":[{"label":"take","items":["take a break","take a risk","take notes"],"note":"多與動作、風險有關"},{"label":"have","items":["have a meeting","have breakfast"],"note":"多與經歷、活動有關"},{"label":"give","items":["give a speech","give advice"],"note":"多與給予、表達有關"}]},
       q: {
         q: '課文說 take place 屬於哪一個動詞的搭配？',
         options: [
@@ -28653,6 +28690,7 @@ window.APP_TEXTS['english|十一上|第7單元 搭配詞'] = {
       terms: [
         { w: '副詞', d: '修飾動詞或形容詞的字。' }
       ],
+      viz: {"type":"matchpair","title":"副詞與形容詞的常見搭配","left":"搭配","right":"意思","pairs":[{"a":"highly likely","b":"極有可能"},{"a":"deeply concerned","b":"深感憂慮"},{"a":"fully aware","b":"完全知情"},{"a":"widely accepted","b":"廣為接受"}]},
       q: {
         q: '課文說 very 可不可以修飾動詞？',
         options: [
@@ -28707,6 +28745,7 @@ window.APP_TEXTS['english|十一上|第8單元 長句解析'] = {
       terms: [
         { w: '主要動詞', d: '主要子句裡的那個動詞。' }
       ],
+      viz: {"type":"cycle","steps":["先找出主要子句的動詞","畫掉所有的形容詞子句與插入語","確認主詞與動詞是否一致","再把修飾語一層一層加回去理解"]},
       q: {
         q: '課文說拆長句的第一步是什麼？',
         options: [
@@ -28781,6 +28820,7 @@ window.APP_TEXTS['english|十一上|第8單元 長句解析'] = {
       terms: [
         { w: '插入語', d: '插在句中補充說明的部分。' }
       ],
+      viz: {"type":"sentence","label":"插入語先跳過","items":[{"t":"The book,","r":"主詞"},{"t":"which I bought last week,","r":"插入語（先跳過）"},{"t":"is very useful.","r":"主要動詞與補語"}],"note":"兩個逗號之間的部分拿掉，句子依然完整。","alt":[{"label":"拿掉插入語","items":[{"t":"The book","r":"主詞"},{"t":"is very useful.","r":"動詞與補語"}],"note":"這樣就看得出主幹了。"}]},
       q: {
         q: '課文說插入語通常出現在哪裡？',
         options: [
