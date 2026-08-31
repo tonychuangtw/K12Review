@@ -4,8 +4,8 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【2026-08-31 Tony 核定：先做 (8) 丙＝高中七科先修品質再擴題，做完回頭把 (3) 剩下的配圖補完】
- 目前手上：(8) 品質修復已於 2026-09-05 完工（下方紀錄），接著做 (8) 後半的「擴題」，再回頭做 (3)。
+NEXT_ACTION: 【(8) 已全部完工（品質修復 2026-09-05、擴題 2026-09-07）。下一步＝回頭做 (3)：把剩下的課文帶讀 viz 配圖補完】
+ 目前手上：(3) 課文帶讀配圖。查法：`node tools/text-viz-report.js`（若無此工具，直接數 js/data/texts-*.js 裡沒有 viz 的段落）。
  以下為品質修復那一輪的做法紀錄（下次同類工作照抄）：工具 `node tools/dump-qfix-todo.js <科目> [n]` 列待辦 →
  手寫 patch.json `[{id, d:[三個誘答], exp}]` → `node tools/set-qfix.js <file> --write`
  → `node tools/regen-checks.js <科目> --write`（❌ 段改寫後，舊的「解析說其他選項各錯在哪」確認題會失根，要重建）
@@ -37,7 +37,8 @@ NEXT_ACTION: 【2026-08-31 Tony 核定：先做 (8) 丙＝高中七科先修品�
  地科 ✅（1728→2160；易 2→433、計算 22→257、實驗 8→74、圖表 5→72）
      公民 ✅（1728→2160；易 6→438、計算 0→272、應用大增）
      地理 ✅（1728→2160；易 6→432、計算 12→204、圖表／素養大增）
-     剩 1 科 6 冊：歷史。
+     歷史 ✅（1728→2160；易 6→432、年代／史料判讀題大增）
+     ✅ **(8) 全部完成**：七科各 2160 題，合計 15,120 題（原 12,096）。
 ⚠ 2026-09-06 教訓：這種「正解寫成兩句解釋、誘答寫成一句否定」的寫法，會讓 test.js 的
    「正解最長」比例衝破 15% 上限（公民一度 17.1%，回頭重寫了 207 題的誘答）。
    **下筆時就要讓至少一個誘答跟正解一樣長**（寫成同樣具體、但明確錯誤的敘述），
@@ -306,7 +307,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-06 台北
+UPDATED: 2026-09-07 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
