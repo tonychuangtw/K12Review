@@ -24,6 +24,7 @@
 | ph12-add4.jsonl | 物理十二上加題（2026-08-26，改走具體事實題路線後重做，補到每單元 32 題） | — |
 | ph12b-add4.jsonl | 物理十二下加題（2026-08-26，補到每單元 32 題） | — |
 | ph10-add5.jsonl | 十上加題（2026-09-05，補「易」難度入門題與實驗／圖表／素養題，每單元 8 題→40 題） | — |
+| ph10b-add5.jsonl | 十下加題（2026-09-05，同上） | — |
 
 重建：
 
@@ -57,6 +58,7 @@ node tools/tikuconv/build-bank.js physics js/data/physics.js $PF/header.txt --re
   $PF/ph11b-add4.jsonl \
   $PF/ph12-add4.jsonl \
   $PF/ph12b-add4.jsonl \
-  $PF/ph10-add5.jsonl
+  $PF/ph10-add5.jsonl \
+  $PF/ph10b-add5.jsonl
 node test/test.js
 ```
