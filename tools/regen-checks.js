@@ -31,7 +31,9 @@ function clauseOf(it) {
 }
 
 /* 只處理「已經被 set-qfix 改寫過」的題：❌ 段有用「」逐個點名誘答 */
-const pool = arr.filter((it) => clauseOf(it) && /❌ 其他選項：「/.test(it.exp));
+/* 「已改寫過」＝解析裡沒有舊的自白句、且 ❌ 段有可用的小句。
+   一開始用「❌ 其他選項：「」判斷，漏掉了不是以「」開頭的改寫（例：「第一個選項把兩者對調了」）。 */
+const pool = arr.filter((it) => clauseOf(it) && String(it.exp || '').indexOf('各自都對，但不是這一題在問的') < 0);
 const byId = {};
 pool.forEach((it) => { byId[it.id] = clauseOf(it); });
 const ids = pool.map((it) => it.id);
@@ -39,7 +41,9 @@ console.log(SUBJ + '：已改寫 ' + ids.length + ' 題可作素材');
 
 const targets = pool.filter((it) => {
   const k = CHK[it.id];
-  return k && typeof k.q === 'string' && k.q.indexOf('其他選項各錯在哪') >= 0;
+  /* 舊題型「解析說其他選項各錯在哪？」與本工具產生的「解析說第一個誘答錯在哪？」都要能重建，
+     否則改寫過的題再次調整 ❌ 段時就補不回來。 */
+  return k && typeof k.q === 'string' && (k.q.indexOf('其他選項各錯在哪') >= 0 || k.q.indexOf('第一個誘答錯在哪') >= 0);
 });
 console.log('要重建的確認題 ' + targets.length + ' 題');
 if (targets.length && ids.length < 4) { console.error('素材不足四題，先多改幾批再跑'); process.exit(1); }

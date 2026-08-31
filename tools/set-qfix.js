@@ -54,6 +54,9 @@ patch.forEach((p) => {
   if (mx < cor.length) { console.log('⚠ ' + p.id + ' 要有一個誘答不比正解短（最長 ' + mx + ' vs 正解 ' + cor.length + '）'); bad++; return; }
   if (p.exp) {
     if (p.exp.indexOf('各自都對，但不是這一題在問的') >= 0) { console.log('✗ ' + p.id + ' 解析還留著舊的自白句'); bad++; return; }
+    /* ❌ 段不可寫「第一個選項」這種位置指涉：選項順序是 index % 4 打散的，位置不固定；
+       而且確認題會把這些小句抓去當選項，test.js 的 POS_REF 會直接擋下。要指名就引用那句誘答本身。 */
+    if (/第[一二三四1-4]個選項|第[一二三四1-4]句|最後一句|上面那句|前一句/.test(p.exp)) { console.log('✗ ' + p.id + ' 解析有位置指涉（第N個選項），要改成引用誘答原文'); bad++; return; }
     if (p.exp.indexOf('✅') < 0 || p.exp.indexOf('❌') < 0 || p.exp.indexOf('📚') < 0) { console.log('✗ ' + p.id + ' 解析要有 ✅ ❌ 📚 三段'); bad++; return; }
     /* ✅ 與 📚 兩行一字不能改：確認題（checks-*.js）有兩種題型直接拿這兩行當正解，
        改了字面就會變成「正解在解析裡找不到根據」（2026-08-31 公民 12 條踩過）。
