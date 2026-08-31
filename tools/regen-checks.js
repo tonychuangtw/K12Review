@@ -26,8 +26,12 @@ function clauseOf(it) {
   const line = String(it.exp || '').split('\n').find((l) => l.indexOf('❌') === 0);
   if (!line) return null;
   const body = line.replace(/^❌\s*其他選項：?/, '').trim();
-  const c = body.split('；')[0].replace(/[。\s]+$/, '');
-  return c.length >= 10 && c.length <= 70 ? c : null;
+  /* 取第一個小句；太短（例如「「修改資料」是造假」只有九個字）就接上第二句，
+     否則會被判定沒有可用素材，該題的確認題就補不回來。 */
+  const parts = body.split('；');
+  let c = parts[0].replace(/[。\s]+$/, '');
+  if (c.length < 10 && parts[1]) c = (c + '；' + parts[1]).replace(/[。\s]+$/, '');
+  return c.length >= 8 && c.length <= 70 ? c : null;
 }
 
 /* 只處理「已經被 set-qfix 改寫過」的題：❌ 段有用「」逐個點名誘答 */
