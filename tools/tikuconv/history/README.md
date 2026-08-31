@@ -21,6 +21,7 @@
 | hi10-add4.jsonl | 歷史十上加題（2026-08-26，補到每單元 32 題） | — |
 | hi10-add5.jsonl | 歷史十上加題（2026-09-06，補「易」難度與年代／圖表題，每單元 8 題→40 題） | — |
 | hi10b-add5.jsonl | 歷史十下加題（2026-09-06，同上） | — |
+| hi11-add5.jsonl | 歷史十一上加題（2026-09-06，同上） | — |
 | hi10b-add4.jsonl | 歷史十下加題（2026-08-26，補到每單元 32 題） | — |
 | hi11-add4.jsonl | 歷史十一上加題（2026-08-26，補到每單元 32 題） | — |
 | hi11b-add4.jsonl | 歷史十一下加題（2026-08-26，補到每單元 32 題） | — |
@@ -60,6 +61,7 @@ node tools/tikuconv/build-bank.js history js/data/history.js $HF/header.txt --re
   $HF/hi12-add4.jsonl \
   $HF/hi12b-add4.jsonl \
   $HF/hi10-add5.jsonl \
-  $HF/hi10b-add5.jsonl
+  $HF/hi10b-add5.jsonl \
+  $HF/hi11-add5.jsonl
 node test/test.js
 ```
