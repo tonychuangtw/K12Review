@@ -28,6 +28,7 @@
 | bi10b-add5.jsonl | 十下加題（2026-09-05，同上） | — |
 | bi11-add5.jsonl | 十一上加題（2026-09-05，同上） | — |
 | bi11b-add5.jsonl | 十一下加題（2026-09-05，同上） | — |
+| bi12-add5.jsonl | 十二上加題（2026-09-05，同上） | — |
 
 重建：
 
@@ -64,6 +65,7 @@ node tools/tikuconv/build-bank.js biology js/data/biology.js $BF/header.txt --re
   $BF/bi10-add5.jsonl \
   $BF/bi10b-add5.jsonl \
   $BF/bi11-add5.jsonl \
-  $BF/bi11b-add5.jsonl
+  $BF/bi11b-add5.jsonl \
+  $BF/bi12-add5.jsonl
 node test/test.js
 ```
