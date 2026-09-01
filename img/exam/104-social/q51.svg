@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 300" width="470" height="300" font-family="'Noto Sans TC',sans-serif"><rect width="470" height="300" fill="#fff"/>
+<rect x="14" y="14" width="442" height="258" fill="none" stroke="#111" stroke-width="1.4"/>
+<rect x="52" y="30" width="12" height="10" fill="#8a8a8a" stroke="#111"/>
+<text x="68" y="40" font-size="13" fill="#111">降水量 mm</text>
+<text x="269.0" y="42" font-size="17" text-anchor="middle" fill="#111">雅加達</text>
+<line x1="68" y1="250.0" x2="430" y2="250.0" stroke="#bbb" stroke-width="1"/>
+<text x="62" y="254.0" font-size="12" text-anchor="end" fill="#111">0</text>
+<line x1="68" y1="228.9" x2="430" y2="228.9" stroke="#bbb" stroke-width="1"/>
+<text x="62" y="232.9" font-size="12" text-anchor="end" fill="#111">50</text>
+<line x1="68" y1="207.8" x2="430" y2="207.8" stroke="#bbb" stroke-width="1"/>
+<text x="62" y="211.8" font-size="12" text-anchor="end" fill="#111">100</text>
+<line x1="68" y1="186.7" x2="430" y2="186.7" stroke="#bbb" stroke-width="1"/>
+<text x="62" y="190.7" font-size="12" text-anchor="end" fill="#111">150</text>
+<line x1="68" y1="165.6" x2="430" y2="165.6" stroke="#bbb" stroke-width="1"/>
+<text x="62" y="169.6" font-size="12" text-anchor="end" fill="#111">200</text>
+<line x1="68" y1="144.4" x2="430" y2="144.4" stroke="#bbb" stroke-width="1"/>
+<text x="62" y="148.4" font-size="12" text-anchor="end" fill="#111">250</text>
+<line x1="68" y1="123.3" x2="430" y2="123.3" stroke="#bbb" stroke-width="1"/>
+<text x="62" y="127.3" font-size="12" text-anchor="end" fill="#111">300</text>
+<line x1="68" y1="102.2" x2="430" y2="102.2" stroke="#bbb" stroke-width="1"/>
+<text x="62" y="106.2" font-size="12" text-anchor="end" fill="#111">350</text>
+<line x1="68" y1="81.1" x2="430" y2="81.1" stroke="#bbb" stroke-width="1"/>
+<text x="62" y="85.1" font-size="12" text-anchor="end" fill="#111">400</text>
+<line x1="68" y1="60.0" x2="430" y2="60.0" stroke="#bbb" stroke-width="1"/>
+<text x="62" y="64.0" font-size="12" text-anchor="end" fill="#111">450</text>
+<line x1="68" y1="60" x2="68" y2="250" stroke="#111" stroke-width="1.4"/>
+<line x1="68" y1="250" x2="430" y2="250" stroke="#111" stroke-width="1.4"/>
+<rect x="76.7" y="87.4" width="12.7" height="162.6" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="83.1" y="267" font-size="12" text-anchor="middle" fill="#111">1</text>
+<rect x="106.9" y="118.7" width="12.7" height="131.3" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="113.2" y="267" font-size="12" text-anchor="middle" fill="#111">2</text>
+<rect x="137.1" y="207.8" width="12.7" height="42.2" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="143.4" y="267" font-size="12" text-anchor="middle" fill="#111">3</text>
+<rect x="167.2" y="141.5" width="12.7" height="108.5" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="173.6" y="267" font-size="12" text-anchor="middle" fill="#111">4</text>
+<rect x="197.4" y="193.8" width="12.7" height="56.2" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="203.8" y="267" font-size="12" text-anchor="middle" fill="#111">5</text>
+<rect x="227.6" y="215.4" width="12.7" height="34.6" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="233.9" y="267" font-size="12" text-anchor="middle" fill="#111">6</text>
+<rect x="257.7" y="237.3" width="12.7" height="12.7" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="264.1" y="267" font-size="12" text-anchor="middle" fill="#111">7</text>
+<rect x="287.9" y="236.1" width="12.7" height="13.9" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="294.2" y="267" font-size="12" text-anchor="middle" fill="#111">8</text>
+<rect x="318.1" y="238.2" width="12.7" height="11.8" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="324.4" y="267" font-size="12" text-anchor="middle" fill="#111">9</text>
+<rect x="348.2" y="236.5" width="12.7" height="13.5" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="354.6" y="267" font-size="12" text-anchor="middle" fill="#111">10</text>
+<rect x="378.4" y="176.5" width="12.7" height="73.5" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="384.8" y="267" font-size="12" text-anchor="middle" fill="#111">11</text>
+<rect x="408.6" y="214.5" width="12.7" height="35.5" fill="#8a8a8a" stroke="#555" stroke-width="0.7"/>
+<text x="414.9" y="267" font-size="12" text-anchor="middle" fill="#111">12</text>
+<text x="438" y="267" font-size="13" fill="#111">月份</text>
+<text x="235" y="290" font-size="15" text-anchor="middle" fill="#111">圖 3</text></svg>

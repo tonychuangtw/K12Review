@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 470" width="580" height="470" font-family="'Noto Sans TC',sans-serif"><rect width="580" height="470" fill="#fff"/>
+<rect x="12" y="8" width="270" height="205" fill="none" stroke="#111" stroke-width="1.2"/>
+<text x="173.0" y="30" font-size="16" text-anchor="middle" fill="#111">甲</text>
+<rect x="74" y="40" width="198" height="135" fill="none" stroke="#888" stroke-width="0.9"/>
+<line x1="74" y1="175.0" x2="272" y2="175.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="178.5" font-size="9" text-anchor="end" fill="#111">0</text>
+<line x1="74" y1="148.0" x2="272" y2="148.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="151.5" font-size="9" text-anchor="end" fill="#111">100</text>
+<line x1="74" y1="121.0" x2="272" y2="121.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="124.5" font-size="9" text-anchor="end" fill="#111">200</text>
+<line x1="74" y1="94.0" x2="272" y2="94.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="97.5" font-size="9" text-anchor="end" fill="#111">300</text>
+<line x1="74" y1="67.0" x2="272" y2="67.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="70.5" font-size="9" text-anchor="end" fill="#111">400</text>
+<line x1="74" y1="40.0" x2="272" y2="40.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="43.5" font-size="9" text-anchor="end" fill="#111">500</text>
+<text x="74.0" y="188" font-size="9" text-anchor="middle" fill="#111">0</text>
+<text x="113.6" y="188" font-size="9" text-anchor="middle" fill="#111">100</text>
+<text x="153.2" y="188" font-size="9" text-anchor="middle" fill="#111">200</text>
+<text x="192.8" y="188" font-size="9" text-anchor="middle" fill="#111">300</text>
+<text x="232.4" y="188" font-size="9" text-anchor="middle" fill="#111">400</text>
+<text x="272.0" y="188" font-size="9" text-anchor="middle" fill="#111">500</text>
+<polyline points="74.0,149.3 113.6,127.8 153.2,107.5 192.8,91.3 232.4,68.3 272.0,45.4" fill="none" stroke="#111" stroke-width="3"/>
+<text x="173.0" y="204" font-size="10" text-anchor="middle" fill="#111">水平距離（公尺）</text>
+<text x="30" y="107.5" font-size="10" text-anchor="middle" fill="#111" transform="rotate(-90 30 107.5)">海拔高度（公尺）</text>
+<rect x="292" y="8" width="270" height="205" fill="none" stroke="#111" stroke-width="1.2"/>
+<text x="453.0" y="30" font-size="16" text-anchor="middle" fill="#111">乙</text>
+<rect x="354" y="40" width="198" height="135" fill="none" stroke="#888" stroke-width="0.9"/>
+<line x1="354" y1="175.0" x2="552" y2="175.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="178.5" font-size="9" text-anchor="end" fill="#111">0</text>
+<line x1="354" y1="148.0" x2="552" y2="148.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="151.5" font-size="9" text-anchor="end" fill="#111">200</text>
+<line x1="354" y1="121.0" x2="552" y2="121.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="124.5" font-size="9" text-anchor="end" fill="#111">400</text>
+<line x1="354" y1="94.0" x2="552" y2="94.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="97.5" font-size="9" text-anchor="end" fill="#111">600</text>
+<line x1="354" y1="67.0" x2="552" y2="67.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="70.5" font-size="9" text-anchor="end" fill="#111">800</text>
+<line x1="354" y1="40.0" x2="552" y2="40.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="43.5" font-size="9" text-anchor="end" fill="#111">1000</text>
+<text x="354.0" y="188" font-size="9" text-anchor="middle" fill="#111">0</text>
+<text x="393.6" y="188" font-size="9" text-anchor="middle" fill="#111">200</text>
+<text x="433.2" y="188" font-size="9" text-anchor="middle" fill="#111">400</text>
+<text x="472.8" y="188" font-size="9" text-anchor="middle" fill="#111">600</text>
+<text x="512.4" y="188" font-size="9" text-anchor="middle" fill="#111">800</text>
+<text x="552.0" y="188" font-size="9" text-anchor="middle" fill="#111">1000</text>
+<polyline points="354.0,140.6 393.6,125.0 433.2,110.2 472.8,94.0 512.4,76.5 552.0,60.2" fill="none" stroke="#111" stroke-width="3"/>
+<text x="453.0" y="204" font-size="10" text-anchor="middle" fill="#111">水平距離（公尺）</text>
+<text x="310" y="107.5" font-size="10" text-anchor="middle" fill="#111" transform="rotate(-90 310 107.5)">海拔高度（公尺）</text>
+<rect x="12" y="223" width="270" height="205" fill="none" stroke="#111" stroke-width="1.2"/>
+<text x="173.0" y="245" font-size="16" text-anchor="middle" fill="#111">丙</text>
+<rect x="74" y="255" width="198" height="135" fill="none" stroke="#888" stroke-width="0.9"/>
+<line x1="74" y1="390.0" x2="272" y2="390.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="393.5" font-size="9" text-anchor="end" fill="#111">0</text>
+<line x1="74" y1="363.0" x2="272" y2="363.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="366.5" font-size="9" text-anchor="end" fill="#111">100</text>
+<line x1="74" y1="336.0" x2="272" y2="336.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="339.5" font-size="9" text-anchor="end" fill="#111">200</text>
+<line x1="74" y1="309.0" x2="272" y2="309.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="312.5" font-size="9" text-anchor="end" fill="#111">300</text>
+<line x1="74" y1="282.0" x2="272" y2="282.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="285.5" font-size="9" text-anchor="end" fill="#111">400</text>
+<line x1="74" y1="255.0" x2="272" y2="255.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="70" y="258.5" font-size="9" text-anchor="end" fill="#111">500</text>
+<text x="74.0" y="403" font-size="9" text-anchor="middle" fill="#111">0</text>
+<text x="113.6" y="403" font-size="9" text-anchor="middle" fill="#111">200</text>
+<text x="153.2" y="403" font-size="9" text-anchor="middle" fill="#111">400</text>
+<text x="192.8" y="403" font-size="9" text-anchor="middle" fill="#111">600</text>
+<text x="232.4" y="403" font-size="9" text-anchor="middle" fill="#111">800</text>
+<text x="272.0" y="403" font-size="9" text-anchor="middle" fill="#111">1000</text>
+<polyline points="74.0,368.4 113.6,352.2 153.2,331.9 192.8,311.7 232.4,290.1 272.0,268.5" fill="none" stroke="#111" stroke-width="3"/>
+<text x="173.0" y="419" font-size="10" text-anchor="middle" fill="#111">水平距離（公尺）</text>
+<text x="30" y="322.5" font-size="10" text-anchor="middle" fill="#111" transform="rotate(-90 30 322.5)">海拔高度（公尺）</text>
+<rect x="292" y="223" width="270" height="205" fill="none" stroke="#111" stroke-width="1.2"/>
+<text x="453.0" y="245" font-size="16" text-anchor="middle" fill="#111">丁</text>
+<rect x="354" y="255" width="198" height="135" fill="none" stroke="#888" stroke-width="0.9"/>
+<line x1="354" y1="390.0" x2="552" y2="390.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="393.5" font-size="9" text-anchor="end" fill="#111">0</text>
+<line x1="354" y1="363.0" x2="552" y2="363.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="366.5" font-size="9" text-anchor="end" fill="#111">200</text>
+<line x1="354" y1="336.0" x2="552" y2="336.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="339.5" font-size="9" text-anchor="end" fill="#111">400</text>
+<line x1="354" y1="309.0" x2="552" y2="309.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="312.5" font-size="9" text-anchor="end" fill="#111">600</text>
+<line x1="354" y1="282.0" x2="552" y2="282.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="285.5" font-size="9" text-anchor="end" fill="#111">800</text>
+<line x1="354" y1="255.0" x2="552" y2="255.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="350" y="258.5" font-size="9" text-anchor="end" fill="#111">1000</text>
+<text x="354.0" y="403" font-size="9" text-anchor="middle" fill="#111">0</text>
+<text x="393.6" y="403" font-size="9" text-anchor="middle" fill="#111">100</text>
+<text x="433.2" y="403" font-size="9" text-anchor="middle" fill="#111">200</text>
+<text x="472.8" y="403" font-size="9" text-anchor="middle" fill="#111">300</text>
+<text x="512.4" y="403" font-size="9" text-anchor="middle" fill="#111">400</text>
+<text x="552.0" y="403" font-size="9" text-anchor="middle" fill="#111">500</text>
+<polyline points="354.0,362.3 393.6,346.8 433.2,331.9 472.8,316.4 512.4,299.6 552.0,282.0" fill="none" stroke="#111" stroke-width="3"/>
+<text x="453.0" y="419" font-size="10" text-anchor="middle" fill="#111">水平距離（公尺）</text>
+<text x="310" y="322.5" font-size="10" text-anchor="middle" fill="#111" transform="rotate(-90 310 322.5)">海拔高度（公尺）</text>
+<text x="290" y="462" font-size="15" text-anchor="middle" fill="#111">圖 4</text></svg>

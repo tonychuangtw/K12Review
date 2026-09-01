@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 270" width="510" height="270" font-family="'Noto Sans TC',sans-serif"><rect width="510" height="270" fill="#fff"/>
+<rect x="14" y="14" width="482" height="228" fill="none" stroke="#111" stroke-width="1.3"/>
+<rect x="90" y="50" width="380" height="165" fill="none" stroke="#111" stroke-width="1.3"/>
+<line x1="166.0" y1="50" x2="166.0" y2="215" stroke="#111" stroke-width="1.2"/>
+<line x1="242.0" y1="50" x2="242.0" y2="215" stroke="#111" stroke-width="1.2"/>
+<line x1="318.0" y1="50" x2="318.0" y2="215" stroke="#111" stroke-width="1.2"/>
+<line x1="394.0" y1="50" x2="394.0" y2="215" stroke="#111" stroke-width="1.2"/>
+<text x="128.0" y="72" font-size="16" text-anchor="middle" fill="#111">Ⅰ</text>
+<text x="204.0" y="72" font-size="16" text-anchor="middle" fill="#111">Ⅱ</text>
+<text x="280.0" y="72" font-size="16" text-anchor="middle" fill="#111">Ⅲ</text>
+<text x="356.0" y="72" font-size="16" text-anchor="middle" fill="#111">Ⅳ</text>
+<text x="432.0" y="72" font-size="16" text-anchor="middle" fill="#111">Ⅴ</text>
+<polyline points="90.0,197.2 128.0,194.8 166.0,188.5 204.0,173.5 242.0,144.8 280.0,111.0 318.0,88.5 356.0,79.8 394.0,86.0 432.0,111.0 470.0,148.5" fill="none" stroke="#111" stroke-width="2.4"/>
+<line x1="100" y1="80" x2="100" y2="56" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+<defs><marker id="a" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#111"/></marker></defs>
+<text x="68" y="120" font-size="13" text-anchor="middle" fill="#111">銷</text>
+<text x="68" y="137" font-size="13" text-anchor="middle" fill="#111">售</text>
+<text x="68" y="154" font-size="13" text-anchor="middle" fill="#111">量</text>
+<text x="280.0" y="205" font-size="14" text-anchor="middle" fill="#111">時　間</text>
+<text x="255" y="260" font-size="15" text-anchor="middle" fill="#111">圖 5</text></svg>
