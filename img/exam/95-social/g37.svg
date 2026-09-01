@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" width="520" height="360" font-family="sans-serif">
+  <rect width="520" height="360" fill="#fff"/>
+  <line x1="80" y1="280.0" x2="470" y2="280.0" stroke="#ddd"/>
+  <text x="74" y="284.0" font-size="11" text-anchor="end">0</text>
+  <line x1="80" y1="240.0" x2="470" y2="240.0" stroke="#ddd"/>
+  <text x="74" y="244.0" font-size="11" text-anchor="end">50</text>
+  <line x1="80" y1="200.0" x2="470" y2="200.0" stroke="#ddd"/>
+  <text x="74" y="204.0" font-size="11" text-anchor="end">100</text>
+  <line x1="80" y1="160.0" x2="470" y2="160.0" stroke="#ddd"/>
+  <text x="74" y="164.0" font-size="11" text-anchor="end">150</text>
+  <line x1="80" y1="120.0" x2="470" y2="120.0" stroke="#ddd"/>
+  <text x="74" y="124.0" font-size="11" text-anchor="end">200</text>
+  <line x1="80" y1="80.0" x2="470" y2="80.0" stroke="#ddd"/>
+  <text x="74" y="84.0" font-size="11" text-anchor="end">250</text>
+  <line x1="80" y1="40.0" x2="470" y2="40.0" stroke="#ddd"/>
+  <text x="74" y="44.0" font-size="11" text-anchor="end">300</text>
+  <line x1="80" y1="40" x2="80" y2="280" stroke="#111" stroke-width="1.3"/>
+  <line x1="80" y1="280" x2="470" y2="280" stroke="#111" stroke-width="1.3"/>
+  <line x1="80.0" y1="280" x2="80.0" y2="285" stroke="#111"/>
+  <text x="80.0" y="299" font-size="11" text-anchor="middle">20</text>
+  <line x1="158.0" y1="280" x2="158.0" y2="285" stroke="#111"/>
+  <text x="158.0" y="299" font-size="11" text-anchor="middle">22</text>
+  <line x1="236.0" y1="280" x2="236.0" y2="285" stroke="#111"/>
+  <text x="236.0" y="299" font-size="11" text-anchor="middle">24</text>
+  <line x1="314.0" y1="280" x2="314.0" y2="285" stroke="#111"/>
+  <text x="314.0" y="299" font-size="11" text-anchor="middle">26</text>
+  <line x1="392.0" y1="280" x2="392.0" y2="285" stroke="#111"/>
+  <text x="392.0" y="299" font-size="11" text-anchor="middle">28</text>
+  <line x1="470.0" y1="280" x2="470.0" y2="285" stroke="#111"/>
+  <text x="470.0" y="299" font-size="11" text-anchor="middle">30</text>
+  <polyline points="353.0,82.4 343.2,114.4 339.3,117.6 321.8,200.0 302.3,238.4 232.1,269.6 243.8,272.0 306.2,257.6 392.0,240.8 392.0,188.8 394.0,160.0 351.0,117.6 353.0,82.4" fill="none" stroke="#555" stroke-width="1.1"/>
+  <path d="M 353.0 78.4 L 357.0 82.4 L 353.0 86.4 L 349.0 82.4 Z" fill="#333"/>
+  <text x="361.0" y="78.4" font-size="12">1</text>
+  <path d="M 343.2 110.4 L 347.2 114.4 L 343.2 118.4 L 339.2 114.4 Z" fill="#333"/>
+  <text x="333.2" y="101.4" font-size="12">2</text>
+  <path d="M 339.3 113.6 L 343.3 117.6 L 339.3 121.6 L 335.3 117.6 Z" fill="#333"/>
+  <text x="321.3" y="121.6" font-size="12">3</text>
+  <path d="M 321.8 196.0 L 325.8 200.0 L 321.8 204.0 L 317.8 200.0 Z" fill="#333"/>
+  <text x="307.8" y="196.0" font-size="12">4</text>
+  <path d="M 302.3 234.4 L 306.3 238.4 L 302.3 242.4 L 298.3 238.4 Z" fill="#333"/>
+  <text x="288.3" y="234.4" font-size="12">5</text>
+  <path d="M 232.1 265.6 L 236.1 269.6 L 232.1 273.6 L 228.1 269.6 Z" fill="#333"/>
+  <text x="218.1" y="265.6" font-size="12">6</text>
+  <path d="M 243.8 268.0 L 247.8 272.0 L 243.8 276.0 L 239.8 272.0 Z" fill="#333"/>
+  <text x="229.8" y="268.0" font-size="12">7</text>
+  <path d="M 306.2 253.6 L 310.2 257.6 L 306.2 261.6 L 302.2 257.6 Z" fill="#333"/>
+  <text x="292.2" y="253.6" font-size="12">8</text>
+  <path d="M 392.0 236.8 L 396.0 240.8 L 392.0 244.8 L 388.0 240.8 Z" fill="#333"/>
+  <text x="400.0" y="236.8" font-size="12">9</text>
+  <path d="M 392.0 184.8 L 396.0 188.8 L 392.0 192.8 L 388.0 188.8 Z" fill="#333"/>
+  <text x="400.0" y="184.8" font-size="12">10</text>
+  <path d="M 394.0 156.0 L 398.0 160.0 L 394.0 164.0 L 390.0 160.0 Z" fill="#333"/>
+  <text x="402.0" y="156.0" font-size="12">11</text>
+  <path d="M 351.0 113.6 L 355.0 117.6 L 351.0 121.6 L 347.0 117.6 Z" fill="#333"/>
+  <text x="359.0" y="113.6" font-size="12">12</text>
+  <text x="90" y="54" font-size="12">圖中阿拉伯數字為月份</text>
+  <text x="275" y="320" font-size="13" text-anchor="middle">月均溫 ℃</text>
+  <text x="34" y="160" font-size="13" text-anchor="middle" transform="rotate(-90 34 160)">月雨量 mm</text>
+  <text x="275" y="352" font-size="12" text-anchor="middle" fill="#555">圖二</text>
+</svg>

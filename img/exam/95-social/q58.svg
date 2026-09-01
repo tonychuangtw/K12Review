@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 170" width="240" height="170" font-family="sans-serif">
+  <rect width="240" height="170" fill="#fff"/>
+  <rect x="20" y="15" width="200" height="140" fill="#fff" stroke="#999"/>
+  <path d="M 150 30 A 60 60 0 1 0 150 140 A 48 48 0 1 1 150 30 Z" fill="#d8231f"/>
+  <text x="120" y="166" font-size="12" text-anchor="middle" fill="#555">圖四</text>
+</svg>
