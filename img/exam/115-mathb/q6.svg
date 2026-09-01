@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 320" width="460" height="320" role="img" aria-label="領海基線與其外側十二浬領海帶示意圖">
+  <rect width="460" height="320" fill="#ffffff"/>
+  <polygon points="120,300 400,90 358,34 78,244" fill="#dcdcdc" stroke="none"/>
+  <g fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round">
+    <line x1="120" y1="300" x2="400" y2="90"/>
+    <line x1="78" y1="244" x2="358" y2="34"/>
+  </g>
+  <circle cx="336" cy="196" r="4.5" fill="#111"/>
+  <g fill="none" stroke="#111" stroke-width="1.2">
+    <line x1="300" y1="272" x2="268" y2="228"/>
+  </g>
+  <g font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="15" fill="#111">
+    <text x="346" y="193">(5,5)</text>
+    <text x="212" y="172" font-weight="700">領海</text>
+    <text x="284" y="292" font-weight="700">領海基線</text>
+  </g>
+</svg>

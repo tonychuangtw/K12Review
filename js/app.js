@@ -6435,6 +6435,11 @@
   function examAnsOf(q) { return examRun.ans[q.n]; }
   function examAnswered(q) {
     var a = examAnsOf(q);
+    if (q.type === 'fill') {
+      if (!a) return false;
+      for (var i = 0; i < q.a.length; i++) if (!String(a[i] == null ? '' : a[i]).trim()) return false;
+      return true;
+    }
     return q.type === 'multi' ? !!(a && a.length) : a != null;
   }
   // 選項字母：文意選填一次給 10 個選項（A-J），所以字母表不能只到 E
@@ -6442,6 +6447,13 @@
   function examLetters(a) {
     return (Array.isArray(a) ? a : [a]).slice().sort(function (x, y) { return x - y; })
       .map(function (i) { return EXAM_ABC[i]; }).join('');
+  }
+  // 選填題（數學卷的填答格）：答案是一格一格的字串，顯示時用空格隔開
+  function examFillText(a) {
+    if (!a) return '';
+    return (Array.isArray(a) ? a : [a]).map(function (v) {
+      return String(v == null ? '' : v).trim() || '□';
+    }).join(' ');
   }
   function paintExam() {
     var p = examPaper, q = p.qs[examRun.i];
@@ -6456,7 +6468,8 @@
     });
     var done = p.qs.filter(examAnswered).length;
     $('examBar').style.width = Math.round(done / p.qs.length * 100) + '%';
-    $('examTag').textContent = '第 ' + q.n + ' 題（原卷題號）· ' + (q.type === 'multi' ? '多選題' : '單選題') +
+    var typeName = q.type === 'multi' ? '多選題' : (q.type === 'fill' ? '選填題' : '單選題');
+    $('examTag').textContent = '第 ' + q.n + ' 題（原卷題號）· ' + typeName +
       ' · ' + q.pt + ' 分' + (q.cat ? ' · ' + q.cat : '') + ' ── 已作答 ' + done + '／' + p.qs.length;
     var intro = examIntroOf(p, q);
     $('examIntro').classList.toggle('hidden', !intro);
@@ -6473,18 +6486,50 @@
     }).join('');
     var box = $('examOpts');
     box.innerHTML = '';
-    q.o.forEach(function (text, i) {
-      var b = document.createElement('button');
-      var a = examAnsOf(q);
-      var on = q.type === 'multi' ? (a || []).indexOf(i) >= 0 : a === i;
-      b.className = 'q-opt' + (on ? ' picked' : '');
-      b.textContent = '(' + EXAM_ABC[i] + ') ' + text;
-      b.addEventListener('click', function () { examPick(q, i); });
-      box.appendChild(b);
-    });
+    if (q.type === 'fill') {
+      var cur = examRun.ans[q.n] = examRun.ans[q.n] || [];
+      var wrap = document.createElement('div');
+      wrap.className = 'exam-fill';
+      q.a.forEach(function (_, i) {
+        var cell = document.createElement('label');
+        cell.className = 'exam-fill-cell';
+        var lab = document.createElement('span');
+        lab.textContent = (q.blanks && q.blanks[i]) ? q.blanks[i] : (q.n + '-' + (i + 1));
+        var inp = document.createElement('input');
+        inp.type = 'text';
+        inp.inputMode = 'text';
+        inp.autocomplete = 'off';
+        inp.value = cur[i] == null ? '' : cur[i];
+        inp.addEventListener('input', function () {
+          examRun.ans[q.n][i] = inp.value;
+          var d2 = p.qs.filter(examAnswered).length;
+          $('examBar').style.width = Math.round(d2 / p.qs.length * 100) + '%';
+          var ready2 = d2 === p.qs.length || examRun.timeUp;
+          $('examSubmit').classList.toggle('hidden', !ready2);
+          $('examSubmitHint').textContent = ready2 ? ''
+            : '還有 ' + (p.qs.length - d2) + ' 題沒作答，全部寫完（或時間到）才會出現「交卷評分」。';
+        });
+        cell.appendChild(lab);
+        cell.appendChild(inp);
+        wrap.appendChild(cell);
+      });
+      box.appendChild(wrap);
+    } else {
+      q.o.forEach(function (text, i) {
+        var b = document.createElement('button');
+        var a = examAnsOf(q);
+        var on = q.type === 'multi' ? (a || []).indexOf(i) >= 0 : a === i;
+        b.className = 'q-opt' + (on ? ' picked' : '');
+        b.textContent = '(' + EXAM_ABC[i] + ') ' + text;
+        b.addEventListener('click', function () { examPick(q, i); });
+        box.appendChild(b);
+      });
+    }
     $('examPick').textContent = q.type === 'multi'
       ? '多選題：選項可複選，再按一次可取消。答錯選項會倒扣，全部不選以零分計。'
-      : '單選題：選一個；想改直接點別的選項。';
+      : (q.type === 'fill'
+        ? '選填題：每一格填一個數字或符號（負號填在第一格），全部格子都對才給分，答錯不倒扣。'
+        : '單選題：選一個；想改直接點別的選項。');
     $('examPrev').disabled = examRun.i === 0;
     $('examNext').disabled = examRun.i === p.qs.length - 1;
     // 交卷鍵只在「每一題都寫了」或「時間到」時出現（2026-09-01 Tony：不要一開始就看到交卷）
@@ -6515,6 +6560,14 @@
   }
   // 大考中心計分：單選全對得分；多選逐個選項判定，答錯 k 個得 (n-2k)/n，負分以 0 計
   function examScoreOne(q, pick) {
+    if (q.type === 'fill') {
+      var all = true;
+      for (var f = 0; f < q.a.length; f++) {
+        var got = String((pick || [])[f] == null ? '' : (pick || [])[f]).trim().replace(/\s+/g, '');
+        if (got !== String(q.a[f]).trim()) { all = false; break; }
+      }
+      return { got: all ? q.pt : 0, right: all };
+    }
     var n = q.o.length;
     if (q.type !== 'multi') return { got: pick === q.a ? q.pt : 0, right: pick === q.a };
     var want = q.a, chosen = pick || [];
@@ -6587,9 +6640,10 @@
       var pick = examAnsOf(q), r = examScoreOne(q, pick);
       var d = document.createElement('div');
       d.className = 'exam-rv ' + (r.right ? 'ok' : 'bad');
-      var yours = examAnswered(q) ? examLetters(pick) : '未作答';
-      var right = examLetters(q.a);
-      var opts = q.o.map(function (t, i) { return '(' + EXAM_ABC[i] + ') ' + t; }).join('\n');
+      var isFill = q.type === 'fill';
+      var yours = examAnswered(q) ? (isFill ? examFillText(pick) : examLetters(pick)) : '未作答';
+      var right = isFill ? examFillText(q.a) : examLetters(q.a);
+      var opts = isFill ? '' : q.o.map(function (t, i) { return '(' + EXAM_ABC[i] + ') ' + t; }).join('\n');
       var rvFig = [];
       if (q.g && (p.groups || {})[q.g] && p.groups[q.g].fig) rvFig.push(p.groups[q.g].fig);
       if (q.fig) rvFig.push(q.fig);
@@ -6599,7 +6653,7 @@
       d.innerHTML = '<div class="rv-head">' + (r.right ? '✅' : '❌') + ' 第 ' + q.n + ' 題 · ' +
         r.got + '／' + q.pt + ' 分' + (q.cat ? ' · ' + escHtml(q.cat) : '') + '</div>' +
         '<div class="rv-q">' + escHtml(q.q) + '</div>' + rvFigHtml +
-        '<div class="rv-q">' + escHtml(opts) + '</div>' +
+        (opts ? '<div class="rv-q">' + escHtml(opts) + '</div>' : '') +
         '<div class="rv-ans">你的答案：<b>' + yours + '</b>　正解：<b>' + right + '</b></div>' +
         (q.exp ? '<div class="rv-exp">' + escHtml(q.exp) + '</div>' : '');
       box.appendChild(d);

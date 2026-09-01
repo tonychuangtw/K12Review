@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300" width="460" height="300" role="img" aria-label="平行六面體 PQRS-ABCD 示意圖">
+  <rect width="460" height="300" fill="#ffffff"/>
+  <g fill="none" stroke="#111" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- 上面 S P Q R -->
+    <path d="M60 90 L170 40 L400 40 L290 90 Z"/>
+    <!-- 下面 D A B C（A 為隱藏頂點，用虛線） -->
+    <path d="M60 230 L290 230 L400 180"/>
+    <path d="M60 230 L170 180" stroke-dasharray="6 5"/>
+    <path d="M170 180 L400 180" stroke-dasharray="6 5"/>
+    <!-- 側稜 -->
+    <path d="M60 90 L60 230"/>
+    <path d="M400 40 L400 180"/>
+    <path d="M290 90 L290 230"/>
+    <path d="M170 40 L170 180" stroke-dasharray="6 5"/>
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#111">
+    <text x="164" y="30">P</text>
+    <text x="406" y="32">Q</text>
+    <text x="42" y="86">S</text>
+    <text x="272" y="82">R</text>
+    <text x="166" y="200">A</text>
+    <text x="406" y="176">B</text>
+    <text x="292" y="250">C</text>
+    <text x="44" y="250">D</text>
+  </g>
+</svg>

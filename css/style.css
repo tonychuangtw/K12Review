@@ -1020,3 +1020,14 @@ body.anim-lock { overflow: hidden; }
 /* 原卷附圖：整卷作答與逐題檢討共用 */
 .exam-fig { margin: .6rem 0; text-align: center; }
 .exam-fig img { max-width: 100%; border-radius: 10px; background: #fff; padding: 4px; }
+
+/* 歷屆試題：數學卷的選填題（一格一個數字） */
+.exam-fill { display: flex; flex-wrap: wrap; gap: 10px; }
+.exam-fill-cell { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.exam-fill-cell span { font-size: 12px; color: var(--muted); }
+.exam-fill-cell input {
+  width: 64px; height: 52px; text-align: center; font-size: 22px; font-weight: 700;
+  border: 2px solid var(--line); border-radius: 10px;
+  background: var(--panel2); color: var(--ink);
+}
+.exam-fill-cell input:focus { border-color: var(--accent); outline: none; }

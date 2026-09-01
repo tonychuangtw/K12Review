@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="坐標空間中三點 (3,4,0)、(3,0,3)、(3,4,3) 的位置關係">
+  <rect width="400" height="300" fill="#ffffff"/>
+  <g fill="none" stroke="#111" stroke-width="1.8" stroke-linejoin="round">
+    <!-- 長方體 -->
+    <path d="M120 100 L120 210 L250 210 L250 100 Z"/>
+    <path d="M120 100 L170 65 L300 65 L250 100"/>
+    <path d="M300 65 L300 175 L250 210"/>
+    <path d="M170 65 L170 175 L300 175" stroke-dasharray="5 4"/>
+    <path d="M170 175 L120 210" stroke-dasharray="5 4"/>
+  </g>
+  <g fill="none" stroke="#111" stroke-width="1.8">
+    <!-- 坐標軸 -->
+    <line x1="120" y1="210" x2="120" y2="40"/><polygon points="120,36 116,48 124,48" fill="#111" stroke="none"/>
+    <line x1="120" y1="210" x2="380" y2="150"/><polygon points="384,149 372,146 374,155" fill="#111" stroke="none"/>
+    <line x1="120" y1="210" x2="70" y2="250"/><polygon points="66,253 78,250 72,243" fill="#111" stroke="none"/>
+  </g>
+  <g font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="16" fill="#111">
+    <text x="108" y="34">z</text>
+    <text x="378" y="145">y</text>
+    <text x="62" y="266">x</text>
+  </g>
+  <g font-family="'Noto Sans TC',sans-serif" font-size="14" fill="#111">
+    <text x="36" y="105">(3,0,3)</text>
+    <text x="252" y="58">(3,4,3)</text>
+    <text x="256" y="232">(3,4,0)</text>
+  </g>
+  <g fill="#111">
+    <circle cx="120" cy="100" r="3.5"/>
+    <circle cx="300" cy="65" r="3.5"/>
+    <circle cx="300" cy="175" r="3.5"/>
+  </g>
+</svg>

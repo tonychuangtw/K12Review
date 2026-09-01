@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 320" width="460" height="320" role="img" aria-label="大小燈罩的圓錐與地面示意圖">
+  <rect width="460" height="320" fill="#ffffff"/>
+  <!-- 地面 -->
+  <polygon points="40,300 200,235 440,265 285,315" fill="none" stroke="#111" stroke-width="2"/>
+  <!-- 燈柱 -->
+  <line x1="200" y1="60" x2="200" y2="290" stroke="#111" stroke-width="3"/>
+  <!-- 軸線（虛線） -->
+  <line x1="200" y1="60" x2="410" y2="150" stroke="#111" stroke-width="1.6" stroke-dasharray="7 5"/>
+  <!-- 大燈罩圓錐（外） -->
+  <path d="M200 60 L400 105 M200 60 L400 195" stroke="#111" stroke-width="2" fill="none"/>
+  <ellipse cx="400" cy="150" rx="16" ry="45" fill="none" stroke="#111" stroke-width="2"/>
+  <!-- 小燈罩圓錐（內） -->
+  <path d="M200 60 L330 108 M200 60 L330 170" stroke="#111" stroke-width="1.8" fill="none"/>
+  <ellipse cx="330" cy="139" rx="8" ry="31" fill="none" stroke="#111" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <!-- 頂點 -->
+  <circle cx="200" cy="60" r="5" fill="#111"/>
+  <g font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="14" fill="#111">
+    <text x="150" y="52">頂點</text>
+    <text x="316" y="76">小燈罩</text>
+    <text x="398" y="102">大燈罩</text>
+    <text x="404" y="212">軸線</text>
+  </g>
+  <g stroke="#111" stroke-width="1.2" fill="none">
+    <line x1="344" y1="82" x2="326" y2="106"/>
+    <line x1="414" y1="108" x2="398" y2="122"/>
+    <line x1="410" y1="200" x2="382" y2="176"/>
+  </g>
+</svg>

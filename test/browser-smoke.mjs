@@ -1570,5 +1570,76 @@ async (js) => {
     await js(`(window.__errs || []).join(' | ')`));
 });
 
+/* ---------- 17b. 數學卷的選填題（2026-09-01 新增 type:'fill'） ---------- */
+console.log('歷屆試題：數學卷的選填題');
+await session(8765, 9365, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 12, extra: [], grades: [12], onboarded: true, subject: 'chinese',
+  examLimit: 'none', stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], units: {} }));` },
+async (js) => {
+  await js(`window.NavDebug.go('subject')`);
+  await sleep(400);
+  await js(`(function(){ var b = [].slice.call(document.querySelectorAll('#subjectCards .card'))
+    .filter(function(x){ return /歷屆試題/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(1800);
+  await js(`(function(){ window.__oldConfirm = window.UIDialog.confirm;
+    window.UIDialog.confirm = function(msg, cb){ cb(); }; })()`);
+  // 直接開 115 數學A（選填題最多的一卷）
+  check('列表裡找得到數學卷',
+    await js(`[].slice.call(document.querySelectorAll('#examList .card'))
+      .filter(function(x){ return /數學/.test(x.textContent); }).length`) >= 1,
+    await js(`document.getElementById('examList').textContent.slice(0, 120)`));
+  await js(`(function(){ var b = [].slice.call(document.querySelectorAll('#examList .card'))
+    .filter(function(x){ return /數學Ａ/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(1800);
+  check('開得了數學卷', await js(`!document.getElementById('view-exam').classList.contains('hidden')`) &&
+    await js(`(window.APP_EXAM_PAPERS['115-matha']||{}).id`) === '115-matha');
+  // 跳到第 13 題（選填題）
+  await js(`(function(){
+    var p = window.APP_EXAM_PAPERS['115-matha'];
+    var k = 0; p.qs.forEach(function(q, i){ if (q.n === 13) k = i; });
+    document.querySelectorAll('#examNav .exam-cell')[k].click(); })()`);
+  await sleep(300);
+  const cellN = await js(`document.querySelectorAll('#examOpts .exam-fill-cell input').length`);
+  check('選填題畫出填答格（不是選項按鈕）', cellN === 3 &&
+    await js(`document.querySelectorAll('#examOpts .q-opt').length`) === 0, String(cellN));
+  check('題型標籤顯示選填題', /選填題/.test(await js(`document.getElementById('examTag').textContent`)),
+    await js(`document.getElementById('examTag').textContent`));
+  // 每一題都照正解作答（選填題把每一格填進去），交卷應該滿分
+  await js(`(function(){ window.__total = window.APP_EXAM_PAPERS['115-matha'].qs.length; })()`);
+  const totalM = await js(`window.__total`);
+  for (let i = 0; i < totalM; i++) {
+    await js(`(function(){ document.querySelectorAll('#examNav .exam-cell')[${i}].click(); })()`);
+    await sleep(50);
+    await js(`(function(){
+      var q = window.APP_EXAM_PAPERS['115-matha'].qs[${i}];
+      if (q.type === 'fill') {
+        var ins = document.querySelectorAll('#examOpts .exam-fill-cell input');
+        q.a.forEach(function(v, k){
+          if (!ins[k]) return;
+          ins[k].value = v;
+          ins[k].dispatchEvent(new Event('input', { bubbles: true }));
+        });
+      } else {
+        var opts = document.querySelectorAll('#examOpts .q-opt');
+        var want = Array.isArray(q.a) ? q.a : [q.a];
+        want.forEach(function(k){ if (opts[k]) opts[k].click(); });
+      } })()`);
+    await sleep(50);
+  }
+  check('選填題也算進「全部寫完」，交卷鍵才出現',
+    await js(`document.getElementById('examSubmit').classList.contains('hidden')`) === false,
+    await js(`document.getElementById('examSubmitHint').textContent`));
+  await js(`document.getElementById('examSubmit').click()`);
+  await sleep(900);
+  const resM = await js(`document.getElementById('examResult').textContent`);
+  check('照正解作答＝滿分 88 分（含 5 題選填）',
+    /88\s*／\s*88/.test(resM.replace(/\s+/g, ' ')), resM.slice(0, 80));
+  const rvM = await js(`document.getElementById('examReview').textContent`);
+  check('逐題檢討看得到選填題的正解', /9 1 0/.test(rvM), rvM.slice(0, 200));
+  await js(`(function(){ if (window.__oldConfirm) window.UIDialog.confirm = window.__oldConfirm; })()`);
+  check('數學卷這一段沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);

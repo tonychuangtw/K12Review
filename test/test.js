@@ -964,12 +964,19 @@ console.log('歷屆學測');
       if (nums.has(q.n)) bad.push(tag + ' 題號重複');
       nums.add(q.n);
       if (!(q.q || '').trim()) bad.push(tag + ' 沒有題幹');
-      if (!Array.isArray(q.o) || q.o.length < 2) bad.push(tag + ' 選項不足');
-      if ((q.o || []).some((o) => !String(o).trim())) bad.push(tag + ' 有空白選項');
-      if (q.type === 'multi') {
-        if (!Array.isArray(q.a) || !q.a.length) bad.push(tag + ' 多選題沒有答案');
-        else if (q.a.some((i) => !(i >= 0 && i < q.o.length))) bad.push(tag + ' 答案索引超出選項');
-      } else if (!(q.a >= 0 && q.a < q.o.length)) bad.push(tag + ' 答案索引超出選項');
+      if (q.type === 'fill') {
+        // 選填題（數學卷）：答案是一格一個字串，沒有選項
+        if (!Array.isArray(q.a) || !q.a.length) bad.push(tag + ' 選填題沒有答案');
+        else if (q.a.some((v) => !String(v).trim())) bad.push(tag + ' 選填題有空白答案格');
+        if (q.blanks && q.blanks.length !== q.a.length) bad.push(tag + ' 選填題格號數與答案數不合');
+      } else {
+        if (!Array.isArray(q.o) || q.o.length < 2) bad.push(tag + ' 選項不足');
+        if ((q.o || []).some((o) => !String(o).trim())) bad.push(tag + ' 有空白選項');
+        if (q.type === 'multi') {
+          if (!Array.isArray(q.a) || !q.a.length) bad.push(tag + ' 多選題沒有答案');
+          else if (q.a.some((i) => !(i >= 0 && i < q.o.length))) bad.push(tag + ' 答案索引超出選項');
+        } else if (!(q.a >= 0 && q.a < q.o.length)) bad.push(tag + ' 答案索引超出選項');
+      }
       if (!(q.pt > 0)) bad.push(tag + ' 沒有配分');
       if (!(q.exp || '').trim()) bad.push(tag + ' 沒有解析');
       if (q.g && !((paper.groups || {})[q.g] || {}).passage) bad.push(tag + ' 題組文章不見了');
@@ -980,7 +987,7 @@ console.log('歷屆學測');
     });
     ok(bad.length === 0, `${p.id} 每一題都完整（問題：${bad.slice(0, 3).join('；') || '無'}）`);
     // 解析要交代其他選項為什麼不對（整卷檢討是這一區唯一的學習機會）
-    const thin = paper.qs.filter((q) => (q.exp || '').indexOf('❌') < 0 && q.type !== 'multi');
+    const thin = paper.qs.filter((q) => (q.exp || '').indexOf('❌') < 0 && q.type !== 'multi' && q.type !== 'fill');
     ok(thin.length === 0, `${p.id} 單選題的解析都有交代錯誤選項（缺 ${thin.length} 題）`);
   });
 }
