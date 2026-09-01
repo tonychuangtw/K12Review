@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="420" height="420" font-family="'Noto Sans TC',sans-serif"><rect width="420" height="420" fill="#fff"/>
+<path d="M74.5,198.1 L28.7,194.1 A182,182 0 0 1 367.6,119.0 L327.8,142.0 A136,136 0 0 0 74.5,198.1 Z" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<path d="M327.8,142.0 L367.6,119.0 A182,182 0 0 1 301.0,367.6 L278.0,327.8 A136,136 0 0 0 327.8,142.0 Z" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<path d="M278.0,327.8 L301.0,367.6 A182,182 0 0 1 105.6,359.1 L132.0,321.4 A136,136 0 0 0 278.0,327.8 Z" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<path d="M132.0,321.4 L105.6,359.1 A182,182 0 0 1 28.7,194.1 L74.5,198.1 A136,136 0 0 0 132.0,321.4 Z" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<path d="M164.0,130.3 L142.0,92.2 A136,136 0 0 1 327.8,142.0 L289.7,164.0 A92,92 0 0 0 164.0,130.3 Z" fill="#d8d8d8" stroke="#111" stroke-width="1.4"/>
+<path d="M289.7,164.0 L327.8,142.0 A136,136 0 0 1 278.0,327.8 L256.0,289.7 A92,92 0 0 0 289.7,164.0 Z" fill="#d8d8d8" stroke="#111" stroke-width="1.4"/>
+<path d="M256.0,289.7 L278.0,327.8 A136,136 0 0 1 74.0,210.0 L118.0,210.0 A92,92 0 0 0 256.0,289.7 Z" fill="#d8d8d8" stroke="#111" stroke-width="1.4"/>
+<path d="M118.0,210.0 L74.0,210.0 A136,136 0 0 1 142.0,92.2 L164.0,130.3 A92,92 0 0 0 118.0,210.0 Z" fill="#d8d8d8" stroke="#111" stroke-width="1.4"/>
+<path d="M210.0,164.0 L210.0,118.0 A92,92 0 0 1 256.0,130.3 L233.0,170.2 A46,46 0 0 0 210.0,164.0 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<path d="M233.0,170.2 L256.0,130.3 A92,92 0 0 1 289.7,164.0 L249.8,187.0 A46,46 0 0 0 233.0,170.2 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<path d="M249.8,187.0 L289.7,164.0 A92,92 0 0 1 302.0,210.0 L256.0,210.0 A46,46 0 0 0 249.8,187.0 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<path d="M256.0,210.0 L302.0,210.0 A92,92 0 0 1 289.7,256.0 L249.8,233.0 A46,46 0 0 0 256.0,210.0 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<path d="M249.8,233.0 L289.7,256.0 A92,92 0 0 1 256.0,289.7 L233.0,249.8 A46,46 0 0 0 249.8,233.0 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<path d="M233.0,249.8 L256.0,289.7 A92,92 0 0 1 210.0,302.0 L210.0,256.0 A46,46 0 0 0 233.0,249.8 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<path d="M210.0,256.0 L210.0,302.0 A92,92 0 0 1 164.0,289.7 L187.0,249.8 A46,46 0 0 0 210.0,256.0 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<path d="M187.0,249.8 L164.0,289.7 A92,92 0 0 1 130.3,256.0 L170.2,233.0 A46,46 0 0 0 187.0,249.8 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<path d="M170.2,233.0 L130.3,256.0 A92,92 0 0 1 118.0,210.0 L164.0,210.0 A46,46 0 0 0 170.2,233.0 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<path d="M164.0,210.0 L118.0,210.0 A92,92 0 0 1 130.3,164.0 L170.2,187.0 A46,46 0 0 0 164.0,210.0 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<path d="M170.2,187.0 L130.3,164.0 A92,92 0 0 1 164.0,130.3 L187.0,170.2 A46,46 0 0 0 170.2,187.0 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<path d="M187.0,170.2 L164.0,130.3 A92,92 0 0 1 210.0,118.0 L210.0,164.0 A46,46 0 0 0 187.0,170.2 Z" fill="#fff" stroke="#111" stroke-width="1.1"/>
+<circle cx="210" cy="210" r="46" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<text x="227.9" y="143.4" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(15.0 227.9 143.4)">一月</text>
+<text x="258.8" y="161.2" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(45.0 258.8 161.2)">二月</text>
+<text x="276.6" y="192.1" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(75.0 276.6 192.1)">三月</text>
+<text x="276.6" y="227.9" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(-75.0 276.6 227.9)">四月</text>
+<text x="258.8" y="258.8" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(-45.0 258.8 258.8)">五月</text>
+<text x="227.9" y="276.6" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(-15.0 227.9 276.6)">六月</text>
+<text x="192.1" y="276.6" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(15.0 192.1 276.6)">七月</text>
+<text x="161.2" y="258.8" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(45.0 161.2 258.8)">八月</text>
+<text x="143.4" y="227.9" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(75.0 143.4 227.9)">九月</text>
+<text x="143.4" y="192.1" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(285.0 143.4 192.1)">十月</text>
+<text x="161.2" y="161.2" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(315.0 161.2 161.2)">十一月</text>
+<text x="192.1" y="143.4" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(345.0 192.1 143.4)">十二月</text>
+<text x="239.5" y="99.9" font-size="15" text-anchor="middle" dominant-baseline="central" transform="rotate(15.0 239.5 99.9)">翻土</text>
+<text x="320.1" y="239.5" font-size="15" text-anchor="middle" dominant-baseline="central" transform="rotate(-75.0 320.1 239.5)">播種</text>
+<text x="153.0" y="308.7" font-size="15" text-anchor="middle" dominant-baseline="central" transform="rotate(30.0 153.0 308.7)">小麥生長</text>
+<text x="111.3" y="153.0" font-size="15" text-anchor="middle" dominant-baseline="central" transform="rotate(300.0 111.3 153.0)">小麥收成</text>
+<text x="175.6" y="54.8" font-size="15" text-anchor="middle" dominant-baseline="central" transform="rotate(347.5 175.6 54.8)">麥田放牧</text>
+<text x="363.6" y="251.2" font-size="15" text-anchor="middle" dominant-baseline="central" transform="rotate(-75.0 363.6 251.2)">交配、防疫</text>
+<text x="203.1" y="368.8" font-size="15" text-anchor="middle" dominant-baseline="central" transform="rotate(2.5 203.1 368.8)">作物餵飼</text>
+<text x="65.9" y="277.2" font-size="12" text-anchor="middle" dominant-baseline="central" transform="rotate(65.0 65.9 277.2)">剪收羊毛、接生仔羊</text>
+<text x="210" y="201" font-size="15" font-weight="700" text-anchor="middle">某農場的</text>
+<text x="210" y="221" font-size="15" font-weight="700" text-anchor="middle">工作年曆</text>
+</svg>

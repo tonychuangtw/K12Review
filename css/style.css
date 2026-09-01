@@ -281,7 +281,7 @@ main { max-width: 640px; margin: 0 auto; padding: 1rem; }
   border-radius: 14px; padding: 1.2rem;
 }
 .q-tag { font-size: 0.78rem; color: var(--accent); margin-bottom: 0.6rem; }
-.q-text { font-size: 1.15rem; line-height: 1.7; margin-bottom: 1rem; }
+.q-text { font-size: 1.15rem; line-height: 1.7; margin-bottom: 1rem; white-space: pre-line; }
 .q-text .hl { color: var(--accent); font-weight: 700; }
 .q-options { display: flex; flex-direction: column; gap: 0.6rem; }
 .q-opt {

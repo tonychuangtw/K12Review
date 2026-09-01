@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 688 280" width="688" height="280" font-family="'Noto Sans TC',sans-serif"><rect width="688" height="280" fill="#fff"/>
+<rect x="14" y="14" width="150" height="200" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<line x1="14" y1="98.0" x2="164" y2="74.0" stroke="#111" stroke-width="1.6"/>
+<line x1="77.0" y1="87.9" x2="107.0" y2="214" stroke="#111" stroke-width="1.6"/>
+<text x="19" y="94.0" font-size="15">甲國</text>
+<text x="21" y="202.0" font-size="15">丙國</text>
+<text x="113.0" y="202.0" font-size="15">乙國</text>
+<circle cx="30.5" cy="52.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<polygon points="33.5,27.0 39.5,34.0 33.5,41.0 27.5,34.0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<circle cx="96.5" cy="52.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<polygon points="72.5,63.0 78.5,70.0 72.5,77.0 66.5,70.0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="16" y="230" font-size="13" font-family="serif">I</text>
+<rect x="184" y="14" width="150" height="200" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<line x1="184" y1="98.0" x2="334" y2="74.0" stroke="#111" stroke-width="1.6"/>
+<line x1="247.0" y1="87.9" x2="277.0" y2="214" stroke="#111" stroke-width="1.6"/>
+<text x="189" y="94.0" font-size="15">甲國</text>
+<text x="191" y="202.0" font-size="15">丙國</text>
+<text x="283.0" y="202.0" font-size="15">乙國</text>
+<circle cx="202.0" cy="46.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="215.5" cy="36.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="230.5" cy="52.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="247.0" cy="44.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<polygon points="233.5,57.0 239.5,64.0 233.5,71.0 227.5,64.0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<polygon points="244.0,53.0 250.0,60.0 244.0,67.0 238.0,60.0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<polygon points="238.0,67.0 244.0,74.0 238.0,81.0 232.0,74.0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<circle cx="266.5" cy="50.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="286.0" cy="38.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="293.5" cy="54.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<text x="186" y="230" font-size="13" font-family="serif">II</text>
+<rect x="354" y="14" width="150" height="200" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<line x1="354" y1="98.0" x2="504" y2="74.0" stroke="#111" stroke-width="1.6"/>
+<line x1="417.0" y1="87.9" x2="447.0" y2="214" stroke="#111" stroke-width="1.6"/>
+<text x="359" y="94.0" font-size="15">甲國</text>
+<text x="361" y="202.0" font-size="15">丙國</text>
+<text x="453.0" y="202.0" font-size="15">乙國</text>
+<circle cx="370.5" cy="48.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="384.0" cy="36.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="373.5" cy="64.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="399.0" cy="50.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="420.0" cy="44.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<polygon points="405.0,53.0 411.0,60.0 405.0,67.0 399.0,60.0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<polygon points="415.5,49.0 421.5,56.0 415.5,63.0 409.5,56.0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<polygon points="409.5,65.0 415.5,72.0 409.5,79.0 403.5,72.0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<circle cx="438.0" cy="40.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="456.0" cy="36.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="465.0" cy="50.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="370.5" cy="108.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="465.0" cy="100.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="454.5" cy="114.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="468.0" cy="110.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="450.0" cy="126.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="460.5" cy="130.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="445.5" cy="154.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<polygon points="460.5,113.0 466.5,120.0 460.5,127.0 454.5,120.0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="356" y="230" font-size="13" font-family="serif">III</text>
+<rect x="524" y="14" width="150" height="200" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<line x1="524" y1="98.0" x2="674" y2="74.0" stroke="#111" stroke-width="1.6"/>
+<line x1="587.0" y1="87.9" x2="617.0" y2="214" stroke="#111" stroke-width="1.6"/>
+<text x="529" y="94.0" font-size="15">甲國</text>
+<text x="531" y="202.0" font-size="15">丙國</text>
+<text x="623.0" y="202.0" font-size="15">乙國</text>
+<circle cx="545.0" cy="40.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<polygon points="587.0,39.0 593.0,46.0 587.0,53.0 581.0,46.0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<polygon points="597.5,33.0 603.5,40.0 597.5,47.0 591.5,40.0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<circle cx="609.5" cy="38.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="618.5" cy="50.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="540.5" cy="108.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="554.0" cy="134.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="576.5" cy="154.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="582.5" cy="148.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="584.0" cy="164.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="586.0" cy="160.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="636.5" cy="128.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<circle cx="647.0" cy="136.0" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<text x="526" y="230" font-size="13" font-family="serif">IV</text>
+<polygon points="234.0,249 240.0,256 234.0,263 228.0,256" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="248.0" y="262" font-size="15">研發部門</text>
+<circle cx="344.0" cy="256" r="6" fill="#a9a9a9" stroke="#111" stroke-width="1.2"/>
+<text x="358.0" y="262" font-size="15">製造部門</text>
+</svg>
