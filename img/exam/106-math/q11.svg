@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 373 223" width="373" height="223" role="img" aria-label="可以無縫密舖平面的凸五邊形 ABCDE 示意圖">
+<rect width="373" height="223" fill="#fff"/>
+<polygon points="281.7,162.9 119.4,162.9 60.0,103.5 222.3,60.0 303.4,81.7" fill="none" stroke="#111" stroke-width="2" stroke-linejoin="round"/>
+<g font-family="Georgia,serif" font-style="italic" font-size="17" fill="#111">
+ <text x="290" y="179">A</text>
+ <text x="99" y="179">B</text>
+ <text x="38" y="108">C</text>
+ <text x="218" y="50">D</text>
+ <text x="311" y="84">E</text></g>
+<g font-family="Georgia,serif" font-size="15" fill="#111" text-anchor="middle">
+ <text x="201" y="183">√6＋√2</text>
+ <text x="76" y="133">2</text>
+ <text x="137" y="74">4</text>
+ <text x="275" y="67">2</text>
+ <text x="307" y="122">2</text>
+ <text x="279" y="98">90°</text>
+ <text x="252" y="151">105°</text></g></svg>
