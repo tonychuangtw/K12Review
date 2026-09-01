@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="2×2 棋盤，四格分別為 A、B、C、D">
+  <rect width="240" height="240" fill="#ffffff"/>
+  <g fill="none" stroke="#111" stroke-width="2">
+    <rect x="30" y="30" width="180" height="180"/>
+    <line x1="120" y1="30" x2="120" y2="210"/>
+    <line x1="30" y1="120" x2="210" y2="120"/>
+  </g>
+  <g font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="30" fill="#111" text-anchor="middle">
+    <text x="75" y="88">A</text>
+    <text x="165" y="88">B</text>
+    <text x="75" y="178">C</text>
+    <text x="165" y="178">D</text>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 360" width="460" height="360" role="img" aria-label="大樓外牆聖誕樹造型燈飾：頂點 P 與各層樓地板">
+  <rect width="460" height="360" fill="#ffffff"/>
+  <g stroke="#111" stroke-width="1.4" fill="none">
+    <line x1="60" y1="70" x2="360" y2="70"/>
+    <line x1="60" y1="130" x2="360" y2="130"/>
+    <line x1="60" y1="190" x2="360" y2="190"/>
+    <line x1="60" y1="250" x2="360" y2="250"/>
+    <line x1="60" y1="310" x2="360" y2="310"/>
+  </g>
+  <g stroke="#111" stroke-width="1.8" fill="none">
+    <path d="M210 40 L120 130 L300 130 Z"/>
+    <path d="M210 40 L100 190 L320 190 Z"/>
+    <path d="M210 40 L80 250 L340 250 Z"/>
+  </g>
+  <rect x="192" y="250" width="36" height="60" fill="#d9d9d9" stroke="#111" stroke-width="1.4"/>
+  <circle cx="210" cy="40" r="4" fill="#111"/>
+  <g font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="16" fill="#111">
+    <text x="204" y="32">P</text>
+    <text x="104" y="126">A</text>
+    <text x="304" y="126">B</text>
+    <text x="84" y="186">C</text>
+    <text x="324" y="186">D</text>
+    <text x="64" y="246">E</text>
+    <text x="344" y="246">F</text>
+  </g>
+  <g font-family="'Noto Sans TC',sans-serif" font-size="14" fill="#111">
+    <text x="368" y="75">五樓</text>
+    <text x="368" y="135">四樓</text>
+    <text x="368" y="195">三樓</text>
+    <text x="368" y="255">二樓</text>
+    <text x="368" y="315">一樓</text>
+  </g>
+</svg>

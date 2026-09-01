@@ -206,7 +206,7 @@ NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。下一卷�
      110 國文 42／100、110 英文 56／72、110 社會 72／144、
      109 國文 42／100、109 英文 56／72、109 社會 70／140、
      108 國文 42／100、115 數學Ａ 18／88、115 數學Ｂ 18／88、
-     114 數學Ａ 18／88、114 數學Ｂ 18／88 —— 共 26 卷 1,232 題。
+     114 數學Ａ 18／88、114 數學Ｂ 18／88、113 數學Ａ 18／88、113 數學Ｂ 18／88 —— 共 28 卷 1,304 題。
      ★ 2026-09-01 Tony 兩點指示（之後所有科目都照這個做）：
        (1) 「可以自己畫向量圖的自己畫，辦不到才裁圖」——函數圖形、幾何圖、電路圖、受力圖、
            示意圖一律寫成 SVG 放 img/exam/<卷id>/qN.svg（fig 欄位直接指到 .svg 就會顯示）；
@@ -232,7 +232,7 @@ NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。下一卷�
        學測 國文英文社會：✅115 ✅114 ✅113 ✅112 ✅111 ✅110 ✅109 🔶108（國文完成，英文社會待做） ⬜107 ⬜106 ⬜105
                         ⬜104 ⬜103 ⬜102 ⬜101 ⬜100 ⬜99 ⬜98 ⬜97 ⬜96 ⬜95 ⬜94 ⬜93 ⬜92 ⬜91 ⬜90
        學測 自然：⬜全部年份（115-90，圖與式極多，一律自己畫 SVG）
-       學測 數學A／B（111 起分 A/B，110 以前為單一數學）：✅115 ✅114 ⬜113 ⬜112 ⬜111 ⬜110-90
+       學測 數學A／B（111 起分 A/B，110 以前為單一數學）：✅115 ✅114 ✅113 ⬜112 ⬜111 ⬜110-90
        會考 數學／英語／社會／自然：⬜115-103（國文已有，但缺圖片題）
        基測 其他科目：⬜102-90
        會考／基測國文的缺題（圖片題）：⬜回頭補
@@ -419,7 +419,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作（2026-08-31 歷屆補題做完後再次確認）。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-01 14:20 台北
+UPDATED: 2026-09-01 15:40 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
