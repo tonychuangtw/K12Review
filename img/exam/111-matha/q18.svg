@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 300" width="440" height="300" role="img" aria-label="由兩個同心圓圍成的上半環狀區域">
+<rect width="440" height="300" fill="#fff"/>
+<path d="M 344.0 250.0 A 124.0 124.0 0 0 0 96.0 250.0 L 112.6 250.0 A 107.4 107.4 0 0 1 327.4 250.0 Z" fill="#eee" stroke="#111" stroke-width="2.2"/>
+<g fill="none" stroke="#111" stroke-width="1.6">
+ <line x1="50" y1="250" x2="400" y2="250"/>
+ <polygon points="406,250 396,246 396,254" fill="#111" stroke="none"/>
+ <line x1="220" y1="272" x2="220" y2="64"/>
+ <polygon points="220,58 216,68 224,68" fill="#111" stroke="none"/></g>
+<g font-family="Georgia,serif" font-style="italic" font-size="15" fill="#111">
+ <text x="396" y="270">x</text><text x="228" y="74">y</text></g></svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 300" width="650" height="300" role="img" aria-label="一條直線上依序排列的四個相異點 P1、P2、P3、P4">
+<rect width="650" height="300" fill="#fff"/>
+<line x1="40" y1="278" x2="634" y2="81" stroke="#999" stroke-width="2.4"/>
+<g fill="#111"><circle cx="154.8" cy="239.8" r="4"/><circle cx="260.8" cy="204.6" r="4"/><circle cx="398.6" cy="158.9" r="4"/><circle cx="525.8" cy="116.6" r="4"/></g>
+<g font-family="Georgia,serif" font-style="italic" font-size="18" fill="#111"><text x="147" y="228">P<tspan font-size="12" dy="4">1</tspan></text><text x="253" y="193">P<tspan font-size="12" dy="4">2</tspan></text><text x="391" y="147">P<tspan font-size="12" dy="4">3</tspan></text><text x="518" y="105">P<tspan font-size="12" dy="4">4</tspan></text></g></svg>
