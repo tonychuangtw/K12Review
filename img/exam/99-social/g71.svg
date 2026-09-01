@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" width="760" height="560" font-family="'Noto Sans TC',sans-serif"><rect width="760" height="560" fill="#fff"/>
+<defs>
+<marker id="th" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#111"/></marker>
+<marker id="tn" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 9,3.5 0,7" fill="#111"/></marker>
+</defs>
+<rect x="10" y="10" width="740" height="540" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<rect x="30" y="25" width="340" height="220" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<rect x="38" y="33" width="34" height="30" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="55" y="54" font-size="17" text-anchor="middle">甲</text>
+<rect x="148" y="47" width="72" height="30" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="184.0" y="67.0" font-size="16" text-anchor="middle">市場</text>
+<rect x="70" y="117" width="66" height="30" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="103.0" y="137.0" font-size="15" text-anchor="middle">牲畜</text>
+<rect x="158" y="107" width="66" height="30" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="191.0" y="127.0" font-size="15" text-anchor="middle">農家</text>
+<rect x="68" y="185" width="66" height="38" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="101.0" y="201.0" font-size="12" text-anchor="middle">天然</text>
+<text x="101.0" y="217.0" font-size="12" text-anchor="middle">牧草</text>
+<rect x="160" y="185" width="62" height="38" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="191.0" y="209.0" font-size="15" text-anchor="middle">作物</text>
+<rect x="248" y="185" width="62" height="38" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="279.0" y="209.0" font-size="15" text-anchor="middle">作物</text>
+<line x1="101" y1="185" x2="102" y2="149" stroke="#111" stroke-width="4.2" marker-end="url(#th)"/>
+<path d="M110,117 Q120,81 156,75" fill="none" stroke="#111" stroke-width="1.5" marker-end="url(#tn)"/>
+<line x1="137" y1="125" x2="156" y2="119" stroke="#111" stroke-width="1.5" marker-end="url(#tn)"/>
+<line x1="191" y1="185" x2="191" y2="139" stroke="#111" stroke-width="4.2" marker-end="url(#th)"/>
+<path d="M286,185 Q312,85 222,63" fill="none" stroke="#111" stroke-width="4.2" marker-end="url(#th)"/>
+<rect x="390" y="25" width="340" height="220" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<rect x="398" y="33" width="34" height="30" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="415" y="54" font-size="17" text-anchor="middle">乙</text>
+<rect x="518" y="47" width="72" height="30" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="554.0" y="67.0" font-size="16" text-anchor="middle">市場</text>
+<rect x="430" y="117" width="66" height="30" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="463.0" y="137.0" font-size="15" text-anchor="middle">牲畜</text>
+<rect x="620" y="107" width="66" height="30" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="653.0" y="127.0" font-size="15" text-anchor="middle">農家</text>
+<rect x="430" y="185" width="62" height="38" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="461.0" y="201.0" font-size="12" text-anchor="middle">人工</text>
+<text x="461.0" y="217.0" font-size="12" text-anchor="middle">飼料</text>
+<rect x="518" y="185" width="62" height="38" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="549.0" y="209.0" font-size="15" text-anchor="middle">作物</text>
+<rect x="608" y="185" width="62" height="38" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="639.0" y="209.0" font-size="15" text-anchor="middle">作物</text>
+<line x1="461" y1="185" x2="462" y2="149" stroke="#111" stroke-width="4.2" marker-end="url(#th)"/>
+<path d="M468,117 Q476,79 524,75" fill="none" stroke="#111" stroke-width="4.2" marker-end="url(#th)"/>
+<line x1="497" y1="125" x2="618" y2="119" stroke="#111" stroke-width="1.5" marker-end="url(#tn)"/>
+<line x1="540" y1="185" x2="498" y2="143" stroke="#111" stroke-width="1.5" marker-end="url(#tn)"/>
+<line x1="639" y1="185" x2="646" y2="139" stroke="#111" stroke-width="1.5" marker-end="url(#tn)"/>
+<rect x="30" y="265" width="340" height="220" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<rect x="38" y="273" width="34" height="30" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="55" y="294" font-size="17" text-anchor="middle">丙</text>
+<rect x="150" y="287" width="72" height="30" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="186.0" y="307.0" font-size="16" text-anchor="middle">市場</text>
+<rect x="64" y="357" width="66" height="30" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="97.0" y="377.0" font-size="15" text-anchor="middle">牲畜</text>
+<rect x="170" y="343" width="66" height="30" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="203.0" y="363.0" font-size="15" text-anchor="middle">農家</text>
+<rect x="56" y="425" width="56" height="38" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="84.0" y="441.0" font-size="12" text-anchor="middle">人工</text>
+<text x="84.0" y="457.0" font-size="12" text-anchor="middle">牧草</text>
+<rect x="122" y="425" width="56" height="38" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="150.0" y="449.0" font-size="14" text-anchor="middle">作物</text>
+<rect x="188" y="425" width="56" height="38" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="216.0" y="449.0" font-size="14" text-anchor="middle">作物</text>
+<rect x="254" y="425" width="56" height="38" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="282.0" y="449.0" font-size="14" text-anchor="middle">作物</text>
+<line x1="84" y1="425" x2="86" y2="389" stroke="#111" stroke-width="1.5" marker-end="url(#tn)"/>
+<line x1="150" y1="425" x2="112" y2="389" stroke="#111" stroke-width="4.2" marker-end="url(#th)"/>
+<path d="M98,357 Q106,319 158,315" fill="none" stroke="#111" stroke-width="4.2" marker-end="url(#th)"/>
+<line x1="131" y1="365" x2="168" y2="355" stroke="#111" stroke-width="1.5" marker-end="url(#tn)"/>
+<line x1="216" y1="425" x2="208" y2="375" stroke="#111" stroke-width="1.5" marker-end="url(#tn)"/>
+<path d="M292,425 Q320,325 224,303" fill="none" stroke="#111" stroke-width="1.5" marker-end="url(#tn)"/>
+<rect x="390" y="265" width="340" height="220" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<rect x="398" y="273" width="34" height="30" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="415" y="294" font-size="17" text-anchor="middle">丁</text>
+<rect x="570" y="295" width="72" height="30" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="606.0" y="315.0" font-size="16" text-anchor="middle">農家</text>
+<rect x="498" y="361" width="66" height="30" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="531.0" y="381.0" font-size="15" text-anchor="middle">牲畜</text>
+<rect x="500" y="423" width="62" height="40" fill="#fff" stroke="#111" stroke-width="1.4"/>
+<text x="531.0" y="440.0" font-size="12" text-anchor="middle">天然</text>
+<text x="531.0" y="456.0" font-size="12" text-anchor="middle">牧草</text>
+<line x1="531" y1="423" x2="531" y2="393" stroke="#111" stroke-width="4.2" marker-end="url(#th)"/>
+<line x1="554" y1="361" x2="590" y2="327" stroke="#111" stroke-width="4.2" marker-end="url(#th)"/>
+<line x1="150" y1="512" x2="215" y2="512" stroke="#111" stroke-width="4.2" marker-end="url(#th)"/>
+<text x="232" y="518" font-size="16">主要流向</text>
+<line x1="400" y1="512" x2="465" y2="512" stroke="#111" stroke-width="1.5" marker-end="url(#tn)"/>
+<text x="482" y="518" font-size="16">次要流向</text>
+</svg>

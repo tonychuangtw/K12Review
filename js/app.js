@@ -6586,7 +6586,11 @@
         var should = want.indexOf(i) >= 0, did = chosen.indexOf(i) >= 0;
         if (should !== did) wrong++;
       }
-      var got = Math.round(Math.max(0, q.pt * (n - 2 * wrong) / n) * 100) / 100;
+      // q.pk：該年多選題的給分表（pk[k] ＝ 答錯 k 個選項時的得分），
+      // 例如 99 學測國文是「全對 3 分、錯 1 個 1.5 分、錯 2 個以上 0 分」→ pk: [3, 1.5, 0]。
+      // 沒有 pk 時用大考中心近年的通式 pt × (n − 2k) / n，負分以 0 計。
+      var got = q.pk ? (q.pk[wrong] == null ? 0 : q.pk[wrong])
+                     : Math.round(Math.max(0, q.pt * (n - 2 * wrong) / n) * 100) / 100;
       if (got > best.got || (wrong === 0 && !best.right)) best = { got: got, right: wrong === 0 };
     }
     return best;
