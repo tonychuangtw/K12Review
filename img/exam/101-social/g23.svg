@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420" font-family="'Noto Sans TC',sans-serif"><rect width="760" height="420" fill="#fff"/>
+<line x1="100" y1="330.0" x2="720" y2="330.0" stroke="#bbb" stroke-width="0.8"/>
+<text x="90" y="335.0" font-size="14" text-anchor="end">0</text>
+<line x1="100" y1="280.0" x2="720" y2="280.0" stroke="#bbb" stroke-width="0.8"/>
+<text x="90" y="285.0" font-size="14" text-anchor="end">20</text>
+<line x1="100" y1="230.0" x2="720" y2="230.0" stroke="#bbb" stroke-width="0.8"/>
+<text x="90" y="235.0" font-size="14" text-anchor="end">40</text>
+<line x1="100" y1="180.0" x2="720" y2="180.0" stroke="#bbb" stroke-width="0.8"/>
+<text x="90" y="185.0" font-size="14" text-anchor="end">60</text>
+<line x1="100" y1="130.0" x2="720" y2="130.0" stroke="#bbb" stroke-width="0.8"/>
+<text x="90" y="135.0" font-size="14" text-anchor="end">80</text>
+<line x1="100" y1="80.0" x2="720" y2="80.0" stroke="#bbb" stroke-width="0.8"/>
+<text x="90" y="85.0" font-size="14" text-anchor="end">100</text>
+<line x1="100" y1="60" x2="100" y2="330" stroke="#111" stroke-width="1.2"/>
+<line x1="100" y1="330" x2="720" y2="330" stroke="#111" stroke-width="1.2"/>
+<text x="58" y="58" font-size="15" font-weight="700">%</text>
+<rect x="130.0" y="247.5" width="26" height="82.5" fill="#c8c8c8" stroke="#111" stroke-width="1"/>
+<text x="143.0" y="242.5" font-size="13" text-anchor="middle">33</text>
+<rect x="156.0" y="297.5" width="26" height="32.5" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<text x="169.0" y="292.5" font-size="13" text-anchor="middle">13</text>
+<text x="156.0" y="350" font-size="13" text-anchor="middle" font-weight="700">20-24</text>
+<rect x="187.5" y="230.0" width="26" height="100.0" fill="#c8c8c8" stroke="#111" stroke-width="1"/>
+<text x="200.5" y="225.0" font-size="13" text-anchor="middle">40</text>
+<rect x="213.5" y="240.0" width="26" height="90.0" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<text x="226.5" y="235.0" font-size="13" text-anchor="middle">36</text>
+<text x="213.5" y="350" font-size="13" text-anchor="middle" font-weight="700">25-29</text>
+<rect x="245.0" y="225.0" width="26" height="105.0" fill="#c8c8c8" stroke="#111" stroke-width="1"/>
+<text x="258.0" y="220.0" font-size="13" text-anchor="middle">42</text>
+<rect x="271.0" y="267.5" width="26" height="62.5" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<text x="284.0" y="262.5" font-size="13" text-anchor="middle">25</text>
+<text x="271.0" y="350" font-size="13" text-anchor="middle" font-weight="700">30-34</text>
+<rect x="302.5" y="255.0" width="26" height="75.0" fill="#c8c8c8" stroke="#111" stroke-width="1"/>
+<text x="315.5" y="250.0" font-size="13" text-anchor="middle">30</text>
+<rect x="328.5" y="265.0" width="26" height="65.0" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<text x="341.5" y="260.0" font-size="13" text-anchor="middle">26</text>
+<text x="328.5" y="350" font-size="13" text-anchor="middle" font-weight="700">35-39</text>
+<text x="245.0" y="374" font-size="15" text-anchor="middle">男性</text>
+<rect x="470.0" y="272.5" width="26" height="57.5" fill="#c8c8c8" stroke="#111" stroke-width="1"/>
+<text x="483.0" y="267.5" font-size="13" text-anchor="middle">23</text>
+<rect x="496.0" y="295.0" width="26" height="35.0" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<text x="509.0" y="290.0" font-size="13" text-anchor="middle">14</text>
+<text x="496.0" y="350" font-size="13" text-anchor="middle" font-weight="700">20-24</text>
+<rect x="527.5" y="290.0" width="26" height="40.0" fill="#c8c8c8" stroke="#111" stroke-width="1"/>
+<text x="540.5" y="285.0" font-size="13" text-anchor="middle">16</text>
+<rect x="553.5" y="215.0" width="26" height="115.0" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<text x="566.5" y="210.0" font-size="13" text-anchor="middle">46</text>
+<text x="553.5" y="350" font-size="13" text-anchor="middle" font-weight="700">25-29</text>
+<rect x="585.0" y="302.5" width="26" height="27.5" fill="#c8c8c8" stroke="#111" stroke-width="1"/>
+<text x="598.0" y="297.5" font-size="13" text-anchor="middle">11</text>
+<rect x="611.0" y="202.5" width="26" height="127.5" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<text x="624.0" y="197.5" font-size="13" text-anchor="middle">51</text>
+<text x="611.0" y="350" font-size="13" text-anchor="middle" font-weight="700">30-34</text>
+<rect x="642.5" y="315.0" width="26" height="15.0" fill="#c8c8c8" stroke="#111" stroke-width="1"/>
+<text x="655.5" y="310.0" font-size="13" text-anchor="middle">6</text>
+<rect x="668.5" y="200.0" width="26" height="130.0" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<text x="681.5" y="195.0" font-size="13" text-anchor="middle">52</text>
+<text x="668.5" y="350" font-size="13" text-anchor="middle" font-weight="700">35-39</text>
+<text x="585.0" y="374" font-size="15" text-anchor="middle">女性</text>
+<rect x="160" y="42" width="16" height="16" fill="#c8c8c8" stroke="#111"/><text x="182" y="55" font-size="15">沒有經濟基礎</text>
+<rect x="330" y="42" width="16" height="16" fill="#3a3a3a" stroke="#111"/><text x="352" y="55" font-size="15">尚無合適對象</text>
+<text x="718" y="326" font-size="14">年齡</text>
+</svg>

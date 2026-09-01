@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" width="680" height="360" font-family="'Noto Sans TC',sans-serif"><rect width="680" height="360" fill="#fff"/>
+<line x1="110" y1="290.0" x2="650" y2="290.0" stroke="#bbb" stroke-width="0.8"/>
+<text x="100" y="295.0" font-size="14" text-anchor="end">0</text>
+<line x1="110" y1="251.7" x2="650" y2="251.7" stroke="#bbb" stroke-width="0.8"/>
+<text x="100" y="256.7" font-size="14" text-anchor="end">2</text>
+<line x1="110" y1="213.3" x2="650" y2="213.3" stroke="#bbb" stroke-width="0.8"/>
+<text x="100" y="218.3" font-size="14" text-anchor="end">4</text>
+<line x1="110" y1="175.0" x2="650" y2="175.0" stroke="#bbb" stroke-width="0.8"/>
+<text x="100" y="180.0" font-size="14" text-anchor="end">6</text>
+<line x1="110" y1="136.7" x2="650" y2="136.7" stroke="#bbb" stroke-width="0.8"/>
+<text x="100" y="141.7" font-size="14" text-anchor="end">8</text>
+<line x1="110" y1="98.3" x2="650" y2="98.3" stroke="#bbb" stroke-width="0.8"/>
+<text x="100" y="103.3" font-size="14" text-anchor="end">10</text>
+<line x1="110" y1="60.0" x2="650" y2="60.0" stroke="#bbb" stroke-width="0.8"/>
+<text x="100" y="65.0" font-size="14" text-anchor="end">12</text>
+<line x1="110" y1="44" x2="110" y2="290" stroke="#111" stroke-width="1.2"/>
+<line x1="110" y1="290" x2="650" y2="290" stroke="#111" stroke-width="1.2"/>
+<rect x="145.5" y="140.5" width="32" height="149.5" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<rect x="177.5" y="188.4" width="32" height="101.6" fill="#d0d0d0" stroke="#111" stroke-width="1"/>
+<text x="177.5" y="312" font-size="14" text-anchor="middle">1950-1962</text>
+<rect x="280.5" y="117.5" width="32" height="172.5" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<rect x="312.5" y="173.1" width="32" height="116.9" fill="#d0d0d0" stroke="#111" stroke-width="1"/>
+<text x="312.5" y="312" font-size="14" text-anchor="middle">1963-1972</text>
+<rect x="415.5" y="213.3" width="32" height="76.7" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<rect x="447.5" y="240.2" width="32" height="49.8" fill="#d0d0d0" stroke="#111" stroke-width="1"/>
+<text x="447.5" y="312" font-size="14" text-anchor="middle">1973-1989</text>
+<rect x="550.5" y="178.8" width="32" height="111.2" fill="#3a3a3a" stroke="#111" stroke-width="1"/>
+<rect x="582.5" y="244.0" width="32" height="46.0" fill="#d0d0d0" stroke="#111" stroke-width="1"/>
+<text x="582.5" y="312" font-size="14" text-anchor="middle">1990-2004</text>
+<text x="58" y="68" font-size="14" text-anchor="middle">平</text>
+<text x="58" y="94" font-size="14" text-anchor="middle">均</text>
+<text x="58" y="120" font-size="14" text-anchor="middle">年</text>
+<text x="58" y="146" font-size="14" text-anchor="middle">增</text>
+<text x="58" y="172" font-size="14" text-anchor="middle">加</text>
+<text x="58" y="198" font-size="14" text-anchor="middle">率</text>
+<text x="58" y="224" font-size="14" text-anchor="middle">(%)</text>
+<rect x="420" y="30" width="16" height="16" fill="#3a3a3a" stroke="#111"/><text x="442" y="43" font-size="15">總貿易額</text>
+<rect x="540" y="30" width="16" height="16" fill="#d0d0d0" stroke="#111"/><text x="562" y="43" font-size="15">總生產值</text>
+</svg>

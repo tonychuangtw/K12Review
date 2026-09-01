@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 370" width="660" height="370" font-family="'Noto Sans TC',sans-serif"><rect width="660" height="370" fill="#fff"/>
+<rect x="95" y="60" width="360" height="240" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<line x1="95" y1="300.0" x2="455" y2="300.0" stroke="#999" stroke-width="0.8"/>
+<text x="87" y="305.0" font-size="14" text-anchor="end">0</text>
+<line x1="95" y1="260.0" x2="455" y2="260.0" stroke="#999" stroke-width="0.8"/>
+<text x="87" y="265.0" font-size="14" text-anchor="end">10</text>
+<line x1="95" y1="220.0" x2="455" y2="220.0" stroke="#999" stroke-width="0.8"/>
+<text x="87" y="225.0" font-size="14" text-anchor="end">20</text>
+<line x1="95" y1="180.0" x2="455" y2="180.0" stroke="#999" stroke-width="0.8"/>
+<text x="87" y="185.0" font-size="14" text-anchor="end">30</text>
+<line x1="95" y1="140.0" x2="455" y2="140.0" stroke="#999" stroke-width="0.8"/>
+<text x="87" y="145.0" font-size="14" text-anchor="end">40</text>
+<line x1="95" y1="100.0" x2="455" y2="100.0" stroke="#999" stroke-width="0.8"/>
+<text x="87" y="105.0" font-size="14" text-anchor="end">50</text>
+<line x1="95" y1="60.0" x2="455" y2="60.0" stroke="#999" stroke-width="0.8"/>
+<text x="87" y="65.0" font-size="14" text-anchor="end">60</text>
+<text x="125.0" y="320" font-size="14" text-anchor="middle">1991</text>
+<text x="185.0" y="320" font-size="14" text-anchor="middle">1993</text>
+<text x="245.0" y="320" font-size="14" text-anchor="middle">1996</text>
+<text x="305.0" y="320" font-size="14" text-anchor="middle">1999</text>
+<text x="365.0" y="320" font-size="14" text-anchor="middle">2001</text>
+<text x="425.0" y="320" font-size="14" text-anchor="middle">2004</text>
+<polyline points="125.0,96.0 185.0,72.0 245.0,148.0 305.0,152.0 365.0,164.0 425.0,140.0" fill="none" stroke="#111" stroke-width="1.4"/>
+<circle cx="125.0" cy="96.0" r="4.2" fill="#111"/>
+<circle cx="185.0" cy="72.0" r="4.2" fill="#111"/>
+<circle cx="245.0" cy="148.0" r="4.2" fill="#111"/>
+<circle cx="305.0" cy="152.0" r="4.2" fill="#111"/>
+<circle cx="365.0" cy="164.0" r="4.2" fill="#111"/>
+<circle cx="425.0" cy="140.0" r="4.2" fill="#111"/>
+<polyline points="125.0,148.0 185.0,164.0 245.0,92.0 305.0,80.0 365.0,88.0 425.0,88.0" fill="none" stroke="#111" stroke-width="1.4"/>
+<rect x="121.0" y="144.0" width="8" height="8" fill="#111"/>
+<rect x="181.0" y="160.0" width="8" height="8" fill="#111"/>
+<rect x="241.0" y="88.0" width="8" height="8" fill="#111"/>
+<rect x="301.0" y="76.0" width="8" height="8" fill="#111"/>
+<rect x="361.0" y="84.0" width="8" height="8" fill="#111"/>
+<rect x="421.0" y="84.0" width="8" height="8" fill="#111"/>
+<polyline points="125.0,292.0 185.0,284.0 245.0,284.0 305.0,284.0 365.0,260.0 425.0,284.0" fill="none" stroke="#111" stroke-width="1.4"/>
+<polygon points="125.0,287.0 129.6,295.5 120.4,295.5" fill="#111"/>
+<polygon points="185.0,279.0 189.6,287.5 180.4,287.5" fill="#111"/>
+<polygon points="245.0,279.0 249.6,287.5 240.4,287.5" fill="#111"/>
+<polygon points="305.0,279.0 309.6,287.5 300.4,287.5" fill="#111"/>
+<polygon points="365.0,255.0 369.6,263.5 360.4,263.5" fill="#111"/>
+<polygon points="425.0,279.0 429.6,287.5 420.4,287.5" fill="#111"/>
+<polyline points="125.0,272.0 185.0,284.0 245.0,276.0 305.0,288.0 365.0,292.0 425.0,292.0" fill="none" stroke="#111" stroke-width="1.4"/>
+<polygon points="125.0,267.0 129.5,272.0 125.0,277.0 120.5,272.0" fill="#111"/>
+<polygon points="185.0,279.0 189.5,284.0 185.0,289.0 180.5,284.0" fill="#111"/>
+<polygon points="245.0,271.0 249.5,276.0 245.0,281.0 240.5,276.0" fill="#111"/>
+<polygon points="305.0,283.0 309.5,288.0 305.0,293.0 300.5,288.0" fill="#111"/>
+<polygon points="365.0,287.0 369.5,292.0 365.0,297.0 360.5,292.0" fill="#111"/>
+<polygon points="425.0,287.0 429.5,292.0 425.0,297.0 420.5,292.0" fill="#111"/>
+<polyline points="125.0,292.0 185.0,296.0 245.0,300.0 305.0,296.0 365.0,296.0 425.0,296.0" fill="none" stroke="#111" stroke-width="1.4"/>
+<line x1="121.0" y1="288.0" x2="129.0" y2="296.0" stroke="#111" stroke-width="1.6"/><line x1="121.0" y1="296.0" x2="129.0" y2="288.0" stroke="#111" stroke-width="1.6"/>
+<line x1="181.0" y1="292.0" x2="189.0" y2="300.0" stroke="#111" stroke-width="1.6"/><line x1="181.0" y1="300.0" x2="189.0" y2="292.0" stroke="#111" stroke-width="1.6"/>
+<line x1="241.0" y1="296.0" x2="249.0" y2="304.0" stroke="#111" stroke-width="1.6"/><line x1="241.0" y1="304.0" x2="249.0" y2="296.0" stroke="#111" stroke-width="1.6"/>
+<line x1="301.0" y1="292.0" x2="309.0" y2="300.0" stroke="#111" stroke-width="1.6"/><line x1="301.0" y1="300.0" x2="309.0" y2="292.0" stroke="#111" stroke-width="1.6"/>
+<line x1="361.0" y1="292.0" x2="369.0" y2="300.0" stroke="#111" stroke-width="1.6"/><line x1="361.0" y1="300.0" x2="369.0" y2="292.0" stroke="#111" stroke-width="1.6"/>
+<line x1="421.0" y1="292.0" x2="429.0" y2="300.0" stroke="#111" stroke-width="1.6"/><line x1="421.0" y1="300.0" x2="429.0" y2="292.0" stroke="#111" stroke-width="1.6"/>
+<line x1="473" y1="78" x2="507" y2="78" stroke="#111" stroke-width="1.4"/>
+<circle cx="490.0" cy="78.0" r="4.2" fill="#111"/>
+<text x="515" y="83" font-size="14">和平黨</text>
+<line x1="473" y1="110" x2="507" y2="110" stroke="#111" stroke-width="1.4"/>
+<rect x="486.0" y="106.0" width="8" height="8" fill="#111"/>
+<text x="515" y="115" font-size="14">正義黨</text>
+<line x1="473" y1="142" x2="507" y2="142" stroke="#111" stroke-width="1.4"/>
+<polygon points="490.0,137.0 494.6,145.5 485.4,145.5" fill="#111"/>
+<text x="515" y="147" font-size="14">平等黨</text>
+<line x1="473" y1="174" x2="507" y2="174" stroke="#111" stroke-width="1.4"/>
+<polygon points="490.0,169.0 494.5,174.0 490.0,179.0 485.5,174.0" fill="#111"/>
+<text x="515" y="179" font-size="14">公理黨</text>
+<line x1="473" y1="206" x2="507" y2="206" stroke="#111" stroke-width="1.4"/>
+<line x1="486.0" y1="202.0" x2="494.0" y2="210.0" stroke="#111" stroke-width="1.6"/><line x1="486.0" y1="210.0" x2="494.0" y2="202.0" stroke="#111" stroke-width="1.6"/>
+<text x="515" y="211" font-size="14">其它</text>
+<text x="275" y="34" font-size="17" text-anchor="middle" font-weight="700">某國國會政黨議席數變化圖</text>
+<text x="52" y="174" font-size="15" text-anchor="middle">議</text>
+<text x="52" y="196" font-size="15" text-anchor="middle">席</text>
+<text x="275" y="346" font-size="15" text-anchor="middle" font-weight="700">選舉年度</text>
+</svg>
