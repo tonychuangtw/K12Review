@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 400" width="470" height="400" font-family="serif"><rect width="470" height="400" fill="#fff"/>
+<line x1="215" y1="112" x2="215" y2="322" stroke="#111" stroke-width="1.6"/>
+<line x1="215" y1="322" x2="425" y2="322" stroke="#111" stroke-width="1.6"/>
+<line x1="425" y1="322" x2="425" y2="112" stroke="#111" stroke-width="1.6"/>
+<line x1="425" y1="112" x2="215" y2="112" stroke="#111" stroke-width="1.6"/>
+<line x1="215" y1="112" x2="97" y2="49" stroke="#111" stroke-width="1.6"/>
+<line x1="215" y1="322" x2="97" y2="259" stroke="#111" stroke-width="1.6"/>
+<line x1="425" y1="112" x2="307" y2="49" stroke="#111" stroke-width="1.6"/>
+<line x1="97" y1="49" x2="97" y2="259" stroke="#111" stroke-width="1.6"/>
+<line x1="97" y1="49" x2="307" y2="49" stroke="#111" stroke-width="1.6"/>
+<line x1="97" y1="259" x2="307" y2="259" stroke="#111" stroke-width="1.6" stroke-dasharray="6 4"/>
+<line x1="307" y1="259" x2="307" y2="49" stroke="#111" stroke-width="1.6" stroke-dasharray="6 4"/>
+<line x1="425" y1="322" x2="307" y2="259" stroke="#111" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="191" y="106" font-size="21">A</text>
+<text x="209" y="348" font-size="21">B</text>
+<text x="427" y="348" font-size="21">C</text>
+<text x="433" y="108" font-size="21">D</text>
+<text x="71" y="265" font-size="21">E</text>
+</svg>

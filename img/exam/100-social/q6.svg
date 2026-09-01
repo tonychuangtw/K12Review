@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" width="680" height="380" font-family="'Noto Sans TC',sans-serif"><rect width="680" height="380" fill="#fff"/>
+<line x1="110" y1="300.0" x2="520" y2="300.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="305.0" font-size="14" text-anchor="end">0</text>
+<line x1="110" y1="267.1" x2="520" y2="267.1" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="272.1" font-size="14" text-anchor="end">10</text>
+<line x1="110" y1="234.3" x2="520" y2="234.3" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="239.3" font-size="14" text-anchor="end">20</text>
+<line x1="110" y1="201.4" x2="520" y2="201.4" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="206.4" font-size="14" text-anchor="end">30</text>
+<line x1="110" y1="168.6" x2="520" y2="168.6" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="173.6" font-size="14" text-anchor="end">40</text>
+<line x1="110" y1="135.7" x2="520" y2="135.7" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="140.7" font-size="14" text-anchor="end">50</text>
+<line x1="110" y1="102.9" x2="520" y2="102.9" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="107.9" font-size="14" text-anchor="end">60</text>
+<line x1="110" y1="70.0" x2="520" y2="70.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="75.0" font-size="14" text-anchor="end">70</text>
+<line x1="110" y1="56" x2="110" y2="300" stroke="#111" stroke-width="1.2"/>
+<line x1="110" y1="300" x2="520" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="161.2" y="322" font-size="14" text-anchor="middle">25-34</text>
+<text x="263.8" y="322" font-size="14" text-anchor="middle">35-44</text>
+<text x="366.2" y="322" font-size="14" text-anchor="middle">45-54</text>
+<text x="468.8" y="322" font-size="14" text-anchor="middle">55-64</text>
+<polyline points="161.2,119.9 263.8,167.3 366.2,204.4 468.8,220.8" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="7 4"/>
+<polygon points="161.2,114.4 166.2,119.9 161.2,125.4 156.2,119.9" fill="#111"/>
+<text x="161.2" y="139.9" font-size="13" text-anchor="middle">54.8</text>
+<polygon points="263.8,161.8 268.8,167.3 263.8,172.8 258.8,167.3" fill="#111"/>
+<text x="263.8" y="157.3" font-size="13" text-anchor="middle">40.4</text>
+<polygon points="366.2,198.9 371.2,204.4 366.2,209.9 361.2,204.4" fill="#111"/>
+<text x="366.2" y="194.4" font-size="13" text-anchor="middle">29.1</text>
+<polygon points="468.8,215.3 473.8,220.8 468.8,226.3 463.8,220.8" fill="#111"/>
+<text x="468.8" y="210.8" font-size="13" text-anchor="middle">24.1</text>
+<polyline points="161.2,102.2 263.8,174.2 366.2,229.7 468.8,253.0" fill="none" stroke="#111" stroke-width="1.5"/>
+<circle cx="161.2" cy="102.2" r="4.5" fill="#111"/>
+<text x="161.2" y="92.2" font-size="13" text-anchor="middle">60.2</text>
+<circle cx="263.8" cy="174.2" r="4.5" fill="#111"/>
+<text x="263.8" y="194.2" font-size="13" text-anchor="middle">38.3</text>
+<circle cx="366.2" cy="229.7" r="4.5" fill="#111"/>
+<text x="366.2" y="249.7" font-size="13" text-anchor="middle">21.4</text>
+<circle cx="468.8" cy="253.0" r="4.5" fill="#111"/>
+<text x="468.8" y="273.0" font-size="13" text-anchor="middle">14.3</text>
+<line x1="536" y1="76" x2="570" y2="76" stroke="#111" stroke-width="1.5" stroke-dasharray="7 4"/>
+<polygon points="553.0,70.5 558.0,76.0 553.0,81.5 548.0,76.0" fill="#111"/>
+<text x="578" y="81" font-size="14">男性</text>
+<line x1="536" y1="106" x2="570" y2="106" stroke="#111" stroke-width="1.5"/>
+<circle cx="553.0" cy="106.0" r="4.5" fill="#111"/>
+<text x="578" y="111" font-size="14">女性</text>
+<text x="315" y="36" font-size="17" text-anchor="middle" font-weight="700">2009 年兩性具高等教育程度比率</text>
+<text x="54" y="88" font-size="15" text-anchor="middle">%</text>
+</svg>

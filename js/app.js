@@ -6574,15 +6574,22 @@
       var ok1 = pick === q.a || (q.alt || []).indexOf(pick) >= 0;
       return { got: ok1 ? q.pt : 0, right: ok1 };
     }
-    var want = q.a, chosen = pick || [];
+    var chosen = pick || [];
     if (!chosen.length) return { got: 0, right: false };
-    var wrong = 0;
-    for (var i = 0; i < n; i++) {
-      var should = want.indexOf(i) >= 0, did = chosen.indexOf(i) >= 0;
-      if (should !== did) wrong++;
+    // 多選題的 q.alt 是「另一組也給分的完整答案」（陣列的陣列，如 100 國文第 16、19 題）；
+    // 每一組都算一次分，取最高的那一組
+    var sets = [q.a].concat(q.alt || []);
+    var best = { got: 0, right: false };
+    for (var s = 0; s < sets.length; s++) {
+      var want = sets[s], wrong = 0;
+      for (var i = 0; i < n; i++) {
+        var should = want.indexOf(i) >= 0, did = chosen.indexOf(i) >= 0;
+        if (should !== did) wrong++;
+      }
+      var got = Math.round(Math.max(0, q.pt * (n - 2 * wrong) / n) * 100) / 100;
+      if (got > best.got || (wrong === 0 && !best.right)) best = { got: got, right: wrong === 0 };
     }
-    var got = Math.max(0, q.pt * (n - 2 * wrong) / n);
-    return { got: Math.round(got * 100) / 100, right: wrong === 0 };
+    return best;
   }
   function submitExam(auto) {
     var p = examPaper;
@@ -6646,8 +6653,13 @@
       d.className = 'exam-rv ' + (r.right ? 'ok' : 'bad');
       var isFill = q.type === 'fill';
       var yours = examAnswered(q) ? (isFill ? examFillText(pick) : examLetters(pick)) : '未作答';
-      var right = isFill ? examFillText(q.a)
-        : examLetters(q.a) + ((q.alt || []).length ? '（或 ' + examLetters(q.alt) + '，官方一併給分）' : '');
+      var altTxt = '';
+      if ((q.alt || []).length) {
+        altTxt = '（或 ' + q.alt.map(function (x) {
+          return examLetters(x.length != null ? x : [x]);
+        }).join('、') + '，官方一併給分）';
+      }
+      var right = isFill ? examFillText(q.a) : examLetters(q.a) + altTxt;
       var opts = isFill ? '' : q.o.map(function (t, i) { return '(' + EXAM_ABC[i] + ') ' + t; }).join('\n');
       var rvFig = [];
       if (q.g && (p.groups || {})[q.g] && p.groups[q.g].fig) rvFig.push(p.groups[q.g].fig);

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 620" width="700" height="620" font-family="'Noto Sans TC',sans-serif"><rect width="700" height="620" fill="#fff"/>
+<defs><marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0,0 10,4 0,8" fill="#111"/></marker></defs>
+<rect x="40" y="30" width="170" height="130" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="125.0" y="89.0" font-size="15" text-anchor="middle">學校位置</text>
+<text x="125.0" y="111.0" font-size="15" text-anchor="middle">（X, Y）</text>
+<circle cx="125" cy="112" r="4" fill="#111"/>
+<rect x="240" y="30" width="190" height="130" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="335.0" y="100.0" font-size="15" text-anchor="middle">坡度圖</text>
+<ellipse cx="300" cy="110" rx="21" ry="18" fill="none" stroke="#666" stroke-width="1"/>
+<ellipse cx="300" cy="105" rx="39" ry="34" fill="none" stroke="#666" stroke-width="1"/>
+<ellipse cx="305" cy="100" rx="57" ry="50" fill="none" stroke="#666" stroke-width="1"/>
+<ellipse cx="320" cy="95" rx="76" ry="66" fill="none" stroke="#666" stroke-width="1"/>
+<text x="286" y="150" font-size="11">10度</text><text x="258" y="150" font-size="11">15度</text><text x="250" y="82" font-size="11">30度</text><text x="392" y="82" font-size="11">25度</text>
+<rect x="460" y="30" width="200" height="130" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="560.0" y="100.0" font-size="15" text-anchor="middle">道路圖</text>
+<line x1="470" y1="70" x2="650" y2="98" stroke="#111" stroke-width="3"/>
+<line x1="470" y1="130" x2="650" y2="118" stroke="#111" stroke-width="1.4"/>
+<line x1="530" y1="42" x2="560" y2="152" stroke="#111" stroke-width="1.4"/>
+<line x1="600" y1="42" x2="612" y2="152" stroke="#111" stroke-width="1.4"/>
+<rect x="512" y="104" width="140" height="50" fill="#fff" stroke="#111" stroke-width="1"/>
+<text x="518" y="119" font-size="11">圖例</text>
+<line x1="552" y1="130" x2="576" y2="130" stroke="#111" stroke-width="3"/><text x="580" y="134" font-size="11">快速道路</text>
+<line x1="552" y1="147" x2="576" y2="147" stroke="#111" stroke-width="1.2"/><text x="580" y="151" font-size="11">一般道路</text>
+<rect x="430" y="215" width="230" height="72" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="545.0" y="245.0" font-size="15" text-anchor="middle">非快速路段</text>
+<text x="545.0" y="267.0" font-size="15" text-anchor="middle">坡度＜15 度</text>
+<line x1="335" y1="162" x2="430" y2="215" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="560" y1="162" x2="560" y2="213" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<ellipse cx="125" cy="255" rx="26" ry="19" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="125" y="261" font-size="17" text-anchor="middle">丙</text>
+<line x1="125" y1="162" x2="125" y2="234" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="40" y="320" width="190" height="60" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="135.0" y="344.0" font-size="15" text-anchor="middle">離學校半徑</text>
+<text x="135.0" y="366.0" font-size="15" text-anchor="middle">20 公里內</text>
+<line x1="125" y1="276" x2="125" y2="318" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="455" y="320" width="180" height="52" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="545.0" y="351.0" font-size="15" text-anchor="middle">安全路段</text>
+<line x1="545" y1="289" x2="545" y2="318" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<ellipse cx="340" cy="420" rx="26" ry="19" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="340" y="426" font-size="17" text-anchor="middle">丁</text>
+<line x1="135" y1="382" x2="315" y2="412" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="545" y1="374" x2="365" y2="412" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="215" y="480" width="250" height="64" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="340.0" y="506.0" font-size="15" text-anchor="middle">安全路段、</text>
+<text x="340.0" y="528.0" font-size="15" text-anchor="middle">距離學校 20 公里內</text>
+<line x1="340" y1="441" x2="340" y2="478" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="180" y="570" width="320" height="44" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="340.0" y="597.0" font-size="15" text-anchor="middle">戶外實察可能步行路線圖</text>
+<line x1="340" y1="546" x2="340" y2="568" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+</svg>

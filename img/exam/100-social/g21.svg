@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" width="680" height="380" font-family="'Noto Sans TC',sans-serif"><rect width="680" height="380" fill="#fff"/>
+<line x1="110" y1="300.0" x2="520" y2="300.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="305.0" font-size="14" text-anchor="end">0</text>
+<line x1="110" y1="261.7" x2="520" y2="261.7" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="266.7" font-size="14" text-anchor="end">10</text>
+<line x1="110" y1="223.3" x2="520" y2="223.3" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="228.3" font-size="14" text-anchor="end">20</text>
+<line x1="110" y1="185.0" x2="520" y2="185.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="190.0" font-size="14" text-anchor="end">30</text>
+<line x1="110" y1="146.7" x2="520" y2="146.7" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="151.7" font-size="14" text-anchor="end">40</text>
+<line x1="110" y1="108.3" x2="520" y2="108.3" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="113.3" font-size="14" text-anchor="end">50</text>
+<line x1="110" y1="70.0" x2="520" y2="70.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="101" y="75.0" font-size="14" text-anchor="end">60</text>
+<line x1="110" y1="56" x2="110" y2="300" stroke="#111" stroke-width="1.2"/>
+<line x1="110" y1="300" x2="520" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="130.5" y="322" font-size="14" text-anchor="middle">1970</text>
+<text x="171.5" y="322" font-size="14" text-anchor="middle">1974</text>
+<text x="212.5" y="322" font-size="14" text-anchor="middle">1978</text>
+<text x="253.5" y="322" font-size="14" text-anchor="middle">1982</text>
+<text x="294.5" y="322" font-size="14" text-anchor="middle">1986</text>
+<text x="335.5" y="322" font-size="14" text-anchor="middle">1990</text>
+<text x="376.5" y="322" font-size="14" text-anchor="middle">1994</text>
+<text x="417.5" y="322" font-size="14" text-anchor="middle">1998</text>
+<text x="458.5" y="322" font-size="14" text-anchor="middle">2002</text>
+<text x="499.5" y="322" font-size="14" text-anchor="middle">2006</text>
+<polyline points="130.5,288.5 171.5,292.3 212.5,284.7 253.5,277.0 294.5,265.5 335.5,265.5 376.5,242.5 417.5,215.7 458.5,192.7 499.5,181.2" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="130.5,283.0 135.5,288.5 130.5,294.0 125.5,288.5" fill="#111"/>
+<polygon points="171.5,286.8 176.5,292.3 171.5,297.8 166.5,292.3" fill="#111"/>
+<polygon points="212.5,279.2 217.5,284.7 212.5,290.2 207.5,284.7" fill="#111"/>
+<polygon points="253.5,271.5 258.5,277.0 253.5,282.5 248.5,277.0" fill="#111"/>
+<polygon points="294.5,260.0 299.5,265.5 294.5,271.0 289.5,265.5" fill="#111"/>
+<polygon points="335.5,260.0 340.5,265.5 335.5,271.0 330.5,265.5" fill="#111"/>
+<polygon points="376.5,237.0 381.5,242.5 376.5,248.0 371.5,242.5" fill="#111"/>
+<polygon points="417.5,210.2 422.5,215.7 417.5,221.2 412.5,215.7" fill="#111"/>
+<polygon points="458.5,187.2 463.5,192.7 458.5,198.2 453.5,192.7" fill="#111"/>
+<polygon points="499.5,175.7 504.5,181.2 499.5,186.7 494.5,181.2" fill="#111"/>
+<polyline points="130.5,135.2 171.5,116.0 212.5,100.7 253.5,93.0 294.5,93.0 335.5,93.0 376.5,123.7 417.5,146.7 458.5,154.3 499.5,162.0" fill="none" stroke="#111" stroke-width="1.5"/>
+<rect x="126.0" y="130.7" width="9" height="9" fill="#111"/>
+<rect x="167.0" y="111.5" width="9" height="9" fill="#111"/>
+<rect x="208.0" y="96.2" width="9" height="9" fill="#111"/>
+<rect x="249.0" y="88.5" width="9" height="9" fill="#111"/>
+<rect x="290.0" y="88.5" width="9" height="9" fill="#111"/>
+<rect x="331.0" y="88.5" width="9" height="9" fill="#111"/>
+<rect x="372.0" y="119.2" width="9" height="9" fill="#111"/>
+<rect x="413.0" y="142.2" width="9" height="9" fill="#111"/>
+<rect x="454.0" y="149.8" width="9" height="9" fill="#111"/>
+<rect x="495.0" y="157.5" width="9" height="9" fill="#111"/>
+<polyline points="130.5,93.0 171.5,108.3 212.5,131.3 253.5,146.7 294.5,158.2 335.5,158.2 376.5,150.5 417.5,154.3 458.5,169.7 499.5,173.5" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="7 4"/>
+<polygon points="130.5,87.5 135.5,97.0 125.5,97.0" fill="#111"/>
+<polygon points="171.5,102.8 176.5,112.3 166.5,112.3" fill="#111"/>
+<polygon points="212.5,125.8 217.5,135.3 207.5,135.3" fill="#111"/>
+<polygon points="253.5,141.2 258.5,150.7 248.5,150.7" fill="#111"/>
+<polygon points="294.5,152.7 299.5,162.2 289.5,162.2" fill="#111"/>
+<polygon points="335.5,152.7 340.5,162.2 330.5,162.2" fill="#111"/>
+<polygon points="376.5,145.0 381.5,154.5 371.5,154.5" fill="#111"/>
+<polygon points="417.5,148.8 422.5,158.3 412.5,158.3" fill="#111"/>
+<polygon points="458.5,164.2 463.5,173.7 453.5,173.7" fill="#111"/>
+<polygon points="499.5,168.0 504.5,177.5 494.5,177.5" fill="#111"/>
+<line x1="536" y1="76" x2="570" y2="76" stroke="#111" stroke-width="1.5"/>
+<polygon points="553.0,70.5 558.0,76.0 553.0,81.5 548.0,76.0" fill="#111"/>
+<text x="578" y="81" font-size="14">甲政黨</text>
+<line x1="536" y1="106" x2="570" y2="106" stroke="#111" stroke-width="1.5"/>
+<rect x="548.5" y="101.5" width="9" height="9" fill="#111"/>
+<text x="578" y="111" font-size="14">乙政黨</text>
+<line x1="536" y1="136" x2="570" y2="136" stroke="#111" stroke-width="1.5" stroke-dasharray="7 4"/>
+<polygon points="553.0,130.5 558.0,140.0 548.0,140.0" fill="#111"/>
+<text x="578" y="141" font-size="14">丙政黨</text>
+<text x="54" y="88" font-size="15" text-anchor="middle">席</text>
+<text x="54" y="112" font-size="15" text-anchor="middle">次</text>
+<text x="54" y="136" font-size="15" text-anchor="middle">率</text>
+<text x="54" y="160" font-size="15" text-anchor="middle">％</text>
+</svg>
