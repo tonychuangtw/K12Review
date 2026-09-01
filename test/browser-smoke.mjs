@@ -1502,6 +1502,13 @@ async (js) => {
     await js(`document.querySelectorAll('#examYears .chip').length`) >= 1 &&
     await js(`document.querySelectorAll('#examList .card').length`) >= 1,
     await js(`document.getElementById('examList').textContent`));
+  check('列表頁有作答時限的設定', await js(`document.querySelectorAll('#examLimitRow .chip').length`) >= 3,
+    await js(`document.getElementById('examLimitRow').textContent`));
+  await js(`(function(){ var b = [].slice.call(document.querySelectorAll('#examLimitRow .chip'))
+    .filter(function(x){ return /30 分/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(300);
+  check('選了時限會存進 state', await js(`(function(){
+    var s = JSON.parse(localStorage.getItem('chinese-review-v1')); return String(s.examLimit); })()`) === '30');
   // 直接開卷（openExam 會跳確認框，測試改用 UIDialog 的自動確認）
   await js(`(function(){ window.__oldConfirm = window.UIDialog.confirm;
     window.UIDialog.confirm = function(msg, cb){ cb(); }; })()`);
@@ -1509,6 +1516,11 @@ async (js) => {
   await sleep(1500);
   check('開卷後進入整卷作答畫面',
     await js(`!document.getElementById('view-exam').classList.contains('hidden')`));
+  check('限時模式是倒數計時', /剩/.test(await js(`document.getElementById('examClock').textContent`)),
+    await js(`document.getElementById('examClock').textContent`));
+  check('還沒寫完時看不到交卷鍵',
+    await js(`document.getElementById('examSubmit').classList.contains('hidden')`) === true,
+    await js(`document.getElementById('examSubmitHint').textContent`));
   const cells = await js(`document.querySelectorAll('#examNav .exam-cell').length`);
   check('題號導覽列出整卷題目', cells >= 30, String(cells));
   check('作答中不顯示解析與對錯',
@@ -1531,6 +1543,8 @@ async (js) => {
       want.forEach(function(k){ if (opts[k]) opts[k].click(); }); })()`);
     await sleep(60);
   }
+  check('全部寫完後交卷鍵才出現',
+    await js(`document.getElementById('examSubmit').classList.contains('hidden')`) === false);
   check('全部作答後交卷鍵不再提示未作答',
     !/沒作答/.test(await js(`document.getElementById('examSubmit').textContent`)),
     await js(`document.getElementById('examSubmit').textContent`));

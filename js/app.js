@@ -6210,7 +6210,37 @@
     ys.sort(function (a, b) { return b - a; });
     return ys;
   }
+  // 作答時限（2026-09-01 Tony：「要能設作答時限」）：'paper'＝照原卷時間、'none'＝不限時、數字＝自訂分鐘
+  function examLimitMins(p) {
+    var v = state.examLimit == null ? 'paper' : state.examLimit;
+    if (v === 'none') return 0;
+    if (v === 'paper') return p.mins;
+    return Number(v) > 0 ? Number(v) : p.mins;
+  }
+  function renderExamLimit() {
+    var box = $('examLimitRow');
+    box.innerHTML = '';
+    var cur = state.examLimit == null ? 'paper' : state.examLimit;
+    var label = document.createElement('span');
+    label.className = 'read-hint';
+    label.textContent = '⏱ 作答時限：';
+    box.appendChild(label);
+    [['paper', '照原卷時間'], ['none', '不限時'], [30, '30 分'], [60, '60 分'], [90, '90 分']].forEach(function (o) {
+      var b = document.createElement('button');
+      b.className = 'chip' + (String(cur) === String(o[0]) ? ' active' : '');
+      b.textContent = o[1];
+      b.addEventListener('click', function () { state.examLimit = o[0]; save(); renderExams(); });
+      box.appendChild(b);
+    });
+    var hint = document.createElement('div');
+    hint.className = 'read-hint';
+    hint.textContent = state.examLimit === 'none'
+      ? '不限時：畫面上的時鐘會往上計時，做完再交卷。'
+      : '時間到會自動交卷，剩下 5 分鐘時計時器會變紅色。';
+    box.appendChild(hint);
+  }
   function renderExams() {
+    renderExamLimit();
     var years = examYearList();
     if (!years.length) {
       $('examList').innerHTML = '<div class="prog-hint">題庫建置中。</div>';
@@ -6250,15 +6280,18 @@
       if (err) { UIDialog.alert('這一卷載入失敗，請檢查網路後重試。'); return; }
       var p = W.APP_EXAM_PAPERS[id];
       var rec = examRuns()[id];
+      var lim = examLimitMins(p);
       var msg = p.year + ' 學測 ' + examSubj(p.subj).name + '：共 ' + p.qs.length + ' 題、滿分 ' +
-        examMax(p) + ' 分，原卷作答時間 ' + p.mins + ' 分鐘。\n作答中不會對答案，交卷後才評分。';
+        examMax(p) + ' 分，原卷作答時間 ' + p.mins + ' 分鐘。\n' +
+        (lim ? '這次的作答時限是 ' + lim + ' 分鐘，時間到會自動交卷。' : '這次不限時，做完再交卷。') +
+        '\n作答中不會對答案，交卷後才評分。';
       if (rec && rec.best) msg += '\n（你的最佳成績：' + rec.best.score + ' 分）';
       UIDialog.confirm(msg + '\n開始作答？', function () { startExam(p); });
     });
   }
   function startExam(p) {
     examPaper = p;
-    examRun = { ans: {}, i: 0, start: Date.now(), ms: 0, done: false };
+    examRun = { ans: {}, i: 0, start: Date.now(), ms: 0, done: false, limit: examLimitMins(p) * 60000 };
     show('exam');
     $('examResult').classList.add('hidden');
     $('examReview').innerHTML = '';
@@ -6267,12 +6300,29 @@
     examClockStart();
     paintExam();
   }
+  function examClockText(sec) {
+    return Math.floor(sec / 60) + ':' + ('0' + (sec % 60)).slice(-2);
+  }
   function examClockStart() {
     examClockStop();
     examTick = setInterval(function () {
       if (!examRun || examRun.done) return;
-      var s = Math.floor((Date.now() - examRun.start) / 1000);
-      $('examClock').textContent = '⏱ ' + Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2);
+      var el = $('examClock');
+      var used = Math.floor((Date.now() - examRun.start) / 1000);
+      if (!examRun.limit) {                       // 不限時：往上計時
+        el.className = 'q-combo';
+        el.textContent = '⏱ ' + examClockText(used);
+        return;
+      }
+      var left = Math.max(0, Math.round(examRun.limit / 1000) - used);
+      el.className = 'q-combo' + (left <= 300 ? ' exam-clock-warn' : '');
+      el.textContent = '⏱ 剩 ' + examClockText(left);
+      if (left <= 0) {                            // 時間到：自動交卷（Tony 2026-09-01）
+        examClockStop();
+        examRun.timeUp = true;
+        setStatusToast('⏰ 時間到，自動交卷');
+        submitExam(true);
+      }
     }, 1000);
   }
   function examClockStop() { if (examTick) { clearInterval(examTick); examTick = null; } }
@@ -6307,6 +6357,15 @@
     $('examIntro').classList.toggle('hidden', !intro);
     if (intro) $('examIntro').textContent = intro;
     $('examQ').textContent = q.q;
+    // 原卷附圖（2026-09-01 Tony 選「乙：把圖也收進來」）：題目自己的圖＋題組共用的圖
+    var figs = [];
+    if (q.g && (p.groups || {})[q.g] && p.groups[q.g].fig) figs.push(p.groups[q.g].fig);
+    if (q.fig) figs.push(q.fig);
+    var fb = $('examFig');
+    fb.classList.toggle('hidden', !figs.length);
+    fb.innerHTML = figs.map(function (f) {
+      return '<img src="' + escHtml(f) + '" alt="原卷附圖" loading="lazy">';
+    }).join('');
     var box = $('examOpts');
     box.innerHTML = '';
     q.o.forEach(function (text, i) {
@@ -6323,7 +6382,12 @@
       : '單選題：選一個；想改直接點別的選項。';
     $('examPrev').disabled = examRun.i === 0;
     $('examNext').disabled = examRun.i === p.qs.length - 1;
-    $('examSubmit').textContent = done === p.qs.length ? '交卷評分' : '交卷評分（還有 ' + (p.qs.length - done) + ' 題沒作答）';
+    // 交卷鍵只在「每一題都寫了」或「時間到」時出現（2026-09-01 Tony：不要一開始就看到交卷）
+    var ready = done === p.qs.length || examRun.timeUp;
+    $('examSubmit').classList.toggle('hidden', !ready);
+    $('examSubmit').textContent = '交卷評分';
+    $('examSubmitHint').textContent = ready ? ''
+      : '還有 ' + (p.qs.length - done) + ' 題沒作答，全部寫完（或時間到）才會出現「交卷評分」。';
   }
   // 題組共用的說明與文章（groups），只在題組第一題整段顯示，後面的題只帶一行提示
   function examIntroOf(p, q) {
@@ -6358,8 +6422,9 @@
     var got = Math.max(0, q.pt * (n - 2 * wrong) / n);
     return { got: Math.round(got * 100) / 100, right: wrong === 0 };
   }
-  function submitExam() {
+  function submitExam(auto) {
     var p = examPaper;
+    if (!examRun || examRun.done) return;
     var blank = p.qs.filter(function (q) { return !examAnswered(q); }).length;
     var go = function () {
       examRun.done = true;
@@ -6384,7 +6449,7 @@
       save();
       renderExamResult(byCat, run);
     };
-    if (blank) UIDialog.confirm('還有 ' + blank + ' 題沒作答，這些題會以零分計算。確定交卷嗎？', go);
+    if (blank && !auto) UIDialog.confirm('還有 ' + blank + ' 題沒作答，這些題會以零分計算。確定交卷嗎？', go);
     else go();
   }
   function renderExamResult(byCat, run) {
@@ -6400,6 +6465,7 @@
     r.innerHTML = '📋 ' + p.year + ' 學測 ' + examSubj(p.subj).name + ' 成績單<br>' +
       '<span class="exam-score">' + run.score + '</span> ／ ' + run.max + ' 分（' + pct + '%）<br>' +
       '全對 ' + run.ok + '／' + run.total + ' 題 · 用時 ' + (mins || 1) + ' 分鐘（原卷 ' + p.mins + ' 分鐘）' +
+      (examRun.timeUp ? '<br><small>⏰ 時間到自動交卷，沒作答的題以零分計</small>' : '') +
       '<div class="exam-brk">' + brk + '</div>' +
       '<button class="btn-primary" id="examRetry">再做一次</button>' +
       '<button class="btn-ghost" id="examBack">回學測列表</button>';
@@ -6419,9 +6485,16 @@
       var yours = examAnswered(q) ? examLetters(pick) : '未作答';
       var right = examLetters(q.a);
       var opts = q.o.map(function (t, i) { return '(' + EXAM_ABC[i] + ') ' + t; }).join('\n');
+      var rvFig = [];
+      if (q.g && (p.groups || {})[q.g] && p.groups[q.g].fig) rvFig.push(p.groups[q.g].fig);
+      if (q.fig) rvFig.push(q.fig);
+      var rvFigHtml = rvFig.map(function (f) {
+        return '<div class="exam-fig"><img src="' + escHtml(f) + '" alt="原卷附圖" loading="lazy"></div>';
+      }).join('');
       d.innerHTML = '<div class="rv-head">' + (r.right ? '✅' : '❌') + ' 第 ' + q.n + ' 題 · ' +
         r.got + '／' + q.pt + ' 分' + (q.cat ? ' · ' + escHtml(q.cat) : '') + '</div>' +
-        '<div class="rv-q">' + escHtml(q.q) + '\n' + escHtml(opts) + '</div>' +
+        '<div class="rv-q">' + escHtml(q.q) + '</div>' + rvFigHtml +
+        '<div class="rv-q">' + escHtml(opts) + '</div>' +
         '<div class="rv-ans">你的答案：<b>' + yours + '</b>　正解：<b>' + right + '</b></div>' +
         (q.exp ? '<div class="rv-exp">' + escHtml(q.exp) + '</div>' : '');
       box.appendChild(d);
@@ -6442,7 +6515,7 @@
   $('examNext').addEventListener('click', function () {
     if (examRun.i < examPaper.qs.length - 1) { examRun.i++; paintExam(); }
   });
-  $('examSubmit').addEventListener('click', submitExam);
+  $('examSubmit').addEventListener('click', function () { submitExam(false); });
 
   /* ---------- 啟動 ---------- */
   // 自創題庫檔已達 20MB+，改為背景載入：頁面先開先用，載完自動補上並更新畫面

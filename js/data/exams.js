@@ -5,6 +5,8 @@
         n（本站收錄題數）/ max（本站滿分＝收錄題目的配分總和）/ mins（原卷作答時間） */
 window.APP_EXAMS = [
   { id: '115-chinese', year: 115, subj: 'chinese', n: 33, max: 80, mins: 90 },
-  { id: '115-english', year: 115, subj: 'english', n: 46, max: 64, mins: 100 },
-  { id: '115-social', year: 115, subj: 'social', n: 43, max: 86, mins: 110 }
+  { id: '115-english', year: 115, subj: 'english', n: 47, max: 66, mins: 100 },
+  { id: '115-social', year: 115, subj: 'social', n: 53, max: 106, mins: 110 },
+  { id: '114-chinese', year: 114, subj: 'chinese', n: 33, max: 80, mins: 90 },
+  { id: '114-english', year: 114, subj: 'english', n: 47, max: 66, mins: 100 }
 ];

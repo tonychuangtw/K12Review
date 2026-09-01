@@ -1007,3 +1007,16 @@ body.anim-lock { overflow: hidden; }
 .exam-rv .rv-q { white-space: pre-line; color: var(--text); }
 .exam-rv .rv-exp { white-space: pre-line; color: var(--dim); margin-top: .4rem; font-size: .92em; }
 .exam-rv .rv-ans { margin-top: .35rem; font-size: .92em; }
+
+/* 整卷作答的上一題／下一題（2026-09-01 Tony：「上一題下一題的按鈕明顯一點」） */
+.exam-move { display: flex; gap: .6rem; margin-top: 1rem; }
+.btn-move {
+  flex: 1; padding: .85rem .6rem; border-radius: 12px; cursor: pointer;
+  font-size: 1.05rem; font-weight: 700; letter-spacing: .5px;
+  background: var(--panel2); color: var(--text); border: 2px solid var(--accent);
+}
+.btn-move:disabled { opacity: .35; cursor: default; border-color: var(--border); }
+.exam-clock-warn { color: var(--bad); font-weight: 700; }
+/* 原卷附圖：整卷作答與逐題檢討共用 */
+.exam-fig { margin: .6rem 0; text-align: center; }
+.exam-fig img { max-width: 100%; border-radius: 10px; background: #fff; padding: 4px; }

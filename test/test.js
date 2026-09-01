@@ -973,6 +973,10 @@ console.log('歷屆學測');
       if (!(q.pt > 0)) bad.push(tag + ' 沒有配分');
       if (!(q.exp || '').trim()) bad.push(tag + ' 沒有解析');
       if (q.g && !((paper.groups || {})[q.g] || {}).passage) bad.push(tag + ' 題組文章不見了');
+      // 附圖（原卷裁圖）：檔案要真的在，否則作答時是一塊破圖
+      [q.fig, ((paper.groups || {})[q.g] || {}).fig].forEach((f) => {
+        if (f && !fs.existsSync(path.join(root, f))) bad.push(tag + ' 找不到附圖 ' + f);
+      });
     });
     ok(bad.length === 0, `${p.id} 每一題都完整（問題：${bad.slice(0, 3).join('；') || '無'}）`);
     // 解析要交代其他選項為什麼不對（整卷檢討是這一區唯一的學習機會）
