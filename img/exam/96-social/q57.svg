@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 250" width="340" height="250" font-family="sans-serif">
+  <rect width="340" height="250" fill="#fff"/>
+  <line x1="60" y1="190.0" x2="300" y2="190.0" stroke="#ddd"/>
+  <text x="54" y="194.0" font-size="11" text-anchor="end">0</text>
+  <line x1="60" y1="148.8" x2="300" y2="148.8" stroke="#ddd"/>
+  <text x="54" y="152.8" font-size="11" text-anchor="end">0.5</text>
+  <line x1="60" y1="107.5" x2="300" y2="107.5" stroke="#ddd"/>
+  <text x="54" y="111.5" font-size="11" text-anchor="end">1</text>
+  <line x1="60" y1="66.2" x2="300" y2="66.2" stroke="#ddd"/>
+  <text x="54" y="70.2" font-size="11" text-anchor="end">1.5</text>
+  <line x1="60" y1="25.0" x2="300" y2="25.0" stroke="#ddd"/>
+  <text x="54" y="29.0" font-size="11" text-anchor="end">2</text>
+  <text x="56" y="17" font-size="11">2 人</text>
+  <line x1="60" y1="25" x2="60" y2="190" stroke="#333" stroke-width="1.4"/>
+  <line x1="60" y1="190" x2="300" y2="190" stroke="#333" stroke-width="1.4"/>
+  <polyline points="60.0,51.4 120.0,74.5 180.0,79.4 240.0,88.5 300.0,96.0" fill="none" stroke="#111" stroke-width="1.8"/>
+  <path d="M 60.0 46.4 L 65.0 51.4 L 60.0 56.4 L 55.0 51.4 Z" fill="#111"/>
+  <text x="60.0" y="206" font-size="11" text-anchor="middle">2000</text>
+  <path d="M 120.0 69.5 L 125.0 74.5 L 120.0 79.5 L 115.0 74.5 Z" fill="#111"/>
+  <text x="120.0" y="206" font-size="11" text-anchor="middle">2001</text>
+  <path d="M 180.0 74.4 L 185.0 79.4 L 180.0 84.4 L 175.0 79.4 Z" fill="#111"/>
+  <text x="180.0" y="206" font-size="11" text-anchor="middle">2002</text>
+  <path d="M 240.0 83.5 L 245.0 88.5 L 240.0 93.5 L 235.0 88.5 Z" fill="#111"/>
+  <text x="240.0" y="206" font-size="11" text-anchor="middle">2003</text>
+  <path d="M 300.0 91.0 L 305.0 96.0 L 300.0 101.0 L 295.0 96.0 Z" fill="#111"/>
+  <text x="300.0" y="206" font-size="11" text-anchor="middle">2004</text>
+  <text x="308" y="194" font-size="11">年度</text>
+  <text x="180" y="224" font-size="12" text-anchor="middle">時　間</text>
+  <text x="24" y="108" font-size="12" text-anchor="middle" transform="rotate(-90 24 108)">人　數</text>
+  <text x="180" y="238" font-size="12" text-anchor="middle" fill="#555">圖四</text>
+</svg>
