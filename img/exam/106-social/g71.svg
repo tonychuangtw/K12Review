@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" width="420" height="300" font-family="'Noto Sans TC',sans-serif">
+  <rect width="420" height="300" fill="#fff"/>
+  <!-- pyramid layers: base y=250, apex y=40, half-width 150 at base -->
+  <!-- layer boundaries at heights: 0m y=250, 900m y=196, 1800m y=142, 3600m y=88, apex y=40 -->
+  <g stroke="#333" stroke-width="1.5">
+    <polygon points="60,250 360,250 331,196 89,196" fill="#e8e8e8"/>
+    <polygon points="89,196 331,196 302,142 118,142" fill="#dcdcdc"/>
+    <polygon points="118,142 302,142 273,88 147,88" fill="#d0d0d0"/>
+    <polygon points="147,88 273,88 210,40" fill="#c4c4c4"/>
+  </g>
+  <g font-size="13" text-anchor="middle" fill="#111">
+    <text x="210" y="219">香蕉、甘蔗、</text>
+    <text x="210" y="238">可可、鳳梨</text>
+    <text x="210" y="165">玉米、南瓜、</text>
+    <text x="210" y="184">蔬菜、小麥、咖啡</text>
+    <text x="210" y="111">小麥、馬鈴</text>
+    <text x="210" y="130">薯、果樹</text>
+    <text x="210" y="60">駱馬</text>
+    <text x="210" y="78">綿羊</text>
+  </g>
+  <g font-size="13" fill="#111" text-anchor="start">
+    <text x="366" y="255">0m</text>
+    <text x="337" y="201">900m</text>
+    <text x="308" y="147">1,800m</text>
+    <text x="279" y="93">3,600m</text>
+  </g>
+  <text x="210" y="285" font-size="13" text-anchor="middle" fill="#111">圖 11</text>
+</svg>
