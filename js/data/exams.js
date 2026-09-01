@@ -77,6 +77,7 @@ window.APP_EXAMS = [
   { id: '96-math', year: 96, subj: 'math', n: 20, max: 100, mins: 100 },
   { id: '96-social', year: 96, subj: 'social', n: 72, max: 144, mins: 100 },
   { id: '95-chinese', year: 95, subj: 'chinese', n: 23, max: 54, mins: 120 },
+  { id: '95-english', year: 95, subj: 'english', n: 56, max: 72, mins: 100 },
   { id: '115-matha', year: 115, subj: 'matha', n: 18, max: 88, mins: 100 },
   { id: '115-mathb', year: 115, subj: 'mathb', n: 18, max: 88, mins: 100 },
   { id: '114-matha', year: 114, subj: 'matha', n: 18, max: 88, mins: 100 },
