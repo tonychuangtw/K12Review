@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 311 223" width="311" height="223" role="img" aria-label="機器人從 P 出發、交替左轉 45 度與右轉 90 度的移動路徑（僅畫出開頭幾段）">
+<rect width="311" height="223" fill="#fff"/>
+<g fill="none" stroke="#111" stroke-width="1.8" stroke-linecap="round"><line x1="54.0" y1="103.9" x2="96.0" y2="85.2"/><line x1="96.0" y1="85.2" x2="112.5" y2="42.2"/><line x1="112.5" y1="42.2" x2="155.5" y2="58.7"/><line x1="155.5" y1="58.7" x2="197.5" y2="40.0"/><line x1="197.5" y1="40.0" x2="216.2" y2="82.0"/><line x1="216.2" y1="82.0" x2="259.1" y2="98.5"/><line x1="259.1" y1="98.5" x2="242.6" y2="141.5"/><line x1="242.6" y1="141.5" x2="261.4" y2="183.5"/></g>
+<g fill="#111"><polygon points="86.4,89.4 74.4,89.3 78.4,98.5"/><polygon points="108.8,52.0 100.1,60.5 109.5,64.1"/><polygon points="145.7,55.0 137.2,46.3 133.6,55.7"/><polygon points="187.9,44.3 175.8,44.2 179.9,53.3"/><polygon points="211.9,72.4 212.0,60.4 202.9,64.4"/><polygon points="249.3,94.8 240.9,86.1 237.3,95.5"/><polygon points="246.4,131.7 255.0,123.2 245.7,119.6"/><polygon points="257.1,173.9 257.2,161.8 248.1,165.9"/><circle cx="54.0" cy="103.9" r="3.4"/></g>
+<g font-family="Georgia,serif" font-style="italic" font-size="17" fill="#111">
+ <text x="32" y="110">P</text></g></svg>
