@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 320" width="470" height="320" font-family="serif">
+<rect width="470" height="320" fill="#fff"/>
+<g stroke="#222" stroke-width="2" fill="none">
+<line x1="75.0" y1="90.0" x2="325.0" y2="90.0"/>
+<line x1="325.0" y1="90.0" x2="325.0" y2="280.0"/>
+<line x1="325.0" y1="280.0" x2="75.0" y2="280.0"/>
+<line x1="75.0" y1="280.0" x2="75.0" y2="90.0"/>
+<line x1="75.0" y1="90.0" x2="170.0" y2="35.0"/>
+<line x1="325.0" y1="90.0" x2="420.0" y2="35.0"/>
+<line x1="325.0" y1="280.0" x2="420.0" y2="225.0"/>
+<line x1="170.0" y1="35.0" x2="420.0" y2="35.0"/>
+<line x1="420.0" y1="35.0" x2="420.0" y2="225.0"/>
+</g><g stroke="#999" stroke-width="1.5" fill="none">
+<line x1="170.0" y1="35.0" x2="170.0" y2="225.0" stroke-dasharray="5 4"/>
+<line x1="170.0" y1="225.0" x2="420.0" y2="225.0" stroke-dasharray="5 4"/>
+<line x1="170.0" y1="225.0" x2="75.0" y2="280.0" stroke-dasharray="5 4"/>
+</g>
+<text x="174.0" y="26.0" font-size="20" fill="#111">A</text>
+<text x="55.0" y="82.0" font-size="20" fill="#111">B</text>
+<text x="332.0" y="105.0" font-size="20" fill="#111">C</text>
+<text x="427.0" y="26.0" font-size="20" fill="#111">D</text>
+<text x="165.0" y="246.0" font-size="20" fill="#111">E</text>
+<text x="55.0" y="296.0" font-size="20" fill="#111">F</text>
+<text x="319.0" y="301.0" font-size="20" fill="#111">G</text>
+<text x="427.0" y="242.0" font-size="20" fill="#111">H</text>
+</svg>
