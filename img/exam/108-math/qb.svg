@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 330" width="470" height="330" role="img" aria-label="橢圓與以四個頂點連成的四邊形 ABCD">
+<rect width="470" height="330" fill="#fff"/>
+<ellipse cx="230" cy="160" rx="170" ry="105" fill="none" stroke="#111" stroke-width="1.9"/>
+<polygon points="400,160 230,55 60,160 230,265" fill="none" stroke="#111" stroke-width="1.9"/>
+<g fill="none" stroke="#111" stroke-width="1.5">
+ <line x1="20" y1="160" x2="440" y2="160"/>
+ <polygon points="446,160 436,156 436,164" fill="#111" stroke="none"/>
+ <line x1="230" y1="305" x2="230" y2="15"/>
+ <polygon points="230,9 226,19 234,19" fill="#111" stroke="none"/></g>
+<g font-family="Georgia,serif" font-style="italic" font-size="17" fill="#111">
+ <text x="406" y="178">A</text><text x="238" y="49">B</text>
+ <text x="40" y="178">C</text><text x="238" y="283">D</text>
+ <text x="430" y="150">x</text><text x="240" y="17">y</text></g></svg>

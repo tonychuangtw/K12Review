@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-78 0 633 350" width="633" height="350" role="img" aria-label="外圍跑道與內部足球練習場的示意圖">
+<rect x="-78" width="633" height="350" fill="#fff"/>
+<path d="M 120 80.0 L 370.0 80.0 A 95.0 95.0 0 0 1 370.0 270.0 L 120 270.0 A 95.0 95.0 0 0 1 120 80.0 Z" fill="#f6f6f6" stroke="#111" stroke-width="2"/>
+<rect x="145" y="113" width="200" height="124" fill="#fff" stroke="#111" stroke-width="1.8"/>
+<line x1="145" y1="256" x2="345" y2="256" stroke="#111" stroke-width="2.6"/>
+<g fill="#111"><circle cx="145" cy="256" r="3.4"/><circle cx="345" cy="256" r="3.4"/></g>
+<g font-family="'Noto Sans CJK TC','Microsoft JhengHei',sans-serif" font-size="15" fill="#111">
+ <text x="203" y="180">足球練習場</text>
+ <text x="215" y="310">直線跑道</text>
+ <text x="-47" y="179">左邊跑道</text>
+ <text x="479" y="179">右邊跑道</text></g>
+<g font-family="Georgia,serif" font-style="italic" font-size="16" fill="#111">
+ <text x="129" y="248">A</text><text x="351" y="248">B</text></g></svg>
