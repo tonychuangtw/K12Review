@@ -31,5 +31,7 @@ window.APP_EXAMS = [
   { id: '114-matha', year: 114, subj: 'matha', n: 18, max: 88, mins: 100 },
   { id: '114-mathb', year: 114, subj: 'mathb', n: 18, max: 88, mins: 100 },
   { id: '113-matha', year: 113, subj: 'matha', n: 18, max: 88, mins: 100 },
-  { id: '113-mathb', year: 113, subj: 'mathb', n: 18, max: 88, mins: 100 }
+  { id: '113-mathb', year: 113, subj: 'mathb', n: 18, max: 88, mins: 100 },
+  { id: '112-matha', year: 112, subj: 'matha', n: 18, max: 88, mins: 100 },
+  { id: '112-mathb', year: 112, subj: 'mathb', n: 18, max: 88, mins: 100 }
 ];

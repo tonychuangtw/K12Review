@@ -4,10 +4,13 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。下一卷＝108 學測國文（115～109 的國文英文社會皆已完成，共 21 卷 1,014 題）：
+NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖、選填題）。下一卷＝111 學測數學Ａ／Ｂ（已完成 30 卷 1,340 題，見下方 (9) 段清單）：
  1. 下載試卷與答案：見下方「(9) 歷屆學測」段的網址與做法（大考中心 xmfile 頁 → .docx ＋ 答案 .pdf）
  2. 照 js/data/exam/112-chinese.js 的格式寫 build 腳本產出 js/data/exam/111-chinese.js，圖表題用 tools/exam-crop.py 裁圖
  3. 加進 js/data/exams.js 索引 → `node test/test.js` → `python3 tools/stamp-version.py` → commit → 回報 Tony
+ 4. 數學卷專用流程：pdftotext 讀不出算式，一律 `python3 tools/exam-crop.py page <pdf> <n> out.png` 把每一頁畫出來用眼睛讀；
+    每題先自己重算一次答案再寫解析，最後用程式把 single/multi/fill 三種答案跟官方答案 PDF 對一次（要 0 筆不符才收）。
+    圖一律自己畫 SVG（見下方 ★ 兩點指示）；111 年起數學分Ａ／Ｂ卷，110 年以前只有一份「數學」卷。
 （舊 OBJECTIVE：依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制——已完工）
 舊 NEXT_ACTION: 【(1) 俚語、(8) 高中七科、(3) 課文帶讀配圖、(6) 歷屆會考補題都已完工。
  2026-08-31 兩輪共補 147 題（103～115 各年＋111 補考＋112 陸考），無文可讀的承上題已歸零。
@@ -206,7 +209,8 @@ NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。下一卷�
      110 國文 42／100、110 英文 56／72、110 社會 72／144、
      109 國文 42／100、109 英文 56／72、109 社會 70／140、
      108 國文 42／100、115 數學Ａ 18／88、115 數學Ｂ 18／88、
-     114 數學Ａ 18／88、114 數學Ｂ 18／88、113 數學Ａ 18／88、113 數學Ｂ 18／88 —— 共 28 卷 1,304 題。
+     114 數學Ａ 18／88、114 數學Ｂ 18／88、113 數學Ａ 18／88、113 數學Ｂ 18／88、
+     112 數學Ａ 18／88、112 數學Ｂ 18／88 —— 共 30 卷 1,340 題。
      ★ 2026-09-01 Tony 兩點指示（之後所有科目都照這個做）：
        (1) 「可以自己畫向量圖的自己畫，辦不到才裁圖」——函數圖形、幾何圖、電路圖、受力圖、
            示意圖一律寫成 SVG 放 img/exam/<卷id>/qN.svg（fig 欄位直接指到 .svg 就會顯示）；
@@ -419,7 +423,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作（2026-08-31 歷屆補題做完後再次確認）。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-01 15:40 台北
+UPDATED: 2026-09-01 21:05 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 

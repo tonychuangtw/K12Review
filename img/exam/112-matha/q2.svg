@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 360" width="380" height="360" role="img" aria-label="單位圓的四分之一弧與過 C 點的切線交兩軸於 D、E">
+  <rect width="380" height="360" fill="#ffffff"/>
+  <g fill="none" stroke="#111" stroke-width="1.8">
+    <line x1="80" y1="330" x2="80" y2="50"/><polygon points="80,46 76,58 84,58" fill="#111" stroke="none"/>
+    <line x1="40" y1="300" x2="350" y2="300"/><polygon points="354,300 342,296 342,304" fill="#111" stroke="none"/>
+    <path d="M 230.0 300.0 A 150 150 0 0 0 80.0 150.0"/>
+    <line x1="80.0" y1="75.8" x2="281.8" y2="300.0"/>
+    <line x1="80" y1="300" x2="191.5" y2="199.6"/>
+  </g>
+  <circle cx="191.5" cy="199.6" r="3.6" fill="#111"/>
+  <g font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="16" fill="#111">
+    <text x="58" y="320">O</text>
+    <text x="224" y="322">A</text>
+    <text x="278" y="322">D</text>
+    <text x="58" y="156">B</text>
+    <text x="58" y="82">E</text>
+    <text x="199" y="194">C</text>
+    <text x="88" y="106">θ</text>
+    <text x="342" y="322" font-style="normal">x</text>
+    <text x="60" y="60" font-style="normal">y</text>
+  </g>
+</svg>

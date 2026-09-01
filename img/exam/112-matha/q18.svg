@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 340" width="460" height="340" role="img" aria-label="四邊形 PABQ 與直角 POQ 示意圖">
+  <rect width="460" height="340" fill="#ffffff"/>
+  <g fill="none" stroke="#111" stroke-width="1.8" stroke-linejoin="round">
+    <path d="M 110.0 300.0 L 320.0 300.0 L 332.2 231.1 L 134.3 162.1 Z"/>
+    <line x1="250" y1="300" x2="332.2" y2="231.1"/>
+    <line x1="250" y1="300" x2="134.3" y2="162.1"/>
+  </g>
+  <g font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="17" fill="#111">
+    <text x="90" y="322">B</text>
+    <text x="244" y="322">O</text>
+    <text x="326" y="322">A</text>
+    <text x="340" y="225">P</text>
+    <text x="130" y="152">Q</text>
+  </g>
+</svg>
