@@ -4,9 +4,9 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。已入庫 115 國文／英文／社會、114 國文。下一卷＝112 學測國文（115／114／113 的國文英文社會皆已完成）：
+NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。已入庫 115 國文／英文／社會、114 國文。下一卷＝111 學測國文（115～112 的國文英文社會皆已完成）：
  1. 下載試卷與答案：見下方「(9) 歷屆學測」段的網址與做法（大考中心 xmfile 頁 → .docx ＋ 答案 .pdf）
- 2. 照 js/data/exam/113-chinese.js 的格式寫 build 腳本產出 js/data/exam/112-chinese.js，圖表題用 tools/exam-crop.py 裁圖
+ 2. 照 js/data/exam/112-chinese.js 的格式寫 build 腳本產出 js/data/exam/111-chinese.js，圖表題用 tools/exam-crop.py 裁圖
  3. 加進 js/data/exams.js 索引 → `node test/test.js` → `python3 tools/stamp-version.py` → commit → 回報 Tony
 （舊 OBJECTIVE：依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制——已完工）
 舊 NEXT_ACTION: 【(1) 俚語、(8) 高中七科、(3) 課文帶讀配圖、(6) 歷屆會考補題都已完工。
@@ -186,6 +186,10 @@ NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。已入庫 
        ✅正解為什麼對＋❌其他選項各自錯在哪＋📚這一類題怎麼下手（test.js 會擋沒有 ❌ 的單選題）。
        只有看圖才答得出來的題不收；書影／色塊／表格改以文字說明呈現並在卷首 note 寫明。
        ⛔ 不可自己編學測題冒充原卷題。
+     ✅ 2026-09-01 Tony 第五點：「現在這是升大學的還是升高中的？進去要可選」——
+       view-exams 上方加了學段晶片（升高中／升大學）。升高中那一區不另存資料，
+       直接用匯入題庫裡 book=會考／基測／特招 的 1,700 多題，依 lesson（年份）現場組卷
+       （seniorPapers／seniorPaperOf，每題 1 分）；預設學段依主要年級判斷。入口卡改名「歷屆試題」。
      ✅ 2026-09-01 Tony 四點回饋已全部做完：
        (1)「要全部題都有」＝**走乙案：圖表題也要收**，官方 PDF 直接裁圖 → `img/exam/<卷id>/`。
           工具：`python3 tools/exam-crop.py page <pdf> <頁碼> out.png` 先看整頁（100dpi），
@@ -196,14 +200,16 @@ NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。已入庫 
        (4) 上一題／下一題改成大顆按鈕（.btn-move）。
      已入庫（2026-09-01）：115 國文 33／80、115 英文 47／66、115 社會 53／106、
      114 國文 33／80、114 英文 47／66、114 社會 54／108、
-     113 國文 33／80、113 英文 47／66、113 社會 54／108 —— 共 9 卷 401 題。
+     113 國文 33／80、113 英文 47／66、113 社會 54／108、
+     112 國文 34／82、112 英文 47／66、112 社會 56／112 —— 共 12 卷 538 題。
      裁圖流程實測心得：先 `page` 出整頁（100dpi）用眼睛抓座標，再 `crop`（自動 200dpi）；
      一張圖大約 1 分鐘，一卷社會（7-10 張圖）約 15 分鐘，值得做。
      ⚠ 115 社會第 19 題（衛星影像判讀堰塞湖溢流方位角）沒收：圖上 N 箭頭指向圖面右方，
        但官方答案 270° 與我判讀的水流方向對不起來，寧可不收也不要寫錯解析；之後可請 Tony 或看更清楚的圖源再補。
      ⚠ 自然與數學的圖／數學式密度極高（115 自然 56 題裡純文字只有十題出頭），一定要走裁圖流程才收得完，
        docx 裡的公式是 wmf/emf（本機沒有轉檔工具），所以**一律從 PDF 裁圖**，不要想從 docx 抽。
-     下一步：112 國文 → 112 英文 → 112 社會 → 111…往回補到 90 年；自然（要大量裁圖）與數學 A/B 排在文科三科之後。
+     下一步：111 國文 → 111 英文 → 111 社會 → 110…往回補到 90 年；自然（要大量裁圖）與數學 A/B 排在文科三科之後。
+     ⚠ 111 年（含）以前的社會、自然是舊課綱最後幾屆，題型與現在略有差異，但一樣照收。
      ⚠ 一卷的實作時間：國文／英文約 40-60 分鐘，社會（含裁圖）約 60-90 分鐘，一個 session 大約做得完 3 卷。
 
  (7) 匯入題庫（英文／數學／高中七科）＝ Tony 之後陸續給題本，不主動做。
@@ -382,7 +388,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作（2026-08-31 歷屆補題做完後再次確認）。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-01 10:40 台北
+UPDATED: 2026-09-01 12:10 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
