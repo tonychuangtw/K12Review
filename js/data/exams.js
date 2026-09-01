@@ -8,5 +8,6 @@ window.APP_EXAMS = [
   { id: '115-english', year: 115, subj: 'english', n: 47, max: 66, mins: 100 },
   { id: '115-social', year: 115, subj: 'social', n: 53, max: 106, mins: 110 },
   { id: '114-chinese', year: 114, subj: 'chinese', n: 33, max: 80, mins: 90 },
-  { id: '114-english', year: 114, subj: 'english', n: 47, max: 66, mins: 100 }
+  { id: '114-english', year: 114, subj: 'english', n: 47, max: 66, mins: 100 },
+  { id: '114-social', year: 114, subj: 'social', n: 54, max: 108, mins: 110 }
 ];
