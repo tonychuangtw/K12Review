@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="400" height="260" role="img" aria-label="四面體 OABC 示意圖，OAB 與 OAC 均為正三角形">
+<rect width="400" height="260" fill="#fff"/>
+<g fill="none" stroke="#111" stroke-linejoin="round"><line x1="250" y1="45" x2="95" y2="180" stroke-width="2" /><line x1="250" y1="45" x2="300" y2="215" stroke-width="2" /><line x1="250" y1="45" x2="335" y2="110" stroke-width="2" /><line x1="95" y1="180" x2="300" y2="215" stroke-width="2" /><line x1="300" y1="215" x2="335" y2="110" stroke-width="2" /><line x1="95" y1="180" x2="335" y2="110" stroke-width="1.4" stroke-dasharray="6 5"/></g>
+<g fill="#111"><circle cx="250" cy="45" r="3"/><circle cx="95" cy="180" r="3"/><circle cx="300" cy="215" r="3"/><circle cx="335" cy="110" r="3"/></g>
+<g font-family="Georgia,serif" font-style="italic" font-size="17" fill="#111">
+ <text x="246" y="35">O</text>
+ <text x="75" y="184">A</text>
+ <text x="304" y="233">B</text>
+ <text x="343" y="112">C</text></g></svg>
