@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 290" width="400" height="290" role="img" aria-label="三角形 ABC 中 D 為 AB 中點、P 為角平分線與 CD 的交點">
+  <rect width="400" height="290" fill="#ffffff"/>
+  <g fill="none" stroke="#111" stroke-width="2" stroke-linejoin="round">
+    <path d="M60 240 L330 240 L229 91 Z"/>
+    <line x1="229" y1="91" x2="195" y2="240"/>
+    <line x1="330" y1="240" x2="161" y2="151"/>
+  </g>
+  <g fill="#111">
+    <circle cx="209" cy="176" r="3.6"/>
+  </g>
+  <g font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="18" fill="#111">
+    <text x="42" y="256">A</text>
+    <text x="336" y="256">B</text>
+    <text x="224" y="80">C</text>
+    <text x="188" y="262">D</text>
+    <text x="196" y="170">P</text>
+  </g>
+</svg>

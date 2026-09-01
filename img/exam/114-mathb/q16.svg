@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" width="560" height="320" role="img" aria-label="牆角 O 與貼合在牆面地面上的三角形擋板 ABC">
+  <rect width="560" height="320" fill="#ffffff"/>
+  <g fill="none" stroke="#111" stroke-width="2" stroke-linecap="round">
+    <!-- 三條兩兩垂直的交界線（牆角） -->
+    <line x1="335" y1="205" x2="120" y2="292"/>
+    <line x1="335" y1="205" x2="550" y2="292"/>
+    <line x1="335" y1="205" x2="335" y2="40"/>
+    <!-- 三角形擋板 ABC -->
+    <path d="M190 265 L480 265 L335 100 Z" stroke-width="2.2"/>
+  </g>
+  <circle cx="335" cy="205" r="3.6" fill="#111"/>
+  <g font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="18" fill="#111">
+    <text x="168" y="278">A</text>
+    <text x="486" y="278">B</text>
+    <text x="330" y="90">C</text>
+    <text x="344" y="222">O</text>
+  </g>
+</svg>
