@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" font-family="serif">
+  <rect width="400" height="300" fill="#fff"/>
+  <line x1="70.0" y1="240.0" x2="220.0" y2="240.0" stroke="#111" stroke-width="1.3" />
+  <line x1="70.0" y1="240.0" x2="70.0" y2="90.0" stroke="#111" stroke-width="1.3" />
+  <line x1="220.0" y1="240.0" x2="220.0" y2="90.0" stroke="#111" stroke-width="1.3" />
+  <line x1="70.0" y1="90.0" x2="220.0" y2="90.0" stroke="#111" stroke-width="1.3" />
+  <line x1="70.0" y1="90.0" x2="138.0" y2="38.0" stroke="#111" stroke-width="1.3" />
+  <line x1="220.0" y1="90.0" x2="288.0" y2="38.0" stroke="#111" stroke-width="1.3" />
+  <line x1="138.0" y1="38.0" x2="288.0" y2="38.0" stroke="#111" stroke-width="1.3" />
+  <line x1="220.0" y1="240.0" x2="288.0" y2="188.0" stroke="#111" stroke-width="1.3" />
+  <line x1="288.0" y1="188.0" x2="288.0" y2="38.0" stroke="#111" stroke-width="1.3" />
+  <line x1="70.0" y1="240.0" x2="138.0" y2="188.0" stroke="#111" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <line x1="138.0" y1="188.0" x2="288.0" y2="188.0" stroke="#111" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <line x1="138.0" y1="188.0" x2="138.0" y2="38.0" stroke="#111" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <line x1="70.0" y1="240.0" x2="152.3" y2="149.4" stroke="#111" stroke-width="1.3" stroke-dasharray="2 3"/>
+  <text x="54" y="250" font-size="14" font-style="italic">A</text>
+  <text x="224" y="254" font-size="14" font-style="italic">B</text>
+  <text x="296" y="192" font-size="14" font-style="italic">C</text>
+  <text x="142" y="202" font-size="14" font-style="italic">D</text>
+  <text x="54" y="88" font-size="14" font-style="italic">E</text>
+  <text x="226" y="88" font-size="14" font-style="italic">F</text>
+  <text x="296" y="36" font-size="14" font-style="italic">G</text>
+  <text x="134" y="30" font-size="14" font-style="italic">H</text>
+  <text x="138" y="145" font-size="14" font-style="italic">P</text>
+  <circle cx="152.3" cy="149.4" r="2.5" fill="#111"/>
+</svg>
