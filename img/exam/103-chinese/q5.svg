@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="560" height="300" font-family="'Noto Sans TC',sans-serif"><rect width="560" height="300" fill="#fff"/>
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="7.5" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#111"/></marker></defs>
+<rect x="20" y="120" width="96" height="60" fill="#fff" stroke="#111" stroke-width="1.6" rx="3"/><text x="68.0" y="145.5" font-size="15" text-anchor="middle" fill="#111">先秦諸子</text><text x="68.0" y="164.5" font-size="15" text-anchor="middle" fill="#111">散文</text>
+<rect x="150" y="60" width="74" height="44" fill="#fff" stroke="#111" stroke-width="1.6" rx="3"/><text x="187.0" y="87.0" font-size="15" text-anchor="middle" fill="#111">語錄</text>
+<rect x="150" y="196" width="74" height="44" fill="#fff" stroke="#111" stroke-width="1.6" rx="3"/><text x="187.0" y="223.0" font-size="15" text-anchor="middle" fill="#111">專論</text>
+<line x1="118" y1="140" x2="148" y2="86" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="118" y1="160" x2="148" y2="214" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="258" y="20" width="180" height="48" fill="#fff" stroke="#111" stroke-width="1.6" rx="3"/><text x="348.0" y="49.0" font-size="15" text-anchor="middle" fill="#111">例：《論語》、甲</text>
+<rect x="258" y="84" width="180" height="48" fill="#fff" stroke="#111" stroke-width="1.6" rx="3"/><text x="348.0" y="113.0" font-size="15" text-anchor="middle" fill="#111">特徵：乙</text>
+<rect x="258" y="168" width="180" height="48" fill="#fff" stroke="#111" stroke-width="1.6" rx="3"/><text x="348.0" y="197.0" font-size="15" text-anchor="middle" fill="#111">例：丙、《韓非子》</text>
+<rect x="258" y="232" width="180" height="48" fill="#fff" stroke="#111" stroke-width="1.6" rx="3"/><text x="348.0" y="261.0" font-size="15" text-anchor="middle" fill="#111">特徵：丁</text>
+<line x1="226" y1="74" x2="256" y2="46" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="226" y1="90" x2="256" y2="106" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="226" y1="210" x2="256" y2="192" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="226" y1="226" x2="256" y2="254" stroke="#111" stroke-width="1.6" marker-end="url(#ar)"/>
+</svg>
