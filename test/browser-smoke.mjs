@@ -1485,23 +1485,30 @@ async (js) => {
 });
 
 /* ---------- 17. 歷屆學測：整卷作答 → 交卷 → 成績單（2026-08-31 Tony 指定的新大項） ---------- */
-console.log('歷屆學測（整卷作答）');
+console.log('歷屆試題（整卷作答）');
 await session(8763, 9363, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
   phon: 'zhuyin', grade: 12, extra: [], grades: [12], onboarded: true, subject: 'chinese',
   stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], units: {} }));` },
 async (js) => {
   await js(`window.NavDebug.go('subject')`);
   await sleep(400);
-  check('科目頁有「歷屆學測」這個大項',
+  check('科目頁有「歷屆試題」這個大項',
     await js(`!![].slice.call(document.querySelectorAll('#subjectCards .card'))
-      .filter(function(x){ return /歷屆學測/.test(x.textContent); })[0]`));
+      .filter(function(x){ return /歷屆試題/.test(x.textContent); })[0]`));
   await js(`(function(){ var b = [].slice.call(document.querySelectorAll('#subjectCards .card'))
-    .filter(function(x){ return /歷屆學測/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+    .filter(function(x){ return /歷屆試題/.test(x.textContent); })[0]; if (b) b.click(); })()`);
   await sleep(1500);
-  check('進得了歷屆學測，列得出年份與卷子',
+  check('進得了歷屆試題，列得出年份與卷子',
     await js(`document.querySelectorAll('#examYears .chip').length`) >= 1 &&
     await js(`document.querySelectorAll('#examList .card').length`) >= 1,
     await js(`document.getElementById('examList').textContent`));
+  check('進去可以選升高中或升大學（2026-09-01 Tony）',
+    await js(`document.querySelectorAll('#examStages .chip').length`) === 2,
+    await js(`document.getElementById('examStages').textContent`));
+  check('高中生預設在升大學那一區',
+    await js(`!!document.querySelector('#examStages .chip.active') &&
+      /升大學/.test(document.querySelector('#examStages .chip.active').textContent)`),
+    await js(`(document.querySelector('#examStages .chip.active')||{}).textContent`));
   check('列表頁有作答時限的設定', await js(`document.querySelectorAll('#examLimitRow .chip').length`) >= 3,
     await js(`document.getElementById('examLimitRow').textContent`));
   await js(`(function(){ var b = [].slice.call(document.querySelectorAll('#examLimitRow .chip'))
