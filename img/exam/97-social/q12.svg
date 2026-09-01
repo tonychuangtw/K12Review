@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 560" width="700" height="560" font-family="sans-serif">
+  <rect width="700" height="560" fill="#fff"/>
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker></defs>
+  <text x="180" y="30" font-size="16" text-anchor="middle">甲</text>
+  <rect x="20" y="40" width="320" height="220" fill="none" stroke="#333" stroke-width="1.5"/>
+  <line x1="80" y1="40" x2="80" y2="260" stroke="#999" stroke-width="1"/>
+  <text x="50" y="130.7" font-size="13" text-anchor="middle">熱</text>
+  <text x="50" y="146.7" font-size="13" text-anchor="middle">帶</text>
+  <text x="50" y="162.7" font-size="13" text-anchor="middle">作</text>
+  <text x="50" y="178.7" font-size="13" text-anchor="middle">物</text>
+  <rect x="110" y="105" width="60" height="90" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="140.0" y="124.3" font-size="12" text-anchor="middle">初</text>
+  <text x="140.0" y="139.3" font-size="12" text-anchor="middle">級</text>
+  <text x="140.0" y="154.3" font-size="12" text-anchor="middle">加</text>
+  <text x="140.0" y="169.3" font-size="12" text-anchor="middle">工</text>
+  <text x="140.0" y="184.3" font-size="12" text-anchor="middle">廠</text>
+  <rect x="215" y="60" width="60" height="80" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="245.0" y="96.7" font-size="13" text-anchor="middle">市</text>
+  <text x="245.0" y="112.7" font-size="13" text-anchor="middle">場</text>
+  <rect x="215" y="165" width="60" height="80" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="245.0" y="201.7" font-size="13" text-anchor="middle">農</text>
+  <text x="245.0" y="217.7" font-size="13" text-anchor="middle">家</text>
+  <path d="M 82 150 L 106 150" fill="none" stroke="#111" stroke-width="3" marker-end="url(#ar)"/>
+  <path d="M 140 100 L 140 80 L 211 80" fill="none" stroke="#111" stroke-width="3" marker-end="url(#ar)"/>
+  <path d="M 245 144 L 245 161" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#ar)"/>
+  <text x="530" y="30" font-size="16" text-anchor="middle">乙</text>
+  <rect x="370" y="40" width="310" height="220" fill="none" stroke="#333" stroke-width="1.5"/>
+  <line x1="430" y1="40" x2="430" y2="260" stroke="#999" stroke-width="1"/>
+  <text x="400" y="130.7" font-size="13" text-anchor="middle">穀</text>
+  <text x="400" y="146.7" font-size="13" text-anchor="middle">類</text>
+  <text x="400" y="162.7" font-size="13" text-anchor="middle">作</text>
+  <text x="400" y="178.7" font-size="13" text-anchor="middle">物</text>
+  <rect x="470" y="110" width="60" height="80" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="500.0" y="146.7" font-size="13" text-anchor="middle">市</text>
+  <text x="500.0" y="162.7" font-size="13" text-anchor="middle">場</text>
+  <rect x="585" y="60" width="60" height="80" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="615.0" y="96.7" font-size="13" text-anchor="middle">農</text>
+  <text x="615.0" y="112.7" font-size="13" text-anchor="middle">家</text>
+  <rect x="585" y="170" width="60" height="80" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="615.0" y="206.7" font-size="13" text-anchor="middle">農</text>
+  <text x="615.0" y="222.7" font-size="13" text-anchor="middle">家</text>
+  <path d="M 432 150 L 466 150" fill="none" stroke="#111" stroke-width="3" marker-end="url(#ar)"/>
+  <path d="M 500 106 L 500 90 L 581 90" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#ar)"/>
+  <path d="M 500 194 L 500 210 L 581 210" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#ar)"/>
+  <text x="180" y="310" font-size="16" text-anchor="middle">丙</text>
+  <rect x="20" y="320" width="320" height="220" fill="none" stroke="#333" stroke-width="1.5"/>
+  <line x1="80" y1="320" x2="80" y2="540" stroke="#999" stroke-width="1"/>
+  <line x1="20" y1="455" x2="80" y2="455" stroke="#999" stroke-width="1"/>
+  <text x="50" y="368.2" font-size="13" text-anchor="middle">天</text>
+  <text x="50" y="384.2" font-size="13" text-anchor="middle">然</text>
+  <text x="50" y="400.2" font-size="13" text-anchor="middle">牧</text>
+  <text x="50" y="416.2" font-size="13" text-anchor="middle">草</text>
+  <text x="50" y="494.2" font-size="13" text-anchor="middle">作</text>
+  <text x="50" y="510.2" font-size="13" text-anchor="middle">物</text>
+  <rect x="110" y="345" width="60" height="80" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="140.0" y="381.7" font-size="13" text-anchor="middle">牲</text>
+  <text x="140.0" y="397.7" font-size="13" text-anchor="middle">畜</text>
+  <rect x="110" y="455" width="60" height="70" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="140.0" y="486.7" font-size="13" text-anchor="middle">農</text>
+  <text x="140.0" y="502.7" font-size="13" text-anchor="middle">家</text>
+  <rect x="230" y="400" width="60" height="80" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="260.0" y="436.7" font-size="13" text-anchor="middle">市</text>
+  <text x="260.0" y="452.7" font-size="13" text-anchor="middle">場</text>
+  <path d="M 82 375 L 106 375" fill="none" stroke="#111" stroke-width="3" marker-end="url(#ar)"/>
+  <path d="M 170 375 L 260 375 L 260 396" fill="none" stroke="#111" stroke-width="3" marker-end="url(#ar)"/>
+  <path d="M 140 429 L 140 451" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#ar)"/>
+  <path d="M 82 490 L 106 490" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#ar)"/>
+  <path d="M 82 470 L 96 470 L 96 400 L 106 400" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#ar)"/>
+  <text x="530" y="310" font-size="16" text-anchor="middle">丁</text>
+  <rect x="370" y="320" width="310" height="220" fill="none" stroke="#333" stroke-width="1.5"/>
+  <line x1="430" y1="320" x2="430" y2="540" stroke="#999" stroke-width="1"/>
+  <line x1="370" y1="440" x2="430" y2="440" stroke="#999" stroke-width="1"/>
+  <text x="400" y="360.7" font-size="13" text-anchor="middle">天</text>
+  <text x="400" y="376.7" font-size="13" text-anchor="middle">然</text>
+  <text x="400" y="392.7" font-size="13" text-anchor="middle">牧</text>
+  <text x="400" y="408.7" font-size="13" text-anchor="middle">草</text>
+  <text x="400" y="486.7" font-size="13" text-anchor="middle">作</text>
+  <text x="400" y="502.7" font-size="13" text-anchor="middle">物</text>
+  <rect x="470" y="345" width="60" height="80" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="500.0" y="381.7" font-size="13" text-anchor="middle">牲</text>
+  <text x="500.0" y="397.7" font-size="13" text-anchor="middle">畜</text>
+  <rect x="470" y="455" width="60" height="70" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="500.0" y="486.7" font-size="13" text-anchor="middle">農</text>
+  <text x="500.0" y="502.7" font-size="13" text-anchor="middle">家</text>
+  <rect x="590" y="390" width="60" height="90" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="620.0" y="431.7" font-size="13" text-anchor="middle">市</text>
+  <text x="620.0" y="447.7" font-size="13" text-anchor="middle">場</text>
+  <path d="M 432 365 L 466 365" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#ar)"/>
+  <path d="M 432 405 L 466 405" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#ar)"/>
+  <path d="M 530 375 L 620 375 L 620 386" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#ar)"/>
+  <path d="M 500 429 L 500 451" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#ar)"/>
+  <path d="M 432 470 L 466 470" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#ar)"/>
+  <path d="M 500 529 L 620 529 L 620 484" fill="none" stroke="#111" stroke-width="3" marker-end="url(#ar)"/>
+</svg>

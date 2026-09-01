@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 400" width="470" height="400" font-family="sans-serif">
+  <rect width="470" height="400" fill="#fff"/>
+  <path d="M 235 205 L 235.0 85.0 A 120 120 0 1 1 115.1 200.9 Z" fill="#eee" stroke="#333" stroke-width="1.2"/>
+  <path d="M 235 205 L 115.1 200.9 A 120 120 0 0 1 170.7 103.7 Z" fill="#c9c9c9" stroke="#333" stroke-width="1.2"/>
+  <path d="M 235 205 L 170.7 103.7 A 120 120 0 0 1 198.5 90.7 Z" fill="#a8a8a8" stroke="#333" stroke-width="1.2"/>
+  <path d="M 235 205 L 198.5 90.7 A 120 120 0 0 1 227.2 85.3 Z" fill="#8c8c8c" stroke="#333" stroke-width="1.2"/>
+  <path d="M 235 205 L 227.2 85.3 A 120 120 0 0 1 235.0 85.0 Z" fill="#6f6f6f" stroke="#333" stroke-width="1.2"/>
+  <polyline points="312.8,285.5 400,300" fill="none" stroke="#777" stroke-width="1"/>
+  <text x="406" y="304" font-size="13" text-anchor="start">甲 75.54%</text>
+  <polyline points="137.8,149.4 82,150" fill="none" stroke="#777" stroke-width="1"/>
+  <text x="76" y="154" font-size="13" text-anchor="end">乙 15.46%</text>
+  <polyline points="187.6,103.5 95,78" fill="none" stroke="#777" stroke-width="1"/>
+  <text x="89" y="82" font-size="13" text-anchor="end">丙 4.08%</text>
+  <polyline points="214.2,95.0 95,46" fill="none" stroke="#777" stroke-width="1"/>
+  <text x="89" y="50" font-size="13" text-anchor="end">丁 3.88%</text>
+  <polyline points="231.3,93.1 345,46" fill="none" stroke="#777" stroke-width="1"/>
+  <text x="351" y="50" font-size="13" text-anchor="start">其他 1.04%</text>
+  <text x="235" y="386" font-size="13" text-anchor="middle" fill="#555">圖四</text>
+</svg>
