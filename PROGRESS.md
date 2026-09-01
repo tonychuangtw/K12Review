@@ -2,9 +2,14 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: done
-OBJECTIVE: 依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制
-NEXT_ACTION: 【(1) 俚語、(8) 高中七科、(3) 課文帶讀配圖、(6) 歷屆會考補題都已完工。
+STATUS: in-progress
+OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
+NEXT_ACTION: 【歷屆學測】前端已完成、115 學測國文（33 題）已入庫。下一卷＝115 學測英文：
+ 1. 下載試卷與答案：見下方「(9) 歷屆學測」段的網址與做法（大考中心 xmfile 頁 → .docx ＋ 答案 .pdf）
+ 2. 照 js/data/exam/115-chinese.js 的格式寫一支 build 腳本產出 js/data/exam/115-english.js，並把該卷加進 js/data/exams.js 索引
+ 3. `node test/test.js`（有整卷守門）→ `python3 tools/stamp-version.py` → commit → 回報 Tony
+（舊 OBJECTIVE：依 Tony 2026-08-27 回報，把兩站的家長／老師檢視做到「一頁看完每一科、每一種練習分開的題數／正確率／用時」，並加上防亂寫機制——已完工）
+舊 NEXT_ACTION: 【(1) 俚語、(8) 高中七科、(3) 課文帶讀配圖、(6) 歷屆會考補題都已完工。
  2026-08-31 兩輪共補 147 題（103～115 各年＋111 補考＋112 陸考），無文可讀的承上題已歸零。
  下一步＝等 Tony 指派新工作；真要自己找事做，就查 103 特招與 90～102 年基測還缺哪些非圖片題】
  查空位一行指令見 (3) 那一段；跑出來是 0 就代表沒有可補的位置了。
@@ -157,6 +162,32 @@ NEXT_ACTION: 【(1) 俚語、(8) 高中七科、(3) 課文帶讀配圖、(6) 歷
        文字重現不了；110 年第 6 題那種 PDF 內嵌字型壞掉變亂碼的也補不了。
        還沒查過的是 103 年特招（34 題）與 90～102 年基測（每份 45～50 題，原卷 48 題左右）。
      ⛔ 不可把既有自撰題回頭貼上假出處。
+ (9) 歷屆學測（2026-09-01 Tony 新指示：「所有學測題另外做一個大項。進去可選哪一年哪一科直接做全部。
+     做完可評分。邊放你邊學習學測出題方式及類型」）← 進行中
+     ✅ 前端已完成：科目選擇頁最外層新增「🎓 歷屆學測」→ view-exams（年份晶片＋各科卷子）
+        → view-exam（整卷作答：題號導覽、可跳題可改、作答中不對答案）→ 交卷 → 成績單
+        （分數／用時／各題型答對數／逐題檢討＋解析）＋ state.examRuns 存最佳與最近成績。
+        程式在 js/app.js 的「歷屆學測」段、index.html 的 view-exams / view-exam、css/style.css 尾端。
+     ✅ 資料格式：js/data/exams.js＝索引（id 一律 `<年>-<科>`、n 題數、max 滿分、mins 原卷時間），
+        每一卷一檔 js/data/exam/<id>.js（掛 window.APP_EXAM_PAPERS[id]），進到那一卷才動態載入。
+        題目欄位 {n 原卷題號, pt 配分, type single|multi, cat 題型, q, o[], a, exp, g 題組id}，
+        題組共同的文章放在 paper.groups[gid] = {title, passage}。
+     ✅ 已入庫：115 學測國文 33 題／滿分 80（單選 1-24、多選 25-31、混合題組的單選 35-36）。
+     取得試卷的做法（0 token，純下載）：
+       a. 列表頁 `https://www.ceec.edu.tw/xmfile?xsmsid=0J052424829869345634&page=<1-19>`，
+          裡面有 90～115 年學測各科的試卷 PDF、答案 PDF，103 年起還附 .docx（優先用 docx，字最乾淨）。
+       b. docx 取文字：解開 zip 讀 word/document.xml，抓 `<w:t ...>` 的內容（注意 `<w:tabs>` 會誤配，
+          正規表示式要寫成 `<w:t(?:\s[^>]*)?>`）；文字方塊的內容會重複出現，要去重。
+       c. 有些段落只存在於圖檔或文字方塊裡，docx 抓不到 → 用 `pdftotext -layout` 的輸出補。
+          底線（「不」「沒有」「畫線處」）要看 docx 裡帶 `<w:u>` 的 run 才知道畫在哪。
+       d. 答案本是另一支 PDF（`<年>學測<科>答案.pdf`），pdftotext 直接讀得出對照表；
+          多選題答案像「ABD」，非選擇題標「／」。
+     ⚠ 硬規則：題目原文照收不改字；解析一律自撰（官方不公布解析），格式＝
+       ✅正解為什麼對＋❌其他選項各自錯在哪＋📚這一類題怎麼下手（test.js 會擋沒有 ❌ 的單選題）。
+       只有看圖才答得出來的題不收；書影／色塊／表格改以文字說明呈現並在卷首 note 寫明。
+       ⛔ 不可自己編學測題冒充原卷題。
+     下一步：115 英文 → 115 社會 → 115 自然 → 115 數學A/B → 114 各科 → 往回補到 90 年。
+
  (7) 匯入題庫（英文／數學／高中七科）＝ Tony 之後陸續給題本，不主動做。
  (8) 高中七科擴題 ← 2026-09-06 掃出擋路的問題，已問 Tony 要走哪條路（甲修品質／乙先擴題／丙兩者）：
      高中七科 12,096 題裡有 10,951 題（90.5%）的三個誘答是從**同一課別張卡片借來的句子**，
@@ -333,7 +364,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作（2026-08-31 歷屆補題做完後再次確認）。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-08-31 台北
+UPDATED: 2026-09-01 08:20 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 

@@ -935,5 +935,51 @@ console.log('題數清單 counts.js');
   }
 }
 
+
+/* ---------- 歷屆學測（js/data/exams.js ＋ js/data/exam/<卷>.js）----------
+   整卷作答的資料一旦壞掉（答案索引超出選項、題組文章不見、索引與實檔題數對不上），
+   使用者是「交卷後才發現這一題無解」，比平常刷題更難救，所以在這裡整卷檢查。 */
+console.log('歷屆學測');
+{
+  eval(fs.readFileSync(path.join(root, 'js/data/exams.js'), 'utf8'));
+  const idx = window.APP_EXAMS || [];
+  ok(idx.length > 0, `學測索引有卷子（${idx.length} 卷）`);
+  const seen = new Set();
+  idx.forEach((p) => {
+    ok(!seen.has(p.id), `${p.id} 沒有重複`);
+    seen.add(p.id);
+    ok(p.id === p.year + '-' + p.subj, `${p.id} id ＝ 年份-科目`);
+    const file = path.join(root, 'js/data/exam', p.id + '.js');
+    if (!fs.existsSync(file)) { ok(false, `${p.id} 有對應的題目檔`); return; }
+    eval(fs.readFileSync(file, 'utf8'));
+    const paper = (window.APP_EXAM_PAPERS || {})[p.id];
+    if (!paper) { ok(false, `${p.id} 題目檔有掛上 APP_EXAM_PAPERS`); return; }
+    ok(paper.qs.length === p.n, `${p.id} 索引題數與實檔一致（索引 ${p.n}、實檔 ${paper.qs.length}）`);
+    const max = paper.qs.reduce((s, q) => s + q.pt, 0);
+    ok(max === p.max, `${p.id} 索引滿分與實檔一致（索引 ${p.max}、實檔 ${max}）`);
+    const bad = [];
+    const nums = new Set();
+    paper.qs.forEach((q) => {
+      const tag = `${p.id} 第 ${q.n} 題`;
+      if (nums.has(q.n)) bad.push(tag + ' 題號重複');
+      nums.add(q.n);
+      if (!(q.q || '').trim()) bad.push(tag + ' 沒有題幹');
+      if (!Array.isArray(q.o) || q.o.length < 2) bad.push(tag + ' 選項不足');
+      if ((q.o || []).some((o) => !String(o).trim())) bad.push(tag + ' 有空白選項');
+      if (q.type === 'multi') {
+        if (!Array.isArray(q.a) || !q.a.length) bad.push(tag + ' 多選題沒有答案');
+        else if (q.a.some((i) => !(i >= 0 && i < q.o.length))) bad.push(tag + ' 答案索引超出選項');
+      } else if (!(q.a >= 0 && q.a < q.o.length)) bad.push(tag + ' 答案索引超出選項');
+      if (!(q.pt > 0)) bad.push(tag + ' 沒有配分');
+      if (!(q.exp || '').trim()) bad.push(tag + ' 沒有解析');
+      if (q.g && !((paper.groups || {})[q.g] || {}).passage) bad.push(tag + ' 題組文章不見了');
+    });
+    ok(bad.length === 0, `${p.id} 每一題都完整（問題：${bad.slice(0, 3).join('；') || '無'}）`);
+    // 解析要交代其他選項為什麼不對（整卷檢討是這一區唯一的學習機會）
+    const thin = paper.qs.filter((q) => (q.exp || '').indexOf('❌') < 0 && q.type !== 'multi');
+    ok(thin.length === 0, `${p.id} 單選題的解析都有交代錯誤選項（缺 ${thin.length} 題）`);
+  });
+}
+
 console.log(failed ? `\n${failed} 項失敗` : '\n全部通過');
 process.exit(failed ? 1 : 0);

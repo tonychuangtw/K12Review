@@ -962,7 +962,7 @@
 
   /* ---------- 視圖切換 ---------- */
 
-  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'read', 'lit', 'drill', 'imphome', 'custom', 'review', 'help', 'search'];
+  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'read', 'lit', 'drill', 'imphome', 'custom', 'review', 'help', 'search', 'exams', 'exam'];
   // 手機返回手勢／瀏覽器上一頁（2026-08-20 Tony：「很多選進去後都不能回前一頁」）
   // 這是單頁站，本來按返回會直接離站。做法：navStack 與 history 條目一一對應——
   // 前進 pushState，退回一律交給 history.go（畫面在 popstate 裡才更新），
@@ -972,7 +972,8 @@
   var NAV_CLEAN = {
     quiz: function () { logDwell(); hqCancel(); },
     write: function () { wqCancel(); },
-    read: function () { readStopSpeak(); }
+    read: function () { readStopSpeak(); },
+    exam: function () { examClockStop(); }
   };
   function curView() {
     for (var i = 0; i < views.length; i++) {
@@ -1367,6 +1368,21 @@
     });
     iwrap.appendChild(ib);
     box.appendChild(iwrap);
+    // 歷屆學測獨立成一個大項（2026-08-31 Tony：「所有學測題另外做一個大項，
+    // 進去可選哪一年哪一科直接做全部，做完可評分」）
+    var eh = document.createElement('div');
+    eh.className = 'subj-group';
+    eh.textContent = '歷屆試題';
+    box.appendChild(eh);
+    var ewrap = document.createElement('div');
+    ewrap.className = 'cards';
+    var eb = document.createElement('button');
+    eb.className = 'card card-wide';
+    eb.innerHTML = '<span class="card-icon">🎓</span><span class="card-title">歷屆學測</span>' +
+      '<span class="card-sub">大考中心歷屆試題 · 選年份與科目，整卷作答、交卷評分</span>';
+    eb.addEventListener('click', function () { showExams(); });
+    ewrap.appendChild(eb);
+    box.appendChild(ewrap);
     /* 家長／老師檢視拉到最外層（Tony 2026-08-27：「從哪科進去、單看那科？很麻煩」）。
        原本要先選科目 → 學習進度 → 才點得到儀表板，看起來就像只能單看一科。 */
     var ph = document.createElement('div');
@@ -1521,7 +1537,7 @@
   }
   function renderGradeBtn() { $('gradeBtn').textContent = gradeLabel(state.grade) + ' ▾'; }
   // 常駐的學習範圍列（測驗中不顯示，免得做到一半題目被換掉）
-  var RANGE_HIDDEN_VIEWS = ['quiz', 'write', 'flash', 'welcome'];
+  var RANGE_HIDDEN_VIEWS = ['quiz', 'write', 'flash', 'welcome', 'exam'];
   function renderRangeBar() {
     var extra = (state.extra || []).slice().sort(function (a, b) { return a - b; });
     $('rangeBar').innerHTML = '<span class="rb-main">📚 目前：<b>' + gradeLabel(state.grade) +
@@ -6144,6 +6160,289 @@
   }
 
   $('writingExit').addEventListener('click', function () { show('home'); });
+
+  /* ---------- 歷屆學測（2026-08-31 Tony：「所有學測題另外做一個大項，
+     進去可選哪一年哪一科直接做全部。做完可評分」）----------
+     跟站內其他練習完全分開：整卷作答（作答期間不對答案、可跳題可改）→ 交卷 → 成績單。
+     成績單照大考中心的計分規則算：單選答對得該題分數；多選每個選項獨立判定，
+     答錯 k 個選項得 (n-2k)/n 的分數，低於零分以零分計。
+     題目照大考中心公開試卷原文收錄，題號＝原卷題號；只看圖才答得出來的題不收，
+     卷首會註明沒收哪幾題。資料：js/data/exams.js（索引）＋ js/data/exam/<年>-<科>.js（每卷一檔）。 */
+  var EXAM_SUBJ = {
+    chinese: { name: '國文', icon: '📖' }, english: { name: '英文', icon: '🔤' },
+    matha: { name: '數學Ａ', icon: '🔢' }, mathb: { name: '數學Ｂ', icon: '🔢' },
+    math: { name: '數學', icon: '🔢' }, social: { name: '社會', icon: '🌏' },
+    science: { name: '自然', icon: '🔬' }
+  };
+  var examPaper = null;     // 目前這一卷的資料
+  var examRun = null;       // 目前這一次作答 {ans:{}, i, start, ms}
+  var examTick = null;
+
+  function ensureExamIndex(cb) {
+    if (W.APP_EXAMS) { cb(null); return; }
+    loadScript('js/data/exams.js', cb);
+  }
+  function ensureExamPaper(id, cb) {
+    if (W.APP_EXAM_PAPERS && W.APP_EXAM_PAPERS[id]) { cb(null); return; }
+    loadScript('js/data/exam/' + id + '.js', function (err) {
+      cb(err || ((W.APP_EXAM_PAPERS || {})[id] ? null : 'error'));
+    });
+  }
+  function examSubj(k) { return EXAM_SUBJ[k] || { name: k, icon: '📄' }; }
+  function examRuns() { return (state.examRuns = state.examRuns || {}); }
+  // 這一卷本站收了幾題、滿分多少（滿分＝收進來的題目分數總和，不是原卷 100 分）
+  function examMax(p) { return p.qs.reduce(function (s, q) { return s + (q.pt || 0); }, 0); }
+
+  function showExams() {
+    show('exams');
+    $('examList').innerHTML = '<div class="prog-hint">載入中…</div>';
+    ensureExamIndex(function (err) {
+      if (err || !W.APP_EXAMS) {
+        $('examList').innerHTML = '<div class="prog-hint">學測題庫載入失敗，請重新整理。</div>';
+        return;
+      }
+      renderExams();
+    });
+  }
+  function examYearList() {
+    var ys = [];
+    (W.APP_EXAMS || []).forEach(function (p) { if (ys.indexOf(p.year) < 0) ys.push(p.year); });
+    ys.sort(function (a, b) { return b - a; });
+    return ys;
+  }
+  function renderExams() {
+    var years = examYearList();
+    if (!years.length) {
+      $('examList').innerHTML = '<div class="prog-hint">題庫建置中。</div>';
+      return;
+    }
+    if (years.indexOf(state.examYear) < 0) state.examYear = years[0];
+    var yb = $('examYears');
+    yb.innerHTML = '';
+    years.forEach(function (y) {
+      var b = document.createElement('button');
+      b.className = 'chip' + (y === state.examYear ? ' active' : '');
+      b.textContent = y + ' 年';
+      b.addEventListener('click', function () { state.examYear = y; save(); renderExams(); });
+      yb.appendChild(b);
+    });
+    var box = $('examList');
+    box.innerHTML = '';
+    var papers = (W.APP_EXAMS || []).filter(function (p) { return p.year === state.examYear; });
+    papers.forEach(function (p) {
+      var s = examSubj(p.subj), rec = examRuns()[p.id];
+      var b = document.createElement('button');
+      b.className = 'card card-wide' + (rec && rec.best ? ' daily-done' : '');
+      var sub = p.n + ' 題 · 滿分 ' + p.max + ' 分 · 建議 ' + p.mins + ' 分鐘';
+      if (rec && rec.best) sub += '<br>最佳成績 ' + rec.best.score + '／' + rec.best.max + ' 分（' + rec.best.date + '）';
+      b.innerHTML = '<span class="card-icon">' + s.icon + '</span><span class="card-title">' +
+        state.examYear + ' 學測 ' + s.name + '</span><span class="card-sub">' + sub + '</span>';
+      b.addEventListener('click', function () { openExam(p.id); });
+      box.appendChild(b);
+    });
+    $('examsHint').innerHTML = '題目為大考中心公開釋出的歷屆學測試題原文，題號與原卷相同。' +
+      '整卷作答期間不會告訴你對不對，按「交卷評分」之後才給分數與逐題解析。' +
+      '只有看圖才答得出來的題目（圖形、統計圖、書法字跡）文字重現不了，沒有收進來，每一卷的說明會寫清楚。';
+  }
+
+  function openExam(id) {
+    ensureExamPaper(id, function (err) {
+      if (err) { UIDialog.alert('這一卷載入失敗，請檢查網路後重試。'); return; }
+      var p = W.APP_EXAM_PAPERS[id];
+      var rec = examRuns()[id];
+      var msg = p.year + ' 學測 ' + examSubj(p.subj).name + '：共 ' + p.qs.length + ' 題、滿分 ' +
+        examMax(p) + ' 分，原卷作答時間 ' + p.mins + ' 分鐘。\n作答中不會對答案，交卷後才評分。';
+      if (rec && rec.best) msg += '\n（你的最佳成績：' + rec.best.score + ' 分）';
+      UIDialog.confirm(msg + '\n開始作答？', function () { startExam(p); });
+    });
+  }
+  function startExam(p) {
+    examPaper = p;
+    examRun = { ans: {}, i: 0, start: Date.now(), ms: 0, done: false };
+    show('exam');
+    $('examResult').classList.add('hidden');
+    $('examReview').innerHTML = '';
+    $('examCard').classList.remove('hidden');
+    $('examTitle').textContent = p.year + ' 學測 ' + examSubj(p.subj).name;
+    examClockStart();
+    paintExam();
+  }
+  function examClockStart() {
+    examClockStop();
+    examTick = setInterval(function () {
+      if (!examRun || examRun.done) return;
+      var s = Math.floor((Date.now() - examRun.start) / 1000);
+      $('examClock').textContent = '⏱ ' + Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2);
+    }, 1000);
+  }
+  function examClockStop() { if (examTick) { clearInterval(examTick); examTick = null; } }
+
+  function examAnsOf(q) { return examRun.ans[q.n]; }
+  function examAnswered(q) {
+    var a = examAnsOf(q);
+    return q.type === 'multi' ? !!(a && a.length) : a != null;
+  }
+  // 選項字母：文意選填一次給 10 個選項（A-J），所以字母表不能只到 E
+  var EXAM_ABC = 'ABCDEFGHIJ';
+  function examLetters(a) {
+    return (Array.isArray(a) ? a : [a]).slice().sort(function (x, y) { return x - y; })
+      .map(function (i) { return EXAM_ABC[i]; }).join('');
+  }
+  function paintExam() {
+    var p = examPaper, q = p.qs[examRun.i];
+    var nav = $('examNav');
+    nav.innerHTML = '';
+    p.qs.forEach(function (item, idx) {
+      var c = document.createElement('button');
+      c.className = 'exam-cell' + (idx === examRun.i ? ' cur' : (examAnswered(item) ? ' filled' : ''));
+      c.textContent = item.n;
+      c.addEventListener('click', function () { examRun.i = idx; paintExam(); });
+      nav.appendChild(c);
+    });
+    var done = p.qs.filter(examAnswered).length;
+    $('examBar').style.width = Math.round(done / p.qs.length * 100) + '%';
+    $('examTag').textContent = '第 ' + q.n + ' 題（原卷題號）· ' + (q.type === 'multi' ? '多選題' : '單選題') +
+      ' · ' + q.pt + ' 分' + (q.cat ? ' · ' + q.cat : '') + ' ── 已作答 ' + done + '／' + p.qs.length;
+    var intro = examIntroOf(p, q);
+    $('examIntro').classList.toggle('hidden', !intro);
+    if (intro) $('examIntro').textContent = intro;
+    $('examQ').textContent = q.q;
+    var box = $('examOpts');
+    box.innerHTML = '';
+    q.o.forEach(function (text, i) {
+      var b = document.createElement('button');
+      var a = examAnsOf(q);
+      var on = q.type === 'multi' ? (a || []).indexOf(i) >= 0 : a === i;
+      b.className = 'q-opt' + (on ? ' picked' : '');
+      b.textContent = '(' + EXAM_ABC[i] + ') ' + text;
+      b.addEventListener('click', function () { examPick(q, i); });
+      box.appendChild(b);
+    });
+    $('examPick').textContent = q.type === 'multi'
+      ? '多選題：選項可複選，再按一次可取消。答錯選項會倒扣，全部不選以零分計。'
+      : '單選題：選一個；想改直接點別的選項。';
+    $('examPrev').disabled = examRun.i === 0;
+    $('examNext').disabled = examRun.i === p.qs.length - 1;
+    $('examSubmit').textContent = done === p.qs.length ? '交卷評分' : '交卷評分（還有 ' + (p.qs.length - done) + ' 題沒作答）';
+  }
+  // 題組共用的說明與文章（groups），只在題組第一題整段顯示，後面的題只帶一行提示
+  function examIntroOf(p, q) {
+    if (!q.g) return q.intro || '';
+    var g = (p.groups || {})[q.g];
+    if (!g) return q.intro || '';
+    var first = p.qs.filter(function (x) { return x.g === q.g; })[0];
+    var head = g.title ? g.title + '\n\n' : '';
+    return q === first ? head + g.passage : head + g.passage;
+  }
+  function examPick(q, i) {
+    if (q.type === 'multi') {
+      var a = examRun.ans[q.n] = examRun.ans[q.n] || [];
+      var k = a.indexOf(i);
+      if (k >= 0) a.splice(k, 1); else a.push(i);
+    } else {
+      examRun.ans[q.n] = i;
+    }
+    paintExam();
+  }
+  // 大考中心計分：單選全對得分；多選逐個選項判定，答錯 k 個得 (n-2k)/n，負分以 0 計
+  function examScoreOne(q, pick) {
+    var n = q.o.length;
+    if (q.type !== 'multi') return { got: pick === q.a ? q.pt : 0, right: pick === q.a };
+    var want = q.a, chosen = pick || [];
+    if (!chosen.length) return { got: 0, right: false };
+    var wrong = 0;
+    for (var i = 0; i < n; i++) {
+      var should = want.indexOf(i) >= 0, did = chosen.indexOf(i) >= 0;
+      if (should !== did) wrong++;
+    }
+    var got = Math.max(0, q.pt * (n - 2 * wrong) / n);
+    return { got: Math.round(got * 100) / 100, right: wrong === 0 };
+  }
+  function submitExam() {
+    var p = examPaper;
+    var blank = p.qs.filter(function (q) { return !examAnswered(q); }).length;
+    var go = function () {
+      examRun.done = true;
+      examRun.ms = Date.now() - examRun.start;
+      examClockStop();
+      var score = 0, ok = 0, byCat = {};
+      p.qs.forEach(function (q) {
+        var r = examScoreOne(q, examAnsOf(q));
+        score += r.got;
+        if (r.right) ok++;
+        var c = q.cat || '其他';
+        var b = byCat[c] || (byCat[c] = { ok: 0, n: 0 });
+        b.n++; if (r.right) b.ok++;
+      });
+      score = Math.round(score * 10) / 10;
+      var max = examMax(p);
+      var rec = examRuns()[p.id] || (examRuns()[p.id] = {});
+      var run = { score: score, max: max, ok: ok, total: p.qs.length, ms: examRun.ms,
+        date: today(), ts: Date.now() };
+      rec.last = run;
+      if (!rec.best || score > rec.best.score) rec.best = run;
+      save();
+      renderExamResult(byCat, run);
+    };
+    if (blank) UIDialog.confirm('還有 ' + blank + ' 題沒作答，這些題會以零分計算。確定交卷嗎？', go);
+    else go();
+  }
+  function renderExamResult(byCat, run) {
+    var p = examPaper;
+    $('examCard').classList.add('hidden');
+    $('examNav').innerHTML = '';
+    var mins = Math.round(run.ms / 60000);
+    var pct = Math.round(run.score / run.max * 100);
+    var brk = Object.keys(byCat).map(function (c) {
+      return '<div><span>' + escHtml(c) + '</span><span>' + byCat[c].ok + '／' + byCat[c].n + ' 題</span></div>';
+    }).join('');
+    var r = $('examResult');
+    r.innerHTML = '📋 ' + p.year + ' 學測 ' + examSubj(p.subj).name + ' 成績單<br>' +
+      '<span class="exam-score">' + run.score + '</span> ／ ' + run.max + ' 分（' + pct + '%）<br>' +
+      '全對 ' + run.ok + '／' + run.total + ' 題 · 用時 ' + (mins || 1) + ' 分鐘（原卷 ' + p.mins + ' 分鐘）' +
+      '<div class="exam-brk">' + brk + '</div>' +
+      '<button class="btn-primary" id="examRetry">再做一次</button>' +
+      '<button class="btn-ghost" id="examBack">回學測列表</button>';
+    r.classList.remove('hidden');
+    if (pct >= 80) confetti();
+    $('examRetry').addEventListener('click', function () { startExam(p); });
+    $('examBack').addEventListener('click', function () { showExams(); });
+    renderExamReview();
+  }
+  function renderExamReview() {
+    var p = examPaper, box = $('examReview');
+    box.innerHTML = '<h3 class="prog-h3">逐題檢討</h3>';
+    p.qs.forEach(function (q) {
+      var pick = examAnsOf(q), r = examScoreOne(q, pick);
+      var d = document.createElement('div');
+      d.className = 'exam-rv ' + (r.right ? 'ok' : 'bad');
+      var yours = examAnswered(q) ? examLetters(pick) : '未作答';
+      var right = examLetters(q.a);
+      var opts = q.o.map(function (t, i) { return '(' + EXAM_ABC[i] + ') ' + t; }).join('\n');
+      d.innerHTML = '<div class="rv-head">' + (r.right ? '✅' : '❌') + ' 第 ' + q.n + ' 題 · ' +
+        r.got + '／' + q.pt + ' 分' + (q.cat ? ' · ' + escHtml(q.cat) : '') + '</div>' +
+        '<div class="rv-q">' + escHtml(q.q) + '\n' + escHtml(opts) + '</div>' +
+        '<div class="rv-ans">你的答案：<b>' + yours + '</b>　正解：<b>' + right + '</b></div>' +
+        (q.exp ? '<div class="rv-exp">' + escHtml(q.exp) + '</div>' : '');
+      box.appendChild(d);
+    });
+  }
+  function examQuit() {
+    examClockStop();
+    if (examRun && !examRun.done && Object.keys(examRun.ans).length) {
+      UIDialog.confirm('離開就不算成績，這次作答會丟掉。確定離開？', function () { examRun = null; showExams(); });
+      return;
+    }
+    examRun = null;
+    showExams();
+  }
+  $('examsExit').addEventListener('click', function () { show('subject'); });
+  $('examExit').addEventListener('click', examQuit);
+  $('examPrev').addEventListener('click', function () { if (examRun.i > 0) { examRun.i--; paintExam(); } });
+  $('examNext').addEventListener('click', function () {
+    if (examRun.i < examPaper.qs.length - 1) { examRun.i++; paintExam(); }
+  });
+  $('examSubmit').addEventListener('click', submitExam);
 
   /* ---------- 啟動 ---------- */
   // 自創題庫檔已達 20MB+，改為背景載入：頁面先開先用，載完自動補上並更新畫面

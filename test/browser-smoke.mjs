@@ -981,8 +981,11 @@ async (js) => {
   check('科目卡分組顯示',
     await js(`document.querySelectorAll('#subjectCards .subj-group').length >= 2`),
     String(await js(`document.querySelectorAll('#subjectCards .subj-group').length`)));
+  // 2026-09-01：科目頁最外層多了「歷屆學測」卡，不能再用卡片總數判斷，改看有沒有高中分科出現
   check('五年級看不到高中分科（物理等）',
-    await js(`document.querySelectorAll('#subjectCards .card').length <= 7`),
+    await js(`!/物理|化學|生物|地球科學|公民|地理|歷史/.test(
+      Array.prototype.map.call(document.querySelectorAll('#subjectCards .card-title'),
+        function (x) { return x.textContent; }).join(','))`),
     await js(`Array.prototype.map.call(document.querySelectorAll('#subjectCards .card-title'),
       function (x) { return x.textContent; }).join(',')`));
   check('科目卡題數是「這個年級的題數」，不是全庫題數',
@@ -1477,6 +1480,71 @@ async (js) => {
     await js(`!document.getElementById('view-lit').classList.contains('hidden')`));
   check('讀完的那一篇打勾',
     await js(`document.querySelectorAll('#litList .unit-item.done').length`) >= 1);
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
+/* ---------- 17. 歷屆學測：整卷作答 → 交卷 → 成績單（2026-08-31 Tony 指定的新大項） ---------- */
+console.log('歷屆學測（整卷作答）');
+await session(8763, 9363, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 12, extra: [], grades: [12], onboarded: true, subject: 'chinese',
+  stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], units: {} }));` },
+async (js) => {
+  await js(`window.NavDebug.go('subject')`);
+  await sleep(400);
+  check('科目頁有「歷屆學測」這個大項',
+    await js(`!![].slice.call(document.querySelectorAll('#subjectCards .card'))
+      .filter(function(x){ return /歷屆學測/.test(x.textContent); })[0]`));
+  await js(`(function(){ var b = [].slice.call(document.querySelectorAll('#subjectCards .card'))
+    .filter(function(x){ return /歷屆學測/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(1500);
+  check('進得了歷屆學測，列得出年份與卷子',
+    await js(`document.querySelectorAll('#examYears .chip').length`) >= 1 &&
+    await js(`document.querySelectorAll('#examList .card').length`) >= 1,
+    await js(`document.getElementById('examList').textContent`));
+  // 直接開卷（openExam 會跳確認框，測試改用 UIDialog 的自動確認）
+  await js(`(function(){ window.__oldConfirm = window.UIDialog.confirm;
+    window.UIDialog.confirm = function(msg, cb){ cb(); }; })()`);
+  await js(`document.querySelectorAll('#examList .card')[0].click()`);
+  await sleep(1500);
+  check('開卷後進入整卷作答畫面',
+    await js(`!document.getElementById('view-exam').classList.contains('hidden')`));
+  const cells = await js(`document.querySelectorAll('#examNav .exam-cell').length`);
+  check('題號導覽列出整卷題目', cells >= 30, String(cells));
+  check('作答中不顯示解析與對錯',
+    await js(`document.getElementById('examOpts').querySelectorAll('.correct, .wrongpick').length`) === 0);
+  // 每題都照正解作答（多選題要把每個正確選項都點下去），交卷應該滿分
+  await js(`(function(){
+    var p = window.APP_EXAM_PAPERS['115-chinese'];
+    window.__total = p.qs.length;
+    return p.qs.length; })()`);
+  const total = await js(`window.__total`);
+  for (let i = 0; i < total; i++) {
+    await js(`(function(){
+      var cells = document.querySelectorAll('#examNav .exam-cell');
+      if (cells[${i}]) cells[${i}].click(); })()`);
+    await sleep(60);
+    await js(`(function(){
+      var p = window.APP_EXAM_PAPERS['115-chinese'], q = p.qs[${i}];
+      var opts = document.querySelectorAll('#examOpts .q-opt');
+      var want = Array.isArray(q.a) ? q.a : [q.a];
+      want.forEach(function(k){ if (opts[k]) opts[k].click(); }); })()`);
+    await sleep(60);
+  }
+  check('全部作答後交卷鍵不再提示未作答',
+    !/沒作答/.test(await js(`document.getElementById('examSubmit').textContent`)),
+    await js(`document.getElementById('examSubmit').textContent`));
+  await js(`document.getElementById('examSubmit').click()`);
+  await sleep(900);
+  const res = await js(`document.getElementById('examResult').textContent`);
+  check('交卷後出現成績單', /成績單/.test(res), res.slice(0, 60));
+  check('照正解作答＝滿分 80 分', /80\s*／\s*80/.test(res.replace(/\s+/g, ' ')), res.slice(0, 80));
+  const rv = await js(`document.getElementById('examReview').textContent`);
+  check('成績單附逐題檢討與解析', /逐題檢討/.test(rv) && /正解/.test(rv), rv.slice(0, 60));
+  check('成績存進 state，回列表看得到最佳成績', await js(`(function(){
+    var s = JSON.parse(localStorage.getItem('chinese-review-v1'));
+    return !!(s.examRuns && s.examRuns['115-chinese'] && s.examRuns['115-chinese'].best); })()`));
+  await js(`(function(){ if (window.__oldConfirm) window.UIDialog.confirm = window.__oldConfirm; })()`);
   check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
     await js(`(window.__errs || []).join(' | ')`));
 });
