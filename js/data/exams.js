@@ -15,5 +15,6 @@ window.APP_EXAMS = [
   { id: '113-social', year: 113, subj: 'social', n: 54, max: 108, mins: 110 },
   { id: '112-chinese', year: 112, subj: 'chinese', n: 34, max: 82, mins: 90 },
   { id: '112-english', year: 112, subj: 'english', n: 47, max: 66, mins: 100 },
-  { id: '112-social', year: 112, subj: 'social', n: 56, max: 112, mins: 110 }
+  { id: '112-social', year: 112, subj: 'social', n: 56, max: 112, mins: 110 },
+  { id: '111-chinese', year: 111, subj: 'chinese', n: 34, max: 82, mins: 90 }
 ];
