@@ -6569,7 +6569,11 @@
       return { got: all ? q.pt : 0, right: all };
     }
     var n = q.o.length;
-    if (q.type !== 'multi') return { got: pick === q.a ? q.pt : 0, right: pick === q.a };
+    // 單選題：q.alt 是「大考中心事後公告一併給分」的其他選項（如 102 社會第 19、35、65 題），選到也算對
+    if (q.type !== 'multi') {
+      var ok1 = pick === q.a || (q.alt || []).indexOf(pick) >= 0;
+      return { got: ok1 ? q.pt : 0, right: ok1 };
+    }
     var want = q.a, chosen = pick || [];
     if (!chosen.length) return { got: 0, right: false };
     var wrong = 0;
@@ -6642,7 +6646,8 @@
       d.className = 'exam-rv ' + (r.right ? 'ok' : 'bad');
       var isFill = q.type === 'fill';
       var yours = examAnswered(q) ? (isFill ? examFillText(pick) : examLetters(pick)) : '未作答';
-      var right = isFill ? examFillText(q.a) : examLetters(q.a);
+      var right = isFill ? examFillText(q.a)
+        : examLetters(q.a) + ((q.alt || []).length ? '（或 ' + examLetters(q.alt) + '，官方一併給分）' : '');
       var opts = isFill ? '' : q.o.map(function (t, i) { return '(' + EXAM_ABC[i] + ') ' + t; }).join('\n');
       var rvFig = [];
       if (q.g && (p.groups || {})[q.g] && p.groups[q.g].fig) rvFig.push(p.groups[q.g].fig);
