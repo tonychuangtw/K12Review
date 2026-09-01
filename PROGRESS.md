@@ -4,7 +4,7 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。已入庫 115 國文／英文／社會、114 國文。下一卷＝111 學測國文（115～112 的國文英文社會皆已完成）：
+NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。下一卷＝110 學測國文（115～111 的國文英文社會皆已完成，共 15 卷 676 題）：
  1. 下載試卷與答案：見下方「(9) 歷屆學測」段的網址與做法（大考中心 xmfile 頁 → .docx ＋ 答案 .pdf）
  2. 照 js/data/exam/112-chinese.js 的格式寫 build 腳本產出 js/data/exam/111-chinese.js，圖表題用 tools/exam-crop.py 裁圖
  3. 加進 js/data/exams.js 索引 → `node test/test.js` → `python3 tools/stamp-version.py` → commit → 回報 Tony
@@ -201,7 +201,8 @@ NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。已入庫 
      已入庫（2026-09-01）：115 國文 33／80、115 英文 47／66、115 社會 53／106、
      114 國文 33／80、114 英文 47／66、114 社會 54／108、
      113 國文 33／80、113 英文 47／66、113 社會 54／108、
-     112 國文 34／82、112 英文 47／66、112 社會 56／112 —— 共 12 卷 538 題。
+     112 國文 34／82、112 英文 47／66、112 社會 56／112、
+     111 國文 34／82、111 英文 47／66、111 社會 57／114 —— 共 15 卷 676 題。
      裁圖流程實測心得：先 `page` 出整頁（100dpi）用眼睛抓座標，再 `crop`（自動 200dpi）；
      一張圖大約 1 分鐘，一卷社會（7-10 張圖）約 15 分鐘，值得做。
      ⚠ 115 社會第 19 題（衛星影像判讀堰塞湖溢流方位角）沒收：圖上 N 箭頭指向圖面右方，
@@ -213,7 +214,7 @@ NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖）。已入庫 
        總量估計 200 多卷、上萬題，一卷含解析 40-90 分鐘，是跨多天的長工程。
        每完成一卷就 commit（訊息寫「歷屆學測／會考：新增 <年><科> N 題」），每完成一批回報 Tony。
      【總進度表】（做完一項就把 ⬜ 改成 ✅，並補上卷數／題數）
-       學測 國文英文社會：✅115 ✅114 ✅113 ✅112 ⬜111 ⬜110 ⬜109 ⬜108 ⬜107 ⬜106 ⬜105
+       學測 國文英文社會：✅115 ✅114 ✅113 ✅112 ✅111 ⬜110 ⬜109 ⬜108 ⬜107 ⬜106 ⬜105
                         ⬜104 ⬜103 ⬜102 ⬜101 ⬜100 ⬜99 ⬜98 ⬜97 ⬜96 ⬜95 ⬜94 ⬜93 ⬜92 ⬜91 ⬜90
        學測 自然：⬜全部年份（115-90，圖與式極多，一律裁圖）
        學測 數學A／B（111 起分 A/B，110 以前為單一數學）：⬜全部年份
@@ -403,7 +404,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無可自行推進的工作（2026-08-31 歷屆補題做完後再次確認）。等 Tony 拍板兩件事：(1) 下一個要補的題庫（俚語 slang 452→1200／成語 idioms 1200→1644／閱讀 reading 286 篇／各科自編原創題往下鋪）；(2) LanExamMock 防亂寫其餘項目要做哪幾項（訊息 id 919）。他一開口就把 STATUS 改回 in-progress 接著做。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-01 12:25 台北
+UPDATED: 2026-09-01 03:10 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
