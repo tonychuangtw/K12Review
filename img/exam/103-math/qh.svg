@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="serif"><rect width="560" height="340" fill="#fff"/>
+<polygon points="340.0,40.0 190.0,299.8 490.0,299.8" fill="none" stroke="#111" stroke-width="1.8"/>
+<line x1="190.0" y1="299.8" x2="449.8" y2="230.2" stroke="#111" stroke-width="1.4"/>
+<line x1="490.0" y1="299.8" x2="299.8" y2="109.6" stroke="#111" stroke-width="1.4"/>
+<line x1="340.0" y1="40.0" x2="270.4" y2="299.8" stroke="#111" stroke-width="1.4"/>
+<text x="334.0" y="28.0" font-size="17" font-style="italic">A</text>
+<text x="170.0" y="315.8" font-size="17" font-style="italic">B</text>
+<text x="498.0" y="315.8" font-size="17" font-style="italic">C</text>
+<text x="322.8" y="120.6" font-size="17" font-style="italic">D</text>
+<text x="256.6" y="272.6" font-size="17" font-style="italic">E</text>
+<text x="422.6" y="228.4" font-size="17" font-style="italic">F</text>
+<path d="M 314.0,85.0 A 52,52 0 0 0 326.5,90.2" fill="none" stroke="#111" stroke-width="1.1"/><text x="332.0" y="106.0" font-size="14">1</text>
+<path d="M 248.0,299.8 A 58,58 0 0 0 246.0,284.8" fill="none" stroke="#111" stroke-width="1.1"/><text x="220.0" y="287.8" font-size="14">2</text>
+<path d="M 464.0,254.8 A 52,52 0 0 0 453.2,263.0" fill="none" stroke="#111" stroke-width="1.1"/><text x="452.0" y="269.8" font-size="14">3</text>
+</svg>
