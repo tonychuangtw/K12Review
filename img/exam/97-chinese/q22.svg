@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 250" width="480" height="250" font-family="serif">
+  <rect width="480" height="250" fill="#fff"/>
+  <!-- 信封外框 -->
+  <rect x="40" y="20" width="400" height="200" fill="none" stroke="#222" stroke-width="2"/>
+  <!-- (A) 左上角：寄件人地址 -->
+  <text x="56" y="48" font-size="15">40101</text>
+  <text x="56" y="70" font-size="15">台中市東區新秀街 11 號</text>
+  <text x="20" y="60" font-size="14" fill="#c0392b">(A)</text>
+  <line x1="36" y1="55" x2="52" y2="55" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
+  <!-- (B) 中央：收件人地址 -->
+  <text x="200" y="112" font-size="15">11501</text>
+  <text x="200" y="134" font-size="15">台北市南港區星光路 22 號</text>
+  <text x="164" y="124" font-size="14" fill="#c0392b">(B)</text>
+  <line x1="180" y1="119" x2="196" y2="119" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
+  <!-- (C)(D) 收件人姓名稱呼與啟封詞 -->
+  <text x="200" y="166" font-size="15">陶女士青盈副理</text>
+  <text x="322" y="166" font-size="15">安啟</text>
+  <text x="164" y="166" font-size="14" fill="#c0392b">(C)</text>
+  <text x="376" y="166" font-size="14" fill="#c0392b">(D)</text>
+  <line x1="180" y1="161" x2="196" y2="161" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
+  <line x1="356" y1="161" x2="372" y2="161" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
+  <!-- (E) 右下角：寄件人姓名 -->
+  <text x="356" y="204" font-size="15">楊中偉寄</text>
+  <text x="320" y="204" font-size="14" fill="#c0392b">(E)</text>
+  <line x1="336" y1="199" x2="352" y2="199" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
+</svg>
