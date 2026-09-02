@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 470" width="460" height="470" font-family="'Noto Sans TC','Times New Roman',serif">
+<rect width="460" height="470" fill="#fff"/>
+<polygon points="174.0,154.0 286.0,154.0 286.0,266.0 174.0,266.0" fill="#f0f0ea" stroke="#111" stroke-width="1.6"/>
+<polygon points="174.0,154.0 286.0,154.0 230.0,-62.9" fill="none" stroke="#111" stroke-width="1.5"/><polygon points="286.0,154.0 286.0,266.0 502.9,210.0" fill="none" stroke="#111" stroke-width="1.5"/><polygon points="286.0,266.0 174.0,266.0 230.0,482.9" fill="none" stroke="#111" stroke-width="1.5"/><polygon points="174.0,266.0 174.0,154.0 -42.9,210.0" fill="none" stroke="#111" stroke-width="1.5"/>
+<text x="230" y="215" font-size="13" text-anchor="middle">邊長 2</text>
+<text x="230" y="462" text-anchor="middle" font-size="12" fill="#666">四角錐展開圖：底面為邊長 2 的正方形，四側面為腰長 4 的等腰三角形</text>
+</svg>
