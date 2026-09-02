@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" width="420" height="300" font-family="'Noto Sans TC','Times New Roman',serif">
+  <rect width="420" height="300" fill="#fff"/>
+  <!-- axes -->
+  <line x1="30" y1="170" x2="390" y2="170" stroke="#111" stroke-width="1.6"/>
+  <polygon points="396,170 384,165 384,175" fill="#111"/>
+  <line x1="185" y1="280" x2="185" y2="30" stroke="#111" stroke-width="1.6"/>
+  <polygon points="185,24 180,36 190,36" fill="#111"/>
+  <text x="399" y="176" font-size="15" font-style="italic">x</text>
+  <text x="192" y="34" font-size="15" font-style="italic">y</text>
+  <text x="174" y="186" font-size="14" font-style="italic">O</text>
+  <!-- L1: steep, x-intercept right of O (crosses x-axis at x=+30 rel O) -->
+  <line x1="153" y1="266" x2="337" y2="42" stroke="#111" stroke-width="2.2"/>
+  <text x="340" y="44" font-size="14">L₁</text>
+  <!-- L2: flatter, x-intercept left of O (crosses x-axis at x=-60 rel O) -->
+  <line x1="52" y1="212" x2="372" y2="70" stroke="#111" stroke-width="2.2"/>
+  <text x="376" y="74" font-size="14">L₂</text>
+</svg>

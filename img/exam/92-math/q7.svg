@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 320" width="460" height="320" font-family="'Noto Sans TC','Times New Roman',serif">
+  <rect width="460" height="320" fill="#fff"/>
+  <text x="230" y="24" text-anchor="middle" font-size="14" font-weight="bold">平行六面體 ABCD-EFGH（J 為四邊形 BCGF 的中心）</text>
+  <!-- bottom face ABCD: A front-left, B front-right, C back-right, D back-left(hidden) -->
+  <!-- coordinates: A(80,270) B(300,270) C(390,215) D(170,215); top: E=A+(0,-130) etc -->
+  <g stroke="#16308a" stroke-width="2.6" fill="none">
+    <line x1="80" y1="270" x2="300" y2="270"/>
+    <line x1="300" y1="270" x2="390" y2="215"/>
+    <line x1="80" y1="270" x2="80" y2="140"/>
+    <line x1="300" y1="270" x2="300" y2="140"/>
+    <line x1="390" y1="215" x2="390" y2="85"/>
+    <line x1="80" y1="140" x2="300" y2="140"/>
+    <line x1="300" y1="140" x2="390" y2="85"/>
+    <line x1="80" y1="140" x2="170" y2="85"/>
+    <line x1="170" y1="85" x2="390" y2="85"/>
+  </g>
+  <g stroke="#7a8bd0" stroke-width="1.4" fill="none" stroke-dasharray="5 4">
+    <line x1="80" y1="270" x2="170" y2="215"/>
+    <line x1="170" y1="215" x2="390" y2="215"/>
+    <line x1="170" y1="215" x2="170" y2="85"/>
+  </g>
+  <!-- J = center of BCGF: B(300,270) C(390,215) G(390,85) F(300,140) -> avg (345,177.5) -->
+  <circle cx="345" cy="177" r="3.5" fill="#c1121f"/>
+  <text x="354" y="181" font-size="14" font-style="italic">J</text>
+  <g fill="#c1121f">
+    <circle cx="80" cy="270" r="3"/><circle cx="300" cy="270" r="3"/><circle cx="390" cy="215" r="3"/><circle cx="170" cy="215" r="3"/>
+    <circle cx="80" cy="140" r="3"/><circle cx="300" cy="140" r="3"/><circle cx="390" cy="85" r="3"/><circle cx="170" cy="85" r="3"/>
+  </g>
+  <g font-size="15" font-style="italic">
+    <text x="64" y="286">A</text><text x="298" y="290">B</text><text x="398" y="222">C</text><text x="158" y="234">D</text>
+    <text x="62" y="136">E</text><text x="292" y="133">F</text><text x="398" y="82">G</text><text x="158" y="80">H</text>
+  </g>
+</svg>
