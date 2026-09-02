@@ -136,4 +136,5 @@ window.APP_EXAMS = [
   /* ── 升高中：國中教育會考（103 年起）／基本學力測驗（90-102 年） ── */
   { id: '114-cap-math', year: 114, subj: 'math', stage: 'senior', label: '會考', n: 25, max: 25, mins: 80 },
   { id: '114-cap-science', year: 114, subj: 'science', stage: 'senior', label: '會考', n: 50, max: 50, mins: 70 },
+  { id: '114-cap-social', year: 114, subj: 'social', stage: 'senior', label: '會考', n: 54, max: 54, mins: 70 },
 ];
