@@ -112,6 +112,7 @@ window.APP_EXAMS = [
   { id: '112-science', year: 112, subj: 'science', n: 52, max: 104, mins: 110 },
   { id: '112-matha', year: 112, subj: 'matha', n: 18, max: 88, mins: 100 },
   { id: '112-mathb', year: 112, subj: 'mathb', n: 18, max: 88, mins: 100 },
+  { id: '111-science', year: 111, subj: 'science', n: 52, max: 104, mins: 110 },
   { id: '111-matha', year: 111, subj: 'matha', n: 18, max: 88, mins: 100 },
   { id: '111-mathb', year: 111, subj: 'mathb', n: 18, max: 90, mins: 100 },
   { id: '110-math', year: 110, subj: 'math', n: 20, max: 100, mins: 100 },
