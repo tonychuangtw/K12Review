@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 370" width="640" height="370" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+<defs><pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+<rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#111" stroke-width="1.1"/></pattern></defs>
+<rect width="640" height="370" fill="#fff"/>
+<text x="320" y="24" text-anchor="middle" font-size="15" font-weight="bold">圖八　某乳酪產地的氣候圖</text>
+<text x="70" y="50" font-size="12">氣溫（℃）</text>
+<text x="530" y="50" font-size="12">雨量（mm）</text>
+<rect x="90" y="60" width="470" height="240" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<line x1="85" y1="60.0" x2="90" y2="60.0" stroke="#111" stroke-width="1.2"/>
+<text x="81" y="64.0" font-size="11" text-anchor="end">30</text>
+<line x1="85" y1="120.0" x2="90" y2="120.0" stroke="#111" stroke-width="1.2"/>
+<text x="81" y="124.0" font-size="11" text-anchor="end">20</text>
+<line x1="85" y1="180.0" x2="90" y2="180.0" stroke="#111" stroke-width="1.2"/>
+<text x="81" y="184.0" font-size="11" text-anchor="end">10</text>
+<line x1="85" y1="240.0" x2="90" y2="240.0" stroke="#111" stroke-width="1.2"/>
+<text x="81" y="244.0" font-size="11" text-anchor="end">0</text>
+<line x1="85" y1="300.0" x2="90" y2="300.0" stroke="#111" stroke-width="1.2"/>
+<text x="81" y="304.0" font-size="11" text-anchor="end">-10</text>
+<line x1="560" y1="300.0" x2="565" y2="300.0" stroke="#111" stroke-width="1.2"/>
+<text x="569" y="304.0" font-size="11">0</text>
+<line x1="560" y1="240.0" x2="565" y2="240.0" stroke="#111" stroke-width="1.2"/>
+<text x="569" y="244.0" font-size="11">50</text>
+<line x1="90" y1="240.0" x2="560" y2="240.0" stroke="#ccc" stroke-width="1"/>
+<line x1="560" y1="180.0" x2="565" y2="180.0" stroke="#111" stroke-width="1.2"/>
+<text x="569" y="184.0" font-size="11">100</text>
+<line x1="90" y1="180.0" x2="560" y2="180.0" stroke="#ccc" stroke-width="1"/>
+<line x1="560" y1="120.0" x2="565" y2="120.0" stroke="#111" stroke-width="1.2"/>
+<text x="569" y="124.0" font-size="11">150</text>
+<line x1="90" y1="120.0" x2="560" y2="120.0" stroke="#ccc" stroke-width="1"/>
+<line x1="560" y1="60.0" x2="565" y2="60.0" stroke="#111" stroke-width="1.2"/>
+<text x="569" y="64.0" font-size="11">200</text>
+<line x1="90" y1="60.0" x2="560" y2="60.0" stroke="#ccc" stroke-width="1"/>
+<rect x="92.0" y="270.0" width="35.2" height="30.0" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/><rect x="131.2" y="290.4" width="35.2" height="9.6" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/><rect x="170.3" y="256.8" width="35.2" height="43.2" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/><rect x="209.5" y="267.6" width="35.2" height="32.4" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/><rect x="248.7" y="144.0" width="35.2" height="156.0" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/><rect x="287.8" y="246.0" width="35.2" height="54.0" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/><rect x="327.0" y="69.6" width="35.2" height="230.4" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/><rect x="366.2" y="201.6" width="35.2" height="98.4" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/><rect x="405.3" y="210.0" width="35.2" height="90.0" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/><rect x="444.5" y="174.0" width="35.2" height="126.0" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/><rect x="483.7" y="273.6" width="35.2" height="26.4" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/><rect x="522.8" y="232.8" width="35.2" height="67.2" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/>
+<polyline points="109.6,270.0 148.8,276.0 187.9,252.0 227.1,216.0 266.2,180.0 305.4,150.0 344.6,126.0 383.8,108.0 422.9,132.0 462.1,174.0 501.2,216.0 540.4,258.0" fill="none" stroke="#111" stroke-width="2.4"/>
+<rect x="98" y="66" width="96" height="42" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<line x1="106" y1="80" x2="136" y2="80" stroke="#111" stroke-width="2.4"/>
+<text x="142" y="85" font-size="13">氣溫</text>
+<rect x="106" y="93" width="30" height="11" fill="url(#hatch)" stroke="#111" stroke-width="1.2"/>
+<text x="142" y="103" font-size="13">雨量</text>
+<text x="109.6" y="318" font-size="11" text-anchor="middle">一</text><text x="148.8" y="318" font-size="11" text-anchor="middle">二</text><text x="187.9" y="318" font-size="11" text-anchor="middle">三</text><text x="227.1" y="318" font-size="11" text-anchor="middle">四</text><text x="266.2" y="318" font-size="11" text-anchor="middle">五</text><text x="305.4" y="318" font-size="11" text-anchor="middle">六</text><text x="344.6" y="318" font-size="11" text-anchor="middle">七</text><text x="383.8" y="318" font-size="11" text-anchor="middle">八</text><text x="422.9" y="318" font-size="11" text-anchor="middle">九</text><text x="462.1" y="318" font-size="11" text-anchor="middle">十</text><text x="501.2" y="318" font-size="11" text-anchor="middle">十一</text><text x="540.4" y="318" font-size="11" text-anchor="middle">十二</text><text x="109.6" y="332" font-size="11" text-anchor="middle">月</text><text x="148.8" y="332" font-size="11" text-anchor="middle">月</text><text x="187.9" y="332" font-size="11" text-anchor="middle">月</text><text x="227.1" y="332" font-size="11" text-anchor="middle">月</text><text x="266.2" y="332" font-size="11" text-anchor="middle">月</text><text x="305.4" y="332" font-size="11" text-anchor="middle">月</text><text x="344.6" y="332" font-size="11" text-anchor="middle">月</text><text x="383.8" y="332" font-size="11" text-anchor="middle">月</text><text x="422.9" y="332" font-size="11" text-anchor="middle">月</text><text x="462.1" y="332" font-size="11" text-anchor="middle">月</text><text x="501.2" y="332" font-size="11" text-anchor="middle">月</text><text x="540.4" y="332" font-size="11" text-anchor="middle">月</text>
+</svg>
