@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="400" height="400" fill="#fff"/>
+  <text x="200" y="24" text-anchor="middle" font-size="15" font-weight="bold">金字塔 O-ABCD</text>
+  <!-- base -->
+  <polygon points="70,300 190,340 320,300 200,262" fill="#f2f2ee" stroke="none"/>
+  <g stroke="#111" stroke-width="1.8" fill="none">
+    <line x1="70" y1="300" x2="190" y2="340"/>
+    <line x1="190" y1="340" x2="320" y2="300"/>
+    <line x1="195" y1="110" x2="70" y2="300"/>
+    <line x1="195" y1="110" x2="190" y2="340"/>
+    <line x1="195" y1="110" x2="320" y2="300"/>
+  </g>
+  <g stroke="#111" stroke-width="1.5" fill="none" stroke-dasharray="6 5">
+    <line x1="70" y1="300" x2="200" y2="262"/>
+    <line x1="200" y1="262" x2="320" y2="300"/>
+    <line x1="195" y1="110" x2="200" y2="262"/>
+  </g>
+  <g font-size="16" font-style="italic">
+    <text x="195" y="100" text-anchor="middle">O</text>
+    <text x="52" y="300">A</text>
+    <text x="185" y="360">B</text>
+    <text x="328" y="302">C</text>
+    <text x="204" y="256">D</text>
+  </g>
+  <text x="200" y="386" text-anchor="middle" font-size="12" fill="#666">底面 ABCD 為邊長 1 的正方形，OA＝OB＝OC＝OD＝2</text>
+</svg>
