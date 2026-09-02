@@ -943,12 +943,15 @@ console.log('歷屆學測');
 {
   eval(fs.readFileSync(path.join(root, 'js/data/exams.js'), 'utf8'));
   const idx = window.APP_EXAMS || [];
-  ok(idx.length > 0, `學測索引有卷子（${idx.length} 卷）`);
+  ok(idx.length > 0, `歷屆試題索引有卷子（${idx.length} 卷）`);
   const seen = new Set();
   idx.forEach((p) => {
     ok(!seen.has(p.id), `${p.id} 沒有重複`);
     seen.add(p.id);
-    ok(p.id === p.year + '-' + p.subj, `${p.id} id ＝ 年份-科目`);
+    // 學測＝<年>-<科>；會考／基測（stage:'senior'）＝<年>-cap-<科>
+    const wantId = p.stage === 'senior' ? (p.year + '-cap-' + p.subj) : (p.year + '-' + p.subj);
+    ok(p.id === wantId, `${p.id} id 格式正確（應為 ${wantId}）`);
+    if (p.stage === 'senior') ok(!!p.label, `${p.id} 會考／基測卷有 label`);
     const file = path.join(root, 'js/data/exam', p.id + '.js');
     if (!fs.existsSync(file)) { ok(false, `${p.id} 有對應的題目檔`); return; }
     eval(fs.readFileSync(file, 'utf8'));

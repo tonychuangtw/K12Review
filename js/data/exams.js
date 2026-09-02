@@ -1,8 +1,11 @@
-/* 歷屆學測索引（2026-08-31 建）
-   每一卷的題目放在 js/data/exam/<年>-<科>.js，進到那一卷才動態載入。
-   題目原文取自大考中心公開釋出的歷屆試題，題號與原卷相同；解析為本站自撰。
+/* 歷屆試題索引（2026-08-31 建；2026-09-02 加入國中教育會考／基測）
+   每一卷的題目放在 js/data/exam/<id>.js，進到那一卷才動態載入。
+   題目原文取自大考中心／心測中心公開釋出的歷屆試題，題號與原卷相同；解析為本站自撰。
    欄位：id / year（民國年）/ subj（chinese english matha mathb math social science）
-        n（本站收錄題數）/ max（本站滿分＝收錄題目的配分總和）/ mins（原卷作答時間） */
+        n（本站收錄題數）/ max（本站滿分＝收錄題目的配分總和）/ mins（原卷作答時間）
+   ⚠ 升高中（國中教育會考／基本學力測驗）的卷子要多帶兩個欄位：
+        stage: 'senior'（不帶＝升大學的學測）、label: '會考'／'基測'（卡片與對話框顯示用），
+        且 id 一律為 <年>-cap-<科>，題目檔同名。 */
 window.APP_EXAMS = [
   { id: '115-chinese', year: 115, subj: 'chinese', n: 33, max: 80, mins: 90 },
   { id: '115-english', year: 115, subj: 'english', n: 47, max: 66, mins: 100 },
@@ -128,5 +131,8 @@ window.APP_EXAMS = [
   { id: '109-science', year: 109, subj: 'science', n: 68, max: 136, mins: 110 },
   { id: '109-math', year: 109, subj: 'math', n: 20, max: 100, mins: 100 },
   { id: '108-science', year: 108, subj: 'science', n: 68, max: 136, mins: 110 },
-  { id: '108-math', year: 108, subj: 'math', n: 20, max: 100, mins: 100 }
+  { id: '108-math', year: 108, subj: 'math', n: 20, max: 100, mins: 100 },
+
+  /* ── 升高中：國中教育會考（103 年起）／基本學力測驗（90-102 年） ── */
+  { id: '114-cap-math', year: 114, subj: 'math', stage: 'senior', label: '會考', n: 25, max: 25, mins: 80 },
 ];
