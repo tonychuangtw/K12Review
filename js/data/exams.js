@@ -100,6 +100,7 @@ window.APP_EXAMS = [
   { id: '90-english', year: 90, subj: 'english', n: 55, max: 70, mins: 100 },
   { id: '90-math', year: 90, subj: 'math', n: 20, max: 100, mins: 100 },
   { id: '90-social', year: 90, subj: 'social', n: 80, max: 160, mins: 100 },
+  { id: '115-science', year: 115, subj: 'science', n: 48, max: 96, mins: 110 },
   { id: '115-matha', year: 115, subj: 'matha', n: 18, max: 88, mins: 100 },
   { id: '115-mathb', year: 115, subj: 'mathb', n: 18, max: 88, mins: 100 },
   { id: '114-matha', year: 114, subj: 'matha', n: 18, max: 88, mins: 100 },

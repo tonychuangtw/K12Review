@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 290" width="460" height="290" font-family="'Noto Sans TC',sans-serif">
+<rect width="460" height="290" fill="#fff"/>
+<line x1="70" y1="220" x2="425" y2="220" stroke="#111" stroke-width="1.5"/>
+<line x1="70" y1="220" x2="70" y2="70" stroke="#111" stroke-width="1.5"/>
+<polyline points="70.0,220.0 155.0,92.0 240.0,92.0 410.0,220.0" fill="none" stroke="#111" stroke-width="2.2"/>
+<polyline points="155.0,220 155.0,92.0" stroke="#777" stroke-width="1" stroke-dasharray="5 4" fill="none"/>
+<polyline points="240.0,220 240.0,92.0 70,92.0" stroke="#777" stroke-width="1" stroke-dasharray="5 4" fill="none"/>
+<text x="62" y="96.0" font-size="12" text-anchor="end">10</text>
+<text x="62" y="224" font-size="12" text-anchor="end">0</text>
+<text x="155.0" y="236" font-size="12" text-anchor="middle">5</text>
+<text x="240.0" y="236" font-size="12" text-anchor="middle">10</text>
+<text x="410.0" y="236" font-size="12" text-anchor="middle">20</text>
+<text x="240.0" y="258" font-size="13" text-anchor="middle">時間（秒）</text>
+<text x="22" y="120" font-size="13" writing-mode="tb">速度（公尺/秒）</text>
+<text x="230" y="282" font-size="12" fill="#666" text-anchor="middle">圖4　汽車速度隨時間的變化（本站依原卷重繪）</text>
+</svg>
