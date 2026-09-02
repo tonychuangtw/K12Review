@@ -364,8 +364,20 @@ NEXT_ACTION: 【歷屆學測全部完成】125 卷 5,524 題（國英數社 90-1
        基測 其他科目：⬜102-90
        會考／基測國文的缺題（圖片題）：⬜回頭補
      ⚠ 會考／基測的題本在心測中心：https://cap.rcpet.edu.tw/exam/<年>/<年>P_<科>.pdf
-       （科名：Chinese／Math／English／Society／Science；答案本 <年>P_Answer.pdf）
-       105、106、108、115 等年份直連會 302，要先抓 exam/<年>/<年>exam.html 找 Google Drive 連結。
+       **科名：Chinese／Math／English／Society／`Nature`（自然是 Nature 不是 Science！）**；
+       答案本 `<年>P_Answer.pdf`（一份含全部科目，可用 pdftotext -layout 直接讀成對照表）。
+       105、106、108、115 等年份直連會 302，要先抓 exam/<年>/<年>exam.html 找 Google Drive 連結
+       （html 裡每一科都有一個 drive.google.com/file/d/<id>/view 連結）。
+     【2026-09-02 會考各科的做法定案】會考數學／英語／社會／自然**用「exam papers」架構做**
+       （與學測同一套：`js/data/exam/<年>-cap-<科>.js`，索引在 exams.js 加 `stage:'senior'` 與
+       `label:'會考'`／`'基測'`），理由是匯入題庫的 schema 沒有圖片欄位、也裝不下題組與多選，
+       而會考數學／自然／社會有大量圖表題（Tony 要求「圖片題也要有」）。
+       **國文卷維持原樣**（升高中區照舊用匯入題庫 book=會考/基測/特招 現場組卷），兩者並列顯示。
+       前端已改好（2026-09-02）：`capExams()` 撈 stage==='senior' 的卷，`renderSeniorList()`
+       先列各科整卷再列國文卷，`examYearList()`／`openExam()` 都認得 stage。
+     ⚠ 會考卷面：選擇題四選項（A-D），每題 1 分（本站以 pt:1 收，滿分＝題數）；
+       數學另有 2 題非選擇題（不收）、英語另有聽力（21 題，音檔題不收，只收閱讀）。
+       114 會考各科題數：國文 42／英語閱讀 43＋聽力 21／數學 25＋非選 2／社會 48／自然 48。
      下一步：111 國文 → 111 英文 → 111 社會 → 110…往回補到 90 年；接著自然與數學，再換到會考其他科目。
      ⚠ 111 年（含）以前的社會、自然是舊課綱最後幾屆，題型與現在略有差異，但一樣照收。
      ⚠ 一卷的實作時間：國文／英文約 40-60 分鐘，社會（含裁圖）約 60-90 分鐘，一個 session 大約做得完 3 卷。
@@ -569,7 +581,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-03 00:52 台北
+UPDATED: 2026-09-03 01:01 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 

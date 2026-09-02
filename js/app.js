@@ -6198,6 +6198,10 @@
      senior ＝升高中（國中教育會考／基測／特招，題目就是匯入題庫裡 book=會考/基測/特招 那 1,700 多題，
                      依「哪一年哪一卷」現場組成整卷，不另外複製一份資料） */
   function examStage() { return state.examStage === 'senior' ? 'senior' : 'college'; }
+  // 會考／基測各科的整卷（與學測同一套 exam papers 架構，索引裡以 stage:'senior' 標記）
+  function capExams() {
+    return (W.APP_EXAMS || []).filter(function (p) { return p.stage === 'senior'; });
+  }
   var SENIOR_BOOKS = ['會考', '基測', '特招'];
   // 把匯入題庫裡的歷屆題整理成「一份一份的考卷」：{id, year, book, lesson, items[]}
   function seniorPapers() {
@@ -6276,8 +6280,12 @@
     var ys = [];
     if (examStage() === 'senior') {
       seniorPapers().forEach(function (p) { if (p.year && ys.indexOf(p.year) < 0) ys.push(p.year); });
+      capExams().forEach(function (p) { if (ys.indexOf(p.year) < 0) ys.push(p.year); });
     } else {
-      (W.APP_EXAMS || []).forEach(function (p) { if (ys.indexOf(p.year) < 0) ys.push(p.year); });
+      (W.APP_EXAMS || []).forEach(function (p) {
+        if (p.stage === 'senior') return;
+        if (ys.indexOf(p.year) < 0) ys.push(p.year);
+      });
     }
     ys.sort(function (a, b) { return b - a; });
     return ys;
@@ -6350,8 +6358,20 @@
   }
 
   function renderSeniorList(box) {
+    var caps = capExams().filter(function (p) { return p.year === state.examYear; });
+    caps.forEach(function (p) {
+      var s = examSubj(p.subj), rec = examRuns()[p.id];
+      var b = document.createElement('button');
+      b.className = 'card card-wide' + (rec && rec.best ? ' daily-done' : '');
+      var sub = p.n + ' 題 · 滿分 ' + p.max + ' 分 · 建議 ' + p.mins + ' 分鐘';
+      if (rec && rec.best) sub += '<br>最佳成績 ' + rec.best.score + '／' + rec.best.max + ' 分（' + rec.best.date + '）';
+      b.innerHTML = '<span class="card-icon">' + s.icon + '</span><span class="card-title">' +
+        p.year + ' ' + (p.label || '會考') + ' ' + s.name + '</span><span class="card-sub">' + sub + '</span>';
+      b.addEventListener('click', function () { openExam(p.id); });
+      box.appendChild(b);
+    });
     var papers = seniorPapers().filter(function (p) { return p.year === state.examYear; });
-    if (!papers.length) {
+    if (!papers.length && !caps.length) {
       box.innerHTML = '<div class="prog-hint">這一年還沒有收到題目。</div>';
       return;
     }
@@ -6366,8 +6386,9 @@
       b.addEventListener('click', function () { openSeniorExam(rec); });
       box.appendChild(b);
     });
-    $('examsHint').innerHTML = '這一區是升高中的國中教育會考（103 年起）、基本學力測驗（90-102 年）與 103 年特色招生，' +
-      '目前收錄的是國文科。題目與解析和「匯入題庫」裡的歷屆題是同一份；' +
+    $('examsHint').innerHTML = '這一區是升高中的國中教育會考（103 年起）、基本學力測驗（90-102 年）與 103 年特色招生。' +
+      '數學／英語／社會／自然是照心測中心公開試題本收的完整原卷（含圖表題，圖片直接裁自原卷）；' +
+      '國文卷的題目與解析和「匯入題庫」裡的歷屆題是同一份，' +
       '只有看圖才答得出來的題目（統計圖、書法字跡、賽程表）文字重現不了，沒有收進來，所以題數可能少於原卷。';
   }
   function openSeniorExam(rec) {
@@ -6386,7 +6407,8 @@
       var p = W.APP_EXAM_PAPERS[id];
       var rec = examRuns()[id];
       var lim = examLimitMins(p);
-      var msg = p.year + ' 學測 ' + examSubj(p.subj).name + '：共 ' + p.qs.length + ' 題、滿分 ' +
+      var msg = p.year + ' ' + (p.stage === 'senior' ? (p.label || '會考') : '學測') + ' ' +
+        examSubj(p.subj).name + '：共 ' + p.qs.length + ' 題、滿分 ' +
         examMax(p) + ' 分，原卷作答時間 ' + p.mins + ' 分鐘。\n' +
         (lim ? '這次的作答時限是 ' + lim + ' 分鐘，時間到會自動交卷。' : '這次不限時，做完再交卷。') +
         '\n作答中不會對答案，交卷後才評分。';
