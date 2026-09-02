@@ -7,7 +7,7 @@ STATUS: in-progress
      同日 Tony：「繼續做到完為止」「除非有什麼解決不了一定要問的問題，不然都做到完為止」
      ＝接著做學測自然（115→90，subj 用 science，id <年>-science），再會考數英社自（115-103）、基測（102-90）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題已收齊。會考 **114 與 115 兩年的四科全部完成（各 172 題，共 344 題）**，前端架構已就位。**接著往下做：113 → 112 → …一路到 103**（113 的四份 PDF 已抓在 scratchpad/cap/，直連網址 https://cap.rcpet.edu.tw/exam/113/113P_<科>.pdf 可用），做完再做基測 102、101、100（2026-09-02 Tony：各科都做到 100 年後的就好）（subj science；111 起自然 44 題約 96 分、110 以前 68 題 128 分，逐卷看卷首配分）。國英數社四科 109 卷 4,528 題已收齊（年份下限 90）。自然做完接會考數英社自（115-103）、基測（102-90）。流程照舊：
+NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題已收齊。會考 **114、115 兩年四科全部完成 ＋ 113 數學已完成**。**下一步＝接續做「113 社會」（54 題，做到一半，詳見下方〈113 社會中斷點〉）**，之後 113 自然 → 113 英語 → 112 → …一路到 103，做完再做基測 102、101、100（2026-09-02 Tony：各科都做到 100 年後的就好）（subj science；111 起自然 44 題約 96 分、110 以前 68 題 128 分，逐卷看卷首配分）。國英數社四科 109 卷 4,528 題已收齊（年份下限 90）。自然做完接會考數英社自（115-103）、基測（102-90）。流程照舊：
  1. 下載試卷與答案：見下方「(9) 歷屆學測」段的網址與做法（大考中心 xmfile 頁 → .docx ＋ 答案 .pdf）
  2. 照 js/data/exam/112-chinese.js 的格式寫 build 腳本產出 js/data/exam/111-chinese.js，圖表題用 tools/exam-crop.py 裁圖
  3. 加進 js/data/exams.js 索引 → `node test/test.js` → `python3 tools/stamp-version.py` → commit → 回報 Tony
@@ -375,12 +375,35 @@ NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題�
          `test/test.js` 已改成認得這個 id 格式。
        學測 數學A／B（111 起分 A/B，110 以前為單一數學，subj 用 math）：✅115 ✅114 ✅113 ✅112 ✅111 ✅110 ✅109 ✅108 ✅107 ✅106 ✅105 ✅104 ✅103 ✅102 ✅101 ✅100 ✅99 ✅98 ✅97 ✅96 ✅95 ✅94 ✅93 ✅92 ✅91 ✅90（全部完成）
        （⛔ 83～89 學測不做——Tony 2026-09-02「做到90就好. 夠了」）
-       會考 數學：✅115 ✅114 ⬜113-103　｜　自然：✅115 ✅114 ⬜113-103
+       會考 數學：✅115 ✅114 ✅113 ⬜112-103　｜　自然：✅115 ✅114 ⬜113-103
        　　 英語：✅115 ✅114 ⬜113-103　｜　社會：✅115 ✅114 ⬜113-103
        　　（114 四科：數 25／自 50／社 54／英閱 43 ＝ 172 題；115 四科同樣 25／50／54／43 ＝ 172 題）
        （國文已有，用匯入題庫組卷；缺的圖片題之後回頭補）
        基測 其他科目：⬜102-90
        會考／基測國文的缺題（圖片題）：⬜回頭補
+     【113 社會中斷點（2026-09-02 22:55 被重啟打斷，進度存這裡）】
+       題本：scratchpad/cap/113P_Society.pdf（15 頁），文字已抽到 scratchpad/cap/113soc.txt。
+       **已裁好 23 張圖，全部在 `img/exam/113-cap-social/`（尚未 commit，重啟後直接用）**：
+       　q3 q4 q6 q7 q10 q11 q15 q16 q17 q18 q19 q20 q22 q23 q24 q25 q26 q28 q29 q31 q33 q34 q35
+       **還沒裁的圖（頁碼為 PDF 頁，非印刷頁；工具 `python3 tools/exam-crop.py page <pdf> <頁> out.png` 先看座標）**：
+       　q37（圖二十一 一帶一路經濟走廊，PDF p.11）／q40（圖二十二 刑事判決件數，PDF p.11）／
+       　q43（表六 四港口輸出額，PDF p.11-12）／g49（圖二十三 美國眾議員席次，PDF p.13）／
+       　q51（圖二十四 臺灣人口分布，PDF p.13）
+       **113 社會官方答案（已從 113P_Answer.pdf 抽出並逐題核對過 1-43，僅 44-54 尚未逐題複驗）**：
+       　1B 2A 3B 4A 5B 6C 7D 8C 9A 10C 11C 12B 13C 14D 15C 16C 17A 18C 19D 20A 21B 22C 23B 24A 25B
+       　26C 27A 28B 29A 30C 31D 32A 33D 34D 35B 36B 37C 38D 39C 40B 41A 42D 43A 44C 45A 46B 47D
+       　48C 49A 50D 51B 52D 53B 54C
+       題組：44-45（非洲巫童）／46-48（微型電動二輪車）／49-51（美國眾議員席次分配）／52-54（戰後臺灣電影）。
+       做法照前幾卷：scratchpad/cap113soc/ 下寫 hA..hH.py 分批產解析 → build.py 比對 KEY → 寫入
+       `js/data/exam/113-cap-social.js` → exams.js 加索引 → node test/test.js → stamp-version → commit。
+     【113 其餘三科的答案（同一份答案本，已抽出，重啟後不必再抽）】
+       數學（已完成）：1A 2A 3C 4D 5B 6D 7D 8C 9C 10C 11A 12C 13B 14C 15B 16B 17A 18A 19B 20D 21D 22A 23B 24D 25B
+       自然（50 題）：1B 2B 3C 4C 5A 6C 7A 8C 9A 10D 11B 12D 13D 14B 15D 16B 17B 18C 19B 20C 21A 22C 23A 24C 25D
+       　　26A 27A 28B 29D 30A 31D 32D 33D 34B 35C 36B 37B 38D 39C 40B 41D 42C 43D 44A 45B 46D 47A 48C 49C 50C
+       英語閱讀（43 題）：1A 2C 3B 4B 5D 6D 7B 8D 9C 10D 11C 12A 13A 14A 15C 16D 17C 18D 19A 20C 21B 22D 23C
+       　　24C 25B 26A 27D 28B 29B 30A 31D 32A 33A 34B 35A 36B 37B 38C 39C 40A 41B 42B 43D
+       ⚠ 答案本欄位順序：國文｜英語(閱讀)｜英語(聽力)｜數學｜社會｜自然；**22 題起聽力欄空白、26 題起數學欄
+         也空白，欄位會左移**，抄的時候要從右邊（自然）往回數（114 年就是這裡抄錯過一次）。
      ⚠ 會考／基測的題本在心測中心：https://cap.rcpet.edu.tw/exam/<年>/<年>P_<科>.pdf
        **科名：Chinese／Math／English／Society／`Nature`（自然是 Nature 不是 Science！）**；
        答案本 `<年>P_Answer.pdf`（一份含全部科目，可用 pdftotext -layout 直接讀成對照表）。
@@ -605,7 +628,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-02 22:10 台北
+UPDATED: 2026-09-02 22:55 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
