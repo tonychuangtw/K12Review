@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="560" height="340" fill="#fff"/>
+  <text x="280" y="22" text-anchor="middle" font-size="15" font-weight="bold">圖2　臺灣 1929－1989 年間每隔二十年的人口統計值</text>
+  <!-- y axis -->
+  <text x="26" y="150" font-size="13" text-anchor="middle">千</text>
+  <text x="26" y="166" font-size="13" text-anchor="middle">分</text>
+  <text x="26" y="182" font-size="13" text-anchor="middle">比</text>
+  <g stroke="#bbb" stroke-width="1">
+    <line x1="70" y1="250" x2="530" y2="250"/>
+    <line x1="70" y1="228" x2="530" y2="228"/>
+    <line x1="70" y1="206" x2="530" y2="206"/>
+    <line x1="70" y1="184" x2="530" y2="184"/>
+    <line x1="70" y1="162" x2="530" y2="162"/>
+    <line x1="70" y1="140" x2="530" y2="140"/>
+    <line x1="70" y1="118" x2="530" y2="118"/>
+    <line x1="70" y1="96" x2="530" y2="96"/>
+    <line x1="70" y1="74" x2="530" y2="74"/>
+  </g>
+  <line x1="70" y1="52" x2="70" y2="272" stroke="#222" stroke-width="2"/>
+  <line x1="70" y1="272" x2="530" y2="272" stroke="#222" stroke-width="2"/>
+  <g font-size="12" text-anchor="end" fill="#333">
+    <text x="64" y="277">0</text><text x="64" y="255">10</text><text x="64" y="233">20</text>
+    <text x="64" y="211">30</text><text x="64" y="189">40</text><text x="64" y="167">50</text>
+    <text x="64" y="145">60</text><text x="64" y="123">70</text><text x="64" y="101">80</text>
+    <text x="64" y="79">90</text>
+  </g>
+  <!-- bars: 1 unit = 2.2 px, baseline y=272 -->
+  <g stroke="#333" stroke-width="1">
+    <!-- 甲 88 / 44 / 15 -->
+    <rect x="92"  y="78.4"  width="26" height="193.6" fill="#c9caf0"/>
+    <rect x="120" y="175.2" width="26" height="96.8"  fill="#d8558c"/>
+    <rect x="148" y="239"   width="26" height="33"    fill="#fff"/>
+    <!-- 乙 52 / 30 / 6 -->
+    <rect x="200" y="157.6" width="26" height="114.4" fill="#c9caf0"/>
+    <rect x="228" y="206"   width="26" height="66"    fill="#d8558c"/>
+    <rect x="256" y="258.8" width="26" height="13.2"  fill="#fff"/>
+    <!-- 丙 25 / 47 / 24 -->
+    <rect x="308" y="217"   width="26" height="55"    fill="#c9caf0"/>
+    <rect x="336" y="168.6" width="26" height="103.4" fill="#d8558c"/>
+    <rect x="364" y="219.2" width="26" height="52.8"  fill="#fff"/>
+    <!-- 丁 11 / 18 / 6 -->
+    <rect x="416" y="247.8" width="26" height="24.2"  fill="#c9caf0"/>
+    <rect x="444" y="232.4" width="26" height="39.6"  fill="#d8558c"/>
+    <rect x="472" y="258.8" width="26" height="13.2"  fill="#fff"/>
+  </g>
+  <g font-size="15" text-anchor="middle" font-weight="bold">
+    <text x="133" y="292">甲</text><text x="241" y="292">乙</text>
+    <text x="349" y="292">丙</text><text x="457" y="292">丁</text>
+  </g>
+  <!-- legend -->
+  <g font-size="13">
+    <rect x="120" y="308" width="18" height="13" fill="#c9caf0" stroke="#333"/><text x="144" y="319">總增加率</text>
+    <rect x="230" y="308" width="18" height="13" fill="#d8558c" stroke="#333"/><text x="254" y="319">出生率</text>
+    <rect x="330" y="308" width="18" height="13" fill="#fff" stroke="#333"/><text x="354" y="319">死亡率</text>
+  </g>
+</svg>

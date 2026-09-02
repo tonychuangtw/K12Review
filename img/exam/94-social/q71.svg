@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 350" width="620" height="350" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="620" height="350" fill="#fff"/>
+  <text x="310" y="20" text-anchor="middle" font-size="15" font-weight="bold">圖13　20 世紀後半葉各種能源的使用狀況</text>
+  <polygon points="70.0,256.1 131.2,255.1 192.5,251.4 253.8,250.1 315.0,247.7 376.2,243.3 437.5,241.6 498.8,239.9 560.0,237.9 560.0,300.0 498.8,300.0 437.5,300.0 376.2,300.0 315.0,300.0 253.8,300.0 192.5,300.0 131.2,300.0 70.0,300.0" fill="#3f3f3f" stroke="#111" stroke-width="1.4"/>
+  <polygon points="70.0,239.9 131.2,236.6 192.5,234.2 253.8,208.9 315.0,172.8 376.2,151.5 437.5,137.7 498.8,139.7 560.0,136.6 560.0,237.9 498.8,239.9 437.5,241.6 376.2,243.3 315.0,247.7 253.8,250.1 192.5,251.4 131.2,255.1 70.0,256.1" fill="#dcdcdc" stroke="#111" stroke-width="1.4"/>
+  <polygon points="70.0,233.2 131.2,226.4 192.5,215.3 253.8,186.9 315.0,136.6 376.2,116.1 437.5,99.9 498.8,97.5 560.0,88.0 560.0,136.6 498.8,139.7 437.5,137.7 376.2,151.5 315.0,172.8 253.8,208.9 192.5,234.2 131.2,236.6 70.0,239.9" fill="#a9a9a9" stroke="#111" stroke-width="1.4"/>
+  <polygon points="70.0,228.4 131.2,221.7 192.5,206.5 253.8,177.8 315.0,127.5 376.2,105.9 437.5,86.4 498.8,82.3 560.0,70.2 560.0,88.0 498.8,97.5 437.5,99.9 376.2,116.1 315.0,136.6 253.8,186.9 192.5,215.3 131.2,226.4 70.0,233.2" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+  <polygon points="70.0,224.7 131.2,217.3 192.5,199.8 253.8,168.4 315.0,118.8 376.2,95.8 437.5,75.9 498.8,64.4 560.0,33.0 560.0,70.2 498.8,82.3 437.5,86.4 376.2,105.9 315.0,127.5 253.8,177.8 192.5,206.5 131.2,221.7 70.0,228.4" fill="#7b7b7b" stroke="#111" stroke-width="1.4"/>
+  <line x1="70" y1="30" x2="70" y2="300" stroke="#222" stroke-width="1.8"/>
+  <line x1="70" y1="300" x2="570" y2="300" stroke="#222" stroke-width="1.8"/>
+  <g font-size="12" text-anchor="end" fill="#333">
+    <text x="64" y="304">0</text><text x="64" y="236.5">2000</text>
+    <text x="64" y="169.0">4000</text><text x="64" y="101.5">6000</text>
+    <text x="64" y="34.0">8000</text>
+  </g>
+  <g stroke="#222" stroke-width="1">
+    <line x1="66" y1="232.5" x2="70" y2="232.5"/><line x1="66" y1="165.0" x2="70" y2="165.0"/>
+    <line x1="66" y1="97.5" x2="70" y2="97.5"/><line x1="66" y1="30.0" x2="70" y2="30.0"/>
+  </g>
+  <g font-size="12" text-anchor="middle" fill="#333">
+    <text x="70" y="318">1950</text><text x="192" y="318">1960</text><text x="315" y="318">1970</text>
+    <text x="437" y="318">1980</text><text x="560" y="318">1990</text>
+  </g>
+  <text x="22" y="120" font-size="12">百</text><text x="22" y="136" font-size="12">萬</text>
+  <text x="22" y="152" font-size="12">噸</text><text x="22" y="176" font-size="11">（相</text>
+  <text x="22" y="192" font-size="11">當於</text><text x="22" y="208" font-size="11">石油</text><text x="22" y="224" font-size="11">者）</text>
+  <text x="320" y="280" font-size="17" font-weight="bold" text-anchor="middle" fill="#111">丁</text>
+  <text x="330" y="215" font-size="17" font-weight="bold" text-anchor="middle" fill="#111">丙</text>
+  <text x="430" y="160" font-size="17" font-weight="bold" text-anchor="middle" fill="#111">乙</text>
+  <text x="455" y="80" font-size="17" font-weight="bold" text-anchor="middle" fill="#111">甲</text>
+  <line x1="190" y1="140" x2="250" y2="185.2" stroke="#111" stroke-width="1"/>
+  <text x="186" y="136" font-size="13" text-anchor="end">水力</text>
+  <text x="310" y="342" text-anchor="middle" font-size="11" fill="#666">圖中由下而上依序堆疊，最上方的窄帶為甲</text>
+</svg>

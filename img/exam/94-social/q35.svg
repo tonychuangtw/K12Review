@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 372" width="620" height="372" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="620" height="372" fill="#fff"/>
+  <text x="310" y="20" text-anchor="middle" font-size="15" font-weight="bold">圖5　華南兩個海港及其腹地關係示意圖</text>
+  <!-- highways (draw first, underneath) -->
+  <g stroke="#a8a8a8" stroke-width="13" fill="none" stroke-linecap="round">
+    <line x1="120" y1="300" x2="270" y2="80"/>
+    <line x1="120" y1="300" x2="270" y2="300"/>
+  </g>
+  <!-- roads -->
+  <g stroke="#444" stroke-width="1.4">
+    <line x1="120" y1="80" x2="270" y2="80"/>
+    <line x1="120" y1="80" x2="120" y2="190"/>
+    <line x1="270" y1="80" x2="270" y2="190"/>
+    <line x1="120" y1="190" x2="270" y2="190"/>
+    <line x1="120" y1="190" x2="120" y2="300"/>
+    <line x1="270" y1="190" x2="270" y2="300"/>
+    <line x1="120" y1="300" x2="270" y2="300"/>
+    <line x1="120" y1="80" x2="270" y2="190"/>
+    <line x1="270" y1="80" x2="120" y2="190"/>
+    <line x1="120" y1="190" x2="270" y2="300"/>
+    <line x1="270" y1="190" x2="120" y2="300"/>
+    <line x1="120" y1="300" x2="195" y2="190"/>
+    <line x1="270" y1="80" x2="195" y2="190"/>
+    <!-- stubs -->
+    <line x1="120" y1="80" x2="86" y2="52"/><line x1="120" y1="80" x2="86" y2="98"/>
+    <line x1="120" y1="80" x2="120" y2="44"/><line x1="120" y1="80" x2="152" y2="48"/>
+    <line x1="270" y1="80" x2="304" y2="52"/><line x1="270" y1="80" x2="306" y2="80"/>
+    <line x1="270" y1="80" x2="270" y2="44"/><line x1="270" y1="80" x2="238" y2="48"/>
+    <line x1="120" y1="190" x2="88" y2="168"/><line x1="120" y1="190" x2="88" y2="212"/>
+    <line x1="270" y1="190" x2="304" y2="168"/><line x1="270" y1="190" x2="304" y2="212"/>
+    <line x1="120" y1="300" x2="80" y2="300"/><line x1="270" y1="300" x2="312" y2="300"/>
+  </g>
+  <!-- small towns on links -->
+  <g fill="#fff" stroke="#444" stroke-width="1.4">
+    <circle cx="195" cy="80" r="9"/>
+    <circle cx="120" cy="135" r="8"/><circle cx="270" cy="135" r="8"/>
+    <circle cx="120" cy="245" r="8"/><circle cx="270" cy="245" r="8"/>
+    <circle cx="176" cy="140" r="9"/><circle cx="176" cy="245" r="9"/>
+    <circle cx="195" cy="190" r="16"/>
+    <circle cx="195" cy="300" r="14"/>
+  </g>
+  <!-- cities -->
+  <g fill="#fff" stroke="#333" stroke-width="1.8" font-size="15" text-anchor="middle">
+    <circle cx="120" cy="80" r="26"/><text x="120" y="86" stroke="none" fill="#111">M1</text>
+    <circle cx="270" cy="80" r="26"/><text x="270" y="86" stroke="none" fill="#111">M2</text>
+    <circle cx="120" cy="190" r="20"/><text x="120" y="196" stroke="none" fill="#111">N1</text>
+    <circle cx="270" cy="190" r="20"/><text x="270" y="196" stroke="none" fill="#111">N2</text>
+    <circle cx="120" cy="300" r="30"/><text x="120" y="307" stroke="none" fill="#111">P1</text>
+    <circle cx="270" cy="300" r="24"/><text x="270" y="306" stroke="none" fill="#111">P2</text>
+  </g>
+  <!-- coastline -->
+  <line x1="70" y1="338" x2="330" y2="338" stroke="#999" stroke-width="6"/>
+  <text x="52" y="356" font-size="13" text-anchor="middle">海岸線</text>
+  <!-- legend -->
+  <g font-size="14">
+    <text x="380" y="86">P：海港</text>
+    <text x="380" y="136">M、N：內陸城鎮</text>
+    <line x1="382" y1="180" x2="424" y2="180" stroke="#444" stroke-width="1.6"/>
+    <text x="432" y="185">：公路</text>
+    <rect x="382" y="222" width="42" height="12" fill="#a8a8a8"/>
+    <text x="432" y="233">：高速公路</text>
+    <text x="380" y="286" font-size="12" fill="#666">圓圈大小代表人口多寡</text>
+  </g>
+</svg>

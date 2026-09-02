@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" width="640" height="340" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="640" height="340" fill="#fff"/>
+  <text x="320" y="20" text-anchor="middle" font-size="15" font-weight="bold">圖4　黃土高原上某溪流造林前的水文歷線</text>
+  <!-- 原圖 -->
+  <g transform="translate(200,30)">
+    <rect x="0" y="0" width="240" height="150" fill="#fff" stroke="#ccc"/>
+    <line x1="34" y1="10" x2="34" y2="132" stroke="#222" stroke-width="1.8"/>
+    <line x1="34" y1="132" x2="230" y2="132" stroke="#222" stroke-width="1.8"/>
+    <polygon points="34,4 30,14 38,14" fill="#222"/>
+    <polygon points="236,132 226,128 226,136" fill="#222"/>
+    <text x="18" y="60" font-size="11" text-anchor="middle">流</text>
+    <text x="18" y="74" font-size="11" text-anchor="middle">量</text>
+    <text x="132" y="147" font-size="12" text-anchor="middle">時間</text>
+    <g fill="#b9b9b9" stroke="#666" stroke-width="0.8">
+      <rect x="40" y="104" width="9" height="28"/><rect x="50" y="84" width="9" height="48"/>
+      <rect x="60" y="76" width="9" height="56"/><rect x="70" y="98" width="9" height="34"/>
+    </g>
+    <path d="M36,128 C50,126 62,110 74,74 C84,44 92,22 104,20 C118,18 128,44 142,74 C158,108 176,126 196,130" fill="none" stroke="#111" stroke-width="2.4"/>
+  </g>
+  <text x="320" y="196" text-anchor="middle" font-size="14">下列何者最能顯示造林成功後的水文歷線？</text>
+  <!-- options -->
+  <g transform="translate(10,206)">
+    <text x="4" y="16" font-size="14" font-weight="bold">(A)</text>
+    <rect x="34" y="0" width="120" height="96" fill="#fff" stroke="#ccc"/>
+    <line x1="46" y1="6" x2="46" y2="86" stroke="#222" stroke-width="1.5"/>
+    <line x1="46" y1="86" x2="150" y2="86" stroke="#222" stroke-width="1.5"/>
+    <g fill="#b9b9b9" stroke="#666" stroke-width="0.7">
+      <rect x="50" y="70" width="6" height="16"/><rect x="57" y="58" width="6" height="28"/>
+      <rect x="64" y="54" width="6" height="32"/><rect x="71" y="66" width="6" height="20"/>
+    </g>
+    <path d="M47,84 C56,80 66,60 80,34 C92,14 104,10 116,16 C126,22 134,50 144,82" fill="none" stroke="#111" stroke-width="2"/>
+    <text x="98" y="98" font-size="10" text-anchor="middle">時間</text>
+  </g>
+  <g transform="translate(165,206)">
+    <text x="4" y="16" font-size="14" font-weight="bold">(B)</text>
+    <rect x="34" y="0" width="120" height="96" fill="#fff" stroke="#ccc"/>
+    <line x1="46" y1="6" x2="46" y2="86" stroke="#222" stroke-width="1.5"/>
+    <line x1="46" y1="86" x2="150" y2="86" stroke="#222" stroke-width="1.5"/>
+    <g fill="#b9b9b9" stroke="#666" stroke-width="0.7">
+      <rect x="50" y="70" width="6" height="16"/><rect x="57" y="58" width="6" height="28"/>
+      <rect x="64" y="54" width="6" height="32"/><rect x="71" y="66" width="6" height="20"/>
+    </g>
+    <path d="M47,80 C58,78 70,72 84,58 C94,48 104,44 112,48 C122,54 130,70 148,80" fill="none" stroke="#111" stroke-width="2"/>
+    <text x="98" y="98" font-size="10" text-anchor="middle">時間</text>
+  </g>
+  <g transform="translate(320,206)">
+    <text x="4" y="16" font-size="14" font-weight="bold">(C)</text>
+    <rect x="34" y="0" width="120" height="96" fill="#fff" stroke="#ccc"/>
+    <line x1="46" y1="6" x2="46" y2="86" stroke="#222" stroke-width="1.5"/>
+    <line x1="46" y1="86" x2="150" y2="86" stroke="#222" stroke-width="1.5"/>
+    <g fill="#b9b9b9" stroke="#666" stroke-width="0.7">
+      <rect x="50" y="70" width="6" height="16"/><rect x="57" y="58" width="6" height="28"/>
+      <rect x="64" y="54" width="6" height="32"/><rect x="71" y="66" width="6" height="20"/>
+    </g>
+    <path d="M47,58 C56,54 64,48 72,46 C96,48 120,62 148,76" fill="none" stroke="#111" stroke-width="2"/>
+    <text x="98" y="98" font-size="10" text-anchor="middle">時間</text>
+  </g>
+  <g transform="translate(475,206)">
+    <text x="4" y="16" font-size="14" font-weight="bold">(D)</text>
+    <rect x="34" y="0" width="120" height="96" fill="#fff" stroke="#ccc"/>
+    <line x1="46" y1="6" x2="46" y2="86" stroke="#222" stroke-width="1.5"/>
+    <line x1="46" y1="86" x2="150" y2="86" stroke="#222" stroke-width="1.5"/>
+    <g fill="#b9b9b9" stroke="#666" stroke-width="0.7">
+      <rect x="50" y="70" width="6" height="16"/><rect x="57" y="58" width="6" height="28"/>
+      <rect x="64" y="54" width="6" height="32"/><rect x="71" y="66" width="6" height="20"/>
+    </g>
+    <path d="M47,74 C68,70 96,58 120,44 C130,38 136,40 140,50 C143,60 145,72 148,84" fill="none" stroke="#111" stroke-width="2"/>
+    <text x="98" y="98" font-size="10" text-anchor="middle">時間</text>
+  </g>
+  <text x="320" y="330" text-anchor="middle" font-size="11" fill="#666">柱狀圖代表一次的降雨量，曲線代表流量隨時間的變化</text>
+</svg>

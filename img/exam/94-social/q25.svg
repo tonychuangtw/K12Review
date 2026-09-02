@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="300" fill="#fff"/>
+  <text x="350" y="20" text-anchor="middle" font-size="15" font-weight="bold">圖3　海岸橫剖面圖</text>
+  <text x="24" y="46" font-size="12">盛行風</text>
+  <line x1="22" y1="56" x2="62" y2="56" stroke="#222" stroke-width="2"/>
+  <polygon points="62,51 74,56 62,61" fill="#222"/>
+  <line x1="30" y1="122" x2="30" y2="202" stroke="#222" stroke-width="1.5"/>
+  <line x1="24" y1="122" x2="36" y2="122" stroke="#222" stroke-width="1.5"/>
+  <line x1="24" y1="202" x2="36" y2="202" stroke="#222" stroke-width="1.5"/>
+  <text x="40" y="166" font-size="12">10 公尺</text>
+  <!-- land -->
+  <path d="M40,226 L112,225 L140,224 L172,222 L200,216
+           L224,196 L248,176 L272,190 L296,200 L318,178
+           L340,132 L360,110 L382,132 L404,156 L424,170
+           L446,158 L470,150 L492,178 L508,199 L516,202 L526,199
+           L546,184 L566,180 L586,178 L610,186 L640,190 L672,192
+           L672,258 L40,258 Z"
+        fill="#dedcd4" stroke="#333" stroke-width="1.6"/>
+  <!-- sea over the land on the left -->
+  <path d="M40,222 L112,225 L112,258 L40,258 Z" fill="#bcd9ea" stroke="none"/>
+  <line x1="40" y1="222" x2="112" y2="225" stroke="#4a7f9c" stroke-width="1.5"/>
+  <text x="72" y="216" font-size="13">海</text>
+  <!-- pond in the 庚 trough -->
+  <path d="M497,199 L536,196 L526,199 L516,202 L508,199 Z" fill="#8fbfd8"/>
+  <!-- water table -->
+  <line x1="112" y1="232" x2="672" y2="186" stroke="#222" stroke-width="2.2" stroke-dasharray="8 5"/>
+  <text x="200" y="212" font-size="12">地　下　水　面</text>
+  <g stroke="#333" stroke-width="1">
+    <line x1="140" y1="62" x2="140" y2="222"/>
+    <line x1="248" y1="62" x2="248" y2="174"/>
+    <line x1="296" y1="62" x2="296" y2="198"/>
+    <line x1="360" y1="62" x2="360" y2="108"/>
+    <line x1="424" y1="62" x2="424" y2="168"/>
+    <line x1="470" y1="62" x2="470" y2="148"/>
+    <line x1="516" y1="62" x2="516" y2="200"/>
+    <line x1="586" y1="62" x2="586" y2="176"/>
+  </g>
+  <g font-size="15" font-weight="bold" text-anchor="middle">
+    <text x="140" y="54">甲</text><text x="248" y="54">乙</text><text x="296" y="54">丙</text>
+    <text x="360" y="54">丁</text><text x="424" y="54">戊</text><text x="470" y="54">己</text>
+    <text x="516" y="54">庚</text><text x="586" y="54">辛</text>
+  </g>
+  <g stroke="#333" stroke-width="1.2">
+    <line x1="112" y1="264" x2="112" y2="276"/>
+    <line x1="204" y1="264" x2="204" y2="276"/>
+    <line x1="648" y1="264" x2="648" y2="276"/>
+    <line x1="112" y1="286" x2="648" y2="286"/>
+    <line x1="112" y1="282" x2="112" y2="290"/>
+    <line x1="648" y1="282" x2="648" y2="290"/>
+  </g>
+  <text x="158" y="275" font-size="13" text-anchor="middle">海灘</text>
+  <text x="426" y="275" font-size="13" text-anchor="middle">沙　丘　帶</text>
+  <text x="380" y="299" font-size="12" text-anchor="middle">300 公尺</text>
+</svg>
