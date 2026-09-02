@@ -40,6 +40,7 @@ window.APP_EXAMS = [
   { id: '106-social', year: 106, subj: 'social', n: 72, max: 144, mins: 100 },
   { id: '105-chinese', year: 105, subj: 'chinese', n: 23, max: 54, mins: 120 },
   { id: '105-english', year: 105, subj: 'english', n: 56, max: 72, mins: 100 },
+  { id: '105-science', year: 105, subj: 'science', n: 68, max: 136, mins: 100 },
   { id: '105-math', year: 105, subj: 'math', n: 20, max: 100, mins: 100 },
   { id: '105-social', year: 105, subj: 'social', n: 72, max: 144, mins: 100 },
   { id: '104-chinese', year: 104, subj: 'chinese', n: 23, max: 54, mins: 120 },
