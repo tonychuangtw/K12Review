@@ -7,7 +7,7 @@ STATUS: in-progress
      同日 Tony：「繼續做到完為止」「除非有什麼解決不了一定要問的問題，不然都做到完為止」
      ＝接著做學測自然（115→90，subj 用 science，id <年>-science），再會考數英社自（115-103）、基測（102-90）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題已收齊。會考 **114、115 兩年四科全部完成 ＋ 113 數學、113 社會已完成**。**113、112 兩年四科全部完成；111 數學、社會、自然已完成。下一步＝111 英語閱讀（43 題），做完再往 110 → … → 103**，之後 → 112 → …一路到 103，做完再做基測 102、101、100（2026-09-02 Tony：各科都做到 100 年後的就好）（subj science；111 起自然 44 題約 96 分、110 以前 68 題 128 分，逐卷看卷首配分）。國英數社四科 109 卷 4,528 題已收齊（年份下限 90）。自然做完接會考數英社自（115-103）、基測（102-90）。流程照舊：
+NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題已收齊。會考 **114、115 兩年四科全部完成 ＋ 113 數學、113 社會已完成**。**113、112、111 三年四科全部完成。下一步＝110 會考（數學 26／社會 63／自然 54／英語閱讀 41，實際題數以卷首為準），做完再往 109 → … → 103**，之後 → 112 → …一路到 103，做完再做基測 102、101、100（2026-09-02 Tony：各科都做到 100 年後的就好）（subj science；111 起自然 44 題約 96 分、110 以前 68 題 128 分，逐卷看卷首配分）。國英數社四科 109 卷 4,528 題已收齊（年份下限 90）。自然做完接會考數英社自（115-103）、基測（102-90）。流程照舊：
  1. 下載試卷與答案：見下方「(9) 歷屆學測」段的網址與做法（大考中心 xmfile 頁 → .docx ＋ 答案 .pdf）
  2. 照 js/data/exam/112-chinese.js 的格式寫 build 腳本產出 js/data/exam/111-chinese.js，圖表題用 tools/exam-crop.py 裁圖
  3. 加進 js/data/exams.js 索引 → `node test/test.js` → `python3 tools/stamp-version.py` → commit → 回報 Tony
@@ -386,6 +386,7 @@ NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題�
          題組本文一律抄進 groups 的 passage，圖表內容另外用中文括號補述，手機讀不到圖也答得出來。
      【113 會考四科 ✅ 全部完成】數學 25／社會 54／自然 50／英語閱讀 43 ＝ 172 題。
      【112 會考四科 ✅ 全部完成（2026-09-02）】數學 25（12 圖）／社會 54（26 圖）／自然 50（36 圖）／英語閱讀 43（5 圖）＝ 172 題。
+     【111 會考四科 ✅ 全部完成（2026-09-03）】數學 25（15 圖）／社會 54（32 圖）／自然 50（32 圖）／英語閱讀 43（8 圖）＝ 172 題。
      【111 會考答案（2026-09-02 從 111P_Answer.pdf 抽出，題本已下載到 scratchpad/cap/111P_*.pdf）】
        數學（25）：1A 2D 3C 4B 5A 6D 7D 8A 9C 10C 11C 12B 13D 14C 15B 16A 17A 18B 19B 20C 21B 22A 23D 24D 25D
        社會（54）：1C 2B 3C 4A 5D 6B 7C 8C 9B 10C 11B 12A 13B 14C 15D 16C 17B 18C 19C 20A 21B 22D 23D 24B 25C
@@ -643,7 +644,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-02 22:55 台北
+UPDATED: 2026-09-03 00:05 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
