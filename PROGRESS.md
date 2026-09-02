@@ -7,7 +7,7 @@ STATUS: in-progress
      同日 Tony：「繼續做到完為止」「除非有什麼解決不了一定要問的問題，不然都做到完為止」
      ＝接著做學測自然（115→90，subj 用 science，id <年>-science），再會考數英社自（115-103）、基測（102-90）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【歷屆學測自然】從 115 往回做到 90（subj science；111 起自然 44 題約 96 分、110 以前 68 題 128 分，逐卷看卷首配分）。國英數社四科 109 卷 4,528 題已收齊（年份下限 90）。自然做完接會考數英社自（115-103）、基測（102-90）。流程照舊：
+NEXT_ACTION: 【歷屆學測自然】110 做到一半（詳見總進度表下方的存檔段落，接續即可），完成後 109→90 逐年做（subj science；111 起自然 44 題約 96 分、110 以前 68 題 128 分，逐卷看卷首配分）。國英數社四科 109 卷 4,528 題已收齊（年份下限 90）。自然做完接會考數英社自（115-103）、基測（102-90）。流程照舊：
  1. 下載試卷與答案：見下方「(9) 歷屆學測」段的網址與做法（大考中心 xmfile 頁 → .docx ＋ 答案 .pdf）
  2. 照 js/data/exam/112-chinese.js 的格式寫 build 腳本產出 js/data/exam/111-chinese.js，圖表題用 tools/exam-crop.py 裁圖
  3. 加進 js/data/exams.js 索引 → `node test/test.js` → `python3 tools/stamp-version.py` → commit → 回報 Tony
@@ -291,7 +291,21 @@ NEXT_ACTION: 【歷屆學測自然】從 115 往回做到 90（subj science；11
      【總進度表】（做完一項就把 ⬜ 改成 ✅，並補上卷數／題數）
        學測 國文英文社會：✅115 ✅114 ✅113 ✅112 ✅111 ✅110 ✅109 ✅108 ✅107 ✅106 ✅105
                         ✅104 ✅103 ✅102 ✅101 ✅100 ✅99 ✅98 ✅97 ✅96 ✅95 ✅94 ✅93 ✅92 ✅91 ✅90（全部完成）
-       學測 自然：✅115（48 題/96 分）✅114（48 題/96 分）✅113（48 題/96 分）✅112（52 題/104 分）⬜111-90
+       學測 自然：✅115（48 題/96 分）✅114（48 題/96 分）✅113（48 題/96 分）✅112（52 題/104 分）✅111（52 題/104 分）⬜110-90（110 以前為舊制）
+       【110 自然做到一半（2026-09-02 重啟前存檔）】：
+       - 試卷/答案已下載：舊 scratchpad dl/110自然試卷.pdf、110自然答案.pdf；新 session 的 scratchpad 會變，
+         重新下載即可（p5.html 的 CEEC 連結，或 xmfile page=5 搜「110學測自然」）；頁面渲染 tools/exam-crop.py page 1-20
+       - 格式（舊制）：68 題全選擇。第壹部分（80 分）＝單選 1-22（每題 2 分）＋多選 23-40（每題 2 分）；
+         第貳部分 41-68（每題 2 分）原卷計分上限 48 分（本站不設上限，max 取 136，note 寫明原卷上限 128）
+       - 官方答案（已逐格轉錄）：1A 2E 3D 4B 5D 6B 7C 8D 9A 10A 11E 12A 13A 14C 15D 16C 17E 18E 19B 20B
+         21D 22E 23AE 24AB 25BD 26AC 27CD 28CD 29CD 30ACD 31CE 32「BD或BC」（官方公告雙答案→q.alt）33BCE 34CE
+         35AD 36AE 37C 38AB 39C 40B 41AE 42AD 43D 44AB 45E 46BCD 47D 48ACE 49BCE 50ABD 51ACD 52BE 53AB
+         54ADE 55C 56D 57ABE 58B 59CD 60CE 61AD 62A 63E 64B 65A 66C 67B 68AD
+       - 已驗證：第 1-10 題（A/E/D/B/D/B/C/D/A/A 全吻合，Q9 生成熱用 ΔHf=−2040−ΔHc 推）
+       - 下一步：從第 11 題續讀（p4.png 起，頁面=PDF頁-1 的關係：pN.png 是第 N-1 頁卷面），逐題驗證→裁圖→
+         照 111-115 的批次寫法（scratchpad n110w/，多選 pk 待查卷首「只錯一個得1分」規則——舊制多選要看說明頁，
+         若「只錯一個可得1分」則 pk [2,1,0]，否則通式）→build→exams.js 註冊（n 68、max 136、mins 110 需查卷首考試時間，
+         舊制自然可能 110 分鐘）→test→stamp→commit→回報。之後 109→90 逐年同法（皆舊制 68 題）。
          （111 起新制：只收選擇題，混合題組的非選不收、note 寫明；每題 2 分；多選用通式計分不用 pk；
           簡單線圖自繪 SVG、複雜圖裁原卷；選項本身是圖的題（如親緣樹、干涉圖樣）裁成 qN.webp 由選項文字指過去）
        學測 數學A／B（111 起分 A/B，110 以前為單一數學，subj 用 math）：✅115 ✅114 ✅113 ✅112 ✅111 ✅110 ✅109 ✅108 ✅107 ✅106 ✅105 ✅104 ✅103 ✅102 ✅101 ✅100 ✅99 ✅98 ✅97 ✅96 ✅95 ✅94 ✅93 ✅92 ✅91 ✅90（全部完成）
@@ -505,7 +519,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-02 11:31 台北
+UPDATED: 2026-09-02 13:33 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
