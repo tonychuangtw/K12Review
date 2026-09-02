@@ -4,7 +4,7 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖、選填題）。下一輪＝91 學測**數學**（91 國文／英文已完成，接著社會 76 題；91 各卷 PDF 已在 scratchpad/dl/91*.pdf，答案已抄錄於 91ans1/91ans2 截圖；115～93 的國英數社全部完成，只缺自然；92 以前的卷子網址在 CEEC xmfile 第 13 頁，各年答案是 <年>ans.pdf）（已完成 103 卷 4,253 題，見下方 (9) 段清單）：
+NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖、選填題）。下一輪＝91 學測**社會**（76 題；91 國文／英文／數學已完成；91 社會 PDF 已在 scratchpad/dl/91社會試卷.pdf，答案已抄錄；115～93 的國英數社全部完成，只缺自然；92 以前的卷子網址在 CEEC xmfile 第 13 頁，各年答案是 <年>ans.pdf）（已完成 104 卷 4,273 題，見下方 (9) 段清單）：
  1. 下載試卷與答案：見下方「(9) 歷屆學測」段的網址與做法（大考中心 xmfile 頁 → .docx ＋ 答案 .pdf）
  2. 照 js/data/exam/112-chinese.js 的格式寫 build 腳本產出 js/data/exam/111-chinese.js，圖表題用 tools/exam-crop.py 裁圖
  3. 加進 js/data/exams.js 索引 → `node test/test.js` → `python3 tools/stamp-version.py` → commit → 回報 Tony
@@ -235,8 +235,8 @@ NEXT_ACTION: 【歷屆學測】前端完成（含時限、裁圖、選填題）�
      93 社會 71／142（第 39 題公告全體給分不收；第 35 題「D 或 B」、第 41 題「D 或 A」雙答案，用 q.alt）、
      92 國文 23／51（16－18 題為七選項題組選填）、92 英文 55／70（16－20 為十選項句子配合題）、92 數學 20／100、
      92 社會 72／144（第 43 題「D 或 C」、第 65 題「C 或 D」雙答案，用 q.alt）、
-     91 國文 24／54（12－15 為十選項題組選填；第 24 題「ABCE 或 ABCDE」雙答案）、91 英文 55／70
-     —— 共 103 卷 4,253 題（2026-09-02 重算）。
+     91 國文 24／54（12－15 為十選項題組選填；第 24 題「ABCE 或 ABCDE」雙答案）、91 英文 55／70、91 數學 20／100
+     —— 共 104 卷 4,273 題（2026-09-02 重算）。
      ★ 115～92 年的國文、英文、社會、數學四科已全部到齊（缺的只有自然）；91 年做到國文、英文。
      ★ 115～93 年的國文、英文、社會、數學四科已全部到齊（缺的只有自然）。
      ★ 94 數學填充是 A－I 共 9 題、列號 12－34；圖（射線陰影區、鳶形、角平分線三角形、
@@ -493,9 +493,9 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 補記：各科自編原創題（science/math/english/history…）的解析是「✅正解：… ❌其他選項：… 📚課綱重點：…」
 的固定三段式，同一支腳本加一種形狀就能生（問「其他選項」那段或「課綱重點」那段），要做隨時可以接。
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 無。91 國文／英文已入庫，接著 91 數學（單選6＋多選6＋填充，列號至 32）→ 91 社會（76 題），做完再往 90 年，做法照 (9) 段。
+BLOCKERS: 無。91 國文／英文／數學已入庫，只差 91 社會（76 題），做完再往 90 年（最後一年），做法照 (9) 段。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-02 13:30 台北
+UPDATED: 2026-09-02 14:10 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
