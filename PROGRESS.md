@@ -535,6 +535,32 @@ NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題�
        　　24C 25B 26A 27D 28B 29B 30A 31D 32A 33A 34B 35A 36B 37B 38C 39C 40A 41B 42B 43D
        ⚠ 答案本欄位順序：國文｜英語(閱讀)｜英語(聽力)｜數學｜社會｜自然；**22 題起聽力欄空白、26 題起數學欄
          也空白，欄位會左移**，抄的時候要從右邊（自然）往回數（114 年就是這裡抄錯過一次）。
+     ⭐⭐ **基測（90-102）題本的來源（2026-09-04 找到）**：舊的心測中心站 `bctest.ntnu.edu.tw` 已關站，
+       但 **Wayback Machine 有完整備份**。查檔案清單：
+       `curl -s "https://web.archive.org/cdx/search/cdx?url=bctest.ntnu.edu.tw/exam/<年>/*&output=text&fl=original,timestamp&collapse=urlkey"`
+       下載：`curl -sL -o out.pdf "https://web.archive.org/web/<timestamp>id_/<原網址>"`（`id_` 是取原始檔的關鍵）。
+       檔名規則：`exam/<年>/<年>{Chinese,English,Math,Society,Nature,Writing}150DPI.pdf` 與 `<年>Answer.pdf`；
+       100 年有兩次，路徑是 `exam/10001/1001<科>150DPI.pdf`、`exam/10002/1002<科>150DPI.pdf`。
+       102 年 Wayback 只存到國文／英語／數學／答案，**社會與自然要改用 grow22 鏡像**：
+       `https://www.grow22.com/download/102/06/<NN>.pdf`，NN＝01 國文／02 英語／03 數學／04 社會／05 自然／
+       06 寫作／07 參考答案／08 量尺對照表（與 bctest 是同一批檔，檔案大小完全一致）。
+       ⚠⚠ **基測題本全部是 150 DPI 掃描影像，沒有文字層**（`pdftotext` 完全讀不出東西），
+       所有題目與答案都必須用 `tools/exam-crop.py page` 畫出整頁用眼睛讀，速度比會考／學測慢很多。
+       題本上有粉紅色「新聞用」浮水印，壓在答案表的英語／數學欄，抄答案要放大分段看。
+     【102 基測答案（2026-09-04 抽出）】國文 48／英語 45／數學 34／社會 63／自然 58 題
+       國文：1D 2C 3D 4A 5D 6A 7B 8D 9D 10A 11D 12B 13A 14B 15D 16A 17B 18B 19D 20C 21B 22B 23C 24A 25C
+       　　26D 27B 28C 29C 30C 31C 32A 33D 34C 35B 36C 37A 38B 39C 40A 41B 42C 43A 44D 45B 46B 47B 48A
+       英語：1D 2A 3D 4A 5D 6A 7D 8C 9D 10A 11D 12A 13B 14C 15D 16B 17D 18A 19B 20A 21B 22C 23B 24A 25C
+       　　26C 27B 28B 29D 30C 31D 32C 33B 34D 35A 36C 37B 38C 39C 40B 41C 42A 43B 44B 45A
+       數學：1C 2D 3D 4A 5B 6B 7C 8A 9A 10C 11A 12D 13D 14B 15B 16C 17B 18B 19A 20B 21C 22A 23D 24C 25B
+       　　26B 27A 28A 29A 30D 31C 32D 33D 34A
+       社會：1C 2A 3B 4A 5B 6C 7C 8A 9D 10C 11B 12C 13A 14C 15D 16C 17C 18D 19A 20C 21A 22C 23D 24C 25B
+       　　26A 27D 28A 29C 30D 31B 32D 33A 34D 35A 36B 37D 38C 39A 40C 41B 42B 43B 44D 45D 46B 47C 48B
+       　　49D 50D 51D 52C 53B 54A 55C 56B 57A 58B 59D 60D 61D 62C 63B
+       自然：1B 2B 3D 4B 5A 6D 7A 8D 9A 10C 11C 12B 13C 14D 15A 16C 17B 18A 19B 20D 21C 22B 23A 24C 25A
+       　　26B 27A 28D 29B 30C 31B 32A 33D 34C 35C 36D 37C 38B 39D 40D 41C 42D 43D 44A 45A 46B 47A 48A
+       　　49B 50A 51B 52A 53B 54C 55D 56D 57C 58C
+       （國文照慣例不做 exam papers，升高中區用匯入題庫組卷。）
      ⚠ 會考／基測的題本在心測中心：https://cap.rcpet.edu.tw/exam/<年>/<年>P_<科>.pdf
        **科名：Chinese／Math／English／Society／`Nature`（自然是 Nature 不是 Science！）**；
        答案本 `<年>P_Answer.pdf`（一份含全部科目，可用 pdftotext -layout 直接讀成對照表）。
@@ -759,7 +785,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-04 01:20 台北
+UPDATED: 2026-09-04 02:00 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
