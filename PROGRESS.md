@@ -7,7 +7,7 @@ STATUS: in-progress
      同日 Tony：「繼續做到完為止」「除非有什麼解決不了一定要問的問題，不然都做到完為止」
      ＝接著做學測自然（115→90，subj 用 science，id <年>-science），再會考數英社自（115-103）、基測（102-90）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題已收齊。會考 **114、115 兩年四科全部完成 ＋ 113 數學、113 社會已完成**。**113、112、111 三年四科全部完成；110 數學（26）、社會（63）、自然（54）已完成。
+NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題已收齊。會考 **114、115 兩年四科全部完成 ＋ 113 數學、113 社會已完成**。**113、112、111、110 四年四科全部完成（110 是舊題數：數學 26／社會 63／自然 54／英語閱讀 41 ＝ 184 題）。
  ⚠ 2026-09-03 Tony 回報裁圖品質問題（115 數學 q11 數線上方的 P、A、B 被裁掉），已加自動檢查工具，**裁圖補正未完成，優先度高於繼續往前做**：
    ・`python3 tools/exam-crop-audit.py [卷id...]`＝掃 img/exam 每張 webp 最外 2px，墨色比例落在 3%~85%（不是整條圖框、是被切斷的字或線）就列為可疑，分數由高到低排序
    ・`tools/exam-crop-sheet.sh <輸出png> <圖...>`＝一次把最多 12 張排成 4×3 貼在一起，用一次 Read 目視複查（省 token）
@@ -21,7 +21,7 @@ NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題�
      ③ **圖號、表號、座標軸刻度、圖例被切一半**——上下也要各留 8~10 px
    ⚠ 目測整頁圖抓座標容易差 20~30 px，寧可多留再修一次，不要一次就貼死
    ・題目圖與四個選項圖要合成一張時（q.fig 只能放一個字串）：pdftoppm 各裁一塊 → ffmpeg pad + vstack → cwebp，範例見 115 自然 q14／q38、110 社會 q34
- 下一步＝(1) 繼續 110 英語閱讀（41 題）→ 109 → … → 103 (2) 有空檔時回頭修學測各卷的裁圖**，之後 → 112 → …一路到 103，做完再做基測 102、101、100（2026-09-02 Tony：各科都做到 100 年後的就好）（subj science；111 起自然 44 題約 96 分、110 以前 68 題 128 分，逐卷看卷首配分）。國英數社四科 109 卷 4,528 題已收齊（年份下限 90）。自然做完接會考數英社自（115-103）、基測（102-90）。流程照舊：
+ 下一步＝(1) 109 會考四科（題數以卷首為準，109 以前仍是舊題數）→ 108 → … → 103 → 基測 102-100 (2) 有空檔時回頭修學測各卷的裁圖**，之後 → 112 → …一路到 103，做完再做基測 102、101、100（2026-09-02 Tony：各科都做到 100 年後的就好）（subj science；111 起自然 44 題約 96 分、110 以前 68 題 128 分，逐卷看卷首配分）。國英數社四科 109 卷 4,528 題已收齊（年份下限 90）。自然做完接會考數英社自（115-103）、基測（102-90）。流程照舊：
  1. 下載試卷與答案：見下方「(9) 歷屆學測」段的網址與做法（大考中心 xmfile 頁 → .docx ＋ 答案 .pdf）
  2. 照 js/data/exam/112-chinese.js 的格式寫 build 腳本產出 js/data/exam/111-chinese.js，圖表題用 tools/exam-crop.py 裁圖
  3. 加進 js/data/exams.js 索引 → `node test/test.js` → `python3 tools/stamp-version.py` → commit → 回報 Tony
@@ -668,7 +668,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-03 05:10 台北
+UPDATED: 2026-09-03 06:30 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
