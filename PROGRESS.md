@@ -563,6 +563,18 @@ NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題�
        　　26B 27A 28D 29A 30C 31B 32A 33D 34C 35C 36D 37C 38B 39D 40D 41C 42D 43D 44A 45A 46B 47A 48A
        　　49B 50A 51B 52A 53B 54C 55D 56D 57C 58C
        （國文照慣例不做 exam papers，升高中區用匯入題庫組卷。）
+     【101 基測答案（2026-09-03 抽出，已用 300 dpi 分欄放大複核）】
+       英語 45／數學 34／社會 63／自然 58 題。來源：Wayback 的 bctest.ntnu.edu.tw/exam/101/101{Answer,Math,Society,Nature,English}150DPI.pdf
+       數學：1C 2B 3A 4A 5A 6B 7C 8C 9D 10B 11D 12B 13D 14A 15C 16B 17B 18D 19A 20C 21D 22A 23C 24A 25A
+       　　26D 27C 28B 29C 30C 31D 32B 33D 34D
+       社會：1A 2A 3B 4B 5D 6A 7B 8C 9C 10B 11C 12D 13D 14C 15A 16C 17A 18D 19B 20D 21C 22B 23C 24D 25A
+       　　26C 27D 28A 29C 30A 31B 32B 33D 34B 35D 36D 37B 38C 39B 40A 41C 42B 43C 44D 45D 46B 47D 48B
+       　　49A 50D 51A 52A 53D 54D 55C 56C 57B 58D 59C 60D 61C 62B 63B
+       自然：1B 2D 3C 4B 5B 6A 7C 8D 9D 10C 11C 12A 13B 14A 15C 16D 17A 18C 19A 20C 21C 22B 23A 24D 25D
+       　　26A 27A 28D 29B 30B 31D 32A 33B 34A 35A 36B 37C 38D 39C 40C 41B 42D 43C 44B 45B 46A 47A 48B
+       　　49D 50D 51D 52C 53A 54B 55B 56D 57C 58C
+       英語：1D 2C 3A 4D 5B 6C 7A 8C 9D 10C 11C 12B 13B 14A 15B 16C 17B 18C 19D 20C 21B 22B 23D 24A 25A
+       　　26B 27A 28D 29A 30C 31D 32A 33D 34D 35A 36B 37B 38D 39D 40C 41A 42A 43D 44C 45B
      ⚠ 會考／基測的題本在心測中心：https://cap.rcpet.edu.tw/exam/<年>/<年>P_<科>.pdf
        **科名：Chinese／Math／English／Society／`Nature`（自然是 Nature 不是 Science！）**；
        答案本 `<年>P_Answer.pdf`（一份含全部科目，可用 pdftotext -layout 直接讀成對照表）。
