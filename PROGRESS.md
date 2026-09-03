@@ -724,6 +724,18 @@ NEXT_ACTION: 【學測全部完成，會考已收齊，基測進行中：102／1
          ① 題號只收 1～200，否則會把內文裡的「0.」當成第 0 題，害答案對照出現假缺口（112020 醫學二）；
          ② 選項是圖片（化學結構式那種）時 A.～D. 後面是空的，要標成 needfig 另外裁圖，
             不能直接跳過（114020 醫學一第 77 題就是這樣整題不見）。全部 3,800 題裡這種只有個位數。
+     ✅✅ **2026-09-03 v1 已上線：https://tonychuangtw.github.io/kaoguhero/**
+       repo `tonychuangtw/kaoguhero`（本機 clone `~/TelegramClaude/kaoguhero`），
+       純靜態 vanilla JS、GitHub Pages 走 Actions（.github/workflows/pages.yml ＋ .nojekyll），
+       站名已補進 rootsite/404.html 的 MAP。
+       功能：整卷測驗（100 題計分）／無限刷題（依科目或全部混合隨機）／錯題本／弱點統計，
+       進度存 localStorage；ℹ️ 使用說明＋版本紀錄頁（js/versions.js）比照本線其他站。
+       選項是圖片的 6 題（化學結構式、①②③④組合題）已從官方 PDF 裁原圖顯示，仍可作答，
+       裁圖腳本 scratchpad/moex/cropfig2.py（會處理跨頁：本頁到頁底 ＋ 下一頁頁首，用 ffmpeg vstack 接起來）。
+       測試：`node test/test.js`（381 項資料檢查）、`node test/smoke.mjs`（26 項瀏覽器流程，
+       用 chrome-headless-shell 真的點過一遍；找不到 shell 會跳過）。
+       改 js/css 後記得把 index.html 的 `?v=` 換成當天日期（同 K12Review 的快取規矩）。
+     ⏭ **下一步＝補詳解**（目前 3,800 題全部沒有詳解，站上會顯示「本題詳解尚未撰寫」）。
      ⚠ 解析（✅正解＋❌三個誘答各錯在哪＋📚怎麼下手）一律自撰，量很大（每卷 100 題），
        規劃是「先讓題目與答案可以刷」，解析再分批補上。
      —— 以下為 2026-09-01 的原始指示與共識 ——
