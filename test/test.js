@@ -949,7 +949,10 @@ console.log('歷屆學測');
     ok(!seen.has(p.id), `${p.id} 沒有重複`);
     seen.add(p.id);
     // 學測＝<年>-<科>；會考／基測（stage:'senior'）＝<年>-cap-<科>
-    const wantId = p.stage === 'senior' ? (p.year + '-cap-' + p.subj) : (p.year + '-' + p.subj);
+    // 基測 90-100 年一年考兩次，第二次的卷子加 round: 2，id 後面接 -2（例：100-cap-math-2）
+    const wantId = p.stage === 'senior'
+      ? (p.year + '-cap-' + p.subj + (p.round ? '-' + p.round : ''))
+      : (p.year + '-' + p.subj);
     ok(p.id === wantId, `${p.id} id 格式正確（應為 ${wantId}）`);
     if (p.stage === 'senior') ok(!!p.label, `${p.id} 會考／基測卷有 label`);
     const file = path.join(root, 'js/data/exam', p.id + '.js');
