@@ -267,6 +267,63 @@
     t.textContent = s;
     return t;
   }
+  /* SVG 的 <text> 不會自己換行 —— 2026-09-03 Tony 回報：對照實驗卡（compareexp）
+     兩個方塊裡的字太多時，字會畫到框外面，左右兩塊的字疊在一起看不清楚
+     （手機、電腦都一樣，因為 SVG 是等比例縮放的，縮小螢幕不會讓它自己折行）。
+     這裡統一提供「依框寬估算字寬」的換行：全形字（中日韓、全形標點）約一個字級寬，
+     半形字約 0.56 倍（i、l、標點更窄）；英數單字不從中間切斷；標點不落在行首。
+     wrapText() 只回傳斷好的行（給呼叫端先算框要多高），txtWrap() 直接產生一個
+     以 cy 為垂直中心、往上下展開的 <g>。                                     */
+  var WRAP_NO_HEAD = '，。、；：！？）」』〉》,.;:!?)]}';   // 這些字不可以排在行首
+  function chW(ch, fs) {
+    var c = ch.charCodeAt(0);
+    if (c >= 0x2e80) return fs;                       // 全形字約等於一個字級寬
+    return fs * (/[iIlj1.,;:'"!|()\[\]]/.test(ch) ? 0.32 : 0.56);
+  }
+  function wrapText(s, maxW, fs) {
+    s = String(s == null ? '' : s);
+    if (!maxW || maxW <= 0) return s.split('\n');
+    var lines = [], cur = '', w = 0, i = 0;
+    function push() { lines.push(cur); cur = ''; w = 0; }
+    while (i < s.length) {
+      var ch = s.charAt(i), tok;
+      if (ch === '\n') { push(); i++; continue; }
+      if (/[0-9A-Za-z]/.test(ch)) {                   // 英數單字整串一起搬，不切斷
+        tok = '';
+        while (i < s.length && /[0-9A-Za-z.'\u2019-]/.test(s.charAt(i))) { tok += s.charAt(i); i++; }
+      } else { tok = ch; i++; }
+      var tw = 0, k;
+      for (k = 0; k < tok.length; k++) tw += chW(tok.charAt(k), fs);
+      // 標點不落在行首：容許它掛在行尾，但只在超出不多時才掛，免得整行凸出框外
+      var hang = tok.length === 1 && WRAP_NO_HEAD.indexOf(tok) >= 0 && w + tw <= maxW + fs * 0.5;
+      if (cur && w + tw > maxW && !hang) push();
+      cur += tok; w += tw;
+    }
+    if (cur) lines.push(cur);
+    return lines.length ? lines : [''];
+  }
+  function fsOf(style, dflt) {
+    var m = /font-size:\s*([\d.]+)/.exec(style || '');
+    return m ? parseFloat(m[1]) : (dflt || 14);
+  }
+  // cy 是整段文字的垂直中心；lineH 不給就用字級的 1.28 倍
+  function txtWrap(cx, cy, s, style, maxW, lineH) {
+    var fs = fsOf(style, 14);
+    var lines = wrapText(s, maxW, fs);
+    var lh = lineH || Math.round(fs * 1.28);
+    var g = el('g');
+    var y0 = cy - (lines.length - 1) * lh / 2;
+    lines.forEach(function (ln, i) { g.appendChild(txt(cx, y0 + i * lh, ln, style)); });
+    return g;
+  }
+  // 讓一段文字「從 top 開始往下排」（多欄並排時各欄行數不同也能對齊上緣）
+  function txtWrapTop(cx, top, s, style, maxW, lineH) {
+    var fs = fsOf(style, 14);
+    var n = wrapText(s, maxW, fs).length;
+    var lh = lineH || Math.round(fs * 1.28);
+    return txtWrap(cx, top + lh / 2 + (n - 1) * lh / 2, s, style, maxW, lh);
+  }
+
   // 連續調整用滑桿（比 +/− 適合角度、數線這種要「滑過去看變化」的量）
   function slider(min, max, val, step, onInput) {
     var r = document.createElement('input');
@@ -882,20 +939,37 @@
       svg.appendChild(el('line', { x1: 14, y1: 45, x2: 306, y2: 45 }, 'stroke:var(--text);stroke-width:2'));
       var ticks = Math.round((max - min) / stepV);
       var skip = ticks > 20 ? Math.ceil(ticks / 20) : 1;
+      /* 刻度「數字」另外算間隔：3000、3100…這種四位數只隔 28px 就會黏成一團
+         （2026-09-03 Tony 回報字疊在一起），所以依最長的數字寬度決定隔幾格標一次。 */
+      var wide = 0, j;
+      for (j = 0; j <= ticks; j++) {
+        wide = Math.max(wide, String(+(min + j * stepV).toFixed(2)).length);
+      }
+      var need = wide * 7 + 8;                       // 12px 數字一個字約 7px，再留 8px 間距
+      var gapPx = 280 / Math.max(ticks, 1);
+      var lskip = Math.max(skip, Math.ceil(need / Math.max(gapPx, 1)));
       for (var i = 0; i <= ticks; i++) {
         var v = min + i * stepV, x = X(v);
         var major = i % skip === 0;
         svg.appendChild(el('line', { x1: x, y1: 45 - (major ? 7 : 4), x2: x, y2: 45 + (major ? 7 : 4) },
           'stroke:var(--' + (major ? 'text' : 'dim') + ');stroke-width:' + (major ? 2 : 1)));
-        if (major) svg.appendChild(txt(x, 64, String(+v.toFixed(2)), 'font-size:12px;fill:var(--dim)'));
+        // 最後一格一定要標（不然看不出最大值），但要跟前一個標籤留得開
+        var showLab = i % lskip === 0 || (i === ticks && (ticks % lskip) * gapPx >= need);
+        if (major && showLab) {
+          svg.appendChild(txt(x, 64, String(+v.toFixed(2)), 'font-size:12px;fill:var(--dim)'));
+        }
       }
+      /* 標記的名稱與「目前指著的數字」分成上下兩層（2026-09-03 修：
+         兩者本來都畫在 y≈23，值一接近就整個疊在一起看不清楚）。 */
+      var hasVal = spec.edit !== false;
       (spec.marks || []).forEach(function (mk) {
         svg.appendChild(el('circle', { cx: X(mk.v), cy: 45, r: 5 }, 'fill:var(--good)'));
-        if (mk.label) svg.appendChild(txt(X(mk.v), 24, mk.label, 'font-size:13px;fill:var(--good);font-weight:700'));
+        if (mk.label) svg.appendChild(txt(X(mk.v), hasVal ? 32 : 24, mk.label,
+          'font-size:13px;fill:var(--good);font-weight:700'));
       });
-      if (spec.edit !== false) {
+      if (hasVal) {
         svg.appendChild(el('circle', { cx: X(val), cy: 45, r: 8 }, 'fill:var(--accent)'));
-        svg.appendChild(txt(X(val), 22, String(+val.toFixed(2)), 'font-size:14px;fill:var(--accent);font-weight:700'));
+        svg.appendChild(txt(X(val), 14, String(+val.toFixed(2)), 'font-size:14px;fill:var(--accent);font-weight:700'));
         read.textContent = '目前指著：' + (+val.toFixed(2));
       } else { read.textContent = ''; }
     }
@@ -1251,7 +1325,8 @@
           'stroke:var(--' + (k === 1 ? 'dim' : 'text') + ');stroke-width:2'));
         svg.appendChild(txt(X(m[0]), 82, m[1], 'font-size:12px;fill:var(--dim)'));
       });
-      svg.appendChild(txt(X(mid), 34, '中間點', 'font-size:11px;fill:var(--dim)'));
+      // 往下移，免得跟上方那個「目前的數字」疊在一起（2026-09-03 修）
+      svg.appendChild(txt(X(mid), 45, '中間點', 'font-size:11px;fill:var(--dim)'));
       var near = (v - lo) >= unit / 2 ? hi : lo;
       svg.appendChild(el('circle', { cx: X(v), cy: 60, r: 7 }, 'fill:var(--accent)'));
       svg.appendChild(txt(X(v), 22, String(v), 'font-size:14px;fill:var(--accent);font-weight:700'));
@@ -2157,7 +2232,9 @@
     box.appendChild(read);
     // 磚的寬度依數量自動縮放，展開成 6x+3 時才不會衝出畫布右邊
     function tiles(nx, nc, y, label) {
-      svg.appendChild(txt(20, y + 5, label, 'fill:var(--dim);font-size:12px'));
+      // 靠左對齊：'3x ＋ 5' 這種比較長的算式置中在 x=20 會被畫布左緣切掉（2026-09-03 修）
+      svg.appendChild(txt(6, y + 5, label,
+        'fill:var(--dim);font-size:12px;text-anchor:start'));
       var x0 = 70, right = 314, avail = right - x0;
       var need = nx * 39 + (nx ? 8 : 0) + nc * 24;
       var k = need > avail ? avail / need : 1;
@@ -2528,15 +2605,32 @@
     var B = spec.b || { label: '乙：有水沒空氣', note: '不生鏽' };
     var same = spec.same || ['鐵釘一樣', '水量一樣', '放同樣久'];
     var box = div('wg');
-    var svg = el('svg', { viewBox: '0 0 320 160', class: 'wg-svg' });
-    [[16, A, 'accent'], [168, B, 'good']].forEach(function (col) {
-      svg.appendChild(el('rect', { x: col[0], y: 18, width: 136, height: 96, rx: 10,
-        'fill-opacity': '.16' }, 'fill:var(--' + col[2] + ');stroke:var(--' + col[2] + ');stroke-width:2'));
-      svg.appendChild(txt(col[0] + 68, 44, col[1].label, 'font-size:11px;font-weight:700'));
-      svg.appendChild(txt(col[0] + 68, 82, col[1].note, 'font-size:13px;fill:var(--' + col[2] + ')'));
+    /* 兩個方塊的字一律先斷行再畫，框高由「行數最多的那一欄」決定，兩框等高才整齊
+       （2026-09-03 修：原本一行到底，字多就會畫出框外、左右疊在一起）。 */
+    var COLS = [[16, A, 'accent'], [168, B, 'good']];
+    var BW = 136, INNER = BW - 24;
+    var LS = 'font-size:11px;font-weight:700', LH1 = 14, LH2 = 15, FS2 = 12;
+    var TOP = 18, PADY = 10, GAP = 8;
+    var maxL = 1, maxN = 1;
+    COLS.forEach(function (c) {
+      maxL = Math.max(maxL, wrapText(c[1].label, INNER, 11).length);
+      maxN = Math.max(maxN, wrapText(c[1].note, INNER, FS2).length);
     });
-    svg.appendChild(txt(160, 134, '其他條件全部相同：' + same.join('、'),
-      'font-size:10px;fill:var(--dim)'));
+    var boxH = Math.max(96, PADY * 2 + maxL * LH1 + GAP + maxN * LH2);
+    var sameStr = '其他條件全部相同：' + same.join('、');
+    var sameLines = wrapText(sameStr, 300, 10);
+    var sameTop = TOP + boxH + 12;
+    var svg = el('svg', { viewBox: '0 0 320 ' + (sameTop + sameLines.length * 13 + 6),
+      class: 'wg-svg' });
+    COLS.forEach(function (col) {
+      svg.appendChild(el('rect', { x: col[0], y: TOP, width: BW, height: boxH, rx: 10,
+        'fill-opacity': '.16' }, 'fill:var(--' + col[2] + ');stroke:var(--' + col[2] + ');stroke-width:2'));
+      var cx = col[0] + BW / 2;
+      svg.appendChild(txtWrapTop(cx, TOP + PADY, col[1].label, LS, INNER, LH1));
+      svg.appendChild(txtWrapTop(cx, TOP + PADY + maxL * LH1 + GAP, col[1].note,
+        'font-size:' + FS2 + 'px;fill:var(--' + col[2] + ')', INNER, LH2));
+    });
+    svg.appendChild(txtWrapTop(160, sameTop, sameStr, 'font-size:10px;fill:var(--dim)', 300, 13));
     box.appendChild(svg);
     box.appendChild(div('wg-read-main', '只改變一個條件：' + (spec.factor || '有沒有空氣')));
     box.appendChild(div('wg-read-sub',
@@ -3603,18 +3697,27 @@
   REG.energyflow = function (host, spec) {
     var steps = spec.steps || ['電能', '光能 ＋ 熱能'];
     var box = div('wg');
-    var svg = el('svg', { viewBox: '0 0 320 120', class: 'wg-svg' });
     var w = 300 / steps.length;
+    /* 每一格的字先斷行，框高由行數最多的那一格決定（2026-09-03 修：原本一行到底，
+       「光能 ＋ 熱能」這種長標籤會凸出框外、跟隔壁格疊在一起）。 */
+    var INNER = Math.max(w - 30, 26), FS = 11, LH = 14, TOP = 30;
+    var maxLines = 1;
+    steps.forEach(function (t) { maxLines = Math.max(maxLines, wrapText(t, INNER, FS).length); });
+    var boxH = Math.max(46, 12 + maxLines * LH + 12);
+    var noteStr = spec.note || '能量會轉換形式，但總量不會憑空增減';
+    var noteLines = wrapText(noteStr, 300, 11);
+    var noteTop = TOP + boxH + 12;
+    var svg = el('svg', { viewBox: '0 0 320 ' + (noteTop + noteLines.length * 14 + 6),
+      class: 'wg-svg' });
     steps.forEach(function (s, i) {
       var x = 10 + i * w;
-      svg.appendChild(el('rect', { x: x + 4, y: 36, width: w - 14, height: 46, rx: 10,
-        'fill-opacity': '.2' }, 'fill:var(--' + (i === 0 ? 'good' : i === steps.length - 1 ? 'bad' : 'accent') +
-        ');stroke:var(--' + (i === 0 ? 'good' : i === steps.length - 1 ? 'bad' : 'accent') + ');stroke-width:2'));
-      svg.appendChild(txt(x + w / 2 - 3, 59, s, 'font-size:11px'));
-      if (i) svg.appendChild(txt(x, 59, '→', 'font-size:14px;fill:var(--dim)'));
+      var c = i === 0 ? 'good' : i === steps.length - 1 ? 'bad' : 'accent';
+      svg.appendChild(el('rect', { x: x + 4, y: TOP, width: w - 14, height: boxH, rx: 10,
+        'fill-opacity': '.2' }, 'fill:var(--' + c + ');stroke:var(--' + c + ');stroke-width:2'));
+      svg.appendChild(txtWrap(x + w / 2 - 3, TOP + boxH / 2, s, 'font-size:' + FS + 'px', INNER, LH));
+      if (i) svg.appendChild(txt(x, TOP + boxH / 2, '→', 'font-size:14px;fill:var(--dim)'));
     });
-    svg.appendChild(txt(160, 104, spec.note || '能量會轉換形式，但總量不會憑空增減',
-      'font-size:11px;fill:var(--dim)'));
+    svg.appendChild(txtWrapTop(160, noteTop, noteStr, 'font-size:11px;fill:var(--dim)', 300, 14));
     box.appendChild(svg);
     box.appendChild(div('wg-read-main', steps.join(' → ')));
     box.appendChild(div('wg-read-sub',
@@ -3797,7 +3900,8 @@
         'fill:var(--text)'));
       svg.appendChild(el('rect', { x: px - 2.5, y: 46, width: 5, height: 30, rx: 2 },
         'fill:none;stroke:var(--text);stroke-width:2'));
-      svg.appendChild(txt(px, 24, 'pH ' + v, 'font-size:12px;font-weight:700'));
+      // 往上移，免得壓到下面那排「← 酸性　中性　鹼性 →」（2026-09-03 修）
+      svg.appendChild(txt(px, 14, 'pH ' + v, 'font-size:12px;font-weight:700'));
       var kind = v < 7 ? '酸性' : (v > 7 ? '鹼性' : '中性');
       var near = nearest(v);
       read.appendChild(div('wg-read-main', 'pH ' + v + '：' + kind +
@@ -4143,11 +4247,19 @@
       svg.appendChild(el('line', { x1: cx, y1: 14, x2: cx, y2: 220 }, 'stroke:var(--dim);stroke-width:1.5'));
       svg.appendChild(txt(302, cy - 12, '實軸', 'font-size:10px;fill:var(--dim)'));
       svg.appendChild(txt(cx + 26, 20, '虛軸', 'font-size:10px;fill:var(--dim)'));
+      /* 兩個複數可能剛好是同一個點（例如 i × i），這時標籤要上下錯開，
+         不然兩段字會完全疊在一起（2026-09-03 修）。 */
+      var placed = [];
       function dot(a, b, color, label) {
-        svg.appendChild(el('line', { x1: cx, y1: cy, x2: X(a), y2: Y(b) },
+        var px = X(a), py = Y(b), off = 0;
+        placed.forEach(function (q) {
+          if (Math.abs(q[0] - px) < 10 && Math.abs(q[1] - py) < 10) off += 16;
+        });
+        placed.push([px, py]);
+        svg.appendChild(el('line', { x1: cx, y1: cy, x2: px, y2: py },
           'stroke:var(--' + color + ');stroke-width:2.5'));
-        svg.appendChild(el('circle', { cx: X(a), cy: Y(b), r: 5 }, 'fill:var(--' + color + ')'));
-        svg.appendChild(txt(X(a) + 36, Y(b) - 12, label,
+        svg.appendChild(el('circle', { cx: px, cy: py, r: 5 }, 'fill:var(--' + color + ')'));
+        svg.appendChild(txt(px + 36, py - 12 + off, label,
           'font-size:11px;font-weight:700;fill:var(--' + color + ')'));
       }
       if (mode === 'mult') {
@@ -4656,7 +4768,8 @@
               'fill:var(--' + (gi === gs.length - 1 ? 'good' : 'accent') + ')'));
           }
         });
-        svg.appendChild(txt(16, y2, g.label, 'font-size:10px;fill:var(--dim)'));
+        // 靠左對齊：'蛋糕或派' 這種長一點的名稱置中在 x=16 會被畫布左緣切掉（2026-09-03 修）
+        svg.appendChild(txt(4, y2, g.label, 'font-size:10px;fill:var(--dim);text-anchor:start'));
         xs.push(next);
       });
       box.appendChild(svg);
@@ -5452,7 +5565,9 @@
           ');stroke-width:2.5'));
         svg.appendChild(txt(ox + 1.5 * u * s, oy + 14, (3 * s).toFixed(s === 1 ? 0 : 1),
           'font-size:11px;fill:var(--dim)'));
-        svg.appendChild(txt(ox - 14, oy - u * s, name, 'font-size:11px;fill:var(--dim)'));
+        // 靠右對齊：置中放在 ox-14 時，左邊那個三角形的名稱會被畫布左緣切掉（2026-09-03 修）
+        svg.appendChild(txt(Math.max(ox - 8, 34), oy - u * s, name,
+          'font-size:11px;fill:var(--dim);text-anchor:end'));
       }
       draw(24, 150, 1, 'accent', '△ABC');
       draw(150, 150, big, 'good', '△DEF');
@@ -5752,8 +5867,11 @@
       svg.appendChild(txt(g.X(h) + 30, g.T + 12, 'x ＝ ' + h, 'font-size:11px;fill:var(--dim)'));
       if (k >= lo && k <= hi) {
         svg.appendChild(el('circle', { cx: g.X(h), cy: g.Y(k), r: 6 }, 'fill:var(--bad)'));
-        svg.appendChild(txt(g.X(h) + 36, g.Y(k) + (a > 0 ? 16 : -16), '(' + h + ', ' + k + ')',
-          'font-size:12px;font-weight:700;fill:var(--bad)'));
+        /* 頂點剛好落在 x 軸上時，往下 16px 正好壓到刻度數字那一排，所以多讓 12px
+           （2026-09-03 修）。 */
+        var near0 = Math.abs(g.Y(k) - g.Y(0)) < 14;
+        svg.appendChild(txt(g.X(h) + 36, g.Y(k) + (a > 0 ? (near0 ? 30 : 16) : (near0 ? -26 : -16)),
+          '(' + h + ', ' + k + ')', 'font-size:12px;font-weight:700;fill:var(--bad)'));
       }
       read.appendChild(div('wg-read-main',
         'y ＝ ' + (a === 1 ? '' : a === -1 ? '−' : a) + '(x ' + (h >= 0 ? '− ' + h : '＋ ' + (-h)) + ')²' +
@@ -5990,7 +6108,7 @@
       while (svg.firstChild) svg.removeChild(svg.firstChild);
       read.innerHTML = '';
       var k = K[kind], isR = kind === 'RHS';
-      [10, 180].forEach(function (ox, t) {
+      [24, 188].forEach(function (ox, t) {
         var p = tri(ox, isR);
         svg.appendChild(el('polygon', { points: p.map(function (q) { return q.join(','); }).join(' ') },
           'fill:color-mix(in srgb, var(--accent) 14%, transparent);stroke:var(--accent);stroke-width:2'));
@@ -6012,9 +6130,11 @@
         });
         if (isR) svg.appendChild(el('rect', { x: p[0][0], y: p[0][1] - 12, width: 12, height: 12 },
           'fill:none;stroke:var(--dim);stroke-width:1.5'));
-        svg.appendChild(txt(ox + 50, 142, t ? '△DEF' : '△ABC', 'font-size:11px;fill:var(--dim)'));
+        // 往下移，讓開底邊上的等邊記號（2026-09-03 修）
+        svg.appendChild(txt(ox + 50, 152, t ? '△DEF' : '△ABC', 'font-size:11px;fill:var(--dim)'));
       });
-      svg.appendChild(txt(160, 80, '≅', 'font-size:20px;fill:var(--text)'));
+      // 放在兩個三角形正中間，免得壓到右邊三角形左斜邊上的記號（2026-09-03 修）
+      svg.appendChild(txt(150, 80, '≅', 'font-size:20px;fill:var(--text)'));
       read.appendChild(div('wg-read-main', k.name));
       read.appendChild(div('wg-read-sub', k.desc));
     }
@@ -6372,10 +6492,16 @@
         'stroke:var(--border);stroke-width:1'));
     }
     if (opt && opt.quad !== false) {                        // 象限名稱（淡淡的當背景）
-      var qs = [['第一象限', hi * 0.55, hi * 0.8], ['第二象限', lo * 0.55, hi * 0.8],
-                ['第三象限', lo * 0.55, lo * 0.8], ['第四象限', hi * 0.55, lo * 0.8]];
+      /* 2026-09-03 修：原本放在象限中央，圖上的點也常落在那裡，兩段字會疊在一起。
+         改成貼到各象限的外側角落；象限太窄放不下（48px 寬的字）就乾脆不畫。 */
+      var xr = R - X(0), xl = X(0) - L, yu = Y(0) - T, yd = B - Y(0);
+      var qs = [['第一象限', X(0) + xr * 0.72, T + 14, xr, yu],
+                ['第二象限', X(0) - xl * 0.72, T + 14, xl, yu],
+                ['第三象限', X(0) - xl * 0.72, B - 14, xl, yd],
+                ['第四象限', X(0) + xr * 0.72, B - 14, xr, yd]];
       qs.forEach(function (q) {
-        svg.appendChild(txt(X(q[1]), Y(q[2]), q[0], 'font-size:12px;fill:var(--dim);opacity:.65'));
+        if (q[3] < 58 || q[4] < 26) return;               // 這個象限太窄／太扁，放不下
+        svg.appendChild(txt(q[1], q[2], q[0], 'font-size:12px;fill:var(--dim);opacity:.65'));
       });
     }
     svg.appendChild(el('line', { x1: L, y1: Y(0), x2: R, y2: Y(0) },      // x 軸
@@ -6384,11 +6510,14 @@
       'stroke:var(--text);stroke-width:2'));
     svg.appendChild(txt(R + 12, Y(0), 'x', 'font-size:13px;fill:var(--dim);font-style:italic'));
     svg.appendChild(txt(X(0), T - 10, 'y', 'font-size:13px;fill:var(--dim);font-style:italic'));
-    svg.appendChild(txt(X(0) - 10, Y(0) + 12, '0', 'font-size:11px;fill:var(--dim)'));
+    svg.appendChild(txt(X(0) - 11, Y(0) + 13, '0', 'font-size:11px;fill:var(--dim)'));
+    // 格子太小時隔一個標一次，免得刻度數字（尤其是負號）互相黏住（2026-09-03 修）
+    var pitch = (R - L) / Math.max(hi - lo, 1);
+    var tskip = pitch < 24 ? 2 : 1;
     for (i = Math.ceil(lo); i <= hi; i++) {                 // 刻度數字
-      if (i === 0) continue;
-      svg.appendChild(txt(X(i), Y(0) + 12, String(i), 'font-size:10px;fill:var(--dim)'));
-      svg.appendChild(txt(X(0) - 12, Y(i), String(i), 'font-size:10px;fill:var(--dim)'));
+      if (i === 0 || (tskip > 1 && i % tskip !== 0)) continue;
+      svg.appendChild(txt(X(i), Y(0) + 13, String(i), 'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txt(X(0) - 13, Y(i), String(i), 'font-size:10px;fill:var(--dim)'));
     }
     return { X: X, Y: Y, L: L, R: R, T: T, B: B };
   }
@@ -6489,7 +6618,11 @@
       if (xi != null && xi >= lo && xi <= hi) {
         svg.appendChild(el('circle', { cx: g.X(xi), cy: g.Y(0), r: 6 }, 'fill:var(--bad)'));
         // 標在軸的下方（刻度數字再往下一點），才不會和 (0, b) 的標籤疊在一起
-        svg.appendChild(txt(g.X(xi), g.Y(0) + 26, '(' + (+xi.toFixed(2)) + ', 0)',
+        /* 標在軸的下方，並且往交點的另一側挪開，免得壓到 y 軸上的刻度數字
+           （2026-09-03 修：交點靠近原點時，標籤會和 y 軸的「-1」疊在一起）。 */
+        var lx = g.X(xi) + (xi <= 0 ? -46 : 46);   // 往遠離 y 軸的那一側挪
+        lx = Math.min(Math.max(lx, 40), 280);
+        svg.appendChild(txt(lx, g.Y(0) + 26, '(' + (+xi.toFixed(2)) + ', 0)',
           'font-size:12px;font-weight:700;fill:var(--bad)'));
       }
       read.innerHTML = '';
@@ -6706,25 +6839,40 @@
     box.appendChild(svg);
     var read = div('wg-read');
     box.appendChild(read);
+    /* 每一格的字先斷行再畫，框高由行數最多的那一格決定（2026-09-03 修：
+       原本只縮字級不折行，字一多就會凸出框外、跟隔壁格疊在一起）。 */
+    var LW = 300 / n, LIN = Math.max(LW - 22, 24);
+    var LFS = n > 5 ? 9 : 11, LLH = LFS + 3, SFS = 8, SLH = 10, LTOP = 46;
+    var maxT = 1, maxS = 0;
+    items.forEach(function (it) {
+      maxT = Math.max(maxT, wrapText(it.t, LIN, LFS).length);
+      if (it.sub) maxS = Math.max(maxS, wrapText(it.sub, LIN, SFS).length);
+    });
+    var lBoxH = Math.max(46, 9 + maxT * LLH + (maxS ? 3 + maxS * SLH : 0) + 9);
+    var noteStr0 = spec.note || '由左往右，一層一層推下去';
+    var noteN = wrapText(noteStr0, 300, 10).length;
+    var noteTop0 = LTOP + lBoxH + 12;
+    svg.setAttribute('viewBox', '0 0 320 ' + (noteTop0 + noteN * 13 + 6));
     function paint() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
       read.innerHTML = '';
-      var w = 300 / n;
+      var w = LW;
       items.forEach(function (it, i) {
         var x = 10 + i * w, on = i <= idx;
         var g = el('g', { style: 'cursor:pointer' });
-        g.appendChild(el('rect', { x: x + 3, y: 46, width: w - 10, height: 46, rx: 8,
+        g.appendChild(el('rect', { x: x + 3, y: LTOP, width: w - 10, height: lBoxH, rx: 8,
           'fill-opacity': on ? '.22' : '.05' },
           'fill:var(--accent);stroke:var(--' + (on ? 'accent' : 'border') + ');stroke-width:2'));
-        var fs = n > 5 ? 9 : (it.t.length > 5 ? 9 : 11);
-        g.appendChild(txt(x + w / 2, it.sub ? 62 : 72, it.t, 'font-size:' + fs + 'px;font-weight:700'));
-        if (it.sub) g.appendChild(txt(x + w / 2, 80, it.sub, 'font-size:8px;fill:var(--dim)'));
+        g.appendChild(txtWrapTop(x + w / 2, LTOP + 9, it.t,
+          'font-size:' + LFS + 'px;font-weight:700', LIN, LLH));
+        if (it.sub) g.appendChild(txtWrapTop(x + w / 2, LTOP + 9 + maxT * LLH + 3, it.sub,
+          'font-size:' + SFS + 'px;fill:var(--dim)', LIN, SLH));
         g.addEventListener('click', function () { idx = i; paint(); });
         svg.appendChild(g);
-        if (i) svg.appendChild(txt(x, 70, n > 5 ? '›' : '→', 'font-size:13px;fill:var(--dim)'));
+        if (i) svg.appendChild(txt(x, LTOP + lBoxH / 2, n > 5 ? '›' : '→',
+          'font-size:13px;fill:var(--dim)'));
       });
-      svg.appendChild(txt(160, 122, spec.note || '由左往右，一層一層推下去',
-        'font-size:10px;fill:var(--dim)'));
+      svg.appendChild(txtWrapTop(160, noteTop0, noteStr0, 'font-size:10px;fill:var(--dim)', 300, 13));
       var cur = items[Math.min(idx, n - 1)];
       read.appendChild(div('wg-read-main', cur.t + (cur.d ? '：' + cur.d : '')));
       read.appendChild(div('wg-read-sub', spec.sub || ''));
@@ -7113,7 +7261,15 @@
     box.appendChild(svg);
     var read = div('wg-read');
     box.appendChild(read);
-    var CX = 160, CY = 102, R = 74, RIN = 40;
+    /* 節點名稱先斷行，框高跟著長；框變高就把圓半徑與畫布一起放大，
+       免得上下兩個節點疊在一起（2026-09-03 修，原本只縮字級不折行）。 */
+    var CIN = 80, CFS = 9.5, CLH = 12, cml = 1;
+    steps.forEach(function (t, i) {
+      cml = Math.max(cml, wrapText((i + 1) + '. ' + t, CIN, CFS).length);
+    });
+    var nodeH = Math.max(28, 6 + cml * CLH + 6), grow = nodeH - 28;
+    var CX = 160, CY = 102 + grow / 2, R = 74 + grow * 0.55, RIN = 40;
+    svg.setAttribute('viewBox', '0 0 320 ' + (210 + grow * 2));
     function paint() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
       read.innerHTML = '';
@@ -7133,13 +7289,12 @@
         var x = CX + Math.cos(th) * R, y = CY + Math.sin(th) * R;
         var on = i === idx;
         var g = el('g', { style: 'cursor:pointer' });
-        g.appendChild(el('rect', { x: x - 46, y: y - 14, width: 92, height: 28, rx: 8,
+        g.appendChild(el('rect', { x: x - 46, y: y - nodeH / 2, width: 92, height: nodeH, rx: 8,
           'fill-opacity': on ? '.28' : '.12' },
           'fill:var(--' + (on ? 'accent' : 'good') + ');stroke:var(--' + (on ? 'accent' : 'good') +
           ');stroke-width:2'));
-        g.appendChild(txt(x, y + 4, (i + 1) + '. ' + t,
-          'font-size:' + (t.length > 9 ? 7.5 : t.length > 6 ? 8.5 : 9.5) +
-          'px;font-weight:' + (on ? 700 : 400)));
+        g.appendChild(txtWrap(x, y, (i + 1) + '. ' + t,
+          'font-size:' + CFS + 'px;font-weight:' + (on ? 700 : 400), CIN, CLH));
         g.addEventListener('click', function () { idx = i; paint(); });
         svg.appendChild(g);
       });
@@ -8428,16 +8583,22 @@
       svg.appendChild(txt(160, 32, root, 'font-size:12px;font-weight:700'));
       var n = Math.max(N.length, 1), w = Math.min(300 / n, 74);
       var x0 = 160 - n * w / 2;
+      /* 節點名稱先斷行，框高跟著長（2026-09-03 修：原本一行到底，長名稱會凸出框外） */
+      var nfs = w < 60 ? 9 : 11, nin = Math.max(w - 18, 22), nl = 1;
+      N.forEach(function (nd) { nl = Math.max(nl, wrapText(nd.t, nin, nfs).length); });
+      var nodeH = Math.max(34, 8 + nl * (nfs + 3) + 8);
+      svg.setAttribute('viewBox', '0 0 320 ' + (80 + nodeH + 34));
       N.forEach(function (nd, i) {
         var x = x0 + i * w, on = i === idx;
         svg.appendChild(el('line', { x1: 160, y1: 48, x2: x + w / 2, y2: 80 },
           'stroke:var(--dim);stroke-width:1.5'));
-        svg.appendChild(el('rect', { x: x + 3, y: 80, width: w - 6, height: 34, rx: 6,
+        svg.appendChild(el('rect', { x: x + 3, y: 80, width: w - 6, height: nodeH, rx: 6,
           'fill-opacity': on ? '.3' : '.12' },
           'fill:var(--accent);stroke:var(--' + (on ? 'accent' : 'border') + ');stroke-width:2'));
-        svg.appendChild(txt(x + w / 2, 97, nd.t, 'font-size:' + (w < 60 ? 9 : 11) + 'px'));
+        svg.appendChild(txtWrap(x + w / 2, 80 + nodeH / 2, nd.t,
+          'font-size:' + nfs + 'px', nin, nfs + 3));
       });
-      svg.appendChild(txt(160, 140, idx < 0 ? '按下面的按鈕看每一個的職掌' : '',
+      svg.appendChild(txt(160, 80 + nodeH + 20, idx < 0 ? '按下面的按鈕看每一個的職掌' : '',
         'font-size:10px;fill:var(--dim)'));
       if (idx >= 0 && N[idx]) {
         read.appendChild(div('wg-read-main', N[idx].t));
@@ -8613,8 +8774,19 @@
         IR = { x: BX + (BW - spec.iw * s0) / 2, y: BY + (BH - spec.ih * s0) / 2,
           w: spec.iw * s0, h: spec.ih * s0 };
       }
-      items.forEach(function (it, i) {
-        /* 有底圖時 x/y 就是「底圖上的百分比位置」（左上角 0,0）；沒底圖時沿用原本內縮 12px 的排法 */
+      /* 先把圓點畫好並記下它們占的位置，再放地名 —— 遺址密集的地方（北海岸的
+         十三行、圓山、大坌坑）名字本來會整個疊在一起（2026-09-03 Tony 回報）。
+         放地名時依序試「上、下、右上、左上、右下、左下」，挑第一個不撞到別人的位置。 */
+      var taken = [];
+      function hit(b) {
+        for (var q = 0; q < taken.length; q++) {
+          var o = taken[q];
+          if (Math.abs(o.x - b.x) * 2 < o.w + b.w - 2 &&
+              Math.abs(o.y - b.y) * 2 < o.h + b.h - 2) return true;
+        }
+        return false;
+      }
+      var pins = items.map(function (it, i) {
         var px = (it.x == null ? 50 : it.x) / 100, py = (it.y == null ? 50 : it.y) / 100;
         var x = imgOk ? IR.x + px * IR.w : BX + 12 + px * (BW - 24);
         var y = imgOk ? IR.y + py * IR.h : BY + 12 + py * (BH - 24);
@@ -8625,17 +8797,33 @@
         if (imgOk) {
           mark.appendChild(txt(x, y + 3, String(i + 1),
             'font-size:8px;font-weight:700;fill:#fff'));
+          taken.push({ x: x, y: y + 1, w: 11, h: 11 });
         }
-        // 靠近圖框上緣時把名字放到圓點下面，不然會被裁掉或壓到標題
-        var ly = (y - (on ? 15 : 12) < BY + 24) ? y + (on ? 19 : 17) : y - (on ? 15 : 12);
-        var lab = txt(x, ly, it.t,
-          'font-size:' + (on ? 11 : 10) + 'px;font-weight:' + (on ? 700 : 600) +
-          (imgOk ? ';fill:#fff;stroke:#1b1b1b;stroke-width:2.6;paint-order:stroke'
-                 : ';fill:var(--' + (on ? 'accent' : 'dim') + ')'));
-        mark.appendChild(lab);
         mark.addEventListener('click', function () { idx = i; paint(); });
         svg.appendChild(mark);
+        return { it: it, i: i, x: x, y: y, on: on, g: mark };
       });
+      // 選中的那個先挑位置（它最需要看得清楚）
+      pins.slice().sort(function (a, b) { return (b.on ? 1 : 0) - (a.on ? 1 : 0); })
+        .forEach(function (pn) {
+          var on = pn.on, fs = on ? 11 : 10;
+          var w = pn.it.t.length * fs + 4, h = fs + 3;
+          var dy = on ? 15 : 12, dyD = on ? 19 : 17;
+          var CAND = [[0, -dy], [0, dyD], [w / 2 + 8, -dy], [-w / 2 - 8, -dy],
+                      [w / 2 + 8, dyD], [-w / 2 - 8, dyD], [0, -dy - 14], [0, dyD + 14]];
+          var lx = pn.x, ly = pn.y - dy, k;
+          for (k = 0; k < CAND.length; k++) {
+            var cxx = pn.x + CAND[k][0], cyy = pn.y + CAND[k][1];
+            if (cyy - h / 2 < BY + 14 || cyy + h / 2 > BY + BH - 2) continue;
+            if (cxx - w / 2 < BX + 2 || cxx + w / 2 > BX + BW - 2) continue;
+            if (!hit({ x: cxx, y: cyy, w: w, h: h })) { lx = cxx; ly = cyy; break; }
+          }
+          taken.push({ x: lx, y: ly, w: w, h: h });
+          pn.g.appendChild(txt(lx, ly, pn.it.t,
+            'font-size:' + fs + 'px;font-weight:' + (on ? 700 : 600) +
+            (imgOk ? ';fill:#fff;stroke:#1b1b1b;stroke-width:2.6;paint-order:stroke'
+                   : ';fill:var(--' + (on ? 'accent' : 'dim') + ')')));
+        });
       var cur = items[idx] || { t: '', d: '' };
       read.appendChild(div('wg-read-main', cur.t));
       read.appendChild(div('wg-read-sub', cur.d || ''));
@@ -8875,7 +9063,8 @@
         var y = base - (i + 1) * 28;
         svg.appendChild(el('line', { x1: 182, y1: y, x2: 306, y2: y },
           'stroke:#6b4f33;stroke-width:1;stroke-dasharray:3 3;opacity:.7'));
-        svg.appendChild(txt(316, y - 2, h + 'm', 'font-size:7px;fill:var(--dim)'));
+        // 靠右對齊：置中在 x=316 時 '400m' 會有一半被畫布右緣切掉（2026-09-03 修）
+        svg.appendChild(txt(318, y - 2, h + 'm', 'font-size:7px;fill:var(--dim);text-anchor:end'));
       });
       svg.appendChild(txt(206, 176, '緩', 'font-size:10px;font-weight:700;fill:#2f6fd0'));
       svg.appendChild(txt(292, 176, '陡', 'font-size:10px;font-weight:700;fill:#d94f3d'));
@@ -9748,7 +9937,8 @@
         if (p === 7) svg.appendChild(el('line', { x1: X0, y1: gy(7), x2: X0 + W, y2: gy(7) },
           'stroke:var(--dim);stroke-width:1;stroke-dasharray:4 4'));
       });
-      svg.appendChild(txt(22, Y0 - H + 4, 'pH', 'font-size:11px;fill:var(--dim)'));
+      // 往上移，免得壓到 y 軸最上面的刻度 14（2026-09-03 修）
+      svg.appendChild(txt(22, Y0 - H - 18, 'pH', 'font-size:11px;fill:var(--dim)'));
       svg.appendChild(txt(160, 188, '加入的鹼量', 'font-size:11px;fill:var(--dim)'));
       var d = '', st;
       for (st = 0; st <= 60; st++) {
@@ -10035,7 +10225,9 @@
       // 活化能：從反應物那一端量到山頭
       svg.appendChild(el('line', { x1: 164, y1: hy(yR), x2: 164, y2: hy(yR + peak) },
         'stroke:var(--bad);stroke-width:2'));
-      svg.appendChild(txt(196, hy(yR + peak / 2), '活化能', 'font-size:11px;fill:var(--bad)'));
+      // 夾住上緣，免得山頭很高時撞到最上面那行標題（2026-09-03 修）
+      svg.appendChild(txt(196, Math.max(hy(yR + peak / 2), 44), '活化能',
+        'font-size:11px;fill:var(--bad)'));
       svg.appendChild(txt(X0 + 26, hy(yR) + 16, '反應物', 'font-size:11px;fill:var(--fg)'));
       svg.appendChild(txt(X1 - 30, hy(yP) + 16, '產物', 'font-size:11px;fill:var(--fg)'));
       svg.appendChild(txt(160, 20,
@@ -10292,7 +10484,9 @@
         cell(244, 124, 18, 1, '');
         cell(292, 60, 18, 1, '');
         cell(292, 124, 18, 1, '');
-        svg.appendChild(txt(268, 158, '4 個 n（染色體減半）', 'font-size:11px;fill:var(--good)'));
+        // 靠右對齊，免得被畫布右緣切掉（2026-09-03 修）
+        svg.appendChild(txt(316, 158, '4 個 n（染色體減半）',
+          'font-size:11px;fill:var(--good);text-anchor:end'));
         svg.appendChild(txt(160, 186, '分裂兩次、只複製一次 → 染色體數減半，而且每個都不一樣',
           'font-size:11px;fill:var(--dim)'));
       } else {
@@ -10300,7 +10494,8 @@
         arrow(196, 226, 92);
         cell(258, 60, 24, 4, '');
         cell(258, 132, 24, 4, '');
-        svg.appendChild(txt(258, 172, '2 個 2n（一模一樣）', 'font-size:11px;fill:var(--good)'));
+        svg.appendChild(txt(316, 172, '2 個 2n（一模一樣）',
+          'font-size:11px;fill:var(--good);text-anchor:end'));
         svg.appendChild(txt(160, 196, '複製一次、分裂一次 → 染色體數不變，兩個子細胞完全相同',
           'font-size:11px;fill:var(--dim)'));
       }
@@ -10682,14 +10877,14 @@
   REG.courtlevel = function (host, spec) {
     var kind = 0;                                        // 0 刑事 1 民事
     var box = div('wg');
-    var svg = el('svg', { viewBox: '0 0 320 210', class: 'wg-svg' });
+    var svg = el('svg', { viewBox: '0 0 320 218', class: 'wg-svg' });
     box.appendChild(svg);
     var read = div('wg-read');
     box.appendChild(read);
     var TIER = [
-      { n: '最高法院', s: '第三審　法律審', y: 30 },
-      { n: '高等法院', s: '第二審　事實審', y: 90 },
-      { n: '地方法院', s: '第一審　事實審', y: 150 }
+      { n: '最高法院', s: '第三審　法律審', y: 42 },
+      { n: '高等法院', s: '第二審　事實審', y: 100 },
+      { n: '地方法院', s: '第一審　事實審', y: 158 }
     ];
     function paint() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
@@ -10701,7 +10896,7 @@
         svg.appendChild(txt(160, t.y + 10, t.s, 'font-size:10px;fill:var(--dim)'));
       });
       // 上訴箭頭：由下往上
-      [[150, 90], [90, 30]].forEach(function (p) {
+      [[TIER[2].y, TIER[1].y], [TIER[1].y, TIER[0].y]].forEach(function (p) {
         svg.appendChild(el('line', { x1: 262, y1: p[0] - 18, x2: 262, y2: p[1] + 22 },
           'stroke:var(--good);stroke-width:2.5'));
         svg.appendChild(el('polygon',
@@ -10710,7 +10905,7 @@
         svg.appendChild(txt(288, (p[0] + p[1]) / 2, '上訴', 'font-size:10px;fill:var(--good)'));
       });
       var who = kind === 0 ? '檢察官起訴被告' : '原告告被告';
-      svg.appendChild(txt(160, 190, '起點：' + who + '，從地方法院開始',
+      svg.appendChild(txt(160, 200, '起點：' + who + '，從地方法院開始',
         'font-size:11px;fill:var(--text)'));
       svg.appendChild(txt(160, 14, kind === 0 ? '刑事訴訟' : '民事訴訟',
         'font-size:13px;font-weight:700;fill:var(--text)'));
@@ -10810,13 +11005,34 @@
     if (hi <= lo) hi = lo + 100;
     var sel = -1;
     var box = div('wg');
-    var H = 46 + rows.length * 40;
+    var X0 = 52, X1 = 308;
+    function bx(y) { return X0 + (X1 - X0) * (y - lo) / (hi - lo); }
+    /* 2026-09-03 修：同一條線上的時期可能在時間上重疊（例如歐洲的「文藝復興」
+       1400–1600 與「大航海」1450–1650），本來會畫成兩塊疊在一起、字也糊成一團。
+       這裡先做「軌道分配」：重疊的排到下一條軌道；同時把超出年代範圍的長條
+       夾在畫布內，免得像「明」那樣被畫布左緣切掉。 */
+    var LANE = 24, LGAP = 3, ROWGAP = 12;
+    var rowTop = [], top = 26;
+    rows.forEach(function (r, ri) {
+      var lanes = [];
+      (r.items || []).forEach(function (t) {
+        var xa = Math.max(bx(Math.min(t.a, t.b)), X0);
+        var xb = Math.min(bx(Math.max(t.a, t.b)), X1);
+        if (xb < xa) xb = xa;
+        var li = 0;
+        while (lanes[li] != null && lanes[li] > xa + 0.5) li++;
+        lanes[li] = xb;
+        t.__lane = li; t.__x = xa; t.__w = Math.max(4, xb - xa);
+      });
+      rowTop[ri] = top;
+      r.__lanes = Math.max(lanes.length, 1);
+      top += r.__lanes * (LANE + LGAP) + ROWGAP;
+    });
+    var H = top + 26;
     var svg = el('svg', { viewBox: '0 0 320 ' + H, class: 'wg-svg' });
     box.appendChild(svg);
     var read = div('wg-read');
     box.appendChild(read);
-    var X0 = 52, X1 = 308;
-    function bx(y) { return X0 + (X1 - X0) * (y - lo) / (hi - lo); }
     function yearLabel(y) { return y < 0 ? '前' + (-y) : String(y); }
     function paint() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
@@ -10828,30 +11044,32 @@
         var y = lo + (hi - lo) * i / 4;
         svg.appendChild(el('line', { x1: bx(y), y1: axisY, x2: bx(y), y2: axisY + 4 },
           'stroke:var(--border);stroke-width:1'));
-        svg.appendChild(txt(bx(y), axisY + 12, yearLabel(Math.round(y)), 'font-size:9px;fill:var(--dim)'));
+        svg.appendChild(txt(bx(y), axisY + 12, yearLabel(Math.round(y)),
+          'font-size:9px;fill:var(--dim)' +
+          (i === 0 ? ';text-anchor:start' : i === 4 ? ';text-anchor:end' : '')));
       }
       var flat = [];
       rows.forEach(function (r, ri) {
-        var y0 = 26 + ri * 40;
+        var y0 = rowTop[ri];
         var lb = el('text', { x: 4, y: y0 + 14 }, 'font-size:10px;fill:var(--dim)');
         lb.textContent = r.label; svg.appendChild(lb);
         (r.items || []).forEach(function (t) {
           var idx = flat.length; flat.push(t);
-          var x = bx(t.a), w = Math.max(4, bx(t.b) - bx(t.a));
+          var x = t.__x, w = t.__w, y = y0 + t.__lane * (LANE + LGAP);
           var on = idx === sel;
-          svg.appendChild(el('rect', { x: x, y: y0, width: w, height: 26, rx: 4 },
+          svg.appendChild(el('rect', { x: x, y: y, width: w, height: LANE, rx: 4 },
             'fill:var(--accent);fill-opacity:' + (on ? 0.62 : 0.26) +
             ';stroke:' + (on ? 'var(--bad)' : 'var(--border)') + ';stroke-width:' + (on ? 2 : 1)));
           // 塞得下才寫字，塞不下靠點選帶出說明
           if (w > t.n.length * 10 + 6)
-            svg.appendChild(txt(x + w / 2, y0 + 13, t.n, 'font-size:10px;fill:var(--text)'));
+            svg.appendChild(txt(x + w / 2, y + LANE / 2, t.n, 'font-size:10px;fill:var(--text)'));
         });
       });
       if (sel >= 0 && flat[sel]) {
         var t2 = flat[sel];
-        svg.appendChild(el('line', { x1: bx(t2.a), y1: 20, x2: bx(t2.a), y2: axisY },
+        svg.appendChild(el('line', { x1: t2.__x, y1: 20, x2: t2.__x, y2: axisY },
           'stroke:var(--bad);stroke-width:1;stroke-dasharray:3 3'));
-        svg.appendChild(el('line', { x1: bx(t2.b), y1: 20, x2: bx(t2.b), y2: axisY },
+        svg.appendChild(el('line', { x1: t2.__x + t2.__w, y1: 20, x2: t2.__x + t2.__w, y2: axisY },
           'stroke:var(--bad);stroke-width:1;stroke-dasharray:3 3'));
       }
       svg.appendChild(txt(160, 12, spec.title || '同一個年代，各地在做什麼',
@@ -11732,13 +11950,14 @@
     ];
     var i = 0;
     var box = div('wg');
-    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    // 2026-09-03 修：最下面那個修辭名稱會壓到底下的例句，所以把圓收小、畫布加高
+    var svg = el('svg', { viewBox: '0 0 320 212', class: 'wg-svg' });
     box.appendChild(svg);
     var read = div('wg-read');
     box.appendChild(read);
     function paint() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
-      var CX = 160, CY = 106, R = 74;
+      var CX = 160, CY = 100, R = 64;
       WAYS.forEach(function (w, k) {
         var a = -Math.PI / 2 + k * Math.PI * 2 / WAYS.length;
         var x = CX + R * Math.cos(a) * 1.62, y = CY + R * Math.sin(a);
@@ -11754,7 +11973,7 @@
         'fill:var(--accent);fill-opacity:.26;stroke:var(--border);stroke-width:1.5'));
       svg.appendChild(txt(CX, CY - 6, '原句', 'font-size:11px;fill:var(--dim)'));
       svg.appendChild(txt(CX, CY + 10, base.replace('。', ''), 'font-size:12px;fill:var(--text)'));
-      svg.appendChild(txt(160, 190, WAYS[i].t, 'font-size:13px;font-weight:700;fill:var(--bad)'));
+      svg.appendChild(txt(160, 202, WAYS[i].t, 'font-size:13px;font-weight:700;fill:var(--bad)'));
       read.innerHTML = '';
       read.appendChild(div('wg-read-main', WAYS[i].k + '：' + WAYS[i].d));
       read.appendChild(div('wg-read-sub',
@@ -12096,16 +12315,17 @@
     ];
     var i = 0, sel = 0;
     var box = div('wg');
-    var svg = el('svg', { viewBox: '0 0 320 200', class: 'wg-svg' });
+    // 2026-09-03 修：最下面那個關係人的名稱會壓到底下的圖例，所以把圓收小、畫布加高
+    var svg = el('svg', { viewBox: '0 0 320 212', class: 'wg-svg' });
     box.appendChild(svg);
     var read = div('wg-read');
     box.appendChild(read);
     function paint() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
-      var c = CASES[i], CX = 160, CY = 104;
+      var c = CASES[i], CX = 160, CY = 98;
       c.who.forEach(function (w, k) {
         var a = -Math.PI / 2 + k * Math.PI * 2 / c.who.length;
-        var R = w.near ? 58 : 82;
+        var R = w.near ? 50 : 72;
         var x = CX + R * Math.cos(a) * 1.55, y = CY + R * Math.sin(a);
         var col = w.s > 0 ? 'var(--good)' : w.s < 0 ? 'var(--bad)' : 'var(--dim)';
         svg.appendChild(el('line', { x1: CX, y1: CY, x2: x, y2: y },
@@ -12119,7 +12339,7 @@
         'fill:var(--accent);fill-opacity:.24;stroke:var(--border);stroke-width:1.5'));
       svg.appendChild(txt(CX, CY, '議題', 'font-size:11px;fill:var(--text)'));
       svg.appendChild(txt(160, 16, c.k, 'font-size:12px;font-weight:700;fill:var(--text)'));
-      svg.appendChild(txt(160, 192, '綠＝支持　紅＝反對　灰＝中性或不明；離中心愈近＝受影響愈直接',
+      svg.appendChild(txt(160, 205, '綠＝支持　紅＝反對　灰＝中性或不明；離中心愈近＝受影響愈直接',
         'font-size:9px;fill:var(--dim)'));
       read.innerHTML = '';
       read.appendChild(div('wg-read-main', c.who[sel].n + '：' + c.who[sel].d));

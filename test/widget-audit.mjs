@@ -232,6 +232,67 @@ try {
     });
     bad = bad.concat(promiseReport.map((r) => ({ type: r.type || '?', spec: r.key + ' card' + r.i, issues: [r.miss] })));
   }
+  /* 2c. 文字有沒有畫出框外／兩段字疊在一起（2026-09-03 加）
+        Tony 回報：對照實驗卡兩個方塊裡的字太多時會左右疊在一起。
+        SVG 的 <text> 不會自己換行，靠肉眼看不完 1800 張卡，所以這裡量 bbox：
+        ① 文字超出 viewBox 左右邊界 ② 同一張 svg 裡兩段文字的方框互相重疊。 */
+  const overlapReport = await js(`(function(){
+   try {
+    var jobs = ${payload}, out = [];
+    jobs.forEach(function (job) {
+      var type = job[0], spec = job[1];
+      var host = document.createElement('div');
+      host.style.cssText = 'width:340px';
+      document.body.appendChild(host);
+      try { window.Widgets.render(host, spec); } catch (e) { host.remove(); return; }
+      var wg = host.querySelector('.wg');
+      if (!wg) { host.remove(); return; }
+      var issues = [];
+      Array.prototype.forEach.call(wg.querySelectorAll('svg'), function (svg) {
+        /* 用畫面上的實際位置（getBoundingClientRect）比，才吃得到 rotate 這種
+           transform；getBBox 拿到的是變形前的座標，會把直立的軸名誤判成重疊。 */
+        var sr = svg.getBoundingClientRect();
+        var scale = sr.width ? sr.width / ((svg.getAttribute('viewBox') || '0 0 320 0')
+          .split(/[\s,]+/).map(Number)[2] || 320) : 1;
+        var boxes = [];
+        Array.prototype.forEach.call(svg.querySelectorAll('text'), function (t) {
+          var s = (t.textContent || '').trim();
+          if (!s) return;
+          var b = t.getBoundingClientRect();
+          if (!b || !b.width) return;
+          if (sr.width && (b.left < sr.left - 0.8 || b.right > sr.right + 0.8)) {
+            issues.push('「' + s.slice(0, 14) + '」畫到框外面');
+          }
+          boxes.push({ s: s, x: b.left, y: b.top, w: b.width, h: b.height });
+        });
+        var TOL = 1.5 * scale;
+        for (var i = 0; i < boxes.length; i++) for (var j = i + 1; j < boxes.length; j++) {
+          var a = boxes[i], c = boxes[j];
+          var ox = Math.min(a.x + a.w, c.x + c.w) - Math.max(a.x, c.x);
+          var oy = Math.min(a.y + a.h, c.y + c.h) - Math.max(a.y, c.y);
+          if (ox > TOL && oy > TOL) {
+            issues.push('「' + a.s.slice(0, 10) + '」和「' + c.s.slice(0, 10) + '」疊在一起');
+          }
+        }
+      });
+      if (issues.length) out.push({ type: type, spec: JSON.stringify(spec).slice(0, 70),
+        issues: issues.slice(0, 4) });
+      host.remove();
+    });
+    return out;
+   } catch (e) { return [{ type: '（文字重疊檢查自己爆了）', spec: '', issues: [String(e && e.stack || e).slice(0, 300)] }]; }
+  })()`);
+  if (overlapReport && overlapReport.length) {
+    console.log(`\n⚠️  文字排版有問題：${overlapReport.length} 組 spec`);
+    overlapReport.slice(0, 30).forEach((r) => {
+      console.log(`  ${r.type}  ${r.spec}`);
+      r.issues.forEach((x) => console.log(`    ・${x}`));
+    });
+    bad = bad.concat(overlapReport);
+  } else {
+    console.log('\n✅ 文字排版正常：沒有字畫到框外，也沒有兩段字疊在一起');
+  }
+
   /* 3. 動畫收尾檢查（2026-08-30 加）：會動的元件在畫面被換掉之後，
         requestAnimationFrame 迴圈必須真的停下來。Widgets.render 只做
         innerHTML=''，不會停計時器 —— 這種漏掉的迴圈在手機上會一直吃電，
