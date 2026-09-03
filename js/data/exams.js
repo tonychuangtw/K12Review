@@ -193,4 +193,5 @@ window.APP_EXAMS = [
   { id: '101-cap-math', year: 101, subj: 'math', stage: 'senior', label: '基測', n: 34, max: 34, mins: 70 },
   { id: '101-cap-social', year: 101, subj: 'social', stage: 'senior', label: '基測', n: 63, max: 63, mins: 70 },
   { id: '101-cap-science', year: 101, subj: 'science', stage: 'senior', label: '基測', n: 58, max: 58, mins: 70 },
+  { id: '101-cap-english', year: 101, subj: 'english', stage: 'senior', label: '基測', n: 45, max: 45, mins: 60 },
 ];
