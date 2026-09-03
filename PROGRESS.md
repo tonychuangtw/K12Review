@@ -21,7 +21,7 @@ NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題�
      ③ **圖號、表號、座標軸刻度、圖例被切一半**——上下也要各留 8~10 px
    ⚠ 目測整頁圖抓座標容易差 20~30 px，寧可多留再修一次，不要一次就貼死
    ・題目圖與四個選項圖要合成一張時（q.fig 只能放一個字串）：pdftoppm 各裁一塊 → ffmpeg pad + vstack → cwebp，範例見 115 自然 q14／q38、110 社會 q34
- **106、107、108 會考四科都已全部完成（各 184 題）。105 數學（25 題，⚠ 只有 25 題不是 26 題）、105 四科（數學 25／社會 63／自然 54／英語閱讀 41）全部完成。下一步＝104 會考四科 → 103 → 基測 102-100；有空檔時回頭修學測各卷的裁圖**，之後 → 112 → …一路到 103，做完再做基測 102、101、100（2026-09-02 Tony：各科都做到 100 年後的就好）（subj science；111 起自然 44 題約 96 分、110 以前 68 題 128 分，逐卷看卷首配分）。國英數社四科 109 卷 4,528 題已收齊（年份下限 90）。自然做完接會考數英社自（115-103）、基測（102-90）。流程照舊：
+ **106、107、108 會考四科都已全部完成（各 184 題）。105 數學（25 題，⚠ 只有 25 題不是 26 題）、105 四科（數學 25／社會 63／自然 54／英語閱讀 41）全部完成。下一步＝104 會考四科（⚠ 數學 25 題、英語閱讀 40 題）→ 103 → 基測 102-100；有空檔時回頭修學測各卷的裁圖**，之後 → 112 → …一路到 103，做完再做基測 102、101、100（2026-09-02 Tony：各科都做到 100 年後的就好）（subj science；111 起自然 44 題約 96 分、110 以前 68 題 128 分，逐卷看卷首配分）。國英數社四科 109 卷 4,528 題已收齊（年份下限 90）。自然做完接會考數英社自（115-103）、基測（102-90）。流程照舊：
  1. 下載試卷與答案：見下方「(9) 歷屆學測」段的網址與做法（大考中心 xmfile 頁 → .docx ＋ 答案 .pdf）
  2. 照 js/data/exam/112-chinese.js 的格式寫 build 腳本產出 js/data/exam/111-chinese.js，圖表題用 tools/exam-crop.py 裁圖
  3. 加進 js/data/exams.js 索引 → `node test/test.js` → `python3 tools/stamp-version.py` → commit → 回報 Tony
@@ -421,6 +421,22 @@ NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題�
        英語閱讀（41）：1B 2A 3B 4B 5D 6B 7D 8B 9A 10C 11B 12A 13D 14A 15D 16C 17A 18D 19B 20B 21C 22C 23D 24B 25D
        　　26B 27C 28C 29D 30D 31C 32C 33A 34A 35B 36C 37A 38A 39D 40B 41A
        國文（48，先不做）：1D 2B 3C 4A 5D 6B 7B 8B 9C 10D 11C 12A 13A 14D 15B 16C 17A 18D 19D 20D 21A 22D 23B 24C 25B 26C 27C 28A 29B 30A 31B 32B 33B 34D 35A 36D 37B 38D 39C 40A 41A 42A 43D 44A 45C 46C 47D 48C
+     【104 會考答案（2026-09-03 抽出；⚠ 104 的數學只有 25 題、英語閱讀只有 40 題，其餘：國文 48／英聽 21／社會 63／自然 54）】
+       ⭐ 104 的試題本與答案都可直連 https://cap.rcpet.edu.tw/exam/104/104P_{Answer,Math,Society,Nature,English}.pdf，
+         但直連版有粉紅色「新題型試題本」浮水印，裁圖會髒。改用同頁的「無浮水印題本(國英數社自)」zip
+         （Drive ID＝1WkzEZu26Bp1pgfamvGiCZUwHY9C-AxAo，解壓後是 Big5 檔名的 6 個 PDF）。
+         已存成 scratchpad/cap/104N_{Math,Society,Nature,English}.pdf；頁碼＝印刷頁碼＋2。
+       ⭐ 找各年份「無浮水印題本」的通用做法：抓 https://cap.rcpet.edu.tw/exam/<年>/<年>exam.html，
+         在 HTML 裡找「無浮水印題本」那一行的 Google Drive 檔案 id，再用
+         https://drive.google.com/uc?export=download&id=<ID> 下載。
+       數學（25）：1D 2B 3B 4D 5A 6C 7A 8B 9C 10C 11D 12C 13D 14C 15D 16B 17C 18C 19A 20B 21B 22D 23D 24A 25A
+       社會（63）：1D 2C 3D 4C 5C 6D 7A 8B 9C 10C 11B 12C 13A 14C 15B 16D 17C 18C 19A 20B 21A 22D 23D 24C 25A
+       　　26B 27D 28B 29A 30D 31B 32D 33C 34A 35B 36B 37D 38A 39D 40B 41C 42B 43C 44C 45C 46B 47B 48D 49D 50B 51A 52B 53D 54B 55A 56C 57B 58B 59D 60B 61C 62D 63A
+       自然（54）：1C 2A 3C 4B 5B 6D 7B 8A 9C 10C 11A 12C 13B 14B 15A 16A 17C 18C 19A 20D 21A 22B 23B 24C 25C
+       　　26A 27C 28B 29D 30A 31D 32A 33D 34A 35B 36D 37D 38C 39C 40D 41B 42C 43D 44D 45C 46A 47C 48B 49D 50A 51B 52D 53A 54D
+       英語閱讀（40）：1D 2B 3D 4A 5B 6B 7D 8B 9D 10D 11B 12D 13C 14A 15B 16A 17C 18A 19B 20D 21A 22C 23C 24B 25C
+       　　26C 27A 28A 29C 30B 31D 32A 33C 34A 35C 36B 37A 38C 39C 40D
+       國文（48，先不做）：1D 2D 3B 4A 5C 6B 7A 8A 9D 10D 11A 12C 13C 14D 15A 16C 17C 18C 19B 20C 21A 22A 23B 24B 25A 26B 27D 28D 29D 30B 31C 32C 33D 34A 35B 36A 37C 38C 39C 40D 41B 42D 43B 44D 45D 46B 47C 48B
      【106 會考答案（2026-09-04 抽出；題數同前：國文 48／英語閱讀 41／英聽 21／數學 26／社會 63／自然 54）】
        ⚠ 106 的試題本走 Google Drive（直連 106P_<科>.pdf 會拿到 HTML；答案 106P_Answer.pdf 可直連）。
          Drive ID：數學 10JGzIlDxgOyUmcVZVn3E5os8trXbcorr／社會 1a2FJG15x_aFlDwJEe377et0cau-yYKK-／自然 1nKOX2Y_Lc97oRP0CNdibx3sdWo4zWj2s／英語閱讀 1hbGHVdkMmiWxIZL1c5OTO9RUUZPgMUjB
@@ -728,7 +744,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-03 17:17 台北
+UPDATED: 2026-09-03 17:51 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
