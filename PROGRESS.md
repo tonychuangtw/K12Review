@@ -400,6 +400,20 @@ NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題�
          題組本文一律抄進 groups 的 passage，圖表內容另外用中文括號補述，手機讀不到圖也答得出來。
      【113 會考四科 ✅ 全部完成】數學 25／社會 54／自然 50／英語閱讀 43 ＝ 172 題。
      【112 會考四科 ✅ 全部完成（2026-09-02）】數學 25（12 圖）／社會 54（26 圖）／自然 50（36 圖）／英語閱讀 43（5 圖）＝ 172 題。
+     【109 會考答案（2026-09-03 抽出；題數同 110：國文 48／英語閱讀 41／數學 26／社會 63／自然 54）】
+       ⚠ 109 起試題本改放 Google Drive，直連 cap.rcpet.edu.tw/exam/109/109P_<科>.pdf 會拿到 HTML。
+         做法：抓 https://cap.rcpet.edu.tw/exam/109/109exam.html → 解析 <a href="https://drive.google.com/file/d/<ID>/..."> 與連結文字對應科目
+         → `curl -sL "https://drive.google.com/uc?export=download&id=<ID>" -o 109P_<科>.pdf`（大檔要再帶 confirm token，腳本見 scratchpad）
+         109 的 ID：數學 1jZJWQoO6mQZ_vWMmBcpJMC7bHdXIiJf0／社會 1y_1Sc8yH-iHtS6eBcLOCm_9fnmL2aFjf／自然 1nDVCh0u-MAApDFlv0kTVhFr_v7VKNVgP／英語閱讀 14uTgONqVcy8uRMe0rgRWr7CRBvkp5TJ1
+         （109P_Answer.pdf 仍可直連）
+       數學（26）：1C 2C 3C 4B 5A 6A 7D 8B 9A 10D 11B 12C 13B 14C 15D 16C 17D 18A 19B 20A 21C 22B 23D 24D 25B 26A
+       社會（63）：1B 2A 3B 4A 5D 6C 7B 8B 9B 10A 11A 12D 13B 14D 15B 16B 17D 18B 19C 20D 21C 22B 23A 24B 25B
+       　　26D 27A 28B 29B 30A 31D 32D 33A 34D 35C 36A 37C 38C 39A 40C 41A 42D 43D 44B 45D 46A 47C 48C 49A 50C 51C 52D 53D 54D 55B 56D 57A 58B 59D 60C 61D 62B 63C
+       自然（54）：1A 2A 3A 4C 5C 6B 7C 8A 9A 10D 11B 12D 13C 14B 15C 16B 17A 18D 19C 20D 21C 22A 23C 24B 25D
+       　　26B 27B 28A 29B 30A 31C 32D 33C 34A 35B 36D 37C 38C 39D 40B 41D 42A 43D 44D 45B 46C 47B 48A 49D 50D 51D 52B 53C 54A
+       英語閱讀（41）：1B 2A 3C 4A 5A 6C 7B 8C 9D 10A 11D 12A 13A 14D 15D 16C 17C 18A 19D 20D 21B 22B 23B 24B 25D
+       　　26A 27C 28B 29D 30D 31C 32D 33B 34C 35C 36B 37B 38A 39B 40D 41A
+       國文（48，先不做）：1B 2D 3D 4A 5D 6B 7B 8B 9C 10A 11D 12C 13C 14C 15A 16A 17A 18B 19B 20B 21C 22D 23D 24A 25C 26C 27B 28D 29D 30B 31A 32D 33D 34A 35B 36B 37D 38C 39B 40A 41C 42A 43C 44A 45B 46D 47C 48D
      【110 會考答案（2026-09-03 從 110P_Answer.pdf 抽出，題本已下載到 scratchpad/cap/110P_*.pdf）】
        ⚠ 110 是舊題數：國文 48／英語閱讀 41（聽力 21，不收）／數學 26／社會 63／自然 54。答案欄位會隨科目題數用完而左移，一定要從右邊數。
        數學（26）：1A 2B 3D 4C 5D 6C 7B 8C 9C 10D 11D 12B 13B 14C 15B 16B 17D 18A 19D 20B 21A 22C 23A 24C 25A 26A
