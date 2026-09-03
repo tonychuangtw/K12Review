@@ -7,7 +7,7 @@ STATUS: in-progress
      同日 Tony：「繼續做到完為止」「除非有什麼解決不了一定要問的問題，不然都做到完為止」
      ＝接著做學測自然（115→90，subj 用 science，id <年>-science），再會考數英社自（115-103）、基測（102-90）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題已收齊。會考 **114、115 兩年四科全部完成 ＋ 113 數學、113 社會已完成**。**113、112、111、110 四年四科全部完成（110 是舊題數：數學 26／社會 63／自然 54／英語閱讀 41 ＝ 184 題）。
+NEXT_ACTION: 【學測全部完成，會考已收齊，基測進行中：102／101／100（兩次）已完成，下一步＝99 年第一次基測 數學】學測 125 卷 5,524 題已收齊。會考 **114、115 兩年四科全部完成 ＋ 113 數學、113 社會已完成**。**113、112、111、110 四年四科全部完成（110 是舊題數：數學 26／社會 63／自然 54／英語閱讀 41 ＝ 184 題）。
  ⚠ 2026-09-03 Tony 回報裁圖品質問題（115 數學 q11 數線上方的 P、A、B 被裁掉），已加自動檢查工具，**裁圖補正未完成，優先度高於繼續往前做**：
    ・`python3 tools/exam-crop-audit.py [卷id...]`＝掃 img/exam 每張 webp 最外 2px，墨色比例落在 3%~85%（不是整條圖框、是被切斷的字或線）就列為可疑，分數由高到低排序
    ・`tools/exam-crop-sheet.sh <輸出png> <圖...>`＝一次把最多 12 張排成 4×3 貼在一起，用一次 Read 目視複查（省 token）
@@ -24,11 +24,13 @@ NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題�
  **106、107、108 會考四科都已全部完成（各 184 題）。105 數學（25 題，⚠ 只有 25 題不是 26 題）、105 四科（數學 25／社會 63／自然 54／英語閱讀 41）全部完成。104 四科（數學 25／社會 63／自然 54／英語閱讀 40）全部完成。**103 四科（數學 27／社會 63／自然 54／英語閱讀 40 ＝ 184 題）全部完成 ⟹ 會考 115～103 全年份四科收齊。** **基測 102 年四科全部完成（數學 34／社會 63／自然 58／英語 45 ＝ 200 題）。**101 基測四科全部完成（數學 34／社會 63／自然 58／英語 45 ＝ 200 題）。100 年第一次基測 數學 34 題已完成。
      ⚠ 100 年基測一年考兩次，已在 `js/data/exams.js` 與 `test/test.js` 加上選填的 `round` 欄位：id 規則是 `<年>-cap-<科>[-<round>]`，
        第一次不帶 round（100-cap-math），第二次寫 `round: 2`（100-cap-math-2）。label 直接寫「第一次基測」「第二次基測」，卡片標題就分得出來。
-     **100 年第一次基測四科全部完成（數學 34／社會 63／自然 58／英語 45 ＝ 200 題）。
-     100 年第二次：數學 34、社會 63 已完成（id 100-cap-<科>-2、index 有 round: 2、label「第二次基測」）。
-     下一步＝100 年第二次的 自然（58）→ 英語（45）。做完 100 年之後就往 99、98……一路到 90。
-     ⚠ 99 年以前的題本路徑：exam/<年>/<年>{Answer,Math,Society,Nature,English}150DPI.pdf（99 年起也是一年兩次，
-       路徑改成 exam/<年>01/、exam/<年>02/，先用 cdx 查一次再抓）。**
+     **100 年第一次、第二次基測四科全部完成（各 數學 34／社會 63／自然 58／英語 45 ＝ 200 題，合計 400 題）。
+     下一步＝99 年第一次基測 數學 34 →社會 63 →自然 58 →英語 45，接著 99 年第二次，再往 98……一路到 90。
+     ⚠ 99 年題本路徑（2026-09-03 用 cdx 查到、五科都已下載驗過）：
+       `bctest.ntnu.edu.tw/exam/9901/9901{answer,math,society,nature,english}.pdf`、
+       `bctest.ntnu.edu.tw/exam/9902/9902{answer,math,society,nature,english}.pdf`
+       —— 全小寫、**沒有** 150DPI 後綴，跟 100 年（`exam/10001/1001<科>150DPI.pdf`）不同，98 年以前要再查一次。
+       9901answer.pdf 與 9901english.pdf 最舊那個 timestamp 抓回來是 HTML 錯誤頁，要改抓 cdx 清單的第 3 個 timestamp。**
      ⚠ **裁到有「淺灰網底」的圖時不要加 --depink**（2026-09-03 發現）：depink 的規則會把淺灰／淡紫的網底一起洗成白色，
        線對稱方格題、正六邊形著色題的灰色區會整片消失，題目就變成無解。這種圖直接用不帶 --depink 的裁圖即可
        （粉紅浮水印多半壓在版面中央，圖區常常沒被蓋到，裁完用 contact sheet 看一眼確認）。
@@ -612,6 +614,29 @@ NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題�
        　　49D 50B 51A 52C 53A 54B 55C 56C 57B 58D
        英語：1A 2B 3D 4C 5C 6B 7D 8A 9C 10D 11A 12D 13D 14A 15C 16B 17C 18B 19D 20D 21C 22A 23B 24A 25A
        　　26B 27B 28C 29C 30D 31C 32B 33A 34D 35A 36B 37B 38C 39B 40B 41D 42A 43C 44C 45A
+     【99 年「第一次」基測答案（2026-09-03 抽出，200 dpi 去浮水印後分段放大複核）】
+       英語 45／數學 34／社會 63／自然 58 題。來源：Wayback 的 bctest.ntnu.edu.tw/exam/9901/9901{answer,math,society,nature,english}.pdf
+       數學：1B 2C 3B 4B 5A 6C 7A 8C 9D 10D 11C 12D 13C 14A 15A 16B 17B 18D 19B 20B 21C 22A 23A 24B 25C
+       　　26B 27D 28D 29D 30A 31D 32A 33C 34C
+       社會：1B 2D 3D 4B 5D 6B 7A 8D 9C 10D 11B 12D 13A 14B 15A 16C 17B 18C 19B 20A 21B 22C 23D 24B 25D
+       　　26C 27A 28C 29B 30C 31D 32B 33C 34A 35A 36B 37C 38C 39A 40A 41D 42A 43A 44D 45B 46C 47C 48A
+       　　49D 50C 51D 52B 53D 54A 55C 56D 57A 58B 59C 60C 61A 62A 63C
+       自然：1B 2D 3B 4C 5A 6D 7C 8A 9D 10C 11D 12D 13C 14C 15D 16A 17B 18D 19A 20C 21A 22D 23A 24C 25B
+       　　26B 27A 28C 29C 30B 31B 32A 33B 34B 35D 36B 37A 38C 39C 40B 41B 42C 43D 44D 45C 46D 47D 48B
+       　　49B 50C 51A 52D 53A 54A 55A 56C 57A 58D
+       英語：1D 2A 3B 4B 5D 6A 7C 8A 9A 10D 11B 12D 13B 14A 15C 16C 17B 18C 19A 20D 21C 22B 23A 24D 25D
+       　　26B 27C 28B 29A 30C 31C 32D 33B 34C 35C 36B 37D 38C 39A 40A 41B 42D 43A 44C 45D
+     【99 年「第二次」基測答案（2026-09-03 抽出，200 dpi 去浮水印後分段放大複核）】
+       數學：1A 2C 3D 4B 5B 6A 7D 8D 9A 10B 11D 12A 13B 14C 15B 16C 17C 18B 19B 20C 21C 22D 23C 24C 25B
+       　　26A 27A 28B 29C 30A 31D 32D 33A 34D
+       社會：1C 2C 3B 4A 5D 6A 7A 8B 9B 10D 11C 12C 13D 14D 15C 16C 17A 18C 19C 20A 21B 22A 23A 24C 25B
+       　　26C 27D 28D 29C 30A 31B 32D 33D 34D 35C 36C 37D 38B 39D 40C 41B 42D 43D 44C 45D 46B 47C 48A
+       　　49B 50B 51B 52B 53A 54B 55A 56A 57A 58C 59B 60B 61D 62C 63A
+       自然：1D 2B 3B 4D 5C 6C 7D 8B 9C 10C 11A 12D 13D 14D 15A 16C 17C 18A 19A 20C 21B 22D 23B 24B 25C
+       　　26D 27A 28B 29C 30A 31B 32C 33C 34B 35A 36D 37B 38C 39D 40A 41C 42B 43B 44B 45D 46A 47A 48C
+       　　49D 50C 51A 52A 53D 54D 55C 56B 57D 58A
+       英語：1B 2D 3C 4A 5B 6C 7C 8D 9D 10B 11A 12B 13A 14C 15D 16D 17A 18D 19D 20C 21B 22B 23A 24C 25A
+       　　26C 27D 28C 29A 30A 31C 32B 33C 34C 35B 36C 37C 38A 39A 40D 41A 42A 43B 44B 45D
      ⚠ 會考／基測的題本在心測中心：https://cap.rcpet.edu.tw/exam/<年>/<年>P_<科>.pdf
        **科名：Chinese／Math／English／Society／`Nature`（自然是 Nature 不是 Science！）**；
        答案本 `<年>P_Answer.pdf`（一份含全部科目，可用 pdftotext -layout 直接讀成對照表）。
@@ -836,7 +861,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-04 03:30 台北
+UPDATED: 2026-09-03 20:05 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
