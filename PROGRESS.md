@@ -7,7 +7,7 @@ STATUS: in-progress
      同日 Tony：「繼續做到完為止」「除非有什麼解決不了一定要問的問題，不然都做到完為止」
      ＝接著做學測自然（115→90，subj 用 science，id <年>-science），再會考數英社自（115-103）、基測（102-90）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【學測全部完成，會考已收齊，基測進行中：102／101／100（兩次）已完成，下一步＝99 年第一次基測 數學】學測 125 卷 5,524 題已收齊。會考 **114、115 兩年四科全部完成 ＋ 113 數學、113 社會已完成**。**113、112、111、110 四年四科全部完成（110 是舊題數：數學 26／社會 63／自然 54／英語閱讀 41 ＝ 184 題）。
+NEXT_ACTION: 【學測全部完成，會考已收齊，基測進行中：102／101／100（兩次）已完成。⚠ **99 年第一次 數學 34 題做到一半、尚未 commit**，接續步驟見下方「99-cap-math 未完成交接」段】學測 125 卷 5,524 題已收齊。會考 **114、115 兩年四科全部完成 ＋ 113 數學、113 社會已完成**。**113、112、111、110 四年四科全部完成（110 是舊題數：數學 26／社會 63／自然 54／英語閱讀 41 ＝ 184 題）。
  ⚠ 2026-09-03 Tony 回報裁圖品質問題（115 數學 q11 數線上方的 P、A、B 被裁掉），已加自動檢查工具，**裁圖補正未完成，優先度高於繼續往前做**：
    ・`python3 tools/exam-crop-audit.py [卷id...]`＝掃 img/exam 每張 webp 最外 2px，墨色比例落在 3%~85%（不是整條圖框、是被切斷的字或線）就列為可疑，分數由高到低排序
    ・`tools/exam-crop-sheet.sh <輸出png> <圖...>`＝一次把最多 12 張排成 4×3 貼在一起，用一次 Read 目視複查（省 token）
@@ -614,6 +614,23 @@ NEXT_ACTION: 【學測全部完成，會考已收齊，基測進行中：102／1
        　　49D 50B 51A 52C 53A 54B 55C 56C 57B 58D
        英語：1A 2B 3D 4C 5C 6B 7D 8A 9C 10D 11A 12D 13D 14A 15C 16B 17C 18B 19D 20D 21C 22A 23B 24A 25A
        　　26B 27B 28C 29C 30D 31C 32B 33A 34D 35A 36B 37B 38C 39B 40B 41D 42A 43C 44C 45A
+     ⚠⚠ **99-cap-math 未完成交接（2026-09-03 20:4x 重啟前寫下）** ⚠⚠
+       狀態：`js/data/exam/99-cap-math.js` **已產生**（34 題全部寫完，含 exp），`img/exam/99-cap-math/`
+       **15 張裁圖已裁好並目視複查過**（q04 q08 q09 q13 q18 q20 q22 q23 q25 q28 q29 q31 q32 q33 q34；
+       q09 與 q20 是「題目圖＋四選項圖」用 ffmpeg vstack 合成的）。兩者都還是 untracked，**尚未 commit**。
+       ⚠ 還沒做的四件事，重啟後照順序補完即可：
+         1. **重新驗一次答案**：組檔腳本裡我手打的 KEY 字串第 20 位打成 D（正確是 B），造成一筆假不符。
+            正解一律以本檔下方【99 年「第一次」基測答案】那份為準（數學 20 是 B，檔案裡 q20 的 a=1 已經是對的）。
+            驗法：讀 js/data/exam/99-cap-math.js，逐題比對 a 與答案表、並檢查 exp 開頭字母一致。
+         2. 在 `js/data/exams.js` 的 100-cap-english-2 那一行後面加：
+            `{ id: '99-cap-math', year: 99, subj: 'math', stage: 'senior', label: '第一次基測', n: 34, max: 34, mins: 70 },`
+            （99 年第一次**不帶 round**，第二次才寫 round: 2、id 用 99-cap-math-2）
+         3. `node test/test.js`、`node test/zy-check.js`、`python3 tools/stamp-version.py`
+         4. commit + push，然後接 99 年第一次 社會 63 →自然 58 →英語 45，再做 99 年第二次四科。
+       題本 PDF 已下載在 scratchpad（重啟後會消失，要重抓）：
+         `curl -sL -o out.pdf "https://web.archive.org/web/<ts>id_/http://www.bctest.ntnu.edu.tw/exam/9901/9901<科>.pdf"`
+         <ts> 用 `curl -s "https://web.archive.org/cdx/search/cdx?url=bctest.ntnu.edu.tw/exam/9901/9901<科>.pdf&output=text&fl=timestamp&limit=3"`
+         取；answer 與 english 要取清單的**第 3 個** timestamp（最舊那個抓回來是 HTML 錯誤頁）。
      【99 年「第一次」基測答案（2026-09-03 抽出，200 dpi 去浮水印後分段放大複核）】
        英語 45／數學 34／社會 63／自然 58 題。來源：Wayback 的 bctest.ntnu.edu.tw/exam/9901/9901{answer,math,society,nature,english}.pdf
        數學：1B 2C 3B 4B 5A 6C 7A 8C 9D 10D 11C 12D 13C 14A 15A 16B 17B 18D 19B 20B 21C 22A 23A 24B 25C
@@ -861,7 +878,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-03 20:05 台北
+UPDATED: 2026-09-03 20:48 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
