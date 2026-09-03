@@ -400,6 +400,16 @@ NEXT_ACTION: 【學測全部完成，會考進行中】學測 125 卷 5,524 題�
          題組本文一律抄進 groups 的 passage，圖表內容另外用中文括號補述，手機讀不到圖也答得出來。
      【113 會考四科 ✅ 全部完成】數學 25／社會 54／自然 50／英語閱讀 43 ＝ 172 題。
      【112 會考四科 ✅ 全部完成（2026-09-02）】數學 25（12 圖）／社會 54（26 圖）／自然 50（36 圖）／英語閱讀 43（5 圖）＝ 172 題。
+     【108 會考答案（2026-09-03 抽出；題數同 110/109：國文 48／英語閱讀 41／英聽 21／數學 26／社會 63／自然 54）】
+       Google Drive ID：參考答案 1M5ObFB8NhhzocLtxc11O2VREq_h1-YBb／數學 1ouI9tIEJETAGqzh4V1OwB1t83ouA-CaH／社會 1ZVi5WqoWsZOq83HmVSoiuy4nCxNLD54o／自然 1BXf0z9hqcmlnefKk1XKLQQp1ec6V1azI／英語閱讀 1z8bQ38BFxWvXiHr_yxD6pv9UXy8sxW6v
+       數學（26）：1A 2A 3D 4C 5B 6C 7D 8A 9A 10D 11C 12D 13D 14D 15C 16B 17D 18B 19D 20A 21A 22C 23C 24B 25A 26B
+       社會（63）：1D 2C 3C 4A 5C 6C 7A 8C 9C 10B 11A 12D 13B 14D 15D 16D 17B 18B 19A 20A 21A 22C 23B 24C 25B
+       　　26D 27D 28C 29B 30A 31A 32D 33B 34A 35C 36D 37B 38C 39C 40D 41A 42B 43C 44C 45D 46D 47C 48B 49D 50D 51C 52D 53A 54B 55D 56C 57B 58B 59D 60C 61A 62D 63A
+       自然（54）：1D 2B 3C 4D 5A 6B 7A 8B 9A 10A 11B 12A 13B 14D 15D 16B 17D 18D 19B 20C 21B 22C 23C 24A 25C
+       　　26A 27B 28C 29A 30B 31C 32C 33D 34B 35D 36A 37A 38C 39D 40D 41B 42A 43C 44A 45D 46C 47A 48A 49B 50D 51C 52B 53D 54C
+       英語閱讀（41）：1B 2A 3A 4D 5C 6D 7B 8B 9C 10B 11D 12A 13C 14D 15D 16D 17B 18A 19C 20A 21A 22B 23B 24A 25C
+       　　26D 27B 28D 29D 30C 31D 32C 33C 34D 35B 36A 37C 38D 39C 40A 41A
+       國文（48，先不做）：1D 2A 3D 4C 5D 6D 7A 8C 9B 10A 11A 12D 13C 14B 15C 16C 17D 18B 19A 20C 21A 22B 23A 24B 25B 26C 27C 28D 29C 30C 31A 32B 33D 34D 35A 36A 37C 38B 39A 40D 41B 42D 43B 44D 45C 46B 47A 48B
      【109 會考答案（2026-09-03 抽出；題數同 110：國文 48／英語閱讀 41／數學 26／社會 63／自然 54）】
        ⚠ 109 起試題本改放 Google Drive，直連 cap.rcpet.edu.tw/exam/109/109P_<科>.pdf 會拿到 HTML。
          做法：抓 https://cap.rcpet.edu.tw/exam/109/109exam.html → 解析 <a href="https://drive.google.com/file/d/<ID>/..."> 與連結文字對應科目
