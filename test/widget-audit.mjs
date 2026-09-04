@@ -55,6 +55,15 @@ for (const f of TEXT_FILES) {
 Object.values(w.APP_TEXTS || {}).forEach((unit) => {
   (unit.segs || []).forEach((g) => collect(g.viz));
 });
+/* 補習複習（2026-09-04）也是同一套帶讀介面，段落裡的圖一樣要體檢 */
+{
+  const fp = `${ROOT}/js/data/tutor.js`;
+  if (existsSync(fp)) {
+    // eslint-disable-next-line no-eval
+    eval(readFileSync(fp, 'utf8').replace(/^window\./gm, 'w.').replace(/window\.APP_TUTOR/g, 'w.APP_TUTOR'));
+    (w.APP_TUTOR || []).forEach((t) => (t.segs || []).forEach((g) => collect(g.viz)));
+  }
+}
 console.log(`收集到 ${specs.size} 種互動元件、${[...specs.values()].reduce((n, l) => n + l.length, 0)} 組 spec`);
 
 /* 1b. 說明文字答應的操作，元件真的做得到嗎（2026-08-29 Tony：「寫有可以拉滑桿，但並沒有」） */

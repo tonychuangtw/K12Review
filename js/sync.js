@@ -123,8 +123,13 @@
     }
     return true;
   }
-  // 真的有新資料要套用時，也不在測驗／手寫／刷題進行中重載，等使用者離開那一頁再更新
-  var ACTIVE_VIEWS = ["view-quiz", "view-write", "view-flash", "view-drill", "view-review"];
+  // 真的有新資料要套用時，也不在「做到一半」的畫面重載，等使用者離開那一頁再更新。
+  // 2026-09-04 Tony 回報「吳敏男複習做到一半會閃退」＝就是這裡：補習複習／課文帶讀／
+  // 概念卡／整卷作答的進度都只存在記憶體，reload 就回到首頁，看起來像 App 閃退。
+  // 一律把「進行中的學習畫面」都列進來，不要只保護測驗類。
+  var ACTIVE_VIEWS = ["view-quiz", "view-write", "view-flash", "view-drill", "view-review",
+    "view-read", "view-lesson", "view-concept", "view-exam", "view-lit",
+    "view-tutor", "view-tutorcal"];
   var reloadTimer = null;
   function busyNow() {
     try {

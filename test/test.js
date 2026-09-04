@@ -1056,5 +1056,20 @@ console.log('歷屆學測');
   console.log(`  · 共 ${T.length} 堂、${T.reduce((n, t) => n + (t.qs || []).length, 0)} 題`);
 }
 
+/* ---------- 雲端同步不可以把「做到一半」的畫面重載掉 ----------
+   2026-09-04 Tony：「吳敏男複習做到一半會閃退」＝ sync.js 在 view-read 進行中
+   還是呼叫了 location.reload()，記憶體裡的進度全沒。這一段守門，避免以後新增畫面又漏掉。 */
+{
+  console.log('\n【同步不可中斷進行中的畫面】');
+  const syncSrc = fs.readFileSync(path.join(root, 'js/sync.js'), 'utf8');
+  const m = /var ACTIVE_VIEWS = \[([\s\S]*?)\];/.exec(syncSrc);
+  ok(!!m, 'sync.js 找得到 ACTIVE_VIEWS 清單');
+  const listed = m ? (m[1].match(/"view-[a-z]+"/g) || []).map((x) => x.replace(/"/g, '')) : [];
+  const MUST = ['view-quiz', 'view-write', 'view-flash', 'view-drill', 'view-review',
+    'view-read', 'view-lesson', 'view-concept', 'view-exam', 'view-lit', 'view-tutor'];
+  const missing = MUST.filter((v) => listed.indexOf(v) < 0);
+  ok(missing.length === 0, `進行中的畫面都不會被雲端同步重載（缺：${missing.join('、') || '無'}）`);
+}
+
 console.log(failed ? `\n${failed} 項失敗` : '\n全部通過');
 process.exit(failed ? 1 : 0);

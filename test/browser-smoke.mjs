@@ -1428,6 +1428,11 @@ async (js) => {
   check('沒答對練習題之前不能往下一段',
     await js(`document.getElementById('readNext').disabled === true`),
     String(await js(`document.getElementById('readNext').textContent`)));
+  check('詞語點得開解釋',
+    await js(`(function(){ var b = document.querySelector('#readTerms .read-term');
+      if (!b) return true; b.click();
+      return !!document.querySelector('.read-termd'); })()`));
+
   // 先故意答錯一次，看有沒有解析
   await js(`(function(){ var t = window.APP_TUTOR[0].segs[0].q;
     var opts = document.querySelectorAll('#readCheck .ck-opt');
@@ -1447,6 +1452,10 @@ async (js) => {
     await sleep(350);
   }
   await sleep(500);
+  check('每答對一段就存進度（重載也接得回去）',
+    await js(`(function(){ var s = JSON.parse(localStorage.getItem('chinese-review-v1') || '{}');
+      var L = s.tutorLog || {}; var k = Object.keys(L)[0];
+      return !!(k && L[k].seg >= 1); })()`));
   check('走完所有段落會回到那一堂',
     await js(`!document.getElementById('view-tutor').classList.contains('hidden')`));
   check('複習完之後總測驗解鎖',

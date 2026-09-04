@@ -6114,16 +6114,18 @@
     var viz = $('readViz');
     if (seg.viz && W.Widgets) W.Widgets.render(viz, seg.viz); else viz.innerHTML = '';
     // 插圖（AI 生成，放在 img/tutor/）：載不到就自己隱藏，不留破圖
-    var pic = $('readPic');
-    pic.innerHTML = '';
-    if (seg.img) {
-      var im = document.createElement('img');
-      im.src = seg.img;
-      im.alt = seg.h || '';
-      im.addEventListener('error', function () { pic.innerHTML = ''; });
-      pic.appendChild(im);
-      if (seg.cap) pic.appendChild(Object.assign(document.createElement('div'),
-        { className: 'read-cap', textContent: seg.cap }));
+    var pic = $('readPic');               // 舊版 index.html 還在快取裡時可能沒有這個位置
+    if (pic) {
+      pic.innerHTML = '';
+      if (seg.img) {
+        var im = document.createElement('img');
+        im.src = seg.img;
+        im.alt = seg.h || '';
+        im.addEventListener('error', function () { pic.innerHTML = ''; });
+        pic.appendChild(im);
+        if (seg.cap) pic.appendChild(Object.assign(document.createElement('div'),
+          { className: 'read-cap', textContent: seg.cap }));
+      }
     }
     renderReadCheck(seg, last);
     $('readPrev').disabled = R.i === 0;
@@ -6159,6 +6161,8 @@
           b.classList.add('right');
           opts.querySelectorAll('.ck-opt').forEach(function (o) { o.disabled = true; });
           R.ok[R.i] = true;
+          // 補習複習：每答對一段就存進度，萬一頁面被重載也接得回來
+          if (R.tutor) tutorSaveSeg(R.tutor, R.i, Object.keys(R.ok).length);
           fb.className = 'ck-fb ok';
           fb.textContent = '✅ 讀懂了！' + ((q.why && q.why[i]) || '這一段的重點你抓到了，往下一段。');
           setNext(true);
