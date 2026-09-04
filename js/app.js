@@ -5380,6 +5380,22 @@
   });
   $('tutorCalExit').addEventListener('click', function () { showImportHome(); });
 
+  // 複習進度：走到第幾段、答對幾段（中途離開也記得住）
+  function tutorSaveSeg(id, i, okN) {
+    var L = tutorLog();
+    var r = L[id] || (L[id] = { runs: 0, best: 0, last: 0, total: 0, ts: '' });
+    r.pos = Math.max(r.pos || 0, i);
+    r.seg = Math.max(r.seg || 0, okN || 0);
+    save();
+  }
+  function tutorReadDone(id) {
+    var t = tutorOf(id), r = tutorStat(id);
+    if (!t || !r) return false;
+    return !!r.read || (r.seg || 0) >= (t.segs || []).length;
+  }
+
+  /* 一堂課的首頁：照單元學習的模式——先一段一段複習（每段有圖示、互動元件與一題練習，
+     答對才解鎖下一段），全部走完才開放今天內容的總測驗（2026-09-04 Tony 指定）。 */
   function showTutor(id) {
     var t = tutorOf(id);
     if (!t) { showTutorCal(); return; }
@@ -5388,27 +5404,72 @@
     show('tutor');
     $('tutorTitle').textContent = '📘 ' + t.title;
     var lv = tutorLevel(tutorRate(id));
-    var r = tutorStat(id);
+    var r = tutorStat(id) || {};
+    var segs = t.segs || [];
+    var doneN = Math.min(r.seg || 0, segs.length);
+    var ready = tutorReadDone(id);
     $('tutorMeta').textContent = t.date + ' · ' + (t.teacher ? t.teacher + ' · ' : '') +
-      (t.qs || []).length + ' 題 · ' + lv.icon + ' ' + lv.text +
-      (r ? '（測過 ' + r.runs + ' 次，最近一次 ' + r.last + '/' + r.total + '）' : '');
+      segs.length + ' 段複習 · ' + (t.qs || []).length + ' 題測驗 · ' + lv.icon + ' ' + lv.text +
+      (r.runs ? '（測過 ' + r.runs + ' 次，最近一次 ' + r.last + '/' + r.total + '）' : '');
     var body = $('tutorBody');
     body.innerHTML = '';
-    (t.notes || []).forEach(function (n) {
-      var sec = document.createElement('div');
-      sec.className = 'tutor-sec';
-      var h = document.createElement('h3');
-      h.textContent = n.h;
-      var p = document.createElement('div');
-      p.className = 'tutor-txt';
-      p.textContent = n.b;
-      sec.appendChild(h); sec.appendChild(p);
-      body.appendChild(sec);
+    // 進度條
+    var bar = document.createElement('div');
+    bar.className = 'tutor-bar';
+    bar.innerHTML = '<i style="width:' + (segs.length ? Math.round(100 * doneN / segs.length) : 0) + '%"></i>';
+    body.appendChild(bar);
+    body.appendChild(Object.assign(document.createElement('div'), {
+      className: 'prog-hint',
+      textContent: ready
+        ? '✅ 今天的內容都複習過了，可以直接做總測驗；也可以點任何一段再看一次。'
+        : '📚 一段一段看，每段最後有一題練習——答對才解鎖下一段，全部走完才會開放總測驗。'
+    }));
+    // 段落清單（點任何一段可直接跳到那一段）
+    segs.forEach(function (sg, i) {
+      var ok = i < doneN;
+      var b = document.createElement('button');
+      b.className = 'unit-item' + (ok ? ' done' : '');
+      b.innerHTML = '<b>' + (ok ? '✅' : (i === doneN ? '▶️' : '⬜')) + ' ' + escHtml(sg.h || ('第 ' + (i + 1) + ' 段')) + '</b>' +
+        '<small>' + escHtml(sg.sub || ((sg.s || []).length + ' 句 · ' + (sg.viz ? '有互動圖 · ' : '') + '1 題練習')) + '</small>';
+      b.addEventListener('click', function () { startTutorRead(id, i); });
+      body.appendChild(b);
     });
-    $('tutorStart').textContent = r ? '🔁 再測一次（' + (t.qs || []).length + ' 題）' : '📝 開始測驗（' + (t.qs || []).length + ' 題）';
+    var go = $('tutorStart');
+    go.disabled = !ready;
+    go.className = ready ? 'btn-primary' : 'btn-ghost';
+    go.textContent = !ready
+      ? '🔒 複習完 ' + segs.length + ' 段才能開始測驗（已完成 ' + doneN + '）'
+      : (r.runs ? '🔁 再測一次今天的內容（' + (t.qs || []).length + ' 題）'
+                : '📝 開始測驗今天的內容（' + (t.qs || []).length + ' 題）');
+    var again = $('tutorRead');
+    again.textContent = doneN ? (ready ? '📖 再複習一次' : '▶️ 繼續複習第 ' + (doneN + 1) + ' 段') : '▶️ 開始複習';
+    again.className = ready ? 'btn-ghost' : 'btn-primary';
+  }
+  function startTutorRead(id, i) {
+    var t = tutorOf(id);
+    if (!t || !(t.segs || []).length) { UIDialog.alert('這一堂還沒有複習內容。'); return; }
+    var r = tutorStat(id) || {};
+    var ok = {};
+    for (var k = 0; k < (r.seg || 0); k++) ok[k] = true;     // 已答對的段落不用重答
+    readState = { grade: state.grade, unitIdx: 0, items: { name: t.title, length: 0 },
+      text: { segs: t.segs }, deck: null, i: Math.min(i || 0, t.segs.length - 1),
+      ok: ok, speaking: false, tutor: id };
+    show('read');
+    renderReadSeg();
+    window.scrollTo(0, 0);
   }
   $('tutorExit').addEventListener('click', function () { showTutorCal(); });
-  $('tutorStart').addEventListener('click', function () { startTutorQuiz(tutorSess); });
+  $('tutorRead').addEventListener('click', function () {
+    var r = tutorStat(tutorSess) || {};
+    startTutorRead(tutorSess, tutorReadDone(tutorSess) ? 0 : (r.seg || 0));
+  });
+  $('tutorStart').addEventListener('click', function () {
+    if (!tutorReadDone(tutorSess)) {
+      UIDialog.alert('先把今天的內容一段一段複習完，才會開放測驗喔。');
+      return;
+    }
+    startTutorQuiz(tutorSess);
+  });
 
   function startTutorQuiz(id) {
     var qs = tutorQs(id);
@@ -5938,6 +5999,22 @@
   }
   var readState = null, readVoice = null;
 
+  // 【重點】→ <mark>：帶讀的句子可以標重點，唸出來時把括號去掉
+  function stripHl(line) { return String(line || '').replace(/[【】]/g, ''); }
+  function paintHl(host, line) {
+    String(line || '').split(/(【[^】]*】)/).forEach(function (part) {
+      if (!part) return;
+      if (part.charAt(0) === '【') {
+        var m = document.createElement('mark');
+        m.className = 'read-hl';
+        m.textContent = part.slice(1, -1);
+        host.appendChild(m);
+      } else {
+        host.appendChild(document.createTextNode(part));
+      }
+    });
+  }
+
   function readStopSpeak() {
     try { if (W.speechSynthesis) W.speechSynthesis.cancel(); } catch (e) {}
     if (readState) readState.speaking = false;
@@ -5988,8 +6065,9 @@
     if (!R) return;
     readStopSpeak();
     var seg = R.text.segs[R.i], last = R.i === R.text.segs.length - 1;
-    $('readInfo').textContent = (state.unitBook || '') + ' · ' + (R.items.name || '課文帶讀');
-    $('readStep').textContent = '📖 課文 ' + (R.i + 1) + '/' + R.text.segs.length;
+    $('readInfo').textContent = R.tutor ? ('📅 ' + (R.items.name || '補習複習'))
+      : ((state.unitBook || '') + ' · ' + (R.items.name || '課文帶讀'));
+    $('readStep').textContent = (R.tutor ? '📚 複習 ' : '📖 課文 ') + (R.i + 1) + '/' + R.text.segs.length;
     $('readTitle').textContent = seg.h || '';
     renderReadDots();
     // 逐句：點一句就唸那一句
@@ -5998,11 +6076,13 @@
     (seg.s || []).forEach(function (line, si) {
       var span = document.createElement('span');
       span.className = 'read-s';
-      span.textContent = line;
+      // 重點用【】框起來會上色（2026-09-04 Tony：「要有顏色 highlight，全文字太難讀」）
+      paintHl(span, line);
+      var plain = stripHl(line);
       span.addEventListener('click', function () {
         readStopSpeak();
         span.classList.add('on');
-        speak(line, function () { span.classList.remove('on'); });
+        speak(plain, function () { span.classList.remove('on'); });
       });
       body.appendChild(span);
     });
@@ -6033,6 +6113,18 @@
     });
     var viz = $('readViz');
     if (seg.viz && W.Widgets) W.Widgets.render(viz, seg.viz); else viz.innerHTML = '';
+    // 插圖（AI 生成，放在 img/tutor/）：載不到就自己隱藏，不留破圖
+    var pic = $('readPic');
+    pic.innerHTML = '';
+    if (seg.img) {
+      var im = document.createElement('img');
+      im.src = seg.img;
+      im.alt = seg.h || '';
+      im.addEventListener('error', function () { pic.innerHTML = ''; });
+      pic.appendChild(im);
+      if (seg.cap) pic.appendChild(Object.assign(document.createElement('div'),
+        { className: 'read-cap', textContent: seg.cap }));
+    }
     renderReadCheck(seg, last);
     $('readPrev').disabled = R.i === 0;
   }
@@ -6041,7 +6133,9 @@
     var R = readState, host = $('readCheck'), next = $('readNext');
     host.innerHTML = '';
     function setNext(done) {
-      next.textContent = last ? (done ? '進入概念卡 📘' : '先讀懂這一段') : (done ? '下一段 →' : '先讀懂這一段');
+      next.textContent = last
+        ? (done ? (R.tutor ? '複習完成，回去測驗 📝' : '進入概念卡 📘') : '先讀懂這一段')
+        : (done ? '下一段 →' : '先讀懂這一段');
       next.className = done ? 'btn-primary' : 'btn-ghost';
       next.disabled = !done;                     // 讀懂了才往下（Tony 要的就是這個）
     }
@@ -6104,7 +6198,7 @@
       spans.forEach(function (x) { x.classList.remove('on'); });
       if (spans[k]) spans[k].classList.add('on');
       var idx = k++;
-      var ok = speak(lines[idx], step);
+      var ok = speak(stripHl(lines[idx]), step);
       if (!ok) {                                  // 這台裝置沒有語音：至少把句子依序highlight
         setTimeout(step, 1200);
       }
@@ -6121,6 +6215,17 @@
     if (!R) return;
     if (R.i < R.text.segs.length - 1) { R.i++; renderReadSeg(); window.scrollTo(0, 0); return; }
     readStopSpeak();
+    if (R.tutor) {   // 補習複習：整套段落走完 → 解鎖今天內容的總測驗
+      var tid = R.tutor;
+      var L = tutorLog();
+      var rec = L[tid] || (L[tid] = { runs: 0, best: 0, last: 0, total: 0, ts: '' });
+      rec.read = true; rec.seg = R.text.segs.length;
+      save();
+      readState = null;
+      showTutor(tid);
+      setStatusToast('🎉 今天的內容複習完了，可以開始測驗！');
+      return;
+    }
     if (R.lit) {   // 語文常識帶讀：讀完就回列表並打勾，不接概念卡或測驗
       state.lit = state.lit || {};
       state.lit[R.grade + '|' + R.lit] = true;
@@ -6139,6 +6244,11 @@
   });
   $('readExit').addEventListener('click', function () {
     readStopSpeak();
+    if (readState && readState.tutor) {
+      var tid = readState.tutor;
+      tutorSaveSeg(tid, readState.i, Object.keys(readState.ok).length);
+      readState = null; showTutor(tid); return;
+    }
     if (readState && readState.lit) { readState = null; show('lit'); renderLit(); return; }
     showUnits();
   });

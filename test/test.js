@@ -1015,9 +1015,26 @@ console.log('歷屆學測');
     sids.add(t.id);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(t.date || '')) bad.push(tag + ' 日期格式要 YYYY-MM-DD');
     if (!(t.title || '').trim()) bad.push(tag + ' 沒有標題');
-    if (!(t.notes || []).length) bad.push(tag + ' 沒有複習內容');
-    (t.notes || []).forEach((n, i) => {
-      if (!(n.h || '').trim() || !(n.b || '').trim()) bad.push(tag + ' 第' + (i + 1) + '段複習內容不完整');
+    // 複習段落＝單元學習模式：小標＋短句＋一題練習（2026-09-04 Tony）
+    if (!(t.segs || []).length) bad.push(tag + ' 沒有複習段落');
+    (t.segs || []).forEach((sg, i) => {
+      const st = tag + ' 第' + (i + 1) + '段';
+      if (!(sg.h || '').trim()) bad.push(st + ' 沒有小標');
+      if (!(sg.s || []).length) bad.push(st + ' 沒有內容句');
+      (sg.s || []).forEach((line) => {
+        if (String(line).length > 60) bad.push(st + ' 有句子超過 60 字，唸不完');
+        const br = String(line).split('【').length - 1;
+        if (br !== String(line).split('】').length - 1) bad.push(st + ' 的【】沒有成對');
+      });
+      if (!(sg.s || []).some((line) => String(line).indexOf('【') >= 0)) bad.push(st + ' 沒有標任何重點');
+      if (!sg.viz && !sg.img) bad.push(st + ' 沒有互動元件也沒有插圖');
+      if (!sg.q) bad.push(st + ' 沒有練習題');
+      else {
+        if (!Array.isArray(sg.q.options) || sg.q.options.length !== 4) bad.push(st + ' 練習題選項要 4 個');
+        if (!(sg.q.answer >= 0 && sg.q.answer < (sg.q.options || []).length)) bad.push(st + ' 練習題答案索引超出選項');
+        if (!Array.isArray(sg.q.why) || sg.q.why.length !== (sg.q.options || []).length) bad.push(st + ' 每個選項都要有解析');
+        else if (sg.q.why.some((w) => !String(w || '').trim())) bad.push(st + ' 有選項沒寫解析');
+      }
     });
     if (!(t.qs || []).length) bad.push(tag + ' 沒有測驗題');
     (t.qs || []).forEach((q) => {

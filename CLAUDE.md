@@ -121,8 +121,14 @@
 Tony 把兒子當天補習的講義拍照傳到本線，整理成「一堂課一筆」放進 `js/data/tutor.js`（`APP_TUTOR`）。
 
 - 位置：**匯入題庫 →「📅 補習複習」**（`showTutorCal` → `showTutor`），是匯入題庫區的第四張卡
-- 流程：日曆選日期 →**先看複習內容**（`notes[{h,b}]`，把講義重點整理成短段）→ **再出題測驗**（`qs[]`，schema 同 custom）→ 算精熟度
-- 精熟度＝歷次測驗中最高的正確率，存在 `state.tutorLog[堂課id] = {runs,best,last,total,ts}`；🟢90%↑精熟／🟡70%↑基礎／🔴待加強
+- 流程（2026-09-04 晚 Tony 改版：「有點像單元學習的模式才對」）：日曆選日期 →
+  **一段一段複習**（沿用「課文帶讀」引擎 `startTutorRead`，每段有小標＋短句＋詞語解釋＋互動元件＋一題練習，
+  答錯給解析、答對才解鎖下一段）→ **全部段落走完才開放**今天內容的總測驗（`qs[]`，schema 同 custom）→ 算精熟度
+- `segs[{h, sub, s[], terms[{w,d}], viz, img, cap, q{q,options,answer,why[]}}]`；
+  句子裡用 **【】把重點框起來會自動上色**（`paintHl`，唸出來時會去掉括號）；`viz` 用 js/widgets.js 的元件
+  （timeline／matchpair／classify／wenyanflow…）；`img` 放 AI 插圖（Tony：需要畫圖就叫 gemini 或 chatgpt 畫，
+  用 `claude-shared/tools/gen-image.sh`，存 `img/tutor/`）
+- 精熟度＝歷次測驗中最高的正確率，存在 `state.tutorLog[堂課id] = {runs,best,last,total,ts,read,seg,pos}`；🟢90%↑精熟／🟡70%↑基礎／🔴待加強（`read`／`seg` 記複習進度，決定測驗解不解鎖）
 - 題庫類別叫 `tutorCustom`（名字以 Custom 結尾 → `isBankCat`／`isImportCat` 自動涵蓋，錯題本與匯入題庫進度分析不必另外改）
 - **家長／老師檢視區**有專屬「📅 補習複習」區塊，列出每堂的日期、題數、精熟度、測過幾次
 - ⛔ **題目一律自撰，不抄講義原題**（版權）；解析要有 ✅ 正解理由＋❌ 錯誤選項說明，`test/test.js` 有守門

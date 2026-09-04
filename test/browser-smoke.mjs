@@ -1393,7 +1393,8 @@ async (js) => {
   check('依課練習返回會回到匯入題庫大選單',
     await js(`!document.getElementById('view-imphome').classList.contains('hidden')`));
 
-  /* 補習複習：日曆 → 那一堂的複習內容 → 測驗 → 精熟度（2026-09-04 Tony 要的流程） */
+  /* 補習複習：日曆 → 一段一段複習（每段一題，答對才能往下）→ 解鎖總測驗 → 精熟度
+     （2026-09-04 Tony：「有點像單元學習的模式才對」） */
   await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#imphomeCards .card'))
     .filter(function(x){ return /補習複習/.test(x.textContent); })[0]; if (b) b.click(); })()`);
   await sleep(700);
@@ -1405,12 +1406,52 @@ async (js) => {
     await js(`document.querySelectorAll('#tutorCalGrid .cal-day.has').length >= 1`));
   await js(`document.querySelector('#tutorCalGrid .cal-day.has').click()`);
   await sleep(700);
-  check('點日期進得了那一堂的複習內容',
-    await js(`!document.getElementById('view-tutor').classList.contains('hidden')
-      && document.querySelectorAll('#tutorBody .tutor-sec').length >= 1`),
+  check('點日期進得了那一堂',
+    await js(`!document.getElementById('view-tutor').classList.contains('hidden')`),
     String(await js(`document.getElementById('tutorTitle').textContent`)));
-  check('複習內容看得到標題與內文',
-    await js(`document.getElementById('tutorBody').textContent.length > 200`));
+  check('列出每一段複習內容',
+    await js(`document.querySelectorAll('#tutorBody .unit-item').length >= 3`),
+    String(await js(`document.querySelectorAll('#tutorBody .unit-item').length`)) + ' 段');
+  check('還沒複習完，總測驗是鎖住的',
+    await js(`document.getElementById('tutorStart').disabled === true`),
+    String(await js(`document.getElementById('tutorStart').textContent`)));
+  await js(`document.getElementById('tutorRead').click()`);
+  await sleep(700);
+  check('按開始複習會進帶讀畫面',
+    await js(`!document.getElementById('view-read').classList.contains('hidden')`));
+  check('重點有上色（【】會變成 highlight）',
+    await js(`document.querySelectorAll('#readBody .read-hl').length >= 1`),
+    String(await js(`document.querySelectorAll('#readBody .read-hl').length`)) + ' 處');
+  check('段落有互動元件或插圖',
+    await js(`document.getElementById('readViz').children.length >= 1
+      || document.getElementById('readPic').children.length >= 1`));
+  check('沒答對練習題之前不能往下一段',
+    await js(`document.getElementById('readNext').disabled === true`),
+    String(await js(`document.getElementById('readNext').textContent`)));
+  // 先故意答錯一次，看有沒有解析
+  await js(`(function(){ var t = window.APP_TUTOR[0].segs[0].q;
+    var opts = document.querySelectorAll('#readCheck .ck-opt');
+    var w = t.answer === 0 ? 1 : 0; opts[w].click(); })()`);
+  await sleep(300);
+  check('答錯有解析',
+    /❌/.test(await js(`document.querySelector('#readCheck .ck-fb').textContent`)),
+    (await js(`document.querySelector('#readCheck .ck-fb').textContent`)).slice(0, 40));
+  // 一段一段照正解走完
+  const segN = await js(`window.APP_TUTOR[0].segs.length`);
+  for (let i = 0; i < segN; i++) {
+    await js(`(function(){ var i = ` + i + `; var t = window.APP_TUTOR[0].segs[i].q;
+      var opts = document.querySelectorAll('#readCheck .ck-opt');
+      if (opts[t.answer]) opts[t.answer].click(); })()`);
+    await sleep(250);
+    await js(`document.getElementById('readNext').click()`);
+    await sleep(350);
+  }
+  await sleep(500);
+  check('走完所有段落會回到那一堂',
+    await js(`!document.getElementById('view-tutor').classList.contains('hidden')`));
+  check('複習完之後總測驗解鎖',
+    await js(`document.getElementById('tutorStart').disabled === false`),
+    String(await js(`document.getElementById('tutorStart').textContent`)));
   await js(`document.getElementById('tutorStart').click()`);
   await sleep(800);
   check('按了開始測驗會進測驗畫面',
@@ -1436,7 +1477,7 @@ async (js) => {
   check('精熟度有存起來',
     await js(`(function(){ var s = JSON.parse(localStorage.getItem('chinese-review-v1') || '{}');
       var L = s.tutorLog || {}; var k = Object.keys(L)[0];
-      return !!(k && L[k].total && L[k].best === L[k].total); })()`));
+      return !!(k && L[k].total && L[k].best === L[k].total && L[k].read); })()`));
   await js(`document.getElementById('quizAgain').click()`);
   await sleep(700);
   check('測驗完的按鈕會回到那一堂',

@@ -1048,3 +1048,11 @@ body.anim-lock { overflow: hidden; }
 .tutor-sec { margin: .8rem 0; }
 .tutor-sec h3 { margin: .2rem 0 .3rem; font-size: 1rem; }
 .tutor-txt { white-space: pre-wrap; line-height: 1.75; font-size: .96rem; }
+
+/* 補習複習：段落進度條與帶讀重點標色（2026-09-04） */
+.tutor-bar { height: 8px; border-radius: 99px; background: var(--line, #e3e3e3); overflow: hidden; margin: .6rem 0 .4rem; }
+.tutor-bar i { display: block; height: 100%; background: var(--accent, #4a90d9); transition: width .3s; }
+.read-hl { background: rgba(255, 213, 79, .55); color: inherit; border-radius: 4px; padding: 0 .12em; font-weight: 600; }
+.read-pic { margin: .6rem 0; text-align: center; }
+.read-pic img { max-width: 100%; border-radius: 10px; }
+.read-cap { font-size: .82rem; color: var(--muted, #888); margin-top: .25rem; }
