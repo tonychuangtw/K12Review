@@ -6091,6 +6091,41 @@
       });
       body.appendChild(span);
     });
+    /* 原文區（2026-09-04 Tony：「文言文和閱讀測驗都要有原文，文言文最好一句一句講解，
+       直接列出整理的內容不曉得是什麼意思」）：
+       seg.passage = ['自撰短文段落…']（閱讀測驗的文章，可點單句朗讀）
+       seg.orig    = [{ c:'文言原句', v:'白話語譯', n:'字詞注釋' }]（一句原文配一句翻譯） */
+    var org = $('readOrig');
+    if (org) {
+      org.innerHTML = '';
+      (seg.passage || []).forEach(function (para) {
+        var pp = document.createElement('p');
+        pp.className = 'read-para';
+        pp.textContent = stripHl(para);
+        pp.addEventListener('click', function () {
+          readStopSpeak(); pp.classList.add('on');
+          speak(pp.textContent, function () { pp.classList.remove('on'); });
+        });
+        org.appendChild(pp);
+      });
+      (seg.orig || []).forEach(function (o) {
+        var row = document.createElement('div');
+        row.className = 'wy-row';
+        var c = document.createElement('div');
+        c.className = 'wy-c';
+        c.textContent = o.c || '';
+        c.addEventListener('click', function () {
+          readStopSpeak(); c.classList.add('on');
+          speak(o.c || '', function () { c.classList.remove('on'); });
+        });
+        row.appendChild(c);
+        if (o.v) row.appendChild(Object.assign(document.createElement('div'),
+          { className: 'wy-v', textContent: '語譯：' + o.v }));
+        if (o.n) row.appendChild(Object.assign(document.createElement('div'),
+          { className: 'wy-n', textContent: '字詞：' + o.n }));
+        org.appendChild(row);
+      });
+    }
     // 詞語解釋
     var terms = $('readTerms');
     terms.innerHTML = '';

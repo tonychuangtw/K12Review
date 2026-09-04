@@ -1062,3 +1062,14 @@ body.anim-lock { overflow: hidden; }
 .read-pic { margin: .6rem 0; text-align: center; }
 .read-pic img { max-width: 100%; border-radius: 10px; }
 .read-cap { font-size: .82rem; color: var(--muted, #888); margin-top: .25rem; }
+
+/* 原文區（2026-09-04 Tony：文言文與閱讀測驗都要有原文，文言文一句一句講） */
+.read-orig { margin: .6rem 0; }
+.read-para { margin: .5rem 0; line-height: 1.9; text-indent: 2em; cursor: pointer; }
+.read-para.on { background: rgba(74, 144, 217, .12); border-radius: 4px; }
+.wy-row { margin: .55rem 0; padding: .45rem .6rem; border-left: 3px solid var(--accent, #4a90d9);
+  background: rgba(74, 144, 217, .06); border-radius: 0 6px 6px 0; }
+.wy-c { font-size: 1.06rem; line-height: 1.8; cursor: pointer; }
+.wy-c.on { color: var(--accent, #4a90d9); }
+.wy-v { font-size: .93rem; line-height: 1.7; margin-top: .2rem; }
+.wy-n { font-size: .85rem; line-height: 1.6; margin-top: .15rem; color: var(--muted, #888); }

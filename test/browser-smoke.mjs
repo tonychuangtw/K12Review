@@ -1443,7 +1443,20 @@ async (js) => {
     (await js(`document.querySelector('#readCheck .ck-fb').textContent`)).slice(0, 40));
   // 一段一段照正解走完
   const segN = await js(`window.APP_TUTOR[0].segs.length`);
+  let origOK = true, origSeen = 0;
   for (let i = 0; i < segN; i++) {
+    // 2026-09-04 Tony：「文言文和閱讀測驗都要有原文，文言文最好一句一句講解」
+    const want = await js(`(function(){ var g = window.APP_TUTOR[0].segs[` + i + `];
+      return ((g.orig||[]).length ? 'wy' : '') + ((g.passage||[]).length ? 'p' : ''); })()`);
+    if (want) {
+      origSeen++;
+      const got = await js(`(function(){ var o = document.getElementById('readOrig');
+        return (o.querySelectorAll('.wy-row').length ? 'wy' : '')
+             + (o.querySelectorAll('.read-para').length ? 'p' : ''); })()`);
+      if (got !== want) origOK = false;
+      if (/wy/.test(String(want)) && !/語譯/.test(String(
+        await js(`document.getElementById('readOrig').textContent`)))) origOK = false;
+    }
     await js(`(function(){ var i = ` + i + `; var t = window.APP_TUTOR[0].segs[i].q;
       var opts = document.querySelectorAll('#readCheck .ck-opt');
       if (opts[t.answer]) opts[t.answer].click(); })()`);
@@ -1456,6 +1469,8 @@ async (js) => {
     await js(`(function(){ var s = JSON.parse(localStorage.getItem('chinese-review-v1') || '{}');
       var L = s.tutorLog || {}; var k = Object.keys(L)[0];
       return !!(k && L[k].seg >= 1); })()`));
+  check('文言文與閱讀測驗都附了原文（文言文還逐句附語譯）',
+    origOK && origSeen >= 2, origSeen + ' 段有原文');
   check('走完所有段落會回到那一堂',
     await js(`!document.getElementById('view-tutor').classList.contains('hidden')`));
   check('複習完之後總測驗解鎖',

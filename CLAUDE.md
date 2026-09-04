@@ -9,6 +9,18 @@
 - 改動守則：改完必跑 `node test/test.js`（85k+ checks）；內容 UI 一律不顯示中文翻譯（全英文沉浸）；題目原創不可抄劍橋官方題
 - 協作歷史在 `claude-shared/projects/LanExamMock/discussion.md`；07-19 起穩定維運，五級站+AI 批改皆已上線
 
+## 補習複習（js/data/tutor.js）
+
+匯入題庫裡的獨立項目：日曆 → 那天的課 → 一段一段複習（單元學習模式）→ 全部走完才解鎖總測驗。
+一堂 = `{id, date, title, teacher, subject, segs[], qs[]}`；一段 `seg` =
+`{h 小標, sub, s[{k 標籤, t 句子}], passage[], orig[{c,v,n}], terms[], viz|img, q{q,options,answer,why[4]}}`。
+
+- ⛔ **內容與題目一律自撰，不抄講義原文原題**（版權）；公版古文（如《說苑·梟逢鳩》）可引原文
+- **文言文一定要附 `orig`（一句原文＋一句語譯＋一行字詞注釋），閱讀測驗一定要附 `passage`（自撰短文）**
+  （2026-09-04 Tony：「文言文和閱讀測驗都要有原文，文言文最好一句一句講解，直接列出整理的內容不曉得是什麼意思」）
+- 一句最多標一個【重點】、句子 ≤60 字、每段要有互動元件或插圖、段末一題練習（每個選項都要 `why`）
+- 改完跑 `node test/test.js`（資料守門）與 `node test/browser-smoke.mjs`（走完整堂流程）
+
 ## 專案概要
 
 - 純靜態網站，比照 LanExamMock 模式：vanilla JS、無 build、GitHub Pages 部署、localStorage 存進度

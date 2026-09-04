@@ -1037,6 +1037,17 @@ console.log('歷屆學測');
       if (!hlTotal) bad.push(st + ' 沒有標任何重點');
       if (hlTotal > (sg.s || []).length) bad.push(st + ' 重點標太多');
       if (!sg.viz && !sg.img) bad.push(st + ' 沒有互動元件也沒有插圖');
+      // 2026-09-04 Tony：「文言文和閱讀測驗都要有原文，文言文最好一句一句講解」
+      (sg.passage || []).forEach((para) => {
+        if (!String(para || '').trim()) bad.push(st + ' 短文有空段落');
+      });
+      (sg.orig || []).forEach((o, j) => {
+        const ot = st + ' 原文第' + (j + 1) + '句';
+        if (!String(o.c || '').trim()) bad.push(ot + ' 沒有原句');
+        if (!String(o.v || '').trim()) bad.push(ot + ' 沒有語譯（文言文要一句一句講）');
+      });
+      if (/文言|梟逢鳩/.test(sg.h || '') && !(sg.orig || []).length) bad.push(st + ' 是文言文卻沒有附原文逐句');
+      if (/閱讀/.test(sg.h || '') && !(sg.passage || []).length && !(sg.orig || []).length) bad.push(st + ' 是閱讀測驗卻沒有附原文');
       if (!sg.q) bad.push(st + ' 沒有練習題');
       else {
         if (!Array.isArray(sg.q.options) || sg.q.options.length !== 4) bad.push(st + ' 練習題選項要 4 個');
