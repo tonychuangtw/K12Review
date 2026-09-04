@@ -768,10 +768,11 @@ NEXT_ACTION: 【學測全部完成，會考已收齊，基測進行中：102／1
          民法+民訴→law2a、公司法+保險法+票據法→law2b（同一份卷會掛在 c=301/302/303 底下，要以
          (code,s) 去重，否則同一份會重複三次）。
      ⏭ **下一步＝補詳解**（2026-09-04 Tony：「一卷一卷寫完，依序和我回報進度狀況，直接寫到完」）。
-       **已完成整卷：doc-115-2-med1（100 題）、doc-115-2-med3（80 題）**；
-       另 law-115-1-law1a 3 題、law-115-1-law1b 4 題、law-115-2a 4 題為零星舊資料。
-       目前合計 191/16,693 題。**下一卷＝law-115-1-law1a（綜合法學一 憲法/行政法組，75 題）**，
-       之後依序 law-115-1-law1b、law-115-1-law2a、law-115-1-law2b，再往醫學四、五、六與更早年份。
+       **已完成整卷（6 卷 480 題）**：doc-115-2-med1（100）、doc-115-2-med3（80）、
+       law-115-1-law1a（75）、law-115-1-law1b（75）、law-115-1-law2a（80）、law-115-1-law2b（70）。
+       ⟹ 115 年律師第一試四卷全數完成。
+       目前合計 480/16,693 題。**下一卷＝115 年第二次醫師其餘各卷（醫學二／四／五／六）**，
+       之後往更早年份與其他考試。
        每卷流程：寫 patch json → `node tools/set-exp.js <patch.json> --write` →
        `python3 gen3.py`（在 scratchpad/moex）→ 換 index.html 的 `?v=` →
        `node test/test.js` ＋ `node test/smoke.mjs` → commit push → **發 Telegram 回報那一卷**。
