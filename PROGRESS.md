@@ -6,6 +6,11 @@ STATUS: in-progress
 <!-- 2026-09-02 歷屆學測 90–115 國英數社 109 卷 4,528 題收齊（年份下限 90：Tony「做到90就好」，83–89 不做）。
      同日 Tony：「繼續做到完為止」「除非有什麼解決不了一定要問的問題，不然都做到完為止」
      ＝接著做學測自然（115→90，subj 用 science，id <年>-science），再會考數英社自（115-103）、基測（102-90）。 -->
+<!-- 2026-09-04 Tony 插件需求（已完工上線 v126）：補習複習。
+     匯入題庫 →📅 補習複習 → 日曆選日期 → 先看複習內容 → 出題測驗算精熟度，
+     家長／老師檢視區也看得到。資料在 js/data/tutor.js（一堂課一筆），規格見 CLAUDE.md
+     「2026-09-04 補習複習」。第一堂＝吳敏男國文20260904（22 題）。
+     ⏭ 以後 Tony 再拍講義照片傳來，就照同一格式加一堂（題目自撰不抄講義）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
 NEXT_ACTION: 【學測全部完成，會考已收齊，基測進行中：102／101／100（兩次）已完成。**99 年第一次基測四科全部完成（數學 34／社會 63／自然 58／英語 45 ＝ 200 題）**。**99 年第二次基測四科全部完成（數學 34／社會 63／自然 58／英語 45 ＝ 200 題）⟹ 99 年兩次基測合計 400 題全數完成。**⛔ **2026-09-03 22:56 Tony 喊停：「不是請你做到 100 年先停嗎?」——已停手，等他指示再動。**
      現況：99 年兩次基測四科（400 題）與 98 年第一次的數學 34、社會 63 都已做完並 push 上線；
@@ -1004,7 +1009,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-04 23:29 台北
+UPDATED: 2026-09-05 00:27 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
