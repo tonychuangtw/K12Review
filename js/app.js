@@ -6073,12 +6073,17 @@
     // 逐句：點一句就唸那一句
     var body = $('readBody');
     body.innerHTML = '';
-    (seg.s || []).forEach(function (line, si) {
+    (seg.s || []).forEach(function (raw, si) {
+      // 一句可以是字串，也可以是 {k:'小標', t:'內容'}（2026-09-04 Tony：「highlight 太多變得很亂，
+      // 閱讀不容易」→ 改成前面一個小標帶出主題，後面一句白話，重點一句最多標一個詞）
+      var lab = (raw && typeof raw === 'object') ? (raw.k || '') : '';
+      var line = (raw && typeof raw === 'object') ? (raw.t || '') : String(raw || '');
       var span = document.createElement('span');
-      span.className = 'read-s';
-      // 重點用【】框起來會上色（2026-09-04 Tony：「要有顏色 highlight，全文字太難讀」）
+      span.className = 'read-s' + (lab ? ' has-k' : '');
+      if (lab) span.appendChild(Object.assign(document.createElement('b'),
+        { className: 'read-k', textContent: lab }));
       paintHl(span, line);
-      var plain = stripHl(line);
+      var plain = (lab ? lab + '，' : '') + stripHl(line);
       span.addEventListener('click', function () {
         readStopSpeak();
         span.classList.add('on');
@@ -6191,7 +6196,10 @@
   function readPlayAll() {
     var R = readState;
     if (!R) return;
-    var lines = R.text.segs[R.i].s || [], spans = $('readBody').querySelectorAll('.read-s');
+    var lines = (R.text.segs[R.i].s || []).map(function (x) {
+      return (x && typeof x === 'object') ? ((x.k ? x.k + '，' : '') + (x.t || '')) : x;
+    });
+    var spans = $('readBody').querySelectorAll('.read-s');
     if (!lines.length) return;
     R.speaking = true;
     $('readPlay').classList.add('hidden');

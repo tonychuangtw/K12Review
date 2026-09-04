@@ -1052,7 +1052,13 @@ body.anim-lock { overflow: hidden; }
 /* 補習複習：段落進度條與帶讀重點標色（2026-09-04） */
 .tutor-bar { height: 8px; border-radius: 99px; background: var(--line, #e3e3e3); overflow: hidden; margin: .6rem 0 .4rem; }
 .tutor-bar i { display: block; height: 100%; background: var(--accent, #4a90d9); transition: width .3s; }
-.read-hl { background: rgba(255, 213, 79, .55); color: inherit; border-radius: 4px; padding: 0 .12em; font-weight: 600; }
+/* 重點標記：2026-09-04 Tony「highlight 太多變得很亂」→ 改成淡底＋細下線，不加粗 */
+.read-hl { background: rgba(255, 224, 130, .38); color: inherit; border-radius: 3px;
+  padding: 0 .1em; box-shadow: inset 0 -2px 0 rgba(240, 180, 0, .45); }
+/* 每句前面的小標：讓段落像條列，眼睛好掃 */
+.read-s.has-k { display: block; margin: .35rem 0; }
+.read-k { display: inline-block; min-width: 4.2em; margin-right: .45rem;
+  color: var(--accent, #4a90d9); font-weight: 700; }
 .read-pic { margin: .6rem 0; text-align: center; }
 .read-pic img { max-width: 100%; border-radius: 10px; }
 .read-cap { font-size: .82rem; color: var(--muted, #888); margin-top: .25rem; }

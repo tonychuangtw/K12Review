@@ -1021,12 +1021,21 @@ console.log('歷屆學測');
       const st = tag + ' 第' + (i + 1) + '段';
       if (!(sg.h || '').trim()) bad.push(st + ' 沒有小標');
       if (!(sg.s || []).length) bad.push(st + ' 沒有內容句');
-      (sg.s || []).forEach((line) => {
-        if (String(line).length > 60) bad.push(st + ' 有句子超過 60 字，唸不完');
-        const br = String(line).split('【').length - 1;
-        if (br !== String(line).split('】').length - 1) bad.push(st + ' 的【】沒有成對');
+      let hlTotal = 0;
+      (sg.s || []).forEach((raw) => {
+        // 一句可以是字串，也可以是 {k:小標, t:內容}
+        const line = (raw && typeof raw === 'object') ? String(raw.t || '') : String(raw || '');
+        const lab = (raw && typeof raw === 'object') ? String(raw.k || '') : '';
+        if (line.length > 60) bad.push(st + ' 有句子超過 60 字，唸不完');
+        if (lab.length > 6) bad.push(st + ' 小標超過 6 字，排版會擠');
+        const n = line.split('【').length - 1;
+        if (n !== line.split('】').length - 1) bad.push(st + ' 的【】沒有成對');
+        // 2026-09-04 Tony：「highlight 太多變得很亂」→ 一句最多標一個重點
+        if (n > 1) bad.push(st + ' 有一句標了 ' + n + ' 個重點（一句最多一個）');
+        hlTotal += n;
       });
-      if (!(sg.s || []).some((line) => String(line).indexOf('【') >= 0)) bad.push(st + ' 沒有標任何重點');
+      if (!hlTotal) bad.push(st + ' 沒有標任何重點');
+      if (hlTotal > (sg.s || []).length) bad.push(st + ' 重點標太多');
       if (!sg.viz && !sg.img) bad.push(st + ' 沒有互動元件也沒有插圖');
       if (!sg.q) bad.push(st + ' 沒有練習題');
       else {
