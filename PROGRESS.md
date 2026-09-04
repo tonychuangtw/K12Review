@@ -768,15 +768,15 @@ NEXT_ACTION: 【學測全部完成，會考已收齊，基測進行中：102／1
          民法+民訴→law2a、公司法+保險法+票據法→law2b（同一份卷會掛在 c=301/302/303 底下，要以
          (code,s) 去重，否則同一份會重複三次）。
      ⏭ **下一步＝補詳解**（2026-09-04 Tony：「一卷一卷寫完，依序和我回報進度狀況，直接寫到完」）。
-       **已完成整卷（54 卷 4,660 題）**：
+       **已完成整卷（58 卷 4,980 題）**：
     ・115 年醫師兩次共 12 卷、115 年律師第一試 4 卷
     ・114 年醫師兩次共 12 卷（doc-114-2-med1～med6、doc-114-1-med1～med6）
     ・113 年醫師兩次共 12 卷（doc-113-2-med1～med6、doc-113-1-med1～med6）
     ・112 年醫師兩次共 12 卷（doc-112-2-med1～med6、doc-112-1-med1～med6）
-    ・111 年第二次醫師 med1、med2（doc-111-2-med1、doc-111-2-med2）
-    目前合計 4,660/16,693 題（醫師還有 100 卷、律師 51 卷未寫）。
-    **下一卷＝doc-111-2-med3**（111 年第二次醫師 醫學（三）），
-    之後 med4～med6、111-1 六卷、110…更早年份，以及律師 114 年以前各卷。
+    ・111 年第二次醫師 6 卷（doc-111-2-med1～med6）全數完成
+    目前合計 4,980/16,693 題（醫師還有 96 卷、律師 51 卷未寫）。
+    **下一卷＝doc-111-1-med1**（111 年第一次醫師 醫學（一）），
+    之後 med2～med6、110…更早年份，以及律師 114 年以前各卷。
        每卷流程：寫 patch json → `node tools/set-exp.js <patch.json> --write` →
        `python3 gen3.py`（在 scratchpad/moex）→ 換 index.html 的 `?v=` →
        `node test/test.js` ＋ `node test/smoke.mjs` → commit push → **發 Telegram 回報那一卷**。
@@ -1004,7 +1004,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-04 22:50 台北
+UPDATED: 2026-09-04 23:29 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
