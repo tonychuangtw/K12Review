@@ -613,7 +613,7 @@ async (js) => {
       function (c) { return (c.textContent || '').indexOf('家長／老師檢視') >= 0; })`));
   check('匯入題庫先出大選單', await js(`
     !document.getElementById('view-imphome').classList.contains('hidden')
-    && document.querySelectorAll('#imphomeCards .card').length === 3`),
+    && document.querySelectorAll('#imphomeCards .card').length === 4`),
     String(await js(`document.getElementById('imphomeCards').textContent`)));
   await js(`(function(){ var b = Array.prototype.filter.call(
     document.querySelectorAll('#imphomeCards .card'),
@@ -1352,8 +1352,8 @@ async (js) => {
   await js(`(function(){ var b = [].slice.call(document.querySelectorAll('#view-subject button, #view-subject .card'))
     .filter(function(x){ return /匯入題庫/.test(x.textContent); })[0]; if (b) b.click(); })()`);
   await sleep(3500);
-  check('匯入題庫先出大選單（做題／錯題本／進度分析）',
-    await js(`document.querySelectorAll('#imphomeCards .card').length`) === 3,
+  check('匯入題庫先出大選單（做題／錯題本／進度分析／補習複習）',
+    await js(`document.querySelectorAll('#imphomeCards .card').length`) === 4,
     String(await js(`document.getElementById('imphomeCards').textContent`)));
   await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#imphomeCards .card'))
     .filter(function(x){ return /錯題本/.test(x.textContent); })[0]; if (b) b.click(); })()`);
@@ -1392,6 +1392,67 @@ async (js) => {
   await sleep(700);
   check('依課練習返回會回到匯入題庫大選單',
     await js(`!document.getElementById('view-imphome').classList.contains('hidden')`));
+
+  /* 補習複習：日曆 → 那一堂的複習內容 → 測驗 → 精熟度（2026-09-04 Tony 要的流程） */
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#imphomeCards .card'))
+    .filter(function(x){ return /補習複習/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(700);
+  check('補習複習進得去，而且是日曆',
+    await js(`!document.getElementById('view-tutorcal').classList.contains('hidden')
+      && document.querySelectorAll('#tutorCalGrid .cal-day').length >= 28`),
+    String(await js(`document.getElementById('tutorCalTitle').textContent`)));
+  check('日曆上有補習的那一天會亮起來',
+    await js(`document.querySelectorAll('#tutorCalGrid .cal-day.has').length >= 1`));
+  await js(`document.querySelector('#tutorCalGrid .cal-day.has').click()`);
+  await sleep(700);
+  check('點日期進得了那一堂的複習內容',
+    await js(`!document.getElementById('view-tutor').classList.contains('hidden')
+      && document.querySelectorAll('#tutorBody .tutor-sec').length >= 1`),
+    String(await js(`document.getElementById('tutorTitle').textContent`)));
+  check('複習內容看得到標題與內文',
+    await js(`document.getElementById('tutorBody').textContent.length > 200`));
+  await js(`document.getElementById('tutorStart').click()`);
+  await sleep(800);
+  check('按了開始測驗會進測驗畫面',
+    await js(`!document.getElementById('view-quiz').classList.contains('hidden')`));
+  // 全部照正解作答，跑完整堂（作答後若跳出解析確認題，隨便選一個過關）
+  const tutorTotal = await js(`window.APP_TUTOR[0].qs.length`);
+  for (let i = 0; i < tutorTotal; i++) {
+    await js(`(function(){ var id = window.QuizDebug.id();
+      var it = window.APP_DATA.tutorCustom.filter(function(x){ return x.id === id; })[0];
+      if (it) document.querySelectorAll('#quizOptions .q-opt')[it.answer].click(); })()`);
+    await sleep(200);
+    await js(`(function(){ var c = document.getElementById('quizChk');
+      if (c && !c.classList.contains('hidden')) {
+        var o = document.querySelector('#quizChkOpts .q-opt'); if (o) o.click(); } })()`);
+    await sleep(200);
+    await js(`window.QuizDebug.unlock(); document.getElementById('quizNext').click()`);
+    await sleep(220);
+  }
+  await sleep(600);
+  check('測驗完會算出精熟度',
+    /精熟/.test(await js(`document.getElementById('quizResult').textContent`)),
+    (await js(`document.getElementById('quizResult').textContent`)).slice(0, 60));
+  check('精熟度有存起來',
+    await js(`(function(){ var s = JSON.parse(localStorage.getItem('chinese-review-v1') || '{}');
+      var L = s.tutorLog || {}; var k = Object.keys(L)[0];
+      return !!(k && L[k].total && L[k].best === L[k].total); })()`));
+  await js(`document.getElementById('quizAgain').click()`);
+  await sleep(700);
+  check('測驗完的按鈕會回到那一堂',
+    await js(`!document.getElementById('view-tutor').classList.contains('hidden')`));
+  check('回到那一堂看得到精熟度',
+    /精熟/.test(await js(`document.getElementById('tutorMeta').textContent`)),
+    String(await js(`document.getElementById('tutorMeta').textContent`)));
+  await js(`document.getElementById('tutorExit').click()`);
+  await sleep(600);
+  check('補習複習返回會回到日曆',
+    await js(`!document.getElementById('view-tutorcal').classList.contains('hidden')`));
+  await js(`document.getElementById('tutorCalExit').click()`);
+  await sleep(600);
+  check('日曆返回會回到匯入題庫大選單',
+    await js(`!document.getElementById('view-imphome').classList.contains('hidden')`));
+
   await js(`window.NavDebug.go('home')`);
   await sleep(400);
   await js(`document.querySelector('.card[data-go="progress"]').click()`);

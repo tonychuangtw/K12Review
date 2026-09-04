@@ -1031,3 +1031,20 @@ body.anim-lock { overflow: hidden; }
   background: var(--panel2); color: var(--ink);
 }
 .exam-fill-cell input:focus { border-color: var(--accent); outline: none; }
+
+/* 補習複習日曆（2026-09-04）：匯入題庫 →📅 補習複習 →點日期看那天的內容 */
+.cal-bar { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: .6rem 0; }
+.cal-bar b { font-size: 1.05rem; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: .4rem 0 .8rem; }
+.cal-wd { text-align: center; font-size: .8rem; color: var(--muted, #888); padding: 2px 0; }
+.cal-day { min-height: 44px; border: 1px solid var(--line, #ddd); border-radius: 8px; background: transparent;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+  font: inherit; color: inherit; padding: 2px; }
+.cal-day.today { border-color: var(--accent, #4a90d9); }
+.cal-day.has { background: rgba(74, 144, 217, .12); cursor: pointer; border-color: var(--accent, #4a90d9); }
+.cal-day.has:active { transform: scale(.96); }
+.cal-n { font-size: .9rem; }
+.cal-dot { font-size: .8rem; line-height: 1; }
+.tutor-sec { margin: .8rem 0; }
+.tutor-sec h3 { margin: .2rem 0 .3rem; font-size: 1rem; }
+.tutor-txt { white-space: pre-wrap; line-height: 1.75; font-size: .96rem; }

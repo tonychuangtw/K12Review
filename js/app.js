@@ -12,6 +12,19 @@
    'historyCustom', 'geographyCustom', 'civicsCustom'].forEach(function (k) {
     if (!Array.isArray(DATA[k])) DATA[k] = [];
   });
+  /* 補習複習（2026-09-04 Tony）：js/data/tutor.js 一堂課一筆，題目攤平成一個
+     題庫類別 tutorCustom（名字以 Custom 結尾，isBankCat／isImportCat 就自動涵蓋，
+     錯題本與匯入題庫的進度分析不必另外改）。 */
+  var TUTOR = W.APP_TUTOR || [];
+  DATA.tutorCustom = [];
+  TUTOR.forEach(function (s) {
+    (s.qs || []).forEach(function (q) {
+      q._sess = s.id; q.book = s.title; q.lesson = s.date; q.tag = s.title;
+      DATA.tutorCustom.push(q);
+    });
+  });
+  function tutorOf(id) { return TUTOR.find(function (s) { return s.id === id; }) || null; }
+  function tutorQs(id) { return DATA.tutorCustom.filter(function (q) { return q._sess === id; }); }
   var SUBJECTS = W.APP_SUBJECTS || [{ key: 'chinese', name: '國語', icon: '📖', ready: true, desc: '' }];
   var CHECKS = W.APP_CHECKS || {};   // 解析確認題（js/data/checks-*.js）
 
@@ -705,6 +718,7 @@
   var CN_CATS = ['idioms', 'slang', 'phonics', 'chars', 'reading', 'write', 'custom', 'mixed'];
   function subjOfCat(cat) {
     if (!cat) return curSubj();
+    if (cat === 'tutorCustom') return (tutorOf(tutorSess) || {}).subject || 'chinese';
     if (CN_CATS.indexOf(cat) >= 0) return 'chinese';
     if (SUBJECT_CATS.indexOf(cat) >= 0) return cat;
     var m = /^(.+)Custom$/.exec(cat);
@@ -962,7 +976,7 @@
 
   /* ---------- 視圖切換 ---------- */
 
-  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'read', 'lit', 'drill', 'imphome', 'custom', 'review', 'help', 'search', 'exams', 'exam'];
+  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'read', 'lit', 'drill', 'imphome', 'tutorcal', 'tutor', 'custom', 'review', 'help', 'search', 'exams', 'exam'];
   // 手機返回手勢／瀏覽器上一頁（2026-08-20 Tony：「很多選進去後都不能回前一頁」）
   // 這是單頁站，本來按返回會直接離站。做法：navStack 與 history 條目一一對應——
   // 前進 pushState，退回一律交給 history.go（畫面在 popstate 裡才更新），
@@ -1892,7 +1906,8 @@
     scienceCustom: '自然匯入題庫', socialCustom: '社會匯入題庫',
     physicsCustom: '物理匯入題庫', chemistryCustom: '化學匯入題庫',
     biologyCustom: '生物匯入題庫', earthCustom: '地球科學匯入題庫',
-    historyCustom: '歷史匯入題庫', geographyCustom: '地理匯入題庫', civicsCustom: '公民與社會匯入題庫'
+    historyCustom: '歷史匯入題庫', geographyCustom: '地理匯入題庫', civicsCustom: '公民與社會匯入題庫',
+    tutorCustom: '補習複習'
   };
   // 高中的自然／社會依 108 課綱分科（Tony 2026-08-20 定案「高中要拆」）：
   // 自然 → 物理/化學/生物/地球科學；社會 → 歷史/地理/公民與社會。國中維持領域合科。
@@ -2793,6 +2808,15 @@
     if (quiz.score === quiz.entries.length) confetti();
     var cat = quiz.cat, retry = quiz.mode === 'retry', drill = quiz.mode === 'drill', search = quiz.mode === 'search';
     var mixed = cat === 'mixed';
+    var tsess = quiz.tutorSess || null;
+    if (tsess) {
+      tutorSaveRun(tsess, quiz.score, quiz.entries.length);
+      var lvNow = tutorLevel(tutorRate(tsess));
+      var tline = document.createElement('div');
+      tline.textContent = '精熟度：' + lvNow.icon + ' ' + lvNow.text + '（取歷次最好的一次）';
+      $('quizResult').insertBefore(tline, $('quizAgain'));
+      $('quizAgain').textContent = '← 回這堂補習';
+    }
     if (search) $('quizAgain').textContent = '← 回搜尋結果';
     if (drill) {
       var done = Math.min(quiz.drillBase + quiz.entries.length, quiz.drillTotal);
@@ -2807,6 +2831,7 @@
     }
     var dBook = quiz.drillBook, dLesson = quiz.drillLesson, dKey = quiz.drillKey;
     $('quizAgain').addEventListener('click', function () {
+      if (tsess) { showTutor(tsess); return; }
       if (search) { show('search'); return; }
       if (mixed) { startMixedRound(); return; }   // 再抽一批混合題（原本會跳到錯題本）
       if (retry) showWrongbook();
@@ -2839,6 +2864,7 @@
     hqCancel();
     function leave() {
       if (quiz && quiz.mode === 'search') { show('search'); return; }
+      if (quiz && quiz.tutorSess) { showTutor(quiz.tutorSess); return; }
       if (importMode) { showCustom(); return; }   // 從匯入題庫進來的，退回匯入題庫
       show('home');
     }
@@ -4973,6 +4999,27 @@
         '%、錯題本還有 ' + impSum.wrong + ' 題。（匯入題庫在首頁的「📦 匯入題庫」進去，' +
         '裡面有自己的錯題本與進度分析）');
     }
+    // 補習複習：每一堂上過什麼、測了幾次、精熟到哪裡（2026-09-04 Tony 要求家長看得到）
+    if (TUTOR.length) {
+      h3('📅 補習複習（每堂的複習與精熟度）');
+      var tDone = 0;
+      TUTOR.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).forEach(function (t) {
+        var rec = (st.tutorLog || {})[t.id];
+        var rate = (rec && rec.total) ? Math.round(100 * rec.best / rec.total) : null;
+        var lv = tutorLevel(rate);
+        if (rec) tDone++;
+        var row3 = document.createElement('div');
+        row3.className = 'prog-row';
+        row3.innerHTML = '<b>' + escHtml(t.title) + '</b><span>' + t.date + ' · ' +
+          (t.qs || []).length + ' 題 · ' + lv.icon + ' ' + lv.text +
+          (rec ? ' · 測過 ' + rec.runs + ' 次（最近 ' + rec.last + '/' + rec.total + '，' + rec.ts + '）' : ' · 還沒測驗') +
+          '</span>';
+        body.appendChild(row3);
+      });
+      hintEl('共 ' + TUTOR.length + ' 堂補習內容，已測驗 ' + tDone + ' 堂。' +
+        '孩子從「📦 匯入題庫 →📅 補習複習」點日曆選日期，先看當天的複習內容再做測驗；' +
+        '精熟度取歷次最好的一次（🟢90% 以上精熟／🟡70% 以上基礎／🔴 待加強）。');
+    }
 
     // 一直記不住的題（錯 2 次以上，錯最多的排前面）
     h3('🔁 一直記不住的題');
@@ -5231,7 +5278,8 @@
     [
       { icon: '📝', title: '做題', sub: total ? total.toLocaleString() + ' 題 · ' + got + ' 科 · 依冊、依課練習' : '還沒有題本，傳給我轉檔', go: function () { showImport(); } },
       { icon: '📕', title: '錯題本', sub: wrongN ? wrongN + ' 題待複習' : '目前沒有錯題', go: function () { wb.scope = 'import'; showWrongbook(); } },
-      { icon: '📊', title: '進度分析', sub: done ? '做過 ' + done.toLocaleString() + ' 題' : '還沒有作答紀錄', go: function () { showImportProgress(); } }
+      { icon: '📊', title: '進度分析', sub: done ? '做過 ' + done.toLocaleString() + ' 題' : '還沒有作答紀錄', go: function () { showImportProgress(); } },
+      { icon: '📅', title: '補習複習', sub: TUTOR.length ? TUTOR.length + ' 堂 · 點日曆選那天上的內容' : '還沒有補習內容', go: function () { showTutorCal(); } }
     ].forEach(function (c) {
       var b = document.createElement('button');
       b.className = 'card card-wide';
@@ -5242,6 +5290,133 @@
     });
   }
   $('imphomeExit').addEventListener('click', function () { importMode = false; show('subject'); });
+
+  /* ---------- 補習複習（2026-09-04 Tony 定案）----------
+     匯入題庫 →「📅 補習複習」→ 日曆選日期 → 先看當天補習的複習內容 → 出題測精熟度。
+     成績記在 state.tutorLog[堂課id]，家長／老師檢視區也看得到。 */
+  var tutorSess = null;                       // 目前打開的是哪一堂
+  var tutorMonth = null;                      // 日曆顯示的月份（該月 1 號）
+  function tutorLog() { return (state.tutorLog = state.tutorLog || {}); }
+  function tutorStat(id) { return tutorLog()[id] || null; }
+  // 精熟度＝歷次測驗中最高的正確率（Tony：「出題測驗看精熟度如何」）
+  function tutorRate(id) {
+    var r = tutorStat(id);
+    return (r && r.total) ? Math.round(100 * r.best / r.total) : null;
+  }
+  function tutorLevel(rate) {
+    if (rate == null) return { icon: '⬜', text: '還沒測驗' };
+    if (rate >= 90) return { icon: '🟢', text: '精熟 ' + rate + '%' };
+    if (rate >= 70) return { icon: '🟡', text: '基礎 ' + rate + '%' };
+    return { icon: '🔴', text: '待加強 ' + rate + '%' };
+  }
+  function tutorSaveRun(id, score, total) {
+    var L = tutorLog();
+    var r = L[id] || (L[id] = { runs: 0, best: 0, last: 0, total: total, ts: '' });
+    r.runs++; r.last = score; r.total = total; r.ts = today();
+    if (score > r.best) r.best = score;
+    save();
+  }
+
+  function showTutorCal(ym) {
+    importMode = true;
+    if (!TUTOR.length) { UIDialog.alert('還沒有補習內容。把當天的講義拍照傳給我，我整理好就會出現在這裡。'); return; }
+    if (ym) tutorMonth = ym;
+    if (!tutorMonth) {
+      var latest = TUTOR.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; })[0];
+      var d = latest ? latest.date.split('-') : [String(new Date().getFullYear()), String(new Date().getMonth() + 1)];
+      tutorMonth = new Date(+d[0], +d[1] - 1, 1);
+    }
+    show('tutorcal');
+    renderTutorCal();
+  }
+  function renderTutorCal() {
+    var y = tutorMonth.getFullYear(), m = tutorMonth.getMonth();
+    $('tutorCalTitle').textContent = y + ' 年 ' + (m + 1) + ' 月';
+    var byDate = {};
+    TUTOR.forEach(function (t) { (byDate[t.date] = byDate[t.date] || []).push(t); });
+    var grid = $('tutorCalGrid');
+    grid.innerHTML = '';
+    ['日', '一', '二', '三', '四', '五', '六'].forEach(function (w) {
+      var h = document.createElement('div');
+      h.className = 'cal-wd';
+      h.textContent = w;
+      grid.appendChild(h);
+    });
+    var first = new Date(y, m, 1).getDay();
+    var days = new Date(y, m + 1, 0).getDate();
+    for (var i = 0; i < first; i++) grid.appendChild(document.createElement('div'));
+    for (var d = 1; d <= days; d++) {
+      var key = y + '-' + String(m + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+      var list = byDate[key] || [];
+      var cell = document.createElement(list.length ? 'button' : 'div');
+      cell.className = 'cal-day' + (list.length ? ' has' : '') + (key === today() ? ' today' : '');
+      var lv = list.length ? tutorLevel(tutorRate(list[0].id)) : null;
+      cell.innerHTML = '<span class="cal-n">' + d + '</span>' +
+        (list.length ? '<span class="cal-dot">' + lv.icon + '</span>' : '');
+      if (list.length) {
+        (function (one) { cell.addEventListener('click', function () { showTutor(one.id); }); })(list[0]);
+        cell.title = list[0].title;
+      }
+      grid.appendChild(cell);
+    }
+    // 日曆下面直接列出所有堂數，手機上不必翻月份也點得到
+    var box = $('tutorCalList');
+    box.innerHTML = '';
+    TUTOR.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).forEach(function (t) {
+      var lv = tutorLevel(tutorRate(t.id));
+      var b = document.createElement('button');
+      b.className = 'card card-wide';
+      b.innerHTML = '<span class="card-icon">📘</span><span class="card-title">' + escHtml(t.title) +
+        '</span><span class="card-sub">' + t.date + ' · ' + (t.qs || []).length + ' 題 · ' + lv.icon + ' ' + lv.text + '</span>';
+      b.addEventListener('click', function () { showTutor(t.id); });
+      box.appendChild(b);
+    });
+  }
+  $('tutorCalPrev').addEventListener('click', function () {
+    showTutorCal(new Date(tutorMonth.getFullYear(), tutorMonth.getMonth() - 1, 1));
+  });
+  $('tutorCalNext').addEventListener('click', function () {
+    showTutorCal(new Date(tutorMonth.getFullYear(), tutorMonth.getMonth() + 1, 1));
+  });
+  $('tutorCalExit').addEventListener('click', function () { showImportHome(); });
+
+  function showTutor(id) {
+    var t = tutorOf(id);
+    if (!t) { showTutorCal(); return; }
+    tutorSess = id;
+    importMode = true;
+    show('tutor');
+    $('tutorTitle').textContent = '📘 ' + t.title;
+    var lv = tutorLevel(tutorRate(id));
+    var r = tutorStat(id);
+    $('tutorMeta').textContent = t.date + ' · ' + (t.teacher ? t.teacher + ' · ' : '') +
+      (t.qs || []).length + ' 題 · ' + lv.icon + ' ' + lv.text +
+      (r ? '（測過 ' + r.runs + ' 次，最近一次 ' + r.last + '/' + r.total + '）' : '');
+    var body = $('tutorBody');
+    body.innerHTML = '';
+    (t.notes || []).forEach(function (n) {
+      var sec = document.createElement('div');
+      sec.className = 'tutor-sec';
+      var h = document.createElement('h3');
+      h.textContent = n.h;
+      var p = document.createElement('div');
+      p.className = 'tutor-txt';
+      p.textContent = n.b;
+      sec.appendChild(h); sec.appendChild(p);
+      body.appendChild(sec);
+    });
+    $('tutorStart').textContent = r ? '🔁 再測一次（' + (t.qs || []).length + ' 題）' : '📝 開始測驗（' + (t.qs || []).length + ' 題）';
+  }
+  $('tutorExit').addEventListener('click', function () { showTutorCal(); });
+  $('tutorStart').addEventListener('click', function () { startTutorQuiz(tutorSess); });
+
+  function startTutorQuiz(id) {
+    var qs = tutorQs(id);
+    if (!qs.length) { UIDialog.alert('這一堂還沒有測驗題。'); return; }
+    var entries = shuffle(qs).map(function (q) { return { t: 'tutorCustom', id: q.id }; });
+    beginQuiz(entries, 'normal', 'tutorCustom');
+    quiz.tutorSess = id;
+  }
 
   // 匯入題庫入口（最外層）：先選科目，再選冊/課
   function showImport(key) {

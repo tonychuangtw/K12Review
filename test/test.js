@@ -28,6 +28,8 @@ for (const f of ['texts-social', 'texts-science', 'texts-math', 'texts-english',
                  'texts-history', 'texts-geography', 'texts-civics']) {                                     // 課文帶讀（教材層第一段）
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
+eval(fs.readFileSync(path.join(root, 'js/data/tutor.js'), 'utf8'));   // 補習複習（一堂課一筆）
+global.window.APP_TUTOR = window.APP_TUTOR;
 global.window.APP_TEXTS = window.APP_TEXTS;
 global.window.APP_DATA = window.APP_DATA;
 global.window.APP_CHECKS = window.APP_CHECKS;
@@ -53,7 +55,8 @@ ok(D.chars.length >= 120, `字形 ≥120（實際 ${D.chars.length}）`);
 for (const [cat, items] of Object.entries(D)) {
   const ids = new Set(items.map(i => i.id));
   ok(ids.size === items.length, `${cat} id 不重複`);
-  if (cat !== 'custom') ok(items.every(i => i.grade >= 1 && i.grade <= 12), `${cat} grade 都在 1-12`);
+  // custom（家長題本）與 tutorCustom（補習複習）以冊課／日期為單位，不標年級
+  if (cat !== 'custom' && cat !== 'tutorCustom') ok(items.every(i => i.grade >= 1 && i.grade <= 12), `${cat} grade 都在 1-12`);
 }
 // 題庫型題目（自創題庫、社會等各科題庫）共用同一組轉檔品質守門
 for (const [bankName, bank] of [['自創題庫', D.custom], ['社會題庫', D.social], ['社會自創題庫', D.socialCustom], ['自然題庫', D.science], ['自然自創題庫', D.scienceCustom], ['英文題庫', D.english], ['英文自創題庫', D.englishCustom], ['數學題庫', D.math], ['數學自創題庫', D.mathCustom], 
@@ -996,6 +999,44 @@ console.log('歷屆學測');
     const thin = paper.qs.filter((q) => (q.exp || '').indexOf('❌') < 0 && q.type !== 'multi' && q.type !== 'fill');
     ok(thin.length === 0, `${p.id} 單選題的解析都有交代錯誤選項（缺 ${thin.length} 題）`);
   });
+}
+
+/* ---------- 補習複習（js/data/tutor.js）---------- */
+{
+  console.log('\n【補習複習】');
+  const T = window.APP_TUTOR || [];
+  ok(Array.isArray(T), '補習複習資料是陣列');
+  const sids = new Set(), qids = new Set();
+  const bad = [];
+  T.forEach((t) => {
+    const tag = t.id || '(缺 id)';
+    if (!t.id) bad.push('有一堂沒有 id');
+    if (sids.has(t.id)) bad.push(tag + ' id 重複');
+    sids.add(t.id);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(t.date || '')) bad.push(tag + ' 日期格式要 YYYY-MM-DD');
+    if (!(t.title || '').trim()) bad.push(tag + ' 沒有標題');
+    if (!(t.notes || []).length) bad.push(tag + ' 沒有複習內容');
+    (t.notes || []).forEach((n, i) => {
+      if (!(n.h || '').trim() || !(n.b || '').trim()) bad.push(tag + ' 第' + (i + 1) + '段複習內容不完整');
+    });
+    if (!(t.qs || []).length) bad.push(tag + ' 沒有測驗題');
+    (t.qs || []).forEach((q) => {
+      const qt = tag + '/' + (q.id || '?');
+      if (!q.id) bad.push(tag + ' 有題目沒有 id');
+      if (qids.has(q.id)) bad.push(qt + ' 題目 id 重複');
+      qids.add(q.id);
+      if (!(q.q || '').trim()) bad.push(qt + ' 沒有題幹');
+      if (!Array.isArray(q.options) || q.options.length !== 4) bad.push(qt + ' 選項要 4 個');
+      if (!(q.answer >= 0 && q.answer < (q.options || []).length)) bad.push(qt + ' 答案索引超出選項');
+      if (!(q.exp || '').trim()) bad.push(qt + ' 沒有解析');
+      if ((q.exp || '').indexOf('✅') < 0 || (q.exp || '').indexOf('❌') < 0) bad.push(qt + ' 解析要有 ✅ 正解與 ❌ 錯誤選項說明');
+    });
+    // 答案位置要打散，不能整堂都選同一格
+    const spread = new Set((t.qs || []).map((q) => q.answer));
+    if ((t.qs || []).length >= 4 && spread.size < 3) bad.push(tag + ' 答案位置太集中');
+  });
+  ok(bad.length === 0, `每一堂都完整（問題：${bad.slice(0, 3).join('；') || '無'}）`);
+  console.log(`  · 共 ${T.length} 堂、${T.reduce((n, t) => n + (t.qs || []).length, 0)} 題`);
 }
 
 console.log(failed ? `\n${failed} 項失敗` : '\n全部通過');
