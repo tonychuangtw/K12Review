@@ -795,7 +795,12 @@ NEXT_ACTION: 【目前手上唯一進行中的是「考古英雄補詳解」，T
        ・106 年第二次醫師 med3～med6（醫學（三）～（六），各 80 題）完成 ⟹ 106 年醫師全數完成
        ・105 年第一次醫師 med3～med5（醫學（三）（四）（五），各 80 題）完成
     目前合計 10,740/16,693 題（醫師還有 23 卷、律師 51 卷未寫）。
-    **下一卷＝doc-105-1-med6**（105 年第一次醫師 醫學（六）），接著 106 年其餘各卷，
+    **下一卷＝doc-105-1-med6**（105 年第一次醫師 醫學（六））
+
+       ・2026-09-05 Tony 追加需求（已完成上線，v5）：頁首「⚙ 顯示設定」＝字級縮放
+         （data-fs，css 的 font-size 全改成 calc(Npx*var(--fs,1))）、五種配色
+         （data-theme：跟隨系統／淺色／深色／護眼米／高對比）、中英介面切換
+         （js/i18n.js 的 T() 查字典，題目與詳解不翻譯）。新增介面文字要一併加進 EN 字典。，接著 106 年其餘各卷，
     再往 106…更早年份，以及律師 114 年以前各卷。
     ・2026-09-05 新增 `node tools/sync-exp-count.js --write`（在 kaoguhero repo）：
       只補詳解、沒重跑 gen3.py 時，用它把 exams.js 索引裡各卷的 exp 題數補正，
@@ -1033,7 +1038,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-05 12:00 台北
+UPDATED: 2026-09-05 12:10 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
