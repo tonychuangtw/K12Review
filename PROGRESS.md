@@ -777,8 +777,8 @@ NEXT_ACTION: 【目前手上唯一進行中的是「考古英雄補詳解」，T
        ・律師的科目判定用科目名稱關鍵字：憲法+行政法→law1a、刑法+刑訴→law1b、
          民法+民訴→law2a、公司法+保險法+票據法→law2b（同一份卷會掛在 c=301/302/303 底下，要以
          (code,s) 去重，否則同一份會重複三次）。
-     ⏭ **下一步＝補詳解**（2026-09-04 Tony：「一卷一卷寫完，依序和我回報進度狀況，直接寫到完」）。
-       **已完成整卷（204 卷 16,623 題，2026-09-05 更新）⟹ 🎉 醫師科 150 卷全數完成；律師 55 卷已完成 54 卷，剩 1 卷 70 題**：
+     ✅ **補詳解已完成**（2026-09-04 Tony：「一卷一卷寫完，依序和我回報進度狀況，直接寫到完」）。
+       **已完成整卷（205 卷 16,693 題，2026-09-05 全數完成）⟹ 🎉🎉 醫師科 150 卷、律師科 55 卷，全部 16,693 題逐題詳解完成**：
     ・115 年醫師兩次共 12 卷、115 年律師第一試 4 卷
     ・114 年醫師兩次共 12 卷（doc-114-2-med1～med6、doc-114-1-med1～med6）
     ・113 年醫師兩次共 12 卷（doc-113-2-med1～med6、doc-113-1-med1～med6）
@@ -801,8 +801,8 @@ NEXT_ACTION: 【目前手上唯一進行中的是「考古英雄補詳解」，T
        ・103 年第二次醫師 med3～med6（醫學（三）～（六），各 80 題）完成 ⟹ 103 年醫師全數完成
        ・102 年第一次醫師 med3～med6（醫學（三）～（六），各 80 題）完成 ⟹ 102 年第一次整場完成
        ・102 年第二次醫師 med3～med6（醫學（三）～（六），各 80 題）完成 ⟹ 102 年醫師全數完成 ⟹ 醫師科全部完成
-    目前合計 16,623/16,693 題（醫師 0 卷未寫、律師 1 卷未寫）。2026-09-05 Tony 指示「律師的補到完為止」。
-    **下一卷＝law-102-1-law2b**（102 年律師 綜合法學（二）商事法組，70 題）——最後一卷
+    **目前合計 16,693/16,693 題，零缺漏**（另補寫 law-105-1-law2a #46-62 共 17 題先前的漏網）。2026-09-05 Tony 指示「律師的補到完為止」——已完成。
+    **詳解工程結案**：205 卷全數寫完，每題格式為「✅ 正解理由 → ❌ 三個錯誤選項 → 📚 出處」，`node test/test.js` 與 `node test/smoke.mjs` 全綠。
 
        ・2026-09-05 Tony 追加需求（已完成上線，v5）：頁首「⚙ 顯示設定」＝字級縮放
          （data-fs，css 的 font-size 全改成 calc(Npx*var(--fs,1))）、五種配色
@@ -1045,7 +1045,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-05 22:10 台北
+UPDATED: 2026-09-06 00:20 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
