@@ -778,7 +778,7 @@ NEXT_ACTION: 【目前手上唯一進行中的是「考古英雄補詳解」，T
          民法+民訴→law2a、公司法+保險法+票據法→law2b（同一份卷會掛在 c=301/302/303 底下，要以
          (code,s) 去重，否則同一份會重複三次）。
      ⏭ **下一步＝補詳解**（2026-09-04 Tony：「一卷一卷寫完，依序和我回報進度狀況，直接寫到完」）。
-       **已完成整卷（123 卷 10,180 題，2026-09-05 更新）**：
+       **已完成整卷（124 卷 10,260 題，2026-09-05 更新）**：
     ・115 年醫師兩次共 12 卷、115 年律師第一試 4 卷
     ・114 年醫師兩次共 12 卷（doc-114-2-med1～med6、doc-114-1-med1～med6）
     ・113 年醫師兩次共 12 卷（doc-113-2-med1～med6、doc-113-1-med1～med6）
@@ -792,8 +792,9 @@ NEXT_ACTION: 【目前手上唯一進行中的是「考古英雄補詳解」，T
     ・107 年第一次醫師 med1～med6 全數完成（該次 6 卷 520 題）
     ・107 年第二次醫師 med1～med6 全數完成 ⟹ 107 年兩次醫師 12 卷整年完成
     ・106 年醫師 med1、med2（各 100 題）、med3～med6（醫學（三）～（六），各 80 題）完成 ⟹ 106 年第一次醫師 6 卷整場完成
-    目前合計 10,180/16,693 題（醫師還有 30 卷、律師 51 卷未寫）。
-    **下一卷＝doc-106-2-med3**（106 年第二次醫師 醫學（三）），接著 106 年其餘各卷，
+       ・106 年第二次醫師 med3（醫學（三），80 題）完成
+    目前合計 10,260/16,693 題（含 doc-106-2-med4 已寫 20 題；醫師還有 29 卷、律師 51 卷未寫）。
+    **下一卷＝doc-106-2-med4**（106 年第二次醫師 醫學（四），已寫到第 20 題），接著 106 年其餘各卷，
     再往 106…更早年份，以及律師 114 年以前各卷。
     ・2026-09-05 新增 `node tools/sync-exp-count.js --write`（在 kaoguhero repo）：
       只補詳解、沒重跑 gen3.py 時，用它把 exams.js 索引裡各卷的 exp 題數補正，
@@ -1031,7 +1032,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-05 13:35 台北
+UPDATED: 2026-09-05 14:35 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
