@@ -17,7 +17,7 @@ STATUS: in-progress
         需要插圖時用 claude-shared/tools/gen-image.sh（Tony：需要畫圖就叫 gemini 或 chatgpt 畫）。
      ⏭ 以後 Tony 再拍講義照片傳來，就照同一格式加一堂（內容與題目自撰不抄講義）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【目前手上唯一進行中的是「考古英雄補詳解」，Tony 2026-09-04 指示「一卷一卷寫完、依序回報、直接寫到完」，且「做詳解時也同時附出處」。**接續寫 ~/TelegramClaude/kaoguhero 的 doc-108-1-med2（108 年第一次醫師 醫學（二））**（109～115 年醫師各卷、108 年第二次 6 卷與 108-1-med1 都已完成並 push）；做法見下方 (10) 考古英雄段的「每卷流程」。寫完該卷 → gen3.py → 換 index.html 的 ?v= → node test/test.js ＋ smoke → commit push → 發 Telegram 回報。（K12Review 這邊：學測／會考／基測依 2026-09-03 22:56 Tony「做到 100 年先停」已停手，等他指示再動；補習複習 v126 已完工上線，含 2026-09-04 追加的原文與逐句對譯。）】【學測全部完成，會考已收齊，基測進行中：102／101／100（兩次）已完成。**99 年第一次基測四科全部完成（數學 34／社會 63／自然 58／英語 45 ＝ 200 題）**。**99 年第二次基測四科全部完成（數學 34／社會 63／自然 58／英語 45 ＝ 200 題）⟹ 99 年兩次基測合計 400 題全數完成。**⛔ **2026-09-03 22:56 Tony 喊停：「不是請你做到 100 年先停嗎?」——已停手，等他指示再動。**
+NEXT_ACTION: 【手上沒有進行中的批次工作 —— 考古英雄詳解工程已於 2026-09-05 結案（205 卷 16,693 題全數完成並 push，commit d97a2931）；K12Review 的學測／會考／基測依 2026-09-03 22:56 Tony「做到 100 年先停」已停手。**下一個具體動作＝等 Tony 指示；若他沒有新需求，就回頭做唯一還積著的技術債：學測 90–115 各卷的裁圖補正（約 230 張可疑）**——做法：先從大考中心／web.archive 重抓該卷 PDF（見下方「(9) 歷屆學測」段），再 `python3 tools/exam-crop-audit.py <卷id>` 找可疑圖 →`python3 tools/exam-crop.py crop ...` 重裁 →`tools/exam-crop-sheet.sh` 貼成 contact sheet 用 Read 目視確認 →`node test/test.js` →`python3 tools/stamp-version.py` → commit push → 回報 Tony。】【歷史狀態：學測 125 卷 5,524 題收齊；會考 115–103 四科收齊；基測 102–99 收齊（99 兩次共 400 題）、98 年第一次數學 34／社會 63 已上線，98 自然只寫到第 24 題且留在 scratchpad＝作廢。⚠ 待 Tony 決定：① 已上線的 99、98 年題目留著還是撤掉；② 要不要繼續往 97…90 年做。】
      現況：99 年兩次基測四科（400 題）與 98 年第一次的數學 34、社會 63 都已做完並 push 上線；
      98 年第一次自然只寫到第 24 題、還在 scratchpad，沒有進 repo（scratchpad 重啟後會消失，等於作廢）。
      ⚠ 待 Tony 決定的兩件事：① 已上線的 99、98 年題目要留著還是撤掉；② 之後要不要繼續往 97…90 年做。
@@ -1043,9 +1043,9 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 補記：各科自編原創題（science/math/english/history…）的解析是「✅正解：… ❌其他選項：… 📚課綱重點：…」
 的固定三段式，同一支腳本加一種形狀就能生（問「其他選項」那段或「課綱重點」那段），要做隨時可以接。
 VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 無。學測 90–115 國英數社 109 卷 4,528 題全部收齊（2026-09-02，Tony 定案做到 90 為止、83–89 不做）。剩自然科與會考／基測線，等 Tony 指示再開。
+BLOCKERS: 無阻塞，但沒有 Tony 的新指示就沒有新批次可開（學測／會考／基測已依他 09-03 的「做到 100 年先停」停手；考古英雄已結案）。
 PATHS: js/data/chars.js、js/data/checks-chars.js（字形題）、js/app.js（K12Review：tlog 分項計時／showParent／showDayDetail／renderSubjects）、css/style.css（.pt-tbl）、js/versions.js、test/browser-smoke.mjs、~/TelegramClaude/LanExamMock/js/app.js
-UPDATED: 2026-09-06 00:20 台北
+UPDATED: 2026-09-05 台北（重啟前存檔）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
