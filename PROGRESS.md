@@ -20,29 +20,33 @@ STATUS: in-progress
         需要插圖時用 claude-shared/tools/gen-image.sh（Tony：需要畫圖就叫 gemini 或 chatgpt 畫）。
      ⏭ 以後 Tony 再拍講義照片傳來，就照同一格式加一堂（內容與題目自撰不抄講義）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【**進行中：考古英雄（kaoguhero）把還標「建置中」的考試一個一個收進來**（Tony 2026-09-06「繼續做考古英雄一案的其它部份. 從牙醫的開始」）。
-     ✅ 牙醫師已完工上線（2026-09-06，commit 536ce13）：牙醫學（一）～（六）168 卷 13,440 題，民國 102～115 年，
-        全站來到 373 卷 30,133 題。
-     **下一個具體動作＝比照牙醫師的流程做「中醫師」**，做法（工具全部已收進 kaoguhero/tools/，不再依賴 scratchpad）：
-       1. `mkdir -p <工作目錄> && python3 ~/TelegramClaude/kaoguhero/tools/moex-fetch.py 中醫師 <工作目錄>`
-          （抓歷年試題／標準答案／更正答案 PDF ＋ inv.json）
-       2. 照 `tools/gen_dent.py` 複製一份改科目判定（中醫師的科目名稱關鍵字），產出 out/ 與 outimg/
-       3. 檢查卷數題數 → 搬進 `js/data/exam/` 與 `img/q/` → `node tools/build-index.js --write`
-          （分類／科目改 `tools/index-spec.json`，把該考試 live 改 true 並補 stages 與科目）
-       4. `node test/test.js` ＋ `node test/smoke.mjs`（smoke 約 2 分鐘，用背景跑）
-       5. 換 index.html 的 `?v=` 與 js/app.js 的 `var VER` → 加 js/versions.js 條目 → commit push → 回報 Tony
-     之後依序：藥師 → 司法官／高普考／地方特考／教師甄試（後面幾個科目多，開工前先跟 Tony 確認範圍）。
-     ⚠ 已問 Tony 但還沒回答：牙醫師的**詳解**（13,440 題）要現在開始寫，還是先把其他考試的題庫都收齊。
-     ⚠ 這一輪踩到的三個坑（下次照做即可避開）：
-       ① 考選部平台查**舊年份要先把年度下拉切過去**（btnYear）再查，否則回傳是空的
-          —— 一開始 102～114 年整批掃出 0 卷就是這個原因，moexlib.exam_subjects 已內建
-       ② 裁圖工具原本只接「本頁＋下一頁」，一題橫跨三頁以上（選項是整頁大圖）會漏掉中間那頁；
-          cropfig.py 已改成從題號那頁一路接到下一題那頁
-       ③ **圖檔名一定要帶類科代碼 c**：113020 那年醫師與牙醫師的科目代碼都是 11/22，
-          只用 (code, s, n) 會蓋掉醫師卷的圖（差點就蓋下去，搬檔前加了 assert not exists 才擋住）
-     ⚠ 新增的資料欄位 `alt`（考選部公布多個答案均給分，除了 a 以外也算對）：
-       app.js 用 isRight(q,k) 判對、test.js 有型別檢查、i18n 有對應英文字串。
-     【已結案：學測 90–115 裁圖補正（2026-09-05，117 張重裁）；考古英雄醫師＋律師詳解（205 卷 16,693 題）。
+NEXT_ACTION: 【**進行中：考古英雄（kaoguhero）把還標「建置中」的考試一個一個收進來**
+     （Tony 2026-09-06「繼續做考古英雄一案的其它部份. 從牙醫的開始」、「先收齊題庫. 之後再加詳解」）。
+     ✅ 2026-09-06 一天內收齊醫事人員四張執照，全站 **709 卷 56,173 題**：
+        牙醫師 168 卷 13,440 題（commit 536ce13）、中醫師 168 卷 13,440 題（098530f）、藥師 168 卷 12,600 題（31596cb）。
+     **下一個具體動作＝繼續收「法律／公職」那一組**：司法官第二試、高普考、地方特考、教師甄試。
+     ⚠ 已問 Tony 還沒回：這組科目數量大（高普考光類科就幾十個），要全做還是挑熱門類科；還有 103～107 年
+       藥師舊制那 30 卷要不要補。**沒回覆前不要自己擴張到高普考全類科。**
+     做法（工具都在 kaoguhero/tools/，不依賴 scratchpad）：
+       1. `mkdir -p <工作目錄>` → `python3 ~/TelegramClaude/kaoguhero/tools/moex-fetch.py <類科關鍵字> <工作目錄>`
+          （或照 cm／pharm 那樣自己寫盤點：要處理同一場考試多個 code、同科目掛在多個類科底下的去重）
+       2. 在 `tools/gen_bank.py` 的 SPECS 加一組（科目判定可用 pat/key/stage/name，或用 resolve 自己判），
+          `cd <工作目錄> && python3 ~/TelegramClaude/kaoguhero/tools/gen_bank.py <spec>`
+       3. 圖片題：`cropfig.crop(pdf, 題號, 輸出)`，裁完一定要用 contact sheet 目視（`chinese/tools/exam-crop-sheet.sh`）
+       4. 搬進 `js/data/exam/`＋`img/q/`（搬之前 assert 目的檔不存在，避免蓋到別的考試）
+          → 改 `tools/index-spec.json`（live 改 true、補 stages 與科目）→ `node tools/build-index.js --write`
+       5. `node test/test.js`＋`node test/smoke.mjs`（背景跑，約 2 分鐘）→ 換 index.html 的 `?v=` 與 js/app.js 的 `var VER`
+          → 加 js/versions.js 條目 → commit push → 回報 Tony
+     ⚠ 這幾輪踩過的坑（全部已寫進工具的註解，照做即可避開）：
+       ① 考選部平台查舊年份要先把年度下拉切過去（btnYear）再查，否則回傳空的
+       ② 舊卷（中醫師 102～111、醫師 102～104）選項代號是私用區字元 \ue18c～\ue18f，不還原會整題只剩題幹
+       ③ 題號一定頂在最左邊（最多一個前導空白）：放寬會把換行後的「54.3 mL/min」當成第 54 題
+       ④ 標準答案 102～105 用半形 ABCD，近年用全形ＡＢＣＤ
+       ⑤ 更正答案措辭有三種：「答Ａ、Ｄ給分」「答Ａ或Ｄ或AD者均給分」「一律給分」，要先切句再撿 A~D
+       ⑥ 圖檔名要帶類科代碼 c（同年不同考試的科目代碼會重複），搬檔前 assert 目的檔不存在
+       ⑦ 一題可能橫跨三頁以上（選項是整頁大圖），cropfig 會從題號那頁一路接到下一題那頁
+     ⚠ 資料欄位 `alt`（考選部公布多個答案均給分）：app.js 用 isRight(q,k) 判對、test.js 有型別檢查、i18n 有英文字串。
+     【已結案：學測 90–115 裁圖補正（2026-09-05，117 張）；考古英雄醫師＋律師詳解（205 卷 16,693 題）。
        ⚠ 待 Tony 決定：① 已上線的 99、98 年基測題留著還是撤掉；② 學測／會考要不要繼續往 97…90 年做。】
      現況：99 年兩次基測四科（400 題）與 98 年第一次的數學 34、社會 63 都已做完並 push 上線；
      98 年第一次自然只寫到第 24 題、還在 scratchpad，沒有進 repo（scratchpad 重啟後會消失，等於作廢）。
@@ -1069,9 +1073,9 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 補記：各科自編原創題（science/math/english/history…）的解析是「✅正解：… ❌其他選項：… 📚課綱重點：…」
 的固定三段式，同一支腳本加一種形狀就能生（問「其他選項」那段或「課綱重點」那段），要做隨時可以接。
 VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 無阻塞。已問 Tony 但還沒回答：牙醫師的詳解（13,440 題）要現在開始寫，還是先把其他考試的題庫收齊——在他回覆前先照「其它部份」往中醫師做，不會空等。
+BLOCKERS: 無阻塞。Tony 2026-09-06 已定案「先收齊題庫，之後再加詳解」。待他回覆的是：法律／公職那組要全做還是挑熱門類科、藥師舊制 30 卷要不要補。
 PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-06 台北（考古英雄牙醫師題庫上線）
+UPDATED: 2026-09-06 台北（考古英雄：牙醫師／中醫師／藥師三個題庫上線，709 卷 56,173 題）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
