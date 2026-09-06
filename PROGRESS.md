@@ -54,12 +54,18 @@ NEXT_ACTION: 【**進行中：考古英雄 — 高普考（公務人員高等考
          （工程數學 4 卷、104 行政學與 110 有機化學概要是掃描檔沒有文字層、103 兩卷文字層殘缺）
        ・361 題因版面拆不乾淨改成裁原卷的圖作答；裁圖 0 失敗
        ・工具與規則都寫進 kaoguhero/tools/{parse_gao,gen_gao,gao-index-merge,moex-sweep,cropfig}.py
-       ▶ **下一步（Tony 沒有新指示的話就照這個順序）**：
-         1. 地方特考（三等／四等）——結構與高普考一樣，可以直接沿用整條工具鏈：
-            `mkdir -p ~/exam-pdfs/local && cd ~/exam-pdfs/local`，抄 inv-full.py 改成找「地方政府公務人員考試」，
-            然後 moex-sweep S → Q → M → gen_gao（spec 要加 local 的 LVL 對照：三等／四等）→ gao-index-merge
-         2. 教師甄試（資料源不在考選部，要另外找）
-         3. 詳解（Tony：先收齊題庫，之後再加）
+       ▶ **進行中：地方特考（102～114 年，13 年 5,221 份不同的卷）**
+         工作目錄 `~/exam-pdfs/local`（codes.json／rows-*.json 已備妥），答案卷掃描背景執行中
+         （`sweep-S.log`，接著自動跑 Q 與 M，看到 LOCALDOWNLOADED 就是下載完成）。
+         轉檔工具已改成吃考試代號：`python3 ~/TelegramClaude/kaoguhero/tools/gen_civil.py local`
+         → `python3 docrop.py`（裁圖）→ `bash install.sh`（搬檔＋重建索引＋跑 test.js）
+         → smoke.mjs → 版本號＋versions.js → commit push。
+         ⚠ 地方特考的等別寫法歷年不同（三等考試／三等／地方政府公務人員考試三等），已用關鍵字判定；
+           同一次考試還掛著「離島地區公務人員考試」，類科名前面加「離島・」區分；五等也收（全測驗題）。
+       ▶ **之後**：
+         1. 教師甄試（資料源不在考選部，要另外找）
+         2. 詳解（Tony：先收齊題庫，之後再加）
+         3. 首頁 UI 改版：三個提案已上線 /preview/{a,b,c}.html，等 Tony 選一版套進正式首頁
      ⚠ 兩個踩到的坑（2026-09-06）：
        ① **不要用 `pgrep -f` 判斷自己啟動的背景工作有沒有結束**：pgrep 會匹配到「包含那段字串的自己」
           （chain.sh 的迴圈條件裡就寫著要找的字串，於是永遠判定還在跑），下載接力空等一小時。
