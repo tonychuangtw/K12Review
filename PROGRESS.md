@@ -58,9 +58,16 @@ NEXT_ACTION: 【**進行中：考古英雄 — 高普考（公務人員高等考
          **全站 2,116 卷 101,178 題**。科目 79 科、類科 167 個，分類沿用高普考那套。
          工作目錄 `~/exam-pdfs/local`（codes.json／rows-*.json／pdf/ 都留著，重跑照 install.sh）。
          ⚠ 跳過 18 卷：13 卷是五等國文（35 單選＋10 複選，**介面還不支援複選題**）、5 卷文字層殘缺。
-         ⚠ 已知待辦：**103～106 年律師第一試那 12 卷是五選一，當初轉檔時第五個選項（E）被併進 D 的文字裡**
-           （grep `\ue190` 找得到，共 128 題）。要修得重抓那 12 份 PDF、用 parse_gao 的 FIVE=True 重解，
-           再把 o／a 換掉但**保留既有的人工詳解 exp**（那批是手寫的，不能覆蓋）。
+         ✅ 已修：103～106 年律師第一試那 12 卷（那幾年是「單選 60＋複選 10」，最後一題單選的選項吃到複選題內容）。
+           做法在 `~/exam-pdfs/law/fix.py`：重抓原卷 → 切到「複選題」之前重解 → 只換 q／o、保留人工 exp
+           → 用「exp 開頭的 ✅(X) 是否等於答案」逐題核對 3,933 題，0 筆不符。
+         ✅ 已修：Symbol 字型的數學符號變豆腐（parse.py 加 U+F0xx 對照表），還原不了的整題改用原卷的圖
+           （高普考 574 題、地方特考 658 題都改成圖），數學／統計整卷公式的卷不再被丟掉。
+         ⚠ 剩下的私用區字元：醫師 5 題、中醫師 27 題、牙醫師 1 題、律師 1 題（共 34 題）。
+           那幾個題庫的來源 PDF 已經沒留著，要修得重抓；同樣用 `~/exam-pdfs/law/fix.py` 的模式
+           （只換 q／o、保留人工 exp）。優先度低。
+         ⚠ 複選題（多選多答）目前整站不支援：地方特考五等國文 13 卷、律師 103～106 的複選段落都因此沒收。
+           要支援得動 schema（type:'multi'、a 改陣列）、app.js 作答與計分、test.js 守門。
        ▶ **之後**：
          1. 教師甄試（資料源不在考選部，要另外找）
          2. 詳解（Tony：先收齊題庫，之後再加）
@@ -1103,7 +1110,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-06 台北（高普考＋地方特考全部上線；全站 2,116 卷 101,178 題）
+UPDATED: 2026-09-06 台北（高普考＋地方特考上線、律師舊卷修好、數學符號還原；全站 2,116 卷 101,178 題）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
