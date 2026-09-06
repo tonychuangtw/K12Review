@@ -45,6 +45,21 @@ NEXT_ACTION: 【**進行中：考古英雄 — 高普考（公務人員高等考
            科目 key 用註冊表（tools/gao-subjects.json：「等別|科目名」→ ga001／pa001）保持跨年份穩定。
            ⚠ 同年同名多份卷有 21 例（行政法、統計學…＝申論卷與測驗卷同名），篩掉申論卷後多半自動消失，
              殘留的要人工加後綴。
+     ▶ 2026-09-06 進度（Tony 回覆「高普考全做，但分類要做好不要亂」之後）：
+       ・工具全部寫好並 commit（kaoguhero 5bfd925）：moex-sweep.py／parse_gao.py／gen_gao.py／
+         gao-groups.json／gao-index-merge.py，app.js 已支援「等別→類群→類科→科目」四層分類＋搜尋框，
+         test.js 加了分類樹與 psg（題組短文）的守門，css 加 .find／.grp／.psg
+       ・共同科目 56 卷實測：53 卷 1,610 題轉檔成功、3 卷因文字層殘缺跳過（103 普考國文、105 高考國文、103 高考法學）
+       ・答案卷掃描（判斷哪些是選擇題卷）背景執行中：`~/exam-pdfs/gao/sweep-S.log` 看進度；
+         跑完接 `python3 ~/TelegramClaude/kaoguhero/tools/moex-sweep.py ~/exam-pdfs/gao Q --has-answer`（再跑一次 M）
+       ・接著：`cd ~/exam-pdfs/gao && python3 ~/TelegramClaude/kaoguhero/tools/gen_gao.py --figs`
+         → 搬 out/*.js 進 js/data/exam/、outimg/*.webp 進 img/q/
+         → `python3 tools/gao-index-merge.py ~/exam-pdfs/gao/gao-index.json`
+         → `node tools/build-index.js --write` → test.js＋smoke.mjs → 版本號＋versions.js → commit push
+       ・⚠ tools/gao-subjects.json（科目 key 註冊表）還沒進 git，跟題庫一起 commit
+     ▶ 另一條線（Tony 2026-09-06 09:15 指示）：考古英雄首頁 UI 改版，已做三個提案頁
+       （kaoguhero/preview/{a,b,c}.html，已上線 https://tonychuangtw.github.io/kaoguhero/preview/），
+       等 Tony 選一版再套進正式首頁。三版都主打「免費＋自撰詳解（✅正解／❌三個錯選項／📚出處）」。
      ⚠ 規模：8,321 份卷裡選擇題卷估 1,000～1,500 份（前 200 份抽樣只有 8% 有標準答案，因為高考三級專業科目
        多為申論）。exams.js 索引若逼近 1MB 要拆成每個考試一個索引檔按需載入。
      【已結案：學測 90–115 裁圖補正（2026-09-05，117 張）；考古英雄醫師＋律師詳解（205 卷 16,693 題）。
