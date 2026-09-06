@@ -831,7 +831,7 @@ body.anim-lock { overflow: hidden; }
 .exam-head {
   margin: 1rem 0 0.4rem; padding: 0.35rem 0.6rem;
   font-size: 0.85rem; font-weight: 700; color: var(--dim);
-  border-left: 3px solid var(--accent); background: var(--card);
+  border-left: 3px solid var(--accent); background: var(--panel2);
   border-radius: 0 6px 6px 0;
 }
 .exam-head:first-child { margin-top: 0.2rem; }
@@ -931,8 +931,8 @@ body.anim-lock { overflow: hidden; }
 .wlog-day { margin: 6px 0; }
 .wlog-day-btn {
   width: 100%; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px;
-  padding: 10px 12px; border: 1px solid var(--line, #ddd); border-radius: 10px;
-  background: var(--card, #fff); color: inherit; font: inherit; text-align: left; cursor: pointer;
+  padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px;
+  background: var(--panel); color: inherit; font: inherit; text-align: left; cursor: pointer;
 }
 .wlog-day-btn.open { border-color: var(--accent, #c47); }
 .wlog-day-btn .wlog-date { font-weight: 700; }
@@ -940,12 +940,12 @@ body.anim-lock { overflow: hidden; }
 .wlog-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-left: auto; }
 .wlog-tagchip {
   font-size: .78em; padding: 1px 7px; border-radius: 999px;
-  border: 1px solid var(--line, #ddd); opacity: .85; white-space: nowrap;
+  border: 1px solid var(--border); opacity: .85; white-space: nowrap;
 }
 .wlog-detail { margin: 6px 0 14px; }
-.wlog-group { margin: 8px 0; border: 1px solid var(--line, #ddd); border-radius: 10px; padding: 6px 10px; }
+.wlog-group { margin: 8px 0; border: 1px solid var(--border); border-radius: 10px; padding: 6px 10px; }
 .wlog-group > summary { cursor: pointer; font-weight: 600; }
-.wlog-item { margin: 8px 0; padding: 8px 10px; border-radius: 8px; border-left: 4px solid var(--line, #ddd); }
+.wlog-item { margin: 8px 0; padding: 8px 10px; border-radius: 8px; border-left: 4px solid var(--border); }
 .wlog-item.ok { border-left-color: #4caf50; }
 .wlog-item.bad { border-left-color: #e05a5a; }
 .wlog-item.unknown { border-left-color: #bbb; }
@@ -1024,11 +1024,11 @@ body.anim-lock { overflow: hidden; }
 /* 歷屆試題：數學卷的選填題（一格一個數字） */
 .exam-fill { display: flex; flex-wrap: wrap; gap: 10px; }
 .exam-fill-cell { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.exam-fill-cell span { font-size: 12px; color: var(--muted); }
+.exam-fill-cell span { font-size: 12px; color: var(--dim); }
 .exam-fill-cell input {
   width: 64px; height: 52px; text-align: center; font-size: 22px; font-weight: 700;
-  border: 2px solid var(--line); border-radius: 10px;
-  background: var(--panel2); color: var(--ink);
+  border: 2px solid var(--border); border-radius: 10px;
+  background: var(--panel2); color: var(--text);
 }
 .exam-fill-cell input:focus { border-color: var(--accent); outline: none; }
 
@@ -1036,8 +1036,8 @@ body.anim-lock { overflow: hidden; }
 .cal-bar { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: .6rem 0; }
 .cal-bar b { font-size: 1.05rem; }
 .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: .4rem 0 .8rem; }
-.cal-wd { text-align: center; font-size: .8rem; color: var(--muted, #888); padding: 2px 0; }
-.cal-day { min-height: 44px; border: 1px solid var(--line, #ddd); border-radius: 8px; background: transparent;
+.cal-wd { text-align: center; font-size: .8rem; color: var(--dim); padding: 2px 0; }
+.cal-day { min-height: 44px; border: 1px solid var(--border); border-radius: 8px; background: transparent;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
   font: inherit; color: inherit; padding: 2px; }
 .cal-day.today { border-color: var(--accent, #4a90d9); }
@@ -1050,7 +1050,7 @@ body.anim-lock { overflow: hidden; }
 .tutor-txt { white-space: pre-wrap; line-height: 1.75; font-size: .96rem; }
 
 /* 補習複習：段落進度條與帶讀重點標色（2026-09-04） */
-.tutor-bar { height: 8px; border-radius: 99px; background: var(--line, #e3e3e3); overflow: hidden; margin: .6rem 0 .4rem; }
+.tutor-bar { height: 8px; border-radius: 99px; background: var(--panel2); overflow: hidden; margin: .6rem 0 .4rem; }
 .tutor-bar i { display: block; height: 100%; background: var(--accent, #4a90d9); transition: width .3s; }
 /* 重點標記：2026-09-04 Tony「highlight 太多變得很亂」→ 改成淡底＋細下線，不加粗 */
 .read-hl { background: rgba(255, 224, 130, .38); color: inherit; border-radius: 3px;
@@ -1061,7 +1061,7 @@ body.anim-lock { overflow: hidden; }
   color: var(--accent, #4a90d9); font-weight: 700; }
 .read-pic { margin: .6rem 0; text-align: center; }
 .read-pic img { max-width: 100%; border-radius: 10px; }
-.read-cap { font-size: .82rem; color: var(--muted, #888); margin-top: .25rem; }
+.read-cap { font-size: .82rem; color: var(--dim); margin-top: .25rem; }
 
 /* 原文區（2026-09-04 Tony：文言文與閱讀測驗都要有原文，文言文一句一句講） */
 .read-orig { margin: .6rem 0; }
@@ -1072,4 +1072,4 @@ body.anim-lock { overflow: hidden; }
 .wy-c { font-size: 1.06rem; line-height: 1.8; cursor: pointer; }
 .wy-c.on { color: var(--accent, #4a90d9); }
 .wy-v { font-size: .93rem; line-height: 1.7; margin-top: .2rem; }
-.wy-n { font-size: .85rem; line-height: 1.6; margin-top: .15rem; color: var(--muted, #888); }
+.wy-n { font-size: .85rem; line-height: 1.6; margin-top: .15rem; color: var(--dim); }

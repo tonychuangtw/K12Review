@@ -1091,5 +1091,16 @@ console.log('歷屆學測');
   ok(missing.length === 0, `進行中的畫面都不會被雲端同步重載（缺：${missing.join('、') || '無'}）`);
 }
 
+/* CSS 變數守門（2026-09-06 Tony 回報「總結測驗的每天做過的題目整片變白」）：
+   那次是 css 寫成 var(--card, #fff)／var(--line, #ddd)——這兩個變數是別站（考古英雄）的名字，
+   本站根本沒定義，於是深色模式下背景 fallback 成白色、文字仍是淺色，整片看不見。 */
+{
+  const css = fs.readFileSync(path.join(root, "css/style.css"), "utf8");
+  const defined = new Set([...css.matchAll(/(--[a-z0-9-]+)\s*:/g)].map(m => m[1]));
+  const used = new Set([...css.matchAll(/var\((--[a-z0-9-]+)/g)].map(m => m[1]));
+  const missing = [...used].filter(v => !defined.has(v));
+  ok(missing.length === 0, 'CSS 變數都有定義（未定義：' + (missing.join('、') || '無') + '）');
+}
+
 console.log(failed ? `\n${failed} 項失敗` : '\n全部通過');
 process.exit(failed ? 1 : 0);
