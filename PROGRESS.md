@@ -2,11 +2,10 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: done
-<!-- 2026-09-05 改成 done：唯一還能自己往下做的技術債（學測裁圖補正）已全部完成並 push，
-     剩下的兩件事（98–99 年基測題留不留、學測自然要不要往 90 年補）都要 Tony 先決定，
-     每天被喚醒也推不動，照 shared.md §17「忘記改 done 會每天被喚醒一次白燒額度」先收掉。
-     Tony 一給新指示就把 STATUS 改回 in-progress 並補上 NEXT_ACTION。 -->
+STATUS: in-progress
+<!-- 2026-09-06 15:40 Tony：「繼續做考古英雄一案的其它部份. 從牙醫的開始」
+     ＝把 kaoguhero 上還標「建置中」的考試一個一個收進來，從牙醫師開始。
+     牙醫師 168 卷 13,440 題已於同日完成上線（commit 536ce13），接著往中醫師、藥師做。 -->
 <!-- 2026-09-02 歷屆學測 90–115 國英數社 109 卷 4,528 題收齊（年份下限 90：Tony「做到90就好」，83–89 不做）。
      同日 Tony：「繼續做到完為止」「除非有什麼解決不了一定要問的問題，不然都做到完為止」
      ＝接著做學測自然（115→90，subj 用 science，id <年>-science），再會考數英社自（115-103）、基測（102-90）。 -->
@@ -21,18 +20,30 @@ STATUS: done
         需要插圖時用 claude-shared/tools/gen-image.sh（Tony：需要畫圖就叫 gemini 或 chatgpt 畫）。
      ⏭ 以後 Tony 再拍講義照片傳來，就照同一格式加一堂（內容與題目自撰不抄講義）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【手上沒有進行中的批次工作。**學測 90–115 各卷的裁圖補正已於 2026-09-05 全部做完並 push（commit af4d1a77～a1e22ece，共 117 張重裁）**——自動掃描的可疑圖從 234 張降到 150 張，剩下的 150 張逐張目視確認過，全是「照片／地圖本身的黑框貼齊邊」的誤報，不是被裁斷。
-     下一個具體動作＝**等 Tony 指示**。真的要自己找事做，剩下的候選只有：① 會考／基測 98 年以前要不要繼續（Tony 2026-09-03 22:56 說「做到 100 年先停」，98–99 年是後來多做的，要不要留著也還沒定案）；② 學測自然科 90–99 年（目前自然只有 100–115）。兩件都要先問過 Tony 再動。
-     ⚠ 裁圖補正的做法（下次同類工作照抄，工具都在 repo 與 scratchpad）：
-       ・來源 PDF 已整批收進 `~/exam-pdfs/gsat/`（267 檔，90–115 學測國英數社自各科試卷＋答案），**不用再從大考中心重抓**
-       ・`python3 tools/exam-crop-audit.py <卷id...>`＝掃出可疑圖（邊緣墨色比例 3%~85%），分數高的優先
-       ・`tools/exam-crop-sheet.sh <out.png> <圖...>`＝12 張貼成一張 contact sheet，用一次 Read 目視判斷，省 token
-       ・**抓座標不要靠目測**（目測誤差 30~70 px，這輪一半的返工都是這樣來的）：先 `python3 tools/exam-crop.py page <pdf> <頁> out.png` 出 100dpi 整頁圖，
-         再用 scratchpad 的 `bands.py`（列出橫向墨帶＝把圖跟題目文字分層）與 `cols.py`（列出某一帶裡的縱向墨柱＝把圖跟旁邊的文字分開），
-         直接讀出圖的真實 x/y 範圍，上下左右各留 6 px 再裁。這兩支小工具建議下次直接複製進 tools/
-       ・題目圖＋選項圖要合成一張：pdftoppm 各裁一塊 → ffmpeg pad + vstack → cwebp（範例見 108 自然 q59／q37、105 自然 q65、111 社會 q28）
-       ・**一定要用 contact sheet 看過再收**，只看檔案大小會漏掉「裁到別題的圖」——這輪就有 6 次裁錯圖（band 掃出來的第一個大區塊不一定是要的那張），全靠目視抓回來
-     【歷史狀態：學測 125 卷 5,524 題收齊；會考 115–103 四科收齊；基測 102–99 收齊（99 兩次共 400 題）、98 年第一次數學 34／社會 63 已上線，98 自然只寫到第 24 題且留在 scratchpad＝作廢。⚠ 待 Tony 決定：① 已上線的 99、98 年題目留著還是撤掉；② 要不要繼續往 97…90 年做。】
+NEXT_ACTION: 【**進行中：考古英雄（kaoguhero）把還標「建置中」的考試一個一個收進來**（Tony 2026-09-06「繼續做考古英雄一案的其它部份. 從牙醫的開始」）。
+     ✅ 牙醫師已完工上線（2026-09-06，commit 536ce13）：牙醫學（一）～（六）168 卷 13,440 題，民國 102～115 年，
+        全站來到 373 卷 30,133 題。
+     **下一個具體動作＝比照牙醫師的流程做「中醫師」**，做法（工具全部已收進 kaoguhero/tools/，不再依賴 scratchpad）：
+       1. `mkdir -p <工作目錄> && python3 ~/TelegramClaude/kaoguhero/tools/moex-fetch.py 中醫師 <工作目錄>`
+          （抓歷年試題／標準答案／更正答案 PDF ＋ inv.json）
+       2. 照 `tools/gen_dent.py` 複製一份改科目判定（中醫師的科目名稱關鍵字），產出 out/ 與 outimg/
+       3. 檢查卷數題數 → 搬進 `js/data/exam/` 與 `img/q/` → `node tools/build-index.js --write`
+          （分類／科目改 `tools/index-spec.json`，把該考試 live 改 true 並補 stages 與科目）
+       4. `node test/test.js` ＋ `node test/smoke.mjs`（smoke 約 2 分鐘，用背景跑）
+       5. 換 index.html 的 `?v=` 與 js/app.js 的 `var VER` → 加 js/versions.js 條目 → commit push → 回報 Tony
+     之後依序：藥師 → 司法官／高普考／地方特考／教師甄試（後面幾個科目多，開工前先跟 Tony 確認範圍）。
+     ⚠ 已問 Tony 但還沒回答：牙醫師的**詳解**（13,440 題）要現在開始寫，還是先把其他考試的題庫都收齊。
+     ⚠ 這一輪踩到的三個坑（下次照做即可避開）：
+       ① 考選部平台查**舊年份要先把年度下拉切過去**（btnYear）再查，否則回傳是空的
+          —— 一開始 102～114 年整批掃出 0 卷就是這個原因，moexlib.exam_subjects 已內建
+       ② 裁圖工具原本只接「本頁＋下一頁」，一題橫跨三頁以上（選項是整頁大圖）會漏掉中間那頁；
+          cropfig.py 已改成從題號那頁一路接到下一題那頁
+       ③ **圖檔名一定要帶類科代碼 c**：113020 那年醫師與牙醫師的科目代碼都是 11/22，
+          只用 (code, s, n) 會蓋掉醫師卷的圖（差點就蓋下去，搬檔前加了 assert not exists 才擋住）
+     ⚠ 新增的資料欄位 `alt`（考選部公布多個答案均給分，除了 a 以外也算對）：
+       app.js 用 isRight(q,k) 判對、test.js 有型別檢查、i18n 有對應英文字串。
+     【已結案：學測 90–115 裁圖補正（2026-09-05，117 張重裁）；考古英雄醫師＋律師詳解（205 卷 16,693 題）。
+       ⚠ 待 Tony 決定：① 已上線的 99、98 年基測題留著還是撤掉；② 學測／會考要不要繼續往 97…90 年做。】
      現況：99 年兩次基測四科（400 題）與 98 年第一次的數學 34、社會 63 都已做完並 push 上線；
      98 年第一次自然只寫到第 24 題、還在 scratchpad，沒有進 repo（scratchpad 重啟後會消失，等於作廢）。
      ⚠ 待 Tony 決定的兩件事：① 已上線的 99、98 年題目要留著還是撤掉；② 之後要不要繼續往 97…90 年做。
@@ -1057,10 +1068,10 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 不符合已知形狀的題（約 60 題）逐題人工寫。腳本留在 scratchpad，之後要處理各科題庫可以沿用。
 補記：各科自編原創題（science/math/english/history…）的解析是「✅正解：… ❌其他選項：… 📚課綱重點：…」
 的固定三段式，同一支腳本加一種形狀就能生（問「其他選項」那段或「課綱重點」那段），要做隨時可以接。
-VALIDATION: cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
+VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無阻塞，但沒有 Tony 的新指示就沒有新批次可開（學測／會考／基測已依他 09-03 的「做到 100 年先停」停手；考古英雄已結案；學測裁圖補正 09-05 已全部做完）。
-PATHS: img/exam/<卷id>/*.webp（歷屆試題附圖）、tools/exam-crop.py／exam-crop-audit.py／exam-crop-sheet.sh／bands.py／cols.py／inkbox.py（裁圖與量測）、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）、js/data/exam/*.js、js/data/exams.js
-UPDATED: 2026-09-06 台北（學測裁圖補正完工）
+PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
+UPDATED: 2026-09-06 台北（考古英雄牙醫師題庫上線）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
