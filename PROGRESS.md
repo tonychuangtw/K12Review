@@ -1069,7 +1069,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 補記：各科自編原創題（science/math/english/history…）的解析是「✅正解：… ❌其他選項：… 📚課綱重點：…」
 的固定三段式，同一支腳本加一種形狀就能生（問「其他選項」那段或「課綱重點」那段），要做隨時可以接。
 VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 無阻塞，但沒有 Tony 的新指示就沒有新批次可開（學測／會考／基測已依他 09-03 的「做到 100 年先停」停手；考古英雄已結案；學測裁圖補正 09-05 已全部做完）。
+BLOCKERS: 無阻塞。已問 Tony 但還沒回答：牙醫師的詳解（13,440 題）要現在開始寫，還是先把其他考試的題庫收齊——在他回覆前先照「其它部份」往中醫師做，不會空等。
 PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
 UPDATED: 2026-09-06 台北（考古英雄牙醫師題庫上線）
 
