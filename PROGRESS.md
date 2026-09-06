@@ -49,9 +49,11 @@ NEXT_ACTION: 【**進行中：考古英雄 — 高普考（公務人員高等考
        ・工具全部寫好並 commit（kaoguhero 5bfd925）：moex-sweep.py／parse_gao.py／gen_gao.py／
          gao-groups.json／gao-index-merge.py，app.js 已支援「等別→類群→類科→科目」四層分類＋搜尋框，
          test.js 加了分類樹與 psg（題組短文）的守門，css 加 .find／.grp／.psg
-       ・共同科目 56 卷實測：53 卷 1,610 題轉檔成功、3 卷因文字層殘缺跳過（103 普考國文、105 高考國文、103 高考法學）
-       ・答案卷掃描（判斷哪些是選擇題卷）背景執行中：`~/exam-pdfs/gao/sweep-S.log` 看進度；
-         跑完接 `python3 ~/TelegramClaude/kaoguhero/tools/moex-sweep.py ~/exam-pdfs/gao Q --has-answer`（再跑一次 M）
+       ・**第一批已上線（kaoguhero commit 後接 Pages）**：共同科目 54 卷 1,620 題
+         （國文測驗部分＋法學知識與英文，高考三級與普考各一套，102～115 年）。全站 763 卷 57,793 題。
+         跳過 2 卷：103 普考國文、103 高考法學（PDF 文字層殘缺，記在 ~/exam-pdfs/gao/gao-skipped.json）
+       ・答案卷掃描背景執行中（`~/exam-pdfs/gao/sweep-S.log`）；`chain.sh` 會在 S 掃完後自動接著跑
+         Q（試題）與 M（更正答案），看 `chain.log` 出現 ALLDONE 就代表下載全部完成
        ・接著：`cd ~/exam-pdfs/gao && python3 ~/TelegramClaude/kaoguhero/tools/gen_gao.py --figs`
          → 搬 out/*.js 進 js/data/exam/、outimg/*.webp 進 img/q/
          → `python3 tools/gao-index-merge.py ~/exam-pdfs/gao/gao-index.json`
