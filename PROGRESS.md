@@ -54,14 +54,13 @@ NEXT_ACTION: 【**進行中：考古英雄 — 高普考（公務人員高等考
          （工程數學 4 卷、104 行政學與 110 有機化學概要是掃描檔沒有文字層、103 兩卷文字層殘缺）
        ・361 題因版面拆不乾淨改成裁原卷的圖作答；裁圖 0 失敗
        ・工具與規則都寫進 kaoguhero/tools/{parse_gao,gen_gao,gao-index-merge,moex-sweep,cropfig}.py
-       ▶ **進行中：地方特考（102～114 年，13 年 5,221 份不同的卷）**
-         工作目錄 `~/exam-pdfs/local`（codes.json／rows-*.json 已備妥），答案卷掃描背景執行中
-         （`sweep-S.log`，接著自動跑 Q 與 M，看到 LOCALDOWNLOADED 就是下載完成）。
-         轉檔工具已改成吃考試代號：`python3 ~/TelegramClaude/kaoguhero/tools/gen_civil.py local`
-         → `python3 docrop.py`（裁圖）→ `bash install.sh`（搬檔＋重建索引＋跑 test.js）
-         → smoke.mjs → 版本號＋versions.js → commit push。
-         ⚠ 地方特考的等別寫法歷年不同（三等考試／三等／地方政府公務人員考試三等），已用關鍵字判定；
-           同一次考試還掛著「離島地區公務人員考試」，類科名前面加「離島・」區分；五等也收（全測驗題）。
+       ▶ **地方特考也完成上線（2026-09-06）**：774 卷 27,010 題（民國 102～114 年，三等／四等／五等＋離島地區），
+         **全站 2,116 卷 101,178 題**。科目 79 科、類科 167 個，分類沿用高普考那套。
+         工作目錄 `~/exam-pdfs/local`（codes.json／rows-*.json／pdf/ 都留著，重跑照 install.sh）。
+         ⚠ 跳過 18 卷：13 卷是五等國文（35 單選＋10 複選，**介面還不支援複選題**）、5 卷文字層殘缺。
+         ⚠ 已知待辦：**103～106 年律師第一試那 12 卷是五選一，當初轉檔時第五個選項（E）被併進 D 的文字裡**
+           （grep `\ue190` 找得到，共 128 題）。要修得重抓那 12 份 PDF、用 parse_gao 的 FIVE=True 重解，
+           再把 o／a 換掉但**保留既有的人工詳解 exp**（那批是手寫的，不能覆蓋）。
        ▶ **之後**：
          1. 教師甄試（資料源不在考選部，要另外找）
          2. 詳解（Tony：先收齊題庫，之後再加）
@@ -1104,7 +1103,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-06 台北（高普考 633 卷 17,995 題全部上線；全站 1,342 卷 74,168 題）
+UPDATED: 2026-09-06 台北（高普考＋地方特考全部上線；全站 2,116 卷 101,178 題）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
