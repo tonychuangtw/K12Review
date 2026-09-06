@@ -20,32 +20,33 @@ STATUS: in-progress
         需要插圖時用 claude-shared/tools/gen-image.sh（Tony：需要畫圖就叫 gemini 或 chatgpt 畫）。
      ⏭ 以後 Tony 再拍講義照片傳來，就照同一格式加一堂（內容與題目自撰不抄講義）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 【**進行中：考古英雄（kaoguhero）把還標「建置中」的考試一個一個收進來**
-     （Tony 2026-09-06「繼續做考古英雄一案的其它部份. 從牙醫的開始」、「先收齊題庫. 之後再加詳解」）。
-     ✅ 2026-09-06 一天內收齊醫事人員四張執照，全站 **709 卷 56,173 題**：
-        牙醫師 168 卷 13,440 題（commit 536ce13）、中醫師 168 卷 13,440 題（098530f）、藥師 168 卷 12,600 題（31596cb）。
-     **下一個具體動作＝繼續收「法律／公職」那一組**：司法官第二試、高普考、地方特考、教師甄試。
-     ⚠ 已問 Tony 還沒回：這組科目數量大（高普考光類科就幾十個），要全做還是挑熱門類科；還有 103～107 年
-       藥師舊制那 30 卷要不要補。**沒回覆前不要自己擴張到高普考全類科。**
-     做法（工具都在 kaoguhero/tools/，不依賴 scratchpad）：
-       1. `mkdir -p <工作目錄>` → `python3 ~/TelegramClaude/kaoguhero/tools/moex-fetch.py <類科關鍵字> <工作目錄>`
-          （或照 cm／pharm 那樣自己寫盤點：要處理同一場考試多個 code、同科目掛在多個類科底下的去重）
-       2. 在 `tools/gen_bank.py` 的 SPECS 加一組（科目判定可用 pat/key/stage/name，或用 resolve 自己判），
-          `cd <工作目錄> && python3 ~/TelegramClaude/kaoguhero/tools/gen_bank.py <spec>`
-       3. 圖片題：`cropfig.crop(pdf, 題號, 輸出)`，裁完一定要用 contact sheet 目視（`chinese/tools/exam-crop-sheet.sh`）
-       4. 搬進 `js/data/exam/`＋`img/q/`（搬之前 assert 目的檔不存在，避免蓋到別的考試）
-          → 改 `tools/index-spec.json`（live 改 true、補 stages 與科目）→ `node tools/build-index.js --write`
-       5. `node test/test.js`＋`node test/smoke.mjs`（背景跑，約 2 分鐘）→ 換 index.html 的 `?v=` 與 js/app.js 的 `var VER`
-          → 加 js/versions.js 條目 → commit push → 回報 Tony
-     ⚠ 這幾輪踩過的坑（全部已寫進工具的註解，照做即可避開）：
-       ① 考選部平台查舊年份要先把年度下拉切過去（btnYear）再查，否則回傳空的
-       ② 舊卷（中醫師 102～111、醫師 102～104）選項代號是私用區字元 \ue18c～\ue18f，不還原會整題只剩題幹
-       ③ 題號一定頂在最左邊（最多一個前導空白）：放寬會把換行後的「54.3 mL/min」當成第 54 題
-       ④ 標準答案 102～105 用半形 ABCD，近年用全形ＡＢＣＤ
-       ⑤ 更正答案措辭有三種：「答Ａ、Ｄ給分」「答Ａ或Ｄ或AD者均給分」「一律給分」，要先切句再撿 A~D
-       ⑥ 圖檔名要帶類科代碼 c（同年不同考試的科目代碼會重複），搬檔前 assert 目的檔不存在
-       ⑦ 一題可能橫跨三頁以上（選項是整頁大圖），cropfig 會從題號那頁一路接到下一題那頁
-     ⚠ 資料欄位 `alt`（考選部公布多個答案均給分）：app.js 用 isRight(q,k) 判對、test.js 有型別檢查、i18n 有英文字串。
+NEXT_ACTION: 【**進行中：考古英雄 — 高普考（公務人員高等考試三級考試暨普通考試）全類科**
+     Tony 2026-09-06 09:01 定案：「1. 高普考全做. 但分類要做好不要亂　2.（藥師舊制 30 卷）不用補」。
+     ✅ 醫事人員四張執照已收齊上線：709 卷 56,173 題（牙醫 536ce13／中醫 098530f／藥師 31596cb）。
+     **具體動作＝高普考題庫工程，四步：**
+       (a) 盤點（已完成）：工作目錄 `~/exam-pdfs/gao/`（不在 repo）有 codes.json（102～115 年 14 個考試代碼）
+           與 rows-<roc>.json（每年 847～1,177 個「類科×科目」列；14 年共 14,660 列、8,321 份不同的卷）。
+           重跑：`cd ~/exam-pdfs/gao && python3 inv-full.py`
+       (b) 篩選：`python3 ~/TelegramClaude/kaoguhero/tools/moex-sweep.py ~/exam-pdfs/gao S`
+           —— 同一份卷會掛在幾十個類科底下（科目代碼 s 相同）所以先用 s 去重；申論卷沒有標準答案
+           （t=S 回非 PDF，會留一個 .none 空檔），正好當「這是不是選擇題卷」的篩子。
+           有 a.pdf 的才抓試題與更正答案：`moex-sweep.py ~/exam-pdfs/gao Q`、`... M`
+       (c) 轉檔：在 kaoguhero/tools/gen_bank.py 加 gao spec。⚠ 114 年卷實測，四件事要先處理：
+           ① 題號分隔可能只有一個空格（英文題「 22 To lower...」），現行 strict 正則抓不到 →
+              要加 loose 模式，並用「標準答案的題數」當驗收（抓到的題數＝答案數才算過）
+           ② 英文克漏字的空格會被 norm() 吃掉（「was      to raise money」→「was to raise money」），
+              要把 5 格以上空白換成 ＿＿＿
+           ③ 閱讀測驗／克漏字題組的短文在「請依下文回答第 N 題至第 M 題：」之後，要接到該組每一題的題幹前
+              （現行 law-114-1-law2b 就是漏掉短文的，之後回頭補）
+           ④ 國文（作文與測驗）只取「乙、測驗部分」以後那 10 題，作文部分丟掉
+       (d) 分類（Tony 特別交代「分類要做好不要亂」）：等別（高考三級 95 類科／普通考試 61 類科）→ 類群（自訂 8~10 群）
+           → 類科 → 科目 → 年份卷。index-spec.json 的 gao 加 `levels[].groups[].tracks[]`；
+           app.js 加 viewTrack（#/track/gao/<類科id>），viewSubject 沿用現成的。
+           科目 key 用註冊表（tools/gao-subjects.json：「等別|科目名」→ ga001／pa001）保持跨年份穩定。
+           ⚠ 同年同名多份卷有 21 例（行政法、統計學…＝申論卷與測驗卷同名），篩掉申論卷後多半自動消失，
+             殘留的要人工加後綴。
+     ⚠ 規模：8,321 份卷裡選擇題卷估 1,000～1,500 份（前 200 份抽樣只有 8% 有標準答案，因為高考三級專業科目
+       多為申論）。exams.js 索引若逼近 1MB 要拆成每個考試一個索引檔按需載入。
      【已結案：學測 90–115 裁圖補正（2026-09-05，117 張）；考古英雄醫師＋律師詳解（205 卷 16,693 題）。
        ⚠ 待 Tony 決定：① 已上線的 99、98 年基測題留著還是撤掉；② 學測／會考要不要繼續往 97…90 年做。】
      現況：99 年兩次基測四科（400 題）與 98 年第一次的數學 34、社會 63 都已做完並 push 上線；
@@ -1073,9 +1074,9 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 補記：各科自編原創題（science/math/english/history…）的解析是「✅正解：… ❌其他選項：… 📚課綱重點：…」
 的固定三段式，同一支腳本加一種形狀就能生（問「其他選項」那段或「課綱重點」那段），要做隨時可以接。
 VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 無阻塞。Tony 2026-09-06 已定案「先收齊題庫，之後再加詳解」。待他回覆的是：法律／公職那組要全做還是挑熱門類科、藥師舊制 30 卷要不要補。
+BLOCKERS: 無。Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-06 台北（考古英雄：牙醫師／中醫師／藥師三個題庫上線，709 卷 56,173 題）
+UPDATED: 2026-09-06 台北（醫事四科上線後接高普考全類科：盤點完成 8,321 卷，答案卷篩選中）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
