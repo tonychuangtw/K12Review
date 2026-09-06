@@ -69,12 +69,14 @@ NEXT_ACTION: 【**進行中：考古英雄 — 高普考（公務人員高等考
            `python3 /tmp/pua3.py` 的邏輯＝逐字檢查 0xE000–0xF8FF）。
          ⚠ 複選題（多選多答）目前整站不支援：地方特考五等國文 13 卷、律師 103～106 的複選段落都因此沒收。
            要支援得動 schema（type:'multi'、a 改陣列）、app.js 作答與計分、test.js 守門。
-       ▶ **教師資格考試（教檢）也完成上線（2026-09-06）**：257 卷 7,943 題（民國 94～115 年），
-         **全站 2,373 卷 109,121 題**。原本站上的「教師甄試」改成「教師資格考試（教檢）」——
+       ▶ **教師資格考試（教檢）也完成上線（2026-09-06）**：261 卷 8,103 題（民國 96～115 年），
+         **全站 2,377 卷 109,281 題**。原本站上的「教師甄試」改成「教師資格考試（教檢）」——
          教師甄試各縣市各辦、沒有統一官方題庫；教檢是全國統一、教育部網站有題目與參考答案。
          工作目錄 `~/exam-pdfs/tqa`（tqalib.py 爬蟲、fetch.py、docrop.py、837 個 PDF）；
          轉檔器 `kaoguhero/tools/gen_tqa.py`；索引併入照 `civil-index-merge.py`（教檢沒有類科那一層）。
-         ⚠ 跳過 53 卷：32 卷題數與參考答案對不上（多半是舊制卷的選擇題段落切法不同）、21 卷官網沒有參考答案。
+         ⚠ 跳過 37 卷：21 卷官網沒有參考答案、16 卷是 94～96 年的兩欄排版舊卷（版面拆不乾淨、圖也裁不出來）。
+           兩欄排版的解析已寫成 `parse.py 的 text_cols()`（找欄間空白帶→每頁切左右兩塊分別讀），
+           96 年以後的卷都靠它救回來了；94～96 那幾卷的欄位更亂，要救得改成用座標重建。
          ⚠ 一份卷只收選擇題，綜合題與寫作不收。
        ▶ **之後**：
          1. 教師甄試（真的要做的話得一個縣市一個縣市找，品質不會整齊；已跟 Tony 說明）
@@ -1118,7 +1120,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-06 台北（高普考／地方特考／教檢全部上線；全站 2,373 卷 109,121 題）
+UPDATED: 2026-09-06 台北（高普考／地方特考／教檢全部上線；全站 2,377 卷 109,281 題）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
