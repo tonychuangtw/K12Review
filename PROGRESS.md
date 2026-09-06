@@ -83,12 +83,13 @@ NEXT_ACTION: 【**進行中：考古英雄 — 高普考（公務人員高等考
            會擋：pid／題號不存在、沒有 ✅ 開頭、❌ 不是三段、沒有 📚 出處、✅ 的字母與答案不符）
          ・寫完一批就 `node tools/build-index.js --write` → `node test/test.js` → commit
          ・**已完成**：律師／司法官第一試 3,933 題（100%）、醫師 12,760 題（100%）、
-           牙醫師 115 年第一次整套六卷：421/480 題（dent1 72、dent2 72、dent3 76、dent4 62、dent5 66、dent6 73）
+           牙醫師 115 年第一次整套六卷：421/480 題（dent1 72、dent2 72、dent3 76、dent4 62、dent5 66、dent6 73）、
+           115 年第二次 dent1 77/80、dent2 78/80
          ・**還缺 92,588 題**。實測一題約 700 token（含讀題與查證），全部寫完要 6,000 萬 token 以上，
            一條線的額度做不完 → 2026-09-06 已向 Tony 說明並建議改成「先做最多人用的」：
            高普考共同科目（2,700 題）→ 地方特考共同科目（3,500 題）→ 牙醫師 → 其餘。等他回覆。
-         ・**接續點**：牙醫師 `den-115-2-dent1`（115 年第二次 牙醫學（一））第 1 題起；
-           115 年第一次六卷已完成，未寫的 59 題都是看圖題／選項無文字層／官方答案存疑那三類。
+         ・**接續點**：牙醫師 `den-115-2-dent3`（115 年第二次 牙醫學（三））第 1 題起；
+           115 年第一次六卷、第二次 dent1／dent2 已完成，未寫的題都是看圖題／選項無文字層／官方答案存疑那三類。
            跳過的題型：要看圖判讀的、選項是符號沒有文字層的、官方答案與教科書對不上的（寧可不寫）。
            查目前覆蓋率：
            `node -e "global.window={};require('./js/data/exams.js');const E=window.APP_EXAMS;
@@ -1135,7 +1136,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-06 台北（詳解累計 17,114 題；牙醫師 115 年第一次六卷 421/480 完成）
+UPDATED: 2026-09-06 台北（詳解累計 17,269 題；牙醫師 115-2 dent1、dent2 完成，接續 dent3）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
