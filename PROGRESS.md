@@ -45,23 +45,21 @@ NEXT_ACTION: 【**進行中：考古英雄 — 高普考（公務人員高等考
            科目 key 用註冊表（tools/gao-subjects.json：「等別|科目名」→ ga001／pa001）保持跨年份穩定。
            ⚠ 同年同名多份卷有 21 例（行政法、統計學…＝申論卷與測驗卷同名），篩掉申論卷後多半自動消失，
              殘留的要人工加後綴。
-     ▶ 2026-09-06 進度（Tony 回覆「高普考全做，但分類要做好不要亂」之後）：
-       ・工具全部寫好並 commit（kaoguhero 5bfd925）：moex-sweep.py／parse_gao.py／gen_gao.py／
-         gao-groups.json／gao-index-merge.py，app.js 已支援「等別→類群→類科→科目」四層分類＋搜尋框，
-         test.js 加了分類樹與 psg（題組短文）的守門，css 加 .find／.grp／.psg
-       ・**第一批已上線（kaoguhero commit 後接 Pages）**：共同科目 54 卷 1,620 題
-         （國文測驗部分＋法學知識與英文，高考三級與普考各一套，102～115 年）。全站 763 卷 57,793 題。
-         跳過 2 卷：103 普考國文、103 高考法學（PDF 文字層殘缺，記在 ~/exam-pdfs/gao/gao-skipped.json）
-       ・答案卷掃描背景執行中（`~/exam-pdfs/gao/sweep-S.log`）；`chain.sh` 會在 S 掃完後自動接著跑
-         Q（試題）與 M（更正答案），看 `chain.log` 出現 ALLDONE 就代表下載全部完成
-       ・接著：`cd ~/exam-pdfs/gao && python3 ~/TelegramClaude/kaoguhero/tools/gen_gao.py --figs`
-         → 搬 out/*.js 進 js/data/exam/、outimg/*.webp 進 img/q/
-         → `python3 tools/gao-index-merge.py ~/exam-pdfs/gao/gao-index.json`
-         → `node tools/build-index.js --write` → test.js＋smoke.mjs → 版本號＋versions.js → commit push
-       ・⚠ tools/gao-subjects.json（科目 key 註冊表）還沒進 git，跟題庫一起 commit
-     ▶ 另一條線（Tony 2026-09-06 09:15 指示）：考古英雄首頁 UI 改版，已做三個提案頁
-       （kaoguhero/preview/{a,b,c}.html，已上線 https://tonychuangtw.github.io/kaoguhero/preview/），
-       等 Tony 選一版再套進正式首頁。三版都主打「免費＋自撰詳解（✅正解／❌三個錯選項／📚出處）」。
+     ▶ **2026-09-06 高普考已全部上線（本階段完成）**：633 卷 17,995 題（民國 102～115 年），
+       全站來到 **1,342 卷 74,168 題**。科目 65 科（高考 34／普考 31）、類科 190 個、類群 10 群。
+       ・分類四層：等別 → 類群 → 類科 → 科目 → 年份卷，附搜尋框與「這個類科隨機刷題」
+       ・同一年同名卻是兩份不同的卷（行政法、民法、審計學、財政學、計算機概要、會計學概要…共 55 組），
+         用「主類科」加註區分：行政法（一般行政組）／行政法（法制組）
+       ・8,321 份卷裡只有 641 份有標準答案（其餘是申論卷）；641 份裡成卷 633、跳過 8
+         （工程數學 4 卷、104 行政學與 110 有機化學概要是掃描檔沒有文字層、103 兩卷文字層殘缺）
+       ・361 題因版面拆不乾淨改成裁原卷的圖作答；裁圖 0 失敗
+       ・工具與規則都寫進 kaoguhero/tools/{parse_gao,gen_gao,gao-index-merge,moex-sweep,cropfig}.py
+       ▶ **下一步（Tony 沒有新指示的話就照這個順序）**：
+         1. 地方特考（三等／四等）——結構與高普考一樣，可以直接沿用整條工具鏈：
+            `mkdir -p ~/exam-pdfs/local && cd ~/exam-pdfs/local`，抄 inv-full.py 改成找「地方政府公務人員考試」，
+            然後 moex-sweep S → Q → M → gen_gao（spec 要加 local 的 LVL 對照：三等／四等）→ gao-index-merge
+         2. 教師甄試（資料源不在考選部，要另外找）
+         3. 詳解（Tony：先收齊題庫，之後再加）
      ⚠ 兩個踩到的坑（2026-09-06）：
        ① **不要用 `pgrep -f` 判斷自己啟動的背景工作有沒有結束**：pgrep 會匹配到「包含那段字串的自己」
           （chain.sh 的迴圈條件裡就寫著要找的字串，於是永遠判定還在跑），下載接力空等一小時。
@@ -1100,7 +1098,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-06 台北（醫事四科上線後接高普考全類科：盤點完成 8,321 卷，答案卷篩選中）
+UPDATED: 2026-09-06 台北（高普考 633 卷 17,995 題全部上線；全站 1,342 卷 74,168 題）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
