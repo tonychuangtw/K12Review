@@ -78,6 +78,18 @@ NEXT_ACTION: 【**進行中：考古英雄 — 高普考（公務人員高等考
            兩欄排版的解析已寫成 `parse.py 的 text_cols()`（找欄間空白帶→每頁切左右兩塊分別讀），
            96 年以後的卷都靠它救回來了；94～96 那幾卷的欄位更亂，要救得改成用座標重建。
          ⚠ 一份卷只收選擇題，綜合題與寫作不收。
+       ▶ **進行中：逐題寫詳解（Tony 2026-09-06 15:40「依序開始全部寫解析」）**
+         ・工具：`node tools/set-exp.js <patch.json> [--write]`（patch 格式 [{pid,n,exp}]；
+           會擋：pid／題號不存在、沒有 ✅ 開頭、❌ 不是三段、沒有 📚 出處、✅ 的字母與答案不符）
+         ・寫完一批就 `node tools/build-index.js --write` → `node test/test.js` → commit
+         ・**已完成**：律師／司法官第一試 3,933 題（100%）、醫師 12,760 題（100%）、
+           牙醫師 den-115-1-dent1 第 1～40 題（36 題，跳過 #2/#21 看圖題、#24 選項是符號、#32 答案存疑）
+         ・**還缺 92,588 題**。實測一題約 700 token（含讀題與查證），全部寫完要 6,000 萬 token 以上，
+           一條線的額度做不完 → 2026-09-06 已向 Tony 說明並建議改成「先做最多人用的」：
+           高普考共同科目（2,700 題）→ 地方特考共同科目（3,500 題）→ 牙醫師 → 其餘。等他回覆。
+         ・**接續點**：牙醫師 `den-115-1-dent1` 第 41 題起（該卷 80 題）。查目前覆蓋率：
+           `node -e "global.window={};require('./js/data/exams.js');const E=window.APP_EXAMS;
+            const b={};E.forEach(e=>{b[e.exam]=b[e.exam]||{n:0,exp:0};b[e.exam].n+=e.n;b[e.exam].exp+=e.exp||0});console.log(b)"`
        ▶ **之後**：
          1. 教師甄試（真的要做的話得一個縣市一個縣市找，品質不會整齊；已跟 Tony 說明）
          2. 詳解（Tony：先收齊題庫，之後再加）
@@ -1120,7 +1132,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-06 台北（高普考／地方特考／教檢全部上線；全站 2,377 卷 109,281 題）
+UPDATED: 2026-09-06 台北（首頁改版 A 案上線；開始逐題寫詳解，已 16,729 題）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
