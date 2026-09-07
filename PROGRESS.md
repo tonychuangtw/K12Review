@@ -91,12 +91,12 @@ NEXT_ACTION: 【**進行中：考古英雄 — 高普考（公務人員高等考
            站上詳解題數不會變（2026-09-07 Tony 回報「網頁上數字還沒變」就是這個原因）。
            指令：`sed -i 's/<舊戳>/<新戳>/g' index.html js/app.js`；同一天上第二次版就改成 b、c…
          ・**已完成**：律師／司法官第一試 3,933 題（100%）、醫師 12,760 題（100%）、
-           牙醫師 115-1 421/480、115-2 451/480、114-2 447/480、114-1 451/480、113-2 448/480、113-1 426/480、112-2 452/480
-           ＝牙醫師累計 3,096/13,440（115、114、113 三年＋112-2 共 42 卷全部完成）
+           牙醫師 115-1 421/480、115-2 451/480、114-2 447/480、114-1 451/480、113-2 448/480、113-1 426/480、112-2 452/480、112-1 dent1-4 296/320
+           ＝牙醫師累計 3,168/13,440（115、114、113 三年＋112-2 共 42 卷完成，112-1 進行中）
          ・**還缺 89,492 題**。實測一題約 700 token（含讀題與查證），全部寫完要 6,000 萬 token 以上，
            一條線的額度做不完 → 2026-09-06 已向 Tony 說明並建議改成「先做最多人用的」：
            高普考共同科目（2,700 題）→ 地方特考共同科目（3,500 題）→ 牙醫師 → 其餘。等他回覆。
-         ・**接續點**：牙醫師 `den-112-1-dent4`（112 年第一次 牙醫學（四））第 1 題起 → 112-1 dent5、dent6 → 111-2 → 111-1 …往前做；
+         ・**接續點**：牙醫師 `den-112-1-dent5`（112 年第一次 牙醫學（五））第 1 題起 → 112-1 dent6 → 111-2 → 111-1 …往前做；
            115、114、113 三年＋112 年第二次共 42 卷已完成，未寫的題都是看圖題／選項無文字層／官方答案存疑那三類。
            跳過的題型：要看圖判讀的、選項是符號沒有文字層的、官方答案與教科書對不上的（寧可不寫）。
            查目前覆蓋率：
@@ -1144,7 +1144,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-07 台北（詳解累計 20,012 題；接續 112-1 dent4）
+UPDATED: 2026-09-07 台北（詳解累計 20,084 題；接續 112-1 dent5）
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
