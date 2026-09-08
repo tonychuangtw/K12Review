@@ -20,7 +20,7 @@ STATUS: in-progress
         需要插圖時用 claude-shared/tools/gen-image.sh（Tony：需要畫圖就叫 gemini 或 chatgpt 畫）。
      ⏭ 以後 Tony 再拍講義照片傳來，就照同一格式加一堂（內容與題目自撰不抄講義）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 中醫師 168 卷與「申論題 AI 批改」小實驗都已完成（實驗結論：正式功能用 Sonnet 5 開延伸思考，約 7.4 元／題；Haiku 鑑別度不足不採用；真正的前置工作是把「命題大意及評分標準」收進題庫。細節寫在 kaoguhero/docs/plan-log.md 時間軸「09-08 收尾」）。**現在開始藥師詳解**（`pha-*`，168 卷 12,600 題，0%）：從最新的 `pha-115-2-ph1`（藥學一）起，同一梯次依 ph1→ph2→ph3→ph4→ph5→ph6 做完再往前一個梯次（115-1、114-2、114-1…）。每卷做法：讀題 → 寫 patch JSON（`[{pid,n,exp}]`）→ `node tools/set-exp.js <patch> --write && node tools/build-index.js --write && node test/test.js` → commit push。
+NEXT_ACTION: 藥師詳解進行中（`pha-*`，168 卷 12,600 題）。**115-2 梯次六卷已完成 434／450 題**（ph1 74、ph2 76、ph3 76、ph4 80、ph5 79、ph6 49；未寫的 16 題是純看圖題、選項毀損、或官方答案與教科書衝突者）。**接續 `pha-115-1-ph1`**，同一梯次依 ph1→ph2→ph3→ph4→ph5→ph6 做完再往前一個梯次（114-2、114-1…102-1）。每卷做法：讀題 → 寫 patch JSON（`[{pid,n,exp}]`，用 Write 工具）→ `node tools/set-exp.js <patch> --write && node tools/build-index.js --write && node test/test.js` → commit push。讀題指令：`cd ~/TelegramClaude/kaoguhero && node -e "global.window={};require('./js/data/exam/pha-115-1-ph1.js');const p=window.APP_EXAM_PAPERS['pha-115-1-ph1'];const L=['A','B','C','D'];p.qs.forEach(q=>{console.log('#'+q.n+' '+q.q);q.o.forEach((o,i)=>console.log('  '+L[i]+') '+o));console.log('  ANS='+L[q.a])})"`
      Tony 2026-09-06 09:01 定案：「1. 高普考全做. 但分類要做好不要亂　2.（藥師舊制 30 卷）不用補」。
      ✅ 醫事人員四張執照已收齊上線：709 卷 56,173 題（牙醫 536ce13／中醫 098530f／藥師 31596cb）。
      **具體動作＝高普考題庫工程，四步：**
@@ -1144,7 +1144,7 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無。Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-09 00:46 台北
+UPDATED: 2026-09-09 01:48 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
