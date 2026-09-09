@@ -2,7 +2,7 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: in-progress
+STATUS: done
 <!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
      ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
         workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
@@ -35,11 +35,12 @@ STATUS: in-progress
         轉檔工具留在 scratchpad/tiffany/merge.py（patch JSON → social-custom.js，會擋 id 重複並改寫檔頭題數）。
         id 命名：地理沿用 oc+原題號，歷史加 h 後綴、公民加 c 後綴（三科原題號共用 1503xxxxxx 會撞號）。
      ⏭ 未做：Drive 上其他科目的題本（Tony 只指定社會）。 -->
-<!-- 2026-09-09 Tony：「接著匯. 也補解析. 弟弟現在是剛升小五」
+<!-- 2026-09-09 完工：Drive 國語題本全數匯完，本線暫無進行中工程，STATUS 改 done。
+     2026-09-09 Tony：「接著匯. 也補解析. 弟弟現在是剛升小五」
      ＝把 Drive「各科題庫」裡還沒匯入的題本全部匯進匯入題庫，每題都要寫解析。
         弟弟剛升小五 ⟹ 順序：五上國語補齊 → 四上國語 → 四下兩份。 -->
 OBJECTIVE: 把 Google Drive「各科題庫」裡還沒匯入的國語題本（五上第7-12課與學習地圖、四上全冊、四下兩份）逐課轉進 K12Review 的匯入題庫，每題都附完整解析
-NEXT_ACTION: Drive「各科題庫／Tiffany」的國語題本已全數匯完（五上 4,310 題＋四上 3,264 題＋四下 190 題）。四下只有兩份卷：國字注音（題目＋詳解，已轉 42 題）與成語練習（只有詳解檔，沒有題目檔 —— 已改用詳解裡的成語釋義自撰 148 題成語配對，不必再等 Tony 提供題目）。下一步＝等 Tony 指派新工作；若要繼續擴充，可考慮把四下課本 12 課的題庫光碟題本要來（Drive 目前只有五上、四上兩冊）。
+NEXT_ACTION: Drive「各科題庫／Tiffany」的國語題本已全數匯完（五上 4,046 題＋四上 3,265 題＋四下 190 題，custom.js 共 38,390 題）。四下只有兩份卷：國字注音（題目＋詳解，已轉 42 題）與成語練習（只有詳解檔，沒有題目檔 —— 已改用詳解裡的成語釋義自撰 148 題成語配對，不必再等 Tony 提供題目）。下一步＝等 Tony 指派新工作；若要繼續擴充，可考慮把四下課本 12 課的題庫光碟題本要來（Drive 目前只有五上、四上兩冊）。
 VALIDATION: node test/test.js 全過（含 id 不重複、選項/答案合法、解析非空）＋ node tools/gen-counts.js 重跑；push 前 python3 tools/stamp-version.py
 VALIDATION_其他線: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
 BLOCKERS: 無（四下成語練習沒有題目檔，已用詳解裡的釋義自撰題目解決）。
