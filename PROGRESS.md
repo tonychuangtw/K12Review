@@ -39,7 +39,7 @@ STATUS: in-progress
      ＝把 Drive「各科題庫」裡還沒匯入的題本全部匯進匯入題庫，每題都要寫解析。
         弟弟剛升小五 ⟹ 順序：五上國語補齊 → 四上國語 → 四下兩份。 -->
 OBJECTIVE: 把 Google Drive「各科題庫」裡還沒匯入的國語題本（五上第7-12課與學習地圖、四上全冊、四下兩份）逐課轉進 K12Review 的匯入題庫，每題都附完整解析
-NEXT_ACTION: 匯入 Drive 剩下的國語題本（見下方清單）。目前做到：五上第7課（296 題）、第8課（315 題）、第9課（294 題）、第10課（353 題，x34093~x34369）已完成。下一步＝五上第11課〈與達駭黑熊走入山林〉，Drive id 1qiEFpEaenab9q49DmJE1JYohfTLC5uM1。
+NEXT_ACTION: 匯入 Drive 剩下的國語題本（見下方清單）。目前做到：五上第7課（296 題）、第8課（315 題）、第9課（294 題）、第10課（353 題）、第11課（272 題，x34370~x34641）已完成。下一步＝五上第12課〈荒島上的國王〉，Drive id 1GXRy_LrHyTd6KoUWtHCoRyxBnaP6EuHY。
      流程（第7課驗證過，照做即可）：
        1) read_file_content 讀 Drive 檔（會超過 token 上限，輸出會落在 tool-results/*.txt，用 python 取 fileContent 存成 scratchpad/guo5/L08.txt）
        2) python3 scratchpad/guo5/parse.py L08.txt → L08.json（切出每題的題號/難易度/題型/題幹/答案/詳解）
@@ -1193,7 +1193,7 @@ BLOCKERS: 四下成語練習只找得到「簡答&詳解」檔，沒有題目檔
 BLOCKERS_舊: Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: 本工程＝js/data/custom.js（國語匯入題庫，五上/四上/四下都進這裡）、scratchpad/guo5/*.txt（Drive 原始文字）、tools/gen-counts.js、test/test.js、js/versions.js
 PATHS_舊: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-09 13:10 台北
+UPDATED: 2026-09-09 15:00 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
