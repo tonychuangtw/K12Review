@@ -2,7 +2,7 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: done
+STATUS: in-progress
 <!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
      ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
         workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
@@ -35,8 +35,31 @@ STATUS: done
         轉檔工具留在 scratchpad/tiffany/merge.py（patch JSON → social-custom.js，會擋 id 重複並改寫檔頭題數）。
         id 命名：地理沿用 oc+原題號，歷史加 h 後綴、公民加 c 後綴（三科原題號共用 1503xxxxxx 會撞號）。
      ⏭ 未做：Drive 上其他科目的題本（Tony 只指定社會）。 -->
-OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 無進行中工程，等 Tony 指派下一項 K12Review／LanExamMock／補習複習的工作。
+<!-- 2026-09-09 Tony：「接著匯. 也補解析. 弟弟現在是剛升小五」
+     ＝把 Drive「各科題庫」裡還沒匯入的題本全部匯進匯入題庫，每題都要寫解析。
+        弟弟剛升小五 ⟹ 順序：五上國語補齊 → 四上國語 → 四下兩份。 -->
+OBJECTIVE: 把 Google Drive「各科題庫」裡還沒匯入的國語題本（五上第7-12課與學習地圖、四上全冊、四下兩份）逐課轉進 K12Review 的匯入題庫，每題都附完整解析
+NEXT_ACTION: 匯入 Drive 剩下的國語題本（見下方清單）。目前做到：五上第七課（Drive id 1Ba64zxRWAGLhU5O9W4XG2844ZMe6-rcC，原始文字已存 scratchpad/guo5/L07.txt，367 題待轉）。
+     每完成一課就 merge → node tools/gen-counts.js → node test/test.js → commit，不要攢到最後。
+
+     ## 待匯清單（Drive「各科題庫／Aaron」底下）
+     - [ ] 五上國語題本檔案／01_題庫題目／五上：第7~12課、學習地圖一~四（10 檔）※第1-6課已在庫（x1347~x3179，1,833 題）
+     - [ ] 五上國語題本檔案／02_習作、03_素養題、04_TASA
+     - [ ] 四上國語題本檔案／01_題庫題目／四上（16 檔）＋02_習作＋03_素養題＋04_TASA
+     - [ ] 四下國字注音（題目 1PImawVrJUX_O0zKMSj9c2IKDivaKWjUH＋詳解 1O0N0izBXDNGJ7LVW1oImtts9CjdOzsoe）
+     - [ ] 四下成語練習（只有詳解檔 1yTjKH4NlSxLTfxkjbBCyjiF9Ku4gUGPv，沒看到題目檔——要問 Tony）
+
+     ## 轉檔規則（照 js/data/custom.js 既有 五上 的樣式，不要自創欄位）
+     - 欄位只有 {id,book,lesson,tag,diff,qtype,q,options,answer,exp}；**沒有 grade、沒有 src**
+     - id 一律 x+數字連號，目前最大 x33187 ⟹ 新題從 x33188 開始
+     - book「五上」/「四上」/「四下」；lesson「第7課」這種；tag＝課名（如「為生命找出口」）
+     - qtype 沿用既有六種：字形／字音／文意／綜合／成語／閱讀
+     - options 不要寫①②③④，exp 裡才用①②③④指稱
+     - exp 格式：原檔有「詳解」就一字不動放最前面，再接「正解說明：…」，需要時加「📚 辨析：…」
+     - ⚠ 原檔的注音題匯出時注音符號會整串掉光（會出現①奔②噴③噴④鼻 這種重複選項），
+       這類題目要嘛依教育部《國語辭典簡編本》把注音補回去，要嘛整題跳過，**絕不可照抄**
+       （2026-09-06 Tony 就是回報這個，見 v127）
+     - 圖表題（缺圖就答不出來的）一律跳過
      ⛔ **考古英雄（kaoguhero）已於 2026-09-09 分線，本線不再接手**；它的進度與待辦見 `~/TelegramClaude/kaoguhero/PROGRESS.md`。
      以下為分線前的歷史紀錄，保留備查——藥師詳解進行中（`pha-*`，168 卷 12,600 題）。**115-2 梯次六卷已完成 434／450 題**（ph1 74、ph2 76、ph3 76、ph4 80、ph5 79、ph6 49）；**115-1 梯次六卷亦已完成 428／450 題**（ph1 66、ph2 77、ph3 77、ph4 80、ph5 79、ph6 49）；**114-2 梯次六卷亦已完成 433／450 題**（ph1 73、ph2 77、ph3 76、ph4 80、ph5 80、ph6 47）；**114-1 梯次六卷亦已完成 435／450 題**（ph1 73、ph2 75、ph3 77、ph4 80、ph5 80、ph6 50）；**113-2 梯次六卷亦已完成 429／450 題**（ph1 66、ph2 77、ph3 77、ph4 79、ph5 80、ph6 50）；**113-1 梯次六卷亦已完成 432／450 題**（ph1 73、ph2 76、ph3 75、ph4 79、ph5 80、ph6 49）；**112-2 梯次六卷亦已完成 431／450 題**（ph1 66、ph2 78、ph3 80、ph4 78、ph5 80、ph6 49）；**112-1 梯次六卷亦已完成 429／450 題**（ph1 70、ph2 76、ph3 74、ph4 79、ph5 80、ph6 50）；**111-2 梯次六卷亦已完成 436／450 題**（ph1 73、ph2 76、ph3 77、ph4 80、ph5 80、ph6 50）；**111-1 梯次六卷亦已完成 427／450 題**（ph1 71、ph2 76、ph3 70、ph4 80、ph5 80、ph6 50）。未寫的題都是純看圖題、選項毀損、或官方答案與教科書衝突者。**接續 `pha-110-2-ph1`**，同一梯次依 ph1→ph2→ph3→ph4→ph5→ph6 做完再往前一個梯次（111-2、111-1…102-1）。每卷做法：讀題 → 寫 patch JSON（`[{pid,n,exp}]`，用 Write 工具）→ `node tools/set-exp.js <patch> --write && node tools/build-index.js --write && node test/test.js` → commit push。讀題指令：`cd ~/TelegramClaude/kaoguhero && node -e "global.window={};require('./js/data/exam/pha-114-1-ph1.js');const p=window.APP_EXAM_PAPERS['pha-114-1-ph1'];const L=['A','B','C','D'];p.qs.forEach(q=>{console.log('#'+q.n+' '+q.q);q.o.forEach((o,i)=>console.log('  '+L[i]+') '+o));console.log('  ANS='+L[q.a])})"`
      Tony 2026-09-06 09:01 定案：「1. 高普考全做. 但分類要做好不要亂　2.（藥師舊制 30 卷）不用補」。
@@ -1159,10 +1182,13 @@ wz 音節數或目標字位置錯、詞重複、deep 缺段落、確認題選項
 不符合已知形狀的題（約 60 題）逐題人工寫。腳本留在 scratchpad，之後要處理各科題庫可以沿用。
 補記：各科自編原創題（science/math/english/history…）的解析是「✅正解：… ❌其他選項：… 📚課綱重點：…」
 的固定三段式，同一支腳本加一種形狀就能生（問「其他選項」那段或「課綱重點」那段），要做隨時可以接。
-VALIDATION: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
-BLOCKERS: 無。Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
-PATHS: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-08 台北
+VALIDATION: node test/test.js 全過（含 id 不重複、選項/答案合法、解析非空）＋ node tools/gen-counts.js 重跑；push 前 python3 tools/stamp-version.py
+VALIDATION_其他線: 考古英雄：cd ~/TelegramClaude/kaoguhero && node test/test.js 全過、node test/smoke.mjs 全過（約 2 分鐘，用背景跑）；本站：cd ~/TelegramClaude/chinese && node test/test.js 全過、node test/zy-check.js 0 不一致、node test/browser-smoke.mjs 全過；LanExamMock 改完跑 cd ~/TelegramClaude/LanExamMock && node test/test.js
+BLOCKERS: 四下成語練習只找得到「簡答&詳解」檔，沒有題目檔，做到那一項時要問 Tony。其餘無。
+BLOCKERS_舊: Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
+PATHS: 本工程＝js/data/custom.js（國語匯入題庫，五上/四上/四下都進這裡）、scratchpad/guo5/*.txt（Drive 原始文字）、tools/gen-counts.js、test/test.js、js/versions.js
+PATHS_舊: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
+UPDATED: 2026-09-09 12:07 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
