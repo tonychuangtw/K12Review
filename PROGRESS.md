@@ -25,6 +25,16 @@ STATUS: done
         每段一題、答對才解鎖下一段，全部走完才開放總測驗；tutorLog 記 read/seg/pos。
         需要插圖時用 claude-shared/tools/gen-image.sh（Tony：需要畫圖就叫 gemini 或 chatgpt 畫）。
      ⏭ 以後 Tony 再拍講義照片傳來，就照同一格式加一堂（內容與題目自撰不抄講義）。 -->
+<!-- 2026-09-09 Tony：「到 google drive 裡與我共用裡找各科題庫. 把 Tiffany 的社會部份匯入匯入題庫裡整理好並寫好每題解析」
+     ⟹ 已完成（v128）。來源＝Drive 共用資料夾「各科題庫／Tiffany」底下的康軒版題庫光碟題本（練習本／素養題／題庫三種）。
+        匯入 socialCustom（js/data/social-custom.js）八上共 1,085 題：
+          地理第一課 87、地理第二課 131、歷史第一課 217、歷史第二課 229、公民第一課 204、公民第二課 217。
+        規則：原檔「詳解」一字不動保留在 exp 最前，後補「✅正解為什麼對＋❌三個錯誤選項各錯在哪＋📚知識點」；
+        填充／簡答／配合／題組逐題改寫成四選一（題幹標「（填充改寫）」等，解析首行註明原題答案）；
+        圖表題（地圖、表格、對話框、示意圖）因原檔沒匯出圖，一律跳過不硬寫。
+        轉檔工具留在 scratchpad/tiffany/merge.py（patch JSON → social-custom.js，會擋 id 重複並改寫檔頭題數）。
+        id 命名：地理沿用 oc+原題號，歷史加 h 後綴、公民加 c 後綴（三科原題號共用 1503xxxxxx 會撞號）。
+     ⏭ 未做：Drive 上其他科目的題本（Tony 只指定社會）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
 NEXT_ACTION: 無進行中工程，等 Tony 指派下一項 K12Review／LanExamMock／補習複習的工作。
      ⛔ **考古英雄（kaoguhero）已於 2026-09-09 分線，本線不再接手**；它的進度與待辦見 `~/TelegramClaude/kaoguhero/PROGRESS.md`。
