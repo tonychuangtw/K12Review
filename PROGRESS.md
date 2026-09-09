@@ -39,7 +39,7 @@ STATUS: in-progress
      ＝把 Drive「各科題庫」裡還沒匯入的題本全部匯進匯入題庫，每題都要寫解析。
         弟弟剛升小五 ⟹ 順序：五上國語補齊 → 四上國語 → 四下兩份。 -->
 OBJECTIVE: 把 Google Drive「各科題庫」裡還沒匯入的國語題本（五上第7-12課與學習地圖、四上全冊、四下兩份）逐課轉進 K12Review 的匯入題庫，每題都附完整解析
-NEXT_ACTION: 匯入 Drive 剩下的國語題本（見下方清單）。目前做到：五上第7課（296 題）、第8課（315 題）、第9課（294 題）、第10課（353 題）、第11課（272 題）、第12課（271 題，x34642~x34912）已完成，五上 12 課全數匯完。學習地圖一~四（19 題）與 02_習作 12 課（191 題）也已完成。下一步＝五上 03_素養題 Drive id 1I7Hacy0LF9NJa7j46I4e0OUOws3mLxoJ，再 04_TASA 1qEWlujXeH20bKB65T-ohYMXdU5VzsJe7，然後四上 1OPfR0Zz75oT_tZw7PzpQwVF-IiRUO9_8、四下兩份。
+NEXT_ACTION: 匯入 Drive 剩下的國語題本（見下方清單）。目前做到：五上第7課（296 題）、第8課（315 題）、第9課（294 題）、第10課（353 題）、第11課（272 題）、第12課（271 題，x34642~x34912）已完成，五上 12 課全數匯完。學習地圖一~四（19 題）與 02_習作 12 課（191 題）也已完成。03_素養題（12 課 213 題）與 04_TASA（120 題，lesson=TASA複習卷）也完成，五上四份題本全數匯完（五上合計 4,310 題）。下一步＝四上 Drive id 1OPfR0Zz75oT_tZw7PzpQwVF-IiRUO9_8（01_題庫題目 16 檔＋02_習作＋03_素養題＋04_TASA），再做四下兩份（國字注音 1PImawVrJUX_O0zKMSj9c2IKDivaKWjUH ＋詳解 1O0N0izBXDNGJ7LVW1oImtts9CjdOzsoe；成語練習只有詳解 1yTjKH4NlSxLTfxkjbBCyjiF9Ku4gUGPv，要問 Tony）。
      流程（第7課驗證過，照做即可）：
        1) read_file_content 讀 Drive 檔（會超過 token 上限，輸出會落在 tool-results/*.txt，用 python 取 fileContent 存成 scratchpad/guo5/L08.txt）
        2) python3 scratchpad/guo5/parse.py L08.txt → L08.json（切出每題的題號/難易度/題型/題幹/答案/詳解）
@@ -1193,7 +1193,7 @@ BLOCKERS: 四下成語練習只找得到「簡答&詳解」檔，沒有題目檔
 BLOCKERS_舊: Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: 本工程＝js/data/custom.js（國語匯入題庫，五上/四上/四下都進這裡）、scratchpad/guo5/*.txt（Drive 原始文字）、tools/gen-counts.js、test/test.js、js/versions.js
 PATHS_舊: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
-UPDATED: 2026-09-09 19:30 台北
+UPDATED: 2026-09-09 22:30 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
 
