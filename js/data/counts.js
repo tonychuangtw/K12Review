@@ -521,7 +521,7 @@ window.APP_COUNTS = {
     }
   },
   "socialCustom": {
-    "total": 3108,
+    "total": 3196,
     "noGrade": {
       "全": 0,
       "上": 0,
@@ -534,8 +534,8 @@ window.APP_COUNTS = {
         "下": 0
       },
       "8": {
-        "全": 664,
-        "上": 664,
+        "全": 752,
+        "上": 752,
         "下": 0
       }
     }
