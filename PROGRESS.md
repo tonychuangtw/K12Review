@@ -2,7 +2,13 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: in-progress
+STATUS: done
+<!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
+     ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
+        workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
+        本線不再做 kaoguhero 的任何工作（詳解、高普考題庫、改名 kaohero 全部歸新線）。
+        本線回歸 K12Review／LanExamMock／補習複習；目前沒有進行中的工程，故 STATUS 改 done
+        （避免每天被喚醒白燒額度）。Tony 有新需求直接發訊息即可，不受 STATUS 影響。 -->
 <!-- 2026-09-06 15:40 Tony：「繼續做考古英雄一案的其它部份. 從牙醫的開始」
      ＝把 kaoguhero 上還標「建置中」的考試一個一個收進來，從牙醫師開始。
      牙醫師 168 卷 13,440 題已於同日完成上線（commit 536ce13），接著往中醫師、藥師做。 -->
@@ -20,7 +26,9 @@ STATUS: in-progress
         需要插圖時用 claude-shared/tools/gen-image.sh（Tony：需要畫圖就叫 gemini 或 chatgpt 畫）。
      ⏭ 以後 Tony 再拍講義照片傳來，就照同一格式加一堂（內容與題目自撰不抄講義）。 -->
 OBJECTIVE: 依 Tony 2026-09-01 指示，把「歷屆學測」做成獨立大項（選年份＋科目→整卷作答→交卷評分），並一卷一卷把大考中心公開的歷屆學測試題收進來（原本的家長／老師檢視改版已完工）
-NEXT_ACTION: 藥師詳解進行中（`pha-*`，168 卷 12,600 題）。**115-2 梯次六卷已完成 434／450 題**（ph1 74、ph2 76、ph3 76、ph4 80、ph5 79、ph6 49）；**115-1 梯次六卷亦已完成 428／450 題**（ph1 66、ph2 77、ph3 77、ph4 80、ph5 79、ph6 49）；**114-2 梯次六卷亦已完成 433／450 題**（ph1 73、ph2 77、ph3 76、ph4 80、ph5 80、ph6 47）；**114-1 梯次六卷亦已完成 435／450 題**（ph1 73、ph2 75、ph3 77、ph4 80、ph5 80、ph6 50）；**113-2 梯次六卷亦已完成 429／450 題**（ph1 66、ph2 77、ph3 77、ph4 79、ph5 80、ph6 50）；**113-1 梯次六卷亦已完成 432／450 題**（ph1 73、ph2 76、ph3 75、ph4 79、ph5 80、ph6 49）；**112-2 梯次六卷亦已完成 431／450 題**（ph1 66、ph2 78、ph3 80、ph4 78、ph5 80、ph6 49）；**112-1 梯次六卷亦已完成 429／450 題**（ph1 70、ph2 76、ph3 74、ph4 79、ph5 80、ph6 50）；**111-2 梯次六卷亦已完成 436／450 題**（ph1 73、ph2 76、ph3 77、ph4 80、ph5 80、ph6 50）；**111-1 梯次六卷亦已完成 427／450 題**（ph1 71、ph2 76、ph3 70、ph4 80、ph5 80、ph6 50）。未寫的題都是純看圖題、選項毀損、或官方答案與教科書衝突者。**接續 `pha-110-2-ph1`**，同一梯次依 ph1→ph2→ph3→ph4→ph5→ph6 做完再往前一個梯次（111-2、111-1…102-1）。每卷做法：讀題 → 寫 patch JSON（`[{pid,n,exp}]`，用 Write 工具）→ `node tools/set-exp.js <patch> --write && node tools/build-index.js --write && node test/test.js` → commit push。讀題指令：`cd ~/TelegramClaude/kaoguhero && node -e "global.window={};require('./js/data/exam/pha-114-1-ph1.js');const p=window.APP_EXAM_PAPERS['pha-114-1-ph1'];const L=['A','B','C','D'];p.qs.forEach(q=>{console.log('#'+q.n+' '+q.q);q.o.forEach((o,i)=>console.log('  '+L[i]+') '+o));console.log('  ANS='+L[q.a])})"`
+NEXT_ACTION: 無進行中工程，等 Tony 指派下一項 K12Review／LanExamMock／補習複習的工作。
+     ⛔ **考古英雄（kaoguhero）已於 2026-09-09 分線，本線不再接手**；它的進度與待辦見 `~/TelegramClaude/kaoguhero/PROGRESS.md`。
+     以下為分線前的歷史紀錄，保留備查——藥師詳解進行中（`pha-*`，168 卷 12,600 題）。**115-2 梯次六卷已完成 434／450 題**（ph1 74、ph2 76、ph3 76、ph4 80、ph5 79、ph6 49）；**115-1 梯次六卷亦已完成 428／450 題**（ph1 66、ph2 77、ph3 77、ph4 80、ph5 79、ph6 49）；**114-2 梯次六卷亦已完成 433／450 題**（ph1 73、ph2 77、ph3 76、ph4 80、ph5 80、ph6 47）；**114-1 梯次六卷亦已完成 435／450 題**（ph1 73、ph2 75、ph3 77、ph4 80、ph5 80、ph6 50）；**113-2 梯次六卷亦已完成 429／450 題**（ph1 66、ph2 77、ph3 77、ph4 79、ph5 80、ph6 50）；**113-1 梯次六卷亦已完成 432／450 題**（ph1 73、ph2 76、ph3 75、ph4 79、ph5 80、ph6 49）；**112-2 梯次六卷亦已完成 431／450 題**（ph1 66、ph2 78、ph3 80、ph4 78、ph5 80、ph6 49）；**112-1 梯次六卷亦已完成 429／450 題**（ph1 70、ph2 76、ph3 74、ph4 79、ph5 80、ph6 50）；**111-2 梯次六卷亦已完成 436／450 題**（ph1 73、ph2 76、ph3 77、ph4 80、ph5 80、ph6 50）；**111-1 梯次六卷亦已完成 427／450 題**（ph1 71、ph2 76、ph3 70、ph4 80、ph5 80、ph6 50）。未寫的題都是純看圖題、選項毀損、或官方答案與教科書衝突者。**接續 `pha-110-2-ph1`**，同一梯次依 ph1→ph2→ph3→ph4→ph5→ph6 做完再往前一個梯次（111-2、111-1…102-1）。每卷做法：讀題 → 寫 patch JSON（`[{pid,n,exp}]`，用 Write 工具）→ `node tools/set-exp.js <patch> --write && node tools/build-index.js --write && node test/test.js` → commit push。讀題指令：`cd ~/TelegramClaude/kaoguhero && node -e "global.window={};require('./js/data/exam/pha-114-1-ph1.js');const p=window.APP_EXAM_PAPERS['pha-114-1-ph1'];const L=['A','B','C','D'];p.qs.forEach(q=>{console.log('#'+q.n+' '+q.q);q.o.forEach((o,i)=>console.log('  '+L[i]+') '+o));console.log('  ANS='+L[q.a])})"`
      Tony 2026-09-06 09:01 定案：「1. 高普考全做. 但分類要做好不要亂　2.（藥師舊制 30 卷）不用補」。
      ✅ 醫事人員四張執照已收齊上線：709 卷 56,173 題（牙醫 536ce13／中醫 098530f／藥師 31596cb）。
      **具體動作＝高普考題庫工程，四步：**
