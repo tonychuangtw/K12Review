@@ -2,7 +2,13 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: done
+STATUS: in-progress
+OBJECTIVE: 把 Tony 2026-09-12 新放上 Google Drive 的題本匯進 K12Review 匯入題庫（五上成語加油站 12 課、挑戰小學堂 17 回；國中英文二上、數學二上、會考聽力）
+NEXT_ACTION: 等 Tony 跑 `rclone config create gdrive drive scope drive.readonly config_is_local false` 授權（09-12 22:35 台北已在 TG 請他跑）。授權後：rclone copy 五上國語練習資料夾到 ~/TelegramClaude/chinese-sources/guo5shang/，用 `pdftotext -layout` 抽直排 PDF，先做成語加油站 12 課（五上成語目前每課只有 15-39 題，是最大缺口），再做挑戰小學堂 17 回。
+VALIDATION: node test/test.js 全過（含完全重複守門）＋ node test/browser-smoke.mjs；匯入後用 tools/gen-counts.js 核題數
+BLOCKERS: PDF 是直排，Drive MCP 抽出來的文字順序是亂的（實測 01 回出來是「疾 寄 瘧獎 蚊 帳 死 洲存」），一定要本機 pdftotext -layout；且數學題本 32MB，MCP 下載大檔會 session expired，必須走 rclone
+PATHS: js/data/custom.js（匯入題庫）、~/TelegramClaude/chinese-sources/guo5shang/（原始檔與抽出的文字）、tools/gen-counts.js、docs/bank-maintain-sop.md
+UPDATED: 2026-09-12 22:40 台北
 <!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
      ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
         workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
@@ -37,6 +43,17 @@ STATUS: done
         轉檔工具留在 scratchpad/tiffany/merge.py（patch JSON → social-custom.js，會擋 id 重複並改寫檔頭題數）。
         id 命名：地理沿用 oc+原題號，歷史加 h 後綴、公民加 c 後綴（三科原題號共用 1503xxxxxx 會撞號）。
      ⏭ 未做：Drive 上其他科目的題本（Tony 只指定社會）。 -->
+<!-- 2026-09-12 Tony：「Google Drive那個呢？你有在做嗎？」 ⟹ 上一批 09-09 已完工；當天他又放了新的一批：
+     Aaron／五年級上學期國語練習（台北 10:20–12:37 上傳）＝成語加油站(教) 第1-12課、挑戰小學堂(學) 第1-17回、
+       國小國語5上字音字形.doc、國小國語5上生字表.pdf
+     Tiffany（台北 20:09–20:12 上傳）＝英文二上題庫題本_全.pdf(11MB)、康軒英語2上段考聽力題本_全.pdf(20MB)、
+       數學2上題庫題本(全冊).pdf(32MB)、歷屆會考聽力題本103~115.pdf
+     另外仍未匯：五上自然題本、五上社會題本、五年級國文教師手冊。
+     ✅ 已查證：國小國語5上字音字形.doc **不用匯** —— 抽出來是 12 課的形近字組（蚊/紋、帳/脹/悵…），
+        但 custom.js 的五上第1課光字形就有 137 題，每一組都已有 19-30 題涵蓋，再匯只會重複。
+     ⟹ 真正有價值的缺口是**成語**：五上每課成語只有 15-39 題（字形每課都 100+），
+        而成語加油站正好是每課一份的成語專冊 —— 授權後從這個做起。
+     聽力題本若只有題本沒音檔，聽力題不轉，只轉筆試部分。 -->
 <!-- 2026-09-09 完工：Drive 國語題本全數匯完，本線暫無進行中工程，STATUS 改 done。
      2026-09-09 Tony：「接著匯. 也補解析. 弟弟現在是剛升小五」
      ＝把 Drive「各科題庫」裡還沒匯入的題本全部匯進匯入題庫，每題都要寫解析。
