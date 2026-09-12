@@ -17,13 +17,17 @@
 """
 import re
 import sys
-from datetime import date
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / 'index.html'
 
-stamp = sys.argv[1] if len(sys.argv) > 1 else date.today().strftime('%Y%m%d') + 'a'
+# 機器時鐘是 UTC，台北時間 00:00-08:00 之間用 UTC 日期會產生比昨天還舊的版本戳
+# （例：昨天已經是 20260912b，今天 UTC 還在 09-12 就會蓋成 20260912a），
+# 手機反而會繼續吃到快取的舊檔。一律用台北日期。
+TAIPEI = timezone(timedelta(hours=8))
+stamp = sys.argv[1] if len(sys.argv) > 1 else datetime.now(TAIPEI).strftime('%Y%m%d') + 'a'
 html = INDEX.read_text(encoding='utf-8')
 
 # 只蓋本站的相對路徑（js/… css/…），外部 CDN 不碰
