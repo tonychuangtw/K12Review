@@ -67,6 +67,11 @@ def build():
             e['main'].append(g)
         if i:
             e['alt'].append(i)
+        # 部首（單字才有意義）：康軒版的錯別字題要用「這個字是哪一部」來解釋為什麼不能混用
+        if len(w) == 1:
+            rad = (cells.get('C') or '').strip()
+            if rad and not e.get('rad'):
+                e['rad'] = rad
         if len(w) == 1 and g and ' ' not in g and j:
             py.setdefault(g, j)
     json.dump({'idx': idx, 'zy2py': py}, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False)

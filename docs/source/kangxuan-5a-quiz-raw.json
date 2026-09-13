@@ -1,0 +1,336 @@
+{
+ "1": {
+  "items": [
+   {
+    "right": "赴",
+    "wrong": "付",
+    "word": "赴約",
+    "badWord": "付約"
+   },
+   {
+    "right": "贈",
+    "wrong": "增",
+    "word": "贈品",
+    "badWord": "增品"
+   },
+   {
+    "right": "藏",
+    "wrong": "葳",
+    "word": "珍藏",
+    "badWord": "珍葳"
+   },
+   {
+    "right": "叮",
+    "wrong": "盯",
+    "word": "叮嚀",
+    "badWord": "盯嚀"
+   }
+  ],
+  "unresolved": [
+   {
+    "right": "誌",
+    "sent": "哥哥喜愛閱讀各式各樣的雜志，吸收豐富的知識",
+    "why": "有多個可能：哥→誌喜、志→雜誌"
+   }
+  ]
+ },
+ "2": {
+  "items": [
+   {
+    "right": "汙",
+    "wrong": "玗",
+    "word": "汙染",
+    "badWord": "玗染"
+   },
+   {
+    "right": "德",
+    "wrong": "得",
+    "word": "品德",
+    "badWord": "品得"
+   },
+   {
+    "right": "臍",
+    "wrong": "擠",
+    "word": "臍帶",
+    "badWord": "擠帶"
+   },
+   {
+    "right": "錄",
+    "wrong": "綠",
+    "word": "目錄",
+    "badWord": "目綠"
+   },
+   {
+    "right": "巒",
+    "wrong": "鑾",
+    "word": "山巒",
+    "badWord": "山鑾"
+   }
+  ],
+  "unresolved": []
+ },
+ "3": {
+  "items": [
+   {
+    "right": "豐",
+    "wrong": "豊",
+    "word": "豐潤",
+    "badWord": "豊潤"
+   },
+   {
+    "right": "折",
+    "wrong": "拆",
+    "word": "曲折",
+    "badWord": "曲拆"
+   },
+   {
+    "right": "挫",
+    "wrong": "剉",
+    "word": "頓挫",
+    "badWord": "頓剉"
+   },
+   {
+    "right": "飢",
+    "wrong": "肌",
+    "word": "飢餓",
+    "badWord": "肌餓"
+   }
+  ],
+  "unresolved": []
+ },
+ "4": {
+  "items": [
+   {
+    "right": "尊",
+    "wrong": "遵",
+    "word": "尊敬",
+    "badWord": "遵敬"
+   },
+   {
+    "right": "恆",
+    "wrong": "恒",
+    "word": "恆心",
+    "badWord": "恒心"
+   },
+   {
+    "right": "慷",
+    "wrong": "康",
+    "word": "慷慨",
+    "badWord": "康慨"
+   }
+  ],
+  "unresolved": []
+ },
+ "5": {
+  "items": [
+   {
+    "right": "申",
+    "wrong": "伸",
+    "word": "申請",
+    "badWord": "伸請"
+   },
+   {
+    "right": "項",
+    "wrong": "頂",
+    "word": "項目",
+    "badWord": "頂目"
+   },
+   {
+    "right": "聯",
+    "wrong": "連",
+    "word": "春聯",
+    "badWord": "春連"
+   },
+   {
+    "right": "勝",
+    "wrong": "不",
+    "word": "得勝",
+    "badWord": "得不"
+   }
+  ],
+  "unresolved": [
+   {
+    "right": "務",
+    "sent": "這些是圖書館的書籍，請你物必在期限內歸還",
+    "why": "有多個可能：物→務必、歸→內務"
+   },
+   {
+    "right": "松",
+    "sent": "忪鼠將食物儲藏在樹洞裡，準備作為冬天的糧食",
+    "why": "有多個可能：忪→松鼠、在→松樹"
+   }
+  ]
+ },
+ "6": {
+  "items": [
+   {
+    "right": "哨",
+    "wrong": "捎",
+    "word": "口哨",
+    "badWord": "口捎"
+   },
+   {
+    "right": "責",
+    "wrong": "債",
+    "word": "責任",
+    "badWord": "債任"
+   },
+   {
+    "right": "鳴",
+    "wrong": "嗚",
+    "word": "共鳴",
+    "badWord": "共嗚"
+   }
+  ],
+  "unresolved": []
+ },
+ "7": {
+  "items": [
+   {
+    "right": "緻",
+    "wrong": "至",
+    "word": "別緻",
+    "badWord": "別至"
+   },
+   {
+    "right": "盎",
+    "wrong": "央",
+    "word": "盎然",
+    "badWord": "央然"
+   },
+   {
+    "right": "穩",
+    "wrong": "隱",
+    "word": "安穩",
+    "badWord": "安隱"
+   }
+  ],
+  "unresolved": [
+   {
+    "right": "脈",
+    "sent": "你是否曾仔細觀察過榕樹的葉派？︵絡）⒊這座動物園的遊客總是駱繹不絕",
+    "why": "有多個可能：派→葉脈、座→脈動"
+   }
+  ]
+ },
+ "8": {
+  "items": [
+   {
+    "right": "坦",
+    "wrong": "但",
+    "word": "平坦",
+    "badWord": "平但"
+   },
+   {
+    "right": "擊",
+    "wrong": "繫",
+    "word": "擊倒",
+    "badWord": "繫倒"
+   },
+   {
+    "right": "制",
+    "wrong": "製",
+    "word": "制止",
+    "badWord": "製止"
+   },
+   {
+    "right": "復",
+    "wrong": "複",
+    "word": "康復",
+    "badWord": "康複"
+   },
+   {
+    "right": "撼",
+    "wrong": "憾",
+    "word": "震撼",
+    "badWord": "震憾"
+   }
+  ],
+  "unresolved": []
+ },
+ "9": {
+  "items": [
+   {
+    "right": "屢",
+    "wrong": "履",
+    "word": "屢次",
+    "badWord": "履次"
+   },
+   {
+    "right": "牌",
+    "wrong": "脾",
+    "word": "招牌",
+    "badWord": "招脾"
+   },
+   {
+    "right": "症",
+    "wrong": "一",
+    "word": "病症",
+    "badWord": "病一"
+   },
+   {
+    "right": "即",
+    "wrong": "既",
+    "word": "即使",
+    "badWord": "既使"
+   }
+  ],
+  "unresolved": []
+ },
+ "10": {
+  "items": [
+   {
+    "right": "掩",
+    "wrong": "淹",
+    "word": "掩蓋",
+    "badWord": "淹蓋"
+   },
+   {
+    "right": "幽",
+    "wrong": "憂",
+    "word": "幽暗",
+    "badWord": "憂暗"
+   },
+   {
+    "right": "吟",
+    "wrong": "今",
+    "word": "吟唱",
+    "badWord": "今唱"
+   },
+   {
+    "right": "詠",
+    "wrong": "永",
+    "word": "歌詠",
+    "badWord": "歌永"
+   }
+  ],
+  "unresolved": [
+   {
+    "right": "閒",
+    "sent": "他退休回到家鄉，過著間適的生活",
+    "why": "有多個可能：回→休閒、間→閒適"
+   }
+  ]
+ },
+ "11": {
+  "items": [],
+  "unresolved": []
+ },
+ "12": {
+  "items": [
+   {
+    "right": "礁",
+    "wrong": "焦",
+    "word": "礁石",
+    "badWord": "焦石"
+   }
+  ],
+  "unresolved": [
+   {
+    "right": "暈",
+    "sent": "︵艙）⒈因為海上風浪很大，導致他頭葷，只好待在船滄休息",
+    "why": "有多個可能：葷→頭暈、在→暈船"
+   }
+  ]
+ }
+}

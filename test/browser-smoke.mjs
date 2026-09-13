@@ -1803,6 +1803,8 @@ async (js) => {
   check('康軒版首頁有三組系列＋錯題本＋總結測驗',
     /生字表/.test(homeTxt) && /成語加油站/.test(homeTxt) && /挑戰小學堂/.test(homeTxt) &&
     /錯題本/.test(homeTxt) && /總結測驗/.test(homeTxt), homeTxt.slice(0, 120));
+  check('三組系列都有題目，沒有一組還是「建置中」',
+    !/建置中/.test(homeTxt), homeTxt.slice(0, 200));
   await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#eduhomeCards .card'))
     .filter(function(x){ return /成語加油站/.test(x.textContent); })[0]; if (b) b.click(); })()`);
   await sleep(700);
