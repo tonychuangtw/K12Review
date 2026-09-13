@@ -1076,6 +1076,14 @@
       navBusy = false;
     });
   }
+  /* 「✕ 返回」一律退回上一頁，不要寫死跳到某一頁。
+     2026-09-13 Tony：從科目頁點進家長／老師儀表板，按返回卻跑去「學習進度」，
+     再按一次又跳到首頁——兩頁他都沒去過。
+     堆疊裡沒有上一頁時（例如直接開網址進來）才用 fallback。 */
+  function navBack(fallback) {
+    if (navStack.length > 1) { try { history.back(); return; } catch (e) {} }
+    show(fallback || 'subject');
+  }
   function $(id) { return document.getElementById(id); }
 
   /* ---------- 首頁 ---------- */
@@ -4883,7 +4891,7 @@
   });
   $('progExit').addEventListener('click', function () {
     if ($('progTitle').textContent.indexOf('匯入題庫') >= 0) { showImportHome(); return; }
-    show('home');
+    navBack('home');
   });
 
   /* ---------- 家長／老師儀表板 ---------- */
@@ -5204,6 +5212,63 @@
         '精熟度取歷次最好的一次（🟢90% 以上精熟／🟡70% 以上基礎／🔴 待加強）。');
     }
 
+    /* 康軒版：孩子做了哪些單元、對幾題、精熟到哪裡（2026-09-13 Tony：
+       「家長/老師儀表板裡要同步更新⋯孩子做了什麼我們都要能看到」）。
+       單元名稱取自 js/data/edu-index.js（23KB 的索引），不必為了看進度載 2MB 教材。 */
+    (function eduSection() {
+      var IDX = W.APP_EDU_INDEX || {};
+      var log = st.eduLog || {};
+      var doneIds = Object.keys(log).filter(function (k) { return log[k] && log[k].best != null; });
+      var packs = Object.keys(IDX);
+      if (!packs.length && !doneIds.length) return;
+      h3('📗 康軒版（照課本逐課的單元練習）');
+      var eduWrong = wrongArr.filter(function (w) { return w.t === 'eduKx'; }).length;
+      var anyRow = false;
+      packs.forEach(function (pk) {
+        var pack = IDX[pk], titles = pack.titles || {};
+        Object.keys(pack.series).forEach(function (sk) {
+          var ser = pack.series[sk];
+          var mine = Object.keys(titles).filter(function (id) {
+            return titles[id].s === sk && log[id] && log[id].best != null;
+          });
+          var best = mine.map(function (id) { return log[id].best; });
+          var avg = best.length ? Math.round(best.reduce(function (a, b) { return a + b; }, 0) / best.length) : null;
+          var mastered = best.filter(function (b) { return b >= 90; }).length;
+          var row = document.createElement('div');
+          row.className = 'prog-row';
+          row.innerHTML = '<b>' + escHtml(pack.book + '　' + ser.name) + '</b><span>' +
+            '完成 ' + mine.length + '／' + ser.units + ' 單元' +
+            (avg != null ? ' · 平均 ' + avg + '% · 🟢 精熟 ' + mastered + ' 單元' : ' · 還沒開始') +
+            '</span>';
+          body.appendChild(row);
+          anyRow = true;
+        });
+      });
+      // 最近做過的單元（看得到「今天做了什麼」）
+      var recent = doneIds.map(function (id) {
+        var meta = null;
+        packs.forEach(function (pk) { if ((IDX[pk].titles || {})[id]) meta = IDX[pk].titles[id]; });
+        return { id: id, rec: log[id], meta: meta };
+      }).filter(function (x) { return x.meta; })
+        .sort(function (a, b) { return (b.rec.ts || 0) - (a.rec.ts || 0); }).slice(0, 10);
+      if (recent.length) {
+        recent.forEach(function (x) {
+          var lv = x.rec.best >= 90 ? '🟢 精熟' : x.rec.best >= 70 ? '🟡 基礎' : '🔴 待加強';
+          var row = document.createElement('div');
+          row.className = 'prog-row';
+          row.innerHTML = '<b>' + escHtml('第' + x.meta.l + '課 ' + x.meta.ln + '　' + x.meta.t) + '</b><span>' +
+            '最佳 ' + x.rec.best + '%（' + lv + '）· 做過 ' + (x.rec.runs || 0) + ' 次' +
+            (x.rec.ts ? ' · ' + fmtDate(new Date(x.rec.ts)) : '') + '</span>';
+          body.appendChild(row);
+        });
+      }
+      hintEl(anyRow
+        ? '共 ' + doneIds.length + ' 個單元做過，康軒版錯題本還有 ' + eduWrong + ' 題。' +
+          '孩子從「國語 →選版本 →康軒版」進去，每個單元都是先讀重點整理再做 20 題；' +
+          '精熟度取歷次最好的一次（🟢90% 以上精熟／🟡70% 以上基礎／🔴 待加強）。'
+        : '還沒有人做過康軒版的單元。');
+    })();
+
     // 一直記不住的題（錯 2 次以上，錯最多的排前面）
     h3('🔁 一直記不住的題');
     var hard = wrongArr.filter(function (w) { return (w.n || 0) >= 2; })
@@ -5393,7 +5458,7 @@
       box.appendChild(mgr);
     });
   }
-  $('parentExit').addEventListener('click', showProgress);
+  $('parentExit').addEventListener('click', function () { navBack('progress'); });
 
   /* ---------- 自創題庫（分冊分課選範圍） ---------- */
 

@@ -2031,5 +2031,44 @@ async (js) => {
     await js(`(window.__errs || []).join(' | ')`));
 });
 
+/* ---------- 21. 家長／老師儀表板看得到康軒版；返回鍵要退回上一頁（2026-09-13 Tony 回報） ---------- */
+console.log('儀表板的康軒版區塊與返回鍵');
+await session(8765, 9365, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 5, extra: [], grades: [5], onboarded: true, subject: 'chinese',
+  stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [
+    { t: 'eduKx', id: 'kx5a-i01u1q01', n: 1, ok: 0, added: Date.now(), lastWrong: Date.now(), due: '2026-09-13', box: 1 }
+  ], units: {},
+  eduLog: { 'kx-c5a-idiom-01-1': { runs: 2, best: 95, last: 90, total: 20, ts: Date.now(), read: 1 },
+            'kx-c5a-words-03-4': { runs: 1, best: 60, last: 60, total: 20, ts: Date.now(), read: 1 } } }));` },
+async (js) => {
+  check('康軒版索引隨頁面載好了', await js(`Object.keys(window.APP_EDU_INDEX || {}).length`) === 1);
+  await js(`window.NavDebug.go('subject')`);
+  await sleep(400);
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('button'))
+    .filter(function(x){ return /家長.*檢視|家長.*老師/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(900);
+  const inParent = await js(`!document.getElementById('view-parent').classList.contains('hidden')`);
+  if (!inParent) {            // 有些版面是先進學習進度再點儀表板
+    await js(`(function(){ var b=[].slice.call(document.querySelectorAll('button'))
+      .filter(function(x){ return /儀表板/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+    await sleep(900);
+  }
+  check('進得了家長／老師儀表板',
+    await js(`!document.getElementById('view-parent').classList.contains('hidden')`));
+  const t = await js(`document.getElementById('view-parent').textContent`);
+  check('儀表板有康軒版區塊', /康軒版/.test(t), t.slice(0, 120));
+  check('列得出三組系列的完成度',
+    /成語加油站/.test(t) && /生字表/.test(t) && /挑戰小學堂/.test(t));
+  check('看得到做過的單元與精熟度', /完成 1／60 單元/.test(t.replace(/\s+/g, '')) || /精熟/.test(t), t.slice(0, 200));
+  check('看得到康軒版錯題本的題數', /康軒版錯題本還有 1 題/.test(t.replace(/\s+/g, ' ')), t.slice(-260));
+  // 返回鍵要退回「進來的那一頁」，不是寫死跳學習進度再跳首頁
+  await js(`document.getElementById('parentExit').click()`);
+  await sleep(700);
+  const back1 = await js(`[].slice.call(document.querySelectorAll('.view')).filter(v=>!v.classList.contains('hidden')).map(v=>v.id).join(',')`);
+  check('儀表板按返回會退回進來時的那一頁（不是學習進度）', back1 !== 'view-progress', back1);
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);
