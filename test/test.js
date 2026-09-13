@@ -1124,6 +1124,36 @@ console.log('歷屆學測');
     if (us.join(',') !== '1,2,3,4,5') bad.push(k + ' 不是完整的 5 個單元（' + us.join(',') + '）');
   });
   ok(bad.length === 0, `康軒版單元格式正確（問題 ${bad.length} 項${bad.length ? '：' + bad.slice(0, 6).join('；') : ''}）`);
+  // 同一課裡不可以出現「題幹一樣、選項也一樣」的題目（單純題幹相同是正常的：
+  // 「下列哪一句成語用錯了？」本來就會問很多次，差別在選項）
+  {
+    const byLesson = {};
+    EDU.forEach((u) => ((byLesson[u.series + '|' + u.lesson] ||= []).push(u)));
+    const dup = [];
+    Object.keys(byLesson).forEach((k) => {
+      const seen = new Map();
+      byLesson[k].forEach((u) => (u.qs || []).forEach((q) => {
+        const key = String(q.q).replace(/\s+/g, '') + '||' + (q.options || []).join('|') + '||' + q.answer;
+        if (seen.has(key)) dup.push(q.id + '↔' + seen.get(key));
+        else seen.set(key, q.id);
+      }));
+    });
+    ok(dup.length === 0, `同一課裡沒有一模一樣的題目（重複 ${dup.length}${dup.length ? '：' + dup.slice(0, 4).join('、') : ''}）`);
+  }
+  // 每一條成語都要真的被考到，不能因為單元取 20 題就整條漏掉
+  {
+    const miss = [];
+    const byLesson = {};
+    EDU.forEach((u) => ((byLesson[u.series + '|' + u.lesson] ||= []).push(u)));
+    Object.keys(byLesson).forEach((k) => {
+      const us = byLesson[k];
+      const words = (us[0].brief.rows || []).map((r) => r.t);
+      const blob = us.map((u) => (u.qs || []).map((q) =>
+        q.q + '|' + (q.options || []).join('|') + '|' + q.exp).join('#')).join('#');
+      words.forEach((w) => { if (blob.indexOf(w) < 0) miss.push(k + '/' + w); });
+    });
+    ok(miss.length === 0, `每一條成語都有被考到（漏 ${miss.length}${miss.length ? '：' + miss.slice(0, 5).join('、') : ''}）`);
+  }
   // 答案位置要分散：批次產生最容易犯的錯就是答案一路 0,1,2,3 或全部集中在同一格
   const four = [];
   EDU.forEach((u) => (u.qs || []).forEach((q) => { if ((q.options || []).length === 4) four.push(q); }));
