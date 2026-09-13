@@ -1802,6 +1802,18 @@ async (js) => {
   await sleep(600);
   check('選「課綱自編版」會進原本的首頁',
     await js(`!document.getElementById('view-home').classList.contains('hidden')`));
+  // 2026-09-13 Tony：「進入課綱自編版後沒有返回鍵」
+  check('首頁有「回版本選擇」的返回列',
+    await js(`!document.getElementById('homeEditionBar').classList.contains('hidden')`) &&
+    /換版本/.test(await js(`document.getElementById('homeEditionBar').textContent`)),
+    await js(`document.getElementById('homeEditionBar').textContent`));
+  await js(`document.getElementById('homeEditionBar').click()`);
+  await sleep(500);
+  check('按了會回到版本選擇頁',
+    await js(`!document.getElementById('view-edition').classList.contains('hidden')`));
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#editionCards .card'))
+    .filter(function(x){ return /課綱自編版/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(500);
   await js(`window.NavDebug.go('edition')`);
   await sleep(400);
   await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#editionCards .card'))

@@ -1525,6 +1525,16 @@
   function renderHome() {
     var subj = subjectOf(state.subject);
     $('subjectBtn').textContent = subj.icon + ' ' + subj.name + ' ▾';
+    // 回版本選擇（只有這一科不只一個版本時才出現）
+    (function () {
+      var bar = $('homeEditionBar');
+      var list = editionsOf(subj.key);
+      var cur = list.find(function (e) { return e.key === curEdition(); });
+      bar.classList.toggle('hidden', list.length < 2);
+      if (list.length >= 2) {
+        bar.textContent = '← ' + subj.name + '・' + ((cur || {}).name || '課綱自編版') + '（換版本）';
+      }
+    })();
     var cards = document.querySelector('#view-home .cards');
     var ph = $('homePlaceholder');
     var cn = subj.key === 'chinese';
@@ -1826,6 +1836,7 @@
     show(state.onboarded ? 'subject' : 'welcome');
   });
   $('subjectBtn').addEventListener('click', function () { show('subject'); });
+  $('homeEditionBar').addEventListener('click', function () { show('edition'); renderEditions(); });
 
   // ===== 主題色系（可自選，存 state.theme）=====
   var THEMES = [
