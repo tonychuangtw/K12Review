@@ -1246,6 +1246,29 @@ console.log('歷屆學測');
     ok(leak.length <= 60,
       `題幹把答案寫出來的題目沒有變多（${leak.length} 題，上限 60${leak.length ? '，例：' + leak.slice(0, 3).join('、') : ''}）`);
   }
+  /* 家長檢視用的索引（js/data/edu-index.js）要跟教材同步。
+     忘了重跑 tools/gen-edu-index.js 的話，儀表板會漏掉新單元或顯示錯的總數。 */
+  {
+    const f = path.join(root, 'js/data/edu-index.js');
+    ok(fs.existsSync(f), '有 js/data/edu-index.js（家長檢視用的索引）');
+    if (fs.existsSync(f)) {
+      eval(fs.readFileSync(f, 'utf8'));
+      const IDX = window.APP_EDU_INDEX || {};
+      let nIdx = 0, bad = [];
+      Object.keys(IDX).forEach((k) => {
+        Object.keys(IDX[k].series).forEach((sk) => { nIdx += IDX[k].series[sk].units; });
+        Object.keys(IDX[k].titles || {}).forEach((id) => {
+          if (!EDU.some((u) => u.id === id)) bad.push(id + ' 索引裡有、教材裡沒有');
+        });
+      });
+      EDU.forEach((u) => {
+        const has = Object.keys(IDX).some((k) => (IDX[k].titles || {})[u.id]);
+        if (!has) bad.push(u.id + ' 教材裡有、索引裡沒有');
+      });
+      ok(bad.length === 0 && nIdx === EDU.length,
+        `edu-index.js 與教材同步（索引 ${nIdx}／教材 ${EDU.length} 單元${bad.length ? '；問題：' + bad.slice(0, 3).join('、') : ''}）——不同步就跑 node tools/gen-edu-index.js`);
+    }
+  }
   console.log(`  · 共 ${EDU.length} 單元、${EDU.reduce((n, u) => n + (u.qs || []).length, 0)} 題`);
 }
 

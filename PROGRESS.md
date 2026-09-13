@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: K12Review 科目底下新增「版本」分層（課綱自編版／康軒版），並在康軒版國語五上做出三組單元式練習：①生字表＋字音字形（選擇＋手寫）②成語加油站（選擇＋配合）③挑戰小學堂（只要選擇）。每組逐課、一課 5 個單元、一單元 20 小題，形式一律「先讀重點整理再練習」；康軒版要有自己的錯題本，以及可以出題驗收精熟度的總結測驗。
-NEXT_ACTION: 康軒版三組（成語加油站／生字表・字音字形／挑戰小學堂）12 課全部完成上線，180 單元 3,600 題；codex＋gemini review 修完；Tony 試用回報的五件（手寫把答案寫在題目上、手寫辨識太嚴、題目看起來重複、手機進不去匯入題庫、課次卡看不清楚／游標不變手）也都修完上線。目前沒有待辦，等 Tony 與弟弟實際用過之後的回饋再調。若要接著擴充：五下／六上等其他冊照同一套產生器與素材格式做（docs/kangxuan-edition-spec.md）。
+NEXT_ACTION: 康軒版三組 180 單元 3,600 題全部上線；codex＋gemini review 與 Tony 試用回報（手寫洩答案、辨識太嚴、題目看似重複、手機載不動、課次卡看不清、返回鍵亂跳、儀表板看不到康軒版）都已修完。目前沒有待辦，等 Tony 與弟弟用過的回饋再調。要接著擴充其他冊就照 docs/kangxuan-edition-spec.md 的產生器與素材格式做，改完記得跑 build-edu-*.js → gen-edu-index.js → fetch-strokes.js → test.js。
 VALIDATION: node test/test.js 全過（新增康軒版資料的守門要一併寫進 test.js）＋ node test/browser-smoke.mjs 走完「選科目→選版本→選系列→選課→單元重點→20題練習→錯題本」
 BLOCKERS: 無。rclone 授權 2026-09-13 11:36 台北完成（remote `gdrive`，drive.readonly；Tony 只點連結、把 127.0.0.1 的回呼網址貼回來，code 由 curl 餵給本機 rclone）。31 份原始檔已在 ~/TelegramClaude/chinese-sources/guo5shang/，並用 `pdftotext -layout` 抽成 txt/（版面正確，含答案）。
 PATHS: docs/kangxuan-edition-spec.md（規格與分期）、docs/source/kangxuan-5a-idiom-atoms.json（成語素材，人工撰寫）、tools/build-edu-idiom.js（產生器）、js/data/edu-kangxuan-chinese-5a.js（產出，勿手改）、js/app.js（版本層）、test/test.js、test/browser-smoke.mjs 第18節、~/TelegramClaude/chinese-sources/guo5shang/txt/（原始檔抽出的文字）
-UPDATED: 2026-09-13 15:00 台北
+UPDATED: 2026-09-13 15:30 台北
 <!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
      ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
         workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
@@ -43,6 +43,12 @@ UPDATED: 2026-09-13 15:00 台北
         轉檔工具留在 scratchpad/tiffany/merge.py（patch JSON → social-custom.js，會擋 id 重複並改寫檔頭題數）。
         id 命名：地理沿用 oc+原題號，歷史加 h 後綴、公民加 c 後綴（三科原題號共用 1503xxxxxx 會撞號）。
      ⏭ 未做：Drive 上其他科目的題本（Tony 只指定社會）。 -->
+<!-- 2026-09-13 15:30 台北 再修兩件（Tony 試用）：
+     ・家長／老師儀表板新增「📗 康軒版」區塊（三組完成度、最近 10 個單元、康軒版錯題數）。
+       為了不讓儀表板載 2MB 教材，另做 js/data/edu-index.js（23KB，tools/gen-edu-index.js 產生）；
+       test.js 有守門，忘了重跑索引會被擋下來。
+     ・返回鍵：parentExit／progExit 以前寫死跳固定頁，從科目頁進儀表板按返回會被帶去兩個沒去過的頁。
+       改成 navBack()＝退回堆疊上一頁。課綱自編版首頁也補了「← 換版本」那一列。 -->
 <!-- 2026-09-13 15:00 台北 Tony 試用回報，全部修完上線（v131）：
      ・看注音寫國字把答案寫在題目上 →「用在『牽扯』」改成「『牽□』的□讀 ㄔㄜˇ」
      ・手寫辨識太嚴 → ⚙️ 新增寬鬆度易／中／嚴，預設「易」（leniency 2.6，原本寫死 1.4）

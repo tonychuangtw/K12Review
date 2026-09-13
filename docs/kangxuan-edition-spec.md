@@ -72,3 +72,14 @@ window.APP_EDU.push({
 - 注音一律對教育部《國語辭典簡編本》，不可憑印象（CLAUDE.md「注音的唯一依據」）。
 - 每題解析要有「✅ 正解為什麼對」＋「❌ 其他選項各錯在哪」。
 - 誘答不可用選項長短就猜得出答案（test.js 有守門）。
+
+## 改完教材要跑的兩支
+
+```bash
+node tools/build-edu-idiom.js      # 成語加油站（素材 kangxuan-5a-idiom-atoms.json）
+node tools/build-edu-words.js      # 生字表・字音字形（素材 kangxuan-5a-words.json）
+node tools/build-edu-quiz.js       # 挑戰小學堂（素材 kangxuan-5a-quiz-*.json）
+node tools/gen-edu-index.js        # ⚠️ 家長檢視用的索引，忘了跑儀表板會漏單元
+node tools/fetch-strokes.js        # 手寫題的筆順資料
+node test/test.js                  # 索引不同步、筆順缺字都會被擋下來
+```
