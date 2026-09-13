@@ -2070,5 +2070,50 @@ async (js) => {
     await js(`(window.__errs || []).join(' | ')`));
 });
 
+/* ---------- 22. 文言文專練與逐句語譯（2026-09-13 Tony：女兒需要單獨練文言文） ---------- */
+console.log('文言文專練');
+await session(8765, 9365, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 7, extra: [1,2,3,4,5,6], grades: [1,2,3,4,5,6,7], onboarded: true, subject: 'chinese',
+  stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], units: {} }));` },
+async (js) => {
+  await js(`window.NavDebug.go('home')`);
+  await sleep(500);
+  check('首頁有「文言文專練」的卡', await js(`(function(){
+    return [].slice.call(document.querySelectorAll('#view-home .card'))
+      .some(function(c){ return /文言文專練/.test(c.textContent); }); })()`),
+    await js(`document.getElementById('cnt-classical') ? document.getElementById('cnt-classical').textContent : 'no-el'`));
+  check('卡片標示可練篇數', /\d+\s*篇/.test(await js(`document.getElementById('cnt-classical').textContent`)),
+    await js(`document.getElementById('cnt-classical').textContent`));
+  await js(`(function(){ var c=[].slice.call(document.querySelectorAll('#view-home .card'))
+    .filter(function(x){ return /文言文專練/.test(x.textContent); })[0]; if (c) c.click(); })()`);
+  await sleep(900);
+  check('開得起來，而且是閱讀題',
+    await js(`!document.getElementById('view-quiz').classList.contains('hidden')`));
+  check('抽到的是文言文篇章', await js(`(function(){
+    var id = window.QuizDebug.id();
+    var r = (window.APP_DATA.reading || []).filter(function(x){ return x.id === id; })[0];
+    return !!r && r.genre === '文言';
+  })()`), '目前這一題的篇章 id=' + await js(`window.QuizDebug.id()`));
+  const pas = await js(`document.getElementById('quizPassage').textContent`);
+  check('看得到文章本文', pas.length > 30, pas.slice(0, 40));
+  // 附逐句語譯的篇章：按鈕在、點開有內容
+  const hasToggle = await js(`!!document.querySelector('#quizPassage .orig-toggle')`);
+  if (hasToggle) {
+    check('文章下面有「逐句語譯與注釋」按鈕', true);
+    check('預設是收起來的', await js(`document.querySelector('#quizPassage .orig-body').classList.contains('hidden')`));
+    await js(`document.querySelector('#quizPassage .orig-toggle').click()`);
+    await sleep(300);
+    check('點開之後看得到語譯與注釋', await js(`(function(){
+      var b = document.querySelector('#quizPassage .orig-body');
+      return !b.classList.contains('hidden') && /語譯：/.test(b.textContent); })()`),
+      (await js(`document.querySelector('#quizPassage .orig-body').textContent`)).slice(0, 60));
+    check('每一句都有原文', await js(`document.querySelectorAll('#quizPassage .orig-row .orig-c').length > 0`));
+  } else {
+    check('這一篇還沒補逐句語譯（補完後這裡會自動測到）', true);
+  }
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);

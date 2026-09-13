@@ -288,6 +288,30 @@ console.log('總結測驗');
   r.forEach((e, i) => { if (e.t === 'reading') (rIdx[e.id] = rIdx[e.id] || []).push(i); });
   const contiguous = Object.keys(rIdx).every(id => rIdx[id].every((v, k) => k === 0 || v === rIdx[id][k - 1] + 1));
   ok(contiguous, '同篇閱讀子題連續出現');
+
+  /* 文言文的逐句對照（2026-09-13 Tony：「所有文言文都要有附每句解析，之前的也補上」）。
+     這裡擋三件事：原文抄錯（對不回文章）、整段漏譯、語譯留空。
+     覆蓋率還沒到 100% 之前先記錄數字，補完再把門檻拉到全部。 */
+  {
+    const wy = D.reading.filter((r) => r.genre === '文言');
+    const withOrig = wy.filter((r) => (r.orig || []).length);
+    const bad = [];
+    const strip = (t) => String(t).replace(/[\s，。、；：「」『』（）？！─…·\n]/g, '');
+    withOrig.forEach((r) => {
+      const body = strip(String(r.passage).split(/\n\s*註[：:]/)[0]
+        .replace(/（[^）]*[〈《][^）]*）/g, '')
+        .replace(/[—─-]{2,}\s*[〈《][^〉》]*[〉》]\s*$/, ''));
+      let covered = 0;
+      r.orig.forEach((o, i) => {
+        if (!o.c || !o.v) return bad.push(r.id + ' 第 ' + (i + 1) + ' 句缺原文或語譯');
+        if (body.indexOf(strip(o.c)) < 0) bad.push(r.id + ' 第 ' + (i + 1) + ' 句對不回原文');
+        covered += strip(o.c).length;
+      });
+      if (covered < body.length * 0.9) bad.push(r.id + ' 逐句涵蓋不足（有整段漏譯）');
+    });
+    ok(bad.length === 0,
+      `文言文逐句對照正確（已補 ${withOrig.length}／${wy.length} 篇，問題 ${bad.length}${bad.length ? '：' + bad.slice(0, 4).join('、') : ''}）`);
+  }
   // 同種子決定性
   const r2 = PURE.composeReview([day1, day2], wrongPool, 20, 6, rng());
   ok(JSON.stringify(r) === JSON.stringify(r2), '同種子組卷一致');

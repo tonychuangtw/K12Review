@@ -323,6 +323,36 @@
     };
   }
 
+  /* 文言文的逐句對照（item.orig = [{c 原文, v 語譯, n 字詞注釋}]）。
+     掛在文章底下，預設收合，點一下展開——學生先自己讀，讀不懂再看。 */
+  function renderOrig(box, item) {
+    var orig = item && item.orig;
+    if (!orig || !orig.length) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'orig-wrap';
+    var btn = document.createElement('button');
+    btn.className = 'orig-toggle';
+    btn.textContent = '📖 逐句語譯與注釋（' + orig.length + ' 句）';
+    var body = document.createElement('div');
+    body.className = 'orig-body hidden';
+    orig.forEach(function (o) {
+      var row = document.createElement('div');
+      row.className = 'orig-row';
+      row.innerHTML = '<div class="orig-c">' + escHtml(o.c) + '</div>' +
+        '<div class="orig-v">語譯：' + escHtml(o.v) + '</div>' +
+        (o.n ? '<div class="orig-n">注釋：' + escHtml(o.n) + '</div>' : '');
+      body.appendChild(row);
+    });
+    btn.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      var open = body.classList.toggle('hidden');
+      btn.textContent = (open ? '📖 逐句語譯與注釋（' : '📕 收起逐句語譯（') + orig.length + ' 句）';
+    });
+    wrap.appendChild(btn);
+    wrap.appendChild(body);
+    box.appendChild(wrap);
+  }
+
   function buildReadingQ(item, qi, rand) {
     var q = item.questions[qi];
     var sh = shuffleWithAnswer(q.options, q.answer, rand);
@@ -1597,6 +1627,13 @@
     $('cnt-phonics').textContent = pool('phonics').length + ' 題可練';
     $('cnt-chars').textContent = pool('chars').length + ' 題可練';
     $('cnt-reading').textContent = pool('reading').length + ' 篇可練';
+    (function () {
+      var el = $('cnt-classical');
+      if (!el) return;
+      var n = classicalPool().length;
+      var withOrig = classicalPool().filter(function (r) { return (r.orig || []).length; }).length;
+      el.textContent = n + ' 篇 · ' + (withOrig ? withOrig + ' 篇附逐句語譯' : '原文＋題目');
+    })();
     // 每日練習紀錄的 key 是「日期|科目|學期」（國語沿用純日期）：這裡若只查純日期，
     // 非國語科目或選了上／下學期時，明明做完了首頁還是寫「今天還沒做」（2026-08-27 codex 體檢）
     var rec = dailyDoneRec();
@@ -2030,7 +2067,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
     return true;
   }
-  var LOGIN_GATED = ['daily', 'review', 'idioms', 'slang', 'phonics', 'chars', 'drill', 'custom', 'units', 'reading', 'write', 'flash'];
+  var LOGIN_GATED = ['daily', 'review', 'idioms', 'slang', 'phonics', 'chars', 'drill', 'custom', 'units', 'reading', 'classical', 'write', 'flash'];
 
   document.querySelectorAll('.card').forEach(function (c) {
     c.addEventListener('click', function () {
@@ -2039,6 +2076,7 @@
       if (go === 'idioms' || go === 'slang' || go === 'phonics' || go === 'chars') startQuiz(go, null);
       else if (go === 'daily') startDaily();
       else if (go === 'reading') startReading();
+      else if (go === 'classical') startClassical();
       else if (go === 'writing') showWriting();
       else if (go === 'units') showUnits();
       else if (go === 'lit') showLit();
@@ -2180,6 +2218,29 @@
     beginQuiz(entries, 'normal', 'reading');
   }
 
+  /* 文言文專練（2026-09-13 Tony：「讓使用者能單獨選文言文來做，我女兒需要」）。
+     只從 genre === '文言' 的篇章抽題；年級範圍照目前的學習範圍，
+     這個年級沒有文言文時就放寬到全部年級，免得她點進去是空的。 */
+  function classicalPool() {
+    var all = (DATA.reading || []).filter(function (r) { return r.genre === '文言'; });
+    var mine = filterByGrades(all, state.grades);
+    return mine.length ? mine : all;
+  }
+  function startClassical() {
+    var seen = state.readSeen || {};
+    var picks = shuffle(classicalPool()).sort(function (a, b) {
+      return (seen[a.id] || 0) - (seen[b.id] || 0);
+    }).slice(0, 2);
+    if (!picks.length) { UIDialog.alert('目前還沒有文言文篇章。'); return; }
+    var entries = [];
+    picks.forEach(function (r) {
+      for (var qi = 0; qi < r.questions.length; qi++) entries.push({ t: 'reading', id: r.id, qi: qi });
+      seen[r.id] = (seen[r.id] || 0) + 1;
+    });
+    state.readSeen = seen; save();
+    beginQuiz(entries, 'normal', 'reading');
+  }
+
   // 每篇文章隨機挑 n 個子題生成「回文章找證據」題，附在該篇最後
   function evidenceEntries(item, n) {
     var idx = shuffle(evidenceIdx(item)).slice(0, n);
@@ -2250,8 +2311,13 @@
     hideChk();
     clkStart(subjOfCat(q.type), quizAct());   // 分項計時：時間掛在這一題的科目與練習項目上
     var pas = $('quizPassage');
-    if (q.passage) { pas.textContent = q.passage; pas.classList.remove('hidden'); }
-    else pas.classList.add('hidden');
+    if (q.passage) {
+      pas.textContent = q.passage;
+      pas.classList.remove('hidden');
+      // 文言文附逐句對照：一句原文＋語譯＋字詞注釋，點開才展開，不影響作答版面
+      // （2026-09-13 Tony：「所有文言文都要有附每句解析」）
+      renderOrig(pas, q.item);
+    } else pas.classList.add('hidden');
     $('quizQuestion').textContent = q.question;
     renderFig($('quizFig'), q.item);
     var box = $('quizOptions');
