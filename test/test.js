@@ -1117,6 +1117,9 @@ console.log('歷屆學測');
       // 手寫題（看注音寫國字）：要寫的字、注音、拼音、以及筆順載不到時的備援選項都要齊
       if (q.t === 'write') {
         if (!q.ch || Array.from(q.ch).length !== 1) bad.push(q.id + ' 手寫題的 ch 不是單一個字');
+        // 提示詞裡一定要有那個字，前端才挖得掉；挖不掉就等於把答案寫在題目上
+        // （2026-09-13 Tony：「那個字都在上面了，練習寫照抄而已」）
+        if (q.ch && String(q.hint || '').indexOf(q.ch) < 0) bad.push(q.id + ' 手寫題的提示詞挖不掉要寫的字');
         if (!q.zhuyin) bad.push(q.id + ' 手寫題缺注音');
         if (!q.pinyin) bad.push(q.id + ' 手寫題缺拼音');
         if (!Number.isInteger(q.ai) || q.options[q.ai] !== q.ch) bad.push(q.id + ' 手寫題的備援選項對不到正解');

@@ -1925,6 +1925,17 @@ async (js) => {
     await js(`document.getElementById('quizQuestion').textContent`));
   const qt = await js(`document.getElementById('quizQuestion').textContent`);
   check('題目給了注音與詞語提示', /讀「[ㄅ-ㄯˇˊˋ˙]+」/.test(qt) && /手寫這個字/.test(qt), qt);
+  // 提示詞要把要寫的字挖掉，不然孩子照抄就好（2026-09-13 Tony 回報）
+  check('提示詞把要寫的字挖成□，沒有把答案寫在題目上', await js(`(function(){
+    var q = document.getElementById('quizQuestion').textContent;
+    var ans = (window.QuizDebug.id() || '');
+    var ch = null;
+    (window.APP_EDU || []).forEach(function(u){ (u.qs||[]).forEach(function(x){ if (x.id === ans) ch = x.ch; }); });
+    return !!ch && q.indexOf('□') >= 0 && q.indexOf(ch) < 0;
+  })()`), qt);
+  check('題目標籤不是 undefined',
+    !/undefined/.test(await js(`document.getElementById('quizTag').textContent`)),
+    await js(`document.getElementById('quizTag').textContent`));
   await js(`window.__hw.onComplete({ totalMistakes: 0 })`);
   await sleep(400);
   const fb2 = await js(`document.getElementById('quizFeedback').textContent`);

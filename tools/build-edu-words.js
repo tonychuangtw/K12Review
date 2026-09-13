@@ -164,13 +164,13 @@ function buildLesson(lessonNo, rec) {
             '📚 其他選項：' + w.map(x => x.c + '＝' + x.w.join('、')).join('；') + '。' }; }
     ],
     4: [
-      (it, k) => writeQ(it, k),
-      (it, k) => writeQ(it, k + 1, true),
-      (it, k) => writeQ(it, k + 2)
+      (it, k) => writeQ(it, k, 0),
+      (it, k) => writeQ(it, k + 1, it.w.length - 1),
+      (it, k) => (it.w.length >= 3 ? writeQ(it, k + 2, 1) : null)
     ],
     5: [
       (it, k) => blankWord(it, k + 5, 0),
-      (it, k) => writeQ(it, k + 3),
+      (it, k) => writeQ(it, k + 3, it.w.length - 1),
       (it, k) => { if (!worthZyQ(it)) return null;
         const p = nextPos(), w = distract(it, k + 6, 3, 'zy');
         const f = place(it, w, p, 'zy');
@@ -189,10 +189,11 @@ function buildLesson(lessonNo, rec) {
       exp: '✅ ' + word + '的「' + it.c + '」讀 ' + it.zy + '（' + it.py + '），其他詞例：' + it.w.join('、') + '。\n' +
         '📚 其他選項是形近字：' + w.map(x => x.c + '（' + x.zy + '）＝' + x.w.join('、')).join('；') + '。' };
   }
-  function writeQ(it, k, useLast) {
+  function writeQ(it, k, wi) {
+    const word = it.w[Math.min(wi || 0, it.w.length - 1)];
+    if (!word) return null;
     const p = nextPos(), w = distract(it, k, 3, 'c');
     const f = place(it, w, p, 'c');
-    const word = useLast ? it.w[it.w.length - 1] : it.w[0];
     return { t: 'write', qtype: '手寫', ch: it.c, zhuyin: it.zy, pinyin: it.py,
       hint: word, options: f.options, ai: f.answer, answer: f.answer,
       q: '讀「' + it.zy + '」，用在「' + word + '」——請手寫這個字',
@@ -232,7 +233,9 @@ function buildLesson(lessonNo, rec) {
     for (let i = 0; i < cands.length && qs.length < PER_UNIT; i++) {
       const q = cands[i]();
       if (!q) continue;                       // 題型自己判斷這個字不適合出這種題
-      const key = String(q.q).replace(/\s+/g, '') + '||' + (q.options || []).join('|') + '||' + q.answer;
+      const key = q.t === 'write'
+        ? 'write||' + q.ch + '||' + q.hint            // 手寫題畫面上只看得到字與提示詞
+        : String(q.q).replace(/\s+/g, '') + '||' + (q.options || []).join('|') + '||' + q.answer;
       if (usedKeys.has(key)) continue;
       usedKeys.add(key);
       q.id = mkId(U.n, qs.length);

@@ -354,12 +354,15 @@
         筆順資料載不到時 hqFallback 會把 q.hw 關掉改用選擇題，所以 options/correct 也要備好。*/
   function buildEduWriteQ(item) {
     var zy = state.phon === 'zhuyin' ? item.zhuyin : (item.pinyin || item.zhuyin);
+    // 提示詞一定要把要寫的那個字挖掉（牽扯 → 牽□）。
+    // 2026-09-13 Tony 回報：「那個字都在上面了，沒效果，練習寫照抄而已」。
+    var hint = String(item.hint || '').split(item.ch).join('□');
     return {
       type: 'eduKx',
       item: { id: item.id, answer: item.ch, zhuyin: item.zhuyin, pinyin: item.pinyin,
               book: item.book, lesson: item.lesson },
       question: '【' + [item.book, item.lesson].filter(Boolean).join(' ') + '】' +
-        '讀「' + zy + '」，用在「' + item.hint + '」——請在下面的格子裡手寫這個字',
+        '「' + hint + '」的□讀「' + zy + '」——請在下面的格子裡手寫這個字',
       options: (item.options || []).slice(),
       correct: item.ai,
       explain: (item.exp || '') + '\n正確答案：' + item.ch
@@ -1976,6 +1979,7 @@
     history: '歷史', geography: '地理', civics: '公民與社會',
     englishCustom: '英文匯入題庫', mathCustom: '數學匯入題庫',
     scienceCustom: '自然匯入題庫', socialCustom: '社會匯入題庫',
+    eduKx: '康軒版',
     physicsCustom: '物理匯入題庫', chemistryCustom: '化學匯入題庫',
     biologyCustom: '生物匯入題庫', earthCustom: '地球科學匯入題庫',
     historyCustom: '歷史匯入題庫', geographyCustom: '地理匯入題庫', civicsCustom: '公民與社會匯入題庫',
