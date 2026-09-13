@@ -309,6 +309,14 @@ console.log('總結測驗');
       });
       if (covered < body.length * 0.9) bad.push(r.id + ' 逐句涵蓋不足（有整段漏譯）');
     });
+    // 語譯與注釋裡不該出現外文字母：人工撰寫時漏過 environ、материал 各一次（2026-09-13）
+    withOrig.forEach((r) => {
+      (r.orig || []).forEach((o, i) => {
+        const t = [o.c, o.v, o.n].join('');
+        const m = t.match(/[A-Za-z\u0400-\u04FF]{2,}/g);
+        if (m) bad.push(r.id + ' 第 ' + (i + 1) + ' 句混到外文：' + m.join('、'));
+      });
+    });
     ok(bad.length === 0,
       `文言文逐句對照正確（已補 ${withOrig.length}／${wy.length} 篇，問題 ${bad.length}${bad.length ? '：' + bad.slice(0, 4).join('、') : ''}）`);
   }
