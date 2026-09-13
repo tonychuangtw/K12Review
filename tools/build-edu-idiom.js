@@ -121,6 +121,12 @@ function buildLesson(lessonNo, rec) {
     const lit = it.m.slice(0, m.index).replace(/[。，、]$/, '');
     return lit.length >= 6 ? lit : null;
   }
+  // 題幹括號裡的簡釋：如果它把答案的字寫出來就別放（例如「寄人籬下（…不能自立）」
+  // 問反義詞，答案正好是「自立自強」）
+  const gloss = (it, answerWord) => {
+    const leak = Array.from(answerWord).filter(c => it.ms.indexOf(c) >= 0).length;
+    return leak >= 2 ? '' : '（' + it.ms + '）';
+  };
   const tail = (metas, pos) => '\n📚 其他選項：' +
     metas.filter((_, k) => k !== pos).map(o => o.w + '＝' + (o.ms || o.m)).join('；') + '。';
 
@@ -136,7 +142,18 @@ function buildLesson(lessonNo, rec) {
         return { qtype: '成語', q: '「' + it.w + '」是什麼意思？', options: o, answer: p,
           exp: '✅ ' + it.w + '＝' + it.m + '。\n📚 其他選項分別是：' +
             w.map(x => x.w + '＝' + x.ms).join('；') + '。' }; },
-      (it, i) => { const lit = literalOf(it); if (!lit) return null;
+      (it, i) => { const lit = literalOf(it);
+        // 切不出字面義的成語（釋義本來就只有引申義）改考另一種講法，
+        // 但要跟第一題的題幹用不同的說法，免得同一課出兩題一模一樣的
+        if (!lit) {
+          // 切不出字面義就改從反義詞問起。反義詞不在本課的成語清單裡，
+          // 題幹不會把答案的字寫出來（用完整釋義當題幹就會，例如
+          // 「集結眾人的智慧，廣泛吸收有益的意見」把「集」「益」都洩了）。
+          const p2 = nextPos(), f2 = four(it, others(i, [2, 4, 6]), p2);
+          return { qtype: '成語', q: '下列哪一個成語的意思，跟「' + it.ant.w + '」（' + it.ant.m + '）相反？',
+            options: f2.options, answer: f2.answer,
+            exp: '✅ ' + it.w + '＝' + it.m + '，跟「' + it.ant.w + '」正好相反。' + tail(f2.metas, p2) };
+        }
         const p = nextPos(), w = others(i, [2, 4, 6]).filter(literalOf);
         if (w.length < 3) return null;
         const o = w.map(x => literalOf(x)); o.splice(p, 0, lit);
@@ -170,7 +187,7 @@ function buildLesson(lessonNo, rec) {
     ],
     4: [
       (it, i) => { const p = nextPos(), f = four(it.syn, others(i, [1, 2, 3]), p);
-        return { qtype: '成語', q: '「' + it.w + '」（' + it.ms + '）跟下列哪一個成語意思最接近？',
+        return { qtype: '成語', q: '「' + it.w + '」' + gloss(it, it.syn.w) + '跟下列哪一個成語意思最接近？',
           options: f.options, answer: f.answer,
           exp: '✅ ' + it.syn.w + '＝' + it.syn.m + '，跟「' + it.w + '」意思最接近。' + tail(f.metas, p) }; },
       (it, i) => { const p = nextPos();
@@ -178,7 +195,7 @@ function buildLesson(lessonNo, rec) {
         // 結果那一題跟單元二的填空題一字不差重複 —— 不留這條退路。
         if (!it.ant) throw new Error(it.w + ' 沒有寫 ant（反義成語），單元四出不了題');
         const f = four(it.ant, others(i, [3, 5, 7]), p);
-        return { qtype: '成語', q: '「' + it.w + '」（' + it.ms + '）的意思跟下列哪一個成語相反？',
+        return { qtype: '成語', q: '「' + it.w + '」' + gloss(it, it.ant.w) + '的意思跟下列哪一個成語相反？',
           options: f.options, answer: f.answer,
           exp: '✅ ' + it.ant.w + '＝' + it.ant.m + '，跟「' + it.w + '」正好相反。' + tail(f.metas, p) }; },
       (it, i) => { const p = nextPos(), f = four(it, others(i, [5, 7, 8]), p);

@@ -3297,6 +3297,9 @@
   function dailyRuns() { return (state.dailyRuns = state.dailyRuns || {}); }
   // 這筆 ref（自主練習/每日練習出過的題）屬不屬於目前科目
   function refIsCur(r) {
+    // 康軒版的錯題歸康軒版自己的錯題本（wb.scope='edu'），不可以混進課綱自編版
+    // ——版本分層的前提就是「課綱自編版的行為一行都不動」（2026-09-13 codex／gemini review 抓到）
+    if (r.t === 'eduKx') return false;
     if (isChinese()) return SUBJECT_CATS.indexOf(r.t) < 0 && !/Custom$/.test(r.t || '');
     return r.t === curSubj() || r.t === bankCat();
   }

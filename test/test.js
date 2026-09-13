@@ -1183,6 +1183,22 @@ console.log('歷屆學測');
     for (let i = 1; i < seq.length; i++) { run = seq[i] === seq[i - 1] + 1 ? run + 1 : 1; worst = Math.max(worst, run); }
     ok(worst < 5, `${u.id} 配合題答案沒有連號排下來（最長連號 ${worst}）`);
   });
+  /* 題幹不可以把答案寫出來：像「千叮萬囑」配上「一再的叮嚀囑咐」，
+     學生不必懂成語，看字面就挑得出來（2026-09-13 codex／gemini review 抓到，
+     當時 283 題有這個問題，改寫短釋義與題幹後降到 40 幾題，
+     剩下的都是「人、不、一、風」這種高頻字，四個同課選項之間不構成提示）。 */
+  {
+    const leak = [];
+    EDU.forEach((u) => (u.qs || []).forEach((q) => {
+      if (q.t === 'write' || !Array.isArray(q.options)) return;
+      const ans = String(q.options[q.answer] || '');
+      if (ans.length < 2 || ans.length > 6) return;      // 句子型選項不算
+      const n = Array.from(new Set(ans)).filter((c) => String(q.q).indexOf(c) >= 0).length;
+      if (n >= 2) leak.push(q.id);
+    }));
+    ok(leak.length <= 60,
+      `題幹把答案寫出來的題目沒有變多（${leak.length} 題，上限 60${leak.length ? '，例：' + leak.slice(0, 3).join('、') : ''}）`);
+  }
   console.log(`  · 共 ${EDU.length} 單元、${EDU.reduce((n, u) => n + (u.qs || []).length, 0)} 題`);
 }
 

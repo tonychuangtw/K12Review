@@ -147,7 +147,7 @@ function buildLesson(ln) {
       // 哪一個詞語有錯字
       (i, k) => { const c = corrupted[i % corrupted.length]; if (!c) return null;
         const p = nextPos();
-        const good = pickN(goodWords.filter(w => w !== c.good), k, 3, []);
+        const good = pickN(goodWords.filter(w => w !== c.good), k + i * 3, 3, []);
         if (good.length < 3) return null;
         const o = good.slice(); o.splice(p, 0, c.bad);
         return { qtype: '字形', q: '下列哪一個詞語裡有錯字？', options: o, answer: p,
@@ -157,7 +157,7 @@ function buildLesson(ln) {
       // 改正：這個詞正確的寫法是
       (i, k) => { const c = corrupted[(i + 1) % corrupted.length]; if (!c) return null;
         const p = nextPos();
-        const wrong = pickN(flat.filter(x => x.c !== c.rightChar), k, 3, []);
+        const wrong = pickN(flat.filter(x => x.c !== c.rightChar), k + i * 3, 3, []);
         if (wrong.length < 3) return null;
         const o = wrong.map(x => x.c); o.splice(p, 0, c.rightChar);
         return { qtype: '字形', q: '「' + c.bad + '」寫錯了一個字，正確的應該是哪一個字？',
@@ -168,7 +168,7 @@ function buildLesson(ln) {
       (i, k) => { const c = corrupted[(i + 2) % corrupted.length]; if (!c) return null;
         const p = nextPos();
         const others = corrupted.filter(x => x !== c);
-        const bads = pickN(others.map(x => x.bad), k, 3, []);
+        const bads = pickN(others.map(x => x.bad), k + i * 3, 3, []);
         if (bads.length < 3) return null;
         const o = bads.slice(); o.splice(p, 0, c.good);
         return { qtype: '字形', q: '下列哪一個詞語完全沒有錯字？', options: o, answer: p,
@@ -179,14 +179,14 @@ function buildLesson(ln) {
     2: [
       (i, k) => { const s = oddSets[i % (oddSets.length || 1)]; if (!s) return null;
         const p = nextPos();
-        const same = pickN(s.same, k, 3, []);
+        const same = pickN(s.same, k + i * 3, 3, []);
         if (same.length < 3) return null;
         const o = same.map(x => x.c); o.splice(p, 0, s.odd.c);
         return { qtype: '字音', q: '下列四個字，哪一個的讀音跟其他三個不一樣？', options: o, answer: p,
           exp: '✅ ' + s.odd.c + '讀「' + s.odd.zy + '」，其他三個都讀「' + same[0].zy + '」（' +
             same.map(x => x.c).join('、') + '）。' }; },
       (i, k) => { const it = flat[i]; const p = nextPos();
-        const w = pickN(flat.filter(x => x.zy !== it.zy), k, 3, [it.c]);
+        const w = pickN(flat.filter(x => x.zy !== it.zy), k + i * 3, 3, [it.c]);
         if (w.length < 3) return null;
         const o = w.map(x => x.zy); o.splice(p, 0, it.zy);
         return { qtype: '字音', q: '「' + it.w[0] + '」的「' + it.c + '」，讀音是下列哪一個？',
@@ -194,7 +194,7 @@ function buildLesson(ln) {
           exp: '✅ ' + it.c + '讀「' + it.zy + '」（' + it.py + '）。\n📚 其他選項分別是：' +
             w.map(x => x.c + '＝' + x.zy).join('；') + '。' }; },
       (i, k) => { const it = flat[i]; const p = nextPos();
-        const w = pickN(flat.filter(x => x.c !== it.c), k, 3, []);
+        const w = pickN(flat.filter(x => x.c !== it.c), k + i * 3, 3, []);
         if (w.length < 3) return null;
         const o = w.map(x => x.c); o.splice(p, 0, it.c);
         return { qtype: '字音', q: '下列哪一個字讀「' + it.zy + '」（' + it.py + '）？',
@@ -204,7 +204,7 @@ function buildLesson(ln) {
     ],
     3: [
       (i, k) => { const it = flat[i]; const p = nextPos();
-        const w = pickN(it.sibs.filter(x => x.c !== it.c).concat(flat.filter(x => x.c !== it.c)), k, 3, [it.c]);
+        const w = pickN(it.sibs.filter(x => x.c !== it.c).concat(flat.filter(x => x.c !== it.c)), k + i * 3, 3, [it.c]);
         if (w.length < 3) return null;
         const o = w.map(x => x.c); o.splice(p, 0, it.c);
         return { qtype: '字形', q: '「' + it.w[0].replace(it.c, '□') + '」的□要填哪一個字？',
@@ -213,7 +213,7 @@ function buildLesson(ln) {
             w.map(x => x.c + '（' + x.zy + '）＝' + x.w.join('、')).join('；') + '。' }; },
       (i, k) => { const it = flat[i]; const p = nextPos();
         if (it.w.length < 2) return null;
-        const w = pickN(it.sibs.filter(x => x.c !== it.c).concat(flat.filter(x => x.c !== it.c)), k + 1, 3, [it.c]);
+        const w = pickN(it.sibs.filter(x => x.c !== it.c).concat(flat.filter(x => x.c !== it.c)), k + 1 + i * 3, 3, [it.c]);
         if (w.length < 3) return null;
         const o = w.map(x => x.c); o.splice(p, 0, it.c);
         return { qtype: '字形', q: '「' + it.w[1].replace(it.c, '□') + '」的□要填哪一個字？',
@@ -221,7 +221,7 @@ function buildLesson(ln) {
           exp: '✅ ' + it.w[1] + '（' + it.c + '讀 ' + it.zy + '）。\n📚 其他選項：' +
             w.map(x => x.c + '（' + x.zy + '）＝' + x.w.join('、')).join('；') + '。' }; },
       (i, k) => { const it = flat[i]; const p = nextPos();
-        const w = pickN(flat.filter(x => x.c !== it.c), k + 2, 3, []);
+        const w = pickN(flat.filter(x => x.c !== it.c), k + 2 + i * 3, 3, []);
         if (w.length < 3 || it.w.length < 2) return null;
         const o = w.map(x => x.c); o.splice(p, 0, it.c);
         return { qtype: '字形', q: '哪一個字可以同時填進「' + it.w[0].replace(it.c, '□') + '」和「' +
@@ -232,7 +232,7 @@ function buildLesson(ln) {
     4: [
       (i, k) => { const it = idioms[i % (idioms.length || 1)]; if (!it) return null;
         const p = nextPos();
-        const w = pickN(idioms.filter(x => x.w !== it.w).map(x => ({ c: x.w, ms: x.ms })), k, 3, []);
+        const w = pickN(idioms.filter(x => x.w !== it.w).map(x => ({ c: x.w, ms: x.ms })), k + i * 3, 3, []);
         if (w.length < 3) return null;
         const o = w.map(x => x.c); o.splice(p, 0, it.w);
         return { qtype: '成語', q: '「' + it.s.replace(/□+/g, '（　　　）') + '。」括號裡要填哪一個成語？',
@@ -240,7 +240,7 @@ function buildLesson(ln) {
           exp: '✅ ' + it.w + '＝' + it.m + '。\n📚 其他選項：' + w.map(x => x.c + '＝' + x.ms).join('；') + '。' }; },
       (i, k) => { const word = qwords[i % (qwords.length || 1)]; if (!word) return null;
         const p = nextPos();
-        const w = pickN(qwords.filter(x => x !== word), k, 3, []);
+        const w = pickN(qwords.filter(x => x !== word), k + i * 3, 3, []);
         if (w.length < 3) return null;
         const rd = (idx[word] && idx[word].main[0]) || '';
         if (!rd) return null;
@@ -253,7 +253,7 @@ function buildLesson(ln) {
             w.map(x => x + '＝' + ((idx[x] && idx[x].main[0]) || '')).join('；') + '。' }; },
       (i, k) => { const it = idioms[(i + 1) % (idioms.length || 1)]; if (!it) return null;
         const p = nextPos();
-        const w = pickN(idioms.filter(x => x.w !== it.w).map(x => ({ c: x.w, ms: x.ms })), k + 1, 3, []);
+        const w = pickN(idioms.filter(x => x.w !== it.w).map(x => ({ c: x.w, ms: x.ms })), k + 1 + i * 3, 3, []);
         if (w.length < 3) return null;
         const o = w.map(x => x.c); o.splice(p, 0, it.w);
         return { qtype: '成語', q: '下列哪一個成語的意思是「' + it.ms + '」？', options: o, answer: p,
