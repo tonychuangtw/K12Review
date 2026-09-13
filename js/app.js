@@ -976,7 +976,7 @@
 
   /* ---------- 視圖切換 ---------- */
 
-  var views = ['welcome', 'subject', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'read', 'lit', 'drill', 'imphome', 'tutorcal', 'tutor', 'custom', 'review', 'help', 'search', 'exams', 'exam'];
+  var views = ['welcome', 'subject', 'edition', 'eduhome', 'edulessons', 'eduunits', 'edubrief', 'edutest', 'home', 'quiz', 'write', 'flash', 'wrongbook', 'progress', 'parent', 'writing', 'units', 'lesson', 'concept', 'read', 'lit', 'drill', 'imphome', 'tutorcal', 'tutor', 'custom', 'review', 'help', 'search', 'exams', 'exam'];
   // 手機返回手勢／瀏覽器上一頁（2026-08-20 Tony：「很多選進去後都不能回前一頁」）
   // 這是單頁站，本來按返回會直接離站。做法：navStack 與 history 條目一一對應——
   // 前進 pushState，退回一律交給 history.go（畫面在 popstate 裡才更新），
@@ -1012,6 +1012,12 @@
     if (name === 'welcome') W.__welcomeRender();
     if (name === 'home') renderHome();
     if (name === 'subject') renderSubjects();
+    // 康軒版那幾頁：返回手勢退回來時也要重畫，否則會停在上一頁的內容
+    if (name === 'edition') renderEditions();
+    if (name === 'eduhome') renderEduHome();
+    if (name === 'edulessons') renderEduLessons();
+    if (name === 'eduunits') renderEduUnits();
+    if (name === 'edutest') renderEduTest();
   }
   function show(name) {
     if (navBusy) { render(name); return; }
@@ -1302,6 +1308,8 @@
     state.subject = key;
     unitsLessonsAsked = false;       // 換科目要再載一次該科的概念卡
     save();
+    // 這一科有兩個以上版本時先選版本（2026-09-12 Tony）；只有一個版本就直接進去，不多一層點擊
+    if (editionsOf(key).length > 1) { show('edition'); renderEditions(); return; }
     show('home');
   }
   // 本年級沒題的科目：問要不要把年級切到該科有題的範圍，不要讓他點進去看到空白
@@ -1926,7 +1934,8 @@
     hic: 'historyCustom', gec: 'geographyCustom', cic: 'civicsCustom',
     ph: 'physics', ch: 'chemistry', bi: 'biology', es: 'earth',
     hi: 'history', ge: 'geography', ci: 'civics',
-    ec: 'englishCustom', mc: 'mathCustom', nc: 'scienceCustom', oc: 'socialCustom'
+    ec: 'englishCustom', mc: 'mathCustom', nc: 'scienceCustom', oc: 'socialCustom',
+    kx: 'eduKx'                                   // 康軒版單元式練習（js/data/edu-kangxuan-*.js）
   };
 
   function buildQ(type, item, p) {
@@ -2808,6 +2817,17 @@
     if (quiz.score === quiz.entries.length) confetti();
     var cat = quiz.cat, retry = quiz.mode === 'retry', drill = quiz.mode === 'drill', search = quiz.mode === 'search';
     var mixed = cat === 'mixed';
+    var eduUnitId = quiz.eduUnit || null, eduTest = !!quiz.eduTest;
+    if (eduUnitId) {
+      eduSaveRun(eduUnitId, quiz.score, quiz.entries.length);
+      var eu = eduUnitById(eduUnitId), est = eduStat(eduUnitId) || {};
+      var eline = document.createElement('div');
+      eline.textContent = '精熟度：' + eduMastery(est.best || 0) + '（' + (est.best || 0) + '％，取歷次最好的一次）';
+      $('quizResult').insertBefore(eline, $('quizAgain'));
+      $('quizAgain').textContent = eu ? '← 回第' + eu.lesson + '課的單元' : '← 回單元';
+    } else if (eduTest) {
+      $('quizAgain').textContent = '← 回康軒版';
+    }
     var tsess = quiz.tutorSess || null;
     if (tsess) {
       tutorSaveRun(tsess, quiz.score, quiz.entries.length);
@@ -2831,6 +2851,8 @@
     }
     var dBook = quiz.drillBook, dLesson = quiz.drillLesson, dKey = quiz.drillKey;
     $('quizAgain').addEventListener('click', function () {
+      if (eduUnitId) { showEduUnits((eduUnitById(eduUnitId) || {}).lesson); return; }
+      if (eduTest) { showEduHome(); return; }
       if (tsess) { showTutor(tsess); return; }
       if (search) { show('search'); return; }
       if (mixed) { startMixedRound(); return; }   // 再抽一批混合題（原本會跳到錯題本）
@@ -2864,6 +2886,8 @@
     hqCancel();
     function leave() {
       if (quiz && quiz.mode === 'search') { show('search'); return; }
+      if (quiz && quiz.eduUnit) { showEduUnits((eduUnitById(quiz.eduUnit) || {}).lesson); return; }
+      if (quiz && quiz.eduTest) { showEduHome(); return; }
       if (quiz && quiz.tutorSess) { showTutor(quiz.tutorSess); return; }
       if (importMode) { showCustom(); return; }   // 從匯入題庫進來的，退回匯入題庫
       show('home');
@@ -4086,6 +4110,8 @@
   var wb = { time: 'all', cat: 'all', lesson: 'all', diff: 'all', kw: '', edit: false, sel: {},
     scope: 'subject', isubj: 'all', grade: 'all' };
   function wbInScope(w) {
+    // 康軒版有自己的錯題本，不跟課綱自編版與匯入題庫混在一起（2026-09-12 Tony）
+    if (wb.scope === 'edu') return w.t === 'eduKx';
     if (wb.scope === 'import') {
       if (!isImportCat(w.t)) return false;
       if (wb.isubj !== 'all' && w.t !== wb.isubj) return false;
@@ -4152,7 +4178,8 @@
   var wbBanksAsked = false;
   function showWrongbook() {
     show('wrongbook');
-    $('wrongTitle').textContent = wb.scope === 'import' ? '📦 匯入題庫・錯題本' : '錯題本';
+    $('wrongTitle').textContent = wb.scope === 'import' ? '📦 匯入題庫・錯題本'
+      : wb.scope === 'edu' ? '📗 康軒版・錯題本' : '錯題本';
     // 錯題可能來自還沒載入的科目（主題庫改成動態載入後），先補齊再重畫，
     // 否則題目標籤會變成空白或掉題（2026-08-27）
     if (!wbBanksAsked) {
@@ -4402,6 +4429,7 @@
   });
   $('wrongExit').addEventListener('click', function () {
     if (wb.scope === 'import') { wb.scope = 'subject'; showImportHome(); return; }
+    if (wb.scope === 'edu') { wb.scope = 'subject'; showEduHome(); return; }
     show('home');
   });
 
@@ -5634,7 +5662,7 @@
 
   // 題庫型科目（自創題庫、社會等）照冊/課/篩選走，國語各類別照年級走
   // 題庫型類別＝{q, options, answer, exp} 這種 schema（各科原創題庫與各科自創題庫都是）
-  function isBankCat(cat) { return cat === 'custom' || /Custom$/.test(cat || '') || SUBJECT_CATS.indexOf(cat) >= 0; }
+  function isBankCat(cat) { return cat === 'custom' || /Custom$/.test(cat || '') || cat === 'eduKx' || SUBJECT_CATS.indexOf(cat) >= 0; }
   // 只認「匯入題庫」（家長匯入的題本），不含各科自編的原創題庫
   function isImportCat(cat) { return cat === 'custom' || /Custom$/.test(cat || ''); }
   function importSubjOfCat(cat) {
@@ -7050,6 +7078,301 @@
     if (examRun.i < examPaper.qs.length - 1) { examRun.i++; paintExam(); }
   });
   $('examSubmit').addEventListener('click', function () { submitExam(false); });
+
+
+  /* ---------- 版本分層與康軒版單元式練習（2026-09-12 Tony 交辦）----------
+     規格見 docs/kangxuan-edition-spec.md。
+       選科目 → 選版本 →「課綱自編版」＝原本的首頁，一行都沒改
+                       →「康軒版」＝選系列 → 選課 → 選單元 → 讀重點整理 → 20 題練習
+     康軒版的資料在 js/data/edu-<版本>-<科目><冊>.js（動態載入），
+     題目攤平進 DATA.eduKx，所以作答、解析、錯題本全部沿用既有引擎。 */
+  var EDITIONS = {
+    chinese: [
+      { key: 'core', name: '課綱自編版', icon: '🧭', desc: '依教育部課綱自編・成語／字音／字形／閱讀／單元學習' },
+      { key: 'kangxuan', name: '康軒版', icon: '📗', desc: '照康軒課本逐課設計・一課 5 單元、一單元 20 題', book: '五上', src: 'js/data/edu-kangxuan-chinese-5a.js' }
+    ]
+  };
+  var EDU_SERIES = [
+    { key: 'words', name: '生字表・字音字形', icon: '✍️', desc: '選擇題＋手寫題' },
+    { key: 'idiom', name: '成語加油站', icon: '💡', desc: '選擇題＋配合題' },
+    { key: 'quiz',  name: '挑戰小學堂', icon: '🏅', desc: '選擇題' }
+  ];
+  function editionsOf(subj) { return EDITIONS[subj] || []; }
+  function curEdition() {
+    var m = state.edition || {};
+    return m[curSubj()] || 'core';
+  }
+  function setEdition(key) {
+    state.edition = state.edition || {};
+    state.edition[curSubj()] = key;
+    save();
+  }
+  function editionRec(key) {
+    return editionsOf(curSubj()).find(function (e) { return e.key === key; }) || null;
+  }
+  function eduLog() { return (state.eduLog = state.eduLog || {}); }
+  function eduStat(id) { return eduLog()[id] || null; }
+  // 康軒版單元（攤平後的題目掛在 DATA.eduKx，findItem 才找得到）
+  function eduUnits() { return (W.APP_EDU || []).filter(function (u) { return u.edition === 'kangxuan'; }); }
+  function eduReady() { return !!(W.APP_EDU && W.APP_EDU.length); }
+  function eduFlatten() {
+    var out = [];
+    eduUnits().forEach(function (u) {
+      (u.qs || []).forEach(function (q) { q._unit = u.id; out.push(q); });
+    });
+    DATA.eduKx = out;
+  }
+  function ensureEdu(rec, cb) {
+    if (eduReady()) { cb(null); return; }
+    setStatusToast('📗 載入' + rec.name + '教材…');
+    loadScript(rec.src, function (err) {
+      if (err) { setStatusToast('⚠️ 教材載入失敗，請檢查網路後再試一次'); cb(err); return; }
+      eduFlatten();
+      setStatusToast('');
+      cb(null);
+    });
+  }
+
+  function renderEditions() {
+    var list = editionsOf(curSubj());
+    $('editionTitle').textContent = subjectOf(curSubj()).name + '・選擇版本';
+    var box = $('editionCards');
+    box.innerHTML = '';
+    list.forEach(function (e) {
+      var b = document.createElement('button');
+      b.className = 'card card-wide' + (curEdition() === e.key ? ' daily-done' : '');
+      var sub = e.desc + (e.book ? '・目前有 ' + e.book : '');
+      b.innerHTML = '<span class="card-icon">' + e.icon + '</span><span class="card-title">' +
+        escHtml(e.name) + '</span><span class="card-sub">' + escHtml(sub) + '</span>';
+      b.addEventListener('click', function () { enterEdition(e.key); });
+      box.appendChild(b);
+    });
+  }
+  function enterEdition(key) {
+    setEdition(key);
+    if (key === 'core') { show('home'); return; }
+    var rec = editionRec(key);
+    if (!rec) { show('home'); return; }
+    ensureEdu(rec, function (err) { if (!err) showEduHome(); });
+  }
+  $('editionExit').addEventListener('click', function () { show('subject'); });
+
+  /* 康軒版首頁：三組系列 ＋ 錯題本 ＋ 總結測驗 */
+  function showEduHome() { show('eduhome'); renderEduHome(); }
+  function eduSeriesUnits(series) {
+    return eduUnits().filter(function (u) { return u.series === series; });
+  }
+  function eduDoneCount(units) {
+    var L = eduLog();
+    return units.filter(function (u) { return L[u.id] && L[u.id].best != null; }).length;
+  }
+  function renderEduHome() {
+    var rec = editionRec('kangxuan') || { name: '康軒版' };
+    $('eduhomeTitle').textContent = '📗 ' + rec.name + '・' + (rec.book || '');
+    var box = $('eduhomeCards');
+    box.innerHTML = '';
+    EDU_SERIES.forEach(function (s) {
+      var us = eduSeriesUnits(s.key);
+      var b = document.createElement('button');
+      b.className = 'card card-wide' + (us.length ? '' : ' card-dim');
+      var sub = us.length
+        ? us.length + ' 單元 · ' + us.reduce(function (n, u) { return n + (u.qs || []).length; }, 0) + ' 題 · 已完成 ' + eduDoneCount(us) + ' 單元'
+        : '建置中';
+      b.innerHTML = '<span class="card-icon">' + s.icon + '</span><span class="card-title">' +
+        escHtml(s.name) + '</span><span class="card-sub">' + escHtml(sub + '・' + s.desc) + '</span>';
+      b.addEventListener('click', function () {
+        if (!us.length) { UIDialog.alert(s.name + '還在建置中。'); return; }
+        showEduLessons(s.key);
+      });
+      box.appendChild(b);
+    });
+    var wrongN = (state.wrong || []).filter(function (w) { return w.t === 'eduKx'; }).length;
+    [
+      { icon: '📕', title: '錯題本', sub: wrongN ? wrongN + ' 題待複習' : '目前沒有錯題', go: function () { wb.scope = 'edu'; showWrongbook(); } },
+      { icon: '🎯', title: '總結測驗', sub: '自己挑範圍出一份，算精熟度', go: function () { showEduTest(); } }
+    ].forEach(function (c) {
+      var b = document.createElement('button');
+      b.className = 'card card-wide';
+      b.innerHTML = '<span class="card-icon">' + c.icon + '</span><span class="card-title">' + c.title +
+        '</span><span class="card-sub">' + escHtml(c.sub) + '</span>';
+      b.addEventListener('click', c.go);
+      box.appendChild(b);
+    });
+  }
+  $('eduhomeExit').addEventListener('click', function () { show('edition'); });
+
+  /* 課次列表 */
+  var eduSel = { series: null, lesson: null };
+  function showEduLessons(series) { eduSel.series = series; show('edulessons'); renderEduLessons(); }
+  function eduSeriesName(key) {
+    var s = EDU_SERIES.find(function (x) { return x.key === key; });
+    return s ? s.name : key;
+  }
+  function renderEduLessons() {
+    $('eduLessonsTitle').textContent = eduSeriesName(eduSel.series);
+    var us = eduSeriesUnits(eduSel.series);
+    var byLesson = {};
+    us.forEach(function (u) { (byLesson[u.lesson] = byLesson[u.lesson] || []).push(u); });
+    var box = $('eduLessonList');
+    box.innerHTML = '';
+    Object.keys(byLesson).map(Number).sort(function (a, b) { return a - b; }).forEach(function (ln) {
+      var arr = byLesson[ln].slice().sort(function (a, b) { return a.unit - b.unit; });
+      var done = eduDoneCount(arr);
+      var b = document.createElement('button');
+      b.className = 'wrong-item';
+      b.innerHTML = '<div class="wi-main">第' + ln + '課　' + escHtml(arr[0].lessonName || '') + '</div>' +
+        '<div class="wi-sub">' + arr.length + ' 單元 · ' +
+        arr.reduce(function (n, u) { return n + (u.qs || []).length; }, 0) + ' 題 · ' +
+        (done ? '已完成 ' + done + '／' + arr.length : '還沒開始') + '</div>';
+      b.addEventListener('click', function () { showEduUnits(ln); });
+      box.appendChild(b);
+    });
+  }
+  $('eduLessonsExit').addEventListener('click', showEduHome);
+
+  /* 單元列表 */
+  function showEduUnits(lesson) { eduSel.lesson = lesson; show('eduunits'); renderEduUnits(); }
+  function eduMastery(pct) { return pct >= 90 ? '🟢 精熟' : pct >= 70 ? '🟡 基礎' : '🔴 待加強'; }
+  function renderEduUnits() {
+    var arr = eduSeriesUnits(eduSel.series).filter(function (u) { return u.lesson === eduSel.lesson; })
+      .sort(function (a, b) { return a.unit - b.unit; });
+    $('eduUnitsTitle').textContent = '第' + eduSel.lesson + '課　' + ((arr[0] || {}).lessonName || '');
+    var box = $('eduUnitList');
+    box.innerHTML = '';
+    arr.forEach(function (u) {
+      var st = eduStat(u.id);
+      var b = document.createElement('button');
+      b.className = 'wrong-item';
+      b.innerHTML = '<div class="wi-main">單元' + u.unit + '　' + escHtml(u.title) + '</div>' +
+        '<div class="wi-sub">' + (u.qs || []).length + ' 題 · ' +
+        (st && st.best != null ? '最佳 ' + st.best + '％　' + eduMastery(st.best) + '（做過 ' + st.runs + ' 次）' : '還沒做過') +
+        '</div>';
+      b.addEventListener('click', function () { showEduBrief(u.id); });
+      box.appendChild(b);
+    });
+  }
+  $('eduUnitsExit').addEventListener('click', function () { showEduLessons(eduSel.series); });
+
+  /* 重點整理 → 練習 */
+  var eduRun = null;
+  function eduUnitById(id) { return eduUnits().find(function (u) { return u.id === id; }); }
+  function showEduBrief(id) {
+    var u = eduUnitById(id);
+    if (!u) return;
+    eduRun = { unitId: id };
+    $('eduBriefTitle').textContent = '第' + u.lesson + '課　單元' + u.unit;
+    var br = u.brief || {};
+    var h = '<h3 class="lesson-h">' + escHtml(u.title) + '</h3>';
+    if (br.intro) h += '<p class="lesson-p">' + escHtml(br.intro) + '</p>';
+    if ((br.rows || []).length) {
+      h += '<div class="edu-brief-rows">';
+      br.rows.forEach(function (r) {
+        h += '<div class="edu-brief-row"><b>' + escHtml(r.t) + '</b>' +
+          '<span class="ebr-d">' + escHtml(r.d) + '</span>' +
+          (r.e ? '<span class="ebr-e">例：' + escHtml(r.e) + '</span>' : '') + '</div>';
+      });
+      h += '</div>';
+    }
+    if (br.tip) h += '<p class="lesson-tip">💡 ' + escHtml(br.tip) + '</p>';
+    $('eduBriefBody').innerHTML = h;
+    show('edubrief');
+  }
+  $('eduBriefExit').addEventListener('click', function () { showEduUnits(eduSel.lesson); });
+  $('eduBriefStart').addEventListener('click', function () {
+    var u = eduUnitById(eduRun && eduRun.unitId);
+    if (!u) return;
+    var L = eduLog();
+    var rec = L[u.id] = L[u.id] || { runs: 0, best: null, last: null, total: (u.qs || []).length };
+    rec.read = 1; rec.ts = Date.now();
+    save();
+    beginQuiz((u.qs || []).map(function (q) { return { t: 'eduKx', id: q.id }; }), 'normal', 'eduKx');
+    quiz.eduUnit = u.id;
+  });
+
+  /* 總結測驗：自己挑系列與課次範圍，抽題出一份，算精熟度 */
+  var eduTestSel = { series: 'idiom', lessons: [], n: 20 };
+  function showEduTest() { show('edutest'); renderEduTest(); }
+  function renderEduTest() {
+    var box = $('eduTestBody');
+    box.innerHTML = '';
+    function chipRow(title, chips) {
+      var h = document.createElement('div');
+      h.className = 'subj-group'; h.textContent = title;
+      box.appendChild(h);
+      var row = document.createElement('div');
+      row.className = 'gp-quick';
+      chips.forEach(function (c) { row.appendChild(c); });
+      box.appendChild(row);
+    }
+    function chip(label, on, fn) {
+      var b = document.createElement('button');
+      b.className = 'chip' + (on ? ' active' : '');
+      b.textContent = label;
+      b.addEventListener('click', fn);
+      return b;
+    }
+    chipRow('要考哪一組', EDU_SERIES.filter(function (s) { return eduSeriesUnits(s.key).length; })
+      .map(function (s) {
+        return chip(s.name, eduTestSel.series === s.key, function () {
+          eduTestSel.series = s.key; eduTestSel.lessons = []; renderEduTest();
+        });
+      }));
+    var lessons = [];
+    eduSeriesUnits(eduTestSel.series).forEach(function (u) {
+      if (lessons.indexOf(u.lesson) < 0) lessons.push(u.lesson);
+    });
+    lessons.sort(function (a, b) { return a - b; });
+    chipRow('要考哪幾課（不選＝全部）', lessons.map(function (ln) {
+      return chip('第' + ln + '課', eduTestSel.lessons.indexOf(ln) >= 0, function () {
+        var i = eduTestSel.lessons.indexOf(ln);
+        if (i >= 0) eduTestSel.lessons.splice(i, 1); else eduTestSel.lessons.push(ln);
+        renderEduTest();
+      });
+    }));
+    chipRow('幾題', [10, 20, 30, 50].map(function (n) {
+      return chip(n + ' 題', eduTestSel.n === n, function () { eduTestSel.n = n; renderEduTest(); });
+    }));
+    var pool = eduTestPool();
+    var go = document.createElement('button');
+    go.className = 'btn-primary';
+    go.textContent = '出題（可用 ' + pool.length + ' 題）';
+    go.addEventListener('click', function () {
+      if (!pool.length) { UIDialog.alert('這個範圍沒有題目。'); return; }
+      var items = shuffle(pool).slice(0, eduTestSel.n);
+      beginQuiz(items.map(function (q) { return { t: 'eduKx', id: q.id }; }), 'normal', 'eduKx');
+      quiz.eduTest = 1;
+    });
+    var wrap = document.createElement('div');
+    wrap.className = 'write-btns';
+    wrap.appendChild(go);
+    box.appendChild(wrap);
+    var hint = document.createElement('div');
+    hint.className = 'prog-hint';
+    hint.textContent = '成績會記在康軒版的進度裡，答錯的題目自動進康軒版錯題本。';
+    box.appendChild(hint);
+  }
+  // 精熟度＝歷次最高正確率（作法同補習複習的 tutorLog）
+  function eduSaveRun(id, score, total) {
+    if (!total) return;
+    var L = eduLog();
+    var rec = L[id] = L[id] || { runs: 0, best: null, last: null, total: total };
+    var pct = Math.round(score / total * 100);
+    rec.runs = (rec.runs || 0) + 1;
+    rec.last = pct;
+    rec.total = total;
+    rec.best = rec.best == null ? pct : Math.max(rec.best, pct);
+    rec.ts = Date.now();
+    save();
+  }
+  function eduTestPool() {
+    var out = [];
+    eduSeriesUnits(eduTestSel.series).forEach(function (u) {
+      if (eduTestSel.lessons.length && eduTestSel.lessons.indexOf(u.lesson) < 0) return;
+      (u.qs || []).forEach(function (q) { out.push(q); });
+    });
+    return out;
+  }
+  $('eduTestExit').addEventListener('click', showEduHome);
 
   /* ---------- 啟動 ---------- */
   // 自創題庫檔已達 20MB+，改為背景載入：頁面先開先用，載完自動補上並更新畫面

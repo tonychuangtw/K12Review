@@ -1767,5 +1767,125 @@ async (js) => {
     await js(`(window.__errs || []).join(' | ')`));
 });
 
+/* ---------- 18. 康軒版：選版本 → 系列 → 課 → 單元 → 重點整理 → 20 題練習（2026-09-12 Tony 交辦） ---------- */
+console.log('康軒版單元式練習');
+await session(8765, 9365, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 5, extra: [], grades: [5], onboarded: true, subject: 'chinese',
+  stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], units: {} }));` },
+async (js) => {
+  await js(`window.NavDebug.go('subject')`);
+  await sleep(400);
+  // 點國語 → 應該先問版本，而不是直接進首頁
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#subjectCards .card'))
+    .filter(function(x){ return /國語/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(900);
+  check('點科目後先出現「選擇版本」這一層',
+    await js(`!document.getElementById('view-edition').classList.contains('hidden')`),
+    await js(`document.getElementById('editionTitle').textContent`));
+  check('版本有「課綱自編版」與「康軒版」',
+    /課綱自編版/.test(await js(`document.getElementById('editionCards').textContent`)) &&
+    /康軒版/.test(await js(`document.getElementById('editionCards').textContent`)));
+  // 課綱自編版＝原本的首頁，行為不能被動到
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#editionCards .card'))
+    .filter(function(x){ return /課綱自編版/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(600);
+  check('選「課綱自編版」會進原本的首頁',
+    await js(`!document.getElementById('view-home').classList.contains('hidden')`));
+  await js(`window.NavDebug.go('edition')`);
+  await sleep(400);
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#editionCards .card'))
+    .filter(function(x){ return /康軒版/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(1500);          // 教材是動態載入的
+  check('選「康軒版」會進康軒版首頁',
+    await js(`!document.getElementById('view-eduhome').classList.contains('hidden')`),
+    await js(`document.getElementById('eduhomeTitle').textContent`));
+  const homeTxt = await js(`document.getElementById('eduhomeCards').textContent`);
+  check('康軒版首頁有三組系列＋錯題本＋總結測驗',
+    /生字表/.test(homeTxt) && /成語加油站/.test(homeTxt) && /挑戰小學堂/.test(homeTxt) &&
+    /錯題本/.test(homeTxt) && /總結測驗/.test(homeTxt), homeTxt.slice(0, 120));
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#eduhomeCards .card'))
+    .filter(function(x){ return /成語加油站/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(700);
+  check('進得了成語加油站的課次列表',
+    await js(`!document.getElementById('view-edulessons').classList.contains('hidden')`));
+  check('課次列表看得到第1課與課名',
+    /第1課/.test(await js(`document.getElementById('eduLessonList').textContent`)) &&
+    /蚊帳大使/.test(await js(`document.getElementById('eduLessonList').textContent`)));
+  await js(`document.querySelector('#eduLessonList .wrong-item').click()`);
+  await sleep(700);
+  check('一課有 5 個單元',
+    await js(`document.querySelectorAll('#eduUnitList .wrong-item').length`) === 5,
+    await js(`document.getElementById('eduUnitList').textContent`));
+  await js(`document.querySelector('#eduUnitList .wrong-item').click()`);
+  await sleep(700);
+  check('點單元先出現重點整理，不是直接考試',
+    await js(`!document.getElementById('view-edubrief').classList.contains('hidden')`));
+  const brief = await js(`document.getElementById('eduBriefBody').textContent`);
+  check('重點整理列出這一課的成語與意思',
+    /聚蚊成雷/.test(brief) && /赴湯蹈火/.test(brief), brief.slice(0, 80));
+  await js(`document.getElementById('eduBriefStart').click()`);
+  await sleep(700);
+  check('按「開始練習」才進測驗',
+    await js(`!document.getElementById('view-quiz').classList.contains('hidden')`));
+  check('這個單元是 20 題',
+    await js(`(window.APP_EDU || []).filter(function(u){ return u.id === 'kx-c5a-idiom-01-1'; })
+      .map(function(u){ return u.qs.length; })[0]`) === 20);
+  // 照正解作答，走完 20 題
+  let answered = 0;
+  for (let i = 0; i < 40; i++) {
+    const inQuiz = await js(`!document.getElementById('view-quiz').classList.contains('hidden')`);
+    if (!inQuiz) break;
+    const done = await js(`!document.getElementById('quizResult').classList.contains('hidden')`);
+    if (done) break;
+    const ok = await js(`(function(){
+      var id = window.QuizDebug.id();
+      var q = null;
+      (window.APP_EDU || []).forEach(function(u){
+        (u.qs || []).forEach(function(x){ if (x.id === id) q = x; });
+      });
+      if (!q) return 'no-item:' + id;
+      var opts = document.querySelectorAll('#quizOptions .q-opt');
+      if (!opts.length) return 'no-opts';
+      opts[q.answer].click();
+      return 'ok'; })()`);
+    if (ok !== 'ok') { check('作答時找得到題目與選項', false, String(ok)); break; }
+    answered++;
+    await sleep(120);
+    await js(`window.QuizDebug.unlock()`);
+    await js(`document.getElementById('quizNext').click()`);
+    await sleep(150);
+  }
+  check('走得完 20 題', answered === 20, '實際作答 ' + answered + ' 題');
+  const res = await js(`document.getElementById('quizResult').textContent`);
+  check('全對後成績單顯示 20 / 20', /20\s*\/\s*20/.test(res.replace(/\s+/g, ' ')), res.slice(0, 80));
+  check('成績單顯示康軒版的精熟度', /精熟/.test(res), res.slice(0, 120));
+  check('精熟度存進 state.eduLog', await js(`(function(){
+    var s = JSON.parse(localStorage.getItem('chinese-review-v1'));
+    var r = s.eduLog && s.eduLog['kx-c5a-idiom-01-1'];
+    return !!(r && r.best === 100); })()`));
+  await js(`document.getElementById('quizAgain').click()`);
+  await sleep(700);
+  check('做完回到單元列表，看得到最佳成績',
+    await js(`!document.getElementById('view-eduunits').classList.contains('hidden')`) &&
+    /100％/.test(await js(`document.getElementById('eduUnitList').textContent`)),
+    await js(`document.getElementById('eduUnitList').textContent`));
+  // 總結測驗
+  await js(`window.NavDebug.go('eduhome')`);
+  await sleep(500);
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#eduhomeCards .card'))
+    .filter(function(x){ return /總結測驗/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(700);
+  check('總結測驗可以挑系列、課次與題數',
+    /要考哪一組/.test(await js(`document.getElementById('eduTestBody').textContent`)) &&
+    /要考哪幾課/.test(await js(`document.getElementById('eduTestBody').textContent`)));
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#eduTestBody button'))
+    .filter(function(x){ return /出題/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(800);
+  check('總結測驗出得了卷',
+    await js(`!document.getElementById('view-quiz').classList.contains('hidden')`));
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);

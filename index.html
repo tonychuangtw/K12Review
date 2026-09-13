@@ -14,7 +14,7 @@
   } catch (e) {}
 })();
 </script>
-<link rel="stylesheet" href="css/style.css?v=20260913">
+<link rel="stylesheet" href="css/style.css?v=20260913b">
 </head>
 <body>
 <header class="topbar">
@@ -370,6 +370,74 @@
 
 <!-- 匯入題庫（分科分冊分課；也給科目內的「依課練習」共用） -->
 <!-- 匯入題庫大選單（2026-08-29 Tony：一進去先有大圖示選單） -->
+<!-- 版本選擇（2026-09-12 Tony 定案）：科目底下多一層版本。
+     課綱自編版＝原本的全部內容，一行都沒改；康軒版＝照課本逐課設計的單元式練習。 -->
+<section id="view-edition" class="view hidden">
+  <div class="quiz-head">
+    <button class="btn-ghost" id="editionExit">✕ 返回</button>
+    <span id="editionTitle">選擇版本</span>
+    <span></span>
+  </div>
+  <div id="editionCards" class="cards"></div>
+  <div class="prog-hint">「課綱自編版」是依教育部課綱自己編的題庫，跟以前完全一樣；其他版本是照該版課本逐課設計的單元式練習。</div>
+</section>
+
+<!-- 康軒版首頁：三組系列＋錯題本＋總結測驗 -->
+<section id="view-eduhome" class="view hidden">
+  <div class="quiz-head">
+    <button class="btn-ghost" id="eduhomeExit">✕ 返回</button>
+    <span id="eduhomeTitle"></span>
+    <span></span>
+  </div>
+  <div id="eduhomeCards" class="cards"></div>
+  <div class="prog-hint">每一課有 5 個單元，一個單元 20 題，都是先讀重點整理再練習。</div>
+</section>
+
+<!-- 課次列表 -->
+<section id="view-edulessons" class="view hidden">
+  <div class="quiz-head">
+    <button class="btn-ghost" id="eduLessonsExit">✕ 返回</button>
+    <span id="eduLessonsTitle"></span>
+    <span></span>
+  </div>
+  <div id="eduLessonList" class="wrong-list"></div>
+</section>
+
+<!-- 單元列表 -->
+<section id="view-eduunits" class="view hidden">
+  <div class="quiz-head">
+    <button class="btn-ghost" id="eduUnitsExit">✕ 返回</button>
+    <span id="eduUnitsTitle"></span>
+    <span></span>
+  </div>
+  <div id="eduUnitList" class="wrong-list"></div>
+</section>
+
+<!-- 重點整理（讀完才開始練習） -->
+<section id="view-edubrief" class="view hidden">
+  <div class="quiz-head">
+    <button class="btn-ghost" id="eduBriefExit">✕ 離開</button>
+    <span id="eduBriefTitle"></span>
+    <span></span>
+  </div>
+  <div class="quiz-card">
+    <div id="eduBriefBody" class="lesson-body"></div>
+    <div class="write-btns">
+      <button id="eduBriefStart" class="btn-primary">讀完了，開始練習 →</button>
+    </div>
+  </div>
+</section>
+
+<!-- 總結測驗設定 -->
+<section id="view-edutest" class="view hidden">
+  <div class="quiz-head">
+    <button class="btn-ghost" id="eduTestExit">✕ 返回</button>
+    <span>🎯 總結測驗</span>
+    <span></span>
+  </div>
+  <div id="eduTestBody"></div>
+</section>
+
 <section id="view-imphome" class="view hidden">
   <div class="quiz-head">
     <button class="btn-ghost" id="imphomeExit">✕ 返回</button>
@@ -545,30 +613,30 @@
 </section>
 </main>
 
-<script src="js/data/idioms.js?v=20260913"></script>
-<script src="js/data/slang.js?v=20260913"></script>
-<script src="js/data/phonics.js?v=20260913"></script>
-<script src="js/data/chars.js?v=20260913"></script>
-<script src="js/data/reading.js?v=20260913"></script>
-<script src="js/data/writing.js?v=20260913"></script>
-<script src="js/data/checks-idioms.js?v=20260913"></script>
-<script src="js/data/checks-slang.js?v=20260913"></script>
-<script src="js/data/checks-phonics.js?v=20260913"></script>
-<script src="js/data/checks-chars.js?v=20260913"></script>
+<script src="js/data/idioms.js?v=20260913b"></script>
+<script src="js/data/slang.js?v=20260913b"></script>
+<script src="js/data/phonics.js?v=20260913b"></script>
+<script src="js/data/chars.js?v=20260913b"></script>
+<script src="js/data/reading.js?v=20260913b"></script>
+<script src="js/data/writing.js?v=20260913b"></script>
+<script src="js/data/checks-idioms.js?v=20260913b"></script>
+<script src="js/data/checks-slang.js?v=20260913b"></script>
+<script src="js/data/checks-phonics.js?v=20260913b"></script>
+<script src="js/data/checks-chars.js?v=20260913b"></script>
 <!-- custom.js（自創題庫 20MB+）改由 app.js 背景載入，避免手機開站白屏 -->
-<script src="js/data/counts.js?v=20260913"></script>
-<script src="js/data/subjects.js?v=20260913"></script>
-<script src="js/data/tutor.js?v=20260913"></script>
+<script src="js/data/counts.js?v=20260913b"></script>
+<script src="js/data/subjects.js?v=20260913b"></script>
+<script src="js/data/tutor.js?v=20260913b"></script>
 <!-- 動態載入（2026-08-27 codex 體檢）：
      lessons-*.js（概念卡）、anim*.js（成語動畫引擎）、*-custom.js（各科匯入題庫）
      合計約 12MB，都只有進到對應畫面才用得到，改由 js/app.js 的 loadScript() 在需要時抓。
      不要把它們加回來，否則手機一開站又要先下載十幾 MB 才會有畫面。 -->
-<script src="js/chk-gen.js?v=20260913"></script>
-<script src="js/dialog.js?v=20260913"></script>
-<script src="js/versions.js?v=20260913"></script>
-<script src="js/widgets.js?v=20260913"></script>
-<script src="js/vendor/hanzi-writer.min.js?v=20260913"></script>
-<script src="js/app.js?v=20260913"></script>
-<script src="js/sync.js?v=20260913"></script>
+<script src="js/chk-gen.js?v=20260913b"></script>
+<script src="js/dialog.js?v=20260913b"></script>
+<script src="js/versions.js?v=20260913b"></script>
+<script src="js/widgets.js?v=20260913b"></script>
+<script src="js/vendor/hanzi-writer.min.js?v=20260913b"></script>
+<script src="js/app.js?v=20260913b"></script>
+<script src="js/sync.js?v=20260913b"></script>
 </body>
 </html>

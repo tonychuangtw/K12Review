@@ -3,12 +3,12 @@
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
 STATUS: in-progress
-OBJECTIVE: 把 Tony 2026-09-12 新放上 Google Drive 的題本匯進 K12Review 匯入題庫（✅五上成語加油站 12 課已完成；待做：挑戰小學堂 17 回、國中英文二上、數學二上、會考聽力）
-NEXT_ACTION: 等 Tony 跑 `rclone config create gdrive drive scope drive.readonly config_is_local false` 授權（09-12 22:35 台北已在 TG 請他跑，09-13 04:30 再提醒一次）。授權後：rclone copy 五上國語練習資料夾到 ~/TelegramClaude/chinese-sources/guo5shang/，用 `pdftotext -layout` 抽直排 PDF，做挑戰小學堂 17 回（學用版沒附答案，一定要版面正確的文字才判得出正解），再做 Tiffany 的國中英文／數學／會考聽力題本。
-VALIDATION: node test/test.js 全過（含完全重複守門）＋ node test/browser-smoke.mjs；匯入後跑 node tools/gen-counts.js 核題數
-BLOCKERS: rclone 未授權。PDF 是直排，Drive MCP 抽出來的文字順序是亂的；MCP 的 download_file_content 只回 base64（300KB 的 PDF ≈ 13 萬 token），大量檔案不可行，且數學題本 32MB 會 session expired。成語加油站那批之所以做得起來，是因為只需要「每課有哪 12 條成語」這種即使順序亂掉也還原得出的資訊，題目與例句本來就自撰；挑戰小學堂要判原題正解，同樣手法不可靠。
-PATHS: js/data/custom.js（匯入題庫）、~/TelegramClaude/chinese-sources/guo5shang/（原始檔與抽出的文字）、tools/gen-counts.js、docs/bank-maintain-sop.md
-UPDATED: 2026-09-13 04:35 台北
+OBJECTIVE: K12Review 科目底下新增「版本」分層（課綱自編版／康軒版），並在康軒版國語五上做出三組單元式練習：①生字表＋字音字形（選擇＋手寫）②成語加油站（選擇＋配合）③挑戰小學堂（只要選擇）。每組逐課、一課 5 個單元、一單元 20 小題，形式一律「先讀重點整理再練習」；康軒版要有自己的錯題本，以及可以出題驗收精熟度的總結測驗。
+NEXT_ACTION: 照 docs/kangxuan-edition-spec.md 的分期做。目前在第 A 期：先把「版本」這層做進 js/app.js（view-edition），再做成語加油站第1課 5 單元 100 題端到端跑通，上線後回報 Tony，再逐課往下做。成語 12 課的原始素材已備妥在 docs/source/kangxuan-5a-idioms.json（133 條，含釋義與自撰例句）。
+VALIDATION: node test/test.js 全過（新增康軒版資料的守門要一併寫進 test.js）＋ node test/browser-smoke.mjs 走完「選科目→選版本→選系列→選課→單元重點→20題練習→錯題本」
+BLOCKERS: 第 B、C 期要 rclone 授權。生字表.pdf 與挑戰小學堂 17 回都是直排 PDF，Drive MCP 抽出來的字是亂序的（實測「疾 寄 瘧獎 蚊 帳 死 洲存」），要本機 pdftotext -layout；download_file_content 只回 base64（300KB PDF ≈ 13 萬 token）不可行。已於 09-13 11:20 台北再次請 Tony 跑 `rclone config create gdrive drive scope drive.readonly config_is_local false`。成語加油站（第 A 期）不受影響，素材已取得。
+PATHS: docs/kangxuan-edition-spec.md（規格與分期）、docs/source/kangxuan-5a-idioms.json（成語素材）、js/data/edu-*.js（康軒版單元資料，待建）、js/app.js（版本層）、test/test.js
+UPDATED: 2026-09-13 11:30 台北
 <!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
      ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
         workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
@@ -43,6 +43,13 @@ UPDATED: 2026-09-13 04:35 台北
         轉檔工具留在 scratchpad/tiffany/merge.py（patch JSON → social-custom.js，會擋 id 重複並改寫檔頭題數）。
         id 命名：地理沿用 oc+原題號，歷史加 h 後綴、公民加 c 後綴（三科原題號共用 1503xxxxxx 會撞號）。
      ⏭ 未做：Drive 上其他科目的題本（Tony 只指定社會）。 -->
+<!-- 2026-09-13 11:10 台北 Tony：「你全錯了. 我交代的你完全沒照做」。
+     原因：09-12 他在 TG 交代的那則長訊息（要新增「版本」分層＋康軒版三組單元式練習）我整則漏掉，
+     只照舊的「把 Drive 題本匯進匯入題庫」在做。已於 11:20 回報並重做。
+     ⤷ 04:30 那批 266 題（x38900-x39165）位置與形式都不對（進了匯入題庫、不是單元式、沒有重點整理），
+       已整批從 js/data/custom.js 撤掉、v130 版本紀錄一併移除；內容不丟，
+       素材留在 docs/source/kangxuan-5a-idioms.json，改寫進康軒版的成語加油站單元。
+     ⤷ 同批順手修的 tools/stamp-version.py（UTC 日期會產生比前一版還舊的版本戳）保留，那個修正本身是對的。 -->
 <!-- 2026-09-13 04:30 台北（例行重啟後自動接續）完成：五上成語加油站 12 課全數匯入，266 題（x38900-x39165，v130）。
      rclone 還沒授權，改用 Drive MCP 的 read_file_content 取出 12 份教用版的文字 —— 直排 PDF 的順序是亂的，
      但「每課有哪些成語」這件事可以從釋義區與填空區互相對照還原（兩區列的是同一組成語），還原後共 133 條，

@@ -12,6 +12,7 @@ for (const f of ['idioms', 'slang', 'phonics', 'chars', 'reading', 'writing', 'c
                  'civics', 'civics-custom']) {
   eval(fs.readFileSync(path.join(root, 'js/data', f + '.js'), 'utf8'));
 }
+eval(fs.readFileSync(path.join(root, 'js/data/edu-kangxuan-chinese-5a.js'), 'utf8'));  // 康軒版單元式練習
 for (const f of ['checks-idioms', 'checks-slang', 'checks-phonics', 'checks-chars', 'checks-custom',
                  'checks-math', 'checks-science', 'checks-english', 'checks-social',
                  'checks-physics', 'checks-chemistry', 'checks-biology', 'checks-earth',
@@ -1074,6 +1075,72 @@ console.log('歷屆學測');
   });
   ok(bad.length === 0, `每一堂都完整（問題：${bad.slice(0, 3).join('；') || '無'}）`);
   console.log(`  · 共 ${T.length} 堂、${T.reduce((n, t) => n + (t.qs || []).length, 0)} 題`);
+}
+
+/* ---------- 康軒版單元式練習（js/data/edu-*.js，2026-09-12 Tony 交辦）----------
+   規格：一課 5 個單元、一單元 20 題，每個單元都要有「重點整理」才能開始練習。
+   這裡擋的是最容易在批次產生時壞掉、但畫面上不一定看得出來的事：
+   單元數／題數不足、id 撞號、答案索引超出選項、選項重複、重點整理漏掉。 */
+{
+  console.log('\n【康軒版單元式練習】');
+  const EDU = window.APP_EDU || [];
+  ok(Array.isArray(EDU) && EDU.length > 0, `有康軒版教材（${EDU.length} 單元）`);
+  const bad = [];
+  const ids = new Set(), qids = new Set();
+  const byLesson = {};
+  EDU.forEach((u) => {
+    const tag = u.id || '(缺 id)';
+    if (!u.id) bad.push('有單元沒有 id');
+    else if (ids.has(u.id)) bad.push(u.id + ' 單元 id 重複');
+    else ids.add(u.id);
+    ['edition', 'subject', 'book', 'series', 'lessonName', 'title'].forEach((k) => {
+      if (!u[k]) bad.push(tag + ' 缺 ' + k);
+    });
+    if (!(u.lesson >= 1) || !(u.unit >= 1)) bad.push(tag + ' lesson／unit 不合法');
+    const br = u.brief || {};
+    if (!br.intro) bad.push(tag + ' 缺重點整理的導讀（brief.intro）');
+    if (!Array.isArray(br.rows) || !br.rows.length) bad.push(tag + ' 重點整理沒有內容（brief.rows）');
+    (br.rows || []).forEach((r) => { if (!r.t || !r.d) bad.push(tag + ' 重點整理有一列缺標題或說明'); });
+    const qs = u.qs || [];
+    if (qs.length !== 20) bad.push(tag + ' 不是 20 題（' + qs.length + ' 題）');
+    qs.forEach((q) => {
+      if (!q.id) return bad.push(tag + ' 有題目沒有 id');
+      if (qids.has(q.id)) bad.push(q.id + ' 題目 id 重複');
+      else qids.add(q.id);
+      if (!/^kx/.test(q.id)) bad.push(q.id + ' id 開頭不是 kx（app.js 靠這個把題目歸到 eduKx）');
+      if (!q.q || q.q.length < 6) bad.push(q.id + ' 題幹太短');
+      if (!Array.isArray(q.options) || q.options.length < 2) bad.push(q.id + ' 選項不足');
+      else {
+        if (new Set(q.options).size !== q.options.length) bad.push(q.id + ' 選項重複');
+        if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= q.options.length) bad.push(q.id + ' 答案索引錯誤');
+      }
+      if (!q.exp || q.exp.indexOf('✅') < 0) bad.push(q.id + ' 解析沒寫「正解為什麼對」');
+    });
+    const key = u.series + '|' + u.lesson;
+    (byLesson[key] = byLesson[key] || []).push(u.unit);
+  });
+  Object.keys(byLesson).forEach((k) => {
+    const us = byLesson[k].slice().sort((a, b) => a - b);
+    if (us.join(',') !== '1,2,3,4,5') bad.push(k + ' 不是完整的 5 個單元（' + us.join(',') + '）');
+  });
+  ok(bad.length === 0, `康軒版單元格式正確（問題 ${bad.length} 項${bad.length ? '：' + bad.slice(0, 6).join('；') : ''}）`);
+  // 答案位置要分散：批次產生最容易犯的錯就是答案一路 0,1,2,3 或全部集中在同一格
+  const four = [];
+  EDU.forEach((u) => (u.qs || []).forEach((q) => { if ((q.options || []).length === 4) four.push(q); }));
+  if (four.length) {
+    const dist = [0, 0, 0, 0];
+    four.forEach((q) => dist[q.answer]++);
+    ok(Math.max(...dist) / four.length <= 0.35,
+      `康軒版四選一的答案位置分散（${dist.join('/')}，共 ${four.length} 題）`);
+  }
+  // 配合題（選項是整排成語）答案不可以照順序排下來，否則學生看得出規律
+  EDU.filter((u) => (u.qs || []).some((q) => (q.options || []).length > 4)).forEach((u) => {
+    const seq = u.qs.map((q) => q.answer);
+    let run = 1, worst = 1;
+    for (let i = 1; i < seq.length; i++) { run = seq[i] === seq[i - 1] + 1 ? run + 1 : 1; worst = Math.max(worst, run); }
+    ok(worst < 5, `${u.id} 配合題答案沒有連號排下來（最長連號 ${worst}）`);
+  });
+  console.log(`  · 共 ${EDU.length} 單元、${EDU.reduce((n, u) => n + (u.qs || []).length, 0)} 題`);
 }
 
 /* ---------- 雲端同步不可以把「做到一半」的畫面重載掉 ----------

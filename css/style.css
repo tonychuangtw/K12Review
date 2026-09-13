@@ -1073,3 +1073,18 @@ body.anim-lock { overflow: hidden; }
 .wy-c.on { color: var(--accent, #4a90d9); }
 .wy-v { font-size: .93rem; line-height: 1.7; margin-top: .2rem; }
 .wy-n { font-size: .85rem; line-height: 1.6; margin-top: .15rem; color: var(--dim); }
+
+/* 康軒版單元式練習（2026-09-12 Tony 交辦）：重點整理與課次／單元列表 */
+.edu-brief-rows { text-align: left; margin: 0.8rem 0 0.4rem; }
+.edu-brief-row {
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 0.55rem 0.7rem; margin-bottom: 0.5rem; line-height: 1.7;
+}
+.edu-brief-row b { display: block; font-size: 1.1rem; margin-bottom: 0.15rem; }
+.edu-brief-row .ebr-d { display: block; }
+.edu-brief-row .ebr-e { display: block; color: var(--dim); font-size: 0.92rem; margin-top: 0.2rem; }
+.lesson-h { text-align: left; font-size: 1.15rem; margin: 0 0 0.4rem; }
+.lesson-p { text-align: left; line-height: 1.8; margin: 0 0 0.5rem; }
+.lesson-tip { text-align: left; color: var(--dim); line-height: 1.7; margin: 0.6rem 0 0; }
+.wi-main { font-weight: 600; margin-bottom: 0.2rem; }
+.wi-sub { color: var(--dim); font-size: 0.9rem; }
