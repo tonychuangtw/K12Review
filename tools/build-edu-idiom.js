@@ -28,14 +28,18 @@ const UNITS = [
 ];
 
 const pad = (n, w) => String(n).padStart(w, '0');
-/* 取用順序：用「互質步長」跳著取，不是單純旋轉。
-   配合題的選項是固定的一整排，答案索引＝成語在排裡的位置；
-   照順序出題會變成答案 0,1,2…一路往下，學生看得出規律。
-   各課成語數 9～12，步長 7 與它們都互質，所以剛好每條成語取到一次。 */
-const pickOrder = (n, shift) => {
-  const stride = 7;
-  return Array.from({ length: n }, (_, k) => (k * stride + shift) % n);
-};
+/* 取用順序：用「與總數互質的步長」跳著取，不是單純旋轉。
+   配合題的選項是固定一整排，答案索引＝該項在排裡的位置；照順序出題答案會 0,1,2… 連號。
+   ⚠️ 步長一定要跟總數互質，否則只會繞回同幾個位置：
+      28 個字用步長 7 → 只取到 0,7,14,21 四個，其餘全是重複（2026-09-13 實際踩到）。 */
+const gcd = (a, b) => (b ? gcd(b, a % b) : a);
+function pickOrder(n, shift) {
+  let stride = 7;
+  while (stride > 1 && gcd(stride, n) !== 1) stride--;      // 找得到就用，最差退回 1（＝單純旋轉）
+  const out = Array.from({ length: n }, (_, k) => (k * stride + shift) % n);
+  if (new Set(out).size !== n) throw new Error('pickOrder(' + n + ') 取出重複的順序');
+  return out;
+}
 
 function main() {
   const src = JSON.parse(fs.readFileSync(SRC, 'utf8'));

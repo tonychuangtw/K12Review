@@ -11,15 +11,22 @@ const https = require('https');
 const ROOT = path.join(__dirname, '..');
 const STROKE_DIR = path.join(ROOT, 'strokes');
 // 筆順資料庫查無此字,前端會改顯示標楷體靜態字+說明,不必重試
-const KNOWN_NO_DATA = ['揹', '譁', '縝', '靄', '譟', '靨', '鎚', '粿', '韉', '蹕'];
+const KNOWN_NO_DATA = ['揹', '譁', '縝', '靄', '譟', '靨', '鎚', '粿', '韉', '蹕', '擣'];
 
 global.window = { APP_DATA: {} };
 eval(fs.readFileSync(path.join(ROOT, 'js/data/chars.js'), 'utf8'));
-const chars = window.APP_DATA.chars || [];
+const chars = (window.APP_DATA.chars || []).map(function (c) { return c.answer; });
+// 康軒版「生字表・字音字形」的手寫題也要有筆順資料（2026-09-13）
+const eduFile = path.join(ROOT, 'js/data/edu-kangxuan-chinese-5a.js');
+if (fs.existsSync(eduFile)) {
+  eval(fs.readFileSync(eduFile, 'utf8'));
+  (window.APP_EDU || []).forEach(function (u) {
+    (u.qs || []).forEach(function (q) { if (q.t === 'write' && q.ch) chars.push(q.ch); });
+  });
+}
 
 const missing = [];
-chars.forEach(function (c) {
-  const ch = c.answer;
+chars.forEach(function (ch) {
   if (!ch || KNOWN_NO_DATA.indexOf(ch) >= 0) return;
   const f = path.join(STROKE_DIR, 'u' + ch.codePointAt(0).toString(16) + '.json');
   if (!fs.existsSync(f) && missing.indexOf(ch) < 0) missing.push(ch);

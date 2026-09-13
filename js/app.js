@@ -348,6 +348,24 @@
     };
   }
 
+  /* 康軒版的手寫題（看注音寫國字）。
+     item：{ t:'write', ch:'紋', zhuyin, pinyin, hint:'皺紋、紋路', options:[4個形近字], ai:正解索引 }
+     ── 手寫格靠 q.item.answer 取要寫的字，所以這裡把 answer 換成那個字；
+        筆順資料載不到時 hqFallback 會把 q.hw 關掉改用選擇題，所以 options/correct 也要備好。*/
+  function buildEduWriteQ(item) {
+    var zy = state.phon === 'zhuyin' ? item.zhuyin : (item.pinyin || item.zhuyin);
+    return {
+      type: 'eduKx',
+      item: { id: item.id, answer: item.ch, zhuyin: item.zhuyin, pinyin: item.pinyin,
+              book: item.book, lesson: item.lesson },
+      question: '【' + [item.book, item.lesson].filter(Boolean).join(' ') + '】' +
+        '讀「' + zy + '」，用在「' + item.hint + '」——請在下面的格子裡手寫這個字',
+      options: (item.options || []).slice(),
+      correct: item.ai,
+      explain: (item.exp || '') + '\n正確答案：' + item.ch
+    };
+  }
+
   // 冊名（一上、五下、十一上…）→ 排序用的序號，好讓冊照年級排而不是照題目出現順序
   //（2026-08-20 Tony：匯入題庫「進去後能夠自己選哪個科目哪個年級」）
   var BOOK_GRADE = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9, 十: 10 };
@@ -1960,6 +1978,7 @@
   function buildEntryQ(e) {
     var it = findItem(e.t, e.id);
     if (!it) return null;
+    if (e.t === 'eduKx' && it.t === 'write') return buildEduWriteQ(it);
     if (isBankCat(e.t)) {
       var q = buildCustomQ(it);
       q.type = e.t;
@@ -2069,8 +2088,10 @@
     if (!q) { quiz.i++; if (quiz.i < quiz.entries.length) return renderQ(); return finishRound(); }
     if (hwEntry(e)) {
       q.hw = true;   // 手寫來源的字形題：測驗裡也用手寫作答
-      q.question = q.item.sentence + '\n括號中讀「' +
-        (state.phon === 'zhuyin' ? q.item.zhuyin : q.item.pinyin) + '」— 請在下面的格子裡手寫這個字';
+      if (e.t !== 'eduKx') {     // 康軒版的手寫題在 buildEduWriteQ 裡已經寫好題幹
+        q.question = q.item.sentence + '\n括號中讀「' +
+          (state.phon === 'zhuyin' ? q.item.zhuyin : q.item.pinyin) + '」— 請在下面的格子裡手寫這個字';
+      }
     }
     quiz.snaps.push({ q: q, e: e, no: quiz.i + 1, round: quiz.round, answered: null });
     paintSnap(quiz.snaps.length - 1);
@@ -2278,6 +2299,11 @@
   var hqWriter = null;
   // 這個字形題是否該用手寫出題：entry 明確標了 hw，或錯題本裡這題是手寫來源（wr）
   function hwEntry(e) {
+    // 康軒版「生字表・字音字形」的手寫題：題目自己標 t:'write'
+    if (e.t === 'eduKx') {
+      var eit = findItem('eduKx', e.id);
+      return !!(eit && eit.t === 'write');
+    }
     if (e.t !== 'chars') return false;
     if (e.hw) return true;
     return (state.wrong || []).some(function (w) {

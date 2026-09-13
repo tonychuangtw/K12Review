@@ -1887,5 +1887,53 @@ async (js) => {
     await js(`(window.__errs || []).join(' | ')`));
 });
 
+/* ---------- 19. 康軒版：生字表・字音字形的手寫題（假 writer） ---------- */
+console.log('康軒版生字手寫題');
+await session(8765, 9365, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 5, extra: [], grades: [5], onboarded: true, subject: 'chinese',
+  stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], units: {} }));` },
+async (js) => {
+  await js(`window.NavDebug.go('subject')`);
+  await sleep(400);
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#subjectCards .card'))
+    .filter(function(x){ return /國語/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(700);
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#editionCards .card'))
+    .filter(function(x){ return /康軒版/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(1800);
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#eduhomeCards .card'))
+    .filter(function(x){ return /生字表/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(700);
+  check('進得了生字表・字音字形的課次列表',
+    await js(`!document.getElementById('view-edulessons').classList.contains('hidden')`));
+  await js(`document.querySelector('#eduLessonList .wrong-item').click()`);
+  await sleep(600);
+  // 第 4 單元＝手寫
+  await js(`(function(){ var xs=document.querySelectorAll('#eduUnitList .wrong-item');
+    for (var i=0;i<xs.length;i++) if (/手寫/.test(xs[i].textContent)) { xs[i].click(); return; } })()`);
+  await sleep(600);
+  check('手寫單元也是先讀重點整理',
+    await js(`!document.getElementById('view-edubrief').classList.contains('hidden')`) &&
+    /手寫/.test(await js(`document.getElementById('eduBriefTitle').textContent + document.getElementById('eduBriefBody').textContent`)));
+  await js(`document.getElementById('eduBriefStart').click()`);
+  await sleep(800);
+  check('手寫題開的是手寫格，不是選項按鈕',
+    await js(`!document.getElementById('quizHwWrap').classList.contains('hidden') &&
+              document.getElementById('quizOptions').classList.contains('hidden')`),
+    await js(`document.getElementById('quizQuestion').textContent`));
+  const qt = await js(`document.getElementById('quizQuestion').textContent`);
+  check('題目給了注音與詞語提示', /讀「[ㄅ-ㄯˇˊˋ˙]+」/.test(qt) && /手寫這個字/.test(qt), qt);
+  await js(`window.__hw.onComplete({ totalMistakes: 0 })`);
+  await sleep(400);
+  const fb2 = await js(`document.getElementById('quizFeedback').textContent`);
+  check('一次寫對→公布解析，解析寫得出正確的字與詞例',
+    /正確答案/.test(fb2) && /讀/.test(fb2), fb2.slice(0, 80));
+  check('答完在格子裡顯示正解',
+    await js(`(function(){ var p = document.getElementById('quizHwPanel');
+      return !!p.querySelector('svg') || p.textContent.length === 1; })()`));
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);

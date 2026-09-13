@@ -1114,6 +1114,13 @@ console.log('歷屆學測');
         if (new Set(q.options).size !== q.options.length) bad.push(q.id + ' 選項重複');
         if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= q.options.length) bad.push(q.id + ' 答案索引錯誤');
       }
+      // 手寫題（看注音寫國字）：要寫的字、注音、拼音、以及筆順載不到時的備援選項都要齊
+      if (q.t === 'write') {
+        if (!q.ch || Array.from(q.ch).length !== 1) bad.push(q.id + ' 手寫題的 ch 不是單一個字');
+        if (!q.zhuyin) bad.push(q.id + ' 手寫題缺注音');
+        if (!q.pinyin) bad.push(q.id + ' 手寫題缺拼音');
+        if (!Number.isInteger(q.ai) || q.options[q.ai] !== q.ch) bad.push(q.id + ' 手寫題的備援選項對不到正解');
+      }
       if (!q.exp || q.exp.indexOf('✅') < 0) bad.push(q.id + ' 解析沒寫「正解為什麼對」');
     });
     const key = u.series + '|' + u.lesson;
@@ -1147,7 +1154,13 @@ console.log('歷屆學測');
     EDU.forEach((u) => ((byLesson[u.series + '|' + u.lesson] ||= []).push(u)));
     Object.keys(byLesson).forEach((k) => {
       const us = byLesson[k];
-      const words = (us[0].brief.rows || []).map((r) => r.t);
+      // 成語的重點整理每一列就是一個成語；生字的每一列是一組形近字（「第1組　蚊／紋」），
+      // 要拆出裡面的字再檢查，不然永遠對不到
+      const rows = (us[0].brief.rows || []).map((r) => r.t);
+      const words = us[0].series === 'words'
+        ? [].concat.apply([], rows.map((t) => t.replace(/^第\d+組\s*/, '').split('／')))
+            .map((x) => x.trim()).filter(Boolean)
+        : rows;
       const blob = us.map((u) => (u.qs || []).map((q) =>
         q.q + '|' + (q.options || []).join('|') + '|' + q.exp).join('#')).join('#');
       words.forEach((w) => { if (blob.indexOf(w) < 0) miss.push(k + '/' + w); });
