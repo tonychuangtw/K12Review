@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: K12Review 科目底下新增「版本」分層（課綱自編版／康軒版），並在康軒版國語五上做出三組單元式練習：①生字表＋字音字形（選擇＋手寫）②成語加油站（選擇＋配合）③挑戰小學堂（只要選擇）。每組逐課、一課 5 個單元、一單元 20 小題，形式一律「先讀重點整理再練習」；康軒版要有自己的錯題本，以及可以出題驗收精熟度的總結測驗。
-NEXT_ACTION: 康軒版三組 180 單元 3,600 題全部上線；codex＋gemini review 與 Tony 試用回報（手寫洩答案、辨識太嚴、題目看似重複、手機載不動、課次卡看不清、返回鍵亂跳、儀表板看不到康軒版）都已修完。目前沒有待辦，等 Tony 與弟弟用過的回饋再調。要接著擴充其他冊就照 docs/kangxuan-edition-spec.md 的產生器與素材格式做，改完記得跑 build-edu-*.js → gen-edu-index.js → fetch-strokes.js → test.js。
+NEXT_ACTION: 閱讀擴充中（Tony 2026-09-13：「繼續擴 K12review 和 LanExamMock 的閱讀題」）。K12Review 這邊已完成：新增 24 篇（共 310 篇）、新增「文言文專練」入口、57 篇文言文的逐句語譯全部補齊（348 句）。下一步＝LanExamMock 五級閱讀擴充，照 ~/TelegramClaude/LanExamMock/PROGRESS-reading.md 的「各級規格差異」與「常見地雷」動筆，新檔一律註冊進 js/loader.js 的 LEVEL_EXTRA_BANKS（test.js 抓不到這個漏），只有 FCE 要同步 CamReview。
 VALIDATION: node test/test.js 全過（新增康軒版資料的守門要一併寫進 test.js）＋ node test/browser-smoke.mjs 走完「選科目→選版本→選系列→選課→單元重點→20題練習→錯題本」
 BLOCKERS: 無。rclone 授權 2026-09-13 11:36 台北完成（remote `gdrive`，drive.readonly；Tony 只點連結、把 127.0.0.1 的回呼網址貼回來，code 由 curl 餵給本機 rclone）。31 份原始檔已在 ~/TelegramClaude/chinese-sources/guo5shang/，並用 `pdftotext -layout` 抽成 txt/（版面正確，含答案）。
 PATHS: docs/kangxuan-edition-spec.md（規格與分期）、docs/source/kangxuan-5a-idiom-atoms.json（成語素材，人工撰寫）、tools/build-edu-idiom.js（產生器）、js/data/edu-kangxuan-chinese-5a.js（產出，勿手改）、js/app.js（版本層）、test/test.js、test/browser-smoke.mjs 第18節、~/TelegramClaude/chinese-sources/guo5shang/txt/（原始檔抽出的文字）
-UPDATED: 2026-09-13 15:30 台北
+UPDATED: 2026-09-13 16:20 台北
 <!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
      ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
         workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
@@ -43,6 +43,14 @@ UPDATED: 2026-09-13 15:30 台北
         轉檔工具留在 scratchpad/tiffany/merge.py（patch JSON → social-custom.js，會擋 id 重複並改寫檔頭題數）。
         id 命名：地理沿用 oc+原題號，歷史加 h 後綴、公民加 c 後綴（三科原題號共用 1503xxxxxx 會撞號）。
      ⏭ 未做：Drive 上其他科目的題本（Tony 只指定社會）。 -->
+<!-- 2026-09-13 16:20 台北 閱讀擴充（K12Review 部分完成）：
+     ・新增 24 篇、101 題（1-12 年級各 2 篇），刻意多補原本偏少的說明文與圖表判讀；
+       工具 tools/add-reading.js（接號、擋標題重複、自動打散答案位置）
+     ・新增「📜 文言文專練」入口：只抽 genre='文言'，年級沒有就放寬到全部年級
+     ・文言文逐句語譯 57／57 篇全部補齊，共 348 句：資料在 reading 項目的 orig[{c,v,n}]，
+       工具 tools/add-orig.js，test.js 有硬性守門（新增文言文沒附逐句語譯不給過，
+       且會擋抄錯原文、整段漏譯、混進外文字）
+     ⏭ 下一步：LanExamMock 五級閱讀。 -->
 <!-- 2026-09-13 15:30 台北 再修兩件（Tony 試用）：
      ・家長／老師儀表板新增「📗 康軒版」區塊（三組完成度、最近 10 個單元、康軒版錯題數）。
        為了不讓儀表板載 2MB 教材，另做 js/data/edu-index.js（23KB，tools/gen-edu-index.js 產生）；
