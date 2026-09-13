@@ -298,7 +298,7 @@ console.log('總結測驗');
     const bad = [];
     const strip = (t) => String(t).replace(/[\s，。、；：「」『』（）？！─…·\n]/g, '');
     withOrig.forEach((r) => {
-      const body = strip(String(r.passage).split(/\n\s*註[：:]/)[0]
+      const body = strip(String(r.passage).replace(/（\s*註[：:][^）]*）/g, '').split(/\n\s*註[：:]/)[0]
         .replace(/（[^）]*[〈《][^）]*）/g, '')
         .replace(/[—─-]{2,}\s*[〈《][^〉》]*[〉》]\s*$/, ''));
       let covered = 0;
