@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: K12Review 科目底下新增「版本」分層（課綱自編版／康軒版），並在康軒版國語五上做出三組單元式練習：①生字表＋字音字形（選擇＋手寫）②成語加油站（選擇＋配合）③挑戰小學堂（只要選擇）。每組逐課、一課 5 個單元、一單元 20 小題，形式一律「先讀重點整理再練習」；康軒版要有自己的錯題本，以及可以出題驗收精熟度的總結測驗。
-NEXT_ACTION: 三組（成語加油站／生字表・字音字形／挑戰小學堂）12 課全部完成並上線，180 單元 3,600 題；codex＋gemini review 也跑完、屬實的問題都修了。剩下兩件：①【手機效能】國語的 js/data/custom.js 單檔 24MB，選到國語做題時仍要整包載，手機很吃力 —— 要按冊拆檔（js/data/custom/<冊>.js），只載使用者選的那一冊；冊與課的清單改從 counts.js 來。②看 Tony 試用後的回饋再調。
+NEXT_ACTION: 康軒版三組（成語加油站／生字表・字音字形／挑戰小學堂）12 課全部完成上線，180 單元 3,600 題；codex＋gemini review 修完；Tony 試用回報的五件（手寫把答案寫在題目上、手寫辨識太嚴、題目看起來重複、手機進不去匯入題庫、課次卡看不清楚／游標不變手）也都修完上線。目前沒有待辦，等 Tony 與弟弟實際用過之後的回饋再調。若要接著擴充：五下／六上等其他冊照同一套產生器與素材格式做（docs/kangxuan-edition-spec.md）。
 VALIDATION: node test/test.js 全過（新增康軒版資料的守門要一併寫進 test.js）＋ node test/browser-smoke.mjs 走完「選科目→選版本→選系列→選課→單元重點→20題練習→錯題本」
 BLOCKERS: 無。rclone 授權 2026-09-13 11:36 台北完成（remote `gdrive`，drive.readonly；Tony 只點連結、把 127.0.0.1 的回呼網址貼回來，code 由 curl 餵給本機 rclone）。31 份原始檔已在 ~/TelegramClaude/chinese-sources/guo5shang/，並用 `pdftotext -layout` 抽成 txt/（版面正確，含答案）。
 PATHS: docs/kangxuan-edition-spec.md（規格與分期）、docs/source/kangxuan-5a-idiom-atoms.json（成語素材，人工撰寫）、tools/build-edu-idiom.js（產生器）、js/data/edu-kangxuan-chinese-5a.js（產出，勿手改）、js/app.js（版本層）、test/test.js、test/browser-smoke.mjs 第18節、~/TelegramClaude/chinese-sources/guo5shang/txt/（原始檔抽出的文字）
-UPDATED: 2026-09-13 13:40 台北
+UPDATED: 2026-09-13 15:00 台北
 <!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
      ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
         workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
@@ -43,6 +43,16 @@ UPDATED: 2026-09-13 13:40 台北
         轉檔工具留在 scratchpad/tiffany/merge.py（patch JSON → social-custom.js，會擋 id 重複並改寫檔頭題數）。
         id 命名：地理沿用 oc+原題號，歷史加 h 後綴、公民加 c 後綴（三科原題號共用 1503xxxxxx 會撞號）。
      ⏭ 未做：Drive 上其他科目的題本（Tony 只指定社會）。 -->
+<!-- 2026-09-13 15:00 台北 Tony 試用回報，全部修完上線（v131）：
+     ・看注音寫國字把答案寫在題目上 →「用在『牽扯』」改成「『牽□』的□讀 ㄔㄜˇ」
+     ・手寫辨識太嚴 → ⚙️ 新增寬鬆度易／中／嚴，預設「易」（leniency 2.6，原本寫死 1.4）
+     ・題目看起來重複 → 同單元題幹最多重複 7 次，四種題型改成輪流換說法
+     ・手機進不去匯入題庫 → 首頁不載題庫、做題只載一科、國語再按冊拆檔（24MB→2.1MB）、
+       多檔改成同時 3 條（完全依序在桌機反而更慢，Tony 第二次回報後調的）
+     ・課次卡文字看不清楚／游標不變手 → button 沒繼承文字顏色，補 color 與 cursor
+     每一項都加了自動測試守著（test.js 或 browser-smoke）。
+     ⚠️ 改完 js/data/custom.js 一定要跑 node tools/split-custom.js，否則分冊檔會過期
+       （test.js 會擋，SOP 也補上了）。 -->
 <!-- 2026-09-13 13:40 台北 完成：康軒版三組練習全部上線（180 單元、3,600 題）。
      ・成語加油站 12 課 1,200 題：素材 docs/source/kangxuan-5a-idiom-atoms.json（人工撰寫）
      ・生字表・字音字形 12 課 1,200 題（含手寫）：注音全查教育部簡編本，
