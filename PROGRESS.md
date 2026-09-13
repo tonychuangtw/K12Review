@@ -2,13 +2,13 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: in-progress
+STATUS: done
 OBJECTIVE: K12Review 科目底下新增「版本」分層（課綱自編版／康軒版），並在康軒版國語五上做出三組單元式練習：①生字表＋字音字形（選擇＋手寫）②成語加油站（選擇＋配合）③挑戰小學堂（只要選擇）。每組逐課、一課 5 個單元、一單元 20 小題，形式一律「先讀重點整理再練習」；康軒版要有自己的錯題本，以及可以出題驗收精熟度的總結測驗。
 NEXT_ACTION: 本輪閱讀擴充（Tony 2026-09-13）已完成兩站：K12Review 新增 24 篇（共 310 篇）＋「文言文專練」入口＋57 篇文言文逐句語譯全補齊；LanExamMock 五級各加一個 reading mc wave（16 篇 96 題，mc 各 143-144），FCE 已同步 CamReview。目前沒有待辦，等 Tony 回覆要繼續加篇數還是先調別的。
 VALIDATION: node test/test.js 全過（新增康軒版資料的守門要一併寫進 test.js）＋ node test/browser-smoke.mjs 走完「選科目→選版本→選系列→選課→單元重點→20題練習→錯題本」
 BLOCKERS: 無。rclone 授權 2026-09-13 11:36 台北完成（remote `gdrive`，drive.readonly；Tony 只點連結、把 127.0.0.1 的回呼網址貼回來，code 由 curl 餵給本機 rclone）。31 份原始檔已在 ~/TelegramClaude/chinese-sources/guo5shang/，並用 `pdftotext -layout` 抽成 txt/（版面正確，含答案）。
 PATHS: docs/kangxuan-edition-spec.md（規格與分期）、docs/source/kangxuan-5a-idiom-atoms.json（成語素材，人工撰寫）、tools/build-edu-idiom.js（產生器）、js/data/edu-kangxuan-chinese-5a.js（產出，勿手改）、js/app.js（版本層）、test/test.js、test/browser-smoke.mjs 第18節、~/TelegramClaude/chinese-sources/guo5shang/txt/（原始檔抽出的文字）
-UPDATED: 2026-09-13 17:10 台北
+UPDATED: 2026-09-13 台北（本輪工程全部完成，STATUS 改 done 避免每日白喚醒；Tony 有新需求直接發訊息即可）
 <!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
      ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
         workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
