@@ -40,6 +40,15 @@ function pickOrder(n, shift) {
   if (new Set(out).size !== n) throw new Error('pickOrder(' + n + ') 取出重複的順序');
   return out;
 }
+/* 把各種題型交錯排好，不要「第一種題型的全部、再第二種的全部」。
+   以前是後者，而每種題型的候選數＝該課的字數／成語數（18-34 個），
+   取前 20 題時第二、三種題型根本輪不到 —— 單元五號稱「綜合」卻整份都是同一種題型，
+   生字單元五說會穿插手寫題也一題都沒有（2026-09-13 codex／gemini review 抓到）。 */
+function interleave(lists) {
+  const out = [], max = Math.max.apply(null, lists.map(l => l.length).concat([0]));
+  for (let i = 0; i < max; i++) lists.forEach(l => { if (i < l.length) out.push(l[i]); });
+  return out;
+}
 
 function main() {
   const src = JSON.parse(fs.readFileSync(SRC, 'utf8'));
@@ -90,6 +99,28 @@ function buildLesson(lessonNo, rec) {
     metas.splice(pos, 0, correct);
     return { options: metas.map(x => x.w), answer: pos, metas };
   }
+  /* 出「哪一個成語的意思是…」時，題幹不要把成語的字直接寫出來。
+     釋義常常是「<字面說明>。比喻<引申義>」，字面說明裡幾乎一定有成語本身的字
+     （聚蚊成雷的釋義開頭就是「蚊子的聲音雖小…」，等於把答案寫在題目上）。
+     所以題幹只取「比喻／形容／後用來」之後的引申義；切不出來就用短釋義。
+     完整釋義仍然留在解析裡，答完看得到。（2026-09-13 codex／gemini review 抓到） */
+  function stemMeaning(it) {
+    const chs = Array.from(it.w);
+    const leakOf = (t) => chs.filter(c => t.indexOf(c) >= 0).length;
+    const cands = [it.ms, it.m];
+    const m = /(比喻|形容|後用來比喻|後多用來比喻|後用以比喻|指)/.exec(it.m);
+    if (m && m.index > 0 && it.m.length - m.index >= 8) cands.unshift(it.m.slice(m.index));
+    // 挑洩字最少的那個講法；一樣少就用比較短的（小五讀得完）
+    return cands.slice().sort((a, b) => leakOf(a) - leakOf(b) || a.length - b.length)[0];
+  }
+  /* 字面義（「比喻／形容」前面那一段）：拿來出「這個成語字面上在說什麼」，
+     跟單元一另外兩題（考引申義）問的不是同一件事。切不出字面義的成語就跳過這一題。 */
+  function literalOf(it) {
+    const m = /(比喻|形容|後用來比喻|後多用來比喻|後用以比喻)/.exec(it.m);
+    if (!m || m.index < 6) return null;
+    const lit = it.m.slice(0, m.index).replace(/[。，、]$/, '');
+    return lit.length >= 6 ? lit : null;
+  }
   const tail = (metas, pos) => '\n📚 其他選項：' +
     metas.filter((_, k) => k !== pos).map(o => o.w + '＝' + (o.ms || o.m)).join('；') + '。';
 
@@ -97,7 +128,7 @@ function buildLesson(lessonNo, rec) {
   const V = {
     1: [
       (it, i) => { const p = nextPos(), f = four(it, others(i, [1, 2, 3]), p);
-        return { qtype: '成語', q: '下列哪一個成語的意思是「' + it.m + '」？',
+        return { qtype: '成語', q: '下列哪一個成語的意思是「' + stemMeaning(it) + '」？',
           options: f.options, answer: f.answer,
           exp: '✅ ' + it.w + '＝' + it.m + '，所以選它。' + tail(f.metas, p) }; },
       (it, i) => { const p = nextPos(), w = others(i, [4, 5, 6]);
@@ -105,10 +136,15 @@ function buildLesson(lessonNo, rec) {
         return { qtype: '成語', q: '「' + it.w + '」是什麼意思？', options: o, answer: p,
           exp: '✅ ' + it.w + '＝' + it.m + '。\n📚 其他選項分別是：' +
             w.map(x => x.w + '＝' + x.ms).join('；') + '。' }; },
-      (it, i) => { const p = nextPos(), f = four(it, others(i, [2, 4, 6]), p);
-        return { qtype: '成語', q: '「' + it.ms + '」要用哪一個成語來說？',
-          options: f.options, answer: f.answer,
-          exp: '✅ ' + it.w + '＝' + it.m + '。' + tail(f.metas, p) }; }
+      (it, i) => { const lit = literalOf(it); if (!lit) return null;
+        const p = nextPos(), w = others(i, [2, 4, 6]).filter(literalOf);
+        if (w.length < 3) return null;
+        const o = w.map(x => literalOf(x)); o.splice(p, 0, lit);
+        if (new Set(o).size !== 4) return null;
+        return { qtype: '成語', q: '「' + it.w + '」這個成語，字面上原本說的是什麼？',
+          options: o, answer: p,
+          exp: '✅ ' + it.w + '字面上是「' + lit + '」，' + it.m + '。\n' +
+            '📚 其他選項是這幾個成語的字面意思：' + w.map(x => x.w + '＝' + literalOf(x)).join('；') + '。' }; }
     ],
     2: [
       (it, i) => fill(it, i, 's', [1, 3, 5]),
@@ -195,18 +231,28 @@ function buildLesson(lessonNo, rec) {
       tip: '成語裡最容易寫錯的就是同音或形近的字；知道那個字為什麼是這個意思，就不會寫錯。' })
   };
 
+  const usedKeys = new Set();        // 整課共用，避免不同單元出到一模一樣的題目
   return UNITS.map(U => {
     // 取用順序每個單元輪轉，成語多的課才不會固定都是同樣那幾條被少考一題
     const order = pickOrder(N, (U.n - 1) * 2);
-    const cands = [];
-    V[U.n].forEach(mk => order.forEach(i => cands.push(() => mk(arr[i], i))));
-    const qs = cands.slice(0, PER_UNIT).map((mk, k) => {
-      const q = mk();
-      q.id = 'kx5a-i' + pad(lessonNo, 2) + 'u' + U.n + 'q' + pad(k + 1, 2);
+    const cands = interleave(V[U.n].map(mk => order.map(i => () => mk(arr[i], i))));
+    // 逐個取用：題型可能對某個成語回傳 null（例如切不出字面義），跳過就好；
+    // 也要擋掉本課已經出過的一模一樣的題目。
+    const qs = [];
+    for (let i = 0; i < cands.length && qs.length < PER_UNIT; i++) {
+      const q = cands[i]();
+      if (!q) continue;
+      const key = String(q.q).replace(/\s+/g, '') + '||' + (q.options || []).join('|') + '||' + q.answer;
+      if (usedKeys.has(key)) continue;
+      usedKeys.add(key);
+      q.id = 'kx5a-i' + pad(lessonNo, 2) + 'u' + U.n + 'q' + pad(qs.length + 1, 2);
       q.t = q.qtype === '配對' ? 'match' : 'choice';
       q.book = '五上'; q.lesson = '第' + lessonNo + '課'; q.tag = rec.name; q.diff = '中';
-      return q;
-    });
+      qs.push(q);
+    }
+    if (qs.length !== PER_UNIT) {
+      throw new Error('第' + lessonNo + '課 單元' + U.n + ' 只湊出 ' + qs.length + ' 題（候選 ' + cands.length + '）');
+    }
     return {
       id: 'kx-c5a-idiom-' + pad(lessonNo, 2) + '-' + U.n,
       edition: 'kangxuan', subject: 'chinese', book: '五上', series: 'idiom',

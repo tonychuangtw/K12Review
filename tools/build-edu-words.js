@@ -31,6 +31,15 @@ function pickOrder(n, shift) {
   if (new Set(out).size !== n) throw new Error('pickOrder(' + n + ') 取出重複的順序');
   return out;
 }
+/* 把各種題型交錯排好，不要「第一種題型的全部、再第二種的全部」。
+   以前是後者，而每種題型的候選數＝該課的字數／成語數（18-34 個），
+   取前 20 題時第二、三種題型根本輪不到 —— 單元五號稱「綜合」卻整份都是同一種題型，
+   生字單元五說會穿插手寫題也一題都沒有（2026-09-13 codex／gemini review 抓到）。 */
+function interleave(lists) {
+  const out = [], max = Math.max.apply(null, lists.map(l => l.length).concat([0]));
+  for (let i = 0; i < max; i++) lists.forEach(l => { if (i < l.length) out.push(l[i]); });
+  return out;
+}
 
 function main() {
   const src = JSON.parse(fs.readFileSync(SRC, 'utf8'));
@@ -81,10 +90,28 @@ function buildLesson(lessonNo, rec) {
     };
     const sib = it.sibs.filter(x => x.c !== it.c);
     for (let i = 0; i < sib.length && out.length < need; i++) push(sib[(i + k) % sib.length]);
+    /* 字音題：同組形近字常常同音（蚊／紋都讀 ㄨㄣˊ），這時誘答補不滿。
+       補的時候要挑「聽起來會混淆」的音 —— 同音不同調、或聲母韻母只差一點 ——
+       而不是隨便抓本課另一個字的音。以前隨便抓，出來的四個選項差太遠，
+       學生用消去法就猜得到（2026-09-13 codex／gemini review 抓到）。 */
+    if (key === 'zy' && out.length < need) {
+      const bare = (z) => String(z).replace(/[ˊˇˋ˙]/g, '');
+      const mine = bare(it.zy);
+      const near = flat.filter(x => x.c !== it.c && bare(x.zy) === mine)          // 同音不同調
+        .concat(flat.filter(x => x.c !== it.c && bare(x.zy)[0] === mine[0]));      // 聲母相同
+      for (let i = 0; out.length < need && i < near.length; i++) push(near[(i + k) % near.length]);
+    }
     const base = flat.indexOf(it);
     for (let i = 0; out.length < need && i < N * 2; i++) push(flat[(base + i * 3 + k + 1) % N]);
     return out.slice(0, need);
   }
+  // 誘答是不是真的來自同一組形近字：解析要照實說，不能一律寫「同組形近字」
+  const sameGroup = (it, w) => w.every(x => it.sibs.indexOf(x) >= 0);
+  const srcLabel = (it, w) => sameGroup(it, w) ? '同組形近字' : '本課其他生字';
+  /* 這個字值不值得出「讀哪一個音」：同一組形近字如果全部同音（蚊／紋都讀 ㄨㄣˊ），
+     這題就沒有鑑別度 —— 誘答只能從別組硬抓，四個音差很遠，學生不必懂就猜得到。
+     這種字改考字形（蚊和紋同音，本來就是要靠部首分辨），字音題直接跳過。 */
+  const worthZyQ = (it) => it.sibs.some(x => x.c !== it.c && x.zy !== it.zy);
   function place(correct, wrong, pos, key) {
     const arr = wrong.map(x => x[key]);
     arr.splice(pos, 0, correct[key]);
@@ -94,25 +121,27 @@ function buildLesson(lessonNo, rec) {
 
   const V = {
     1: [
-      (it, k) => { const p = nextPos(), w = distract(it, k, 3, 'zy');
+      (it, k) => { if (!worthZyQ(it)) return null;
+        const p = nextPos(), w = distract(it, k, 3, 'zy');
         const f = place(it, w, p, 'zy');
         return { qtype: '字音', q: '「' + it.w[0] + '」的「' + it.c + '」要讀哪一個音？',
           options: f.options, answer: f.answer,
           exp: '✅ ' + it.c + '讀「' + it.zy + '」（' + it.py + '），例如：' + it.w.join('、') + '。\n' +
-            '📚 其他選項是同組形近字的讀音：' + w.map(x => x.c + '＝' + x.zy).join('；') + '。' }; },
+            '📚 其他選項是' + srcLabel(it, w) + '的讀音：' + w.map(x => x.c + '＝' + x.zy).join('；') + '。' }; },
       (it, k) => { const p = nextPos(), w = distract(it, k + 1, 3, 'c');
         const f = place(it, w, p, 'c');
         return { qtype: '字音', q: '讀「' + it.zy + '」（' + it.py + '），而且可以組成「' + it.w[0] + '」的是哪一個字？',
           options: f.options, answer: f.answer,
           exp: '✅ ' + it.c + '（' + it.zy + '）＝' + it.w.join('、') + '。\n' +
             '📚 其他選項：' + w.map(x => x.c + '（' + x.zy + '）＝' + x.w.join('、')).join('；') + '。' }; },
-      (it, k) => { const p = nextPos(), w = distract(it, k + 2, 3, 'zy');
+      (it, k) => { if (!worthZyQ(it)) return null;
+        const p = nextPos(), w = distract(it, k + 2, 3, 'zy');
         const f = place(it, w, p, 'zy');
         const word = it.w[it.w.length - 1];
         return { qtype: '字音', q: '「' + word + '」的「' + it.c + '」要讀哪一個音？',
           options: f.options, answer: f.answer,
           exp: '✅ ' + it.c + '讀「' + it.zy + '」（' + it.py + '），例如：' + it.w.join('、') + '。\n' +
-            '📚 其他選項是同組形近字的讀音：' + w.map(x => x.c + '＝' + x.zy).join('；') + '。' }; }
+            '📚 其他選項是' + srcLabel(it, w) + '的讀音：' + w.map(x => x.c + '＝' + x.zy).join('；') + '。' }; }
     ],
     2: [
       (it, k) => blankWord(it, k, 0),
@@ -142,12 +171,13 @@ function buildLesson(lessonNo, rec) {
     5: [
       (it, k) => blankWord(it, k + 5, 0),
       (it, k) => writeQ(it, k + 3),
-      (it, k) => { const p = nextPos(), w = distract(it, k + 6, 3, 'zy');
+      (it, k) => { if (!worthZyQ(it)) return null;
+        const p = nextPos(), w = distract(it, k + 6, 3, 'zy');
         const f = place(it, w, p, 'zy');
         return { qtype: '字音', q: '「' + it.c + '」這個字要讀哪一個音？',
           options: f.options, answer: f.answer,
           exp: '✅ ' + it.c + '讀「' + it.zy + '」（' + it.py + '），例如：' + it.w.join('、') + '。\n' +
-            '📚 其他選項是同組形近字的讀音：' + w.map(x => x.c + '＝' + x.zy).join('；') + '。' }; }
+            '📚 其他選項是' + srcLabel(it, w) + '的讀音：' + w.map(x => x.c + '＝' + x.zy).join('；') + '。' }; }
     ]
   };
   function blankWord(it, k, wi) {
@@ -195,13 +225,13 @@ function buildLesson(lessonNo, rec) {
   const usedKeys = new Set();          // 整課共用，避免不同單元出到一模一樣的題目
   return UNITS.map(U => {
     const order = pickOrder(N, (U.n - 1) * 2);
-    const cands = [];
-    V[U.n].forEach((mk, vi) => order.forEach(i => cands.push(() => mk(flat[i], vi))));
+    const cands = interleave(V[U.n].map((mk, vi) => order.map(i => () => mk(flat[i], vi))));
     // 逐個取用，跳過跟本課已出過的題目一模一樣的（有的字只有一個詞例，
     // 兩種變化題型會撞在一起）。候選有 3×N 個（N≥18），湊 20 題綽綽有餘。
     const qs = [];
     for (let i = 0; i < cands.length && qs.length < PER_UNIT; i++) {
       const q = cands[i]();
+      if (!q) continue;                       // 題型自己判斷這個字不適合出這種題
       const key = String(q.q).replace(/\s+/g, '') + '||' + (q.options || []).join('|') + '||' + q.answer;
       if (usedKeys.has(key)) continue;
       usedKeys.add(key);

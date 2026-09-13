@@ -54,6 +54,15 @@ function pickOrder(n, shift) {
   if (new Set(out).size !== n) throw new Error('pickOrder(' + n + ') 重複');
   return out;
 }
+/* 把各種題型交錯排好，不要「第一種題型的全部、再第二種的全部」。
+   以前是後者，而每種題型的候選數＝該課的字數／成語數（18-34 個），
+   取前 20 題時第二、三種題型根本輪不到 —— 單元五號稱「綜合」卻整份都是同一種題型，
+   生字單元五說會穿插手寫題也一題都沒有（2026-09-13 codex／gemini review 抓到）。 */
+function interleave(lists) {
+  const out = [], max = Math.max.apply(null, lists.map(l => l.length).concat([0]));
+  for (let i = 0; i < max; i++) lists.forEach(l => { if (i < l.length) out.push(l[i]); });
+  return out;
+}
 
 function main() {
   const only = process.argv.slice(2).map(Number).filter(Boolean);
@@ -276,8 +285,7 @@ function buildLesson(ln) {
 
   return UNITS.map(U => {
     const order = pickOrder(Math.max(N, 8), (U.n - 1) * 2);
-    const cands = [];
-    V[U.n].forEach((mk, vi) => order.forEach(i => cands.push(() => mk(i % N, vi))));
+    const cands = interleave(V[U.n].map((mk, vi) => order.map(i => () => mk(i % N, vi))));
     const qs = [];
     for (let i = 0; i < cands.length && qs.length < PER_UNIT; i++) {
       let q;

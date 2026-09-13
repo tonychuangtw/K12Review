@@ -1133,6 +1133,18 @@
       });
     });
   }
+  /* 一個一個載，不要一次全開。
+     2026-09-13 Tony 回報「電腦可進手機不行，出現『匯入題庫載入失敗』」：
+     匯入題庫本來一次平行載 35MB（國語 24MB＋確認題 5.9MB＋各科 4.7MB），
+     桌機吃得下，手機瀏覽器直接放棄。同時要載好幾個大檔時一律走這支。 */
+  function loadScriptsSeq(list, cb) {
+    var i = 0;
+    (function next(err) {
+      if (err) { if (cb) cb(err); return; }
+      if (i >= list.length) { if (cb) cb(null); return; }
+      loadScript(list[i++], next);
+    })(null);
+  }
   // 單元學習的概念卡：只有進到某一科的單元頁才需要
   function ensureLessons(cb) {
     var k = mainCat();
@@ -1171,11 +1183,31 @@
   var IMPORT_BANK_FILES = ['english', 'math', 'science', 'social', 'physics', 'chemistry',
     'biology', 'earth', 'history', 'geography', 'civics'];
   W.__ensureImportBanks = function (cb) { ensureImportBanks(cb || function () {}); };  // 測試用入口
+  /* 只載某一科的匯入題庫。
+     以前不管使用者要看哪一科，一律把 11 科＋國語＋確認題全部載進來（35MB），
+     手機載不動就整個匯入題庫進不去（2026-09-13 Tony 回報）。
+     現在「進匯入題庫首頁」完全不載（首頁的題數來自 counts.js），
+     真的要做題時才載那一科，確認題那 5.9MB 改成背景補、載不到也只是少了確認題。 */
+  function importBankFile(key) {
+    return key === 'chinese' ? 'js/data/custom.js' : 'js/data/' + key + '-custom.js';
+  }
+  function ensureImportBank(key, cb) {
+    var cat = CUSTOM_CATS[key] || 'custom';
+    if ((DATA[cat] || []).length) { cb(null); return; }
+    loadScript(importBankFile(key), function (err) {
+      if (!err && key === 'chinese') {
+        W.__customReady = true;
+        // 國語的解析確認題（5.9MB）：背景補，失敗就用自動生成的確認題頂著
+        loadScript('js/data/checks-custom.js', function () {});
+      }
+      cb(err);
+    });
+  }
   function ensureImportBanks(cb) {
     var files = IMPORT_BANK_FILES.map(function (k) { return 'js/data/' + k + '-custom.js'; });
     files.push('js/data/custom.js');          // 國語的匯入題庫
     files.push('js/data/checks-custom.js');   // 對應的解析確認題（人工撰寫）
-    loadScripts(files, function (err) {
+    loadScriptsSeq(files, function (err) {
       if (!err) W.__customReady = true;
       cb(err);
     });
@@ -1308,9 +1340,23 @@
     var need = (cats || []).filter(function (c) {
       return SUBJECT_CATS.indexOf(c) >= 0 && !bankLoaded(c);
     });
-    if (!need.length) { cb(null, false); return; }
-    loadScripts(need.reduce(function (acc, c) { return acc.concat(bankFilesFor(c)); }, []), function (err) {
+    // 匯入題庫改成用到才載之後，錯題本／進度分析要自己把該載的那幾科補上，
+    // 否則列表只剩 id、看不到題目（2026-09-13）
+    var imp = [];
+    (cats || []).forEach(function (c) {
+      if (!isImportCat(c) || (DATA[c] || []).length) return;
+      var k = c === 'custom' ? 'chinese' : importSubjOfCat(c);
+      if (k && imp.indexOf(k) < 0) imp.push(k);
+    });
+    if (!need.length && !imp.length) { cb(null, false); return; }
+    var files = need.reduce(function (acc, c) { return acc.concat(bankFilesFor(c)); }, [])
+      .concat(imp.map(importBankFile));
+    loadScriptsSeq(files, function (err) {
       need.forEach(function (c) { delete _subjGrades[c]; });
+      if (imp.indexOf('chinese') >= 0 && !err) {
+        W.__customReady = true;
+        loadScript('js/data/checks-custom.js', function () {});
+      }
       cb(err, true);
     });
   }
@@ -5289,7 +5335,7 @@
     if (i >= 0) arr.splice(i, 1); else arr.push(v);
   }
 
-  var importBanksReady = false;
+  // （匯入題庫改成「用到哪一科才載哪一科」之後，不再需要「全部載好了沒」這個旗標）
   // 有哪幾科可以選（含還沒匯入的，Tony：「每科都要預留」），順序照科目卡
   function importSubjects() {
     var order = [];
@@ -5307,16 +5353,9 @@
   /* 匯入題庫大選單（2026-08-29 Tony：「一進去先有大圖示選單可以選做題、錯題本、進度分析」，
      不要把錯題本／進度分析縮成小晶片塞在依課練習頁裡）。三個入口都在這一層。 */
   function showImportHome() {
+    // 首頁只要顯示四張卡與題數，題數來自 counts.js —— 不必先載幾十 MB 的題庫。
+    // （2026-09-13：以前在這裡就整包載，手機載不動就連首頁都進不去。）
     importMode = true;
-    if (!importBanksReady) {
-      setStatusToast('📦 載入匯入題庫…');
-      ensureImportBanks(function (err) {
-        importBanksReady = !err;
-        if (err) { setStatusToast('⚠️ 匯入題庫載入失敗，請檢查網路後再試'); return; }
-        showImportHome();
-      });
-      return;
-    }
     show('imphome');
     renderImportHome();
   }
@@ -5536,16 +5575,6 @@
   // 匯入題庫入口（最外層）：先選科目，再選冊/課
   function showImport(key) {
     importMode = true;
-    if (!importBanksReady) {
-      // 各科題本轉檔合計約 4.5MB，只有這個畫面用得到（2026-08-27 改成進來才載）
-      setStatusToast('📦 載入匯入題庫…');
-      ensureImportBanks(function (err) {
-        importBanksReady = !err;
-        if (err) { setStatusToast('⚠️ 匯入題庫載入失敗，請檢查網路後再試'); return; }
-        showImport(key);
-      });
-      return;
-    }
     var list = importSubjects();
     if (key) state.importSubj = key;
     if (!state.importSubj || !list.some(function (x) { return x.key === state.importSubj; })) {
@@ -5553,6 +5582,17 @@
       state.importSubj = first.key;
     }
     save();
+    // 只載這一科（國語 24MB、其他科幾百 KB～3MB），不要一次把 11 科全拉下來
+    var subj = state.importSubj;
+    if (!(DATA[CUSTOM_CATS[subj] || 'custom'] || []).length) {
+      setStatusToast('📦 載入' + subjectOf(subj).name + '題庫…');
+      ensureImportBank(subj, function (err) {
+        if (err) { setStatusToast('⚠️ ' + subjectOf(subj).name + '題庫載入失敗，請檢查網路後再試'); return; }
+        setStatusToast('');
+        showCustom();
+      });
+      return;
+    }
     showCustom();
   }
 
