@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: K12Review 科目底下新增「版本」分層（課綱自編版／康軒版），並在康軒版國語五上做出三組單元式練習：①生字表＋字音字形（選擇＋手寫）②成語加油站（選擇＋配合）③挑戰小學堂（只要選擇）。每組逐課、一課 5 個單元、一單元 20 小題，形式一律「先讀重點整理再練習」；康軒版要有自己的錯題本，以及可以出題驗收精熟度的總結測驗。
-NEXT_ACTION: A 期進行中。已完成：版本層（js/app.js）＋成語加油站第1課 5 單元 100 題（v130 已上線）。下一步＝照 docs/source/kangxuan-5a-idiom-atoms.json 的格式，把第 2-12 課的成語素材逐課寫進去（每條要 m／ms／s／s2／syn／ant／bad＋why／blank），寫完跑 `node tools/build-edu-idiom.js`，再跑 test/test.js 與 browser-smoke。成語 12 課做完接 B 期（生字表＋字音字形，含手寫題）與 C 期（挑戰小學堂）。
+NEXT_ACTION: A 期（成語加油站 12 課、60 單元、1,200 題）已完成上線。現在做 B 期＝生字表＋字音字形：素材在 ~/TelegramClaude/chinese-sources/guo5shang/txt/字音字形.txt（12 課的形近字組＋詞例，格式「字字：詞例　字字：詞例」）與 raw/（生字表）。要做選擇題（字形辨析）＋手寫題（看注音寫國字）；⚠️ 注音一律查教育部《國語辭典簡編本》開放資料（tools/moe-zy-audit.js 會下載到 .cache/），不可憑印象。B 期完再做 C 期挑戰小學堂（17 回，pdftotext -layout 出來的版面正確且含答案）。三組都做完之後，Tony 2026-09-13 12:05 指示要送 codex 與 gemini 各 review 一次。
 VALIDATION: node test/test.js 全過（新增康軒版資料的守門要一併寫進 test.js）＋ node test/browser-smoke.mjs 走完「選科目→選版本→選系列→選課→單元重點→20題練習→錯題本」
 BLOCKERS: 無。rclone 授權 2026-09-13 11:36 台北完成（remote `gdrive`，drive.readonly；Tony 只點連結、把 127.0.0.1 的回呼網址貼回來，code 由 curl 餵給本機 rclone）。31 份原始檔已在 ~/TelegramClaude/chinese-sources/guo5shang/，並用 `pdftotext -layout` 抽成 txt/（版面正確，含答案）。
 PATHS: docs/kangxuan-edition-spec.md（規格與分期）、docs/source/kangxuan-5a-idiom-atoms.json（成語素材，人工撰寫）、tools/build-edu-idiom.js（產生器）、js/data/edu-kangxuan-chinese-5a.js（產出，勿手改）、js/app.js（版本層）、test/test.js、test/browser-smoke.mjs 第18節、~/TelegramClaude/chinese-sources/guo5shang/txt/（原始檔抽出的文字）
-UPDATED: 2026-09-13 11:50 台北
+UPDATED: 2026-09-13 12:20 台北
 <!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
      ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
         workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
