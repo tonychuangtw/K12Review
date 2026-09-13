@@ -54,6 +54,10 @@ function pickOrder(n, shift) {
   if (new Set(out).size !== n) throw new Error('pickOrder(' + n + ') 重複');
   return out;
 }
+/* 同一種題型在一個單元裡會出現好幾題（選項每題都不同），
+   但題幹一字不差時看起來就像同一題重複貼了七次（2026-09-13 Tony：「有重複題目的問題」）。
+   這裡讓題幹輪流換說法，內容不變、讀起來不會像跳針。 */
+function phrase(list, n) { return list[n % list.length]; }
 /* 把各種題型交錯排好，不要「第一種題型的全部、再第二種的全部」。
    以前是後者，而每種題型的候選數＝該課的字數／成語數（18-34 個），
    取前 20 題時第二、三種題型根本輪不到 —— 單元五號稱「綜合」卻整份都是同一種題型，
@@ -150,7 +154,9 @@ function buildLesson(ln) {
         const good = pickN(goodWords.filter(w => w !== c.good), k + i * 3, 3, []);
         if (good.length < 3) return null;
         const o = good.slice(); o.splice(p, 0, c.bad);
-        return { qtype: '字形', q: '下列哪一個詞語裡有錯字？', options: o, answer: p,
+        return { qtype: '字形', q: phrase(['下列哪一個詞語裡有錯字？',
+          '下列四個詞語，哪一個寫錯了？', '哪一個詞語用錯了字？',
+          '下列哪一個詞語的寫法不正確？'], seq), options: o, answer: p,
           exp: '✅ 「' + c.bad + '」的「' + c.wrongChar + '」寫錯了，應該是「' + c.good + '」的「' + c.rightChar + '」。\n' +
             '📚 ' + tellApart(c.wrongChar, c.sib.zy, c.rightChar, (flat.find(x => x.c === c.rightChar) || {}).zy) +
             '　其他三個詞語都沒有錯字。' }; },
@@ -171,7 +177,9 @@ function buildLesson(ln) {
         const bads = pickN(others.map(x => x.bad), k + i * 3, 3, []);
         if (bads.length < 3) return null;
         const o = bads.slice(); o.splice(p, 0, c.good);
-        return { qtype: '字形', q: '下列哪一個詞語完全沒有錯字？', options: o, answer: p,
+        return { qtype: '字形', q: phrase(['下列哪一個詞語完全沒有錯字？',
+          '下列四個詞語，哪一個是正確的寫法？', '哪一個詞語沒有寫錯字？',
+          '下列哪一個詞語用字完全正確？'], seq), options: o, answer: p,
           exp: '✅ 「' + c.good + '」是正確的寫法。\n📚 其他三個都有錯字：' +
             others.filter(x => bads.indexOf(x.bad) >= 0)
               .map(x => x.bad + '→' + x.good).join('、') + '。' }; }
@@ -182,7 +190,9 @@ function buildLesson(ln) {
         const same = pickN(s.same, k + i * 3, 3, []);
         if (same.length < 3) return null;
         const o = same.map(x => x.c); o.splice(p, 0, s.odd.c);
-        return { qtype: '字音', q: '下列四個字，哪一個的讀音跟其他三個不一樣？', options: o, answer: p,
+        return { qtype: '字音', q: phrase(['下列四個字，哪一個的讀音跟其他三個不一樣？',
+          '下面四個字，哪一個讀音和另外三個不同？', '哪一個字的讀音跟其他三個不一樣？'], seq),
+          options: o, answer: p,
           exp: '✅ ' + s.odd.c + '讀「' + s.odd.zy + '」，其他三個都讀「' + same[0].zy + '」（' +
             same.map(x => x.c).join('、') + '）。' }; },
       (i, k) => { const it = flat[i]; const p = nextPos();

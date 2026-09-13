@@ -1199,6 +1199,19 @@ console.log('歷屆學測');
       const n = Array.from(new Set(ans)).filter((c) => String(q.q).indexOf(c) >= 0).length;
       if (n >= 2) leak.push(q.id);
     }));
+    // 同一個單元裡題幹一字不差重複太多次，看起來就像同一題貼了好幾遍
+    // （2026-09-13 Tony：「有重複題目的問題」）
+    {
+      const rep = [];
+      EDU.forEach((u) => {
+        const c = {};
+        (u.qs || []).forEach((q) => { const k = String(q.q).replace(/\s+/g, ''); c[k] = (c[k] || 0) + 1; });
+        const mx = Math.max.apply(null, Object.keys(c).map((k) => c[k]).concat([0]));
+        if (mx >= 4) rep.push(u.id + '(' + mx + ')');
+      });
+      ok(rep.length === 0,
+        `沒有單元把同一句題幹重複 4 次以上（${rep.length}${rep.length ? '：' + rep.slice(0, 4).join('、') : ''}）`);
+    }
     ok(leak.length <= 60,
       `題幹把答案寫出來的題目沒有變多（${leak.length} 題，上限 60${leak.length ? '，例：' + leak.slice(0, 3).join('、') : ''}）`);
   }

@@ -228,11 +228,19 @@ await session(8746, 9346, { blockWriter: true, seed: seedWrong(['c001', 'c002', 
   await sleep(200);
   check('⚙️ 開得出練習設定面板',
     await js(`!document.getElementById('setPanel').classList.contains('hidden')`));
-  check('三種選法都在', await js(`document.querySelectorAll('#setPanel .theme-sw').length === 3`));
+  // 面板現在有兩組：解析確認題 3 個 ＋ 手寫辨識寬鬆度 3 個（2026-09-13 加）
+  check('解析確認題三種選法都在', await js(`document.querySelectorAll('#setPanel .theme-sw').length === 6`),
+    await js(`document.getElementById('setPanel').textContent`));
+  check('面板有手寫辨識寬鬆度，預設是「易」', await js(`(function(){
+    var t = document.getElementById('setPanel').textContent;
+    var bs = document.querySelectorAll('#setPanel .theme-sw');
+    return /手寫辨識寬鬆度/.test(t) && bs[3].classList.contains('active') && /易/.test(bs[3].textContent);
+  })()`), await js(`document.getElementById('setPanel').textContent`));
   check('預設是「全部科目都出」',
     await js(`document.querySelectorAll('#setPanel .theme-sw')[0].classList.contains('active')`));
   // 選「都不出」
-  await js(`document.querySelectorAll('#setPanel .theme-sw')[2].click()`);
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#setPanel .theme-sw'))
+    .filter(function(x){ return /都不出/.test(x.textContent); })[0]; if (b) b.click(); })()`);
   await sleep(200);
   check('選好會存進 state.chkMode',
     await js(`JSON.parse(localStorage.getItem('chinese-review-v1')).chkMode === 'off'`),

@@ -1906,6 +1906,23 @@
     if (m === 'chinese') return subjOfCat(cat) === 'chinese';
     return true;
   }
+  /* 手寫辨識的寬鬆度（2026-09-13 Tony：「手寫現在的辨識度是中對嗎？改成易就好。
+     現在這樣常常辨識錯誤，很難寫對」）。
+     hanzi-writer 的 leniency 越大越寬鬆，1 是它的預設。以前全站寫死 1.4，
+     手指在手機上寫小字很容易被判錯，所以改成可以調、而且預設就給「易」。 */
+  var HW_MODES = [
+    { key: 'easy', name: '易（推薦）', len: 2.6, sub: '筆畫位置差一點也算對，適合手指在手機上寫' },
+    { key: 'mid', name: '中', len: 1.4, sub: '要寫得比較端正才算對' },
+    { key: 'hard', name: '嚴', len: 1.0, sub: '幾乎要照著格子寫，適合用觸控筆' }
+  ];
+  function hwMode() {
+    var m = state.hwMode;
+    return (m === 'mid' || m === 'hard') ? m : 'easy';
+  }
+  function hwLeniency() {
+    var m = HW_MODES.find(function (x) { return x.key === hwMode(); });
+    return (m || HW_MODES[0]).len;
+  }
   (function initSetPanel() {
     var panel = $('setPanel');
     function render() {
@@ -1922,6 +1939,21 @@
           state.chkMode = m.key;
           save(); render();
           setStatusToast('解析確認題：' + m.name);
+        });
+        panel.appendChild(b);
+      });
+      var h2 = document.createElement('div');
+      h2.className = 'set-title';
+      h2.textContent = '手寫辨識寬鬆度';
+      panel.appendChild(h2);
+      HW_MODES.forEach(function (m) {
+        var b = document.createElement('button');
+        b.className = 'theme-sw' + (hwMode() === m.key ? ' active' : '');
+        b.innerHTML = '<b>' + m.name + '</b><span class="set-sub">' + m.sub + '</span>';
+        b.addEventListener('click', function () {
+          state.hwMode = m.key;
+          save(); render();
+          setStatusToast('手寫辨識：' + m.name);
         });
         panel.appendChild(b);
       });
@@ -2439,7 +2471,7 @@
       charDataLoader: function (c, done) { done(data); }
     });
     hqWriter.quiz({
-      leniency: 1.4,
+      leniency: hwLeniency(),
       onComplete: function (sum) { hqDone(snap, q, sum.totalMistakes); }
     });
     hqStatus(snap.hwTried
@@ -3888,7 +3920,7 @@
       charDataLoader: function (c, done) { done(data); }
     });
     wqWriter.quiz({
-      leniency: 1.4,
+      leniency: hwLeniency(),
       onComplete: function (summary) { wqDone(it, summary.totalMistakes); }
     });
     wqStatus(wr.attempt === 1

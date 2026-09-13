@@ -40,6 +40,10 @@ function pickOrder(n, shift) {
   if (new Set(out).size !== n) throw new Error('pickOrder(' + n + ') 取出重複的順序');
   return out;
 }
+/* 同一種題型在一個單元裡會出現好幾題（選項每題都不同），
+   但題幹一字不差時看起來就像同一題重複貼了七次（2026-09-13 Tony：「有重複題目的問題」）。
+   這裡讓題幹輪流換說法，內容不變、讀起來不會像跳針。 */
+function phrase(list, n) { return list[n % list.length]; }
 /* 把各種題型交錯排好，不要「第一種題型的全部、再第二種的全部」。
    以前是後者，而每種題型的候選數＝該課的字數／成語數（18-34 個），
    取前 20 題時第二、三種題型根本輪不到 —— 單元五號稱「綜合」卻整份都是同一種題型，
@@ -212,12 +216,16 @@ function buildLesson(lessonNo, rec) {
           exp: '✅ 正確寫法是「' + it.w + '」。\n📚 其他選項是形近或同音字，寫進這個成語裡都不對：' + w.join('、') + '。' }; },
       (it, i) => { const p = nextPos(), w = others(i, [1, 2, 3]);
         const o = w.map(x => x.bad); o.splice(p, 0, it.s.replace(/□+/g, it.w) + '。');
-        return { qtype: '成語', q: '下列哪一句成語用得正確？', options: o, answer: p,
+        return { qtype: '成語', q: phrase(['下列哪一句成語用得正確？',
+          '下列四句話裡，哪一句的成語用對了？', '哪一個句子裡的成語沒有用錯？',
+          '下列哪一句話，成語用得恰當？'], seq), options: o, answer: p,
           exp: '✅ 「' + it.w + '」＝' + it.m + '，這一句用得正確。\n❌ 其他三句都用錯了：' +
             w.map(x => '「' + x.w + '」' + x.why).join('；') + '。' }; },
       (it, i) => { const p = nextPos(), w = others(i, [4, 6, 8]);
         const o = w.map(x => x.s.replace(/□+/g, x.w) + '。'); o.splice(p, 0, it.bad);
-        return { qtype: '成語', q: '下列哪一句成語用錯了？', options: o, answer: p,
+        return { qtype: '成語', q: phrase(['下列哪一句成語用錯了？',
+          '下列四句話裡，哪一句的成語用錯了？', '哪一個句子誤用了成語？',
+          '下列哪一句話，成語用得不恰當？'], seq), options: o, answer: p,
           exp: '❌ 「' + it.w + '」用錯了：' + it.why + '（' + it.w + '＝' + it.m + '）。\n' +
             '✅ 其他三句都用得正確。' }; }
     ]
