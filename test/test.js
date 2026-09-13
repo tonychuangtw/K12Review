@@ -318,7 +318,11 @@ console.log('總結測驗');
       });
     });
     ok(bad.length === 0,
-      `文言文逐句對照正確（已補 ${withOrig.length}／${wy.length} 篇，問題 ${bad.length}${bad.length ? '：' + bad.slice(0, 4).join('、') : ''}）`);
+      `文言文逐句對照正確（${withOrig.length}／${wy.length} 篇，問題 ${bad.length}${bad.length ? '：' + bad.slice(0, 4).join('、') : ''}）`);
+    // 2026-09-13 起 57 篇全部補齊，之後新增文言文一律要附逐句對照
+    const noOrig = wy.filter((r) => !(r.orig || []).length).map((r) => r.id);
+    ok(noOrig.length === 0,
+      `每一篇文言文都附了逐句對照（缺 ${noOrig.length}${noOrig.length ? '：' + noOrig.slice(0, 5).join('、') : ''}）`);
   }
   // 同種子決定性
   const r2 = PURE.composeReview([day1, day2], wrongPool, 20, 6, rng());
