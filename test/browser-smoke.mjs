@@ -1396,6 +1396,9 @@ async (js) => {
   await sleep(900);
   check('做題進得了依冊依課的畫面',
     await js(`!document.getElementById('view-custom').classList.contains('hidden')`));
+  check('冊的晶片列出全部 12 冊（含還沒載進來的）',
+    await js(`document.querySelectorAll('#customBooks .chip').length`) === 12,
+    await js(`document.getElementById('customBooks').textContent`));
   await js(`document.getElementById('customExit').click()`);
   await sleep(700);
   check('依課練習返回會回到匯入題庫大選單',
@@ -1952,6 +1955,52 @@ async (js) => {
   check('答完在格子裡顯示正解',
     await js(`(function(){ var p = document.getElementById('quizHwPanel');
       return !!p.querySelector('svg') || p.textContent.length === 1; })()`));
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
+/* ---------- 20. 匯入題庫按冊拆檔：只載選到的那一冊（2026-09-13 手機載不動的修正） ---------- */
+console.log('匯入題庫只載選到的那一冊');
+await session(8765, 9365, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 5, extra: [], grades: [5], onboarded: true, subject: 'chinese',
+  stats: {}, streak: { last: '', days: 0 }, leitner: {}, wrong: [], units: {} }));` },
+async (js) => {
+  check('冊／課索引隨頁面載好了', await js(`(window.APP_CUSTOM_INDEX || []).length`) === 12);
+  check('一開始完全沒載題庫本體', await js(`(window.APP_DATA.custom || []).length`) === 0,
+    'custom 題數=' + await js(`(window.APP_DATA.custom||[]).length`));
+  await js(`window.NavDebug.go('subject')`);
+  await sleep(400);
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('button'))
+    .filter(function(x){ return /匯入題庫/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  await sleep(600);
+  check('匯入題庫首頁不必載題庫就開得起來',
+    await js(`!document.getElementById('view-imphome').classList.contains('hidden')`) &&
+    await js(`(window.APP_DATA.custom || []).length`) === 0);
+  await js(`(function(){ var b=[].slice.call(document.querySelectorAll('#imphomeCards .card'))
+    .filter(function(x){ return /做題/.test(x.textContent); })[0]; if (b) b.click(); })()`);
+  for (let i = 0; i < 40; i++) {
+    await sleep(300);
+    if (await js(`!document.getElementById('view-custom').classList.contains('hidden')`)) break;
+  }
+  check('做題畫面開得起來',
+    await js(`!document.getElementById('view-custom').classList.contains('hidden')`));
+  const n = await js(`(window.APP_DATA.custom || []).length`);
+  check('只載了一冊，不是整包 38,390 題', n > 0 && n < 20000, 'custom 題數=' + n);
+  check('冊的晶片仍然列得出全部 12 冊',
+    await js(`document.querySelectorAll('#customBooks .chip').length`) === 12);
+  check('列得出該冊的課', await js(`document.getElementById('customList').textContent.length > 4`),
+    (await js(`document.getElementById('customList').textContent`)).slice(0, 60));
+  // 換一冊：那一冊才被載進來
+  const before = await js(`(window.APP_DATA.custom || []).length`);
+  await js(`(function(){ var bs=[].slice.call(document.querySelectorAll('#customBooks .chip'));
+    var b = bs.filter(function(x){ return !x.classList.contains('active'); })[0]; if (b) b.click(); })()`);
+  for (let i = 0; i < 40; i++) {
+    await sleep(300);
+    if ((await js(`(window.APP_DATA.custom || []).length`)) > before) break;
+  }
+  const after = await js(`(window.APP_DATA.custom || []).length`);
+  check('換冊會把那一冊補載進來', after > before, before + ' → ' + after);
+  check('換完仍然不是整包', after < 20000, 'custom 題數=' + after);
   check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
     await js(`(window.__errs || []).join(' | ')`));
 });

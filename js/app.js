@@ -1174,11 +1174,22 @@
   }
   // 國語的匯入題庫（js/data/custom.js，約 20MB）：2026-08-14 起是背景載入，
   // 2026-08-27 再改成「用得到才載」—— 開站就抓 20MB 對手機沒有任何好處。
+  /* 整包載（搜尋、錯題本這種要跨冊找題目的地方才需要）。
+     2026-09-13 起走分冊檔依序載，不再抓 24MB 的 js/data/custom.js
+     —— 那一支留在 repo 裡當編輯來源與測試基準，瀏覽器不會去要它。 */
   function ensureCustomBank(cb) {
     if (W.__customReady) { cb(null); return; }
-    // 解析確認題跟著它的題庫一起載（人工撰寫的，見 js/data/checks-custom.js）
-    loadScripts(['js/data/custom.js', 'js/data/checks-custom.js'], function (err) {
-      if (!err) W.__customReady = true;
+    var idx = customIndex();
+    var files = idx.length
+      ? idx.filter(function (x) { return !_customBookLoaded[x.book]; })
+           .map(function (x) { return 'js/data/custom/' + x.slug + '.js'; })
+      : ['js/data/custom.js'];
+    files.push('js/data/checks-custom.js');   // 解析確認題（人工撰寫）
+    loadScriptsSeq(files, function (err) {
+      if (!err) {
+        W.__customReady = true;
+        idx.forEach(function (x) { _customBookLoaded[x.book] = true; });
+      }
       cb(err);
     });
   }
@@ -1195,24 +1206,36 @@
     return key === 'chinese' ? 'js/data/custom.js' : 'js/data/' + key + '-custom.js';
   }
   function ensureImportBank(key, cb) {
+    if (key === 'chinese') { ensureCustomBank(cb); return; }   // 國語走分冊檔
     var cat = CUSTOM_CATS[key] || 'custom';
     if ((DATA[cat] || []).length) { cb(null); return; }
-    loadScript(importBankFile(key), function (err) {
-      if (!err && key === 'chinese') {
-        W.__customReady = true;
-        // 國語的解析確認題（5.9MB）：背景補，失敗就用自動生成的確認題頂著
-        loadScript('js/data/checks-custom.js', function () {});
-      }
+    loadScript(importBankFile(key), cb);
+  }
+  /* 國語匯入題庫按冊拆檔（2026-09-13）：24MB 一整包手機載不動，
+     改成「選到哪一冊才載哪一冊」（五上約 2.1MB）。
+     冊與課的清單來自 js/data/custom-index.js（6KB，隨頁面一起載），
+     所以即使一冊都還沒載，冊的晶片列也列得出來。 */
+  var _customBookLoaded = {};
+  function customIndex() { return W.APP_CUSTOM_INDEX || []; }
+  function customBookRec(book) {
+    return customIndex().find(function (x) { return x.book === book; }) || null;
+  }
+  function customBookReady(book) {
+    return !!_customBookLoaded[book] || W.__customReady;
+  }
+  function ensureCustomBook(book, cb) {
+    var rec = customBookRec(book);
+    if (!rec || customBookReady(book)) { cb(null); return; }
+    loadScript('js/data/custom/' + rec.slug + '.js', function (err) {
+      if (!err) _customBookLoaded[book] = true;
       cb(err);
     });
   }
   function ensureImportBanks(cb) {
     var files = IMPORT_BANK_FILES.map(function (k) { return 'js/data/' + k + '-custom.js'; });
-    files.push('js/data/custom.js');          // 國語的匯入題庫
-    files.push('js/data/checks-custom.js');   // 對應的解析確認題（人工撰寫）
     loadScriptsSeq(files, function (err) {
-      if (!err) W.__customReady = true;
-      cb(err);
+      if (err) { cb(err); return; }
+      ensureCustomBank(cb);                   // 國語走分冊檔（順便帶解析確認題）
     });
   }
   // 科目的原創題庫（每日練習／單元學習／依序刷題用）
@@ -5621,8 +5644,10 @@
       state.importSubj = first.key;
     }
     save();
-    // 只載這一科（國語 24MB、其他科幾百 KB～3MB），不要一次把 11 科全拉下來
+    // 只載這一科（其他科幾百 KB～3MB），不要一次把 11 科全拉下來。
+    // 國語例外：它按冊拆檔，交給 showCustom() 只載使用者選到的那一冊（2026-09-13）
     var subj = state.importSubj;
+    if (subj === 'chinese' && customIndex().length) { showCustom(); return; }
     if (!(DATA[CUSTOM_CATS[subj] || 'custom'] || []).length) {
       setStatusToast('📦 載入' + subjectOf(subj).name + '題庫…');
       ensureImportBank(subj, function (err) {
@@ -5638,12 +5663,28 @@
   function showCustom() {
     var cat = bankCat();
     if (cat === 'custom' && !W.__customReady) {
-      setStatusToast('📦 載入匯入題庫…');
-      ensureCustomBank(function (err) {
-        if (err) { setStatusToast('⚠️ 題庫載入失敗，請檢查網路後再試'); return; }
-        showCustom();
-      });
-      return;
+      var idx0 = customIndex();
+      if (idx0.length) {
+        // 按冊載入：先確定選了哪一冊，再只載那一冊
+        var s0 = curSel();
+        if (!s0.book || !idx0.some(function (x) { return x.book === s0.book; })) s0.book = idx0[0].book;
+        if (!customBookReady(s0.book)) {
+          setStatusToast('📦 載入' + s0.book + '題庫…');
+          ensureCustomBook(s0.book, function (err) {
+            if (err) { setStatusToast('⚠️ ' + s0.book + '題庫載入失敗，請檢查網路後再試'); return; }
+            setStatusToast('');
+            showCustom();
+          });
+          return;
+        }
+      } else {                       // 沒有索引（舊版快取）就退回原本的整包載
+        setStatusToast('📦 載入匯入題庫…');
+        ensureCustomBank(function (err) {
+          if (err) { setStatusToast('⚠️ 題庫載入失敗，請檢查網路後再試'); return; }
+          showCustom();
+        });
+        return;
+      }
     }
     var bank = DATA[cat] || [];
     var sel = curSel();
@@ -5677,7 +5718,10 @@
         '<small>把題本（Word／PDF）傳到 Telegram，轉檔後會自動分冊分課出現在這裡。</small></div>';
       return;
     }
-    var books = customBooks(bank);
+    // 冊清單：國語匯入題庫用索引（含還沒載進來的冊），其他科目照舊從題庫本身推
+    var books = (cat === 'custom' && customIndex().length && !W.__customReady)
+      ? customIndex().map(function (x) { return { book: x.book, lessons: x.lessons.map(function (l) { return l.lesson; }) }; })
+      : customBooks(bank);
     if (!sel.book || !books.some(function (b) { return b.book === sel.book; })) {
       sel.book = books[0].book;
     }
@@ -5687,7 +5731,7 @@
       var btn = document.createElement('button');
       btn.className = 'chip' + (sel.book === b.book ? ' active' : '');
       btn.textContent = b.book;
-      btn.addEventListener('click', function () { sel.book = b.book; showCustom(); });
+      btn.addEventListener('click', function () { sel.book = b.book; save(); showCustom(); });
       row.appendChild(btn);
     });
     // 難易度篩選（可複選；「全部難度」清空選取）

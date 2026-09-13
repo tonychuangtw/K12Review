@@ -214,3 +214,20 @@ python3 tools/sync-bank-to-jsonl.py <科目> --write    # 寫回 jsonl
 
 低階模型遇到本文件沒涵蓋的狀況（測試紅燈修不掉、發現規格衝突、
 題目答案拿不準）：**停下來，把現況寫進 PROGRESS.md 並回報 Tony**，不要即興處理。
+
+## ⚠️ 國語匯入題庫已按冊拆檔（2026-09-13）
+
+`js/data/custom.js` 仍然是**編輯來源與測試基準**，但瀏覽器不再抓它
+（24MB 一整包手機載不動，Tony 2026-09-13 回報「電腦可進手機不行」）。
+實際送到使用者手上的是：
+
+- `js/data/custom-index.js`　冊→課的清單與題數（6KB，隨頁面一起載）
+- `js/data/custom/<slug>.js`　一冊一支，選到哪一冊才載哪一冊（五上約 2.1MB）
+
+**所以改完 `js/data/custom.js` 之後一定要跑：**
+
+```bash
+node tools/split-custom.js     # 重新拆檔＋重建索引
+node test/test.js              # 會比對「索引題數 vs custom.js 題數」，忘了拆就會擋下來
+```
+

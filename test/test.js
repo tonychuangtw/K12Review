@@ -1077,6 +1077,37 @@ console.log('歷屆學測');
   console.log(`  · 共 ${T.length} 堂、${T.reduce((n, t) => n + (t.qs || []).length, 0)} 題`);
 }
 
+/* ---------- 國語匯入題庫的分冊檔（tools/split-custom.js）----------
+   2026-09-13：24MB 一整包手機載不動，改成按冊拆檔、選到才載。
+   這裡守的是「索引跟實際檔案對得起來」——對不上的話使用者會看到冊卻點不進去。 */
+{
+  console.log('\n【匯入題庫分冊檔】');
+  const idxFile = path.join(root, 'js/data/custom-index.js');
+  ok(fs.existsSync(idxFile), '有 js/data/custom-index.js');
+  if (fs.existsSync(idxFile)) {
+    eval(fs.readFileSync(idxFile, 'utf8'));
+    const IDX = window.APP_CUSTOM_INDEX || [];
+    ok(IDX.length > 0, `索引列出 ${IDX.length} 冊`);
+    const bad = [];
+    let nIdx = 0;
+    IDX.forEach((b) => {
+      nIdx += b.n;
+      const f = path.join(root, 'js/data/custom', b.slug + '.js');
+      if (!fs.existsSync(f)) return bad.push(b.book + ' 的檔案不存在（' + b.slug + '.js）');
+      const W2 = { APP_DATA: {} };
+      (new Function('window', fs.readFileSync(f, 'utf8')))(W2);
+      const got = (W2.APP_DATA.custom || []).length;
+      if (got !== b.n) bad.push(b.book + ' 題數對不上（索引 ' + b.n + '、實檔 ' + got + '）');
+      const books = new Set((W2.APP_DATA.custom || []).map((q) => q.book || '未分類'));
+      if (books.size !== 1 || !books.has(b.book)) bad.push(b.book + ' 的檔案裡混到別冊的題');
+      const lessonN = b.lessons.reduce((n, l) => n + l.n, 0);
+      if (lessonN !== b.n) bad.push(b.book + ' 課的題數加起來對不上冊的題數');
+    });
+    ok(bad.length === 0, `每一冊的檔案與索引一致（問題 ${bad.length}${bad.length ? '：' + bad.slice(0, 3).join('；') : ''}）`);
+    ok(nIdx === D.custom.length, `分冊題數合計等於 custom.js（索引 ${nIdx}／整包 ${D.custom.length}）`);
+  }
+}
+
 /* ---------- 康軒版單元式練習（js/data/edu-*.js，2026-09-12 Tony 交辦）----------
    規格：一課 5 個單元、一單元 20 題，每個單元都要有「重點整理」才能開始練習。
    這裡擋的是最容易在批次產生時壞掉、但畫面上不一定看得出來的事：
