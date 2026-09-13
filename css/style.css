@@ -1086,5 +1086,15 @@ body.anim-lock { overflow: hidden; }
 .lesson-h { text-align: left; font-size: 1.15rem; margin: 0 0 0.4rem; }
 .lesson-p { text-align: left; line-height: 1.8; margin: 0 0 0.5rem; }
 .lesson-tip { text-align: left; color: var(--dim); line-height: 1.7; margin: 0.6rem 0 0; }
-.wi-main { font-weight: 600; margin-bottom: 0.2rem; }
+/* 康軒版的課次／單元列表：用 <button class="wrong-item"> 做的，
+   按鈕不會繼承 body 的文字顏色，不指定就會變成瀏覽器預設的深色，
+   在深色底上幾乎看不見（2026-09-13 Tony：「標題顏色看不清楚」）。
+   游標也要變手，否則不知道能不能點（同日回報）。 */
+button.wrong-item {
+  display: block; width: 100%; text-align: left;
+  color: var(--text); font: inherit; cursor: pointer;
+}
+button.wrong-item:hover { border-color: var(--accent); }
+button.wrong-item:active { transform: scale(0.995); }
+.wi-main { font-weight: 600; margin-bottom: 0.2rem; color: var(--text); }
 .wi-sub { color: var(--dim); font-size: 0.9rem; }

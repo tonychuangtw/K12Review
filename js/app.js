@@ -1141,12 +1141,22 @@
      匯入題庫本來一次平行載 35MB（國語 24MB＋確認題 5.9MB＋各科 4.7MB），
      桌機吃得下，手機瀏覽器直接放棄。同時要載好幾個大檔時一律走這支。 */
   function loadScriptsSeq(list, cb) {
-    var i = 0;
-    (function next(err) {
-      if (err) { if (cb) cb(err); return; }
-      if (i >= list.length) { if (cb) cb(null); return; }
-      loadScript(list[i++], next);
-    })(null);
+    // 完全一個一個等，在桌機／快網路上反而比以前慢（每個檔都要多一次來回）。
+    // 開 3 條同時跑：手機的尖峰記憶體還是壓得住，桌機也不會變慢
+    //（2026-09-13 Tony：「現在載入感覺比以前更久，我電腦按去載入都超久」）。
+    var LIMIT = 3, i = 0, running = 0, failed = null, done = false;
+    if (!list.length) { if (cb) cb(null); return; }
+    function finish(err) {
+      if (err) failed = err;
+      running--;
+      pump();
+    }
+    function pump() {
+      if (done) return;
+      while (running < LIMIT && i < list.length) { running++; loadScript(list[i++], finish); }
+      if (running === 0 && i >= list.length) { done = true; if (cb) cb(failed); }
+    }
+    pump();
   }
   // 單元學習的概念卡：只有進到某一科的單元頁才需要
   function ensureLessons(cb) {

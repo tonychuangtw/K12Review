@@ -1824,6 +1824,20 @@ async (js) => {
   check('課次列表看得到第1課與課名',
     /第1課/.test(await js(`document.getElementById('eduLessonList').textContent`)) &&
     /蚊帳大使/.test(await js(`document.getElementById('eduLessonList').textContent`)));
+  // 2026-09-13 Tony：「標題顏色看不清楚」「移到那課上面不會出現手的形狀」
+  check('課次卡的文字顏色看得清楚、游標會變手', await js(`(function(){
+    var b = document.querySelector('#eduLessonList .wrong-item');
+    if (!b) return false;
+    var cs = getComputedStyle(b);
+    var main = b.querySelector('.wi-main');
+    var mc = main ? getComputedStyle(main).color : cs.color;
+    function lum(c){ var n = String(c).split('(')[1]; if (!n) return 0;
+      var p = n.split(')')[0].split(',').map(Number);
+      return (0.299*p[0] + 0.587*p[1] + 0.114*p[2]) / 255; }
+    return cs.cursor === 'pointer' && lum(mc) > 0.6;
+  })()`), await js(`(function(){var b=document.querySelector('#eduLessonList .wrong-item');
+    var m=b&&b.querySelector('.wi-main');
+    return b ? getComputedStyle(b).cursor + ' / ' + (m?getComputedStyle(m).color:'?') : 'no-item';})()`));
   await js(`document.querySelector('#eduLessonList .wrong-item').click()`);
   await sleep(700);
   check('一課有 5 個單元',
