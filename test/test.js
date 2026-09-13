@@ -300,7 +300,7 @@ console.log('總結測驗');
     withOrig.forEach((r) => {
       const body = strip(String(r.passage).replace(/（\s*註[：:][^）]*）/g, '').split(/\n\s*註[：:]/)[0]
         .replace(/（[^）]*[〈《][^）]*）/g, '')
-        .replace(/[—─-]{2,}\s*[〈《][^〉》]*[〉》]\s*$/, ''));
+        .replace(/[—─-]{2,}[^\n]{0,30}[〈《][^\n]{0,30}$/, ''));
       let covered = 0;
       r.orig.forEach((o, i) => {
         if (!o.c || !o.v) return bad.push(r.id + ' 第 ' + (i + 1) + ' 句缺原文或語譯');

@@ -35,7 +35,7 @@ Object.keys(add).forEach((id) => {
     .replace(/（\s*註[：:][^）]*）/g, '')          // 寫在括號裡的註解
     .split(/\n\s*註[：:]/)[0]
     .replace(/（[^）]*[〈《][^）]*）/g, '')
-    .replace(/[—─-]{2,}\s*[〈《][^〉》]*[〉》]\s*$/, '');   // 句末的「——《世說新語・德行》」這種出處
+    .replace(/[—─-]{2,}[^\n]{0,30}[〈《][^\n]{0,30}$/, '');   // 句末的「——《世說新語・德行》」這種出處
   const flat = strip(bodyOnly);
   rows.forEach((o, i) => {
     if (!o.c || !o.v) return bad.push(id + ' 第 ' + (i + 1) + ' 句缺原文或語譯');
