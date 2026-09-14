@@ -146,6 +146,15 @@
     if (!p || !p.blob) return true;
     freezeLocalWrites();
     try {
+      // 先刪掉「本機有、雲端沒有」的 key：只做 setItem 的話，在別台清掉的紀錄
+      // 會被這台的殘留資料在下一次 push 整包推回去復活（2026-09-14 gemini 體檢）
+      var stale = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var k0 = localStorage.key(i);
+        if (k0 && k0.indexOf(PREFIX) === 0 && k0 !== SYNC_TS_KEY &&
+          !Object.prototype.hasOwnProperty.call(p.blob, k0)) stale.push(k0);
+      }
+      stale.forEach(function (k0) { localStorage.removeItem(k0); });
       Object.keys(p.blob).forEach(function (k) {
         if (k.indexOf(PREFIX) === 0) localStorage.setItem(k, p.blob[k]);
       });
@@ -268,13 +277,21 @@
       // 這時候硬推整包等於盲蓋（2026-08-27 codex 體檢）—— 直接放棄這一輪，下一輪再試。
       if (gerr) { if (done) done(gerr); return; }
       if (gres && (gres.updatedAt || 0) > syncTs() && sameAsLocal(gres.blob)) {
-        setSyncTs(gres.updatedAt);           // 內容相同（多半是上一次 PUT 的回應沒收到），不必重載
-      } else if (gres && (gres.updatedAt || 0) > syncTs()) {
+        // 內容相同（多半是上一次 PUT 的回應沒收到）：對齊版本就好，不必重載，也不必再推一次
+        setSyncTs(gres.updatedAt);
+        lastPushedHash = h;
+        if (done) done(null, false);
+        return;
+      }
+      if (gres && (gres.updatedAt || 0) > syncTs()) {
         if (gres.blob) {
           stashBlob(gres.blob, gres.updatedAt);
           safeReload();
           return;
         }
+        // 雲端比較新但沒有回 blob：硬推只會被 409 擋下來，而 409 也沒有 blob 可套用 → 這一輪收手
+        if (done) done(null, false);
+        return;
       }
       // 條件更新：把「我看到的雲端版本」一起送上去，後端比對不符就回 409（不會蓋掉別台的新資料）。
       // 兩台同時按下送出時，GET 的檢查會有時間差，這一層才是真正的保險。

@@ -1311,6 +1311,29 @@ console.log('歷屆學測');
 /* ---------- 雲端同步不可以把「做到一半」的畫面重載掉 ----------
    2026-09-04 Tony：「吳敏男複習做到一半會閃退」＝ sync.js 在 view-read 進行中
    還是呼叫了 location.reload()，記憶體裡的進度全沒。這一段守門，避免以後新增畫面又漏掉。 */
+/* 同一層不可以有兩個同名的 function 宣告：後面那個會整個蓋掉前面那個，而且完全沒有錯誤訊息。
+   2026-08-29 加課文帶讀時就這樣把首頁的「📖 閱讀測驗」打死了（兩個 startReading），
+   直到 2026-09-14 的體檢才發現——閱讀是 Tony 排第一的功能，卻整整壞了半個月沒人知道。 */
+{
+  console.log('\n【沒有同名的函式互相蓋掉】');
+  ['js/app.js', 'js/sync.js', 'js/widgets.js', 'js/chk-gen.js'].forEach((rel) => {
+    const file = path.join(root, rel);
+    if (!fs.existsSync(file)) return;
+    const src = fs.readFileSync(file, 'utf8');
+    const seen = new Map();
+    const dups = [];
+    src.split('\n').forEach((line, i) => {
+      // 只看 IIFE 最外層（剛好 2 個空白縮排）的 function 宣告：
+      // 更內層的同名函式各自有自己的作用域，不會互相覆蓋（widgets.js 裡幾百個 paint 就是這樣）
+      const m = /^  function ([A-Za-z0-9_$]+)\s*\(/.exec(line);
+      if (!m) return;
+      if (seen.has(m[1])) dups.push(`${m[1]}（第 ${seen.get(m[1])} 行與第 ${i + 1} 行）`);
+      else seen.set(m[1], i + 1);
+    });
+    ok(dups.length === 0, `${rel} 沒有同名函式互相覆蓋${dups.length ? '：' + dups.join('、') : ''}`);
+  });
+}
+
 {
   console.log('\n【同步不可中斷進行中的畫面】');
   const syncSrc = fs.readFileSync(path.join(root, 'js/sync.js'), 'utf8');

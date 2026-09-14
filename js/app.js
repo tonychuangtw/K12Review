@@ -1458,12 +1458,24 @@
     //（只載了五上，其他冊的錯題照樣查不到題目）——所以另外判斷（2026-09-14 codex 體檢）
     var wantCh = (cats || []).indexOf('custom') >= 0 && !W.__customReady;
     if (wantCh && imp.indexOf('chinese') < 0) imp.push('chinese');
-    if (!need.length && !imp.length) { cb(null, false); return; }
+    // 康軒版教材（DATA.eduKx）也是用到才載：錯題本裡有康軒版的錯題時要補載，
+    // 否則 findItem 找不到題目，清單整片空白、上面卻寫「共 N 題」（2026-09-14 gemini 體檢）
+    var wantEdu = (cats || []).indexOf('eduKx') >= 0 && !eduReady();
+    if (!need.length && !imp.length && !wantEdu) { cb(null, false); return; }
     var files = need.reduce(function (acc, c) { return acc.concat(bankFilesFor(c)); }, [])
       .concat(imp.filter(function (k) { return k !== 'chinese'; }).map(importBankFile));
     loadScriptsSeq(files, function (err) {
       need.forEach(function (c) { delete _subjGrades[c]; });
-      if (!wantCh || err) { cb(err, !!files.length); return; }
+      if (err) { cb(err, !!files.length); return; }
+      if (wantEdu) {
+        ensureEduAll(function (e3) {
+          if (e3 || !wantCh) { cb(e3, true); return; }
+          if (customIds) { ensureCustomBooksForIds(customIds, function (e4) { cb(e4, true); }); return; }
+          ensureCustomBank(function (e4) { cb(e4, true); });
+        });
+        return;
+      }
+      if (!wantCh) { cb(null, !!files.length); return; }
       // 有指定錯題 id 就只載那幾冊，沒指定（進度分析／搜尋）才整套載
       if (customIds) {
         ensureCustomBooksForIds(customIds, function (e2) { cb(e2, true); });
@@ -2296,8 +2308,11 @@
   // 測試用小掛鉤（test/browser-smoke.mjs 需要知道現在考的是哪一題）
   W.QuizDebug = {
     id: function () { return (quiz && quiz.cur) ? quiz.cur.item.id : null; },
+    cat: function () { return quiz ? quiz.cat : null; },
     unlock: function () { clearGate(); }   // 測試用：跳過解析鎖倒數
   };
+  // 測試用：直接打開某一種範圍的錯題本（'all'／'import'／'edu'）
+  W.WbDebug = { open: function (scope) { wb.scope = scope || 'all'; showWrongbook(); } };
 
   function beginQuiz(entries, mode, cat) {
     // 出過就記下來，之後的練習盡量不重複（2026-08-28 Tony 要求）。
@@ -6014,7 +6029,6 @@
   // 題庫型類別＝{q, options, answer, exp} 這種 schema（各科原創題庫與各科自創題庫都是）
   function isBankCat(cat) { return cat === 'custom' || /Custom$/.test(cat || '') || cat === 'eduKx' || SUBJECT_CATS.indexOf(cat) >= 0; }
   // 只認「匯入題庫」（家長匯入的題本），不含各科自編的原創題庫
-  function isImportCat(cat) { return cat === 'custom' || /Custom$/.test(cat || ''); }
   function importSubjOfCat(cat) {
     var out = null;
     Object.keys(CUSTOM_CATS).forEach(function (k) { if (CUSTOM_CATS[k] === cat) out = k; });
@@ -6421,7 +6435,11 @@
     return true;
   }
 
-  function startReading(grade, unitIdx, items, text, deck) {
+  /* ⚠️ 名字不可以叫 startReading：那是首頁「📖 閱讀測驗」的入口（本檔約 2242 行）。
+     同一層有兩個同名 function 宣告時，後面這個會整個蓋掉前面那個 —— 2026-08-29 加課文帶讀時
+     就這樣把閱讀測驗打死了：首頁點閱讀測驗會用無參數呼叫到這裡，text 是 undefined，
+     renderReadSeg 讀 R.text.segs 直接 TypeError（2026-09-14 gemini 體檢查出來）。 */
+  function startTextRead(grade, unitIdx, items, text, deck) {
     readState = { grade: grade, unitIdx: unitIdx, items: items, text: text, deck: deck,
       i: 0, ok: {}, speaking: false };
     show('read');
@@ -6731,7 +6749,7 @@
     var deck = conceptDeck(items && items.name);
     var text = textDeck(items && items.name);
     // 有課文的單元：課文帶讀 → 概念卡 → 單元測驗（2026-08-29 Tony 指定的流程）
-    if (text && text.segs && text.segs.length) { startReading(grade, unitIdx, items, text, deck); return; }
+    if (text && text.segs && text.segs.length) { startTextRead(grade, unitIdx, items, text, deck); return; }
     if (deck && deck.cards && deck.cards.length) { startConcept(grade, unitIdx, items, deck); return; }
     lessonState = { grade: grade, unitIdx: unitIdx, items: items, i: 0 };
     show('lesson');
@@ -7471,6 +7489,20 @@
       (u.qs || []).forEach(function (q) { q._unit = u.id; out.push(q); });
     });
     DATA.eduKx = out;
+  }
+  /* 錯題本／進度分析要用到康軒版的題目，但那裡沒有「目前在哪一科哪一版」的脈絡，
+     所以直接把所有版本的教材檔載齊（2026-09-14 gemini 體檢）。 */
+  function ensureEduAll(cb) {
+    if (eduReady()) { cb(null); return; }
+    var srcs = [];
+    Object.keys(EDITIONS).forEach(function (k) {
+      EDITIONS[k].forEach(function (e) { if (e.src && srcs.indexOf(e.src) < 0) srcs.push(e.src); });
+    });
+    if (!srcs.length) { cb(null); return; }
+    loadScriptsSeq(srcs, function (err) {
+      if (!err) eduFlatten();
+      cb(err);
+    });
   }
   function ensureEdu(rec, cb) {
     if (eduReady()) { cb(null); return; }

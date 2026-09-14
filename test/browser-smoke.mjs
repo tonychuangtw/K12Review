@@ -2115,5 +2115,39 @@ async (js) => {
     await js(`(window.__errs || []).join(' | ')`));
 });
 
+/* ---------- 23. 首頁「📖 閱讀測驗」真的打得開（2026-09-14 體檢：被同名函式蓋掉，壞了半個月） ---------- */
+console.log('首頁閱讀測驗與康軒版錯題本');
+await session(9366, 9966, { blockWriter: true, seed: `localStorage.setItem('chinese-review-v1', JSON.stringify({
+  phon: 'zhuyin', grade: 7, extra: [1,2,3,4,5,6], grades: [1,2,3,4,5,6,7], onboarded: true, subject: 'chinese',
+  stats: {}, streak: { last: '', days: 0 }, leitner: {},
+  wrong: [{ t: 'eduKx', id: 'kx5a-i01u1q03', n: 1, ok: 0, added: Date.now(), due: '2020-01-01' }],
+  units: {} }));` },
+async (js) => {
+  await js(`window.NavDebug.go('home')`);
+  await sleep(500);
+  await js(`(function(){ var c=[].slice.call(document.querySelectorAll('#view-home .card'))
+    .filter(function(x){ return x.getAttribute('data-go') === 'reading'; })[0]; if (c) c.click(); })()`);
+  await sleep(900);
+  check('點首頁的閱讀測驗會進到作答畫面',
+    await js(`!document.getElementById('view-quiz').classList.contains('hidden')`),
+    '目前顯示的畫面＝' + await js(`(document.querySelector('.view:not(.hidden)')||{}).id`));
+  check('出的是閱讀題', await js(`window.QuizDebug.cat() === 'reading'`), await js(`window.QuizDebug.cat()`));
+  check('看得到文章本文', (await js(`document.getElementById('quizPassage').textContent`)).length > 30);
+  check('閱讀測驗沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+
+  // 康軒版錯題：教材是動態載入的，錯題本要自己把它補上，否則清單會整片空白
+  await js(`window.NavDebug.go('home')`);
+  await sleep(300);
+  await js(`window.WbDebug ? window.WbDebug.open('edu') : (function(){})()`);
+  await sleep(1200);
+  const shown = await js(`document.querySelectorAll('#wrongList .wrong-item').length`);
+  check('康軒版錯題本列得出題目（不是空白）', shown > 0, '列出 ' + shown + ' 題');
+  check('康軒版教材有被補載進來', await js(`(window.APP_DATA.eduKx || []).length > 0`),
+    '題數＝' + await js(`(window.APP_DATA.eduKx || []).length`));
+  check('這一段流程沒有未捕捉的 JS 錯誤', (await js(`(window.__errs || []).join(' | ')`)) === '',
+    await js(`(window.__errs || []).join(' | ')`));
+});
+
 console.log(fails.length ? `\n${fails.length} 項失敗：` + fails.join('、') : '\n瀏覽器 smoke test 全部通過');
 process.exit(fails.length ? 1 : 0);

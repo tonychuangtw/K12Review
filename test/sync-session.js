@@ -233,6 +233,36 @@ console.log('\n同步不會把進度弄不見（2026-09-14 codex 體檢後補）
 }
 
 {
+  // 別台按「清除」之後，這台套用雲端資料時要把本機多出來的 key 刪掉，
+  // 否則下一次 push 會把殘留紀錄整包推回雲端，剛清掉的東西整個復活
+  const { CS, localStorage, reloads } = signedInEnv({
+    route: () => ({ status: 200, body: { updatedAt: 2000, blob: { 'chinese-review-v1': JSON.stringify({ score: 'cloud' }) } } }),
+  });
+  localStorage.setItem('chinese-review-daily', '{"2026-09-14":"做過"}');
+  CS._test.pull(() => {});
+  CS._test.safeReload();
+  ok(localStorage.getItem('chinese-review-daily') === null, '雲端沒有的 key 會被刪掉（不會變成幽靈資料）');
+  ok(localStorage.getItem('chinese-review.sync_ts') === '2000', '同步時間戳不會被誤刪');
+  ok(reloads.length === 1, '刪完照樣重載');
+}
+
+{
+  // 雲端版本較新、但內容跟本機一樣（多半是上一次 PUT 的回應沒收到）：對齊版本就好，不要再 PUT 一次
+  const seen = [];
+  const { CS } = signedInEnv({
+    route: (m) => {
+      seen.push(m);
+      return m === 'GET'
+        ? { status: 200, body: { updatedAt: 5000, blob: { 'chinese-review-v1': JSON.stringify({ score: 'local' }) } } }
+        : { status: 200, body: { updatedAt: 6000 } };
+    },
+  });
+  CS._test.push(() => {});
+  ok(seen.filter((m) => m === 'PUT').length === 0, '內容一樣就不重複 PUT');
+  ok(CS._test.syncTs() === 5000, '但版本有對齊，下一輪不會又被判成落後');
+}
+
+{
   // save() 的煞車：套用雲端資料前會把 window.SYNC_FROZEN 打開，app.js 看到就不回寫
   const src = fs.readFileSync(SYNC_JS, 'utf8');
   ok(/SYNC_FROZEN\s*=\s*true/.test(src), 'sync.js 會在套用雲端資料前凍結本機回寫');
