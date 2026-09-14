@@ -4,11 +4,23 @@
 
 STATUS: in-progress
 OBJECTIVE: 把 K12Review 的中文閱讀題庫擴到兩倍（334 篇 → 668 篇、約 2,500 題），Tony 2026-09-14 16:50 交代「中文閱讀再繼續擴，目標擴兩倍量」
-NEXT_ACTION: 觀察 LanExamMock v48 是否真的解決（Tony 女兒 CPE：8 題錯 3 題但錯題本只多 1 題）。等她的裝置載到新版後，確認：(1) 今天在本機的作答有被推上雲端（後端查 cpe.worklog／daily_run 的今日筆數變多）；(2) 之後做每日任務答錯的題目會出現在錯題本。若仍不對，往「她的裝置是否還停在舊版快取」與「是否有第二個分頁在同步」兩個方向查。
+NEXT_ACTION: 等 Tony 的女兒與兒子的裝置載到新版（LanExamMock v48＋?v=20260914e、K12Review v137、MathReviewWu v13）之後回查一次後端：cpe.worklog／cpe.daily_run 今日筆數要跟著她實際做的題數增加，且每日任務答錯的題目要出現在 cpe.mistake_book（今天 20:29 那一題答錯時 mistake_book 完全沒動，正是舊版的行為）。都對就把 STATUS 改成 done。
 VALIDATION: 每輪跑 node test/test.js（含閱讀答案位置分散、國語題數與清單一致）；改完 reading.js 一定要跑 node tools/gen-counts.js；push 前 python3 tools/stamp-version.py
 BLOCKERS: 無。
 PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
-UPDATED: 2026-09-14 21:20 台北
+UPDATED: 2026-09-14 21:25 台北
+<!-- 2026-09-14 21:25 台北 三站同步語意統一（v48 那批的移植，全部已上線）
+     ・K12Review v137：push() 不再因 pendingBlob 停止上傳；applyNow() 套用前重抓雲端；
+       localHasUnpushed() 先看記憶體 lastPushedHash、再看 sync.pushedhash.chinese、
+       都沒有才用 sync_ts 判斷「新裝置第一次登入」（沒同步過就讓雲端進來，避免擋掉第一次下載）。
+       test/sync-session.js 的 409 情境改成「重抓時才看到雲端新版本」。
+     ・LanExamMock：補同一條 pushedhash 規則（lastPushedHash 只活在記憶體，重整後會誤判成有未上傳）。
+     ・MathReviewWu v13：原本連 baseUpdatedAt 條件更新與推送前的 GET 檢查都沒有，
+       全部補上；push 不再被 pendingBlob 擋住。三站測試全綠、快取戳已更新。
+     ⚠️ 女兒今天的 CPE：後端 progress_history 顯示 9/1 之後一直到今天 20:28 才有上傳，
+        20:29 那一題答錯、wrong_log 有長、mistake_book 沒動 —— 她那時仍在舊版（v48 是 21:04 才 commit）。
+        先前那 8 題的紀錄在雲端查無，判定為 v47 那段「延後套用寫回舊快照」吃掉的，已無法還原。 -->
+
 <!-- 2026-09-14 10:25 台北 Tony：「叫codex檢查一下我們這裡幾個案子」
      ⟹ 派 runner 上的 codex 對四個案子各做一次健檢（唯讀、只交分析）。K12Review 7 項、LanExamMock 7 項，
         逐項查證後全部屬實，已修完上線：
