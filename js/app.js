@@ -306,7 +306,15 @@
   function buildEvidenceQ(item, qi, rand) {
     var ev = evidenceOf(item, qi);
     if (!ev) return null;
-    var pool = passageSentences(item).filter(function (s) { return s !== ev; });
+    // ⚠️ 先去重再挑誘答：有些文章（尤其文言文）會刻意重複同一句，
+    // 例如〈塞翁失馬〉的「人皆弔之，其父曰：此何遽不為福乎？」出現兩次，
+    // 不去重就會抽到兩個一模一樣的選項（2026-09-14 test.js 抓到）。
+    var seen = {};
+    var pool = passageSentences(item).filter(function (s) {
+      if (s === ev || seen[s]) return false;
+      seen[s] = 1;
+      return true;
+    });
     if (pool.length < 3) return null;
     var r = rand || Math.random;
     var pick = [];
