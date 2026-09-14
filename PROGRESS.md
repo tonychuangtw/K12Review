@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 codex／gemini 的全站體檢結果，把本線四個案子（K12Review／LanExamMock／CamReview／MathReviewWu）會弄丟資料或會出事的問題修完
-NEXT_ACTION: 等 codex 額度恢復（台北 12:28）後跑 MathReviewWu 與 CamReview 的體檢 —— 已排好背景腳本 scratchpad/codex/run-late.sh（到點自動跑，結果寫 codex-<案子>.md），若 session 被重開就手動重跑：ssh runner 用 codex exec 對 ~/TelegramClaude/review-mathreview 與 review-CamReview 各跑一次（提示詞在該腳本裡）。報告出來後逐項查證再修。Tony 2026-09-14 10:17「等codex」＝ MathReviewWu 不採用 gemini 的那份（已存 scratchpad/codex/MathReviewWu.md，僅供對照）。
+NEXT_ACTION: 等 codex 額度恢復（台北 12:28）跑 MathReviewWu 與 CamReview 複驗 —— 背景腳本 scratchpad/codex/run-late.sh 會自動跑，結果寫成 codex-<案子>.md；session 若被重開就手動重跑（提示詞在腳本裡）。gemini 巡過的 K12Review／LanExamMock／CamReview 三批都已修完上線。
 VALIDATION: K12Review：node test/test.js／test/zy-check.js／test/sync-session.js／test/browser-smoke.mjs 全過；LanExamMock：node test/test.js（122,351 項）；後端：node test/cam-test.js（89 項）＋test/progress-cas-test.js（8 項），改完 sudo systemctl restart lanexammock-backend.service 並確認 /api/health
 BLOCKERS: codex 額度 2026-09-14 台北 10:06 用完，12:28 恢復。
 PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
-UPDATED: 2026-09-14 10:20 台北
+UPDATED: 2026-09-14 11:10 台北
 <!-- 2026-09-14 10:25 台北 Tony：「叫codex檢查一下我們這裡幾個案子」
      ⟹ 派 runner 上的 codex 對四個案子各做一次健檢（唯讀、只交分析）。K12Review 7 項、LanExamMock 7 項，
         逐項查證後全部屬實，已修完上線：
@@ -27,6 +27,21 @@ UPDATED: 2026-09-14 10:20 台北
           /api/progress body 上限 512KB→4MB（60 天逐題紀錄實測就 526KB）。cam-test 的兩條期望值一併更新
           （被刪學生現在是 401 而不只有 /me 的 404）。
      ⏭ CamReview 與 MathReviewWu：codex 撞到額度上限，改由 agy（gemini，$0）跑，報告出來再照同樣標準查證。 -->
+<!-- 2026-09-14 11:10 台北 gemini 巡 K12Review 與 LanExamMock（Tony：「叫gemini也巡一輪」）：
+     ・K12Review v134（commit 951399a5）最重要的一項：**首頁「📖 閱讀測驗」從 2026-08-29 起就是壞的** ——
+       37230d57 加課文帶讀時，新函式也叫 startReading，把 2242 行那個無參數版本整個蓋掉；
+       首頁點下去會進到課文帶讀版、text 是 undefined → renderReadSeg 讀 R.text.segs 直接 TypeError。
+       修法：課文帶讀版改名 startTextRead；test.js 新增「同一層不可以有同名函式」守門（只看 2 空白縮排，
+       widgets.js 那幾百個巢狀 paint 不會誤判，已驗證改回舊名會被抓）；browser-smoke 第 23 節真的去點那張卡。
+       同批：ensureBanksForCats 補 eduKx（康軒版錯題本空白）、commitPending 刪掉雲端已無的 key（幽靈資料復活）、
+       push 在「內容相同」與「雲端無 blob」兩種情形收手。
+     ・LanExamMock v45（commit 7a66295）：單字練習 due===0 但 queue 還有卡時被鎖死、type-it 送出後
+       input disabled 導致 Enter 失效、pgClearNow 沒清 vbSess、commitPending 幽靈資料、push 同上兩點。
+     ・後端（claude-shared 90d94f7）：grade-writing 的 todo 只判 !feedback[i]，批改失敗寫進 {error} 後
+       永久卡住（今天剛加的每日額度 429 會踩到）→ 改成只跳過有 ai／teacher 的題，額度錯誤直接回 429；
+       auth.js 寫 session secret 前補 mkdir。
+     ・判定誤判 1 項：sess token 的 base64url 沒補 padding —— HTML 規格的 forgiving-base64 只有
+       長度 %4==1 才失敗，正常 base64url 不會發生。 -->
 <!-- 2026-09-14 10:20 台北 CamReview 一輪（gemini 代跑的體檢，Tony 稍後說「等codex」，
      但這批已逐項查證屬實且改到一半，做完才停）：
      前端 v7（commit 4d0dceb）＋後端（claude-shared 40c6ca7）共六項：
