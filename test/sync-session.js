@@ -233,17 +233,47 @@ console.log('\n同步不會把進度弄不見（2026-09-14 codex 體檢後補）
 }
 
 {
-  // 別台按「清除」之後，這台套用雲端資料時要把本機多出來的 key 刪掉，
-  // 否則下一次 push 會把殘留紀錄整包推回雲端，剛清掉的東西整個復活
+  // 別台按「清除」之後，這台套用雲端資料時要把「別台確實刪掉」的項目一併刪掉，
+  // 否則下一次 push 會把殘留紀錄推回雲端，剛清掉的東西整個復活。
+  // 判斷依據是「上次成功上傳時伺服器有這一項」——存在 sync.pushed.chinese。
   const { CS, localStorage, reloads } = signedInEnv({
     route: () => ({ status: 200, body: { updatedAt: 2000, blob: { 'chinese-review-v1': JSON.stringify({ score: 'cloud' }) } } }),
   });
   localStorage.setItem('chinese-review-daily', '{"2026-09-14":"做過"}');
+  localStorage.setItem('sync.pushed.chinese', JSON.stringify(['chinese-review-v1', 'chinese-review-daily']));
   CS._test.pull(() => {});
   CS._test.safeReload();
-  ok(localStorage.getItem('chinese-review-daily') === null, '雲端沒有的 key 會被刪掉（不會變成幽靈資料）');
+  ok(localStorage.getItem('chinese-review-daily') === null, '別台刪掉的項目會被刪掉（不會變成幽靈資料）');
   ok(localStorage.getItem('chinese-review.sync_ts') === '2000', '同步時間戳不會被誤刪');
   ok(reloads.length === 1, '刪完照樣重載');
+}
+
+{
+  // 2026-09-14 Tony 回報（LanExamMock，同一份程式邏輯）：孩子做完今天的每日任務，
+  // 套用一份比較舊的雲端資料之後，今天的紀錄不見了。原因是當時「本機有、雲端沒有」就刪，
+  // 而剛做完還沒上傳的紀錄正好符合。現在只刪「上次上傳時伺服器確實有」的項目。
+  const { CS, localStorage } = signedInEnv({
+    route: () => ({ status: 200, body: { updatedAt: 2000, blob: { 'chinese-review-v1': JSON.stringify({ score: 'cloud' }) } } }),
+  });
+  localStorage.setItem('sync.pushed.chinese', JSON.stringify(['chinese-review-v1']));
+  localStorage.setItem('chinese-review-daily', '{"2026-09-14":"剛做完還沒上傳"}');
+  CS._test.pull(() => {});
+  CS._test.safeReload();
+  ok(localStorage.getItem('chinese-review-daily') !== null,
+    '剛做完、還沒上傳的紀錄不會被較舊的雲端資料刪掉');
+  ok(localStorage.getItem('chinese-review-v1') === JSON.stringify({ score: 'cloud' }),
+    '雲端有的項目照樣被套用');
+}
+
+{
+  // 從來沒有成功上傳過（沒有 sync.pushed 紀錄）時，一律不刪，寧可留著也不要弄丟
+  const { CS, localStorage } = signedInEnv({
+    route: () => ({ status: 200, body: { updatedAt: 2000, blob: { 'chinese-review-v1': JSON.stringify({ score: 'cloud' }) } } }),
+  });
+  localStorage.setItem('chinese-review-daily', '{"2026-09-14":"沒有上傳紀錄"}');
+  CS._test.pull(() => {});
+  CS._test.safeReload();
+  ok(localStorage.getItem('chinese-review-daily') !== null, '沒有上傳紀錄時不刪任何東西');
 }
 
 {

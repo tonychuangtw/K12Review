@@ -138,6 +138,21 @@
   // 改成：資料先擺在記憶體，等到真的要 location.reload() 的前一刻才寫，寫完立刻重載。
   var pendingBlob = null;
   function stashBlob(blob, ts) { pendingBlob = { blob: blob, ts: ts || 0 }; }
+  /* 上一次成功推上雲端時，伺服器收到的 key 清單。套用雲端資料要刪掉本機多出來的項目時，
+     只能刪這份清單裡有、而雲端這次沒有的——那才真的是「別台把它刪掉了」。
+     只比對「本機有、雲端沒有」會誤刪剛做完、還沒上傳的進度
+     （2026-09-14 Tony 回報 LanExamMock 的每日任務不見，同一個原因）。
+     ⚠️ key 名稱不可用 PREFIX 開頭，否則會被 gatherKeys() 推上雲端。 */
+  var PUSHED_KEYS = "sync.pushed.chinese";
+  function setPushedKeys(keys) {
+    try { localStorage.setItem(PUSHED_KEYS, JSON.stringify(keys)); } catch (e) {}
+  }
+  function pushedKeys() {
+    try {
+      var v = JSON.parse(localStorage.getItem(PUSHED_KEYS) || "null");
+      return Array.isArray(v) ? v : null;
+    } catch (e) { return null; }
+  }
   function freezeLocalWrites() { try { window.SYNC_FROZEN = true; } catch (e) {} }
   function unfreezeLocalWrites() { try { window.SYNC_FROZEN = false; } catch (e) {} }
   // 回傳 false = 沒寫成功，這時候不可以動同步時間戳，否則本機停在舊資料卻以為已經更新
@@ -148,13 +163,15 @@
     try {
       // 先刪掉「本機有、雲端沒有」的 key：只做 setItem 的話，在別台清掉的紀錄
       // 會被這台的殘留資料在下一次 push 整包推回去復活（2026-09-14 gemini 體檢）
-      var stale = [];
-      for (var i = 0; i < localStorage.length; i++) {
-        var k0 = localStorage.key(i);
-        if (k0 && k0.indexOf(PREFIX) === 0 && k0 !== SYNC_TS_KEY &&
-          !Object.prototype.hasOwnProperty.call(p.blob, k0)) stale.push(k0);
+      var known = pushedKeys();
+      if (known) {
+        known.forEach(function (k0) {
+          if (!k0 || k0 === SYNC_TS_KEY) return;
+          if (Object.prototype.hasOwnProperty.call(p.blob, k0)) return;
+          if (localStorage.getItem(k0) === null) return;
+          localStorage.removeItem(k0);
+        });
       }
-      stale.forEach(function (k0) { localStorage.removeItem(k0); });
       Object.keys(p.blob).forEach(function (k) {
         if (k.indexOf(PREFIX) === 0) localStorage.setItem(k, p.blob[k]);
       });
@@ -318,6 +335,7 @@
           return;
         }
         lastPushedHash = h;
+        setPushedKeys(Object.keys(data));      // 記下伺服器這次確實收到哪些 key
         if (res && res.updatedAt) setSyncTs(res.updatedAt);
         setStatus("✓ 已同步");
         if (done) done(null, true);
