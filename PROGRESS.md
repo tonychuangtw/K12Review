@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 codex／gemini 的全站體檢結果，把本線四個案子（K12Review／LanExamMock／CamReview／MathReviewWu）會弄丟資料或會出事的問題修完
-NEXT_ACTION: 等 codex 額度恢復（台北 12:28）跑 MathReviewWu 與 CamReview 複驗 —— 背景腳本 scratchpad/codex/run-late.sh 會自動跑，結果寫成 codex-<案子>.md；session 若被重開就手動重跑（提示詞在腳本裡）。gemini 巡過的 K12Review／LanExamMock／CamReview 三批都已修完上線。
+NEXT_ACTION: 四個案子的體檢與修正都完成上線（K12Review v134／LanExamMock v45／CamReview v8／MathReviewWu v11＋共用後端）。等 Tony 決定一件事：CamReview 的題庫檔 js/data/fce-bank.js 是公開靜態檔、含全部正解與解析，學生直接開網址就查得到答案；要擋住得把題庫搬到後端由老師授權才發題（較大改動，他點頭再做）。另一件已知但這次沒動的：三站的同步都是整包覆蓋，離線期間的修改可能被雲端版本蓋掉，要做離線合併才解得掉。
 VALIDATION: K12Review：node test/test.js／test/zy-check.js／test/sync-session.js／test/browser-smoke.mjs 全過；LanExamMock：node test/test.js（122,351 項）；後端：node test/cam-test.js（89 項）＋test/progress-cas-test.js（8 項），改完 sudo systemctl restart lanexammock-backend.service 並確認 /api/health
-BLOCKERS: codex 額度 2026-09-14 台北 10:06 用完，12:28 恢復。
+BLOCKERS: 無。
 PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
-UPDATED: 2026-09-14 11:10 台北
+UPDATED: 2026-09-14 13:20 台北
 <!-- 2026-09-14 10:25 台北 Tony：「叫codex檢查一下我們這裡幾個案子」
      ⟹ 派 runner 上的 codex 對四個案子各做一次健檢（唯讀、只交分析）。K12Review 7 項、LanExamMock 7 項，
         逐項查證後全部屬實，已修完上線：
@@ -27,6 +27,19 @@ UPDATED: 2026-09-14 11:10 台北
           /api/progress body 上限 512KB→4MB（60 天逐題紀錄實測就 526KB）。cam-test 的兩條期望值一併更新
           （被刪學生現在是 401 而不只有 /me 的 404）。
      ⏭ CamReview 與 MathReviewWu：codex 撞到額度上限，改由 agy（gemini，$0）跑，報告出來再照同樣標準查證。 -->
+<!-- 2026-09-14 13:20 台北 codex 額度恢復後補跑 MathReviewWu 與 CamReview 複驗，逐項查證後修完：
+     ・MathReviewWu v11（commit 40bd4d9）：同步 stash＋刪除雲端已無的 key、換帳號防護（OWNER_KEY）、
+       檢視他人的狀態改成 localStorage 鏡像＋20 秒心跳（以前只記在 sessionStorage，另開分頁會還原備份，
+       導致第一個分頁把老師自己的資料寫進學生帳號）、exitViewAs 上傳失敗不再照樣還原、
+       過期 sess token 會先丟掉再重登、app.js 的 save() 失敗會跳提示（並認 window.SYNC_FROZEN）、
+       修掉 units.js u52c3 自相矛盾的難題（周長 40 vs 對邊和 17 → 改成周長 34、AD=6）。
+       未採用第 4 項（離線變更被雲端覆蓋）＝整包同步的先天限制，要做離線合併才解得掉。
+     ・CamReview v8（commit a5b563d，後端在 claude-shared）：submit 依伺服器時間擋逾時／考試要先開過／
+       過期不收（非考試模式時間用完沒交的，再進去算新一輪，否則會卡死）、登出清計時與作答、
+       重交作文清掉該題舊評語、登入限流改以班級＋座號（IP 另留 150/分）、openClass 丟掉過期回應、
+       pick.js 濾掉空白選項時答案索引跟著挪、toCSV 擋公式前綴。
+     ⏭ 待 Tony 決定：CamReview 的 js/data/fce-bank.js 是公開靜態檔、含全部答案與解析，
+       學生直接開網址就查得到；要擋住得把題庫搬到後端由老師授權發題（較大改動）。 -->
 <!-- 2026-09-14 11:10 台北 gemini 巡 K12Review 與 LanExamMock（Tony：「叫gemini也巡一輪」）：
      ・K12Review v134（commit 951399a5）最重要的一項：**首頁「📖 閱讀測驗」從 2026-08-29 起就是壞的** ——
        37230d57 加課文帶讀時，新函式也叫 startReading，把 2242 行那個無參數版本整個蓋掉；
