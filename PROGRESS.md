@@ -2,13 +2,13 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: done
+STATUS: in-progress
 OBJECTIVE: 把 K12Review 的中文閱讀題庫擴到兩倍（334 篇 → 668 篇、約 2,500 題），Tony 2026-09-14 16:50 交代「中文閱讀再繼續擴，目標擴兩倍量」
-NEXT_ACTION: 中文閱讀擴兩倍工程完工（334→668 篇、2,582 題，文言文 57→120 篇，commit e7a54cc0 / v136）。目前沒有進行中的工程，等 Tony 指派。若要再擴，流程與三個坑寫在下面 2026-09-14 的紀錄裡。
+NEXT_ACTION: 觀察 LanExamMock v48 是否真的解決（Tony 女兒 CPE：8 題錯 3 題但錯題本只多 1 題）。等她的裝置載到新版後，確認：(1) 今天在本機的作答有被推上雲端（後端查 cpe.worklog／daily_run 的今日筆數變多）；(2) 之後做每日任務答錯的題目會出現在錯題本。若仍不對，往「她的裝置是否還停在舊版快取」與「是否有第二個分頁在同步」兩個方向查。
 VALIDATION: 每輪跑 node test/test.js（含閱讀答案位置分散、國語題數與清單一致）；改完 reading.js 一定要跑 node tools/gen-counts.js；push 前 python3 tools/stamp-version.py
 BLOCKERS: 無。
 PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
-UPDATED: 2026-09-14 23:40 台北
+UPDATED: 2026-09-14 21:20 台北
 <!-- 2026-09-14 10:25 台北 Tony：「叫codex檢查一下我們這裡幾個案子」
      ⟹ 派 runner 上的 codex 對四個案子各做一次健檢（唯讀、只交分析）。K12Review 7 項、LanExamMock 7 項，
         逐項查證後全部屬實，已修完上線：
@@ -27,6 +27,17 @@ UPDATED: 2026-09-14 23:40 台北
           /api/progress body 上限 512KB→4MB（60 天逐題紀錄實測就 526KB）。cam-test 的兩條期望值一併更新
           （被刪學生現在是 401 而不只有 /me 的 404）。
      ⏭ CamReview 與 MathReviewWu：codex 撞到額度上限，改由 agy（gemini，$0）跑，報告出來再照同樣標準查證。 -->
+<!-- 2026-09-14 21:20 台北 LanExamMock v48（Tony 回報女兒 CPE 的錯題本只收到 1 題）：
+     兩個問題疊在一起 ——
+     1. 每日任務（d25）答錯的題目從來沒有進錯題本：作答處理只在「猜對」時 mbAdd，
+        答錯只寫 wrong_log。已改成答錯且非來自錯題本的題目也 mbAdd。
+     2. v47 我加的「pendingBlob 存在就不 push」造成使用者連續練習期間完全沒有備份
+        （後端實測：雲端停在 20:37，之後的作答只在本機），而延後結束時又套用幾分鐘前的舊快照，
+        把那段期間的進度洗掉。已改成：延後期間照常上傳、套用前重抓最新雲端、
+        本機有未上傳進度時一律以本機為準（正在使用的裝置優先）。
+     ⚠️ 教訓：同步的「延後套用」不可以用舊快照，也不可以在延後期間停止上傳。
+        K12Review 與 MathReviewWu 目前仍是「pendingBlob 阻擋 push + 套用舊快照」的版本，
+        下一步要把同一套修正移植過去（它們的使用強度較低，但同樣會踩到）。 -->
 <!-- 2026-09-14 23:40 台北 中文閱讀擴兩倍完工（Tony：「中文閱讀再繼續擴，目標擴兩倍量」＋「文言文衝到120篇以上」）：
      334 → 668 篇、2,582 題；文體 白話 270／文言 120／說明 218／圖表 60（起點 196／57／31／26）；
      年級 1-5 各 52 篇、6-12 為 55-61 篇。文言文 120 篇全部附逐句語譯（orig），國中 56／高中 56／國小 8。
