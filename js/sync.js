@@ -144,14 +144,21 @@
      （2026-09-14 Tony 回報 LanExamMock 的每日任務不見，同一個原因）。
      ⚠️ key 名稱不可用 PREFIX 開頭，否則會被 gatherKeys() 推上雲端。 */
   var PUSHED_KEYS = "sync.pushed.chinese";
-  function setPushedKeys(keys) {
-    try { localStorage.setItem(PUSHED_KEYS, JSON.stringify(keys)); } catch (e) {}
+  var PUSHED_HASH = "sync.pushedhash.chinese";
+  function setPushedKeys(keys, hash) {
+    try {
+      localStorage.setItem(PUSHED_KEYS, JSON.stringify(keys));
+      if (hash !== undefined) localStorage.setItem(PUSHED_HASH, String(hash));
+    } catch (e) {}
   }
   function pushedKeys() {
     try {
       var v = JSON.parse(localStorage.getItem(PUSHED_KEYS) || "null");
       return Array.isArray(v) ? v : null;
     } catch (e) { return null; }
+  }
+  function pushedHash() {
+    try { return localStorage.getItem(PUSHED_HASH); } catch (e) { return null; }
   }
   function freezeLocalWrites() { try { window.SYNC_FROZEN = true; } catch (e) {} }
   function unfreezeLocalWrites() { try { window.SYNC_FROZEN = false; } catch (e) {} }
@@ -192,14 +199,46 @@
     } catch (e) {}
     return false;
   }
+  /* 真正套用的那一刻才決定怎麼做（2026-09-14 第二次修正，與 LanExamMock v48 同一套）。
+     背景：延後重載期間使用者往往又做了十幾題。直接套用幾分鐘前收下的快照，
+     會把那段期間的進度整批洗掉。規則：
+       1. 先重抓一次最新的雲端資料，不用舊快照；
+       2. 本機若有「還沒上傳的新進度」，以本機為準：只對齊版本，下一輪 push 送上去，不覆蓋；
+       3. 只有本機沒有新進度時，才套用雲端並重載。 */
+  function localHasUnpushed() {
+    var cur = blobHash(gatherKeys());
+    if (lastPushedHash !== null) return cur !== lastPushedHash;   // 這個分頁推過，最準
+    var ph = pushedHash();
+    if (ph) return cur !== ph;                 // 這台裝置推過（跨分頁／重載後）
+    // 沒有任何上傳紀錄可比對：
+    //   從來沒同步過（新裝置第一次登入）→ 讓雲端資料進來，這正是換裝置要的
+    //   同步過卻沒有上傳紀錄（舊版留下的狀態）→ 保守起見以本機為準，先把它推上去
+    if (!syncTs()) return false;
+    return true;
+  }
+  function applyNow() {
+    api("GET", null, function (err, res) {
+      if (err || !res || !res.blob) { pendingBlob = null; return; }
+      var ts = res.updatedAt || 0;
+      if (sameAsLocal(res.blob)) { setSyncTs(ts); pendingBlob = null; return; }
+      if (localHasUnpushed()) {
+        setSyncTs(ts);
+        pendingBlob = null;
+        lastPushedHash = null;      // 強制下一輪真的推一次，把本機進度送上去
+        return;
+      }
+      stashBlob(res.blob, ts);
+      if (commitPending()) location.reload();
+    });
+  }
   function safeReload() {
-    if (!busyNow()) { if (commitPending()) location.reload(); return; }
+    if (!busyNow()) { applyNow(); return; }
     if (reloadTimer) return;
     setStatus("雲端有新進度，離開這頁後更新");
     reloadTimer = setInterval(function () {
       if (busyNow()) return;
       clearInterval(reloadTimer); reloadTimer = null;
-      if (commitPending()) location.reload();
+      applyNow();
     }, 3000);
   }
 
@@ -281,9 +320,9 @@
   }
 
   function push(done) {
-    // 還欠一次「套用雲端資料」時（使用者正在做題，重載被延後）不可以推：
-    // 記憶體與本機都還是舊版本，推上去就把雲端的新進度蓋掉（2026-09-14 codex 體檢）
-    if (pendingBlob) { if (done) done(null, false); return; }
+    // ⚠️ 不要因為「還欠一次套用」就完全不推（2026-09-14 修，LanExamMock 踩過）：
+    //    使用者可能連續練習半小時，那段期間完全沒有備份，反而更危險。
+    //    真正的保護是下面的 GET 檢查與 PUT 的條件更新（baseUpdatedAt）。
     var data = gatherKeys();
     var h = blobHash(data);
     if (h === lastPushedHash) { if (done) done(null, false); return; }
@@ -335,7 +374,7 @@
           return;
         }
         lastPushedHash = h;
-        setPushedKeys(Object.keys(data));      // 記下伺服器這次確實收到哪些 key
+        setPushedKeys(Object.keys(data), h);   // 記下伺服器這次收到哪些 key 與內容雜湊
         if (res && res.updatedAt) setSyncTs(res.updatedAt);
         setStatus("✓ 已同步");
         if (done) done(null, true);

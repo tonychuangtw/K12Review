@@ -79,11 +79,27 @@ function loadSync(opts) {
 }
 
 // 已登入、且本機有一份進度的環境（同步測試的共同起點）
+// 與 js/sync.js 的 blobHash 同一套算法：用來偽造「上次成功上傳的內容雜湊」
+function blobHashOf(obj) {
+  const str = JSON.stringify(obj);
+  let h = 0;
+  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) | 0;
+  return h + ':' + str.length;
+}
+
 function signedInEnv(opts) {
+  opts = opts || {};
   const localStorage = store();
   localStorage.setItem('sync.sess', sessToken('kid@example.com', Date.now() + 30 * 86400000));
   localStorage.setItem('chinese-review-v1', JSON.stringify({ score: 'local' }));
   localStorage.setItem('chinese-review.sync_ts', '1000');
+  // 預設情境＝「本機內容和上次成功上傳的一模一樣」（沒有未上傳的新進度），
+  // 這時雲端較新就該被套用。要模擬「剛做完還沒上傳」的情境，傳 unpushed: true。
+  if (!opts.unpushed) {
+    localStorage.setItem('sync.pushed.chinese', JSON.stringify(['chinese-review-v1']));
+    localStorage.setItem('sync.pushedhash.chinese',
+      blobHashOf({ 'chinese-review-v1': JSON.stringify({ score: 'local' }) }));
+  }
   const reloads = [], timers = [];
   const env = loadSync(Object.assign({ localStorage, reloads, timers }, opts || {}));
   return Object.assign(env, { reloads, timers });
@@ -193,10 +209,17 @@ console.log('\n同步不會把進度弄不見（2026-09-14 codex 體檢後補）
 {
   // 409：後端說「雲端被別台寫過了」。舊版先寫進 localStorage 才比對，於是永遠相等 →
   // 不重載、畫面留著舊資料，下一輪 push 又把舊的推上去蓋掉別台的進度
+  // GET 第一次回「和本機同版本」，PUT 回 409（別台剛寫過），
+  // 之後的 GET 回別台寫進去的新版本——套用前會重抓，拿到的就是這一份
+  let gets = 0;
   const { CS, localStorage, reloads } = signedInEnv({
-    route: (m) => (m === 'GET'
-      ? { status: 200, body: { updatedAt: 1000, blob: { 'chinese-review-v1': JSON.stringify({ score: 'local' }) } } }
-      : { status: 409, body: { updatedAt: 3000, blob: CLOUD } }),
+    route: (m) => {
+      if (m !== 'GET') return { status: 409, body: { updatedAt: 3000, blob: CLOUD } };
+      gets++;
+      return gets === 1
+        ? { status: 200, body: { updatedAt: 1000, blob: { 'chinese-review-v1': JSON.stringify({ score: 'local' }) } } }
+        : { status: 200, body: { updatedAt: 3000, blob: CLOUD } };
+    },
   });
   CS._test.push(() => {});
   ok(localBlob(localStorage) === CLOUD['chinese-review-v1'], '409 後本機換成雲端版本');
@@ -241,6 +264,11 @@ console.log('\n同步不會把進度弄不見（2026-09-14 codex 體檢後補）
   });
   localStorage.setItem('chinese-review-daily', '{"2026-09-14":"做過"}');
   localStorage.setItem('sync.pushed.chinese', JSON.stringify(['chinese-review-v1', 'chinese-review-daily']));
+  // 這兩項都是上次已經成功上傳的內容 → 本機沒有未上傳的新進度
+  localStorage.setItem('sync.pushedhash.chinese', blobHashOf({
+    'chinese-review-v1': JSON.stringify({ score: 'local' }),
+    'chinese-review-daily': '{"2026-09-14":"做過"}',
+  }));
   CS._test.pull(() => {});
   CS._test.safeReload();
   ok(localStorage.getItem('chinese-review-daily') === null, '別台刪掉的項目會被刪掉（不會變成幽靈資料）');
@@ -252,17 +280,20 @@ console.log('\n同步不會把進度弄不見（2026-09-14 codex 體檢後補）
   // 2026-09-14 Tony 回報（LanExamMock，同一份程式邏輯）：孩子做完今天的每日任務，
   // 套用一份比較舊的雲端資料之後，今天的紀錄不見了。原因是當時「本機有、雲端沒有」就刪，
   // 而剛做完還沒上傳的紀錄正好符合。現在只刪「上次上傳時伺服器確實有」的項目。
-  const { CS, localStorage } = signedInEnv({
+  const { CS, localStorage, reloads } = signedInEnv({
+    unpushed: true,
     route: () => ({ status: 200, body: { updatedAt: 2000, blob: { 'chinese-review-v1': JSON.stringify({ score: 'cloud' }) } } }),
   });
-  localStorage.setItem('sync.pushed.chinese', JSON.stringify(['chinese-review-v1']));
   localStorage.setItem('chinese-review-daily', '{"2026-09-14":"剛做完還沒上傳"}');
   CS._test.pull(() => {});
   CS._test.safeReload();
   ok(localStorage.getItem('chinese-review-daily') !== null,
     '剛做完、還沒上傳的紀錄不會被較舊的雲端資料刪掉');
-  ok(localStorage.getItem('chinese-review-v1') === JSON.stringify({ score: 'cloud' }),
-    '雲端有的項目照樣被套用');
+  ok(localStorage.getItem('chinese-review-v1') === JSON.stringify({ score: 'local' }),
+    '本機有未上傳的進度時，以本機為準（不被雲端覆蓋）');
+  ok(localStorage.getItem('chinese-review.sync_ts') === '2000',
+    '但版本會對齊，下一輪把本機進度推上去');
+  ok(reloads.length === 0, '這種情形不重載，不會打斷使用者');
 }
 
 {
