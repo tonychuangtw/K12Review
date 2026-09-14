@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 codex／gemini 的全站體檢結果，把本線四個案子（K12Review／LanExamMock／CamReview／MathReviewWu）會弄丟資料或會出事的問題修完
-NEXT_ACTION: 四個案子的體檢與修正都完成上線（K12Review v134／LanExamMock v45／CamReview v8／MathReviewWu v11＋共用後端）。等 Tony 決定一件事：CamReview 的題庫檔 js/data/fce-bank.js 是公開靜態檔、含全部正解與解析，學生直接開網址就查得到答案；要擋住得把題庫搬到後端由老師授權才發題（較大改動，他點頭再做）。另一件已知但這次沒動的：三站的同步都是整包覆蓋，離線期間的修改可能被雲端版本蓋掉，要做離線合併才解得掉。
+NEXT_ACTION: 2026-09-14 下午「繼續擴閱讀測驗」已完成兩站：K12Review 新增 24 篇 96 題（310→334 篇，說明 31→43、圖表 26→32）；LanExamMock 五級各 3 篇（15 篇 90 題，各級 mc 146-147），FCE 已同步 CamReview。目前沒有待辦，等 Tony 指定下一個方向（可選：英檢的克漏字／配對／是非／標題、K12 其他科目、或閱讀再多幾輪）。另有一件待他決定：CamReview 的 fce-bank.js 是公開靜態檔含全部答案。
 VALIDATION: K12Review：node test/test.js／test/zy-check.js／test/sync-session.js／test/browser-smoke.mjs 全過；LanExamMock：node test/test.js（122,351 項）；後端：node test/cam-test.js（89 項）＋test/progress-cas-test.js（8 項），改完 sudo systemctl restart lanexammock-backend.service 並確認 /api/health
 BLOCKERS: 無。
 PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
-UPDATED: 2026-09-14 13:20 台北
+UPDATED: 2026-09-14 16:40 台北
 <!-- 2026-09-14 10:25 台北 Tony：「叫codex檢查一下我們這裡幾個案子」
      ⟹ 派 runner 上的 codex 對四個案子各做一次健檢（唯讀、只交分析）。K12Review 7 項、LanExamMock 7 項，
         逐項查證後全部屬實，已修完上線：
@@ -27,6 +27,16 @@ UPDATED: 2026-09-14 13:20 台北
           /api/progress body 上限 512KB→4MB（60 天逐題紀錄實測就 526KB）。cam-test 的兩條期望值一併更新
           （被刪學生現在是 401 而不只有 /me 的 404）。
      ⏭ CamReview 與 MathReviewWu：codex 撞到額度上限，改由 agy（gemini，$0）跑，報告出來再照同樣標準查證。 -->
+<!-- 2026-09-14 16:40 台北 Tony「繼續擴閱讀測驗」：
+     ・K12Review（commit 979be020）新增 24 篇、96 題，1-12 年級各 2 篇，全部自撰。
+       刻意補說明文與圖表判讀（會考素養題大宗）：說明 31→43、圖表 26→32、白話 202、文言 57，共 334 篇 1,246 題。
+       圖表題都要真的讀表計算（比例、差額、單位換算）。工具：tools/add-reading.js（自動接號＋打散答案位置），
+       改完記得 node tools/gen-counts.js，否則 test.js 的「國語題數與清單一致」會紅。
+     ・LanExamMock（commit b5e69e5，v46）五級各 3 篇 mc（15 篇 90 題）：
+       ket w23／pet w28／fce w24／cae w28／cpe w28，各級 rmc 146-147。
+       寫作規格與地雷見該 repo 的 PROGRESS-reading.md；檢查腳本我放在 scratchpad/check-wave.js
+       （字數 ≥250、6 題 4 選項、解析引文必須與原文一字不差；引文中間可用 … 省略但前 25 字要連續、
+       ⚠️ 引文內不可出現單引號，否則 '…' 的配對會被打斷）。FCE 記得跑 CamReview 的 tools/sync-banks.js。 -->
 <!-- 2026-09-14 13:20 台北 codex 額度恢復後補跑 MathReviewWu 與 CamReview 複驗，逐項查證後修完：
      ・MathReviewWu v11（commit 40bd4d9）：同步 stash＋刪除雲端已無的 key、換帳號防護（OWNER_KEY）、
        檢視他人的狀態改成 localStorage 鏡像＋20 秒心跳（以前只記在 sessionStorage，另開分頁會還原備份，
