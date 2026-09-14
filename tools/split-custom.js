@@ -49,12 +49,23 @@ for (const [book, list] of byBook) {
     if (!seen.has(l)) { seen.set(l, { lesson: l, n: 0 }); lessons.push(seen.get(l)); }
     seen.get(l).n++;
   });
+  // 題目 id → 哪一冊（2026-09-14 codex 體檢）：錯題本只記 id，以前查不到出處就整包載 24MB。
+  // id 在同一冊裡幾乎連號，用區間表示全庫只要 255 段，索引檔多不到 4KB。
+  const nums = list.map((q) => parseInt(String(q.id).replace(/^x/, ''), 10))
+    .filter((n) => n > 0).sort((a, b) => a - b);
+  const ranges = [];
+  nums.forEach((n) => {
+    const last = ranges[ranges.length - 1];
+    if (last && n === last[1] + 1) last[1] = n;
+    else if (!last || n !== last[1]) ranges.push([n, n]);
+  });
+
   const body = '// 康軒／家長匯入題庫・' + book + '（由 tools/split-custom.js 從 js/data/custom.js 拆出，勿手改）\n' +
     'window.APP_DATA = window.APP_DATA || {};\n' +
     'window.APP_DATA.custom = (window.APP_DATA.custom || []).concat(\n' +
     list.map((q) => JSON.stringify(q)).join(',\n') + '\n);\n';
   fs.writeFileSync(path.join(OUTDIR, slug + '.js'), body);
-  index.push({ book: book, slug: slug, n: list.length, lessons: lessons });
+  index.push({ book: book, slug: slug, n: list.length, r: ranges, lessons: lessons });
 }
 index.sort((a, b) => b.n - a.n);
 fs.writeFileSync(path.join(ROOT, 'js/data/custom-index.js'),

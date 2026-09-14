@@ -701,6 +701,9 @@
   // 而 save() 被叫在答題、切頁、啟動遷移等地方 —— 一丟例外整段流程就停在那裡。
   var saveFailed = false;
   function save() {
+    // 換帳號、或雲端有較新進度正要套用時，記憶體裡還是舊帳號／舊版本的 state，
+    // 這時候回寫會把剛拉下來的資料整包蓋掉（2026-09-14 codex 體檢，pagehide 觸發最明顯）
+    if (W.SYNC_FROZEN) return false;
     try {
       localStorage.setItem(LS_KEY, JSON.stringify(state));
       saveFailed = false;
@@ -1279,6 +1282,35 @@
       cb(err);
     });
   }
+  /* 錯題本只記 id，查不到出處就整包載 24MB（2026-09-14 codex 體檢指出）。
+     custom-index.js 現在帶每一冊的 id 區間（全庫 255 段，索引只多 4KB），
+     靠它把「這些錯題散在哪幾冊」算出來，只載那幾冊。 */
+  function customBookOfId(id) {
+    var n = parseInt(String(id).replace(/^x/, ''), 10);
+    if (!n) return null;
+    var idx = customIndex();
+    for (var i = 0; i < idx.length; i++) {
+      var r = idx[i].r || [];
+      for (var j = 0; j < r.length; j++) if (n >= r[j][0] && n <= r[j][1]) return idx[i].book;
+    }
+    return null;
+  }
+  function ensureCustomBooksForIds(ids, cb) {
+    if (W.__customReady) { cb(null, false); return; }
+    var idx = customIndex();
+    if (!idx.length) { ensureCustomBank(function (err) { cb(err, true); }); return; }   // 沒有索引就只能整套
+    var books = [];
+    (ids || []).forEach(function (id) {
+      var b = customBookOfId(id);
+      if (b && !customBookReady(b) && books.indexOf(b) < 0) books.push(b);
+    });
+    if (!books.length) { cb(null, false); return; }
+    var files = books.map(function (b) { return 'js/data/custom/' + (customBookRec(b) || {}).slug + '.js'; });
+    loadScriptsSeq(files, function (err) {
+      if (!err) books.forEach(function (b) { _customBookLoaded[b] = true; });
+      cb(err, true);
+    });
+  }
   function ensureImportBanks(cb) {
     var files = IMPORT_BANK_FILES.map(function (k) { return 'js/data/' + k + '-custom.js'; });
     loadScriptsSeq(files, function (err) {
@@ -1410,7 +1442,7 @@
     });
   }
   // 錯題本／搜尋會跨科目取用題目：把用得到的科目題庫一次補齊
-  function ensureBanksForCats(cats, cb) {
+  function ensureBanksForCats(cats, cb, customIds) {
     var need = (cats || []).filter(function (c) {
       return SUBJECT_CATS.indexOf(c) >= 0 && !bankLoaded(c);
     });
@@ -1422,16 +1454,22 @@
       var k = c === 'custom' ? 'chinese' : importSubjOfCat(c);
       if (k && imp.indexOf(k) < 0) imp.push(k);
     });
+    // 國語匯入題庫按冊拆檔後，「DATA.custom 有東西」不代表整套都在
+    //（只載了五上，其他冊的錯題照樣查不到題目）——所以另外判斷（2026-09-14 codex 體檢）
+    var wantCh = (cats || []).indexOf('custom') >= 0 && !W.__customReady;
+    if (wantCh && imp.indexOf('chinese') < 0) imp.push('chinese');
     if (!need.length && !imp.length) { cb(null, false); return; }
     var files = need.reduce(function (acc, c) { return acc.concat(bankFilesFor(c)); }, [])
-      .concat(imp.map(importBankFile));
+      .concat(imp.filter(function (k) { return k !== 'chinese'; }).map(importBankFile));
     loadScriptsSeq(files, function (err) {
       need.forEach(function (c) { delete _subjGrades[c]; });
-      if (imp.indexOf('chinese') >= 0 && !err) {
-        W.__customReady = true;
-        loadScript('js/data/checks-custom.js', function () {});
+      if (!wantCh || err) { cb(err, !!files.length); return; }
+      // 有指定錯題 id 就只載那幾冊，沒指定（進度分析／搜尋）才整套載
+      if (customIds) {
+        ensureCustomBooksForIds(customIds, function (e2) { cb(e2, true); });
+        return;
       }
-      cb(err, true);
+      ensureCustomBank(function (e2) { cb(e2, true); });
     });
   }
   function enterSubject(key) {
@@ -4413,9 +4451,20 @@
     // 否則題目標籤會變成空白或掉題（2026-08-27）
     if (!wbBanksAsked) {
       wbBanksAsked = true;
-      var cats = [];
-      (state.wrong || []).forEach(function (w) { if (cats.indexOf(w.t) < 0) cats.push(w.t); });
-      ensureBanksForCats(cats, function (err, loaded) { if (!err && loaded) showWrongbook(); });
+      var cats = [], cids = [];
+      (state.wrong || []).forEach(function (w) {
+        if (cats.indexOf(w.t) < 0) cats.push(w.t);
+        if (w.t === 'custom') cids.push(w.id);
+      });
+      ensureBanksForCats(cats, function (err, loaded) {
+        // 失敗時要把旗標放掉，否則網路恢復後重進錯題本也不會再試一次（2026-09-14 codex 體檢）
+        if (err) {
+          wbBanksAsked = false;
+          setStatusToast('⚠️ 錯題所屬題庫載入失敗，請檢查網路後重開錯題本');
+          return;
+        }
+        if (loaded) showWrongbook();
+      }, cids);
     }
     // 時間 + 類別篩選
     var f = $('wrongFilters');

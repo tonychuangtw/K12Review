@@ -131,6 +131,32 @@
     "view-read", "view-lesson", "view-concept", "view-exam", "view-lit",
     "view-tutor", "view-tutorcal"];
   var reloadTimer = null;
+  // 從雲端拉下來、但還沒寫進本機的資料（2026-09-14 codex 體檢）。
+  // 以前是「先寫 localStorage，再想辦法重載」——中間只要記憶體裡的舊 state 被存回去
+  // （pagehide／visibilitychange 都會 save()），剛拉下來的雲端進度就整包被蓋掉，
+  // 而同步時間戳已經前進，下一輪不會再拉，等於資料真的不見。
+  // 改成：資料先擺在記憶體，等到真的要 location.reload() 的前一刻才寫，寫完立刻重載。
+  var pendingBlob = null;
+  function stashBlob(blob, ts) { pendingBlob = { blob: blob, ts: ts || 0 }; }
+  function freezeLocalWrites() { try { window.SYNC_FROZEN = true; } catch (e) {} }
+  function unfreezeLocalWrites() { try { window.SYNC_FROZEN = false; } catch (e) {} }
+  // 回傳 false = 沒寫成功，這時候不可以動同步時間戳，否則本機停在舊資料卻以為已經更新
+  function commitPending() {
+    var p = pendingBlob; pendingBlob = null;
+    if (!p || !p.blob) return true;
+    freezeLocalWrites();
+    try {
+      Object.keys(p.blob).forEach(function (k) {
+        if (k.indexOf(PREFIX) === 0) localStorage.setItem(k, p.blob[k]);
+      });
+    } catch (e) {
+      unfreezeLocalWrites();
+      setStatus("⚠️ 雲端進度存不進這台裝置");
+      return false;
+    }
+    setSyncTs(p.ts);
+    return true;
+  }
   function busyNow() {
     try {
       for (var i = 0; i < ACTIVE_VIEWS.length; i++) {
@@ -141,13 +167,13 @@
     return false;
   }
   function safeReload() {
-    if (!busyNow()) { location.reload(); return; }
+    if (!busyNow()) { if (commitPending()) location.reload(); return; }
     if (reloadTimer) return;
     setStatus("雲端有新進度，離開這頁後更新");
     reloadTimer = setInterval(function () {
       if (busyNow()) return;
       clearInterval(reloadTimer); reloadTimer = null;
-      location.reload();
+      if (commitPending()) location.reload();
     }, 3000);
   }
 
@@ -220,13 +246,8 @@
       var serverTs = res.updatedAt || 0;
       if (serverTs > syncTs()) {
         if (sameAsLocal(res.blob)) { setSyncTs(serverTs); if (done) done(null, false); return; }
-        try {
-          Object.keys(res.blob).forEach(function (k) {
-            if (k.indexOf(PREFIX) === 0) localStorage.setItem(k, res.blob[k]);
-          });
-        } catch (e) {}
-        setSyncTs(serverTs);
-        if (done) done(null, true);   // applied → caller should reload
+        stashBlob(res.blob, serverTs);
+        if (done) done(null, true);   // 呼叫端會呼叫 safeReload()，那時候才真的寫進本機
         return;
       }
       if (done) done(null, false);
@@ -234,6 +255,9 @@
   }
 
   function push(done) {
+    // 還欠一次「套用雲端資料」時（使用者正在做題，重載被延後）不可以推：
+    // 記憶體與本機都還是舊版本，推上去就把雲端的新進度蓋掉（2026-09-14 codex 體檢）
+    if (pendingBlob) { if (done) done(null, false); return; }
     var data = gatherKeys();
     var h = blobHash(data);
     if (h === lastPushedHash) { if (done) done(null, false); return; }
@@ -247,12 +271,7 @@
         setSyncTs(gres.updatedAt);           // 內容相同（多半是上一次 PUT 的回應沒收到），不必重載
       } else if (gres && (gres.updatedAt || 0) > syncTs()) {
         if (gres.blob) {
-          try {
-            Object.keys(gres.blob).forEach(function (k) {
-              if (k.indexOf(PREFIX) === 0) localStorage.setItem(k, gres.blob[k]);
-            });
-          } catch (e) {}
-          setSyncTs(gres.updatedAt);
+          stashBlob(gres.blob, gres.updatedAt);
           safeReload();
           return;
         }
@@ -263,20 +282,24 @@
         if (err === "conflict") {
           // 雲端在這幾百毫秒內被別台寫過：套用雲端資料重載，本機這輪的變更由重載後的畫面接手
           if (res && res.blob) {
-            try {
-              Object.keys(res.blob).forEach(function (k) {
-                if (k.indexOf(PREFIX) === 0) localStorage.setItem(k, res.blob[k]);
-              });
-            } catch (e) {}
-            setSyncTs(res.updatedAt || 0);
-            if (sameAsLocal(res.blob)) { if (done) done(null, false); return; }
+            // ⚠️ 一定要「先比對再寫入」：舊版先把雲端資料寫進 localStorage 才呼叫 sameAsLocal()，
+            //    那當然永遠相等 → 直接 return、不重載，畫面與記憶體留著舊 state，
+            //    下一輪 push 又把舊資料推上去蓋掉別台的新進度（2026-09-14 codex 體檢）
+            if (sameAsLocal(res.blob)) { setSyncTs(res.updatedAt || 0); if (done) done(null, false); return; }
+            stashBlob(res.blob, res.updatedAt || 0);
             safeReload();
             return;
           }
           if (done) done("conflict");
           return;
         }
-        if (err) { if (done) done(err); return; }
+        if (err) {
+          // 以前這裡整個靜音：進度推不上去（413 太大、網路不通）畫面上什麼都不會顯示，
+          // 使用者以為有同步，換台裝置才發現沒有（2026-09-14 codex 體檢）
+          setStatus(err === "http 413" ? "⚠️ 進度太大，雲端存不下（請回報）" : "⚠️ 同步失敗，稍後再試");
+          if (done) done(err);
+          return;
+        }
         lastPushedHash = h;
         if (res && res.updatedAt) setSyncTs(res.updatedAt);
         setStatus("✓ 已同步");
@@ -369,8 +392,11 @@
         "（" + owner + " 的紀錄仍在他自己的雲端帳號裡，重新登入就看得到）。",
         function () {
           wipeLocalProgress();
+          // 本機清掉了，但 app.js 記憶體裡還是上一個帳號的 state：
+          // 不凍結的話，下一次 save() 就把 A 的紀錄寫回本機、再推上 B 的雲端（2026-09-14 codex 體檢）
+          freezeLocalWrites();
           setDataOwner(email);
-          finishSignIn(resp.credential, p);
+          finishSignIn(resp.credential, p, true);
         }
       );
       return;
@@ -379,7 +405,7 @@
     finishSignIn(resp.credential, p);
   }
 
-  function finishSignIn(credential, p) {
+  function finishSignIn(credential, p, forceReload) {
     setToken(credential);
     // sess token 裡只有 email，頭像字母要用的名字先留一份在本機
     try {
@@ -392,7 +418,8 @@
     // 先換長效 token 再同步：換到手才算真的「登入一次就好」
     refreshSession(function () {
       pull(function (err, applied) {
-        if (applied) { safeReload(); return; }
+        // 換帳號時就算新帳號雲端沒資料也要重載：記憶體裡的舊 state 必須整個丟掉
+        if (applied || forceReload) { safeReload(); return; }
         push();
       });
     });
@@ -490,6 +517,12 @@
     }
   }
   window.CloudSync = { signedIn: signedIn, token: token, apiBase: API_BASE, promptLogin: promptLogin };
+  // 測試入口（test/sync-session.js）：同步的「先比對再寫入、寫完立刻重載」是資料會不會不見的關鍵，
+  // 但 pull／push 都是模組內部函式，不開個門就測不到。正式頁面不會用到這個物件。
+  window.CloudSync._test = {
+    pull: pull, push: push, safeReload: safeReload, syncTs: syncTs,
+    pending: function () { return pendingBlob; },
+  };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);

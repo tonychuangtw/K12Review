@@ -38,8 +38,11 @@ function store() {
 
 // sync.js 是 IIFE，載進一個最小的假瀏覽器環境；沒有 .topbar-controls 時 boot() 會自己收手，
 // 但 window.CloudSync 在那之前就掛好了，正好拿來測純邏輯。
-function loadSync() {
-  const localStorage = store(), sessionStorage = store();
+// 可控制的假瀏覽器：routes 決定每一支 API 回什麼，reloads 記錄重載了幾次。
+// 給同步測試用（pull / push / 409 衝突），單純的登入測試不必傳 opts。
+function loadSync(opts) {
+  opts = opts || {};
+  const localStorage = opts.localStorage || store(), sessionStorage = store();
   const el = () => ({
     style: {}, classList: { add() {}, remove() {} }, appendChild() {}, addEventListener() {},
     innerHTML: '', textContent: '',
@@ -48,19 +51,45 @@ function loadSync() {
     document: {
       readyState: 'complete', querySelector: () => null, createElement: el,
       addEventListener: () => {}, head: { appendChild: () => {} },
+      // busyNow() 靠這個判斷「使用者正在做題」：回傳一個沒有 hidden 的作答畫面就是忙碌中
+      getElementById: (id) => (opts.busy && opts.busy() && id === 'view-quiz'
+        ? { classList: { contains: () => false } } : null),
     },
     navigator: { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X) Safari/605.1.15' },
     localStorage, sessionStorage,
-    XMLHttpRequest: class { open() {} setRequestHeader() {} send() {} },
-    setInterval: () => {}, setTimeout: () => {}, clearTimeout: () => {},
+    XMLHttpRequest: class {
+      open(method, url) { this._m = method; this._u = url; }
+      setRequestHeader() {}
+      send(body) {
+        const r = (opts.route || (() => ({ status: 200, body: {} })))(this._m, this._u, body);
+        this.status = r.status;
+        this.responseText = JSON.stringify(r.body === undefined ? {} : r.body);
+        if (this.onload) this.onload();
+      }
+    },
+    setInterval: (fn) => { (opts.timers || []).push(fn); return 1; }, clearInterval: () => {},
+    setTimeout: () => {}, clearTimeout: () => {},
     atob: (s) => Buffer.from(s, 'base64').toString('binary'),
-    location: { reload: () => {} },
+    location: { reload: () => { (opts.reloads || []).push(1); } },
   };
   ctx.window = ctx; ctx.self = ctx;
   vm.createContext(ctx);
   vm.runInContext(fs.readFileSync(SYNC_JS, 'utf8'), ctx);
-  return { CS: ctx.window.CloudSync, localStorage, sessionStorage };
+  return { CS: ctx.window.CloudSync, localStorage, sessionStorage, win: ctx.window };
 }
+
+// 已登入、且本機有一份進度的環境（同步測試的共同起點）
+function signedInEnv(opts) {
+  const localStorage = store();
+  localStorage.setItem('sync.sess', sessToken('kid@example.com', Date.now() + 30 * 86400000));
+  localStorage.setItem('chinese-review-v1', JSON.stringify({ score: 'local' }));
+  localStorage.setItem('chinese-review.sync_ts', '1000');
+  const reloads = [], timers = [];
+  const env = loadSync(Object.assign({ localStorage, reloads, timers }, opts || {}));
+  return Object.assign(env, { reloads, timers });
+}
+const CLOUD = { 'chinese-review-v1': JSON.stringify({ score: 'cloud' }) };
+function localBlob(ls) { return ls.getItem('chinese-review-v1'); }
 
 let fail = 0;
 function ok(cond, msg) {
@@ -128,6 +157,90 @@ console.log('sync.js 長效登入');
   ok(/\/api\/session/.test(src), '有呼叫 POST /api/session 換長效 token');
   ok(/function refreshSession/.test(src) && /refreshSession\(\);/.test(src),
     '每次開頁會續期（滾動 30 天，常用的人等於不用再登入）');
+}
+
+console.log('\n同步不會把進度弄不見（2026-09-14 codex 體檢後補）');
+
+{
+  // pull 拿到較新的雲端資料時，不可以當場寫進 localStorage：
+  // 寫了卻還沒重載的那段空窗，pagehide 的 save() 會把記憶體舊 state 存回去、整包蓋掉雲端進度
+  const { CS, localStorage, reloads } = signedInEnv({
+    route: () => ({ status: 200, body: { updatedAt: 2000, blob: CLOUD } }),
+  });
+  let applied = null;
+  CS._test.pull((err, ap) => { applied = ap; });
+  ok(applied === true, 'pull 看到較新的雲端版本 → 回報 applied');
+  ok(localBlob(localStorage) === JSON.stringify({ score: 'local' }), '此時本機還是舊資料（還沒寫下去）');
+  ok(CS._test.syncTs() === 1000, '同步時間戳也還沒前進');
+  CS._test.safeReload();
+  ok(localBlob(localStorage) === CLOUD['chinese-review-v1'], 'safeReload 才把雲端資料寫進本機');
+  ok(CS._test.syncTs() === 2000, '寫入成功後時間戳才前進');
+  ok(reloads.length === 1, '而且立刻重載，沒有空窗');
+}
+
+{
+  // 寫不進去（隱私模式、容量滿）時，時間戳不可以前進，否則本機停在舊資料卻以為已經更新
+  const { CS, localStorage, reloads } = signedInEnv({
+    route: () => ({ status: 200, body: { updatedAt: 2000, blob: CLOUD } }),
+  });
+  CS._test.pull(() => {});
+  localStorage.setItem = () => { throw new Error('QuotaExceeded'); };
+  CS._test.safeReload();
+  ok(CS._test.syncTs() === 1000, '本機寫入失敗 → 同步時間戳保持原樣（下次還會再拉一次）');
+  ok(reloads.length === 0, '寫入失敗就不重載');
+}
+
+{
+  // 409：後端說「雲端被別台寫過了」。舊版先寫進 localStorage 才比對，於是永遠相等 →
+  // 不重載、畫面留著舊資料，下一輪 push 又把舊的推上去蓋掉別台的進度
+  const { CS, localStorage, reloads } = signedInEnv({
+    route: (m) => (m === 'GET'
+      ? { status: 200, body: { updatedAt: 1000, blob: { 'chinese-review-v1': JSON.stringify({ score: 'local' }) } } }
+      : { status: 409, body: { updatedAt: 3000, blob: CLOUD } }),
+  });
+  CS._test.push(() => {});
+  ok(localBlob(localStorage) === CLOUD['chinese-review-v1'], '409 後本機換成雲端版本');
+  ok(CS._test.syncTs() === 3000, '同步時間戳跟著雲端版本');
+  ok(reloads.length === 1, '而且有重載（舊版這裡不會重載，這條就是那個 bug 的守門）');
+}
+
+{
+  // 正在做題時重載會被延後（2026-09-04 Tony 回報「做到一半會閃退」）。
+  // 那段等待期間：本機不可以先被雲端資料蓋掉（做題中的進度還要存），
+  // 也不可以把本機舊資料推上雲端（會蓋掉別台的新進度）。
+  const seen = [];
+  let busy = true;
+  const { CS, localStorage, reloads, timers } = signedInEnv({
+    busy: () => busy,
+    route: (m) => {
+      seen.push(m);
+      return m === 'GET'
+        ? { status: 200, body: { updatedAt: 2000, blob: CLOUD } }
+        : { status: 200, body: { updatedAt: 4000 } };
+    },
+  });
+  CS._test.pull((err, ap) => { if (ap) CS._test.safeReload(); });
+  ok(!!CS._test.pending(), '做題中 → 雲端資料先收在記憶體裡，等離開這頁再套用');
+  ok(localBlob(localStorage) === JSON.stringify({ score: 'local' }), '等待期間本機仍是自己的進度');
+  ok(reloads.length === 0, '等待期間不重載（不會做到一半被踢回首頁）');
+  seen.length = 0;
+  CS._test.push(() => {});
+  ok(seen.indexOf('PUT') < 0, '等待期間不推上雲端（不會蓋掉別台的新進度）');
+  busy = false;
+  timers.forEach((fn) => fn());
+  ok(localBlob(localStorage) === CLOUD['chinese-review-v1'], '離開作答畫面後才套用雲端資料');
+  ok(reloads.length === 1, '套用後才重載');
+}
+
+{
+  // save() 的煞車：套用雲端資料前會把 window.SYNC_FROZEN 打開，app.js 看到就不回寫
+  const src = fs.readFileSync(SYNC_JS, 'utf8');
+  ok(/SYNC_FROZEN\s*=\s*true/.test(src), 'sync.js 會在套用雲端資料前凍結本機回寫');
+  const appSrc = fs.readFileSync(path.join(__dirname, '..', 'js', 'app.js'), 'utf8');
+  ok(/function save\(\)[\s\S]{0,400}SYNC_FROZEN/.test(appSrc), 'app.js 的 save() 有認這個旗標');
+  ok(/wipeLocalProgress\(\);[\s\S]{0,300}freezeLocalWrites\(\)/.test(src),
+    '換帳號清掉本機進度後也會凍結（記憶體裡還是前一個人的 state）');
+  ok(/finishSignIn\(resp\.credential, p, true\)/.test(src), '換帳號一定重載，不讓舊 state 留在記憶體');
 }
 
 console.log(fail ? `\n✗ ${fail} 項失敗` : '\n全部通過');
