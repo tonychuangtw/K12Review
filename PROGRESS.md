@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 把 K12Review 的中文閱讀題庫擴到兩倍（334 篇 → 668 篇、約 2,500 題），Tony 2026-09-14 16:50 交代「中文閱讀再繼續擴，目標擴兩倍量」
-NEXT_ACTION: 一輪 24 篇（1-12 年級各 2 篇）逐批寫，每輪一個 commit。做法：把新題組寫成 JSON → node tools/add-reading.js <檔> → node tools/gen-counts.js → node test/test.js → commit。目前進度看 reading.js 篇數（node -e 讀 APP_DATA.reading.length），334 為起點、668 為目標。文言文篇章要另外用 tools/add-orig.js 補逐句語譯（test.js 會擋）。
+NEXT_ACTION: 中文閱讀擴到兩倍工程進行中：目前 430／668 篇（起點 334，已完成 4 輪、每輪 24 篇）。做法：寫 JSON（1-12 年級各 2 篇，分成兩檔各 12 篇）→ node tools/add-reading.js <檔> → node tools/gen-counts.js → node test/test.js → python3 tools/stamp-version.py → commit。⚠️ 動筆前先列既有標題避免撞題（node -e 讀 APP_DATA.reading 依年級印 title）；文言文要另外用 tools/add-orig.js 補逐句語譯。
 VALIDATION: 每輪跑 node test/test.js（含閱讀答案位置分散、國語題數與清單一致）；改完 reading.js 一定要跑 node tools/gen-counts.js；push 前 python3 tools/stamp-version.py
 BLOCKERS: 無。
 PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
-UPDATED: 2026-09-14 16:55 台北
+UPDATED: 2026-09-14 18:40 台北
 <!-- 2026-09-14 10:25 台北 Tony：「叫codex檢查一下我們這裡幾個案子」
      ⟹ 派 runner 上的 codex 對四個案子各做一次健檢（唯讀、只交分析）。K12Review 7 項、LanExamMock 7 項，
         逐項查證後全部屬實，已修完上線：
