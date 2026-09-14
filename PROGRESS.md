@@ -2,13 +2,13 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: in-progress
+STATUS: done
 OBJECTIVE: 把 K12Review 的中文閱讀題庫擴到兩倍（334 篇 → 668 篇、約 2,500 題），Tony 2026-09-14 16:50 交代「中文閱讀再繼續擴，目標擴兩倍量」
-NEXT_ACTION: 中文閱讀擴到兩倍：583／668 篇，文言文 107／120（Tony 2026-09-14 追加目標）。每輪 24 篇、其中 9-12 篇文言。流程：JSON → tools/add-reading.js → 文言再跑 tools/add-orig.js → tools/gen-counts.js → test/test.js → stamp-version.py → commit。⚠️ 三個坑：(1) 動筆前先列既有標題比對，同一篇古文換標題也算重複；(2) 文字不可混入英文或殘缺字元（檢查 [A-Za-z]{2,} 與 U+FFFD）；(3) 解析太短會讓自動生成的證據題出現重複選項，解析至少要把原文引述加白話說明。
+NEXT_ACTION: 中文閱讀擴兩倍工程完工（334→668 篇、2,582 題，文言文 57→120 篇，commit e7a54cc0 / v136）。目前沒有進行中的工程，等 Tony 指派。若要再擴，流程與三個坑寫在下面 2026-09-14 的紀錄裡。
 VALIDATION: 每輪跑 node test/test.js（含閱讀答案位置分散、國語題數與清單一致）；改完 reading.js 一定要跑 node tools/gen-counts.js；push 前 python3 tools/stamp-version.py
 BLOCKERS: 無。
 PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
-UPDATED: 2026-09-14 21:30 台北
+UPDATED: 2026-09-14 23:40 台北
 <!-- 2026-09-14 10:25 台北 Tony：「叫codex檢查一下我們這裡幾個案子」
      ⟹ 派 runner 上的 codex 對四個案子各做一次健檢（唯讀、只交分析）。K12Review 7 項、LanExamMock 7 項，
         逐項查證後全部屬實，已修完上線：
@@ -27,6 +27,16 @@ UPDATED: 2026-09-14 21:30 台北
           /api/progress body 上限 512KB→4MB（60 天逐題紀錄實測就 526KB）。cam-test 的兩條期望值一併更新
           （被刪學生現在是 401 而不只有 /me 的 404）。
      ⏭ CamReview 與 MathReviewWu：codex 撞到額度上限，改由 agy（gemini，$0）跑，報告出來再照同樣標準查證。 -->
+<!-- 2026-09-14 23:40 台北 中文閱讀擴兩倍完工（Tony：「中文閱讀再繼續擴，目標擴兩倍量」＋「文言文衝到120篇以上」）：
+     334 → 668 篇、2,582 題；文體 白話 270／文言 120／說明 218／圖表 60（起點 196／57／31／26）；
+     年級 1-5 各 52 篇、6-12 為 55-61 篇。文言文 120 篇全部附逐句語譯（orig），國中 56／高中 56／國小 8。
+     做法：每輪 24 篇拆成兩個 JSON → tools/add-reading.js → 文言再跑 tools/add-orig.js →
+     tools/gen-counts.js → test/test.js → stamp-version.py → commit，共 16 輪。
+     ⚠️ 踩過的三個坑（之後要再擴一定先看）：
+       1. 動筆前先列既有標題比對——同一篇古文換個標題也算重複（詠雪、魚與熊掌、記承天寺夜遊都撞過）
+       2. 文字不可混入英文或殘缺字元（檢查 [A-Za-z]{2,} 與 U+FFFD，PU 跑道、某App 都被擋過）
+       3. 解析太短會讓自動生成的證據題選項重複；另外 js/app.js 的 buildEvidenceQ 原本沒對文章句子去重，
+          遇到刻意重複同一句的文言文（塞翁失馬）會抽到兩個相同選項，已修並由 test.js 守住 -->
 <!-- 2026-09-14 18:00-21:30 台北 同步改動的回歸與修正（Tony 回報 Aaron 的每日任務不見）：
      v45 加的「套用雲端資料時刪掉雲端沒有的 key」只比對『本機有、雲端沒有』，
      剛做完還沒上傳的紀錄正好符合，會被較舊的雲端資料清掉。
