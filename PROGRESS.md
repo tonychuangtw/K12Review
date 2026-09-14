@@ -2,13 +2,28 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: in-progress
-OBJECTIVE: 把 K12Review 的中文閱讀題庫擴到兩倍（334 篇 → 668 篇、約 2,500 題），Tony 2026-09-14 16:50 交代「中文閱讀再繼續擴，目標擴兩倍量」
-NEXT_ACTION: 等 Tony 的女兒與兒子的裝置載到新版（LanExamMock v48＋?v=20260914e、K12Review v137、MathReviewWu v13）之後回查一次後端：cpe.worklog／cpe.daily_run 今日筆數要跟著她實際做的題數增加，且每日任務答錯的題目要出現在 cpe.mistake_book（今天 20:29 那一題答錯時 mistake_book 完全沒動，正是舊版的行為）。都對就把 STATUS 改成 done。
-VALIDATION: 每輪跑 node test/test.js（含閱讀答案位置分散、國語題數與清單一致）；改完 reading.js 一定要跑 node tools/gen-counts.js；push 前 python3 tools/stamp-version.py
-BLOCKERS: 無。
-PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
-UPDATED: 2026-09-14 21:25 台北
+STATUS: done
+UPDATED: 2026-09-15 05:00 台北
+
+<!-- 2026-09-15 04:15-05:00 台北 收尾驗證（09-14 那批同步／錯題本修正）：
+     ・K12Review v137 已在實機驗到：Aaron 21:26-21:54 連續練習期間，雲端每分鐘都收到一次上傳
+       （progress_history 五筆），錯題本 6→7→8 單調成長、沒有任何 key 被舊快照洗掉 ——
+       v137「延後期間照常上傳＋套用前重抓雲端」在真實使用下成立。
+     ・LanExamMock v48「每日任務答錯要進錯題本」改用端對端測試守住，不再等實機資料：
+       test/browser-smoke.mjs 的答錯流程本來抓不到作答元件就整段跳過（每日任務第一題
+       常是填空／改寫題，沒有 .option-btn）—— 這就是這個 bug 一直沒被測出來的原因。
+       已改成填空題直接送一個必錯答案、選擇題答對就換下一題再試（最多 4 題），
+       並新增檢查「答錯後 cae.mistake_book 題數要變多」。全測綠（LanExamMock commit e8453c8）。
+     ・三站線上版本確認：K12Review ?v=20260914b（v137）、LanExamMock ?v=20260914e（v48），
+       Pages 部署三筆都 success。
+     ・女兒的 CPE 雲端快照仍停在 09-14 20:37（她那之後沒再上線），要事後再看一次的話：
+       cd ~/TelegramClaude/claude-shared/projects/LanExamMock/backend && node -e "
+       const D=require('better-sqlite3')('progress.db',{readonly:true});
+       const r=D.prepare(\"select * from progress where user_id='114743996485270027694' and level='cpe'\").get();
+       const o=JSON.parse(r.blob); console.log(new Date(r.updated_at).toLocaleString('sv-SE',{timeZone:'Asia/Taipei'}),
+         'mistake_book', JSON.parse(o['cpe.mistake_book']).length);"
+       —— 她下次做完每日任務，mistake_book 的題數要跟著答錯題數一起增加。 -->
+
 <!-- 2026-09-14 21:25 台北 三站同步語意統一（v48 那批的移植，全部已上線）
      ・K12Review v137：push() 不再因 pendingBlob 停止上傳；applyNow() 套用前重抓雲端；
        localHasUnpushed() 先看記憶體 lastPushedHash、再看 sync.pushedhash.chinese、
