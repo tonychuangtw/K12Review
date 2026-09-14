@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 依 codex／gemini 的全站體檢結果，把本線四個案子（K12Review／LanExamMock／CamReview／MathReviewWu）會弄丟資料或會出事的問題修完
-NEXT_ACTION: K12Review（v133）、LanExamMock（v44）、共用後端三邊的修正都已上線並 push。剩下：等 runner 上的 agy（gemini）跑完 CamReview 與 MathReviewWu 的體檢報告（codex 額度 2026-09-14 台北 10:06 用完，12:28 後才能再用），讀完照同樣標準逐項查證再決定修哪些。報告落在 /tmp 的 scratchpad，重啟後若沒了就重跑 tools/ask-agy.sh。
+NEXT_ACTION: 等 codex 額度恢復（台北 12:28）後跑 MathReviewWu 與 CamReview 的體檢 —— 已排好背景腳本 scratchpad/codex/run-late.sh（到點自動跑，結果寫 codex-<案子>.md），若 session 被重開就手動重跑：ssh runner 用 codex exec 對 ~/TelegramClaude/review-mathreview 與 review-CamReview 各跑一次（提示詞在該腳本裡）。報告出來後逐項查證再修。Tony 2026-09-14 10:17「等codex」＝ MathReviewWu 不採用 gemini 的那份（已存 scratchpad/codex/MathReviewWu.md，僅供對照）。
 VALIDATION: K12Review：node test/test.js／test/zy-check.js／test/sync-session.js／test/browser-smoke.mjs 全過；LanExamMock：node test/test.js（122,351 項）；後端：node test/cam-test.js（89 項）＋test/progress-cas-test.js（8 項），改完 sudo systemctl restart lanexammock-backend.service 並確認 /api/health
-BLOCKERS: codex 額度用完（台北 12:28 恢復）；CamReview／MathReviewWu 這兩份先由 gemini 代跑。
+BLOCKERS: codex 額度 2026-09-14 台北 10:06 用完，12:28 恢復。
 PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
-UPDATED: 2026-09-14 10:25 台北
+UPDATED: 2026-09-14 10:20 台北
 <!-- 2026-09-14 10:25 台北 Tony：「叫codex檢查一下我們這裡幾個案子」
      ⟹ 派 runner 上的 codex 對四個案子各做一次健檢（唯讀、只交分析）。K12Review 7 項、LanExamMock 7 項，
         逐項查證後全部屬實，已修完上線：
@@ -27,6 +27,17 @@ UPDATED: 2026-09-14 10:25 台北
           /api/progress body 上限 512KB→4MB（60 天逐題紀錄實測就 526KB）。cam-test 的兩條期望值一併更新
           （被刪學生現在是 401 而不只有 /me 的 404）。
      ⏭ CamReview 與 MathReviewWu：codex 撞到額度上限，改由 agy（gemini，$0）跑，報告出來再照同樣標準查證。 -->
+<!-- 2026-09-14 10:20 台北 CamReview 一輪（gemini 代跑的體檢，Tony 稍後說「等codex」，
+     但這批已逐項查證屬實且改到一半，做完才停）：
+     前端 v7（commit 4d0dceb）＋後端（claude-shared 40c6ca7）共六項：
+     ・選擇題留白被判對（Number(null)=0，正解是第一個選項時等於送分）
+     ・已交卷的作業點下去會走回作答流程 → 新增 GET /api/cam/assignments/:aid/result 與學生端唯讀檢討頁
+     ・作答只存記憶體 → 邊打邊存 localStorage（cam.draft.<aid>），交卷成功才清
+     ・鎖定名冊仍可被任意改名 → 鎖定時不更新姓名
+     ・刪學生／刪班級沒清 submissions／assignments／questions
+     ・題庫載入失敗後 bankLoading 留著失敗的 Promise，無法重試
+     cam-test 補到 102 項全過；CamReview test.js 97 項與 browser-smoke 全過。
+     gemini 的第 5 項（sync-banks.js 路徑錯）是誤判：那是我 rsync 到 runner 的副本目錄名，本機路徑正常。 -->
 <!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
      ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
         workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
