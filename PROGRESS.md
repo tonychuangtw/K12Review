@@ -4,11 +4,11 @@
 
 STATUS: in-progress
 OBJECTIVE: 把 K12Review 的中文閱讀題庫擴到兩倍（334 篇 → 668 篇、約 2,500 題），Tony 2026-09-14 16:50 交代「中文閱讀再繼續擴，目標擴兩倍量」
-NEXT_ACTION: 中文閱讀擴到兩倍：目前 523／668 篇（起點 334，已完成 8 輪）。每輪 24 篇（含 4 篇文言文，Tony 2026-09-14 追問後加入）。流程：寫 JSON → node tools/add-reading.js → 文言文再跑 node tools/add-orig.js 補逐句語譯 → node tools/gen-counts.js → node test/test.js → python3 tools/stamp-version.py → commit。⚠️ 動筆前務必先列既有標題比對（同一篇古文換個標題也算重複，本輪就撞到詠雪與魚與熊掌）；文字裡不要混入英文（檢查 [A-Za-z]{2,}）。
+NEXT_ACTION: 中文閱讀擴到兩倍：583／668 篇，文言文 107／120（Tony 2026-09-14 追加目標）。每輪 24 篇、其中 9-12 篇文言。流程：JSON → tools/add-reading.js → 文言再跑 tools/add-orig.js → tools/gen-counts.js → test/test.js → stamp-version.py → commit。⚠️ 三個坑：(1) 動筆前先列既有標題比對，同一篇古文換標題也算重複；(2) 文字不可混入英文或殘缺字元（檢查 [A-Za-z]{2,} 與 U+FFFD）；(3) 解析太短會讓自動生成的證據題出現重複選項，解析至少要把原文引述加白話說明。
 VALIDATION: 每輪跑 node test/test.js（含閱讀答案位置分散、國語題數與清單一致）；改完 reading.js 一定要跑 node tools/gen-counts.js；push 前 python3 tools/stamp-version.py
 BLOCKERS: 無。
 PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
-UPDATED: 2026-09-14 20:10 台北
+UPDATED: 2026-09-14 21:30 台北
 <!-- 2026-09-14 10:25 台北 Tony：「叫codex檢查一下我們這裡幾個案子」
      ⟹ 派 runner 上的 codex 對四個案子各做一次健檢（唯讀、只交分析）。K12Review 7 項、LanExamMock 7 項，
         逐項查證後全部屬實，已修完上線：
@@ -27,6 +27,14 @@ UPDATED: 2026-09-14 20:10 台北
           /api/progress body 上限 512KB→4MB（60 天逐題紀錄實測就 526KB）。cam-test 的兩條期望值一併更新
           （被刪學生現在是 401 而不只有 /me 的 404）。
      ⏭ CamReview 與 MathReviewWu：codex 撞到額度上限，改由 agy（gemini，$0）跑，報告出來再照同樣標準查證。 -->
+<!-- 2026-09-14 18:00-21:30 台北 同步改動的回歸與修正（Tony 回報 Aaron 的每日任務不見）：
+     v45 加的「套用雲端資料時刪掉雲端沒有的 key」只比對『本機有、雲端沒有』，
+     剛做完還沒上傳的紀錄正好符合，會被較舊的雲端資料清掉。
+     修法（三站同步）：新增 sync.pushed.<app|level> 記錄「上次成功上傳時伺服器收到的 key」，
+     只刪這份清單裡有、而這次雲端沒有的；沒有上傳紀錄就一項都不刪。
+     另外 LanExamMock 的 busyNow() 漏掉單字拼字模式 vb-type-wrap，做到那段會被 safeReload 打斷，已補。
+     已確認雲端 17:35 那份仍保有當天的 daily_run／daily25／tlog，資料沒有真的遺失。
+     版本：LanExamMock v47、MathReviewWu v12、K12Review v135；K12 的 test/sync-session.js 補三條守門。 -->
 <!-- 2026-09-14 16:40 台北 Tony「繼續擴閱讀測驗」：
      ・K12Review（commit 979be020）新增 24 篇、96 題，1-12 年級各 2 篇，全部自撰。
        刻意補說明文與圖表判讀（會考素養題大宗）：說明 31→43、圖表 26→32、白話 202、文言 57，共 334 篇 1,246 題。
