@@ -2,13 +2,31 @@
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: done
-OBJECTIVE: K12Review 科目底下新增「版本」分層（課綱自編版／康軒版），並在康軒版國語五上做出三組單元式練習：①生字表＋字音字形（選擇＋手寫）②成語加油站（選擇＋配合）③挑戰小學堂（只要選擇）。每組逐課、一課 5 個單元、一單元 20 小題，形式一律「先讀重點整理再練習」；康軒版要有自己的錯題本，以及可以出題驗收精熟度的總結測驗。
-NEXT_ACTION: 本輪閱讀擴充（Tony 2026-09-13）已完成兩站：K12Review 新增 24 篇（共 310 篇）＋「文言文專練」入口＋57 篇文言文逐句語譯全補齊；LanExamMock 五級各加一個 reading mc wave（16 篇 96 題，mc 各 143-144），FCE 已同步 CamReview。目前沒有待辦，等 Tony 回覆要繼續加篇數還是先調別的。
-VALIDATION: node test/test.js 全過（新增康軒版資料的守門要一併寫進 test.js）＋ node test/browser-smoke.mjs 走完「選科目→選版本→選系列→選課→單元重點→20題練習→錯題本」
-BLOCKERS: 無。rclone 授權 2026-09-13 11:36 台北完成（remote `gdrive`，drive.readonly；Tony 只點連結、把 127.0.0.1 的回呼網址貼回來，code 由 curl 餵給本機 rclone）。31 份原始檔已在 ~/TelegramClaude/chinese-sources/guo5shang/，並用 `pdftotext -layout` 抽成 txt/（版面正確，含答案）。
-PATHS: docs/kangxuan-edition-spec.md（規格與分期）、docs/source/kangxuan-5a-idiom-atoms.json（成語素材，人工撰寫）、tools/build-edu-idiom.js（產生器）、js/data/edu-kangxuan-chinese-5a.js（產出，勿手改）、js/app.js（版本層）、test/test.js、test/browser-smoke.mjs 第18節、~/TelegramClaude/chinese-sources/guo5shang/txt/（原始檔抽出的文字）
-UPDATED: 2026-09-13 台北（本輪工程全部完成，STATUS 改 done 避免每日白喚醒；Tony 有新需求直接發訊息即可）
+STATUS: in-progress
+OBJECTIVE: 依 codex／gemini 的全站體檢結果，把本線四個案子（K12Review／LanExamMock／CamReview／MathReviewWu）會弄丟資料或會出事的問題修完
+NEXT_ACTION: K12Review（v133）、LanExamMock（v44）、共用後端三邊的修正都已上線並 push。剩下：等 runner 上的 agy（gemini）跑完 CamReview 與 MathReviewWu 的體檢報告（codex 額度 2026-09-14 台北 10:06 用完，12:28 後才能再用），讀完照同樣標準逐項查證再決定修哪些。報告落在 /tmp 的 scratchpad，重啟後若沒了就重跑 tools/ask-agy.sh。
+VALIDATION: K12Review：node test/test.js／test/zy-check.js／test/sync-session.js／test/browser-smoke.mjs 全過；LanExamMock：node test/test.js（122,351 項）；後端：node test/cam-test.js（89 項）＋test/progress-cas-test.js（8 項），改完 sudo systemctl restart lanexammock-backend.service 並確認 /api/health
+BLOCKERS: codex 額度用完（台北 12:28 恢復）；CamReview／MathReviewWu 這兩份先由 gemini 代跑。
+PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
+UPDATED: 2026-09-14 10:25 台北
+<!-- 2026-09-14 10:25 台北 Tony：「叫codex檢查一下我們這裡幾個案子」
+     ⟹ 派 runner 上的 codex 對四個案子各做一次健檢（唯讀、只交分析）。K12Review 7 項、LanExamMock 7 項，
+        逐項查證後全部屬實，已修完上線：
+        ・K12Review v133（commit 438475b3）：同步「先寫本機、晚點才重載」的空窗會被 pagehide 的 save() 蓋掉；
+          409 衝突分支先寫才比對（必然相等）→ 不重載、下一輪又推舊資料；本機寫入失敗仍前進 sync_ts；
+          換帳號只清 localStorage、記憶體還是前一個人的 state；錯題本用 DATA.custom.length 判定整套已載入
+          （分冊後不成立）且沒載過就整包載 24MB；推送失敗全靜音。
+          做法：雲端資料先 stash，safeReload 前一刻才寫入並立刻重載；window.SYNC_FROZEN 讓 app.js 的 save() 停手；
+          custom-index.js 新增每冊 id 區間（255 段、+4KB）供錯題本只載該載的冊；test/sync-session.js 補 17 條測試。
+        ・LanExamMock v44（commit 58892f8）：AI 批改兩處直接讀 sessionStorage['sync.token']（早就換成 30 天 sess token）
+          → 每個已登入的人都被要求登入；PUT 從沒帶 baseUpdatedAt，後端 08-27 做的條件更新等於沒開；
+          清除本級進度連 sync_ts 一起刪 → 下一輪同步把剛刪的還原；換帳號沒有防護。比照 K12Review 修。
+        ・共用後端（claude-shared commit a18ca35）：camAuth 不驗名冊（被刪學生的 token 還能用 180 天）；
+          grade-writing 等模型 30-90 秒後整包寫回 feedback，抹掉期間老師的評語，且可重複付費批改；
+          AI 批改只有每 IP 每分鐘 4 次 → 新增 ai_usage 表（每帳號每日 40、全站 300，台北換日）；
+          /api/progress body 上限 512KB→4MB（60 天逐題紀錄實測就 526KB）。cam-test 的兩條期望值一併更新
+          （被刪學生現在是 401 而不只有 /me 的 404）。
+     ⏭ CamReview 與 MathReviewWu：codex 撞到額度上限，改由 agy（gemini，$0）跑，報告出來再照同樣標準查證。 -->
 <!-- 2026-09-09 Tony：「我想同時做 k12review 和國考這個是不是沒辦法? 我想把國考英雄另開一個頻道分出去可以嗎?」
      ⟹ 考古英雄已分出成獨立的 `kaohero` 線（bot token 由 Tony 提供，unit: claude-telegram@kaohero，
         workdir ~/TelegramClaude/kaoguhero，進度檔改在該目錄的 PROGRESS.md）。
