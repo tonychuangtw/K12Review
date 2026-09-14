@@ -3,12 +3,12 @@
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
 STATUS: in-progress
-OBJECTIVE: 依 codex／gemini 的全站體檢結果，把本線四個案子（K12Review／LanExamMock／CamReview／MathReviewWu）會弄丟資料或會出事的問題修完
-NEXT_ACTION: 2026-09-14 下午「繼續擴閱讀測驗」已完成兩站：K12Review 新增 24 篇 96 題（310→334 篇，說明 31→43、圖表 26→32）；LanExamMock 五級各 3 篇（15 篇 90 題，各級 mc 146-147），FCE 已同步 CamReview。目前沒有待辦，等 Tony 指定下一個方向（可選：英檢的克漏字／配對／是非／標題、K12 其他科目、或閱讀再多幾輪）。另有一件待他決定：CamReview 的 fce-bank.js 是公開靜態檔含全部答案。
-VALIDATION: K12Review：node test/test.js／test/zy-check.js／test/sync-session.js／test/browser-smoke.mjs 全過；LanExamMock：node test/test.js（122,351 項）；後端：node test/cam-test.js（89 項）＋test/progress-cas-test.js（8 項），改完 sudo systemctl restart lanexammock-backend.service 並確認 /api/health
+OBJECTIVE: 把 K12Review 的中文閱讀題庫擴到兩倍（334 篇 → 668 篇、約 2,500 題），Tony 2026-09-14 16:50 交代「中文閱讀再繼續擴，目標擴兩倍量」
+NEXT_ACTION: 一輪 24 篇（1-12 年級各 2 篇）逐批寫，每輪一個 commit。做法：把新題組寫成 JSON → node tools/add-reading.js <檔> → node tools/gen-counts.js → node test/test.js → commit。目前進度看 reading.js 篇數（node -e 讀 APP_DATA.reading.length），334 為起點、668 為目標。文言文篇章要另外用 tools/add-orig.js 補逐句語譯（test.js 會擋）。
+VALIDATION: 每輪跑 node test/test.js（含閱讀答案位置分散、國語題數與清單一致）；改完 reading.js 一定要跑 node tools/gen-counts.js；push 前 python3 tools/stamp-version.py
 BLOCKERS: 無。
 PATHS: js/sync.js＋js/app.js（K12Review 同步與錯題本）、tools/split-custom.js＋js/data/custom-index.js（冊的 id 區間）、test/sync-session.js；~/TelegramClaude/LanExamMock/js/{sync,app}.js；~/TelegramClaude/claude-shared/projects/LanExamMock/backend/{server,cam,auth,grade}.js 與 backend/test/
-UPDATED: 2026-09-14 16:40 台北
+UPDATED: 2026-09-14 16:55 台北
 <!-- 2026-09-14 10:25 台北 Tony：「叫codex檢查一下我們這裡幾個案子」
      ⟹ 派 runner 上的 codex 對四個案子各做一次健檢（唯讀、只交分析）。K12Review 7 項、LanExamMock 7 項，
         逐項查證後全部屬實，已修完上線：
