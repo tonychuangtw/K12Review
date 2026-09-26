@@ -11468,7 +11468,8 @@
       paint(svg);
     }
     var row = div('wg-ctrl');
-    row.appendChild(btn('換一種詩體', function () { i = (i + 1) % FORM.length; repaint(); }));
+    // 只傳一首詩進來時不放「換一種」按鈕，免得變成按了沒反應的死按鈕
+    if (FORM.length > 1) row.appendChild(btn('換一種詩體', function () { i = (i + 1) % FORM.length; repaint(); }));
     repaint();
     box.appendChild(row);
     host.appendChild(box);
