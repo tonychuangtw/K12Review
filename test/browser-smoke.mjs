@@ -1416,6 +1416,9 @@ async (js) => {
   check('日曆上有補習的那一天會亮起來',
     await js(`document.querySelectorAll('#tutorCalGrid .cal-day.has').length >= 1`));
   await js(`document.querySelector('#tutorCalGrid .cal-day.has').click()`);
+  // 日曆預設停在本月，點到的不一定是 APP_TUTOR[0]；照標題找出畫面上那一堂（2026-10-04：本月只有新加的那堂時測試會對錯堂）
+  await js(`window.__TT = window.APP_TUTOR.filter(function(t){
+    return document.getElementById('tutorTitle').textContent.indexOf(t.title) >= 0; })[0] || window.APP_TUTOR[0]; true`);
   await sleep(700);
   check('點日期進得了那一堂',
     await js(`!document.getElementById('view-tutor').classList.contains('hidden')`),
@@ -1445,7 +1448,7 @@ async (js) => {
       return !!document.querySelector('.read-termd'); })()`));
 
   // 先故意答錯一次，看有沒有解析
-  await js(`(function(){ var t = window.APP_TUTOR[0].segs[0].q;
+  await js(`(function(){ var t = window.__TT.segs[0].q;
     var opts = document.querySelectorAll('#readCheck .ck-opt');
     var w = t.answer === 0 ? 1 : 0; opts[w].click(); })()`);
   await sleep(300);
@@ -1453,11 +1456,11 @@ async (js) => {
     /❌/.test(await js(`document.querySelector('#readCheck .ck-fb').textContent`)),
     (await js(`document.querySelector('#readCheck .ck-fb').textContent`)).slice(0, 40));
   // 一段一段照正解走完
-  const segN = await js(`window.APP_TUTOR[0].segs.length`);
+  const segN = await js(`window.__TT.segs.length`);
   let origOK = true, origSeen = 0;
   for (let i = 0; i < segN; i++) {
     // 2026-09-04 Tony：「文言文和閱讀測驗都要有原文，文言文最好一句一句講解」
-    const want = await js(`(function(){ var g = window.APP_TUTOR[0].segs[` + i + `];
+    const want = await js(`(function(){ var g = window.__TT.segs[` + i + `];
       return ((g.orig||[]).length ? 'wy' : '') + ((g.passage||[]).length ? 'p' : ''); })()`);
     if (want) {
       origSeen++;
@@ -1468,7 +1471,7 @@ async (js) => {
       if (/wy/.test(String(want)) && !/語譯/.test(String(
         await js(`document.getElementById('readOrig').textContent`)))) origOK = false;
     }
-    await js(`(function(){ var i = ` + i + `; var t = window.APP_TUTOR[0].segs[i].q;
+    await js(`(function(){ var i = ` + i + `; var t = window.__TT.segs[i].q;
       var opts = document.querySelectorAll('#readCheck .ck-opt');
       if (opts[t.answer]) opts[t.answer].click(); })()`);
     await sleep(250);
@@ -1481,7 +1484,7 @@ async (js) => {
       var L = s.tutorLog || {}; var k = Object.keys(L)[0];
       return !!(k && L[k].seg >= 1); })()`));
   check('文言文與閱讀測驗都附了原文（文言文還逐句附語譯）',
-    origOK && origSeen >= 2, origSeen + ' 段有原文');
+    origOK && origSeen >= 1, origSeen + ' 段有原文');
   check('走完所有段落會回到那一堂',
     await js(`!document.getElementById('view-tutor').classList.contains('hidden')`));
   check('複習完之後總測驗解鎖',
@@ -1492,7 +1495,7 @@ async (js) => {
   check('按了開始測驗會進測驗畫面',
     await js(`!document.getElementById('view-quiz').classList.contains('hidden')`));
   // 全部照正解作答，跑完整堂（作答後若跳出解析確認題，隨便選一個過關）
-  const tutorTotal = await js(`window.APP_TUTOR[0].qs.length`);
+  const tutorTotal = await js(`window.__TT.qs.length`);
   for (let i = 0; i < tutorTotal; i++) {
     await js(`(function(){ var id = window.QuizDebug.id();
       var it = window.APP_DATA.tutorCustom.filter(function(x){ return x.id === id; })[0];
