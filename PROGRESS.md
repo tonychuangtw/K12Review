@@ -238,6 +238,7 @@ BLOCKERS: 無（四下成語練習沒有題目檔，已用詳解裡的釋義自�
 BLOCKERS_舊: Tony 2026-09-06 已回覆：高普考全做（分類要做好不要亂）、藥師舊制 30 卷不用補；題庫先收齊，詳解之後再加。
 PATHS: 本工程＝js/data/custom.js（國語匯入題庫，五上/四上/四下都進這裡）、scratchpad/guo5/*.txt（Drive 原始文字）、tools/gen-counts.js、test/test.js、js/versions.js
 PATHS_舊: ~/TelegramClaude/kaoguhero（考古英雄 repo）：js/data/exam/*.js、img/q/*.webp、js/data/exams.js、tools/{moexlib,moex-fetch,parse,cropfig,gen_dent}.py、tools/build-index.js、tools/index-spec.json；本站 K12Review：img/exam/<卷id>/*.webp、tools/exam-crop*.py／bands.py／cols.py、~/exam-pdfs/gsat/（90–115 學測來源 PDF，267 檔，不在 repo）
+PLANNING_INDEX: 規劃文件索引 https://claude.ai/artifact/L2JAGTXZ6yDsEtejzympPY（§25；2026-10-11 登記 chinese-bank-maintain-sop／chinese-deep-exp-guide／chinese-kangxuan-edition，皆指向 K12Review docs/*.md）
 UPDATED: 2026-09-09 23:30 台北
 
 ### 2026-08-29 說明答應的互動真的做出來＋字音教學卡整張空白（Tony msg 1055／1056／1059）
