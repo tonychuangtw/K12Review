@@ -3,7 +3,17 @@
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
 STATUS: done
-UPDATED: 2026-09-15 05:00 台北
+UPDATED: 2026-10-16 00:45 台北
+
+## 2026-10-16 重置前交接（chinese／codex）
+
+- 本輪工作已完成，STATUS 維持 done；以下舊工程紀錄保留備查，不代表本輪新增任務。
+- 10/15 Gmail 跨線通知已記入 ~/.line-memory/chinese/gmail-capability-verification.md 與 MEMORY.md。seatsrooms 單次唯讀搜尋成功不代表 chinese 已驗證；日後有授權任務才查當下完整／延遲工具並做最小唯讀驗證，區分工具缺失、授權失效、查無郵件。本輪未讀信、未建立排程。
+- 本對話可見的舊訊息均已回覆，沒有待交接的未回訊息原文或附件；本次存檔指示完成後由 final 回覆本線。
+- 存檔前 chinese 與 LanExamMock 工作樹均乾淨；本輪僅新增交接文件與本線記憶，無未完成程式修改。LanExamMock HEAD e8453c8，未修改。
+- 10/15 共用 repo 暫存變更阻擋 pull 的情況已解除；本次 git pull --rebase 成功，Already up to date。
+- 主線通知預計 10/16 04:00 重置、約 04:50 切回 Claude；由主線／line-engine 執行，本線不切引擎、不重啟服務。切換後先讀本檔及本線 MEMORY.md，等待新任務。
+- 驗證範圍：文件差異與 git 狀態；未改程式或題庫，不跑題庫／瀏覽器測試。記憶不在 git repo，由既有 line-sync 機制交接。
 
 <!-- 2026-09-15 04:15-05:00 台北 收尾驗證（09-14 那批同步／錯題本修正）：
      ・K12Review v137 已在實機驗到：Aaron 21:26-21:54 連續練習期間，雲端每分鐘都收到一次上傳
