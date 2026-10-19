@@ -3,7 +3,8 @@
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
 STATUS: done
-UPDATED: 2026-10-16 00:45 台北
+UPDATED: 2026-10-19 14:00 台北
+PATHS: 企劃和維護記錄網頁（每案一頁，案子有改動同一輪補維護記錄）https://tony-plans.pages.dev/chinese/k12review ・ /chinese/k12review-tutor ・ /chinese/k12review-import ・ /chinese/k12review-weekly-report ・ /chinese/lanexammock ・ /chinese/camreview ・ /chinese/mathreview-wu（正本 ~/TelegramClaude/plans/chinese/）
 
 ## 2026-10-16 重置前交接（chinese／codex）
 
