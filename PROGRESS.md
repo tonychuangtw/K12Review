@@ -3,8 +3,14 @@
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
 STATUS: done
-UPDATED: 2026-10-20 22:10 台北
+UPDATED: 2026-10-21 00:45 台北
 PATHS: 企劃和維護記錄網頁（每案一頁，案子有改動同一輪補維護記錄）https://tony-plans.pages.dev/chinese/k12review ・ /chinese/k12review-tutor ・ /chinese/k12review-import ・ /chinese/k12review-weekly-report ・ /chinese/lanexammock ・ /chinese/camreview ・ /chinese/mathreview-wu（正本 ~/TelegramClaude/plans/chinese/）
+
+## 2026-10-21 inapp-escape v2 重套（main 派工，shared.md §26）
+
+- 四站整檔重抄 v2（?v=20261021）；sync.js／CamReview app.js 刪掉自寫 UA 判斷，改 `IN_WEBVIEW = !!(window.InAppEscape && InAppEscape.inApp)`；內建瀏覽器不載 GIS、不畫 Google 鈕，改放「App 內不能登入」＋複製網址（InAppEscape.copy）＋canEscape 時用 Safari 開（open 只在 click 裡）
+- 版本：K12Review v139／LanExamMock v50／MathReviewWu v15／CamReview v10；四站 test.js 全過
+- 新站有 Google 登入：開案當天就套 inapp-escape 並登記 claude-shared/tools/inapp-escape/sites.txt（四站已登記）
 
 ## 2026-10-20 inapp-escape 四站接線（main 派工）
 
