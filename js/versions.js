@@ -1,6 +1,11 @@
 /* 版本紀錄（新版在最上面）。每次改版在最上方加一條：{ v, date, items: [...] } */
 window.APP_VERSIONS = [
   {
+    v: "v139", date: "2026-10-21", items: [
+      "**LINE／Telegram 內建瀏覽器的登入改版**：跳不出去的時候（例如 Android 的 Telegram），右上角不再放 Google 登入鈕，改成「App 內不能登入」＋「複製網址」，複製後貼到 Safari／Chrome 開就能登入；iPhone 還會多一顆「用 Safari 開」。"
+    ]
+  },
+  {
     v: "v138", date: "2026-10-20", items: [
       "**從 LINE／Telegram 點連結開站，會自動改用 Safari／Chrome 開**：Google 不准在 App 內建瀏覽器裡登入，以前要自己按選單換瀏覽器；現在 LINE（iPhone／Android）和 iPhone 的 Telegram 一打開就會跳出去，按登入也會再試一次，跳不出去才顯示指引。"
     ]

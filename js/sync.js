@@ -9,19 +9,10 @@
   // App 內建瀏覽器（LINE/Telegram/FB 等 webview）偵測：Google 封鎖 webview 內的 OAuth，
   // GSI 元件就算載得進來，點登入也只會開出一片空白的 accounts.google.com（2026-08-15 Tony 實測）。
   // 這類環境直接給「改用外部瀏覽器」指引，不讓使用者踩進死路。
-  var IN_WEBVIEW = (function () {
-    var ua = navigator.userAgent || "";
-    // ⚠️ 不可拿 window.webkit.messageHandlers 當判據：iOS/iPadOS 上的 Chrome／Edge／Firefox
-    // 全是 WKWebView 殼、都會注入這個物件，2026-08-24 Tony 的 iPad Chrome 被誤判成 App 內建
-    // 瀏覽器、整站登入不了（Google 登入在這些真瀏覽器是完全可用的）。
-    return /\bwv\b/.test(ua) ||                                    // Android WebView
-      (/iPhone|iPad|iPod/.test(ua) && !/Safari\//.test(ua)) ||     // iOS 內嵌 WKWebView（無 Safari token）
-      /Line\/|FBAN|FBAV|Instagram|MicroMessenger|Telegram|LIFF/i.test(ua) ||
-      !!window.TelegramWebviewProxy;                               // Telegram iOS（UA 無任何標記，只能認注入物件）
-  })();
-  // LINE／Telegram 開站自動跳外部瀏覽器、清 openExternalBrowser 參數：改由 js/inapp-escape.js 處理（2026-10-20 共用程式）
+  // 判斷交給共用的 js/inapp-escape.js（<head> 第一個 script；開站自動跳外部瀏覽器、清參數也是它做），站內不自己認 UA（shared.md §26）
+  var IN_WEBVIEW = !!(window.InAppEscape && InAppEscape.inApp);
 
-  var WEBVIEW_MSG = "Google 不允許在 App 內建瀏覽器（LINE／Telegram 等）裡登入，硬走只會看到空白頁。\n請點畫面角落的選單（⋯ 或分享鈕），選「用 Safari／Chrome 開啟」，再登入即可同步進度。";
+  var WEBVIEW_MSG = "這個 App 的內建瀏覽器不能用 Google 登入，請按「複製網址」，貼到 Safari／Chrome 開啟後再登入，就能同步進度。";
   var GIS_RETRY_MSG = "連不上 Google 登入元件（accounts.google.com 沒有回應），可能是網路不穩、擋廣告套件或內容過濾在擋。要再試一次嗎？";
 
   // UIDialog 可能因混版快取（舊 HTML 沒載 dialog.js + 新 sync.js）不存在——退回原生框保底
@@ -407,6 +398,7 @@
     } else {
       ui.innerHTML = "";
       statusEl = null;
+      if (IN_WEBVIEW) { renderInAppGuide(ui); return; }
       var wrap = document.createElement("div");
       wrap.className = "sync-login-wrap";
       var pill = document.createElement("button");
@@ -419,9 +411,6 @@
       pill.addEventListener("click", function () {
         if (!IN_WEBVIEW && window.google && google.accounts && google.accounts.id) {
           google.accounts.id.prompt();
-        } else if (IN_WEBVIEW) {
-          if (window.InAppEscape && InAppEscape.open(function () { dlgAlert(WEBVIEW_MSG); })) return;
-          dlgAlert(WEBVIEW_MSG);
         } else if (gisFailed) {
           dlgConfirm(GIS_RETRY_MSG, function () { gisFailed = false; gisAttempts = 0; loadGis(); });
         } else {
@@ -442,6 +431,37 @@
         slot.style.pointerEvents = "";
         google.accounts.id.renderButton(slot, { type: "icon", shape: "circle", size: "large" });
       }
+    }
+  }
+
+  // App 內建瀏覽器：不載入、不畫 Google 登入鈕，原位放一行指引＋「複製網址」（能跳的再加「用 Safari 開」）。
+  // InAppEscape.copy／open 只能在點擊處理裡呼叫（開站自動跳是 inapp-escape.js 自己做的）。
+  function renderInAppGuide(ui) {
+    var tip = document.createElement("span");
+    tip.className = "sync-status";
+    tip.textContent = "App 內不能登入";
+    tip.title = WEBVIEW_MSG;
+    ui.appendChild(tip);
+    var cp = document.createElement("button");
+    cp.type = "button";
+    cp.className = "chip sync-login";
+    cp.textContent = "複製網址";
+    cp.title = WEBVIEW_MSG;
+    cp.addEventListener("click", function () {
+      InAppEscape.copy(function (ok, url) {
+        dlgAlert(ok ? "網址已複製，請貼到 Safari／Chrome 開啟後再登入。" : "自動複製失敗，請長按下面的網址複製，貼到 Safari／Chrome 開啟：\n" + url);
+      });
+    });
+    ui.appendChild(cp);
+    if (InAppEscape.canEscape) {
+      var sf = document.createElement("button");
+      sf.type = "button";
+      sf.className = "chip sync-login";
+      sf.textContent = "用 Safari 開";
+      sf.addEventListener("click", function () {
+        InAppEscape.open(function () { dlgAlert(WEBVIEW_MSG); });
+      });
+      ui.appendChild(sf);
     }
   }
 
