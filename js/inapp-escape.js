@@ -1,4 +1,4 @@
-/* inapp-escape.js（2026-10-21 v2）— 在 App 內建瀏覽器開站時（LINE、Telegram、WeChat、FB／IG、TikTok…）：
+/* inapp-escape.js（2026-10-21 v2.1）— 在 App 內建瀏覽器開站時（LINE、Telegram、WeChat、FB／IG、TikTok…）：
  * 能自動跳外部瀏覽器的就跳；跳不了的，底部顯示提示和「複製網址」；並給站內一個共用判斷 InAppEscape.inApp。
  * Google 禁止在 App 內建瀏覽器登入（403 disallowed_useragent），只能換外部瀏覽器。
  * 正本：claude-shared/tools/inapp-escape/inapp-escape.js。各站原封不動複製一份，放在 <head> 裡第一個 <script>
@@ -18,6 +18,8 @@
  * 給站內用（README「接法」）：
  *   InAppEscape.inApp      true＝在內建瀏覽器裡，Google 登入不能用 → 不顯示 Google 登入鈕，改顯示站內指引
  *   InAppEscape.app        哪個 App：'line'、'telegram'、'wechat'、'facebook'…；認不出名字的是 'webview'；不在 App 裡是 ''
+ *   InAppEscape.native     true＝在站自己的 Capacitor App 殼裡：這支整個不動作（inApp＝false、不跳、沒有提示列）。
+ *                          殼裡的 Google 登入要用原生登入外掛，或藏起來（GIS 在 WebView 裡一樣被 Google 擋）
  *   InAppEscape.url()      給使用者複製的乾淨網址：拿掉 openExternalBrowser 和 token／code／state／session 這類參數。
  *                          站內可用 <meta name="inapp-escape-url" content="/#/login"> 指定（按下去那一刻才讀）
  *   InAppEscape.copy(cb)   把 url() 複製到剪貼簿，cb(成功與否, 網址)
@@ -26,6 +28,9 @@
  * Telegram 只能靠 window.TelegramWebviewProxy 認：兩個平台的內建瀏覽器都把 UA 改得跟 Safari／Chrome 一樣
  * （iOS 補 "Safari/604.1"、Android 拿掉 "; wv)"）。Mini App 也有這個物件，但網址 hash 帶 tgWebAppData，
  * 要排除：Mini App 本來就該留在 Telegram 裡。iPhone 加到主畫面的網頁 App（standalone）UA 也沒有 "Safari/"，要排除。
+ * 站自己的 Capacitor App 殼（UA 一樣沒有 "Safari/"、有 "; wv"）也要排除：Capacitor 在頁面任何 script 之前就放好
+ * window.Capacitor（iOS atDocumentStart、Android addDocumentStartJavaScript），isNativePlatform() 是 true。
+ * React Native、Flutter 的全域物件（ReactNativeWebView、flutter_inappwebview）別人 App 的內建瀏覽器也有，不能拿來認。
  * ⛔ 不准用 window.webkit.messageHandlers 判斷：iPhone／iPad 上的 Chrome 也有（2026-08-24 iPad Chrome 被誤判事故）。
  */
 (function (w, d) {
@@ -73,8 +78,17 @@
         !!(w.matchMedia && w.matchMedia('(display-mode: standalone), (display-mode: fullscreen)').matches);
     } catch (e) { return false; }
   }
+  // 站自己的 Capacitor App 殼：不是別人的內建瀏覽器（2026-10-21 poker 回報殼裡會跳提示列）
+  function nativeShell() {
+    try {
+      var C = w.Capacitor;
+      return !!(C && typeof C.isNativePlatform === 'function' && C.isNativePlatform());
+    } catch (e) { return false; }
+  }
+  var native = nativeShell();
   var app = '';
-  if (isLine) app = 'line';
+  if (native) app = '';
+  else if (isLine) app = 'line';
   else if (isTg) app = 'telegram';
   else if (!miniApp) {
     for (var i = 0; i < APPS.length && !app; i++) if (APPS[i][1].test(ua)) app = APPS[i][0];
@@ -154,7 +168,7 @@
   // 登入鈕用：if (window.InAppEscape && InAppEscape.open(顯示原本指引的函式)) return;
   // 回 true＝正在跳出去；Telegram 1.5 秒內沒離開（沒跳成功）會呼叫那個函式。回 false＝跳不了，照原本顯示指引
   function open(fallback) {
-    if (!top) return false;
+    if (!top || native) return false;
     if (isLine) {
       if (hasParam()) return false;   // 帶了參數還在 LINE 裡＝這版 LINE 不吃參數，交給指引
       go(addParam(location.href), true);
@@ -173,10 +187,10 @@
   }
 
   w.InAppEscape = {
-    v: '2026-10-21', inApp: inApp, app: app, line: isLine, telegram: isTg, ios: isIOS, android: isAndroid,
-    iosMajor: iosMajor, canEscape: top && ((isLine && !hasParam()) || canSafari), open: open, url: url, copy: copy
+    v: '2026-10-21.2', inApp: inApp, app: app, native: native, line: isLine, telegram: isTg, ios: isIOS, android: isAndroid,
+    iosMajor: iosMajor, canEscape: top && !native && ((isLine && !hasParam()) || canSafari), open: open, url: url, copy: copy
   };
-  if (!top) return;
+  if (!top || native) return;
 
   var leaving = isLine && !hasParam();
   if (leaving) go(addParam(location.href), true);   // replace：上一頁不會回到沒參數的網址又被導一次
