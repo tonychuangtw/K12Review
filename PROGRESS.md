@@ -3,8 +3,14 @@
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
 STATUS: done
-UPDATED: 2026-10-19 14:00 台北
+UPDATED: 2026-10-20 22:10 台北
 PATHS: 企劃和維護記錄網頁（每案一頁，案子有改動同一輪補維護記錄）https://tony-plans.pages.dev/chinese/k12review ・ /chinese/k12review-tutor ・ /chinese/k12review-import ・ /chinese/k12review-weekly-report ・ /chinese/lanexammock ・ /chinese/camreview ・ /chinese/mathreview-wu（正本 ~/TelegramClaude/plans/chinese/）
+
+## 2026-10-20 inapp-escape 四站接線（main 派工）
+
+- K12Review v138／LanExamMock v49／MathReviewWu v14／CamReview v9：`js/inapp-escape.js`（claude-shared 正本原封複製）放 `<head>` 第一個 script；三站拿掉 sync.js 頂端 LINE `location.replace`（IN_WEBVIEW 保留），登入鈕 webview 分支先 `InAppEscape.open(()=>dlgAlert(WEBVIEW_MSG))`；CamReview 新增 IN_WEBVIEW 偵測，webview 不掛 GSI 官方鈕、改自家鈕先試跳再給英文指引
+- 無 Service Worker；test.js 四站全過；browser-smoke 在本機跑不了（只有 chromium-1243 完整版，沒有 headless-shell-1234），以 brain `inapp-escape/test.js --live` 驗收
+- 企劃頁四頁已補維護記錄；不用回 Tony，main 統一驗收回報
 
 ## 2026-10-16 重置前交接（chinese／codex）
 
