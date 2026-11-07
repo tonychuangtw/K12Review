@@ -3,8 +3,14 @@
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
 STATUS: done
-UPDATED: 2026-10-21 00:45 台北
+UPDATED: 2026-11-07 17:55 台北
 PATHS: 企劃和維護記錄網頁（每案一頁，案子有改動同一輪補維護記錄）https://tony-plans.pages.dev/chinese/k12review ・ /chinese/k12review-tutor ・ /chinese/k12review-import ・ /chinese/k12review-weekly-report ・ /chinese/lanexammock ・ /chinese/camreview ・ /chinese/mathreview-wu（正本 ~/TelegramClaude/plans/chinese/）
+
+## 2026-11-07 AI 批改三段接線（main 派工 1107-1736-bw，Tony TG 3804）
+- LanExamMock 後端 `grade.js`：作文＋口說都改 Claude 贈額 → OpenAI 贈額（`tools/openai-credit.py`，tag lanexam-grade／lanexam-speak）→ Kimi；CamReview 的 cam.js 共用 gradeEssay 一起生效。claude-shared 618e19ba，service 已重啟
+- 試跑 3 筆 ×2（OpenAI 段 US$0.20 左右），品質與 Kimi 相當；當天 Claude 贈額回 400 credit balance
+- 線上其他打 AI 的地方：無（題庫人工撰寫；成語配圖走 gen-image.sh 訂閱網頁，不在範圍）
+- plans：chinese/lanexammock、chinese/camreview 維護記錄已補
 
 ## 2026-10-21 inapp-escape v2 重套（main 派工，shared.md §26）
 
