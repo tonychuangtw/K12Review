@@ -1,12 +1,12 @@
 # 進度：補習複習補三堂（吳敏男 10/16、10/23、10/30）
 
-STATUS: in-progress
+STATUS: done
 OBJECTIVE: Tony 11/08 傳來三堂講義照片，各整理成 js/data/tutor.js 一堂（segs＋qs，自撰不抄）
-NEXT_ACTION: 10/16 已上線（2938183a）。做 10/23（照片 ~/.claude/channels/telegram-chinese/inbox/17941038991..17941039059*，9 張），再做 10/30（17941039387..17941039444*，8 張）；題號 10/23 用 tw7xxx、10/30 用 tw8xxx
+NEXT_ACTION: 三堂全部上線（2938183a、5e10da6a、2ae8313d），等 Tony 下一堂講義
 VALIDATION: node test/test.js；python3 tools/stamp-version.py 20261108[b]；push；每堂做完 tg 回報
 BLOCKERS: 無（browser-smoke 本機找不到 headless shell，跳過）
 PATHS: js/data/tutor.js ・ https://tony-plans.pages.dev/chinese/k12review-tutor
-UPDATED: 2026-11-08 10:35 台北
+UPDATED: 2026-11-08 10:20 台北
 
 ---
 
