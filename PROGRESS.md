@@ -1,8 +1,20 @@
+# 進度：補習複習補三堂（吳敏男 10/16、10/23、10/30）
+
+STATUS: in-progress
+OBJECTIVE: Tony 11/08 傳來三堂講義照片，各整理成 js/data/tutor.js 一堂（segs＋qs，自撰不抄）
+NEXT_ACTION: 10/16 已上線（2938183a）。做 10/23（照片 ~/.claude/channels/telegram-chinese/inbox/17941038991..17941039059*，9 張），再做 10/30（17941039387..17941039444*，8 張）；題號 10/23 用 tw7xxx、10/30 用 tw8xxx
+VALIDATION: node test/test.js；python3 tools/stamp-version.py 20261108[b]；push；每堂做完 tg 回報
+BLOCKERS: 無（browser-smoke 本機找不到 headless shell，跳過）
+PATHS: js/data/tutor.js ・ https://tony-plans.pages.dev/chinese/k12review-tutor
+UPDATED: 2026-11-08 10:35 台北
+
+---
+
 # 進度：家長／老師檢視改版（K12Review ＋ LanExamMock）
 
 <!-- 交接檔表頭。規格見 claude-shared/claude-md/shared.md §17。 -->
 
-STATUS: done
+PREV-STATUS: done
 UPDATED: 2026-11-07 17:55 台北
 PATHS: 企劃和維護記錄網頁（每案一頁，案子有改動同一輪補維護記錄）https://tony-plans.pages.dev/chinese/k12review ・ /chinese/k12review-tutor ・ /chinese/k12review-import ・ /chinese/k12review-weekly-report ・ /chinese/lanexammock ・ /chinese/camreview ・ /chinese/mathreview-wu（正本 ~/TelegramClaude/plans/chinese/）
 
