@@ -1,12 +1,31 @@
-# 進度：吳敏男 2026/11/06 補習複習
+# 進度：吳敏男 11/06、11/13 補習複習待發布
 
 STATUS: blocked
+OBJECTIVE: 將 11/06 七張與 11/13 九張講義整理為兩堂原創補習複習
+NEXT_ACTION: 等 Tony 確認發布後，將 chinese/wu-20261113 合併 main 並 push（包含 11/06）；將 plans 的 chinese/wu1113-record 合併 origin/main 並發布記錄
+VALIDATION: node test/test.js；node test/zy-check.js；node tools/moe-zy-audit.js；browser-smoke 明確點入 11/13；本堂 7 組 widget-audit 與 viz-match
+BLOCKERS: 等 Tony 自 11/13 確認兩堂發布（當次訊息規定對外發布前先問；目前只 push 分支）
+PATHS: js/data/tutor.js；https://tony-plans.pages.dev/chinese/k12review-tutor；plans worktree /tmp/chinese-plans-1106（分支 chinese/wu1113-record）
+UP2026-11-13 22:41D: 2026-11-13 22:41 台北
+
+- 11/13 新堂 wu-20261113：7 段帶讀、7 題段末練習、32 題總測驗；答案位置各 8 題。兩堂共 15 段、64 題總測驗；合併後全庫 11 堂、318 題總測驗。
+- 內容：五個成語、五則格言、傾聽與適時發言的原創閱讀、王維〈九月九日憶山東兄弟〉逐句語譯、兩則俗語、狀聲詞造句。
+- 不抄講義文章或原題、不採手寫答案；僅引用公版詩句。11/06 原內容與 id 保留，新增獨立日期。
+- 資料測試與注音檢查均通過。教育部工具使用本線既有快取，比對既有 phonics/chars/idioms；不涵蓋 tutor，本次未新增注音欄位。
+- 本堂 7 組互動圖的操作、排版與圖文對應全過；browser-smoke 全部通過，精確選到 11/13、走完 7 段及 32 題、驗證原文語譯與精熟度保存。全站 widget-audit 上輪已知 16 組既有排版警告，本輪只驗新增 7 組設定。
+- 本輪暫存驗證器 /tmp/chinese-1113-browser.mjs 沿用 test/browser-smoke.mjs，僅改 ROOT 與日曆選擇器為 11/13 並加 id 斷言；/tmp/chinese-1113-widget.mjs、/tmp/chinese-1113-viz.mjs 以既有驗證器檢查本堂。
+
+---
+
+# 進度：吳敏男 2026/11/06 補習複習
+
+PREV-STATUS: blocked
 OBJECTIVE: 將 Tony 11/13 提供的七張講義整理為一堂原創補習複習
 NEXT_ACTION: 等 Tony 確認發布後，將 chinese/wu-20261106 合併 main 並 push；維護記錄分支 chinese/wu1106-record 同步合併 plans/main
 VALIDATION: node test/test.js；node test/zy-check.js；node tools/moe-zy-audit.js；CHROME_SHELL 指向 chromium_headless_shell-1254 執行 browser-smoke.mjs；本堂 8 組 widget-audit 與 viz-match
 BLOCKERS: 等 Tony 自 11/13 確認發布（當次訊息規定對外發布前先問；分支 push 不觸發 Pages）
 PATHS: js/data/tutor.js；https://tony-plans.pages.dev/chinese/k12review-tutor；plans 記錄暫存獨立 worktree /tmp/chinese-plans-1106
-UPDATED: 2026-11-13 22:34 台北
+UPDATED: 2026-11-13 22:46 台北
 
 - 新堂 wu-20261106：8 段帶讀、8 題段末練習、32 題總測驗；全庫 10 堂、286 題總測驗。
 - 範圍：知錯改過（附孔子、顏淵、子路三段公版原句與語譯）、祖孫親情六成語、20 組成語辨字、欲速不達、六組成語俗語對照、儘管卻句型。
