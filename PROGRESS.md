@@ -1,6 +1,26 @@
+# 進度：吳敏男 2026/11/06 補習複習
+
+STATUS: blocked
+OBJECTIVE: 將 Tony 11/13 提供的七張講義整理為一堂原創補習複習
+NEXT_ACTION: 等 Tony 確認發布後，將 chinese/wu-20261106 合併 main 並 push；維護記錄分支 chinese/wu1106-record 同步合併 plans/main
+VALIDATION: node test/test.js；node test/zy-check.js；node tools/moe-zy-audit.js；CHROME_SHELL 指向 chromium_headless_shell-1254 執行 browser-smoke.mjs；本堂 8 組 widget-audit 與 viz-match
+BLOCKERS: 等 Tony 自 11/13 確認發布（當次訊息規定對外發布前先問；分支 push 不觸發 Pages）
+PATHS: js/data/tutor.js；https://tony-plans.pages.dev/chinese/k12review-tutor；plans 記錄暫存獨立 worktree /tmp/chinese-plans-1106
+UPDATED: 2026-11-13 22:34 台北
+
+- 新堂 wu-20261106：8 段帶讀、8 題段末練習、32 題總測驗；全庫 10 堂、286 題總測驗。
+- 範圍：知錯改過（附孔子、顏淵、子路三段公版原句與語譯）、祖孫親情六成語、20 組成語辨字、欲速不達、六組成語俗語對照、儘管卻句型。
+- 三篇閱讀文章、所有題目及解析自撰；未收錄照片或講義原文原題，未採信手寫答案。
+- test.js、zy-check、moe-zy-audit 通過。教育部下載舊網址 404，改用 brain 本線既有 moe-concised.json 快取完成比對；本次未新增注音欄位，該工具比對既有三題庫，不涵蓋 tutor。
+- widget-audit 全站有 16 組既有排版問題（未修改其元件或資料）；另外以同一驗證器檢查本堂全部 8 組，排版及操作全過；本堂 viz-match 0 張不符。
+- browser-smoke 全部通過（實際點入 11/06 本堂、走完 8 段與 32 題、精熟度保存成功）。
+- plans 原 clone 的 pull --rebase 碰到其他線歷史衝突，已 rebase --abort 還原，改從 origin/main 建獨立 worktree；未處理或改動其他線檔案。
+
+---
+
 # 進度：補習複習補三堂（吳敏男 10/16、10/23、10/30）
 
-STATUS: done
+PREV-STATUS: done
 OBJECTIVE: Tony 11/08 傳來三堂講義照片，各整理成 js/data/tutor.js 一堂（segs＋qs，自撰不抄）
 NEXT_ACTION: 三堂全部上線（2938183a、5e10da6a、2ae8313d），等 Tony 下一堂講義
 VALIDATION: node test/test.js；python3 tools/stamp-version.py 20261108[b]；push；每堂做完 tg 回報
