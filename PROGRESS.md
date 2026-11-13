@@ -1,12 +1,12 @@
-# 進度：吳敏男 11/06、11/13 補習複習發布驗證
+# 進度：吳敏男 11/06、11/13 補習複習已發布
 
-STATUS: in-progress
+STATUS: done
 OBJECTIVE: 將 11/06 七張與 11/13 九張講義整理為兩堂原創補習複習
-NEXT_ACTION: 兩堂合併 main；檢查 Pages 部署成功及正式站教材資料，完成後標 done
+NEXT_ACTION: 兩堂已發布並完成線上核對；等待下一堂教材
 VALIDATION: node test/test.js；node test/zy-check.js；node tools/moe-zy-audit.js；browser-smoke 明確點入 11/13；本堂 7 組 widget-audit 與 viz-match
 BLOCKERS: 無；Tony 11/13 22:52 明確同意「發布兩堂」
 PATHS: js/data/tutor.js；https://tony-plans.pages.dev/chinese/k12review-tutor；plans worktree /tmp/chinese-plans-1106（分支 chinese/wu1113-record）
-UPDATED: 2026-11-13 22:52 台北
+UPDATED: 2026-11-13 22:54 台北
 
 - 11/13 新堂 wu-20261113：7 段帶讀、7 題段末練習、32 題總測驗；答案位置各 8 題。兩堂共 15 段、64 題總測驗；合併後全庫 11 堂、318 題總測驗。
 - 內容：五個成語、五則格言、傾聽與適時發言的原創閱讀、王維〈九月九日憶山東兄弟〉逐句語譯、兩則俗語、狀聲詞造句。
@@ -17,16 +17,17 @@ UPDATED: 2026-11-13 22:52 台北
 
 
 - 11/13 22:52 Tony 同意發布兩堂；教材內容與上一輪通過驗收的版本一致。
+- Pages 部署 43446967355（cd24278b）success；正式 tutor.js 確認 11/06＝8 段32題、11/13＝7 段32題，首頁版本戳 20261113b。維護記錄已推送 plans/main 7132921，撤下待確認事項。
 
 ---
 
 # 進度：吳敏男 2026/11/06 補習複習
 
-PREV-STATUS: blocked
+PREV-STATUS: done
 OBJECTIVE: 將 Tony 11/13 提供的七張講義整理為一堂原創補習複習
-NEXT_ACTION: 等 Tony 確認發布後，將 chinese/wu-20261106 合併 main 並 push；維護記錄分支 chinese/wu1106-record 同步合併 plans/main
+NEXT_ACTION: 兩堂已發布並完成線上核對；等待下一堂教材
 VALIDATION: node test/test.js；node test/zy-check.js；node tools/moe-zy-audit.js；CHROME_SHELL 指向 chromium_headless_shell-1254 執行 browser-smoke.mjs；本堂 8 組 widget-audit 與 viz-match
-BLOCKERS: 等 Tony 自 11/13 確認發布（當次訊息規定對外發布前先問；分支 push 不觸發 Pages）
+BLOCKERS: 無；Tony 11/13 22:52 已同意，兩堂已發布
 PATHS: js/data/tutor.js；https://tony-plans.pages.dev/chinese/k12review-tutor；plans 記錄暫存獨立 worktree /tmp/chinese-plans-1106
 UPDATED: 2026-11-13 22:46 台北
 
