@@ -1,4 +1,19 @@
 STATUS: done
+OBJECTIVE: 排查並補送 11/15 20:00 失敗的 chinese-weekly-report.service
+NEXT_ACTION: 已補送成功，維持原每週日 20:00 排程
+VALIDATION: brain systemctl show Result=success、ExecMainStatus=0；journal 12:18:31 UTC 顯示 weekly report sent（1 則）
+BLOCKERS: 無
+PATHS: tools/weekly-report.js；brain chinese-weekly-report.service；回收單 1115-2018-6p
+UPDATED: 2026-11-15 20:18 台北
+
+## 11/15 週報排程事故
+- 20:00 發送 Telegram 時 fetch failed，原因 ETIMEDOUT；11/01、11/08 均成功。
+- 20:18:30 於 brain 以 sudo systemctl start 補跑；20:18:31 成功送出 1 則，離開碼 0，失敗狀態已解除。
+- 判定本次為暫時連線逾時；未修改程式、unit 或其他線服務。週報延遲約 18 分鐘，已補送。
+
+---
+
+PREV-STATUS: done
 OBJECTIVE: 修復 FCE 聽力顯示播放但無聲，以及 Daily 未播完就解鎖
 NEXT_ACTION: 已發布並核對正式站 v52；iPad 重新整理後點播放確認實際聲音，若有錯誤提示再依錯誤排查
 VALIDATION: node test/test.js（122666 passed）；node test/audio-playback.mjs（11 組全過）；CHROME_SHELL=chromium_headless_shell-1254 node test/browser-smoke.mjs 全過
