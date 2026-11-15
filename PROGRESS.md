@@ -1,18 +1,18 @@
-STATUS: blocked
+STATUS: done
 OBJECTIVE: 修復 LanExamMock FCE 在 iPad 上導覽列遮住閱讀文章
-NEXT_ACTION: Tony 確認發布後，將 LanExamMock fix/ipad-navigation-20261115 合併 main 並 push，驗證 Pages；合併 plans 維護記錄分支，更新交接狀態
+NEXT_ACTION: 已發布並核對正式站 v51；等待使用者下次 iPad 使用結果
 VALIDATION: node test/test.js（122666 passed）；CHROME_SHELL 指向 chromium_headless_shell-1254 執行 node test/browser-smoke.mjs 全過；五組尺寸／字級與中段／底部遮擋檢查、切頁歸頂、FCE 每日練習全過
-BLOCKERS: 等 Tony 自 11/15 確認發布（當次訊息明定對外發布前先問）；未做 iPad 真機驗收
-PATHS: ~/TelegramClaude/LanExamMock；分支 fix/ipad-navigation-20261115；維護記錄 https://tony-plans.pages.dev/chinese/lanexammock（正式頁尚未更新）；plans 分支 chinese/fce-ipad-record-20261115，worktree .cache/fce-plans-20261115
-UPDATED: 2026-11-15 19:23 台北
+BLOCKERS: 無；Tony 11/15 19:28 已明確同意「發布」
+PATHS: ~/TelegramClaude/LanExamMock；分支 fix/ipad-navigation-20261115；維護記錄 https://tony-plans.pages.dev/chinese/lanexammock（維護記錄已推 main 98ac4dc）；plans 分支 chinese/fce-ipad-record-20261115，worktree .cache/fce-plans-20261115
+UPDATED: 2026-11-15 19:30 台北
 
-## FCE iPad 導覽遮文修復（待發布）
+## FCE iPad 導覽遮文修復（已發布）
 - 照片：底部導覽漂到文章中央。既有 fixed 導覽浮於文件之上，iPad 觸發條件尚未真機重現。
 - 修法：四列 Grid 為標題、每日提示、內容及導覽保留空間；僅 main 捲動，所有換題／回頂改用內容容器；動態 viewport 高度、字級與安全區一併計算。
 - 站內 v51 與資源版本戳已更新；題庫／登入／同步資料未改。
 - 資料檢查 122666 項、完整 browser-smoke 均通過。1024×768、768×1024、1024×400、平板 175% 與手機 175% 等 5 組幾何檢查通過。
 - 修後截圖 /tmp/chinese-fce-ipad-fixed.png；測試 log /tmp/chinese-fce-data-test.log、/tmp/chinese-fce-browser-test.log。
-- 程式與維護記錄皆推獨立分支，未合併 main／未部署。確認發布後才執行，不要求清除 localStorage。
+- Tony 11/15 19:28 同意發布；LanExamMock main 4821e6d、plans main 98ac4dc 已推送。正式 index.html、style.css、versions.js、app.js 均 HTTP 200，核對 20261115 資源戳、四列 Grid、v51 與 scrollContentTo 皆已上線。仍未做 iPad 真機驗收，不要求清除 localStorage。
 
 ---
 
