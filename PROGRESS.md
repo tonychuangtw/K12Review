@@ -1,17 +1,17 @@
-STATUS: blocked
+STATUS: done
 OBJECTIVE: 修復 FCE 聽力顯示播放但無聲，以及 Daily 未播完就解鎖
-NEXT_ACTION: Tony 同意發布後將 LanExamMock fix/listening-playback-20261115 合併 main；發布 plans chinese/listening-record-20261115 維護記錄；核對正式資源版本 20261115b 與 v52
+NEXT_ACTION: 已發布並核對正式站 v52；iPad 重新整理後點播放確認實際聲音，若有錯誤提示再依錯誤排查
 VALIDATION: node test/test.js（122666 passed）；node test/audio-playback.mjs（11 組全過）；CHROME_SHELL=chromium_headless_shell-1254 node test/browser-smoke.mjs 全過
-BLOCKERS: 等 Tony 自 11/15 同意發布 v52；iPad 真機出聲仍須使用者確認
-PATHS: ~/TelegramClaude/LanExamMock，commit 59642d5；https://tony-plans.pages.dev/chinese/lanexammock（本輪記錄仍在 chinese/listening-record-20261115 分支 4d711f9）；plans worktree .cache/fce-plans-20261115
-UPDATED: 2026-11-15 19:35 台北
+BLOCKERS: 無；Tony 11/15 19:43 已明確同意「發布」；尚未做 iPad 真機出聲驗收
+PATHS: ~/TelegramClaude/LanExamMock，commit 59642d5；https://tony-plans.pages.dev/chinese/lanexammock（本輪記錄已推 main dcca44c）；plans worktree .cache/fce-plans-20261115
+UPDATED: 2026-11-15 19:45 台北
 
-## 聽力無聲修復 v52（尚未發布）
+## 聽力無聲修復 v52（已發布）
 - 已確認原碼缺陷：onerror 直接 next；播放無啟動事件／超時偵測；Daily 按下播放即標記已聽與倒數，與實際聲音無關。照片無法判定該 iPad 的實際音訊根因。
 - 共用播放引擎：長段落分成 200 字元內短句、保留 utterance 強引用、voice 與 lang 一致、恢復 paused 引擎、首次 speak 保留於點擊事件；8 秒未啟動與 60 秒單句卡住顯示錯誤及重試；不吞錯誤、不在錯誤後播放下一句。
 - Daily 只有全篇 onend 才解鎖並標記已聽；中止／失敗不解鎖；模考播放失敗歸還次數；同時支援錯題本與複習播放器。
 - 11 組回歸涵蓋 paused、分段／聲音語系、啟動錯誤、無事件、取消晚回呼、卡住、鎖定、重試、unsupported、換題隔離與模考次數；資料及完整 browser-smoke 全過。
-- 三個 repo 都保留獨立分支，未動正式站；前一輪 v51 已上線不受影響。Tony 的 19:28「發布」只對應上一輪版面修復。
+- Tony 11/15 19:43 明確同意發布 v52；LanExamMock main 59642d5、plans main dcca44c 已推送。正式 index.html、app.js、versions.js 均 HTTP 200，核對資源戳 20261115b、audioPlay 與 v52 已上線。前一輪版面修復保留。
 
 ---
 
