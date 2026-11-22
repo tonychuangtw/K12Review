@@ -1,10 +1,12 @@
-STATUS: blocked
+STATUS: done
 OBJECTIVE: 吳敏男 2026/11/20 國文補習複習，白居易〈賦得古原草送別〉
-NEXT_ACTION: Tony 確認發布後將 chinese/wu-20261120 合併至 main，核對 Pages 上的教材並更新維護記錄
+NEXT_ACTION: 本堂已發布並完成正式站驗收
 VALIDATION: 題庫、注音及教育部既有題庫比對通過；瀏覽器指定 11/20 日曆走完四段與八題總測驗，確認精熟度保存；本堂四組配對的操作與圖文檢查通過
-BLOCKERS: 等 Tony 自 11/22 確認發布 11/20 這一堂
+BLOCKERS: 無
 PATHS: js/data/tutor.js；分支 chinese/wu-20261120；https://tony-plans.pages.dev/chinese/k12review-tutor
-UPDATED: 2026-11-22 19:50 台北
+UPDATED: 2026-11-22 19:54 台北
+
+Tony 11/22 19:52 核准。Pages 部署 45019487592 成功，正式站 tutor.js 與通過驗收的內容逐位元相同；實際點選 11/20 日曆確認四段八題。企劃頁維護記錄 d541bd7 已推送。
 
 三張講義（第 26–28 頁）整理成四聯帶讀。八句公版詩文各附自撰語譯與詞注；四題段末練習、八題總測驗皆為原創。驗證器沿用 test/browser-smoke.mjs 指定本堂日期；widget-audit、viz-match 取本堂四組設定。
 
