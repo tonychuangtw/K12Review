@@ -124,7 +124,12 @@ body {
 .rb-go { margin-left: auto; color: var(--dim); font-size: 0.85rem; }
 
 .grade-panel {
-  position: fixed; top: 3.4rem; left: 0.8rem; right: 0.8rem; z-index: 30;
+  --panel-top: 3.4rem;
+  position: fixed; top: var(--panel-top); left: 0.8rem; right: 0.8rem; z-index: 30;
+  max-height: calc(100vh - var(--panel-top) - 0.8rem);
+  max-height: calc(100dvh - var(--panel-top) - max(0.8rem, env(safe-area-inset-bottom)));
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
   background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
   padding: 0.8rem; box-shadow: 0 8px 24px rgba(0,0,0,0.4); max-width: 460px; margin: 0 auto;
 }

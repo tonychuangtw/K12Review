@@ -1,4 +1,14 @@
-STATUS: done
+STATUS: blocked
+OBJECTIVE: 修復 iPhone Duo 外屏橫向學習範圍面板底部被截斷
+NEXT_ACTION: 等 Tony 核准發布後合入 main 並驗收正式站
+VALIDATION: 本機 Chromium 五種 Duo 視口開啟範圍、展開加練、選高三、按完成皆通過，含 594×368；未測真機
+BLOCKERS: 待發布授權
+PATHS: css/style.css；index.html；分支 chinese/duo-grade-menu
+UPDATED: 2026-11-25 台北
+
+---
+
+PREV-STATUS: done
 OBJECTIVE: 吳敏男 2026/11/20 國文補習複習，白居易〈賦得古原草送別〉
 NEXT_ACTION: 本堂已發布並完成正式站驗收
 VALIDATION: 題庫、注音及教育部既有題庫比對通過；瀏覽器指定 11/20 日曆走完四段與八題總測驗，確認精熟度保存；本堂四組配對的操作與圖文檢查通過
