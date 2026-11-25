@@ -832,3 +832,6 @@ tools/check-distractor-len.js（先檢查誘答長度夠不夠，避免寫完才
 tools/pad-distractors.py（差 4 字以內時在句首補「其實／基本上／一般來說」，差更多要自己補內容）。
 ⚠ 英文的音標題（誘答是 /s/ /h/ /tʃ/）與數學的計算題不在範圍內 —— 那些誘答本來就設計得好，
 過濾條件要求「每個誘答至少 3 個中文字」就是為了排除它們。
+
+2026-11-26 台生赴陸選校資料頁已推私人 plans（eaf4684），後續更新同頁。
+PATHS: https://tony-plans.pages.dev/chinese/taiwan-mainland-universities
